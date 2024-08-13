@@ -1,7 +1,7 @@
 {
   "total": 569,
-  "totalPassed": 565,
-  "totalFailed": 4,
+  "totalPassed": 567,
+  "totalFailed": 2,
   "totalSuites": 36,
   "suites": [
     {
@@ -1134,14 +1134,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-slotted-headings.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcCard.cy.tsx-interaction",
-          "percentage": 0,
+          "percentage": 0.06059702963017247,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCard.cy.tsx-interaction.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcCard.cy.tsx-interaction.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-interaction.png"
         },
         {
@@ -1310,14 +1310,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-render-three.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcCard.cy.tsx-wrapped-anchor-high-contrast",
-          "percentage": 0,
+          "percentage": 0.05332916650389353,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCard.cy.tsx-wrapped-anchor-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcCard.cy.tsx-wrapped-anchor-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-wrapped-anchor-high-contrast.png"
         },
         {
@@ -2363,47 +2363,47 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-slotted-content-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx-success-alert-high-contrast",
-          "percentage": 0.14555479352005782,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-success-alert-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-success-alert-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-success-alert-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx-warning-alert-high-contrast",
-          "percentage": 0.11648050623745303,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-warning-alert-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-warning-alert-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-warning-alert-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx-no-dialog-controls-high-contrast",
-          "percentage": 0.10385787564423477,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-no-dialog-controls-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-no-dialog-controls-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-no-dialog-controls-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx-destructive-dialog-controls-high-contrast",
-          "percentage": 0.1105796752723272,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-destructive-dialog-controls-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-destructive-dialog-controls-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-destructive-dialog-controls-high-contrast.png"
         }
       ]
@@ -6480,9 +6480,9 @@
       ]
     }
   ],
-  "startedAt": "2024-08-13T08:57:21.293Z",
-  "endedAt": "2024-08-13T09:08:49.273Z",
-  "duration": 614226,
+  "startedAt": "2024-08-13T10:16:13.096Z",
+  "endedAt": "2024-08-13T10:27:21.699Z",
+  "duration": 593179,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
