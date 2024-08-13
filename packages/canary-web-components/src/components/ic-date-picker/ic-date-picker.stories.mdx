@@ -441,15 +441,13 @@ The `IcChange` event is emitted by the date picker when the selected date change
     id="ic-change-datepicker"
     label="When would you like to collect your coffee?"
   ></ic-date-picker>
-  <span id="selected-date"">
-    Selected date:
-  </span>
+  <span id="selected-date"> Selected date: </span>
 </div>
 <script>
-  const updateSelectedDate = (ev) =>{
+  const updateSelectedDate = (ev) => {
     const el = document.querySelector("#selected-date");
     el.innerHTML = "Selected date: " + ev.detail.value;
-  }
+  };
   const datePicker = document.querySelector("#ic-change-datepicker");
   datePicker.addEventListener("icChange", updateSelectedDate);
 </script>
