@@ -1,7 +1,7 @@
 {
   "total": 569,
-  "totalPassed": 565,
-  "totalFailed": 4,
+  "totalPassed": 564,
+  "totalFailed": 5,
   "totalSuites": 36,
   "suites": [
     {
@@ -1134,14 +1134,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-slotted-headings.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcCard.cy.tsx-interaction",
-          "percentage": 0,
+          "percentage": 0.06059702963017247,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCard.cy.tsx-interaction.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcCard.cy.tsx-interaction.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-interaction.png"
         },
         {
@@ -2365,7 +2365,7 @@
         {
           "status": "fail",
           "name": "IcDialog.cy.tsx-success-alert-high-contrast",
-          "percentage": 0.13383856102284822,
+          "percentage": 0.14433305667794888,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -2376,7 +2376,7 @@
         {
           "status": "fail",
           "name": "IcDialog.cy.tsx-warning-alert-high-contrast",
-          "percentage": 0.12288841483231851,
+          "percentage": 0.11648050623745303,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -2387,7 +2387,7 @@
         {
           "status": "fail",
           "name": "IcDialog.cy.tsx-no-dialog-controls-high-contrast",
-          "percentage": 0.10385787564423477,
+          "percentage": 0.10664143581804088,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -6480,9 +6480,9 @@
       ]
     }
   ],
-  "startedAt": "2024-08-13T08:23:46.605Z",
-  "endedAt": "2024-08-13T08:35:22.382Z",
-  "duration": 620487,
+  "startedAt": "2024-08-13T08:40:11.787Z",
+  "endedAt": "2024-08-13T08:52:07.856Z",
+  "duration": 640202,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
