@@ -4,7 +4,14 @@
 import React, { ReactElement } from "react";
 import { mount } from "cypress/react";
 import { IcDataTable, IcDataTableTitleBar } from "../../components";
-import { IcButton, IcEmptyState, SlottedSVG } from "@ukic/react";
+import {
+  IcButton,
+  IcEmptyState,
+  SlottedSVG,
+  IcPageHeader,
+  IcStatusTag,
+  IcSectionContainer,
+} from "@ukic/react";
 import { IcPaginationBarOptions } from "@ukic/canary-web-components/src/utils/types";
 
 import {
@@ -55,6 +62,31 @@ export const BasicDataTable = (dataTableProps?): ReactElement => (
   />
 );
 
+export const BasicSectionContainer = () => {
+  return (
+    <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+      <IcPageHeader heading="Page header">
+        <IcStatusTag slot="heading-adornment" label="Beta" />
+      </IcPageHeader>
+      <IcSectionContainer style={{ flex: "1", minHeight: "0" }}>
+        <IcDataTable
+          caption="Table"
+          stickyColumnHeaders
+          columns={COLS}
+          data={LONG_DATA}
+        >
+          <IcDataTableTitleBar
+            slot="title-bar"
+            description="Data table description that describes the purpose of the table."
+          >
+            <IcButton slot="primary-action">Primary</IcButton>
+          </IcDataTableTitleBar>
+        </IcDataTable>
+      </IcSectionContainer>
+    </div>
+  );
+};
+
 describe("IcDataTables", () => {
   beforeEach(() => {
     cy.injectAxe();
@@ -75,6 +107,20 @@ describe("IcDataTables", () => {
       name: "default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
       cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render data tables in the constraints of the section container", () => {
+    mount(<BasicSectionContainer />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "section-container",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.093),
+      cypressSCreenshotOptions: {
         capture: "viewport",
       },
     });
