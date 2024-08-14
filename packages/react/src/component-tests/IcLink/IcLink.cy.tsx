@@ -2,14 +2,15 @@
 /// <reference types="Cypress" />
 
 import React from "react";
-import { IcLink } from "../../components";
+import { IcLink, IcTypography } from "../../components";
 import { mount } from "cypress/react";
 import { HAVE_ATTR } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
+const LINK_SELECTOR = "ic-link";
 const DEFAULT_TEST_THRESHOLD = 0.026;
 
-describe("IcLink e2e, A11y and visual regression tests", () => {
+describe("IcLink end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -25,14 +26,25 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
       </div>
     );
 
-    cy.checkHydrated("ic-link");
+    cy.checkHydrated(LINK_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
+  });
 
-    cy.get("ic-link").shadow().find("a").focus();
+  it("should render default IcLink with focus", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcLink href="/components/link/code">About our coffees</IcLink>
+      </div>
+    );
+
+    cy.checkHydrated(LINK_SELECTOR);
+
+    cy.get(LINK_SELECTOR).shadow().find("a").focus();
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -50,12 +62,27 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
       </div>
     );
 
+    cy.checkHydrated(LINK_SELECTOR);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
+  });
 
-    cy.get("ic-link").shadow().find("a").focus();
+  it("should render dark IcLink with focus", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcLink appearance={"dark"} href="/components/link/code">
+          About our coffees
+        </IcLink>
+      </div>
+    );
+
+    cy.checkHydrated(LINK_SELECTOR);
+
+    cy.get(LINK_SELECTOR).shadow().find("a").focus();
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -75,12 +102,29 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
       </div>
     );
 
+    cy.checkHydrated(LINK_SELECTOR);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
+  });
 
-    cy.get("ic-link").shadow().find("a").focus();
+  it("should render light IcLink with focus", () => {
+    mount(
+      <div
+        style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
+      >
+        <IcLink href="/" appearance="light">
+          About our coffees
+        </IcLink>
+      </div>
+    );
+
+    cy.checkHydrated(LINK_SELECTOR);
+
+    cy.get(LINK_SELECTOR).shadow().find("a").focus();
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -98,6 +142,8 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
       </div>
     );
 
+    cy.checkHydrated(LINK_SELECTOR);
+
     cy.get('[download="true"]').should("exist");
 
     cy.checkA11yWithWait();
@@ -111,6 +157,8 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
         </IcLink>
       </div>
     );
+
+    cy.checkHydrated(LINK_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -133,6 +181,8 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
       </div>
     );
 
+    cy.checkHydrated(LINK_SELECTOR);
+
     cy.get("#focusLink").shadow().find("a").focus();
 
     cy.checkA11yWithWait();
@@ -150,17 +200,115 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
       </IcLink>
     );
 
-    cy.findShadowEl("ic-link", "a").should(
+    cy.findShadowEl(LINK_SELECTOR, "a").should(
       HAVE_ATTR,
       ARIA_LABEL_ATTR,
       "first-label"
     );
 
-    cy.get("ic-link").invoke("attr", ARIA_LABEL_ATTR, "second-label");
-    cy.findShadowEl("ic-link", "a").should(
+    cy.get(LINK_SELECTOR).invoke("attr", ARIA_LABEL_ATTR, "second-label");
+    cy.findShadowEl(LINK_SELECTOR, "a").should(
       HAVE_ATTR,
       ARIA_LABEL_ATTR,
       "second-label"
     );
+  });
+
+  it("should render inline IcLink", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcTypography>
+          Return to the <IcLink href="/components/link">café homepage</IcLink>
+        </IcTypography>
+      </div>
+    );
+
+    cy.checkHydrated(LINK_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "inline",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+});
+
+describe("IcLink visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render default IcLink in high contrast mode", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcLink href="/components/link/code">About our coffees</IcLink>
+      </div>
+    );
+
+    cy.checkHydrated(LINK_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "default-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render default IcLink with focus in high contrast mode", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcLink href="/components/link/code">About our coffees</IcLink>
+      </div>
+    );
+
+    cy.checkHydrated(LINK_SELECTOR);
+
+    cy.get(LINK_SELECTOR).shadow().find("a").focus();
+
+    cy.compareSnapshot({
+      name: "default-focus-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render inline IcLink in high contrast mode", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcTypography>
+          Return to the <IcLink href="/components/link">café homepage</IcLink>
+        </IcTypography>
+      </div>
+    );
+
+    cy.checkHydrated(LINK_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "inline-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render link with icon in high contrast mode", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcLink href="/" target="_blank">
+          About our coffees
+        </IcLink>
+      </div>
+    );
+
+    cy.checkHydrated(LINK_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "icon-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
   });
 });
