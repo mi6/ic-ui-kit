@@ -1,0 +1,10 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+  }
+}
+
+ic-theme.red-text{
+  --ic-color-primary-text: #ff0000;
+  --ic-color-inverse-text: #ff0000;
+}
