@@ -1,6 +1,11 @@
 import { IcDataTableColumnObject } from "./ic-data-table.types";
 
 /* eslint-disable */
+const name1 = "John Smith";
+const name2 = "Sally Jones";
+const name3 = "Luke Fisher";
+const name4 = "Jane Lock";
+const name5 = "Margaret Hale";
 
 const ROW_HEADER_TITLES = [
   "Employee",
@@ -15,6 +20,7 @@ const imageIconSVG =
 const userIconSVG =
   '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-481q-66 0-108-42t-42-108q0-66 42-108t108-42q66 0 108 42t42 108q0 66-42 108t-108 42ZM160-160v-94q0-38 19-65t49-41q67-30 128.5-45T480-420q62 0 123 15.5t127.921 44.694q31.301 14.126 50.19 40.966Q800-292 800-254v94H160Zm60-60h520v-34q0-16-9.5-30.5T707-306q-64-31-117-42.5T480-360q-57 0-111 11.5T252-306q-14 7-23 21.5t-9 30.5v34Zm260-321q39 0 64.5-25.5T570-631q0-39-25.5-64.5T480-721q-39 0-64.5 25.5T390-631q0 39 25.5 64.5T480-541Zm0-90Zm0 411Z"/></svg>';
 
+// TODO: Add columnOptions
 export const COLS: IcDataTableColumnObject[] = [
   {
     key: "firstName",
@@ -42,6 +48,26 @@ export const COLS: IcDataTableColumnObject[] = [
     dataType: "address",
   },
 ];
+
+export const VERY_LONG_DATA = (rows: number = 100) => {
+  const nextData = [];
+  for (let i = 0; i < rows; i++) {
+    const obj = {
+      firstName: `firstName-${i}`,
+      lastName: `lastName-${i}`,
+      age: i,
+      jobTitle: `jobTitle-${i}`,
+      address: `${i} Main Street, Town, County, Postcode AA${i}${i} BB${i}${i}`,
+      rowOptions: {
+        textWrap: i % 2 === 0,
+      },
+    };
+    nextData.push(obj);
+  }
+
+  return nextData;
+};
+
 export const COLS_ALIGNMENT: IcDataTableColumnObject[] = [
   {
     key: "firstName",
@@ -73,7 +99,7 @@ export const COLS_ALIGNMENT: IcDataTableColumnObject[] = [
 export const DATA = [
   {
     firstName: "Joe",
-    lastName: "Bloggs",
+    lastName: "Bartholomew Christoper Augustine Zacchaeus Ashford", // cspell:disable-line
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
@@ -82,7 +108,7 @@ export const DATA = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -96,7 +122,7 @@ export const DATA = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -105,6 +131,173 @@ export const DATA = [
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
+  },
+];
+export const LONG_TEXT = [
+  {
+    firstName: "Joehasaverylongnamewhichneedstruncating", // cspell:disable-line
+    lastName: "BartholomewChristoperAugustineZacchaeus Ashford", // cspell:disable-line
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  {
+    firstName: "Sarahalsohasaverylongname", // cspell:disable-line
+    lastName: "Smithisnotaverylongname", // cspell:disable-line
+    age: 28,
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
+    address: "2 Main Street, Town, Country, Postcode",
+  },
+];
+
+export const TEXT_WRAP_LONG_DATA = [
+  {
+    name: name1,
+    age: 36,
+    department: "Accounts & Finance",
+    employeeNumber: 1,
+    jobTitle: {
+      data: "Senior Financial Operations and Reporting Analyst",
+      textWrap: true,
+    },
+  },
+  {
+    name: name2,
+    age: 32,
+    department: "Engineering",
+    employeeNumber: 2,
+    jobTitle:
+      "Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)",
+  },
+  {
+    name: "Tim Rayes",
+    age: 41,
+    department: "Sales and Marketing",
+    employeeNumber: 3,
+    jobTitle:
+      "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+    rowOptions: {
+      textWrap: true,
+    },
+  },
+  {
+    name: name3,
+    age: "23",
+    department: "Engineering (Mobile App Development)",
+    employeeNumber: 4,
+    jobTitle: "Junior Tester",
+  },
+  {
+    name: name4,
+    age: 34,
+    department: "Engineering",
+    employeeNumber: 5,
+    jobTitle: "Junior Product Manager",
+  },
+  {
+    name: name5,
+    age: 45,
+    department: "HR",
+    employeeNumber: 6,
+    jobTitle: "Junior Human Resource Information Specialist",
+  },
+];
+
+export const COLUMNS_NO_TEXT_WRAP: IcDataTableColumnObject[] = [
+  { key: "name", title: "Name", dataType: "string" },
+  { key: "age", title: "Age", dataType: "number" },
+  { key: "department", title: "Department", dataType: "string" },
+  { key: "employeeNumber", title: "Employee Number", dataType: "number" },
+  { key: "jobTitle", title: "Job Title", dataType: "string" },
+];
+
+export const COLUMNS_TEXT_WRAP: IcDataTableColumnObject[] = [
+  { key: "name", title: "Name", dataType: "string" },
+  { key: "age", title: "Age", dataType: "number" },
+  {
+    key: "department",
+    title: "Department",
+    dataType: "string",
+    textWrap: true,
+  },
+  { key: "employeeNumber", title: "Employee Number", dataType: "number" },
+  { key: "jobTitle", title: "Job Title", dataType: "string" },
+];
+export const LONG_DATA_VALUES = [
+  {
+    name: name1,
+    age: 36,
+    department: "Accounts & Finance",
+    employeeNumber: 1,
+    jobTitle: "Senior Financial Operations and Reporting Analyst",
+  },
+  {
+    name: name2,
+    age: 32,
+    department: "Engineering",
+    employeeNumber: 2,
+    jobTitle:
+      "Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)",
+  },
+  {
+    name: "Tim Rayes",
+    age: 41,
+    department: "Sales and Marketing",
+    employeeNumber: 3,
+    jobTitle:
+      "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+  },
+  {
+    name: name3,
+    age: "23",
+    department: "Engineering (Mobile App Development)",
+    employeeNumber: 4,
+    jobTitle: "Junior Tester",
+  },
+  {
+    name: name4,
+    age: 34,
+    department: "Engineering",
+    employeeNumber: 5,
+    jobTitle: "Junior Product Manager",
+  },
+  {
+    name: name5,
+    age: 45,
+    department: "HR",
+    employeeNumber: 6,
+    jobTitle: "Junior Human Resource Information Specialist",
+  },
+];
+
+export const LONG_DATA_VALUES_UPDATE = [
+  {
+    name: "Michael Phelps",
+    age: 23,
+    department: "United States",
+    employeeNumber: 1,
+    jobTitle: "Swimmer",
+  },
+  {
+    name: "Natalie Coughlin",
+    age: 25,
+    department: "United States",
+    employeeNumber: 2,
+    jobTitle: "Swimmer",
+  },
+  {
+    name: "Debbie Flood",
+    age: 28,
+    department: "Great Britain",
+    employeeNumber: 3,
+    jobTitle: "7 time Olympic and Commonwealth Champion for Rowing",
+  },
+  {
+    name: "Gillian Charleton",
+    age: "22",
+    department: "Canada",
+    employeeNumber: 4,
+    jobTitle: "Cycling",
   },
 ];
 
@@ -124,7 +317,7 @@ export const DATA_CELL_ALIGNMENT = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -138,7 +331,7 @@ export const DATA_CELL_ALIGNMENT = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -170,7 +363,7 @@ export const ROW_ALIGNMENT = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -190,7 +383,7 @@ export const ROW_ALIGNMENT = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -277,6 +470,36 @@ export const ICON_COLS: IcDataTableColumnObject[] = [
     },
   },
 ];
+export const ICON_DATA_LONG_VALUES = [
+  {
+    firstName: {
+      data: "Joe with a very long first name",
+      icon: userIconSVG,
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  {
+    firstName: "Sarah",
+    lastName: {
+      data: "Smith",
+      icon: userIconSVG,
+    },
+    age: 28,
+    jobTitle: "Analyst",
+    address: "2 Main Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Mark",
+    lastName: "Owens",
+    age: 45,
+    jobTitle: "Team Lead",
+    address: "12 Key Street, Town, Country, Postcode",
+  },
+];
+
 export const ICON_DATA = [
   {
     firstName: {
@@ -355,7 +578,7 @@ export const LONG_DATA = [
   },
   {
     employeeNumber: 5,
-    name: "Luke Ashford",
+    name: "Bartholomew Christoper Augustine Zacchaeus Ashford", // cspell:disable-line
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
@@ -397,7 +620,7 @@ export const LONG_DATA = [
   },
   {
     employeeNumber: 11,
-    name: "Pete Norton",
+    name: "Chrysanthemum Finnleigh Carrington Savannah Norton", // cspell:disable-line
     age: 32,
     jobTitle: "Analyst",
     address: "6 Key Street, Town, County, Postcode",
@@ -425,7 +648,7 @@ export const LONG_DATA = [
   },
   {
     employeeNumber: 15,
-    name: "Mary Lincoln",
+    name: "Bernadette Mariah Genevieve Maddison Lincoln", // cspell:disable-line
     age: 23,
     jobTitle: "Developer",
     address: "10 Main Street, Town, Country, Postcode",
@@ -553,7 +776,7 @@ export const DATA_ELEMENTS = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
   },
@@ -569,7 +792,7 @@ export const DATA_ELEMENTS = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
   },
@@ -593,12 +816,13 @@ export const DATA_REACT_ELEMENTS = [
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
+    actions: `<IcButton variant='destructive' onClick={this.closest("tr").remove()}>Delete</IcButton>`,
   },
   {
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -612,7 +836,7 @@ export const DATA_REACT_ELEMENTS = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -636,8 +860,17 @@ export const createDataTableElement = (
   return dataTable;
 };
 
-export const Basic = (): HTMLIcDataTableElement =>
-  createDataTableElement("Basic Table");
+export const Basic = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement("Basic Table");
+  dataTable.setAttribute("sortable", "true");
+  return dataTable;
+};
+
+export const LargeDataSet = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement("Basic Table", LONG_COLS, LONG_DATA);
+  dataTable.setAttribute("sortable", "true");
+  return dataTable;
+};
 
 export const Embedded = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Embedded Table");
@@ -767,6 +1000,19 @@ export const Loading = (): HTMLIcDataTableElement => {
   dataTable.setAttribute("loading", "true");
   return dataTable;
 };
+export const EmptyLoading = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement(
+    "Empty and Loading State",
+    COLS,
+    null
+  );
+
+  setTimeout(() => {
+    dataTable.setAttribute("loading", "true");
+    setTimeout(() => (dataTable.data = DATA), 10);
+  }, 5000);
+  return dataTable;
+};
 
 export const Updating = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Updating State", COLS, DATA);
@@ -779,22 +1025,107 @@ export const CustomIcons = (): HTMLIcDataTableElement =>
   createDataTableElement("Custom icons", ICON_COLS, ICON_DATA);
 
 export const CustomRowHeights = (): HTMLElement => {
-  const dataTable = createDataTableElement("Custom Row Heights", COLS, DATA);
+  const dataTable = createDataTableElement(
+    "Custom Row Heights",
+    COLS,
+    LONG_DATA_VALUES
+  );
   dataTable.globalRowHeight = 80;
-  dataTable.variableRowHeight = ({ firstName, lastName }) =>
-    firstName === "Joe" || lastName === "Owens" ? 200 : null;
+  dataTable.variableRowHeight = ({ name, age }) =>
+    name === "John Smith" || age === 41 ? 200 : null;
 
   const resetButton = document.createElement("ic-button");
-  resetButton.addEventListener("click", () => dataTable.resetRowHeights());
-  resetButton.innerHTML = "Reset";
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights(80));
+  resetButton.innerHTML = "Reset rowHeight to 80";
 
   const setButton = document.createElement("ic-button");
   setButton.addEventListener("click", () => {
     dataTable.globalRowHeight = 80;
-    dataTable.variableRowHeight = ({ firstName, lastName }) =>
-      firstName === "Joe" || lastName === "Owens" ? 200 : null;
+    dataTable.variableRowHeight = ({ name, age }) =>
+      name === "John Smith" || age === 41 ? 200 : null;
   });
-  setButton.innerHTML = "Set";
+  setButton.innerHTML = "Set global row height";
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", setButton);
+  buttonWrapper.insertAdjacentElement("beforeend", resetButton);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  return wrapper;
+};
+
+export const TruncationShowHide = (): HTMLElement => {
+  const dataTable = CustomRowHeights().querySelector("ic-data-table");
+  dataTable.globalRowHeight = 40;
+  dataTable.variableRowHeight = null;
+  dataTable.truncationPattern = "show-hide";
+
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights(40));
+  resetButton.innerHTML = "Reset rowHeight to 40";
+
+  const setButton = document.createElement("ic-button");
+  setButton.addEventListener("click", () => {
+    dataTable.globalRowHeight = 80;
+  });
+  setButton.innerHTML = "Set globalRowHeight to 80";
+
+  const updateDataButton = document.createElement("ic-button");
+  updateDataButton.addEventListener("click", () => {
+    setTimeout(() => {
+      dataTable.data = LONG_DATA_VALUES_UPDATE;
+    }, 500);
+  });
+  updateDataButton.innerHTML = "Update data";
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", setButton);
+  buttonWrapper.insertAdjacentElement("beforeend", resetButton);
+  buttonWrapper.insertAdjacentElement("beforeend", updateDataButton);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  return wrapper;
+};
+
+export const TruncationTextWrap = (): HTMLElement => {
+  const dataTable = createDataTableElement(
+    "Text Wrap",
+    COLUMNS_TEXT_WRAP,
+    TEXT_WRAP_LONG_DATA
+  );
+  dataTable.globalRowHeight = 40;
+  dataTable.variableRowHeight = null;
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  return wrapper;
+};
+
+export const TruncationTooltip = (): HTMLElement => {
+  const dataTable = CustomRowHeights().querySelector("ic-data-table");
+  dataTable.globalRowHeight = 150;
+  dataTable.variableRowHeight = null;
+  dataTable.setAttribute("truncation-pattern", "tooltip");
+
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights(40));
+  resetButton.innerHTML = "Reset rowHeight to 40";
+
+  const setButton = document.createElement("ic-button");
+  setButton.addEventListener("click", () => {
+    dataTable.globalRowHeight = 80;
+  });
+  setButton.innerHTML = "Set global row heights";
 
   const buttonWrapper = document.createElement("div");
   buttonWrapper.style["display"] = "flex";
@@ -934,4 +1265,66 @@ export const SlottedPagination = (): HTMLIcDataTableElement => {
   });
   dataTable.appendChild(paginationBar);
   return dataTable;
+};
+
+export const DevArea = (): HTMLElement => {
+  const dataTable = createDataTableElement(
+    "Basic Table",
+    COLS,
+    VERY_LONG_DATA(5)
+  );
+  dataTable.sortable = true;
+  dataTable.variableRowHeight = null;
+  dataTable.showPagination = true;
+
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights(40));
+  resetButton.innerHTML = "Reset rowHeight to 40";
+
+  const setButton = document.createElement("ic-button");
+  setButton.addEventListener("click", () => {
+    dataTable.globalRowHeight = 80;
+  });
+  setButton.innerHTML = "Set global row height to 80";
+
+  const increaseButton = document.createElement("ic-button");
+  increaseButton.addEventListener("click", () => {
+    dataTable.globalRowHeight = 150;
+  });
+  increaseButton.innerHTML = "Set global row height to 150";
+
+  const updateDataButton = document.createElement("ic-button");
+  updateDataButton.addEventListener("click", () => {
+    setTimeout(() => {
+      dataTable.data = VERY_LONG_DATA(200);
+    }, 500);
+  });
+  updateDataButton.innerHTML = "Update rows to 200";
+
+  const switchTruncation = document.createElement("ic-button");
+  switchTruncation.addEventListener("click", () => {
+    if (dataTable.truncationPattern === "show-hide") {
+      dataTable.truncationPattern = "tooltip";
+    } else {
+      dataTable.truncationPattern = "show-hide";
+    }
+  });
+  switchTruncation.innerHTML = "Toggle truncation pattern";
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.className = "wrapper";
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", setButton);
+  buttonWrapper.insertAdjacentElement("beforeend", resetButton);
+  buttonWrapper.insertAdjacentElement("beforeend", increaseButton);
+  buttonWrapper.insertAdjacentElement("beforeend", updateDataButton);
+  buttonWrapper.insertAdjacentElement("beforeend", switchTruncation);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+
+  wrapper.insertAdjacentElement("beforeend", dataTable);
+  return wrapper;
 };
