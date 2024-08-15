@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import {
-  IcCard,
+  IcCardVertical,
   IcButton,
   IcTypography,
   IcStatusTag,
@@ -79,7 +79,10 @@ const ReusableMidImage = (): ReactElement => (
 export const StaticCard = (): ReactElement => {
   return (
     <div style={{ margin: "16px" }}>
-      <IcCard heading="Card" message="This is a static card"></IcCard>
+      <IcCardVertical
+        heading="Card"
+        message="This is a static card"
+      ></IcCardVertical>
     </div>
   );
 };
@@ -88,10 +91,10 @@ export const WrappedByLink = (): ReactElement => {
   return (
     <div style={{ padding: "5rem" }}>
       <a href="/">
-        <IcCard
+        <IcCardVertical
           heading="Card"
           message="This is a card wrapped by link"
-        ></IcCard>
+        ></IcCardVertical>
       </a>
     </div>
   );
@@ -101,13 +104,13 @@ export const WrappedClickable = (): ReactElement => {
   return (
     <div style={{ padding: "5rem" }}>
       <a href="/">
-        <IcCard
+        <IcCardVertical
           heading="Americano order"
           subheading="Name: Michael"
           message="This is card with parent link"
           href="/"
           clickable
-        ></IcCard>
+        ></IcCardVertical>
       </a>
     </div>
   );
@@ -115,58 +118,58 @@ export const WrappedClickable = (): ReactElement => {
 
 export const ThreeVariants = (): ReactElement => {
   return (
-    <IcCard
+    <IcCardVertical
       heading="Americano order"
       subheading="Name: Michael"
       message="Extras: Double espresso shot and oat milk."
       style={{ width: "360px" }}
     >
       <ReusableCoffeeIcon />
-      <IcStatusTag slot="adornment" label="In Progress" small />
+      <IcStatusTag slot="adornment" label="In Progress" size="small" />
       <ReusableMidImage />
       <div slot="interaction-controls" style={{ display: "flex", gap: "16px" }}>
         <IcButton variant="primary">Accept</IcButton>
         <IcButton variant="secondary">Cancel</IcButton>
       </div>
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const WithIcon = (): ReactElement => {
   return (
-    <IcCard heading="Americano order">
+    <IcCardVertical heading="Americano order">
       <ReusableCoffeeIcon />
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const WithMessage = (): ReactElement => {
   return (
-    <IcCard
+    <IcCardVertical
       heading="Americano order"
       message="Extras: Double espresso shot and oat milk."
     >
       <ReusableCoffeeIcon />
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const WithSubheading = (): ReactElement => {
   return (
-    <IcCard
+    <IcCardVertical
       heading="Americano order"
       subheading="Name: Michael"
       message="Extras: Double espresso shot and oat milk."
     >
       <ReusableCoffeeIcon />
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const WithSlottedContent = (): ReactElement => {
   return (
     <div style={{ margin: "16px" }}>
-      <IcCard>
+      <IcCardVertical>
         <IcTypography variant="h4" slot="heading">
           This is the slotted card heading
         </IcTypography>
@@ -177,14 +180,14 @@ export const WithSlottedContent = (): ReactElement => {
           This is the slotted subheading
         </IcTypography>
         <ReusableArrowIcon />
-      </IcCard>
+      </IcCardVertical>
     </div>
   );
 };
 
 export const WithInteractionButton = (): ReactElement => {
   return (
-    <IcCard
+    <IcCardVertical
       heading="Americano order"
       subheading="Name: Michael"
       message="Extras: Double espresso shot and oat milk."
@@ -198,13 +201,13 @@ export const WithInteractionButton = (): ReactElement => {
       >
         <ReusableVerticalDotsIcon />
       </IcButton>
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const WithAdornment = (): ReactElement => {
   return (
-    <IcCard
+    <IcCardVertical
       heading="Americano order"
       subheading="Name: Michael"
       message="Extras: Double espresso shot and oat milk."
@@ -216,13 +219,13 @@ export const WithAdornment = (): ReactElement => {
         label="In Progress"
         size="small"
       />
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const WithTopImage = (): ReactElement => {
   return (
-    <IcCard
+    <IcCardVertical
       heading="Americano order"
       subheading="Name: Michael"
       message="Extras: Double espresso shot and oat milk."
@@ -267,13 +270,13 @@ export const WithTopImage = (): ReactElement => {
         label="In Progress"
         size="small"
       />
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const WithMiddleImage = (): ReactElement => {
   return (
-    <IcCard
+    <IcCardVertical
       heading="Americano order"
       subheading="Name: Michael"
       message="Extras: Double espresso shot and oat milk."
@@ -295,13 +298,13 @@ export const WithMiddleImage = (): ReactElement => {
         size="small"
       />
       <ReusableMidImage />
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const WithInteractionControls = (): ReactElement => {
   return (
-    <IcCard
+    <IcCardVertical
       heading="Americano order"
       subheading="Name: Michael"
       message="Extras: Double espresso shot and oat milk."
@@ -311,14 +314,14 @@ export const WithInteractionControls = (): ReactElement => {
         <IcButton variant="primary">Accept</IcButton>
         <IcButton variant="secondary">Cancel</IcButton>
       </div>
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const ClickableLink = (): ReactElement => {
   return (
     <div style={{ margin: "16px" }}>
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -326,7 +329,7 @@ export const ClickableLink = (): ReactElement => {
         href="#"
       >
         <ReusableCoffeeIcon />
-      </IcCard>
+      </IcCardVertical>
     </div>
   );
 };
@@ -334,7 +337,7 @@ export const ClickableLink = (): ReactElement => {
 export const ClickableButton = (): ReactElement => {
   return (
     <div style={{ margin: "16px" }}>
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -342,7 +345,7 @@ export const ClickableButton = (): ReactElement => {
         onClick={(ev) => console.log(ev)}
       >
         <ReusableCoffeeIcon />
-      </IcCard>
+      </IcCardVertical>
     </div>
   );
 };
@@ -350,16 +353,16 @@ export const ClickableButton = (): ReactElement => {
 export const WithBadge = (): ReactElement => {
   return (
     <div style={{ margin: "16px" }}>
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
         clickable
         href="#"
       >
-        <IcBadge size="large" text-label="New" slot="badge" variant="info" />
+        <IcBadge size="large" label="New" slot="badge" variant="info" />
         <ReusableCoffeeIcon />
-      </IcCard>
+      </IcCardVertical>
     </div>
   );
 };
@@ -367,7 +370,7 @@ export const WithBadge = (): ReactElement => {
 export const Disabled = (): ReactElement => {
   return (
     <div style={{ margin: "16px" }}>
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -375,14 +378,14 @@ export const Disabled = (): ReactElement => {
         disabled
       >
         <ReusableCoffeeIcon />
-      </IcCard>
+      </IcCardVertical>
     </div>
   );
 };
 
 export const FullWidth = (): ReactElement => {
   return (
-    <IcCard
+    <IcCardVertical
       heading="Americano order"
       subheading="Name: Michael"
       message="This is a full width card"
@@ -390,13 +393,13 @@ export const FullWidth = (): ReactElement => {
       fullWidth
     >
       <ReusableCoffeeIcon />
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const Expandable = (): ReactElement => {
   return (
-    <IcCard
+    <IcCardVertical
       heading="Americano order"
       subheading="Name: Michael"
       message="Extras: Double espresso shot and oat milk."
@@ -408,14 +411,14 @@ export const Expandable = (): ReactElement => {
         <IcButton variant="secondary">Cancel</IcButton>
       </div>
       <IcTypography slot="expanded-content">Expanded</IcTypography>
-    </IcCard>
+    </IcCardVertical>
   );
 };
 
 export const ReducedWidth = (): ReactElement => {
   return (
     <div style={{ margin: "16px" }}>
-      <IcCard
+      <IcCardVertical
         heading="This is the card heading"
         subheading="This is the subheading"
         message="This is an example of a reduced width card component."
@@ -465,7 +468,7 @@ export const ReducedWidth = (): ReactElement => {
         <IcButton slot="interaction-controls" variant="secondary">
           Hide
         </IcButton>
-      </IcCard>
+      </IcCardVertical>
     </div>
   );
 };
@@ -473,7 +476,7 @@ export const ReducedWidth = (): ReactElement => {
 export const IncreasedWidth = (): ReactElement => {
   return (
     <div style={{ margin: "16px" }}>
-      <IcCard
+      <IcCardVertical
         heading="This is the card heading"
         subheading="This is the subheading"
         message="This is an example of an increased width card component."
@@ -523,7 +526,7 @@ export const IncreasedWidth = (): ReactElement => {
         <IcButton slot="interaction-controls" variant="secondary">
           Hide
         </IcButton>
-      </IcCard>
+      </IcCardVertical>
     </div>
   );
 };
@@ -531,7 +534,7 @@ export const IncreasedWidth = (): ReactElement => {
 export const AdditionalHeight = (): ReactElement => {
   return (
     <div style={{ margin: "16px" }}>
-      <IcCard
+      <IcCardVertical
         heading="This is the card heading"
         subheading="This is the subheading"
         message="This is an example of a new card component with text included."
@@ -573,7 +576,7 @@ export const AdditionalHeight = (): ReactElement => {
         <IcButton slot="interaction-controls" variant="secondary">
           Hide
         </IcButton>
-      </IcCard>
+      </IcCardVertical>
     </div>
   );
 };

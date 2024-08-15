@@ -203,7 +203,7 @@ describe("IcDialog end-to-end tests", () => {
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.get("@icDialogCancelled").should(NOT_HAVE_BEEN_CALLED);
-    cy.findShadowEl(DIALOG, "ic-button.button-variant-tertiary")
+    cy.findShadowEl(DIALOG, "ic-button.ic-button-variant-tertiary")
       .shadow()
       .find("button")
       .focus()
