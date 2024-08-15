@@ -12,10 +12,10 @@ import {
 } from "@stencil/core";
 import {
   hasValidationStatus,
+  slotHasContent,
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
   checkResizeObserver,
-  isSlotUsed,
 } from "../../utils/helpers";
 import {
   IcInformationStatusOrEmpty,
@@ -195,22 +195,16 @@ export class RadioGroup {
         totalWidth = 0;
       }
 
-      if (this.initialOrientation == this.RADIO_HORIZONTAL) {
-        if (
-          this.radioOptions !== undefined &&
-          (this.radioOptions.length > 2 ||
-            (this.radioOptions.length === 2 &&
-              (isSlotUsed(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
-                isSlotUsed(this.radioOptions[1], this.ADDITIONAL_FIELD))))
-        ) {
-          this.currentOrientation = this.RADIO_VERTICAL;
-        } else {
-          if (totalWidth >= this.radioContainer?.clientWidth) {
-            this.currentOrientation = this.RADIO_VERTICAL;
-          } else if (totalWidth < this.radioContainer?.clientWidth) {
-            this.currentOrientation = this.RADIO_HORIZONTAL;
-          }
-        }
+      if (
+        this.currentOrientation === this.RADIO_HORIZONTAL &&
+        totalWidth > this.radioContainer.clientWidth
+      ) {
+        this.currentOrientation = this.RADIO_VERTICAL;
+      } else if (
+        this.currentOrientation === this.RADIO_VERTICAL &&
+        totalWidth < this.radioContainer.clientWidth
+      ) {
+        this.currentOrientation = this.RADIO_HORIZONTAL;
       }
     }
   }
@@ -294,8 +288,8 @@ export class RadioGroup {
         this.radioOptions !== undefined &&
         (this.radioOptions.length > 2 ||
           (this.radioOptions.length === 2 &&
-            (isSlotUsed(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
-              isSlotUsed(this.radioOptions[1], this.ADDITIONAL_FIELD))))
+            (slotHasContent(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
+              slotHasContent(this.radioOptions[1], this.ADDITIONAL_FIELD))))
       ) {
         this.currentOrientation = this.RADIO_VERTICAL;
       }
@@ -304,6 +298,7 @@ export class RadioGroup {
 
   render() {
     const {
+      currentOrientation,
       disabled,
       handleKeyDown,
       helperText,
@@ -336,7 +331,7 @@ export class RadioGroup {
           <div
             class={{
               "radio-buttons-container": true,
-              horizontal: this.currentOrientation === this.RADIO_HORIZONTAL,
+              horizontal: currentOrientation === this.RADIO_HORIZONTAL,
             }}
             ref={(el) => (this.radioContainer = el)}
           >
