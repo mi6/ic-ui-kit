@@ -12,6 +12,8 @@ tbody {
 .table-container {
   position: relative;
   height: calc(100% - var(--ic-space-xxxs));
+  display: flex;
+  flex-direction: column;
 }
 
 .cell-container {
