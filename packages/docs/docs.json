@@ -3910,8 +3910,8 @@
     {
       "filePath": "src/components/ic-data-list/ic-data-list.tsx",
       "encapsulation": "shadow",
-      "tag": "ic-data-entity",
-      "readme": "# ic-data-entity\n\n\n",
+      "tag": "ic-data-list",
+      "readme": "# ic-data-list\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -15335,7 +15335,7 @@
     },
     {
       "filePath": "src/components/ic-theme/ic-theme.tsx",
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "tag": "ic-theme",
       "readme": "# ic-theme\n\n\n",
       "docs": "",
@@ -15374,6 +15374,37 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "\"auto\" | \"dark\" | \"light\"",
+          "complexType": {
+            "original": "\"dark\" | \"light\" | \"auto\"",
+            "resolved": "\"auto\" | \"dark\" | \"light\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The theme mode. Can be \"dark\", \"light\", or \"auto\". \"auto\" will use the device or browser settings.",
+          "docsTags": [],
+          "default": "\"light\"",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false
         }
       ],
