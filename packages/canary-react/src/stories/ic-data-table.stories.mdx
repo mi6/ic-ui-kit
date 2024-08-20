@@ -1297,6 +1297,10 @@ When a row is given a set height, and has content that no longer fits into the c
 
 These values are set using the `truncationPattern` property.
 
+By default, `globalRowHeight` is set to `auto`. If the `truncationPattern` attribute is set to `tooltip` or `show-hide` while `globalRowHeight` is `auto`, the data will not appear truncated due to the row height being set to the data which has the most height.
+
+To see the data truncated, the `globalRowHeight` or `variableRowHeight` needs to be explicitly set to a height which is shorter than data which has the most lines.
+
 #### Data truncation tooltip
 
 export const TruncationTooltip = () => {
