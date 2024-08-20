@@ -1033,7 +1033,7 @@ export const CustomIcons = (): HTMLIcDataTableElement =>
 export const CustomRowHeights = (): HTMLElement => {
   const dataTable = createDataTableElement(
     "Custom Row Heights",
-    COLS,
+    COLUMNS_NO_TEXT_WRAP,
     LONG_DATA_VALUES
   );
   dataTable.globalRowHeight = 80;
@@ -1119,7 +1119,7 @@ export const TruncationTextWrap = (): HTMLElement => {
 
 export const TruncationTooltip = (): HTMLElement => {
   const dataTable = CustomRowHeights().querySelector("ic-data-table");
-  dataTable.globalRowHeight = 150;
+  dataTable.globalRowHeight = 40;
   dataTable.variableRowHeight = null;
   dataTable.setAttribute("truncation-pattern", "tooltip");
 
@@ -1131,7 +1131,7 @@ export const TruncationTooltip = (): HTMLElement => {
   setButton.addEventListener("click", () => {
     dataTable.globalRowHeight = 80;
   });
-  setButton.innerHTML = "Set global row heights";
+  setButton.innerHTML = "Set global row heights to 80";
 
   const buttonWrapper = document.createElement("div");
   buttonWrapper.style["display"] = "flex";
@@ -1283,54 +1283,76 @@ export const DevArea = (): HTMLElement => {
   dataTable.variableRowHeight = null;
   dataTable.showPagination = true;
 
-  const resetButton = document.createElement("ic-button");
-  resetButton.addEventListener("click", () => dataTable.resetRowHeights(40));
-  resetButton.innerHTML = "Reset rowHeight to 40";
+  const description = document.createElement("ic-typography");
+  description.innerHTML = `
+  Use the buttons to change the state of the Data Tables component.<br /><br />
+  By default, the global row height is set to <b>'auto'</b>. This means the row height will be dictated by the cell with the most lines.<br />
+  In order to view the truncated data, the truncation pattern must first be set and then the row height. The reason for this is, the data will know how to behave if the cell space is reduced.<br />
+  Setting the truncation pattern while the row height is set to auto will not display the truncated data as the table cells
+  will have enough space to show all table cell data.<br /><br />
+  In this demo, the even rows have <b>'textWrap'</b> applied.
+  `;
 
-  const setButton = document.createElement("ic-button");
-  setButton.addEventListener("click", () => {
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights());
+  resetButton.innerHTML = "Reset row height: auto";
+
+  const rowHeight40Btn = document.createElement("ic-button");
+  rowHeight40Btn.addEventListener("click", () => {
+    dataTable.globalRowHeight = 40;
+  });
+  rowHeight40Btn.innerHTML = "Set global row height: 40";
+
+  const rowHeight80Btn = document.createElement("ic-button");
+  rowHeight80Btn.addEventListener("click", () => {
     dataTable.globalRowHeight = 80;
   });
-  setButton.innerHTML = "Set global row height to 80";
+  rowHeight80Btn.innerHTML = "Set global row height: 80";
 
-  const increaseButton = document.createElement("ic-button");
-  increaseButton.addEventListener("click", () => {
+  const rowHeight150Btn = document.createElement("ic-button");
+  rowHeight150Btn.addEventListener("click", () => {
     dataTable.globalRowHeight = 150;
   });
-  increaseButton.innerHTML = "Set global row height to 150";
+  rowHeight150Btn.innerHTML = "Set global row height: 150";
 
-  const updateDataButton = document.createElement("ic-button");
-  updateDataButton.addEventListener("click", () => {
+  const updateRows200Btn = document.createElement("ic-button");
+  updateRows200Btn.addEventListener("click", () => {
     setTimeout(() => {
       dataTable.data = VERY_LONG_DATA(200);
     }, 500);
   });
-  updateDataButton.innerHTML = "Update rows to 200";
+  updateRows200Btn.innerHTML = "Update data rows: 200";
 
-  const switchTruncation = document.createElement("ic-button");
-  switchTruncation.addEventListener("click", () => {
-    if (dataTable.truncationPattern === "show-hide") {
-      dataTable.truncationPattern = "tooltip";
-    } else {
-      dataTable.truncationPattern = "show-hide";
-    }
+  const tooltipTruncationBtn = document.createElement("ic-button");
+  tooltipTruncationBtn.textContent = "truncationPattern: tooltip";
+  tooltipTruncationBtn.addEventListener("click", () => {
+    dataTable.truncationPattern = "tooltip";
   });
-  switchTruncation.innerHTML = "Toggle truncation pattern";
+
+  const showHideTruncationBtn = document.createElement("ic-button");
+  showHideTruncationBtn.textContent = "truncationPattern: show-hide";
+  showHideTruncationBtn.addEventListener("click", () => {
+    dataTable.truncationPattern = "show-hide";
+  });
 
   const buttonWrapper = document.createElement("div");
   buttonWrapper.className = "wrapper";
   buttonWrapper.style["display"] = "flex";
-  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["flexWrap"] = "wrap";
+  buttonWrapper.style["paddingBlock"] = "10px";
   buttonWrapper.style["gap"] = "8px";
-  buttonWrapper.insertAdjacentElement("afterbegin", setButton);
+
+  buttonWrapper.insertAdjacentElement("beforeend", tooltipTruncationBtn);
+  buttonWrapper.insertAdjacentElement("beforeend", showHideTruncationBtn);
+  buttonWrapper.insertAdjacentElement("beforeend", rowHeight40Btn);
+  buttonWrapper.insertAdjacentElement("beforeend", rowHeight80Btn);
+  buttonWrapper.insertAdjacentElement("beforeend", rowHeight150Btn);
   buttonWrapper.insertAdjacentElement("beforeend", resetButton);
-  buttonWrapper.insertAdjacentElement("beforeend", increaseButton);
-  buttonWrapper.insertAdjacentElement("beforeend", updateDataButton);
-  buttonWrapper.insertAdjacentElement("beforeend", switchTruncation);
+  buttonWrapper.insertAdjacentElement("beforeend", updateRows200Btn);
 
   const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("beforeend", description);
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
-
   wrapper.insertAdjacentElement("beforeend", dataTable);
   return wrapper;
 };
