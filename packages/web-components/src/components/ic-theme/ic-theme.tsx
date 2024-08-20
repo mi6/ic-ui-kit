@@ -18,7 +18,7 @@ import {
 
 @Component({
   tag: "ic-theme",
-  shadow: true,
+  styleUrl: "ic-theme.css",
 })
 export class Theme {
   /**
@@ -30,6 +30,11 @@ export class Theme {
   watchColorPropHandler(): void {
     this.setThemeColor();
   }
+
+  /**
+   * The theme mode. Can be "dark", "light", or "auto". "auto" will use the device or browser settings.
+   */
+  @Prop() mode: "dark" | "light" | "auto" = "light";
 
   /**
    * @internal Emitted when the theme is changed.
@@ -72,6 +77,16 @@ export class Theme {
   };
 
   render() {
-    return <Host></Host>;
+    const { mode } = this;
+
+    return (
+      <Host
+        class={{
+          [`ic-mode-${mode}`]: mode !== "auto",
+        }}
+      >
+        <slot></slot>
+      </Host>
+    );
   }
 }
