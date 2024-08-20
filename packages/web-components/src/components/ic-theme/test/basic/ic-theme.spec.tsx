@@ -44,6 +44,18 @@ beforeAll(() => {
 });
 
 describe("ic-theme", () => {
+  it("should render", async () => {
+    const page = await newSpecPage({
+      components: [Theme],
+      html: `<ic-theme></ic-theme>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <ic-theme>
+        <mock:shadow-root></mock:shadow-root>
+      </ic-theme>
+    `);
+  });
+
   it("should set theme colour with hex", async () => {
     const page = await newSpecPage({
       components: [Theme],
