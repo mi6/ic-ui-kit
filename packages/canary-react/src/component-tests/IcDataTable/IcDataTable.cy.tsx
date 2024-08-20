@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { mount } from "cypress/react";
 import { IcDataTable, IcDataTableTitleBar } from "../../components";
 import {
@@ -32,6 +32,7 @@ import {
   COLUMNS_NO_TEXT_WRAP,
   LONG_DATA_VALUES_UPDATE,
   LONG_TEXT,
+  VERY_LONG_DATA,
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
@@ -49,6 +50,7 @@ import {
 } from "@ukic/react/src/component-tests/utils/constants";
 
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
+import { IcDataTableTruncationTypes } from "@ukic/canary-web-components";
 
 const DATA_TABLE_SELECTOR = "ic-data-table";
 const DEFAULT_THRESHOLD = 0.04;
@@ -1782,6 +1784,58 @@ describe("IcDataTable with truncation", () => {
         },
       });
     });
+
+    it("should render truncation on all items once pagination is showing all items and sorted", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={VERY_LONG_DATA(100)}
+          caption="Data Tables"
+          truncationPattern="tooltip"
+          globalRowHeight={40}
+          showPagination
+          sortable
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+        .shadow()
+        .find(".items-per-page-input")
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+        .shadow()
+        .find(".items-per-page-input")
+        .shadow()
+        .find("li")
+        .eq(3)
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(odd)")
+        .filter(":gt(4)")
+        .filter(":lt(11)")
+        .each(($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child")
+            .find("ic-tooltip")
+            .should("exist");
+        });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(odd)")
+        .filter(":gt(4)")
+        .filter(":lt(11)")
+        .each(($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .should("have.attr", "style", "--ic-line-clamp: 1");
+        });
+    });
   });
 
   describe("see more/see less truncation", () => {
@@ -2483,7 +2537,452 @@ describe("IcDataTable with truncation", () => {
         },
       });
     });
+
+    it("should render truncation on all items once pagination is showing all items and sorted", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={VERY_LONG_DATA(100)}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+          globalRowHeight={40}
+          showPagination
+          sortable
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+        .shadow()
+        .find(".items-per-page-input")
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+        .shadow()
+        .find(".items-per-page-input")
+        .shadow()
+        .find("li")
+        .eq(3)
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(odd)")
+        .filter(":gt(4)")
+        .filter(":lt(11)")
+        .each(($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        });
+    });
+
+    it("should render the truncation correctly when setting truncation > setting height and updating data", () => {
+      const TruncationDataTable = () => {
+        const [truncationPattern, setTruncationPattern] =
+          useState<IcDataTableTruncationTypes>(undefined);
+        const [rowHeight, setRowHeight] = useState<number>();
+        const [updatedRows, setUpdatedRows] = useState<number>(5);
+        const handleTruncationClick = (
+          truncationPattern: IcDataTableTruncationTypes
+        ) => {
+          setTruncationPattern(truncationPattern);
+        };
+        const handleRowHeight = (height: number) => {
+          setRowHeight(height);
+        };
+        const handleDataUpdate = (rows: number) => {
+          setUpdatedRows(rows);
+        };
+        return (
+          <>
+            <IcDataTable
+              columns={COLS}
+              data={VERY_LONG_DATA(updatedRows)}
+              caption="Data Tables"
+              truncationPattern={truncationPattern}
+              globalRowHeight={rowHeight}
+              showPagination
+            />
+            <IcButton
+              onClick={() => handleTruncationClick("show-hide")}
+              class="truncation"
+            >
+              Set show/hide truncation
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(40)} class="row-height">
+              Set row height: 40
+            </IcButton>
+            <IcButton onClick={() => handleDataUpdate(200)} class="update-data">
+              Update data: 200
+            </IcButton>
+          </>
+        );
+      };
+
+      mount(<TruncationDataTable />);
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(".truncation").click();
+
+      cy.get(".row-height").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      );
+
+      cy.get(".update-data").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      );
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-tooltip")
+            .should("not.exist");
+        }
+      );
+    });
+
+    it("should render the truncation when switching between tooltip and show hide truncation", () => {
+      const TruncationDataTable = () => {
+        const [truncationPattern, setTruncationPattern] =
+          useState<IcDataTableTruncationTypes>(undefined);
+        const [rowHeight, setRowHeight] = useState<number>();
+        const [updatedRows, setUpdatedRows] = useState<number>(5);
+        const handleTruncationClick = (
+          truncationPattern: IcDataTableTruncationTypes
+        ) => {
+          setTruncationPattern(truncationPattern);
+        };
+        const handleRowHeight = (height: number) => {
+          setRowHeight(height);
+        };
+        return (
+          <>
+            <IcDataTable
+              columns={COLS}
+              data={VERY_LONG_DATA(updatedRows)}
+              caption="Data Tables"
+              truncationPattern={truncationPattern}
+              globalRowHeight={rowHeight}
+              showPagination
+            />
+            <IcButton
+              onClick={() => handleTruncationClick("show-hide")}
+              class="truncation-show-hide"
+            >
+              Set show/hide truncation
+            </IcButton>
+            <IcButton
+              onClick={() => handleTruncationClick("tooltip")}
+              class="truncation-tooltip"
+            >
+              Set tooltip truncation
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(40)} class="row-height">
+              Set row height: 40
+            </IcButton>
+          </>
+        );
+      };
+
+      mount(<TruncationDataTable />);
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(".truncation-show-hide").click();
+
+      cy.get(".row-height").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      );
+
+      cy.get(".truncation-tooltip").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-tooltip")
+            .should("exist");
+        }
+      );
+
+      cy.get(".truncation-show-hide").click();
+
+      cy.wait(250);
+
+      cy.compareSnapshot({
+        name: "show-hide-truncation-toggle",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.09),
+        cypressScreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      );
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      );
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-tooltip")
+            .should("not.exist");
+        }
+      );
+    });
+
+    it("should revert all row heights back to auto after show-hide and different row heights have been set", () => {
+      const TruncationDataTable = () => {
+        const [truncationPattern, setTruncationPattern] =
+          useState<IcDataTableTruncationTypes>(undefined);
+        const [rowHeight, setRowHeight] = useState<number | "auto">();
+        const [updatedRows, setUpdatedRows] = useState<number>(5);
+        const handleTruncationClick = (
+          truncationPattern: IcDataTableTruncationTypes
+        ) => {
+          setTruncationPattern(truncationPattern);
+        };
+        const handleRowHeight = (height: number | "auto") => {
+          setRowHeight(height);
+        };
+        return (
+          <>
+            <IcDataTable
+              columns={COLS}
+              data={VERY_LONG_DATA(updatedRows)}
+              caption="Data Tables"
+              truncationPattern={truncationPattern}
+              globalRowHeight={rowHeight}
+              showPagination
+            />
+            <IcButton
+              onClick={() => handleTruncationClick("show-hide")}
+              class="truncation-show-hide"
+            >
+              Set show/hide truncation
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(40)} class="row-height-40">
+              Set row height: 40
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(80)} class="row-height-80">
+              Set row height: 80
+            </IcButton>
+            <IcButton
+              onClick={() => handleRowHeight("auto")}
+              class="row-height-auto"
+            >
+              Set row auto
+            </IcButton>
+          </>
+        );
+      };
+
+      mount(<TruncationDataTable />);
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(".truncation-show-hide").click();
+
+      cy.wait(500).get(".row-height-40").click();
+      cy.wait(500).get(".row-height-80").click();
+      cy.wait(500).get(".row-height-auto").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child ic-typography")
+          .shadow()
+          .find("button")
+          .should("not.exist");
+      });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child")
+          .invoke("outerHeight")
+          .should("equal", 89);
+      });
+    });
+
+    it("should display tooltip truncation after setting show-hide > row height 40 > tooltip", () => {
+      const TruncationDataTable = () => {
+        const [truncationPattern, setTruncationPattern] =
+          useState<IcDataTableTruncationTypes>(undefined);
+        const [rowHeight, setRowHeight] = useState<number | "auto">();
+        const [updatedRows, setUpdatedRows] = useState<number>(5);
+        const handleTruncationClick = (
+          truncationPattern: IcDataTableTruncationTypes
+        ) => {
+          setTruncationPattern(truncationPattern);
+        };
+        const handleRowHeight = (height: number | "auto") => {
+          setRowHeight(height);
+        };
+        return (
+          <>
+            <IcDataTable
+              columns={COLS}
+              data={VERY_LONG_DATA(updatedRows)}
+              caption="Data Tables"
+              truncationPattern={truncationPattern}
+              globalRowHeight={rowHeight}
+              showPagination
+            />
+            <IcButton
+              onClick={() => handleTruncationClick("show-hide")}
+              class="truncation-show-hide"
+            >
+              Set show/hide truncation
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(40)} class="row-height-40">
+              Set row height: 40
+            </IcButton>
+            <IcButton
+              onClick={() => handleTruncationClick("tooltip")}
+              class="truncation-tooltip"
+            >
+              Set tooltip truncation
+            </IcButton>
+          </>
+        );
+      };
+
+      mount(<TruncationDataTable />);
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(".truncation-show-hide").click();
+
+      cy.wait(500).get(".row-height-40").click();
+      cy.wait(500).get(".truncation-tooltip").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child ic-typography")
+          .shadow()
+          .find("button")
+          .should("not.exist");
+      });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row).find(".table-cell:last-child ic-tooltip");
+        }
+      );
+    });
+
+    it("should display tooltip truncation after setting show-hide > row height 80 > tooltip", () => {
+      const TruncationDataTable = () => {
+        const [truncationPattern, setTruncationPattern] =
+          useState<IcDataTableTruncationTypes>(undefined);
+        const [rowHeight, setRowHeight] = useState<number | "auto">();
+        const [updatedRows, setUpdatedRows] = useState<number>(5);
+        const handleTruncationClick = (
+          truncationPattern: IcDataTableTruncationTypes
+        ) => {
+          setTruncationPattern(truncationPattern);
+        };
+        const handleRowHeight = (height: number | "auto") => {
+          setRowHeight(height);
+        };
+        return (
+          <>
+            <IcDataTable
+              columns={COLS}
+              data={VERY_LONG_DATA(updatedRows)}
+              caption="Data Tables"
+              truncationPattern={truncationPattern}
+              globalRowHeight={rowHeight}
+              showPagination
+            />
+            <IcButton
+              onClick={() => handleTruncationClick("show-hide")}
+              class="truncation-show-hide"
+            >
+              Set show/hide truncation
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(80)} class="row-height-80">
+              Set row height: 80
+            </IcButton>
+            <IcButton
+              onClick={() => handleTruncationClick("tooltip")}
+              class="truncation-tooltip"
+            >
+              Set tooltip truncation
+            </IcButton>
+          </>
+        );
+      };
+
+      mount(<TruncationDataTable />);
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(".truncation-show-hide").click();
+
+      cy.wait(500).get(".row-height-80").click();
+      cy.wait(500).get(".truncation-tooltip").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child ic-typography")
+          .shadow()
+          .find("button")
+          .should("not.exist");
+      });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row).find(".table-cell:last-child ic-tooltip");
+        }
+      );
+    });
   });
+
   describe("textWrap", () => {
     const textWrapColumns = () => {
       return COLUMNS_NO_TEXT_WRAP.map((col) => {
