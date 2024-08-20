@@ -88,6 +88,7 @@ export class DataTable {
   private DEFAULT_LINE_HEIGHT = 24;
   private densityUpdate: boolean = false;
   private previousPaginationPage: number;
+  private truncationPatternUpdated: boolean = false;
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -304,7 +305,8 @@ export class DataTable {
     if (this.truncationPattern) {
       this.getTypographyElements().forEach(
         (typographyEl: HTMLIcTypographyElement) => {
-          if (!typographyEl.classList.contains(this.TEXT_WRAP_STRING)) {
+          const cellContainer = this.getCellContainer(typographyEl);
+          if (!cellContainer.classList.contains(this.TEXT_WRAP_STRING)) {
             this.dataTruncation(typographyEl);
           }
         }
@@ -325,7 +327,27 @@ export class DataTable {
   private truncateUpdatedData() {
     if (this.dataUpdated) {
       if (this.truncationPattern === this.SHOW_HIDE_STRING) {
-        this.resetShowHideTruncation();
+        this.getTypographyElements().forEach(
+          (typographyEl: HTMLIcTypographyElement) => {
+            const truncWrapper = this.getTruncWrapper(typographyEl);
+            const cellContainer = this.getCellContainer(typographyEl);
+
+            if (
+              cellContainer?.clientHeight - this.DEFAULT_LINE_HEIGHT >=
+              truncWrapper?.scrollHeight
+            ) {
+              this.resetShowHideTruncation(typographyEl);
+              return;
+            }
+
+            setTimeout(() => {
+              // slight delay due to data rendering
+              if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
+                this.addShowHideTruncation(cellContainer, typographyEl);
+              }
+            }, 150);
+          }
+        );
       }
 
       if (this.truncationPattern === this.TOOLTIP_STRING) {
@@ -340,6 +362,22 @@ export class DataTable {
         this.updateTruncationTooltip();
       }
 
+      if (this.truncationPattern === this.SHOW_HIDE_STRING) {
+        this.getTypographyElements().forEach(
+          (typographyEl: HTMLIcTypographyElement) => {
+            const cellContainer = this.getCellContainer(typographyEl);
+
+            if (!cellContainer.classList.contains(this.TEXT_WRAP_STRING)) {
+              this.createShowHideTruncation(typographyEl, cellContainer);
+            } else {
+              typographyEl.resetTruncation().then(() => {
+                cellContainer.removeAttribute("style");
+              });
+            }
+          }
+        );
+      }
+
       this.tableSorted = false;
     }
 
@@ -349,11 +387,25 @@ export class DataTable {
       const fontSize = parseInt(
         getComputedStyle(document.documentElement).fontSize
       );
+      const hasAutoRowHeight = this.globalRowHeight === "auto";
 
       this.getTypographyElements().forEach(
         (typographyEl: HTMLIcTypographyElement) => {
           const cellContainer = this.getCellContainer(typographyEl);
           const tooltipEl = this.getTooltip(typographyEl);
+
+          if (hasAutoRowHeight) {
+            cellContainer.style.height = null;
+
+            if (this.truncationPattern === this.TOOLTIP_STRING) {
+              this.removeTooltip(cellContainer, typographyEl, tooltipEl);
+              typographyEl.setAttribute("style", `--ic-line-clamp: 0`);
+            } else if (this.truncationPattern === this.SHOW_HIDE_STRING) {
+              this.resetShowHideTruncation(typographyEl);
+            }
+
+            return;
+          }
 
           const rowHeight =
             fontSize *
@@ -455,6 +507,38 @@ export class DataTable {
 
       this.densityUpdate = false;
     }
+
+    if (this.truncationPatternUpdated) {
+      if (this.truncationPattern === this.TOOLTIP_STRING) {
+        this.getTypographyElements().forEach((typographyEl) => {
+          const cellContainer = this.getCellContainer(typographyEl);
+          const tooltipEl = this.getTooltip(typographyEl);
+
+          if (typographyEl.scrollHeight > cellContainer.clientHeight) {
+            this.addTooltipTruncation(typographyEl, cellContainer, tooltipEl);
+          }
+        });
+      } else if (this.truncationPattern === this.SHOW_HIDE_STRING) {
+        this.getTypographyElements().forEach(
+          (typographyEl: HTMLIcTypographyElement) => {
+            const truncWrapper = this.getTruncWrapper(typographyEl);
+            const cellContainer = this.getCellContainer(typographyEl);
+
+            if (
+              cellContainer?.clientHeight - this.DEFAULT_LINE_HEIGHT >
+              truncWrapper?.scrollHeight
+            ) {
+              this.resetShowHideTruncation(typographyEl);
+              return;
+            }
+
+            if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
+              this.addShowHideTruncation(cellContainer, typographyEl);
+            }
+          }
+        );
+      }
+    }
   }
 
   private updateSetRowHeight = (typographyEl?: HTMLIcTypographyElement) => {
@@ -506,7 +590,8 @@ export class DataTable {
   private debounceDataTruncation = () => {
     this.getTypographyElements().forEach(
       (typographyEl: HTMLIcTypographyElement) => {
-        if (!typographyEl.classList.contains(this.TEXT_WRAP_STRING)) {
+        const cellContainer = this.getCellContainer(typographyEl);
+        if (!cellContainer.classList.contains(this.TEXT_WRAP_STRING)) {
           this.resizeObserver = new ResizeObserver(
             // This gets triggered twice due to updated data and see more/see less button
             debounce(() => {
@@ -723,25 +808,18 @@ export class DataTable {
 
   @Watch("truncationPattern")
   truncationPatternHandler(newValue: IcDataTableTruncationTypes): void {
-    if (newValue === this.SHOW_HIDE_STRING) {
+    if (newValue === this.TOOLTIP_STRING) {
+      this.resetShowHideTruncation();
       this.updateTruncationTooltip(true);
-
-      // Not using debounceDataTruncation here due to resizeObserver not being triggered
-      this.getTypographyElements().forEach(
-        (typographyEl: HTMLIcTypographyElement) => {
-          const cellContainer = this.getCellContainer(typographyEl);
-          const tooltip: HTMLIcTooltipElement = this.getTooltip(typographyEl);
-
-          this.truncate(typographyEl, cellContainer, tooltip);
-        }
-      );
     }
 
-    if (newValue === this.TOOLTIP_STRING) {
+    if (newValue === this.SHOW_HIDE_STRING) {
       // ResizeObserver is trigger here due to the see more/see less links being removed.
       // The resizeObserver will also apply the tooltip where relevant
-      this.resetShowHideTruncation();
+      this.updateTruncationTooltip(true);
     }
+
+    this.truncationPatternUpdated = true;
   }
 
   @Watch("data")
@@ -1356,6 +1434,7 @@ export class DataTable {
   ) {
     // When sorting the table, instead of regenerating the tooltip,
     // the tooltip details are updated
+
     if (tooltip) {
       if (this.tableSorted) {
         tooltip.setAttribute("target", typographyEl.id);
@@ -1374,16 +1453,16 @@ export class DataTable {
       this.addLineClampCSS(typographyEl, cellContainer);
     }
 
-    // Adding the tableSorted boolean prevents the tooltip
-    // being regenerated and flashing
     if (
       typographyEl?.scrollHeight > cellContainer?.clientHeight &&
-      !this.tableSorted
+      this.truncationPattern === this.TOOLTIP_STRING
     ) {
-      if (!typographyEl.getAttribute("style")) {
+      if (
+        !typographyEl.getAttribute("style") ||
+        typographyEl.style.cssText.includes("--ic-line-clamp: 0;")
+      ) {
         this.addLineClampCSS(typographyEl, cellContainer);
       }
-
       this.createTruncationTooltip(typographyEl, cellContainer);
     }
   }
