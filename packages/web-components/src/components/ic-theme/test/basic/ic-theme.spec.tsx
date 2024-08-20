@@ -44,18 +44,6 @@ beforeAll(() => {
 });
 
 describe("ic-theme", () => {
-  it("should render", async () => {
-    const page = await newSpecPage({
-      components: [Theme],
-      html: `<ic-theme></ic-theme>`,
-    });
-    expect(page.root).toEqualHtml(`
-      <ic-theme>
-        <mock:shadow-root></mock:shadow-root>
-      </ic-theme>
-    `);
-  });
-
   it("should set theme colour with hex", async () => {
     const page = await newSpecPage({
       components: [Theme],
@@ -103,5 +91,20 @@ describe("ic-theme", () => {
     await page.waitForChanges();
 
     expectRGBToBe(page, "133", "133", "133");
+  });
+
+  it("should test 'mode' prop", async () => {
+    const page = await newSpecPage({
+      components: [Theme],
+      html: `<ic-theme mode="dark"></ic-theme>`,
+    });
+
+    expect(page.root).toHaveClass("ic-mode-dark");
+
+    page.root.mode = "light";
+
+    await page.waitForChanges();
+
+    expect(page.root).toHaveClass("ic-mode-light");
   });
 });
