@@ -1,0 +1,914 @@
+import { Meta, Description, Canvas, Story } from "@storybook/addon-docs";
+import { IcTypography, SlottedSVG, IcLink, IcButton } from "@ukic/react";
+import { IcTreeView, IcTreeItem } from "../components";
+import readme from "../../../canary-web-components/src/components/ic-tree-view/readme.md";
+import treeItemReadme from "../../../canary-web-components/src/components/ic-tree-item/readme.md";
+import { useState } from "react";
+
+<Meta
+  title="React Components/Tree view"
+  component={IcTreeView}
+  parameters={{
+    componentAPI: {
+      data: readme + treeItemReadme,
+    },
+  }}
+/>
+
+# [Canary]: Tree view
+
+Use the tree view component to display hierarchical data in a tree structure. The tree view component is useful for displaying nested data, such as a file system or a category hierarchy.
+
+Click the 'Component API' tab to view all the available attributes, events and slots for tree view.
+
+To use the tree view component, import `@ukic/canary-react` into your application.
+
+### Basic
+
+A basic example with one level of tree items.
+
+<Canvas withSource="none">
+  <Story name="Basic">
+      <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu">
+          <IcTreeItem label="Coffee" />
+          <IcTreeItem label="Tea" />
+          <IcTreeItem label="Hot chocolate" />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Basic code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+
+const TreeView = () => (
+  <IcTreeView heading="Menu">
+    <IcTreeItem label="Coffee" />
+    <IcTreeItem label="Tea" />
+    <IcTreeItem label="Hot chocolate" />
+  </IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Nested
+
+An example with nested tree items.
+
+<Canvas withSource="none">
+  <Story name="Nested">
+    <div style={{ width: "250px" }}>
+      <IcTreeView heading="Menu">
+        <IcTreeItem label="Coffee">
+          <IcTreeItem label="Americano" />
+          <IcTreeItem label="Latte" />
+          <IcTreeItem label="Espresso" />
+        </IcTreeItem>
+        <IcTreeItem label="Tea">
+          <IcTreeItem label="Earl Grey" />
+          <IcTreeItem label="Chai" />
+        </IcTreeItem>
+        <IcTreeItem label="Hot chocolate" />
+      </IcTreeView>
+    </div>
+  </Story>
+</Canvas>
+
+#### Nested code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu">
+  <IcTreeItem label="Coffee">
+    <IcTreeItem label="Americano" />
+    <IcTreeItem label="Latte" />
+    <IcTreeItem label="Espresso" />
+  </IcTreeItem>
+  <IcTreeItem label="Tea">
+    <IcTreeItem label="Earl Grey" />
+    <IcTreeItem label="Chai" />
+  </IcTreeItem>
+  <IcTreeItem label="Hot chocolate" />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### With icons
+
+An example with icons.
+
+<Canvas withSource="none">
+  <Story name="With icons">
+    <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu">
+          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </SlottedSVG>
+          <IcTreeItem label="Coffee">
+            <SlottedSVG
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </SlottedSVG>
+            <IcTreeItem label="Americano" />
+            <IcTreeItem label="Latte">
+              <SlottedSVG
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+                />
+              </SlottedSVG>
+            </IcTreeItem>
+            <IcTreeItem label="Espresso" />
+          </IcTreeItem>
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey" />
+            <IcTreeItem label="Chai" />
+          </IcTreeItem>
+          <IcTreeItem label="Hot chocolate" />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Icon code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+import { SlottedSVG } from "@ukic/react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu">
+  <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </SlottedSVG>
+  <IcTreeItem label="Coffee">
+    <SlottedSVG
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </SlottedSVG>
+    <IcTreeItem label="Americano" />
+    <IcTreeItem label="Latte">
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+        />
+      </svg>
+    </IcTreeItem>
+    <IcTreeItem label="Espresso" />
+  </IcTreeItem>
+  <IcTreeItem label="Tea">
+    <IcTreeItem label="Earl Grey" />
+    <IcTreeItem label="Chai" />
+  </IcTreeItem>
+  <IcTreeItem label="Hot chocolate" />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Small
+
+An example with small styling passed down from tree view to tree items and nested tree items.
+
+<Canvas withSource="none">
+  <Story name="Small">
+    <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu" size="small">
+          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </SlottedSVG>
+          <IcTreeItem label="Coffee">
+            <SlottedSVG
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </SlottedSVG>
+            <IcTreeItem label="Americano" />
+            <IcTreeItem label="Latte">
+              <SlottedSVG
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+                />
+              </SlottedSVG>
+            </IcTreeItem>
+            <IcTreeItem label="Espresso" />
+          </IcTreeItem>
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey" />
+            <IcTreeItem label="Chai" />
+          </IcTreeItem>
+          <IcTreeItem label="Hot chocolate" />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Small code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+import { SlottedSVG } from "@ukic/react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu" size="small">
+  <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </SlottedSVG>
+  <IcTreeItem label="Coffee">
+    <SlottedSVG
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </SlottedSVG>
+    <IcTreeItem label="Americano" />
+    <IcTreeItem label="Latte">
+      <SlottedSVG
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+        />
+      </SlottedSVG>
+    </IcTreeItem>
+    <IcTreeItem label="Espresso" />
+  </IcTreeItem>
+  <IcTreeItem label="Tea">
+    <IcTreeItem label="Earl Grey" />
+    <IcTreeItem label="Chai" />
+  </IcTreeItem>
+  <IcTreeItem label="Hot chocolate" />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Large
+
+An example with large styling passed down from tree view to tree items and nested tree items.
+
+<Canvas withSource="none">
+  <Story name="Large">
+    <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu" size="large">
+          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </SlottedSVG>
+          <IcTreeItem label="Coffee">
+            <SlottedSVG
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </SlottedSVG>
+            <IcTreeItem label="Americano" />
+            <IcTreeItem label="Latte">
+              <SlottedSVG
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+                />
+              </SlottedSVG>
+            </IcTreeItem>
+            <IcTreeItem label="Espresso" />
+          </IcTreeItem>
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey" />
+            <IcTreeItem label="Chai" />
+          </IcTreeItem>
+          <IcTreeItem label="Hot chocolate" />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Large code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+import { SlottedSVG } from "@ukic/react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu" size="large">
+  <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </SlottedSVG>
+  <IcTreeItem label="Coffee">
+    <SlottedSVG
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </SlottedSVG>
+    <IcTreeItem label="Americano" />
+    <IcTreeItem label="Latte">
+      <SlottedSVG
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+        />
+      </SlottedSVG>
+    </IcTreeItem>
+    <IcTreeItem label="Espresso" />
+  </IcTreeItem>
+  <IcTreeItem label="Tea">
+    <IcTreeItem label="Earl Grey" />
+    <IcTreeItem label="Chai" />
+  </IcTreeItem>
+  <IcTreeItem label="Hot chocolate" /> 
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Appearance light
+
+An example with a light appearance.
+
+<Canvas withSource="none">
+  <Story name="Light" parameters={{ backgrounds: { default: "dark" } }}>
+    <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu" appearance="light">
+          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </SlottedSVG>
+          <IcTreeItem label="Coffee">
+            <SlottedSVG
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </SlottedSVG>
+            <IcTreeItem label="Americano" />
+            <IcTreeItem label="Latte">
+              <SlottedSVG
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+                />
+              </SlottedSVG>
+            </IcTreeItem>
+            <IcTreeItem label="Espresso" />
+          </IcTreeItem>
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey" />
+            <IcTreeItem label="Chai" />
+          </IcTreeItem>
+          <IcTreeItem label="Hot chocolate" />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Appearance light code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+import { SlottedSVG } from "@ukic/react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu" appearance="light">
+  <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </SlottedSVG>
+  <IcTreeItem label="Coffee">
+    <SlottedSVG
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </SlottedSVG>
+    <IcTreeItem label="Americano" />
+    <IcTreeItem label="Latte">
+      <SlottedSVG
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+        />
+      </SlottedSVG>
+    </IcTreeItem>
+    <IcTreeItem label="Espresso" />
+  </IcTreeItem>
+  <IcTreeItem label="Tea">
+    <IcTreeItem label="Earl Grey" />
+    <IcTreeItem label="Chai" />
+  </IcTreeItem>
+  <IcTreeItem label="Hot chocolate" />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Disabled tree items
+
+An example with disabled tree items.
+
+<Canvas withSource="none">
+  <Story name="Disabled tree items">
+    <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu">
+          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </SlottedSVG>
+          <IcTreeItem label="Coffee">
+            <SlottedSVG
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </SlottedSVG>
+            <IcTreeItem label="Americano" />
+            <IcTreeItem label="Latte" disabled>
+              <SlottedSVG
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+                />
+              </SlottedSVG>
+            </IcTreeItem>
+            <IcTreeItem label="Espresso" />
+          </IcTreeItem>
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey" />
+            <IcTreeItem label="Chai" disabled />
+          </IcTreeItem>
+          <IcTreeItem label="Hot chocolate" disabled />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Disabled tree items code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+import { SlottedSVG } from "@ukic/react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu">
+  <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </SlottedSVG>
+  <IcTreeItem label="Coffee">
+    <SlottedSVG
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </SlottedSVG>
+    <IcTreeItem label="Americano" />
+    <IcTreeItem label="Latte" disabled>
+      <SlottedSVG
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+        />
+      </SlottedSVG>
+    </IcTreeItem>
+    <IcTreeItem label="Espresso" />
+  </IcTreeItem>
+  <IcTreeItem label="Tea">
+    <IcTreeItem label="Earl Grey" />
+    <IcTreeItem label="Chai" disabled />
+  </IcTreeItem>
+  <IcTreeItem label="Hot chocolate" disabled />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Router item
+
+An example with a tree item that is replaced by a router item.
+
+<Canvas withSource="none">
+  <Story name="Router item">
+      <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu">
+          <IcTreeItem>
+            <a slot="router-item" href="/">Slotted coffee</a>
+          </IcTreeItem>
+          <IcTreeItem label="Tea" />
+          <IcTreeItem label="Hot chocolate" />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Router item code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu">
+  <IcTreeItem>
+    <a slot="router-item" href="/">Slotted coffee</a>
+  </IcTreeItem>
+  <IcTreeItem label="Tea" />
+  <IcTreeItem label="Hot chocolate" />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Slotted
+
+An example with slotted content for tree view heading and slotted content for tree item label.
+
+<Canvas withSource="none">
+  <Story name="Slotted content">
+      <div style={{ width: "250px" }}>
+        <IcTreeView>
+          <IcTypography variant="subtitle-large" slot="heading">Menu</IcTypography>
+          <IcTreeItem>
+            <IcTypography slot="label">Coffee</IcTypography>
+          </IcTreeItem>
+          <IcTreeItem label="Tea" />
+          <IcTreeItem label="Hot chocolate" />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Slotted code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+import { IcTypography } from "@ukic/react";
+
+const TreeView = () => (
+  <IcTreeView>
+    <IcTypography variant="subtitle-large" slot="heading">Menu</IcTypography>
+    <IcTreeItem>
+      <IcTypography slot="label">Coffee</IcTypography>
+    </IcTreeItem>
+    <IcTreeItem label="Tea" />
+    <IcTreeItem label="Hot chocolate" />
+  </IcTreeView>
+)
+export default TreeView;
+```
+
+### Max content
+
+An example with max content. When the heading/label exceeds the width of the container, it will be truncated with an ellipsis.
+
+<Canvas withSource="none">
+  <Story name="Max content">
+    <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu with nested options">
+          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </SlottedSVG>
+          <IcTreeItem label="Coffee">
+            <SlottedSVG
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </SlottedSVG>
+            <IcTreeItem label="Americano" />
+            <IcTreeItem label="Latte with extra milk and sugar" />
+            <IcTreeItem label="Espresso" />
+          </IcTreeItem>
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey" />
+            <IcTreeItem label="Chai" />
+          </IcTreeItem>
+          <IcTreeItem label="Hot chocolate with marshmallows" />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Max content code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+import { SlottedSVG } from "@ukic/react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu with nested options">
+  <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </SlottedSVG>
+  <IcTreeItem label="Coffee">
+    <SlottedSVG
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </SlottedSVG>
+    <IcTreeItem label="Americano" />
+    <IcTreeItem label="Latte with extra milk and sugar" />
+    <IcTreeItem label="Espresso" />
+  </IcTreeItem>
+  <IcTreeItem label="Tea">
+    <IcTreeItem label="Earl Grey" />
+    <IcTreeItem label="Chai" />
+  </IcTreeItem>
+  <IcTreeItem label="Hot chocolate with marshmallows" />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Selected tree item
+
+An example where the tree item with `selected="true"` is selected on initial render.
+
+<Canvas withSource="none">
+  <Story name="Selected tree item">
+      <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu">
+          <IcTreeItem label="Coffee" />
+          <IcTreeItem label="Tea" />
+          <IcTreeItem label="Hot chocolate" selected />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Selected tree item code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu">
+  <IcTreeItem label="Coffee" />
+  <IcTreeItem label="Tea" />
+  <IcTreeItem label="Hot chocolate" selected />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Link
+
+An example where the tree item is rendered as a link.
+
+<Canvas withSource="none">
+  <Story name="Link">
+      <div style={{width: "250px"}}>
+        <IcTreeView heading="Menu">
+          <IcTreeItem label="Coffee" href="#" />
+          <IcTreeItem label="Tea" selected href="#" />
+          <IcTreeItem label="Hot chocolate" disabled href="#" />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Link code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu">
+  <IcTreeItem label="Coffee" href="#" />
+  <IcTreeItem label="Tea" selected href="#" />
+  <IcTreeItem label="Hot chocolate" disabled href="#" />
+</IcTreeView>
+);
+
+export default TreeView;
+```
+
+### Updating options
+
+An example with updating tree items after initial render.
+
+export const TreeItemsUpdate = () => {
+  const [treeItems, setTreeItems] = useState([
+    { label: "Item 1" },
+    { label: "Item 2"},
+    { label: "Item 3" },
+    { label: "Item 4" },
+  ]);
+
+const updateTreeItems = () => {
+setTreeItems([
+{ label: "Item 5" },
+{ label: "Item 6" },
+]);
+};
+
+return (
+
+<>
+  <IcTreeView heading="Updating options">
+    {treeItems.map((option, index) => (
+      <IcTreeItem
+        key={index}
+        label={option.label}
+      />
+    ))}
+  </IcTreeView>
+  <br />
+  <IcButton onClick={updateTreeItems}>Update</IcButton>
+</>
+); };
+
+<Canvas>
+  <Story name="Updating options">
+    <TreeItemsUpdate />
+  </Story>
+</Canvas>
+
+### Playground example
+
+Go to the <IcLink href="/?path=/story/react-components-tree-view--playground-example">separate page for the playground example</IcLink> to view the prop controls.
+
+export const defaultArgs = {
+  appearance: "dark",
+  heading: "Menu",
+  size: "default",
+  showIcon: false,
+  treeItemDisabled: false,
+  treeItemHref: "",
+  treeItemLabel: "Coffee",
+  treeItemSelected: false,
+  showTreeItemIcon: false,
+};
+
+<Canvas withSource="none">
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      appearance: {
+        options: ["dark", "light"],
+        control: { type: "inline-radio" },
+      },
+      size: {
+        options: ["default", "small", "large"],
+        control: { type: "inline-radio" },
+      }
+    }}
+    name="Playground example"
+  >
+    {(args) => (
+      <div style={{ width: "250px", backgroundColor: args.appearance == "light" ? "black" : null }}>
+      <IcTreeView 
+        heading={args.heading}
+        appearance={args.appearance}
+        size={args.size}
+      >
+        {args.showIcon && (
+          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </SlottedSVG> 
+        )}
+        <IcTreeItem
+          label={args.treeItemLabel}
+          disabled={args.treeItemDisabled}
+          selected={args.treeItemSelected}
+          href={args.treeItemHref}
+        >
+          {args.showTreeItemIcon && (
+            <SlottedSVG
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </SlottedSVG>
+          )}
+        </IcTreeItem>
+        <IcTreeItem label="Tea" />
+        <IcTreeItem label="Hot chocolate" />
+      </IcTreeView>
+      </div>
+    )}
+  </Story>
+</Canvas>

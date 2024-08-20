@@ -8,14 +8,14 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
-import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
+import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcThemeForegroundNoDefault as IcThemeForegroundNoDefault1, IcValueEventDetail, IcWeekDays } from "./utils/types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
-export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
+export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcThemeForegroundNoDefault as IcThemeForegroundNoDefault1, IcValueEventDetail, IcWeekDays } from "./utils/types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
@@ -660,6 +660,64 @@ export namespace Components {
          */
         "value"?: string | string[];
     }
+    interface IcTreeItem {
+        "appearance"?: IcThemeForegroundNoDefault1;
+        /**
+          * If `true`, the tree item appears in the disabled state.
+         */
+        "disabled"?: boolean;
+        "expanded": boolean;
+        "hasParentExpanded": boolean;
+        /**
+          * The URL that the tree item link points to. If set, the tree item will render as an "a" tag, otherwise it will render as a div.
+         */
+        "href"?: string | undefined;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        "isParent": boolean;
+        /**
+          * The label of the tree item.
+         */
+        "label": string;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * If `true`, the tree item appears in the selected state.
+         */
+        "selected": boolean;
+        /**
+          * Sets focus on the native `input`.
+         */
+        "setFocus": () => Promise<void>;
+        "size"?: IcSizes;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        "updateAriaLabel": () => Promise<void>;
+    }
+    interface IcTreeView {
+        /**
+          * The appearance of the tree view, e.g. dark, or light.
+         */
+        "appearance"?: IcThemeForegroundNoDefault1;
+        /**
+          * The heading of the tree view.
+         */
+        "heading"?: string;
+        /**
+          * The size of the tree view.
+         */
+        "size"?: IcSizes;
+    }
 }
 export interface IcDataTableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -688,6 +746,10 @@ export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
 export interface IcSelectWithMultiCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcSelectWithMultiElement;
+}
+export interface IcTreeItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTreeItemElement;
 }
 declare global {
     interface HTMLIcCardHorizontalElement extends Components.IcCardHorizontal, HTMLStencilElement {
@@ -833,6 +895,29 @@ declare global {
         prototype: HTMLIcSelectWithMultiElement;
         new (): HTMLIcSelectWithMultiElement;
     };
+    interface HTMLIcTreeItemElementEventMap {
+        "icTreeItemSelected": { id: string };
+    }
+    interface HTMLIcTreeItemElement extends Components.IcTreeItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTreeItemElementEventMap>(type: K, listener: (this: HTMLIcTreeItemElement, ev: IcTreeItemCustomEvent<HTMLIcTreeItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTreeItemElementEventMap>(type: K, listener: (this: HTMLIcTreeItemElement, ev: IcTreeItemCustomEvent<HTMLIcTreeItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcTreeItemElement: {
+        prototype: HTMLIcTreeItemElement;
+        new (): HTMLIcTreeItemElement;
+    };
+    interface HTMLIcTreeViewElement extends Components.IcTreeView, HTMLStencilElement {
+    }
+    var HTMLIcTreeViewElement: {
+        prototype: HTMLIcTreeViewElement;
+        new (): HTMLIcTreeViewElement;
+    };
     interface HTMLElementTagNameMap {
         "ic-card-horizontal": HTMLIcCardHorizontalElement;
         "ic-data-table": HTMLIcDataTableElement;
@@ -842,6 +927,8 @@ declare global {
         "ic-menu-with-multi": HTMLIcMenuWithMultiElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
         "ic-select-with-multi": HTMLIcSelectWithMultiElement;
+        "ic-tree-item": HTMLIcTreeItemElement;
+        "ic-tree-view": HTMLIcTreeViewElement;
     }
 }
 declare namespace LocalJSX {
@@ -1530,6 +1617,63 @@ declare namespace LocalJSX {
          */
         "value"?: string | string[];
     }
+    interface IcTreeItem {
+        "appearance"?: IcThemeForegroundNoDefault1;
+        /**
+          * If `true`, the tree item appears in the disabled state.
+         */
+        "disabled"?: boolean;
+        "expanded"?: boolean;
+        "hasParentExpanded"?: boolean;
+        /**
+          * The URL that the tree item link points to. If set, the tree item will render as an "a" tag, otherwise it will render as a div.
+         */
+        "href"?: string | undefined;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        "isParent"?: boolean;
+        /**
+          * The label of the tree item.
+         */
+        "label"?: string;
+        /**
+          * Emitted when tree item is selected.
+         */
+        "onIcTreeItemSelected"?: (event: IcTreeItemCustomEvent<{ id: string }>) => void;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * If `true`, the tree item appears in the selected state.
+         */
+        "selected"?: boolean;
+        "size"?: IcSizes;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+    }
+    interface IcTreeView {
+        /**
+          * The appearance of the tree view, e.g. dark, or light.
+         */
+        "appearance"?: IcThemeForegroundNoDefault1;
+        /**
+          * The heading of the tree view.
+         */
+        "heading"?: string;
+        /**
+          * The size of the tree view.
+         */
+        "size"?: IcSizes;
+    }
     interface IntrinsicElements {
         "ic-card-horizontal": IcCardHorizontal;
         "ic-data-table": IcDataTable;
@@ -1539,6 +1683,8 @@ declare namespace LocalJSX {
         "ic-menu-with-multi": IcMenuWithMulti;
         "ic-pagination-bar": IcPaginationBar;
         "ic-select-with-multi": IcSelectWithMulti;
+        "ic-tree-item": IcTreeItem;
+        "ic-tree-view": IcTreeView;
     }
 }
 export { LocalJSX as JSX };
@@ -1553,6 +1699,8 @@ declare module "@stencil/core" {
             "ic-menu-with-multi": LocalJSX.IcMenuWithMulti & JSXBase.HTMLAttributes<HTMLIcMenuWithMultiElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
             "ic-select-with-multi": LocalJSX.IcSelectWithMulti & JSXBase.HTMLAttributes<HTMLIcSelectWithMultiElement>;
+            "ic-tree-item": LocalJSX.IcTreeItem & JSXBase.HTMLAttributes<HTMLIcTreeItemElement>;
+            "ic-tree-view": LocalJSX.IcTreeView & JSXBase.HTMLAttributes<HTMLIcTreeViewElement>;
         }
     }
 }
