@@ -1,8 +1,12 @@
-@import "fonts.css";
-@import "colors.css";
-@import "borders.css";
-
 :root {
+  --ic-border-radius: 2px;
+  --ic-border-radius-inset: 11px;
+  --ic-border-focus: 0 0 0 2px var(--ic-architectural-white),
+    0 0 0 4px var(--ic-focus-blue), 0 0 0 8px var(--ic-focus-glow);
+  --ic-border-focus-inset: inset 0 0 0 4px var(--ic-focus-glow),
+    inset 0 0 0 6px var(--ic-focus-blue),
+    inset 0 0 0 8px var(--ic-architectural-white);
+  --ic-border-focus-dark: 0 0 0 2px white, 0 0 0 5px rgba(255 255 255 / 52%);
   --ic-elevation-raised: 0 0 2px rgb(0 0 0 / 50%);
   --ic-elevation-overlay: 0 2px 8px rgb(0 0 0 / 20%);
   --ic-elevation-modal: 0 4px 16px rgb(0 0 0 / 25%);
@@ -14,6 +18,359 @@
     cubic-bezier(0.165, 0.84, 0.44, 1);
   --ic-transition-duration-fast: 100ms;
   --ic-transition-duration-slow: 300ms;
+
+  /* borders */
+  --ic-border-width: 0.0625rem;
+  --ic-border-disabled: var(--ic-space-1px) dashed var(--ic-architectural-200);
+  --ic-border-light: var(--ic-space-1px) solid var(--ic-architectural-200);
+  --ic-border-default: var(--ic-space-1px) solid var(--ic-architectural-400);
+  --ic-border-hover: var(--ic-space-1px) solid var(--ic-architectural-500);
+  --ic-border-pressed: var(--ic-space-1px) solid var(--ic-architectural-600);
+  --ic-hc-border: var(--ic-space-1px) solid transparent;
+  --ic-error-border-default: var(--ic-space-xxxs) solid var(--ic-status-error);
+  --ic-error-border-hover: var(--ic-space-xxxs) solid
+    var(--ic-status-error-hover);
+  --ic-error-border-pressed: var(--ic-space-xxxs) solid
+    var(--ic-status-error-pressed);
+  --ic-success-border-default: var(--ic-space-xxxs) solid
+    var(--ic-status-success);
+  --ic-success-border-hover: var(--ic-space-xxxs) solid
+    var(--ic-status-success-hover);
+  --ic-success-border-pressed: var(--ic-space-xxxs) solid
+    var(--ic-status-success-pressed);
+  --ic-warning-border-default: var(--ic-space-xxxs) solid
+    var(--ic-status-warning);
+  --ic-warning-border-hover: var(--ic-space-xxxs) solid
+    var(--ic-status-warning-hover);
+  --ic-warning-border-pressed: var(--ic-space-xxxs) solid
+    var(--ic-status-warning-pressed);
+
+  /* fonts */
+  --ic-font-body-family: "Open Sans", "Helvetica Neue", "Arial", "sans-serif";
+  --ic-font-heading-family: "Nunito Sans", sans-serif;
+  --ic-font-code-family: "Source Code Pro", monospace;
+
+  /* font weight */
+  --ic-font-weight-extrabold: 800;
+  --ic-font-weight-bold: 700;
+  --ic-font-weight-semibold: 600;
+  --ic-font-weight-regular: 400;
+
+  /* font size */
+  --ic-font-size-h1: 2.625rem;
+  --ic-font-size-h2: 2.125rem;
+  --ic-font-size-h3: 1.5rem;
+  --ic-font-size-h4: 1.25rem;
+  --ic-font-size-regular: 1rem;
+  --ic-font-size-label: 0.875rem;
+  --ic-font-size-caption: 0.75rem;
+  --ic-font-size-badge-small: 0.563rem;
+
+  /* line height */
+  --ic-font-line-height-h1: 3.5rem;
+  --ic-font-line-height-h2: 3.5rem;
+  --ic-font-line-height-h3: 2.5rem;
+  --ic-font-line-height-h4: 2rem;
+  --ic-font-line-height-subtitle-large: 1.5rem;
+  --ic-font-line-height-subtitle-small: 1.5rem;
+  --ic-font-line-height-body: 1.5rem;
+  --ic-font-line-height-caption: 1.25rem;
+  --ic-font-line-height-code: 1.5rem;
+  --ic-font-line-height-badge: 0.875rem;
+  --ic-font-line-height-badge-small: 0.75rem;
+
+  /* letter spacing */
+  --ic-font-letter-spacing-0pt025: 0.025rem;
+  --ic-font-letter-spacing-0pt005: 0.005rem;
+  --ic-font-letter-spacing-0pt0025: 0.0025rem;
+  --ic-font-letter-spacing-0pt0015: 0.0015rem;
+
+  /* fonts */
+  --ic-font-h1: var(--ic-font-weight-extrabold) var(--ic-font-size-h1) /
+    var(--ic-font-line-height-h1) var(--ic-font-heading-family);
+  --ic-font-h2: var(--ic-font-weight-bold) var(--ic-font-size-h2) /
+    var(--ic-font-line-height-h2) var(--ic-font-heading-family);
+  --ic-font-h3: var(--ic-font-weight-regular) var(--ic-font-size-h3) /
+    var(--ic-font-line-height-h3) var(--ic-font-body-family);
+  --ic-font-h4: var(--ic-font-weight-semibold) var(--ic-font-size-h4) /
+    var(--ic-font-line-height-h4) var(--ic-font-body-family);
+  --ic-font-subtitle-large: var(--ic-font-weight-bold)
+    var(--ic-font-size-regular) / var(--ic-font-line-height-subtitle-large)
+    var(--ic-font-body-family);
+  --ic-font-subtitle-small: var(--ic-font-weight-semibold)
+    var(--ic-font-size-label) / var(--ic-font-line-height-subtitle-small)
+    var(--ic-font-body-family);
+  --ic-font-body: var(--ic-font-weight-regular) var(--ic-font-size-regular) /
+    var(--ic-font-line-height-body) var(--ic-font-body-family);
+  --ic-font-caption: var(--ic-font-weight-semibold) var(--ic-font-size-caption) /
+    var(--ic-font-line-height-caption) var(--ic-font-body-family);
+  --ic-font-label: var(--ic-font-weight-semibold) var(--ic-font-size-label) /
+    var(--ic-font-line-height-body) var(--ic-font-body-family);
+  --ic-font-code-large: var(--ic-font-weight-regular)
+    var(--ic-font-size-regular) / var(--ic-font-line-height-code)
+    var(--ic-font-code-family);
+  --ic-font-code-small: var(--ic-font-weight-semibold) var(--ic-font-size-label) /
+    var(--ic-font-line-height-code) var(--ic-font-code-family);
+  --ic-font-code-extra-small: var(--ic-font-weight-regular)
+    var(--ic-font-size-caption) / var(--ic-font-line-height-code)
+    var(--ic-font-code-family);
+  --ic-font-badge: var(--ic-font-weight-semibold) var(--ic-font-size-caption) /
+    var(--ic-font-line-height-badge) var(--ic-font-body-family);
+  --ic-font-badge-small: var(--ic-font-weight-semibold)
+    var(--ic-font-size-badge-small) / var(--ic-font-line-height-badge-small)
+    var(--ic-font-body-family);
+
+  /* colours */
+
+  --ic-keyline-darken-rgb: rgb(0 0 0 / 20%);
+  --ic-keyline-darken: 1px solid var(--ic-keyline-darken-rgb);
+  --ic-keyline-lighten-rgb: rgb(255 255 255 / 20%);
+  --ic-keyline-lighten: 1px solid var(--ic-keyline-lighten-rgb);
+
+  /* status */
+  --ic-status-success-light: #e8fef3;
+  --ic-status-success-r: 0;
+  --ic-status-success-g: 112;
+  --ic-status-success-b: 60;
+  --ic-status-success-a: 1;
+  --ic-status-success: rgb(
+    var(--ic-status-success-r) var(--ic-status-success-g)
+      var(--ic-status-success-b) / var(--ic-status-success-a)
+  );
+  --ic-status-success-hover: rgb(
+    calc(var(--ic-status-success-r) * 0.8)
+      calc(var(--ic-status-success-g) * 0.8)
+      calc(var(--ic-status-success-b) * 0.8) / var(--ic-status-success-a)
+  );
+  --ic-status-success-pressed: rgb(
+    calc(var(--ic-status-success-r) * 0.6)
+      calc(var(--ic-status-success-g) * 0.6)
+      calc(var(--ic-status-success-b) * 0.6) / var(--ic-status-success-a)
+  );
+  --ic-status-success-contrast: #1bb56c;
+  --ic-status-success-dark: #0e3020;
+  --ic-status-warning-light: #fffbd8;
+  --ic-status-warning-contrast: #ffc107;
+  --ic-status-warning-r: 208;
+  --ic-status-warning-g: 121;
+  --ic-status-warning-b: 50;
+  --ic-status-warning-a: 1;
+  --ic-status-warning: rgb(
+    var(--ic-status-warning-r) var(--ic-status-warning-g)
+      var(--ic-status-warning-b) / var(--ic-status-warning-a)
+  );
+  --ic-status-warning-hover: rgb(
+    calc(var(--ic-status-warning-r) * 0.8)
+      calc(var(--ic-status-warning-g) * 0.8)
+      calc(var(--ic-status-warning-b) * 0.8) / var(--ic-status-warning-a)
+  );
+  --ic-status-warning-pressed: rgb(
+    calc(var(--ic-status-warning-r) * 0.6)
+      calc(var(--ic-status-warning-g) * 0.6)
+      calc(var(--ic-status-warning-b) * 0.6) / var(--ic-status-warning-a)
+  );
+  --ic-status-warning-dark: #7a4c3c;
+  --ic-status-error-light: #ffe4e3;
+  --ic-status-error-contrast: #f15b4e;
+  --ic-status-error-r: 212;
+  --ic-status-error-g: 53;
+  --ic-status-error-b: 28;
+  --ic-status-error-a: 1;
+  --ic-status-error: rgb(
+    var(--ic-status-error-r) var(--ic-status-error-g) var(--ic-status-error-b) /
+      var(--ic-status-error-a)
+  );
+  --ic-status-error-hover: rgb(
+    calc(var(--ic-status-error-r) * 0.8) calc(var(--ic-status-error-g) * 0.8)
+      calc(var(--ic-status-error-b) * 0.8) / var(--ic-status-error-a)
+  );
+  --ic-status-error-pressed: rgb(
+    calc(var(--ic-status-error-r) * 0.6) calc(var(--ic-status-error-g) * 0.6)
+      calc(var(--ic-status-error-b) * 0.6) / var(--ic-status-error-a)
+  );
+  --ic-status-error-dark: #610a05;
+  --ic-status-info-light: #e1f0fc;
+  --ic-status-info-contrast: #488fe3;
+  --ic-status-info: rgb(18 77 179);
+  --ic-status-info-dark: #041144;
+  --ic-status-anomalous-light: #efdbff;
+  --ic-status-anomalous-contrast: #b764fb;
+  --ic-status-anomalous: #7c25c2;
+  --ic-status-anomalous-dark: #350f54;
+  --ic-status-unknown-light: var(--ic-architectural-40);
+  --ic-status-unknown-contrast: var(--ic-architectural-300);
+  --ic-status-unknown: var(--ic-architectural-500);
+  --ic-status-unknown-dark: var(--ic-architectural-800);
+
+  /* architectural */
+  --ic-architectural-20: #f9fafa;
+  --ic-architectural-40: #f4f4f5;
+  --ic-architectural-60: #eeeff0;
+  --ic-architectural-80: #e8e9eb;
+  --ic-architectural-100: #e1e3e5;
+  --ic-architectural-200: #c4c8cd;
+  --ic-architectural-300: #a7acb3;
+  --ic-architectural-400: #8a919b;
+  --ic-architectural-500: #6c7580;
+  --ic-architectural-600: #575e68;
+  --ic-architectural-700: #41464d;
+  --ic-architectural-800: #2c2f34;
+  --ic-architectural-900: #0b0c0c;
+  --ic-architectural-white: #fff;
+  --ic-architectural-black: #000;
+
+  /* text */
+  --ic-color-primary-text: #0b0c0c;
+  --ic-color-white-text: #fff;
+  --ic-color-secondary-text: #41464d;
+  --ic-color-tertiary-text: #6c7580;
+
+  /* actions */
+
+  --ic-action-default: #1759bc;
+  --ic-action-default-hover: #0b399c;
+  --ic-action-default-active: #07277e;
+  --ic-action-default-active-alpha: rgba(23 89 188 / 50%);
+  --ic-action-default-bg-hover: rgb(23 89 188 / 10%);
+  --ic-action-default-bg-active: rgb(23 89 188 / 20%);
+  --ic-action-default-bg-hover-no-alpha: #e7eef8;
+  --ic-action-default-bg-active-no-alpha: #d0def2;
+  --ic-action-destructive: #d4351c;
+  --ic-action-destructive-hover: #ad1e0e;
+  --ic-action-destructive-active: #8b1209;
+  --ic-action-light: #fff;
+  --ic-action-light-hover: #c4c8cd;
+  --ic-action-light-active: #a7acb3;
+  --ic-action-light-bg-hover: rgb(255 255 255 / 10%);
+  --ic-action-light-bg-active: rgb(255 255 255 / 20%);
+  --ic-action-dark: #0b0c0c;
+  --ic-action-dark-hover: #2c2f34;
+  --ic-action-dark-active: #41464d;
+  --ic-action-dark-bg-hover: rgb(65 70 77 / 10%);
+  --ic-action-dark-bg-active: rgb(65 70 77 / 20%);
+  --ic-action-dark-bg-hover-no-alpha: #ececed;
+  --ic-action-dark-bg-active-no-alpha: #d9dadb;
+
+  /* classification official */
+  --ic-classification-official: #2b71c7;
+  --ic-classification-official-foreground: #fff;
+
+  /* classification secret */
+  --ic-classification-secret: #f39c2c;
+  --ic-classification-secret-foreground: #000;
+
+  /* classification top secret */
+  --ic-classification-top-secret: #a00;
+  --ic-classification-top-secret-foreground: #fff;
+
+  /* classification not set */
+  --ic-classification-not-set: #616161;
+  --ic-classification-not-set-foreground: #fff;
+
+  /* theme */
+
+  --ic-theme-blue-primary-r: 27;
+  --ic-theme-blue-primary-g: 60;
+  --ic-theme-blue-primary-b: 121;
+  --ic-theme-blue-primary-a: 1;
+  --ic-theme-lighten-20: rgb(255 255 255 / 20%);
+  --ic-theme-lighten-40: rgb(255 255 255 / 40%);
+  --ic-theme-primary-r: var(--ic-theme-blue-primary-r);
+  --ic-theme-primary-g: var(--ic-theme-blue-primary-g);
+  --ic-theme-primary-b: var(--ic-theme-blue-primary-b);
+  --ic-theme-primary-a: var(--ic-theme-blue-primary-a);
+  --ic-theme-primary: rgb(
+    var(--ic-theme-primary-r) var(--ic-theme-primary-g)
+      var(--ic-theme-primary-b) / var(--ic-theme-primary-a)
+  );
+  --ic-theme-secondary: rgb(
+    calc(var(--ic-theme-primary-r) * 0.8) calc(var(--ic-theme-primary-g) * 0.8)
+      calc(var(--ic-theme-primary-b) * 0.8) / var(--ic-theme-primary-a)
+  );
+  --ic-theme-tertiary: rgb(
+    calc(var(--ic-theme-primary-r) * 0.6) calc(var(--ic-theme-primary-g) * 0.6)
+      calc(var(--ic-theme-primary-b) * 0.6) / var(--ic-theme-primary-a)
+  );
+  --ic-theme-secondary-light: rgb(
+    calc(var(--ic-theme-primary-r) + ((255 - var(--ic-theme-primary-r)) * 0.2))
+      calc(
+        var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.2)
+      )
+      calc(
+        var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.2)
+      ) / var(--ic-theme-primary-a)
+  );
+  --ic-theme-tertiary-light: rgb(
+    calc(var(--ic-theme-primary-r) + ((255 - var(--ic-theme-primary-r)) * 0.4))
+      calc(
+        var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.4)
+      )
+      calc(
+        var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.4)
+      ) / var(--ic-theme-primary-a)
+  );
+
+  /* ic-theme-calc and ic-theme-text returns if black or white font colors should be used for color contrast reasons by:
+    - Multiplying each RGB value by a set number: https://www.w3.org/TR/AERT/#color-contrast
+    - Adding them together and dividing by 1000
+    - Calculating this for the black and white text RGB values, adding them together and dividing by 2 gives the threshold for determining the font color
+    - Due to no if statement in CSS, high RGB values are capped at 255 and low RGB capped at 0
+    - Subtracting the dark mode threshold from the calculation and multiplying by -10000 returns a large positive or negative number
+    - The RGB function caps negative numbers to RGB(0, 0, 0) or positive numbers to RGB(255, 255, 255)
+    - The ICDS does not use pure black RGB(0, 0, 0) as it's font, it uses #0b0c0c/RGB(11, 12, 12)
+    - The max() CSS function therefore ensures any negative numbers can be no less than 0
+    - As any negative numbers are now 0, finally the numbers 11, 12 and 12 are added to the R, G, B values to make the ICDS shade of black
+    - A similar adjustment is made to add 60, 70 and 77 to give hover & active colors
+    - The min() CSS function is then used to ensure that none of the values exceeds 255
+    - This is due to an issue found in Chromium v117 (sept 2023), where very large values would result the alpha value being ignored and everything appearing white
+    - The result then returns the RGB values for the ICDS white or black font color, dependent on which is the most color contrast compliant
+    This is a similar calculation to it's JS counterpart: "getThemeFontColor"
+  */
+  --ic-theme-dark-mode-threshold: 133.3505;
+  --ic-theme-primary-r-calc: calc(var(--ic-theme-primary-r) * 299);
+  --ic-theme-primary-g-calc: calc(var(--ic-theme-primary-g) * 587);
+  --ic-theme-primary-b-calc: calc(var(--ic-theme-primary-b) * 114);
+  --ic-theme-primary-sum-calc: calc(
+    var(--ic-theme-primary-r-calc) + var(--ic-theme-primary-g-calc) +
+      var(--ic-theme-primary-b-calc)
+  );
+  --ic-theme-primary-divide-calc: calc(var(--ic-theme-primary-sum-calc) / 1000);
+  --ic-theme-primary-subtract-calc: calc(
+    var(--ic-theme-primary-divide-calc) - var(--ic-theme-dark-mode-threshold)
+  );
+  --ic-theme-primary-calc: calc(var(--ic-theme-primary-subtract-calc) * -10000);
+  --ic-theme-calc: max(0, var(--ic-theme-primary-calc));
+  --ic-theme-text: rgb(
+    min(255, calc(var(--ic-theme-calc) + 11))
+      min(255, calc(var(--ic-theme-calc) + 12))
+      min(255, calc(var(--ic-theme-calc) + 12)) / var(--ic-theme-primary-a)
+  );
+  --ic-theme-hover: rgb(
+    min(255, calc(var(--ic-theme-calc) + 65))
+      min(255, calc(var(--ic-theme-calc) + 70))
+      min(255, calc(var(--ic-theme-calc) + 77)) / 10%
+  );
+  --ic-theme-active: rgb(
+    min(255, calc(var(--ic-theme-calc) + 65))
+      min(255, calc(var(--ic-theme-calc) + 70))
+      min(255, calc(var(--ic-theme-calc) + 77)) / 20%
+  );
+
+  /* hyperlinks */
+  --ic-hyperlink: #1759bc;
+  --ic-hyperlink-visited: #330072;
+  --ic-hyperlink-hover: #7c2855;
+  --ic-hyperlink-contrast: #5c98f2;
+  --ic-hyperlink-contrast-visited: #bc75ff;
+  --ic-hyperlink-contrast-hover: #db76ac;
+
+  /* focus */
+  --ic-focus-blue: #0044d7;
+  --ic-focus-glow: #80a1e8;
+  --ic-hc-focus-outline: 3px solid transparent;
+
+  /* data tables */
+  --ic-table-row-selected: #c7d7ef;
 
   /* breakpoints */
 
