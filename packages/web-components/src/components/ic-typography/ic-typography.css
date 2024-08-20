@@ -3,10 +3,6 @@
 :host {
   display: block;
   position: relative;
-
-  /* enable this line to see text color changing - this will break a lot of things at present */
-
-  /* color: var(--text-color, var(--ic-color-primary-text));  */
 }
 
 :host(.ic-typography-vertical-margins-h1) {
