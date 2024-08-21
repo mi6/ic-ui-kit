@@ -48,7 +48,7 @@ export class EmptyState {
   /**
    * The size of the image or icon used in the image slot.
    */
-  @Prop() imageSize?: IcSizes = "default";
+  @Prop() imageSize?: IcSizes = "medium";
 
   /**
    * The subtitle rendered in the empty state container.
