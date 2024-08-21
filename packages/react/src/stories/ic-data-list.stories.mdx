@@ -464,7 +464,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 export const defaultArgs = {
   heading: "Details",
-  size: "default",
+  size: "medium",
   label: "Name",
   rowSize: "default",
   value: "Michael Johnson",
@@ -477,13 +477,13 @@ export const defaultArgs = {
     parameters={{ loki: { skip: true } }}
     argTypes={{
       size: {
-        options: ["default", "small" ],
+        options: ["medium", "small" ],
         control: {
           type: "inline-radio",
         },
       },
       rowSize: {
-        options: ["default", "small" ],
+        options: ["medium", "small" ],
         control: {
           type: "inline-radio",
         },
