@@ -73,7 +73,7 @@ export class Badge {
   /**
    * The size of the badge to be displayed.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * The text displayed in the badge. This will only be displayed if type="text".

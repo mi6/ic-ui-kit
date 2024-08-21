@@ -206,7 +206,7 @@ export class SearchBar {
   /**
    * The size of the search bar component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizesNoLarge = "medium";
 
   /**
    * If `true`, the value of the search will have its spelling and grammar checked.

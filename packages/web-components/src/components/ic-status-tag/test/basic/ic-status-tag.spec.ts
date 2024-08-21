@@ -11,7 +11,7 @@ describe("ic-status-tag component renders label", () => {
     expect(page.root).toEqualHtml(`
     <ic-status-tag aria-label="Status" label="Neutral">
     <mock:shadow-root>
-      <strong class="default filled-neutral tag" >
+      <strong class="filled-neutral medium tag">
         <ic-typography variant="label-uppercase">
           <span>
             Neutral
@@ -31,7 +31,7 @@ describe("ic-status-tag component renders label", () => {
       expect(page.root).toEqualHtml(`
     <ic-status-tag announced="true" aria-label="Status" label="Neutral" role="status">
     <mock:shadow-root>
-      <strong class="default filled-neutral tag" >
+      <strong class="filled-neutral medium tag">
         <ic-typography variant="label-uppercase">
           <span>
             Neutral

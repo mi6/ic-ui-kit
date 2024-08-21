@@ -23,7 +23,7 @@ export class StatusTag {
   /**
    * The size of the status tag component.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * The colour of the status tag.
