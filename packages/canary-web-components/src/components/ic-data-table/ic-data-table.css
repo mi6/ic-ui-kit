@@ -255,7 +255,7 @@ td.table-density-spacious {
 }
 
 .cell-emphasis-low {
-  color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-secondary-text);
 }
 
 .cell-emphasis-high {
