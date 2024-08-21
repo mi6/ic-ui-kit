@@ -33,7 +33,7 @@
   --linear-line-height: var(--ic-space-xxs);
 }
 
-:host([size="default"]) {
+:host([size="medium"]) {
   --circular-diameter: 5rem;
 }
 
