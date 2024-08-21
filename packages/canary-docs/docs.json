@@ -1739,10 +1739,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -1756,14 +1756,14 @@
           "reflectToAttr": false,
           "docs": "The size of the date input to be displayed.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -2493,10 +2493,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -2510,14 +2510,14 @@
           "reflectToAttr": false,
           "docs": "The size of the date picker to be displayed.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -3035,10 +3035,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -3052,14 +3052,14 @@
           "reflectToAttr": false,
           "docs": "The size of the menu.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -4166,10 +4166,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -4183,14 +4183,14 @@
           "reflectToAttr": false,
           "docs": "The size of the select.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -4925,10 +4925,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -4942,14 +4942,14 @@
           "reflectToAttr": false,
           "docs": "The size of the tree view.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -5091,7 +5091,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcSizes": {
-      "declaration": "export type IcSizes = \"default\" | \"large\" | \"small\";",
+      "declaration": "export type IcSizes = \"medium\" | \"large\" | \"small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
