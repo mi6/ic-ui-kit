@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-accordion-group snapshots should match default snapshot: renders as default 1`] = `
-<ic-accordion-group class="ic-accordion-group ic-accordion-group-default" context-id="ic-accordion-group-0" label="Test heading">
+<ic-accordion-group class="ic-accordion-group ic-accordion-group-default ic-accordion-group-medium" context-id="ic-accordion-group-0" label="Test heading">
   <mock:shadow-root>
     <div class="label-container">
       <ic-typography variant="h4">
@@ -19,7 +19,7 @@ exports[`ic-accordion-group snapshots should match default snapshot: renders as 
 `;
 
 exports[`ic-accordion-group snapshots should match light snapshot: renders as light 1`] = `
-<ic-accordion-group appearance="light" class="ic-accordion-group ic-accordion-group-default ic-accordion-group-light" context-id="ic-accordion-group-1" label="Test heading">
+<ic-accordion-group appearance="light" class="ic-accordion-group ic-accordion-group-light ic-accordion-group-medium" context-id="ic-accordion-group-1" label="Test heading">
   <mock:shadow-root>
     <div class="label-container">
       <ic-typography variant="h4">

@@ -60,7 +60,7 @@ export class Accordion {
   /**
    * The size of the accordion.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * @internal Emitted when accordion is clicked.

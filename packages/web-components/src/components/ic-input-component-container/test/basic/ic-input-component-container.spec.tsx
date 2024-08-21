@@ -9,7 +9,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container class="ic-input-component-container-default">
+    <ic-input-component-container class="ic-input-component-container-medium">
       <div class="focus-indicator">
         content
       </div>
@@ -24,7 +24,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container validation-status="success" class="ic-input-component-container-default ic-input-component-container-success">
+    <ic-input-component-container class="ic-input-component-container-medium ic-input-component-container-success" validation-status="success">
       <div class="focus-indicator">
         content
       </div>
@@ -39,7 +39,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container class="ic-input-component-container-default ic-input-component-container-success" validation-inline="true" validation-status="success">
+    <ic-input-component-container class="ic-input-component-container-medium ic-input-component-container-success" validation-inline="true" validation-status="success">
       <div class="focus-indicator">
         content
         <span class="inline-success">
@@ -57,7 +57,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container class="ic-input-component-container-default ic-input-component-container-error" validation-inline="true" validation-status="error">
+    <ic-input-component-container class="ic-input-component-container-error ic-input-component-container-medium" validation-inline="true" validation-status="error">
       <div class="focus-indicator">
         content
       </div>
@@ -102,7 +102,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container validation-status="success" class="ic-input-component-container-default ic-input-component-container-disabled" aria-disabled="true" disabled="true">
+    <ic-input-component-container aria-disabled="true" class="ic-input-component-container-disabled ic-input-component-container-medium" disabled="true" validation-status="success">
       <div class="focus-indicator">
         content
       </div>
@@ -117,7 +117,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <ic-input-component-container class="ic-input-component-container-default ic-input-component-container-readonly" readonly="true" validation-status="success">
+      <ic-input-component-container class="ic-input-component-container-medium ic-input-component-container-readonly" readonly="true" validation-status="success">
         <div class="focus-indicator">
           content
         </div>
@@ -132,7 +132,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container class="ic-input-component-container-default ic-input-component-container-disabled" aria-disabled="true" disabled="true" validation-status="success">
+    <ic-input-component-container aria-disabled="true" class="ic-input-component-container-disabled ic-input-component-container-medium" disabled="true" validation-status="success">
       <div class="focus-indicator">
         <div class="icon-container">
           <span slot="left-icon">
