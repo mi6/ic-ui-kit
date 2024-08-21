@@ -70,7 +70,7 @@ export class ToggleButton {
   /**
    * The size of the toggle button to be displayed.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * If `true`, the toggle button will be in a checked state.

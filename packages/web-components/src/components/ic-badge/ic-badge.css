@@ -51,7 +51,7 @@
   min-width: calc(var(--ic-space-md) + var(--ic-space-xxs));
 }
 
-:host(.ic-badge-dot.ic-badge-default) {
+:host(.ic-badge-dot.ic-badge-medium) {
   height: var(--ic-space-xs);
   width: var(--ic-space-xs);
   min-width: var(--ic-space-xs);
