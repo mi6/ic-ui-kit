@@ -70,7 +70,7 @@ export class AccordionGroup {
   /**
    * The size of the accordion.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   componentDidLoad(): void {
     const accordionDirectChildren = (this.el as HTMLElement).children;

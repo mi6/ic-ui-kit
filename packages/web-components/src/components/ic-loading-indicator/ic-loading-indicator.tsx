@@ -69,7 +69,7 @@ export class LoadingIndicator {
   /**
    * The size of the loading indicator.
    */
-  @Prop({ reflect: true }) size?: IcLoadingSizes = "default";
+  @Prop({ reflect: true }) size?: IcLoadingSizes = "medium";
 
   /**
    * The type of indicator, either linear or circular.
