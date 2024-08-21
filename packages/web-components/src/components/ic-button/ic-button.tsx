@@ -200,7 +200,7 @@ export class Button {
   /**
    * The size of the button to be displayed.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).

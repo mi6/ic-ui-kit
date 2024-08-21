@@ -50,7 +50,7 @@ describe("ic-loading-indicator component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should set the typography variant for the label to 'h4' for the 'default' size", async () => {
+  it("should set the typography variant for the label to 'h4' for the 'medium' size", async () => {
     page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator label="IC Loading Indicator Test"></ic-loading-indicator>`,
