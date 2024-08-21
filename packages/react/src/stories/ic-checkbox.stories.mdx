@@ -78,7 +78,7 @@ import { useArgs } from '@storybook/client-api';
         label="Unselected / Default"
       />
       <IcCheckbox
-        size="default"
+        size="medium"
         value="valueName2"
         label="Selected / Default"
         checked
@@ -100,7 +100,7 @@ import { useArgs } from '@storybook/client-api';
       <IcCheckbox value="valueName3" label="Unselected / Disabled" disabled />
     </IcCheckboxGroup>
     <IcCheckboxGroup
-      size="default"
+      size="medium"
       label="This is a checkbox group with default-sized checkboxes"
       name="group3"
     >
@@ -561,7 +561,7 @@ export const defaultArgs = {
   label: "Checkbox label",
   nativeIndeterminateBehaviour: false,
   required: false,
-  size: "default",  
+  size: "medium",  
   validationStatus: "",
   validationText: "",
   value: "checkbox-value",
@@ -580,7 +580,7 @@ export const defaultArgs = {
         control: { type: "select" },
       },
       size: {
-        options: ["default", "large", "small"],
+        options: ["medium", "large", "small"],
         control: { type: "inline-radio" },
       },
       validationStatus: {
