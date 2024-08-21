@@ -100,6 +100,8 @@ button {
 }
 
 .card.clickable .card-title {
+  --ic-typography-color: var(--ic-hyperlink);
+
   color: var(--ic-hyperlink);
   text-decoration: underline;
   text-decoration-thickness: var(--ic-space-1px);
@@ -123,6 +125,8 @@ button {
   text-decoration-thickness: var(--ic-space-1px);
   text-decoration-color: var(--ic-color-tertiary-text);
   color: var(--ic-color-tertiary-text);
+
+  --ic-typography-color: var(--ic-color-tertiary-text);
 }
 
 .card-message {
@@ -131,7 +135,7 @@ button {
 }
 
 .card.disabled .card-message {
-  color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-tertiary-text);
 }
 
 .image {
@@ -200,6 +204,8 @@ button {
   .card.disabled .card-message,
   .card.disabled .card-title {
     color: GrayText;
+
+    --ic-typography-color: GrayText;
   }
 }
 
