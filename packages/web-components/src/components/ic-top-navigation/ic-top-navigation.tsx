@@ -306,7 +306,7 @@ export class TopNavigation {
     const hasMenuContent =
       hasNavigation || hasIconButtons || hasStatus || hasVersion;
 
-    const searchButtonSize = deviceSize <= DEVICE_SIZES.S ? "default" : "large";
+    const searchButtonSize = deviceSize <= DEVICE_SIZES.S ? "medium" : "large";
     const hasTitle = appTitle !== "" && isPropDefined(appTitle);
     const overMobileBreakpoint = deviceSize <= customMobileBreakpoint;
 
@@ -319,7 +319,7 @@ export class TopNavigation {
     const mobileSearchButtonTitle = `${
       mobileSearchBarVisible ? "Hide" : "Show"
     } search`;
-    const menuSize = deviceSize <= DEVICE_SIZES.S ? "small" : "default";
+    const menuSize = deviceSize <= DEVICE_SIZES.S ? "small" : "medium";
 
     const shortAppTitleSlot = isSlotUsed(el, "short-app-title");
     const hasAppTitleSlot = isSlotUsed(el, "app-title");

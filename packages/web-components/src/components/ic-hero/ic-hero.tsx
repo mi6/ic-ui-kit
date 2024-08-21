@@ -87,7 +87,7 @@ export class Hero {
   /**
    * The size of the hero component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizesNoLarge = "medium";
 
   /**
    * The description for the hero.
