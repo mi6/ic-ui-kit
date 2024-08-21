@@ -173,7 +173,7 @@ export class BackToTop {
   render() {
     const { variant, bannerOffset, targetElVisible, footerVisible } = this;
     const btnVariant = variant === "icon" ? "icon" : "tertiary";
-    const size = variant === "icon" ? "large" : "default";
+    const size = variant === "icon" ? "large" : "medium";
     const label = variant === "icon" ? "" : backToTopLabel;
 
     return (

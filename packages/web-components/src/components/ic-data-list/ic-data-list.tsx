@@ -20,7 +20,7 @@ export class DataList {
   /**
    * The size of the data list component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizesNoLarge = "medium";
 
   render() {
     const { el, heading, size } = this;
