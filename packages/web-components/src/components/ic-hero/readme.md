@@ -16,7 +16,7 @@
 | `heading`                   | `heading`                     | The heading of the hero. An <h2> level heading.                                           | `string`                             | `undefined` |
 | `secondaryHeading`          | `secondary-heading`           | The optional secondary heading, an <h3> level heading. Replaced by slotted right content. | `string`                             | `undefined` |
 | `secondarySubheading`       | `secondary-subheading`        | The optional secondary subheading, replaced by slotted right content.                     | `string`                             | `undefined` |
-| `size`                      | `size`                        | The size of the hero component.                                                           | `"default" \| "small"`               | `"default"` |
+| `size`                      | `size`                        | The size of the hero component.                                                           | `"medium" \| "small"`                | `"medium"`  |
 | `subheading`                | `subheading`                  | The description for the hero.                                                             | `string`                             | `undefined` |
 
 

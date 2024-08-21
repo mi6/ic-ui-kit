@@ -3,7 +3,7 @@
 exports[`ic-back-to-top should render when target starts with #: should render when target starts with # 1`] = `
 <ic-back-to-top target="#topEl">
   <mock:shadow-root>
-    <ic-button class="ic-button-size-default ic-button-variant-tertiary" exportparts="button">
+    <ic-button class="ic-button-size-medium ic-button-variant-tertiary" exportparts="button">
       <mock:shadow-root>
         <button aria-label="Back to top" class="button" part="button" type="button">
           <slot></slot>
@@ -43,7 +43,7 @@ exports[`ic-back-to-top should render with footer: should render with footer 1`]
   <div id="topEl">
     <ic-back-to-top target="topEl">
       <mock:shadow-root>
-        <ic-button class="ic-button-size-default ic-button-variant-tertiary" exportparts="button">
+        <ic-button class="ic-button-size-medium ic-button-variant-tertiary" exportparts="button">
           <mock:shadow-root>
             <button aria-label="Back to top" class="button" part="button" type="button">
               <slot></slot>
@@ -80,7 +80,7 @@ exports[`ic-back-to-top should render with footer: should render with footer 1`]
 exports[`ic-back-to-top should render with no targetId set: should render with no targetId set 1`] = `
 <ic-back-to-top>
   <mock:shadow-root>
-    <ic-button class="ic-button-size-default ic-button-variant-tertiary" exportparts="button">
+    <ic-button class="ic-button-size-medium ic-button-variant-tertiary" exportparts="button">
       <mock:shadow-root>
         <button aria-label="Back to top" class="button" part="button" type="button">
           <slot></slot>
@@ -98,7 +98,7 @@ exports[`ic-back-to-top should render with no targetId set: should render with n
 exports[`ic-back-to-top should render: should render 1`] = `
 <ic-back-to-top target="topEl">
   <mock:shadow-root>
-    <ic-button class="ic-button-size-default ic-button-variant-tertiary" exportparts="button">
+    <ic-button class="ic-button-size-medium ic-button-variant-tertiary" exportparts="button">
       <mock:shadow-root>
         <button aria-label="Back to top" class="button" part="button" type="button">
           <slot></slot>
