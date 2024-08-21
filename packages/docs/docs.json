@@ -113,10 +113,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -130,14 +130,14 @@
           "reflectToAttr": false,
           "docs": "The size of the accordion.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -338,10 +338,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -355,14 +355,14 @@
           "reflectToAttr": false,
           "docs": "The size of the accordion.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -937,10 +937,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -954,14 +954,14 @@
           "reflectToAttr": false,
           "docs": "The size of the badge to be displayed.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -1930,10 +1930,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -1947,14 +1947,14 @@
           "reflectToAttr": false,
           "docs": "The size of the button to be displayed.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -3057,10 +3057,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -3076,11 +3076,11 @@
           "docsTags": [],
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -3317,10 +3317,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -3334,14 +3334,14 @@
           "reflectToAttr": false,
           "docs": "The size of the checkboxes to be displayed. This does not affect the font size of the label.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -3590,10 +3590,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -3607,14 +3607,14 @@
           "reflectToAttr": false,
           "docs": "The size of the chip.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -3951,10 +3951,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "resolved": "\"medium\" | \"small\"",
             "references": {
               "IcSizesNoLarge": {
                 "location": "import",
@@ -3968,10 +3968,10 @@
           "reflectToAttr": false,
           "docs": "The size of the data list component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -4049,10 +4049,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "resolved": "\"medium\" | \"small\"",
             "references": {
               "IcSizesNoLarge": {
                 "location": "import",
@@ -4066,10 +4066,10 @@
           "reflectToAttr": false,
           "docs": "The size of the data row component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -4709,10 +4709,10 @@
         },
         {
           "name": "imageSize",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -4726,14 +4726,14 @@
           "reflectToAttr": false,
           "docs": "The size of the image or icon used in the image slot.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -5534,10 +5534,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "resolved": "\"medium\" | \"small\"",
             "references": {
               "IcSizesNoLarge": {
                 "location": "import",
@@ -5551,10 +5551,10 @@
           "reflectToAttr": false,
           "docs": "The size of the hero component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -5852,10 +5852,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -5869,14 +5869,14 @@
           "reflectToAttr": false,
           "docs": "The size of the input component container component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -6943,10 +6943,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"icon\" | \"large\" | \"small\"",
+          "type": "\"icon\" | \"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcLoadingSizes",
-            "resolved": "\"default\" | \"icon\" | \"large\" | \"small\"",
+            "resolved": "\"icon\" | \"large\" | \"medium\" | \"small\"",
             "references": {
               "IcLoadingSizes": {
                 "location": "import",
@@ -6960,18 +6960,18 @@
           "reflectToAttr": true,
           "docs": "The size of the loading indicator.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
-            {
-              "value": "default",
-              "type": "string"
-            },
             {
               "value": "icon",
               "type": "string"
             },
             {
               "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
               "type": "string"
             },
             {
@@ -7314,10 +7314,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -7331,14 +7331,14 @@
           "reflectToAttr": false,
           "docs": "The size of the menu component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -8822,10 +8822,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "resolved": "\"medium\" | \"small\"",
             "references": {
               "IcSizesNoLarge": {
                 "location": "import",
@@ -8839,10 +8839,10 @@
           "reflectToAttr": false,
           "docs": "The size of the page header component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -9867,10 +9867,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "resolved": "\"medium\" | \"small\"",
             "references": {
               "IcSizesNoLarge": {
                 "location": "import",
@@ -9884,10 +9884,10 @@
           "reflectToAttr": false,
           "docs": "The size of the radio group component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -11127,10 +11127,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "resolved": "\"medium\" | \"small\"",
             "references": {
               "IcSizesNoLarge": {
                 "location": "import",
@@ -11144,10 +11144,10 @@
           "reflectToAttr": false,
           "docs": "The size of the search bar component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -12140,10 +12140,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -12157,14 +12157,14 @@
           "reflectToAttr": false,
           "docs": "The size of the select component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -12965,10 +12965,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -12982,14 +12982,14 @@
           "reflectToAttr": false,
           "docs": "The size of the status tag component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -13563,10 +13563,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "resolved": "\"medium\" | \"small\"",
             "references": {
               "IcSizesNoLarge": {
                 "location": "import",
@@ -13580,10 +13580,10 @@
           "reflectToAttr": false,
           "docs": "The size of the switch component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -14890,10 +14890,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "resolved": "\"medium\" | \"small\"",
             "references": {
               "IcSizesNoLarge": {
                 "location": "import",
@@ -14907,10 +14907,10 @@
           "reflectToAttr": false,
           "docs": "The size of the text field component.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -15904,10 +15904,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -15921,14 +15921,14 @@
           "reflectToAttr": false,
           "docs": "The size of the toggle button to be displayed.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -16255,10 +16255,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -16272,14 +16272,14 @@
           "reflectToAttr": false,
           "docs": "The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -17402,7 +17402,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcSizes": {
-      "declaration": "export type IcSizes = \"default\" | \"large\" | \"small\";",
+      "declaration": "export type IcSizes = \"medium\" | \"large\" | \"small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -17522,7 +17522,7 @@
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcSizesNoLarge": {
-      "declaration": "export type IcSizesNoLarge = \"default\" | \"small\";",
+      "declaration": "export type IcSizesNoLarge = \"medium\" | \"small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -17557,7 +17557,7 @@
       "path": "src/components/ic-input-validation/ic-input-validation.types.tsx"
     },
     "src/components/ic-loading-indicator/ic-loading-indicator.types.tsx::IcLoadingSizes": {
-      "declaration": "export type IcLoadingSizes = \"default\" | \"small\" | \"large\" | \"icon\";",
+      "declaration": "export type IcLoadingSizes = \"medium\" | \"small\" | \"large\" | \"icon\";",
       "docstring": "",
       "path": "src/components/ic-loading-indicator/ic-loading-indicator.types.tsx"
     },
