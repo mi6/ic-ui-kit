@@ -1621,10 +1621,6 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
@@ -4837,10 +4833,6 @@ declare namespace LocalJSX {
           * The size of the select component.
          */
         "size"?: IcSizes;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
