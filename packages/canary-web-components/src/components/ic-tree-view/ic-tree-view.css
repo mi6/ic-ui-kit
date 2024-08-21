@@ -25,6 +25,9 @@
 
 :host(.ic-tree-view-light) .heading-area-container {
   color: var(--ic-architectural-white);
+
+  --ic-typography-color: var(--ic-architectural-white);
+
   fill: var(--ic-architectural-white);
 }
 
