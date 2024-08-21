@@ -75,7 +75,7 @@ export const DeterminateLinearLoadingIndWithLabelSizeSmallDefaultLargeFull =
         min={args.min}
         max={args.max}
         label="Full-width"
-        size="default"
+        size="medium"
         type="linear"
         fullWidth={true}
       />
