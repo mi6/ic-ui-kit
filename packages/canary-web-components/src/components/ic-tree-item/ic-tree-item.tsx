@@ -307,7 +307,7 @@ export class TreeItem {
       typographyEl.classList.add("ic-text-overflow");
 
       if (!tooltip) {
-        const tooltipEl = document.createElement(this.TOOLTIP);
+        const tooltipEl = document.createElement("ic-tooltip");
         tooltipEl.setAttribute("target", this.el.id);
         tooltipEl.setAttribute("label", typographyEl.textContent);
         tooltipEl.classList.add("ic-tooltip-overflow");
