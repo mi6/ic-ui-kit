@@ -160,7 +160,7 @@ export class NavigationButton {
     let variant: "icon" | "tertiary" = "icon";
     let appearance: IcThemeForeground | IcThemeForegroundEnum.Default =
       this.initialAppearance;
-    let size: "default" | "large" = "large";
+    let size: "medium" | "large" = "large";
     let fullWidth = false;
     let disableTooltip = false;
 
@@ -168,7 +168,7 @@ export class NavigationButton {
       label = this.label;
       variant = "tertiary";
       appearance = IcThemeForegroundEnum.Default;
-      size = "default";
+      size = "medium";
       fullWidth = true;
       className = "popout-menu-button";
       disableTooltip = true;

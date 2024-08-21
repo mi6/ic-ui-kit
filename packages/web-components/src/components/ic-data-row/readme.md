@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                   | Type                   | Default     |
-| -------- | --------- | ----------------------------------------------------------------------------- | ---------------------- | ----------- |
-| `label`  | `label`   | The label in the leftmost cell of the row.                                    | `string`               | `undefined` |
-| `size`   | `size`    | The size of the data row component.                                           | `"default" \| "small"` | `"default"` |
-| `value`  | `value`   | The value of the middle (right if no end-component supplied) cell of the row. | `string`               | `undefined` |
+| Property | Attribute | Description                                                                   | Type                  | Default     |
+| -------- | --------- | ----------------------------------------------------------------------------- | --------------------- | ----------- |
+| `label`  | `label`   | The label in the leftmost cell of the row.                                    | `string`              | `undefined` |
+| `size`   | `size`    | The size of the data row component.                                           | `"medium" \| "small"` | `"medium"`  |
+| `value`  | `value`   | The value of the middle (right if no end-component supplied) cell of the row. | `string`              | `undefined` |
 
 
 ## Slots
