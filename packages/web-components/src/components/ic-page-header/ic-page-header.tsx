@@ -57,7 +57,7 @@ export class PageHeader {
   /**
    * The size of the page header component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizesNoLarge = "medium";
 
   /**
    * If `true`, the page header will be sticky at all breakpoints.

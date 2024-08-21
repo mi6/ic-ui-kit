@@ -35,7 +35,7 @@ export class DataRow {
   /**
    * The size of the data row component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizesNoLarge = "medium";
 
   /**
    * The value of the middle (right if no end-component supplied) cell of the row.

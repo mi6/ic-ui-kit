@@ -29,9 +29,9 @@ export enum IcInformationStatus {
   Success = "success",
 }
 
-export type IcSizes = "default" | "large" | "small";
+export type IcSizes = "medium" | "large" | "small";
 
-export type IcSizesNoLarge = "default" | "small";
+export type IcSizesNoLarge = "medium" | "small";
 
 export type IcInformationStatusOrEmpty = "warning" | "error" | "success" | "";
 

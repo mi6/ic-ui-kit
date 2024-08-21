@@ -140,7 +140,7 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
             <mock:shadow-root>
               <ic-input-container>
                 <ic-input-label for="ic-text-field-input-2" helpertext="" label="Test label"></ic-input-label>
-                <ic-input-component-container size="default" validationstatus="">
+                <ic-input-component-container size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
               </ic-input-container>
@@ -208,7 +208,7 @@ exports[`ic-radio-group should render with selected static additional field: ren
             <mock:shadow-root>
               <ic-input-container>
                 <ic-input-label for="ic-text-field-input-1" helpertext="" label="Test label"></ic-input-label>
-                <ic-input-component-container size="default" validationstatus="">
+                <ic-input-component-container size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
               </ic-input-container>
@@ -251,7 +251,7 @@ exports[`ic-radio-group should render with unselected static additional field: r
             <mock:shadow-root>
               <ic-input-container disabled="">
                 <ic-input-label disabled="" for="ic-text-field-input-0" helpertext="" label="Test label"></ic-input-label>
-                <ic-input-component-container disabled="" size="default" validationstatus="">
+                <ic-input-component-container disabled="" size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
               </ic-input-container>
