@@ -62,7 +62,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
       <IcToggleButton label="Toggle" size="small" />
     </div>
     <div style={{ padding: "6px" }}>
-      <IcToggleButton label="Toggle" size="default" />
+      <IcToggleButton label="Toggle" size="medium" />
     </div>
     <div style={{ padding: "6px" }}>
       <IcToggleButton label="Toggle" size="large" />
@@ -202,7 +202,7 @@ export const defaultArgs = {
   disabled: false,
   loading: false,
   appearance: "default",
-  size: "default",
+  size: "medium",
   variant: "default",
   fullWidth: false,
   checked: false,
@@ -213,7 +213,7 @@ export const defaultArgs = {
     args={defaultArgs}
     argTypes={{
       size: {
-        options: ["default", "large", "small"],
+        options: ["medium", "large", "small"],
         control: { type: "inline-radio" },
       },
       appearance: {
@@ -253,7 +253,7 @@ export const defaultWithIconArgs = {
   disabled: false,
   loading: false,
   appearance: "default",
-  size: "default",
+  size: "medium",
   variant: "default",
   fullWidth: false,
   iconPlacement: "left",
@@ -266,7 +266,7 @@ export const defaultWithIconArgs = {
     args={defaultWithIconArgs}
     argTypes={{
       size: {
-        options: ["default", "large", "small"],
+        options: ["medium", "large", "small"],
         control: { type: "inline-radio" },
       },
       appearance: {
@@ -323,7 +323,7 @@ export const defaultIconArgs = {
   disabled: false,
   loading: false,
   appearance: "default",
-  size: "default",
+  size: "medium",
   variant: "icon",
   fullWidth: false,
   checked: false,
@@ -335,7 +335,7 @@ export const defaultIconArgs = {
     args={defaultIconArgs}
     argTypes={{
       size: {
-        options: ["default", "large", "small"],
+        options: ["medium", "large", "small"],
         control: { type: "inline-radio" },
       },
       appearance: {
