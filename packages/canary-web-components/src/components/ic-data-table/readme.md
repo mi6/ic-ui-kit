@@ -33,9 +33,10 @@
 
 ## Events
 
-| Event               | Description                                                                                    | Type                |
-| ------------------- | ---------------------------------------------------------------------------------------------- | ------------------- |
-| `icRowHeightChange` | Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table. | `CustomEvent<void>` |
+| Event               | Description                                                                                    | Type                             |
+| ------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------- |
+| `icRowHeightChange` | Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table. | `CustomEvent<void>`              |
+| `icSortChange`      | Emitted when a column sort button is clicked.                                                  | `CustomEvent<IcSortEventDetail>` |
 
 
 ## Methods
