@@ -237,7 +237,8 @@ ic-date-input {
 }
 
 :host .calendar-day-header ic-typography {
-  color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-tertiary-text);
+
   text-align: center;
 }
 
@@ -290,11 +291,12 @@ ic-date-input {
 
 :host .day-button ic-typography {
   width: 1.75rem;
-  color: var(--ic-color-primary-text);
+
+  --ic-typography-color: var(--ic-color-primary-text);
 }
 
 :host .day-button.outside-range ic-typography {
-  color: var(--ic-architectural-400);
+  --ic-typography-color: var(--ic-architectural-400);
 }
 
 :host .day-button.outside-month ic-typography {
@@ -304,7 +306,7 @@ ic-date-input {
 :host
   .day-button.outside-month:not(.outside-range):not(.selected)
   ic-typography {
-  color: var(--ic-color-primary-text);
+  --ic-typography-color: var(--ic-color-primary-text);
 }
 
 :host .day-button:hover:not(.disabled) {
@@ -327,7 +329,7 @@ ic-date-input {
 }
 
 :host .day-button.selected ic-typography {
-  color: var(--ic-color-white-text);
+  --ic-typography-color: var(--ic-color-white-text);
 }
 
 :host .day-button.selected:not(.hidden):hover {
