@@ -54,7 +54,36 @@ exports[`ic-radio-group should render as required: renders-required 1`] = `
 </ic-radio-group>
 `;
 
-exports[`ic-radio-group should render radio option disabled: renders-disabled 1`] = `
+exports[`ic-radio-group should render radio group disabled: renders-disabled 1`] = `
+<ic-radio-group disabled="" label="test label" name="test">
+  <mock:shadow-root>
+    <div aria-label="test label" role="radiogroup">
+      <ic-input-label disabled="" label="test label"></ic-input-label>
+      <div class="radio-buttons-container">
+        <slot></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-radio-option additional-field-display="static" class="disabled" group-label="test group" label="test label" value="test">
+    <mock:shadow-root>
+      <div class="container disabled">
+        <div>
+          <input disabled="" id="ic-radio-option-test label-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
+          <span class="checkmark"></span>
+        </div>
+        <ic-typography class="radio-label" variant="body">
+          <label htmlfor="ic-radio-option-test label-test label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+    </mock:shadow-root>
+  </ic-radio-option>
+  <input class="ic-input" disabled="" name="test" type="hidden" value="">
+</ic-radio-group>
+`;
+
+exports[`ic-radio-group should render radio option disabled: renders-option-disabled 1`] = `
 <ic-radio-group label="test label" name="test">
   <mock:shadow-root>
     <div aria-label="test label" role="radiogroup">
