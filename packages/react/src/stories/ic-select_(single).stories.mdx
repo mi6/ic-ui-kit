@@ -20,7 +20,7 @@ export const defaultArgs = {
   placeholder: "Select an option",
   readonly: false,
   required: false,
-  size: "default",
+  size: "medium",
   validationStatus: "",
   validationText: "",
   showClearButton: false,
@@ -614,7 +614,7 @@ export const Uncontrolled = () => {
     args={defaultArgs}
     argTypes={{
       size: {
-        options: ["default", "large", "small"],
+        options: ["medium", "large", "small"],
         control: { type: "inline-radio" },
       },
       validationStatus: {
