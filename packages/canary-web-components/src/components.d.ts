@@ -6,14 +6,14 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
-import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
+import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcThemeForegroundNoDefault as IcThemeForegroundNoDefault1, IcValueEventDetail, IcWeekDays } from "./utils/types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
-export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
+export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcThemeForegroundNoDefault as IcThemeForegroundNoDefault1, IcValueEventDetail, IcWeekDays } from "./utils/types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
@@ -760,6 +760,7 @@ declare global {
     };
     interface HTMLIcDataTableElementEventMap {
         "icRowHeightChange": void;
+        "icSortChange": IcSortEventDetail;
     }
     interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcDataTableElementEventMap>(type: K, listener: (this: HTMLIcDataTableElement, ev: IcDataTableCustomEvent<HTMLIcDataTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1028,6 +1029,10 @@ declare namespace LocalJSX {
           * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
          */
         "onIcRowHeightChange"?: (event: IcDataTableCustomEvent<void>) => void;
+        /**
+          * Emitted when a column sort button is clicked.
+         */
+        "onIcSortChange"?: (event: IcDataTableCustomEvent<IcSortEventDetail>) => void;
         /**
           * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
          */

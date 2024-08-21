@@ -929,6 +929,9 @@ export const RowHeaders = (): HTMLIcDataTableElement =>
 export const Sort = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Sort", COLS, DATA);
   dataTable.setAttribute("sortable", "true");
+  dataTable.addEventListener("icSortChange", (event: CustomEvent) => {
+    console.log("Sort changed", event.detail);
+  });
   return dataTable;
 };
 
@@ -939,6 +942,9 @@ export const SortOptions = (): HTMLIcDataTableElement => {
     sortOrders: ["descending", "unsorted"],
     defaultColumn: "firstName",
   };
+  dataTable.addEventListener("icSortChange", (event: CustomEvent) => {
+    console.log("Sort changed", event.detail);
+  });
   return dataTable;
 };
 

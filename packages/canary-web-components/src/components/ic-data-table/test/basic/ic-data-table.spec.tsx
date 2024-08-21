@@ -1178,6 +1178,40 @@ describe(icDataTable, () => {
     expect(eventSpy).toHaveBeenCalledTimes(2);
   });
 
+  it("should emit icSortChange when column sort button is clicked", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          sortable
+        ></ic-data-table>
+      ),
+    });
+
+    const eventSpy = jest.fn();
+
+    page.root.addEventListener("icSortChange", eventSpy);
+
+    const dataTable = document.querySelector(icDataTable);
+
+    const sortButton = Array.from(
+      dataTable.shadowRoot.querySelectorAll(".sort-button")
+    ) as HTMLIcButtonElement[];
+
+    sortButton[0].click();
+
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: { columnName: "name", sorted: "ascending" },
+      })
+    );
+  });
+
   it("should apply the correct density scaler to rowHeights when not using the default density", async () => {
     const page = await newSpecPage({
       components: [DataTable],
