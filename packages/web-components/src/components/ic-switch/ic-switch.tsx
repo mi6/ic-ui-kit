@@ -84,7 +84,7 @@ export class Switch {
   /**
    * The size of the switch component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizesNoLarge = "medium";
 
   /**
    * The value of the toggle does not mean if it's checked or not, use the `checked`
