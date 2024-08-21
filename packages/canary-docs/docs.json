@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-23T14:18:38",
+  "timestamp": "2024-08-19T07:51:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -561,7 +561,7 @@
           "reflectToAttr": false,
           "docs": "Sets the row height on all rows in the table that aren't set using the `variableRowHeight` method.",
           "docsTags": [],
-          "default": "40",
+          "default": "\"auto\"",
           "values": [
             {
               "value": "auto",
@@ -809,6 +809,38 @@
           "required": false
         },
         {
+          "name": "truncationPattern",
+          "type": "\"show-hide\" | \"tooltip\"",
+          "complexType": {
+            "original": "IcDataTableTruncationTypes",
+            "resolved": "\"show-hide\" | \"tooltip\"",
+            "references": {
+              "IcDataTableTruncationTypes": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "truncation-pattern",
+          "reflectToAttr": false,
+          "docs": "Sets the method used to truncate longer text in cells where textWrap is `false`.\nThe `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography \"See more\"/\"See less\" buttons.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "show-hide",
+              "type": "string"
+            },
+            {
+              "value": "tooltip",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "updating",
           "type": "boolean",
           "complexType": {
@@ -891,8 +923,14 @@
             "docs": ""
           },
           "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
+            "signature": "(rowHeight?: number | \"auto\") => Promise<void>",
+            "parameters": [
+              {
+                "name": "rowHeight",
+                "type": "number | \"auto\"",
+                "docs": ""
+              }
+            ],
             "references": {
               "Promise": {
                 "location": "global",
@@ -901,9 +939,15 @@
             },
             "return": "Promise<void>"
           },
-          "signature": "resetRowHeights() => Promise<void>",
-          "parameters": [],
-          "docs": "Resets the `globalRowHeight` prop to `40px` and sets the `variableRowHeight` prop to `null`.",
+          "signature": "resetRowHeights(rowHeight?: number | \"auto\") => Promise<void>",
+          "parameters": [
+            {
+              "name": "rowHeight",
+              "type": "number | \"auto\"",
+              "docs": ""
+            }
+          ],
+          "docs": "Resets the `globalRowHeight` prop to number or auto and sets the `variableRowHeight` prop to `null`.",
           "docsTags": []
         }
       ],
@@ -925,12 +969,17 @@
       ],
       "listeners": [
         {
-          "event": "icItemsPerPageChange",
+          "event": "typographyTruncationExpandToggle",
           "capture": false,
           "passive": false
         },
         {
           "event": "icPageChange",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "icItemsPerPageChange",
           "capture": false,
           "passive": false
         },
@@ -976,6 +1025,7 @@
         "ic-typography",
         "ic-link",
         "ic-button",
+        "ic-tooltip",
         "ic-empty-state",
         "ic-pagination-bar"
       ],
@@ -985,6 +1035,7 @@
           "ic-typography",
           "ic-link",
           "ic-button",
+          "ic-tooltip",
           "ic-empty-state",
           "ic-pagination-bar"
         ],
@@ -1468,6 +1519,28 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "hideHelperText",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-helper-text",
+          "reflectToAttr": false,
+          "docs": "If `true`, the helper text will be visually hidden, but still read out by screenreaders.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -2128,6 +2201,28 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "hideHelperText",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-helper-text",
+          "reflectToAttr": false,
+          "docs": "If `true`, the helper text will be visually hidden, but still read out by screenreaders.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -4596,6 +4691,469 @@
           "ic-typography"
         ]
       }
+    },
+    {
+      "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-tree-item",
+      "readme": "# ic-tree-item\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "label - Content is set as the tree item label."
+        },
+        {
+          "name": "slot",
+          "text": "icon - Content is placed to the left of the label."
+        },
+        {
+          "name": "slot",
+          "text": "router-item - Handle routing by nesting your routes in this slot."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tree item appears in the disabled state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "complexType": {
+            "original": "string | undefined",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": false,
+          "docs": "The URL that the tree item link points to. If set, the tree item will render as an \"a\" tag, otherwise it will render as a div.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "hreflang",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hreflang",
+          "reflectToAttr": false,
+          "docs": "The human language of the linked URL.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label of the tree item.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "referrerpolicy",
+          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+          "complexType": {
+            "original": "ReferrerPolicy",
+            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+            "references": {
+              "ReferrerPolicy": {
+                "location": "global",
+                "id": "global::ReferrerPolicy"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "referrerpolicy",
+          "reflectToAttr": false,
+          "docs": "How much of the referrer to send when following the link.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "\"\""
+            },
+            {
+              "value": "no-referrer",
+              "type": "string"
+            },
+            {
+              "value": "no-referrer-when-downgrade",
+              "type": "string"
+            },
+            {
+              "value": "origin",
+              "type": "string"
+            },
+            {
+              "value": "origin-when-cross-origin",
+              "type": "string"
+            },
+            {
+              "value": "same-origin",
+              "type": "string"
+            },
+            {
+              "value": "strict-origin",
+              "type": "string"
+            },
+            {
+              "value": "strict-origin-when-cross-origin",
+              "type": "string"
+            },
+            {
+              "value": "unsafe-url",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "rel",
+          "reflectToAttr": false,
+          "docs": "The relationship of the linked URL as space-separated link types.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "selected",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tree item appears in the selected state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the native `input`.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "icTreeItemSelected",
+          "detail": "{ id: string; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ id: string }",
+            "resolved": "{ id: string; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when tree item is selected.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [
+        {
+          "name": "icon",
+          "docs": "Content is placed to the left of the label."
+        },
+        {
+          "name": "label",
+          "docs": "Content is set as the tree item label."
+        },
+        {
+          "name": "router-item",
+          "docs": "Handle routing by nesting your routes in this slot."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-tooltip",
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-tree-item": [
+          "ic-tooltip",
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/ic-tree-view/ic-tree-view.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-tree-view",
+      "readme": "# ic-tree-view\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "heading - Content is set as the tree view heading."
+        },
+        {
+          "name": "slot",
+          "text": "icon - Content is placed to the left of the heading."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeForegroundNoDefault",
+            "resolved": "\"dark\" | \"light\"",
+            "references": {
+              "IcThemeForegroundNoDefault": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeForegroundNoDefault"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the tree view, e.g. dark, or light.",
+          "docsTags": [],
+          "default": "\"dark\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "heading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "The heading of the tree view.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"large\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the tree view.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "icTreeItemSelected",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [
+        {
+          "name": "--tree-view-width",
+          "annotation": "prop",
+          "docs": "Width of the tree view"
+        }
+      ],
+      "slots": [
+        {
+          "name": "heading",
+          "docs": "Content is set as the tree view heading."
+        },
+        {
+          "name": "icon",
+          "docs": "Content is placed to the left of the heading."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-tooltip",
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-tree-view": [
+          "ic-tooltip",
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
+      }
     }
   ],
   "typeLibrary": {
@@ -4605,7 +5163,7 @@
       "path": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
+      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: IcDataTableRowOptions;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -4631,6 +5189,11 @@
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableSortOrderOptions": {
       "declaration": "export type IcDataTableSortOrderOptions =\n  | \"unsorted\"\n  | \"ascending\"\n  | \"descending\";",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
+      "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"show-hide\" | undefined;",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -4716,6 +5279,11 @@
     },
     "src/utils/types.ts::IcSearchMatchPositions": {
       "declaration": "export type IcSearchMatchPositions = \"start\" | \"anywhere\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcThemeForegroundNoDefault": {
+      "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     }

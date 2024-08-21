@@ -136,6 +136,53 @@ export const WithStatusTags = () => {
   );
 };
 
+export const WithStatusTagsAsValue = () => {
+  return (
+    <IcDataEntity heading="Personal details">
+      <IcDataRow label="Name">
+        <IcStatusTag
+          status="success"
+          label="approved"
+          variant="filled"
+          slot="value"
+        />
+      </IcDataRow>
+      <IcDataRow label="Date of Birth">
+        <IcStatusTag
+          status="success"
+          label="approved"
+          variant="filled"
+          slot="value"
+        />
+      </IcDataRow>
+      <IcDataRow label="Telephone">
+        <IcStatusTag
+          status="success"
+          label="approved"
+          variant="filled"
+          slot="value"
+        />
+      </IcDataRow>
+      <IcDataRow label="Address">
+        <IcStatusTag
+          status="success"
+          label="approved"
+          variant="filled"
+          slot="value"
+        />
+      </IcDataRow>
+      <IcDataRow label="Email">
+        <IcStatusTag
+          status="success"
+          label="approved"
+          variant="filled"
+          slot="value"
+        />
+      </IcDataRow>
+    </IcDataEntity>
+  );
+};
+
 export const Small = () => {
   return (
     <IcDataEntity heading="Personal details" size="small">
@@ -158,17 +205,49 @@ export const Small = () => {
   );
 };
 
+export const LongTextValues = () => {
+  return (
+    <IcDataEntity heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua">
+      <IcDataRow
+        label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        value="value"
+      />
+      <IcDataRow label="Label" value="value" />
+      <IcDataRow label="Label" value="value" />
+      <IcDataRow
+        label="Label"
+        value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+      />
+      <IcDataRow label="Label" value="value" />
+      <IcDataRow label="Label">
+        <IcTypography variant="body" slot="value">
+          383 Coffee Drive
+          <br />
+          London
+          <br />
+          SW7 988
+          <br />
+          United Kingdom
+        </IcTypography>
+      </IcDataRow>
+      <IcDataRow label="Label" value="value" />
+      <IcDataRow label="Label" value="value" />
+    </IcDataEntity>
+  );
+};
+
 export const Editable = () => {
   return (
-    <>
+    <div>
       <IcDataEntity heading="Order details">
         <IcDataRow label="Order name">
           <IcTextField
             slot="value"
             label="Order name"
             value="Michael"
-            hide-label
-            full-width
+            readonly
+            hideLabel
+            fullWidth
           />
         </IcDataRow>
         <IcDataRow label="Drink" value="Americano">
@@ -176,8 +255,9 @@ export const Editable = () => {
             slot="value"
             label="Drink"
             value="Americano"
-            hide-label
-            full-width
+            readonly
+            hideLabel
+            fullWidth
           />
         </IcDataRow>
         <IcDataRow label="Milk option" value="Soya milk">
@@ -185,8 +265,9 @@ export const Editable = () => {
             slot="value"
             label="Milk option"
             value="Soya milk"
-            hide-label
-            full-width
+            readonly
+            hideLabel
+            fullWidth
           />
         </IcDataRow>
         <IcDataRow label="Price" value="£3.25">
@@ -194,8 +275,9 @@ export const Editable = () => {
             slot="value"
             label="Price"
             value="£3.25"
-            hide-label
-            full-width
+            readonly
+            hideLabel
+            fullWidth
           />
         </IcDataRow>
         <IcDataRow label="Payment method">
@@ -203,38 +285,41 @@ export const Editable = () => {
             slot="value"
             label="Payment method"
             value="VISA ending 5896"
-            hide-label
-            full-width
+            readonly
+            hideLabel
+            fullWidth
           />
         </IcDataRow>
       </IcDataEntity>
-      <IcButton
-        onClick={() => {
-          const textFields = document.querySelectorAll(TEXT_FIELD_SELECTOR);
-          textFields.forEach((textField) => {
-            textField.setAttribute("readonly", "");
-          });
-        }}
-        style={{
-          marginRight: "var(--ic-space-md)",
-          marginTop: LARGE_SPACING_CSS,
-        }}
-      >
-        Confirm
-      </IcButton>
-      <IcButton
-        onClick={() => {
-          const textFields = document.querySelectorAll(TEXT_FIELD_SELECTOR);
-          textFields.forEach((textField) => {
-            textField.removeAttribute("readonly");
-          });
-        }}
-        variant="secondary"
-        style={{ marginTop: LARGE_SPACING_CSS }}
-      >
-        Edit
-      </IcButton>
-    </>
+      <div>
+        <IcButton
+          onClick={() => {
+            const textFields = document.querySelectorAll(TEXT_FIELD_SELECTOR);
+            textFields.forEach((textField) => {
+              textField.setAttribute("readonly", "");
+            });
+          }}
+          style={{
+            marginRight: "var(--ic-space-md)",
+            marginTop: LARGE_SPACING_CSS,
+          }}
+        >
+          Confirm
+        </IcButton>
+        <IcButton
+          onClick={() => {
+            const textFields = document.querySelectorAll(TEXT_FIELD_SELECTOR);
+            textFields.forEach((textField) => {
+              textField.removeAttribute("readonly");
+            });
+          }}
+          variant="secondary"
+          style={{ marginTop: LARGE_SPACING_CSS }}
+        >
+          Edit
+        </IcButton>
+      </div>
+    </div>
   );
 };
 

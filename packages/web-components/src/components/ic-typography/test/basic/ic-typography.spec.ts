@@ -1,5 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Typography } from "../../ic-typography";
+import * as helpers from "../../../../utils/helpers";
 
 describe("ic-typography component", () => {
   it("should render with default body styles", async () => {
@@ -415,5 +416,74 @@ describe("ic-typography component", () => {
 
     //test disconnected callback
     page.setContent("");
+  });
+
+  it("should apply the correct class when in an AG Grid", async () => {
+    Object.defineProperty(helpers, "isElInAGGrid", {
+      value: jest.fn().mockReturnValue(true),
+    });
+
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography><p>IC Typography Test</p></ic-typography>`,
+    });
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.inAGGrid).toBe(true);
+    expect(
+      document.querySelector("ic-typography").classList.contains("in-ag-grid")
+    ).toBe(true);
+  });
+
+  it("should set the typography expanded state", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography max-lines="3">
+        Body of text that is truncated to three lines. Click the 'See more' link to
+        expand the text, then click 'See less' to truncate the text once more!
+        Dripper caramelization java saucer grounds galão, mocha, and robusta
+        kopi-luwak, percolator, instant, qui saucer latte in brewed café au
+        lait. Con panna, cup, cream, body americano affogato cup espresso, rich
+        milk seasonal saucer grinder spoon that cultivar strong redeye
+        frappuccino barista extraction redeye mazagran.
+      </ic-typography>`,
+    });
+
+    expect(page.rootInstance.expanded).toBe(false);
+
+    await page.rootInstance.setShowHideExpanded(true);
+
+    expect(page.rootInstance.expanded).toBe(true);
+  });
+
+  it("should reset truncation properties", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography max-lines="3" style='--truncation-max-lines: 1;'>
+        Body of text that is truncated to three lines. Click the 'See more' link to
+        expand the text, then click 'See less' to truncate the text once more!
+        Dripper caramelization java saucer grounds galão, mocha, and robusta
+        kopi-luwak, percolator, instant, qui saucer latte in brewed café au
+        lait. Con panna, cup, cream, body americano affogato cup espresso, rich
+        milk seasonal saucer grinder spoon that cultivar strong redeye
+        frappuccino barista extraction redeye mazagran.
+      </ic-typography>`,
+    });
+
+    page.rootInstance.el.clientHeight = 96;
+    page.rootInstance.el.clientWidth = 200;
+    page.rootInstance.resizeObserverCallback();
+    await page.rootInstance.setShowHideExpanded(true);
+
+    expect(page.rootInstance.truncated).toBe(true);
+    expect(page.rootInstance.maxLines).toBe(3);
+    expect(page.rootInstance.expanded).toBe(true);
+
+    await page.rootInstance.resetTruncation();
+
+    expect(page.rootInstance.truncated).toBe(false);
+    expect(page.rootInstance.maxLines).toBe(null);
+    expect(page.rootInstance.expanded).toBe(false);
   });
 });

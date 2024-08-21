@@ -5,9 +5,34 @@
   max-height: 100%;
 }
 
+tbody {
+  vertical-align: top;
+}
+
 .table-container {
   position: relative;
   height: calc(100% - var(--ic-space-xxxs));
+  display: flex;
+  flex-direction: column;
+}
+
+.cell-container {
+  display: flex;
+  min-height: 1.5rem;
+  overflow-y: hidden;
+}
+
+.truncation-show-hide {
+  overflow: visible;
+  display: block;
+}
+
+.cell-icon.truncation-show-hide {
+  display: flex;
+}
+
+.cell-container:not(.data-type-element, .truncation-show-hide) {
+  overflow-x: hidden;
 }
 
 ic-loading-indicator {
@@ -149,6 +174,14 @@ table {
   justify-content: end !important;
 }
 
+.cell-alignment-right.truncation-tooltip ic-tooltip ic-typography {
+  padding-right: calc(var(--ic-space-xxs) + var(--ic-space-xs));
+}
+
+.cell-alignment-right.truncation-show-hide ic-typography {
+  --ellipsis-padding-right: calc(var(--ic-space-xxs) + var(--ic-space-xs));
+}
+
 .column-header-alignment-center,
 .row-header-alignment-center,
 .cell-alignment-center {
@@ -163,9 +196,11 @@ table {
 .table-cell {
   padding: var(--ic-space-xs);
   border-bottom: solid var(--ic-architectural-100) var(--ic-space-1px);
+  overflow: hidden;
 }
 
-.data-type-string {
+.data-type-string,
+.data-type-address {
   text-align: left;
   vertical-align: top;
 }
@@ -179,14 +214,17 @@ table {
 
 .cell-alignment-top {
   vertical-align: top;
+  align-items: flex-start;
 }
 
 .cell-alignment-middle {
   vertical-align: middle;
+  align-items: center;
 }
 
 .cell-alignment-bottom {
   vertical-align: bottom;
+  align-items: flex-end;
 }
 
 .cell-emphasis-low {
@@ -273,13 +311,25 @@ table {
   display: inline-block;
 }
 
+.truncation-tooltip ic-typography {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--ic-line-clamp, 0);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncation-tooltip ic-typography,
+.truncation-show-hide ic-typography {
+  white-space: normal;
+}
+
+.ic-tooltip-overflow {
+  overflow: hidden;
+}
+
 @media screen and (min-width: 576px) {
   .column-header-inner-container {
     display: flex;
     align-items: center;
-  }
-
-  .cell-container {
-    display: flex;
   }
 }

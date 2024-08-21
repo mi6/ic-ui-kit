@@ -14,12 +14,14 @@ import {
   Default,
   Editable,
   EditableRow,
+  LongTextValues,
   OneDataRow,
   SlottedHeadingLabel,
   Small,
   WithButton,
   WithLinks,
   WithStatusTags,
+  WithStatusTagsAsValue,
 } from "./IcDataEntityTestData";
 
 const DEFAULT_TEST_THRESHOLD = 0.025;
@@ -29,7 +31,7 @@ const ORDER_DETAILS_HEADING_SELECTOR = '[heading="Order details"]';
 const DATA_ROW_SELECTOR = "ic-data-row";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
 
-describe("IcDataEntity E2E, visual and a11y testing", () => {
+describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 750);
@@ -39,18 +41,19 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
     cy.task("generateReport");
   });
 
-  it("should render", () => {
+  it("should render default", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <Default />
       </div>
     );
 
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
-      delay: 200,
     });
   });
 
@@ -60,6 +63,8 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
         <WithLinks />
       </div>
     );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -74,6 +79,8 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
         <SlottedHeadingLabel />
       </div>
     );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -133,10 +140,28 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       </div>
     );
 
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "status-tag",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+  });
+
+  it("should render with status tags as value", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <WithStatusTagsAsValue />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "status-tag-as-value",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
 
@@ -147,6 +172,8 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       </div>
     );
 
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "size-small",
@@ -154,18 +181,52 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
     });
   });
 
-  it("should render editable", () => {
+  it("should render with long text values", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <LongTextValues />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "long-text-values",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
+    });
+  });
+
+  it("should render editable - before edit", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <Editable />
       </div>
     );
 
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "editable-data",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
+    });
+  });
+
+  it("should render editable - during edit", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <Editable />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+    cy.get("ic-button").contains("Edit").click();
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "editable-data-clicked",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
-      delay: 500,
     });
   });
 
@@ -187,12 +248,122 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       .type("Matt")
       .should(HAVE_VALUE, "Matt");
     cy.get("ic-button").contains("Confirm").click();
+    cy.get("input").should(HAVE_VALUE, "Matt");
 
     cy.checkA11yWithWait();
 
     cy.compareSnapshot({
       name: "editable-name-data",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
+    });
+  });
+});
+
+describe("IcDataEntity visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  beforeEach(() => {
+    cy.viewport(1024, 750);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render default in high contrast mode", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <Default />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "default-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+    });
+  });
+
+  it("should render with links in the end component slot in high contrast mode", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <WithLinks />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "links-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+    });
+  });
+
+  it("should render with button in end component slot in high contrast mode", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <WithButton />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "button-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+    });
+  });
+
+  it("should render with status tags in the end component slot in high contrast mode", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <WithStatusTags />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "status-tag-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+    });
+  });
+
+  it("should render editable in high contrast mode - before edit", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <Editable />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "editable-data-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+    });
+  });
+
+  it("should render editable in high contrast mode - during edit", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <Editable />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+    cy.get("ic-button").contains("Edit").click().wait(500);
+
+    cy.compareSnapshot({
+      name: "editable-data-clicked-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 });

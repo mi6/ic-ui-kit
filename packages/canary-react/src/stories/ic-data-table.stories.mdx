@@ -16,13 +16,17 @@ import {
   LONG_COLS,
   ROW_HEADER_COLS,
   ROW_HEADER_DATA,
+  LONG_DATA_VALUES,
   COLS_ALIGNMENT,
   ROW_ALIGNMENT,
   DATA_CELL_ALIGNMENT,
   COLS_ELEMENTS,
   DATA_REACT_ELEMENTS,
+  COLUMNS_NO_TEXT_WRAP,
   ICON_DATA,
   ICON_COLS,
+  COLUMNS_TEXT_WRAP,
+  TEXT_WRAP_LONG_DATA
 } from "../../../canary-web-components/src/components/ic-data-table/story-data";
 
 import { mdiAccountGroup, mdiImage } from "@mdi/js";
@@ -958,7 +962,7 @@ export default DataTable;
 
 ### Updating state
 
-If certain data in the table has changed, an `updating` prop has been supplied to show a linear `IcLoadingIndicator` just above the data rows.
+If data in the table has changed, an `updating` prop has been supplied to show a linear `IcLoadingIndicator` just above the data rows.
 
 This prop is also accompanied by an `updatingOptions` prop, which contains similar options to `loadingOptions`, minus `label` and `labelDuration` since the linear version is displayed.
 
@@ -1283,6 +1287,273 @@ const DataTable = () => (
 
 export default DataTable;
 ```
+
+### Data truncation
+
+When a row is given a set height, and has content that no longer fits into the cell area, the content becomes truncated. There are two types of truncation:
+
+- `tooltip`: Adds a line-clamp to the cell and displays the message in a tooltip.
+- `show-hide`: Adds a `See more/See less` button underneath the cell text, allowing the user to display the full content should they wish.
+
+These values are set using the `truncationPattern` property.
+
+#### Data truncation tooltip
+
+export const TruncationTooltip = () => {
+  const [globalRowHeight, setGlobalRowHeight] = useState(40);
+  const handleRowHeight = (height) => {
+    setGlobalRowHeight(height)
+  }
+  return (
+    <>
+      <IcDataTable
+        caption="Truncating tooltip"
+        columns={COLUMNS_NO_TEXT_WRAP}
+        data={LONG_DATA_VALUES}
+        truncationPattern="tooltip"
+        globalRowHeight={globalRowHeight}
+      />
+      <div style={{ display: 'flex', gap: '8px', paddingBlock: '8px'}}>
+        <IcButton onClick={() => handleRowHeight(80)}>Set globalRowHeight to 80</IcButton>
+        <IcButton onClick={() => handleRowHeight(40)}>Reset globalRowHeight to 40</IcButton>
+      </div>
+    </>
+  )
+}
+
+<Canvas withSource="none">
+  <Story name="Data truncation tooltip">
+    <TruncationTooltip />
+  </Story>
+</Canvas>
+
+#### Data truncation tooltip code example
+
+```tsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable
+    caption="Data truncation tooltip"
+    columns={columns}
+    data={data}
+    truncationPattern="tooltip"
+    globalRowHeight={40}
+  />
+)
+
+export default DataTable;
+```
+
+
+#### Data truncation see more / see less
+
+export const TruncationShowHide = () => {
+  const [globalRowHeight, setGlobalRowHeight] = useState(40);
+  const handleRowHeight = (height) => {
+    setGlobalRowHeight(height)
+  }
+  return (
+    <>
+      <IcDataTable
+        caption="Truncating show hide"
+        columns={COLUMNS_NO_TEXT_WRAP}
+        data={LONG_DATA_VALUES}
+        truncationPattern="show-hide"
+        globalRowHeight={globalRowHeight}
+      />
+      <div style={{ display: 'flex', gap: '8px', paddingBlock: '8px'}}>
+        <IcButton onClick={() => handleRowHeight(80)}>Set globalRowHeight to 80</IcButton>
+        <IcButton onClick={() => handleRowHeight(40)}>Reset globalRowHeight to 40</IcButton>
+      </div>
+    </>
+  )
+}
+
+
+<Canvas withSource="none">
+  <Story name="Data truncation see more / see less">
+  <TruncationShowHide />
+  </Story>
+</Canvas>
+
+
+
+#### Data truncation see more / see less code example
+
+```tsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable
+    caption="Truncating Cell Data"
+    columns={columns}
+    data={data}
+    truncationPattern="show-hide"
+    globalRowHeight={40}
+  />
+)
+
+export default DataTable;
+```
+
+### Text Wrap
+
+Text can be set to wrap in a particular column, row or cell. 
+
+Any column, row or cell that text wrap is applied to will ignore the custom height if the custom height is too small and the full content will be shown.
+
+To set text to wrap in a column, add `textWrap: true` as a key value.
+
+```jsx
+const column = [
+  { key: "name", title: "Name", dataType: "string" },
+
+  ...
+]
+```
+
+To set text to wrap in a row, add `rowOptions: { textWrap: true }` to an object within the data array.
+
+
+```jsx
+const data = [
+  {
+    name: "Tim Rayes",
+    age: 41,
+    department: "Sales and Marketing",
+    employeeNumber: 3,
+    jobTitle:
+      "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+    rowOptions: {
+      textWrap: true
+    }
+  },
+  ...
+]
+```
+
+To set text wrap in a cell, add `textWrap` to a data key within an object.
+
+```jsx
+const data = [
+  {
+    name: {
+      data:"Tim Rayes",
+      textWrap: true
+    } 
+    age: 41,
+    department: "Sales and Marketing",
+    employeeNumber: 3,
+    jobTitle:
+      "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+  },
+  ...
+]
+```
+
+<Canvas withSource="none">
+  <Story name="Text Wrap">
+    <IcDataTable
+      caption="Truncating Cell Data"
+      columns={COLUMNS_TEXT_WRAP}
+      data={TEXT_WRAP_LONG_DATA}
+    />
+  </Story>
+</Canvas>
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  { key: "name", title: "Name", dataType: "string" },
+  ...
+  { key: "department", title: "Department", dataType: "string", textWrap: true },
+  ...
+];
+
+const data = [
+  {
+    name: "John Smith",
+    age: 36,
+    department: "Accounts & Finance",
+    employeeNumber: 1,
+    jobTitle: {
+      data: "Senior Financial Operations and Reporting Analyst",
+      textWrap: true
+    },
+  },
+  ...
+  {
+    name: "Tim Rayes",
+    age: 41,
+    department: "Sales and Marketing",
+    employeeNumber: 3,
+    jobTitle:
+      "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+    rowOptions: {
+      textWrap: true
+    }
+  },
+];
+
+const DataTable = () => (
+  <IcDataTable
+    caption="Text Wrap"
+    columns={columns}
+    data={data}
+  />
+)
+
+export default DataTable;
+```
+
 
 ### Custom Title Bar
 
@@ -1702,6 +1973,7 @@ export const defaultArgs = {
   titleBarSlot: true,
   titleBarDesc: "Title bar description",
   titleBarHeading: "Title bar heading",
+  truncationPattern: "tooltip",
   hideDensitySelect: false,
   titleBarMetadata: "128 items | 32gb | Updated: 01/02/03",
   titleBarPrimaryActionSlot: true,
@@ -1734,6 +2006,10 @@ export const defaultArgs = {
       },
       paginationAlignment: {
         options: ["left", "right", "space-between"],
+        control: { type: "inline-radio" },
+      },
+      truncationPattern: {
+        options: ["tooltip", "show-hide"],
         control: { type: "inline-radio" },
       },
       updatingAppearance: {
@@ -1802,6 +2078,7 @@ export const defaultArgs = {
         }}
         stickyColumnHeaders={args.stickyColumnHeaders}
         stickyRowHeaders={args.stickyRowHeaders}
+        truncationPattern={args.truncationPattern}
         updating={args.updating}
         updatingOptions={{
           appearance: args.updatingAppearance,

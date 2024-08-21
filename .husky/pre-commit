@@ -1,9 +1,9 @@
 #!/bin/bash
-. "$(dirname "$0")/_/husky.sh"
-
 bash "$(dirname "$0")/email-check.sh"
 
 npm run test-cypress:headless
+
+npm run lint:spelling
 
 pwd=$(pwd)
 

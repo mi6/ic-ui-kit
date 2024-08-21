@@ -5,6 +5,10 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
+import { AgGridReact } from 'ag-grid-react';
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-quartz.css";
+
 import { IcTypography } from "../components";
 import readme from "../../../web-components/src/components/ic-typography/readme.md";
 
@@ -395,6 +399,72 @@ export const defaultArgs = {
         luctus enim tempus. Nam iaculis odio et orci consequat, et volutpat
         dolor finibus. Proin et porttitor diam. Ut quis est vel diam tincidunt
         congue nec at ipsum.</IcTypography>
+  </Story>
+</Canvas>
+
+### In an AG Grid
+
+export const AGGrid = () => {
+  const JobTitleRenderer = (params) => <IcTypography><p>{params.value}</p></IcTypography>
+
+  const rowData = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      jobTitle: "Developer",
+      age: 30,
+    },
+    {
+      firstName: "Sarah",
+      lastName: "Smith",
+      jobTitle: "Analyst",
+      age: 28,
+    },
+    {
+      firstName: "Mark",
+      lastName: "Owens",
+      jobTitle: "Team Lead",
+      age: 45,
+    },
+    {
+      firstName: "Naomi",
+      lastName: "Thomas",
+      jobTitle: "Senior Software Architect",
+      age: 32,
+    },
+    {
+      firstName: "Luke",
+      lastName: "Ashford",
+      jobTitle: "Junior Developer",
+      age: 18,
+    },
+  ];
+
+  const colDefs = [
+    { field: "firstName" },
+    { field: "lastName" },
+    { field: "jobTitle", cellRenderer: JobTitleRenderer },
+    { field: "age" },
+  ];
+
+  return (
+    <>
+      <div
+        className="ag-theme-quartz"
+      >
+        <AgGridReact
+          rowData={rowData}
+          columnDefs={colDefs}
+          domLayout="autoHeight"
+        />
+      </div>
+    </>
+  )
+}
+
+<Canvas>
+  <Story name="In an AG Grid">
+    <AGGrid />
   </Story>
 </Canvas>
 

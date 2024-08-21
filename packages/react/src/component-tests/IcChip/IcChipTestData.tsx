@@ -1,5 +1,9 @@
 import { IcBadge, IcButton, IcChip } from "../../";
 import React, { ReactElement, useRef } from "react";
+import { AgGridReact, CustomCellRendererProps } from "ag-grid-react";
+import { ColDef } from "ag-grid-community";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-quartz.css";
 
 const ReusableSlottedIcon = (): ReactElement => (
   <svg
@@ -185,5 +189,43 @@ export const TransparentBackground = () => {
         <ReusableSlottedIcon />
       </IcChip>
     </div>
+  );
+};
+
+export const InAGGrid = () => {
+  const JobTitleRenderer = (params: CustomCellRendererProps) => (
+    <IcChip label={params.value} />
+  );
+
+  interface RowData {
+    jobTitle: string;
+  }
+
+  const rowData = [
+    {
+      jobTitle: "Developer",
+    },
+    {
+      jobTitle: "Analyst",
+    },
+    {
+      jobTitle: "Senior Software Architect",
+    },
+  ];
+
+  const colDefs = [
+    { field: "jobTitle", cellRenderer: JobTitleRenderer },
+  ] as ColDef<RowData>[];
+
+  return (
+    <>
+      <div className="ag-theme-quartz">
+        <AgGridReact
+          rowData={rowData}
+          columnDefs={colDefs}
+          domLayout="autoHeight"
+        />
+      </div>
+    </>
   );
 };

@@ -61,6 +61,8 @@
     "@types/node": "^16.11.11",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
+    "ag-grid-community": "^32.0.2",
+    "ag-grid-react": "^32.0.2",
     "axe-core": "^4.8.2",
     "babel-loader": "^8.3.0",
     "cross-env": "^7.0.3",

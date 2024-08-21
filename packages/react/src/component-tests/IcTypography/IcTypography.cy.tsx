@@ -15,6 +15,7 @@ import {
   Truncation,
   MinAndMax,
   AllPropTextStyles,
+  InAGGrid,
 } from "./IcTypographyTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import "cypress-axe";
@@ -174,6 +175,17 @@ describe("IcTypography visual regression and a11y tests", () => {
       name: "all-prop-text-styles",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.074),
     });
+  });
+});
+
+it("should render as truncated in an AG Grid when there is not enough space", () => {
+  mount(<InAGGrid />);
+
+  cy.checkHydrated(TYPOGRAPHY_SELECTOR);
+
+  cy.compareSnapshot({
+    name: "in-ag-grid",
+    testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.044),
   });
 });
 

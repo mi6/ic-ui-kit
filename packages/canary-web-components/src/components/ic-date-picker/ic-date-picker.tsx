@@ -60,6 +60,7 @@ interface IcDateInputProps {
   disablePast?: boolean;
   disablePastMessage?: string;
   helperText?: string;
+  hideHelperText?: boolean;
   inputId?: string;
   label: string;
   max?: string | Date;
@@ -182,6 +183,11 @@ export class DatePicker {
    * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
    */
   @Prop() helperText?: string;
+
+  /**
+   * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+   */
+  @Prop() hideHelperText: boolean = false;
 
   /**
    * The ID for the input field. The default will be an automatically generated value.
@@ -1245,6 +1251,9 @@ export class DatePicker {
     }
     if (this.helperText !== undefined) {
       inputProps.helperText = this.helperText;
+    }
+    if (this.hideHelperText !== false) {
+      inputProps.hideHelperText = this.hideHelperText;
     }
     if (this.inputId !== undefined) {
       inputProps.inputId = this.inputId;

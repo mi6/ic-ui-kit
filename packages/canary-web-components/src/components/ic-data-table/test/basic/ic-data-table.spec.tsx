@@ -1141,7 +1141,7 @@ describe(icDataTable, () => {
 
     expect(page.root).toMatchSnapshot();
 
-    await (page.root as HTMLIcDataTableElement).resetRowHeights();
+    await (page.root as HTMLIcDataTableElement).resetRowHeights(40);
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();

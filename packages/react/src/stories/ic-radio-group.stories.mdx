@@ -39,9 +39,17 @@ import { useState, useEffect, useRef } from "react";
 
 <Canvas>
   <Story name="Horizontal">
-    <IcRadioGroup orientation="horizontal" label="This is a label" name="1">
+    <IcRadioGroup orientation="horizontal" label="This should be horizontal" name="1">
       <IcRadioOption value="valueName1" label="Selected / Default" selected />
       <IcRadioOption value="valueName2" label="Unselected / Default" />
+    </IcRadioGroup>
+    <br/>
+    <p>Horizontal orientation is overridden with >2 radio options</p>
+    <br/>
+    <IcRadioGroup orientation="horizontal" label="This should be vertical" name="2">
+      <IcRadioOption value="valueNameA" label="First" selected />
+      <IcRadioOption value="valueNameB" label="Second" />
+      <IcRadioOption value="valueNameC" label="Third" />
     </IcRadioGroup>
   </Story>
 </Canvas>

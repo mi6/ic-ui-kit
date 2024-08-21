@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-tree-item component should render 1`] = `
+<ic-tree-item aria-disabled="false" class="ic-tree-item-dark" id="ic-tree-item-0" label="Item 1">
+  <mock:shadow-root>
+    <div class="ic-tree-item-single tree-item-content" tabindex="0">
+      <ic-typography class="tree-item-label">
+        Item 1
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-tree-item>
+`;
+
+exports[`ic-tree-item component should render disabled 1`] = `
+<ic-tree-item aria-disabled="true" class="ic-tree-item-dark ic-tree-item-disabled" disabled="true" id="ic-tree-item-6" label="Item 1">
+  <mock:shadow-root>
+    <div class="ic-tree-item-single tree-item-content" tabindex="-1">
+      <ic-typography class="tree-item-label">
+        Item 1
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-tree-item>
+`;
+
+exports[`ic-tree-item component should render selected 1`] = `
+<ic-tree-item aria-disabled="false" class="ic-tree-item-dark ic-tree-item-selected" id="ic-tree-item-7" label="Item 1" selected="true">
+  <mock:shadow-root>
+    <div class="ic-tree-item-single tree-item-content" tabindex="0">
+      <ic-typography class="tree-item-label">
+        Item 1
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-tree-item>
+`;
+
+exports[`ic-tree-item component should render with child tree items 1`] = `
+<ic-tree-item aria-disabled="false" class="ic-tree-item-dark" id="ic-tree-item-2" label="Item 1">
+  <mock:shadow-root>
+    <div class="tree-item-content" tabindex="0">
+      <span aria-hidden="true" class="arrow-dropdown">
+        svg
+      </span>
+      <ic-typography class="tree-item-label">
+        Item 1
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+  <ic-tree-item aria-disabled="false" class="ic-tree-item-dark" id="ic-tree-item-3" label="Item 1.1">
+    <mock:shadow-root>
+      <div class="ic-tree-item-single tree-item-content" tabindex="0">
+        <ic-typography class="tree-item-label">
+          Item 1.1
+        </ic-typography>
+      </div>
+    </mock:shadow-root>
+  </ic-tree-item>
+  <ic-tree-item aria-disabled="false" class="ic-tree-item-dark" id="ic-tree-item-4" label="Item 1.2">
+    <mock:shadow-root>
+      <div class="ic-tree-item-single tree-item-content" tabindex="0">
+        <ic-typography class="tree-item-label">
+          Item 1.2
+        </ic-typography>
+      </div>
+    </mock:shadow-root>
+  </ic-tree-item>
+</ic-tree-item>
+`;
+
+exports[`ic-tree-item component should render with icon 1`] = `
+<ic-tree-item aria-disabled="false" class="ic-tree-item-dark" id="ic-tree-item-1" label="Item 1">
+  <mock:shadow-root>
+    <div class="ic-tree-item-single tree-item-content" tabindex="0">
+      <div class="icon-container">
+        <slot name="icon"></slot>
+      </div>
+      <ic-typography class="tree-item-label">
+        Item 1
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+  <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>
+  </svg>
+</ic-tree-item>
+`;
+
+exports[`ic-tree-item component should render with router item slot 1`] = `
+<ic-tree-item aria-disabled="false" class="ic-tree-item-dark" id="ic-tree-item-5" label="Item 1">
+  <mock:shadow-root>
+    <slot name="router-item"></slot>
+  </mock:shadow-root>
+  <a href="/" slot="router-item">
+    Item 1
+  </a>
+</ic-tree-item>
+`;
+
+exports[`ic-tree-item component should render with slotted label 1`] = `
+<ic-tree-item aria-disabled="false" class="ic-tree-item-dark" id="ic-tree-item-8">
+  <mock:shadow-root>
+    <div class="ic-tree-item-single tree-item-content" tabindex="0">
+      <ic-typography class="ic-typography-body tree-item-label">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        <slot name="label"></slot>
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+  <ic-typography class="ic-typography-body" slot="label" variant="body">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    Item 1
+  </ic-typography>
+</ic-tree-item>
+`;

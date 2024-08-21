@@ -4,33 +4,35 @@ Welcome and thank you for contributing to the Intelligence Community UI Kit. Thi
 
 **Table of contents**
 
-- [Code of conduct](#code-of-conduct)
-
-- [How to contribute](#how-to-contribute)
+- [Contributing to the Intelligence Community UI Kit](#contributing-to-the-intelligence-community-ui-kit)
+  - [Code of conduct](#code-of-conduct)
+  - [How to contribute](#how-to-contribute)
     - [Making a suggestion or raising a bug](#making-a-suggestion-or-raising-a-bug)
     - [Contributing code](#contributing-code)
     - [Setting up the UI Kit codebase](#setting-up-the-ui-kit-codebase)
     - [Documentation](#documentation)
     - [Pull requests](#pull-requests)
     - [React](#react)
-
-- [Coding standards and practices](#coding-standards-and-practices)
+  - [Coding standards and practices](#coding-standards-and-practices)
     - [Style guide](#style-guide)
+    - [Git user configuration](#git-user-configuration)
     - [Git commit](#git-commit)
+    - [Amending a commit](#amending-a-commit)
     - [Interfaces and types](#interfaces-and-types)
+    - [When to use props, slots or methods](#when-to-use-props-slots-or-methods)
     - [Styling](#styling)
-
-- [Testing](#testing)
+  - [Testing](#testing)
     - [Accessibility](#accessibility)
     - [Unit tests](#unit-tests)
-    - [End-to-end tests / integration tests](#end-to-end--integration-tests)
+    - [End-to-end / integration tests](#end-to-end--integration-tests)
     - [Visual regression tests](#visual-regression-tests)
-
-- [Useful links](#useful-links)
+      - [Generating/updating Cypress screenshots](#generatingupdating-cypress-screenshots)
+    - [Testing best practice](#testing-best-practice)
+    - [Useful links](#useful-links)
 
 ## Code of conduct
 
-The Intelligence Community Design System (ICDS) has adopted the [Contributor Covenant](https://www.contributor-covenant.org/). Please familiarise yourself with our full [conduct principles](https://github.com/mi6/ic-design-system/blob/main/CODE_OF_CONDUCT.md).
+The Intelligence Community Design System (ICDS) has adopted the [Contributor Covenant](https://www.contributor-covenant.org/). Please familiarise yourself with our full [conduct principles](https://github.com/mi6/ic-ui-kit/blob/main/CODE_OF_CONDUCT.md).
 
 ## How to contribute
 
@@ -187,6 +189,42 @@ Follow these steps when making a commit:
 8. Provide a link to the issue by entering the reference e.g. `#123`.
 9. When the editor opens up, check your commit message and press `Ctrl`+`x` to confirm.
 
+### Amending a commit
+
+If you need to make changes to a commit (for example, after receiving comments on a PR), follow these steps:
+
+1. **If you're amending the most recent commit:**
+   - Stage your changes using `git add` and include the files you want to update.
+   - Run `git commit --amend --no-edit` to amend the most recent commit without changing the commit message.
+   - The Commitizen prompt will still appear as if you are making a new commit. Exit the prompt (usually by pressing Ctrl+C).
+   - Push the changes to the remote repository using: `git push --force`.
+
+2. **If you're amending an older commit:**
+   - Use `git rebase` to modify an older commit. For example, to modify commit `a1312407`, run:
+     ```sh
+     git rebase --interactive a1312407
+     ```
+
+   - In the default editor, change `pick` to `edit` for the line mentioning `a1312407`.
+
+   - Save the file and exit. Git will interpret and automatically execute the commands in the file, placing you in the state just after creating commit `a1312407`.
+
+   - Amend the commit by making your changes and then running:
+     ```sh
+     git commit --all --amend --no-edit
+     ```
+
+   - The Commitizen prompt will still appear as if you are making a new commit. Exit the prompt (usually by pressing Ctrl+C).
+
+   - Continue the rebase process by running:
+     ```sh
+     git rebase --continue
+     ```
+
+   - Push the changes to the remote repository using:
+     ```sh
+     git push --force
+     ```
 
 ### Interfaces and types
 

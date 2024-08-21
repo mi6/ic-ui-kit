@@ -9,7 +9,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const DEFAULT_TEST_THRESHOLD = 0.02;
 const BANNER = "ic-classification-banner";
 
-describe("IcClassificationButton visual and a11y testing", () => {
+describe("IcClassificationButton visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -18,7 +18,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     cy.task("generateReport");
   });
 
-  it("should test default banner", () => {
+  it("should render default banner", () => {
     mount(<IcClassificationBanner></IcClassificationBanner>);
     cy.checkHydrated(BANNER);
 
@@ -46,7 +46,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     });
   });
 
-  it("should test official classification banner", () => {
+  it("should render official classification banner", () => {
     mount(
       <IcClassificationBanner classification="official"></IcClassificationBanner>
     );
@@ -59,7 +59,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     });
   });
 
-  it("should test official-sensitive classification banner", () => {
+  it("should render official-sensitive classification banner", () => {
     mount(
       <IcClassificationBanner classification="official-sensitive"></IcClassificationBanner>
     );
@@ -72,7 +72,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     });
   });
 
-  it("should test secret classification banner", () => {
+  it("should render secret classification banner", () => {
     mount(
       <IcClassificationBanner classification="secret"></IcClassificationBanner>
     );
@@ -85,7 +85,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     });
   });
 
-  it("should test top-secret classification banner", () => {
+  it("should render top-secret classification banner", () => {
     mount(
       <IcClassificationBanner classification="top-secret"></IcClassificationBanner>
     );
@@ -98,7 +98,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     });
   });
 
-  it("should test classification banner with country prop", () => {
+  it("should render classification banner with country prop", () => {
     mount(
       <IcClassificationBanner
         classification="official"
@@ -114,7 +114,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     });
   });
 
-  it("should test classification banner with up-to prop", () => {
+  it("should render classification banner with up-to prop", () => {
     mount(
       <IcClassificationBanner
         classification="official"
@@ -130,7 +130,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     });
   });
 
-  it("should test classification banner with inline prop", () => {
+  it("should render classification banner with inline prop", () => {
     mount(
       <div>
         <div
@@ -155,6 +155,35 @@ describe("IcClassificationButton visual and a11y testing", () => {
     cy.compareSnapshot({
       name: "inline-official",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
+  });
+});
+
+describe("IcClassificationBanner visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render classification banner with up-to prop in high contrast mode", () => {
+    mount(
+      <IcClassificationBanner
+        classification="official"
+        upTo={true}
+      ></IcClassificationBanner>
+    );
+    cy.checkHydrated(BANNER);
+
+    cy.compareSnapshot({
+      name: "up-to-official-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 });

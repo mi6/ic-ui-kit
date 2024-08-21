@@ -1,5 +1,9 @@
 import React from "react";
 import { IcTypography } from "../../components";
+import { AgGridReact, CustomCellRendererProps } from "ag-grid-react";
+import { ColDef } from "ag-grid-community";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-quartz.css";
 
 export const Variants = () => {
   return (
@@ -398,5 +402,45 @@ export const AllPropTextStyles = () => {
         Code extra small
       </IcTypography>
     </div>
+  );
+};
+
+export const InAGGrid = () => {
+  const JobTitleRenderer = (params: CustomCellRendererProps) => (
+    <IcTypography>
+      <p>{params.value}</p>
+    </IcTypography>
+  );
+
+  interface RowData {
+    jobTitle: string;
+  }
+
+  const rowData = [
+    {
+      jobTitle: "Developer",
+    },
+    {
+      jobTitle: "Analyst",
+    },
+    {
+      jobTitle: "Senior Software Architect",
+    },
+  ];
+
+  const colDefs = [
+    { field: "jobTitle", cellRenderer: JobTitleRenderer },
+  ] as ColDef<RowData>[];
+
+  return (
+    <>
+      <div className="ag-theme-quartz">
+        <AgGridReact
+          rowData={rowData}
+          columnDefs={colDefs}
+          domLayout="autoHeight"
+        />
+      </div>
+    </>
   );
 };

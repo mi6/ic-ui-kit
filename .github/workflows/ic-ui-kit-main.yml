@@ -63,6 +63,9 @@ jobs:
       - name: Prettier
         run: npm run prettier
 
+      - name: Lint grammar
+        run: npm run lint:spelling
+
       - name: Audit
         run: npm run audit:bypass-expiry
 

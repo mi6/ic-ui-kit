@@ -143,6 +143,7 @@
   line-clamp: var(--truncation-max-lines, initial);
   -webkit-line-clamp: var(--truncation-max-lines, initial);
   overflow: hidden;
+  padding-right: var(--ellipsis-padding-right, 0);
 }
 
 .trunc-btn {
@@ -182,6 +183,13 @@
 
 :host(.bold) {
   font-weight: var(--ic-font-weight-bold);
+}
+
+:host(.in-ag-grid),
+:host(.in-ag-grid) ::slotted(*) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @supports (text-underline-offset: 25%) {

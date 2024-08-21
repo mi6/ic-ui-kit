@@ -243,3 +243,140 @@ export const IndeterminateWithChildren = () => {
     </IcCheckboxGroup>
   );
 };
+
+export const Disabled = () => {
+  return (
+    <IcCheckboxGroup label="This is a label" name="1" disabled>
+      <IcCheckbox value="valueName1" label="Unselected / Disabled 1" disabled />
+      <IcCheckbox value="valueName2" label="Unselected / Disabled 2" disabled />
+      <IcCheckbox
+        value="valueName4"
+        label="Selected / Disabled"
+        disabled
+        checked
+      />
+    </IcCheckboxGroup>
+  );
+};
+
+export const HiddenGroupLabel = () => {
+  return (
+    <IcCheckboxGroup label="Select your extras" hideLabel name="1">
+      <IcCheckbox value="valueName1" label="Extra shot (50p)" />
+      <IcCheckbox value="valueName2" label="Soya milk" checked />
+    </IcCheckboxGroup>
+  );
+};
+
+export const HiddenCheckboxLabel = () => {
+  return (
+    <IcCheckboxGroup label="Select your extras" hideLabel name="1">
+      <IcCheckbox value="valueName1" label="Extra shot (50p)" hideLabel />
+      <IcCheckbox value="valueName2" label="Soya milk" checked hideLabel />
+    </IcCheckboxGroup>
+  );
+};
+
+export const HelperText = () => {
+  return (
+    <IcCheckboxGroup
+      label="Select your extras"
+      name="1"
+      helperText="Additional charges may apply."
+    >
+      <IcCheckbox value="valueName1" label="Extra shot (50p)" />
+      <IcCheckbox value="valueName2" label="Soya milk" checked />
+    </IcCheckboxGroup>
+  );
+};
+
+export const Required = () => {
+  return (
+    <IcCheckboxGroup label="This is a label" required name="1">
+      <IcCheckbox value="valueName1" label="Unselected / Default" />
+      <IcCheckbox value="valueName2" label="Selected / Default" checked />
+      <IcCheckbox value="valueName3" label="Unselected / Disabled" disabled />
+    </IcCheckboxGroup>
+  );
+};
+
+export const DifferentSizes = () => {
+  return (
+    <div>
+      <IcCheckboxGroup label="Select your extras" name="1" size="small">
+        <IcCheckbox value="valueName1" label="Extra shot (50p)" />
+        <IcCheckbox value="valueName2" label="Soya milk" checked />
+        <IcCheckbox value="valueName3" label="Sugar" indeterminate checked />
+      </IcCheckboxGroup>
+      <IcCheckboxGroup label="Select your extras" name="2">
+        <IcCheckbox value="valueName1" label="Extra shot (50p)" />
+        <IcCheckbox value="valueName2" label="Soya milk" checked />
+        <IcCheckbox value="valueName3" label="Sugar" indeterminate checked />
+      </IcCheckboxGroup>
+      <IcCheckboxGroup label="Select your extras" name="3" size="large">
+        <IcCheckbox value="valueName1" label="Extra shot (50p)" />
+        <IcCheckbox value="valueName2" label="Soya milk" checked />
+        <IcCheckbox value="valueName3" label="Sugar" indeterminate checked />
+      </IcCheckboxGroup>
+    </div>
+  );
+};
+
+export const DifferentSizedCheckboxes = () => {
+  return (
+    <div>
+      <IcCheckbox value="valueName1" label="Extra shot (50p)" size="small" />
+      <IcCheckbox value="valueName2" label="Extra shot (50p)" />
+      <IcCheckbox value="valueName3" label="Extra shot (50p)" size="large" />
+    </div>
+  );
+};
+
+export const Conditional = () => {
+  return (
+    <IcCheckboxGroup label="Which coffee do you like best?" name="conditional">
+      <IcCheckbox value="americano" label="Americano" />
+      <IcCheckbox value="espresso" label="Espresso" />
+      <IcCheckbox value="flatwhite" label="Flat white" />
+      <IcCheckbox value="latte" label="Latte" />
+      <IcCheckbox value="cappuccino" label="Cappuccino" />
+      <IcCheckbox value="other" label="Other">
+        <IcTextField slot="additional-field" label="Please let us know..." />
+      </IcCheckbox>
+    </IcCheckboxGroup>
+  );
+};
+
+export const ConditionalDynamic = () => {
+  return (
+    <IcCheckboxGroup label="Which coffee do you like best?" name="dynamic">
+      <IcCheckbox value="americano" label="Americano" />
+      <IcCheckbox value="espresso" label="Espresso" />
+      <IcCheckbox value="flatwhite" label="Flat white" />
+      <IcCheckbox value="latte" label="Latte" />
+      <IcCheckbox value="cappuccino" label="Cappuccino" />
+      <IcCheckbox
+        checked
+        additionalFieldDisplay="dynamic"
+        value="other"
+        label="Other"
+      >
+        <IcTextField slot="additional-field" label="Please let us know..." />
+      </IcCheckbox>
+    </IcCheckboxGroup>
+  );
+};
+
+export const Validation = () => {
+  return (
+    <IcCheckboxGroup
+      label="Select your extras"
+      name="1"
+      validationStatus="error"
+      validationText="Sorry, this is currently unavailable."
+    >
+      <IcCheckbox value="valueName1" label="Extra shot (50p)" />
+      <IcCheckbox value="valueName2" label="Soya milk" checked />
+    </IcCheckboxGroup>
+  );
+};
