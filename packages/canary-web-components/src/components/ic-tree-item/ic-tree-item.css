@@ -11,6 +11,8 @@
   padding: 0 var(--ic-space-xs);
   text-decoration: none;
   color: var(--ic-primary-text);
+
+  --ic-typography-color: var(--ic-primary-text);
 }
 
 ::slotted([slot="router-item"]) {
@@ -70,6 +72,9 @@
 :host(.ic-tree-item-disabled) ::slotted([slot="icon"]),
 :host(.ic-tree-item-disabled) ::slotted([slot="router-item"]) {
   color: var(--ic-architectural-200) !important;
+
+  --ic-typography-color: var(--ic-architectural-200) !important;
+
   fill: var(--ic-architectural-200);
   pointer-events: none;
 }
@@ -79,6 +84,9 @@
 :host(.ic-tree-item-light) ::slotted([slot="icon"]),
 :host(.ic-tree-item-light) ::slotted([slot="router-item"]) {
   color: var(--ic-architectural-white);
+
+  --ic-typography-color: var(--ic-architectural-white);
+
   fill: var(--ic-architectural-white);
 }
 
@@ -130,11 +138,23 @@
     fill: currentcolor;
   }
 
+  :host .tree-item-content:hover,
+  ::slotted([slot="router-item"]:hover),
+  :host .tree-item-content:active,
+  ::slotted([slot="router-item"]:active),
+  :host(.ic-tree-item-selected) .tree-item-content,
+  :host(.ic-tree-item-selected) ::slotted([slot="router-item"]) {
+    background-color: none !important;
+  }
+
   :host(.ic-tree-item-disabled) .tree-item-content,
   :host(.ic-tree-item-disabled) .arrow-dropdown,
   :host(.ic-tree-item-disabled) ::slotted([slot="icon"]),
   :host(.ic-tree-item-disabled) ::slotted([slot="router-item"]) {
     color: GrayText !important;
+
+    --ic-typography-color: GrayText !important;
+
     fill: GrayText !important;
   }
 
@@ -146,5 +166,7 @@
   :host(.ic-tree-item-selected) .tree-item-content,
   :host(.ic-tree-item-selected) ::slotted([slot="router-item"]) {
     color: Highlight !important;
+
+    --ic-typography-color: Highlight !important;
   }
 }
