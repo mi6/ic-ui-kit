@@ -80,7 +80,7 @@ export class ToggleButtonGroup {
   /**
    * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * The variant of the toggle button.
