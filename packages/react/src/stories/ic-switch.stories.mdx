@@ -20,7 +20,7 @@ export const defaultArgs = {
   checked: false,
   hideLabel: false,
   showState: false,
-  size: "default",
+  size: "medium",
 };
 
 ### Default
@@ -161,7 +161,7 @@ export const Controlled = () => {
     args={defaultArgs}
     argTypes={{
       size: {
-        options: ["default", "small"],
+        options: ["medium", "small"],
         control: { type: "inline-radio" },
       },
     }}
