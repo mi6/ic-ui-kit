@@ -45,6 +45,7 @@ import {
   HAVE_CSS,
   NOT_HAVE_CSS,
   NOT_BE_VISIBLE,
+  HAVE_BEEN_CALLED_WITH,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
@@ -975,6 +976,42 @@ describe("IcDataTables", () => {
         capture: "viewport",
       },
       delay: 500,
+    });
+  });
+
+  it("should emit icSortChange event when sort button clicked", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data Tables"
+        sortable
+        onIcSortChange={(e: CustomEvent) => console.log(e.detail)}
+      />
+    );
+
+    cy.get(DATA_TABLE_SELECTOR).invoke(
+      "on",
+      "icSortChange",
+      cy.stub().as("sortChanged")
+    );
+
+    cy.spy(window.console, "log").as("spyWinConsoleLog");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(2).click();
+
+    cy.get("@sortChanged").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
+      columnName: "age",
+      sorted: "ascending",
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(1).click().click();
+
+    cy.get("@sortChanged").should("have.callCount", 3);
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
+      columnName: "lastName",
+      sorted: "descending",
     });
   });
 });
