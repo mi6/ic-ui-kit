@@ -161,7 +161,7 @@ import readme from "../../../web-components/src/components/ic-accordion/readme.m
         </IcTypography>
       </IcAccordion>
     </IcAccordionGroup>
-    <IcAccordionGroup label="Default Accordion Group" size="default">
+    <IcAccordionGroup label="Default Accordion Group" size="medium">
       <IcAccordion heading="Accordion 1">
         <svg
           slot="icon"
@@ -539,7 +539,7 @@ export const defaultArgs = {
   expanded: false,
   label: "Accordion group",
   singleExpansion: false,
-  size: "default",
+  size: "medium",
   disabled: false,
   expandedAccordion: false,
   heading: "Accordion 1",
@@ -557,11 +557,11 @@ export const defaultArgs = {
         control: { type: "radio" },
       },
       size: {
-        options: ["small", "default", "large"],
+        options: ["small", "medium", "large"],
         control: { type: "radio" },
       },
       sizeAccordion: {
-        options: ["small", "default", "large"],
+        options: ["small", "medium", "large"],
         control: { type: "radio" },
       },
     }}

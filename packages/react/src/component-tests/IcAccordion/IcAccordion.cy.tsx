@@ -188,44 +188,59 @@ describe("End-to-end tests", () => {
       cy.get(getAccordionSelector(2))
         .invoke("prop", "expanded")
         .should("eq", true);
+      it("should open second accordion and close first accordion on single expansion", () => {
+        mount(
+          <IcAccordionGroup singleExpansion label="Title">
+            <TwoAccordionsWithOneExpanded />
+          </IcAccordionGroup>
+        );
+        cy.checkHydrated(IC_ACCORDION_GROUP);
 
-      cy.findShadowEl(getAccordionSelector(1), "button")
-        .focus()
-        .realPress("Space");
-      cy.get(getAccordionSelector(1))
-        .invoke("prop", "expanded")
-        .should("eq", true);
-      cy.get(getAccordionSelector(2))
-        .invoke("prop", "expanded")
-        .should("eq", false);
+        cy.get(getAccordionSelector(1))
+          .invoke("prop", "expanded")
+          .should("eq", false);
+        cy.get(getAccordionSelector(2))
+          .invoke("prop", "expanded")
+          .should("eq", true);
 
-      cy.realPress("Tab").realPress("Space");
-      cy.get(getAccordionSelector(1))
-        .invoke("prop", "expanded")
-        .should("eq", false);
-      cy.get(getAccordionSelector(2))
-        .invoke("prop", "expanded")
-        .should("eq", true);
-    });
+        cy.findShadowEl(getAccordionSelector(1), "button")
+          .focus()
+          .realPress("Space");
+        cy.get(getAccordionSelector(1))
+          .invoke("prop", "expanded")
+          .should("eq", true);
+        cy.get(getAccordionSelector(2))
+          .invoke("prop", "expanded")
+          .should("eq", false);
 
-    it("should have both accordions open when single expansion is false", () => {
-      mount(<GroupWithOneExpanded />);
+        cy.realPress("Tab").realPress("Space");
+        cy.get(getAccordionSelector(1))
+          .invoke("prop", "expanded")
+          .should("eq", false);
+        cy.get(getAccordionSelector(2))
+          .invoke("prop", "expanded")
+          .should("eq", true);
+      });
 
-      cy.checkHydrated(IC_ACCORDION_GROUP);
-      cy.get(getAccordionSelector(1))
-        .invoke("prop", "expanded")
-        .should("eq", false);
-      cy.get(getAccordionSelector(2))
-        .invoke("prop", "expanded")
-        .should("eq", true);
+      it("should have both accordions open when single expansion is false", () => {
+        mount(<GroupWithOneExpanded />);
 
-      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
-      cy.get(getAccordionSelector(1))
-        .invoke("prop", "expanded")
-        .should("eq", true);
-      cy.get(getAccordionSelector(2))
-        .invoke("prop", "expanded")
-        .should("eq", true);
+        cy.checkHydrated(IC_ACCORDION_GROUP);
+        cy.get(getAccordionSelector(1))
+          .invoke("prop", "expanded")
+          .should("eq", false);
+        cy.get(getAccordionSelector(2))
+          .invoke("prop", "expanded")
+          .should("eq", true);
+
+        cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
+        cy.get(getAccordionSelector(1))
+          .invoke("prop", "expanded")
+          .should("eq", true);
+        cy.get(getAccordionSelector(2))
+          .invoke("prop", "expanded")
+          .should("eq", true);
+      });
     });
   });
 });
