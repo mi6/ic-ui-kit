@@ -11,6 +11,7 @@ import {
   Horizontal,
   HelperText,
   Disabled,
+  DisabledGroup,
   Small,
   Validation,
   ConditionalStatic,
@@ -21,6 +22,8 @@ import {
   HAVE_VALUE,
   HAVE_FOCUS,
   HAVE_BEEN_CALLED_WITH,
+  HAVE_CLASS,
+  NOT_HAVE_CLASS,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -118,6 +121,18 @@ describe("IcRadio end-to-end tests", () => {
     cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, true);
   });
+
+  it("should update the radio options' disabled state when the group's state is updated", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(RADIO_GROUP_SELECTOR).invoke("prop", "disabled", true);
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_CLASS, "disabled");
+
+    cy.get(RADIO_GROUP_SELECTOR).invoke("prop", "disabled", false);
+    cy.get(RADIO_SELECTOR).eq(0).should(NOT_HAVE_CLASS, "disabled");
+  });
 });
 
 describe("IcRadio visual regression and a11y tests", () => {
@@ -174,6 +189,18 @@ describe("IcRadio visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render disabled IcRadioGroup", () => {
+    mount(<DisabledGroup />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "disabled-group",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
 

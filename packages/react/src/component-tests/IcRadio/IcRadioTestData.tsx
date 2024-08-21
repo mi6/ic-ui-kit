@@ -209,6 +209,18 @@ export const Disabled = () => {
   );
 };
 
+export const DisabledGroup = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcRadioGroup label="This is a label" name="radio-group-1" disabled>
+        <IcRadioOption value="valueName1" label="Option 1" />
+        <IcRadioOption value="valueName2" label="Option 2" />
+        <IcRadioOption value="valueName3" label="Option 3" selected />
+      </IcRadioGroup>
+    </div>
+  );
+};
+
 export const Small = () => {
   return (
     <div style={{ padding: "10px" }}>
