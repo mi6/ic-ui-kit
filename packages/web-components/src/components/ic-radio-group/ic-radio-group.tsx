@@ -90,7 +90,7 @@ export class RadioGroup {
   /**
    * The size of the radio group component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizesNoLarge = "medium";
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.

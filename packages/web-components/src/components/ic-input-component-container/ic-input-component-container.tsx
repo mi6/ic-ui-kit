@@ -47,7 +47,7 @@ export class InputComponentContainer {
   /**
    * The size of the input component container component.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    *  If `true`, the validation will display inline.
