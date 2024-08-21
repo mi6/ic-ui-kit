@@ -179,7 +179,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
           <IcToggleButton label="Test" size="small" />
         </div>
         <div style={{ padding: "8px" }}>
-          <IcToggleButton label="Test" size="default" />
+          <IcToggleButton label="Test" size="medium" />
         </div>
         <div style={{ padding: "8px" }}>
           <IcToggleButton label="Test" size="large" />
