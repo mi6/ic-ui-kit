@@ -73,7 +73,7 @@
 }
 
 .pagination-text-light {
-  color: var(--ic-color-white-text);
+  --ic-typography-color: var(--ic-color-white-text);
 }
 
 @media screen and (max-width: 768px) {
