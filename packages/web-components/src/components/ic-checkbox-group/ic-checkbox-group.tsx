@@ -76,7 +76,7 @@ export class CheckboxGroup {
   /**
    * The size of the checkboxes to be displayed. This does not affect the font size of the label.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.

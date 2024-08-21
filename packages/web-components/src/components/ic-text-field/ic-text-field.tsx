@@ -218,7 +218,7 @@ export class TextField {
   /**
    * The size of the text field component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizesNoLarge = "medium";
 
   /**
    * If `true`, the value of the text field will have its spelling and grammar checked.

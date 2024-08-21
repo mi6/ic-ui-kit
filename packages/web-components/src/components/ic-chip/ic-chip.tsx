@@ -70,7 +70,7 @@ export class Chip {
   /**
    * The size of the chip.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * If `true`, the outlined variant of chip will have a transparent background rather than white.
