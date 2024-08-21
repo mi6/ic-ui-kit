@@ -2912,7 +2912,7 @@
         {
           "status": "fail",
           "name": "IcLoadingIndicator.cy.tsx-determinate-light-circular-with-3-sizes",
-          "percentage": 0.29744915531902255,
+          "percentage": 0.6015172149567707,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
@@ -6458,9 +6458,9 @@
       ]
     }
   ],
-  "startedAt": "2024-08-21T19:14:37.942Z",
-  "endedAt": "2024-08-21T19:28:19.802Z",
-  "duration": 745440,
+  "startedAt": "2024-08-21T19:44:24.517Z",
+  "endedAt": "2024-08-21T19:57:29.094Z",
+  "duration": 714903,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
