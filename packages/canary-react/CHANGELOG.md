@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.22](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.21...@ukic/canary-react@2.0.0-canary.22) (2024-08-21)
+
+### Features
+
+- **canary-react:** add hideHelperText to dateInput and datePicker stories ([a2f9667](https://github.com/mi6/ic-ui-kit/commit/a2f966776bb4c942db58886479a6afd7748d0317)), closes [#1728](https://github.com/mi6/ic-ui-kit/issues/1728)
+- **canary-react:** implement tree view component ([4eb6938](https://github.com/mi6/ic-ui-kit/commit/4eb6938d1586be7de66bc1ef64edcbd67ed7d24a)), closes [#758](https://github.com/mi6/ic-ui-kit/issues/758)
+- **canary-react:** truncation cypress tests ([1311a52](https://github.com/mi6/ic-ui-kit/commit/1311a52a79d07f62b772d81172e497f6a7321ce7)), closes [#1003](https://github.com/mi6/ic-ui-kit/issues/1003)
+
 # [2.0.0-canary.21](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.20...@ukic/canary-react@2.0.0-canary.21) (2024-08-07)
 
 ### Bug Fixes

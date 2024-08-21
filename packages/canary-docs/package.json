@@ -1,7 +1,7 @@
 {
   "author": "mi6",
   "name": "@ukic/canary-docs",
-  "version": "2.0.0-canary.17",
+  "version": "2.0.0-canary.18",
   "description": "API documentation for @ukic canary components",
   "main": "docs.json",
   "types": "./docs.d.ts",

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.22](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.21...@ukic/canary-web-components@2.0.0-canary.22) (2024-08-21)
+
+### Bug Fixes
+
+- **canary-web-components:** updating table-container styling ([fa2082c](https://github.com/mi6/ic-ui-kit/commit/fa2082c8b099e07e9f80e8fc0be201fc00b41cfe))
+
+### Features
+
+- **canary-web-components:** add hideHelperText to date input and date picker ([a02a31f](https://github.com/mi6/ic-ui-kit/commit/a02a31f6280b84739548b4e32c046d83a7ab39ec)), closes [#1728](https://github.com/mi6/ic-ui-kit/issues/1728)
+- **canary-web-components:** built truncation and text wrap functionality ([280dead](https://github.com/mi6/ic-ui-kit/commit/280dead0a7abe2a2e479efa811b116976ae6d756)), closes [#1003](https://github.com/mi6/ic-ui-kit/issues/1003)
+- **canary-web-components:** implement tree view component ([de2d450](https://github.com/mi6/ic-ui-kit/commit/de2d45061ad76f7b16fbb1697c14d0c1a2df6e3a)), closes [#758](https://github.com/mi6/ic-ui-kit/issues/758)
+
 # [2.0.0-canary.21](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.20...@ukic/canary-web-components@2.0.0-canary.21) (2024-08-07)
 
 ### Bug Fixes

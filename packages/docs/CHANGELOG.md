@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.13.0 (2024-08-21)
+
+### Features
+
+- **docs:** updated maxLines mutable functionality ([ef8c066](https://github.com/mi6/ic-ui-kit/commit/ef8c06657cedfa363c17d88f457566ea4cd91f81))
+
 ## [2.12.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.12.2...@ukic/docs@2.12.3) (2024-07-24)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.18](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.17...@ukic/canary-docs@2.0.0-canary.18) (2024-08-21)
+
+### Features
+
+- **canary-docs:** truncation details added to docs ([0444040](https://github.com/mi6/ic-ui-kit/commit/04440401ea6f973edad8e32d67e93389de7f8306))
+
 # 2.0.0-canary.17 (2024-08-07)
 
 **Note:** Version bump only for package @ukic/canary-docs

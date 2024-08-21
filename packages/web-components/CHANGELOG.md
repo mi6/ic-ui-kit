@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.26.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.25.1...@ukic/web-components@2.26.0) (2024-08-21)
+
+### Bug Fixes
+
+- **web-components:** fix issue with IC Radio to override horizontal ([f27bf1a](https://github.com/mi6/ic-ui-kit/commit/f27bf1a851c7c218cd8b04aafbe172b728dd87a1))
+
+### Features
+
+- **web-components:** add truncation styling for chip and typography when in an AG Grid ([d913a96](https://github.com/mi6/ic-ui-kit/commit/d913a964b6eeb01f97bb43b5a5756f2e530a6296))
+- **web-components:** updated ic-typography and ic-tooltip ([a545108](https://github.com/mi6/ic-ui-kit/commit/a545108de5fada884f6023d2e9507ee26ddb0d47))
+
 ## [2.25.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.25.0...@ukic/web-components@2.25.1) (2024-08-07)
 
 ### Bug Fixes
