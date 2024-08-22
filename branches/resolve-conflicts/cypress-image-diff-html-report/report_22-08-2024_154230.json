@@ -1,7 +1,7 @@
 {
   "total": 603,
-  "totalPassed": 601,
-  "totalFailed": 2,
+  "totalPassed": 603,
+  "totalFailed": 0,
   "totalSuites": 36,
   "suites": [
     {
@@ -2760,25 +2760,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-slotted-description-caption.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcFooter.cy.tsx-classification-banner",
-          "percentage": 0.11464114703104027,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcFooter/IcFooter.cy.tsx",
           "specFilename": "IcFooter.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcFooter.cy.tsx-classification-banner.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcFooter.cy.tsx-classification-banner.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-classification-banner.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcFooter.cy.tsx-theme",
-          "percentage": 0.14680864340282482,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcFooter/IcFooter.cy.tsx",
           "specFilename": "IcFooter.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcFooter.cy.tsx-theme.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcFooter.cy.tsx-theme.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-theme.png"
         },
         {
@@ -6854,9 +6854,9 @@
       ]
     }
   ],
-  "startedAt": "2024-08-22T14:20:41.890Z",
-  "endedAt": "2024-08-22T14:32:36.940Z",
-  "duration": 637785,
+  "startedAt": "2024-08-22T15:42:30.342Z",
+  "endedAt": "2024-08-22T15:53:54.672Z",
+  "duration": 609552,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
