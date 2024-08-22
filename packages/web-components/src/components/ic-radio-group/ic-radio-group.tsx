@@ -51,6 +51,13 @@ export class RadioGroup {
    */
   @Prop() disabled: boolean = false;
 
+  @Watch("disabled")
+  watchDisabledHandler(newValue: boolean): void {
+    this.radioOptions.forEach(
+      (radioOption) => (radioOption.disabled = newValue)
+    );
+  }
+
   /**
    * The helper text that will be displayed for additional field guidance.
    */
@@ -281,6 +288,9 @@ export class RadioGroup {
         if (radioOption.selected) {
           this.selectedChild = index;
           this.checkedValue = radioOption.value;
+        }
+        if (this.disabled) {
+          radioOption.disabled = true;
         }
       });
       this.setFirstRadioOptionTabIndex(this.selectedChild > 0 ? -1 : 0);
