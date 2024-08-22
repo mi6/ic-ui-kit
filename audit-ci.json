@@ -50,9 +50,9 @@
       }
     },
     {
-      "GHSA-8hc4-vh64-cxmj": {
+      "GHSA-952p-6rrq-rcjv": {
         "active": true,
-        "notes": "issue in 'axios' package, which is dependency of 'nx', which requires an upgrade to 'lerna'",
+        "notes": "issue in 'micromatch' package, we're currently on the highest version available so no fix",
         "expiry": "12 September 2024"
       }
     } 
