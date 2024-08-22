@@ -6,19 +6,20 @@ import { IcSelect } from "../../components";
 import {
   BE_VISIBLE,
   CONTAIN_TEXT,
+  CONTAIN_VALUE,
   HAVE_ATTR,
   HAVE_BEEN_CALLED,
   HAVE_BEEN_CALLED_WITH,
+  HAVE_CLASS,
   HAVE_LENGTH,
-  HAVE_TEXT,
   HAVE_VALUE,
   NOT_BE_VISIBLE,
   NOT_HAVE_BEEN_CALLED,
+  HAVE_TEXT,
 } from "../utils/constants";
 import {
   ARIA_SELECTED,
   DATA_VALUE_CAP,
-  DEFAULT_TEST_THRESHOLD,
   IC_INPUT_CONTAINER,
   IC_MENU_LI,
   IC_MENU_UL,
@@ -31,6 +32,7 @@ import {
   TYPE_BACKSPACE,
   TYPE_DOWN_ARROW,
   TYPE_ENTER,
+  IC_SELECT,
 } from "./IcSelectConstants";
 import {
   ControlledSearchableSelect,
@@ -49,7 +51,9 @@ import {
 } from "./IcSelectTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-describe("IcSelect searchable", () => {
+const DEFAULT_TEST_THRESHOLD = 0.044;
+
+describe("IcSelect searchable end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -58,7 +62,7 @@ describe("IcSelect searchable", () => {
     cy.task("generateReport");
   });
 
-  it("should open searchable menu when character is entered in input field and filter options", () => {
+  it("should open searchable menu and filter options when character is entered in input field", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -66,36 +70,19 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
-    cy.checkHydrated("ic-select");
+    cy.checkHydrated(IC_SELECT);
 
-    cy.compareSnapshot({
-      name: "searchable-default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
-    });
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
+    cy.get(IC_SELECT).shadow().find("input").type("ca");
 
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.get("ic-select").shadow().find("input").type("ca");
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "searchable-default-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
-    });
-
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .should(HAVE_LENGTH, "3")
-      .contains("Café au lait")
-      .each(($e1) => {
-        cy.wrap($e1)
-          .invoke("text")
-          .then((filterOption) => {
-            cy.log(filterOption);
-          });
-      });
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "3");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(0).contains("Cappuccino");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(1).contains("Americano");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(2).contains("Café au lait");
   });
 
-  it("should keep searchable the same options when characters are entered and the menu is reopened", () => {
+  it("should keep the same options when characters are entered and the menu is closed and reopened", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -104,21 +91,21 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").shadow().find("input").type("foo");
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(HAVE_LENGTH, 1);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).shadow().find("input").type("foo");
+    cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, 1);
+    cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI).should(
       HAVE_TEXT,
       NO_RESULTS_FOUND
     );
 
-    cy.get("ic-select").shadow().find("input").click();
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(NOT_BE_VISIBLE);
+    cy.get(IC_SELECT).shadow().find("input").click();
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(NOT_BE_VISIBLE);
 
-    cy.get("ic-select").shadow().find("input").click();
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(BE_VISIBLE);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(HAVE_LENGTH, 1);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(
+    cy.get(IC_SELECT).shadow().find("input").click();
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(BE_VISIBLE);
+    cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, 1);
+    cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI).should(
       HAVE_TEXT,
       NO_RESULTS_FOUND
     );
@@ -133,12 +120,12 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.get("ic-select").shadow().find("input").click();
-    cy.get("ic-select").shadow().find("input").type("zZ");
-    cy.findShadowEl("ic-select", IC_MENU_LI)
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
+    cy.get(IC_SELECT).shadow().find("input").click();
+    cy.get(IC_SELECT).shadow().find("input").type("zZ");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI)
       .contains(NO_RESULTS_FOUND)
       .should(BE_VISIBLE);
   });
@@ -152,22 +139,16 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.findShadowEl("ic-select", "input").click();
-    cy.findShadowEl("ic-select", "input").type("fi");
-    cy.findShadowEl("ic-select", "input").type(TYPE_BACKSPACE);
-    cy.findShadowEl("ic-select", "input").click();
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .should(HAVE_LENGTH, "2")
-      .each(($e1) => {
-        cy.wrap($e1)
-          .invoke("text")
-          .then((filterOp) => {
-            cy.log(filterOp);
-          });
-      });
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
+    cy.findShadowEl(IC_SELECT, "input").click();
+    cy.findShadowEl(IC_SELECT, "input").type("fi");
+    cy.findShadowEl(IC_SELECT, "input").type(TYPE_BACKSPACE);
+    cy.findShadowEl(IC_SELECT, "input").click();
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "2");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(0).contains("Flat white");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(1).contains("Café au lait");
   });
 
   it("should include option descriptions in search", () => {
@@ -179,22 +160,15 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("mo");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get("ic-select").shadow().find(".expand-icon").should("exist").click();
-    cy.findShadowEl("ic-select", IC_MENU_LI)
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("mo");
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.get(IC_SELECT).shadow().find(".expand-icon").should("exist").click();
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI)
       .should(HAVE_LENGTH, "1")
-      .should(HAVE_TEXT, "MochaCoffee with chocolate")
-      .each(($e1) => {
-        cy.wrap($e1)
-          .invoke("text")
-          .then((filterOp) => {
-            cy.log(filterOp);
-          });
-      });
+      .should(HAVE_TEXT, "MochaCoffee with chocolate");
   });
 
   it("should not include group titles in search", () => {
@@ -205,11 +179,11 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").shadow().find("input").type("b");
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).shadow().find("input").type("b");
 
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(HAVE_LENGTH, 1);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, 1);
+    cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI).should(
       HAVE_TEXT,
       NO_RESULTS_FOUND
     );
@@ -225,20 +199,15 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("b");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .should(HAVE_LENGTH, "4")
-      .contains("Latte")
-      .each(($e1) => {
-        cy.wrap($e1)
-          .invoke("text")
-          .then((filterOp) => {
-            cy.log(filterOp);
-          });
-      });
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("b");
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "4");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(0).contains("Filter");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(1).contains("Latte");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(2).contains("Americano");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(3).contains("Espresso");
   });
 
   it("should display a clear button which clears the input when clicked", () => {
@@ -251,15 +220,15 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
-    cy.findShadowEl("ic-select", IC_MENU_UL).type(TYPE_ENTER);
-    cy.clickOnShadowEl("ic-select", ID_CLEAR_BUTTON);
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("a");
-    cy.clickOnShadowEl("ic-select", ID_CLEAR_BUTTON);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).should("not.have.text");
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("{upArrow}");
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL).type(TYPE_ENTER);
+    cy.clickOnShadowEl(IC_SELECT, ID_CLEAR_BUTTON);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("a");
+    cy.clickOnShadowEl(IC_SELECT, ID_CLEAR_BUTTON);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).should("not.have.text");
   });
 
   it("should emit the value as null when the input is changed after selecting an option", () => {
@@ -272,16 +241,16 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
-    cy.findShadowEl("ic-select", IC_MENU_UL)
+    cy.checkHydrated(IC_SELECT);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("{upArrow}");
+    cy.get(IC_SELECT).invoke("on", "icChange", cy.stub().as("icChanges"));
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
       .find(DATA_VALUE_CAP)
       .click({ force: true });
-    cy.findShadowEl("ic-select", DATA_VALUE_CAP)
+    cy.findShadowEl(IC_SELECT, DATA_VALUE_CAP)
       .contains("Cappuccino")
       .should(HAVE_TEXT, "Cappuccino");
-    cy.clickOnShadowEl("ic-select", ID_CLEAR_BUTTON);
+    cy.clickOnShadowEl(IC_SELECT, ID_CLEAR_BUTTON);
   });
 
   it("should still filter the options when the input is changed after selecting an option", () => {
@@ -294,41 +263,23 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
-    cy.findShadowEl("ic-select", IC_MENU_UL)
+    cy.checkHydrated(IC_SELECT);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("{upArrow}");
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
       .find(DATA_VALUE_CAP)
       .click({ force: true });
-    cy.findShadowEl("ic-select", IC_MENU_UL)
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
       .contains("Cappuccino")
       .should(HAVE_TEXT, "Cappuccino");
 
     for (let i = 0; i <= 7; i++) {
-      cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
+      cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
     }
 
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(HAVE_LENGTH, "3");
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .eq(0)
-      .should("to.contain", "Cappuccino");
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .eq(1)
-      .should("to.contain", "Americano");
-  });
-
-  it("should close menu on blur", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.get("ic-select").shadow().find(IC_MENU_LI).should(NOT_BE_VISIBLE);
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "3");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(0).contains("Cappuccino");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(1).contains("Americano");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(2).contains("Café au lait");
   });
 
   it("should emit icChange on delay", () => {
@@ -341,9 +292,9 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChange"));
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).invoke("on", "icChange", cy.stub().as("icChange"));
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("foo");
     cy.get("@icChange").should(NOT_HAVE_BEEN_CALLED);
     cy.wait(600);
     cy.get("@icChange").should(HAVE_BEEN_CALLED);
@@ -359,10 +310,10 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("bar");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("bar");
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "bar");
   });
 
@@ -375,12 +326,12 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("cap");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("cap");
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "cap");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "cap");
   });
 
@@ -393,15 +344,15 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("o");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("o");
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "o");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(HAVE_LENGTH, "7");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.findShadowEl("ic-select", IC_MENU_UL)
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "7");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
       .find(DATA_VALUE_CAP)
       .contains("Cappuccino")
       .should(HAVE_TEXT, "Cappuccino");
@@ -416,19 +367,19 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("o");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("o");
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "o");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(HAVE_LENGTH, "7");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.findShadowEl("ic-select", IC_MENU_UL)
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "7");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
       .find(DATA_VALUE_CAP)
       .contains("Cappuccino")
       .should(HAVE_TEXT, "Cappuccino");
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("1");
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("1");
     cy.get(".ic-input").should(HAVE_VALUE, "Cappuccino1");
   });
 
@@ -441,13 +392,13 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", 'input[role="combobox"]')
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, 'input[role="combobox"]')
       .invoke("prop", "value")
       .should("eq", "");
-    cy.get("ic-select").invoke("attr", "value", "foo");
-    cy.findShadowEl("ic-select", 'input[role="combobox"]')
+    cy.get(IC_SELECT).invoke("attr", "value", "foo");
+    cy.findShadowEl(IC_SELECT, 'input[role="combobox"]')
       .invoke("prop", "value")
       .should("eq", "foo");
   });
@@ -461,21 +412,21 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("f");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER)
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).invoke("on", "icChange", cy.stub().as("icChanges"));
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("f");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
       .as("foo")
       .invoke("val", "f")
       .trigger("icChanges");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("o");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER)
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("o");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
       .should(BE_VISIBLE)
       .as("foo")
       .invoke("val", "f")
       .trigger("icChanges");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("o");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER)
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("o");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
       .should(BE_VISIBLE)
       .as("foo")
       .invoke("val", "f")
@@ -496,16 +447,11 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
-    cy.window().then((win) => {
-      cy.spy(win, "alert").as("menuItemHighlighted");
-    });
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).trigger("icChanges");
-    cy.findShadowEl("ic-select", IC_MENU_UL)
-      .eq(0)
-      .trigger("icChanges", { force: true });
-    cy.get("@menuItemHighlighted").should(NOT_HAVE_BEEN_CALLED);
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).invoke("on", "icChange", cy.stub().as("icChange"));
+
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER).realPress("ArrowDown");
+    cy.get("@icChange").should(NOT_HAVE_BEEN_CALLED);
   });
 
   it("should not select a menu option when typing into the searchable input field", () => {
@@ -517,11 +463,11 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("cap");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("cap");
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(
       HAVE_ATTR,
       ARIA_SELECTED,
       "false"
@@ -537,17 +483,17 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("Lat");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.get("ic-select").shadow().find('[data-label="Latte"]').should("exist");
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("Lat");
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
+    cy.get(IC_SELECT).shadow().find('[data-label="Latte"]').should("exist");
     for (let i = 0; i <= 5; i++) {
-      cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
+      cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
     }
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(
       HAVE_ATTR,
       ARIA_SELECTED,
       "false"
@@ -563,14 +509,14 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("Lat");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).should(BE_VISIBLE);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", "li[data-value='Lat']").should(
+    cy.checkHydrated(IC_SELECT);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("Lat");
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).should(BE_VISIBLE);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, "li[data-value='Lat']").should(
       HAVE_ATTR,
       ARIA_SELECTED,
       "true"
@@ -579,28 +525,24 @@ describe("IcSelect searchable", () => {
 
   it("should retry loading and keep the menu open when retry button is pressed with Spacebar", () => {
     mount(<LoadingSelectSearchable />);
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke(
-      "on",
-      "icRetryLoad",
-      cy.stub().as("icRetryLoad")
-    );
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).invoke("on", "icRetryLoad", cy.stub().as("icRetryLoad"));
 
     cy.get("ic-button").click();
     cy.wait(600);
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_UL);
-    cy.findShadowEl("ic-select", "ic-menu ul li ic-typography")
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.checkShadowElVisible(IC_SELECT, IC_MENU_UL);
+    cy.findShadowEl(IC_SELECT, "ic-menu ul li ic-typography")
       .should(BE_VISIBLE)
       .should(HAVE_TEXT, "Loading Error");
 
-    cy.findShadowEl("ic-select", RETRY_BUTTON)
+    cy.findShadowEl(IC_SELECT, RETRY_BUTTON)
       .shadow()
       .find("button")
       .focus()
       .type(" ");
     cy.get("@icRetryLoad").should(HAVE_BEEN_CALLED);
-    cy.findShadowEl("ic-select", IC_TYPOGRAPHY).should(
+    cy.findShadowEl(IC_SELECT, IC_TYPOGRAPHY).should(
       CONTAIN_TEXT,
       LOADING_MESSAGE
     );
@@ -609,17 +551,17 @@ describe("IcSelect searchable", () => {
   it("should cancel loading if the clear button is pressed mid-load", () => {
     mount(<LoadingSelectSearchableNoTimeout />);
 
-    cy.checkHydrated("ic-select");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
+    cy.checkHydrated(IC_SELECT);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("foo");
     cy.get("ic-button").click();
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_TYPOGRAPHY).should(
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_TYPOGRAPHY).should(
       CONTAIN_TEXT,
       LOADING_MESSAGE
     );
 
-    cy.clickOnShadowEl("ic-select", ID_CLEAR_BUTTON);
-    cy.findShadowEl("ic-select", IC_TYPOGRAPHY).should(
+    cy.clickOnShadowEl(IC_SELECT, ID_CLEAR_BUTTON);
+    cy.findShadowEl(IC_SELECT, IC_TYPOGRAPHY).should(
       CONTAIN_TEXT,
       NO_RESULTS_FOUND
     );
@@ -635,8 +577,8 @@ describe("IcSelect searchable", () => {
       />
     );
 
-    cy.checkHydrated("ic-select");
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(NOT_BE_VISIBLE);
+    cy.checkHydrated(IC_SELECT);
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(NOT_BE_VISIBLE);
   });
 
   it("should reset to initial value on form reset with searchable", () => {
@@ -655,10 +597,10 @@ describe("IcSelect searchable", () => {
       </>
     );
 
-    cy.checkHydrated("ic-select");
+    cy.checkHydrated(IC_SELECT);
     cy.get(".ic-input").should(HAVE_VALUE, "");
 
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("foo");
     cy.get(".ic-input").should(HAVE_VALUE, "foo");
 
     cy.get("#resetButton").click();
@@ -972,15 +914,15 @@ describe("IcSelect searchable", () => {
   it("should render as a controlled component", () => {
     mount(<ControlledSearchableSelect />);
 
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI)
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI)
       .should(BE_VISIBLE)
       .should(HAVE_LENGTH, "6");
 
     cy.get("ic-button#update-opt").click();
 
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI)
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI)
       .should(BE_VISIBLE)
       .should(HAVE_LENGTH, "12");
   });
@@ -989,9 +931,537 @@ describe("IcSelect searchable", () => {
     mount(<UncontrolledSearchableSelect />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("cap");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("cap");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, "cappuccino");
+  });
+
+  it.skip("should not clear input if select is disabled", () => {
+    mount(
+      <IcSelect
+        label="What is your favourite coffee?"
+        options={coffeeDisabledOption}
+        disabled
+        value="cappuccino"
+        searchable
+      />
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).should(HAVE_CLASS, "disabled searchable hydrated");
+    cy.get(".ic-input").should(CONTAIN_VALUE, "cappuccino");
+    cy.clickOnShadowEl(IC_SELECT, ID_CLEAR_BUTTON);
+    cy.get(".ic-input").should(CONTAIN_VALUE, "cappuccino");
+  });
+
+  it("should render default searchable select", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={searchableCoffeeOption}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "searchable-default",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render default searchable select - open", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={searchableCoffeeOption}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).click();
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-default-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
+    });
+  });
+
+  it("should render with a default value", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          value="cappuccino"
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).click();
+
+    cy.checkA11yWithWait(undefined, 1000);
+    cy.compareSnapshot({
+      name: "searchable-default-value-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
+
+  it("should render with filtering at the start", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          searchable
+          searchMatchPosition="start"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "searchable-search-match-position-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
+  });
+
+  it("should render with descriptions", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptionsDescriptions}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-descriptions-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
+    });
+  });
+
+  it("should render with descriptions included in filter", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptionsDescriptions}
+          searchable
+          includeDescriptionsInSearch
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("coff");
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-descriptions-in-filter-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
+    });
+  });
+
+  it("should render with custom placeholder", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          placeholder="Placeholder goes here"
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "searchable-custom-placeholder",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+    });
+  });
+
+  it("should render with custom elements", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeCustomElements}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-custom-elements-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+    });
+  });
+
+  it("should render small", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          size="small"
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "searchable-small",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render small - open", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          size="small"
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-small-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+    });
+  });
+
+  it("should render large", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          size="large"
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "searchable-large",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render large - open", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          size="large"
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-large-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+    });
+  });
+
+  it("should render disabled", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          disabled
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "searchable-disabled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render with disabled options", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeDisabledOption}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-disabled-options-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
+  });
+
+  it("should render full width", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          fullWidth
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "searchable-full-width",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render full width - open", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          fullWidth
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-full-width-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+    });
+  });
+
+  it("should render with groups", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={groupCoffeeOption}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-groups-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+    });
+  });
+
+  it("should render with groups included in search", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={groupCoffeeOption}
+          searchable
+          includeGroupTitlesInSearch
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("bo");
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-groups-in-filter-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+    });
+  });
+
+  it("should render with recommendations", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={recommendedCoffeeOption}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "searchable-recommended-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+    });
+  });
+});
+
+describe("IcSelect searchable visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render with recommendations in high contrast mode", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={recommendedCoffeeOption}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(500);
+
+    cy.compareSnapshot({
+      name: "searchable-recommended-open-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+    });
+  });
+
+  it("should render with groups included in search in high contrast mode", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={groupCoffeeOption}
+          searchable
+          includeGroupTitlesInSearch
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("bo").wait(500);
+
+    cy.compareSnapshot({
+      name: "searchable-groups-in-filter-open-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
+  });
+
+  it.skip("should render with disabled options in high contrast mode", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeDisabledOption}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(500);
+
+    cy.compareSnapshot({
+      name: "searchable-disabled-options-open-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+    });
+  });
+
+  it("should render with descriptions in high contrast mode", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptionsDescriptions}
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(500);
+
+    cy.compareSnapshot({
+      name: "searchable-descriptions-open-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+    });
   });
 });
