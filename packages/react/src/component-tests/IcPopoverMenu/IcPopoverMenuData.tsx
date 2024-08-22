@@ -240,3 +240,40 @@ export const PopoverWithMenuGroups = () => {
     </>
   );
 };
+
+export const MaxHeight = () => {
+  const buttonEl = useRef<any>();
+  const popoverEl = useRef<any>();
+  const handleClick = () => {
+    popoverEl.current.open = buttonEl.current.dropdownExpanded;
+  };
+  const handleClose = () => {
+    buttonEl.current.dropdownExpanded = popoverEl.current.open;
+  };
+  return (
+    <div style={{ padding: "1rem" }}>
+      <IcButton
+        id="popover-button"
+        dropdown
+        variant="primary"
+        onClick={() => handleClick()}
+        ref={buttonEl}
+      >
+        Button
+      </IcButton>
+      <IcPopoverMenu
+        anchor="popover-button"
+        aria-label="popover"
+        onIcPopoverClosed={() => handleClose()}
+        ref={popoverEl}
+        style={{ maxHeight: "100px", overflowY: "auto" }}
+      >
+        <IcMenuItem label="Copy code"></IcMenuItem>
+        <IcMenuItem label="Paste code"></IcMenuItem>
+        <IcMenuItem label="Edit"></IcMenuItem>
+        <IcMenuItem label="Find"></IcMenuItem>
+        <IcMenuItem label="Delete" variant="destructive"></IcMenuItem>
+      </IcPopoverMenu>
+    </div>
+  );
+};
