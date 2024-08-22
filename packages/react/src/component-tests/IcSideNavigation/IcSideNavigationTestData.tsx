@@ -5,6 +5,7 @@ import {
   IcNavigationGroup,
   IcNavigationItem,
   IcSideNavigation,
+  IcBadge,
 } from "../../components";
 import { SlottedSVG } from "../..";
 
@@ -308,5 +309,32 @@ export const LongPropsSideNav = (): ReactElement => (
     disableAutoParentStyling
   >
     <SideNavChildren />
+  </IcSideNavigation>
+);
+
+export const DisableTopBarBehaviourSideNav = (): ReactElement => (
+  <IcSideNavigation
+    appTitle="ACME"
+    version="v0.0.0"
+    status="BETA"
+    disableAutoParentStyling
+    disableTopBarBehaviour
+  >
+    <IcNavigationItem slot="primary-navigation" href="/" label="Home" selected>
+      <IcBadge textLabel="1" slot="badge" variant="light" />
+      <ReusableSlottedIcon />
+    </IcNavigationItem>
+    <IcNavigationGroup
+      slot="primary-navigation"
+      label="Navigation Group"
+      expandable
+    >
+      <IcNavigationItem href="/" label="Item 1">
+        <ReusableSlottedIcon />
+      </IcNavigationItem>
+    </IcNavigationGroup>
+    <IcNavigationItem slot="secondary-navigation" href="/" label="Settings">
+      <ReusableSlottedIcon />
+    </IcNavigationItem>
   </IcSideNavigation>
 );
