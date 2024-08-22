@@ -41,3 +41,8 @@ ic-button.first-last {
 .hide-current-page {
   display: none;
 }
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}

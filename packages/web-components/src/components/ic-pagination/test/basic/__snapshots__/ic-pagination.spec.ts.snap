@@ -24,6 +24,9 @@ exports[`ic-pagination appearance tests should render as complex type in dark ap
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -52,6 +55,9 @@ exports[`ic-pagination appearance tests should render as complex type in light a
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -120,6 +126,9 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 7
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -144,6 +153,9 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 15
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -170,6 +182,9 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -196,6 +211,9 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -224,6 +242,9 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -254,6 +275,9 @@ exports[`ic-pagination complex type should render as complex type with 1 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -282,6 +306,9 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -312,6 +339,9 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -344,6 +374,9 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -372,6 +405,9 @@ exports[`ic-pagination complex type should render as complex type with 20 pages:
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -400,6 +436,9 @@ exports[`ic-pagination complex type should render as complex type without first 
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -428,6 +467,9 @@ exports[`ic-pagination complex type should render as complex type without last p
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -456,6 +498,9 @@ exports[`ic-pagination complex type should render as complex type: render comple
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -482,6 +527,9 @@ exports[`ic-pagination complex type should render in complex type with 1 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -514,6 +562,9 @@ exports[`ic-pagination simple appearance component should render all pages when 
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
