@@ -1,7 +1,7 @@
 {
   "total": 602,
-  "totalPassed": 584,
-  "totalFailed": 18,
+  "totalPassed": 593,
+  "totalFailed": 9,
   "totalSuites": 36,
   "suites": [
     {
@@ -434,80 +434,80 @@
       "path": "src/component-tests/IcBadge/IcBadge.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-success",
-          "percentage": 0.022181073012818835,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-success.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-success.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-success.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-error",
-          "percentage": 0.02262741699796952,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-error.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-error.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-error.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-warning",
-          "percentage": 0.02262741699796952,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-warning.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-warning.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-warning.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-neutral",
-          "percentage": 0.02262741699796952,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-neutral.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-neutral.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-neutral.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-light",
-          "percentage": 0.006324555320336759,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-light.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-light.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-light.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-info",
-          "percentage": 0.021447610589527218,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-info.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-info.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-info.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-custom",
-          "percentage": 0.02280350850198276,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-custom.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-custom.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-custom.png"
         },
         {
@@ -522,25 +522,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-max-number.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-position-near",
-          "percentage": 0.02172556098240043,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-position-near.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-position-near.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-position-near.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-position-inline",
-          "percentage": 0.03887709571751176,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-position-inline.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-position-inline.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-position-inline.png"
         }
       ]
@@ -6843,9 +6843,9 @@
       ]
     }
   ],
-  "startedAt": "2024-08-23T14:01:51.667Z",
-  "endedAt": "2024-08-23T14:16:25.706Z",
-  "duration": 798064,
+  "startedAt": "2024-08-23T14:22:50.605Z",
+  "endedAt": "2024-08-23T14:35:39.256Z",
+  "duration": 693854,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
