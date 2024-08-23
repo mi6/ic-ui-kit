@@ -60,22 +60,20 @@ exports[`ic-radio-group should render radio group disabled: renders-disabled 1`]
       </div>
     </div>
   </mock:shadow-root>
-  <ic-radio-option additional-field-display="static" class="disabled" group-label="test group" label="test label" value="test">
-    <mock:shadow-root>
-      <div class="container disabled">
-        <div>
-          <input disabled="" id="ic-radio-option-test label-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
-          <span class="checkmark"></span>
-        </div>
-        <ic-typography class="radio-label" variant="body">
-          <label htmlfor="ic-radio-option-test label-test label">
-            test label
-          </label>
-        </ic-typography>
+  <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" group-label="test group" label="test label" value="test">
+    <!---->
+    <div class="container disabled">
+      <div>
+        <input disabled="" id="ic-radio-option-test label-test label" name="test" tabindex="0" type="radio" value="test">
+        <span class="checkmark"></span>
       </div>
-    </mock:shadow-root>
+      <ic-typography class="radio-label" variant="body">
+        <label htmlfor="ic-radio-option-test label-test label">
+          test label
+        </label>
+      </ic-typography>
+    </div>
   </ic-radio-option>
-  <input class="ic-input" disabled="" name="test" type="hidden" value="">
 </ic-radio-group>
 `;
 
