@@ -455,7 +455,7 @@ The horizontal card can be displayed in different sizes.
     <IcCardHorizontal
       heading="Card heading"
       message="This card is used for small to medium bits of text. It's slightly bigger."
-      size="default"
+      size="medium"
     >
       <svg
         slot="icon"
@@ -622,7 +622,7 @@ export const Sizes = () => (
     <IcCardHorizontal
       heading="Card heading"
       message="This card is used for small to medium bits of text. It's slightly bigger."
-      size="default"
+      size="medium"
     >
       <svg
         slot="icon"
@@ -788,7 +788,7 @@ When there is too much text content for the horizontal card, the heading and mes
     <IcCardHorizontal
       heading="Really long card heading to show truncation"
       message="This card is used for small to medium bits of text. It's slightly bigger. More text has been added to show truncation."
-      size="default"
+      size="medium"
     >
       <svg
         slot="icon"
@@ -955,7 +955,7 @@ export const Truncation = () => (
     <IcCardHorizontal
       heading="Really long card heading to show truncation"
       message="This card is used for small to medium bits of text. It's slightly bigger. More text has been added to show truncation."
-      size="default"
+      size="medium"
     >
       <svg
         slot="icon"
@@ -1327,7 +1327,7 @@ export const defaultArgs = {
   heading: "Heading",
   href: "/",
   message: "Message",
-  size: "default",
+  size: "medium",
   iconSlot: true,
   badgeSlot: true,
   showImage: false,
@@ -1353,7 +1353,7 @@ export const defaultArgs = {
         control: { type: "boolean" }
       },
       size: {
-        options: ["small", "default", "large", "extra-large"],
+        options: ["small", "medium", "large", "extra-large"],
         control: {
           type: "select",
         },
