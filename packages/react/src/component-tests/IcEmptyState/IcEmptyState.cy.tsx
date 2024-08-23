@@ -153,11 +153,11 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
     });
   });
 
-  it("should render with truncated text when bodyMaxLines prop is set - before click", () => {
+  it("should render with truncated text when maxLines prop is set - before click", () => {
     mount(<TruncatedText />);
 
     cy.checkHydrated(EMPTY_STATE);
-    cy.get(EMPTY_STATE).invoke("prop", "bodyMaxLines").should("eq", 2);
+    cy.get(EMPTY_STATE).invoke("prop", "maxLines").should("eq", 2);
     cy.findShadowEl(EMPTY_STATE, "ic-typography")
       .shadow()
       .find(".trunc-btn")
@@ -170,7 +170,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
     });
   });
 
-  it("should render with truncated text when bodyMaxLines prop is set - after click", () => {
+  it("should render with truncated text when maxLines prop is set - after click", () => {
     mount(<TruncatedText />);
 
     cy.checkHydrated(EMPTY_STATE);
@@ -231,7 +231,7 @@ describe("IcEmptyState visual regression tests in high contrast mode", () => {
     });
   });
 
-  it("should render with truncated text when bodyMaxLines prop is set - before click", () => {
+  it("should render with truncated text when maxLines prop is set - before click", () => {
     mount(<TruncatedText />);
 
     cy.checkHydrated(EMPTY_STATE);
