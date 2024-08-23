@@ -41,19 +41,19 @@ export const GroupedLinks = () => {
       description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
             please get in touch."
     >
-      <IcFooterLinkGroup slot="link" groupTitle="Grouped heading">
+      <IcFooterLinkGroup slot="link" label="Grouped heading">
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
         <IcFooterLink href="/">Components</IcFooterLink>
         <IcFooterLink href="/">Patterns</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" groupTitle="Grouped heading">
+      <IcFooterLinkGroup slot="link" label="Grouped heading">
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
         <IcFooterLink href="/">Components</IcFooterLink>
         <IcFooterLink href="/">Patterns</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" groupTitle="Grouped heading">
+      <IcFooterLinkGroup slot="link" label="Grouped heading">
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
         <IcFooterLink href="/">Components</IcFooterLink>
@@ -66,11 +66,11 @@ export const GroupedLinks = () => {
 export const ToggleGroupLinks = () => {
   return (
     <IcFooter description="Description" groupLinks>
-      <IcFooterLinkGroup slot="link" groupTitle="Link group 1">
+      <IcFooterLinkGroup slot="link" label="Link group 1">
         <IcFooterLink href="/">Link 1</IcFooterLink>
         <IcFooterLink href="/">Link 2</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" groupTitle="Link group 2">
+      <IcFooterLinkGroup slot="link" label="Link group 2">
         <IcFooterLink href="/">Link 1</IcFooterLink>
         <IcFooterLink href="/">Link 2</IcFooterLink>
       </IcFooterLinkGroup>
@@ -472,7 +472,7 @@ export const Theme = () => {
         caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
         style={{ position: "fixed", bottom: "0", left: "0", right: "0" }}
       >
-        <IcFooterLinkGroup slot="link" groupTitle="Links 1">
+        <IcFooterLinkGroup slot="link" label="Links 1">
           <IcFooterLink href="/">Get Started</IcFooterLink>
           <IcFooterLink href="/">Accessibility</IcFooterLink>
           <IcFooterLink href="/">Styles</IcFooterLink>
@@ -480,7 +480,7 @@ export const Theme = () => {
           <IcFooterLink href="/">Patterns</IcFooterLink>
           <IcFooterLink href="/">Design toolkit</IcFooterLink>
         </IcFooterLinkGroup>
-        <IcFooterLinkGroup slot="link" groupTitle="Links 2">
+        <IcFooterLinkGroup slot="link" label="Links 2">
           <IcFooterLink href="/">Get Started</IcFooterLink>
           <IcFooterLink href="/">Accessibility</IcFooterLink>
           <IcFooterLink href="/">Styles</IcFooterLink>
@@ -488,7 +488,7 @@ export const Theme = () => {
           <IcFooterLink href="/">Patterns</IcFooterLink>
           <IcFooterLink href="/">Design toolkit</IcFooterLink>
         </IcFooterLinkGroup>
-        <IcFooterLinkGroup slot="link" groupTitle="Links 3">
+        <IcFooterLinkGroup slot="link" label="Links 3">
           <IcFooterLink href="/">Get Started</IcFooterLink>
           <IcFooterLink href="/">Accessibility</IcFooterLink>
           <IcFooterLink href="/">Styles</IcFooterLink>
