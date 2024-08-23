@@ -260,7 +260,7 @@ exports[`ic-select single native should test native select with groups: native-s
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-24" helpertext="" label="New label"></ic-input-label>
-      <ic-input-component-container size="default" validationstatus="">
+      <ic-input-component-container size="medium" validationstatus="">
         <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-24">
           <option disabled="" selected="" value="">
             Select an option
@@ -294,7 +294,7 @@ exports[`ic-select single native should test native select: native-select 1`] = 
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-23" helpertext="" label="New label"></ic-input-label>
-      <ic-input-component-container size="default" validationstatus="">
+      <ic-input-component-container size="medium" validationstatus="">
         <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-23">
           <option disabled="" selected="" value="">
             Select an option
@@ -643,7 +643,7 @@ exports[`ic-select single should test with clear button: with-clear-button 1`] =
                 </span>
               </div>
             </button>
-            <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+            <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
               <mock:shadow-root>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear selection" placement="bottom" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear selection" class="button" part="button" type="button">
