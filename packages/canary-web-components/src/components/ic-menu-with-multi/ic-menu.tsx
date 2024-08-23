@@ -143,7 +143,7 @@ export class Menu {
   /**
    * The size of the menu.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * The possible menu selection options.
@@ -1481,7 +1481,7 @@ export class Menu {
                 onMouseDown={this.handleSelectAllMouseDown}
                 onBlur={this.handleSelectAllBlur}
                 onFocus={this.handleSelectAllFocus}
-                size={size === "small" ? "small" : "default"}
+                size={size === "small" ? "small" : "medium"}
               >
                 {selectAllButtonText}
               </ic-button>
