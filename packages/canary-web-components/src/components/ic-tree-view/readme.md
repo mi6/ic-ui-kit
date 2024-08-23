@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                                           | Type                              | Default     |
-| ------------ | ------------ | ----------------------------------------------------- | --------------------------------- | ----------- |
-| `appearance` | `appearance` | The appearance of the tree view, e.g. dark, or light. | `"dark" \| "light"`               | `"dark"`    |
-| `heading`    | `heading`    | The heading of the tree view.                         | `string`                          | `""`        |
-| `size`       | `size`       | The size of the tree view.                            | `"default" \| "large" \| "small"` | `"default"` |
+| Property     | Attribute    | Description                                           | Type                             | Default    |
+| ------------ | ------------ | ----------------------------------------------------- | -------------------------------- | ---------- |
+| `appearance` | `appearance` | The appearance of the tree view, e.g. dark, or light. | `"dark" \| "light"`              | `"dark"`   |
+| `heading`    | `heading`    | The heading of the tree view.                         | `string`                         | `""`       |
+| `size`       | `size`       | The size of the tree view.                            | `"large" \| "medium" \| "small"` | `"medium"` |
 
 
 ## Slots

@@ -109,7 +109,7 @@ export class TreeItem {
   /**
    * @internal Determines the size of the tree item.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
@@ -362,7 +362,7 @@ export class TreeItem {
           [`ic-tree-item-${appearance}`]: true,
           "ic-tree-item-disabled": disabled,
           "ic-tree-item-selected": !disabled && selected,
-          [`ic-tree-item-${size}`]: size !== "default",
+          [`ic-tree-item-${size}`]: size !== "medium",
         }}
         id={this.treeItemId}
       >
