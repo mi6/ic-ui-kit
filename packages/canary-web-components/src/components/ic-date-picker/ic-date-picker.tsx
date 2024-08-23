@@ -269,7 +269,7 @@ export class DatePicker {
   /**
    * The size of the date picker to be displayed.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * The first day of the week. `0` for Sunday, `1` for Monday, etc.
@@ -1274,7 +1274,7 @@ export class DatePicker {
     if (this.required) {
       inputProps.required = this.required;
     }
-    if (this.size !== "default") {
+    if (this.size !== "medium") {
       inputProps.size = this.size;
     }
     if (this.validationStatus !== "") {
