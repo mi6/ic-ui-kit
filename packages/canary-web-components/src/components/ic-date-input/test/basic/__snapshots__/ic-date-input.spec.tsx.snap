@@ -23,7 +23,7 @@ exports[`ic-date-input component date format conversion should handle US format 
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-12-label ic-date-input-12-screen-reader-info  ic-date-input-12-selected-date-info ic-date-input-12-assistive-hint" id="ic-date-input-12" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-12-label ic-date-input-12-screen-reader-info  ic-date-input-12-selected-date-info ic-date-input-12-assistive-hint" id="ic-date-input-12" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="26">
@@ -33,7 +33,7 @@ exports[`ic-date-input component date format conversion should handle US format 
             <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -73,7 +73,7 @@ exports[`ic-date-input component date format conversion should handle US format 
         Type or use the up and down arrow keys to change the values for the month, day, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-13-label ic-date-input-13-screen-reader-info  ic-date-input-13-selected-date-info ic-date-input-13-assistive-hint" id="ic-date-input-13" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-13-label ic-date-input-13-screen-reader-info  ic-date-input-13-selected-date-info ic-date-input-13-assistive-hint" id="ic-date-input-13" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
@@ -83,7 +83,7 @@ exports[`ic-date-input component date format conversion should handle US format 
             <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -123,7 +123,7 @@ exports[`ic-date-input component date format conversion should handle US format 
         Type or use the up and down arrow keys to change the values for the year, month, and day.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-14-label ic-date-input-14-screen-reader-info  ic-date-input-14-selected-date-info ic-date-input-14-assistive-hint" id="ic-date-input-14" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-14-label ic-date-input-14-screen-reader-info  ic-date-input-14-selected-date-info ic-date-input-14-assistive-hint" id="ic-date-input-14" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
@@ -133,7 +133,7 @@ exports[`ic-date-input component date format conversion should handle US format 
             <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="26">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -173,7 +173,7 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-15-label ic-date-input-15-screen-reader-info  ic-date-input-15-selected-date-info ic-date-input-15-assistive-hint" id="ic-date-input-15" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-15-label ic-date-input-15-screen-reader-info  ic-date-input-15-selected-date-info ic-date-input-15-assistive-hint" id="ic-date-input-15" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
@@ -183,7 +183,7 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
             <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -223,7 +223,7 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         Type or use the up and down arrow keys to change the values for the month, day, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-16-label ic-date-input-16-screen-reader-info  ic-date-input-16-selected-date-info ic-date-input-16-assistive-hint" id="ic-date-input-16" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-16-label ic-date-input-16-screen-reader-info  ic-date-input-16-selected-date-info ic-date-input-16-assistive-hint" id="ic-date-input-16" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
@@ -233,7 +233,7 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
             <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -273,7 +273,7 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         Type or use the up and down arrow keys to change the values for the year, month, and day.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-17-label ic-date-input-17-screen-reader-info  ic-date-input-17-selected-date-info ic-date-input-17-assistive-hint" id="ic-date-input-17" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-17-label ic-date-input-17-screen-reader-info  ic-date-input-17-selected-date-info ic-date-input-17-assistive-hint" id="ic-date-input-17" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
@@ -283,7 +283,7 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
             <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -323,7 +323,7 @@ exports[`ic-date-input component date format conversion should handle single dig
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-11-label ic-date-input-11-screen-reader-info  ic-date-input-11-selected-date-info ic-date-input-11-assistive-hint" id="ic-date-input-11" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-11-label ic-date-input-11-screen-reader-info  ic-date-input-11-selected-date-info ic-date-input-11-assistive-hint" id="ic-date-input-11" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="01">
@@ -333,7 +333,7 @@ exports[`ic-date-input component date format conversion should handle single dig
             <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -373,7 +373,7 @@ exports[`ic-date-input component should render 1`] = `
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-0-label ic-date-input-0-screen-reader-info   ic-date-input-0-assistive-hint" id="ic-date-input-0" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-0-label ic-date-input-0-screen-reader-info   ic-date-input-0-assistive-hint" id="ic-date-input-0" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -383,7 +383,7 @@ exports[`ic-date-input component should render 1`] = `
             <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -421,7 +421,7 @@ exports[`ic-date-input component should render as disabled 1`] = `
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container disabled="" id="ic-date-input-2" role="group" size="default" validationstatus="">
+      <ic-input-component-container disabled="" id="ic-date-input-2" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input" disabled="" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -431,7 +431,7 @@ exports[`ic-date-input component should render as disabled 1`] = `
             <input aria-label="year" class="year-input" disabled="" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" disabled="" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" disabled="" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -472,7 +472,7 @@ exports[`ic-date-input component should render as required 1`] = `
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-1-label ic-date-input-1-screen-reader-info   ic-date-input-1-assistive-hint" id="ic-date-input-1" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-1-label ic-date-input-1-screen-reader-info   ic-date-input-1-assistive-hint" id="ic-date-input-1" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -482,7 +482,7 @@ exports[`ic-date-input component should render as required 1`] = `
             <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -520,7 +520,7 @@ exports[`ic-date-input component should render as required: required-prop-false 
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-1-label ic-date-input-1-screen-reader-info   ic-date-input-1-assistive-hint" id="ic-date-input-1" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-1-label ic-date-input-1-screen-reader-info   ic-date-input-1-assistive-hint" id="ic-date-input-1" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="null">
@@ -530,7 +530,7 @@ exports[`ic-date-input component should render as required: required-prop-false 
             <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="null">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -568,7 +568,7 @@ exports[`ic-date-input component should render correctly with MM/DD/YYYY format 
         Type or use the up and down arrow keys to change the values for the month, day, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-6-label ic-date-input-6-screen-reader-info   ic-date-input-6-assistive-hint" id="ic-date-input-6" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-6-label ic-date-input-6-screen-reader-info   ic-date-input-6-assistive-hint" id="ic-date-input-6" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="month" class="month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM">
@@ -578,7 +578,7 @@ exports[`ic-date-input component should render correctly with MM/DD/YYYY format 
             <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -616,7 +616,7 @@ exports[`ic-date-input component should render correctly with YYYY/MM/DD format 
         Type or use the up and down arrow keys to change the values for the undefined.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-7-label ic-date-input-7-screen-reader-info   ic-date-input-7-assistive-hint" id="ic-date-input-7" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-7-label ic-date-input-7-screen-reader-info   ic-date-input-7-assistive-hint" id="ic-date-input-7" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
@@ -626,7 +626,7 @@ exports[`ic-date-input component should render correctly with YYYY/MM/DD format 
             <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -664,7 +664,7 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container disabled="" id="ic-date-input-10" role="group" size="default" validationstatus="">
+      <ic-input-component-container disabled="" id="ic-date-input-10" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input fit-to-value" disabled="" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="21">
@@ -674,7 +674,7 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
             <input aria-label="year" class="fit-to-value year-input" disabled="" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
-            <ic-button class="button-size-default ic-button-variant-icon clear-button dark disabled" exportparts="button" id="clear-button">
+            <ic-button class="button-size-medium ic-button-variant-icon clear-button dark disabled" exportparts="button" id="clear-button">
               <mock:shadow-root>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" type="button">
@@ -686,7 +686,7 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
             </ic-button>
             <div class="show-calendar-button-wrapper">
               <div class="default divider"></div>
-              <ic-button class="button-size-default ic-button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
+              <ic-button class="button-size-medium ic-button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
                 <mock:shadow-root>
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
                     <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display calendar" class="button" disabled="" part="button" type="button">
@@ -842,7 +842,7 @@ exports[`ic-date-input component should render with custom helper text 1`] = `
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-5-label ic-date-input-5-screen-reader-info ic-date-input-5-helper-text  ic-date-input-5-assistive-hint" id="ic-date-input-5" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-5-label ic-date-input-5-screen-reader-info ic-date-input-5-helper-text  ic-date-input-5-assistive-hint" id="ic-date-input-5" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -852,7 +852,7 @@ exports[`ic-date-input component should render with custom helper text 1`] = `
             <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -890,7 +890,7 @@ exports[`ic-date-input component should render with custom validation status and
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-8-label ic-date-input-8-screen-reader-info ic-date-input-8-validation-text  ic-date-input-8-assistive-hint" id="ic-date-input-8" role="group" size="default" validationstatus="error">
+      <ic-input-component-container aria-labelledby="ic-date-input-8-label ic-date-input-8-screen-reader-info ic-date-input-8-validation-text  ic-date-input-8-assistive-hint" id="ic-date-input-8" role="group" size="medium" validationstatus="error">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -900,7 +900,7 @@ exports[`ic-date-input component should render with custom validation status and
             <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="default" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="medium" variant="icon">
               svg
             </ic-button>
           </div>
@@ -939,7 +939,7 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
         Type or use the up and down arrow keys to change the values for the day, month, and year.
       </span>
       <span aria-live="assertive" class="sr-only" id="live-region"></span>
-      <ic-input-component-container aria-labelledby="ic-date-input-9-label ic-date-input-9-screen-reader-info  ic-date-input-9-selected-date-info ic-date-input-9-assistive-hint" id="ic-date-input-9" role="group" size="default" validationstatus="">
+      <ic-input-component-container aria-labelledby="ic-date-input-9-label ic-date-input-9-screen-reader-info  ic-date-input-9-selected-date-info ic-date-input-9-assistive-hint" id="ic-date-input-9" role="group" size="medium" validationstatus="">
         <div class="input-container">
           <div class="date-inputs">
             <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="21">
@@ -949,7 +949,7 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
             <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
-            <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+            <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
               <mock:shadow-root>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
@@ -961,7 +961,7 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
             </ic-button>
             <div class="show-calendar-button-wrapper">
               <div class="default divider"></div>
-              <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+              <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                 <mock:shadow-root>
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
                     <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
