@@ -128,10 +128,12 @@ describe("IcRadio end-to-end tests", () => {
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
     cy.get(RADIO_GROUP_SELECTOR).invoke("prop", "disabled", true);
-    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_CLASS, "disabled");
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_CLASS, "ic-radio-option-disabled");
 
     cy.get(RADIO_GROUP_SELECTOR).invoke("prop", "disabled", false);
-    cy.get(RADIO_SELECTOR).eq(0).should(NOT_HAVE_CLASS, "disabled");
+    cy.get(RADIO_SELECTOR)
+      .eq(0)
+      .should(NOT_HAVE_CLASS, "ic-radio-option-disabled");
   });
 });
 

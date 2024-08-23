@@ -4,7 +4,7 @@ import {
   IcButton,
   IcTypography,
   IcSearchBar,
-  IcCard,
+  IcCardVertical,
   IcLink,
   IcTheme,
   IcTextField,
@@ -121,7 +121,7 @@ export const WithCard = () => {
       <IcButton variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
-      <IcCard
+      <IcCardVertical
         heading="Out now"
         message="Try our new strawberry infused tea."
         slot="secondary"
@@ -211,11 +211,11 @@ export const LongHeading = () => {
       >
         Help
       </IcLink>
-      <IcCard
+      <IcCardVertical
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
         slot="secondary"
-      ></IcCard>
+      ></IcCardVertical>
     </IcHero>
   );
 };
@@ -290,7 +290,7 @@ export const Theme = () => {
         >
           Help
         </IcLink>
-        <IcCard
+        <IcCardVertical
           heading="Latest announcement"
           message="This is some example text that can be included in the card copy."
           slot="secondary"
