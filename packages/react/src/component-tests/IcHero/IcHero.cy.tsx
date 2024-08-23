@@ -120,7 +120,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
     mount(<WithCard />);
 
     cy.checkHydrated(IC_HERO_SELECTOR);
-    cy.get('ic-card[slot="secondary"]').should(BE_VISIBLE);
+    cy.get('ic-card-vertical[slot="secondary"]').should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
