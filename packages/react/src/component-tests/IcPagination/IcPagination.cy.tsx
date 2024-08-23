@@ -293,8 +293,8 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
       <div style={{ margin: "16px" }}>
         <IcPagination
           type="complex"
-          adjacentCount={2}
-          boundaryCount={2}
+          adjacentPageCount={2}
+          boundaryPageCount={2}
           pages={15}
           currentPage={8}
         />
@@ -387,7 +387,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
       force: true,
     });
 
-    cy.get("@icPageChanged").should(NOT_BE_CALLED_ONCE);
+    cy.get(PAGE_CHANGE_EVENT).should(NOT_BE_CALLED_ONCE);
   });
 
   it("should render with page label", () => {
@@ -438,7 +438,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
       .click()
       .click();
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
       expect(stub.getCall(1).args[0].detail.value).to.equal(3);
       expect(stub.getCall(2).args[0].detail.value).to.equal(4);
@@ -466,7 +466,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click();
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
     });
 
@@ -493,7 +493,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.findShadowEl(PAGINATION_SELECTOR, "#pagination-item-3").click();
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(3);
     });
 
@@ -568,7 +568,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
     });
 
@@ -593,7 +593,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
     });
 
@@ -674,7 +674,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
     cy.findShadowEl(PAGINATION_SELECTOR, PREV_PAGE_SELECTOR).click();
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(14);
     });
@@ -702,7 +702,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
     cy.findShadowEl(PAGINATION_SELECTOR, PREV_PAGE_SELECTOR).click();
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(14);
     });
@@ -730,7 +730,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
     cy.findShadowEl(PAGINATION_SELECTOR, FIRST_PAGE_SELECTOR).click();
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(1);
     });
@@ -758,7 +758,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
     cy.findShadowEl(PAGINATION_SELECTOR, FIRST_PAGE_SELECTOR).click();
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(1);
     });
@@ -864,7 +864,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
       .realPress(["Shift", "Tab"])
       .realPress("Enter");
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
       expect(stub.getCall(1).args[0].detail.value).to.equal(15);
       expect(stub.getCall(2).args[0].detail.value).to.equal(13);
