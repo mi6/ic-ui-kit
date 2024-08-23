@@ -109,7 +109,7 @@ ic-input-component-container .focus-indicator {
   height: var(--ic-space-md);
 }
 
-.divider.default {
+.divider.medium {
   height: calc(var(--ic-space-sm) + var(--ic-space-xs));
 }
 

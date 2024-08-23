@@ -15,7 +15,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-13" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-13" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -25,7 +25,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -46,7 +46,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -86,7 +86,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -98,7 +98,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
             <span aria-hidden="true" id="select-month-hint">
               Press Enter or Space to open month picker view or use the arrow keys to change month.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="December" class="button" part="button" type="button">
                   <slot></slot>
@@ -110,7 +110,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
               December
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -122,7 +122,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -134,7 +134,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
             <span aria-hidden="true" id="select-year-hint">
               Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2022" class="button" part="button" type="button">
                   <slot></slot>
@@ -146,7 +146,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
               2022
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -446,7 +446,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
         <div class="hidden month-picker-container"></div>
         <div class="hidden year-picker-container"></div>
         <div class="bottom-buttons">
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="today-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
             <mock:shadow-root>
               <button aria-label="Navigate to current date" class="button" part="button" type="button">
                 <slot></slot>
@@ -454,7 +454,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
             </mock:shadow-root>
             Go to today
           </ic-button>
-          <ic-button class="button-size-default ic-button-variant-tertiary disabled" exportparts="button" id="clear-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary disabled" exportparts="button" id="clear-button">
             <mock:shadow-root>
               <button aria-disabled="true" aria-label="clear selected date" class="button" disabled="" part="button" type="button">
                 <slot></slot>
@@ -484,7 +484,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-18" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-18" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -494,7 +494,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -515,7 +515,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -555,7 +555,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon disabled flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon disabled flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-disabled="true" aria-hidden="true" class="button" disabled="" part="button" type="button">
                     <slot></slot>
@@ -567,7 +567,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
             <span aria-hidden="true" id="select-month-hint">
               Press Enter or Space to open month picker view or use the arrow keys to change month.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="October" class="button" part="button" type="button">
                   <slot></slot>
@@ -579,7 +579,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
               October
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon disabled" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon disabled" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-disabled="true" aria-hidden="true" class="button" disabled="" part="button" type="button">
                     <slot></slot>
@@ -591,7 +591,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon disabled flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon disabled flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-disabled="true" aria-hidden="true" class="button" disabled="" part="button" type="button">
                     <slot></slot>
@@ -603,7 +603,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
             <span aria-hidden="true" id="select-year-hint">
               Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2023" class="button" part="button" type="button">
                   <slot></slot>
@@ -615,7 +615,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
               2023
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon disabled" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon disabled" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-disabled="true" aria-hidden="true" class="button" disabled="" part="button" type="button">
                     <slot></slot>
@@ -964,7 +964,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
         <div class="hidden month-picker-container"></div>
         <div class="hidden year-picker-container"></div>
         <div class="bottom-buttons">
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="today-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
             <mock:shadow-root>
               <button aria-label="Navigate to current date" class="button" part="button" type="button">
                 <slot></slot>
@@ -972,7 +972,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
             </mock:shadow-root>
             Go to today
           </ic-button>
-          <ic-button class="button-size-default ic-button-variant-tertiary disabled" exportparts="button" id="clear-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary disabled" exportparts="button" id="clear-button">
             <mock:shadow-root>
               <button aria-disabled="true" aria-label="clear selected date" class="button" disabled="" part="button" type="button">
                 <slot></slot>
@@ -1002,7 +1002,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-12" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-12" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -1012,7 +1012,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -1033,7 +1033,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -1073,7 +1073,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -1085,7 +1085,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
             <span aria-hidden="true" id="select-month-hint">
               Press Enter or Space to open month picker view or use the arrow keys to change month.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="December" class="button" part="button" type="button">
                   <slot></slot>
@@ -1097,7 +1097,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
               December
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -1109,7 +1109,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -1121,7 +1121,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
             <span aria-hidden="true" id="select-year-hint">
               Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2022" class="button" part="button" type="button">
                   <slot></slot>
@@ -1133,7 +1133,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
               2022
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -1433,7 +1433,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
         <div class="hidden month-picker-container"></div>
         <div class="hidden year-picker-container"></div>
         <div class="bottom-buttons">
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="today-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
             <mock:shadow-root>
               <button aria-label="Navigate to current date" class="button" part="button" type="button">
                 <slot></slot>
@@ -1441,7 +1441,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
             </mock:shadow-root>
             Go to today
           </ic-button>
-          <ic-button class="button-size-default ic-button-variant-tertiary disabled" exportparts="button" id="clear-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary disabled" exportparts="button" id="clear-button">
             <mock:shadow-root>
               <button aria-disabled="true" aria-label="clear selected date" class="button" disabled="" part="button" type="button">
                 <slot></slot>
@@ -1471,7 +1471,7 @@ exports[`ic-date-picker should render as required field 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-5" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-5" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -1481,7 +1481,7 @@ exports[`ic-date-picker should render as required field 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -1502,7 +1502,7 @@ exports[`ic-date-picker should render as required field 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -1552,7 +1552,7 @@ exports[`ic-date-picker should render default size 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-0" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-0" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
@@ -1562,7 +1562,7 @@ exports[`ic-date-picker should render default size 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -1583,7 +1583,7 @@ exports[`ic-date-picker should render default size 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -1625,7 +1625,7 @@ exports[`ic-date-picker should render default size 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -1637,7 +1637,7 @@ exports[`ic-date-picker should render default size 1`] = `
             <span aria-hidden="true" id="select-month-hint">
               Press Enter or Space to open month picker view or use the arrow keys to change month.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="July" class="button" part="button" type="button">
                   <slot></slot>
@@ -1649,7 +1649,7 @@ exports[`ic-date-picker should render default size 1`] = `
               July
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -1661,7 +1661,7 @@ exports[`ic-date-picker should render default size 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -1673,7 +1673,7 @@ exports[`ic-date-picker should render default size 1`] = `
             <span aria-hidden="true" id="select-year-hint">
               Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2023" class="button" part="button" type="button">
                   <slot></slot>
@@ -1685,7 +1685,7 @@ exports[`ic-date-picker should render default size 1`] = `
               2023
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -2034,7 +2034,7 @@ exports[`ic-date-picker should render default size 1`] = `
         <div class="hidden month-picker-container"></div>
         <div class="hidden year-picker-container"></div>
         <div class="bottom-buttons">
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="today-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
             <mock:shadow-root>
               <button aria-label="Navigate to current date" class="button" part="button" type="button">
                 <slot></slot>
@@ -2042,7 +2042,7 @@ exports[`ic-date-picker should render default size 1`] = `
             </mock:shadow-root>
             Go to today
           </ic-button>
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="clear-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="clear-button">
             <mock:shadow-root>
               <button aria-label="clear selected date" class="button" part="button" type="button">
                 <slot></slot>
@@ -2072,7 +2072,7 @@ exports[`ic-date-picker should render disabled 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container disabled="" id="ic-date-input-4" role="group" size="default" validationstatus="">
+            <ic-input-component-container disabled="" id="ic-date-input-4" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" disabled="" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -2082,7 +2082,7 @@ exports[`ic-date-picker should render disabled 1`] = `
                   <input aria-label="year" class="year-input" disabled="" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark disabled hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark disabled hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -2103,7 +2103,7 @@ exports[`ic-date-picker should render disabled 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -3193,7 +3193,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-8" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-8" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
@@ -3203,7 +3203,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -3224,7 +3224,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -3266,7 +3266,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3278,7 +3278,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
             <span aria-hidden="true" id="select-month-hint">
               Press Enter or Space to open month picker view or use the arrow keys to change month.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="July" class="button" part="button" type="button">
                   <slot></slot>
@@ -3290,7 +3290,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
               July
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3302,7 +3302,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3314,7 +3314,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
             <span aria-hidden="true" id="select-year-hint">
               Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2023" class="button" part="button" type="button">
                   <slot></slot>
@@ -3326,7 +3326,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
               2023
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3675,7 +3675,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
         <div class="hidden month-picker-container"></div>
         <div class="hidden year-picker-container"></div>
         <div class="bottom-buttons">
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="today-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
             <mock:shadow-root>
               <button aria-label="Navigate to current date" class="button" part="button" type="button">
                 <slot></slot>
@@ -3683,7 +3683,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
             </mock:shadow-root>
             Go to today
           </ic-button>
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="clear-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="clear-button">
             <mock:shadow-root>
               <button aria-label="clear selected date" class="button" part="button" type="button">
                 <slot></slot>
@@ -3724,7 +3724,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
               Type or use the up and down arrow keys to change the values for the month, day, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container aria-labelledby="ic-date-input-9-label ic-date-input-9-screen-reader-info ic-date-input-9-helper-text ic-date-input-9-selected-date-info ic-date-input-9-assistive-hint" id="ic-date-input-9" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby="ic-date-input-9-label ic-date-input-9-screen-reader-info ic-date-input-9-helper-text ic-date-input-9-selected-date-info ic-date-input-9-assistive-hint" id="ic-date-input-9" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="month" class="fit-to-value month-input" id="month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
@@ -3734,7 +3734,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -3755,7 +3755,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -3797,7 +3797,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3809,7 +3809,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
             <span aria-hidden="true" id="select-month-hint">
               Press Enter or Space to open month picker view or use the arrow keys to change month.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="July" class="button" part="button" type="button">
                   <slot></slot>
@@ -3821,7 +3821,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
               July
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3833,7 +3833,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -3845,7 +3845,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
             <span aria-hidden="true" id="select-year-hint">
               Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2023" class="button" part="button" type="button">
                   <slot></slot>
@@ -3857,7 +3857,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
               2023
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -4206,7 +4206,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
         <div class="hidden month-picker-container"></div>
         <div class="hidden year-picker-container"></div>
         <div class="bottom-buttons">
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="today-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
             <mock:shadow-root>
               <button aria-label="Navigate to current date" class="button" part="button" type="button">
                 <slot></slot>
@@ -4214,7 +4214,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
             </mock:shadow-root>
             Go to today
           </ic-button>
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="clear-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="clear-button">
             <mock:shadow-root>
               <button aria-label="clear selected date" class="button" part="button" type="button">
                 <slot></slot>
@@ -4244,7 +4244,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
               Type or use the up and down arrow keys to change the values for the year, month, and day.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-10" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-10" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
@@ -4254,7 +4254,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -4275,7 +4275,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -4317,7 +4317,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -4329,7 +4329,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
             <span aria-hidden="true" id="select-month-hint">
               Press Enter or Space to open month picker view or use the arrow keys to change month.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="July" class="button" part="button" type="button">
                   <slot></slot>
@@ -4341,7 +4341,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
               July
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -4353,7 +4353,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -4365,7 +4365,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
             <span aria-hidden="true" id="select-year-hint">
               Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2023" class="button" part="button" type="button">
                   <slot></slot>
@@ -4377,7 +4377,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
               2023
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -4726,7 +4726,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
         <div class="hidden month-picker-container"></div>
         <div class="hidden year-picker-container"></div>
         <div class="bottom-buttons">
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="today-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
             <mock:shadow-root>
               <button aria-label="Navigate to current date" class="button" part="button" type="button">
                 <slot></slot>
@@ -4734,7 +4734,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
             </mock:shadow-root>
             Go to today
           </ic-button>
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="clear-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="clear-button">
             <mock:shadow-root>
               <button aria-label="clear selected date" class="button" part="button" type="button">
                 <slot></slot>
@@ -4764,7 +4764,7 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="custom-id" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="custom-id" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -4774,7 +4774,7 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -4795,7 +4795,7 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -4845,7 +4845,7 @@ exports[`ic-date-picker should render with custom validation 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-7" role="group" size="default" validationstatus="error">
+            <ic-input-component-container id="ic-date-input-7" role="group" size="medium" validationstatus="error">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -4855,7 +4855,7 @@ exports[`ic-date-picker should render with custom validation 1`] = `
                   <input aria-label="year" class="year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -4876,7 +4876,7 @@ exports[`ic-date-picker should render with custom validation 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -4927,7 +4927,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-11" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-11" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
@@ -4937,7 +4937,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -4958,7 +4958,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -5000,7 +5000,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5012,7 +5012,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
             <span aria-hidden="true" id="select-month-hint">
               Press Enter or Space to open month picker view or use the arrow keys to change month.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="July" class="button" part="button" type="button">
                   <slot></slot>
@@ -5024,7 +5024,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
               July
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5036,7 +5036,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5048,7 +5048,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
             <span aria-hidden="true" id="select-year-hint">
               Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2023" class="button" part="button" type="button">
                   <slot></slot>
@@ -5060,7 +5060,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
               2023
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5409,7 +5409,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
         <div class="hidden month-picker-container"></div>
         <div class="hidden year-picker-container"></div>
         <div class="bottom-buttons">
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="today-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
             <mock:shadow-root>
               <button aria-label="Navigate to current date" class="button" part="button" type="button">
                 <slot></slot>
@@ -5417,7 +5417,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
             </mock:shadow-root>
             Go to today
           </ic-button>
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="clear-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="clear-button">
             <mock:shadow-root>
               <button aria-label="clear selected date" class="button" part="button" type="button">
                 <slot></slot>
@@ -5447,7 +5447,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-3" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-3" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
@@ -5457,7 +5457,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -5478,7 +5478,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -5520,7 +5520,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5532,7 +5532,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
             <span aria-hidden="true" id="select-month-hint">
               Press Enter or Space to open month picker view or use the arrow keys to change month.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="July" class="button" part="button" type="button">
                   <slot></slot>
@@ -5544,7 +5544,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
               July
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5556,7 +5556,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5568,7 +5568,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
             <span aria-hidden="true" id="select-year-hint">
               Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2023" class="button" part="button" type="button">
                   <slot></slot>
@@ -5580,7 +5580,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
               2023
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -5950,7 +5950,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-16" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-16" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="25">
@@ -5960,7 +5960,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2022">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -5981,7 +5981,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -6023,7 +6023,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6035,7 +6035,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
             <span aria-hidden="true" id="select-month-hint">
               Use the arrow keys to change the selected month. To return to day picker view, press Enter or Space to select a month, or press Escape.
             </span>
-            <ic-button aria-expanded="true" class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button aria-expanded="true" class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="December" class="button" part="button" type="button">
                   <slot></slot>
@@ -6047,7 +6047,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               December
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6059,7 +6059,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6071,7 +6071,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
             <span aria-hidden="true" id="select-year-hint">
               Press Enter or Space to open year picker view or use the arrow keys to change the selected year.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2022" class="button" part="button" type="button">
                   <slot></slot>
@@ -6083,7 +6083,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               2022
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6096,7 +6096,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
         </div>
         <div class="month-picker-container">
           <div class="month-picker" role="list">
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="0" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="0" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select January" class="button" part="button" type="button">
                   <slot></slot>
@@ -6104,7 +6104,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               January
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="1" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="1" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select February" class="button" part="button" type="button">
                   <slot></slot>
@@ -6112,7 +6112,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               February
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="2" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="2" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select March" class="button" part="button" type="button">
                   <slot></slot>
@@ -6120,7 +6120,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               March
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="3" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="3" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select April" class="button" part="button" type="button">
                   <slot></slot>
@@ -6128,7 +6128,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               April
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="4" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="4" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select May" class="button" part="button" type="button">
                   <slot></slot>
@@ -6136,7 +6136,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               May
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="5" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="5" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select June" class="button" part="button" type="button">
                   <slot></slot>
@@ -6144,7 +6144,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               June
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="6" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="6" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select July" class="button" part="button" type="button">
                   <slot></slot>
@@ -6152,7 +6152,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               July
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="7" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="7" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select August" class="button" part="button" type="button">
                   <slot></slot>
@@ -6160,7 +6160,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               August
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="8" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="8" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select September" class="button" part="button" type="button">
                   <slot></slot>
@@ -6168,7 +6168,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               September
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="9" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="9" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select October" class="button" part="button" type="button">
                   <slot></slot>
@@ -6176,7 +6176,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               October
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-button" data-month="10" exportparts="button" full-width="" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-button" data-month="10" exportparts="button" full-width="" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select November" class="button" part="button" type="button">
                   <slot></slot>
@@ -6184,7 +6184,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               </mock:shadow-root>
               November
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-primary focussed full-width month-button selected" data-month="11" exportparts="button" full-width="" role="listitem" tabindex="0">
+            <ic-button class="button-size-medium ic-button-variant-primary focussed full-width month-button selected" data-month="11" exportparts="button" full-width="" role="listitem" tabindex="0">
               <mock:shadow-root>
                 <button aria-current="true" aria-label="" class="button" part="button" type="button">
                   <slot></slot>
@@ -6196,7 +6196,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
         </div>
         <div class="hidden year-picker-container"></div>
         <div class="bottom-buttons">
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="today-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
             <mock:shadow-root>
               <button aria-label="Navigate to current date" class="button" part="button" type="button">
                 <slot></slot>
@@ -6204,7 +6204,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
             </mock:shadow-root>
             Go to today
           </ic-button>
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="clear-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="clear-button">
             <mock:shadow-root>
               <button aria-label="clear selected date" class="button" part="button" type="button">
                 <slot></slot>
@@ -6234,7 +6234,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-17" role="group" size="default" validationstatus="">
+            <ic-input-component-container id="ic-date-input-17" role="group" size="medium" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="25">
@@ -6244,7 +6244,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2022">
                 </div>
                 <div class="action-buttons">
-                  <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+                  <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
                       <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
@@ -6265,7 +6265,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
                   </ic-button>
                   <div class="show-calendar-button-wrapper">
                     <div class="default divider"></div>
-                    <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+                    <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
                         <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
@@ -6307,7 +6307,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
         <div class="month-year-nav-container">
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6319,7 +6319,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
             <span aria-hidden="true" id="select-month-hint">
               Press Enter or Space to open month picker view or use the arrow keys to change month.
             </span>
-            <ic-button class="button-size-default ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
+            <ic-button class="button-size-medium ic-button-variant-tertiary full-width month-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-month-hint" aria-expanded="false" aria-haspopup="menu" aria-label="December" class="button" part="button" type="button">
                   <slot></slot>
@@ -6331,7 +6331,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               December
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-month-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6343,7 +6343,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
           </div>
           <div class="month-year-nav">
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon flip" exportparts="button" id="previous-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6355,7 +6355,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
             <span aria-hidden="true" id="select-year-hint">
               Use the arrow keys to change the selected year. To return to day picker view, press Enter or Space to select a year, or press Escape.
             </span>
-            <ic-button aria-expanded="true" class="button-size-default ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
+            <ic-button aria-expanded="true" class="button-size-medium ic-button-variant-tertiary full-width year-picker-button" exportparts="button" full-width="true">
               <mock:shadow-root>
                 <button aria-describedby="select-year-hint" aria-expanded="false" aria-haspopup="menu" aria-label="2022" class="button" part="button" type="button">
                   <slot></slot>
@@ -6367,7 +6367,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               2022
             </ic-button>
             <div aria-hidden="true">
-              <ic-button class="button-size-default ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-icon" exportparts="button" id="next-year-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6382,7 +6382,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
         <div class="year-picker-container">
           <div class="year-picker" role="list">
             <div aria-hidden="true" class="prev-decade">
-              <ic-button class="button-size-default ic-button-variant-tertiary year-button" data-year="2019" exportparts="button" id="prev-decade-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-tertiary year-button" data-year="2019" exportparts="button" id="prev-decade-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <div class="icon-container">
@@ -6397,7 +6397,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
                 </svg>
               </ic-button>
             </div>
-            <ic-button class="button-size-default ic-button-variant-tertiary year-button" data-year="2020" exportparts="button" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary year-button" data-year="2020" exportparts="button" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select 2020" class="button" part="button" type="button">
                   <slot></slot>
@@ -6405,7 +6405,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               </mock:shadow-root>
               2020
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary year-button" data-year="2021" exportparts="button" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary year-button" data-year="2021" exportparts="button" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select 2021" class="button" part="button" type="button">
                   <slot></slot>
@@ -6413,7 +6413,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               </mock:shadow-root>
               2021
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-primary focussed selected year-button" data-year="2022" exportparts="button" role="listitem" tabindex="0">
+            <ic-button class="button-size-medium ic-button-variant-primary focussed selected year-button" data-year="2022" exportparts="button" role="listitem" tabindex="0">
               <mock:shadow-root>
                 <button aria-current="true" aria-label="" class="button" part="button" type="button">
                   <slot></slot>
@@ -6421,7 +6421,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               </mock:shadow-root>
               2022
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary year-button" data-year="2023" exportparts="button" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary year-button" data-year="2023" exportparts="button" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select 2023" class="button" part="button" type="button">
                   <slot></slot>
@@ -6429,7 +6429,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               </mock:shadow-root>
               2023
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary year-button" data-year="2024" exportparts="button" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary year-button" data-year="2024" exportparts="button" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select 2024" class="button" part="button" type="button">
                   <slot></slot>
@@ -6437,7 +6437,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               </mock:shadow-root>
               2024
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary year-button" data-year="2025" exportparts="button" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary year-button" data-year="2025" exportparts="button" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select 2025" class="button" part="button" type="button">
                   <slot></slot>
@@ -6445,7 +6445,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               </mock:shadow-root>
               2025
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary year-button" data-year="2026" exportparts="button" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary year-button" data-year="2026" exportparts="button" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select 2026" class="button" part="button" type="button">
                   <slot></slot>
@@ -6453,7 +6453,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               </mock:shadow-root>
               2026
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary year-button" data-year="2027" exportparts="button" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary year-button" data-year="2027" exportparts="button" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select 2027" class="button" part="button" type="button">
                   <slot></slot>
@@ -6461,7 +6461,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               </mock:shadow-root>
               2027
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary year-button" data-year="2028" exportparts="button" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary year-button" data-year="2028" exportparts="button" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select 2028" class="button" part="button" type="button">
                   <slot></slot>
@@ -6469,7 +6469,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               </mock:shadow-root>
               2028
             </ic-button>
-            <ic-button class="button-size-default ic-button-variant-tertiary year-button" data-year="2029" exportparts="button" role="listitem" tabindex="-1">
+            <ic-button class="button-size-medium ic-button-variant-tertiary year-button" data-year="2029" exportparts="button" role="listitem" tabindex="-1">
               <mock:shadow-root>
                 <button aria-current="false" aria-label="select 2029" class="button" part="button" type="button">
                   <slot></slot>
@@ -6478,7 +6478,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               2029
             </ic-button>
             <div aria-hidden="true" class="next-decade">
-              <ic-button class="button-size-default ic-button-variant-tertiary flip year-button" data-year="2030" exportparts="button" id="next-decade-button" tabindex="-1">
+              <ic-button class="button-size-medium ic-button-variant-tertiary flip year-button" data-year="2030" exportparts="button" id="next-decade-button" tabindex="-1">
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
@@ -6496,7 +6496,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
           </div>
         </div>
         <div class="bottom-buttons">
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="today-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="today-button">
             <mock:shadow-root>
               <button aria-label="Navigate to current date" class="button" part="button" type="button">
                 <slot></slot>
@@ -6504,7 +6504,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
             </mock:shadow-root>
             Go to today
           </ic-button>
-          <ic-button class="button-size-default ic-button-variant-tertiary" exportparts="button" id="clear-button">
+          <ic-button class="button-size-medium ic-button-variant-tertiary" exportparts="button" id="clear-button">
             <mock:shadow-root>
               <button aria-label="clear selected date" class="button" part="button" type="button">
                 <slot></slot>
