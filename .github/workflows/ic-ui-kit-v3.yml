@@ -194,7 +194,7 @@ jobs:
           git config --global user.name ${{ secrets.USERNAME }}
           git config --global user.email ${{ secrets.EMAIL }}
           git checkout packages/docs/docs.json packages/canary-docs/docs.json
-          npx lerna publish --tag=next --no-commit-hooks -y
+          npx lerna publish --dist-tag next --no-commit-hooks -y
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
