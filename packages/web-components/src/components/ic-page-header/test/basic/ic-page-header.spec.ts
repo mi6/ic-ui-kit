@@ -37,7 +37,7 @@ describe("ic-page-header component renders additional functionality", () => {
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -78,13 +78,13 @@ describe("ic-page-header component renders additional functionality", () => {
       html: `
       <ic-page-header heading="Create a coffee">
         <ic-stepper slot="stepper">
-          <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
+          <ic-step heading="Warm kettle" type="completed"></ic-step>
           <ic-step
-            step-title="Warm milk"
-            step-subtitle="Optional"
-            step-type="completed"
+            heading="Warm milk"
+            subheading="Optional"
+            type="completed"
           ></ic-step>
-          <ic-step step-title="Pour milk" step-type="current"></ic-step>
+          <ic-step heading="Pour milk" type="current"></ic-step>
         </ic-stepper>
       </ic-page-header>`,
     });
@@ -125,7 +125,7 @@ describe("ic-page-header component renders additional functionality", () => {
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -162,20 +162,20 @@ describe("ic-page-header component renders additional functionality", () => {
       html: `
       <ic-page-header heading="Coffee recipes" subheading="This is a simple page header component and this is the text.">
         <ic-stepper slot="stepper">
-          <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
+          <ic-step heading="Warm kettle" type="completed"></ic-step>
           <ic-step
-            step-title="Warm milk"
-            step-subtitle="Optional"
-            step-type="completed"
+            heading="Warm milk"
+            subheading="Optional"
+            type="completed"
           ></ic-step>
-          <ic-step step-title="Pour milk" step-type="current"></ic-step>
+          <ic-step heading="Pour milk" type="current"></ic-step>
         </ic-stepper>
         <ic-status-tag slot="heading-adornment" label="Beta"></ic-status-tag>
         <ic-button slot="actions" variant="tertiary">Filter coffee</ic-button>
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -240,7 +240,7 @@ describe("resizeObserver for ic-page-header", () => {
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -301,7 +301,7 @@ describe("resizeObserver for ic-page-header", () => {
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"

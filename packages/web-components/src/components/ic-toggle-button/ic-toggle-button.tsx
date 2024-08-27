@@ -75,7 +75,7 @@ export class ToggleButton {
   /**
    * If `true`, the toggle button will be in a checked state.
    */
-  @Prop({ mutable: true, reflect: true }) toggleChecked: boolean = false;
+  @Prop({ mutable: true, reflect: true }) checked: boolean = false;
 
   /**
    * The variant of the toggle button.
@@ -95,7 +95,7 @@ export class ToggleButton {
     const parentIconPlacement = (
       this.el.parentElement as HTMLIcToggleButtonGroupElement
     ).iconPlacement;
-    this.iconPosition = this.iconPlacement || parentIconPlacement;
+    this.iconPosition = this.iconPlacement || parentIconPlacement || "left";
   }
 
   componentDidLoad(): void {
@@ -115,7 +115,7 @@ export class ToggleButton {
     if (this.disabled) {
       e.stopImmediatePropagation();
     } else if (!this.loading) {
-      this.toggleChecked = !this.toggleChecked;
+      this.checked = !this.checked;
     }
   }
 
@@ -127,7 +127,7 @@ export class ToggleButton {
     !this.loading &&
       !this.disabled &&
       this.icToggleChecked.emit({
-        checked: this.toggleChecked,
+        checked: this.checked,
       });
   };
 
@@ -135,23 +135,23 @@ export class ToggleButton {
     return (
       <Host
         class={{
-          ["disabled"]: this.disabled,
-          ["checked"]: this.toggleChecked,
-          [`${this.appearance}`]: true,
-          ["icon"]: this.variant === "icon",
-          [`${this.size}`]: true,
-          ["loading"]: this.loading,
+          ["ic-toggle-button-disabled"]: this.disabled,
+          ["ic-toggle-button-checked"]: this.checked,
+          [`ic-toggle-button-${this.appearance}`]: true,
+          ["ic-toggle-button-icon"]: this.variant === "icon",
+          [`ic-toggle-button-${this.size}`]: true,
+          ["ic-toggle-button-loading"]: this.loading,
         }}
         onFocus={this.handleFocus}
       >
         <ic-button
-          aria-pressed={this.toggleChecked.toString()}
+          aria-pressed={this.checked.toString()}
           variant={this.variant === "icon" ? "icon" : "secondary"}
           onClick={this.handleClick}
           title={this.accessibleLabel}
           aria-label={`${
             this.accessibleLabel ? this.accessibleLabel : this.label
-          }, ${this.toggleChecked ? "ticked" : "unticked"}`}
+          }, ${this.checked ? "ticked" : "unticked"}`}
           disabled={this.disabled}
           appearance={this.appearance}
           size={this.size}
@@ -162,12 +162,7 @@ export class ToggleButton {
           {this.variant !== "icon" && this.label}
           <slot />
           {isSlotUsed(this.el, "icon") && (
-            <slot
-              name="icon"
-              slot={`${
-                this.iconPosition ? `${this.iconPosition}-icon` : "icon"
-              }`}
-            ></slot>
+            <slot name="icon" slot={`${this.iconPosition}-icon`}></slot>
           )}
           {isSlotUsed(this.el, "badge") && (
             <slot name="badge" slot="badge"></slot>

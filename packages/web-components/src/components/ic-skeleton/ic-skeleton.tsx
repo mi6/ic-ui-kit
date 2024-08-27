@@ -21,17 +21,12 @@ export class Skeleton {
   @Prop() appearance?: "light" | "default" = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `appearance` to "light" instead.
-   */
-  @Prop() light?: boolean = false;
-
-  /**
    * The variant of the skeleton that will be displayed.
    */
   @Prop() variant?: IcSkeletonVariants = "rectangle";
 
   render() {
-    const { variant, light, appearance, el } = this;
+    const { variant, appearance, el } = this;
 
     const style = !el.firstElementChild
       ? {
@@ -44,8 +39,8 @@ export class Skeleton {
       <Host
         class={{
           skeleton: true,
-          circle: variant === "circle",
-          light: light || appearance === "light",
+          "ic-skeleton-circle": variant === "circle",
+          "ic-skeleton-light": appearance === "light",
         }}
         style={style}
         aria-disabled="true"

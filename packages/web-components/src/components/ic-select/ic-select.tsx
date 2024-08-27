@@ -87,11 +87,6 @@ export class Select {
   @State() searchableSelectInputValue: string = null;
 
   /**
-   * @deprecated This prop should not be used anymore.
-   */
-  @Prop() charactersUntilSuggestions?: number = 0;
-
-  /**
    * If `true`, the disabled state will be set.
    */
   @Prop({ reflect: true }) disabled?: boolean = false;
@@ -99,7 +94,7 @@ export class Select {
   /**
    * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
    */
-  @Prop() disableFilter?: boolean = false;
+  @Prop() disableAutoFiltering?: boolean = false;
 
   /**
    * The text displayed when there are no options in the option list.
@@ -110,33 +105,6 @@ export class Select {
    * The <form> element to associate the select with.
    */
   @Prop() form?: string;
-
-  /**
-   * The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner.
-   * This prop should only be used with searchable select and will only be applied if searchable is true.
-   */
-  @Prop() formaction?: string;
-
-  /**
-   * The way the submitted form data is encoded. This prop should only be used with searchable select and will only be applied if searchable is true.
-   */
-  @Prop() formenctype?: string;
-
-  /**
-   * The HTTP method used to submit the form. This prop should only be used with searchable select and will only be applied if searchable is true.
-   */
-  @Prop() formmethod?: string;
-
-  /**
-   * If `true`, the form will not be validated when submitted. This prop should only be used with searchable select and will only be applied if searchable is true.
-   */
-  @Prop() formnovalidate?: boolean;
-
-  /**
-   * The place to display the response from submitting the form. It overrides the target attribute of the select's form owner.
-   * This prop should only be used with searchable select and will only be applied if searchable is true.
-   */
-  @Prop() formtarget?: string;
 
   /**
    * If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.
@@ -222,11 +190,6 @@ export class Select {
    * The size of the select component.
    */
   @Prop() size?: IcSizes = "default";
-
-  /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
 
   /**
    * If using external filtering, set a timeout for when loading takes too long.
@@ -664,7 +627,7 @@ export class Select {
   };
 
   private isExternalFiltering = (): boolean =>
-    this.searchable && this.disableFilter;
+    this.searchable && this.disableAutoFiltering;
 
   private handleClick = (event: MouseEvent): void => {
     if (!this.open) {
@@ -907,7 +870,7 @@ export class Select {
     this.inputValueToFilter = this.searchableSelectInputValue;
     this.setMenuChange(true);
 
-    if (!this.disableFilter) {
+    if (!this.disableAutoFiltering) {
       this.handleFilter();
       this.debounceAriaLiveUpdate();
     }
@@ -1005,7 +968,6 @@ export class Select {
 
   render() {
     const {
-      small,
       size,
       disabled,
       fullWidth,
@@ -1050,11 +1012,10 @@ export class Select {
     return (
       <Host
         class={{
-          disabled: disabled,
-          searchable: searchable,
-          small: small,
-          [size]: size !== "default",
-          "full-width": fullWidth,
+          ["ic-select-disabled"]: disabled,
+          ["ic-select-searchable"]: searchable,
+          [`ic-select-${size}`]: size !== "default",
+          ["ic-select-full-width"]: fullWidth,
         }}
         onBlur={this.onBlur}
       >
@@ -1072,7 +1033,6 @@ export class Select {
           <ic-input-component-container
             ref={(el) => (this.anchorEl = el)}
             class={{ "menu-open": this.open }}
-            small={small}
             size={size}
             fullWidth={fullWidth}
             disabled={disabled}
@@ -1166,11 +1126,6 @@ export class Select {
                   onFocus={this.onFocus}
                   onBlur={this.onBlur}
                   form={this.form}
-                  formaction={this.formaction}
-                  formenctype={this.formenctype}
-                  formmethod={this.formmethod}
-                  formnovalidate={this.formnovalidate}
-                  formtarget={this.formtarget}
                 ></input>
                 {this.searchableSelectInputValue &&
                   (showClearButton || searchable) && (
@@ -1305,7 +1260,6 @@ export class Select {
               }
               inputLabel={label}
               anchorEl={this.anchorEl}
-              small={small}
               size={size}
               menuId={menuId}
               open={this.open}

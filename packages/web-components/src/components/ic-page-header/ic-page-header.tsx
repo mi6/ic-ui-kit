@@ -60,11 +60,6 @@ export class PageHeader {
   @Prop() size?: IcSizesNoLarge = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * If `true`, the page header will be sticky at all breakpoints.
    */
   @Prop() sticky?: boolean = false;
@@ -160,7 +155,6 @@ export class PageHeader {
 
   render() {
     const {
-      small,
       size,
       border,
       heading,
@@ -177,8 +171,8 @@ export class PageHeader {
     return (
       <Host
         class={{
-          ["sticky"]: sticky,
-          ["sticky-desktop"]: !sticky && stickyDesktopOnly,
+          ["ic-page-header-sticky"]: sticky,
+          ["ic-page-header-sticky-desktop"]: !sticky && stickyDesktopOnly,
         }}
         aria-label={this.el.ariaLabel || "page header"}
       >
@@ -203,7 +197,7 @@ export class PageHeader {
                 <div class="header-content">
                   <slot name="heading">
                     <ic-typography
-                      variant={small || size === "small" ? "h4" : "h2"}
+                      variant={size === "small" ? "h4" : "h2"}
                       class="heading"
                     >
                       <h2>{heading}</h2>
@@ -218,7 +212,7 @@ export class PageHeader {
                         variant="body"
                         class={{
                           ["subheading"]: true,
-                          ["small"]: small || size === "small",
+                          ["small"]: size === "small",
                         }}
                       >
                         {subheading}

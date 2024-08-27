@@ -85,7 +85,7 @@ export class Stepper {
     this.steps = Array.from(this.el.querySelectorAll("ic-step"));
 
     this.stepsWithStepTitles = Array.from(
-      this.el.querySelectorAll("ic-step[step-title]")
+      this.el.querySelectorAll("ic-step[heading]")
     );
   };
 
@@ -99,7 +99,7 @@ export class Stepper {
       this.noOfResizes = this.noOfResizes + 1;
       if (this.noOfResizes === 1) {
         console.error(
-          `The prop 'step-title' (web components) / 'stepTitle' (react) is required for all steps of the Stepper component (compact variant)`
+          `The prop 'heading' is required for all steps of the Stepper component (compact variant)`
         );
       }
     }
@@ -139,42 +139,42 @@ export class Stepper {
       step.lastStep = index === this.steps.length - 1;
       step.lastStepNum = this.steps.length;
 
-      if (step.stepType !== "current") {
+      if (step.type !== "current") {
         step.current = false;
-        this.stepTypes[index] = step.stepType;
+        this.stepTypes[index] = step.type;
       } else {
         step.current = true;
       }
 
       const stepTitleArea =
         step.shadowRoot &&
-        step.shadowRoot.querySelector(".step > .step-title-area");
+        step.shadowRoot.querySelector(".step > .heading-area");
 
       if (this.stepsWithStepTitles.length == 0 && this.variantOverride) {
         if (this.variant === "compact") {
           this.autoSetStepTitles = true;
           if (this.autoSetStepTitles) {
-            step.stepTitle = "Step " + step.stepNum;
+            step.heading = "Step " + step.stepNum;
             stepTitleArea &&
               stepTitleArea
-                .querySelector(".step-title")
+                .querySelector(".heading")
                 .setAttribute("aria-hidden", "true");
           }
         }
         if (this.variant === "default") {
           this.autoSetStepTitles = false;
           if (!this.autoSetStepTitles) {
-            step.stepTitle = undefined;
+            step.heading = undefined;
             stepTitleArea &&
               stepTitleArea
-                .querySelector(".step-title")
+                .querySelector(".heading")
                 .removeAttribute("aria-hidden");
           }
         }
       }
 
       if (this.variant === "compact") {
-        if (step.current === true || step.stepType === "current") {
+        if (step.current === true || step.type === "current") {
           step.classList.remove("hide");
           step.classList.add("show");
         } else if (step.classList.contains("show")) {
@@ -183,7 +183,7 @@ export class Stepper {
         }
 
         if (!step.lastStep) {
-          step.nextStepTitle = this.steps[index + 1].stepTitle;
+          step.nextStepHeading = this.steps[index + 1].heading;
           step.progress = (step.stepNum / this.steps.length) * 100;
         } else if (step.lastStep && this.stepTypes[index] !== "completed") {
           step.progress = 95;
@@ -248,7 +248,7 @@ export class Stepper {
   private setHideStepInfo = (): void => {
     this.steps.forEach((step) => {
       const stepTitleArea = step.shadowRoot.querySelector(
-        ".step > .step-title-area"
+        ".step > .heading-area"
       );
 
       if (stepTitleArea !== null) {
@@ -295,8 +295,8 @@ export class Stepper {
     return (
       <Host
         class={{
-          [`${this.variant}`]: true,
-          ["aligned-left"]:
+          [`ic-stepper-${this.variant}`]: true,
+          ["ic-stepper-aligned-left"]:
             this.variant === "default" && this.aligned === "left",
         }}
       >

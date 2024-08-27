@@ -25,11 +25,6 @@ export class InputComponentContainer {
   @Prop() appearance?: "dark" | "default" = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
-   */
-  @Prop() dark?: boolean = false;
-
-  /**
    *  If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
@@ -53,11 +48,6 @@ export class InputComponentContainer {
    * The size of the input component container component.
    */
   @Prop() size?: IcSizes = "default";
-
-  /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
 
   /**
    *  If `true`, the validation will display inline.
@@ -89,13 +79,11 @@ export class InputComponentContainer {
   render() {
     const {
       size,
-      small,
       validationStatus,
       disabled,
       readonly,
       multiLine,
       fullWidth,
-      dark,
       appearance,
       validationInline,
     } = this;
@@ -107,21 +95,21 @@ export class InputComponentContainer {
     return (
       <Host
         class={{
-          small: small,
-          [`${size}`]: true,
-          [validationStatus]: hasValidationStatus,
-          disabled: disabled,
-          readonly: readonly,
-          ["multiline"]: multiLine,
-          ["fullwidth"]: fullWidth,
-          ["dark"]: dark || appearance === "dark",
+          [`ic-input-component-container-${size}`]: true,
+          [`ic-input-component-container-${validationStatus}`]:
+            hasValidationStatus,
+          [`ic-input-component-container-disabled`]: disabled,
+          [`ic-input-component-container-readonly`]: readonly,
+          ["ic-input-component-container-multiline"]: multiLine,
+          ["ic-input-component-container-full-width"]: fullWidth,
+          ["ic-input-component-container-dark"]: appearance === "dark",
         }}
         aria-disabled={disabled && `${disabled}`}
       >
         <div
           class={{
             "focus-indicator": true,
-            dark: dark || appearance === "dark",
+            dark: appearance === "dark",
           }}
         >
           {slotHasContent(this.el, "left-icon") && (

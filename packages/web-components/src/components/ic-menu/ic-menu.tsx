@@ -129,11 +129,6 @@ export class Menu {
   @Prop() size?: IcSizes = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * The possible menu selection options.
    */
   @Prop() options!: IcMenuOption[];
@@ -232,7 +227,7 @@ export class Menu {
   componentDidLoad(): void {
     if (
       this.isSearchBar &&
-      (this.parentEl as HTMLIcSearchBarElement).disableFilter
+      (this.parentEl as HTMLIcSearchBarElement).disableAutoFiltering
     ) {
       this.focusFromSearchKeypress = true;
     }
@@ -986,7 +981,6 @@ export class Menu {
       hasTimedOut,
       isLoading,
       size,
-      small,
       open,
       inputEl,
       keyboardNav,
@@ -995,11 +989,11 @@ export class Menu {
     return (
       <Host
         class={{
-          "full-width": fullWidth,
-          "no-focus": inputEl?.tagName === "INPUT" || hasTimedOut || isLoading,
-          small: small,
-          [size]: true,
-          open: open,
+          "ic-menu-full-width": fullWidth,
+          "ic-menu-no-focus":
+            inputEl?.tagName === "INPUT" || hasTimedOut || isLoading,
+          [`ic-menu-${size}`]: true,
+          "ic-menu-open": open,
         }}
       >
         {options.length !== 0 && (

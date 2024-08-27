@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-footer should render 1`] = `
-<ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
+<ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
   <mock:shadow-root>
     <footer>
       <div class="footer-compliance">
@@ -21,7 +21,7 @@ exports[`ic-footer should render 1`] = `
 `;
 
 exports[`ic-footer should render with a caption via the caption prop 1`] = `
-<ic-footer caption="Made by ICDS" class="footer footer-light footer-sparse footer-ungrouped light" description="This is a footer">
+<ic-footer caption="Made by ICDS" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" description="This is a footer">
   <mock:shadow-root>
     <footer>
       <div class="footer-description">
@@ -59,7 +59,7 @@ exports[`ic-footer should render with a caption via the caption prop 1`] = `
 `;
 
 exports[`ic-footer should render with a caption via the caption slot 1`] = `
-<ic-footer class="footer footer-light footer-sparse footer-ungrouped light" description="This is a footer">
+<ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" description="This is a footer">
   <mock:shadow-root>
     <footer>
       <div class="footer-description">
@@ -98,7 +98,7 @@ exports[`ic-footer should render with a caption via the caption slot 1`] = `
 `;
 
 exports[`ic-footer should render with a description via the description slot 1`] = `
-<ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
+<ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
   <mock:shadow-root>
     <footer>
       <div class="footer-description">
@@ -139,7 +139,7 @@ exports[`ic-footer should render with a description via the description slot 1`]
 `;
 
 exports[`ic-footer should render with classification banner: footer-classification-banner 1`] = `
-<ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
+<ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
   <mock:shadow-root>
     <footer>
       <div class="footer-compliance">
@@ -159,7 +159,7 @@ exports[`ic-footer should render with classification banner: footer-classificati
 `;
 
 exports[`ic-footer should render with link groups 1`] = `
-<ic-footer caption="Made by ICDS" class="footer footer-light footer-sparse footer-ungrouped light" description="This is a footer">
+<ic-footer caption="Made by ICDS" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" description="This is a footer">
   <mock:shadow-root>
     <footer>
       <div class="footer-description">
@@ -200,7 +200,7 @@ exports[`ic-footer should render with link groups 1`] = `
       </div>
     </footer>
   </mock:shadow-root>
-  <ic-footer-link-group group-title="Links" slot="link">
+  <ic-footer-link-group label="Links" slot="link">
     <ic-footer-link href="/">
       Link
     </ic-footer-link>
@@ -212,7 +212,7 @@ exports[`ic-footer should render with link groups 1`] = `
 `;
 
 exports[`ic-footer should render with links 1`] = `
-<ic-footer caption="Made by ICDS" class="footer footer-light footer-sparse footer-ungrouped light" description="This is a footer">
+<ic-footer caption="Made by ICDS" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" description="This is a footer">
   <mock:shadow-root>
     <footer>
       <div class="footer-description">
@@ -263,7 +263,7 @@ exports[`ic-footer should render with links 1`] = `
 `;
 
 exports[`ic-footer should render with the correct small breakpoint at extra large device size: footer-xl-breakpoint 1`] = `
-<ic-footer breakpoint="extra large" caption="caption" class="footer footer-light footer-small footer-ungrouped light" id="ic-footer">
+<ic-footer breakpoint="extra large" caption="caption" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-small ic-footer-ungrouped" id="ic-footer">
   <mock:shadow-root>
     <footer>
       <div class="footer-compliance">
@@ -290,7 +290,7 @@ exports[`ic-footer should render with the correct small breakpoint at extra larg
 `;
 
 exports[`ic-footer should render with the correct small breakpoint at extra small device size: footer-xs-breakpoint 1`] = `
-<ic-footer breakpoint="extra small" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
+<ic-footer breakpoint="extra small" caption="caption" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" id="ic-footer">
   <mock:shadow-root>
     <footer>
       <div class="footer-compliance">
@@ -317,7 +317,7 @@ exports[`ic-footer should render with the correct small breakpoint at extra smal
 `;
 
 exports[`ic-footer should render with the correct small breakpoint at large device size: footer-l-breakpoint 1`] = `
-<ic-footer breakpoint="large" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
+<ic-footer breakpoint="large" caption="caption" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" id="ic-footer">
   <mock:shadow-root>
     <footer>
       <div class="footer-compliance">
@@ -344,7 +344,7 @@ exports[`ic-footer should render with the correct small breakpoint at large devi
 `;
 
 exports[`ic-footer should render with the correct small breakpoint at medium device size: footer-m-breakpoint 1`] = `
-<ic-footer breakpoint="medium" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
+<ic-footer breakpoint="medium" caption="caption" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" id="ic-footer">
   <mock:shadow-root>
     <footer>
       <div class="footer-compliance">
@@ -371,7 +371,7 @@ exports[`ic-footer should render with the correct small breakpoint at medium dev
 `;
 
 exports[`ic-footer should render with the correct small breakpoint at small device size: footer-s-breakpoint 1`] = `
-<ic-footer breakpoint="small" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
+<ic-footer breakpoint="small" caption="caption" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" id="ic-footer">
   <mock:shadow-root>
     <footer>
       <div class="footer-compliance">
@@ -398,7 +398,7 @@ exports[`ic-footer should render with the correct small breakpoint at small devi
 `;
 
 exports[`ic-footer should render without the copyright text when the copyright prop is false 1`] = `
-<ic-footer class="footer footer-light footer-sparse footer-ungrouped light" copyright="false" description="This is a footer">
+<ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" copyright="false" description="This is a footer">
   <mock:shadow-root>
     <footer>
       <div class="footer-description">

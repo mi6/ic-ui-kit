@@ -10,8 +10,6 @@ import {
 import { DEVICE_SIZES, getThemeForegroundColor } from "../../utils/helpers";
 import { IcTheme, IcThemeForeground } from "../../utils/types";
 
-import OpenInNew from "../../assets/OpenInNew.svg";
-
 type FooterConfig = { small: boolean; grouped: boolean };
 
 @Component({
@@ -75,10 +73,10 @@ export class FooterLink {
 
   private inferConfig(e: HTMLElement): FooterConfig {
     if (e.parentElement !== null) {
-      if (e.parentElement.classList.contains("footer")) {
+      if (e.parentElement.classList.contains("ic-footer")) {
         return {
-          small: e.parentElement.classList.contains("footer-small"),
-          grouped: e.parentElement.classList.contains("footer-grouped"),
+          small: e.parentElement.classList.contains("ic-footer-small"),
+          grouped: e.parentElement.classList.contains("ic-footer-grouped"),
         };
       } else {
         return this.inferConfig(e.parentElement);
@@ -111,19 +109,16 @@ export class FooterLink {
         }}
         role="listitem"
       >
-        <a
+        <ic-link
           href={href}
           hreflang={hreflang}
-          referrerPolicy={referrerpolicy}
+          referrerpolicy={referrerpolicy}
           rel={rel}
           download={download !== false ? download : null}
           target={target}
         >
           <slot />
-          {target === "_blank" && (
-            <span class="open-in-new-icon" innerHTML={OpenInNew} />
-          )}
-        </a>
+        </ic-link>
       </Host>
     );
   }

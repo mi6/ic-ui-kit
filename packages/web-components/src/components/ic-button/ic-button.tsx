@@ -37,7 +37,6 @@ import arrowDropdown from "../../assets/arrow-dropdown.svg";
 let buttonIds = 0;
 
 /**
- * @slot icon - Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead.
  * @slot left-icon - Content will be placed to the left of the button label.
  * @slot right-icon - Content will be placed to the right of the button label.
  * @slot top-icon - Content will be placed above the button label.
@@ -509,11 +508,6 @@ export class Button {
           aria-describedby={describedby}
           part="button"
         >
-          {this.hasIconSlot() && !this.loading && (
-            <div class="icon-container">
-              <slot name="icon" />
-            </div>
-          )}
           {this.hasIconSlot("left") && !this.loading && (
             <div class="icon-container">
               <slot name="left-icon" />
@@ -568,13 +562,13 @@ export class Button {
     return (
       <Host
         class={{
-          ["disabled"]: this.disabled && !this.loading,
-          [`button-variant-${this.variant}`]: true,
-          [`button-size-${this.size}`]: true,
-          ["loading"]: this.loading,
-          ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
-          ["light"]: this.appearance === IcThemeForegroundEnum.Light,
-          ["full-width"]: this.fullWidth,
+          ["ic-button-disabled"]: this.disabled && !this.loading,
+          [`ic-button-variant-${this.variant}`]: true,
+          [`ic-button-size-${this.size}`]: true,
+          ["ic-button-loading"]: this.loading,
+          ["ic-button-dark"]: this.appearance === IcThemeForegroundEnum.Dark,
+          ["ic-button-light"]: this.appearance === IcThemeForegroundEnum.Light,
+          ["ic-button-full-width"]: this.fullWidth,
           ["with-badge"]: isSlotUsed(this.el, "badge"),
           ["dropdown-no-icon"]:
             this.dropdown &&

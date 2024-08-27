@@ -27,9 +27,10 @@ const defaultArgs = {
   max: 100,
 };
 
+const LOADING_INDICATOR_SELECTOR = "ic-loading-indicator";
 const DEFAULT_TEST_THRESHOLD = 0;
 
-describe("IcLoadingIndicator", () => {
+describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -38,7 +39,7 @@ describe("IcLoadingIndicator", () => {
     cy.task("generateReport");
   });
 
-  it("should render", () => {
+  it("should render indeterminate circular loading indicator", () => {
     mount(<IndeterminateCircularLoadingIndWithLabel />);
 
     cy.findShadowEl(
@@ -49,7 +50,7 @@ describe("IcLoadingIndicator", () => {
     cy.checkA11yWithWait();
   });
 
-  it("should render lots of determinate with many sizes", () => {
+  it("should render determinate circular loading indicators with different sizes", () => {
     mount(
       <DeterminateCircularLoadingIndWithLabelSizeSmallDefaultLarge
         progress={defaultArgs.progress}
@@ -58,6 +59,8 @@ describe("IcLoadingIndicator", () => {
       />
     );
 
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "determinate-circulars-with-3-sizes",
@@ -65,7 +68,7 @@ describe("IcLoadingIndicator", () => {
     });
   });
 
-  it("should render determinate with icon", () => {
+  it("should render determinate circular loading indicator icon variant", () => {
     mount(
       <DeterminateCircularLoadingIndWithIcon
         progress={defaultArgs.progress}
@@ -74,7 +77,10 @@ describe("IcLoadingIndicator", () => {
       />
     );
 
-    cy.get("ic-loading-indicator").invoke("prop", "size").should("eq", "icon");
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+    cy.get(LOADING_INDICATOR_SELECTOR)
+      .invoke("prop", "size")
+      .should("eq", "icon");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -86,7 +92,7 @@ describe("IcLoadingIndicator", () => {
     });
   });
 
-  it("should render lots of determinate linear with many sizes", () => {
+  it("should render determinate linear loading indicators with different sizes", () => {
     mount(
       <DeterminateLinearLoadingIndWithLabelSizeSmallDefaultLargeFull
         progress={defaultArgs.progress}
@@ -94,6 +100,8 @@ describe("IcLoadingIndicator", () => {
         min={defaultArgs.min}
       />
     );
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -105,7 +113,7 @@ describe("IcLoadingIndicator", () => {
     });
   });
 
-  it("should render determinate light circular with many sizes", () => {
+  it("should render determinate light circular loading indicators with different sizes", () => {
     mount(
       <DeterminateCircularLightLoadingIndSizeSmallDefaultLarge
         progress={defaultArgs.progress}
@@ -114,7 +122,8 @@ describe("IcLoadingIndicator", () => {
       />
     );
 
-    cy.get("ic-loading-indicator")
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+    cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "appearance")
       .should("eq", "light");
 
@@ -134,10 +143,13 @@ describe("IcLoadingIndicator", () => {
       />
     );
 
-    cy.get("ic-loading-indicator")
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+    cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "appearance")
       .should("eq", "light");
-    cy.get("ic-loading-indicator").invoke("prop", "size").should("eq", "icon");
+    cy.get(LOADING_INDICATOR_SELECTOR)
+      .invoke("prop", "size")
+      .should("eq", "icon");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -149,7 +161,7 @@ describe("IcLoadingIndicator", () => {
     });
   });
 
-  it("should render lots of determinate linear light with many sizes", () => {
+  it("should render determinate linear light loading indicators with different sizes", () => {
     mount(
       <DeterminateLinearLightLoadingIndSizeDefaultLargeFull
         progress={defaultArgs.progress}
@@ -157,6 +169,8 @@ describe("IcLoadingIndicator", () => {
         min={defaultArgs.min}
       />
     );
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -168,7 +182,7 @@ describe("IcLoadingIndicator", () => {
     });
   });
 
-  it("should render lots of determinate with no label but description", () => {
+  it("should render determinate loading indicators with no label but description", () => {
     mount(
       <DeterminateLoadingIndWithNameNoLabel
         progress={defaultArgs.progress}
@@ -177,7 +191,8 @@ describe("IcLoadingIndicator", () => {
       />
     );
 
-    cy.get("ic-loading-indicator")
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+    cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "description")
       .should("eq", "Loading");
 
@@ -191,7 +206,7 @@ describe("IcLoadingIndicator", () => {
     });
   });
 
-  it("should render determinate circular with inner label", () => {
+  it("should render determinate circular loading indicator with inner label", () => {
     mount(
       <DeterminateCircularLoadingIndWithInnerLabel
         progress={defaultArgs.progress}
@@ -200,10 +215,11 @@ describe("IcLoadingIndicator", () => {
       />
     );
 
-    cy.get("ic-loading-indicator")
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+    cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "inner-label")
       .should("eq", "3");
-    cy.get("ic-loading-indicator").invoke("prop", "min").should("eq", 0);
+    cy.get(LOADING_INDICATOR_SELECTOR).invoke("prop", "min").should("eq", 0);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -218,12 +234,126 @@ describe("IcLoadingIndicator", () => {
   it("should change label after specified amount of time", () => {
     mount(<IndeterminateCircularLoadingIndE2EWithDuration />);
 
-    cy.findShadowEl("ic-loading-indicator", "ic-typography#ic-loading-label")
+    cy.findShadowEl(
+      LOADING_INDICATOR_SELECTOR,
+      "ic-typography#ic-loading-label"
+    )
       .find("p")
       .should(HAVE_TEXT, "First label");
     cy.wait(250);
-    cy.findShadowEl("ic-loading-indicator", "ic-typography#ic-loading-label")
+    cy.findShadowEl(
+      LOADING_INDICATOR_SELECTOR,
+      "ic-typography#ic-loading-label"
+    )
       .find("p")
       .should(HAVE_TEXT, "Second label");
+  });
+});
+
+describe("IcLoadingIndicator visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render determinate circular loading indicators with different sizes in high contrast mode", () => {
+    mount(
+      <DeterminateCircularLoadingIndWithLabelSizeSmallDefaultLarge
+        progress={defaultArgs.progress}
+        max={defaultArgs.max}
+        min={defaultArgs.min}
+      />
+    );
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "determinate-circulars-with-3-sizes-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
+  });
+
+  it("should render determinate circular loading indicator icon variant in high contrast mode", () => {
+    mount(
+      <DeterminateCircularLoadingIndWithIcon
+        progress={defaultArgs.progress}
+        max={defaultArgs.max}
+        min={defaultArgs.min}
+      />
+    );
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "determinate-circular-with-icon-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      cypressScreenshotOptions: {
+        clip: ICON_CLIP,
+      },
+    });
+  });
+
+  it("should render determinate linear loading indicators with different sizes in high contrast mode", () => {
+    mount(
+      <DeterminateLinearLoadingIndWithLabelSizeSmallDefaultLargeFull
+        progress={defaultArgs.progress}
+        max={defaultArgs.max}
+        min={defaultArgs.min}
+      />
+    );
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "determinate-linears-with-3-sizes-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+      cypressScreenshotOptions: {
+        clip: MULTI_CLIP,
+      },
+    });
+  });
+
+  it("should render determinate light circular loading indicators with different sizes in high contrast mode", () => {
+    mount(
+      <DeterminateCircularLightLoadingIndSizeSmallDefaultLarge
+        progress={defaultArgs.progress}
+        max={defaultArgs.max}
+        min={defaultArgs.min}
+      />
+    );
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "determinate-light-circular-with-3-sizes-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+    });
+  });
+
+  it("should render determinate circular loading indicator with inner label in high contrast mode", () => {
+    mount(
+      <DeterminateCircularLoadingIndWithInnerLabel
+        progress={defaultArgs.progress}
+        max={defaultArgs.max}
+        min={defaultArgs.min}
+      />
+    );
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "determinate-circular-with-inner-label-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+      cypressScreenshotOptions: {
+        clip: INNER_LABEL_CLIP,
+      },
+    });
   });
 });

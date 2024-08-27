@@ -10,7 +10,6 @@ import { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
-import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
@@ -25,7 +24,7 @@ import { IcPaginationItemType } from "./components/ic-pagination-item/ic-paginat
 import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
 import { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
-import { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
+import { IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
 import { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
 import { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
@@ -39,7 +38,6 @@ export { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
-export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
@@ -54,7 +52,7 @@ export { IcPaginationItemType } from "./components/ic-pagination-item/ic-paginat
 export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
 export { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 export { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
-export { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
+export { IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
 export { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
 export { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 export { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
@@ -107,7 +105,7 @@ export namespace Components {
         /**
           * The header for the accordion group.
          */
-        "groupTitle": string;
+        "label": string;
         /**
           * Sets the focus on first focusable element in the accordion group. If the "See/Hide all" button is present, it will be focused. Otherwise, the first accordion will be focused.
          */
@@ -167,11 +165,11 @@ export namespace Components {
          */
         "customColor"?: IcColor;
         /**
-          * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
+          * The text displayed in the badge. This will only be displayed if type="text".
          */
-        "hideBadge": () => Promise<void>;
+        "label"?: string;
         /**
-          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and textLabel is not empty.
+          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and label is not empty.
          */
         "maxNumber"?: number;
         /**
@@ -179,17 +177,9 @@ export namespace Components {
          */
         "position"?: IcBadgePositions;
         /**
-          * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
-         */
-        "showBadge": () => Promise<void>;
-        /**
           * The size of the badge to be displayed.
          */
         "size"?: IcSizes;
-        /**
-          * The text displayed in the badge. This will only be displayed if type="text".
-         */
-        "textLabel"?: string;
         /**
           * The type of badge to be displayed.
          */
@@ -361,7 +351,7 @@ export namespace Components {
          */
         "variant"?: IcButtonVariants;
     }
-    interface IcCard {
+    interface IcCardVertical {
         /**
           * If `true`, the card will be a clickable variant, instead of static.
          */
@@ -437,26 +427,6 @@ export namespace Components {
          */
         "form"?: string;
         /**
-          * The URL that processes the information submitted by the checkbox. It overrides the action attribute of the checkbox's form owner. Does nothing if there is no form owner.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the checkbox's form owner.
-         */
-        "formtarget"?: string;
-        /**
           * The group label for the checkbox.
          */
         "groupLabel": string;
@@ -488,10 +458,6 @@ export namespace Components {
           * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
          */
         "size"?: IcSizes;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * The value for the checkbox.
          */
@@ -527,10 +493,6 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small": boolean;
-        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty;
@@ -540,10 +502,6 @@ export namespace Components {
         "validationText": string;
     }
     interface IcChip {
-        /**
-          * @deprecated This prop should not be used anymore. Use variant prop instead.
-         */
-        "appearance"?: IcChipAppearance;
         /**
           * The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
@@ -599,19 +557,15 @@ export namespace Components {
          */
         "upTo"?: boolean;
     }
-    interface IcDataEntity {
+    interface IcDataList {
         /**
-          * The title for the data entity.
+          * The title for the data list.
          */
         "heading": string;
         /**
-          * The size of the data entity component.
+          * The size of the data list component.
          */
         "size"?: IcSizesNoLarge;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
     }
     interface IcDataRow {
         /**
@@ -623,29 +577,13 @@ export namespace Components {
          */
         "size"?: IcSizesNoLarge;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
         "value": string;
     }
     interface IcDialog {
         /**
-          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.
-         */
-        "alertHeading"?: string;
-        /**
-          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.
-         */
-        "alertMessage"?: string;
-        /**
-          * Sets the label and onclick functions for default buttons.
-         */
-        "buttonProps"?: { label: string; onclick: string }[];
-        /**
-          * If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.
+          * If set to `false`, default buttons or slotted dialog controls will not be displayed.
          */
         "buttons"?: boolean;
         /**
@@ -685,10 +623,6 @@ export namespace Components {
          */
         "hideCloseButton"?: boolean;
         /**
-          * @deprecated This method should not be used anymore. Use open prop to set dialog visibility.
-         */
-        "hideDialog": () => Promise<void>;
-        /**
           * Sets the optional label for the dialog which appears above the heading.
          */
         "label"?: string;
@@ -697,17 +631,9 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * @deprecated This method should not be used anymore. Use open prop to set dialog visibility.
-         */
-        "showDialog": () => Promise<void>;
-        /**
           * Sets the maximum and minimum height and width for the dialog.
          */
         "size"?: "small" | "medium" | "large";
-        /**
-          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.
-         */
-        "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
     interface IcDivider {
     }
@@ -721,10 +647,6 @@ export namespace Components {
          */
         "body"?: string;
         /**
-          * The number of lines of body text to display before truncating.
-         */
-        "bodyMaxLines"?: number;
-        /**
           * The title rendered in the empty state container.
          */
         "heading"?: string;
@@ -732,6 +654,10 @@ export namespace Components {
           * The size of the image or icon used in the image slot.
          */
         "imageSize"?: IcSizes;
+        /**
+          * The number of lines of body text to display before truncating.
+         */
+        "maxLines"?: number;
         /**
           * The subtitle rendered in the empty state container.
          */
@@ -793,7 +719,7 @@ export namespace Components {
         /**
           * The title of the link group to be displayed.
          */
-        "groupTitle": string;
+        "label": string;
     }
     interface IcHero {
         /**
@@ -813,11 +739,11 @@ export namespace Components {
          */
         "disableBackgroundParallax"?: boolean;
         /**
-          * The heading of the hero.
+          * The heading of the hero. An <h2> level heading.
          */
         "heading": string;
         /**
-          * The optional secondary heading, replaced by slotted right content.
+          * The optional secondary heading, an <h3> level heading. Replaced by slotted right content.
          */
         "secondaryHeading"?: string;
         /**
@@ -828,10 +754,6 @@ export namespace Components {
           * The size of the hero component.
          */
         "size"?: IcSizesNoLarge;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * The description for the hero.
          */
@@ -850,10 +772,6 @@ export namespace Components {
           * The appearance of the input component container.
          */
         "appearance"?: "dark" | "default";
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
-         */
-        "dark"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -874,10 +792,6 @@ export namespace Components {
           * The size of the input component container component.
          */
         "size"?: IcSizes;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * If `true`, the validation will display inline.
          */
@@ -903,17 +817,9 @@ export namespace Components {
          */
         "appearance"?: "dark" | "default";
         /**
-          * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
-         */
-        "dark"?: boolean;
-        /**
           * If `true`, the disabled state will be set.
          */
         "disabled": boolean;
-        /**
-          * If `true`, the input label will display with error styling.
-         */
-        "error"?: boolean;
         /**
           * The ID of the form element the label is bound to.
          */
@@ -934,6 +840,10 @@ export namespace Components {
           * If `true`, the input label will require a value.
          */
         "required": boolean;
+        /**
+          * The status of the label - e.g. 'error'.
+         */
+        "status": "error" | "";
     }
     interface IcInputValidation {
         /**
@@ -986,10 +896,6 @@ export namespace Components {
           * Sets focus on the link.
          */
         "setFocus": () => Promise<void>;
-        /**
-          * @deprecated This prop should not be used anymore. The 'open in new tab/window' icon will display automatically if target="_blank".
-         */
-        "showIcon"?: boolean;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -1094,10 +1000,6 @@ export namespace Components {
           * The size of the menu component.
          */
         "size"?: IcSizes;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * The value of the currently selected option.
          */
@@ -1280,10 +1182,6 @@ export namespace Components {
          */
         "size"?: IcSizesNoLarge;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * If `true`, the page header will be sticky at all breakpoints.
          */
         "sticky"?: boolean;
@@ -1300,7 +1198,7 @@ export namespace Components {
         /**
           * The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
-        "adjacentCount": number;
+        "adjacentPageCount": number;
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
          */
@@ -1308,7 +1206,7 @@ export namespace Components {
         /**
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
-        "boundaryCount": number;
+        "boundaryPageCount": number;
         /**
           * The current page displayed by the pagination.
          */
@@ -1426,10 +1324,6 @@ export namespace Components {
          */
         "size"?: IcSizesNoLarge;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty;
@@ -1455,26 +1349,6 @@ export namespace Components {
           * The <form> element to associate the radio with.
          */
         "form"?: string;
-        /**
-          * The URL that processes the information submitted by the radio. It overrides the action attribute of the radio's form owner. Does nothing if there is no form owner.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the radio's form owner.
-         */
-        "formtarget"?: string;
         /**
           * The group label for the radio option.
          */
@@ -1503,6 +1377,10 @@ export namespace Components {
     }
     interface IcSearchBar {
         /**
+          * The hint text for the hidden assistive description element.
+         */
+        "assistiveHintText"?: string;
+        /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize": string;
@@ -1529,7 +1407,7 @@ export namespace Components {
         /**
           * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -1554,10 +1432,6 @@ export namespace Components {
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
-        /**
-          * The hint text for the hidden assistive description element.
-         */
-        "hintText"?: string;
         /**
           * The label for the search bar.
          */
@@ -1611,10 +1485,6 @@ export namespace Components {
          */
         "size"?: IcSizesNoLarge;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
         "spellcheck": boolean;
@@ -1643,17 +1513,13 @@ export namespace Components {
     }
     interface IcSelect {
         /**
-          * @deprecated This prop should not be used anymore.
-         */
-        "charactersUntilSuggestions"?: number;
-        /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
         "debounce"?: number;
         /**
           * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -1666,26 +1532,6 @@ export namespace Components {
           * The <form> element to associate the select with.
          */
         "form"?: string;
-        /**
-          * The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the select's form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formtarget"?: string;
         /**
           * If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.
          */
@@ -1767,10 +1613,6 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
@@ -1836,10 +1678,6 @@ export namespace Components {
          */
         "appearance"?: "light" | "default";
         /**
-          * @deprecated This prop should not be used anymore. Set prop `appearance` to "light" instead.
-         */
-        "light"?: boolean;
-        /**
           * The variant of the skeleton that will be displayed.
          */
         "variant"?: IcSkeletonVariants;
@@ -1850,10 +1688,6 @@ export namespace Components {
          */
         "announced"?: boolean;
         /**
-          * @deprecated This prop should not be used anymore. Use variant prop instead.
-         */
-        "appearance"?: IcStatusTagAppearance;
-        /**
           * The content rendered within the status tag.
          */
         "label": string;
@@ -1861,10 +1695,6 @@ export namespace Components {
           * The size of the status tag component.
          */
         "size"?: IcSizes;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * The colour of the status tag.
          */
@@ -1877,27 +1707,27 @@ export namespace Components {
     interface IcStep {
         "compactStepStyling"?: IcStepTypes;
         "current"?: boolean;
-        "lastStep": boolean;
-        "lastStepNum"?: number;
-        "nextStepTitle"?: string;
-        "progress"?: number;
-        "stepNum"?: number;
-        /**
-          * The status of the step. Use this prop to display a status message on the step if it is required or optional.
-         */
-        "stepStatus"?: IcStepStatuses;
-        /**
-          * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
-         */
-        "stepSubtitle"?: string;
         /**
           * The title of the step within the stepper.
          */
-        "stepTitle"?: string;
+        "heading"?: string;
+        "lastStep": boolean;
+        "lastStepNum"?: number;
+        "nextStepHeading"?: string;
+        "progress"?: number;
+        /**
+          * The status of the step. Use this prop to display a status message on the step if it is required or optional.
+         */
+        "status"?: IcStepStatuses;
+        "stepNum"?: number;
+        /**
+          * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
+         */
+        "subheading"?: string;
         /**
           * The state of the step within the stepper.
          */
-        "stepType"?: IcStepTypes;
+        "type"?: IcStepTypes;
         "variant": IcStepVariants;
     }
     interface IcStepper {
@@ -1960,10 +1790,6 @@ export namespace Components {
          */
         "size"?: IcSizesNoLarge;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The value of the toggle does not mean if it's checked or not, use the `checked` property for that.  The value of a toggle is analogous to the value of a `<input type="checkbox">`, it's only used when the toggle participates in a native `<form>`.
          */
         "value"?: string | null;
@@ -2005,10 +1831,6 @@ export namespace Components {
     interface IcTabGroup {
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * @deprecated This is no longer required. The context id is passed down from `ic-tab-context`
-         */
-        "contextId"?: string;
-        /**
           * If `true`, the tabs and tab panels will be positioned separately.
          */
         "inline"?: boolean;
@@ -2019,10 +1841,6 @@ export namespace Components {
     }
     interface IcTabPanel {
         "appearance"?: IcThemeForegroundNoDefault;
-        /**
-          * @deprecated This is no longer required. The context id is passed down from `ic-tab-context`
-         */
-        "contextId"?: string;
         "panelId"?: string;
         "selectedTab"?: string;
         "tabPosition"?: number;
@@ -2066,6 +1884,10 @@ export namespace Components {
         "helperText": string;
         "hiddenInput": boolean;
         /**
+          * If `true`, the character count which is displayed when `maxCharacters` is set will be visually hidden.
+         */
+        "hideCharCount": boolean;
+        /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel": boolean;
@@ -2086,13 +1908,9 @@ export namespace Components {
          */
         "max": string | number;
         /**
-          * The maximum number of characters that can be entered in the field. Will display an error if too many characters are entered.
+          * The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)
          */
         "maxCharacters": number;
-        /**
-          * The count of characters in the field. Will display a warning if the bound is reached.
-         */
-        "maxLength": number;
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
@@ -2134,10 +1952,6 @@ export namespace Components {
           * The size of the text field component.
          */
         "size"?: IcSizesNoLarge;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
@@ -2210,11 +2024,6 @@ export namespace Components {
           * The toast element to be displayed.
          */
         "openToast": HTMLIcToastElement;
-        /**
-          * @deprecated Use openToast prop to display toast instead.
-          * @param toast The toast component to display
-         */
-        "setVisible": (toast: HTMLIcToastElement) => Promise<void>;
     }
     interface IcToggleButton {
         /**
@@ -2225,6 +2034,10 @@ export namespace Components {
           * The appearance of the toggle button.
          */
         "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the toggle button will be in a checked state.
+         */
+        "checked": boolean;
         /**
           * If `true`, the toggle button will be in disabled state.
          */
@@ -2249,10 +2062,6 @@ export namespace Components {
           * The size of the toggle button to be displayed.
          */
         "size"?: IcSizes;
-        /**
-          * If `true`, the toggle button will be in a checked state.
-         */
-        "toggleChecked": boolean;
         /**
           * The variant of the toggle button.
          */
@@ -2555,7 +2364,6 @@ declare global {
         new (): HTMLIcAccordionGroupElement;
     };
     interface HTMLIcAlertElementEventMap {
-        "dismiss": void;
         "icDismiss": void;
     }
     interface HTMLIcAlertElement extends Components.IcAlert, HTMLStencilElement {
@@ -2615,14 +2423,13 @@ declare global {
         prototype: HTMLIcButtonElement;
         new (): HTMLIcButtonElement;
     };
-    interface HTMLIcCardElement extends Components.IcCard, HTMLStencilElement {
+    interface HTMLIcCardVerticalElement extends Components.IcCardVertical, HTMLStencilElement {
     }
-    var HTMLIcCardElement: {
-        prototype: HTMLIcCardElement;
-        new (): HTMLIcCardElement;
+    var HTMLIcCardVerticalElement: {
+        prototype: HTMLIcCardVerticalElement;
+        new (): HTMLIcCardVerticalElement;
     };
     interface HTMLIcCheckboxElementEventMap {
-        "checkboxChecked": void;
         "icCheck": void;
     }
     interface HTMLIcCheckboxElement extends Components.IcCheckbox, HTMLStencilElement {
@@ -2657,7 +2464,6 @@ declare global {
         new (): HTMLIcCheckboxGroupElement;
     };
     interface HTMLIcChipElementEventMap {
-        "dismiss": void;
         "icDismiss": void;
     }
     interface HTMLIcChipElement extends Components.IcChip, HTMLStencilElement {
@@ -2680,11 +2486,11 @@ declare global {
         prototype: HTMLIcClassificationBannerElement;
         new (): HTMLIcClassificationBannerElement;
     };
-    interface HTMLIcDataEntityElement extends Components.IcDataEntity, HTMLStencilElement {
+    interface HTMLIcDataListElement extends Components.IcDataList, HTMLStencilElement {
     }
-    var HTMLIcDataEntityElement: {
-        prototype: HTMLIcDataEntityElement;
-        new (): HTMLIcDataEntityElement;
+    var HTMLIcDataListElement: {
+        prototype: HTMLIcDataListElement;
+        new (): HTMLIcDataListElement;
     };
     interface HTMLIcDataRowElement extends Components.IcDataRow, HTMLStencilElement {
     }
@@ -2976,7 +2782,6 @@ declare global {
     };
     interface HTMLIcRadioOptionElementEventMap {
         "icCheck": IcValueEventDetail;
-        "radioOptionSelect": IcValueEventDetail;
         "icSelectedChange": void;
     }
     interface HTMLIcRadioOptionElement extends Components.IcRadioOption, HTMLStencilElement {
@@ -2997,8 +2802,6 @@ declare global {
         "icChange": IcValueEventDetail;
         "icClear": void;
         "icInput": IcValueEventDetail;
-        "icInputBlur": IcSearchBarBlurEventDetail;
-        "icInputFocus": IcValueEventDetail;
         "icOptionSelect": IcOptionSelectEventDetail;
         "icMenuChange": IcMenuChangeEventDetail;
         "icClearBlur": IcBlurEventDetail;
@@ -3006,7 +2809,7 @@ declare global {
         "icSubmitSearch": IcValueEventDetail;
         "icSubmitSearchBlur": IcBlurEventDetail;
         "icSearchBarBlur": IcSearchBarBlurEventDetail;
-        "icSearchBarFocus": void;
+        "icSearchBarFocus": IcValueEventDetail;
     }
     interface HTMLIcSearchBarElement extends Components.IcSearchBar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcSearchBarElementEventMap>(type: K, listener: (this: HTMLIcSearchBarElement, ev: IcSearchBarCustomEvent<HTMLIcSearchBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3054,7 +2857,7 @@ declare global {
         new (): HTMLIcSelectElement;
     };
     interface HTMLIcSideNavigationElementEventMap {
-        "sideNavExpanded": IcExpandedDetail;
+        "icSideNavExpanded": IcExpandedDetail;
     }
     interface HTMLIcSideNavigationElement extends Components.IcSideNavigation, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcSideNavigationElementEventMap>(type: K, listener: (this: HTMLIcSideNavigationElement, ev: IcSideNavigationCustomEvent<HTMLIcSideNavigationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3136,7 +2939,6 @@ declare global {
     };
     interface HTMLIcTabContextElementEventMap {
         "icTabSelect": IcTabSelectEventDetail;
-        "tabSelect": IcTabSelectEventDetail;
     }
     interface HTMLIcTabContextElement extends Components.IcTabContext, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcTabContextElementEventMap>(type: K, listener: (this: HTMLIcTabContextElement, ev: IcTabContextCustomEvent<HTMLIcTabContextElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3283,7 +3085,7 @@ declare global {
     interface HTMLIcTopNavigationElementEventMap {
         "icNavigationMenuClosed": void;
         "icNavigationMenuOpened": void;
-        "topNavResized": { size: number };
+        "icTopNavResized": { size: number };
     }
     interface HTMLIcTopNavigationElement extends Components.IcTopNavigation, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcTopNavigationElementEventMap>(type: K, listener: (this: HTMLIcTopNavigationElement, ev: IcTopNavigationCustomEvent<HTMLIcTopNavigationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3328,12 +3130,12 @@ declare global {
         "ic-breadcrumb": HTMLIcBreadcrumbElement;
         "ic-breadcrumb-group": HTMLIcBreadcrumbGroupElement;
         "ic-button": HTMLIcButtonElement;
-        "ic-card": HTMLIcCardElement;
+        "ic-card-vertical": HTMLIcCardVerticalElement;
         "ic-checkbox": HTMLIcCheckboxElement;
         "ic-checkbox-group": HTMLIcCheckboxGroupElement;
         "ic-chip": HTMLIcChipElement;
         "ic-classification-banner": HTMLIcClassificationBannerElement;
-        "ic-data-entity": HTMLIcDataEntityElement;
+        "ic-data-list": HTMLIcDataListElement;
         "ic-data-row": HTMLIcDataRowElement;
         "ic-dialog": HTMLIcDialogElement;
         "ic-divider": HTMLIcDividerElement;
@@ -3427,7 +3229,7 @@ declare namespace LocalJSX {
         /**
           * The header for the accordion group.
          */
-        "groupTitle"?: string;
+        "label"?: string;
         /**
           * If `true`, only one accordion will open at a time.
          */
@@ -3454,10 +3256,6 @@ declare namespace LocalJSX {
           * The main body message of the alert.
          */
         "message"?: string;
-        /**
-          * @deprecated This event should not be used anymore. Use icDismiss instead.
-         */
-        "onDismiss"?: (event: IcAlertCustomEvent<void>) => void;
         /**
           * Is emitted when the user dismisses the alert.
          */
@@ -3491,7 +3289,11 @@ declare namespace LocalJSX {
          */
         "customColor"?: IcColor;
         /**
-          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and textLabel is not empty.
+          * The text displayed in the badge. This will only be displayed if type="text".
+         */
+        "label"?: string;
+        /**
+          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and label is not empty.
          */
         "maxNumber"?: number;
         /**
@@ -3502,10 +3304,6 @@ declare namespace LocalJSX {
           * The size of the badge to be displayed.
          */
         "size"?: IcSizes;
-        /**
-          * The text displayed in the badge. This will only be displayed if type="text".
-         */
-        "textLabel"?: string;
         /**
           * The type of badge to be displayed.
          */
@@ -3681,7 +3479,7 @@ declare namespace LocalJSX {
          */
         "variant"?: IcButtonVariants;
     }
-    interface IcCard {
+    interface IcCardVertical {
         /**
           * If `true`, the card will be a clickable variant, instead of static.
          */
@@ -3753,26 +3551,6 @@ declare namespace LocalJSX {
          */
         "form"?: string;
         /**
-          * The URL that processes the information submitted by the checkbox. It overrides the action attribute of the checkbox's form owner. Does nothing if there is no form owner.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the checkbox's form owner.
-         */
-        "formtarget"?: string;
-        /**
           * The group label for the checkbox.
          */
         "groupLabel"?: string;
@@ -3797,10 +3575,6 @@ declare namespace LocalJSX {
          */
         "nativeIndeterminateBehaviour"?: boolean;
         /**
-          * @deprecated This event should not be used anymore. Use icCheck instead.
-         */
-        "onCheckboxChecked"?: (event: IcCheckboxCustomEvent<void>) => void;
-        /**
           * Emitted when a checkbox has been checked.
          */
         "onIcCheck"?: (event: IcCheckboxCustomEvent<void>) => void;
@@ -3808,10 +3582,6 @@ declare namespace LocalJSX {
           * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
          */
         "size"?: IcSizes;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * The value for the checkbox.
          */
@@ -3851,10 +3621,6 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -3864,10 +3630,6 @@ declare namespace LocalJSX {
         "validationText"?: string;
     }
     interface IcChip {
-        /**
-          * @deprecated This prop should not be used anymore. Use variant prop instead.
-         */
-        "appearance"?: IcChipAppearance;
         /**
           * The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
@@ -3884,10 +3646,6 @@ declare namespace LocalJSX {
           * The text rendered within the chip.
          */
         "label": string;
-        /**
-          * @deprecated This event should not be used anymore. Use icDismiss instead.
-         */
-        "onDismiss"?: (event: IcChipCustomEvent<void>) => void;
         /**
           * Is emitted when the user dismisses the chip.
          */
@@ -3927,19 +3685,15 @@ declare namespace LocalJSX {
          */
         "upTo"?: boolean;
     }
-    interface IcDataEntity {
+    interface IcDataList {
         /**
-          * The title for the data entity.
+          * The title for the data list.
          */
         "heading"?: string;
         /**
-          * The size of the data entity component.
+          * The size of the data list component.
          */
         "size"?: IcSizesNoLarge;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
     }
     interface IcDataRow {
         /**
@@ -3951,29 +3705,13 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizesNoLarge;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
         "value"?: string;
     }
     interface IcDialog {
         /**
-          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.
-         */
-        "alertHeading"?: string;
-        /**
-          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.
-         */
-        "alertMessage"?: string;
-        /**
-          * Sets the label and onclick functions for default buttons.
-         */
-        "buttonProps"?: { label: string; onclick: string }[];
-        /**
-          * If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.
+          * If set to `false`, default buttons or slotted dialog controls will not be displayed.
          */
         "buttons"?: boolean;
         /**
@@ -4032,10 +3770,6 @@ declare namespace LocalJSX {
           * Sets the maximum and minimum height and width for the dialog.
          */
         "size"?: "small" | "medium" | "large";
-        /**
-          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.
-         */
-        "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
     interface IcDivider {
     }
@@ -4049,10 +3783,6 @@ declare namespace LocalJSX {
          */
         "body"?: string;
         /**
-          * The number of lines of body text to display before truncating.
-         */
-        "bodyMaxLines"?: number;
-        /**
           * The title rendered in the empty state container.
          */
         "heading"?: string;
@@ -4060,6 +3790,10 @@ declare namespace LocalJSX {
           * The size of the image or icon used in the image slot.
          */
         "imageSize"?: IcSizes;
+        /**
+          * The number of lines of body text to display before truncating.
+         */
+        "maxLines"?: number;
         /**
           * The subtitle rendered in the empty state container.
          */
@@ -4122,7 +3856,7 @@ declare namespace LocalJSX {
         /**
           * The title of the link group to be displayed.
          */
-        "groupTitle": string;
+        "label": string;
     }
     interface IcHero {
         /**
@@ -4142,11 +3876,11 @@ declare namespace LocalJSX {
          */
         "disableBackgroundParallax"?: boolean;
         /**
-          * The heading of the hero.
+          * The heading of the hero. An <h2> level heading.
          */
         "heading"?: string;
         /**
-          * The optional secondary heading, replaced by slotted right content.
+          * The optional secondary heading, an <h3> level heading. Replaced by slotted right content.
          */
         "secondaryHeading"?: string;
         /**
@@ -4157,10 +3891,6 @@ declare namespace LocalJSX {
           * The size of the hero component.
          */
         "size"?: IcSizesNoLarge;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * The description for the hero.
          */
@@ -4178,10 +3908,6 @@ declare namespace LocalJSX {
           * The appearance of the input component container.
          */
         "appearance"?: "dark" | "default";
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
-         */
-        "dark"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -4202,10 +3928,6 @@ declare namespace LocalJSX {
           * The size of the input component container component.
          */
         "size"?: IcSizes;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * If `true`, the validation will display inline.
          */
@@ -4231,17 +3953,9 @@ declare namespace LocalJSX {
          */
         "appearance"?: "dark" | "default";
         /**
-          * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
-         */
-        "dark"?: boolean;
-        /**
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
-        /**
-          * If `true`, the input label will display with error styling.
-         */
-        "error"?: boolean;
         /**
           * The ID of the form element the label is bound to.
          */
@@ -4262,6 +3976,10 @@ declare namespace LocalJSX {
           * If `true`, the input label will require a value.
          */
         "required"?: boolean;
+        /**
+          * The status of the label - e.g. 'error'.
+         */
+        "status"?: "error" | "";
     }
     interface IcInputValidation {
         /**
@@ -4310,10 +4028,6 @@ declare namespace LocalJSX {
           * The relationship of the linked URL as space-separated link types.
          */
         "rel"?: string;
-        /**
-          * @deprecated This prop should not be used anymore. The 'open in new tab/window' icon will display automatically if target="_blank".
-         */
-        "showIcon"?: boolean;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -4418,10 +4132,6 @@ declare namespace LocalJSX {
           * The size of the menu component.
          */
         "size"?: IcSizes;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * The value of the currently selected option.
          */
@@ -4601,10 +4311,6 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizesNoLarge;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * If `true`, the page header will be sticky at all breakpoints.
          */
         "sticky"?: boolean;
@@ -4621,7 +4327,7 @@ declare namespace LocalJSX {
         /**
           * The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
-        "adjacentCount"?: number;
+        "adjacentPageCount"?: number;
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
          */
@@ -4629,7 +4335,7 @@ declare namespace LocalJSX {
         /**
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
-        "boundaryCount"?: number;
+        "boundaryPageCount"?: number;
         /**
           * The current page displayed by the pagination.
          */
@@ -4753,10 +4459,6 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizesNoLarge;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -4783,26 +4485,6 @@ declare namespace LocalJSX {
          */
         "form"?: string;
         /**
-          * The URL that processes the information submitted by the radio. It overrides the action attribute of the radio's form owner. Does nothing if there is no form owner.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the radio's form owner.
-         */
-        "formtarget"?: string;
-        /**
           * The group label for the radio option.
          */
         "groupLabel"?: string;
@@ -4823,10 +4505,6 @@ declare namespace LocalJSX {
          */
         "onIcSelectedChange"?: (event: IcRadioOptionCustomEvent<void>) => void;
         /**
-          * @deprecated This event should not be used anymore. Use icCheck instead.
-         */
-        "onRadioOptionSelect"?: (event: IcRadioOptionCustomEvent<IcValueEventDetail>) => void;
-        /**
           * If `true`, the radio option will be displayed in a selected state.
          */
         "selected"?: boolean;
@@ -4836,6 +4514,10 @@ declare namespace LocalJSX {
         "value": string;
     }
     interface IcSearchBar {
+        /**
+          * The hint text for the hidden assistive description element.
+         */
+        "assistiveHintText"?: string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
@@ -4863,7 +4545,7 @@ declare namespace LocalJSX {
         /**
           * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -4888,10 +4570,6 @@ declare namespace LocalJSX {
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
-        /**
-          * The hint text for the hidden assistive description element.
-         */
-        "hintText"?: string;
         /**
           * The label for the search bar.
          */
@@ -4930,14 +4608,6 @@ declare namespace LocalJSX {
          */
         "onIcInput"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         /**
-          * @deprecated This event should not be used anymore. Use icSearchBarBlur instead.
-         */
-        "onIcInputBlur"?: (event: IcSearchBarCustomEvent<IcSearchBarBlurEventDetail>) => void;
-        /**
-          * @deprecated This event should not be used anymore. Use icSearchBarFocus instead.
-         */
-        "onIcInputFocus"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
-        /**
           * Emitted when the state of the menu changes (i.e. open or close)
          */
         "onIcMenuChange"?: (event: IcSearchBarCustomEvent<IcMenuChangeEventDetail>) => void;
@@ -4956,7 +4626,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when focus is invoked from ic-search-bar
          */
-        "onIcSearchBarFocus"?: (event: IcSearchBarCustomEvent<void>) => void;
+        "onIcSearchBarFocus"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when the search value has been submitted
          */
@@ -4987,10 +4657,6 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizesNoLarge;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
         "spellcheck"?: boolean;
@@ -5019,17 +4685,13 @@ declare namespace LocalJSX {
     }
     interface IcSelect {
         /**
-          * @deprecated This prop should not be used anymore.
-         */
-        "charactersUntilSuggestions"?: number;
-        /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
         "debounce"?: number;
         /**
           * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -5042,26 +4704,6 @@ declare namespace LocalJSX {
           * The <form> element to associate the select with.
          */
         "form"?: string;
-        /**
-          * The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the select's form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formtarget"?: string;
         /**
           * If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.
          */
@@ -5175,10 +4817,6 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
@@ -5224,7 +4862,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the side navigation is collapsed and expanded.
          */
-        "onSideNavExpanded"?: (event: IcSideNavigationCustomEvent<IcExpandedDetail>) => void;
+        "onIcSideNavExpanded"?: (event: IcSideNavigationCustomEvent<IcExpandedDetail>) => void;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
          */
@@ -5248,10 +4886,6 @@ declare namespace LocalJSX {
          */
         "appearance"?: "light" | "default";
         /**
-          * @deprecated This prop should not be used anymore. Set prop `appearance` to "light" instead.
-         */
-        "light"?: boolean;
-        /**
           * The variant of the skeleton that will be displayed.
          */
         "variant"?: IcSkeletonVariants;
@@ -5262,10 +4896,6 @@ declare namespace LocalJSX {
          */
         "announced"?: boolean;
         /**
-          * @deprecated This prop should not be used anymore. Use variant prop instead.
-         */
-        "appearance"?: IcStatusTagAppearance;
-        /**
           * The content rendered within the status tag.
          */
         "label": string;
@@ -5273,10 +4903,6 @@ declare namespace LocalJSX {
           * The size of the status tag component.
          */
         "size"?: IcSizes;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * The colour of the status tag.
          */
@@ -5289,27 +4915,27 @@ declare namespace LocalJSX {
     interface IcStep {
         "compactStepStyling"?: IcStepTypes;
         "current"?: boolean;
-        "lastStep": boolean;
-        "lastStepNum"?: number;
-        "nextStepTitle"?: string;
-        "progress"?: number;
-        "stepNum"?: number;
-        /**
-          * The status of the step. Use this prop to display a status message on the step if it is required or optional.
-         */
-        "stepStatus"?: IcStepStatuses;
-        /**
-          * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
-         */
-        "stepSubtitle"?: string;
         /**
           * The title of the step within the stepper.
          */
-        "stepTitle"?: string;
+        "heading"?: string;
+        "lastStep": boolean;
+        "lastStepNum"?: number;
+        "nextStepHeading"?: string;
+        "progress"?: number;
+        /**
+          * The status of the step. Use this prop to display a status message on the step if it is required or optional.
+         */
+        "status"?: IcStepStatuses;
+        "stepNum"?: number;
+        /**
+          * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
+         */
+        "subheading"?: string;
         /**
           * The state of the step within the stepper.
          */
-        "stepType"?: IcStepTypes;
+        "type"?: IcStepTypes;
         "variant": IcStepVariants;
     }
     interface IcStepper {
@@ -5380,10 +5006,6 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizesNoLarge;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The value of the toggle does not mean if it's checked or not, use the `checked` property for that.  The value of a toggle is analogous to the value of a `<input type="checkbox">`, it's only used when the toggle participates in a native `<form>`.
          */
         "value"?: string | null;
@@ -5422,20 +5044,12 @@ declare namespace LocalJSX {
          */
         "onIcTabSelect"?: (event: IcTabContextCustomEvent<IcTabSelectEventDetail>) => void;
         /**
-          * @deprecated This event should not be used anymore. Use icTabSelect instead.
-         */
-        "onTabSelect"?: (event: IcTabContextCustomEvent<IcTabSelectEventDetail>) => void;
-        /**
           * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
     }
     interface IcTabGroup {
         "appearance"?: IcThemeForegroundNoDefault;
-        /**
-          * @deprecated This is no longer required. The context id is passed down from `ic-tab-context`
-         */
-        "contextId"?: string;
         /**
           * If `true`, the tabs and tab panels will be positioned separately.
          */
@@ -5447,10 +5061,6 @@ declare namespace LocalJSX {
     }
     interface IcTabPanel {
         "appearance"?: IcThemeForegroundNoDefault;
-        /**
-          * @deprecated This is no longer required. The context id is passed down from `ic-tab-context`
-         */
-        "contextId"?: string;
         "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
         "onTabPanelRemoved"?: (event: IcTabPanelCustomEvent<void>) => void;
         "panelId"?: string;
@@ -5496,6 +5106,10 @@ declare namespace LocalJSX {
         "helperText"?: string;
         "hiddenInput"?: boolean;
         /**
+          * If `true`, the character count which is displayed when `maxCharacters` is set will be visually hidden.
+         */
+        "hideCharCount"?: boolean;
+        /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
@@ -5516,13 +5130,9 @@ declare namespace LocalJSX {
          */
         "max"?: string | number;
         /**
-          * The maximum number of characters that can be entered in the field. Will display an error if too many characters are entered.
+          * The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)
          */
         "maxCharacters"?: number;
-        /**
-          * The count of characters in the field. Will display a warning if the bound is reached.
-         */
-        "maxLength"?: number;
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
@@ -5581,10 +5191,6 @@ declare namespace LocalJSX {
           * The size of the text field component.
          */
         "size"?: IcSizesNoLarge;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
@@ -5669,6 +5275,10 @@ declare namespace LocalJSX {
          */
         "appearance"?: IcThemeForeground;
         /**
+          * If `true`, the toggle button will be in a checked state.
+         */
+        "checked"?: boolean;
+        /**
           * If `true`, the toggle button will be in disabled state.
          */
         "disabled"?: boolean;
@@ -5698,10 +5308,6 @@ declare namespace LocalJSX {
           * The size of the toggle button to be displayed.
          */
         "size"?: IcSizes;
-        /**
-          * If `true`, the toggle button will be in a checked state.
-         */
-        "toggleChecked"?: boolean;
         /**
           * The variant of the toggle button.
          */
@@ -5803,7 +5409,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the top navigation is resized.
          */
-        "onTopNavResized"?: (event: IcTopNavigationCustomEvent<{ size: number }>) => void;
+        "onIcTopNavResized"?: (event: IcTopNavigationCustomEvent<{ size: number }>) => void;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
          */
@@ -5860,12 +5466,12 @@ declare namespace LocalJSX {
         "ic-breadcrumb": IcBreadcrumb;
         "ic-breadcrumb-group": IcBreadcrumbGroup;
         "ic-button": IcButton;
-        "ic-card": IcCard;
+        "ic-card-vertical": IcCardVertical;
         "ic-checkbox": IcCheckbox;
         "ic-checkbox-group": IcCheckboxGroup;
         "ic-chip": IcChip;
         "ic-classification-banner": IcClassificationBanner;
-        "ic-data-entity": IcDataEntity;
+        "ic-data-list": IcDataList;
         "ic-data-row": IcDataRow;
         "ic-dialog": IcDialog;
         "ic-divider": IcDivider;
@@ -5930,12 +5536,12 @@ declare module "@stencil/core" {
             "ic-breadcrumb": LocalJSX.IcBreadcrumb & JSXBase.HTMLAttributes<HTMLIcBreadcrumbElement>;
             "ic-breadcrumb-group": LocalJSX.IcBreadcrumbGroup & JSXBase.HTMLAttributes<HTMLIcBreadcrumbGroupElement>;
             "ic-button": LocalJSX.IcButton & JSXBase.HTMLAttributes<HTMLIcButtonElement>;
-            "ic-card": LocalJSX.IcCard & JSXBase.HTMLAttributes<HTMLIcCardElement>;
+            "ic-card-vertical": LocalJSX.IcCardVertical & JSXBase.HTMLAttributes<HTMLIcCardVerticalElement>;
             "ic-checkbox": LocalJSX.IcCheckbox & JSXBase.HTMLAttributes<HTMLIcCheckboxElement>;
             "ic-checkbox-group": LocalJSX.IcCheckboxGroup & JSXBase.HTMLAttributes<HTMLIcCheckboxGroupElement>;
             "ic-chip": LocalJSX.IcChip & JSXBase.HTMLAttributes<HTMLIcChipElement>;
             "ic-classification-banner": LocalJSX.IcClassificationBanner & JSXBase.HTMLAttributes<HTMLIcClassificationBannerElement>;
-            "ic-data-entity": LocalJSX.IcDataEntity & JSXBase.HTMLAttributes<HTMLIcDataEntityElement>;
+            "ic-data-list": LocalJSX.IcDataList & JSXBase.HTMLAttributes<HTMLIcDataListElement>;
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;
             "ic-dialog": LocalJSX.IcDialog & JSXBase.HTMLAttributes<HTMLIcDialogElement>;
             "ic-divider": LocalJSX.IcDivider & JSXBase.HTMLAttributes<HTMLIcDividerElement>;

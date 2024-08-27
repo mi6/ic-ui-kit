@@ -14,8 +14,8 @@
   justify-content: center;
 }
 
-.step-title,
-.step-subtitle,
+.heading,
+.subheading,
 .step-status,
 .next-step {
   white-space: pre-line;
@@ -31,23 +31,23 @@
 }
 
 /* COMPACT STEP STYLING */
-:host(.compact) {
+:host(.ic-step-compact) {
   column-gap: var(--ic-space-sm);
 
   --compact-step-inner-color: var(--ic-status-info);
   --compact-step-circular-line-width: var(--ic-space-xxs);
 }
 
-:host(.compact.light) {
+:host(.ic-step-compact.ic-step-light) {
   --compact-step-inner-color: var(--ic-status-info-contrast);
   --compact-step-outer-color: var(--ic-architectural-600);
 }
 
-:host(.compact) .step {
+:host(.ic-step-compact) .step {
   column-gap: var(--ic-space-sm);
 }
 
-:host(.compact) .step:not(.current) {
+:host(.ic-step-compact) .step:not(.current) {
   display: none;
   opacity: 0;
   visibility: hidden;
@@ -61,17 +61,17 @@
   border-radius: 50%;
 }
 
-:host(:not(.light)) ic-loading-indicator::part(ic-loading-container) {
+:host(:not(.ic-step-light)) ic-loading-indicator::part(ic-loading-container) {
   background-color: var(--ic-architectural-white);
 }
 
-:host(.compact) .step-title-area {
+:host(.ic-step-compact) .heading-area {
   display: flex;
   flex-direction: column;
   width: 14.25rem;
 }
 
-:host(.compact.light) .disabled .step-title-area {
+:host(.ic-step-compact.ic-step-light) .disabled .heading-area {
   color: var(--ic-architectural-400);
 }
 
@@ -90,15 +90,15 @@
   color: var(--ic-status-success);
 }
 
-:host(.light) .compact-step-completed .step-status {
+:host(.ic-step-light) .compact-step-completed .step-status {
   color: var(--ic-status-success-contrast);
 }
 
-.compact-step-disabled :is(.step-title, .step-status) {
+.compact-step-disabled :is(.heading, .step-status) {
   color: var(--ic-color-tertiary-text);
 }
 
-:host(.light) .compact-step-disabled :is(.step-status) {
+:host(.ic-step-light) .compact-step-disabled :is(.step-status) {
   color: var(--ic-architectural-white);
 }
 
@@ -107,25 +107,25 @@
   white-space: nowrap;
 }
 
-:host(.light) .step-num {
+:host(.ic-step-light) .step-num {
   color: var(--ic-architectural-white);
 }
 
-:host(.compact) .step-icon {
+:host(.ic-step-compact) .step-icon {
   margin: var(--ic-space-xxxs);
 }
 
-:host(.compact) .step-icon svg {
+:host(.ic-step-compact) .step-icon svg {
   width: var(--ic-space-md);
   height: var(--ic-space-md);
 }
 
 /* DEFAULT STEP STYLING */
-:host(.default) .step {
+:host(.ic-step-default) .step {
   flex-direction: column;
 }
 
-:host(.default.last-step) {
+:host(.ic-step-default.last-step) {
   flex-grow: initial;
 }
 
@@ -137,11 +137,11 @@
   height: 2.5rem;
 }
 
-:host(.default) .step-icon {
+:host(.ic-step-default) .step-icon {
   border-radius: 50%;
 }
 
-:host(.default:not(.light)) .step-icon {
+:host(.ic-step-default:not(.ic-step-light)) .step-icon {
   background-color: var(--ic-architectural-white);
 }
 
@@ -154,52 +154,52 @@
   border-radius: 50%;
 }
 
-:host(.default) .current {
+:host(.ic-step-default) .current {
   color: var(--ic-status-info);
 }
 
-:host(.default.light) .current,
-:host(.default.light) .current .step-title-area {
+:host(.ic-step-default.ic-step-light) .current,
+:host(.ic-step-default.ic-step-light) .current .heading-area {
   color: var(--ic-status-info-contrast);
 }
 
-:host(.default) .step-title-area {
+:host(.ic-step-default) .heading-area {
   margin: var(--ic-space-xs) 0;
   padding-right: var(--ic-space-xs);
   width: 100%;
 }
 
-:host(.light) .step-title-area {
+:host(.ic-step-light) .heading-area {
   color: var(--ic-architectural-200);
 }
 
-:host(.compact.light) .step-title-area {
+:host(.ic-step-compact.ic-step-light) .heading-area {
   color: var(--ic-architectural-white);
 }
 
-:host(.default) .step-title,
-.step-subtitle {
+:host(.ic-step-default) .heading,
+.subheading {
   width: fit-content;
 }
 
-.step-subtitle {
+.subheading {
   color: var(--ic-color-tertiary-text);
 }
 
-:host(.light) .step-subtitle {
+:host(.ic-step-light) .subheading {
   color: var(--ic-architectural-white);
 }
 
-.current .step-subtitle {
+.current .subheading {
   color: var(--ic-color-primary-text);
 }
 
-:host(.default) .completed {
+:host(.ic-step-default) .completed {
   color: var(--ic-status-success);
 }
 
-:host(.default.light) .completed,
-:host(.default.light) .completed .step-title-area {
+:host(.ic-step-default.ic-step-light) .completed,
+:host(.ic-step-default.ic-step-light) .completed .heading-area {
   color: var(--ic-status-success-contrast);
 }
 
@@ -207,7 +207,7 @@
   box-shadow: inset var(--ic-architectural-200) 0 0 0 0.125rem;
 }
 
-:host(.light) .active .step-icon-inner {
+:host(.ic-step-light) .active .step-icon-inner {
   color: var(--ic-architectural-white);
 }
 
@@ -216,7 +216,7 @@
   color: white;
 }
 
-:host(.light) .current .step-icon-inner {
+:host(.ic-step-light) .current .step-icon-inner {
   background-color: var(--ic-status-info-contrast);
 }
 
@@ -224,8 +224,8 @@
   color: var(--ic-architectural-200);
 }
 
-:host(.default.light) .disabled,
-:host(.default.light) .disabled .step-title-area {
+:host(.ic-step-default.ic-step-light) .disabled,
+:host(.ic-step-default.ic-step-light) .disabled .heading-area {
   color: var(--ic-architectural-400);
 }
 
@@ -235,12 +235,12 @@
   height: calc(var(--ic-space-xl) - var(--ic-space-xxxs));
 }
 
-:host(.light) .disabled .step-icon-inner {
+:host(.ic-step-light) .disabled .step-icon-inner {
   border: var(--ic-border-width) dashed var(--ic-architectural-400);
 }
 
-.disabled .step-title-area,
-:host(.default.light) .disabled .step-subtitle {
+.disabled .heading-area,
+:host(.ic-step-default.ic-step-light) .disabled .subheading {
   color: var(--ic-color-tertiary-text);
 }
 
@@ -250,12 +250,12 @@
   border-radius: 100%;
 }
 
-:host(.light) .completed .step-icon-inner {
+:host(.ic-step-light) .completed .step-icon-inner {
   background: var(--ic-status-success-contrast);
   box-shadow: inset var(--ic-status-success-contrast) 0 0 0 var(--ic-space-xxxs);
 }
 
-:host(.default) .current .step-icon {
+:host(.ic-step-default) .current .step-icon {
   border: var(--ic-space-xxxs) solid var(--ic-status-info);
   padding: var(--ic-space-xxxs);
   margin: 0 calc(-1 * var(--ic-space-xxxs));
@@ -263,7 +263,7 @@
   /* compensating for the circle being bigger than other steps */
 }
 
-:host(.default.light) .current .step-icon {
+:host(.ic-step-default.ic-step-light) .current .step-icon {
   border: var(--ic-space-xxxs) solid var(--ic-status-info-contrast);
 }
 
@@ -275,7 +275,7 @@
   width: 100%;
 }
 
-:host(.light) .step-connect {
+:host(.ic-step-light) .step-connect {
   background-color: var(--ic-architectural-600);
 }
 
@@ -291,7 +291,7 @@
   border-radius: 0;
 }
 
-:host(.light) .disabled .step-connect {
+:host(.ic-step-light) .disabled .step-connect {
   border-top: 0.125rem dashed var(--ic-architectural-600);
 }
 
@@ -299,7 +299,7 @@
   background-color: var(--ic-status-success);
 }
 
-:host(.light) .completed .step-connect {
+:host(.ic-step-light) .completed .step-connect {
   background-color: var(--ic-status-success-contrast);
 }
 
@@ -312,7 +312,7 @@
   background-color: var(--ic-status-info);
 }
 
-:host(.light) .step-connect-inner {
+:host(.ic-step-light) .step-connect-inner {
   background-color: var(--ic-status-info-contrast);
 }
 
@@ -332,7 +332,7 @@
 /** High Contrast **/
 @media (forced-colors: active) {
   /* COMPACT STEP */
-  .compact-step-disabled :is(.step-title, .step-status) {
+  .compact-step-disabled :is(.heading, .step-status) {
     color: GrayText;
   }
 
@@ -350,13 +350,13 @@
     color: canvastext;
   }
 
-  :host(.default) .current .step-icon {
+  :host(.ic-step-default) .current .step-icon {
     padding: 0;
     border: none;
   }
 
   .disabled,
-  .disabled .step-title-area {
+  .disabled .heading-area {
     color: GrayText;
   }
 
@@ -373,12 +373,12 @@
 /* Add back in after storybook has the `color-scheme: light dark` code */
 
 /* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
-  :host(:not(.light)) .step-icon-inner {
+  :host(:not(.ic-step-light)) .step-icon-inner {
     color: var(--ic-architectural-black);
   }
 
   .step-num,
-  .step-subtitle {
+  .subheading {
     color: var(--ic-architectural-white) !important;
   }
 } */

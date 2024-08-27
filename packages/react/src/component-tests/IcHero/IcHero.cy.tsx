@@ -2,21 +2,28 @@
 /// <reference types="Cypress" />
 
 import React from "react";
-import {
-  IcButton,
-  IcCard,
-  IcHero,
-  IcSearchBar,
-  IcTypography,
-} from "../../components";
 import { mount } from "cypress/react";
-import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+import {
+  Default,
+  SlottedHeadings,
+  CenterAlignment,
+  CenteredContent,
+  Small,
+  SecondaryHeadingSearchbar,
+  WithCard,
+  WithImageRight,
+  BackgroundImage,
+  LongHeading,
+  FullWidth,
+  Theme,
+} from "./IcHeroTestData";
+import { BE_VISIBLE } from "../utils/constants";
 
 const DEFAULT_TEST_THRESHOLD = 0.022;
 const IC_HERO_SELECTOR = "ic-hero";
 
-describe("IcHero", () => {
+describe("IcHero end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1500, 500);
@@ -26,20 +33,8 @@ describe("IcHero", () => {
     cy.task("generateReport");
   });
 
-  it("should render", () => {
-    mount(
-      <IcHero
-        heading="Everything I brew, I brew it for you"
-        subheading="This news is hot off the French press."
-      >
-        <IcButton variant="primary" slot="interaction">
-          Explore
-        </IcButton>
-        <IcButton variant="secondary" slot="interaction">
-          Check out our new drinks
-        </IcButton>
-      </IcHero>
-    );
+  it("should render default hero", () => {
+    mount(<Default />);
 
     cy.checkHydrated(IC_HERO_SELECTOR);
 
@@ -51,21 +46,11 @@ describe("IcHero", () => {
   });
 
   it("should render with slotted heading and subheading", () => {
-    mount(
-      <IcHero>
-        <IcTypography slot="heading" variant="h1">
-          Slotted heading
-        </IcTypography>
-        <IcTypography slot="subheading">Slotted subheading</IcTypography>
-        <IcButton variant="primary" slot="interaction">
-          Button
-        </IcButton>
-        <IcButton variant="secondary" slot="interaction">
-          Button
-        </IcButton>
-      </IcHero>
-    );
+    mount(<SlottedHeadings />);
+
     cy.checkHydrated(IC_HERO_SELECTOR);
+    cy.get('ic-typography[slot="heading"]').should(BE_VISIBLE);
+    cy.get('ic-typography[slot="subheading"]').should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -75,21 +60,10 @@ describe("IcHero", () => {
   });
 
   it("should render center alignment", () => {
-    mount(
-      <IcHero
-        aligned={"center"}
-        heading="Everything I brew, I brew it for you"
-        subheading="This news is hot off the French press."
-      >
-        <IcButton variant="primary" slot="interaction">
-          Explore
-        </IcButton>
-        <IcButton variant="secondary" slot="interaction">
-          Check out our new drinks
-        </IcButton>
-      </IcHero>
-    );
+    mount(<CenterAlignment />);
+
     cy.checkHydrated(IC_HERO_SELECTOR);
+    cy.get(IC_HERO_SELECTOR).invoke("prop", "aligned").should("eq", "center");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -98,21 +72,9 @@ describe("IcHero", () => {
     });
   });
 
-  it("should render centering content alignment", () => {
-    mount(
-      <IcHero
-        contentAligned={"center"}
-        heading="Everything I brew, I brew it for you"
-        subheading="This news is hot off the French press."
-      >
-        <IcButton variant="primary" slot="interaction">
-          Explore
-        </IcButton>
-        <IcButton variant="secondary" slot="interaction">
-          Check out our new drinks
-        </IcButton>
-      </IcHero>
-    );
+  it("should render with centered content alignment", () => {
+    mount(<CenteredContent />);
+
     cy.checkHydrated(IC_HERO_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -123,21 +85,10 @@ describe("IcHero", () => {
   });
 
   it("should render small size", () => {
-    mount(
-      <IcHero
-        heading="New coffee launches 14 September 2022"
-        subheading="Brand new flavours now available! Irresistible. Caramel. Decadence. Sugary."
-        size="small"
-      >
-        <IcButton variant="primary" slot="interaction" size="small">
-          Order now
-        </IcButton>
-        <IcButton variant="secondary" slot="interaction" size="small">
-          Submit new flavour
-        </IcButton>
-      </IcHero>
-    );
+    mount(<Small />);
+
     cy.checkHydrated(IC_HERO_SELECTOR);
+    cy.get(IC_HERO_SELECTOR).invoke("prop", "size").should("eq", "small");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -147,51 +98,29 @@ describe("IcHero", () => {
   });
 
   it("should render secondary heading and searchbar", () => {
-    mount(
-      <IcHero
-        heading="Everything I brew, I brew it for you"
-        subheading="This news is hot off the French press."
-        secondaryHeading="The classics"
-        secondarySubheading="Try our original flavours."
-      >
-        <IcSearchBar slot="interaction" label="Search for coffee" hideLabel />
-      </IcHero>
-    );
+    mount(<SecondaryHeadingSearchbar />);
+
     cy.checkHydrated(IC_HERO_SELECTOR);
+    cy.get(".secondary-heading").should(BE_VISIBLE);
+    cy.get('ic-search-bar[slot="interaction"]').should(BE_VISIBLE);
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "secondary-heading-search",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
+
+    cy.findShadowEl("ic-search-bar", "ic-text-field")
+      .shadow()
+      .find("ic-input-component-container")
+      .type("Search text");
   });
 
   it("should render card on right", () => {
-    mount(
-      <IcHero
-        heading="Everything I brew, I brew it for you"
-        subheading="This news is hot off the French press."
-        aligned="full-width"
-      >
-        <IcButton variant="primary" slot="interaction">
-          Explore
-        </IcButton>
-        <IcButton variant="secondary" slot="interaction">
-          Check out our new drinks
-        </IcButton>
-        <IcCard
-          heading="Out now"
-          message="Try our new strawberry infused tea."
-          slot="secondary"
-          class="hero-card"
-          style={{
-            color: "var(--ic-theme-text)",
-            width: "300px",
-          }}
-        />
-      </IcHero>
-    );
+    mount(<WithCard />);
+
     cy.checkHydrated(IC_HERO_SELECTOR);
+    cy.get('ic-card-vertical[slot="secondary"]').should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -201,43 +130,10 @@ describe("IcHero", () => {
   });
 
   it("should render image on right", () => {
-    mount(
-      <IcHero
-        heading="Everything I brew, I brew it for you"
-        subheading="This news is hot off the French press."
-        aligned="full-width"
-      >
-        <IcButton variant="primary" slot="interaction">
-          Explore
-        </IcButton>
-        <IcButton variant="secondary" slot="interaction">
-          Check out our new drinks
-        </IcButton>
-        <SlottedSVG
-          slot="secondary"
-          style={{
-            width: "300px",
-          }}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1600 900"
-        >
-          <rect fill="#ff7700" width="1600" height="900" />
-          <polygon fill="#cc0000" points="957 450 539 900 1396 900" />
-          <polygon fill="#aa0000" points="957 450 872.9 900 1396 900" />
-          <polygon fill="#c50022" points="-60 900 398 662 816 900" />
-          <polygon fill="#a3001b" points="337 900 398 662 816 900" />
-          <polygon fill="#be0044" points="1203 546 1552 900 876 900" />
-          <polygon fill="#9c0036" points="1203 546 1552 900 1162 900" />
-          <polygon fill="#b80066" points="641 695 886 900 367 900" />
-          <polygon fill="#960052" points="587 900 641 695 886 900" />
-          <polygon fill="#b10088" points="1710 900 1401 632 1096 900" />
-          <polygon fill="#8f006d" points="1710 900 1401 632 1365 900" />
-          <polygon fill="#aa00aa" points="1210 900 971 687 725 900" />
-          <polygon fill="#880088" points="943 900 1210 900 971 687" />
-        </SlottedSVG>
-      </IcHero>
-    );
+    mount(<WithImageRight />);
+
     cy.checkHydrated(IC_HERO_SELECTOR);
+    cy.get('svg[slot="secondary"]').should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -247,45 +143,116 @@ describe("IcHero", () => {
   });
 
   it("should render background image", () => {
-    mount(
-      <IcHero
-        background-image="https://img.freepik.com/free-photo/fresh-coffee-steams-wooden-table-close-up-generative-ai_188544-8923.jpg"
-        heading="Everything I brew, I brew it for you"
-        subheading="This news is hot off the French press."
-      >
-        <IcButton variant="primary" slot="interaction">
-          Explore
-        </IcButton>
-        <IcButton variant="secondary" slot="interaction">
-          Check out our new drinks
-        </IcButton>
-      </IcHero>
-    );
+    mount(<BackgroundImage />);
+
     cy.checkHydrated(IC_HERO_SELECTOR);
 
     cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
       name: "background-image",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
-      delay: 500,
     });
   });
 
-  it("should render with search bar", () => {
-    mount(
-      <IcHero
-        heading="Everything I brew, I brew it for you"
-        subheading="This news is hot off the French press."
-      >
-        <IcSearchBar slot="interaction" label="Search for coffee" hideLabel />
-      </IcHero>
-    );
+  it("should render with long heading", () => {
+    mount(<LongHeading />);
+
     cy.checkHydrated(IC_HERO_SELECTOR);
 
-    cy.checkA11yWithWait(undefined, 500);
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "searchbar",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      name: "long-heading",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+    });
+  });
+
+  it("should render full width", () => {
+    mount(<FullWidth />);
+
+    cy.checkHydrated(IC_HERO_SELECTOR);
+    cy.get(IC_HERO_SELECTOR)
+      .invoke("prop", "aligned")
+      .should("eq", "full-width");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "full-width",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+    });
+  });
+
+  it("should render with theming", () => {
+    mount(<Theme />);
+
+    cy.checkHydrated(IC_HERO_SELECTOR);
+    cy.get("ic-theme").should("exist");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
+  });
+});
+
+describe("IcHero visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  beforeEach(() => {
+    cy.viewport(1500, 500);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render default hero in high contrast mode", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
+    cy.wait(500).compareSnapshot({
+      name: "default-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+    });
+  });
+
+  it("should render with slotted heading and subheading in high contrast mode", () => {
+    mount(<SlottedHeadings />);
+
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
+    cy.wait(500).compareSnapshot({
+      name: "slotted-headings-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
+    });
+  });
+
+  it("should render with card on right in high contrast mode", () => {
+    mount(<WithCard />);
+
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
+    cy.wait(500).compareSnapshot({
+      name: "card-content-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+    });
+  });
+
+  it("should render with background image in high contrast mode", () => {
+    mount(<BackgroundImage />);
+
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
+    cy.wait(500).compareSnapshot({
+      name: "background-image-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
 });

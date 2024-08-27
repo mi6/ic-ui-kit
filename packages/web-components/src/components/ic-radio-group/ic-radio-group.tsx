@@ -12,10 +12,9 @@ import {
 } from "@stencil/core";
 import {
   hasValidationStatus,
-  isSlotUsed,
+  slotHasContent,
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
-  renderHiddenInput,
   checkResizeObserver,
 } from "../../utils/helpers";
 import {
@@ -51,6 +50,13 @@ export class RadioGroup {
    */
   @Prop() disabled: boolean = false;
 
+  @Watch("disabled")
+  watchDisabledHandler(newValue: boolean): void {
+    this.radioOptions.forEach(
+      (radioOption) => (radioOption.disabled = newValue)
+    );
+  }
+
   /**
    * The helper text that will be displayed for additional field guidance.
    */
@@ -85,11 +91,6 @@ export class RadioGroup {
    * The size of the radio group component.
    */
   @Prop() size?: IcSizesNoLarge = "default";
-
-  /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
@@ -194,22 +195,16 @@ export class RadioGroup {
         totalWidth = 0;
       }
 
-      if (this.initialOrientation == this.RADIO_HORIZONTAL) {
-        if (
-          this.radioOptions !== undefined &&
-          (this.radioOptions.length > 2 ||
-            (this.radioOptions.length === 2 &&
-              (isSlotUsed(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
-                isSlotUsed(this.radioOptions[1], this.ADDITIONAL_FIELD))))
-        ) {
-          this.currentOrientation = this.RADIO_VERTICAL;
-        } else {
-          if (totalWidth >= this.radioContainer?.clientWidth) {
-            this.currentOrientation = this.RADIO_VERTICAL;
-          } else if (totalWidth < this.radioContainer?.clientWidth) {
-            this.currentOrientation = this.RADIO_HORIZONTAL;
-          }
-        }
+      if (
+        this.currentOrientation === this.RADIO_HORIZONTAL &&
+        totalWidth > this.radioContainer.clientWidth
+      ) {
+        this.currentOrientation = this.RADIO_VERTICAL;
+      } else if (
+        this.currentOrientation === this.RADIO_VERTICAL &&
+        totalWidth < this.radioContainer.clientWidth
+      ) {
+        this.currentOrientation = this.RADIO_HORIZONTAL;
       }
     }
   }
@@ -282,6 +277,9 @@ export class RadioGroup {
           this.selectedChild = index;
           this.checkedValue = radioOption.value;
         }
+        if (this.disabled) {
+          radioOption.disabled = true;
+        }
       });
       this.setFirstRadioOptionTabIndex(this.selectedChild > 0 ? -1 : 0);
 
@@ -290,8 +288,8 @@ export class RadioGroup {
         this.radioOptions !== undefined &&
         (this.radioOptions.length > 2 ||
           (this.radioOptions.length === 2 &&
-            (isSlotUsed(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
-              isSlotUsed(this.radioOptions[1], this.ADDITIONAL_FIELD))))
+            (slotHasContent(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
+              slotHasContent(this.radioOptions[1], this.ADDITIONAL_FIELD))))
       ) {
         this.currentOrientation = this.RADIO_VERTICAL;
       }
@@ -299,47 +297,52 @@ export class RadioGroup {
   };
 
   render() {
-    renderHiddenInput(
-      true,
-      this.el,
-      this.name,
-      this.checkedValue,
-      this.disabled
-    );
+    const {
+      currentOrientation,
+      disabled,
+      handleKeyDown,
+      helperText,
+      hideLabel,
+      label,
+      required,
+      size,
+      validationStatus,
+      validationText,
+    } = this;
 
     return (
       <Host
-        onKeyDown={this.handleKeyDown}
-        class={{ small: this.small || this.size === "small" }}
+        onKeyDown={handleKeyDown}
+        class={{ "ic-radio-group-small": size === "small" }}
       >
         <div
           role="radiogroup"
-          aria-label={`${this.label}${this.required ? ", required" : ""}`}
+          aria-label={`${label}${required ? ", required" : ""}`}
         >
-          {!this.hideLabel && (
+          {!hideLabel && (
             <ic-input-label
-              class={{ [`${this.validationStatus}`]: true }}
-              label={this.label}
-              helperText={this.helperText}
-              required={this.required}
-              disabled={this.disabled}
+              class={{ [`${validationStatus}`]: true }}
+              label={label}
+              helperText={helperText}
+              required={required}
+              disabled={disabled}
             ></ic-input-label>
           )}
           <div
             class={{
               "radio-buttons-container": true,
-              horizontal: this.currentOrientation === this.RADIO_HORIZONTAL,
+              horizontal: currentOrientation === this.RADIO_HORIZONTAL,
             }}
             ref={(el) => (this.radioContainer = el)}
           >
             <slot></slot>
           </div>
         </div>
-        {hasValidationStatus(this.validationStatus, this.disabled) && (
+        {hasValidationStatus(validationStatus, disabled) && (
           <ic-input-validation
             ariaLiveMode="polite"
-            status={this.validationStatus}
-            message={this.validationText}
+            status={validationStatus}
+            message={validationText}
           ></ic-input-validation>
         )}
       </Host>

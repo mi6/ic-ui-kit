@@ -19,9 +19,11 @@ describe("IcBackToTop end-to-end tests", () => {
   it("should be hidden when viewport is at the top of the page", () => {
     mount(<BackToTop />);
 
+    cy.checkHydrated(BACK_TO_TOP_SELECTOR);
+
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
-      .find("button")
+      .find("ic-button")
       .should("exist")
       .should(NOT_BE_VISIBLE);
   });
@@ -29,10 +31,9 @@ describe("IcBackToTop end-to-end tests", () => {
   it("should have the correct text", () => {
     mount(<BackToTop />);
 
-    cy.get(BACK_TO_TOP_SELECTOR)
-      .shadow()
-      .find("ic-typography")
-      .should(CONTAIN_TEXT, "Back to top");
+    cy.checkHydrated(BACK_TO_TOP_SELECTOR);
+
+    cy.get(BACK_TO_TOP_SELECTOR).shadow().should(CONTAIN_TEXT, "Back to top");
   });
 
   it("should appear when top is off screen", () => {
@@ -41,7 +42,7 @@ describe("IcBackToTop end-to-end tests", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
-      .find("button")
+      .find("ic-button")
       .wait(500)
       .should(BE_VISIBLE)
       .and(CONTAIN_TEXT, "Back to top");
@@ -53,7 +54,7 @@ describe("IcBackToTop end-to-end tests", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
-      .find("button")
+      .find("ic-button")
       .wait(500)
       .should(BE_VISIBLE)
       .and(NOT_CONTAIN, "Back to top");
@@ -63,7 +64,7 @@ describe("IcBackToTop end-to-end tests", () => {
     mount(<BackToTop />);
 
     cy.scrollTo(0, 100).checkHydrated(BACK_TO_TOP_SELECTOR);
-    cy.get(BACK_TO_TOP_SELECTOR).shadow().find("button").should(BE_VISIBLE);
+    cy.get(BACK_TO_TOP_SELECTOR).shadow().find("ic-button").should(BE_VISIBLE);
   });
 
   it("should hide and scroll page to top when clicked", () => {
@@ -72,19 +73,28 @@ describe("IcBackToTop end-to-end tests", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
-      .find("button")
+      .find("ic-button")
       .should(BE_VISIBLE)
       .click()
       .wait(500);
-    cy.get(BACK_TO_TOP_SELECTOR).shadow().find("button").should(NOT_BE_VISIBLE);
+    cy.get(BACK_TO_TOP_SELECTOR)
+      .shadow()
+      .find("ic-button")
+      .should(NOT_BE_VISIBLE);
   });
 
   it("should focus component", () => {
     mount(<BackToTop />);
 
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
-    cy.wait(500).get(BACK_TO_TOP_SELECTOR).shadow().find("button").focus();
-    cy.get(BACK_TO_TOP_SELECTOR).shadow().find("button").should(HAVE_FOCUS);
+    cy.wait(500)
+      .get(BACK_TO_TOP_SELECTOR)
+      .shadow()
+      .find("ic-button")
+      .shadow()
+      .find("button")
+      .focus();
+    cy.get(BACK_TO_TOP_SELECTOR).shadow().find("ic-button").should(HAVE_FOCUS);
   });
 });
 
@@ -120,7 +130,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -134,6 +144,8 @@ describe("IcBackToTop visual regression and a11y tests", () => {
     cy.wait(500)
       .get(BACK_TO_TOP_SELECTOR)
       .shadow()
+      .find("ic-button")
+      .shadow()
       .find("button")
       .focus()
       .wait(1000);
@@ -141,7 +153,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "focussed",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -155,6 +167,8 @@ describe("IcBackToTop visual regression and a11y tests", () => {
     cy.wait(500)
       .get(BACK_TO_TOP_SELECTOR)
       .shadow()
+      .find("ic-button")
+      .shadow()
       .find("button")
       .focus()
       .wait(1000);
@@ -162,7 +176,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "focussed-icon-only",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -190,7 +204,7 @@ describe("IcBackToTop visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "default-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -204,7 +218,7 @@ describe("IcBackToTop visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "icon-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -218,13 +232,15 @@ describe("IcBackToTop visual regression tests in high contrast mode", () => {
     cy.wait(500)
       .get(BACK_TO_TOP_SELECTOR)
       .shadow()
+      .find("ic-button")
+      .shadow()
       .find("button")
       .focus()
       .wait(1000);
 
     cy.compareSnapshot({
       name: "focussed-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -238,13 +254,15 @@ describe("IcBackToTop visual regression tests in high contrast mode", () => {
     cy.wait(500)
       .get(BACK_TO_TOP_SELECTOR)
       .shadow()
+      .find("ic-button")
+      .shadow()
       .find("button")
       .focus()
       .wait(1000);
 
     cy.compareSnapshot({
       name: "focussed-icon-only-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
       cypressScreenshotOptions: {
         capture: "viewport",
       },

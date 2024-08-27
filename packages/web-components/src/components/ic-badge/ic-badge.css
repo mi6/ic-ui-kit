@@ -1,9 +1,9 @@
 @media (prefers-reduced-motion: no-preference) {
-  :host(.show) {
+  :host(.ic-badge-show) {
     animation: expand var(--ic-transition-duration-slow);
   }
 
-  :host(.hide) {
+  :host(.ic-badge-hide) {
     animation: shrink var(--ic-transition-duration-slow);
   }
 }
@@ -17,138 +17,138 @@
   position: absolute;
 }
 
-:host(.neutral) {
+:host(.ic-badge-neutral) {
   background-color: var(--ic-architectural-500);
 }
 
-:host(.light) {
+:host(.ic-badge-light) {
   background-color: var(--ic-architectural-40);
 }
 
-:host(.info) {
+:host(.ic-badge-info) {
   background-color: var(--ic-status-info);
 }
 
-:host(.warning) {
-  background-color: var(--ic-status-warning-mid);
+:host(.ic-badge-warning) {
+  background-color: var(--ic-status-warning);
 }
 
-:host(.error) {
+:host(.ic-badge-error) {
   background-color: var(--ic-status-error);
 }
 
-:host(.success) {
+:host(.ic-badge-success) {
   background-color: var(--ic-status-success);
 }
 
-:host(.small) {
+:host(.ic-badge-small) {
   height: var(--ic-space-sm);
   min-width: var(--ic-space-sm);
 }
 
-:host(.large) {
+:host(.ic-badge-large) {
   height: calc(var(--ic-space-md) + var(--ic-space-xxs));
   min-width: calc(var(--ic-space-md) + var(--ic-space-xxs));
 }
 
-:host(.dot.default) {
+:host(.ic-badge-dot.ic-badge-default) {
   height: var(--ic-space-xs);
   width: var(--ic-space-xs);
   min-width: var(--ic-space-xs);
 }
 
-:host(.dot.small) {
+:host(.ic-badge-dot.ic-badge-small) {
   height: calc(var(--ic-space-xxs) + var(--ic-space-xxxs));
   width: calc(var(--ic-space-xxs) + var(--ic-space-xxxs));
   min-width: calc(var(--ic-space-xxs) + var(--ic-space-xxxs));
 }
 
-:host(.dot.large) {
+:host(.ic-badge-dot.ic-badge-large) {
   height: var(--ic-space-sm);
   width: var(--ic-space-sm);
   min-width: var(--ic-space-sm);
 }
 
-:host(.foreground-dark) ::slotted(*) {
+:host(.ic-badge-foreground-dark) ::slotted(*) {
   fill: var(--ic-color-primary-text);
 }
 
-:host(.foreground-light) ::slotted(*) {
+:host(.ic-badge-foreground-light) ::slotted(*) {
   fill: white;
 }
 
-:host(.foreground-dark) ic-typography {
+:host(.ic-badge-foreground-dark) ic-typography {
   color: var(--ic-color-primary-text);
 }
 
-:host(.foreground-light) ic-typography {
+:host(.ic-badge-foreground-light) ic-typography {
   color: white;
 }
 
-:host(.text) ic-typography {
+:host(.ic-badge-text) ic-typography {
   align-self: center;
   padding: 0 calc((var(--ic-space-xs) + var(--ic-space-1px)) / 2)
     var(--ic-space-1px);
 }
 
-:host(.text.small) ic-typography {
+:host(.ic-badge-text.ic-badge-small) ic-typography {
   padding: 0 0.2132rem;
 }
 
-:host(.text.large) ic-typography {
+:host(.ic-badge-text.ic-badge-large) ic-typography {
   padding: 0 calc((var(--ic-space-sm) + var(--ic-space-1px)) / 2)
     var(--ic-space-1px);
 }
 
-:host(.icon) ::slotted(svg) {
+:host(.ic-badge-icon) ::slotted(svg) {
   width: var(--ic-space-sm);
   height: var(--ic-space-sm);
   padding: var(--ic-space-xxxs);
 }
 
-:host(.icon.small) ::slotted(svg) {
+:host(.ic-badge-icon.ic-badge-small) ::slotted(svg) {
   width: var(--ic-space-xs);
   height: var(--ic-space-xs);
 }
 
-:host(.icon.large) ::slotted(svg) {
+:host(.ic-badge-icon.ic-badge-large) ::slotted(svg) {
   width: calc(var(--ic-space-sm) + var(--ic-space-xxxs));
   height: calc(var(--ic-space-sm) + var(--ic-space-xxxs));
   padding: calc(var(--ic-space-xxxs) + var(--ic-space-1px));
 }
 
-:host(.far) {
+:host(.ic-badge-far) {
   top: calc(-1 * var(--ic-space-xs));
   right: calc(-1 * var(--ic-space-xs));
 }
 
-:host(.far.small),
-:host(.dot.far.large) {
+:host(.ic-badge-far.ic-badge-small),
+:host(.ic-badge-dot.ic-badge-far.ic-badge-large) {
   top: calc(-1 * var(--ic-space-xxs));
   right: calc(-1 * var(--ic-space-xxs));
 }
 
-:host(.dot.far),
-:host(.dot.far.small) {
+:host(.ic-badge-dot.ic-badge-far),
+:host(.ic-badge-dot.ic-badge-far.ic-badge-small) {
   top: calc(-1 * var(--ic-space-xxxs));
   right: calc(-1 * var(--ic-space-xxxs));
 }
 
-:host(.near) {
+:host(.ic-badge-near) {
   top: calc(-1 * calc(var(--ic-space-xxs) + var(--ic-space-1px)));
   right: calc(-1 * calc(var(--ic-space-xxs) + var(--ic-space-1px)));
 }
 
-:host(.dot.near) {
+:host(.ic-badge-dot.ic-badge-near) {
   top: calc(-1 * var(--ic-space-1px));
   right: calc(-1 * var(--ic-space-1px));
 }
 
-:host(.inline) {
+:host(.ic-badge-inline) {
   position: static;
 }
 
-:host(.hide) {
+:host(.ic-badge-hide) {
   visibility: hidden !important;
   transition: visibility var(--ic-transition-duration-slow);
 }

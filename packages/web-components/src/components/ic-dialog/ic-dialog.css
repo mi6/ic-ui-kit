@@ -16,7 +16,7 @@
   opacity: 0;
 }
 
-:host(.fade-in) {
+:host(.ic-dialog-fade-in) {
   opacity: 1;
 }
 
@@ -45,13 +45,13 @@
     transition: transform 1000s;
   }
 
-  :host(.fade-in) .dialog {
+  :host(.ic-dialog-fade-in) .dialog {
     transform: translateY(0);
     transition: transform var(--ic-easing-transition-slow);
   }
 }
 
-:host(.hidden) {
+:host(.ic-dialog-hidden) {
   display: none;
 }
 
@@ -126,10 +126,6 @@
   position: relative;
 }
 
-.status-alert {
-  margin-bottom: var(--ic-space-xs);
-}
-
 .dialog-controls {
   margin-top: auto;
   padding: var(--ic-space-xs) var(--ic-space-md) 0;
@@ -182,11 +178,6 @@
 }
 
 @media (max-width: 364px) {
-  .triple-button {
-    flex-direction: column;
-    gap: var(--ic-space-xs);
-  }
-
   .dialog-control-button {
     width: unset;
   }

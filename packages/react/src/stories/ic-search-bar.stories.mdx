@@ -68,7 +68,7 @@ export const ExternalFiltering = () => {
       onIcChange={handleChange}
       onIcRetryLoad={handleChange}
       onIcOptionSelect={handleOptionSelect}
-      disableFilter
+      disableAutoFiltering
       options={results}
       loadingLabel="Loading time"
       loadingErrorLabel="Oops error"
@@ -116,7 +116,7 @@ export const ExternalFiltering = () => {
   <Story name="With options (no filtering)">
     <IcSearchBar
       label="What is your favourite coffee?"
-      disableFilter
+      disableAutoFiltering
       options={[
         { label: "Espresso", value: "espresso" },
         { label: "Double Espresso", value: "doubleespresso" },
@@ -157,14 +157,6 @@ export const ExternalFiltering = () => {
 <Canvas>
   <Story name="Size small">
     <IcSearchBar label="What is your favourite coffee?" size="small" />
-  </Story>
-</Canvas>
-
-### Deprecated - small
-
-<Canvas>
-  <Story name="Deprecated - small">
-    <IcSearchBar label="What is your favourite coffee?" small />
   </Story>
 </Canvas>
 
@@ -303,7 +295,7 @@ export const ExternalFiltering = () => {
   <Story name="Hint text">
     <IcSearchBar
       label="What is your favourite coffee?"
-      hintText="You can use up and down arrows to navigate the options when they are available, and press enter to select an option."
+      assistiveHintText="You can use up and down arrows to navigate the options when they are available, and press enter to select an option."
       options={[
         { label: "Espresso", value: "espresso" },
         { label: "Double Espresso", value: "doubleespresso" },

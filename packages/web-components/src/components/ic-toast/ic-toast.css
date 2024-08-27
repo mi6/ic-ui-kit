@@ -15,9 +15,13 @@
   z-index: var(--ic-z-index-toast);
 }
 
-:host(.hidden) {
+:host(.ic-toast-hidden) {
   display: none;
   animation: fadeout var(--ic-transition-duration-slow) ease-in-out;
+}
+
+:host(:focus) {
+  outline: none;
 }
 
 .container {
@@ -111,9 +115,12 @@
   padding-bottom: var(--ic-space-md);
 }
 
-ic-button,
-.toast-dismiss-timer {
+ic-button {
   padding: var(--ic-space-xs);
+}
+
+.toast-dismiss-timer {
+  padding: var(--ic-space-sm);
 }
 
 @media (max-width: 576px) {

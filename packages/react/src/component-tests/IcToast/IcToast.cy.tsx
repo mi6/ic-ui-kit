@@ -36,9 +36,9 @@ describe("IcToast", () => {
   it("should close on dismiss icon click", () => {
     mount(<SimpleToast />);
     cy.get("ic-button").click();
-    cy.get("ic-toast").should(NOT_HAVE_CLASS, "hidden");
+    cy.get("ic-toast").should(NOT_HAVE_CLASS, "ic-toast-hidden");
     cy.clickOnShadowEl("ic-toast", DISMISS_BUTTON_SELECTOR);
-    cy.get("ic-toast").should(HAVE_CLASS, "hidden");
+    cy.get("ic-toast").should(HAVE_CLASS, "ic-toast-hidden");
   });
 
   it("should focus on dismiss button when no action is provided", () => {
@@ -84,6 +84,20 @@ describe("IcToast", () => {
       .shadow()
       .wait(4900)
       .find("ic-loading-indicator")
+      .should("exist");
+  });
+
+  it("should focus the new dismiss button when auto dismiss toast is tabbed to", () => {
+    mount(<SimpleAutoDismissToast />);
+    cy.get("ic-button").click();
+    cy.checkHydrated("ic-toast");
+
+    cy.get("ic-toast").click(60, 40);
+
+    cy.realPress("Tab").realPress("Tab");
+    cy.get("ic-toast")
+      .shadow()
+      .find("ic-button#dismiss-button")
       .should("exist");
   });
 });

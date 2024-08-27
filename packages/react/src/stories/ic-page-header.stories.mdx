@@ -20,7 +20,7 @@ import {
   IcStepper,
   IcStep,
   IcNavigationItem,
-  IcCard,
+  IcCardVertical,
   IcTypography,
 } from "../components";
 
@@ -81,7 +81,7 @@ export const defaultArgs = {
             <IcButton slot="actions" variant="primary">
                 Create coffee
                 <svg
-                  slot="icon"
+                  slot="left-icon"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -157,21 +157,6 @@ export const defaultArgs = {
       heading="Page header"
       subheading="This is a simple page header component and this is the text."
       size="small"
-    >
-      <IcStatusTag slot="heading-adornment" label="Beta" size="small" />
-    </IcPageHeader>
-  </Story>
-</Canvas>
-
-### Deprecated - small
-
-<Canvas>
-  <Story name="Deprecated - small">
-    <IcPageHeader
-      aligned="left"
-      heading="Page header"
-      subheading="This is a simple page header component and this is the text."
-      small
     >
       <IcStatusTag slot="heading-adornment" label="Beta" size="small" />
     </IcPageHeader>
@@ -407,7 +392,7 @@ export const defaultArgs = {
       <IcButton slot="actions" variant="primary">
         Create coffee
         <svg
-          slot="icon"
+          slot="left-icon"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -455,13 +440,13 @@ export const defaultArgs = {
       subheading="This is a page header component with additional functionality and this is the text."
     >
       <IcStepper slot="stepper">
-        <IcStep step-title="Warm kettle" step-type="completed" />
+        <IcStep heading="Warm kettle" type="completed" />
         <IcStep
-          step-title="Warm milk"
-          step-subtitle="Optional"
-          step-type="completed"
+          heading="Warm milk"
+          subheading="Optional"
+          type="completed"
         />
-        <IcStep step-title="Pour milk" step-type="current" />
+        <IcStep heading="Pour milk" type="current" />
       </IcStepper>
     </IcPageHeader>
   </Story>
@@ -552,7 +537,7 @@ export const defaultArgs = {
       <IcButton slot="actions" variant="primary">
         Create coffee
         <svg
-          slot="icon"
+          slot="left-icon"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -610,7 +595,7 @@ export const defaultArgs = {
       <IcButton slot="actions" variant="primary">
         Create coffee
         <svg
-          slot="icon"
+          slot="left-icon"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -627,13 +612,13 @@ export const defaultArgs = {
         Filter coffee
       </IcButton>
       <IcStepper slot="stepper">
-        <IcStep step-title="Warm kettle" step-type="completed" />
+        <IcStep heading="Warm kettle" type="completed" />
         <IcStep
-          step-title="Warm milk"
-          step-subtitle="Optional"
-          step-type="completed"
+          heading="Warm milk"
+          subheading="Optional"
+          type="completed"
         />
-        <IcStep step-title="Pour milk" step-type="current" />
+        <IcStep heading="Pour milk" type="current" />
       </IcStepper>
       <IcTextField
         slot="input"
@@ -658,15 +643,15 @@ export const AllRecipes = () => (
         marginTop: "24px",
       }}
     >
-      <IcCard
+      <IcCardVertical
         heading="Macchiato"
         message="Put your coffee machine to work and brew an easy macchiato. Ideal for breakfast, brunch or whenever you need a pick-me-up."
       />
-      <IcCard
+      <IcCardVertical
         heading="Mocha"
         message="If you have a coffee machine, treat yourself to a comforting, chocolatey mocha. You don't need to be a trained barista with our..."
       />
-      <IcCard
+      <IcCardVertical
         heading="Espresso"
         message="Capture the classic taste of espresso without the hassle of expensive brewing equipment! For best flavor, serve espresso immediately. Pour..."
       />
@@ -685,15 +670,15 @@ export const Favourites = () => (
         marginTop: "24px",
       }}
     >
-      <IcCard
+      <IcCardVertical
         heading="Macchiato"
         message="Put your coffee machine to work and brew an easy macchiato. Ideal for breakfast, brunch or whenever you need a pick-me-up."
       />
-      <IcCard
+      <IcCardVertical
         heading="Mocha"
         message="If you have a coffee machine, treat yourself to a comforting, chocolatey mocha. You don't need to be a trained barista with our..."
       />
-      <IcCard
+      <IcCardVertical
         heading="Latte"
         message="Dust off that coffee machine and learn a few barista skills to make a creamy latte. Our easy recipe takes breakfast, or brunch, to the next..."
       />
@@ -721,7 +706,7 @@ export const Favourites = () => (
       <IcButton slot="actions" variant="primary">
         Create coffee
         <svg
-          slot="icon"
+          slot="left-icon"
           width="24"
           height="24"
           viewBox="0 0 24 24"

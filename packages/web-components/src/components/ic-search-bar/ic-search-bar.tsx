@@ -114,7 +114,7 @@ export class SearchBar {
    * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.
    * If `true`, all options provided will be displayed.
    */
-  @Prop() disableFilter?: boolean = false;
+  @Prop() disableAutoFiltering?: boolean = false;
 
   /**
    * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
@@ -150,7 +150,7 @@ export class SearchBar {
   /**
    * The hint text for the hidden assistive description element.
    */
-  @Prop() hintText?: string =
+  @Prop() assistiveHintText?: string =
     "When autocomplete results are available use the up and down arrows to choose and press enter to select";
 
   /**
@@ -209,11 +209,6 @@ export class SearchBar {
   @Prop() size?: IcSizesNoLarge = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * If `true`, the value of the search will have its spelling and grammar checked.
    */
   @Prop() spellcheck: boolean = false;
@@ -250,7 +245,7 @@ export class SearchBar {
 
   @Watch("options")
   watchOptionsHandler(newOptions: IcMenuOption[]): void {
-    if (this.disableFilter && !this.hasTimedOut) {
+    if (this.disableAutoFiltering && !this.hasTimedOut) {
       this.loading = false;
       clearTimeout(this.timeoutTimer);
       if (newOptions.length > 0) {
@@ -353,7 +348,7 @@ export class SearchBar {
 
       this.preLoad = false;
 
-      if (this.disableFilter === false) {
+      if (this.disableAutoFiltering === false) {
         const rawFilteredOptions = getFilteredMenuOptions(
           this.options,
           false,
@@ -374,24 +369,16 @@ export class SearchBar {
     this.debounceAriaLiveUpdate();
   };
 
-  /**
-   * @deprecated This event should not be used anymore. Use icSearchBarBlur instead.
-   */
-  @Event() icInputBlur: EventEmitter<IcSearchBarBlurEventDetail>;
   private onInputBlur = (ev: Event) => {
     const value = (ev.target as HTMLInputElement).value;
     const nextFocus = (ev as FocusEvent).relatedTarget;
 
-    this.icInputBlur.emit({ value: value, relatedTarget: nextFocus });
+    this.icSearchBarBlur.emit({ value: value, relatedTarget: nextFocus });
   };
 
-  /**
-   * @deprecated This event should not be used anymore. Use icSearchBarFocus instead.
-   */
-  @Event() icInputFocus: EventEmitter<IcValueEventDetail>;
   private onInputFocus = (ev: Event) => {
     const value = (ev.target as HTMLInputElement).value;
-    this.icInputFocus.emit({ value: value });
+    this.icSearchBarFocus.emit({ value: value });
 
     this.handleShowClearButton(true);
   };
@@ -447,7 +434,7 @@ export class SearchBar {
   /**
    * Emitted when focus is invoked from ic-search-bar
    */
-  @Event() icSearchBarFocus: EventEmitter<void>;
+  @Event() icSearchBarFocus: EventEmitter<IcValueEventDetail>;
 
   disconnectedCallback(): void {
     if (this.assistiveHintEl) {
@@ -459,10 +446,6 @@ export class SearchBar {
     this.watchValueHandler(this.value);
 
     removeDisabledFalse(this.disabled, this.el);
-
-    if (this.small) {
-      this.size = "small";
-    }
   }
 
   componentDidLoad(): void {
@@ -472,7 +455,7 @@ export class SearchBar {
 
     if (this.hasOptionsOrFilterDisabled()) {
       this.renderAssistiveHintEl();
-      if (this.disableFilter) {
+      if (this.disableAutoFiltering) {
         this.filteredOptions = this.options;
       }
     }
@@ -695,7 +678,7 @@ export class SearchBar {
       this.hasOptionsOrFilterDisabled()
     ) {
       this.assistiveHintEl = document.createElement("span");
-      this.assistiveHintEl.innerText = this.hintText;
+      this.assistiveHintEl.innerText = this.assistiveHintText;
       this.assistiveHintEl.id = `${this.inputId}-assistive-hint`;
       this.assistiveHintEl.style.display = "none";
       if (input.after !== undefined) {
@@ -734,7 +717,7 @@ export class SearchBar {
   };
 
   private hasOptionsOrFilterDisabled = (): boolean =>
-    this.options.length > 0 || this.disableFilter;
+    this.options.length > 0 || this.disableAutoFiltering;
 
   private hadNoOptions = (): boolean =>
     this.filteredOptions.length === 1 &&
@@ -777,7 +760,6 @@ export class SearchBar {
       name,
       label,
       required,
-      small,
       size,
       placeholder,
       helperText,
@@ -845,10 +827,10 @@ export class SearchBar {
     return (
       <Host
         class={{
-          ["search"]: true,
-          ["fullwidth"]: fullWidth,
-          ["disabled"]: disabled,
-          ["small"]: size === "small",
+          ["ic-search-bar-search"]: true,
+          ["ic-search-bar-full-width"]: fullWidth,
+          ["ic-search-bar-disabled"]: disabled,
+          ["ic-search-bar-small"]: size === "small",
         }}
         onFocus={this.handleHostFocus}
         onBlur={this.handleHostBlur}
@@ -943,7 +925,7 @@ export class SearchBar {
               ref={(el) => (this.searchSubmitButton = el)}
               class={{
                 ["search-submit-button"]: true,
-                ["search-submit-button-small"]: !!small,
+                ["search-submit-button-small"]: size === "small",
               }}
               disabled={this.isSubmitDisabled()}
               innerHTML={searchIcon}
@@ -981,7 +963,6 @@ export class SearchBar {
                 inputEl={this.inputEl}
                 inputLabel={label}
                 ref={(el) => (this.menu = el)}
-                small={size === "small"}
                 fullWidth={fullWidth}
                 menuId={menuId}
                 open={!!menuRendered}

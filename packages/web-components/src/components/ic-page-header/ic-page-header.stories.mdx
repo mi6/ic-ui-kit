@@ -65,27 +65,6 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### Deprecated - small
-
-<Canvas>
-  <Story name="Deprecated - small" parameters={{ loki: { skip: true } }}>
-    {html`
-      <ic-page-header
-        aligned="left"
-        heading="Page header"
-        subheading="This is a simple page header component and this is the text."
-        small
-      >
-        <ic-status-tag
-          slot="heading-adornment"
-          label="Beta"
-          size="small"
-        ></ic-status-tag>
-      </ic-page-header>
-    `}
-  </Story>
-</Canvas>
-
 ### Without border
 
 <Canvas>
@@ -299,7 +278,7 @@ import readme from "./readme.md";
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -344,13 +323,13 @@ import readme from "./readme.md";
         subheading="This is a page header component with additional functionality and this is the text."
       >
         <ic-stepper slot="stepper">
-          <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
+          <ic-step heading="Warm kettle" type="completed"></ic-step>
           <ic-step
-            step-title="Warm milk"
-            step-subtitle="Optional"
-            step-type="completed"
+            heading="Warm milk"
+            subheading="Optional"
+            type="completed"
           ></ic-step>
-          <ic-step step-title="Pour milk" step-type="current" current></ic-step>
+          <ic-step heading="Pour milk" type="current" current></ic-step>
         </ic-stepper>
       </ic-page-header>
     `}
@@ -452,7 +431,7 @@ import readme from "./readme.md";
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -511,7 +490,7 @@ import readme from "./readme.md";
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -526,13 +505,13 @@ import readme from "./readme.md";
         </ic-button>
         <ic-button slot="actions" variant="tertiary">Filter coffee</ic-button>
         <ic-stepper slot="stepper">
-          <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
+          <ic-step heading="Warm kettle" type="completed"></ic-step>
           <ic-step
-            step-title="Warm milk"
-            step-subtitle="Optional"
-            step-type="completed"
+            heading="Warm milk"
+            subheading="Optional"
+            type="completed"
           ></ic-step>
-          <ic-step step-title="Pour milk" step-type="current" current></ic-step>
+          <ic-step heading="Pour milk" type="current" current></ic-step>
         </ic-stepper>
         <ic-text-field slot="input" placeholder="Enter your input" hide-label />
       </ic-page-header>
@@ -590,7 +569,7 @@ If a slot is provided, instead an attribute, the slot will supersede for the fol
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -605,13 +584,13 @@ If a slot is provided, instead an attribute, the slot will supersede for the fol
         </ic-button>
         <ic-button slot="actions" variant="tertiary">Filter coffee</ic-button>
         <ic-stepper slot="stepper">
-          <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
+          <ic-step heading="Warm kettle" type="completed"></ic-step>
           <ic-step
-            step-title="Warm milk"
-            step-subtitle="Optional"
-            step-type="completed"
+            heading="Warm milk"
+            subheading="Optional"
+            type="completed"
           ></ic-step>
-          <ic-step step-title="Pour milk" step-type="current" current></ic-step>
+          <ic-step heading="Pour milk" type="current" current></ic-step>
         </ic-stepper>
         <ic-text-field slot="input" placeholder="Enter your input" hide-label />
       </ic-page-header>

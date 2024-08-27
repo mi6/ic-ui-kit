@@ -100,7 +100,7 @@ import readme from "./readme.md";
           >
             <ic-navigation-item label="Different navigation" href="/">
               <ic-badge
-                text-label="1"
+                label="1"
                 slot="badge"
                 variant="light"
                 position="far"
@@ -1743,7 +1743,7 @@ import readme from "./readme.md";
             </ic-navigation-item>
             <ic-navigation-item label="Navigation" href="/">
               <ic-badge
-                text-label="1"
+                label="1"
                 slot="badge"
                 variant="light"
                 position="far"
@@ -2045,7 +2045,7 @@ import readme from "./readme.md";
             </ic-navigation-item>
             <ic-navigation-item label="Navigation" href="/">
               <ic-badge
-                text-label="1"
+                label="1"
                 slot="badge"
                 variant="light"
                 position="far"
@@ -2251,7 +2251,7 @@ import readme from "./readme.md";
   >
     {html`<script>
         var sideNav = document.querySelector("ic-side-navigation");
-        sideNav.addEventListener("sideNavExpanded", function (event) {
+        sideNav.addEventListener("icSideNavExpanded", function (event) {
           console.log(event.detail.sideNavExpanded);
         });
       </script>
@@ -2355,7 +2355,7 @@ import readme from "./readme.md";
             </ic-navigation-item>
             <ic-navigation-item label="Navigation" href="/">
               <ic-badge
-                text-label="1"
+                label="1"
                 slot="badge"
                 variant="light"
                 position="far"

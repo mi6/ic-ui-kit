@@ -30,135 +30,62 @@
   margin-bottom: var(--footer-link-margin-bottom);
 }
 
-/* Link styling */
-
-:host(.footer-link) a,
-:host(.footer-link) a ::slotted(a) {
-  display: flex;
-  align-items: flex-end;
-  font-weight: var(--ic-font-weight-bold);
-  color: inherit;
-  width: fit-content;
-  font-size: var(--ic-font-size-regular);
+.ic-link-open-in-new-icon {
+  vertical-align: middle;
+  margin-left: var(--ic-space-xxs);
 }
 
-:host(.footer-link) a:link,
-:host(.footer-link) a ::slotted(a:link) {
-  color: inherit;
-  text-decoration: underline;
-  font-weight: var(--ic-font-weight-bold);
+.ic-link > .ic-link-open-in-new-icon {
+  fill: var(--ic-hyperlink);
 }
 
-:host(.footer-link) a:link > ::slotted(svg),
-:host(.footer-link) a:link > ::slotted(img),
-:host(.footer-link) a ::slotted(a:link > ::slotted(svg)),
-:host(.footer-link) a ::slotted(a:link > ::slotted(img)) {
-  padding: var(--ic-space-xxxs);
-  pointer-events: none;
-  transition: var(--ic-easing-transition-fast);
-}
-
-/*
-There's an apparent defect in Chrome that means this isn't always re-rendered if changed.
-Not an issue in Safari. Line 73-79 implement the same function but less clean.
-
-a:link > ::slotted(svg) ,
-a:link:visited > ::slotted(svg) {
-  fill: var(--ic-theme-text);
-}
-*/
-
-:host(.footer-link-light) ::slotted(svg) {
-  fill: var(--ic-architectural-white);
-}
-
-:host(.footer-link-dark) ::slotted(svg) {
-  fill: var(--ic-architectural-black);
-}
-
-:host(.footer-link) a:link:hover,
-:host(.footer-link) a:link:focus,
-:host(.footer-link) a ::slotted(a:link:hover),
-:host(.footer-link) a ::slotted(a:link:focus) {
-  border-bottom: 0.25rem solid !important;
-  margin-bottom: -0.25rem !important;
-  text-decoration: none;
-}
-
-@supports (text-underline-offset: 25%) {
-  :host(.footer-link) a:link:hover,
-  :host(.footer-link) a:link:focus,
-  :host(.footer-link) a ::slotted(a:link:hover),
-  :host(.footer-link) a ::slotted(a:link:focus) {
-    text-decoration-line: underline;
-    text-decoration-thickness: 25%;
-    text-underline-offset: 25%;
-    border-bottom: 0 !important;
-    margin-bottom: 0 !important;
-  }
-}
-
-:host(.footer-link) a:link:hover,
-:host(.footer-link) a ::slotted(a:link:hover) {
-  outline: none;
-}
-
-:host(.footer-link) a:link:focus,
-:host(.footer-link) a ::slotted(a:link:focus) {
-  outline: none;
-}
-
-:host(.footer-link) a:link:focus > ::slotted(svg),
-:host(.footer-link) a:link:focus > ::slotted(img),
-:host(.footer-link) a ::slotted(a:link:focus > ::slotted(svg)),
-:host(.footer-link) a ::slotted(a:link:focus > ::slotted(img)) {
-  box-shadow: var(--ic-border-focus);
-  border-radius: var(--ic-border-radius);
-}
-
-:host(.footer-link) a:focus,
-:host(.footer-link) a ::slotted(a:focus) {
-  outline: none;
-  transition: var(--ic-transition-duration-fast);
-}
-
-:host(.footer-link) a:link:active,
-:host(.footer-link) a:link:focus:active,
-:host(.footer-link) a:link:visited:active,
-:host(.footer-link) a ::slotted(a:link:active),
-:host(.footer-link) a ::slotted(a:link:focus:active),
-:host(.footer-link) a ::slotted(a:link:visited:active) {
-  color: inherit;
-  text-decoration: none;
-}
-
-:host(.footer-link) a:hover,
-:host(.footer-link) a ::slotted(a:hover) {
-  text-decoration: none;
-}
-
-.open-in-new-icon {
-  padding-left: var(--ic-space-xxs);
-}
-
-.open-in-new-icon,
-.open-in-new-icon svg {
-  height: var(--ic-space-md);
+.ic-link-open-in-new-icon > svg {
   width: var(--ic-space-md);
+  height: var(--ic-space-md);
+  fill: currentcolor;
 }
 
-:host(.footer-link-light) .open-in-new-icon svg {
-  fill: var(--ic-architectural-white);
+.ic-link:visited > .ic-link-open-in-new-icon {
+  fill: var(--ic-hyperlink-visited);
 }
 
-:host(.footer-link-dark) .open-in-new-icon svg {
-  fill: var(--ic-architectural-black);
+.ic-link.light:visited > .ic-link-open-in-new-icon {
+  fill: var(--ic-hyperlink-contrast-visited);
 }
 
-@media screen and (min-width: 769px) {
-  :host(.footer-link.footer-link-ungrouped-sparse:last-of-type) {
-    margin-right: 0;
-  }
+:host(.breadcrumb-link) .ic-link {
+  display: var(--breadcrumb-link-display);
+  align-items: var(--breadcrumb-link-align-items);
+  gap: var(--breadcrumb-link-gap);
+}
+
+:host(.breadcrumb-link) .ic-link ::slotted(.back-icon) {
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+}
+
+:host(.breadcrumb-link.current-page) a,
+:host(.breadcrumb-link.current-page) ::slotted(a) {
+  font-weight: normal;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+:host(.breadcrumb-link.current-page) .ic-link,
+:host(.breadcrumb-link.current-page) ::slotted(a:focus) {
+  outline: var(--ic-hc-focus-outline);
+  text-decoration: none;
+}
+
+:host(.breadcrumb-link.current-page) .ic-link:visited {
+  color: var(--ic-color-primary-text);
+}
+
+:host(.footer-link-light) ::slotted(svg),
+:host(.footer-link-dark) ::slotted(svg) {
+  fill: var(--ic-theme-text);
 }
 
 @media (forced-colors: active) {

@@ -103,22 +103,22 @@ export class ToggleButtonGroup {
         clickedToggle = tabTarget;
       }
       allToggles.forEach((el) => {
-        if (el.id !== clickedToggle.id && el.toggleChecked) {
-          el.toggleChecked = false;
+        if (el.id !== clickedToggle.id && el.checked) {
+          el.checked = false;
         }
       });
 
       this.icChange.emit({
-        toggleChecked: ev.detail.toggleChecked,
+        checked: ev.detail.checked,
         selectedOption: clickedToggle,
       });
     } else {
       const toggledOptions = this.getAllToggleButtons().filter(
-        (el) => el.toggleChecked && !el.disabled
+        (el) => el.checked && !el.disabled
       );
 
       this.icChange.emit({
-        toggleChecked: toggledOptions.map((opt) => opt.toggleChecked),
+        checked: toggledOptions.map((opt) => opt.checked),
         toggledOptions: toggledOptions.map((opt) => ({
           toggleButton: opt,
         })),
@@ -181,10 +181,10 @@ export class ToggleButtonGroup {
     const relEl = ev.relatedTarget as HTMLIcToggleButtonElement;
     const toggleButtons = Array.from(el.querySelectorAll("ic-toggle-button"));
     if (
-      ((toggleButtons.every((el) => !el.toggleChecked) ||
+      ((toggleButtons.every((el) => !el.checked) ||
         this.selectType !== "single") &&
         this.lastKeyPressed.shift === false) ||
-      (toggleButtons.every((el) => !el.toggleChecked) &&
+      (toggleButtons.every((el) => !el.checked) &&
         this.lastKeyPressed.shift === true &&
         relEl.tagName == TOGGLE_GROUP)
     ) {
@@ -193,18 +193,18 @@ export class ToggleButtonGroup {
       this.lastKeyPressed.shift === false ||
       (this.lastKeyPressed.shift === true && relEl.tagName == TOGGLE_GROUP)
     ) {
-      // if toggleChecked is true and selectMethod is "single", focus that toggle
-      const toggledButton = toggleButtons.filter((el) => el.toggleChecked);
+      // if checked is true and selectMethod is "single", focus that toggle
+      const toggledButton = toggleButtons.filter((el) => el.checked);
       toggledButton[0].focus();
     }
   };
 
   // trigger selectHandler when unable to add 'target'
   private proxySelectHandler(toggle: HTMLIcToggleButtonElement): void {
-    toggle.toggleChecked = true;
+    toggle.checked = true;
     const customEv = new CustomEvent("icToggleChecked", {
       detail: {
-        toggleChecked: toggle.toggleChecked,
+        checked: toggle.checked,
       },
     });
     this.selectHandler(customEv, toggle);
@@ -280,10 +280,10 @@ export class ToggleButtonGroup {
         aria-disabled={this.disabled ? "true" : "false"}
         tabindex={0}
         class={{
-          ["full-width"]: this.fullWidth,
-          ["loading"]: this.loading,
-          ["disabled"]: this.disabled,
-          [`${this.appearance}`]: true,
+          ["ic-toggle-button-group-full-width"]: this.fullWidth,
+          ["ic-toggle-button-group-loading"]: this.loading,
+          ["ic-toggle-button-group-disabled"]: this.disabled,
+          [`ic-toggle-button-group-${this.appearance}`]: true,
         }}
         onFocus={this.handleHostFocus}
       >

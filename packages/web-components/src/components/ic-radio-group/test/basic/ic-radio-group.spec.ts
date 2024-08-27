@@ -72,6 +72,17 @@ describe("ic-radio-group", () => {
     expect(page.root).toMatchSnapshot("renders-with-validation-status");
   });
 
+  it("should render radio group disabled", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<ic-radio-group label="test label" name="test" disabled>
+        <ic-radio-option value="test" label="test label" group-label="test group"></ic-radio-option>    
+      </ic-radio-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-disabled");
+  });
+
   it("should render radio option disabled", async () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
@@ -80,7 +91,7 @@ describe("ic-radio-group", () => {
       </ic-radio-group>`,
     });
 
-    expect(page.root).toMatchSnapshot("renders-disabled");
+    expect(page.root).toMatchSnapshot("renders-option-disabled");
   });
 
   it("should render with unselected static additional field", async () => {
@@ -197,9 +208,7 @@ describe("ic-radio-group", () => {
     });
 
     const div =
-      page.rootInstance.radioOptions[1].shadowRoot.querySelector(
-        ".dynamic-container"
-      );
+      page.rootInstance.radioOptions[1].querySelector(".dynamic-container");
     div.click();
     await page.waitForChanges();
 

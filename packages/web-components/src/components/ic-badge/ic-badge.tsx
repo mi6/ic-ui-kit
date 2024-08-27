@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  Host,
-  Method,
-  Prop,
-  Watch,
-  h,
-} from "@stencil/core";
+import { Component, Element, Host, Prop, Watch, h } from "@stencil/core";
 import {
   IcBadgePositions,
   IcBadgeTypes,
@@ -69,7 +61,7 @@ export class Badge {
 
   /**
    * The maximum number shown on the badge appended with a +.
-   * This will only be displayed if type="text" and textLabel is not empty.
+   * This will only be displayed if type="text" and label is not empty.
    */
   @Prop() maxNumber?: number;
 
@@ -86,7 +78,7 @@ export class Badge {
   /**
    * The text displayed in the badge. This will only be displayed if type="text".
    */
-  @Prop() textLabel?: string;
+  @Prop() label?: string;
 
   /**
    * The type of badge to be displayed.
@@ -106,7 +98,7 @@ export class Badge {
   /**
    * If `true`, the badge will be displayed.
    */
-  @Prop({ mutable: true }) visible: boolean = true;
+  @Prop() visible: boolean = true;
 
   @Watch("visible")
   visibleHandler(): void {
@@ -126,25 +118,9 @@ export class Badge {
   componentDidLoad(): void {
     this.type === "text" &&
       onComponentRequiredPropUndefined(
-        [{ prop: this.textLabel, propName: "text-label" }],
+        [{ prop: this.label, propName: "label" }],
         "Badge"
       );
-  }
-
-  /**
-   * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
-   */
-  @Method()
-  async showBadge(): Promise<void> {
-    this.visible = true;
-  }
-
-  /**
-   * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
-   */
-  @Method()
-  async hideBadge(): Promise<void> {
-    this.visible = false;
   }
 
   private setBadgeColour = () => {
@@ -184,10 +160,10 @@ export class Badge {
     );
   };
 
-  private getTextLabel = () =>
-    this.maxNumber && Number(this.textLabel) > this.maxNumber
+  private getLabel = () =>
+    this.maxNumber && Number(this.label) > this.maxNumber
       ? `${this.maxNumber}+`
-      : this.textLabel;
+      : this.label;
 
   // Set aria-label on badge and / or parent element
   // Aria-describedby seems to not work, probably due to shadow DOM
@@ -195,7 +171,7 @@ export class Badge {
     const parentEl = this.el.parentElement;
     const defaultAriaLabel = this.isAccessibleLabelDefined()
       ? this.accessibleLabel
-      : this.textLabel || "with badge being displayed";
+      : this.label || "with badge being displayed";
 
     if (parentEl) {
       const { tagName } = parentEl;
@@ -223,10 +199,10 @@ export class Badge {
       ariaLabel,
       el,
       foregroundColour,
-      getTextLabel,
+      getLabel,
       position,
       size,
-      textLabel,
+      label,
       type,
       variant,
       visible,
@@ -235,21 +211,22 @@ export class Badge {
     return (
       <Host
         class={{
-          [`${position}`]: true,
-          [`${size}`]: true,
-          [`${variant}`]: true,
-          [`${type}`]: true,
-          [`foreground-${foregroundColour}`]: foregroundColour !== null,
-          [`${visible ? "show" : "hide"}`]: true,
+          [`ic-badge-${position}`]: true,
+          [`ic-badge-${size}`]: true,
+          [`ic-badge-${variant}`]: true,
+          [`ic-badge-${type}`]: true,
+          [`ic-badge-foreground-${foregroundColour}`]:
+            foregroundColour !== null,
+          [`${visible ? "ic-badge-show" : "ic-badge-hide"}`]: true,
         }}
         id={el.id || null}
         aria-label={ariaLabel}
         role="status"
       >
         {type === "icon" && <slot name="badge-icon"></slot>}
-        {type === "text" && textLabel && (
+        {type === "text" && label && (
           <ic-typography variant={size === "small" ? "badge-small" : "badge"}>
-            {getTextLabel()}
+            {getLabel()}
           </ic-typography>
         )}
       </Host>

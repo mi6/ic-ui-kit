@@ -61,12 +61,12 @@ export class NavigationGroup {
   disconnectedCallback(): void {
     if (this.navigationType === "side") {
       this.parentEl.removeEventListener(
-        "sideNavExpanded",
+        "icSideNavExpanded",
         this.sideNavExpandHandler
       );
     } else if (this.navigationType === "top") {
       this.parentEl.removeEventListener(
-        "topNavResized",
+        "icTopNavResized",
         this.topNavResizedHandler
       );
     }
@@ -80,12 +80,12 @@ export class NavigationGroup {
 
     if (this.navigationType === "side") {
       this.parentEl.addEventListener(
-        "sideNavExpanded",
+        "icSideNavExpanded",
         this.sideNavExpandHandler
       );
     } else if (this.navigationType === "top") {
       this.parentEl.addEventListener(
-        "topNavResized",
+        "icTopNavResized",
         this.topNavResizedHandler
       );
       if (
@@ -436,9 +436,9 @@ export class NavigationGroup {
       <Host
         class={{
           ["in-side-menu"]: inTopNavSideMenu,
-          expanded: this.expanded,
-          collapsed: !this.expanded,
-          ["navigation-group-side-nav"]: this.navigationType === "side",
+          "ic-navigation-group-expanded": this.expanded,
+          "ic-navigation-group-collapsed": !this.expanded,
+          ["ic-navigation-group-side-nav"]: this.navigationType === "side",
         }}
         role="listitem"
       >

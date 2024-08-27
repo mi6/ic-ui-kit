@@ -10,7 +10,7 @@
       "filePath": "src/components/ic-accordion/ic-accordion.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion",
-      "readme": "# ic-accordion\r\n\r\n\r\n\r",
+      "readme": "# ic-accordion\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -202,12 +202,12 @@
       "filePath": "src/components/ic-accordion-group/ic-accordion-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion-group",
-      "readme": "# ic-accordion-title\r\n\r\n\r\n\r",
+      "readme": "# ic-accordion-title\n\n\n",
       "docs": "",
       "docsTags": [
         {
           "name": "slot",
-          "text": "group-title - Content is placed as the accordion group title."
+          "text": "label - Content is placed as the accordion group title."
         }
       ],
       "usage": {},
@@ -294,7 +294,7 @@
           "required": false
         },
         {
-          "name": "groupTitle",
+          "name": "label",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -302,7 +302,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "group-title",
+          "attr": "label",
           "reflectToAttr": false,
           "docs": "The header for the accordion group.",
           "docsTags": [],
@@ -410,7 +410,7 @@
       "styles": [],
       "slots": [
         {
-          "name": "group-title",
+          "name": "label",
           "docs": "Content is placed as the accordion group title."
         }
       ],
@@ -441,7 +441,7 @@
       "filePath": "src/components/ic-alert/ic-alert.tsx",
       "encapsulation": "shadow",
       "tag": "ic-alert",
-      "readme": "# ic-alert\r\n\r\n\r\n\r",
+      "readme": "# ic-alert\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -613,26 +613,6 @@
       "methods": [],
       "events": [
         {
-          "event": "dismiss",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icDismiss instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icDismiss instead."
-        },
-        {
           "event": "icDismiss",
           "detail": "void",
           "bubbles": true,
@@ -666,9 +646,7 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-dialog"
-      ],
+      "dependents": [],
       "dependencies": [
         "ic-typography",
         "ic-button"
@@ -687,9 +665,6 @@
         ],
         "ic-tooltip": [
           "ic-typography"
-        ],
-        "ic-dialog": [
-          "ic-alert"
         ]
       }
     },
@@ -697,7 +672,7 @@
       "filePath": "src/components/ic-back-to-top/ic-back-to-top.tsx",
       "encapsulation": "shadow",
       "tag": "ic-back-to-top",
-      "readme": "# ic-back-to-top\r\n\r\n\r\n\r",
+      "readme": "# ic-back-to-top\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -765,13 +740,18 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "ic-typography",
-        "ic-tooltip"
+        "ic-button"
       ],
       "dependencyGraph": {
         "ic-back-to-top": [
-          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
           "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
         ],
         "ic-tooltip": [
           "ic-typography"
@@ -782,7 +762,7 @@
       "filePath": "src/components/ic-badge/ic-badge.tsx",
       "encapsulation": "shadow",
       "tag": "ic-badge",
-      "readme": "# ic-badge\r\n\r\n\r\n\r",
+      "readme": "# ic-badge\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -848,6 +828,27 @@
           "required": false
         },
         {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The text displayed in the badge. This will only be displayed if type=\"text\".",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "maxNumber",
           "type": "number",
           "complexType": {
@@ -858,7 +859,7 @@
           "mutable": false,
           "attr": "max-number",
           "reflectToAttr": false,
-          "docs": "The maximum number shown on the badge appended with a +.\nThis will only be displayed if type=\"text\" and textLabel is not empty.",
+          "docs": "The maximum number shown on the badge appended with a +.\nThis will only be displayed if type=\"text\" and label is not empty.",
           "docsTags": [],
           "values": [
             {
@@ -936,27 +937,6 @@
             },
             {
               "value": "small",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "textLabel",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "text-label",
-          "reflectToAttr": false,
-          "docs": "The text displayed in the badge. This will only be displayed if type=\"text\".",
-          "docsTags": [],
-          "values": [
-            {
               "type": "string"
             }
           ],
@@ -1061,7 +1041,7 @@
             "resolved": "boolean",
             "references": {}
           },
-          "mutable": true,
+          "mutable": false,
           "attr": "visible",
           "reflectToAttr": false,
           "docs": "If `true`, the badge will be displayed.",
@@ -1076,64 +1056,7 @@
           "required": false
         }
       ],
-      "methods": [
-        {
-          "name": "hideBadge",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "hideBadge() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This method should not be used anymore. Use visible prop to set badge visibility."
-            }
-          ],
-          "deprecation": "This method should not be used anymore. Use visible prop to set badge visibility."
-        },
-        {
-          "name": "showBadge",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "showBadge() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This method should not be used anymore. Use visible prop to set badge visibility."
-            }
-          ],
-          "deprecation": "This method should not be used anymore. Use visible prop to set badge visibility."
-        }
-      ],
+      "methods": [],
       "events": [],
       "listeners": [],
       "styles": [],
@@ -1158,7 +1081,7 @@
       "filePath": "src/components/ic-breadcrumb/ic-breadcrumb.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb",
-      "readme": "# ic-breadcrumb\r\n\r\n\r\n\r",
+      "readme": "# ic-breadcrumb\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1286,7 +1209,7 @@
       "filePath": "src/components/ic-breadcrumb-group/ic-breadcrumb-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb-group",
-      "readme": "# ic-breadcrumb-group\r\n\r\n\r\n\r",
+      "readme": "# ic-breadcrumb-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1396,13 +1319,9 @@
       "filePath": "src/components/ic-button/ic-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-button",
-      "readme": "# ic-button\r\n\r",
+      "readme": "# ic-button\n",
       "docs": "",
       "docsTags": [
-        {
-          "name": "slot",
-          "text": "icon - Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead."
-        },
         {
           "name": "slot",
           "text": "left-icon - Content will be placed to the left of the button label."
@@ -2293,10 +2212,6 @@
           "docs": "Badge component overlaying the top right of the button."
         },
         {
-          "name": "icon",
-          "docs": "Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead."
-        },
-        {
           "name": "left-icon",
           "docs": "Content will be placed to the left of the button label."
         },
@@ -2317,6 +2232,7 @@
       "dependents": [
         "ic-accordion-group",
         "ic-alert",
+        "ic-back-to-top",
         "ic-dialog",
         "ic-horizontal-scroll",
         "ic-menu",
@@ -2350,6 +2266,9 @@
           "ic-button"
         ],
         "ic-alert": [
+          "ic-button"
+        ],
+        "ic-back-to-top": [
           "ic-button"
         ],
         "ic-dialog": [
@@ -2394,10 +2313,10 @@
       }
     },
     {
-      "filePath": "src/components/ic-card/ic-card.tsx",
+      "filePath": "src/components/ic-card-vertical/ic-card-vertical.tsx",
       "encapsulation": "shadow",
-      "tag": "ic-card",
-      "readme": "# ic-card\r\n\r\n\r\n\r",
+      "tag": "ic-card-vertical",
+      "readme": "# ic-card-vertical\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -2835,7 +2754,7 @@
         "ic-tooltip"
       ],
       "dependencyGraph": {
-        "ic-card": [
+        "ic-card-vertical": [
           "ic-typography",
           "ic-tooltip"
         ],
@@ -2848,7 +2767,7 @@
       "filePath": "src/components/ic-checkbox/ic-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox",
-      "readme": "# ic-checkbox\r\n\r\n\r\n\r",
+      "readme": "# ic-checkbox\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -2969,111 +2888,6 @@
           "attr": "form",
           "reflectToAttr": false,
           "docs": "The <form> element to associate the checkbox with.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formaction",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formaction",
-          "reflectToAttr": false,
-          "docs": "The URL that processes the information submitted by the checkbox. It overrides the action attribute of the checkbox's form owner. Does nothing if there is no form owner.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formenctype",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formenctype",
-          "reflectToAttr": false,
-          "docs": "The way the submitted form data is encoded.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formmethod",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formmethod",
-          "reflectToAttr": false,
-          "docs": "The HTTP method used to submit the form.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formnovalidate",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formnovalidate",
-          "reflectToAttr": false,
-          "docs": "If `true`, the form will not be validated when submitted.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formtarget",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formtarget",
-          "reflectToAttr": false,
-          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the checkbox's form owner.",
           "docsTags": [],
           "values": [
             {
@@ -3249,34 +3063,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "value",
           "type": "string",
           "complexType": {
@@ -3328,26 +3114,6 @@
       ],
       "events": [
         {
-          "event": "checkboxChecked",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icCheck instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icCheck instead."
-        },
-        {
           "event": "icCheck",
           "detail": "void",
           "bubbles": true,
@@ -3385,7 +3151,7 @@
       "filePath": "src/components/ic-checkbox-group/ic-checkbox-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox-group",
-      "readme": "# ic-checkbox-group\r\n\r\n\r\n\r",
+      "readme": "# ic-checkbox-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3558,34 +3324,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
@@ -3708,7 +3446,7 @@
       "filePath": "src/components/ic-chip/ic-chip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-chip",
-      "readme": "# ic-chip\r\n\r\n\r\n\r",
+      "readme": "# ic-chip\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -3722,44 +3460,6 @@
       ],
       "usage": {},
       "props": [
-        {
-          "name": "appearance",
-          "type": "\"filled\" | \"outline\"",
-          "complexType": {
-            "original": "IcChipAppearance",
-            "resolved": "\"filled\" | \"outline\"",
-            "references": {
-              "IcChipAppearance": {
-                "location": "import",
-                "path": "./ic-chip.types",
-                "id": "src/components/ic-chip/ic-chip.types.ts::IcChipAppearance"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Use variant prop instead."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. Use variant prop instead.",
-          "values": [
-            {
-              "value": "filled",
-              "type": "string"
-            },
-            {
-              "value": "outline",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "customColor",
           "type": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
@@ -3978,26 +3678,6 @@
       ],
       "events": [
         {
-          "event": "dismiss",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icDismiss instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icDismiss instead."
-        },
-        {
           "event": "icDismiss",
           "detail": "void",
           "bubbles": true,
@@ -4050,7 +3730,7 @@
       "filePath": "src/components/ic-classification-banner/ic-classification-banner.tsx",
       "encapsulation": "shadow",
       "tag": "ic-classification-banner",
-      "readme": "# ic-classification-banner\r\n\r\n\r\n\r",
+      "readme": "# ic-classification-banner\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4206,7 +3886,7 @@
       }
     },
     {
-      "filePath": "src/components/ic-data-entity/ic-data-entity.tsx",
+      "filePath": "src/components/ic-data-list/ic-data-list.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-entity",
       "readme": "# ic-data-entity\r\n\r\n\r\n\r",
@@ -4214,7 +3894,7 @@
       "docsTags": [
         {
           "name": "slot",
-          "text": "heading - Content will be placed at the top of the data entity."
+          "text": "heading - Content will be placed at the top of the data list."
         }
       ],
       "usage": {},
@@ -4230,7 +3910,7 @@
           "mutable": false,
           "attr": "heading",
           "reflectToAttr": false,
-          "docs": "The title for the data entity.",
+          "docs": "The title for the data list.",
           "docsTags": [],
           "values": [
             {
@@ -4257,7 +3937,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The size of the data entity component.",
+          "docs": "The size of the data list component.",
           "docsTags": [],
           "default": "\"default\"",
           "values": [
@@ -4272,34 +3952,6 @@
           ],
           "optional": true,
           "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
         }
       ],
       "methods": [],
@@ -4309,7 +3961,7 @@
       "slots": [
         {
           "name": "heading",
-          "docs": "Content will be placed at the top of the data entity."
+          "docs": "Content will be placed at the top of the data list."
         }
       ],
       "parts": [],
@@ -4318,7 +3970,7 @@
         "ic-typography"
       ],
       "dependencyGraph": {
-        "ic-data-entity": [
+        "ic-data-list": [
           "ic-typography"
         ]
       }
@@ -4327,7 +3979,7 @@
       "filePath": "src/components/ic-data-row/ic-data-row.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-row",
-      "readme": "# ic-data-row\r\n\r\n\r\n\r",
+      "readme": "# ic-data-row\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4400,34 +4052,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "value",
           "type": "string",
           "complexType": {
@@ -4482,7 +4106,7 @@
       "filePath": "src/components/ic-dialog/ic-dialog.tsx",
       "encapsulation": "shadow",
       "tag": "ic-dialog",
-      "readme": "# ic-dialog\r\n\r\n\r\n\r",
+      "readme": "# ic-dialog\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4505,81 +4129,6 @@
       "usage": {},
       "props": [
         {
-          "name": "alertHeading",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "alert-heading",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "alertMessage",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "alert-message",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "buttonProps",
-          "type": "{ label: string; onclick: string; }[]",
-          "complexType": {
-            "original": "{ label: string; onclick: string }[]",
-            "resolved": "{ label: string; onclick: string; }[]",
-            "references": {}
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "Sets the label and onclick functions for default buttons.",
-          "docsTags": [],
-          "default": "[\n    {\n      label: \"Cancel\",\n      onclick: \"this.cancelDialog();\",\n    },\n    { label: \"Confirm\", onclick: \"this.confirmDialog();\" },\n  ]",
-          "values": [
-            {
-              "type": "{ label: string; onclick: string; }[]"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "buttons",
           "type": "boolean",
           "complexType": {
@@ -4590,7 +4139,7 @@
           "mutable": false,
           "attr": "buttons",
           "reflectToAttr": false,
-          "docs": "If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.",
+          "docs": "If set to `false`, default buttons or slotted dialog controls will not be displayed.",
           "docsTags": [],
           "default": "true",
           "values": [
@@ -4827,50 +4376,6 @@
           ],
           "optional": true,
           "required": false
-        },
-        {
-          "name": "status",
-          "type": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\"",
-          "complexType": {
-            "original": "\"neutral\" | \"info\" | \"warning\" | \"error\" | \"success\"",
-            "resolved": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "status",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.",
-          "values": [
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "neutral",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
         }
       ],
       "methods": [
@@ -4917,62 +4422,6 @@
           "parameters": [],
           "docs": "Confirms the dialog. Used by the default 'Confirm' button or can be called manually to trigger confirming of dialog.",
           "docsTags": []
-        },
-        {
-          "name": "hideDialog",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "hideDialog() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This method should not be used anymore. Use open prop to set dialog visibility."
-            }
-          ],
-          "deprecation": "This method should not be used anymore. Use open prop to set dialog visibility."
-        },
-        {
-          "name": "showDialog",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "showDialog() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This method should not be used anymore. Use open prop to set dialog visibility."
-            }
-          ],
-          "deprecation": "This method should not be used anymore. Use open prop to set dialog visibility."
         }
       ],
       "events": [
@@ -5069,14 +4518,12 @@
       "dependents": [],
       "dependencies": [
         "ic-typography",
-        "ic-button",
-        "ic-alert"
+        "ic-button"
       ],
       "dependencyGraph": {
         "ic-dialog": [
           "ic-typography",
-          "ic-button",
-          "ic-alert"
+          "ic-button"
         ],
         "ic-button": [
           "ic-loading-indicator",
@@ -5087,10 +4534,6 @@
         ],
         "ic-tooltip": [
           "ic-typography"
-        ],
-        "ic-alert": [
-          "ic-typography",
-          "ic-button"
         ]
       }
     },
@@ -5098,7 +4541,7 @@
       "filePath": "src/components/ic-divider/ic-divider.tsx",
       "encapsulation": "scoped",
       "tag": "ic-divider",
-      "readme": "# ic-divider\r\n\r\n\r\n\r",
+      "readme": "# ic-divider\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -5130,7 +4573,7 @@
       "filePath": "src/components/ic-empty-state/ic-empty-state.tsx",
       "encapsulation": "shadow",
       "tag": "ic-empty-state",
-      "readme": "# ic-empty-state\r\n\r\n\r\n\r",
+      "readme": "# ic-empty-state\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5215,27 +4658,6 @@
           "required": false
         },
         {
-          "name": "bodyMaxLines",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "body-max-lines",
-          "reflectToAttr": false,
-          "docs": "The number of lines of body text to display before truncating.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "heading",
           "type": "string",
           "complexType": {
@@ -5288,6 +4710,27 @@
             {
               "value": "small",
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "maxLines",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-lines",
+          "reflectToAttr": false,
+          "docs": "The number of lines of body text to display before truncating.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
             }
           ],
           "optional": true,
@@ -5356,7 +4799,7 @@
       "filePath": "src/components/ic-footer/ic-footer.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer",
-      "readme": "# ic-footer\r\n\r\n\r\n\r",
+      "readme": "# ic-footer\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5593,7 +5036,7 @@
       "filePath": "src/components/ic-footer-link/ic-footer-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link",
-      "readme": "# ic-footer-link\r\n\r\n\r\n\r",
+      "readme": "# ic-footer-link\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -5787,20 +5230,26 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {}
+      "dependencies": [
+        "ic-link"
+      ],
+      "dependencyGraph": {
+        "ic-footer-link": [
+          "ic-link"
+        ]
+      }
     },
     {
       "filePath": "src/components/ic-footer-link-group/ic-footer-link-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link-group",
-      "readme": "# ic-footer-link-group\r\n\r\n\r\n\r",
+      "readme": "# ic-footer-link-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
         {
-          "name": "groupTitle",
+          "name": "label",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -5808,7 +5257,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "group-title",
+          "attr": "label",
           "reflectToAttr": false,
           "docs": "The title of the link group to be displayed.",
           "docsTags": [],
@@ -5856,7 +5305,7 @@
       "filePath": "src/components/ic-hero/ic-hero.tsx",
       "encapsulation": "shadow",
       "tag": "ic-hero",
-      "readme": "# ic-hero\r\n\r\n\r\n\r",
+      "readme": "# ic-hero\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -6002,7 +5451,7 @@
           "mutable": false,
           "attr": "heading",
           "reflectToAttr": false,
-          "docs": "The heading of the hero.",
+          "docs": "The heading of the hero. An <h2> level heading.",
           "docsTags": [],
           "values": [
             {
@@ -6023,7 +5472,7 @@
           "mutable": false,
           "attr": "secondary-heading",
           "reflectToAttr": false,
-          "docs": "The optional secondary heading, replaced by slotted right content.",
+          "docs": "The optional secondary heading, an <h3> level heading. Replaced by slotted right content.",
           "docsTags": [],
           "values": [
             {
@@ -6082,34 +5531,6 @@
             {
               "value": "small",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -6189,7 +5610,7 @@
       "filePath": "src/components/ic-horizontal-scroll/ic-horizontal-scroll.tsx",
       "encapsulation": "shadow",
       "tag": "ic-horizontal-scroll",
-      "readme": "# ic-horizontal-scroll\r\n\r\n\r\n\r",
+      "readme": "# ic-horizontal-scroll\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6275,7 +5696,7 @@
       "filePath": "src/components/ic-input-component-container/ic-input-component-container.tsx",
       "encapsulation": "none",
       "tag": "ic-input-component-container",
-      "readme": "# ic-input-container\r\n\r\n\r\n\r",
+      "readme": "# ic-input-container\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -6307,34 +5728,6 @@
             {
               "value": "default",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "dark",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "dark",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -6466,34 +5859,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "validationInline",
           "type": "boolean",
           "complexType": {
@@ -6585,7 +5950,7 @@
       "filePath": "src/components/ic-input-container/ic-input-container.tsx",
       "encapsulation": "none",
       "tag": "ic-input-container",
-      "readme": "# ic-input-container\r\n\r\n\r\n\r",
+      "readme": "# ic-input-container\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6659,7 +6024,7 @@
       "filePath": "src/components/ic-input-label/ic-input-label.tsx",
       "encapsulation": "none",
       "tag": "ic-input-label",
-      "readme": "# ic-input-label\r\n\r\n\r\n\r",
+      "readme": "# ic-input-label\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6692,34 +6057,6 @@
           "required": false
         },
         {
-          "name": "dark",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "dark",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "disabled",
           "type": "boolean",
           "complexType": {
@@ -6739,28 +6076,6 @@
             }
           ],
           "optional": false,
-          "required": false
-        },
-        {
-          "name": "error",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "error",
-          "reflectToAttr": false,
-          "docs": "If `true`, the input label will display with error styling.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
           "required": false
         },
         {
@@ -6870,6 +6185,32 @@
           ],
           "optional": false,
           "required": false
+        },
+        {
+          "name": "status",
+          "type": "\"\" | \"error\"",
+          "complexType": {
+            "original": "\"error\" | \"\"",
+            "resolved": "\"\" | \"error\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "status",
+          "reflectToAttr": false,
+          "docs": "The status of the label - e.g. 'error'.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "\"\""
+            },
+            {
+              "value": "error",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
@@ -6913,7 +6254,7 @@
       "filePath": "src/components/ic-input-validation/ic-input-validation.tsx",
       "encapsulation": "none",
       "tag": "ic-input-validation",
-      "readme": "# ic-input-validation\r\n\r\n\r\n\r",
+      "readme": "# ic-input-validation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -7103,7 +6444,7 @@
       "filePath": "src/components/ic-link/ic-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-link",
-      "readme": "# ic-link\r\n\r\n\r\n\r",
+      "readme": "# ic-link\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -7298,33 +6639,6 @@
           "required": false
         },
         {
-          "name": "showIcon",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "show-icon",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. The 'open in new tab/window' icon will display automatically if target=\"_blank\"."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. The 'open in new tab/window' icon will display automatically if target=\"_blank\".",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "target",
           "type": "string",
           "complexType": {
@@ -7388,11 +6702,15 @@
       ],
       "parts": [],
       "dependents": [
-        "ic-breadcrumb"
+        "ic-breadcrumb",
+        "ic-footer-link"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "ic-breadcrumb": [
+          "ic-link"
+        ],
+        "ic-footer-link": [
           "ic-link"
         ]
       }
@@ -7401,7 +6719,7 @@
       "filePath": "src/components/ic-loading-indicator/ic-loading-indicator.tsx",
       "encapsulation": "shadow",
       "tag": "ic-loading-indicator",
-      "readme": "# ic-loading\r\n\r\n\r\n\r",
+      "readme": "# ic-loading\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7708,7 +7026,7 @@
       "filePath": "src/components/ic-menu/ic-menu.tsx",
       "encapsulation": "scoped",
       "tag": "ic-menu",
-      "readme": "# ic-menu\r\n\r\n\r\n\r",
+      "readme": "# ic-menu\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -8000,34 +7318,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "value",
           "type": "string",
           "complexType": {
@@ -8158,7 +7448,7 @@
       "filePath": "src/components/ic-menu-group/ic-menu-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-group",
-      "readme": "# ic-menu-group\r\n\r\n\r\n\r",
+      "readme": "# ic-menu-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -8205,7 +7495,7 @@
       "filePath": "src/components/ic-menu-item/ic-menu-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-item",
-      "readme": "# ic-menu-item\r\n\r\n\r\n\r",
+      "readme": "# ic-menu-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -8549,7 +7839,7 @@
       "filePath": "src/components/ic-navigation-button/ic-navigation-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-button",
-      "readme": "# ic-navigation-button\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-button\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -8833,7 +8123,7 @@
       "filePath": "src/components/ic-navigation-group/ic-navigation-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-group",
-      "readme": "# ic-navigation-group\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -8942,7 +8232,7 @@
       "filePath": "src/components/ic-navigation-item/ic-navigation-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-item",
-      "readme": "# ic-navigation-item\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -9241,7 +8531,7 @@
       "filePath": "src/components/ic-navigation-menu/ic-navigation-menu.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-menu",
-      "readme": "# ic-navigation-menu\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-menu\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -9358,7 +8648,7 @@
       "filePath": "src/components/ic-page-header/ic-page-header.tsx",
       "encapsulation": "shadow",
       "tag": "ic-page-header",
-      "readme": "# ic-page-header\r\n\r\n\r\n\r",
+      "readme": "# ic-page-header\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -9532,34 +8822,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "sticky",
           "type": "boolean",
           "complexType": {
@@ -9695,13 +8957,13 @@
       "filePath": "src/components/ic-pagination/ic-pagination.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination",
-      "readme": "# ic-pagination\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
         {
-          "name": "adjacentCount",
+          "name": "adjacentPageCount",
           "type": "number",
           "complexType": {
             "original": "number",
@@ -9709,7 +8971,7 @@
             "references": {}
           },
           "mutable": true,
-          "attr": "adjacent-count",
+          "attr": "adjacent-page-count",
           "reflectToAttr": false,
           "docs": "The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.",
           "docsTags": [],
@@ -9760,7 +9022,7 @@
           "required": false
         },
         {
-          "name": "boundaryCount",
+          "name": "boundaryPageCount",
           "type": "number",
           "complexType": {
             "original": "number",
@@ -9768,7 +9030,7 @@
             "references": {}
           },
           "mutable": true,
-          "attr": "boundary-count",
+          "attr": "boundary-page-count",
           "reflectToAttr": false,
           "docs": "The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.",
           "docsTags": [],
@@ -10070,7 +9332,7 @@
       "filePath": "src/components/ic-pagination-item/ic-pagination-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-item",
-      "readme": "# ic-pagination-item\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination-item\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -10261,7 +9523,7 @@
       "filePath": "src/components/ic-popover-menu/ic-popover-menu.tsx",
       "encapsulation": "shadow",
       "tag": "ic-popover-menu",
-      "readme": "# ic-popover-menu\r\n\r\nThis is a wrapper component to be placed around one or more ic-menu-item components.\r\n\r",
+      "readme": "# ic-popover-menu\n\nThis is a wrapper component to be placed around one or more ic-menu-item components.\n",
       "docs": "This is a wrapper component to be placed around one or more ic-menu-item components.",
       "docsTags": [],
       "usage": {},
@@ -10404,7 +9666,7 @@
       "filePath": "src/components/ic-radio-group/ic-radio-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-radio-group",
-      "readme": "# ic-radio-group\r\n\r\n\r\n\r",
+      "readme": "# ic-radio-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -10605,34 +9867,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
@@ -10753,9 +9987,9 @@
     },
     {
       "filePath": "src/components/ic-radio-option/ic-radio-option.tsx",
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "tag": "ic-radio-option",
-      "readme": "# ic-radio-option\r\n\r\n\r\n\r",
+      "readme": "# ic-radio-option\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -10854,111 +10088,6 @@
           "attr": "form",
           "reflectToAttr": false,
           "docs": "The <form> element to associate the radio with.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formaction",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formaction",
-          "reflectToAttr": false,
-          "docs": "The URL that processes the information submitted by the radio. It overrides the action attribute of the radio's form owner. Does nothing if there is no form owner.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formenctype",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formenctype",
-          "reflectToAttr": false,
-          "docs": "The way the submitted form data is encoded.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formmethod",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formmethod",
-          "reflectToAttr": false,
-          "docs": "The HTTP method used to submit the form.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formnovalidate",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formnovalidate",
-          "reflectToAttr": false,
-          "docs": "If `true`, the form will not be validated when submitted.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formtarget",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formtarget",
-          "reflectToAttr": false,
-          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the radio's form owner.",
           "docsTags": [],
           "values": [
             {
@@ -11133,32 +10262,6 @@
           "composed": true,
           "docs": "Emitted when the radio option is selected or deselected.",
           "docsTags": []
-        },
-        {
-          "event": "radioOptionSelect",
-          "detail": "IcValueEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
-            "references": {
-              "IcValueEventDetail": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icCheck instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icCheck instead."
         }
       ],
       "listeners": [
@@ -11190,11 +10293,33 @@
       "filePath": "src/components/ic-search-bar/ic-search-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-search-bar",
-      "readme": "# ic-search-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-search-bar\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
+        {
+          "name": "assistiveHintText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "assistive-hint-text",
+          "reflectToAttr": false,
+          "docs": "The hint text for the hidden assistive description element.",
+          "docsTags": [],
+          "default": "\"When autocomplete results are available use the up and down arrows to choose and press enter to select\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
         {
           "name": "autocapitalize",
           "type": "string",
@@ -11558,7 +10683,7 @@
           "required": false
         },
         {
-          "name": "disableFilter",
+          "name": "disableAutoFiltering",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -11566,7 +10691,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "disable-filter",
+          "attr": "disable-auto-filtering",
           "reflectToAttr": false,
           "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\nIf `true`, all options provided will be displayed.",
           "docsTags": [],
@@ -11706,28 +10831,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "hintText",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "hint-text",
-          "reflectToAttr": false,
-          "docs": "The hint text for the hidden assistive description element.",
-          "docsTags": [],
-          "default": "\"When autocomplete results are available use the up and down arrows to choose and press enter to select\"",
-          "values": [
-            {
-              "type": "string"
             }
           ],
           "optional": true,
@@ -12024,34 +11127,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "spellcheck",
           "type": "boolean",
           "complexType": {
@@ -12219,58 +11294,6 @@
           "docsTags": []
         },
         {
-          "event": "icInputBlur",
-          "detail": "IcSearchBarBlurEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcSearchBarBlurEventDetail",
-            "resolved": "IcSearchBarBlurEventDetail",
-            "references": {
-              "IcSearchBarBlurEventDetail": {
-                "location": "import",
-                "path": "./ic-search-bar.types",
-                "id": "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icSearchBarBlur instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icSearchBarBlur instead."
-        },
-        {
-          "event": "icInputFocus",
-          "detail": "IcValueEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
-            "references": {
-              "IcValueEventDetail": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icSearchBarFocus instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icSearchBarFocus instead."
-        },
-        {
           "event": "icMenuChange",
           "detail": "IcMenuChangeEventDetail",
           "bubbles": true,
@@ -12352,12 +11375,18 @@
         },
         {
           "event": "icSearchBarFocus",
-          "detail": "void",
+          "detail": "IcValueEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
+            "original": "IcValueEventDetail",
+            "resolved": "IcValueEventDetail",
+            "references": {
+              "IcValueEventDetail": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcValueEventDetail"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -12446,7 +11475,7 @@
       "filePath": "src/components/ic-section-container/ic-section-container.tsx",
       "encapsulation": "shadow",
       "tag": "ic-section-container",
-      "readme": "# ic-section-container\r\n\r\n\r\n\r",
+      "readme": "# ic-section-container\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -12547,7 +11576,7 @@
       "filePath": "src/components/ic-select/ic-select.tsx",
       "encapsulation": "shadow",
       "tag": "ic-select",
-      "readme": "# ic-select\r\n\r\n\r\n\r",
+      "readme": "# ic-select\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -12557,34 +11586,6 @@
       ],
       "usage": {},
       "props": [
-        {
-          "name": "charactersUntilSuggestions",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "characters-until-suggestions",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore."
-            }
-          ],
-          "default": "0",
-          "deprecation": "This prop should not be used anymore.",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "debounce",
           "type": "number",
@@ -12608,7 +11609,7 @@
           "required": false
         },
         {
-          "name": "disableFilter",
+          "name": "disableAutoFiltering",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -12616,7 +11617,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "disable-filter",
+          "attr": "disable-auto-filtering",
           "reflectToAttr": false,
           "docs": "If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.",
           "docsTags": [],
@@ -12685,111 +11686,6 @@
           "attr": "form",
           "reflectToAttr": false,
           "docs": "The <form> element to associate the select with.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formaction",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formaction",
-          "reflectToAttr": false,
-          "docs": "The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner.\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formenctype",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formenctype",
-          "reflectToAttr": false,
-          "docs": "The way the submitted form data is encoded. This prop should only be used with searchable select and will only be applied if searchable is true.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formmethod",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formmethod",
-          "reflectToAttr": false,
-          "docs": "The HTTP method used to submit the form. This prop should only be used with searchable select and will only be applied if searchable is true.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formnovalidate",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formnovalidate",
-          "reflectToAttr": false,
-          "docs": "If `true`, the form will not be validated when submitted. This prop should only be used with searchable select and will only be applied if searchable is true.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formtarget",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formtarget",
-          "reflectToAttr": false,
-          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the select's form owner.\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
           "docsTags": [],
           "values": [
             {
@@ -13248,34 +12144,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "timeout",
           "type": "number",
           "complexType": {
@@ -13612,7 +12480,7 @@
       "filePath": "src/components/ic-side-navigation/ic-side-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-side-navigation",
-      "readme": "# ic-side-navigation\r\n\r\n\r\n\r",
+      "readme": "# ic-side-navigation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -13855,7 +12723,7 @@
       "methods": [],
       "events": [
         {
-          "event": "sideNavExpanded",
+          "event": "icSideNavExpanded",
           "detail": "IcExpandedDetail",
           "bubbles": true,
           "complexType": {
@@ -13931,8 +12799,8 @@
       "filePath": "src/components/ic-skeleton/ic-skeleton.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skeleton",
-      "readme": "# ic-skeleton\r\n\r\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \r\n\r",
-      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
+      "readme": "# ic-skeleton\n\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \n",
+      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -13958,34 +12826,6 @@
             {
               "value": "light",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "light",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "light",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `appearance` to \"light\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"light\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -14043,7 +12883,7 @@
       "filePath": "src/components/ic-status-tag/ic-status-tag.tsx",
       "encapsulation": "shadow",
       "tag": "ic-status-tag",
-      "readme": "# ic-status-tag\r\n\r\n\r\n\r",
+      "readme": "# ic-status-tag\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -14065,44 +12905,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "appearance",
-          "type": "\"filled\" | \"outlined\"",
-          "complexType": {
-            "original": "IcStatusTagAppearance",
-            "resolved": "\"filled\" | \"outlined\"",
-            "references": {
-              "IcStatusTagAppearance": {
-                "location": "import",
-                "path": "./ic-status-tag.types",
-                "id": "src/components/ic-status-tag/ic-status-tag.types.ts::IcStatusTagAppearance"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Use variant prop instead."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. Use variant prop instead.",
-          "values": [
-            {
-              "value": "filled",
-              "type": "string"
-            },
-            {
-              "value": "outlined",
-              "type": "string"
             }
           ],
           "optional": true,
@@ -14161,34 +12963,6 @@
             {
               "value": "small",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -14289,13 +13063,34 @@
       "filePath": "src/components/ic-step/ic-step.tsx",
       "encapsulation": "shadow",
       "tag": "ic-step",
-      "readme": "# ic-step\r\n\r\n\r\n\r",
+      "readme": "# ic-step\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
         {
-          "name": "stepStatus",
+          "name": "heading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "The title of the step within the stepper.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "status",
           "type": "\"optional\" | \"required\"",
           "complexType": {
             "original": "IcStepStatuses",
@@ -14309,7 +13104,7 @@
             }
           },
           "mutable": false,
-          "attr": "step-status",
+          "attr": "status",
           "reflectToAttr": false,
           "docs": "The status of the step. Use this prop to display a status message on the step if it is required or optional.",
           "docsTags": [],
@@ -14327,7 +13122,7 @@
           "required": false
         },
         {
-          "name": "stepSubtitle",
+          "name": "subheading",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -14335,7 +13130,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "step-subtitle",
+          "attr": "subheading",
           "reflectToAttr": false,
           "docs": "Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.",
           "docsTags": [],
@@ -14348,28 +13143,7 @@
           "required": false
         },
         {
-          "name": "stepTitle",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "step-title",
-          "reflectToAttr": false,
-          "docs": "The title of the step within the stepper.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "stepType",
+          "name": "type",
           "type": "\"active\" | \"completed\" | \"current\" | \"disabled\"",
           "complexType": {
             "original": "IcStepTypes",
@@ -14383,7 +13157,7 @@
             }
           },
           "mutable": false,
-          "attr": "step-type",
+          "attr": "type",
           "reflectToAttr": false,
           "docs": "The state of the step within the stepper.",
           "docsTags": [],
@@ -14435,7 +13209,7 @@
       "filePath": "src/components/ic-stepper/ic-stepper.tsx",
       "encapsulation": "shadow",
       "tag": "ic-stepper",
-      "readme": "# ic-stepper\r\n\r\nThis is a wrapper component to be placed around one or more ic-step components\r\n\r",
+      "readme": "# ic-stepper\n\nThis is a wrapper component to be placed around one or more ic-step components\n",
       "docs": "This is a wrapper component to be placed around one or more ic-step components",
       "docsTags": [],
       "usage": {},
@@ -14592,7 +13366,7 @@
       "filePath": "src/components/ic-switch/ic-switch.tsx",
       "encapsulation": "shadow",
       "tag": "ic-switch",
-      "readme": "# ic-switch\r\n\r\n\r\n\r",
+      "readme": "# ic-switch\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -14789,34 +13563,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "value",
           "type": "string",
           "complexType": {
@@ -14941,7 +13687,7 @@
       "filePath": "src/components/ic-tab/ic-tab.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab",
-      "readme": "# ic-tab\r\n\r\n\r\n\r",
+      "readme": "# ic-tab\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -15030,7 +13776,7 @@
       "filePath": "src/components/ic-tab-context/ic-tab-context.tsx",
       "encapsulation": "none",
       "tag": "ic-tab-context",
-      "readme": "# ic-tab-context\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-context\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -15166,32 +13912,6 @@
           "composed": true,
           "docs": "Emitted when a user selects a tab.",
           "docsTags": []
-        },
-        {
-          "event": "tabSelect",
-          "detail": "IcTabSelectEventDetail",
-          "bubbles": false,
-          "complexType": {
-            "original": "IcTabSelectEventDetail",
-            "resolved": "IcTabSelectEventDetail",
-            "references": {
-              "IcTabSelectEventDetail": {
-                "location": "import",
-                "path": "../ic-tab/ic-tab.types",
-                "id": "src/components/ic-tab/ic-tab.types.ts::IcTabSelectEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icTabSelect instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icTabSelect instead."
         }
       ],
       "listeners": [
@@ -15227,39 +13947,11 @@
       "filePath": "src/components/ic-tab-group/ic-tab-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-group",
-      "readme": "# ic-tab-group\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
-        {
-          "name": "contextId",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "context-id",
-          "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This is no longer required.\nThe context id is passed down from `ic-tab-context`"
-            }
-          ],
-          "default": "\"default\"",
-          "deprecation": "This is no longer required.\nThe context id is passed down from `ic-tab-context`",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "inline",
           "type": "boolean",
@@ -15337,40 +14029,11 @@
       "filePath": "src/components/ic-tab-panel/ic-tab-panel.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-panel",
-      "readme": "# ic-tab-panel\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-panel\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
-      "props": [
-        {
-          "name": "contextId",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "context-id",
-          "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This is no longer required.\nThe context id is passed down from `ic-tab-context`"
-            }
-          ],
-          "default": "\"default\"",
-          "deprecation": "This is no longer required.\nThe context id is passed down from `ic-tab-context`",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
+      "props": [],
       "methods": [],
       "events": [],
       "listeners": [],
@@ -15385,7 +14048,7 @@
       "filePath": "src/components/ic-text-field/ic-text-field.tsx",
       "encapsulation": "shadow",
       "tag": "ic-text-field",
-      "readme": "# ic-textfield\r\n\r\n\r\n\r",
+      "readme": "# ic-textfield\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -15802,6 +14465,28 @@
           "required": false
         },
         {
+          "name": "hideCharCount",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-char-count",
+          "reflectToAttr": false,
+          "docs": "If `true`, the character count which is displayed when `maxCharacters` is set will be visually hidden.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "hideLabel",
           "type": "boolean",
           "complexType": {
@@ -15959,29 +14644,7 @@
           "mutable": false,
           "attr": "max-characters",
           "reflectToAttr": false,
-          "docs": "The maximum number of characters that can be entered in the field. Will display an error if too many characters are entered.",
-          "docsTags": [],
-          "default": "0",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "maxLength",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "max-length",
-          "reflectToAttr": false,
-          "docs": "The count of characters in the field. Will display a warning if the bound is reached.",
+          "docs": "The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -16199,34 +14862,6 @@
             {
               "value": "small",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -16593,7 +15228,7 @@
       "filePath": "src/components/ic-theme/ic-theme.tsx",
       "encapsulation": "shadow",
       "tag": "ic-theme",
-      "readme": "# ic-theme\r\n\r\n\r\n\r",
+      "readme": "# ic-theme\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16647,7 +15282,7 @@
       "filePath": "src/components/ic-toast/ic-toast.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toast",
-      "readme": "# ic-toast\r\n\r\n\r\n\r",
+      "readme": "# ic-toast\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -16926,7 +15561,7 @@
       "filePath": "src/components/ic-toast-region/ic-toast-region.tsx",
       "encapsulation": "none",
       "tag": "ic-toast-region",
-      "readme": "# ic-toast-region\r\n\r\n\r\n\r",
+      "readme": "# ic-toast-region\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16957,56 +15592,7 @@
           "required": false
         }
       ],
-      "methods": [
-        {
-          "name": "setVisible",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "(toast: HTMLIcToastElement) => Promise<void>",
-            "parameters": [
-              {
-                "name": "toast",
-                "type": "HTMLIcToastElement",
-                "docs": "The toast component to display"
-              }
-            ],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "HTMLIcToastElement": {
-                "location": "global",
-                "id": "global::HTMLIcToastElement"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "setVisible(toast: HTMLIcToastElement) => Promise<void>",
-          "parameters": [
-            {
-              "name": "toast",
-              "type": "HTMLIcToastElement",
-              "docs": "The toast component to display"
-            }
-          ],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "Use openToast prop to display toast instead."
-            },
-            {
-              "name": "param",
-              "text": "toast The toast component to display"
-            }
-          ],
-          "deprecation": "Use openToast prop to display toast instead."
-        }
-      ],
+      "methods": [],
       "events": [],
       "listeners": [
         {
@@ -17026,7 +15612,7 @@
       "filePath": "src/components/ic-toggle-button/ic-toggle-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button",
-      "readme": "# ic-toggle-button\r\n\r\n\r\n\r",
+      "readme": "# ic-toggle-button\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -17096,6 +15682,28 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "checked",
+          "reflectToAttr": true,
+          "docs": "If `true`, the toggle button will be in a checked state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -17253,28 +15861,6 @@
           "required": false
         },
         {
-          "name": "toggleChecked",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "toggle-checked",
-          "reflectToAttr": true,
-          "docs": "If `true`, the toggle button will be in a checked state.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "variant",
           "type": "\"default\" | \"icon\"",
           "complexType": {
@@ -17362,7 +15948,7 @@
       "filePath": "src/components/ic-toggle-button-group/ic-toggle-button-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button-group",
-      "readme": "# ic-toggle-button-group\r\n\r\n\r\n\r",
+      "readme": "# ic-toggle-button-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17694,7 +16280,7 @@
       "filePath": "src/components/ic-tooltip/ic-tooltip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tooltip",
-      "readme": "# ic-tooltip\r\n\r\n\r\n\r",
+      "readme": "# ic-tooltip\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17919,9 +16505,8 @@
       "slots": [],
       "parts": [],
       "dependents": [
-        "ic-back-to-top",
         "ic-button",
-        "ic-card",
+        "ic-card-vertical",
         "ic-chip",
         "ic-navigation-item"
       ],
@@ -17932,13 +16517,10 @@
         "ic-tooltip": [
           "ic-typography"
         ],
-        "ic-back-to-top": [
-          "ic-tooltip"
-        ],
         "ic-button": [
           "ic-tooltip"
         ],
-        "ic-card": [
+        "ic-card-vertical": [
           "ic-tooltip"
         ],
         "ic-chip": [
@@ -17953,7 +16535,7 @@
       "filePath": "src/components/ic-top-navigation/ic-top-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-top-navigation",
-      "readme": "# ic-top-navigation\r\n\r\n\r\n\r",
+      "readme": "# ic-top-navigation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -18204,7 +16786,7 @@
       "methods": [],
       "events": [
         {
-          "event": "topNavResized",
+          "event": "icTopNavResized",
           "detail": "{ size: number; }",
           "bubbles": true,
           "complexType": {
@@ -18312,7 +16894,7 @@
       "filePath": "src/components/ic-typography/ic-typography.tsx",
       "encapsulation": "shadow",
       "tag": "ic-typography",
-      "readme": "# ic-typography\r\n\r\n\r\n\r",
+      "readme": "# ic-typography\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -18548,13 +17130,12 @@
         "ic-accordion",
         "ic-accordion-group",
         "ic-alert",
-        "ic-back-to-top",
         "ic-badge",
-        "ic-card",
+        "ic-card-vertical",
         "ic-checkbox",
         "ic-chip",
         "ic-classification-banner",
-        "ic-data-entity",
+        "ic-data-list",
         "ic-data-row",
         "ic-dialog",
         "ic-empty-state",
@@ -18596,13 +17177,10 @@
         "ic-alert": [
           "ic-typography"
         ],
-        "ic-back-to-top": [
-          "ic-typography"
-        ],
         "ic-badge": [
           "ic-typography"
         ],
-        "ic-card": [
+        "ic-card-vertical": [
           "ic-typography"
         ],
         "ic-checkbox": [
@@ -18614,7 +17192,7 @@
         "ic-classification-banner": [
           "ic-typography"
         ],
-        "ic-data-entity": [
+        "ic-data-list": [
           "ic-typography"
         ],
         "ic-data-row": [
@@ -18743,6 +17321,21 @@
       "docstring": "",
       "path": "src/components/ic-footer/ic-footer.types.tsx"
     },
+    "src/components/ic-button/ic-button.types.ts::IcButtonTooltipPlacement": {
+      "declaration": "export type IcButtonTooltipPlacement = \"top\" | \"right\" | \"bottom\" | \"left\";",
+      "docstring": "",
+      "path": "src/components/ic-button/ic-button.types.ts"
+    },
+    "src/components/ic-button/ic-button.types.ts::IcButtonTypes": {
+      "declaration": "export type IcButtonTypes = \"reset\" | \"submit\" | \"button\";",
+      "docstring": "",
+      "path": "src/components/ic-button/ic-button.types.ts"
+    },
+    "src/components/ic-button/ic-button.types.ts::IcButtonVariants": {
+      "declaration": "export type IcButtonVariants =\n  | \"primary\"\n  | \"secondary\"\n  | \"tertiary\"\n  | \"destructive\"\n  | \"icon\"\n  | \"icon-primary\"\n  | \"icon-secondary\"\n  | \"icon-tertiary\"\n  | \"icon-destructive\";",
+      "docstring": "",
+      "path": "src/components/ic-button/ic-button.types.ts"
+    },
     "src/utils/types.ts::IcColor": {
       "declaration": "export type IcColor = RGB | RGBA | HEX;",
       "docstring": "",
@@ -18762,26 +17355,6 @@
       "declaration": "export type IcBadgeVariants = IcStatusVariants | \"light\" | \"custom\";",
       "docstring": "",
       "path": "src/components/ic-badge/ic-badge.types.ts"
-    },
-    "src/components/ic-button/ic-button.types.ts::IcButtonTooltipPlacement": {
-      "declaration": "export type IcButtonTooltipPlacement = \"top\" | \"right\" | \"bottom\" | \"left\";",
-      "docstring": "",
-      "path": "src/components/ic-button/ic-button.types.ts"
-    },
-    "src/components/ic-button/ic-button.types.ts::IcButtonTypes": {
-      "declaration": "export type IcButtonTypes = \"reset\" | \"submit\" | \"button\";",
-      "docstring": "",
-      "path": "src/components/ic-button/ic-button.types.ts"
-    },
-    "src/components/ic-button/ic-button.types.ts::IcButtonVariants": {
-      "declaration": "export type IcButtonVariants =\n  | \"primary\"\n  | \"secondary\"\n  | \"tertiary\"\n  | \"destructive\"\n  | \"icon\"\n  | \"icon-primary\"\n  | \"icon-secondary\"\n  | \"icon-tertiary\"\n  | \"icon-destructive\";",
-      "docstring": "",
-      "path": "src/components/ic-button/ic-button.types.ts"
-    },
-    "src/components/ic-chip/ic-chip.types.ts::IcChipAppearance": {
-      "declaration": "export type IcChipAppearance = \"filled\" | \"outline\";",
-      "docstring": "",
-      "path": "src/components/ic-chip/ic-chip.types.ts"
     },
     "src/utils/types.ts::IcEmphasisType": {
       "declaration": "export type IcEmphasisType = \"filled\" | \"outlined\";",
@@ -18953,15 +17526,15 @@
       "docstring": "",
       "path": "src/components/ic-radio-group/ic-radio-group.types.ts"
     },
-    "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail": {
-      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
-      "docstring": "",
-      "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
-    },
     "src/utils/types.ts::IcBlurEventDetail": {
       "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail": {
+      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
+      "docstring": "",
+      "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
     "src/utils/types.ts::IcSearchMatchPositions": {
       "declaration": "export type IcSearchMatchPositions = \"start\" | \"anywhere\";",
@@ -18972,11 +17545,6 @@
       "declaration": "export type IcSkeletonVariants = \"rectangle\" | \"text\" | \"circle\";",
       "docstring": "",
       "path": "src/components/ic-skeleton/ic-skeleton.types.ts"
-    },
-    "src/components/ic-status-tag/ic-status-tag.types.ts::IcStatusTagAppearance": {
-      "declaration": "export type IcStatusTagAppearance = \"filled\" | \"outlined\";",
-      "docstring": "",
-      "path": "src/components/ic-status-tag/ic-status-tag.types.ts"
     },
     "src/components/ic-status-tag/ic-status-tag.types.ts::IcStatusTagStatuses": {
       "declaration": "export type IcStatusTagStatuses = \"neutral\" | \"success\" | \"warning\" | \"danger\";",
@@ -19029,7 +17597,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  toggleChecked: boolean[] | boolean;\n  toggledOptions?: {\n    toggleButton: HTMLIcToggleButtonElement;\n  }[];\n  selectedOption: HTMLIcToggleButtonElement;\n}",
+      "declaration": "export interface IcChangeEventDetail {\n  checked: boolean[] | boolean;\n  toggledOptions?: {\n    toggleButton: HTMLIcToggleButtonElement;\n  }[];\n  selectedOption: HTMLIcToggleButtonElement;\n}",
       "docstring": "",
       "path": "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts"
     }

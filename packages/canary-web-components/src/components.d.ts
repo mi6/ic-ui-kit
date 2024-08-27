@@ -449,10 +449,6 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The value of the currently selected option - or array of values (if multiple options allowed).
          */
         "value": string | string[];
@@ -512,17 +508,13 @@ export namespace Components {
     }
     interface IcSelectWithMulti {
         /**
-          * **[DEPRECATED]** This prop should not be used anymore.
-         */
-        "charactersUntilSuggestions"?: number;
-        /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
         "debounce"?: number;
         /**
           * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -535,26 +527,6 @@ export namespace Components {
           * The <form> element to associate the select with.
          */
         "form"?: string;
-        /**
-          * The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the select's form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formtarget"?: string;
         /**
           * If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.
          */
@@ -639,10 +611,6 @@ export namespace Components {
           * The size of the select.
          */
         "size"?: IcSizes;
-        /**
-          * **[DEPRECATED]** This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
@@ -1370,10 +1338,6 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The value of the currently selected option - or array of values (if multiple options allowed).
          */
         "value": string | string[];
@@ -1441,17 +1405,13 @@ declare namespace LocalJSX {
     }
     interface IcSelectWithMulti {
         /**
-          * **[DEPRECATED]** This prop should not be used anymore.
-         */
-        "charactersUntilSuggestions"?: number;
-        /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
         "debounce"?: number;
         /**
           * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -1464,26 +1424,6 @@ declare namespace LocalJSX {
           * The <form> element to associate the select with.
          */
         "form"?: string;
-        /**
-          * The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the select's form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formtarget"?: string;
         /**
           * If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.
          */
@@ -1596,10 +1536,6 @@ declare namespace LocalJSX {
           * The size of the select.
          */
         "size"?: IcSizes;
-        /**
-          * **[DEPRECATED]** This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */

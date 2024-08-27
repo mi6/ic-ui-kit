@@ -43,7 +43,7 @@ describe("ic-input-label", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-label class="disabled" disabled="true" for="test-input-id" label="Test label" required="true">
+    <ic-input-label class="ic-input-label-disabled" disabled="true" for="test-input-id" label="Test label" required="true">
       <ic-typography variant="label">
         <label htmlfor="test-input-id">
           Test label *
@@ -60,7 +60,7 @@ describe("ic-input-label", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-label class="readonly" for="test-input-id" label="Test label" readonly="true" required="true">
+    <ic-input-label class="ic-input-label-readonly" for="test-input-id" label="Test label" readonly="true" required="true">
       <ic-typography class="readonly-label" variant="label">
         Test label *
       </ic-typography>
@@ -71,11 +71,11 @@ describe("ic-input-label", () => {
   it("should render error variant", async () => {
     const page = await newSpecPage({
       components: [InputLabel],
-      html: `<ic-input-label for="test-input-id" label="Test label" error=true></ic-input-label>`,
+      html: `<ic-input-label for="test-input-id" label="Test label" status="error"></ic-input-label>`,
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-label error="true" for="test-input-id" label="Test label">
+    <ic-input-label status="error" for="test-input-id" label="Test label">
       <ic-typography class="error-label" variant="label">
         <label htmlfor="test-input-id">
           Test label

@@ -52,17 +52,17 @@ export const defaultArgs = {
           description={args.description}
           groupLinks={args.groupLinks}
         >
-          <IcFooterLinkGroup slot="link" groupTitle="Links 1">
+          <IcFooterLinkGroup slot="link" label="Links 1">
             <IcFooterLink href="/">Get Started</IcFooterLink>
             <IcFooterLink href="/">Accessibility</IcFooterLink>
             <IcFooterLink href="/">Styles</IcFooterLink>
           </IcFooterLinkGroup>
-          <IcFooterLinkGroup slot="link" groupTitle="Links 2">
+          <IcFooterLinkGroup slot="link" label="Links 2">
             <IcFooterLink href="/">Get Started</IcFooterLink>
             <IcFooterLink href="/">Accessibility</IcFooterLink>
             <IcFooterLink href="/">Styles</IcFooterLink>
           </IcFooterLinkGroup>
-          <IcFooterLinkGroup slot="link" groupTitle="Links 3">
+          <IcFooterLinkGroup slot="link" label="Links 3">
             <IcFooterLink href="/">Get Started</IcFooterLink>
             <IcFooterLink href="/">Accessibility</IcFooterLink>
             <IcFooterLink href="/">Styles</IcFooterLink>
@@ -141,7 +141,7 @@ export const defaultArgs = {
           please get in touch."
       caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
     >
-      <IcFooterLinkGroup slot="link" groupTitle="Links 1">
+      <IcFooterLinkGroup slot="link" label="Links 1">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -149,7 +149,7 @@ export const defaultArgs = {
         <IcFooterLink href="/">Patterns</IcFooterLink>
         <IcFooterLink href="/">Design toolkit</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" groupTitle="Links 2">
+      <IcFooterLinkGroup slot="link" label="Links 2">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -157,7 +157,7 @@ export const defaultArgs = {
         <IcFooterLink href="/">Patterns</IcFooterLink>
         <IcFooterLink href="/">Design toolkit</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" groupTitle="Links 3">
+      <IcFooterLinkGroup slot="link" label="Links 3">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -272,7 +272,7 @@ export const HomePage = () => (
 
 export const DailyTippers = () => (
   <IcSectionContainer>
-    <IcTypography variant="h1">Daily tippers</IcTypography>
+    <IcTypography variant="h1">Daily tippers test</IcTypography>
     <IcTypography>
       Lorem ipsum doloe sit amet, consectetur adipiscing
     </IcTypography>
@@ -295,8 +295,7 @@ export const DailyTippers = () => (
       <Route path="/daily-tippers" element={<DailyTippers />} />
     </Routes>
     <IcFooter
-      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
-        please get in touch."
+      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch."
       caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
       style={{ bottom: "0", left: "0", right: "0" }}
     >
@@ -307,7 +306,7 @@ export const DailyTippers = () => (
       </IcFooterLink>
       <IcFooterLink slot="link">
         <NavLink to="/daily-tippers" style={{ color: "var(--ic-theme-text)" }}>
-          Daily Tippers
+          Daily Tippers test
         </NavLink>
       </IcFooterLink>
       <div
@@ -357,12 +356,11 @@ export const Controlled = () => {
     <IcFooter
       aligned="full-width"
       group-links
-      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
-        please get in touch."
+      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch."
       caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
       style={{ position: "fixed", bottom: "0", left: "0", right: "0" }}
     >
-      <IcFooterLinkGroup slot="link" groupTitle="Links 1">
+      <IcFooterLinkGroup slot="link" label="Links 1">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -370,7 +368,7 @@ export const Controlled = () => {
         <IcFooterLink href="/">Patterns</IcFooterLink>
         <IcFooterLink href="/">Design toolkit</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" groupTitle="Links 2">
+      <IcFooterLinkGroup slot="link" label="Links 2">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -378,7 +376,7 @@ export const Controlled = () => {
         <IcFooterLink href="/">Patterns</IcFooterLink>
         <IcFooterLink href="/">Design toolkit</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" groupTitle="Links 3">
+      <IcFooterLinkGroup slot="link" label="Links 3">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -437,8 +435,7 @@ export const Controlled = () => {
 <Canvas>
   <Story name="With logo links">
     <IcFooter
-      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
-          please get in touch."
+      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch."
       caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
     >
       <IcFooterLink slot="link" href="/">
@@ -506,8 +503,7 @@ export const Controlled = () => {
 <Canvas>
   <Story name="Footer with no caption or logo or copyright">
     <IcFooter
-      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
-          please get in touch."
+      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch."
       copyright={false}
     >
       <IcFooterLink slot="link" href="/">
@@ -537,8 +533,7 @@ export const Controlled = () => {
 <Canvas>
   <Story name="Footer with no links">
     <IcFooter
-      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
-          please get in touch."
+      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch."
       caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
     />
   </Story>
@@ -549,8 +544,7 @@ export const Controlled = () => {
 <Canvas>
   <Story name="Breakpoint">
     <IcFooter
-      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
-          please get in touch."
+      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch."
       caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
       breakpoint="extra large"
     >

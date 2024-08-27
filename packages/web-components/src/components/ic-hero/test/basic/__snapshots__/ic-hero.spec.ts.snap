@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-hero component should render small: renders-small-variant 1`] = `
-<ic-hero class="small" heading="Test title" small="" subheading="Test text">
+exports[`ic-hero component should render at size small: renders-small-variant 1`] = `
+<ic-hero class="ic-hero-small" heading="Test title" size="small" subheading="Test text">
   <mock:shadow-root>
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
         <div class="heading">
           <slot name="heading">
             <ic-typography variant="h2">
-              Test title
+              <h2>
+                Test title
+              </h2>
             </ic-typography>
           </slot>
         </div>
@@ -36,7 +38,9 @@ exports[`ic-hero component should render with a background image when given: ren
         <div class="heading">
           <slot name="heading">
             <ic-typography class="heading-bottom-spacing" variant="h1">
-              Test title
+              <h2>
+                Test title
+              </h2>
             </ic-typography>
           </slot>
         </div>
@@ -56,7 +60,7 @@ exports[`ic-hero component should render with a background image when given: ren
       </div>
     </ic-section-container>
   </mock:shadow-root>
-  <ic-card heading="Test card" slot="secondary"></ic-card>
+  <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;
 
@@ -68,7 +72,9 @@ exports[`ic-hero component should render with a secondary heading: renders-with-
         <div class="heading">
           <slot name="heading">
             <ic-typography class="heading-bottom-spacing" variant="h1">
-              Test title
+              <h2>
+                Test title
+              </h2>
             </ic-typography>
           </slot>
         </div>
@@ -88,7 +94,9 @@ exports[`ic-hero component should render with a secondary heading: renders-with-
           <div class="secondary-container">
             <div class="secondary-heading">
               <ic-typography variant="h4">
-                Test title
+                <h3>
+                  Test title
+                </h3>
               </ic-typography>
             </div>
             <div class="secondary-subheading">
@@ -112,7 +120,9 @@ exports[`ic-hero component should render with interaction content: renders-with-
         <div class="heading">
           <slot name="heading">
             <ic-typography class="heading-bottom-spacing" variant="h1">
-              Test title
+              <h2>
+                Test title
+              </h2>
             </ic-typography>
           </slot>
         </div>
@@ -143,7 +153,9 @@ exports[`ic-hero component should render with secondary content: renders-with-se
         <div class="heading">
           <slot name="heading">
             <ic-typography class="heading-bottom-spacing" variant="h1">
-              Test title
+              <h2>
+                Test title
+              </h2>
             </ic-typography>
           </slot>
         </div>
@@ -163,7 +175,7 @@ exports[`ic-hero component should render with secondary content: renders-with-se
       </div>
     </ic-section-container>
   </mock:shadow-root>
-  <ic-card heading="Test card" slot="secondary"></ic-card>
+  <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;
 
@@ -175,7 +187,9 @@ exports[`ic-hero component should render: renders 1`] = `
         <div class="heading">
           <slot name="heading">
             <ic-typography class="heading-bottom-spacing" variant="h1">
-              Test title
+              <h2>
+                Test title
+              </h2>
             </ic-typography>
           </slot>
         </div>
@@ -203,7 +217,9 @@ exports[`ic-hero component should use not parallax on scroll when a background i
         <div class="heading">
           <slot name="heading">
             <ic-typography class="heading-bottom-spacing" variant="h1">
-              Test title
+              <h2>
+                Test title
+              </h2>
             </ic-typography>
           </slot>
         </div>
@@ -223,7 +239,7 @@ exports[`ic-hero component should use not parallax on scroll when a background i
       </div>
     </ic-section-container>
   </mock:shadow-root>
-  <ic-card heading="Test card" slot="secondary"></ic-card>
+  <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;
 
@@ -235,7 +251,9 @@ exports[`ic-hero component should use parallax on scroll when a background image
         <div class="heading">
           <slot name="heading">
             <ic-typography class="heading-bottom-spacing" variant="h1">
-              Test title
+              <h2>
+                Test title
+              </h2>
             </ic-typography>
           </slot>
         </div>
@@ -255,6 +273,6 @@ exports[`ic-hero component should use parallax on scroll when a background image
       </div>
     </ic-section-container>
   </mock:shadow-root>
-  <ic-card heading="Test card" slot="secondary"></ic-card>
+  <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;

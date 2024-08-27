@@ -3046,34 +3046,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "value",
           "type": "string | string[]",
           "complexType": {
@@ -3626,28 +3598,6 @@
       "usage": {},
       "props": [
         {
-          "name": "charactersUntilSuggestions",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "characters-until-suggestions",
-          "reflectToAttr": false,
-          "docs": "**[DEPRECATED]** This prop should not be used anymore.",
-          "docsTags": [],
-          "default": "0",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "debounce",
           "type": "number",
           "complexType": {
@@ -3670,7 +3620,7 @@
           "required": false
         },
         {
-          "name": "disableFilter",
+          "name": "disableAutoFiltering",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -3678,7 +3628,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "disable-filter",
+          "attr": "disable-auto-filtering",
           "reflectToAttr": false,
           "docs": "If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.",
           "docsTags": [],
@@ -3747,111 +3697,6 @@
           "attr": "form",
           "reflectToAttr": false,
           "docs": "The <form> element to associate the select with.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formaction",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formaction",
-          "reflectToAttr": false,
-          "docs": "The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner.\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formenctype",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formenctype",
-          "reflectToAttr": false,
-          "docs": "The way the submitted form data is encoded. This prop should only be used with searchable select and will only be applied if searchable is true.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formmethod",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formmethod",
-          "reflectToAttr": false,
-          "docs": "The HTTP method used to submit the form. This prop should only be used with searchable select and will only be applied if searchable is true.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formnovalidate",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formnovalidate",
-          "reflectToAttr": false,
-          "docs": "If `true`, the form will not be validated when submitted. This prop should only be used with searchable select and will only be applied if searchable is true.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "formtarget",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "formtarget",
-          "reflectToAttr": false,
-          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the select's form owner.\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
           "docsTags": [],
           "values": [
             {
@@ -4326,28 +4171,6 @@
             {
               "value": "small",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "**[DEPRECATED]** This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,

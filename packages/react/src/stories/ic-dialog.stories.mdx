@@ -26,12 +26,6 @@ import readme from "../../../web-components/src/components/ic-dialog/readme.md";
 
 <Description markdown={readme} />
 
-export const buttonProps = [
-  { label: "Close", onclick: "this.hideDialog()" },
-  { label: "Options", onclick: "alert('Options...')" },
-  { label: "Confirm", onclick: "alert('Confirmed'); this.hideDialog()" },
-];
-
 export const options = [
   { label: "Cappuccino", value: "Cap" },
   { label: "Latte", value: "Lat" },
@@ -145,224 +139,6 @@ export const DialogContent = () => {
       label="Large"
       size="large"
       id="large-dialog"
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-  </Story>
-</Canvas>
-
-### Status
-
-export const showNeutralDialog = () => {
-  const dialog = document.querySelector("#neutral-dialog");
-  dialog.open = true;
-};
-
-export const showInfoDialog = () => {
-  const dialog = document.querySelector("#info-dialog");
-  dialog.open = true;
-};
-
-export const showWarningDialog = () => {
-  const dialog = document.querySelector("#warning-dialog");
-  dialog.open = true;
-};
-
-export const showErrorDialog = () => {
-  const dialog = document.querySelector("#error-dialog");
-  dialog.open = true;
-};
-
-export const showSuccessDialog = () => {
-  const dialog = document.querySelector("#success-dialog");
-  dialog.open = true;
-};
-
-<Canvas>
-  <Story name="Status">
-    <IcButton variant="primary" onclick={showNeutralDialog}>
-      Launch neutral dialog
-    </IcButton>
-    <IcButton variant="primary" onclick={showInfoDialog}>
-      Launch info dialog
-    </IcButton>
-    <IcButton variant="primary" onclick={showWarningDialog}>
-      Launch warning dialog
-    </IcButton>
-    <IcButton variant="primary" onclick={showErrorDialog}>
-      Launch error dialog
-    </IcButton>
-    <IcButton variant="primary" onclick={showSuccessDialog}>
-      Launch success dialog
-    </IcButton>
-    <IcDialog
-      heading="This dialog has a neutral alert"
-      label="Neutral"
-      status="neutral"
-      alertHeading="Neutral alert"
-      alertMessage="This alert is for generic/miscellaneous messages"
-      id="neutral-dialog"
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-    <IcDialog
-      heading="This dialog has an info alert"
-      label="Info"
-      status="info"
-      alertHeading="Info alert"
-      alertMessage="This alert is for information"
-      id="info-dialog"
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-    <IcDialog
-      heading="This dialog has a warning alert"
-      label="Warning"
-      status="warning"
-      alertHeading="Warning alert"
-      alertMessage="This alert is for warnings"
-      id="warning-dialog"
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-    <IcDialog
-      heading="This dialog has an error alert"
-      label="Error"
-      status="error"
-      alertHeading="Error alert"
-      alertMessage="This alert is for errors"
-      id="error-dialog"
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-    <IcDialog
-      heading="This dialog has a success alert"
-      label="Success"
-      status="success"
-      alertHeading="Success alert"
-      alertMessage="This alert is for success messages"
-      id="success-dialog"
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-  </Story>
-</Canvas>
-
-### Buttons
-
-export const showPlainDialog = () => {
-  const dialog = document.querySelector("#plain-dialog");
-  dialog.open = true;
-};
-
-export const showSingleDialog = () => {
-  const dialog = document.querySelector("#single-dialog");
-  dialog.open = true;
-};
-
-export const showDoubleDialog = () => {
-  const dialog = document.querySelector("#double-dialog");
-  dialog.open = true;
-};
-
-export const showTripleDialog = () => {
-  const dialog = document.querySelector("#triple-dialog");
-  dialog.open = true;
-};
-
-export const showDestructiveDialog = () => {
-  const dialog = document.querySelector("#destructive-dialog");
-  dialog.open = true;
-};
-
-<Canvas>
-  <Story name="Buttons">
-    <IcButton variant="primary" onclick={showPlainDialog}>
-      Launch no button dialog
-    </IcButton>
-    <IcButton variant="primary" onclick={showSingleDialog}>
-      Launch single button dialog
-    </IcButton>
-    <IcButton variant="primary" onclick={showDoubleDialog}>
-      Launch two button dialog
-    </IcButton>
-    <IcButton variant="primary" onclick={showTripleDialog}>
-      Launch three button dialog
-    </IcButton>
-    <IcButton variant="primary" onclick={showDestructiveDialog}>
-      Launch destructive button dialog
-    </IcButton>
-    <IcDialog
-      heading="This dialog has no default buttons"
-      label="None"
-      id="plain-dialog"
-      buttons="false"
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-    <IcDialog
-      heading="This dialog has a single button"
-      label="Single"
-      id="single-dialog"
-      buttonProps={[
-        { label: "Confirm", onclick: "alert('Confirmed'); this.hideDialog()" },
-      ]}
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-    <IcDialog
-      heading="This dialog has two default buttons"
-      label="Double"
-      id="double-dialog"
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-    <IcDialog
-      heading="This dialog has three default buttons"
-      label="Triple"
-      id="triple-dialog"
-      buttonProps={buttonProps}
-    >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-    </IcDialog>
-    <IcDialog
-      heading="This dialog has a default destructive button"
-      label="Destructive"
-      id="destructive-dialog"
-      buttonProps={[
-        { label: "Confirm", onclick: "alert('Confirmed'); this.hideDialog()" },
-      ]}
-      destructive="true"
     >
       <IcTypography>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -509,22 +285,22 @@ export const showScrollableDialog = () => {
 
 export const showSelectDialog = () => {
   const dialog = document.querySelector("#select-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showSearchBarDialog = () => {
   const dialog = document.querySelector("#search-bar-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showTooltipDialog = () => {
   const dialog = document.querySelector("#tooltip-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showLongTextDialog = () => {
   const dialog = document.querySelector("#long-text-select-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const dropdownItems = () => {

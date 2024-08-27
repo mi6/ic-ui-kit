@@ -90,7 +90,7 @@ import readme from "../../../web-components/src/components/ic-accordion/readme.m
 
 <Canvas>
   <Story name="Group Title">
-    <IcAccordionGroup groupTitle="Title of the Accordion Group">
+    <IcAccordionGroup label="Title of the Accordion Group">
       <IcAccordion heading="Accordion 1">
         <svg
           slot="icon"
@@ -129,7 +129,7 @@ import readme from "../../../web-components/src/components/ic-accordion/readme.m
 
 <Canvas>
   <Story name="Sizes">
-    <IcAccordionGroup groupTitle="Small Accordion Group" size="small">
+    <IcAccordionGroup label="Small Accordion Group" size="small">
       <IcAccordion heading="Accordion 1">
         <svg
           slot="icon"
@@ -161,7 +161,7 @@ import readme from "../../../web-components/src/components/ic-accordion/readme.m
         </IcTypography>
       </IcAccordion>
     </IcAccordionGroup>
-    <IcAccordionGroup groupTitle="Default Accordion Group" size="default">
+    <IcAccordionGroup label="Default Accordion Group" size="default">
       <IcAccordion heading="Accordion 1">
         <svg
           slot="icon"
@@ -193,7 +193,7 @@ import readme from "../../../web-components/src/components/ic-accordion/readme.m
         </IcTypography>
       </IcAccordion>
     </IcAccordionGroup>
-    <IcAccordionGroup groupTitle="Large Accordion Group" size="large">
+    <IcAccordionGroup label="Large Accordion Group" size="large">
       <IcAccordion heading="Accordion 1">
         <svg
           slot="icon"
@@ -233,7 +233,7 @@ import readme from "../../../web-components/src/components/ic-accordion/readme.m
 <Canvas>
   <Story name="Single Expansion">
     <IcAccordionGroup
-      groupTitle="Title of the Accordion Group"
+      label="Title of the Accordion Group"
       single-expansion="true"
     >
       <IcAccordion heading="Accordion 1">
@@ -275,7 +275,7 @@ import readme from "../../../web-components/src/components/ic-accordion/readme.m
 <Canvas>
   <Story name="Light text" parameters={{ backgrounds: { default: "dark" } }}>
     <IcAccordionGroup
-      groupTitle="Title of the Accordion Group"
+      label="Title of the Accordion Group"
       appearance="light"
     >
       <IcAccordion heading="Accordion 1">
@@ -316,7 +316,7 @@ import readme from "../../../web-components/src/components/ic-accordion/readme.m
 
 <Canvas>
   <Story name="Parent">
-    <IcAccordionGroup groupTitle="Title of the Accordion Group">
+    <IcAccordionGroup label="Title of the Accordion Group">
       <IcAccordion heading="Accordion 1">
         <IcTypography variant="body">
           This is an example of the main body text
@@ -417,7 +417,7 @@ export const PopoverMenu = () => {
 export const Dialog = () => {
   const dialogEl = useRef();
   const showDialog = () => {
-    dialogEl.current.showDialog();
+    dialogEl.current.open = true;
   };
   return (
     <>
@@ -429,7 +429,7 @@ export const Dialog = () => {
         id="medium-dialog"
         ref={dialogEl}
       >
-        <IcAccordionGroup groupTitle="Title of the Accordion Group">
+        <IcAccordionGroup label="Title of the Accordion Group">
           <IcAccordion heading="Accordion 1">
             <svg
               slot="icon"
@@ -522,7 +522,7 @@ export const Dialog = () => {
 <Canvas>
   <Story name="Slotted headings">
       <IcAccordionGroup>
-  <h1 slot="group-title">Group title</h1>
+  <h1 slot="label">Group title</h1>
   <IcAccordion>
     <h2 slot="heading">Heading</h2>
     Text
@@ -537,7 +537,7 @@ export const defaultArgs = {
   accessibleButtonLabel: "accordions",
   appearance: "default",
   expanded: false,
-  groupTitle: "Accordion group",
+  label: "Accordion group",
   singleExpansion: false,
   size: "default",
   disabled: false,
@@ -570,7 +570,7 @@ export const defaultArgs = {
       <div style={{backgroundColor: args.appearance == "light" ? "black" : null}}>
         <IcAccordionGroup
           accessibleButtonLabel={args.accessibleButtonLabel}
-          groupTitle={args.groupTitle}
+          label={args.label}
           expanded={args.expanded}
           singleExpansion={args.singleExpansion}
           size={args.size}

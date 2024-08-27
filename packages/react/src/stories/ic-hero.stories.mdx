@@ -3,7 +3,7 @@ import { Meta, Story, Canvas, Description } from "@storybook/addon-docs";
 import {
   IcHero,
   IcButton,
-  IcCard,
+  IcCardVertical,
   IcSearchBar,
   IcTheme,
   IcTextField,
@@ -109,7 +109,7 @@ export const defaultArgs = {
             Button
           </IcButton>
           {args.showSecondary && (
-            <IcCard
+            <IcCardVertical
               heading="Latest announcement"
               message="This is some example text that can be included in the card copy."
               slot="secondary"
@@ -233,26 +233,6 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
-### Deprecated - small
-
-<Canvas>
-  <Story name="Deprecated - small" parameters={{ layout: "fullscreen" }}>
-    <IcHero
-      heading="Hero heading"
-      subheading="Hero description. This is a Hero component, it should be used as a page heading."
-      small
-      aligned="center"
-    >
-      <IcButton variant="primary" slot="interaction">
-        Button
-      </IcButton>
-      <IcButton variant="secondary" slot="interaction">
-        Button
-      </IcButton>
-    </IcHero>
-  </Story>
-</Canvas>
-
 ### Secondary heading
 
 <Canvas>
@@ -303,7 +283,7 @@ export const defaultArgs = {
       <IcButton variant="secondary" slot="interaction">
         Button
       </IcButton>
-      <IcCard
+      <IcCardVertical
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
         slot="secondary"
@@ -384,7 +364,7 @@ export const defaultArgs = {
       >
         Help
       </IcLink>
-      <IcCard
+      <IcCardVertical
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
         slot="secondary"

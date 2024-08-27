@@ -15,7 +15,6 @@ import closeIcon from "../../assets/close-icon.svg";
 import {
   isSlotUsed,
   checkResizeObserver,
-  isPropDefined,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
 
@@ -47,31 +46,13 @@ export class Dialog {
   private resizeTimeout: number;
   private sourceElement: HTMLElement;
 
-  /* eslint-disable */
-
-  private buttonOnclick0: Function;
-  private buttonOnclick1: Function;
-  private buttonOnclick2: Function;
-
-  /* eslint-enable */
-
   @Element() el: HTMLIcDialogElement;
 
   @State() dialogRendered: boolean = false;
   @State() fadeIn: boolean = false;
 
   /**
-   * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.
-   */
-  @Prop() alertHeading?: string;
-
-  /**
-   * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.
-   */
-  @Prop() alertMessage?: string;
-
-  /**
-   * If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.
+   * If set to `false`, default buttons or slotted dialog controls will not be displayed.
    */
   @Prop() buttons?: boolean = true;
 
@@ -146,27 +127,6 @@ export class Dialog {
   @Prop() size?: "small" | "medium" | "large" = "small";
 
   /**
-   * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.
-   */
-  @Prop() status?: "neutral" | "info" | "warning" | "error" | "success";
-
-  /**
-   * Sets the label and onclick functions for default buttons.
-   */
-  @Prop() buttonProps?: { label: string; onclick: string }[] = [
-    {
-      label: "Cancel",
-      onclick: "this.cancelDialog();",
-    },
-    { label: "Confirm", onclick: "this.confirmDialog();" },
-  ];
-
-  @Watch("buttonProps")
-  watchPropHandler(): void {
-    this.setButtonOnClick();
-  }
-
-  /**
    * Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
    */
   @Event() icDialogCancelled: EventEmitter<void>;
@@ -190,15 +150,8 @@ export class Dialog {
     this.removeSlotChangeListener();
   }
 
-  componentWillLoad(): void {
-    if (this.buttonProps.length) {
-      this.setButtonOnClick();
-    }
-  }
-
   componentDidLoad(): void {
     this.getInteractiveElements();
-    this.setAlertVariant();
 
     this.refreshInteractiveElementsOnSlotChange();
 
@@ -259,22 +212,6 @@ export class Dialog {
         this.open = false;
       }
     }
-  }
-
-  /**
-   * @deprecated This method should not be used anymore. Use open prop to set dialog visibility.
-   */
-  @Method()
-  async showDialog(): Promise<void> {
-    this.open = true;
-  }
-
-  /**
-   * @deprecated This method should not be used anymore. Use open prop to set dialog visibility.
-   */
-  @Method()
-  async hideDialog(): Promise<void> {
-    this.open = false;
   }
 
   /**
@@ -399,13 +336,6 @@ export class Dialog {
     }
   };
 
-  private setAlertVariant = () => {
-    if (isPropDefined(this.status) && this.status !== null) {
-      const alert = this.el.shadowRoot.querySelector("ic-alert");
-      alert.setAttribute("variant", this.status);
-    }
-  };
-
   private closeIconClick = () => {
     this.open = false;
   };
@@ -474,43 +404,6 @@ export class Dialog {
     }
   };
 
-  private setButtonOnClick = () => {
-    if (this.buttons) {
-      this.buttonOnclick0 = new Function(this.buttonProps[0]?.onclick);
-      this.buttonOnclick1 = new Function(this.buttonProps[1]?.onclick);
-      this.buttonOnclick2 = new Function(this.buttonProps[2]?.onclick);
-    }
-  };
-
-  private getButtonOnclick = (index: number) => {
-    if (index === 0) {
-      return this.buttonOnclick0();
-    } else if (index === 1) {
-      return this.buttonOnclick1();
-    } else {
-      return this.buttonOnclick2();
-    }
-  };
-
-  private getButtonVariant = (index: number) => {
-    const mainVariant = this.destructive ? "destructive" : "primary";
-    if (this.buttonProps.length === 1) {
-      return mainVariant;
-    } else if (this.buttonProps.length === 2) {
-      if (index === 0) {
-        return "tertiary";
-      } else {
-        return mainVariant;
-      }
-    } else {
-      if (index === 2) {
-        return mainVariant;
-      } else {
-        return "secondary";
-      }
-    }
-  };
-
   private loopNextFocusIndexIfLastElement() {
     if (this.focusedElementIndex > this.interactiveElementList.length - 1)
       this.focusedElementIndex = 0;
@@ -529,14 +422,10 @@ export class Dialog {
 
   private renderDialog = () => {
     const {
-      alertHeading,
-      alertMessage,
       buttons,
-      buttonProps,
       size,
       heading,
       label,
-      status,
       destructive,
       dismissLabel,
       hideCloseButton,
@@ -583,55 +472,44 @@ export class Dialog {
           )}
         </div>
         <div class="content-area">
-          {isSlotUsed(this.el, "alert") ? (
-            <slot name="alert"></slot>
-          ) : (
-            status && (
-              <ic-alert
-                variant={status}
-                heading={alertHeading}
-                message={alertMessage}
-                title-above
-                class="status-alert"
-                id="dialog-alert"
-              ></ic-alert>
-            )
-          )}
+          {isSlotUsed(this.el, "alert") && <slot name="alert"></slot>}
           <div id="dialog-content">
             <slot></slot>
           </div>
         </div>
-        {(buttons || isSlotUsed(this.el, this.DIALOG_CONTROLS)) && (
-          <div
-            class={{
-              [this.DIALOG_CONTROLS]: true,
-              ["triple-button"]: buttonProps.length === 3,
-            }}
-          >
-            <slot name={this.DIALOG_CONTROLS}>
-              {!isSlotUsed(this.el, this.DIALOG_CONTROLS) &&
-                buttonProps.map((props, index) => {
-                  if (index > 2) {
-                    return;
-                  } else {
-                    return (
-                      <ic-button
-                        variant={this.getButtonVariant(index)}
-                        onClick={() => this.getButtonOnclick(index)}
-                        class="dialog-control-button"
-                        full-width={buttonProps.length === 3}
-                        data-gets-focus={
-                          this.getButtonVariant(index) === "primary" ? "" : null
-                        }
-                      >
-                        {props.label}
-                      </ic-button>
-                    );
-                  }
-                })}
-            </slot>
-          </div>
-        )}
+        {buttons &&
+          (isSlotUsed(this.el, this.DIALOG_CONTROLS) ? (
+            <div
+              class={{
+                [this.DIALOG_CONTROLS]: true,
+              }}
+            >
+              <slot name={this.DIALOG_CONTROLS}></slot>
+            </div>
+          ) : (
+            <div
+              class={{
+                [this.DIALOG_CONTROLS]: true,
+              }}
+            >
+              <ic-button
+                variant="tertiary"
+                onClick={() => this.cancelDialog()}
+                class="dialog-control-button"
+                data-gets-focus={null}
+              >
+                Cancel
+              </ic-button>
+              <ic-button
+                variant={this.destructive ? "destructive" : "primary"}
+                onClick={() => this.confirmDialog()}
+                class="dialog-control-button"
+                data-gets-focus=""
+              >
+                Confirm
+              </ic-button>
+            </div>
+          ))}
       </dialog>
     );
   };
@@ -640,8 +518,8 @@ export class Dialog {
     return (
       <Host
         class={{
-          ["hidden"]: !this.dialogRendered,
-          ["fade-in"]: this.fadeIn,
+          ["ic-dialog-hidden"]: !this.dialogRendered,
+          ["ic-dialog-fade-in"]: this.fadeIn,
           ["disable-height-constraint"]: this.disableHeightConstraint,
         }}
       >

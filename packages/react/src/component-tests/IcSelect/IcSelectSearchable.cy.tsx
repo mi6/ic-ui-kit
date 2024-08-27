@@ -630,7 +630,7 @@ describe("IcSelect searchable", () => {
       <IcSelect
         label="What is your favourite coffee?"
         searchable
-        disableFilter
+        disableAutoFiltering
         value="Test Value"
       />
     );
@@ -840,35 +840,6 @@ describe("IcSelect searchable", () => {
     cy.compareSnapshot({
       name: "searchable-large-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
-    });
-  });
-
-  it("should render small - deprecated", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        small
-        searchable
-      />
-    );
-
-    cy.checkHydrated("ic-select");
-
-    cy.checkA11yWithWait(undefined, 200);
-    cy.compareSnapshot({
-      name: "searchable-small-deprecated",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
-      delay: 200,
-    });
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-
-    cy.checkA11yWithWait(undefined, 200);
-    cy.compareSnapshot({
-      name: "searchable-small-open-deprecated",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
-      delay: 200,
     });
   });
 

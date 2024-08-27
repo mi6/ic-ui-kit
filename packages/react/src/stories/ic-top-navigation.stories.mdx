@@ -113,7 +113,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         slot="buttons"
         onClick={() => alert("test")}
       >
-        <IcBadge text-label="1" slot="badge" variant="light" />
+        <IcBadge label="1" slot="badge" variant="light" />
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -344,7 +344,7 @@ export const Controlled = () => {
   <Story name="Top nav resized event" parameters={{ layout: "fullscreen" }}>
     <IcTopNavigation
       appTitle="ApplicationName"
-      onTopNavResized={() => console.log(event.detail.size)}
+      onIcTopNavResized={() => console.log(event.detail.size)}
     >
       <svg
         slot="app-icon"
@@ -831,7 +831,7 @@ export const defaultArgs = {
             />
           </svg>
           <IcBadge
-            text-label="1"
+            label="1"
             slot="badge"
             position="near"
             variant="light"

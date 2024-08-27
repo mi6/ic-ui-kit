@@ -115,7 +115,7 @@ import readme from "./readme.md";
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
-          disable-filter
+          disable-auto-filtering
         ></ic-search-bar>
         <br />
         <ic-typography>
@@ -186,19 +186,6 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### Deprecated - small
-
-<Canvas>
-  <Story name="Deprecated - small" parameters={{ loki: { skip: true } }}>
-    {(args) =>
-      html` <ic-search-bar
-        label="What is your favourite coffee?"
-        small
-      ></ic-search-bar>`
-    }
-  </Story>
-</Canvas>
-
 ### Hidden label
 
 <Canvas>
@@ -263,7 +250,7 @@ import readme from "./readme.md";
           label="Search for coffee"
           placeholder="Type to search"
           debounce="300"
-          disable-filter="true"
+          disable-auto-filtering="true"
           id="external-filter-search"
         ></ic-search-bar>
         <br />
@@ -333,7 +320,7 @@ import readme from "./readme.md";
           label="Search for coffee"
           placeholder="Type to search"
           debounce="300"
-          disable-filter="true"
+          disable-auto-filtering="true"
           id="external-filter-search"
           timeout="1000"
         ></ic-search-bar>
@@ -408,7 +395,7 @@ import readme from "./readme.md";
           label="Search for coffee"
           placeholder="Type to search"
           debounce="300"
-          disable-filter="true"
+          disable-auto-filtering="true"
           id="external-filter-search"
           timeout="1000"
           loading-label="Loading time"
@@ -555,7 +542,7 @@ import readme from "./readme.md";
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
-          hint-text="You can use up and down arrows to navigate the options when they are available, and press enter to select an option."
+          assistive-hint-text="You can use up and down arrows to navigate the options when they are available, and press enter to select an option."
         ></ic-search-bar>
         <script>
           document.querySelector("ic-search-bar").options = [

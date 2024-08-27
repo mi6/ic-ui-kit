@@ -11,6 +11,7 @@ import {
   Horizontal,
   HelperText,
   Disabled,
+  DisabledGroup,
   Small,
   Validation,
   ConditionalStatic,
@@ -21,6 +22,8 @@ import {
   HAVE_VALUE,
   HAVE_FOCUS,
   HAVE_BEEN_CALLED_WITH,
+  HAVE_CLASS,
+  NOT_HAVE_CLASS,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -62,11 +65,11 @@ describe("IcRadio end-to-end tests", () => {
     cy.get(RADIO_SELECTOR).eq(2).should(HAVE_PROP, "selected", false);
     cy.get(RADIO_SELECTOR).last().should(HAVE_PROP, "selected", false);
 
-    cy.findShadowEl(RADIO_SELECTOR, INPUT).first().should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).first().should(HAVE_FOCUS);
 
     cy.realPress("ArrowDown");
 
-    cy.findShadowEl(RADIO_SELECTOR, INPUT).eq(1).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(1).should(HAVE_FOCUS);
     cy.get(RADIO_SELECTOR).first().should(HAVE_PROP, "selected", false);
     cy.get(RADIO_SELECTOR).eq(1).should(HAVE_PROP, "selected", true);
   });
@@ -83,7 +86,7 @@ describe("IcRadio end-to-end tests", () => {
     cy.findShadowEl(IC_BUTTON, BUTTON).focus();
     cy.realPress(["Shift", "Tab"]);
 
-    cy.findShadowEl(RADIO_SELECTOR, INPUT).first().should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).first().should(HAVE_FOCUS);
 
     cy.get(RADIO_SELECTOR)
       .first()
@@ -97,7 +100,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.realPress("ArrowDown");
 
-    cy.findShadowEl(RADIO_SELECTOR, INPUT).eq(1).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(1).should(HAVE_FOCUS);
     cy.get(RADIO_SELECTOR).first().should(HAVE_PROP, "selected", false);
     cy.get(RADIO_SELECTOR).last().should(HAVE_PROP, "selected", true);
   });
@@ -115,8 +118,22 @@ describe("IcRadio end-to-end tests", () => {
     mount(<Uncontrolled />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, true);
+  });
+
+  it("should update the radio options' disabled state when the group's state is updated", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(RADIO_GROUP_SELECTOR).invoke("prop", "disabled", true);
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_CLASS, "ic-radio-option-disabled");
+
+    cy.get(RADIO_GROUP_SELECTOR).invoke("prop", "disabled", false);
+    cy.get(RADIO_SELECTOR)
+      .eq(0)
+      .should(NOT_HAVE_CLASS, "ic-radio-option-disabled");
   });
 });
 
@@ -174,6 +191,18 @@ describe("IcRadio visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render disabled IcRadioGroup", () => {
+    mount(<DisabledGroup />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "disabled-group",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
 
@@ -268,7 +297,7 @@ describe("IcRadio visual regression and a11y tests", () => {
     mount(<ConditionalDynamic />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -281,7 +310,7 @@ describe("IcRadio visual regression and a11y tests", () => {
     mount(<ConditionalDynamic />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
-    cy.get(RADIO_SELECTOR).eq(1).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -319,7 +348,7 @@ describe("IcRadio visual regression tests in high contrast mode", () => {
     mount(<ConditionalDynamic />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
-    cy.get(RADIO_SELECTOR).eq(1).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
 
     cy.compareSnapshot({
       name: "conditional-dynamic-high-contrast",

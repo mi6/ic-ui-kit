@@ -1,0 +1,481 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-card-vertical should render 1`] = `
+<ic-card-vertical heading="Card" message="This is a static card">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a static card
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render as a button 1`] = `
+<ic-card-vertical clickable="true" heading="Card" message="This is a clickable card rendered as a button">
+  <mock:shadow-root>
+    <button class="card clickable" tabindex="0">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a clickable card rendered as a button
+        </ic-typography>
+      </div>
+    </button>
+  </mock:shadow-root>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render as a link 1`] = `
+<ic-card-vertical clickable="true" heading="Card" href="/" message="This is a clickable card rendered as a button">
+  <mock:shadow-root>
+    <a class="card clickable" href="/" hreflang="" tabindex="0">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a clickable card rendered as a button
+        </ic-typography>
+      </div>
+    </a>
+  </mock:shadow-root>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render as expandable 1`] = `
+<ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="subheading">
+        <slot name="subheading">
+          <ic-typography variant="subtitle-small">
+            Card subheading
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
+      </div>
+      <div class="interaction-area">
+        <div class="interaction-controls">
+          <slot name="interaction-controls"></slot>
+        </div>
+        <ic-tooltip id="ic-tooltip-expand-button" label="Toggle expandable area" silent="">
+          <button aria-expanded="false" aria-label="Toggle expandable area" class="toggle-button toggle-button-closed">
+            svg
+          </button>
+        </ic-tooltip>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render content in expanded area 1`] = `
+<ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="subheading">
+        <slot name="subheading">
+          <ic-typography variant="subtitle-small">
+            Card subheading
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
+      </div>
+      <div class="interaction-area">
+        <div class="interaction-controls">
+          <slot name="interaction-controls"></slot>
+        </div>
+        <ic-tooltip id="ic-tooltip-expand-button" label="Toggle expandable area" silent="">
+          <button aria-controls="expanded-content-area" aria-expanded="true" aria-label="Toggle expandable area" class="toggle-button toggle-button-expanded">
+            svg
+          </button>
+        </ic-tooltip>
+      </div>
+      <div class="expanded-content" id="expanded-content-area">
+        <slot name="expanded-content"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography slot="expanded-content">
+    Extra content
+  </ic-typography>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render full width variant 1`] = `
+<ic-card-vertical clickable="true" full-width="true" heading="Card" message="This is a full width card">
+  <mock:shadow-root>
+    <button class="card clickable fullwidth" tabindex="0">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a full width card
+        </ic-typography>
+      </div>
+    </button>
+  </mock:shadow-root>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render with a link parent 1`] = `
+<ic-card-vertical clickable="true" heading="Card" message="This is a clickable card">
+  <mock:shadow-root>
+    <div class="card clickable">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a clickable card
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render with a middle image 1`] = `
+<ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="subheading">
+        <slot name="subheading">
+          <ic-typography variant="subtitle-small">
+            Card subheading
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="image-mid">
+        <slot name="image-mid"></slot>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <div slot="image-mid">
+    Image placeholder
+  </div>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render with a subheading 1`] = `
+<ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="subheading">
+        <slot name="subheading">
+          <ic-typography variant="subtitle-small">
+            Card subheading
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render with a top image 1`] = `
+<ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="image-top">
+        <slot name="image-top"></slot>
+      </div>
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="subheading">
+        <slot name="subheading">
+          <ic-typography variant="subtitle-small">
+            Card subheading
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <div slot="image-top">
+    Image placeholder
+  </div>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render with an interaction button 1`] = `
+<ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+        <div class="interaction-button">
+          <slot name="interaction-button"></slot>
+        </div>
+      </div>
+      <div class="subheading">
+        <slot name="subheading">
+          <ic-typography variant="subtitle-small">
+            Card subheading
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-button slot="interaction-button" variant="primary">
+    Click here
+  </ic-button>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should render with interaction controls 1`] = `
+<ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="subheading">
+        <slot name="subheading">
+          <ic-typography variant="subtitle-small">
+            Card subheading
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
+      </div>
+      <div class="interaction-area">
+        <div class="interaction-controls">
+          <slot name="interaction-controls"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-button slot="interaction-controls">
+    Click here
+  </ic-button>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should toggle expanded content when expansion toggle is clicked 1`] = `
+<ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a clickable card">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a clickable card
+        </ic-typography>
+      </div>
+      <div class="interaction-area">
+        <div class="interaction-controls">
+          <slot name="interaction-controls"></slot>
+        </div>
+        <ic-tooltip id="ic-tooltip-expand-button" label="Toggle expandable area" silent="">
+          <button aria-expanded="false" aria-label="Toggle expandable area" class="toggle-button toggle-button-closed">
+            svg
+          </button>
+        </ic-tooltip>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography slot="expanded-content">
+    Expanded
+  </ic-typography>
+</ic-card-vertical>
+`;
+
+exports[`ic-card-vertical should toggle expanded content when expansion toggle is clicked 2`] = `
+<ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a clickable card">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a clickable card
+        </ic-typography>
+      </div>
+      <div class="interaction-area">
+        <div class="interaction-controls">
+          <slot name="interaction-controls"></slot>
+        </div>
+        <ic-tooltip id="ic-tooltip-expand-button" label="Toggle expandable area" silent="">
+          <button aria-controls="expanded-content-area" aria-expanded="true" aria-label="Toggle expandable area" class="toggle-button toggle-button-expanded">
+            svg
+          </button>
+        </ic-tooltip>
+      </div>
+      <div class="expanded-content" id="expanded-content-area">
+        <slot name="expanded-content"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography slot="expanded-content">
+    Expanded
+  </ic-typography>
+</ic-card-vertical>
+`;

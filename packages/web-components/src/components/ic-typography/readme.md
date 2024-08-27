@@ -25,13 +25,12 @@
  - [ic-accordion](../ic-accordion)
  - [ic-accordion-group](../ic-accordion-group)
  - [ic-alert](../ic-alert)
- - [ic-back-to-top](../ic-back-to-top)
  - [ic-badge](../ic-badge)
- - [ic-card](../ic-card)
+ - [ic-card-vertical](../ic-card-vertical)
  - [ic-checkbox](../ic-checkbox)
  - [ic-chip](../ic-chip)
  - [ic-classification-banner](../ic-classification-banner)
- - [ic-data-entity](../ic-data-entity)
+ - [ic-data-list](../ic-data-list)
  - [ic-data-row](../ic-data-row)
  - [ic-dialog](../ic-dialog)
  - [ic-empty-state](../ic-empty-state)
@@ -68,13 +67,12 @@ graph TD;
   ic-accordion --> ic-typography
   ic-accordion-group --> ic-typography
   ic-alert --> ic-typography
-  ic-back-to-top --> ic-typography
   ic-badge --> ic-typography
-  ic-card --> ic-typography
+  ic-card-vertical --> ic-typography
   ic-checkbox --> ic-typography
   ic-chip --> ic-typography
   ic-classification-banner --> ic-typography
-  ic-data-entity --> ic-typography
+  ic-data-list --> ic-typography
   ic-data-row --> ic-typography
   ic-dialog --> ic-typography
   ic-empty-state --> ic-typography

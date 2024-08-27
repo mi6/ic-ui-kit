@@ -126,7 +126,7 @@ export class SideNavigation {
   /**
    * Emitted when the side navigation is collapsed and expanded.
    */
-  @Event() sideNavExpanded: EventEmitter<IcExpandedDetail>;
+  @Event() icSideNavExpanded: EventEmitter<IcExpandedDetail>;
 
   componentWillLoad(): void {
     this.setMenuExpanded(this.expanded);
@@ -176,7 +176,7 @@ export class SideNavigation {
     sideNavExpanded: boolean;
     sideNavMobile?: boolean;
   }): void => {
-    this.sideNavExpanded.emit({
+    this.icSideNavExpanded.emit({
       sideNavExpanded: objDetails.sideNavExpanded,
       sideNavMobile: objDetails.sideNavMobile,
     });
@@ -648,7 +648,7 @@ export class SideNavigation {
             >
               <span
                 class="mobile-top-bar-menu-icon"
-                slot="icon"
+                slot="left-icon"
                 innerHTML={menuOpen ? closeIcon : menuIcon}
               ></span>
               {menuOpen ? "Close" : "Menu"}
@@ -721,11 +721,11 @@ export class SideNavigation {
           "sm-expanded": !isSDevice && menuExpanded,
           "side-display":
             this.deviceSize > DEVICE_SIZES.S || this.disableTopBarBehaviour,
-          [IcThemeForegroundEnum.Dark]:
+          [`ic-side-navigation-${IcThemeForegroundEnum.Dark}`]:
             foregroundColor === IcThemeForegroundEnum.Dark,
           ["collapsed-labels"]:
             !isSDevice && !menuExpanded && collapsedIconLabels,
-          ["inline"]: inline,
+          ["ic-side-navigation-inline"]: inline,
         }}
       >
         {isSDevice && this.renderTopBar({ ...topBarProps })}

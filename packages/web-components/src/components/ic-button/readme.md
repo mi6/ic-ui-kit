@@ -65,7 +65,6 @@ Type: `Promise<void>`
 | Slot            | Description                                                                                                   |
 | --------------- | ------------------------------------------------------------------------------------------------------------- |
 | `"badge"`       | Badge component overlaying the top right of the button.                                                       |
-| `"icon"`        | Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead.                   |
 | `"left-icon"`   | Content will be placed to the left of the button label.                                                       |
 | `"right-icon"`  | Content will be placed to the right of the button label.                                                      |
 | `"router-item"` | Handle routing by nesting your routes in this slot. Setting loading to true will have no impact on this slot. |
@@ -86,6 +85,7 @@ Type: `Promise<void>`
 
  - [ic-accordion-group](../ic-accordion-group)
  - [ic-alert](../ic-alert)
+ - [ic-back-to-top](../ic-back-to-top)
  - [ic-dialog](../ic-dialog)
  - [ic-horizontal-scroll](../ic-horizontal-scroll)
  - [ic-menu](../ic-menu)
@@ -114,6 +114,7 @@ graph TD;
   ic-tooltip --> ic-typography
   ic-accordion-group --> ic-button
   ic-alert --> ic-button
+  ic-back-to-top --> ic-button
   ic-dialog --> ic-button
   ic-horizontal-scroll --> ic-button
   ic-menu --> ic-button

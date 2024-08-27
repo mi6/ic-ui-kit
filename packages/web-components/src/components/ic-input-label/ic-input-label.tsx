@@ -16,19 +16,9 @@ export class InputLabel {
   @Prop() appearance?: "dark" | "default" = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
-   */
-  @Prop() dark?: boolean = false;
-
-  /**
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
-
-  /**
-   * If `true`, the input label will display with error styling.
-   */
-  @Prop() error?: boolean = false;
 
   /**
    * The ID of the form element the label is bound to.
@@ -55,6 +45,11 @@ export class InputLabel {
    */
   @Prop() required: boolean = false;
 
+  /**
+   * The status of the label - e.g. 'error'.
+   */
+  @Prop() status: "error" | "" = "";
+
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
@@ -69,8 +64,7 @@ export class InputLabel {
       label,
       required,
       helperText,
-      error,
-      dark,
+      status,
       appearance,
     } = this;
     const labelText = required ? label + " *" : label;
@@ -85,8 +79,8 @@ export class InputLabel {
     return (
       <Host
         class={{
-          ["disabled"]: disabled,
-          ["readonly"]: readonly,
+          ["ic-input-label-disabled"]: disabled,
+          ["ic-input-label-readonly"]: readonly,
           ["with-helper"]: helperText !== "",
         }}
       >
@@ -94,8 +88,8 @@ export class InputLabel {
           variant="label"
           class={{
             ["readonly-label"]: readonly,
-            ["error-label"]: error && !(readonly || disabled),
-            ["dark"]: dark || appearance === "dark",
+            ["error-label"]: status === "error" && !(readonly || disabled),
+            ["dark"]: appearance === "dark",
           }}
         >
           {labelContent}

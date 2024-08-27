@@ -67,31 +67,6 @@ export class Checkbox {
   @Prop() form?: string;
 
   /**
-   * The URL that processes the information submitted by the checkbox. It overrides the action attribute of the checkbox's form owner. Does nothing if there is no form owner.
-   */
-  @Prop() formaction?: string;
-
-  /**
-   * The way the submitted form data is encoded.
-   */
-  @Prop() formenctype?: string;
-
-  /**
-   * The HTTP method used to submit the form.
-   */
-  @Prop() formmethod?: string;
-
-  /**
-   * If `true`, the form will not be validated when submitted.
-   */
-  @Prop() formnovalidate?: boolean;
-
-  /**
-   * The place to display the response from submitting the form. It overrides the target attribute of the checkbox's form owner.
-   */
-  @Prop() formtarget?: string;
-
-  /**
    * The group label for the checkbox.
    */
   @Prop({ mutable: true }) groupLabel: string;
@@ -130,11 +105,6 @@ export class Checkbox {
   @Prop() size?: IcSizes;
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * The value for the checkbox.
    */
   @Prop() value!: string;
@@ -143,11 +113,6 @@ export class Checkbox {
    * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
   @Prop() hideLabel = false;
-
-  /**
-   * @deprecated This event should not be used anymore. Use icCheck instead.
-   */
-  @Event() checkboxChecked: EventEmitter<void>;
 
   /**
    * Emitted when a checkbox has been checked.
@@ -209,7 +174,6 @@ export class Checkbox {
       ? false
       : this.indeterminate && this.checked;
     this.icCheck.emit();
-    this.checkboxChecked.emit();
   };
 
   private handleFormReset = (): void => {
@@ -224,17 +188,11 @@ export class Checkbox {
       dynamicText,
       el,
       form,
-      formaction,
-      formenctype,
-      formmethod,
-      formnovalidate,
-      formtarget,
       displayIndeterminate,
       groupLabel,
       label,
       name,
       size,
-      small,
       value,
     } = this;
 
@@ -252,9 +210,8 @@ export class Checkbox {
     return (
       <Host
         class={{
-          disabled,
-          small,
-          [`${size || parentElementSize}`]: true,
+          "ic-checkbox-disabled": disabled,
+          [`ic-checkbox-${size || parentElementSize}`]: true,
         }}
       >
         <div class="container">
@@ -289,11 +246,6 @@ export class Checkbox {
             indeterminate={displayIndeterminate}
             onClick={this.handleClick}
             form={form}
-            formaction={formaction}
-            formenctype={formenctype}
-            formmethod={formmethod}
-            formnovalidate={formnovalidate}
-            formtarget={formtarget}
             aria-label={this.hideLabel ? this.label : undefined}
           ></input>
           {!this.hideLabel && (

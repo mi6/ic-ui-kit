@@ -24,6 +24,9 @@ exports[`ic-pagination appearance tests should render as complex type in dark ap
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -52,6 +55,9 @@ exports[`ic-pagination appearance tests should render as complex type in light a
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -101,7 +107,7 @@ exports[`ic-pagination appearance tests should render as simple type in light ap
 `;
 
 exports[`ic-pagination complex type should render as complex type with 0 adjacent items and 0 boundary items with default page set at 7: render complex type with 0 adjacent items and 0 boundary items and default page 7 1`] = `
-<ic-pagination adjacent-count="0" boundary-count="0" default-page="7" pages="15" type="complex">
+<ic-pagination adjacent-page-count="0" boundary-page-count="0" default-page="7" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" id="first-page-button" variant="icon">
@@ -120,12 +126,15 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 7
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
 
 exports[`ic-pagination complex type should render as complex type with 0 adjacent items and 0 boundary items with default page set at 15: render complex type with 0 adjacent items and 0 boundary items and default page 15 1`] = `
-<ic-pagination adjacent-count="0" boundary-count="0" default-page="15" pages="15" type="complex">
+<ic-pagination adjacent-page-count="0" boundary-page-count="0" default-page="15" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" id="first-page-button" variant="icon">
@@ -144,12 +153,15 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 15
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
 
 exports[`ic-pagination complex type should render as complex type with 0 adjacent items and 0 boundary items: render complex type with 0 adjacent items and 0 boundary items 1`] = `
-<ic-pagination adjacent-count="0" pages="15" type="complex">
+<ic-pagination adjacent-page-count="0" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
@@ -170,12 +182,15 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
 
 exports[`ic-pagination complex type should render as complex type with 0 adjacent items and 1 boundary items: render complex type with 0 adjacent items and 1 boundary items 1`] = `
-<ic-pagination adjacent-count="0" boundary-count="1" pages="15" type="complex">
+<ic-pagination adjacent-page-count="0" boundary-page-count="1" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
@@ -196,12 +211,15 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
 
 exports[`ic-pagination complex type should render as complex type with 0 adjacent items and 2 boundary items: render complex type with 0 adjacent items and 2 boundary items 1`] = `
-<ic-pagination adjacent-count="0" boundary-count="2" pages="15" type="complex">
+<ic-pagination adjacent-page-count="0" boundary-page-count="2" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
@@ -224,12 +242,15 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
 
 exports[`ic-pagination complex type should render as complex type with 1 adjacent items and 2 boundary items: render complex type with 1 adjacent items and 2 boundary items 1`] = `
-<ic-pagination adjacent-count="1" boundary-count="2" pages="15" type="complex">
+<ic-pagination adjacent-page-count="1" boundary-page-count="2" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
@@ -254,12 +275,15 @@ exports[`ic-pagination complex type should render as complex type with 1 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
 
 exports[`ic-pagination complex type should render as complex type with 2 adjacent items and 0 boundary items: render complex type with 2 adjacent items and 0 boundary items 1`] = `
-<ic-pagination adjacent-count="2" boundary-count="0" pages="15" type="complex">
+<ic-pagination adjacent-page-count="2" boundary-page-count="0" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
@@ -282,12 +306,15 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
 
 exports[`ic-pagination complex type should render as complex type with 2 adjacent items and 1 boundary items: render complex type with 2 adjacent items and 1 boundary items 1`] = `
-<ic-pagination adjacent-count="2" boundary-count="1" pages="15" type="complex">
+<ic-pagination adjacent-page-count="2" boundary-page-count="1" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
@@ -312,12 +339,15 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
 
 exports[`ic-pagination complex type should render as complex type with 2 adjacent items and 2 boundary items: render complex type with 2 adjacent items and 2 boundary items 1`] = `
-<ic-pagination adjacent-count="2" boundary-count="2" pages="15" type="complex">
+<ic-pagination adjacent-page-count="2" boundary-page-count="2" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
@@ -344,6 +374,9 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -372,6 +405,9 @@ exports[`ic-pagination complex type should render as complex type with 20 pages:
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -400,6 +436,9 @@ exports[`ic-pagination complex type should render as complex type without first 
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -428,6 +467,9 @@ exports[`ic-pagination complex type should render as complex type without last p
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
@@ -456,12 +498,15 @@ exports[`ic-pagination complex type should render as complex type: render comple
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
 
 exports[`ic-pagination complex type should render in complex type with 1 adjacent items and 0 boundary items: render complex type with 1 adjacent items and 0 boundary items 1`] = `
-<ic-pagination adjacent-count="1" boundary-count="0" pages="15" type="complex">
+<ic-pagination adjacent-page-count="1" boundary-page-count="0" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
@@ -482,12 +527,15 @@ exports[`ic-pagination complex type should render in complex type with 1 adjacen
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
 
-exports[`ic-pagination simple appearance component should render all pages when total pages less than min width based on boundary-count and adjacent-count: pages less than adjacent-count + boundary-count 1`] = `
-<ic-pagination adjacent-count="2" boundary-count="2" pages="11" type="complex">
+exports[`ic-pagination simple appearance component should render all pages when total pages less than min width based on boundary-page-count and adjacent-page-count: pages less than adjacent-page-count + boundary-page-count 1`] = `
+<ic-pagination adjacent-page-count="2" boundary-page-count="2" pages="11" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
       <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
@@ -514,6 +562,9 @@ exports[`ic-pagination simple appearance component should render all pages when 
         svg
       </ic-button>
     </nav>
+    <span aria-live="polite" class="sr-only">
+      Page 1
+    </span>
   </mock:shadow-root>
 </ic-pagination>
 `;
