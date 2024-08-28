@@ -27,7 +27,7 @@
   "dependencies": {
     "@storybook/addon-a11y": "^7.6.17",
     "@storybook/addon-postcss": "^2.0.0",
-    "@ukic/web-components": "^2.27.1"
+    "@ukic/web-components": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",

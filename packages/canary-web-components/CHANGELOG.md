@@ -13,7 +13,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **canary-web-components:** update sort on data tables to emit event ([070e95b](https://github.com/mi6/ic-ui-kit/commit/070e95bc660afe75c89283f6603351c1d2056a69)), closes [#2179](https://github.com/mi6/ic-ui-kit/issues/2179)
+- **canary-web-components:** remove deprecated props ([759eac6](https://github.com/mi6/ic-ui-kit/commit/759eac67089a679caeb57e0b976e64e49446be94)), closes [#230](https://github.com/mi6/ic-ui-kit/issues/230)
+- **canary-web-components:** update multi select to match v3 prop name changes ([548ff98](https://github.com/mi6/ic-ui-kit/commit/548ff98519a703e7e77e24db7a92e58d89a9af37))
+
+### BREAKING CHANGES
+
+- **canary-web-components:** Props formaction, formenctype, formmethod, formnovalidate and formtarget removed
+  from multi select
+- **canary-web-components:** Deprecated props have been removed. This affects ic-menu and ic-select.
+- **canary-web-components:** Class names on host of date picker and multi select updated to include component
+  name e.g. disabled updated to ic-select-disabled. Should only affect tests searching for class names
+- **canary-web-components:** Multi select disable filter prop renamed to disable auto filtering
 
 # [2.0.0-canary.22](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.21...@ukic/canary-web-components@2.0.0-canary.22) (2024-08-21)
 
