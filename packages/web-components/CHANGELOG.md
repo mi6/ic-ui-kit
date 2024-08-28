@@ -3,20 +3,80 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.27.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.26.0...@ukic/web-components@2.27.0) (2024-09-04)
+# [3.0.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.26.0...@ukic/web-components@3.0.0) (2024-08-28)
 
 ### Bug Fixes
 
+- **web-components:** change <a> in ic-footer-link to <ic-link> ([d4685eb](https://github.com/mi6/ic-ui-kit/commit/d4685eb6e6dd35e829a7af085f65f44bffddc266)), closes [#265](https://github.com/mi6/ic-ui-kit/issues/265)
 - **web-components:** fix issue with IC Radio to override horizontal ([f27bf1a](https://github.com/mi6/ic-ui-kit/commit/f27bf1a851c7c218cd8b04aafbe172b728dd87a1))
+- **web-components:** fix radio-group rebase issue ([ef600c2](https://github.com/mi6/ic-ui-kit/commit/ef600c23fefe68ddf338fd3099c5d66104e35491))
+- **web-components:** fixes icon only variant positioning ([fc79597](https://github.com/mi6/ic-ui-kit/commit/fc795973e412f5fc4b3b6afdddd160dada929a05))
 - **web-components:** make radio group set disabled state on children ([17ebcd0](https://github.com/mi6/ic-ui-kit/commit/17ebcd020ec2c0a230efe0752accc99b1afe3107))
-- **web-components:** update button to add tooltip for every icon variant ([dbb1d1b](https://github.com/mi6/ic-ui-kit/commit/dbb1d1b9b80edc3d009a5cb6e7eeaf34f1642cbc)), closes [#2299](https://github.com/mi6/ic-ui-kit/issues/2299)
-- **web-components:** update toast animation to only work when prefers reduced motion is off ([98d690a](https://github.com/mi6/ic-ui-kit/commit/98d690aef1c3264419f5e41995da2286d3215449)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
+- **web-components:** restore isSlotUsed after rebase ([3b0b3de](https://github.com/mi6/ic-ui-kit/commit/3b0b3de6f36dfb213d0450e9703d4e908fc626c5))
+- **web-components:** restore slotted-svg styles in footer link ([9a018a1](https://github.com/mi6/ic-ui-kit/commit/9a018a16314401f06cc0477474670309dcb3916a))
+- **web-components:** set heading levels on Hero component ([e32a0ad](https://github.com/mi6/ic-ui-kit/commit/e32a0adcd046fc71e05631532e615278a0ce1826)), closes [#1687](https://github.com/mi6/ic-ui-kit/issues/1687)
+- **web-components:** update auto dismiss toast to turn manual when hovered over ([ed51065](https://github.com/mi6/ic-ui-kit/commit/ed51065ba9ef9a0c459d92c1f0db778fac0279f6)), closes [#1291](https://github.com/mi6/ic-ui-kit/issues/1291)
+
+### Code Refactoring
+
+- **web-components:** change the name of the data-entity component to data-list ([2bf4867](https://github.com/mi6/ic-ui-kit/commit/2bf48676dea6fb1eee7611b063572e3d1b340536)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **web-components:** form attributes removed from checkbox, radio option and select ([0b40a96](https://github.com/mi6/ic-ui-kit/commit/0b40a968909a6128c7bdb4a5004329b6f8274935)), closes [#2000](https://github.com/mi6/ic-ui-kit/issues/2000)
+- **web-components:** rename ic-card to ic-card-vertical ([360a401](https://github.com/mi6/ic-ui-kit/commit/360a4018ec1ecd96ec804f4993ae52e0c2cfe8a8)), closes [#2216](https://github.com/mi6/ic-ui-kit/issues/2216)
+- **web-components:** update components with class names on host to be more specific ([37c0fd1](https://github.com/mi6/ic-ui-kit/commit/37c0fd1dc390143d6d99ab4719e5d44137d15bce)), closes [#1156](https://github.com/mi6/ic-ui-kit/issues/1156)
 
 ### Features
 
 - **web-components:** add aria-live region to announce current page on complex pagination ([4e47541](https://github.com/mi6/ic-ui-kit/commit/4e47541f652a560101ce4e2cbea24439de8ffe14))
 - **web-components:** add truncation styling for chip and typography when in an AG Grid ([d913a96](https://github.com/mi6/ic-ui-kit/commit/d913a964b6eeb01f97bb43b5a5756f2e530a6296))
 - **web-components:** updated ic-typography and ic-tooltip ([a545108](https://github.com/mi6/ic-ui-kit/commit/a545108de5fada884f6023d2e9507ee26ddb0d47))
+
+- **web-components:** changed ic-radio-option to not be shadow ([fa9725a](https://github.com/mi6/ic-ui-kit/commit/fa9725a16426b3d8ba05dc7a21adbac19c4f4aee))
+- **web-components:** improve component prop names ([79f4e6b](https://github.com/mi6/ic-ui-kit/commit/79f4e6bfaaf25e15254d1312bb073479a225bd0d)), closes [#662](https://github.com/mi6/ic-ui-kit/issues/662)
+- **web-components:** initial ic-theme changes for dark mode support ([0678c89](https://github.com/mi6/ic-ui-kit/commit/0678c89660232f0af26ea29fcbc01651d4cc7838))
+- **web-components:** remove deprecated props/slots/events/methods ([2e70f03](https://github.com/mi6/ic-ui-kit/commit/2e70f03a359974ead104e8afe238d6681dda5875)), closes [#230](https://github.com/mi6/ic-ui-kit/issues/230)
+- **web-components:** remove maxLength from text field, use maxCharacters instead, add hideCharCount ([172d139](https://github.com/mi6/ic-ui-kit/commit/172d139ebfbc3be09f968875656f901d3a9ce30f)), closes [.#1064](https://github.com/./issues/1064)
+- **web-components:** removed deprecated colour tokens ([4bfa1e7](https://github.com/mi6/ic-ui-kit/commit/4bfa1e7dd7e1d8bc6e17ae13515cc766be382a1b))
+- **web-components:** removed hidden input from ic-radio-group ([ae09214](https://github.com/mi6/ic-ui-kit/commit/ae092144a7f07c8d6ee9b0287570672265550fbc))
+- **web-components:** update sideNavExpanded and topNavResized event names to have "ic" prefix ([14dd746](https://github.com/mi6/ic-ui-kit/commit/14dd7467f79baa77d20c043f916aebe0d182ed99)), closes [.#1354](https://github.com/./issues/1354)
+- **web-components:** updated ic-typography and ic-tooltip ([a545108](https://github.com/mi6/ic-ui-kit/commit/a545108de5fada884f6023d2e9507ee26ddb0d47))
+
+### Tests
+
+- **web-components:** replaced ic-radio-group snapshot to update inline with v3 change ([af1f080](https://github.com/mi6/ic-ui-kit/commit/af1f0806565025e219d77370c8e2f57f67837e1d))
+
+### BREAKING CHANGES
+
+- **web-components:** disabled class renamed to ic-radio-option-disabled
+- **web-components:** Change <a> in ic-footer-link to <ic-link>
+- **web-components:** ic-card is now named ic-card-vertical
+- **web-components:** Props formaction, formenctype, formmethod, formnovalidate and formtarget removed
+  from checkbox, radio option and select
+- **web-components:** Behaviour change to auto dismiss toasts to show dismiss button when toast is hovered
+  over or focussed. May cause test breakages.
+- **web-components:** Deprecated props/slots/events/methods have been removed entirely.
+- **web-components:** component now uses an ic-button under the covers, so testing may be affected by
+  change in structure
+- **web-components:** Heading heirarchy of ic-hero has changed, which might affect accessibility
+  compliance when integrated. Removed deprecated 'small' prop from ic-hero
+- **web-components:** The maxLength prop has been removed. Instead, the maxCharacters prop shows the
+  character count, but a hideCharCount prop has been added which will hide it visually.
+- **web-components:** Class names that are on the host for most component have been updated to include
+  the component name in the class name e.g. disabled updated to ic-select-disabled. Components updated
+  are: accordion, accordion group, badge, breadcrumb, breadcrumb group, button, checkbox, checkbox
+  group, classification banner, data entity, data row, dialog, empty state, footer, hero, horizontal
+  scroll, input component container, input label, input validation, link, loading indicator, menu,
+  navigation group, page header, popover menu, radio group, radio option, search bar, select, side
+  nav, skeleton, step, stepper, tab, tab group, text field, toast, toggle button, toggle button group,
+  and typography
+- **web-components:** This change involves a component name change from data entity to data list
+- **web-components:** Accordion group and footer link group “group-title” renamed to “label”, badge “text-label” renamed to “label”, empty state “body-max-lines” renamed to “max-lines”, input label “error” renamed to “status” with error as an option, pagination “boundary-count” and “adjacent-count” renamed to “boundary-page-count” and “adjacent-page-count”, search bar and select “disable-filter” renamed to “disable-auto-filtering”, search bar “hint-text” renamed to “assistive-hint-text”, step props had the word “step” removed from the start e.g “step-status” renamed to “status”, toggle button “toggle-checked” renamed to “checked”.
+- **web-components:** The events called "sideNavExpanded" and "topNavResized" are now called
+  "icSideNavExpanded" and "icTopNavResized".
+- **web-components:** will affect people querying the hidden input when using radio group in a form
+- **web-components:** The contents of ic-radio-option are no longer shadow meaning they need to be
+  queried accordingly and can now be overridden
+- **web-components:** This involves removing css variables which may cause user products to appear
+  incorrectly
 
 # [2.26.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.25.1...@ukic/web-components@2.26.0) (2024-08-21)
 
