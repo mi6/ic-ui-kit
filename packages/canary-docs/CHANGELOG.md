@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.18...@ukic/canary-docs@2.0.0-canary.19) (2024-08-28)
+
+### Documentation
+
+- **canary-docs:** remove form attributes from multi select ([b49257b](https://github.com/mi6/ic-ui-kit/commit/b49257b76e15675c77ca731c0a654834ed13b96e))
+
+### BREAKING CHANGES
+
+- **canary-docs:** Form attributes removed from multi select
+
 # [2.0.0-canary.18](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.17...@ukic/canary-docs@2.0.0-canary.18) (2024-08-21)
 
 ### Features
