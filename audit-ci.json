@@ -62,6 +62,13 @@
         "notes": "issue in 'send' package within 'serve-static' package being v0.18.0, fix requires 0.19.0",
         "expiry": "10 October 2024"
       }
+    },
+    {
+      "GHSA-4vvj-4cpr-p986": {
+        "active": true,
+        "notes": "issue in 'webpack' package",
+        "expiry": "12 September 2024"
+      }
     } 
   ]
 }
