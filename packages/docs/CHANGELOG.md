@@ -3,13 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 2.13.2 (2024-09-23)
+# [3.0.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.13.0...@ukic/docs@3.0.0) (2024-08-28)
 
-**Note:** Version bump only for package @ukic/docs
+### Documentation
 
-## [2.13.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.13.0...@ukic/docs@2.13.1) (2024-09-04)
+- **docs:** change the name of the data-entity component to data-list ([755bf83](https://github.com/mi6/ic-ui-kit/commit/755bf83466c79a2e3acff099b7621f57de694f99)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([fbf88a7](https://github.com/mi6/ic-ui-kit/commit/fbf88a7e2fba50337b9dae653d29d7b896dc20b5)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([bcd2d3d](https://github.com/mi6/ic-ui-kit/commit/bcd2d3dc82ee0dab5b1759278df02608bd7ef209)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** remove deprecated props/slots/events/methods ([6577494](https://github.com/mi6/ic-ui-kit/commit/6577494cfcf39703b4eae6823a4ce206fda8b5eb))
+- **docs:** remove form attributes from checkbox, radio option and select ([d104d46](https://github.com/mi6/ic-ui-kit/commit/d104d46f2a2ac1a2870d32c15fa2ffb7f164ce53))
+- **docs:** update docs with ic-card name change ([8df26f1](https://github.com/mi6/ic-ui-kit/commit/8df26f114bb154e08b766961b6e85b796f71192a))
+- **docs:** update docs.json after changing <a> in ic-footer-link to <ic-link> ([a77362a](https://github.com/mi6/ic-ui-kit/commit/a77362aa3a733156caf077db9bcac832ab7c81e6)), closes [#265](https://github.com/mi6/ic-ui-kit/issues/265)
 
-**Note:** Version bump only for package @ukic/docs
+### BREAKING CHANGES
+
+- **docs:** Change <a> in ic-footer-link to <ic-link>
+- **docs:** ic-card has been renamed ic-card-vertical
+- **docs:** Form attributes removed from checkbox, radio option and select
+- **docs:** Deprecated props/slots/events/methods have been removed.
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
 
 # 2.13.0 (2024-08-21)
 

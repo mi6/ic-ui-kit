@@ -25,11 +25,51 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - **react:** update story book for test to react horizontal ([849a69d](https://github.com/mi6/ic-ui-kit/commit/849a69d2b8aa90ec9b12450d6a51c21e0a0f4e5a))
+- **react:** updates test following component change ([7c85c95](https://github.com/mi6/ic-ui-kit/commit/7c85c95eebc36590a52bf503409a7186102bfbbb))
+
+### Code Refactoring
+
+- **react:** change the name of the data-entity component to data-list ([7ffe6ea](https://github.com/mi6/ic-ui-kit/commit/7ffe6ea26b41ac315c2c8a2956149a2d08127e45)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **react:** icCard renamed to IcCardVertical ([88eeaeb](https://github.com/mi6/ic-ui-kit/commit/88eeaeb10b2b6c91d8b2ab96d4813878cb0247e2)), closes [#2216](https://github.com/mi6/ic-ui-kit/issues/2216)
 
 ### Features
 
 - **react:** add chip and typography stories for in AG Grid ([e9d5561](https://github.com/mi6/ic-ui-kit/commit/e9d5561092d18d3500a5e1c683f1a1b8f00122d5))
 - **react:** add Cypress tests for icon button variants with tooltip ([04b06f5](https://github.com/mi6/ic-ui-kit/commit/04b06f58046b713f5b8f552587c821ce88b82ba0))
+- **react:** adds theme playground for testing dark mode ([723fe46](https://github.com/mi6/ic-ui-kit/commit/723fe462dddc7d76b45d69f429fd10579e1c545e))
+- **react:** improve component prop names ([268e75f](https://github.com/mi6/ic-ui-kit/commit/268e75f57cb953050283634171a9da2f1ace911b))
+- **react:** remove references to deprecated props ([cb4ade4](https://github.com/mi6/ic-ui-kit/commit/cb4ade45dce5f434685a85c6af6c6b694528d6ea)), closes [#230](https://github.com/mi6/ic-ui-kit/issues/230)
+- **react:** update Cypress visual regression test baseline images ([b641bb4](https://github.com/mi6/ic-ui-kit/commit/b641bb478351fa47f1757fd1c8752034d1365330))
+- **react:** update usage of sideNavExpanded and topNavResized events to use new names ([63b533c](https://github.com/mi6/ic-ui-kit/commit/63b533c3c55cc2c98bc132afc45a97dccaad95fd)), closes [.#1354](https://github.com/./issues/1354)
+- **react:** updated radio cypress tests to remove shadow reference ([9f8b426](https://github.com/mi6/ic-ui-kit/commit/9f8b4264c55072b260c3e88558df8c7b9d98a01f))
+
+### Tests
+
+- **react:** edit Cypress test files to account for v3 changes ([f6e5035](https://github.com/mi6/ic-ui-kit/commit/f6e50359e892291045431b0198899d0871690a05))
+- **react:** update Cypress test files with v3 changes and generate missing VR images ([5f5d910](https://github.com/mi6/ic-ui-kit/commit/5f5d910632973f47eb99c008d548c9487e7ed7ea))
+- **react:** update test data files to use v3 prop names and fix failing tests ([c60810e](https://github.com/mi6/ic-ui-kit/commit/c60810eae40d6a86a29042b5632b0b41d12078fd))
+
+### BREAKING CHANGES
+
+- **react:** IcCard renamed to IcCardVertical, IcPagination adjacentCount and boundaryCount
+  props renamed to adjacentPageCount and boundaryPageCount respectively, IcEmptyState bodyMaxLines
+  prop renamed to maxLines, IcFooter groupTitle prop renamed to label, IcRadio disabled class renamed
+  to ic-radio-option-disabled
+- **react:** Renaming IcCard to IcCardVertical and IcDataEntity to IcDataList
+- **react:** IcCard renamed to IcCardVertical
+- **react:** Accordion group 'groupTitle' renamed to 'label' and badge 'textLabel' renamed to
+  'label'
+- **react:** Deprecated props/slots/methods/events removed.
+- **react:** component now uses an ic-button under the covers, so internal structure has changed
+- **react:** This change involves a component name change from data-entity to data-list
+- **react:** Accordion group and footer link group “groupTitle” renamed to “label”, badge
+  “textLabel” renamed to “label”, empty state “bodyMaxLines” renamed to “maxLines”, input label
+  “error” renamed to “status” with error as an option, pagination “boundaryCount” and “adjacentCount”
+  renamed to “boundaryPageCount” and “adjacentPageCount”, search bar and select “disableFilter”
+  renamed to “disableAutoFiltering”, search bar “hintText” renamed to “assistiveHintText”, step props
+  had the word “step” removed from the start e.g “stepStatus” renamed to “status”, toggle button
+  “toggleChecked” renamed to “checked”.
+- **react:** Since radio is no longer a shadow component, the old tests will no longer work
 
 # [2.26.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.25.1...@ukic/react@2.26.0) (2024-08-21)
 
