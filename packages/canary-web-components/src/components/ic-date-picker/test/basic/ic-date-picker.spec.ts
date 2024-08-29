@@ -495,6 +495,21 @@ describe("ic-date-picker", () => {
     ).toBe(true);
   });
 
+  it("should test invalidDateMessage", async () => {
+    const page = await newSpecPage({
+      components: [DatePicker, DateInput, Button, Tooltip],
+      html: `<ic-date-picker label="Date picker label" invalid-date-message="Invalid date"></ic-date-picker>`,
+    });
+    await page.waitForChanges();
+
+    page.rootInstance.setSelectedDate(new Date(2000, 13, 25));
+    await page.waitForChanges();
+
+    expect(page.rootInstance.dateInputProps.invalidDateMessage).toEqual(
+      "Invalid date"
+    );
+  });
+
   it("should close picker when another element clicked", async () => {
     const page = await newSpecPage({
       components: [DatePicker, DateInput, Button, Tooltip],

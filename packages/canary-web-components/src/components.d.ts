@@ -242,6 +242,10 @@ export namespace Components {
          */
         "inputId"?: string;
         /**
+          * The text to display as the validation message when an invalid date is entered.
+         */
+        "invalidDateMessage"?: string;
+        /**
           * The label for the date input.
          */
         "label": string;
@@ -331,6 +335,10 @@ export namespace Components {
           * The ID for the input field. The default will be an automatically generated value.
          */
         "inputId"?: string;
+        /**
+          * The text to display as the validation message when an invalid date is entered.
+         */
+        "invalidDateMessage"?: string;
         /**
           * The label for the date input.
          */
@@ -1122,6 +1130,10 @@ declare namespace LocalJSX {
          */
         "inputId"?: string;
         /**
+          * The text to display as the validation message when an invalid date is entered.
+         */
+        "invalidDateMessage"?: string;
+        /**
           * The label for the date input.
          */
         "label": string;
@@ -1221,6 +1233,10 @@ declare namespace LocalJSX {
           * The ID for the input field. The default will be an automatically generated value.
          */
         "inputId"?: string;
+        /**
+          * The text to display as the validation message when an invalid date is entered.
+         */
+        "invalidDateMessage"?: string;
         /**
           * The label for the date input.
          */
