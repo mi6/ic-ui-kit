@@ -44,6 +44,9 @@ const PREV_DECADE_BUTTON_ID = "#prev-decade-button";
 const NEXT_DECADE_BUTTON_ID = "#next-decade-button";
 const TOOLTIP = "ic-tooltip";
 const TOOLTIP_CONTAINER = ".ic-tooltip-container";
+const YEAR_INPUT_ARIA_LABEL = 'input[aria-label="year"]';
+const DAY_INPUT_ARIA_LABEL = 'input[aria-label="day"]';
+const MONTH_INPUT_ARIA_LABEL = 'input[aria-label="month"]';
 
 const ATTR_ARIA_LABEL = "aria-label";
 
@@ -2318,6 +2321,32 @@ describe("IcDatePickers", () => {
           .find(BUTTON)
           .should("not.be.disabled");
       });
+  });
+
+  it("should test 'invalidDateMessage' prop", () => {
+    const msg = "Invalid date.";
+    mount(<IcDatePicker label={DEFAULT_LABEL} invalidDateMessage={msg} />);
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(DAY_INPUT_ARIA_LABEL)
+      .type("18");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(MONTH_INPUT_ARIA_LABEL)
+      .type("14");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(YEAR_INPUT_ARIA_LABEL)
+      .type("2000")
+      .wait(200);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(INPUT_VALIDATION)
+      .should(CONTAIN_TEXT, msg);
   });
 
   it("should test 'disableDays' prop", () => {
