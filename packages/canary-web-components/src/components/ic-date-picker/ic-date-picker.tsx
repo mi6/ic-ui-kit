@@ -62,6 +62,7 @@ interface IcDateInputProps {
   helperText?: string;
   hideHelperText?: boolean;
   inputId?: string;
+  invalidDateMessage?: string;
   label: string;
   max?: string | Date;
   min?: string | Date;
@@ -193,6 +194,11 @@ export class DatePicker {
    * The ID for the input field. The default will be an automatically generated value.
    */
   @Prop() inputId?: string;
+
+  /**
+   * The text to display as the validation message when an invalid date is entered.
+   */
+  @Prop() invalidDateMessage?: string = "Please enter a valid date.";
 
   /**
    * The label for the date input.
@@ -1216,6 +1222,7 @@ export class DatePicker {
 
   private setDateInputProps = (): IcDateInputProps => {
     const inputProps: IcDateInputProps = {
+      invalidDateMessage: this.invalidDateMessage,
       label: this.label,
       showClearButton: true,
       showCalendarButton: true,
