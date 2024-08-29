@@ -764,7 +764,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-back-to-top",
+          "annotation": "prop",
+          "docs": "z-index of back to top"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -2234,7 +2240,18 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--height",
+          "annotation": "prop",
+          "docs": "The height of the button."
+        },
+        {
+          "name": "--min-width",
+          "annotation": "prop",
+          "docs": "Minimum width of the button."
+        }
+      ],
       "slots": [
         {
           "name": "badge",
@@ -3901,7 +3918,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-classification-banner",
+          "annotation": "prop",
+          "docs": "z-index of classification banner"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -3918,7 +3941,7 @@
       "filePath": "src/components/ic-data-list/ic-data-list.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-entity",
-      "readme": "# ic-data-entity\r\n\r\n\r\n\r",
+      "readme": "# ic-data-entity\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4524,7 +4547,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-dialog",
+          "annotation": "prop",
+          "docs": "z-index of dialog"
+        }
+      ],
       "slots": [
         {
           "name": "alert",
@@ -5953,7 +5982,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--border-color",
+          "annotation": "prop",
+          "docs": "Border colour of the input component container"
+        }
+      ],
       "slots": [
         {
           "name": "left-icon",
@@ -7016,7 +7051,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--circular-diameter",
+          "annotation": "prop",
+          "docs": "Diameter of the circular-indicator"
+        }
+      ],
       "slots": [],
       "parts": [
         {
@@ -7437,7 +7478,13 @@
       ],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-menu",
+          "annotation": "prop",
+          "docs": "z-index of menu"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [
@@ -8244,7 +8291,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-navigation-item",
+          "annotation": "prop",
+          "docs": "z-index of navigation group item"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -8524,7 +8577,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-navigation-item",
+          "annotation": "prop",
+          "docs": "z-index of navigation item"
+        }
+      ],
       "slots": [
         {
           "name": "badge",
@@ -8634,7 +8693,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-navigation-menu",
+          "annotation": "prop",
+          "docs": "z-index of navigation menu"
+        }
+      ],
       "slots": [
         {
           "name": "buttons",
@@ -8919,7 +8984,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-page-header",
+          "annotation": "prop",
+          "docs": "z-index of page-header"
+        }
+      ],
       "slots": [
         {
           "name": "actions",
@@ -9662,7 +9733,23 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-popover",
+          "annotation": "prop",
+          "docs": "z-index of popover menu."
+        },
+        {
+          "name": "--max-height",
+          "annotation": "prop",
+          "docs": "Maximum height of the popover menu."
+        },
+        {
+          "name": "--popover-width",
+          "annotation": "prop",
+          "docs": "Default width of the popover menu."
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -10373,10 +10460,10 @@
         },
         {
           "name": "autocomplete",
-          "type": "\"name\" | \"on\" | \"off\" | \"additional-name\" | \"address-level1\" | \"address-level2\" | \"address-level3\" | \"address-level4\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"cc-csc\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-family-name\" | \"cc-given-name\" | \"cc-name\" | \"cc-number\" | \"cc-type\" | \"country\" | \"country-name\" | \"current-password\" | \"family-name\" | \"given-name\" | \"honorific-prefix\" | \"honorific-suffix\" | \"new-password\" | \"one-time-code\" | \"organization\" | \"postal-code\" | \"street-address\" | \"transaction-amount\" | \"transaction-currency\" | \"username\" | \"email\" | \"tel\" | \"tel-area-code\" | \"tel-country-code\" | \"tel-extension\" | \"tel-local\" | \"tel-national\" | \"nickname\" | \"organization-title\" | \"cc-additional-name\" | \"language\" | \"bday\" | \"sex\" | \"impp\" | \"url\" | \"photo\"",
+          "type": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
           "complexType": {
             "original": "IcAutocompleteTypes",
-            "resolved": "\"name\" | \"on\" | \"off\" | \"additional-name\" | \"address-level1\" | \"address-level2\" | \"address-level3\" | \"address-level4\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"cc-csc\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-family-name\" | \"cc-given-name\" | \"cc-name\" | \"cc-number\" | \"cc-type\" | \"country\" | \"country-name\" | \"current-password\" | \"family-name\" | \"given-name\" | \"honorific-prefix\" | \"honorific-suffix\" | \"new-password\" | \"one-time-code\" | \"organization\" | \"postal-code\" | \"street-address\" | \"transaction-amount\" | \"transaction-currency\" | \"username\" | \"email\" | \"tel\" | \"tel-area-code\" | \"tel-country-code\" | \"tel-extension\" | \"tel-local\" | \"tel-national\" | \"nickname\" | \"organization-title\" | \"cc-additional-name\" | \"language\" | \"bday\" | \"sex\" | \"impp\" | \"url\" | \"photo\"",
+            "resolved": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
             "references": {
               "IcAutocompleteTypes": {
                 "location": "import",
@@ -10401,23 +10488,59 @@
               "type": "string"
             },
             {
+              "value": "honorific-prefix",
+              "type": "string"
+            },
+            {
+              "value": "given-name",
+              "type": "string"
+            },
+            {
               "value": "additional-name",
               "type": "string"
             },
             {
-              "value": "address-level1",
+              "value": "family-name",
               "type": "string"
             },
             {
-              "value": "address-level2",
+              "value": "honorific-suffix",
               "type": "string"
             },
             {
-              "value": "address-level3",
+              "value": "nickname",
               "type": "string"
             },
             {
-              "value": "address-level4",
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "username",
+              "type": "string"
+            },
+            {
+              "value": "new-password",
+              "type": "string"
+            },
+            {
+              "value": "current-password",
+              "type": "string"
+            },
+            {
+              "value": "one-time-code",
+              "type": "string"
+            },
+            {
+              "value": "organization-title",
+              "type": "string"
+            },
+            {
+              "value": "organization",
+              "type": "string"
+            },
+            {
+              "value": "street-address",
               "type": "string"
             },
             {
@@ -10433,19 +10556,51 @@
               "type": "string"
             },
             {
-              "value": "bday-day",
+              "value": "address-level4",
               "type": "string"
             },
             {
-              "value": "bday-month",
+              "value": "address-level3",
               "type": "string"
             },
             {
-              "value": "bday-year",
+              "value": "address-level2",
               "type": "string"
             },
             {
-              "value": "cc-csc",
+              "value": "address-level1",
+              "type": "string"
+            },
+            {
+              "value": "country",
+              "type": "string"
+            },
+            {
+              "value": "country-name",
+              "type": "string"
+            },
+            {
+              "value": "postal-code",
+              "type": "string"
+            },
+            {
+              "value": "cc-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-given-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-additional-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-family-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-number",
               "type": "string"
             },
             {
@@ -10461,19 +10616,7 @@
               "type": "string"
             },
             {
-              "value": "cc-family-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-given-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-number",
+              "value": "cc-csc",
               "type": "string"
             },
             {
@@ -10481,103 +10624,11 @@
               "type": "string"
             },
             {
-              "value": "country",
-              "type": "string"
-            },
-            {
-              "value": "country-name",
-              "type": "string"
-            },
-            {
-              "value": "current-password",
-              "type": "string"
-            },
-            {
-              "value": "family-name",
-              "type": "string"
-            },
-            {
-              "value": "given-name",
-              "type": "string"
-            },
-            {
-              "value": "honorific-prefix",
-              "type": "string"
-            },
-            {
-              "value": "honorific-suffix",
-              "type": "string"
-            },
-            {
-              "value": "new-password",
-              "type": "string"
-            },
-            {
-              "value": "one-time-code",
-              "type": "string"
-            },
-            {
-              "value": "organization",
-              "type": "string"
-            },
-            {
-              "value": "postal-code",
-              "type": "string"
-            },
-            {
-              "value": "street-address",
-              "type": "string"
-            },
-            {
-              "value": "transaction-amount",
-              "type": "string"
-            },
-            {
               "value": "transaction-currency",
               "type": "string"
             },
             {
-              "value": "username",
-              "type": "string"
-            },
-            {
-              "value": "email",
-              "type": "string"
-            },
-            {
-              "value": "tel",
-              "type": "string"
-            },
-            {
-              "value": "tel-area-code",
-              "type": "string"
-            },
-            {
-              "value": "tel-country-code",
-              "type": "string"
-            },
-            {
-              "value": "tel-extension",
-              "type": "string"
-            },
-            {
-              "value": "tel-local",
-              "type": "string"
-            },
-            {
-              "value": "tel-national",
-              "type": "string"
-            },
-            {
-              "value": "nickname",
-              "type": "string"
-            },
-            {
-              "value": "organization-title",
-              "type": "string"
-            },
-            {
-              "value": "cc-additional-name",
+              "value": "transaction-amount",
               "type": "string"
             },
             {
@@ -10589,7 +10640,43 @@
               "type": "string"
             },
             {
+              "value": "bday-day",
+              "type": "string"
+            },
+            {
+              "value": "bday-month",
+              "type": "string"
+            },
+            {
+              "value": "bday-year",
+              "type": "string"
+            },
+            {
               "value": "sex",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "tel-country-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-national",
+              "type": "string"
+            },
+            {
+              "value": "tel-area-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-local",
+              "type": "string"
+            },
+            {
+              "value": "tel-extension",
               "type": "string"
             },
             {
@@ -11451,7 +11538,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-menu",
+          "annotation": "prop",
+          "docs": "z-index of search bar menu"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -12450,7 +12543,18 @@
         }
       ],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-menu",
+          "annotation": "prop",
+          "docs": "z-index of select menu"
+        },
+        {
+          "name": "--input-width",
+          "annotation": "prop",
+          "docs": "Width of the input field"
+        }
+      ],
       "slots": [
         {
           "name": "icon",
@@ -12776,7 +12880,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-side-navigation",
+          "annotation": "prop",
+          "docs": "z-index of side navigation panel"
+        }
+      ],
       "slots": [
         {
           "name": "app-icon",
@@ -14129,10 +14239,10 @@
         },
         {
           "name": "autocomplete",
-          "type": "\"name\" | \"on\" | \"off\" | \"additional-name\" | \"address-level1\" | \"address-level2\" | \"address-level3\" | \"address-level4\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"cc-csc\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-family-name\" | \"cc-given-name\" | \"cc-name\" | \"cc-number\" | \"cc-type\" | \"country\" | \"country-name\" | \"current-password\" | \"family-name\" | \"given-name\" | \"honorific-prefix\" | \"honorific-suffix\" | \"new-password\" | \"one-time-code\" | \"organization\" | \"postal-code\" | \"street-address\" | \"transaction-amount\" | \"transaction-currency\" | \"username\" | \"email\" | \"tel\" | \"tel-area-code\" | \"tel-country-code\" | \"tel-extension\" | \"tel-local\" | \"tel-national\" | \"nickname\" | \"organization-title\" | \"cc-additional-name\" | \"language\" | \"bday\" | \"sex\" | \"impp\" | \"url\" | \"photo\"",
+          "type": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
           "complexType": {
             "original": "IcAutocompleteTypes",
-            "resolved": "\"name\" | \"on\" | \"off\" | \"additional-name\" | \"address-level1\" | \"address-level2\" | \"address-level3\" | \"address-level4\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"cc-csc\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-family-name\" | \"cc-given-name\" | \"cc-name\" | \"cc-number\" | \"cc-type\" | \"country\" | \"country-name\" | \"current-password\" | \"family-name\" | \"given-name\" | \"honorific-prefix\" | \"honorific-suffix\" | \"new-password\" | \"one-time-code\" | \"organization\" | \"postal-code\" | \"street-address\" | \"transaction-amount\" | \"transaction-currency\" | \"username\" | \"email\" | \"tel\" | \"tel-area-code\" | \"tel-country-code\" | \"tel-extension\" | \"tel-local\" | \"tel-national\" | \"nickname\" | \"organization-title\" | \"cc-additional-name\" | \"language\" | \"bday\" | \"sex\" | \"impp\" | \"url\" | \"photo\"",
+            "resolved": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
             "references": {
               "IcAutocompleteTypes": {
                 "location": "import",
@@ -14157,23 +14267,59 @@
               "type": "string"
             },
             {
+              "value": "honorific-prefix",
+              "type": "string"
+            },
+            {
+              "value": "given-name",
+              "type": "string"
+            },
+            {
               "value": "additional-name",
               "type": "string"
             },
             {
-              "value": "address-level1",
+              "value": "family-name",
               "type": "string"
             },
             {
-              "value": "address-level2",
+              "value": "honorific-suffix",
               "type": "string"
             },
             {
-              "value": "address-level3",
+              "value": "nickname",
               "type": "string"
             },
             {
-              "value": "address-level4",
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "username",
+              "type": "string"
+            },
+            {
+              "value": "new-password",
+              "type": "string"
+            },
+            {
+              "value": "current-password",
+              "type": "string"
+            },
+            {
+              "value": "one-time-code",
+              "type": "string"
+            },
+            {
+              "value": "organization-title",
+              "type": "string"
+            },
+            {
+              "value": "organization",
+              "type": "string"
+            },
+            {
+              "value": "street-address",
               "type": "string"
             },
             {
@@ -14189,19 +14335,51 @@
               "type": "string"
             },
             {
-              "value": "bday-day",
+              "value": "address-level4",
               "type": "string"
             },
             {
-              "value": "bday-month",
+              "value": "address-level3",
               "type": "string"
             },
             {
-              "value": "bday-year",
+              "value": "address-level2",
               "type": "string"
             },
             {
-              "value": "cc-csc",
+              "value": "address-level1",
+              "type": "string"
+            },
+            {
+              "value": "country",
+              "type": "string"
+            },
+            {
+              "value": "country-name",
+              "type": "string"
+            },
+            {
+              "value": "postal-code",
+              "type": "string"
+            },
+            {
+              "value": "cc-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-given-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-additional-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-family-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-number",
               "type": "string"
             },
             {
@@ -14217,19 +14395,7 @@
               "type": "string"
             },
             {
-              "value": "cc-family-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-given-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-number",
+              "value": "cc-csc",
               "type": "string"
             },
             {
@@ -14237,103 +14403,11 @@
               "type": "string"
             },
             {
-              "value": "country",
-              "type": "string"
-            },
-            {
-              "value": "country-name",
-              "type": "string"
-            },
-            {
-              "value": "current-password",
-              "type": "string"
-            },
-            {
-              "value": "family-name",
-              "type": "string"
-            },
-            {
-              "value": "given-name",
-              "type": "string"
-            },
-            {
-              "value": "honorific-prefix",
-              "type": "string"
-            },
-            {
-              "value": "honorific-suffix",
-              "type": "string"
-            },
-            {
-              "value": "new-password",
-              "type": "string"
-            },
-            {
-              "value": "one-time-code",
-              "type": "string"
-            },
-            {
-              "value": "organization",
-              "type": "string"
-            },
-            {
-              "value": "postal-code",
-              "type": "string"
-            },
-            {
-              "value": "street-address",
-              "type": "string"
-            },
-            {
-              "value": "transaction-amount",
-              "type": "string"
-            },
-            {
               "value": "transaction-currency",
               "type": "string"
             },
             {
-              "value": "username",
-              "type": "string"
-            },
-            {
-              "value": "email",
-              "type": "string"
-            },
-            {
-              "value": "tel",
-              "type": "string"
-            },
-            {
-              "value": "tel-area-code",
-              "type": "string"
-            },
-            {
-              "value": "tel-country-code",
-              "type": "string"
-            },
-            {
-              "value": "tel-extension",
-              "type": "string"
-            },
-            {
-              "value": "tel-local",
-              "type": "string"
-            },
-            {
-              "value": "tel-national",
-              "type": "string"
-            },
-            {
-              "value": "nickname",
-              "type": "string"
-            },
-            {
-              "value": "organization-title",
-              "type": "string"
-            },
-            {
-              "value": "cc-additional-name",
+              "value": "transaction-amount",
               "type": "string"
             },
             {
@@ -14345,7 +14419,43 @@
               "type": "string"
             },
             {
+              "value": "bday-day",
+              "type": "string"
+            },
+            {
+              "value": "bday-month",
+              "type": "string"
+            },
+            {
+              "value": "bday-year",
+              "type": "string"
+            },
+            {
               "value": "sex",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "tel-country-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-national",
+              "type": "string"
+            },
+            {
+              "value": "tel-area-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-local",
+              "type": "string"
+            },
+            {
+              "value": "tel-extension",
               "type": "string"
             },
             {
@@ -15558,7 +15668,13 @@
           "passive": true
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-toast",
+          "annotation": "prop",
+          "docs": "z-index of toast"
+        }
+      ],
       "slots": [
         {
           "name": "action",
@@ -16538,7 +16654,13 @@
       ],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-tooltip",
+          "annotation": "prop",
+          "docs": "z-index of tooltip"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [
