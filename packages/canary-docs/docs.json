@@ -1585,6 +1585,28 @@
           "required": false
         },
         {
+          "name": "invalidDateMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "invalid-date-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message when an invalid date is entered.",
+          "docsTags": [],
+          "default": "\"Please enter a valid date.\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "label",
           "type": "string",
           "complexType": {
@@ -2257,6 +2279,28 @@
           "reflectToAttr": false,
           "docs": "The ID for the input field. The default will be an automatically generated value.",
           "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "invalidDateMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "invalid-date-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message when an invalid date is entered.",
+          "docsTags": [],
+          "default": "\"Please enter a valid date.\"",
           "values": [
             {
               "type": "string"
