@@ -3918,7 +3918,7 @@
       "filePath": "src/components/ic-data-list/ic-data-list.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-entity",
-      "readme": "# ic-data-entity\r\n\r\n\r\n\r",
+      "readme": "# ic-data-entity\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -10417,19 +10417,47 @@
               "type": "string"
             },
             {
-              "value": "address-level1",
+              "value": "family-name",
               "type": "string"
             },
             {
-              "value": "address-level2",
+              "value": "honorific-suffix",
               "type": "string"
             },
             {
-              "value": "address-level3",
+              "value": "nickname",
               "type": "string"
             },
             {
-              "value": "address-level4",
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "username",
+              "type": "string"
+            },
+            {
+              "value": "new-password",
+              "type": "string"
+            },
+            {
+              "value": "current-password",
+              "type": "string"
+            },
+            {
+              "value": "one-time-code",
+              "type": "string"
+            },
+            {
+              "value": "organization-title",
+              "type": "string"
+            },
+            {
+              "value": "organization",
+              "type": "string"
+            },
+            {
+              "value": "street-address",
               "type": "string"
             },
             {
@@ -10445,19 +10473,51 @@
               "type": "string"
             },
             {
-              "value": "bday-day",
+              "value": "address-level4",
               "type": "string"
             },
             {
-              "value": "bday-month",
+              "value": "address-level3",
               "type": "string"
             },
             {
-              "value": "bday-year",
+              "value": "address-level2",
               "type": "string"
             },
             {
-              "value": "cc-csc",
+              "value": "address-level1",
+              "type": "string"
+            },
+            {
+              "value": "country",
+              "type": "string"
+            },
+            {
+              "value": "country-name",
+              "type": "string"
+            },
+            {
+              "value": "postal-code",
+              "type": "string"
+            },
+            {
+              "value": "cc-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-given-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-additional-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-family-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-number",
               "type": "string"
             },
             {
@@ -10473,19 +10533,7 @@
               "type": "string"
             },
             {
-              "value": "cc-family-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-given-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-number",
+              "value": "cc-csc",
               "type": "string"
             },
             {
@@ -10493,103 +10541,11 @@
               "type": "string"
             },
             {
-              "value": "country",
-              "type": "string"
-            },
-            {
-              "value": "country-name",
-              "type": "string"
-            },
-            {
-              "value": "current-password",
-              "type": "string"
-            },
-            {
-              "value": "family-name",
-              "type": "string"
-            },
-            {
-              "value": "given-name",
-              "type": "string"
-            },
-            {
-              "value": "honorific-prefix",
-              "type": "string"
-            },
-            {
-              "value": "honorific-suffix",
-              "type": "string"
-            },
-            {
-              "value": "new-password",
-              "type": "string"
-            },
-            {
-              "value": "one-time-code",
-              "type": "string"
-            },
-            {
-              "value": "organization",
-              "type": "string"
-            },
-            {
-              "value": "postal-code",
-              "type": "string"
-            },
-            {
-              "value": "street-address",
-              "type": "string"
-            },
-            {
-              "value": "transaction-amount",
-              "type": "string"
-            },
-            {
               "value": "transaction-currency",
               "type": "string"
             },
             {
-              "value": "username",
-              "type": "string"
-            },
-            {
-              "value": "email",
-              "type": "string"
-            },
-            {
-              "value": "tel",
-              "type": "string"
-            },
-            {
-              "value": "tel-area-code",
-              "type": "string"
-            },
-            {
-              "value": "tel-country-code",
-              "type": "string"
-            },
-            {
-              "value": "tel-extension",
-              "type": "string"
-            },
-            {
-              "value": "tel-local",
-              "type": "string"
-            },
-            {
-              "value": "tel-national",
-              "type": "string"
-            },
-            {
-              "value": "nickname",
-              "type": "string"
-            },
-            {
-              "value": "organization-title",
-              "type": "string"
-            },
-            {
-              "value": "cc-additional-name",
+              "value": "transaction-amount",
               "type": "string"
             },
             {
@@ -10601,7 +10557,43 @@
               "type": "string"
             },
             {
+              "value": "bday-day",
+              "type": "string"
+            },
+            {
+              "value": "bday-month",
+              "type": "string"
+            },
+            {
+              "value": "bday-year",
+              "type": "string"
+            },
+            {
               "value": "sex",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "tel-country-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-national",
+              "type": "string"
+            },
+            {
+              "value": "tel-area-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-local",
+              "type": "string"
+            },
+            {
+              "value": "tel-extension",
               "type": "string"
             },
             {
@@ -14185,19 +14177,47 @@
               "type": "string"
             },
             {
-              "value": "address-level1",
+              "value": "family-name",
               "type": "string"
             },
             {
-              "value": "address-level2",
+              "value": "honorific-suffix",
               "type": "string"
             },
             {
-              "value": "address-level3",
+              "value": "nickname",
               "type": "string"
             },
             {
-              "value": "address-level4",
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "username",
+              "type": "string"
+            },
+            {
+              "value": "new-password",
+              "type": "string"
+            },
+            {
+              "value": "current-password",
+              "type": "string"
+            },
+            {
+              "value": "one-time-code",
+              "type": "string"
+            },
+            {
+              "value": "organization-title",
+              "type": "string"
+            },
+            {
+              "value": "organization",
+              "type": "string"
+            },
+            {
+              "value": "street-address",
               "type": "string"
             },
             {
@@ -14213,19 +14233,51 @@
               "type": "string"
             },
             {
-              "value": "bday-day",
+              "value": "address-level4",
               "type": "string"
             },
             {
-              "value": "bday-month",
+              "value": "address-level3",
               "type": "string"
             },
             {
-              "value": "bday-year",
+              "value": "address-level2",
               "type": "string"
             },
             {
-              "value": "cc-csc",
+              "value": "address-level1",
+              "type": "string"
+            },
+            {
+              "value": "country",
+              "type": "string"
+            },
+            {
+              "value": "country-name",
+              "type": "string"
+            },
+            {
+              "value": "postal-code",
+              "type": "string"
+            },
+            {
+              "value": "cc-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-given-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-additional-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-family-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-number",
               "type": "string"
             },
             {
@@ -14241,19 +14293,7 @@
               "type": "string"
             },
             {
-              "value": "cc-family-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-given-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-name",
-              "type": "string"
-            },
-            {
-              "value": "cc-number",
+              "value": "cc-csc",
               "type": "string"
             },
             {
@@ -14261,103 +14301,11 @@
               "type": "string"
             },
             {
-              "value": "country",
-              "type": "string"
-            },
-            {
-              "value": "country-name",
-              "type": "string"
-            },
-            {
-              "value": "current-password",
-              "type": "string"
-            },
-            {
-              "value": "family-name",
-              "type": "string"
-            },
-            {
-              "value": "given-name",
-              "type": "string"
-            },
-            {
-              "value": "honorific-prefix",
-              "type": "string"
-            },
-            {
-              "value": "honorific-suffix",
-              "type": "string"
-            },
-            {
-              "value": "new-password",
-              "type": "string"
-            },
-            {
-              "value": "one-time-code",
-              "type": "string"
-            },
-            {
-              "value": "organization",
-              "type": "string"
-            },
-            {
-              "value": "postal-code",
-              "type": "string"
-            },
-            {
-              "value": "street-address",
-              "type": "string"
-            },
-            {
-              "value": "transaction-amount",
-              "type": "string"
-            },
-            {
               "value": "transaction-currency",
               "type": "string"
             },
             {
-              "value": "username",
-              "type": "string"
-            },
-            {
-              "value": "email",
-              "type": "string"
-            },
-            {
-              "value": "tel",
-              "type": "string"
-            },
-            {
-              "value": "tel-area-code",
-              "type": "string"
-            },
-            {
-              "value": "tel-country-code",
-              "type": "string"
-            },
-            {
-              "value": "tel-extension",
-              "type": "string"
-            },
-            {
-              "value": "tel-local",
-              "type": "string"
-            },
-            {
-              "value": "tel-national",
-              "type": "string"
-            },
-            {
-              "value": "nickname",
-              "type": "string"
-            },
-            {
-              "value": "organization-title",
-              "type": "string"
-            },
-            {
-              "value": "cc-additional-name",
+              "value": "transaction-amount",
               "type": "string"
             },
             {
@@ -14369,7 +14317,43 @@
               "type": "string"
             },
             {
+              "value": "bday-day",
+              "type": "string"
+            },
+            {
+              "value": "bday-month",
+              "type": "string"
+            },
+            {
+              "value": "bday-year",
+              "type": "string"
+            },
+            {
               "value": "sex",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "tel-country-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-national",
+              "type": "string"
+            },
+            {
+              "value": "tel-area-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-local",
+              "type": "string"
+            },
+            {
+              "value": "tel-extension",
               "type": "string"
             },
             {
