@@ -403,6 +403,31 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should("have.focus");
   });
 
+  it("should display custom invalidDateMessage", () => {
+    mount(<IcDateInput label="Test Label" invalidDateMessage="Invalid date" />);
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("14");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000").wait(200);
+
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
+      HAVE_TEXT,
+      "Invalid date"
+    );
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-with-custom-invalid-date-message",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.018),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
   it("should display custom disabledDaysMessage if disabled day is set", () => {
     mount(
       <IcDateInput
