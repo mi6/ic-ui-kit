@@ -1039,6 +1039,19 @@ describe("ic-date-input component", () => {
         "Please enter a valid date."
       );
     });
+    it("should set invalidDateText to invalidDateMessage if date (month) is not valid", async () => {
+      const { componentInstance } = await createDateInputEnv();
+
+      componentInstance.invalidDateMessage = "Invalid date";
+
+      componentInstance.day = "1";
+      componentInstance.month = "13";
+      componentInstance.year = "2000";
+
+      componentInstance.setValidationMessage();
+
+      expect(componentInstance.invalidDateText).toBe("Invalid date");
+    });
     it("should set invalidDateText as empty string if date is not complete", async () => {
       const { componentInstance } = await createDateInputEnv();
 
