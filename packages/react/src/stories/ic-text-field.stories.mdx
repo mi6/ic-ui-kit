@@ -165,6 +165,32 @@ export const ControlledExample = () => {
   </Story>
 </Canvas>
 
+### Max length message
+
+<Canvas>
+  <Story name="Max length message">
+    <IcTextField
+      maxLength="25"
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+      maxLengthMessage="You have exceeded the maximum length"
+    />
+    <IcTextField
+      rows="6"
+      maxLength="25"
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+      maxLengthMessage="You have exceeded the maximum length"
+    />
+  </Story>
+</Canvas>
+
 ### Full width
 
 <Canvas>
@@ -495,6 +521,7 @@ export const defaultArgs = {
   label: "Text Field",
   maxCharacters: 0,
   maxLength: 0,
+  maxLengthMessage: "Too many characters",
   minCharacters: 0,
   name: "0",
   placeholder: "",
@@ -555,6 +582,7 @@ export const defaultArgs = {
         max={args.max}
         maxCharacters={args.maxCharacters}
         maxLength={args.maxLength}
+        maxLengthMessage={args.maxLengthMessage}
         min={args.min}
         minCharacters={args.minCharacters}
         name={args.name}
