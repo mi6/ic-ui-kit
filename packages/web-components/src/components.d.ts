@@ -2094,6 +2094,10 @@ export namespace Components {
          */
         "maxLength": number;
         /**
+          * The text to display as the validation message when the maximum length is exceeded.
+         */
+        "maxLengthMessage": string;
+        /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
         "min": string | number;
@@ -5523,6 +5527,10 @@ declare namespace LocalJSX {
           * The count of characters in the field. Will display a warning if the bound is reached.
          */
         "maxLength"?: number;
+        /**
+          * The text to display as the validation message when the maximum length is exceeded.
+         */
+        "maxLengthMessage"?: string;
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
