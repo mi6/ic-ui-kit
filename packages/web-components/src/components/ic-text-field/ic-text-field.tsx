@@ -172,6 +172,11 @@ export class TextField {
   @Prop() maxLength: number = 0;
 
   /**
+   * The text to display as the validation message when the maximum length is exceeded.
+   */
+  @Prop() maxLengthMessage: string = "Maximum length exceeded";
+
+  /**
    * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
    */
   @Prop() min: string | number = undefined;
@@ -503,7 +508,7 @@ export class TextField {
         : validationStatus;
 
     const currentValidationText = maxLengthExceeded
-      ? "Maximum length exceeded"
+      ? this.maxLengthMessage
       : maxCharactersError
       ? `Maximum input is ${maxCharacters} characters`
       : maxValueExceeded
