@@ -14765,6 +14765,28 @@
           "required": false
         },
         {
+          "name": "maxLengthMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-length-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message when the maximum length is exceeded.",
+          "docsTags": [],
+          "default": "\"Maximum length exceeded\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "min",
           "type": "number | string",
           "complexType": {
