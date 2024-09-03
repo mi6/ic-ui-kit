@@ -1989,6 +1989,10 @@ export namespace Components {
           * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
         "color"?: IcColor;
+        /**
+          * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
+         */
+        "theme": "dark" | "light" | "system";
     }
     interface IcToast {
         /**
@@ -5230,6 +5234,10 @@ declare namespace LocalJSX {
          */
         "color"?: IcColor;
         "onThemeChange"?: (event: IcThemeCustomEvent<IcTheme>) => void;
+        /**
+          * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
+         */
+        "theme"?: "dark" | "light" | "system";
     }
     interface IcToast {
         /**
