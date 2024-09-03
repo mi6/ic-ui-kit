@@ -6,6 +6,7 @@ import {
   h,
   Watch,
   Prop,
+  State,
 } from "@stencil/core";
 
 import { IcColor, IcTheme } from "../../utils/types";
@@ -18,9 +19,10 @@ import {
 
 @Component({
   tag: "ic-theme",
-  shadow: true,
 })
 export class Theme {
+  @State() themeClass: string = "";
+
   /**
    * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
@@ -32,13 +34,41 @@ export class Theme {
   }
 
   /**
+   * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
+   */
+  @Prop() theme: "dark" | "light" | "system" = "light";
+
+  @Watch("theme")
+  watchThemePropHandler(): void {
+    this.darkModeChangeHandler();
+  }
+
+  /**
    * @internal Emitted when the theme is changed.
    */
   @Event() themeChange: EventEmitter<IcTheme>;
 
   componentWillLoad(): void {
+    this.darkModeChangeHandler();
     this.setThemeColor();
+
+    window.matchMedia &&
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", this.darkModeChangeHandler);
   }
+
+  private darkModeChangeHandler = (): void => {
+    if (this.theme === "system") {
+      this.themeClass =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "ic-theme-dark"
+          : "ic-theme-light";
+    } else {
+      this.themeClass = `ic-theme-${this.theme}`;
+    }
+  };
 
   private checkThemeColorContrast = (): void => {
     if (
@@ -72,6 +102,12 @@ export class Theme {
   };
 
   render() {
-    return <Host></Host>;
+    const { themeClass } = this;
+
+    return (
+      <Host class={themeClass}>
+        <slot></slot>
+      </Host>
+    );
   }
 }
