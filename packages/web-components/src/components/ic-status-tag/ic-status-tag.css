@@ -7,7 +7,9 @@
   display: inline-block;
   min-width: 2.5rem;
   text-align: center;
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-primary-text-light);
+
+  --ic-typography-color: currentcolor;
 }
 
 .small {
@@ -22,12 +24,12 @@
 
 .filled-neutral {
   background-color: var(--ic-architectural-700);
-  color: var(--ic-architectural-white);
+  color: var(--ic-color-primary-text-dark);
 }
 
 .filled-success {
   background-color: var(--ic-status-success);
-  color: var(--ic-architectural-white);
+  color: var(--ic-color-primary-text-dark);
 }
 
 .filled-warning {
@@ -36,7 +38,7 @@
 
 .filled-danger {
   background-color: var(--ic-status-error);
-  color: var(--ic-architectural-white);
+  color: var(--ic-color-primary-text-dark);
 }
 
 .outlined {
