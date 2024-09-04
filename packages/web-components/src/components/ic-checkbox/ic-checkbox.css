@@ -2,6 +2,9 @@
 
 :host(.ic-checkbox-disabled) {
   color: var(--ic-architectural-200);
+
+  --ic-typography-color: var(--ic-architectural-200);
+
   pointer-events: none;
 }
 
@@ -188,6 +191,9 @@
 
 .dynamic-text {
   color: var(--ic-action-default);
+
+  --ic-typography-color: var(--ic-action-default);
+
   margin-top: calc(var(--ic-space-sm) / 2);
   margin-bottom: var(--ic-space-xs);
   border-radius: 2%;

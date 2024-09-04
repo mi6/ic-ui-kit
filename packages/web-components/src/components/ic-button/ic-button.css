@@ -93,7 +93,7 @@
 
 :host(.ic-button-variant-primary.ic-button-light) .button,
 :host(.ic-button-variant-primary.ic-button-light) ::slotted(a) {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-primary-text-light);
 
   --button-default-hover: var(--ic-action-light-hover);
   --button-default-active: var(--ic-action-light-active);
@@ -101,6 +101,8 @@
 
 :host(.ic-button-variant-primary.ic-button-dark) .button,
 :host(.ic-button-variant-primary.ic-button-dark) ::slotted(a) {
+  color: var(--ic-color-primary-text-dark);
+
   --button-default-hover: var(--ic-action-dark-hover);
   --button-default-active: var(--ic-action-dark-active);
 }
@@ -327,7 +329,7 @@
 
 :host(.ic-button-variant-icon-primary.ic-button-light) .button,
 :host(.ic-button-variant-icon-primary.ic-button-light) ::slotted(a) {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-primary-text-light);
 }
 
 :host(.ic-button-variant-icon-primary.ic-button-light) .button:hover,
