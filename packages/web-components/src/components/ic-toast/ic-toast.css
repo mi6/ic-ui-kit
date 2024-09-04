@@ -38,7 +38,9 @@
   box-shadow: var(--ic-elevation-overlay);
   min-height: 3.5rem;
   background-color: var(--ic-architectural-800);
-  color: var(--ic-color-white-text);
+
+  --ic-typography-color: var(--ic-color-primary-text-dark);
+
   display: flex;
   align-items: center;
   position: relative;

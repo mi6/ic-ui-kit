@@ -20,7 +20,8 @@
   width: 12.5rem;
   min-width: 12.5rem;
   margin-right: var(--ic-space-md);
-  color: var(--ic-color-tertiary-text);
+
+  --ic-typography-color: var(--ic-color-tertiary-text);
 }
 
 .value {
