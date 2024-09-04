@@ -6837,20 +6837,23 @@
         },
         {
           "name": "label",
-          "type": "string",
+          "type": "string | string[]",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "string | string[]",
+            "resolved": "string | string[]",
             "references": {}
           },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The label to be displayed beneath the loading indicator.\nDisplay a changing label by separating multiple messages with forward slashes.",
+          "docs": "The label to be displayed beneath the loading indicator.\nDisplay a changing label by supplying an array of messages.",
           "docsTags": [],
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "string[]"
             }
           ],
           "optional": true,
