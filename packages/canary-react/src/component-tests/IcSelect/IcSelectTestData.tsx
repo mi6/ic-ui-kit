@@ -102,3 +102,15 @@ export const MultiSelectWithAllValues = () => {
     />
   );
 };
+
+export const MultiSelectWithClearButton = () => {
+  return (
+    <IcSelectWithMulti
+      label="What are your favourite types of coffee?"
+      options={OPTIONS}
+      multiple
+      showClearButton
+      value={["Cap"]}
+    />
+  );
+};

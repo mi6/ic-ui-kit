@@ -13,6 +13,7 @@ import {
   MultiSelectWithAllValues,
   MultiSelectWithDescriptions,
   MultiSelectDefaultValue,
+  MultiSelectWithClearButton,
 } from "./IcSelectTestData";
 import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers";
 
@@ -253,6 +254,7 @@ describe("IcSelect - Multi", () => {
   it("should select multiple when shift and arrow down pressed", () => {
     mount(<MultiSelectDefault />);
 
+    cy.checkHydrated(MULTI_SELECT);
     cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
       .focus()
       .click()
@@ -273,6 +275,7 @@ describe("IcSelect - Multi", () => {
   it("should select multiple when shift and arrow up pressed", () => {
     mount(<MultiSelectDefault />);
 
+    cy.checkHydrated(MULTI_SELECT);
     cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
       .focus()
       .click()
@@ -293,6 +296,7 @@ describe("IcSelect - Multi", () => {
   it("should select all when shift+ctrl+end pressed", () => {
     mount(<MultiSelectDefault />);
 
+    cy.checkHydrated(MULTI_SELECT);
     cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
       .focus()
       .realPress(["Shift", "ArrowDown"])
@@ -314,6 +318,7 @@ describe("IcSelect - Multi", () => {
   it("should select all when shift+ctrl+home pressed", () => {
     mount(<MultiSelectDefault />);
 
+    cy.checkHydrated(MULTI_SELECT);
     cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
       .focus()
       .realPress(["Shift", "ArrowUp"])
@@ -335,6 +340,7 @@ describe("IcSelect - Multi", () => {
   it("should select multiple when pressing shift and clicking", () => {
     mount(<MultiSelectDefault />);
 
+    cy.checkHydrated(MULTI_SELECT);
     cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
       .focus()
       .type("{shift}", { release: false })
@@ -357,6 +363,7 @@ describe("IcSelect - Multi", () => {
   it("should select multiple when pressing shift and clicking - from bottom item", () => {
     mount(<MultiSelectDefault />);
 
+    cy.checkHydrated(MULTI_SELECT);
     cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
       .focus()
       .type("{shift}", { release: false })
@@ -369,6 +376,158 @@ describe("IcSelect - Multi", () => {
     cy.compareSnapshot({
       name: "multi-select-shift-click-from-bottom",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should focus select all button", () => {
+    mount(<MultiSelectDefault />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .focus()
+      .click()
+      .realPress("Tab");
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.compareSnapshot({
+      name: "multi-select-select-all-button-focused",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should focus clear button", () => {
+    mount(<MultiSelectWithClearButton />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .focus()
+      .click()
+      .click()
+      .realPress("Tab");
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.compareSnapshot({
+      name: "multi-select-clear-button-focused",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+});
+
+describe("IcSelect - Multi visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render with no options selected in high contrast mode", () => {
+    mount(<MultiSelectDefault />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).focus().click().wait(500);
+
+    cy.compareSnapshot({
+      name: "default-multi-select-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render with options selected in high contrast mode", () => {
+    mount(<MultiSelectDefault />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .focus()
+      .type("{shift}", { release: false })
+      .type("{upArrow}");
+    cy.findShadowEl(MULTI_SELECT, "li[data-label='Filter']").click({
+      shiftKey: true,
+    });
+
+    cy.wait(300).compareSnapshot({
+      name: "multi-select-partially-selected-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render with option highlighted in high contrast mode", () => {
+    mount(<MultiSelectDefault />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .focus()
+      .click()
+      .realPress("ArrowUp")
+      .realPress(["Shift", "ArrowUp"]);
+
+    cy.wait(300).compareSnapshot({
+      name: "multi-select-option-highlighted-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should focus select all button in high contrast mode", () => {
+    mount(<MultiSelectDefault />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .focus()
+      .click()
+      .realPress("Tab");
+
+    cy.wait(300).compareSnapshot({
+      name: "multi-select-select-all-button-focused-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should focus clear button in high contrast mode", () => {
+    mount(<MultiSelectWithClearButton />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .focus()
+      .click()
+      .click()
+      .realPress("Tab");
+
+    cy.wait(300).compareSnapshot({
+      name: "multi-select-clear-button-focused-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
         capture: "viewport",
