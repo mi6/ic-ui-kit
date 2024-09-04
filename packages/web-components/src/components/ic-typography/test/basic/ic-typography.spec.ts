@@ -418,6 +418,24 @@ describe("ic-typography component", () => {
     page.setContent("");
   });
 
+  it("should test dark theme", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography theme="dark">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should test light theme", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography theme="light">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should apply the correct class when in an AG Grid", async () => {
     Object.defineProperty(helpers, "isElInAGGrid", {
       value: jest.fn().mockReturnValue(true),
