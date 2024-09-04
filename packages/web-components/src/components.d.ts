@@ -2214,6 +2214,10 @@ export namespace Components {
          */
         "strikethrough"?: boolean;
         /**
+          * Sets the text color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: "dark" | "light" | "inherit";
+        /**
           * If `true`, the typography will have a line under it.
          */
         "underline"?: boolean;
@@ -5464,6 +5468,10 @@ declare namespace LocalJSX {
           * If `true`, the typography will have a line through it.
          */
         "strikethrough"?: boolean;
+        /**
+          * Sets the text color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: "dark" | "light" | "inherit";
         /**
           * If `true`, the typography will have a line under it.
          */

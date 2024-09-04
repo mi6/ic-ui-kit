@@ -62,6 +62,11 @@ export class Typography {
   @Prop() strikethrough?: boolean = false;
 
   /**
+   * Sets the text color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: "dark" | "light" | "inherit" = "inherit";
+
+  /**
    * If `true`, the typography will have a line under it.
    */
   @Prop() underline?: boolean = false;
@@ -232,8 +237,9 @@ export class Typography {
       underline,
       italic,
       bold,
+      theme,
     } = this;
-
+    console.log("theme", theme);
     return (
       <Host
         class={{
@@ -244,6 +250,7 @@ export class Typography {
           ["ic-typography-strikethrough"]: strikethrough,
           ["ic-typography-underline"]: underline,
           ["in-ag-grid"]: this.inAGGrid,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
         {(variant === "body" ||
