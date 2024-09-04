@@ -53,7 +53,8 @@
 }
 
 .ic-loading-label {
-  color: var(--label-color);
+  --ic-typography-color: var(--label-color);
+
   margin-left: var(--label-margin-left);
 }
 
@@ -184,16 +185,17 @@
   height: inherit;
   overflow: hidden;
   margin: auto;
-  color: var(--compact-step-inner-color, var(--ic-status-info));
+
+  --ic-typography-color: var(--compact-step-inner-color, var(--ic-status-info));
 }
 
 :host(.not-required.compact-step-progress-indicator) .inner-text {
-  color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-tertiary-text);
 }
 
 :host(.ic-loading-indicator-light.not-required.compact-step-progress-indicator)
   .inner-text {
-  color: var(--ic-architectural-400);
+  --ic-typography-color: var(--ic-architectural-400);
 }
 
 /** High Contrast **/
