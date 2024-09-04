@@ -23,6 +23,7 @@ export const defaultArgs = {
   strikethrough: false,
   underline: false,
   variant: "body",
+  theme: "inherit",
 };
 
 ### Default
@@ -493,6 +494,10 @@ export const AGGrid = () => {
         ],
         control: { type: "select" },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
     name="Playground"
   >
@@ -504,6 +509,7 @@ export const AGGrid = () => {
         italic={args.italic}
         strikethrough={args.strikethrough}
         underline={args.underline}
+        theme={args.theme}
       >
         Typography to test
       </IcTypography>
