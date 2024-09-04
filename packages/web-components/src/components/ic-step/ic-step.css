@@ -2,6 +2,8 @@
 :host {
   display: flex;
   flex: auto;
+
+  --ic-typography-color: currentcolor;
 }
 
 .step {
@@ -213,7 +215,7 @@
 
 .current .step-icon-inner {
   background-color: var(--ic-status-info);
-  color: white;
+  color: var(--ic-architectural-white);
 }
 
 :host(.ic-step-light) .current .step-icon-inner {
