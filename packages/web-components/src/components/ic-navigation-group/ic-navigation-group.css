@@ -6,6 +6,8 @@
 
 :host {
   display: block;
+
+  --ic-typography-color: currentcolor;
 }
 
 :host(.in-side-menu) {
@@ -79,7 +81,7 @@
 :host .navigation-group:active,
 :host .selected {
   background-color: var(--ic-architectural-20);
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-primary-text-light);
   outline: none;
   cursor: pointer;
 }
