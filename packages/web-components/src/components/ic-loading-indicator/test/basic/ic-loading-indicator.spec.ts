@@ -98,8 +98,10 @@ describe("ic-loading-indicator component", () => {
   it("should update label after label-duration passed", async () => {
     page = await newSpecPage({
       components: [LoadingIndicator, Typography],
-      html: `<ic-loading-indicator label="waiting/still waiting" label-duration="2000"></ic-loading-indicator>`,
+      html: `<ic-loading-indicator label-duration="2000"></ic-loading-indicator>`,
     });
+
+    page.root.label = ["waiting", "still waiting"];
 
     expect(page.rootInstance.indicatorLabel).toEqual("waiting");
 
