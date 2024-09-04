@@ -393,10 +393,13 @@ export const defaultArgTypes = {
 <Canvas>
   <Story name="Changing label" parameters={{ loki: { skip: true } }}>
     {(args) =>
-      html`<ic-loading-indicator
-        label="Loading.../Still loading..."
-        label-duration="4000"
-      ></ic-loading-indicator>`
+      html`<ic-loading-indicator label-duration="4000"></ic-loading-indicator>
+        <script>
+          document.querySelector("ic-loading-indicator").label = [
+            "Loading...",
+            "Still loading...",
+          ];
+        </script> `
     }
   </Story>
 </Canvas>
