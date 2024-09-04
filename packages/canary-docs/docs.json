@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-08-19T07:51:44",
+  "timestamp": "2024-08-21T11:24:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -964,6 +964,26 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.",
+          "docsTags": []
+        },
+        {
+          "event": "icSortChange",
+          "detail": "IcSortEventDetail",
+          "bubbles": true,
+          "complexType": {
+            "original": "IcSortEventDetail",
+            "resolved": "IcSortEventDetail",
+            "references": {
+              "IcSortEventDetail": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcSortEventDetail"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a column sort button is clicked.",
           "docsTags": []
         }
       ],
@@ -5194,6 +5214,11 @@
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
       "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"show-hide\" | undefined;",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcSortEventDetail": {
+      "declaration": "export interface IcSortEventDetail {\n  columnName: string;\n  sorted: IcDataTableSortOrderOptions;\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },

@@ -23,6 +23,7 @@ import {
   IcDataTableSortOrderOptions,
   IcDataTableTruncationTypes,
   IcDensityUpdateEventDetail,
+  IcSortEventDetail,
 } from "./ic-data-table.types";
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcPaginationBarOptions } from "../../utils/types";
@@ -255,6 +256,11 @@ export class DataTable {
    * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
    */
   @Event() icRowHeightChange: EventEmitter<void>;
+
+  /**
+   * Emitted when a column sort button is clicked.
+   */
+  @Event() icSortChange: EventEmitter<IcSortEventDetail>;
 
   disconnectedCallback(): void {
     this.resizeObserver?.disconnect();
@@ -1288,6 +1294,11 @@ export class DataTable {
     sortButton.setAttribute("aria-label", this.getSortButtonLabel(column));
 
     this.tableSorted = true;
+
+    this.icSortChange.emit({
+      columnName: column,
+      sorted: this.sortedColumnOrder,
+    });
   };
 
   private getTypographyElements = (): HTMLIcTypographyElement[] => {

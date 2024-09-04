@@ -43,6 +43,11 @@ export interface IcDensityUpdateEventDetail {
 }
 export type IcDataTableTruncationTypes = "tooltip" | "show-hide" | undefined;
 
+export interface IcSortEventDetail {
+  columnName: string;
+  sorted: IcDataTableSortOrderOptions;
+}
+
 export type truncWrapperDetailsTypes = {
   scrollHeight: number | null;
 };

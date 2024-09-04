@@ -1,3 +1,4 @@
+import { IcButtonVariants } from "@ukic/web-components";
 import { SlottedSVG, IcButton, IcPopoverMenu, IcMenuItem } from "../../";
 import React, { ReactElement, useRef } from "react";
 
@@ -818,11 +819,11 @@ export const IconButtonGroup = (): ReactElement => {
   );
 };
 
-export const IconBtnWithTooltip = (): ReactElement => {
+export const IconBtnWithTooltip = (variant: IcButtonVariants): ReactElement => {
   return (
     <div style={{ padding: "6px" }}>
       <IcButton
-        variant="icon-primary"
+        variant={variant}
         title="This is a tooltip"
         tooltipPlacement="bottom"
         aria-label="refresh"
