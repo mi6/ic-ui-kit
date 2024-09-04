@@ -5,6 +5,7 @@
 :host {
   display: block;
 
+  --ic-typography-color: currentcolor;
   --side-navigation-position: fixed;
   --side-navigation-position-left: 0;
   --side-navigation-position-top: var(--ic-space-xxl);
@@ -294,7 +295,7 @@ slot[name="app-title"]::slotted(a) {
 }
 
 :host(.ic-side-navigation-dark) .app-status-wrapper .app-status {
-  color: var(--ic-color-white-text);
+  --ic-typography-color: var(--ic-architectural-white);
 }
 
 .navigation-landmark-title {
