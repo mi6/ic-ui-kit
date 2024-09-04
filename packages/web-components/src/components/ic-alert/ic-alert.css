@@ -4,6 +4,11 @@
   display: block;
 }
 
+:host ic-typography,
+:host ::slotted(ic-typography) {
+  --ic-typography-color: var(--ic-color-primary-text-light);
+}
+
 .container {
   min-height: 3.5rem;
   border-radius: var(--ic-border-radius);

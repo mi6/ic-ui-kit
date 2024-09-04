@@ -79,3 +79,7 @@
   display: flex;
   align-items: center;
 }
+
+ic-typography {
+  --ic-typography-color: var(--ic-theme-text);
+}

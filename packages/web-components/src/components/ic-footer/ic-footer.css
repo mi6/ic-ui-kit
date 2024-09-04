@@ -46,6 +46,9 @@ footer {
 .footer-description {
   background-color: var(--footer-theme-secondary);
   color: var(--ic-theme-text);
+
+  --ic-typography-color: var(--ic-theme-text);
+
   border-bottom: var(--footer-keyline);
 }
 
@@ -59,6 +62,8 @@ footer {
   padding: var(--footer-links-padding);
   background-color: var(--footer-theme-secondary);
   color: var(--ic-theme-text);
+
+  --ic-typography-color: var(--ic-theme-text);
 }
 
 .footer-links-inner {
@@ -71,6 +76,8 @@ footer {
 .footer-compliance {
   background-color: var(--footer-theme-tertiary);
   color: var(--ic-theme-text);
+
+  --ic-typography-color: var(--ic-theme-text);
 }
 
 .footer-compliance-inner {
