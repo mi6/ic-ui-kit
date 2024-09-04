@@ -12,6 +12,9 @@
   align-items: center;
   border-radius: 0;
   color: var(--label-color);
+
+  --ic-typography-color: var(--label-color);
+
   height: 2.5rem;
   padding: 0 var(--ic-space-md);
   cursor: pointer;
@@ -54,6 +57,8 @@
 :host(.ic-tab-disabled) {
   pointer-events: none;
   color: var(--ic-architectural-300);
+
+  --ic-typography-color: var(--ic-architectural-300);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -79,6 +84,8 @@
 
   :host(.ic-tab-disabled) {
     color: GrayText;
+
+    --ic-typography-color: GrayText;
   }
 }
 
