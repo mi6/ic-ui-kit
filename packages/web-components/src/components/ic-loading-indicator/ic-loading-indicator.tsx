@@ -8,7 +8,6 @@ import {
   IcThemeForegroundEnum,
   IcThemeForegroundNoDefault,
 } from "../../utils/types";
-import { isPropDefined } from "../../utils/helpers";
 
 @Component({
   tag: "ic-loading-indicator",
@@ -79,9 +78,9 @@ export class LoadingIndicator {
 
   /**
    * The label to be displayed beneath the loading indicator.
-   * Display a changing label by separating multiple messages with forward slashes.
+   * Display a changing label by supplying an array of messages.
    */
-  @Prop() label?: string;
+  @Prop() label?: string | string[];
 
   @Watch("label")
   watchPropHandler(): void {
@@ -234,14 +233,18 @@ export class LoadingIndicator {
   };
 
   private updateLabel = (): void => {
-    if (isPropDefined(this.label)) {
-      this.labelList = this.label.split("/");
-      const labelIndex = 0;
-      this.indicatorLabel = this.labelList[labelIndex];
-      if (this.labelList.length > 1) {
-        this.getLabel(labelIndex, (label) => {
-          this.indicatorLabel = label;
-        });
+    if (this.label !== undefined) {
+      if (typeof this.label === "string") {
+        this.indicatorLabel = this.label;
+      } else {
+        this.labelList = this.label;
+        const labelIndex = 0;
+        this.indicatorLabel = this.labelList[labelIndex];
+        if (this.labelList.length > 1) {
+          this.getLabel(labelIndex, (label) => {
+            this.indicatorLabel = label;
+          });
+        }
       }
     }
   };
