@@ -6595,7 +6595,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx-mobile-search",
-          "percentage": 0.004471018340098959,
+          "percentage": 0.005655440566039218,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -6606,7 +6606,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx-mobile-icon-buttons",
-          "percentage": 0.004471018340098959,
+          "percentage": 0.005655440566039218,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -6617,7 +6617,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx-mobile-long-text",
-          "percentage": 0.004471018340098959,
+          "percentage": 0.005655440566039218,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -6628,7 +6628,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx-mobile-long-single-word-app-title",
-          "percentage": 0.004471018340098959,
+          "percentage": 0.005655440566039218,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -6639,7 +6639,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx-mobile-navigation-items",
-          "percentage": 0.004471018340098959,
+          "percentage": 0.005655440566039218,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -6650,7 +6650,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx-mobile-slotted-navigation-items",
-          "percentage": 0.004471018340098959,
+          "percentage": 0.005655440566039218,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -6661,7 +6661,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx-mobile-navigation-group",
-          "percentage": 0.004471018340098959,
+          "percentage": 0.005655440566039218,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -6683,7 +6683,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx-mobile-content-centre",
-          "percentage": 0.004471018340098959,
+          "percentage": 0.005655440566039218,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -6694,7 +6694,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx-mobile-content-left",
-          "percentage": 0.004471018340098959,
+          "percentage": 0.005655440566039218,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -6705,7 +6705,7 @@
         {
           "status": "fail",
           "name": "IcTopNavigation.cy.tsx-mobile-theme",
-          "percentage": 0.003999000374843818,
+          "percentage": 0.005998500562265727,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -6898,9 +6898,9 @@
       ]
     }
   ],
-  "startedAt": "2024-09-04T11:02:07.568Z",
-  "endedAt": "2024-09-04T11:14:54.196Z",
-  "duration": 691403,
+  "startedAt": "2024-09-04T12:24:44.719Z",
+  "endedAt": "2024-09-04T12:37:16.884Z",
+  "duration": 677267,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
