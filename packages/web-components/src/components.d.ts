@@ -916,9 +916,9 @@ export namespace Components {
         "fullWidth"?: boolean;
         "innerLabel"?: number;
         /**
-          * The label to be displayed beneath the loading indicator. Display a changing label by separating multiple messages with forward slashes.
+          * The label to be displayed beneath the loading indicator. Display a changing label by supplying an array of messages.
          */
-        "label"?: string;
+        "label"?: string | string[];
         /**
           * The time in milliseconds before the label changes.
          */
@@ -4052,9 +4052,9 @@ declare namespace LocalJSX {
         "fullWidth"?: boolean;
         "innerLabel"?: number;
         /**
-          * The label to be displayed beneath the loading indicator. Display a changing label by separating multiple messages with forward slashes.
+          * The label to be displayed beneath the loading indicator. Display a changing label by supplying an array of messages.
          */
-        "label"?: string;
+        "label"?: string | string[];
         /**
           * The time in milliseconds before the label changes.
          */
