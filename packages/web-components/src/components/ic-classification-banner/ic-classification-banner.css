@@ -11,6 +11,8 @@
   width: 100%;
   height: var(--ic-space-lg);
   z-index: var(--ic-z-index-classification-banner);
+
+  --ic-typography-color: currentcolor;
 }
 
 :host(.ic-classification-banner-inline) {

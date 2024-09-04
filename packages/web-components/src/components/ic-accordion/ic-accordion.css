@@ -3,6 +3,8 @@
 :host {
   display: block;
   border-bottom: var(--ic-border-default);
+
+  --ic-typography-color: currentcolor;
 }
 
 :host ic-typography,
@@ -14,7 +16,7 @@
 :host(.ic-accordion-light) .expanded-content,
 :host(.ic-accordion-light) .icon-container,
 :host(.ic-accordion-light) .expand-chevron {
-  color: var(--ic-color-white-text);
+  color: var(--ic-architectural-white);
 }
 
 :host(.ic-accordion-disabled) ic-typography,
