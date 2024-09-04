@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.27.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.26.0...@ukic/web-components@2.27.0) (2024-09-04)
+
+### Bug Fixes
+
+- **web-components:** fix issue with IC Radio to override horizontal ([f27bf1a](https://github.com/mi6/ic-ui-kit/commit/f27bf1a851c7c218cd8b04aafbe172b728dd87a1))
+- **web-components:** make radio group set disabled state on children ([17ebcd0](https://github.com/mi6/ic-ui-kit/commit/17ebcd020ec2c0a230efe0752accc99b1afe3107))
+- **web-components:** update button to add tooltip for every icon variant ([dbb1d1b](https://github.com/mi6/ic-ui-kit/commit/dbb1d1b9b80edc3d009a5cb6e7eeaf34f1642cbc)), closes [#2299](https://github.com/mi6/ic-ui-kit/issues/2299)
+- **web-components:** update toast animation to only work when prefers reduced motion is off ([98d690a](https://github.com/mi6/ic-ui-kit/commit/98d690aef1c3264419f5e41995da2286d3215449)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
+
+### Features
+
+- **web-components:** add aria-live region to announce current page on complex pagination ([4e47541](https://github.com/mi6/ic-ui-kit/commit/4e47541f652a560101ce4e2cbea24439de8ffe14))
+- **web-components:** add truncation styling for chip and typography when in an AG Grid ([d913a96](https://github.com/mi6/ic-ui-kit/commit/d913a964b6eeb01f97bb43b5a5756f2e530a6296))
+- **web-components:** updated ic-typography and ic-tooltip ([a545108](https://github.com/mi6/ic-ui-kit/commit/a545108de5fada884f6023d2e9507ee26ddb0d47))
+
 # [2.26.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.25.1...@ukic/web-components@2.26.0) (2024-08-21)
 
 ### Bug Fixes

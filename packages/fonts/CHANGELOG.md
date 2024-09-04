@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/fonts@2.6.1...@ukic/fonts@2.6.2) (2024-09-04)
+
+**Note:** Version bump only for package @ukic/fonts
+
 ## 2.6.1 (2024-08-21)
 
 **Note:** Version bump only for package @ukic/fonts

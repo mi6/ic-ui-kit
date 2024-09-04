@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.27.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.26.0...@ukic/react@2.27.0) (2024-09-04)
+
+### Bug Fixes
+
+- **react:** update story book for test to react horizontal ([849a69d](https://github.com/mi6/ic-ui-kit/commit/849a69d2b8aa90ec9b12450d6a51c21e0a0f4e5a))
+
+### Features
+
+- **react:** add chip and typography stories for in AG Grid ([e9d5561](https://github.com/mi6/ic-ui-kit/commit/e9d5561092d18d3500a5e1c683f1a1b8f00122d5))
+- **react:** add Cypress tests for icon button variants with tooltip ([04b06f5](https://github.com/mi6/ic-ui-kit/commit/04b06f58046b713f5b8f552587c821ce88b82ba0))
+
 # [2.26.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.25.1...@ukic/react@2.26.0) (2024-08-21)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.23](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.22...@ukic/canary-react@2.0.0-canary.23) (2024-09-04)
+
+### Features
+
+- **canary-react:** add cypress test for icSortChange event ([a424dd2](https://github.com/mi6/ic-ui-kit/commit/a424dd2eef560f97d3031efb7af90f6778564ea8))
+
 # [2.0.0-canary.22](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.21...@ukic/canary-react@2.0.0-canary.22) (2024-08-21)
 
 ### Features
