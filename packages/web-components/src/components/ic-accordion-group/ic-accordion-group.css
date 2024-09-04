@@ -17,8 +17,12 @@
 
 :host(.ic-accordion-group-light) {
   color: var(--ic-color-white-text);
+
+  --ic-typography-color: var(--ic-color-white-text);
 }
 
 :host(.ic-accordion-group.ic-accordion-group-dark) ::slotted(ic-accordion) {
   color: var(--ic-color-white-text);
+
+  --ic-typography-color: var(--ic-color-white-text);
 }
