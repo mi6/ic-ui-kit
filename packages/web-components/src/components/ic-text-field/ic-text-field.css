@@ -67,7 +67,8 @@ textarea.no-resize {
 }
 
 .char-count-text {
-  color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-secondary-text);
+
   padding-right: var(--ic-space-xxxs);
 }
 

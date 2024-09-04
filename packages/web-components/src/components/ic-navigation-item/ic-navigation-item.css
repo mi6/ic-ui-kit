@@ -144,7 +144,10 @@ svg {
   height: auto;
   width: 100%;
   box-sizing: border-box;
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-primary-text-light);
+
+  --ic-typography-color: var(--ic-color-primary-text-light);
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
