@@ -15381,30 +15381,30 @@
           "required": false
         },
         {
-          "name": "mode",
-          "type": "\"auto\" | \"dark\" | \"light\"",
+          "name": "theme",
+          "type": "\"dark\" | \"light\" | \"system\"",
           "complexType": {
-            "original": "\"dark\" | \"light\" | \"auto\"",
-            "resolved": "\"auto\" | \"dark\" | \"light\"",
+            "original": "\"dark\" | \"light\" | \"system\"",
+            "resolved": "\"dark\" | \"light\" | \"system\"",
             "references": {}
           },
           "mutable": false,
-          "attr": "mode",
+          "attr": "theme",
           "reflectToAttr": false,
-          "docs": "The theme mode. Can be \"dark\", \"light\", or \"auto\". \"auto\" will use the device or browser settings.",
+          "docs": "The theme mode. Can be \"dark\", \"light\", or \"system\". \"system\" will use the device or browser settings.",
           "docsTags": [],
           "default": "\"light\"",
           "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
             {
               "value": "dark",
               "type": "string"
             },
             {
               "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "system",
               "type": "string"
             }
           ],
@@ -17159,6 +17159,37 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "\"dark\" | \"light\" | \"inherit\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the text color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
             }
           ],
           "optional": true,
