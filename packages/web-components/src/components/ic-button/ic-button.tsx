@@ -452,7 +452,11 @@ export class Button {
 
   private setHasTooltip = (): void => {
     this.hasTooltip =
-      !this.disableTooltip && (!!this.title || this.variant === "icon");
+      !this.disableTooltip && (!!this.title || this.isIconVariant());
+  };
+
+  private isIconVariant = (): boolean => {
+    return this.variant.startsWith("icon");
   };
 
   render() {
@@ -598,7 +602,7 @@ export class Button {
             label={title || ariaLabel}
             target={buttonId}
             placement={this.tooltipPlacement}
-            silent={this.variant === "icon" && !!ariaLabel}
+            silent={this.isIconVariant() && !!ariaLabel}
           >
             {this.hasRouterSlot() ? (
               <slot name="router-item"></slot>
