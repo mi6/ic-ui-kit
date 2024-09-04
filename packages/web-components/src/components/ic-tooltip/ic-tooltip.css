@@ -11,7 +11,6 @@
 
 :host(.ic-tooltip) .ic-tooltip-container {
   background-color: var(--ic-architectural-800);
-  color: #ffff;
   text-align: center;
   padding: var(--ic-space-xxxs) var(--ic-space-xs);
   border-radius: var(--ic-border-radius);
@@ -21,6 +20,10 @@
   display: none;
   z-index: var(--ic-z-index-tooltip);
   box-shadow: var(--ic-elevation-overlay);
+}
+
+:host(.ic-tooltip) ic-typography {
+  --ic-typography-color: var(--ic-architectural-white);
 }
 
 :host(.tooltip-navigation-item:not(.tooltip-navigation-item-side-nav-collapsed))
