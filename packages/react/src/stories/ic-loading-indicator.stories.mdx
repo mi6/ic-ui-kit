@@ -21,7 +21,7 @@ export const defaultArgs = {
   labelDuration: 8000,
   size: "default",
   type: "circular",
-  label: null,
+  label: [],
 };
 
 export const defaultArgTypes = {
@@ -40,6 +40,9 @@ export const defaultArgTypes = {
     options: ["circular", "linear"],
     control: { type: "radio" },
   },
+  label: {
+    control: { type: "array" },
+  }
 };
 
 ### Circular (determinate)
@@ -271,7 +274,7 @@ export const defaultArgTypes = {
 <Canvas>
   <Story name="Changing label">
     <IcLoadingIndicator
-      label="Loading.../Still loading..."
+      label={["Loading...", "Still loading..."]}
       labelDuration="4000"
     />
   </Story>
