@@ -81,6 +81,8 @@ button {
 }
 
 .card.clickable .card-title {
+  --ic-typography-color: var(--ic-hyperlink);
+
   color: var(--ic-hyperlink);
   text-decoration: underline;
   text-decoration-thickness: var(--ic-space-1px);
@@ -116,6 +118,8 @@ button {
   text-decoration-thickness: var(--ic-space-1px);
   text-decoration-color: var(--ic-color-tertiary-text);
   color: var(--ic-color-tertiary-text);
+
+  --ic-typography-color: var(--ic-color-tertiary-text);
 }
 
 .subheading {
@@ -133,7 +137,7 @@ button {
 
 .card.disabled .card-message,
 .card.disabled .subheading {
-  color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-tertiary-text);
 }
 
 .interaction-button {
@@ -245,6 +249,8 @@ button {
   .card.disabled .subheading,
   .card.disabled .card-title {
     color: GrayText;
+
+    --ic-typography-color: GrayText;
   }
 }
 

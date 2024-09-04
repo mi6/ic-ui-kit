@@ -244,3 +244,21 @@ exports[`ic-typography component should render with underline 1`] = `
   IC Typography Test
 </ic-typography>
 `;
+
+exports[`ic-typography component should test dark theme 1`] = `
+<ic-typography class="ic-theme-dark ic-typography-body" theme="dark">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  IC Typography Test
+</ic-typography>
+`;
+
+exports[`ic-typography component should test light theme 1`] = `
+<ic-typography class="ic-theme-light ic-typography-body" theme="light">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  IC Typography Test
+</ic-typography>
+`;

@@ -3,8 +3,8 @@
 :host {
   display: block;
   background-color: var(--ic-theme-tertiary);
-  color: var(--ic-theme-text);
 
+  --ic-typography-color: var(--ic-theme-text);
   --hero-heading-bottom-margin: var(--ic-space-md);
 }
 
