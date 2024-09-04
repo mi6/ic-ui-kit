@@ -30,17 +30,22 @@ li {
 
 :host(.ic-menu-item-disabled) ::part(button) {
   color: var(--ic-architectural-200) !important;
+
+  --ic-typography-color: var(--ic-architectural-200) !important;
+
   pointer-events: none;
 }
 
 :host(.ic-menu-item-disabled) .menu-item-label,
 :host(.ic-menu-item-disabled) .shortcut,
 :host(.ic-menu-item-disabled) .menu-item-description {
-  color: var(--ic-architectural-200) !important;
+  --ic-typography-color: var(--ic-architectural-200) !important;
 }
 
 :host([variant="destructive"]) ::part(button) {
   color: var(--ic-action-destructive);
+
+  --ic-typography-color: var(--ic-action-destructive);
 }
 
 :host ::part(button):hover {
@@ -50,6 +55,9 @@ li {
 :host ::part(button):focus-visible,
 :host ::part(button):focus {
   color: var(--ic-color-white-text);
+
+  --ic-typography-color: var(--ic-color-white-text);
+
   background-color: var(--ic-focus-blue);
   box-shadow: none;
 }
@@ -57,6 +65,8 @@ li {
 :host(.ic-menu-item-disabled) ::part(button):focus-visible,
 :host(.ic-menu-item-disabled) ::part(button):focus {
   color: var(--ic-theme-lighten-40) !important;
+
+  --ic-typography-color: var(--ic-theme-lighten-40) !important;
 }
 
 :host([variant="destructive"]) ::part(button):focus-visible,
@@ -67,7 +77,7 @@ li {
 ic-button:focus-within .menu-item-label,
 ic-button:focus-within .shortcut,
 ic-button:focus-within .menu-item-description {
-  color: var(--ic-color-white-text);
+  --ic-typography-color: var(--ic-color-white-text);
 }
 
 :host(.ic-menu-item-disabled) ic-button:focus-within .focus-border {
@@ -77,17 +87,21 @@ ic-button:focus-within .menu-item-description {
 :host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-label,
 :host(.ic-menu-item-disabled) ic-button:focus-within .shortcut,
 :host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-description {
-  color: var(--ic-theme-lighten-40) !important;
+  --ic-typography-color: var(--ic-theme-lighten-40) !important;
 }
 
 :host ::part(button):active {
   background-color: var(--ic-action-dark-bg-active);
   color: var(--ic-color-primary-text) !important;
+
+  --ic-typography-color: var(--ic-color-primary-text) !important;
 }
 
 :host([variant="destructive"]) ::part(button):active {
   background-color: var(--ic-action-dark-bg-active);
   color: var(--ic-action-destructive) !important;
+
+  --ic-typography-color: var(--ic-action-destructive) !important;
 }
 
 .menu-item-info {
@@ -106,11 +120,12 @@ ic-button:focus-within .menu-item-description {
 }
 
 .menu-item-description {
-  color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-secondary-text);
 }
 
 .shortcut {
-  color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-tertiary-text);
+
   display: flex;
   flex: min-content;
 }
@@ -122,19 +137,19 @@ ic-button:focus-within .menu-item-description {
 }
 
 ic-button:active .menu-item-label {
-  color: var(--ic-color-primary-text);
+  --ic-typography-color: var(--ic-color-primary-text);
 }
 
 ic-button:active .menu-item-description {
-  color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-secondary-text);
 }
 
 ic-button:active .shortcut {
-  color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-tertiary-text);
 }
 
 :host([variant="destructive"]) ic-button:active .menu-item-label {
-  color: var(--ic-action-destructive) !important;
+  --ic-typography-color: var(--ic-action-destructive) !important;
 }
 
 .icon,
@@ -177,7 +192,7 @@ ic-button:active .shortcut {
   :host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-label,
   :host(.ic-menu-item-disabled) ic-button:focus-within .shortcut,
   :host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-description {
-    color: GrayText !important;
+    --ic-typography-color: GrayText !important;
   }
 
   :host(.ic-menu-item-disabled) ::part(button):focus-visible,

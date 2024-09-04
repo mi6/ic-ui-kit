@@ -15,6 +15,9 @@
   max-height: 0;
   width: var(--input-width, 20rem);
   color: var(--ic-color-primary-text);
+
+  --ic-typography-color: var(--ic-color-primary-text);
+
   background-color: var(--ic-architectural-white);
   position: relative;
   z-index: var(--ic-z-index-menu);
@@ -112,7 +115,7 @@
 }
 
 .option:not(.disabled-option) .option-description {
-  color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-secondary-text);
 }
 
 .option .option-label {
@@ -139,6 +142,8 @@
 .option.loading-option .option-text-container {
   margin-left: calc(var(--ic-space-xs) + var(--ic-space-xxxs));
   color: var(--ic-color-secondary-text);
+
+  --ic-typography-color: var(--ic-color-secondary-text);
 }
 
 .error-icon-svg {
@@ -168,7 +173,8 @@
 .option-group-title {
   padding: var(--ic-space-lg) calc(var(--ic-space-xs) - var(--ic-space-1px))
     var(--ic-space-xs);
-  color: var(--ic-color-tertiary-text);
+
+  --ic-typography-color: var(--ic-color-tertiary-text);
 }
 
 :host(.ic-menu-small) .option-group-title {
@@ -182,6 +188,9 @@
 
 .disabled-option {
   color: var(--ic-architectural-200);
+
+  --ic-typography-color: var(--ic-architectural-200);
+
   cursor: default;
   pointer-events: none;
 }
@@ -189,7 +198,9 @@
 .focused-option,
 .focused-option .option-description {
   background-color: var(--ic-focus-blue) !important;
-  color: var(--ic-color-white-text) !important;
+  color: var(--ic-architectural-white) !important;
+
+  --ic-typography-color: var(--ic-architectural-white) !important;
 }
 
 :host(.no-results) li {
