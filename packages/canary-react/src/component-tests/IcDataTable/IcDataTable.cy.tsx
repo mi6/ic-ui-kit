@@ -3879,3 +3879,319 @@ describe("IcDataTable row deletion", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 5);
   });
 });
+
+describe("IcDataTable visual regression tests in high contrast mode", () => {
+  beforeEach(() => {
+    cy.enableForcedColors();
+    cy.wait(500);
+    cy.viewport(1024, 768);
+    cy.wait(500);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render in high contrast mode", () => {
+    mount(<BasicDataTable />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "default-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render with title bar in high contrast mode", () => {
+    mount(
+      <IcDataTable caption="Custom Title Bar" columns={COLS} data={DATA}>
+        <IcDataTableTitleBar
+          slot="title-bar"
+          description="Data table description that describes the purpose of the table."
+          metadata="128 items | 32gb | Updated: 01/02/03"
+        />
+      </IcDataTable>
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "with-title-bar-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.05),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+      delay: 500,
+    });
+  });
+
+  it("should correctly render a custom icon in the header when passed through the column prop in high contrast mode", () => {
+    mount(
+      <IcDataTable columns={ICON_COLS} data={ICON_DATA} caption="Data Tables" />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "custom-icons-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.024),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should highlight row when clicked in high contrast mode", () => {
+    mount(<BasicDataTable />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(1).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(4).click();
+
+    cy.compareSnapshot({
+      name: "highlighted-row-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render the loading indicator with background in high contrast mode when data is displayed with ic-loading-indicator above", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        loading
+        loadingOptions={{
+          progress: 30,
+          min: 0,
+          max: 100,
+        }}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.wait(350);
+
+    cy.get("ic-data-table").invoke("prop", "loading", true);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR).should(
+      HAVE_CLASS,
+      "show-background"
+    );
+
+    cy.compareSnapshot({
+      name: "loading-indicator-background-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(0.026),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render the empty state in high contrast mode when no data is passed through", () => {
+    mount(<IcDataTable columns={COLS} data={[]} caption="Data Tables" />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-empty-state")
+      .shadow()
+      .should(HAVE_TEXT, "No Data");
+
+    cy.compareSnapshot({
+      name: "no-data-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(0.026),
+    });
+  });
+
+  it("should render show hide truncation in high contrast mode when data table is set to dense", () => {
+    mount(
+      <IcDataTable
+        columns={COLUMNS_NO_TEXT_WRAP}
+        data={LONG_DATA_VALUES}
+        caption="Data Tables"
+        truncationPattern="show-hide"
+        density="dense"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "show-hide-truncation-dense-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.042),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render tooltip truncation in high contrast mode when table is in spacious", () => {
+    mount(
+      <IcDataTable
+        columns={COLUMNS_NO_TEXT_WRAP}
+        data={LONG_DATA_VALUES}
+        caption="Data Tables"
+        density="spacious"
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
+      .filter(":lt(3)")
+      .each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child")
+          .find("ic-tooltip")
+          .should("exist");
+      });
+
+    cy.compareSnapshot({
+      name: "tooltip-truncation-spacious-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.022),
+    });
+  });
+
+  it("should render see more / see less focus underline correctly in high contrast mode", () => {
+    mount(
+      <IcDataTable
+        columns={COLUMNS_NO_TEXT_WRAP}
+        data={LONG_DATA_VALUES}
+        caption="Data Tables"
+        truncationPattern="show-hide"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:last-child ic-typography")
+      .shadow()
+      .find("button")
+      .focus();
+
+    cy.compareSnapshot({
+      name: "show-hide-truncation-focus-hover-state-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.031),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render a slotted icon instead of an icon defined in data when in high contrast mode", () => {
+    mount(
+      <IcDataTable columns={COLS} data={ICON_DATA} caption="Data tables">
+        <SlottedSVG
+          slot="name-4-icon"
+          focusable="false"
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+        >
+          <path d="M9 3 5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"></path>
+        </SlottedSVG>
+      </IcDataTable>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.compareSnapshot({
+      name: "slotted-icon-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.024),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render sort buttons in high contrast mode", () => {
+    mount(<BasicDataTable sortable />);
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "sortable-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render with row overrides and pagination bar in high contrast mode", () => {
+    mount(
+      <IcDataTable
+        columns={ROW_HEADER_COLS}
+        data={ROW_ALIGNMENT}
+        showPagination
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "row-overrides-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.042),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render slotted custom elements in cell in high contrast mode", () => {
+    const nextData = [...DATA_REACT_ELEMENTS];
+    mount(
+      <IcDataTable
+        columns={COLS_ELEMENTS}
+        data={nextData}
+        caption="Data tables"
+      >
+        {nextData.map((_, index) => (
+          <>
+            <IcButton
+              key={`actions-${index}`}
+              slot={`actions-${index}`}
+              onClick={() => nextData.splice(index, 1)}
+            >
+              Delete
+            </IcButton>
+            <IcButton
+              key={`actions2-${index}`}
+              variant="secondary"
+              slot={`actions2-${index}`}
+              onClick={() => nextData.splice(index, 1)}
+            >
+              Add
+            </IcButton>
+          </>
+        ))}
+      </IcDataTable>
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "slotted-custom-element-in-cell-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.036),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+      delay: 500,
+    });
+  });
+});
