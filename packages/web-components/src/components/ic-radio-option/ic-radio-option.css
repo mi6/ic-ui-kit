@@ -13,7 +13,7 @@ ic-radio-option {
 
 /* The label turns grey when disabled  */
 ic-radio-option.ic-radio-option-disabled {
-  color: var(--ic-architectural-200);
+  --ic-typography-color: var(--ic-architectural-200);
 }
 
 /* Focus states */
@@ -176,6 +176,9 @@ ic-radio-option.ic-radio-option-disabled {
 
 .dynamic-text {
   color: var(--ic-action-default);
+
+  --ic-typography-color: var(--ic-action-default);
+
   margin-top: calc(var(--ic-space-sm) / 2);
   margin-bottom: var(--ic-space-xs);
   border-radius: 2%;

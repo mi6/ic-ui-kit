@@ -444,3 +444,21 @@ export const InAGGrid = () => {
     </>
   );
 };
+
+export const ThemeProp = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcTypography variant="body" theme="inherit">
+        Inherited theme text
+      </IcTypography>
+      <IcTypography variant="body" theme="light">
+        Light theme text
+      </IcTypography>
+      <div style={{ backgroundColor: "#000000" }}>
+        <IcTypography variant="body" theme="dark">
+          Dark theme text
+        </IcTypography>
+      </div>
+    </div>
+  );
+};

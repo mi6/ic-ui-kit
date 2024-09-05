@@ -51,6 +51,9 @@ ic-tooltip:focus-within {
 .filled {
   background-color: var(--chip-custom-color, var(--ic-architectural-200));
   color: var(--chip-custom-foreground-color, black);
+
+  --ic-typography-color: var(--chip-custom-foreground-color, black);
+
   border: none;
 }
 
@@ -79,11 +82,11 @@ ic-tooltip:focus-within {
 }
 
 .chip.disabled ic-typography {
-  color: var(--ic-architectural-500);
+  --ic-typography-color: var(--ic-architectural-500);
 }
 
 .filled.disabled ic-typography {
-  color: var(--ic-architectural-600);
+  --ic-typography-color: var(--ic-architectural-600);
 }
 
 .dismiss-icon {
@@ -153,7 +156,7 @@ ic-tooltip {
   }
 
   .chip.disabled ic-typography {
-    color: GrayText;
+    --ic-typography-color: GrayText;
   }
 
   .chip.disabled path,

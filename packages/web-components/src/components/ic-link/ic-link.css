@@ -10,12 +10,12 @@
 
 :host(.ic-link.ic-link-dark) .link.dark,
 :host(.ic-link.ic-link-dark) ::slotted(a) {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-primary-text-light);
 }
 
 :host(.ic-link.ic-link-light) .link.light,
 :host(.ic-link.ic-link-light) ::slotted(a) {
-  color: var(--ic-color-white-text);
+  color: var(--ic-color-primary-text-dark);
 }
 
 :host(.ic-link) .link:visited,
@@ -62,14 +62,6 @@
 
 .link > .ic-link-open-in-new-icon {
   fill: var(--ic-hyperlink);
-}
-
-.link.dark > .ic-link-open-in-new-icon {
-  fill: var(--ic-color-primary-text);
-}
-
-.link.light > .ic-link-open-in-new-icon {
-  fill: var(--ic-color-white-text);
 }
 
 .ic-link-open-in-new-icon > svg {
