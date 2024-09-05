@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.27.0...@ukic/react@2.27.1) (2024-09-05)
+
+### Bug Fixes
+
+- **react:** update accordion story to be lowercase ([246332d](https://github.com/mi6/ic-ui-kit/commit/246332dd2068e2ae6b3cc2e1cdd3695eb61aa75b))
+
 # [2.27.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.26.0...@ukic/react@2.27.0) (2024-09-04)
 
 ### Bug Fixes

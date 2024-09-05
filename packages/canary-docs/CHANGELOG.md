@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0-canary.20 (2024-09-05)
+
+### Bug Fixes
+
+- **canary-docs:** update docs to have updated data table prop description ([083898f](https://github.com/mi6/ic-ui-kit/commit/083898f14f9758d5ea0af28561d9f4a1c5458d74))
+
 # [2.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.18...@ukic/canary-docs@2.0.0-canary.19) (2024-09-04)
 
 **Note:** Version bump only for package @ukic/canary-docs

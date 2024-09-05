@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.27.0...@ukic/web-components@2.27.1) (2024-09-05)
+
+### Bug Fixes
+
+- **web-components:** update accordion story to be lowercase ([bf582ba](https://github.com/mi6/ic-ui-kit/commit/bf582baea3280176fa0eb76a6a6dbe21eb6183e7))
+
 # [2.27.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.26.0...@ukic/web-components@2.27.0) (2024-09-04)
 
 ### Bug Fixes
