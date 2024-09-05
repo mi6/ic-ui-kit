@@ -223,7 +223,7 @@ export class DataTable {
 
   /**
    * Sets the method used to truncate longer text in cells where textWrap is `false`.
-   * The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
+   * The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more" / "See less" buttons.
    */
   @Prop() truncationPattern?: IcDataTableTruncationTypes;
 
