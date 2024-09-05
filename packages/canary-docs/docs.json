@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-08-21T11:24:39",
+  "timestamp": "2024-09-05T11:01:59",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -825,7 +825,7 @@
           "mutable": false,
           "attr": "truncation-pattern",
           "reflectToAttr": false,
-          "docs": "Sets the method used to truncate longer text in cells where textWrap is `false`.\nThe `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography \"See more\"/\"See less\" buttons.",
+          "docs": "Sets the method used to truncate longer text in cells where textWrap is `false`.\nThe `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography \"See more\" / \"See less\" buttons.",
           "docsTags": [],
           "values": [
             {
