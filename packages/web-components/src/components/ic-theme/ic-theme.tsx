@@ -9,7 +9,7 @@ import {
   State,
 } from "@stencil/core";
 
-import { IcColor, IcTheme } from "../../utils/types";
+import { IcColor, IcTheme, IcColorScheme } from "../../utils/types";
 import { convertToRGBA, getThemeForegroundColor } from "../../utils/helpers";
 import { getThemeColorBrightness } from "../../utils/helpers";
 import {
@@ -36,7 +36,7 @@ export class Theme {
   /**
    * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
    */
-  @Prop() theme: "dark" | "light" | "system" = "light";
+  @Prop() theme: IcColorScheme = "light";
 
   @Watch("theme")
   watchThemePropHandler(): void {

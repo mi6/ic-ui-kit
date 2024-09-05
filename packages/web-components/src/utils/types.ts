@@ -97,6 +97,10 @@ export type IcAutocompleteTypes =
 
 export type IcAlignment = "left" | "center" | "full-width";
 
+export type IcThemeMode = "dark" | "light" | "inherit";
+
+export type IcColorScheme = "dark" | "light" | "system";
+
 export enum IcThemeForegroundEnum {
   Default = "default",
   Dark = "dark",

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcColorScheme, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 import { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -33,7 +33,7 @@ import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 import { Options } from "@popperjs/core";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcColorScheme, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -526,6 +526,10 @@ export namespace Components {
           * The size of the chip.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the component to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the outlined variant of chip will have a transparent background rather than white.
          */
@@ -1987,7 +1991,7 @@ export namespace Components {
         /**
           * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
          */
-        "theme": "dark" | "light" | "system";
+        "theme": IcColorScheme;
     }
     interface IcToast {
         /**
@@ -2212,7 +2216,7 @@ export namespace Components {
         /**
           * Sets the text color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: "dark" | "light" | "inherit";
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the typography will have a line under it.
          */
@@ -3662,6 +3666,10 @@ declare namespace LocalJSX {
           * The size of the chip.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the component to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the outlined variant of chip will have a transparent background rather than white.
          */
@@ -5235,7 +5243,7 @@ declare namespace LocalJSX {
         /**
           * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
          */
-        "theme"?: "dark" | "light" | "system";
+        "theme"?: IcColorScheme;
     }
     interface IcToast {
         /**
@@ -5463,7 +5471,7 @@ declare namespace LocalJSX {
         /**
           * Sets the text color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: "dark" | "light" | "inherit";
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the typography will have a line under it.
          */

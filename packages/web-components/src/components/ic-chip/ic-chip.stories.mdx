@@ -563,6 +563,7 @@ import readme from "./readme.md";
 ### Playground
 
 export const defaultArgs = {
+  theme: "light",
   customColor: null,
   disabled: false,
   dismissible: false,
@@ -578,6 +579,12 @@ export const defaultArgs = {
     args={defaultArgs}
     parameters={{ loki: { skip: true } }}
     argTypes={{
+      theme: {
+        options: ["light", "dark", "inherit"],
+        control: {
+          type: "inline-radio",
+        },
+      },
       customColor: {
         control: { type: "text" },
       },
@@ -604,6 +611,7 @@ export const defaultArgs = {
   >
     {(args) =>
       html`<ic-chip
+        theme=${args.theme}
         label=${args.label}
         custom-color=${args.customColor}
         dismissible=${args.dismissible}
