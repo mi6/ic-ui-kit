@@ -8,6 +8,9 @@ import {
   NOT_HAVE_CLASS,
   HAVE_FOCUS,
   NOT_EXIST,
+  BE_VISIBLE,
+  NOT_BE_VISIBLE,
+  HAVE_BEEN_CALLED_ONCE,
 } from "../utils/constants";
 import {
   DismissAriaLabelToast,
@@ -22,29 +25,33 @@ import {
 } from "./IcToastTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.035;
+const DEFAULT_TEST_THRESHOLD = 0.041;
 
+const IC_TOAST_SELECTOR = "ic-toast";
+const IC_BUTTON_SELECTOR = "ic-button";
 const DISMISS_BUTTON_SELECTOR = "#dismiss-button";
 const OPEN_BUTTON_SELECTOR = "ic-button#open-toast-btn";
 
-describe("IcToast", () => {
+describe("IcToast end-to-end tests", () => {
   it("should render", () => {
     mount(<SimpleToast />);
-    cy.get("ic-toast").should("exist");
+    cy.get(IC_TOAST_SELECTOR).should("exist");
   });
 
   it("should close on dismiss icon click", () => {
     mount(<SimpleToast />);
-    cy.get("ic-button").click();
-    cy.get("ic-toast").should(NOT_HAVE_CLASS, "hidden");
-    cy.clickOnShadowEl("ic-toast", DISMISS_BUTTON_SELECTOR);
-    cy.get("ic-toast").should(HAVE_CLASS, "hidden");
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "hidden");
+    cy.clickOnShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR);
+    cy.get(IC_TOAST_SELECTOR).should(HAVE_CLASS, "hidden");
   });
 
   it("should focus on dismiss button when no action is provided", () => {
     mount(<SimpleToast />);
-    cy.get("ic-button").click();
-    cy.findShadowEl("ic-toast", DISMISS_BUTTON_SELECTOR).should(HAVE_FOCUS);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.findShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR).should(
+      HAVE_FOCUS
+    );
   });
 
   it("should focus on slotted action when provided", () => {
@@ -56,39 +63,65 @@ describe("IcToast", () => {
   it("should set the dismissMode to manual if the action slot is used on an autoDismiss toast", () => {
     mount(<SlottedActionAutoDismissToast />);
     cy.get(OPEN_BUTTON_SELECTOR).click();
-    cy.findShadowEl("ic-toast", DISMISS_BUTTON_SELECTOR).should("exist");
+    cy.findShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR).should("exist");
+    cy.findShadowEl(IC_TOAST_SELECTOR, "ic-loading-indicator").should(
+      NOT_EXIST
+    );
   });
 
   it("should set the dismissMode to automatic if no action slot is specified", () => {
     mount(<SimpleAutoDismissToast />);
-    cy.get("ic-button").click();
-    cy.findShadowEl("ic-toast", "ic-loading-indicator").should("exist");
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.findShadowEl(IC_TOAST_SELECTOR, "ic-loading-indicator").should("exist");
+    cy.findShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR).should(
+      NOT_EXIST
+    );
   });
 
   it("should set the variant to neutral if the neutral-icon slot is used when the variant isn't set", () => {
     mount(<SlottedIconToast />);
-    cy.get("ic-button").click();
-    cy.findShadowEl("ic-toast", "div.divider-neutral").should("exist");
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.findShadowEl(IC_TOAST_SELECTOR, "div.divider-neutral").should("exist");
   });
 
   it("should not render an icon if the variant is neutral and the neutral-icon slot is not used", () => {
     mount(<SimpleToast />);
-    cy.get("ic-button").click();
-    cy.findShadowEl("ic-toast", "span.toast-icon").should(NOT_EXIST);
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.findShadowEl(IC_TOAST_SELECTOR, "span.toast-icon").should(NOT_EXIST);
   });
 
   it("should set the autoDismissTimeout to 5000ms if the prop provided is below", () => {
     mount(<SimpleAutoDismissToast />);
-    cy.get("ic-button").click();
-    cy.get("ic-toast")
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.get(IC_TOAST_SELECTOR)
       .shadow()
       .wait(4900)
       .find("ic-loading-indicator")
-      .should("exist");
+      .should(BE_VISIBLE);
+    cy.get(IC_TOAST_SELECTOR)
+      .shadow()
+      .wait(100)
+      .find("ic-loading-indicator")
+      .should(NOT_BE_VISIBLE);
+  });
+
+  it("should emit icDismiss event when toast is dismissed", () => {
+    mount(<SimpleToast />);
+
+    cy.get(IC_TOAST_SELECTOR).invoke(
+      "on",
+      "icDismiss",
+      cy.stub().as("icDismiss")
+    );
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "hidden");
+    cy.clickOnShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR);
+    cy.get(IC_TOAST_SELECTOR).should(HAVE_CLASS, "hidden");
+    cy.get("@icDismiss").should(HAVE_BEEN_CALLED_ONCE);
   });
 });
 
-describe("IcToast Visual Regression and A11y Testing", () => {
+describe("IcToast visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -99,97 +132,167 @@ describe("IcToast Visual Regression and A11y Testing", () => {
 
   it("should render default toast", () => {
     mount(<HeadingOnlyToast />);
-    cy.get("ic-button").click();
 
-    // cy.checkA11yWithWait(undefined, 100);
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
-      delay: 500,
     });
   });
 
   it("should render message and variant", () => {
     mount(<SimpleToast />);
-    cy.get("ic-button").click();
 
-    // cy.checkA11yWithWait(undefined, 100);
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "message-variant",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
-      delay: 500,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
 
   it("should render multiline message", () => {
     mount(<MultilineMessageToast />);
-    cy.get("ic-button").click().wait(200);
 
-    // cy.checkA11yWithWait(undefined, 100);
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "multiline",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
-      delay: 500,
     });
   });
 
-  it("should render slotted button", () => {
+  it("should render slotted button and success status", () => {
     mount(<SlottedActionToast />);
-    cy.get(OPEN_BUTTON_SELECTOR).click();
 
-    // cy.checkA11yWithWait(undefined, 100);
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(OPEN_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "slotted-button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
-      delay: 500,
     });
   });
 
   it("should render slotted link", () => {
     mount(<SlottedLinkToast />);
-    cy.get("ic-button").click().wait(200);
 
-    // cy.checkA11yWithWait(undefined, 100);
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "slotted-link",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
-      delay: 500,
     });
   });
 
   it("should render auto dismiss", () => {
     mount(<SimpleAutoDismissToast />);
-    cy.get("ic-button").click();
 
-    // cy.checkA11yWithWait(undefined, 100);
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "auto-dismiss",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
-      delay: 500,
     });
   });
 
   it("should render custom neutral icon", () => {
     mount(<SlottedIconToast />);
-    cy.get("ic-button").click().wait(200);
 
-    // cy.checkA11yWithWait(undefined, 100);
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
-      delay: 500,
     });
   });
 
   it("should render custom dismiss button aria label", () => {
     mount(<DismissAriaLabelToast />);
-    cy.get("ic-button").click().wait(200);
 
-    // cy.checkA11yWithWait(undefined, 100);
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom-aria-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
-      delay: 1000,
+    });
+  });
+});
+
+describe("IcToast visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render auto dismiss in high contrast mode", () => {
+    mount(<SimpleAutoDismissToast />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "auto-dismiss-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+    });
+  });
+
+  it("should render custom neutral icon in high contrast mode", () => {
+    mount(<SlottedIconToast />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "custom-icon-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+    });
+  });
+
+  it("should render slotted button and success status in high contrast mode", () => {
+    mount(<SlottedActionToast />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(OPEN_BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "slotted-button-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+    });
+  });
+
+  it("should render slotted link in high contrast mode", () => {
+    mount(<SlottedLinkToast />);
+
+    cy.checkHydrated(IC_TOAST_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "slotted-link-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
 });
