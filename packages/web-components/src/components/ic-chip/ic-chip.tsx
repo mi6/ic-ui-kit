@@ -17,7 +17,7 @@ import {
   convertToRGBA,
   isElInAGGrid,
 } from "../../utils/helpers";
-import { IcColor, IcEmphasisType, IcSizes } from "../../utils/types";
+import { IcColor, IcEmphasisType, IcSizes, IcThemeMode } from "../../utils/types";
 import dismissIcon from "../../assets/dismiss-icon.svg";
 
 /**
@@ -71,6 +71,11 @@ export class Chip {
    * The size of the chip.
    */
   @Prop() size?: IcSizes = "default";
+  
+  /**
+   * Sets the text color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * If `true`, the outlined variant of chip will have a transparent background rather than white.
@@ -147,7 +152,7 @@ export class Chip {
   };
 
   render() {
-    const { label, variant, size, dismissible, visible, disabled, hovered } =
+    const { label, variant, size, dismissible, visible, disabled, hovered, theme } =
       this;
 
     return (
@@ -162,6 +167,7 @@ export class Chip {
             hovered,
             "white-background":
               this.variant === "outlined" && !this.transparentBackground,
+            [`ic-theme-${theme}`]: theme !== "inherit",
           }}
         >
           {isSlotUsed(this.el, "icon") && (

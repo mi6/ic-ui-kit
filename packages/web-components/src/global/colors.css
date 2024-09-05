@@ -109,6 +109,7 @@
   --ic-color-secondary-text-dark: #6c7580;
   --ic-color-tertiary-text-light: #6c7580;
   --ic-color-tertiary-text-dark: #41464d;
+  --ic-color-inactive-text: #a7acb3;
 
   /* actions */
 
@@ -256,4 +257,18 @@
 
   /* data tables */
   --ic-table-row-selected: #c7d7ef;
+
+  /* icons */
+  --ic-icon-neutral: var(--ic-architectural-black);
+  --ic-icon-inverted: var(--ic-architectural-white);
+  --ic-icon-disabled-dark: var(--ic-architectural-500);
+
+  /* borders */
+  --ic-border-disabled: var(--ic-architectural-200);
+  --ic-border-inverse: var(--ic-architectural-white);
+
+  /* state layers */
+  --ic-state-layer-neutral: var(--ic-architectural-200);
+  --ic-state-layer-neutral-light: var(--ic-architectural-100);
+  --ic-state-layer-neutral-dark: var(--ic-architectural-400);
 }

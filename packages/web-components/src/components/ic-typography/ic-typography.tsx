@@ -11,7 +11,7 @@ import {
   EventEmitter,
 } from "@stencil/core";
 
-import { IcTypographyVariants } from "../../utils/types";
+import { IcTypographyVariants, IcThemeMode } from "../../utils/types";
 import { checkResizeObserver, isElInAGGrid } from "../../utils/helpers";
 
 @Component({
@@ -64,7 +64,7 @@ export class Typography {
   /**
    * Sets the text color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: "dark" | "light" | "inherit" = "inherit";
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * If `true`, the typography will have a line under it.
@@ -239,7 +239,6 @@ export class Typography {
       bold,
       theme,
     } = this;
-    console.log("theme", theme);
     return (
       <Host
         class={{
