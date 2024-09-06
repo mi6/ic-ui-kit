@@ -459,6 +459,7 @@ export const AGGrid = () => {
 ### Playground
 
 export const defaultArgs = {
+  theme: "light",
   customColor: null,
   disabled: false,
   dismissible: false,
@@ -473,7 +474,13 @@ export const defaultArgs = {
   <Story
     args={defaultArgs}
     parameters={{ loki: { skip: true } }}
-    argTypes={{
+        argTypes={{
+      theme: {
+        options: ["light", "dark", "inherit"],
+        control: {
+          type: "inline-radio",
+        },
+      },
       customColor: {
         control: { type: "text" },
       },
@@ -506,6 +513,7 @@ export const defaultArgs = {
   >
     {(args) => (
       <IcChip
+        theme={args.theme}
         label={args.label}
         customColor={args.customColor}
         dismissible={args.dismissible}
