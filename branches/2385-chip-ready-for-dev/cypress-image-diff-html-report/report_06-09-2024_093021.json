@@ -2805,6 +2805,17 @@
         },
         {
           "status": "pass",
+          "name": "IcFooter.cy.tsx-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcFooter/IcFooter.cy.tsx",
+          "specFilename": "IcFooter.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcFooter.cy.tsx-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-theme.png"
+        },
+        {
+          "status": "pass",
           "name": "IcFooter.cy.tsx-default-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -2962,17 +2973,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx-full-width.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-full-width.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcHero.cy.tsx-theme",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcHero/IcHero.cy.tsx",
-          "specFilename": "IcHero.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx-theme.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-theme.png"
         },
         {
           "status": "pass",
@@ -6887,9 +6887,9 @@
       ]
     }
   ],
-  "startedAt": "2024-09-06T08:35:30.167Z",
-  "endedAt": "2024-09-06T08:47:04.289Z",
-  "duration": 616942,
+  "startedAt": "2024-09-06T09:30:21.295Z",
+  "endedAt": "2024-09-06T09:41:52.945Z",
+  "duration": 615511,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
