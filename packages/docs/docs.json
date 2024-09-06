@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-08-29T10:35:38",
+  "timestamp": "2024-09-06T08:36:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -4184,7 +4184,7 @@
           "mutable": false,
           "attr": "close-on-backdrop-click",
           "reflectToAttr": false,
-          "docs": "If set to `true`, the dialog will not close when the backdrop is clicked.",
+          "docs": "If set to `false`, the dialog will not close when the backdrop is clicked.",
           "docsTags": [],
           "default": "true",
           "values": [
