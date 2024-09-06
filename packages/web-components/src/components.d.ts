@@ -653,7 +653,7 @@ export namespace Components {
          */
         "cancelDialog": () => Promise<void>;
         /**
-          * If set to `true`, the dialog will not close when the backdrop is clicked.
+          * If set to `false`, the dialog will not close when the backdrop is clicked.
          */
         "closeOnBackdropClick"?: boolean;
         /**
@@ -3977,7 +3977,7 @@ declare namespace LocalJSX {
          */
         "buttons"?: boolean;
         /**
-          * If set to `true`, the dialog will not close when the backdrop is clicked.
+          * If set to `false`, the dialog will not close when the backdrop is clicked.
          */
         "closeOnBackdropClick"?: boolean;
         /**
