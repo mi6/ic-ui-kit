@@ -76,7 +76,7 @@ export class Dialog {
   @Prop() buttons?: boolean = true;
 
   /**
-   * If set to `true`, the dialog will not close when the backdrop is clicked.
+   * If set to `false`, the dialog will not close when the backdrop is clicked.
    */
   @Prop() closeOnBackdropClick?: boolean = true;
 
