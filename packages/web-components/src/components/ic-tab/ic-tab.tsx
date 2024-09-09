@@ -11,10 +11,7 @@ import {
 } from "@stencil/core";
 
 import { IcTabClickEventDetail } from "./ic-tab.types";
-import {
-  IcThemeForegroundNoDefault,
-  IcThemeForegroundEnum,
-} from "../../utils/types";
+import { IcThemeMode } from "../../utils/types";
 import { isSlotUsed, removeDisabledFalse } from "../../utils/helpers";
 
 /**
@@ -33,9 +30,6 @@ export class Tab {
 
   @Element() el: HTMLIcTabElement;
 
-  /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
-
   /** @internal The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel. */
   @Prop({ reflect: true }) contextId?: string = "default";
 
@@ -43,6 +37,9 @@ export class Tab {
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
+
+  /** @internal Determines whether black variant of the tabs should be displayed. */
+  @Prop() monochrome?: boolean = false;
 
   /** @internal If `true`, the tab will display with a selected indicator and tabIndex will be set. */
   @Prop({ reflect: true }) selected?: boolean = false;
@@ -52,6 +49,9 @@ export class Tab {
 
   /** @internal The position of the tab inside the tabs array in context. */
   @Prop() tabPosition?: number;
+
+  /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   @Watch("disabled")
   disabledWatchHandler(): void {
@@ -150,14 +150,15 @@ export class Tab {
   };
 
   render() {
-    const { disabled, selected, appearance } = this;
+    const { disabled, selected, theme, monochrome } = this;
     return (
       <Host
         class={{
           ["with-transition"]: !this.isInitialRender,
-          ["ic-tab-light"]: appearance === IcThemeForegroundEnum.Light,
           ["ic-tab-selected"]: selected,
           ["ic-tab-disabled"]: disabled,
+          [`ic-theme-${theme}`]: theme !== "inherit",
+          ["ic-tab-monochrome"]: monochrome,
         }}
         role="tab"
         aria-selected={selected ? "true" : "false"}
