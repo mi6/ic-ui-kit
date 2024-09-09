@@ -27,6 +27,20 @@ ic-theme,
     --ic-status-unknown-outlined
   );
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-mid);
+
+  /* Tabs */
+  --ic-tab-label: var(--ic-color-primary-text);
+  --ic-tab-label-monochrome: var(--ic-color-primary-text);
+  --ic-tab-icon: var(--ic-icon-neutral);
+  --ic-tab-icon-monochrome: var(--ic-icon-neutral);
+  --ic-tab-bottom-border: var(--ic-border-neutral-grey);
+  --ic-tab-bottom-border-monochrome: var(--ic-border-neutral-black);
+  --ic-tab-item-pressed: var(--ic-action-default-bg-active);
+  --ic-tab-item-pressed-monochrome: var(--ic-action-dark-bg-active);
+  --ic-tab-item: var(--ic-action-default);
+  --ic-tab-item-monochrome: var(--ic-action-dark);
+  --ic-tab-item-hover: var(--ic-action-default-bg-hover);
+  --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
 }
 
 /* colors for system dark mode */
@@ -58,6 +72,20 @@ ic-theme,
     --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
     --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-light);
     --ic-status-tag-outlined-neutral: var(--ic-status-unknown);
+
+    /* Tabs */
+    --ic-tab-label: var(--ic-color-primary-text-dark);
+    --ic-tab-label-monochrome: var(--ic-color-inverse-text-light);
+    --ic-tab-icon: var(--ic-icon-inverted);
+    --ic-tab-icon-monochrome: var(--ic-icon-inverted);
+    --ic-tab-bottom-border: var(--ic-border-neutral-inverted);
+    --ic-tab-bottom-border-monochrome: var(--ic-border-neutral-inverted);
+    --ic-tab-item-pressed: var(--ic-action-light-bg-active);
+    --ic-tab-item-pressed-monochrome: var(--ic-action-light-bg-active);
+    --ic-tab-item: var(--ic-action-light);
+    --ic-tab-item-monochrome: var(--ic-action-light);
+    --ic-tab-item-hover: var(--ic-action-light-bg-hover);
+    --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
   }
 }
 
@@ -89,4 +117,20 @@ ic-theme,
   --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
   --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-light);
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown);
+
+  /* Tabs */
+  --ic-tab-label: var(--ic-color-primary-text-dark);
+  --ic-tab-label-monochrome: var(--ic-color-inverse-text-light);
+  --ic-tab-icon: var(--ic-icon-inverted);
+  --ic-tab-icon-monochrome: var(--ic-icon-inverted);
+  --ic-tab-divider: var(--ic-state-layer-neutral-light);
+  --ic-tab-divider-monochrome: var(--ic-icon-inverted);
+  --ic-tab-bottom-border: var(--ic-border-neutral-inverted);
+  --ic-tab-bottom-border-monochrome: var(--ic-border-neutral-inverted);
+  --ic-tab-item-pressed: var(--ic-action-light-bg-active);
+  --ic-tab-item-pressed-monochrome: var(--ic-action-light-bg-active);
+  --ic-tab-item: var(--ic-action-light);
+  --ic-tab-item-monochrome: var(--ic-action-light);
+  --ic-tab-item-hover: var(--ic-action-light-bg-hover);
+  --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
 }

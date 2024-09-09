@@ -275,4 +275,13 @@
   --ic-tooltip-background: var(--ic-background-primary-dark);
   --ic-tooltip-text: var(--ic-color-primary-text-dark);
   --ic-tooltip-border: var(--ic-color-border-neutral-light-gray);
+
+  /* icons */
+  --ic-icon-neutral: var(--ic-architectural-black);
+  --ic-icon-inverted: var(--ic-architectural-white);
+
+  /* state layers */
+  --ic-state-layer-neutral: var(--ic-architectural-200);
+  --ic-state-layer-neutral-light: var(--ic-architectural-100);
+  --ic-state-layer-neutral-dark: var(--ic-architectural-400);
 }
