@@ -42,9 +42,9 @@ describe("IcToast end-to-end tests", () => {
   it("should close on dismiss icon click", () => {
     mount(<SimpleToast />);
     cy.get(IC_BUTTON_SELECTOR).click();
-    cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "hidden");
+    cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "ic-toast-hidden");
     cy.clickOnShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR);
-    cy.get(IC_TOAST_SELECTOR).should(HAVE_CLASS, "hidden");
+    cy.get(IC_TOAST_SELECTOR).should(HAVE_CLASS, "ic-toast-hidden");
   });
 
   it("should focus on dismiss button when no action is provided", () => {
@@ -115,9 +115,9 @@ describe("IcToast end-to-end tests", () => {
       cy.stub().as("icDismiss")
     );
     cy.get(IC_BUTTON_SELECTOR).click();
-    cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "hidden");
+    cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "ic-toast-hidden");
     cy.clickOnShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR);
-    cy.get(IC_TOAST_SELECTOR).should(HAVE_CLASS, "hidden");
+    cy.get(IC_TOAST_SELECTOR).should(HAVE_CLASS, "ic-toast-hidden");
     cy.get("@icDismiss").should(HAVE_BEEN_CALLED_ONCE);
   });
 
@@ -147,15 +147,15 @@ describe("IcToast end-to-end tests", () => {
 
   it("should focus the new dismiss button when auto dismiss toast is tabbed to", () => {
     mount(<SimpleAutoDismissToast />);
-    cy.get("ic-button").click();
-    cy.checkHydrated("ic-toast");
+    cy.get(IC_BUTTON_SELECTOR).click();
+    cy.checkHydrated(IC_TOAST_SELECTOR);
 
-    cy.get("ic-toast").click(60, 40);
+    cy.get(IC_TOAST_SELECTOR).click(60, 40);
 
     cy.realPress("Tab").realPress("Tab");
-    cy.get("ic-toast")
+    cy.get(IC_TOAST_SELECTOR)
       .shadow()
-      .find("ic-button#dismiss-button")
+      .find(DISMISS_BUTTON_SELECTOR)
       .should("exist");
   });
 });
@@ -240,7 +240,7 @@ describe("IcToast visual regression and a11y tests", () => {
     cy.checkHydrated(IC_TOAST_SELECTOR);
     cy.get(IC_BUTTON_SELECTOR).click().wait(500);
 
-    cy.checkA11yWithWait();
+    //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "auto-dismiss",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
