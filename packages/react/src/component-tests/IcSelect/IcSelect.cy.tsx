@@ -525,7 +525,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.checkHydrated(IC_SELECT);
-    cy.get(IC_SELECT).should(HAVE_CLASS, "disabled hydrated");
+    cy.get(IC_SELECT).should(HAVE_CLASS, "ic-select-disabled hydrated");
     cy.findShadowEl(IC_SELECT, "button").should(BE_DISABLED);
 
     cy.checkA11yWithWait();
