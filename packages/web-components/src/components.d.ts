@@ -1803,12 +1803,12 @@ export namespace Components {
         "value"?: string | null;
     }
     interface IcTab {
-        "appearance"?: IcThemeForegroundNoDefault;
         "contextId"?: string;
         /**
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
+        "monochrome"?: boolean;
         "selected"?: boolean;
         /**
           * Sets focus on the tab.
@@ -1816,6 +1816,7 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         "tabId"?: string;
         "tabPosition"?: number;
+        "theme"?: IcThemeMode;
     }
     interface IcTabContext {
         /**
@@ -1823,21 +1824,24 @@ export namespace Components {
          */
         "activationType"?: IcActivationTypes;
         /**
-          * The appearance of the tab context, e.g dark, or light.
-         */
-        "appearance"?: IcThemeForegroundNoDefault;
-        /**
           * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
          */
         "contextId"?: string;
+        /**
+          * If `true`, the tabs will display as black in the light theme.
+         */
+        "monochrome"?: boolean;
         /**
           * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
         "tabRemovedHandler": (hadFocus?: boolean) => Promise<void>;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcTabGroup {
-        "appearance"?: IcThemeForegroundNoDefault;
         /**
           * If `true`, the tabs and tab panels will be positioned separately.
          */
@@ -1846,12 +1850,15 @@ export namespace Components {
           * The label to describe the purpose of the set of tabs to screen reader users.
          */
         "label": string;
+        "monochrome"?: boolean;
+        "theme"?: IcThemeMode;
     }
     interface IcTabPanel {
-        "appearance"?: IcThemeForegroundNoDefault;
+        "monochrome"?: boolean;
         "panelId"?: string;
         "selectedTab"?: string;
         "tabPosition"?: number;
+        "theme"?: IcThemeMode;
     }
     interface IcTextField {
         "ariaActiveDescendant"?: string;
@@ -5039,12 +5046,12 @@ declare namespace LocalJSX {
         "value"?: string | null;
     }
     interface IcTab {
-        "appearance"?: IcThemeForegroundNoDefault;
         "contextId"?: string;
         /**
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
+        "monochrome"?: boolean;
         "onTabClick"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "onTabCreated"?: (event: IcTabCustomEvent<HTMLIcTabElement>) => void;
         "onTabEnabled"?: (event: IcTabCustomEvent<void>) => void;
@@ -5053,6 +5060,7 @@ declare namespace LocalJSX {
         "selected"?: boolean;
         "tabId"?: string;
         "tabPosition"?: number;
+        "theme"?: IcThemeMode;
     }
     interface IcTabContext {
         /**
@@ -5060,13 +5068,13 @@ declare namespace LocalJSX {
          */
         "activationType"?: IcActivationTypes;
         /**
-          * The appearance of the tab context, e.g dark, or light.
-         */
-        "appearance"?: IcThemeForegroundNoDefault;
-        /**
           * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
          */
         "contextId"?: string;
+        /**
+          * If `true`, the tabs will display as black in the light theme.
+         */
+        "monochrome"?: boolean;
         /**
           * Emitted when a user selects a tab.
          */
@@ -5075,9 +5083,12 @@ declare namespace LocalJSX {
           * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcTabGroup {
-        "appearance"?: IcThemeForegroundNoDefault;
         /**
           * If `true`, the tabs and tab panels will be positioned separately.
          */
@@ -5086,14 +5097,17 @@ declare namespace LocalJSX {
           * The label to describe the purpose of the set of tabs to screen reader users.
          */
         "label": string;
+        "monochrome"?: boolean;
+        "theme"?: IcThemeMode;
     }
     interface IcTabPanel {
-        "appearance"?: IcThemeForegroundNoDefault;
+        "monochrome"?: boolean;
         "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
         "onTabPanelRemoved"?: (event: IcTabPanelCustomEvent<void>) => void;
         "panelId"?: string;
         "selectedTab"?: string;
         "tabPosition"?: number;
+        "theme"?: IcThemeMode;
     }
     interface IcTextField {
         "ariaActiveDescendant"?: string;

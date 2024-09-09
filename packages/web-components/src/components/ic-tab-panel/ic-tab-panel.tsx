@@ -7,10 +7,7 @@ import {
   Prop,
   h,
 } from "@stencil/core";
-import {
-  IcThemeForegroundEnum,
-  IcThemeForegroundNoDefault,
-} from "../../utils/types";
+import { IcThemeMode } from "../../utils/types";
 import { isPropDefined } from "../../utils/helpers";
 
 @Component({
@@ -21,10 +18,8 @@ import { isPropDefined } from "../../utils/helpers";
 export class TabPanel {
   @Element() el: HTMLIcTabPanelElement;
 
-  /**
-   * @internal The appearance of the tabs, e.g dark, or light.
-   */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
+  /** @internal Determines whether black variant of the tabs should be displayed. */
+  @Prop() monochrome?: boolean = false;
 
   /**
    * @internal The shared ID that links the panel and tab.
@@ -41,6 +36,9 @@ export class TabPanel {
    */
   @Prop({ reflect: true }) tabPosition?: number;
 
+  /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
+  @Prop() theme?: IcThemeMode = "inherit";
+
   /**
    * @internal Emitted when a tab panel is dynamically created.
    */
@@ -56,11 +54,11 @@ export class TabPanel {
   }
 
   render() {
-    const { panelId, selectedTab, appearance } = this;
+    const { panelId, selectedTab, theme } = this;
     return (
       <Host
         class={{
-          ["ic-tab-panel-light"]: appearance === IcThemeForegroundEnum.Light,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         role="tabpanel"
         hidden={

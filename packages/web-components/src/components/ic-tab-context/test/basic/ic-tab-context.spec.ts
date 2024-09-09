@@ -30,11 +30,11 @@ describe("ic-tab-context component", () => {
     page.setContent("");
   });
 
-  it("should render tab context with tabs - light appearance", async () => {
+  it("should render tab context with tabs - theme dark", async () => {
     const page = await newSpecPage({
       components: [TabContext, TabGroup, Tab, TabPanel],
-      html: `<ic-tab-context appearance="light">
-      <ic-tab-group label="Example tab group" appearance="light">
+      html: `<ic-tab-context theme="dark">
+      <ic-tab-group label="Example tab group" theme="dark">
         <ic-tab>One</ic-tab>
         <ic-tab>Two</ic-tab>
         <ic-tab>Three</ic-tab>
