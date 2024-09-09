@@ -202,36 +202,6 @@ export const ControlledTabsExample = () => {
   </Story>
 </Canvas>
 
-### Light text
-
-<Canvas>
-  <Story name="Light text" parameters={{ backgrounds: { default: "dark" } }}>
-    <IcTabContext appearance="light">
-      <IcTabGroup label="Example tab group">
-        <IcTab>One</IcTab>
-        <IcTab>Two</IcTab>
-        <IcTab>
-          Three
-          <svg
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg>
-        </IcTab>
-      </IcTabGroup>
-      <IcTabPanel>Tab One</IcTabPanel>
-      <IcTabPanel>Tab Two</IcTabPanel>
-      <IcTabPanel>Tab Three</IcTabPanel>
-    </IcTabContext>
-  </Story>
-</Canvas>
-
 ### Responsive
 
 <Canvas>
@@ -263,38 +233,6 @@ export const ControlledTabsExample = () => {
       <IcTabPanel>Tab Ten</IcTabPanel>
       <IcTabPanel>Tab Eleven</IcTabPanel>
       <IcTabPanel>Tab Twelve</IcTabPanel>
-    </IcTabContext>
-  </Story>
-</Canvas>
-
-### Responsive (Light text)
-
-<Canvas>
-  <Story
-    name="Responsive (Light text)"
-    parameters={{ backgrounds: { default: "dark" } }}
-  >
-    <IcTabContext appearance="light">
-      <IcTabGroup label="Example tab group">
-        <IcTab>One</IcTab>
-        <IcTab>Two</IcTab>
-        <IcTab>Three</IcTab>
-        <IcTab>Four</IcTab>
-        <IcTab>Five</IcTab>
-        <IcTab>Six</IcTab>
-        <IcTab>Seven</IcTab>
-        <IcTab>Eight</IcTab>
-        <IcTab>Nine</IcTab>
-      </IcTabGroup>
-      <IcTabPanel>Tab One</IcTabPanel>
-      <IcTabPanel>Tab Two</IcTabPanel>
-      <IcTabPanel>Tab Three</IcTabPanel>
-      <IcTabPanel>Tab Four</IcTabPanel>
-      <IcTabPanel>Tab Five</IcTabPanel>
-      <IcTabPanel>Tab Six</IcTabPanel>
-      <IcTabPanel>Tab Seven</IcTabPanel>
-      <IcTabPanel>Tab Eight</IcTabPanel>
-      <IcTabPanel>Tab Nine</IcTabPanel>
     </IcTabContext>
   </Story>
 </Canvas>
@@ -385,10 +323,11 @@ export const DynamicRender = () => {
 
 export const defaultArgs = {
   activationType: "automatic",
-  appearance: "dark",
   disabled: false,
   inline: false,
   groupLabel: "Example tab group",
+  theme: "inherit",
+  monochrome: false,
 };
 
 <Canvas>
@@ -404,22 +343,19 @@ export const defaultArgs = {
           type: "inline-radio",
         },
       },
-      appearance: {
-        options: [
-          "dark", "light"
-        ],
-        control: {
-          type: "inline-radio",
-        },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
       },
     }}
     name="Playground"
   >
     {(args) => (
-      <div style={{ backgroundColor: args.appearance == "light" ? "black" : ""}}>
+      <div>
         <IcTabContext
           activationType={args.activationType}
-          appearance={args.appearance}
+          theme={args.theme}
+          monochrome={args.monochrome}
         >
           <IcTabGroup
             label={args.groupLabel}
@@ -451,10 +387,14 @@ export const defaultArgs = {
                 <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
               </svg>
             </IcTab>
+            <IcTab>
+              Four
+            </IcTab>
           </IcTabGroup>
           <IcTabPanel>Tab One</IcTabPanel>
           <IcTabPanel>Tab Two</IcTabPanel>
           <IcTabPanel>Tab Three</IcTabPanel>
+          <IcTabPanel>Tab Four</IcTabPanel>
         </IcTabContext>
       </div>
     )}
