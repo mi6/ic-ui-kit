@@ -736,7 +736,7 @@ export class DataTable {
   }: CustomEvent<{
     expanded: boolean;
     typographyEl: HTMLIcTypographyElement;
-  }>) {
+  }>): void {
     const { expanded, typographyEl } = detail;
     const cellContainer = this.getCellContainer(typographyEl);
 
@@ -823,7 +823,7 @@ export class DataTable {
   }
 
   @Watch("data")
-  async dataHandler(newData: { [key: string]: any }[]) {
+  async dataHandler(newData: { [key: string]: any }[]): Promise<void> {
     this.loadingOptions = {
       ...this.loadingOptions,
       showBackground: newData?.length > 0,
@@ -843,7 +843,7 @@ export class DataTable {
   }
 
   @Watch("density")
-  async densityHandler() {
+  async densityHandler(): Promise<void> {
     this.densityUpdate = true;
   }
 
@@ -1393,7 +1393,7 @@ export class DataTable {
     return typographyEl.closest(this.TOOLTIP);
   };
 
-  private updateTruncationTooltip = (removeTooltipOnly: boolean = false) => {
+  private updateTruncationTooltip = (removeTooltipOnly = false) => {
     this.getTypographyElements().forEach(
       (typographyEl: HTMLIcTypographyElement) => {
         const tooltip = this.getTooltip(typographyEl);
