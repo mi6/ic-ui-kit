@@ -74,34 +74,23 @@ export const Dark = (): ReactElement => {
       }}
     >
       <IcToggleButton label="Test" appearance="dark" />
-      <IcToggleButton label="Test" appearance="dark" toggleChecked />
+      <IcToggleButton label="Test" appearance="dark" checked />
       <IcToggleButton label="Test" appearance="dark" loading />
-      <IcToggleButton label="Test" appearance="dark" loading toggleChecked />
+      <IcToggleButton label="Test" appearance="dark" loading checked />
       <IcToggleButton label="Test" appearance="dark" disabled />
-      <IcToggleButton label="Test" appearance="dark" toggleChecked disabled />
+      <IcToggleButton label="Test" appearance="dark" checked disabled />
       <IcToggleButton label="Test" appearance="dark" loading disabled />
-      <IcToggleButton
-        label="Test"
-        appearance="dark"
-        loading
-        toggleChecked
-        disabled
-      />
+      <IcToggleButton label="Test" appearance="dark" loading checked disabled />
       <IcToggleButton label="Test" appearance="dark">
         <ReusableSlottedIcon />
       </IcToggleButton>
       <IcToggleButton label="Test" appearance="dark" variant="icon">
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="dark" toggleChecked>
+      <IcToggleButton label="Test" appearance="dark" checked>
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton
-        label="Test"
-        appearance="dark"
-        variant="icon"
-        toggleChecked
-      >
+      <IcToggleButton label="Test" appearance="dark" variant="icon" checked>
         <ReusableSlottedIcon />
       </IcToggleButton>
       <IcToggleButton label="Test" appearance="dark" disabled>
@@ -126,17 +115,17 @@ export const Light = (): ReactElement => {
       }}
     >
       <IcToggleButton label="Test" appearance="light" />
-      <IcToggleButton label="Test" appearance="light" toggleChecked />
+      <IcToggleButton label="Test" appearance="light" checked />
       <IcToggleButton label="Test" appearance="light" loading />
-      <IcToggleButton label="Test" appearance="light" loading toggleChecked />
+      <IcToggleButton label="Test" appearance="light" loading checked />
       <IcToggleButton label="Test" appearance="light" disabled />
-      <IcToggleButton label="Test" appearance="light" toggleChecked disabled />
+      <IcToggleButton label="Test" appearance="light" checked disabled />
       <IcToggleButton label="Test" appearance="light" loading disabled />
       <IcToggleButton
         label="Test"
         appearance="light"
         loading
-        toggleChecked
+        checked
         disabled
       />
       <IcToggleButton label="Test" appearance="light">
@@ -145,15 +134,10 @@ export const Light = (): ReactElement => {
       <IcToggleButton label="Test" appearance="light" variant="icon">
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="light" toggleChecked>
+      <IcToggleButton label="Test" appearance="light" checked>
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton
-        label="Test"
-        appearance="light"
-        variant="icon"
-        toggleChecked
-      >
+      <IcToggleButton label="Test" appearance="light" variant="icon" checked>
         <ReusableSlottedIcon />
       </IcToggleButton>
       <IcToggleButton label="Test" appearance="light" disabled>
