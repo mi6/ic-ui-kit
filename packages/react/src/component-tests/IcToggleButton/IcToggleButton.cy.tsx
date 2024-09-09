@@ -52,12 +52,21 @@ describe("IcToggleButton end-to-end tests", () => {
       "icToggleChecked",
       cy.stub().as("icToggleChecked")
     );
-    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(NOT_HAVE_CLASS, "checked");
+    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(
+      NOT_HAVE_CLASS,
+      "ic-toggle-button-checked"
+    );
     cy.get(IC_TOGGLE_BUTTON_SELECTOR).click();
-    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(HAVE_CLASS, "checked");
+    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(
+      HAVE_CLASS,
+      "ic-toggle-button-checked"
+    );
     cy.get("@icToggleChecked").should(HAVE_BEEN_CALLED_ONCE);
     cy.get(IC_TOGGLE_BUTTON_SELECTOR).click();
-    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(NOT_HAVE_CLASS, "checked");
+    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(
+      NOT_HAVE_CLASS,
+      "ic-toggle-button-checked"
+    );
   });
 
   it("should not be clickable when disabled", () => {
@@ -323,7 +332,7 @@ describe("IcToggleButton visual regression tests in high contrast mode", () => {
   it("should render checked in high contrast mode", () => {
     mount(
       <div style={{ padding: "8px" }}>
-        <IcToggleButton label="Test" toggleChecked />
+        <IcToggleButton label="Test" checked />
       </div>
     );
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
@@ -338,7 +347,7 @@ describe("IcToggleButton visual regression tests in high contrast mode", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" disabled />
-        <IcToggleButton label="Test Checked" disabled toggleChecked />
+        <IcToggleButton label="Test Checked" disabled checked />
       </div>
     );
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
@@ -353,7 +362,7 @@ describe("IcToggleButton visual regression tests in high contrast mode", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" loading />
-        <IcToggleButton label="Test" loading toggleChecked />
+        <IcToggleButton label="Test" loading checked />
       </div>
     );
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
