@@ -143,83 +143,12 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
   </Story>
 </Canvas>
 
-### Light text
-
-<Canvas>
-  <Story
-    name="Light text"
-    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
-  >
-    {html` <ic-tab-context appearance="light">
-      <ic-tab-group label="Example tab group">
-        <ic-tab>One</ic-tab>
-        <ic-tab>Two</ic-tab>
-        <ic-tab
-          >Three<svg
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" /></svg
-        ></ic-tab>
-      </ic-tab-group>
-      <ic-tab-panel>Tab One</ic-tab-panel>
-      <ic-tab-panel>Tab Two</ic-tab-panel>
-      <ic-tab-panel>Tab Three</ic-tab-panel>
-    </ic-tab-context>`}
-  </Story>
-</Canvas>
-
 ### Responsive
 
 <Canvas>
   <Story name="Responsive" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-tab-context>
-        <ic-tab-group label="Example tab group">
-          <ic-tab>One</ic-tab>
-          <ic-tab>Two</ic-tab>
-          <ic-tab>Three</ic-tab>
-          <ic-tab>Four</ic-tab>
-          <ic-tab>Five</ic-tab>
-          <ic-tab>Six</ic-tab>
-          <ic-tab>Seven</ic-tab>
-          <ic-tab>Eight</ic-tab>
-          <ic-tab>Nine</ic-tab>
-          <ic-tab>Ten</ic-tab>
-          <ic-tab>Eleven</ic-tab>
-          <ic-tab>Twelve</ic-tab>
-        </ic-tab-group>
-        <ic-tab-panel>Tab One</ic-tab-panel>
-        <ic-tab-panel>Tab Two</ic-tab-panel>
-        <ic-tab-panel>Tab Three</ic-tab-panel>
-        <ic-tab-panel>Tab Four</ic-tab-panel>
-        <ic-tab-panel>Tab Five</ic-tab-panel>
-        <ic-tab-panel>Tab Six</ic-tab-panel>
-        <ic-tab-panel>Tab Seven</ic-tab-panel>
-        <ic-tab-panel>Tab Eight</ic-tab-panel>
-        <ic-tab-panel>Tab Nine</ic-tab-panel>
-        <ic-tab-panel>Tab Ten</ic-tab-panel>
-        <ic-tab-panel>Tab Eleven</ic-tab-panel>
-        <ic-tab-panel>Tab Twelve</ic-tab-panel>
-      </ic-tab-context>
-    `}
-  </Story>
-</Canvas>
-
-### Responsive (Light text)
-
-<Canvas>
-  <Story
-    name="Responsive (Light text)"
-    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
-  >
-    {html`
-      <ic-tab-context appearance="light">
         <ic-tab-group label="Example tab group">
           <ic-tab>One</ic-tab>
           <ic-tab>Two</ic-tab>
@@ -340,10 +269,11 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 
 export const defaultArgs = {
   activationType: "automatic",
-  appearance: "dark",
   disabled: false,
   inline: false,
   groupLabel: "Example tab group",
+  theme: "inherit",
+  monochrome: false,
 };
 
 <Canvas>
@@ -357,25 +287,22 @@ export const defaultArgs = {
           type: "inline-radio",
         },
       },
-      appearance: {
-        options: ["dark", "light"],
-        control: {
-          type: "inline-radio",
-        },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
       },
     }}
     name="Playground"
   >
     {(args) =>
-      html`<div
-        style="background-color: ${args.appearance == "light" ? "black" : ""};"
-      >
+      html`<div>
         <ic-tab-context
           activation-type=${args.activationType}
-          appearance=${args.appearance}
+          theme=${args.theme}
+          monochrome=${args.monochrome}
         >
           <ic-tab-group label=${args.groupLabel} inline=${args.inline}>
-            <ic-tab disabled=${args.disabled}> One </ic-tab>
+            <ic-tab disabled=${args.disabled}>One</ic-tab>
             <ic-tab>
               Two
               <ic-badge
@@ -400,10 +327,12 @@ export const defaultArgs = {
                 <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
               </svg>
             </ic-tab>
+            <ic-tab>Four</ic-tab>
           </ic-tab-group>
           <ic-tab-panel>Tab One</ic-tab-panel>
           <ic-tab-panel>Tab Two</ic-tab-panel>
           <ic-tab-panel>Tab Three</ic-tab-panel>
+          <ic-tab-panel>Tab Four</ic-tab-panel>
         </ic-tab-context>
       </div>`
     }

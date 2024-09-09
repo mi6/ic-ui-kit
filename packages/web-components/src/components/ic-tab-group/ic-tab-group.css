@@ -1,18 +1,17 @@
 :host {
-  --border-bottom-color: var(--ic-architectural-300);
-
   display: block;
   margin-bottom: var(--ic-space-md);
-  border-bottom: var(--ic-border-default);
+  border-bottom: var(--ic-space-1px) solid var(--ic-tab-bottom-border);
+}
+
+:host(.ic-tab-group-monochrome) {
+  border-bottom: var(--ic-space-1px) solid
+    var(--ic-tab-bottom-border-monochrome);
 }
 
 :host(.ic-tab-group-inline) {
   margin-bottom: 0;
   border-bottom: none;
-}
-
-:host(.ic-tab-group-light) {
-  border-bottom: var(--ic-border-width) solid var(--ic-architectural-white);
 }
 
 .tabs-container {
