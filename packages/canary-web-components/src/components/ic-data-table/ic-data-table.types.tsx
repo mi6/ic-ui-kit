@@ -20,7 +20,9 @@ export type IcDataTableColumnObject = {
     horizontal?: string;
     vertical?: string;
   };
-  rowOptions?: IcDataTableRowOptions;
+  rowOptions?: {
+    textWrap: boolean;
+  };
   textWrap?: boolean;
   cellAlignment?: string;
   emphasis?: string;
@@ -30,10 +32,6 @@ export type IcDataTableColumnObject = {
     onAllCells?: boolean;
     hideOnHeader?: boolean;
   };
-};
-
-export type IcDataTableRowOptions = {
-  textWrap: boolean;
 };
 
 export type IcDataTableRowHeights = number | "auto";
