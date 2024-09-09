@@ -10,11 +10,7 @@ import {
   Watch,
   Method,
 } from "@stencil/core";
-import {
-  IcActivationTypes,
-  IcThemeForegroundNoDefault,
-  IcThemeForegroundEnum,
-} from "../../utils/types";
+import { IcActivationTypes, IcThemeMode } from "../../utils/types";
 
 import {
   IcTabClickEventDetail,
@@ -45,19 +41,6 @@ export class TabContext {
   @Prop() activationType?: IcActivationTypes = "automatic";
 
   /**
-   * The appearance of the tab context, e.g dark, or light.
-   */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
-  @Watch("appearance")
-  watchAppearanceHandler(): void {
-    this.tabs.forEach((tab, index) => {
-      tab.appearance = this.appearance;
-      this.tabPanels[index].appearance = this.appearance;
-    });
-    this.tabGroup.appearance = this.appearance;
-  }
-
-  /**
    * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
    */
   @Prop({ reflect: true }) contextId?: string = "default";
@@ -70,6 +53,32 @@ export class TabContext {
   @Watch("selectedTabIndex")
   updateSelectedTab(newValue: number): void {
     this.selectedTab = newValue;
+  }
+
+  /**
+   * If `true`, the tabs will display as black in the light theme.
+   */
+  @Prop() monochrome?: boolean = false;
+  @Watch("monochrome")
+  watchMonochromeHandler(): void {
+    this.tabs.forEach((tab, index) => {
+      tab.monochrome = this.monochrome;
+      this.tabPanels[index].monochrome = this.monochrome;
+    });
+    this.tabGroup.monochrome = this.monochrome;
+  }
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+  @Watch("theme")
+  watchThemeHandler(): void {
+    this.tabs.forEach((tab, index) => {
+      tab.theme = this.theme;
+      this.tabPanels[index].theme = this.theme;
+    });
+    this.tabGroup.theme = this.theme;
   }
 
   /**
@@ -174,15 +183,10 @@ export class TabContext {
       this.tabPanels[index].setAttribute("aria-labelledby", tabId);
       this.tabPanels[index].setAttribute(CONTEXT_ID_ATTR, this.contextId);
 
-      if (this.appearance === IcThemeForegroundEnum.Light) {
-        tab.appearance = this.appearance;
-        this.tabPanels[index].appearance = this.appearance;
-      }
+      tab.theme = this.theme;
+      this.tabPanels[index].theme = this.theme;
+      this.tabGroup.theme = this.theme;
     });
-
-    if (this.appearance === IcThemeForegroundEnum.Light) {
-      this.tabGroup.appearance = this.appearance;
-    }
   };
 
   /**
