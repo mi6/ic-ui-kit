@@ -1,7 +1,7 @@
 {
-  "total": 632,
-  "totalPassed": 622,
-  "totalFailed": 10,
+  "total": 634,
+  "totalPassed": 625,
+  "totalFailed": 9,
   "totalSuites": 36,
   "suites": [
     {
@@ -5798,15 +5798,26 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-responsive.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-responsive-light",
-          "percentage": 0.06881860213634101,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-responsive-light.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-responsive-light.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-responsive-light.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTabs.cy.tsx-light",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
+          "specFilename": "IcTabs.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-light.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-light.png"
         },
         {
           "status": "pass",
@@ -5884,6 +5895,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-focused.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-focused.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTabs.cy.tsx-focused-light",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
+          "specFilename": "IcTabs.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-focused-light.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-focused-light.png"
         },
         {
           "status": "pass",
@@ -7173,9 +7195,9 @@
       ]
     }
   ],
-  "startedAt": "2024-09-09T10:57:08.378Z",
-  "endedAt": "2024-09-09T11:12:09.397Z",
-  "duration": 825013,
+  "startedAt": "2024-09-09T12:11:41.493Z",
+  "endedAt": "2024-09-09T12:26:24.605Z",
+  "duration": 806728,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
