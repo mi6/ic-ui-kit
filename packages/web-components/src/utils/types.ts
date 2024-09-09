@@ -103,6 +103,8 @@ export enum IcThemeForegroundEnum {
   Light = "light",
 }
 
+export type IcThemeMode = "dark" | "light" | "inherit";
+
 export type IcThemeForeground = "default" | "dark" | "light";
 
 export type IcThemeForegroundNoDefault = "dark" | "light";
