@@ -179,7 +179,7 @@ export const ResponsiveTabs = (): ReactElement => (
 
 export const ResponsiveLightTextTabs = (): ReactElement => (
   <div style={{ margin: "2rem" }}>
-    <IcTabContext appearance="light">
+    <IcTabContext theme="dark">
       <IcTabGroup label="Example tab group">
         <IcTab>One</IcTab>
         <IcTab>Two</IcTab>
@@ -212,7 +212,7 @@ export const ResponsiveLightTextTabs = (): ReactElement => (
 
 export const LightTabs = (): ReactElement => (
   <div style={{ margin: "2rem" }}>
-    <IcTabContext appearance="light">
+    <IcTabContext theme="dark">
       <IcTabGroup label="Example tab group">
         <IcTab>Ingredients</IcTab>
         <IcTab>Method</IcTab>
