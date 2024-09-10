@@ -22,28 +22,43 @@ export const config: Cypress.ConfigOptions = {
       return config;
     },
     supportFile: "./cypress/support/index.ts",
-    retries: 3,
+    retries: {
+      runMode: 3,
+      openMode: 0,
+    },
   },
+
   e2e: {
-    baseUrl: "http://localhost:6007/",
+    specPattern: "./src/performance-tests/**/*.cy.tsx",
+    baseUrl: "http://localhost:3000/",
     setupNodeEvents(on, config) {
+      let lighthouseReportName = '';
+
       on("before:browser:launch", (_browser, launchOptions) => {
         prepareAudit(launchOptions);
       });
 
       on("task", {
-        lighthouse: lighthouse(),
-      });
+        setLighthouseReportName: (name) => {       
+          lighthouseReportName = name;
+          return null;             
+        },
 
-      // on("task", {
-      //   lighthouse: lighthouse((lighthouseReport) => {
-      //     console.log("---- Writing lighthouse report to disk ----");
-    
-      //     fs.writeFile("lighthouse.html", lighthouseReport.report, (error: any) => {
-      //       error ? console.log(error) : console.log("Report created successfully");
-      //     });
-      //   }),
-      // });
+        lighthouse: lighthouse((lighthouseReport) => {
+          const folderPathForLH = "cypress/lightHouse";
+          if (!fs.existsSync(folderPathForLH)) {
+            fs.mkdirSync(folderPathForLH);
+          }
+  
+          const filePath = `${folderPathForLH}/${lighthouseReportName}.html`;
+  
+          fs.writeFile(filePath, lighthouseReport.report, (error: any) => {
+            error ? console.log(error) : console.log("Report created successfully");
+          });
+
+          return null;
+        }),
+      });
 
       config.browsers = config.browsers.filter((b) => b.name == 'chrome')
       return config;
