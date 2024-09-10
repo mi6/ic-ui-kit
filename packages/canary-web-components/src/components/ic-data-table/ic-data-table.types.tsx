@@ -49,3 +49,6 @@ export interface IcSortEventDetail {
 export type truncWrapperDetailsTypes = {
   scrollHeight: number | null;
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type IcDataTableDataType = { [key: string]: any };
