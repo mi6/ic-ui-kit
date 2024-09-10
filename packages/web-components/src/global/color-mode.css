@@ -2,10 +2,9 @@
 :root,
 ic-theme,
 .ic-theme-light {
-  --ic-color-white-text: var(--ic-color-inverse-text);
+  --ic-background-primary: var(--ic-background-primary-light);
   --ic-typography-color: var(--ic-color-primary-text);
   --ic-color-primary-text: var(--ic-color-primary-text-light);
-  --ic-color-inverse-text: var(--ic-color-inverse-text-light);
   --ic-color-secondary-text: var(--ic-color-secondary-text-light);
   --ic-color-tertiary-text: var(--ic-color-tertiary-text-light);
 }
@@ -13,8 +12,8 @@ ic-theme,
 /* colors for system dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
+    --ic-background-primary: var(--ic-background-primary-dark);
     --ic-color-primary-text: var(--ic-color-primary-text-dark);
-    --ic-color-inverse-text: var(--ic-color-inverse-text-dark);
     --ic-color-secondary-text: var(--ic-color-secondary-text-dark);
     --ic-color-tertiary-text: var(--ic-color-tertiary-text-dark);
   }
@@ -22,8 +21,8 @@ ic-theme,
 
 /* colors for dark theme */
 .ic-theme-dark {
+  --ic-background-primary: var(--ic-background-primary-dark);
   --ic-color-primary-text: var(--ic-color-primary-text-dark);
-  --ic-color-inverse-text: var(--ic-color-inverse-text-dark);
   --ic-color-secondary-text: var(--ic-color-secondary-text-dark);
   --ic-color-tertiary-text: var(--ic-color-tertiary-text-dark);
 }

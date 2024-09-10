@@ -17,6 +17,24 @@ describe("ic-tooltip component", () => {
     expect(page.root).toMatchSnapshot(`ic-tooltip-render`);
   });
 
+  it("should test dark theme", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-tooltip theme="dark" label="tooltip"</ic-tooltip>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should test light theme", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-tooltip theme="light" label="tooltip"</ic-tooltip>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should appear when triggered", async () => {
     const page = await newSpecPage({
       components: [Tooltip],
