@@ -185,6 +185,10 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: "dark" | "light" | "inherit";
+        /**
           * The type of badge to be displayed.
          */
         "type"?: IcBadgeTypes;
@@ -3335,6 +3339,10 @@ declare namespace LocalJSX {
           * The size of the badge to be displayed.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: "dark" | "light" | "inherit";
         /**
           * The type of badge to be displayed.
          */
