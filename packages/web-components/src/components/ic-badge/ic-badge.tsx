@@ -5,19 +5,16 @@ import {
   IcBadgeVariants,
 } from "./ic-badge.types";
 import {
-  IcColorRGBA,
   IcSizes,
   IcThemeForeground,
   IcColor,
+  IcThemeMode,
 } from "../../utils/types";
 import {
   convertToRGBA,
-  getCssProperty,
   getThemeForegroundColor,
-  hexToRgba,
   isPropDefined,
   onComponentRequiredPropUndefined,
-  rgbaStrToObj,
 } from "../../utils/helpers";
 
 /**
@@ -32,7 +29,6 @@ import {
 })
 export class Badge {
   private ariaLabel: string = null;
-  private customColorRGBA: IcColorRGBA;
   private foregroundColour: IcThemeForeground;
   private parentAriaLabel: string;
 
@@ -81,6 +77,11 @@ export class Badge {
   @Prop() label?: string;
 
   /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+
+  /**
    * The type of badge to be displayed.
    */
   @Prop() type?: IcBadgeTypes = "text";
@@ -92,7 +93,9 @@ export class Badge {
 
   @Watch("variant")
   variantHandler(): void {
-    this.getBadgeForeground();
+    if (this.variant === "custom") {
+      this.setBadgeColour();
+    }
   }
 
   /**
@@ -107,8 +110,6 @@ export class Badge {
 
   componentWillLoad(): void {
     this.variant === "custom" && this.setBadgeColour();
-
-    this.getBadgeForeground();
 
     const ariaLabel = this.el.parentElement?.ariaLabel;
     if (ariaLabel) this.parentAriaLabel = ariaLabel;
@@ -127,37 +128,12 @@ export class Badge {
     const colorRGBA = convertToRGBA(this.customColor);
 
     if (colorRGBA) {
-      this.customColorRGBA = colorRGBA;
       const { r, g, b, a } = colorRGBA;
       this.el.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+      this.foregroundColour = getThemeForegroundColor(
+        (r * 299 + g * 587 + b * 114) / 1000
+      );
     }
-  };
-
-  private getBadgeRGB = () => {
-    switch (this.variant) {
-      case "custom":
-        return this.customColorRGBA;
-      case "error":
-      case "success":
-      case "warning":
-      case "info": {
-        return rgbaStrToObj(getCssProperty(`--ic-status-${this.variant}`));
-      }
-      case "neutral":
-      case "light":
-        return hexToRgba(
-          getCssProperty(
-            `--ic-architectural-${this.variant === "neutral" ? 500 : 40}`
-          )
-        );
-    }
-  };
-
-  private getBadgeForeground = () => {
-    const { r, g, b } = this.getBadgeRGB();
-    this.foregroundColour = getThemeForegroundColor(
-      (r * 299 + g * 587 + b * 114) / 1000
-    );
   };
 
   private getLabel = () =>
@@ -206,6 +182,7 @@ export class Badge {
       type,
       variant,
       visible,
+      theme,
     } = this;
 
     return (
@@ -216,8 +193,9 @@ export class Badge {
           [`ic-badge-${variant}`]: true,
           [`ic-badge-${type}`]: true,
           [`ic-badge-foreground-${foregroundColour}`]:
-            foregroundColour !== null,
+            foregroundColour !== null && variant === "custom",
           [`${visible ? "ic-badge-show" : "ic-badge-hide"}`]: true,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         id={el.id || null}
         aria-label={ariaLabel}
