@@ -201,6 +201,29 @@ exports[`ic-tooltip component should render: ic-tooltip-render 1`] = `
 </ic-tooltip>
 `;
 
+exports[`ic-tooltip component should test dark theme 1`] = `
+<ic-tooltip <="" class="ic-theme-dark ic-tooltip" ic-tooltip="" label="tooltip" theme="dark">
+  <mock:shadow-root>
+    <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
+      <ic-typography variant="caption">
+        tooltip
+      </ic-typography>
+      <div class="ic-tooltip-arrow"></div>
+    </div>
+    <slot></slot>
+  </mock:shadow-root>
+</ic-tooltip>
+`;
+
+exports[`ic-tooltip component should test light theme 1`] = `
+<ic-tooltip
+  <=""
+  ic-tooltip=""
+  label="tooltip"
+  theme="light"
+/>
+`;
+
 exports[`ic-tooltip component should truncate text and pass the maxLines value to ic-typography if maxLines prop has been set 1`] = `
 <ic-tooltip class="ic-tooltip" label="This is a body of text that is truncated to three lines within a tooltip. It has been truncated based on the max-lines property. The number of lines in the text is clamped to the number passed through the max-lines property." max-lines="2" target="test-button">
   <mock:shadow-root>
