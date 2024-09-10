@@ -464,11 +464,17 @@
         },
         {
           "name": "data",
-          "type": "{ [key: string]: any; }[]",
+          "type": "IcDataTableDataType[]",
           "complexType": {
-            "original": "{ [key: string]: any }[]",
-            "resolved": "{ [key: string]: any; }[]",
-            "references": {}
+            "original": "IcDataTableDataType[]",
+            "resolved": "IcDataTableDataType[]",
+            "references": {
+              "IcDataTableDataType": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableDataType"
+              }
+            }
           },
           "mutable": false,
           "reflectToAttr": false,
@@ -476,7 +482,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ [key: string]: any; }[]"
+              "type": "IcDataTableDataType[]"
             }
           ],
           "optional": false,
@@ -5183,6 +5189,11 @@
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
       "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: {\n    textWrap: boolean;\n  };\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableDataType": {
+      "declaration": "{ [key: string]: any }",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
