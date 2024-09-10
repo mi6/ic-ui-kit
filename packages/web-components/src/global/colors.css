@@ -99,16 +99,23 @@
   --ic-architectural-white: #fff;
   --ic-architectural-black: #000;
 
+  /* borders */
+  --ic-color-border-neutral-gray: var(--ic-architectural-400);
+  --ic-color-border-neutral-light-gray: var(--ic-architectural-40);
+
   /* text */
 
-  --ic-color-primary-text-light: #0b0c0c;
-  --ic-color-primary-text-dark: #fff;
-  --ic-color-inverse-text-light: #fff;
-  --ic-color-inverse-text-dark: #0b0c0c;
-  --ic-color-secondary-text-light: #41464d;
-  --ic-color-secondary-text-dark: #6c7580;
-  --ic-color-tertiary-text-light: #6c7580;
-  --ic-color-tertiary-text-dark: #41464d;
+  --ic-color-primary-text-light: var(--ic-architectural-900);
+  --ic-color-primary-text-dark: var(--ic-architectural-white);
+  --ic-color-secondary-text-light: var(--ic-architectural-700);
+  --ic-color-secondary-text-dark: var(--ic-architectural-100);
+  --ic-color-tertiary-text-light: var(--ic-architectural-500);
+  --ic-color-tertiary-text-dark: var(--ic-architectural-200);
+  --ic-color-white-text: var(--ic-architectural-white);
+
+  /* backgrounds */
+  --ic-background-primary-light: var(--ic-architectural-white);
+  --ic-background-primary-dark: var(--ic-architectural-800);
 
   /* actions */
 
@@ -256,4 +263,9 @@
 
   /* data tables */
   --ic-table-row-selected: #c7d7ef;
+
+  /* tooltips */
+  --ic-tooltip-background: var(--ic-background-primary-dark);
+  --ic-tooltip-text: var(--ic-color-primary-text-dark);
+  --ic-tooltip-border: var(--ic-color-border-neutral-light-gray);
 }
