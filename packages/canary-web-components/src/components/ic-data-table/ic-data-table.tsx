@@ -16,6 +16,7 @@ import unsortedIcon from "./assets/unsorted-icon.svg";
 import ascendingIcon from "./assets/ascending-icon.svg";
 import descendingIcon from "./assets/descending-icon.svg";
 import {
+  IcDataTableDataType,
   IcDataTableColumnDataTypes,
   IcDataTableColumnObject,
   IcDataTableDensityOptions,
@@ -29,11 +30,11 @@ import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/util
 import { IcPaginationBarOptions } from "../../utils/types";
 // Unable to import helper functions via @ukic/web-components
 import {
-  getSlotContent,
   isEmptyString,
   isSlotUsed,
   pxToRem,
   debounce,
+  addDataToPosition,
 } from "../../utils/helpers";
 
 /**
@@ -67,7 +68,7 @@ export class DataTable {
     descending: descendingIcon,
   };
 
-  private hasLoadedForOneSecond: boolean = true;
+  private hasLoadedForOneSecond = true;
   private loadingIndicator: HTMLIcLoadingIndicatorElement;
   private timerStarted: number;
   private resizeObserver: ResizeObserver = null;
@@ -80,13 +81,13 @@ export class DataTable {
   private dataUpdated = false;
   private tableSorted: boolean;
   private rowHeightSet = false;
-  private initialLoad: boolean = false;
-  private icPageChangeEvent: boolean = false;
-  private itemsPerPageChange: boolean = false;
+  private initialLoad = false;
+  private icPageChangeEvent = false;
+  private itemsPerPageChange = false;
   private DATA_ROW_HEIGHT_STRING = "data-row-height";
   private previousItemsPerPage: number;
   private DEFAULT_LINE_HEIGHT = 24;
-  private densityUpdate: boolean = false;
+  private densityUpdate = false;
   private previousPaginationPage: number;
   private truncationPatternUpdated: boolean = false;
 
@@ -125,7 +126,7 @@ export class DataTable {
   /**
    * The row content for the table.
    */
-  @Prop() data: { [key: string]: any }[];
+  @Prop() data: IcDataTableDataType[];
 
   /**
    * Set the density of the table including font and padding.
@@ -823,7 +824,7 @@ export class DataTable {
   }
 
   @Watch("data")
-  async dataHandler(newData: { [key: string]: any }[]): Promise<void> {
+  async dataHandler(newData: IcDataTableDataType[]): Promise<void> {
     this.loadingOptions = {
       ...this.loadingOptions,
       showBackground: newData?.length > 0,
@@ -1023,10 +1024,9 @@ export class DataTable {
     return {};
   };
 
-  private createCells = (row: object, rowIndex: number) => {
+  private createCells = (row: IcDataTableDataType, rowIndex: number) => {
     const rowValues = Object.values(row);
     const rowKeys = Object.keys(row);
-    const index = rowIndex;
 
     const rowOptions = this.getRowOptions(rowKeys, rowValues);
     let rowAlignment: string;
@@ -1043,7 +1043,7 @@ export class DataTable {
 
     const variableRowHeightVal = this.variableRowHeight?.({
       ...row,
-      index,
+      index: rowIndex,
     });
     const currentRowHeight = variableRowHeightVal
       ? variableRowHeightVal !== "auto" && variableRowHeightVal
@@ -1258,17 +1258,22 @@ export class DataTable {
     /**
      * Ensures that createCells has a value in data to map over to actually render the slot.
      * Removes the need for the user to add it multiple times.
+     * `addDataToPosition` used to add the element in the correct column order.
+     * Adding empty string value in to give `createCells` something to loop over.
      */
-    this.columns.forEach(({ key }) => {
-      data.forEach((row, rowIndex) => {
-        const cellSlotName = `${key}-${rowIndex}`;
-        if (isSlotUsed(this.el, cellSlotName)) {
-          row[key] = getSlotContent(this.el, cellSlotName);
-        }
-      });
+    const organisedData = data.map((row, rowIndex) => {
+      const slottedColumns = this.columns
+        .map(
+          ({ key }, index) =>
+            isSlotUsed(this.el, `${key}-${rowIndex}`) && { key, index }
+        )
+        .filter((col) => !!col);
+      return slottedColumns.length > 0
+        ? addDataToPosition(row, slottedColumns, "")
+        : row;
     });
 
-    return data
+    return organisedData
       .sort(!this.sortable ? undefined : this.getSortFunction())
       .map((row, index) => {
         return (
