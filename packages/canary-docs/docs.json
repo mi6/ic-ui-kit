@@ -580,6 +580,27 @@
           "required": false
         },
         {
+          "name": "height",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "height",
+          "reflectToAttr": false,
+          "docs": "Sets the table height. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "hideColumnHeaders",
           "type": "boolean",
           "complexType": {
@@ -644,6 +665,48 @@
           "values": [
             {
               "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-width",
+          "reflectToAttr": false,
+          "docs": "Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "minWidth",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "min-width",
+          "reflectToAttr": false,
+          "docs": "Sets the minimum width of the data table. Can be set in `px`, `rem`, or `%`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": true,
@@ -814,6 +877,33 @@
           "required": false
         },
         {
+          "name": "tableLayout",
+          "type": "\"auto\" | \"fixed\"",
+          "complexType": {
+            "original": "\"fixed\" | \"auto\"",
+            "resolved": "\"auto\" | \"fixed\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "table-layout",
+          "reflectToAttr": false,
+          "docs": "Sets the layout of the table",
+          "docsTags": [],
+          "default": "\"fixed\"",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "fixed",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "truncationPattern",
           "type": "\"show-hide\" | \"tooltip\"",
           "complexType": {
@@ -830,7 +920,7 @@
           "mutable": false,
           "attr": "truncation-pattern",
           "reflectToAttr": false,
-          "docs": "Sets the method used to truncate longer text in cells where textWrap is `false`.\nThe `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography \"See more\" / \"See less\" buttons.",
+          "docs": "Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography \"See more\"/\"See less\" buttons.",
           "docsTags": [],
           "values": [
             {
@@ -914,6 +1004,27 @@
           "values": [
             {
               "type": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "width",
+          "reflectToAttr": false,
+          "docs": "Sets the table width. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": true,
@@ -5055,7 +5166,7 @@
       "path": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: {\n    textWrap: boolean;\n  };\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
+      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: {\n    textWrap: boolean;\n  };\n  columnWidth?: string | IcDataTableColumnWidthTypes;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
