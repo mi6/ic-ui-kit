@@ -74,6 +74,7 @@
     "react-router-dom": "^6.3.0",
     "remark-gfm": "^3.0.1",
     "storybook": "^7.6.10",
+    "storybook-addon-performance": "^0.17.3",
     "ts-loader": "^9.5.0",
     "typescript": "^4.5.2",
     "url-loader": "^4.1.1",
