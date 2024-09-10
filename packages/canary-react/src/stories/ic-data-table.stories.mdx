@@ -1029,14 +1029,24 @@ Custom HTML elements can be slotted or passed via the `data` prop to display in 
       data={DATA_REACT_ELEMENTS}
     >
       {DATA_REACT_ELEMENTS.map((_, index) => (
-        <IcButton
-          key={index}
-          variant="destructive"
-          slot={`actions-${index}`}
-          onClick={() => console.log("Delete")}
-        >
-          Delete
-        </IcButton>
+        <>
+          <IcButton
+            key={`actions-${index}`}
+            variant="destructive"
+            slot={`actions-${index}`}
+            onClick={() => console.log("Delete")}
+          >
+            Delete
+          </IcButton>
+          <IcButton
+            key={`actions2-${index}`}
+            variant="secondary"
+            slot={`actions2-${index}`}
+            onClick={() => console.log("Add")}
+          >
+            Add
+          </IcButton>
+        </>
       ))}
     </IcDataTable>
   </Story>
