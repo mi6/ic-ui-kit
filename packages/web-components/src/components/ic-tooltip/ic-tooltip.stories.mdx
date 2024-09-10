@@ -345,6 +345,7 @@ export const defaultArgs = {
   maxLines: 3,
   placement: "bottom",
   label: "This is a description of the button",
+  theme: "inherit",
 };
 
 <Canvas>
@@ -368,6 +369,10 @@ export const defaultArgs = {
         ],
         control: { type: "select" },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
     name="Playground"
     parameters={{ loki: { skip: true } }}
@@ -381,6 +386,7 @@ export const defaultArgs = {
           disable-hover=${args.disableHover}
           id="ic-tooltip-test-button-default"
           target="button-id"
+          theme=${args.theme}
         >
           <button
             id="button-id"
