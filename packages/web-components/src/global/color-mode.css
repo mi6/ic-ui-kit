@@ -41,6 +41,20 @@ ic-theme,
   --ic-tab-item-monochrome: var(--ic-action-dark);
   --ic-tab-item-hover: var(--ic-action-default-bg-hover);
   --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+  /* Badge */
+  --ic-badge-text: var(--ic-color-inverse-text);
+  --ic-badge-icon: var(--ic-color-inverse-text);
+  --ic-badge-warning-text: var(--ic-color-primary-text);
+  --ic-badge-warning-icon: var(--ic-icon-neutral);
+  --ic-badge-light-text: var(--ic-color-primary-text);
+  --ic-badge-light-icon: var(--ic-icon-neutral);
+  --ic-badge-success: var(--ic-status-success);
+  --ic-badge-warning: var(--ic-status-warning);
+  --ic-badge-error: var(--ic-status-error);
+  --ic-badge-info: var(--ic-status-info);
+  --ic-badge-neutral: var(--ic-status-unknown-mid);
+  --ic-badge-light: var(--ic-background-primary);
 }
 
 /* colors for system dark mode */
@@ -86,6 +100,20 @@ ic-theme,
     --ic-tab-item-monochrome: var(--ic-action-light);
     --ic-tab-item-hover: var(--ic-action-light-bg-hover);
     --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+    /* Badge */
+    --ic-badge-text: var(--ic-color-inverse-text);
+    --ic-badge-icon: var(--ic-color-inverse-text);
+    --ic-badge-warning-text: var(--ic-color-inverse-text);
+    --ic-badge-warning-icon: var(--ic-icon-neutral);
+    --ic-badge-light-text: var(--ic-color-primary-text);
+    --ic-badge-light-icon: var(--ic-icon-inverted);
+    --ic-badge-success: var(--ic-status-success-contrast);
+    --ic-badge-warning: var(--ic-status-warning-contrast);
+    --ic-badge-error: var(--ic-status-error-contrast);
+    --ic-badge-info: var(--ic-status-info-light);
+    --ic-badge-light: var(--ic-status-unknown-dark);
+    --ic-badge-neutral: var(--ic-background-primary-light);
   }
 }
 
@@ -133,4 +161,18 @@ ic-theme,
   --ic-tab-item-monochrome: var(--ic-action-light);
   --ic-tab-item-hover: var(--ic-action-light-bg-hover);
   --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+  /* Badge */
+  --ic-badge-text: var(--ic-color-inverse-text);
+  --ic-badge-icon: var(--ic-color-inverse-text);
+  --ic-badge-warning-text: var(--ic-color-inverse-text);
+  --ic-badge-warning-icon: var(--ic-icon-neutral);
+  --ic-badge-light-text: var(--ic-color-primary-text);
+  --ic-badge-light-icon: var(--ic-icon-inverted);
+  --ic-badge-success: var(--ic-status-success-contrast);
+  --ic-badge-warning: var(--ic-status-warning-contrast);
+  --ic-badge-error: var(--ic-status-error-contrast);
+  --ic-badge-info: var(--ic-status-info-light);
+  --ic-badge-light: var(--ic-status-unknown-dark);
+  --ic-badge-neutral: var(--ic-background-primary-light);
 }
