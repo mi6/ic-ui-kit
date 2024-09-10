@@ -1,6 +1,6 @@
 {
-  "total": 633,
-  "totalPassed": 624,
+  "total": 634,
+  "totalPassed": 625,
   "totalFailed": 9,
   "totalSuites": 36,
   "suites": [
@@ -2802,6 +2802,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcFooter.cy.tsx-classification-banner.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-classification-banner.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcFooter.cy.tsx-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcFooter/IcFooter.cy.tsx",
+          "specFilename": "IcFooter.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcFooter.cy.tsx-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-theme.png"
         },
         {
           "status": "pass",
@@ -7184,9 +7195,9 @@
       ]
     }
   ],
-  "startedAt": "2024-09-09T08:37:58.491Z",
-  "endedAt": "2024-09-09T08:53:14.911Z",
-  "duration": 839079,
+  "startedAt": "2024-09-10T09:14:51.882Z",
+  "endedAt": "2024-09-10T09:29:48.180Z",
+  "duration": 819169,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
