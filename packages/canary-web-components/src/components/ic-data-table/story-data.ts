@@ -49,6 +49,39 @@ export const COLS: IcDataTableColumnObject[] = [
   },
 ];
 
+export const COLS_WIDTH: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+    columnWidth: "15%",
+  },
+  {
+    key: "lastName",
+    title: "Last name",
+    dataType: "string",
+    columnWidth: "300px",
+  },
+  {
+    key: "age",
+    title: "Age",
+    dataType: "number",
+    columnWidth: {
+      maxWidth: "100px",
+    },
+  },
+  {
+    key: "jobTitle",
+    title: "Job title",
+    dataType: "string",
+  },
+  {
+    key: "address",
+    title: "Address",
+    dataType: "address",
+  },
+];
+
 export const VERY_LONG_DATA = (rows: number = 100) => {
   const nextData = [];
   for (let i = 0; i < rows; i++) {
@@ -66,6 +99,49 @@ export const VERY_LONG_DATA = (rows: number = 100) => {
   }
 
   return nextData;
+};
+
+export const textWrapColumns = () => {
+  return COLUMNS_NO_TEXT_WRAP.map((col) => {
+    if (col.key === "jobTitle") {
+      return {
+        ...col,
+        textWrap: true,
+      };
+    }
+    return col;
+  });
+};
+
+export const textWrapRow = () => {
+  return LONG_DATA_VALUES.map((data) => {
+    if (data.name === "Luke Fisher" || data.name === "John Smith") {
+      return {
+        ...data,
+        rowOptions: {
+          textWrap: true,
+        },
+      };
+    }
+
+    return data;
+  });
+};
+
+export const textWrapCell = () => {
+  return LONG_DATA_VALUES.map((data) => {
+    if (data.jobTitle === "Senior Financial Operations and Reporting Analyst") {
+      return {
+        ...data,
+        jobTitle: {
+          data: data.jobTitle,
+          textWrap: true,
+        },
+      };
+    }
+
+    return data;
+  });
 };
 
 export const COLS_ALIGNMENT: IcDataTableColumnObject[] = [
@@ -861,6 +937,24 @@ export const Basic = (): HTMLIcDataTableElement => {
   return dataTable;
 };
 
+export const DataTableSizing = (): HTMLElement => {
+  const dataTable = createDataTableElement("Basic Table", COLS_WIDTH, DATA);
+  dataTable.setAttribute("width", "800px");
+  return dataTable;
+};
+
+// Used for table overflow testing
+// export const TableOverflow = (): HTMLElement => {
+//   const wrapper = document.createElement('div');
+//   const dataTable = createDataTableElement("Basic Table", COLS_WIDTH, DATA);
+
+//   wrapper.style.maxWidth = '500px'
+//   wrapper.style.overflow = 'auto';
+//   dataTable.setAttribute("width", "1000px");
+//   wrapper.insertAdjacentElement('afterbegin', dataTable);
+//   return wrapper;
+// }
+
 export const LargeDataSet = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Basic Table", LONG_COLS, LONG_DATA);
   dataTable.setAttribute("sortable", "true");
@@ -913,7 +1007,7 @@ export const Scrollable = (): HTMLElement => {
 
   const wrapper = document.createElement("div");
   wrapper.insertAdjacentElement("afterbegin", dataTable);
-  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  dataTable.insertAdjacentElement("afterend", buttonWrapper);
 
   return wrapper;
 };
@@ -1029,7 +1123,7 @@ export const CustomRowHeights = (): HTMLElement => {
   const dataTable = createDataTableElement(
     "Custom Row Heights",
     COLUMNS_NO_TEXT_WRAP,
-    LONG_DATA_VALUES
+    VERY_LONG_DATA(10)
   );
   dataTable.globalRowHeight = 80;
   dataTable.variableRowHeight = ({ name, age }) =>

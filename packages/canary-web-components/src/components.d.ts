@@ -92,6 +92,10 @@ export namespace Components {
          */
         "globalRowHeight"?: IcDataTableRowHeights;
         /**
+          * Sets the table height. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
+         */
+        "height"?: string;
+        /**
           * If `true`, column headers will not be visible.
          */
         "hideColumnHeaders"?: boolean;
@@ -112,6 +116,14 @@ export namespace Components {
     progress?: number;
     showBackground?: boolean;
   };
+        /**
+          * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
+         */
+        "maxWidth"?: string;
+        /**
+          * Sets the minimum width of the data table. Can be set in `px`, `rem`, or `%`.
+         */
+        "minWidth"?: string;
         /**
           * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
          */
@@ -148,7 +160,11 @@ export namespace Components {
          */
         "stickyRowHeaders"?: boolean;
         /**
-          * Sets the method used to truncate longer text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more" / "See less" buttons.
+          * Sets the layout of the table
+         */
+        "tableLayout"?: "fixed" | "auto";
+        /**
+          * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
          */
         "truncationPattern"?: IcDataTableTruncationTypes;
         /**
@@ -172,6 +188,10 @@ export namespace Components {
     [key: string]: any;
     index: number;
   }) => IcDataTableRowHeights | null;
+        /**
+          * Sets the table width. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
+         */
+        "width"?: string;
     }
     interface IcDataTableTitleBar {
         /**
@@ -977,6 +997,10 @@ declare namespace LocalJSX {
          */
         "globalRowHeight"?: IcDataTableRowHeights;
         /**
+          * Sets the table height. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
+         */
+        "height"?: string;
+        /**
           * If `true`, column headers will not be visible.
          */
         "hideColumnHeaders"?: boolean;
@@ -997,6 +1021,14 @@ declare namespace LocalJSX {
     progress?: number;
     showBackground?: boolean;
   };
+        /**
+          * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
+         */
+        "maxWidth"?: string;
+        /**
+          * Sets the minimum width of the data table. Can be set in `px`, `rem`, or `%`.
+         */
+        "minWidth"?: string;
         /**
           * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
          */
@@ -1037,7 +1069,11 @@ declare namespace LocalJSX {
          */
         "stickyRowHeaders"?: boolean;
         /**
-          * Sets the method used to truncate longer text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more" / "See less" buttons.
+          * Sets the layout of the table
+         */
+        "tableLayout"?: "fixed" | "auto";
+        /**
+          * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
          */
         "truncationPattern"?: IcDataTableTruncationTypes;
         /**
@@ -1061,6 +1097,10 @@ declare namespace LocalJSX {
     [key: string]: any;
     index: number;
   }) => IcDataTableRowHeights | null;
+        /**
+          * Sets the table width. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
+         */
+        "width"?: string;
     }
     interface IcDataTableTitleBar {
         /**

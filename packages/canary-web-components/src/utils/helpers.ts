@@ -91,6 +91,18 @@ export const debounce = (
   };
 };
 
+export const dynamicDebounce = (
+  func: (...args: unknown[]) => void,
+  getDelay: () => number
+): unknown => {
+  let timer: ReturnType<typeof setTimeout>;
+  return (...args: unknown[]) => {
+    const delay = getDelay();
+    clearTimeout(timer);
+    timer = setTimeout(func, delay, ...args);
+  };
+};
+
 /**
  * This method is used to add a hidden input to a host element that contains
  * a Shadow DOM. It does not add the input inside of the Shadow root which
