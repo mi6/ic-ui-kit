@@ -277,12 +277,8 @@ describe("ic-badge", () => {
 
     await page.rootInstance.setBadgeColour();
 
-    expect(page.rootInstance.customColorRGBA).toEqual({
-      a: 1,
-      b: 220,
-      g: 200,
-      r: 248,
-    });
+    const badge = document.querySelector("ic-badge");
+    expect(badge.style.backgroundColor).toBe("rgba(248, 200, 220, 1)");
   });
 
   it("should set the correct foreground colour", async () => {
@@ -291,7 +287,7 @@ describe("ic-badge", () => {
       html: `<ic-button>Button<ic-badge slot="badge" variant="custom" label="1" custom-color="#F8C8DC"/></ic-button>`,
     });
 
-    await page.rootInstance.getBadgeForeground();
+    await page.rootInstance.setBadgeColour();
 
     expect(page.rootInstance.foregroundColour).toBe("dark");
   });
@@ -322,11 +318,7 @@ describe("ic-badge", () => {
 
     page.rootInstance.customColor = "rgb(222,10,43)";
 
-    expect(page.rootInstance.customColorRGBA).toEqual({
-      a: 1,
-      b: 43,
-      g: 10,
-      r: 222,
-    });
+    const badge = document.querySelector("ic-badge");
+    expect(badge.style.backgroundColor).toBe("rgba(222, 10, 43, 1)");
   });
 });
