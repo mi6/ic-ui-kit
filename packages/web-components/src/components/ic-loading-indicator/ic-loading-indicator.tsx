@@ -136,11 +136,17 @@ export class LoadingIndicator {
   }
 
   private updateCircularProgressMeter = () => {
+    const circle = document.querySelector('.ic-loading-circular-svg circle:nth-child(2)')
     if (!this.indeterminate) {
+      circle.classList.add('no-transition');
       this.circularMeter.style.setProperty(
         "--progress-value",
         String(this.progress)
       );
+
+      setTimeout(() => {
+        this.circularMeter.classList.remove('no-transition');
+      }, 100)
     }
   };
 

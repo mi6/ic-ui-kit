@@ -151,12 +151,10 @@
 
 /* --stroke-dash-array calculated via dashArray method */
 .ic-loading-circular-svg circle:nth-child(2) {
-  --circular-indeterminate: calc(
-    (0.25 * var(--stroke-dasharray)) - var(--stroke-dasharray)
+  stroke-dasharray: var(--stroke-dasharray, 7.853rem), var(--stroke-dasharray, 7.853rem);
+  stroke-dashoffset: calc(
+    var(--stroke-dasharray, 7.853rem) * (1 - var(--progress, 0))
   );
-
-  stroke-dasharray: var(--stroke-dasharray), var(--stroke-dasharray);
-  stroke-dashoffset: var(--stroke-dashoffset, var(--circular-indeterminate));
   stroke: var(--compact-step-inner-color, var(--inner-color));
 }
 
