@@ -62,13 +62,6 @@
         "notes": "issue in 'webpack' package",
         "expiry": "12 September 2024"
       }
-    },
-    {
-      "GHSA-4vvj-4cpr-p986": {
-        "active": true,
-        "notes": "issue in 'webpack' package",
-        "expiry": "12 September 2024"
-      }
-    } 
+    }
   ]
 }
