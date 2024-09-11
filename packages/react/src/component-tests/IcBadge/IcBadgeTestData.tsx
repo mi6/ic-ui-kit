@@ -320,3 +320,58 @@ export const PositionInline = (): ReactElement => {
     </IcTabContext>
   );
 };
+
+export const ThemeDark = (): ReactElement => {
+  return (
+    <div style={{ backgroundColor: "black", padding: "16px" }}>
+      <IcButton
+        variant="secondary"
+        appearance="light"
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge label="1" slot="badge" theme="dark" />
+        Neutral
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        appearance="light"
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge label="1" variant="light" slot="badge" theme="dark" />
+        Light
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        appearance="light"
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge label="1" variant="error" slot="badge" theme="dark" />
+        Error
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        appearance="light"
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge label="1" variant="success" slot="badge" theme="dark" />
+        Success
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        appearance="light"
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge label="1" variant="warning" slot="badge" theme="dark" />
+        Warning
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        appearance="light"
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge label="1" variant="info" slot="badge" theme="dark" />
+        Info
+      </IcButton>
+    </div>
+  );
+};
