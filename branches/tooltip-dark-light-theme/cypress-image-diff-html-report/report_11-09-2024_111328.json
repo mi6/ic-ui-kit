@@ -7393,9 +7393,9 @@
       ]
     }
   ],
-  "startedAt": "2024-09-11T07:11:34.344Z",
-  "endedAt": "2024-09-11T07:23:39.426Z",
-  "duration": 650310,
+  "startedAt": "2024-09-11T11:13:28.597Z",
+  "endedAt": "2024-09-11T11:26:06.846Z",
+  "duration": 680458,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
