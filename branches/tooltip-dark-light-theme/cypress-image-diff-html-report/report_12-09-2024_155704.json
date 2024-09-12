@@ -1,7 +1,7 @@
 {
-  "total": 652,
+  "total": 651,
   "totalPassed": 651,
-  "totalFailed": 1,
+  "totalFailed": 0,
   "totalSuites": 36,
   "suites": [
     {
@@ -2805,17 +2805,6 @@
         },
         {
           "status": "pass",
-          "name": "IcFooter.cy.tsx-theme",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcFooter/IcFooter.cy.tsx",
-          "specFilename": "IcFooter.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcFooter.cy.tsx-theme.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-theme.png"
-        },
-        {
-          "status": "pass",
           "name": "IcFooter.cy.tsx-default-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -4860,14 +4849,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx-validation-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSelect.cy.tsx-with-icon-high-contrast",
-          "percentage": 0.029120439557122072,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelect.cy.tsx-with-icon-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSelect.cy.tsx-with-icon-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx-with-icon-high-contrast.png"
         }
       ]
@@ -7393,9 +7382,9 @@
       ]
     }
   ],
-  "startedAt": "2024-09-11T11:13:28.597Z",
-  "endedAt": "2024-09-11T11:26:06.846Z",
-  "duration": 680458,
+  "startedAt": "2024-09-12T15:57:04.658Z",
+  "endedAt": "2024-09-12T16:09:23.360Z",
+  "duration": 663048,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
