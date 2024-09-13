@@ -21,6 +21,8 @@ export const defaultArgs = {
   titleAbove: false,
   variant: "neutral",
   showAction: false,
+  showDefaultIcon: true,
+  showSlottedIcon: false,
 };
 
 ### Variants
@@ -195,6 +197,50 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
+### Slotted icon
+
+<Canvas>
+  <Story name="Slotted icon" parameters={{ loki: { skip: true } }}>
+    {html`
+      <ic-alert
+        id="alert"
+        heading="Neutral"
+        message="This alert contains a slotted icon"
+        show-default-icon="false"
+      >
+        <svg
+          slot="neutral-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+          />
+        </svg>
+      </ic-alert>
+    `}
+  </Story>
+</Canvas>
+
+### No icon
+
+<Canvas>
+  <Story name="No icon" parameters={{ loki: { skip: true } }}>
+    {html`
+      <ic-alert
+        id="alert"
+        heading="Neutral"
+        message="This alert has no icon"
+        show-default-icon="false"
+      ></ic-alert>
+    `}
+  </Story>
+</Canvas>
+
 ### Playground
 
 <Canvas>
@@ -216,9 +262,23 @@ export const defaultArgs = {
         heading=${args.heading}
         message=${args.message}
         title-above=${args.titleAbove}
+        show-default-icon=${args.showDefaultIcon}
       >
         ${args.showAction &&
-        html`<ic-button slot="action" variant="secondary">Button</ic-button>`}
+        html`<ic-button slot="action" variant="secondary">Button</ic-button>`} ${args.showSlottedIcon &&
+        html`<svg
+          slot="neutral-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+          />
+        </svg>`}
       </ic-alert>`
     }
   </Story>

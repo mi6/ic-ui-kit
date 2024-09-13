@@ -18,6 +18,7 @@ import { VARIANT_ICONS } from "../../utils/constants";
 /**
  * @slot message - Content is placed to the right of the title.
  * @slot action - Content is placed to the right of the message.
+ * @slot neutral-icon - A custom neutral icon is placed to the left of the title. This will override the default icon if used.
  */
 @Component({
   tag: "ic-alert",
@@ -61,6 +62,11 @@ export class Alert {
    * The variant of the alert which will be rendered.
    */
   @Prop() variant?: IcStatusVariants = "neutral";
+
+  /**
+   * If `true`, the default icon for the neutral variant will be appear on the left of the alert.
+   */
+  @Prop() showDefaultIcon: boolean = true;
 
   /**
    * Is emitted when the user dismisses the alert.
@@ -116,6 +122,7 @@ export class Alert {
       dismissible,
       announced,
       visible,
+      showDefaultIcon,
     } = this;
 
     return (
@@ -139,14 +146,33 @@ export class Alert {
                   [`divider-${variant}`]: true,
                 }}
               ></div>
-              <span
-                class={{
-                  ["alert-icon"]: true,
-                  ["svg-container"]: true,
-                  [`icon-${variant}`]: true,
-                }}
-                innerHTML={VARIANT_ICONS[variant].icon}
-              ></span>
+              {variant === "neutral" ? (
+                isSlotUsed(this.el, "neutral-icon") ? (
+                  <div class="alert-icon svg-container icon-neutral">
+                    <slot name="neutral-icon"></slot>
+                  </div>
+                ) : showDefaultIcon ? (
+                  <span
+                    class={{
+                      ["alert-icon"]: true,
+                      ["svg-container"]: true,
+                      [`icon-${variant}`]: true,
+                    }}
+                    innerHTML={VARIANT_ICONS[variant].icon}
+                  ></span>
+                ) : (
+                  <div class="icon-placeholder"></div>
+                )
+              ) : (
+                <span
+                  class={{
+                    ["alert-icon"]: true,
+                    ["svg-container"]: true,
+                    [`icon-${variant}`]: true,
+                  }}
+                  innerHTML={VARIANT_ICONS[variant].icon}
+                ></span>
+              )}
             </div>
             <div class="alert-content">
               <div

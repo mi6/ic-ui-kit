@@ -71,13 +71,21 @@
   margin-left: 1.125rem;
 }
 
+.icon-placeholder {
+  margin-left: var(--ic-space-xs);
+}
+
 .alert-icon > svg {
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
   display: inline-block;
 }
 
-.icon-neutral > svg {
+.icon-neutral > svg,
+::slotted(svg) {
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+  display: inline-block;
   fill: var(--ic-status-unknown);
 }
 
