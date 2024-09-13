@@ -139,6 +139,10 @@ export namespace Components {
          */
         "message"?: string;
         /**
+          * If `true`, the default icon for the neutral variant will be appear on the left of the alert.
+         */
+        "showDefaultIcon": boolean;
+        /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
@@ -3462,6 +3466,10 @@ declare namespace LocalJSX {
           * Is emitted when the user dismisses the alert.
          */
         "onIcDismiss"?: (event: IcAlertCustomEvent<void>) => void;
+        /**
+          * If `true`, the default icon for the neutral variant will be appear on the left of the alert.
+         */
+        "showDefaultIcon"?: boolean;
         /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
