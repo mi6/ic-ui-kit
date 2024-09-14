@@ -12,7 +12,7 @@
     "types": ["cypress", "node", "cypress-axe", "cypress-file-upload", "cypress-real-events"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["**/__tests__/**", "cypress/**", "src/component-tests/**/*"],
+  "exclude": ["**/__tests__/**", "cypress/**", "src/component-tests/**/*", "**/*.cy.tsx"],
   "compileOnSave": false,
   "buildOnSave": false
 }

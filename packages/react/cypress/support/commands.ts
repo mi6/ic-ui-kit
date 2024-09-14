@@ -2,6 +2,7 @@
 /// <reference types="cypress" />
 
 import { CYPRESS_AXE_OPTIONS, CYPRESS_AXE_REPORTING } from "../utils/a11y";
+import "cypress-audit/commands";
 
 import {
   BE_VISIBLE,
