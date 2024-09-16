@@ -1704,6 +1704,10 @@ export namespace Components {
          */
         "status"?: IcStatusTagStatuses;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: "dark" | "light" | "inherit";
+        /**
           * The emphasis of the status tag.
          */
         "variant"?: IcEmphasisType;
@@ -4924,6 +4928,10 @@ declare namespace LocalJSX {
           * The colour of the status tag.
          */
         "status"?: IcStatusTagStatuses;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: "dark" | "light" | "inherit";
         /**
           * The emphasis of the status tag.
          */
