@@ -27,6 +27,7 @@
       calc(var(--ic-status-success-g) * 0.6)
       calc(var(--ic-status-success-b) * 0.6) / var(--ic-status-success-a)
   );
+  --ic-status-success-outlined: #b2fad6;
   --ic-status-success-contrast: #1bb56c;
   --ic-status-success-dark: #0e3020;
   --ic-status-warning-light: #fffbd8;
@@ -50,6 +51,7 @@
       calc(var(--ic-status-warning-b) * 0.6) / var(--ic-status-warning-a)
   );
   --ic-status-warning-dark: #7a4c3c;
+  --ic-status-warning-outlined: #ffed83;
   --ic-status-error-light: #ffe4e3;
   --ic-status-error-contrast: #f15b4e;
   --ic-status-error-r: 212;
@@ -69,6 +71,7 @@
       calc(var(--ic-status-error-b) * 0.6) / var(--ic-status-error-a)
   );
   --ic-status-error-dark: #610a05;
+  --ic-status-error-outlined: #ec4e3d;
   --ic-status-info-light: #e1f0fc;
   --ic-status-info-contrast: #488fe3;
   --ic-status-info: rgb(18 77 179);
@@ -78,8 +81,10 @@
   --ic-status-anomalous: #7c25c2;
   --ic-status-anomalous-dark: #350f54;
   --ic-status-unknown-light: var(--ic-architectural-40);
+  --ic-status-unknown-outlined: var(--ic-architectural-200);
   --ic-status-unknown-contrast: var(--ic-architectural-300);
   --ic-status-unknown: var(--ic-architectural-500);
+  --ic-status-unknown-mid: var(--ic-architectural-700);
   --ic-status-unknown-dark: var(--ic-architectural-800);
 
   /* architectural */
@@ -112,6 +117,8 @@
   --ic-color-tertiary-text-light: var(--ic-architectural-500);
   --ic-color-tertiary-text-dark: var(--ic-architectural-200);
   --ic-color-white-text: var(--ic-architectural-white);
+  --ic-color-inverse-text-light: var(--ic-color-primary-text-dark);
+  --ic-color-inverse-text-dark: var(--ic-color-primary-text-light);
 
   /* backgrounds */
   --ic-background-primary-light: var(--ic-architectural-white);
