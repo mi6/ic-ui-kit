@@ -252,6 +252,7 @@ export class Badge {
             {getTextLabel()}
           </ic-typography>
         )}
+        {type === "dot" && <span class="sr-only">badge</span>}
       </Host>
     );
   }
