@@ -31,6 +31,11 @@ export class StatusTag {
   @Prop() status?: IcStatusTagStatuses = "neutral";
 
   /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: "dark" | "light" | "inherit" = "inherit";
+
+  /**
    * The emphasis of the status tag.
    */
   @Prop() variant?: IcEmphasisType = "filled";
@@ -43,9 +48,13 @@ export class StatusTag {
   }
 
   render() {
-    const { label, status, variant, size, announced } = this;
+    const { label, status, variant, size, announced, theme } = this;
     return (
-      <Host role={announced ? "status" : null} aria-label="Status">
+      <Host
+        class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}
+        role={announced ? "status" : null}
+        aria-label="Status"
+      >
         <strong
           class={{
             ["tag"]: true,
