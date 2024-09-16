@@ -1,7 +1,7 @@
 {
   "total": 153,
-  "totalPassed": 152,
-  "totalFailed": 1,
+  "totalPassed": 153,
+  "totalFailed": 0,
   "totalSuites": 8,
   "suites": [
     {
@@ -829,14 +829,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-text-wrap-show-hide-truncation-rows.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx-text-wrap-tooltip-truncation-table-cell",
-          "percentage": 0.00836278162673511,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-text-wrap-tooltip-truncation-table-cell.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-text-wrap-tooltip-truncation-table-cell.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-text-wrap-tooltip-truncation-table-cell.png"
         },
         {
@@ -1736,9 +1736,9 @@
       ]
     }
   ],
-  "startedAt": "2024-09-13T09:02:51.273Z",
-  "endedAt": "2024-09-13T09:07:09.056Z",
-  "duration": 242033,
+  "startedAt": "2024-09-16T12:31:34.707Z",
+  "endedAt": "2024-09-16T12:35:57.595Z",
+  "duration": 247198,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
