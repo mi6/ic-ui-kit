@@ -153,6 +153,11 @@
   transition: visibility var(--ic-transition-duration-slow);
 }
 
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
 @keyframes expand {
   from {
     opacity: 0;
