@@ -284,7 +284,11 @@ exports[`ic-badge should render type dot: should render type dot 1`] = `
   </mock:shadow-root>
   Button
   <ic-badge class="default dot far foreground-light neutral show" role="status" slot="badge" type="dot">
-    <mock:shadow-root></mock:shadow-root>
+    <mock:shadow-root>
+      <span class="sr-only">
+        badge
+      </span>
+    </mock:shadow-root>
   </ic-badge>
 </ic-button>
 `;
