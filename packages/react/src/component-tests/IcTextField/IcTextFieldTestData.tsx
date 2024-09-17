@@ -193,6 +193,17 @@ export const TextFieldWithIconValueMaxLength = (): ReactElement => (
   </div>
 );
 
+export const TextFieldWithMaxLengthMessage = (): ReactElement => (
+  <div style={style}>
+    <IcTextField
+      maxLength={25}
+      value="Arabica"
+      label="What is your favourite coffee?"
+      maxLengthMessage="You have reached the maximum number of characters"
+    />
+  </div>
+);
+
 export const SmallTextField = (): ReactElement => (
   <div style={style}>
     <IcTextField
