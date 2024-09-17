@@ -13,7 +13,7 @@
     "test-a11y:ci:canary": "lerna run test-a11y --scope=@ukic/canary-web-components --stream",
     "test-e2e": "lerna run test-e2e --scope=@ukic/web-components --stream",
     "test-e2e:canary": "lerna run test-e2e --scope=@ukic/canary-web-components --stream",
-    "build": "lerna run build --scope=@ukic/web-components --scope=@ukic/fonts --scope=@ukic/docs --stream  && lerna run build --scope=@ukic/react --stream && lerna run build --scope=@ukic/nextjs --stream",
+    "build": "lerna run build --scope=@ukic/web-components --scope=@ukic/fonts --scope=@ukic/docs --stream  && lerna run build --scope=@ukic/react --stream",
     "build:canary": "lerna run build --scope=@ukic/canary-web-components --scope=@ukic/canary-docs --stream  && lerna run build --scope=@ukic/canary-react --stream",
     "build:all": "npm run build && npm run build:canary",
     "release-check": "lerna version --no-push --no-git-tag-version",
