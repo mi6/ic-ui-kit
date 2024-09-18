@@ -88,12 +88,11 @@ export class Tab {
   }
 
   disconnectedCallback(): void {
-    const tabContext = document.querySelector(
-      `ic-tab-context[context-id=${this.contextId}]`
-    ) as HTMLIcTabContextElement;
-    if (tabContext) {
-      tabContext.tabRemovedHandler(!!this.focusTabId);
-    }
+    document
+      .querySelector<HTMLIcTabContextElement>(
+        `ic-tab-context[context-id=${this.contextId}]`
+      )
+      ?.tabRemovedHandler(!!this.focusTabId);
   }
 
   componentWillLoad(): void {
@@ -150,24 +149,32 @@ export class Tab {
   };
 
   render() {
-    const { disabled, selected, appearance } = this;
+    const {
+      disabled,
+      selected,
+      appearance,
+      isInitialRender,
+      handleClick,
+      handleFocus,
+      handleMouseDown,
+    } = this;
     return (
       <Host
         class={{
-          ["with-transition"]: !this.isInitialRender,
-          ["ic-tab-light"]: appearance === IcThemeForegroundEnum.Light,
-          ["selected"]: selected,
-          ["disabled"]: disabled,
+          "with-transition": !isInitialRender,
+          "ic-tab-light": appearance === IcThemeForegroundEnum.Light,
+          selected,
+          disabled,
         }}
         role="tab"
-        aria-selected={selected ? "true" : "false"}
-        onClick={this.handleClick}
-        onFocus={this.handleFocus}
-        onMouseDown={this.handleMouseDown}
-        aria-disabled={disabled ? "true" : "false"}
-        tabindex={this.selected ? 0 : -1}
+        aria-selected={`${selected}`}
+        onClick={handleClick}
+        onFocus={handleFocus}
+        onMouseDown={handleMouseDown}
+        aria-disabled={`${disabled}`}
+        tabindex={selected ? 0 : -1}
       >
-        {this.el.querySelector('[slot="icon"]') && <slot name="icon"></slot>}
+        {isSlotUsed(this.el, "icon") && <slot name="icon"></slot>}
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
