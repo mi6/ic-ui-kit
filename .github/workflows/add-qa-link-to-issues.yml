@@ -22,5 +22,4 @@ jobs:
           message: |
             View your branch deployment here: https://mi6.github.io/ic-ui-kit/branches/${{ steps.extract_branch.outputs.branch }}/web-components
             View your React branch deployment here: https://mi6.github.io/ic-ui-kit/branches/${{ steps.extract_branch.outputs.branch }}/react
-            View your NextJs branch deployment here: https://mi6.github.io/ic-ui-kit/branches/${{ steps.extract_branch.outputs.branch }}/nextjs
           message-id: "branch-deployment"
