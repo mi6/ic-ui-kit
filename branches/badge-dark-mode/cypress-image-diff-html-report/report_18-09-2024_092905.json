@@ -1,6 +1,6 @@
 {
-  "total": 652,
-  "totalPassed": 652,
+  "total": 655,
+  "totalPassed": 655,
   "totalFailed": 0,
   "totalSuites": 36,
   "suites": [
@@ -291,6 +291,28 @@
         },
         {
           "status": "pass",
+          "name": "IcAlert.cy.tsx-no-icon",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
+          "specFilename": "IcAlert.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx-no-icon.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx-no-icon.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcAlert.cy.tsx-slotted-icon",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
+          "specFilename": "IcAlert.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx-slotted-icon.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx-slotted-icon.png"
+        },
+        {
+          "status": "pass",
           "name": "IcAlert.cy.tsx-variants-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -332,6 +354,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx-dismissible-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx-dismissible-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcAlert.cy.tsx-slotted-icon-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
+          "specFilename": "IcAlert.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx-slotted-icon-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx-slotted-icon-high-contrast.png"
         }
       ]
     },
@@ -7393,9 +7426,9 @@
       ]
     }
   ],
-  "startedAt": "2024-09-11T10:39:07.993Z",
-  "endedAt": "2024-09-11T10:51:36.489Z",
-  "duration": 671729,
+  "startedAt": "2024-09-18T09:29:05.421Z",
+  "endedAt": "2024-09-18T09:41:06.189Z",
+  "duration": 646204,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
