@@ -390,3 +390,56 @@ export const defaultArgs = {
     }
   </Story>
 </Canvas>
+
+### Theme visualisation playground
+
+export const defaultThemeArgs = {
+  theme: "light",
+  componentTheme: "light",
+};
+
+<Canvas>
+  <Story
+    name="Theme visualisation playground"
+    args={defaultThemeArgs}
+    parameters={{ loki: { skip: true }, layout: "fullscreen" }}
+    argTypes={{
+      theme: {
+        options: ["system", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      componentTheme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+    }}
+  >
+    {(args) =>
+      html`<div
+        style="background-color: ${args.theme == "dark"
+          ? "black"
+          : args.theme == "light"
+          ? "white"
+          : null};width:450px;height:150px"
+      >
+        <ic-theme theme=${args.theme}>
+          <div
+            style="background-color: ${args.componentTheme == "dark"
+              ? "black"
+              : args.componentTheme == "light"
+              ? "white"
+              : null};width:250px"
+          >
+            <ic-typography theme=${args.componentTheme}
+              >Theme test</ic-typography
+            >
+          </div>
+        </ic-theme>
+      </div>`
+    }
+  </Story>
+</Canvas>
