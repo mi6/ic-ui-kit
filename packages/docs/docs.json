@@ -17803,6 +17803,11 @@
       "docstring": "",
       "path": "src/components/ic-tooltip/ic-tooltip.types.ts"
     },
+    "src/utils/types.ts::IcThemeMode": {
+      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/utils/types.ts::IcAdditionalFieldTypes": {
       "declaration": "export type IcAdditionalFieldTypes = \"static\" | \"dynamic\";",
       "docstring": "",
