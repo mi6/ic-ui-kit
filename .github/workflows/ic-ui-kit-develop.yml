@@ -197,12 +197,11 @@ jobs:
         run: |
           npm run build:all
 
-      - name: Build web-components, react and nextjs storybook
+      - name: Build web-components and react storybook
         if: ${{ needs.check-updates.outputs.core == 'true' }}
         run: |
           npm run build-storybook:web-components
           npm run build-storybook:react          
-          npm run build-storybook:nextjs
 
       - name: Build canary web-components and canary react storybook
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
@@ -223,13 +222,6 @@ jobs:
         with:
           folder: ./packages/react/storybook-static
           target-folder: ./branches/${{ github.ref_name }}/react
-
-      - name: Deploy nextjs storybook
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/nextjs/storybook-static
-          target-folder: ./branches/${{ github.ref_name }}/nextjs
 
       - name: Deploy canary web components storybook
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
