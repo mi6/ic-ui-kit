@@ -1,7 +1,7 @@
 {
-  "total": 655,
+  "total": 656,
   "totalPassed": 655,
-  "totalFailed": 0,
+  "totalFailed": 1,
   "totalSuites": 36,
   "suites": [
     {
@@ -577,14 +577,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-position-inline.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcBadge.cy.tsx-theme-dark",
-          "percentage": 0,
+          "percentage": 0.022978250586152115,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-theme-dark.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-theme-dark.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-theme-dark.png"
         }
       ]
@@ -2846,6 +2846,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcFooter.cy.tsx-classification-banner.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-classification-banner.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcFooter.cy.tsx-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcFooter/IcFooter.cy.tsx",
+          "specFilename": "IcFooter.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcFooter.cy.tsx-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-theme.png"
         },
         {
           "status": "pass",
@@ -7426,9 +7437,9 @@
       ]
     }
   ],
-  "startedAt": "2024-09-18T09:29:05.421Z",
-  "endedAt": "2024-09-18T09:41:06.189Z",
-  "duration": 646204,
+  "startedAt": "2024-09-23T08:33:38.432Z",
+  "endedAt": "2024-09-23T08:46:13.321Z",
+  "duration": 678897,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
