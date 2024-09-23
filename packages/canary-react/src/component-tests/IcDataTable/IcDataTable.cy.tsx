@@ -34,6 +34,9 @@ import {
   LONG_TEXT,
   VERY_LONG_DATA,
   DATA_REACT_ELEMENTS,
+  textWrapCell,
+  textWrapColumns,
+  textWrapRow,
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
@@ -52,6 +55,12 @@ import {
 
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import { IcDataTableTruncationTypes } from "@ukic/canary-web-components";
+import {
+  multipleColumnWidth,
+  newData,
+  singleColumnTruncationWidth,
+  singleColumnWidth,
+} from "./IcDataTableTestData";
 
 const DATA_TABLE_SELECTOR = "ic-data-table";
 const DEFAULT_THRESHOLD = 0.04;
@@ -1801,6 +1810,8 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
+      cy.wait(350);
+
       cy.compareSnapshot({
         name: "tooltip-truncation-custom-icon",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.023),
@@ -2996,51 +3007,6 @@ describe("IcDataTable with truncation", () => {
   });
 
   describe("textWrap", () => {
-    const textWrapColumns = () => {
-      return COLUMNS_NO_TEXT_WRAP.map((col) => {
-        if (col.key === "jobTitle") {
-          return {
-            ...col,
-            textWrap: true,
-          };
-        }
-        return col;
-      });
-    };
-
-    const textWrapRow = () => {
-      return LONG_DATA_VALUES.map((data) => {
-        if (data.name === "Luke Fisher" || data.name === "John Smith") {
-          return {
-            ...data,
-            rowOptions: {
-              textWrap: true,
-            },
-          };
-        }
-
-        return data;
-      });
-    };
-
-    const textWrapCell = () => {
-      return LONG_DATA_VALUES.map((data) => {
-        if (
-          data.jobTitle === "Senior Financial Operations and Reporting Analyst"
-        ) {
-          return {
-            ...data,
-            jobTitle: {
-              data: data.jobTitle,
-              textWrap: true,
-            },
-          };
-        }
-
-        return data;
-      });
-    };
-
     it("renders textWrap via columns with tooltip truncation", () => {
       mount(
         <IcDataTable
@@ -3143,6 +3109,8 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
+      cy.wait(400);
+
       cy.compareSnapshot({
         name: "text-wrap-tooltip-truncation-table-cell",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
@@ -3171,6 +3139,682 @@ describe("IcDataTable with truncation", () => {
         cypressScreenshotOptions: {
           capture: "viewport",
         },
+      });
+    });
+  });
+});
+
+describe("IcDataTable table sizing and column width", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("should set the column width to the 200 when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("200px")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+  });
+  it("should set the column width to the correct % when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("25%")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 256);
+    });
+  });
+  it("should set the column width to the correct rem when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("12.5rem")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+  });
+
+  it("should set the column width to the correct px when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("200px")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+  });
+  it("should set the column width to the correct % when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("25%")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 125);
+    });
+  });
+  it("should set the column width to the correct rem when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("12.5rem")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+  });
+
+  it("should set 2 column width to the correct px when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("200px", "100px")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 100);
+    });
+  });
+  it("should set 2 column width to the correct % when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("25%", "10%")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 256);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 102.390625);
+    });
+  });
+  it("should set 2 column width to the correct rem when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("12.5rem", "6.25rem")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 100);
+    });
+  });
+
+  it("should set 2 column width to the correct px when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("200px", "100px")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 100);
+    });
+  });
+  it("should set 2 column width to the correct % when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("25%", "10%")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 125);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 50);
+    });
+  });
+  it("should set 2 column width to the correct rem when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("12.5rem", "6.25rem")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 100);
+    });
+  });
+
+  it("should display tooltip truncation on truncation column set with px", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={singleColumnTruncationWidth("200px")}
+        data={newData()}
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(2) ic-tooltip")
+      .should("exist");
+  });
+  it("should display show-hide truncation on truncation column set with px", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={singleColumnTruncationWidth("200px")}
+        data={newData()}
+        truncationPattern="show-hide"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(2) ic-typography")
+      .shadow()
+      .find("button")
+      .should("have.text", "See more");
+  });
+
+  it("should display tooltip truncation on column when first column width set with px and table width set to 500px", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={singleColumnWidth("300px")}
+        data={newData()}
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(2) ic-tooltip")
+      .should("exist");
+  });
+  it("should display show-hide truncation on column when first column width set with px and table width set to 500px", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={singleColumnWidth("250px")}
+        data={newData()}
+        width="500px"
+        truncationPattern="show-hide"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(2) ic-typography")
+      .shadow()
+      .find("button")
+      .should("have.text", "See more");
+  });
+  it("should set column width to correct px when data table includes pagination and navigating to different pages", () => {
+    const nextData = (rows: number) => {
+      const newData: { firstName: string; lastName: string; age: number }[] =
+        [];
+      for (let i = 0; i < rows; i++) {
+        const obj = {
+          firstName: `firstName-${i}`,
+          lastName: `lastName-${i}`,
+          age: i,
+        };
+        newData.push(obj);
+      }
+
+      return newData;
+    };
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("200px")}
+        data={nextData(50)}
+        caption="Data Tables"
+        showPagination
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      .shadow()
+      .find("ic-pagination")
+      .shadow()
+      .find("#next-page-button")
+      .click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+  });
+
+  it("should render data table height to 500 using px in height prop", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={singleColumnWidth("250px")}
+        data={newData()}
+        height="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should("equal", 500);
+  });
+
+  it("should render data table height to 700 using percentages in height prop", () => {
+    mount(
+      <div style={{ height: "700px" }}>
+        <IcDataTable
+          caption="Basic Table"
+          columns={COLS}
+          data={DATA}
+          height="100%"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should("equal", 700);
+  });
+
+  it("should render data table height to 400 using rem in height prop", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={COLS}
+        data={DATA}
+        height="37.5rem"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should("equal", 600);
+  });
+
+  it("should set the table layout to auto", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data Tables"
+        tableLayout="auto"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .then(($el) => {
+        return window.getComputedStyle($el[0]);
+      })
+      .invoke("getPropertyValue", "table-layout")
+      .should("equal", "auto");
+  });
+
+  it("should set a max width of 700px", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data Tables"
+        maxWidth="700px"
+        showPagination
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .then(($el) => {
+        return window.getComputedStyle($el[0]);
+      })
+      .invoke("getPropertyValue", "max-width")
+      .should("equal", "700px");
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerWidth").should("equal", 700);
+  });
+
+  it("should set a min width of 500px", () => {
+    mount(
+      <div style={{ width: "400px" }}>
+        <IcDataTable
+          columns={[
+            {
+              key: "firstName",
+              title: "First name",
+              dataType: "string",
+            },
+            {
+              key: "lastName",
+              title: "Last name",
+              dataType: "string",
+            },
+          ]}
+          data={[
+            {
+              firstName: "Jon",
+              lastName: "Doe",
+            },
+            {
+              firstName: "Jane",
+              lastName: "Doe",
+            },
+          ]}
+          caption="Data Tables"
+          minWidth="500px"
+          width="auto"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .then(($el) => {
+        return window.getComputedStyle($el[0]);
+      })
+      .invoke("getPropertyValue", "min-width")
+      .should("equal", "500px");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "table")
+      .invoke("outerWidth")
+      .should("equal", 500);
+  });
+
+  it("should set a min width of 800px with pagination", () => {
+    mount(
+      <div style={{ width: "700px" }}>
+        <IcDataTable
+          showPagination
+          columns={[
+            {
+              key: "firstName",
+              title: "First name",
+              dataType: "string",
+            },
+            {
+              key: "lastName",
+              title: "Last name",
+              dataType: "string",
+            },
+            {
+              key: "age",
+              title: "Age",
+              dataType: "number",
+            },
+            {
+              key: "address",
+              title: "Address",
+              dataType: "string",
+            },
+          ]}
+          data={[
+            {
+              firstName: "Jon",
+              lastName: "Doe",
+              age: "34",
+              address: "1 High Street, Main, AABB CC DD", // cspell:disable-line
+            },
+            {
+              firstName: "Jane",
+              lastName: "Doe",
+              age: "34",
+              address: "1 High Street, Main, AABB CC DD", // cspell:disable-line
+            },
+          ]}
+          caption="Data Tables"
+          minWidth="800px"
+          width="auto"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .then(($el) => {
+        return window.getComputedStyle($el[0]);
+      })
+      .invoke("getPropertyValue", "min-width")
+      .should("equal", "800px");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "table")
+      .invoke("outerWidth")
+      .should("equal", 800);
+  });
+
+  it("should set a max width of 900px with pagination", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data Tables"
+        maxWidth="900px"
+        showPagination
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .then(($el) => {
+        return window.getComputedStyle($el[0]);
+      })
+      .invoke("getPropertyValue", "max-width")
+      .should("equal", "900px");
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerWidth").should("equal", 900);
+  });
+
+  it("should set first name column to 300px with table layout set to auto", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        tableLayout="auto"
+        columns={singleColumnWidth("300px")}
+        data={newData()}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 300);
+    });
+  });
+
+  it("should set first name column to 300px and age t0 100px with table layout set to auto", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        tableLayout="auto"
+        columns={multipleColumnWidth("300px", "100px")}
+        data={newData()}
+        width="auto"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 300);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child")
+          .invoke("outerWidth")
+          .should("equal", 100);
       });
     });
   });
