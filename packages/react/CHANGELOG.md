@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.28.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.27.1...@ukic/react@2.28.0) (2024-09-23)
+
+### Bug Fixes
+
+- **react:** updating packages ([2558d94](https://github.com/mi6/ic-ui-kit/commit/2558d946347f6943c081670988ac325d59bc9c48))
+
+### Features
+
+- **react:** add maxLengthMessage prop to text field ([eff3941](https://github.com/mi6/ic-ui-kit/commit/eff39415f013fc568ac676160a2970c7849c1b5c))
+- **react:** add react stories and cypress tests for showDefaultIcon prop and neutral-icon slot for alert ([ac1257e](https://github.com/mi6/ic-ui-kit/commit/ac1257eec96fcc0756355745140ff380cfb4d7e3))
+
 ## [2.27.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.27.0...@ukic/react@2.27.1) (2024-09-05)
 
 ### Bug Fixes

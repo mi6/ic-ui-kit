@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.25](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.24...@ukic/canary-react@2.0.0-canary.25) (2024-09-23)
+
+### Features
+
+- **canary-react:** add invalidDateMessage prop for date input and date picker ([e964f9a](https://github.com/mi6/ic-ui-kit/commit/e964f9aa7c2cda38f9af0777b5f3c843b2db130a))
+- **canary-react:** added column width tests ([991dff8](https://github.com/mi6/ic-ui-kit/commit/991dff8ebf502a7c8afc5892551abbf81574a7d3))
+
 # 2.0.0-canary.24 (2024-09-05)
 
 **Note:** Version bump only for package @ukic/canary-react

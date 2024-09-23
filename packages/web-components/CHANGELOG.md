@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.28.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.27.1...@ukic/web-components@2.28.0) (2024-09-23)
+
+### Bug Fixes
+
+- **web-components:** dont generate timestamp in stencil ([698ef13](https://github.com/mi6/ic-ui-kit/commit/698ef13c44aed8240dec651638841ec72a8d6eb3))
+- **web-components:** make dot type badges read to screenreaders ([c067c06](https://github.com/mi6/ic-ui-kit/commit/c067c0694d7055e32455d70565ff6af1e5b58961)), closes [#1717](https://github.com/mi6/ic-ui-kit/issues/1717)
+
+### Features
+
+- **web-components:** add maxLengthMessage prop to text field ([aeaab0b](https://github.com/mi6/ic-ui-kit/commit/aeaab0b15ec4ac60a15a3c7adcceb9eedcc05f03)), closes [#2248](https://github.com/mi6/ic-ui-kit/issues/2248)
+- **web-components:** add showDefaultIcon prop and neutral-icon slot to alert ([4074560](https://github.com/mi6/ic-ui-kit/commit/40745605fd22edcbbd0a9248ef01d2e7a4d2f68a))
+
 ## [2.27.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.27.0...@ukic/web-components@2.27.1) (2024-09-05)
 
 ### Bug Fixes

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.25](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.24...@ukic/canary-web-components@2.0.0-canary.25) (2024-09-23)
+
+### Bug Fixes
+
+- **canary-web-components:** dont generate timestamp in stencil ([8dd2728](https://github.com/mi6/ic-ui-kit/commit/8dd2728ddc79a1649e6db4d6e8ec66b1c32c019b))
+- **canary-web-components:** ensures that slotted columns now render data in correct order ([ac734d3](https://github.com/mi6/ic-ui-kit/commit/ac734d3f9c98f4fe0e1f9a794ac7bb9a91ddc366))
+- **canary-web-components:** reapply truncation data on sort ([53bf9fc](https://github.com/mi6/ic-ui-kit/commit/53bf9fc04dc5912eda1854f99e3073dee4f64663))
+
+### Features
+
+- **canary-web-components:** add invalidDateMessage prop to date input and date picker ([3dc1565](https://github.com/mi6/ic-ui-kit/commit/3dc15650627ac033b741570a406052d619fed389)), closes [#2248](https://github.com/mi6/ic-ui-kit/issues/2248)
+- **canary-web-components:** added data table column width functionality ([23876b6](https://github.com/mi6/ic-ui-kit/commit/23876b60db5d6090eb05f25032884086a1f66ad3)), closes [#1005](https://github.com/mi6/ic-ui-kit/issues/1005)
+- **canary-web-components:** exported missing types for data tables ([22019bb](https://github.com/mi6/ic-ui-kit/commit/22019bbcc834b8999ccf6fd11dcf1f9c593822cb))
+
 # 2.0.0-canary.24 (2024-09-05)
 
 ### Bug Fixes
