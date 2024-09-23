@@ -14,6 +14,7 @@ import {
 } from "../utils/constants";
 import {
   BasicSideNav,
+  DisableTopBarBehaviourSideNav,
   DynamicExpandedSideNav,
   ExpandedSideNav,
   GroupedSideNav,
@@ -45,7 +46,7 @@ const ARIA_LABEL_ATTR = "aria-label";
 Cypress.Commands.add("checkSideNavSize", checkSideNavSize);
 
 describe("IcSideNavigation", () => {
-  describe("mobile", () => {
+  describe("Mobile", () => {
     beforeEach(() => {
       cy.viewport(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     });
@@ -62,12 +63,20 @@ describe("IcSideNavigation", () => {
         CONTAIN_TEXT,
         "Menu"
       );
-
+      cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR)
+        .shadow()
+        .find("button")
+        .invoke("attr", "aria-expanded")
+        .should("eq", "false");
       cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-
       cy.findShadowEl(SIDE_NAV_SELECTOR, INNER_SIDE_NAV_SELECTOR).should(
         "exist"
       );
+      cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR)
+        .shadow()
+        .find("button")
+        .invoke("attr", "aria-expanded")
+        .should("eq", "true");
       cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).should(
         CONTAIN_TEXT,
         "Close"
@@ -160,7 +169,7 @@ describe("IcSideNavigation", () => {
       );
     });
 
-    describe("IcSideNavigation mobile Visual Regression and A11y Testing", () => {
+    describe("Mobile visual regression and a11y tests", () => {
       beforeEach(() => {
         cy.viewport(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         cy.injectAxe();
@@ -172,29 +181,33 @@ describe("IcSideNavigation", () => {
 
       it("should render a default IcSideNavigation", () => {
         mount(<BasicSideNav />);
+
         cy.checkHydrated(SIDE_NAV_SELECTOR);
 
-        cy.checkA11yWithWait();
+        cy.checkA11yWithWait(undefined, 500);
         cy.compareSnapshot({
           name: "basic",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
-          delay: 500,
         });
+      });
 
+      it("should render a default IcSideNavigation - open", () => {
+        mount(<BasicSideNav />);
+
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
         cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
 
-        cy.checkA11yWithWait();
+        cy.checkA11yWithWait(undefined, 500);
         cy.compareSnapshot({
           name: "basic-open",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
-          delay: 500,
         });
       });
 
       it("should render a long status and version", () => {
         mount(<LongPropsSideNav />);
-        cy.checkHydrated(SIDE_NAV_SELECTOR);
 
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
         cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
 
         cy.checkA11yWithWait(undefined, 300);
@@ -206,20 +219,20 @@ describe("IcSideNavigation", () => {
 
       it("should render with an IcNavigationGroup", () => {
         mount(<GroupedSideNav />);
-        cy.checkHydrated(SIDE_NAV_SELECTOR);
 
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
         cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
 
         cy.checkA11yWithWait(undefined, 300);
         cy.compareSnapshot({
           name: "nav-group-open",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.044),
-          delay: 500,
         });
       });
 
       it("should render with a slotted app-title", () => {
         mount(<SlottedAppTitleSideNav />);
+
         cy.checkHydrated(SIDE_NAV_SELECTOR);
 
         cy.checkA11yWithWait();
@@ -227,13 +240,30 @@ describe("IcSideNavigation", () => {
           name: "slotted-app-title",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
         });
+      });
 
+      it("should render with a slotted app-title - open", () => {
+        mount(<SlottedAppTitleSideNav />);
+
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
         cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
 
         cy.checkA11yWithWait(undefined, 300);
         cy.compareSnapshot({
           name: "slotted-app-title-open",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
+        });
+      });
+
+      it("should not display as top bar when disableTopBarBehaviour prop is set", () => {
+        mount(<DisableTopBarBehaviourSideNav />);
+
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+        cy.checkA11yWithWait();
+        cy.compareSnapshot({
+          name: "disable-top-bar-behaviour",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
         });
       });
 
@@ -251,10 +281,19 @@ describe("IcSideNavigation", () => {
           name: "theme",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
         });
+      });
 
+      it("should render with a different theme - open", () => {
+        mount(
+          <>
+            <IcTheme color="rgb(131, 166, 195)" />
+            <BasicSideNav />
+          </>
+        );
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
         cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
 
-        cy.checkA11yWithWait(undefined, 300);
+        cy.checkA11yWithWait(undefined, 500);
         cy.compareSnapshot({
           name: "theme-open",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
@@ -263,7 +302,7 @@ describe("IcSideNavigation", () => {
     });
   });
 
-  describe("desktop", () => {
+  describe("Desktop", () => {
     beforeEach(() => {
       cy.viewport(992, DEFAULT_HEIGHT);
     });
@@ -491,7 +530,7 @@ describe("IcSideNavigation", () => {
       );
     });
 
-    describe("IcSideNavigation desktop Visual Regression and A11y Testing", () => {
+    describe("Desktop visual regression and a11y tests", () => {
       beforeEach(() => {
         cy.viewport(992, DEFAULT_HEIGHT);
         cy.injectAxe();
@@ -515,7 +554,16 @@ describe("IcSideNavigation", () => {
           name: "basic-desktop",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
         });
+      });
 
+      it("should render a default IcSideNavigation - open", () => {
+        mount(
+          <>
+            <IcTheme color="rgb(27, 60, 121)" />
+            <BasicSideNav />
+          </>
+        );
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
         cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
 
         cy.checkA11yWithWait(undefined, 300);
@@ -527,8 +575,8 @@ describe("IcSideNavigation", () => {
 
       it("should render a long status and version", () => {
         mount(<LongPropsSideNav />);
-        cy.checkHydrated(SIDE_NAV_SELECTOR);
 
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
         cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
 
         cy.checkA11yWithWait(undefined, 300);
@@ -540,8 +588,8 @@ describe("IcSideNavigation", () => {
 
       it("should render with an IcNavigationGroup", () => {
         mount(<GroupedSideNav />);
-        cy.checkHydrated(SIDE_NAV_SELECTOR);
 
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
         cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
 
         cy.checkA11yWithWait(undefined, 300);
@@ -553,6 +601,7 @@ describe("IcSideNavigation", () => {
 
       it("should render static", () => {
         mount(<StaticSideNav />);
+
         cy.checkHydrated(SIDE_NAV_SELECTOR);
 
         cy.checkA11yWithWait();
@@ -564,6 +613,7 @@ describe("IcSideNavigation", () => {
 
       it("should render with slotted nav items", () => {
         mount(<SlottedItemsExpandedSideNav />);
+
         cy.checkHydrated(SIDE_NAV_SELECTOR);
 
         cy.checkA11yWithWait();
@@ -575,6 +625,7 @@ describe("IcSideNavigation", () => {
 
       it("should render with a slotted app-title", () => {
         mount(<SlottedAppTitleSideNav />);
+
         cy.checkHydrated(SIDE_NAV_SELECTOR);
 
         cy.checkA11yWithWait();
@@ -582,7 +633,12 @@ describe("IcSideNavigation", () => {
           name: "slotted-app-title-desktop",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
         });
+      });
 
+      it("should render with a slotted app-title - open", () => {
+        mount(<SlottedAppTitleSideNav />);
+
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
         cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
 
         cy.checkA11yWithWait(undefined, 300);
@@ -606,7 +662,16 @@ describe("IcSideNavigation", () => {
           name: "theme-desktop",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
         });
+      });
 
+      it("should render with a different theme - open", () => {
+        mount(
+          <>
+            <IcTheme color="rgb(131, 166, 195)" />
+            <BasicSideNav />
+          </>
+        );
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
         cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR);
 
         cy.checkA11yWithWait(undefined, 300);
@@ -615,6 +680,126 @@ describe("IcSideNavigation", () => {
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
         });
       });
+    });
+  });
+});
+
+describe("Mobile visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  beforeEach(() => {
+    cy.viewport(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render a default IcSideNavigation in high contrast mode", () => {
+    mount(
+      <>
+        <IcTheme color="rgb(27, 60, 121)" />
+        <BasicSideNav />
+      </>
+    );
+    cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "basic-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+
+  it("should render a default IcSideNavigation in high contrast mode - open", () => {
+    mount(<BasicSideNav />);
+
+    cy.checkHydrated(SIDE_NAV_SELECTOR);
+    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).wait(500);
+
+    cy.compareSnapshot({
+      name: "basic-open-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+    });
+  });
+
+  it("should render with an IcNavigationGroup in high contrast mode", () => {
+    mount(<GroupedSideNav />);
+
+    cy.checkHydrated(SIDE_NAV_SELECTOR);
+    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).wait(300);
+
+    cy.compareSnapshot({
+      name: "nav-group-open-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.044),
+    });
+  });
+
+  it("should render with a slotted app-title in high contrast mode", () => {
+    mount(<SlottedAppTitleSideNav />);
+
+    cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "slotted-app-title-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+  });
+});
+
+describe("Desktop visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  beforeEach(() => {
+    cy.viewport(992, DEFAULT_HEIGHT);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render a default IcSideNavigation in high contrast mode", () => {
+    mount(<BasicSideNav />);
+
+    cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "basic-desktop-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render a default IcSideNavigation in high contrast mode - open", () => {
+    mount(<BasicSideNav />);
+
+    cy.checkHydrated(SIDE_NAV_SELECTOR);
+    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR).wait(300);
+
+    cy.compareSnapshot({
+      name: "basic-open-desktop-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
+  });
+
+  it("should render with slotted nav items in high contrast mode", () => {
+    mount(<SlottedItemsExpandedSideNav />);
+
+    cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "slotted-nav-items-expanded-desktop-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
 });

@@ -11,13 +11,16 @@ import {
   Method,
   Event,
   EventEmitter,
+  Host,
 } from "@stencil/core";
 import unsortedIcon from "./assets/unsorted-icon.svg";
 import ascendingIcon from "./assets/ascending-icon.svg";
 import descendingIcon from "./assets/descending-icon.svg";
 import {
+  IcDataTableDataType,
   IcDataTableColumnDataTypes,
   IcDataTableColumnObject,
+  IcDataTableColumnWidthTypes,
   IcDataTableDensityOptions,
   IcDataTableRowHeights,
   IcDataTableSortOrderOptions,
@@ -29,11 +32,11 @@ import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/util
 import { IcPaginationBarOptions } from "../../utils/types";
 // Unable to import helper functions via @ukic/web-components
 import {
-  getSlotContent,
   isEmptyString,
   isSlotUsed,
   pxToRem,
-  debounce,
+  addDataToPosition,
+  dynamicDebounce,
 } from "../../utils/helpers";
 
 /**
@@ -67,7 +70,7 @@ export class DataTable {
     descending: descendingIcon,
   };
 
-  private hasLoadedForOneSecond: boolean = true;
+  private hasLoadedForOneSecond = true;
   private loadingIndicator: HTMLIcLoadingIndicatorElement;
   private timerStarted: number;
   private resizeObserver: ResizeObserver = null;
@@ -80,14 +83,17 @@ export class DataTable {
   private dataUpdated = false;
   private tableSorted: boolean;
   private rowHeightSet = false;
-  private initialLoad: boolean = false;
-  private icPageChangeEvent: boolean = false;
-  private itemsPerPageChange: boolean = false;
+  private initialLoad = false;
+  private icPageChangeEvent = false;
+  private itemsPerPageChange = false;
   private DATA_ROW_HEIGHT_STRING = "data-row-height";
+  private ROW_HEIGHT_CSS_VARIABLE = "--row-height";
   private previousItemsPerPage: number;
   private DEFAULT_LINE_HEIGHT = 24;
-  private densityUpdate: boolean = false;
+  private densityUpdate = false;
   private previousPaginationPage: number;
+  private truncationPatternUpdated: boolean = false;
+  private isNewDebounceDelaySet = false;
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -111,6 +117,8 @@ export class DataTable {
 
   @State() currentRowHeight: number;
 
+  @State() debounceDelay = 0;
+
   /**
    * The title for the table only visible to screen readers.
    */
@@ -124,7 +132,7 @@ export class DataTable {
   /**
    * The row content for the table.
    */
-  @Prop() data: { [key: string]: any }[];
+  @Prop() data: IcDataTableDataType[];
 
   /**
    * Set the density of the table including font and padding.
@@ -140,6 +148,11 @@ export class DataTable {
    * Sets the row height on all rows in the table that aren't set using the `variableRowHeight` method.
    */
   @Prop({ mutable: true }) globalRowHeight?: IcDataTableRowHeights = "auto";
+
+  /**
+   * Sets the table height. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
+   */
+  @Prop() height?: string;
 
   /**
    * If `true`, column headers will not be visible.
@@ -164,6 +177,16 @@ export class DataTable {
     progress?: number;
     showBackground?: boolean;
   };
+
+  /**
+   * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
+   */
+  @Prop() maxWidth?: string;
+
+  /**
+   * Sets the minimum width of the data table. Can be set in `px`, `rem`, or `%`.
+   */
+  @Prop() minWidth?: string;
 
   /**
    * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
@@ -220,10 +243,13 @@ export class DataTable {
    * If `true`, row headers will remain to the left when scrolling horizontally.
    */
   @Prop() stickyRowHeaders?: boolean = false;
+  /**
+   * Sets the layout of the table
+   */
+  @Prop() tableLayout?: "fixed" | "auto" = "fixed";
 
   /**
-   * Sets the method used to truncate longer text in cells where textWrap is `false`.
-   * The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more" / "See less" buttons.
+   * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
    */
   @Prop() truncationPattern?: IcDataTableTruncationTypes;
 
@@ -251,6 +277,11 @@ export class DataTable {
     [key: string]: any;
     index: number;
   }) => IcDataTableRowHeights | null;
+
+  /**
+   * Sets the table width. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
+   */
+  @Prop() width?: string;
 
   /**
    * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
@@ -304,7 +335,8 @@ export class DataTable {
     if (this.truncationPattern) {
       this.getTypographyElements().forEach(
         (typographyEl: HTMLIcTypographyElement) => {
-          if (!typographyEl.classList.contains(this.TEXT_WRAP_STRING)) {
+          const cellContainer = this.getCellContainer(typographyEl);
+          if (!cellContainer.classList.contains(this.TEXT_WRAP_STRING)) {
             this.dataTruncation(typographyEl);
           }
         }
@@ -319,13 +351,40 @@ export class DataTable {
   }
 
   componentDidUpdate(): void {
-    this.truncateUpdatedData();
+    // truncation updates invoked here once new/updated data has
+    // rendered to take into account updated .cell-container/ic-typography box model updates.
+    if (
+      this.truncationPattern === this.SHOW_HIDE_STRING ||
+      this.truncationPattern === this.TOOLTIP_STRING
+    ) {
+      this.truncateUpdatedData();
+    }
   }
 
   private truncateUpdatedData() {
     if (this.dataUpdated) {
       if (this.truncationPattern === this.SHOW_HIDE_STRING) {
-        this.resetShowHideTruncation();
+        this.getTypographyElements().forEach(
+          (typographyEl: HTMLIcTypographyElement) => {
+            const truncWrapper = this.getTruncWrapper(typographyEl);
+            const cellContainer = this.getCellContainer(typographyEl);
+
+            if (
+              cellContainer?.clientHeight - this.DEFAULT_LINE_HEIGHT >=
+              truncWrapper?.scrollHeight
+            ) {
+              this.resetShowHideTruncation(typographyEl);
+              return;
+            }
+
+            setTimeout(() => {
+              // slight delay due to data rendering
+              if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
+                this.addShowHideTruncation(cellContainer, typographyEl);
+              }
+            }, 150);
+          }
+        );
       }
 
       if (this.truncationPattern === this.TOOLTIP_STRING) {
@@ -340,6 +399,22 @@ export class DataTable {
         this.updateTruncationTooltip();
       }
 
+      if (this.truncationPattern === this.SHOW_HIDE_STRING) {
+        this.getTypographyElements().forEach(
+          (typographyEl: HTMLIcTypographyElement) => {
+            const cellContainer = this.getCellContainer(typographyEl);
+
+            if (!cellContainer.classList.contains(this.TEXT_WRAP_STRING)) {
+              this.createShowHideTruncation(typographyEl, cellContainer);
+            } else {
+              typographyEl.resetTruncation().then(() => {
+                cellContainer.removeAttribute("style");
+              });
+            }
+          }
+        );
+      }
+
       this.tableSorted = false;
     }
 
@@ -349,11 +424,25 @@ export class DataTable {
       const fontSize = parseInt(
         getComputedStyle(document.documentElement).fontSize
       );
+      const hasAutoRowHeight = this.globalRowHeight === "auto";
 
       this.getTypographyElements().forEach(
         (typographyEl: HTMLIcTypographyElement) => {
           const cellContainer = this.getCellContainer(typographyEl);
           const tooltipEl = this.getTooltip(typographyEl);
+
+          if (hasAutoRowHeight) {
+            cellContainer.style.height = null;
+
+            if (this.truncationPattern === this.TOOLTIP_STRING) {
+              this.removeTooltip(cellContainer, typographyEl, tooltipEl);
+              typographyEl.setAttribute("style", `--ic-line-clamp: 0`);
+            } else if (this.truncationPattern === this.SHOW_HIDE_STRING) {
+              this.resetShowHideTruncation(typographyEl);
+            }
+
+            return;
+          }
 
           const rowHeight =
             fontSize *
@@ -363,10 +452,11 @@ export class DataTable {
           // with textWrap, set the row height
           if (
             !cellContainer?.style?.height &&
-            rowHeight > cellContainer.clientHeight
+            rowHeight > cellContainer.clientHeight &&
+            !cellContainer.classList.contains(this.TEXT_WRAP_STRING)
           ) {
             cellContainer.style.setProperty(
-              "height",
+              this.ROW_HEIGHT_CSS_VARIABLE,
               cellContainer.getAttribute(this.DATA_ROW_HEIGHT_STRING)
             );
           }
@@ -455,6 +545,38 @@ export class DataTable {
 
       this.densityUpdate = false;
     }
+
+    if (this.truncationPatternUpdated) {
+      if (this.truncationPattern === this.TOOLTIP_STRING) {
+        this.getTypographyElements().forEach((typographyEl) => {
+          const cellContainer = this.getCellContainer(typographyEl);
+          const tooltipEl = this.getTooltip(typographyEl);
+
+          if (typographyEl.scrollHeight > cellContainer.clientHeight) {
+            this.addTooltipTruncation(typographyEl, cellContainer, tooltipEl);
+          }
+        });
+      } else if (this.truncationPattern === this.SHOW_HIDE_STRING) {
+        this.getTypographyElements().forEach(
+          (typographyEl: HTMLIcTypographyElement) => {
+            const truncWrapper = this.getTruncWrapper(typographyEl);
+            const cellContainer = this.getCellContainer(typographyEl);
+
+            if (
+              cellContainer?.clientHeight - this.DEFAULT_LINE_HEIGHT >
+              truncWrapper?.scrollHeight
+            ) {
+              this.resetShowHideTruncation(typographyEl);
+              return;
+            }
+
+            if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
+              this.addShowHideTruncation(cellContainer, typographyEl);
+            }
+          }
+        );
+      }
+    }
   }
 
   private updateSetRowHeight = (typographyEl?: HTMLIcTypographyElement) => {
@@ -470,7 +592,7 @@ export class DataTable {
         parseFloat(cellContainer.getAttribute(this.DATA_ROW_HEIGHT_STRING));
 
       if (typographyEl.scrollHeight > rowHeight) {
-        cellContainer.style.removeProperty("height");
+        cellContainer.style.removeProperty(this.ROW_HEIGHT_CSS_VARIABLE);
       }
     } else {
       this.getTypographyElements().forEach(
@@ -482,7 +604,7 @@ export class DataTable {
             parseFloat(cellContainer.getAttribute(this.DATA_ROW_HEIGHT_STRING));
 
           if (typographyEl.scrollHeight > rowHeight) {
-            cellContainer.style.removeProperty("height");
+            cellContainer.style.removeProperty(this.ROW_HEIGHT_CSS_VARIABLE);
           }
         }
       );
@@ -500,25 +622,38 @@ export class DataTable {
     );
     typographyEl.setShowHideExpanded(false);
 
-    cellContainer.style.height = null;
+    cellContainer.style.setProperty(this.ROW_HEIGHT_CSS_VARIABLE, null);
   }
 
   private debounceDataTruncation = () => {
     this.getTypographyElements().forEach(
       (typographyEl: HTMLIcTypographyElement) => {
-        if (!typographyEl.classList.contains(this.TEXT_WRAP_STRING)) {
+        const cellContainer = this.getCellContainer(typographyEl);
+        if (!cellContainer.classList.contains(this.TEXT_WRAP_STRING)) {
           this.resizeObserver = new ResizeObserver(
             // This gets triggered twice due to updated data and see more/see less button
-            debounce(() => {
-              // console.log("resizeObserver triggered");
-              this.dataTruncation(typographyEl);
-            }, 200) as ResizeObserverCallback
+            dynamicDebounce(
+              () => {
+                this.dataTruncation(typographyEl);
+
+                if (!this.isNewDebounceDelaySet) {
+                  this.setNewDebounceDelay(200);
+                }
+              },
+              () => this.debounceDelay
+            ) as ResizeObserverCallback
           );
 
           this.resizeObserver.observe(typographyEl);
         }
       }
     );
+  };
+
+  private setNewDebounceDelay = (delay: number) => {
+    this.debounceDelay = delay;
+
+    this.isNewDebounceDelaySet = true;
   };
 
   private getLines = (height: number): number =>
@@ -651,12 +786,15 @@ export class DataTable {
   }: CustomEvent<{
     expanded: boolean;
     typographyEl: HTMLIcTypographyElement;
-  }>) {
+  }>): void {
     const { expanded, typographyEl } = detail;
     const cellContainer = this.getCellContainer(typographyEl);
 
-    if (cellContainer.style.height && expanded) {
-      cellContainer.style.height = "inherit";
+    if (
+      cellContainer.style.getPropertyValue(this.ROW_HEIGHT_CSS_VARIABLE) &&
+      expanded
+    ) {
+      cellContainer.style.setProperty(this.ROW_HEIGHT_CSS_VARIABLE, "inherit");
     }
   }
 
@@ -723,7 +861,8 @@ export class DataTable {
 
   @Watch("truncationPattern")
   truncationPatternHandler(newValue: IcDataTableTruncationTypes): void {
-    if (newValue === this.SHOW_HIDE_STRING) {
+    if (newValue === this.TOOLTIP_STRING) {
+      this.resetShowHideTruncation();
       this.updateTruncationTooltip(true);
 
       // Not using debounceDataTruncation here due to resizeObserver not being triggered
@@ -737,15 +876,38 @@ export class DataTable {
       );
     }
 
-    if (newValue === this.TOOLTIP_STRING) {
+    if (newValue === this.SHOW_HIDE_STRING) {
       // ResizeObserver is trigger here due to the see more/see less links being removed.
       // The resizeObserver will also apply the tooltip where relevant
-      this.resetShowHideTruncation();
+      this.updateTruncationTooltip(true);
+      this.getTypographyElements().forEach(
+        (typographyEl: HTMLIcTypographyElement) => {
+          const truncWrapper = this.getTruncWrapper(typographyEl);
+          const cellContainer = this.getCellContainer(typographyEl);
+
+          if (
+            cellContainer?.clientHeight - this.DEFAULT_LINE_HEIGHT >
+            truncWrapper?.scrollHeight
+          ) {
+            this.resetShowHideTruncation(typographyEl);
+            return;
+          }
+
+          setTimeout(() => {
+            // slight delay due to data rendering
+            if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
+              this.addShowHideTruncation(cellContainer, typographyEl);
+            }
+          }, 150);
+        }
+      );
     }
+
+    this.truncationPatternUpdated = true;
   }
 
   @Watch("data")
-  async dataHandler(newData: { [key: string]: any }[]) {
+  async dataHandler(newData: IcDataTableDataType[]): Promise<void> {
     this.loadingOptions = {
       ...this.loadingOptions,
       showBackground: newData?.length > 0,
@@ -765,7 +927,7 @@ export class DataTable {
   }
 
   @Watch("density")
-  async densityHandler() {
+  async densityHandler(): Promise<void> {
     this.densityUpdate = true;
   }
 
@@ -812,13 +974,15 @@ export class DataTable {
         );
         typographyEl.setShowHideExpanded(false);
 
-        cellContainer.style.height = null;
+        cellContainer.style.setProperty(this.ROW_HEIGHT_CSS_VARIABLE, null);
       } else {
         typographyEl.resetTruncation().then(() => {
-          cellContainer.style.setProperty(
-            "height",
-            cellContainer.getAttribute(this.DATA_ROW_HEIGHT_STRING)
-          );
+          if (!typographyEl.closest(this.TEXT_WRAP_CLASS)) {
+            cellContainer.style.setProperty(
+              this.ROW_HEIGHT_CSS_VARIABLE,
+              cellContainer.getAttribute(this.DATA_ROW_HEIGHT_STRING)
+            );
+          }
         });
       }
     } else {
@@ -826,10 +990,12 @@ export class DataTable {
         const cellContainer = this.getCellContainer(typographyEl);
 
         typographyEl.resetTruncation().then(() => {
-          cellContainer.style.setProperty(
-            "height",
-            cellContainer.getAttribute(this.DATA_ROW_HEIGHT_STRING)
-          );
+          if (!typographyEl.closest(this.TEXT_WRAP_CLASS)) {
+            cellContainer.style.setProperty(
+              this.ROW_HEIGHT_CSS_VARIABLE,
+              cellContainer.getAttribute(this.DATA_ROW_HEIGHT_STRING)
+            );
+          }
         });
       });
     }
@@ -945,10 +1111,64 @@ export class DataTable {
     return {};
   };
 
-  private createCells = (row: object, rowIndex: number) => {
+  private getColumnWidth = (
+    columnWidth?: string | IcDataTableColumnWidthTypes
+  ) => {
+    // TODO: Setting max width on columns
+    let columnWidthStyling = {};
+
+    if (columnWidth) {
+      if (typeof columnWidth === "string") {
+        columnWidthStyling = {
+          ...columnWidthStyling,
+          ["--column-width"]: columnWidth,
+        };
+      }
+
+      if (typeof columnWidth === "object" && !!Object.keys(columnWidth)) {
+        if (columnWidth?.minWidth) {
+          columnWidthStyling = {
+            ...columnWidthStyling,
+            ["--column-min-width"]: columnWidth?.minWidth,
+          };
+        }
+
+        if (columnWidth?.maxWidth) {
+          columnWidthStyling = {
+            ...columnWidthStyling,
+            ["--column-max-width"]: columnWidth?.maxWidth,
+          };
+        }
+      }
+    }
+
+    return columnWidthStyling;
+  };
+
+  private getRowHeight = (
+    currentRowHeight: number,
+    columnProps: IcDataTableColumnObject,
+    rowTextWrap: boolean,
+    cell: any
+  ) => {
+    if (
+      (this.truncationPattern || currentRowHeight) &&
+      !columnProps?.textWrap &&
+      !rowTextWrap &&
+      !this.getCellOptions(cell, "textWrap") &&
+      columnProps?.dataType !== "element"
+    ) {
+      return {
+        [this.ROW_HEIGHT_CSS_VARIABLE]: this.setRowHeight(currentRowHeight),
+      };
+    }
+
+    return {};
+  };
+
+  private createCells = (row: IcDataTableDataType, rowIndex: number) => {
     const rowValues = Object.values(row);
     const rowKeys = Object.keys(row);
-    const index = rowIndex;
 
     const rowOptions = this.getRowOptions(rowKeys, rowValues);
     let rowAlignment: string;
@@ -965,7 +1185,7 @@ export class DataTable {
 
     const variableRowHeightVal = this.variableRowHeight?.({
       ...row,
-      index,
+      index: rowIndex,
     });
     const currentRowHeight = variableRowHeightVal
       ? variableRowHeightVal !== "auto" && variableRowHeightVal
@@ -1001,6 +1221,7 @@ export class DataTable {
               ["table-cell"]: true,
               [`table-density-${this.density}`]: this.notDefaultDensity(),
             }}
+            style={{ ...this.getColumnWidth(columnProps.columnWidth) }}
           >
             <div
               innerHTML={
@@ -1038,14 +1259,13 @@ export class DataTable {
                 ...this.setTruncationClass(),
               }}
               style={{
-                height:
-                  (this.truncationPattern || currentRowHeight) &&
-                  !columnProps.textWrap &&
-                  !rowOptions.textWrap &&
-                  !this.getCellOptions(cell, "textWrap") &&
-                  columnProps?.dataType !== "element"
-                    ? this.setRowHeight(currentRowHeight)
-                    : null,
+                ...this.getRowHeight(
+                  currentRowHeight,
+                  columnProps,
+                  rowOptions?.textWrap,
+                  cell
+                ),
+                ...this.getColumnWidth(columnProps?.columnWidth),
               }}
               data-row-height={
                 this.truncationPattern || currentRowHeight
@@ -1107,64 +1327,67 @@ export class DataTable {
   };
 
   private createColumnHeaders = () => {
-    return this.columns.map(({ cellAlignment, colspan, icon, key, title }) => (
-      <th
-        scope="col"
-        class={{
-          ["column-header"]: true,
-          [`table-density-${this.density}`]: this.notDefaultDensity(),
-          ["updating-state-headers"]: this.updating && !this.loading,
-        }}
-        colSpan={colspan}
-      >
-        <div
+    return this.columns.map(
+      ({ cellAlignment, colspan, icon, key, title, columnWidth }) => (
+        <th
+          scope="col"
           class={{
-            "column-header-inner-container": true,
-            [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
+            ["column-header"]: true,
+            [`table-density-${this.density}`]: this.notDefaultDensity(),
+            ["updating-state-headers"]: this.updating && !this.loading,
           }}
+          style={{ ...this.getColumnWidth(columnWidth) }}
+          colSpan={colspan}
         >
-          {isSlotUsed(this.el, `${key}-column-icon`) ? (
-            <slot name={`${key}-column-icon`} />
-          ) : (
-            icon &&
-            !icon.hideOnHeader && (
-              <span class="icon" innerHTML={icon.icon}></span>
-            )
-          )}
-          <ic-typography
-            variant="body"
+          <div
             class={{
-              ["column-header-text"]: true,
-              [`text-${this.density}`]: this.notDefaultDensity(),
+              "column-header-inner-container": true,
+              [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
             }}
           >
-            {title}
-          </ic-typography>
-          {this.sortable && (
-            <ic-button
-              variant="icon"
-              id={`sort-button-${key}`}
-              aria-label={this.getSortButtonLabel(key)}
-              // eslint-disable-next-line react/jsx-no-bind
-              onClick={() => this.sortRows(key)}
-              innerHTML={
-                this.SORT_ICONS[
-                  this.sortedColumn === key
-                    ? this.sortedColumnOrder
-                    : "unsorted"
-                ]
-              }
+            {isSlotUsed(this.el, `${key}-column-icon`) ? (
+              <slot name={`${key}-column-icon`} />
+            ) : (
+              icon &&
+              !icon.hideOnHeader && (
+                <span class="icon" innerHTML={icon.icon}></span>
+              )
+            )}
+            <ic-typography
+              variant="body"
               class={{
-                ["sort-button"]: true,
-                ["sort-button-unsorted"]:
-                  this.sortedColumn !== key ||
-                  this.sortedColumnOrder === "unsorted",
+                ["column-header-text"]: true,
+                [`text-${this.density}`]: this.notDefaultDensity(),
               }}
-            ></ic-button>
-          )}
-        </div>
-      </th>
-    ));
+            >
+              {title}
+            </ic-typography>
+            {this.sortable && (
+              <ic-button
+                variant="icon"
+                id={`sort-button-${key}`}
+                aria-label={this.getSortButtonLabel(key)}
+                // eslint-disable-next-line react/jsx-no-bind
+                onClick={() => this.sortRows(key)}
+                innerHTML={
+                  this.SORT_ICONS[
+                    this.sortedColumn === key
+                      ? this.sortedColumnOrder
+                      : "unsorted"
+                  ]
+                }
+                class={{
+                  ["sort-button"]: true,
+                  ["sort-button-unsorted"]:
+                    this.sortedColumn !== key ||
+                    this.sortedColumnOrder === "unsorted",
+                }}
+              ></ic-button>
+            )}
+          </div>
+        </th>
+      )
+    );
   };
 
   private onRowClick = (row: object) => {
@@ -1180,17 +1403,22 @@ export class DataTable {
     /**
      * Ensures that createCells has a value in data to map over to actually render the slot.
      * Removes the need for the user to add it multiple times.
+     * `addDataToPosition` used to add the element in the correct column order.
+     * Adding empty string value in to give `createCells` something to loop over.
      */
-    this.columns.forEach(({ key }) => {
-      data.forEach((row, rowIndex) => {
-        const cellSlotName = `${key}-${rowIndex}`;
-        if (isSlotUsed(this.el, cellSlotName)) {
-          row[key] = getSlotContent(this.el, cellSlotName);
-        }
-      });
+    const organisedData = data.map((row, rowIndex) => {
+      const slottedColumns = this.columns
+        .map(
+          ({ key }, index) =>
+            isSlotUsed(this.el, `${key}-${rowIndex}`) && { key, index }
+        )
+        .filter((col) => !!col);
+      return slottedColumns.length > 0
+        ? addDataToPosition(row, slottedColumns, "")
+        : row;
     });
 
-    return data
+    return organisedData
       .sort(!this.sortable ? undefined : this.getSortFunction())
       .map((row, index) => {
         return (
@@ -1315,7 +1543,7 @@ export class DataTable {
     return typographyEl.closest(this.TOOLTIP);
   };
 
-  private updateTruncationTooltip = (removeTooltipOnly: boolean = false) => {
+  private updateTruncationTooltip = (removeTooltipOnly = false) => {
     this.getTypographyElements().forEach(
       (typographyEl: HTMLIcTypographyElement) => {
         const tooltip = this.getTooltip(typographyEl);
@@ -1356,6 +1584,7 @@ export class DataTable {
   ) {
     // When sorting the table, instead of regenerating the tooltip,
     // the tooltip details are updated
+
     if (tooltip) {
       if (this.tableSorted) {
         tooltip.setAttribute("target", typographyEl.id);
@@ -1374,19 +1603,52 @@ export class DataTable {
       this.addLineClampCSS(typographyEl, cellContainer);
     }
 
-    // Adding the tableSorted boolean prevents the tooltip
-    // being regenerated and flashing
     if (
       typographyEl?.scrollHeight > cellContainer?.clientHeight &&
-      !this.tableSorted
+      this.truncationPattern === this.TOOLTIP_STRING
     ) {
-      if (!typographyEl.getAttribute("style")) {
+      if (
+        !typographyEl.getAttribute("style") ||
+        typographyEl.style.cssText.includes("--ic-line-clamp: 0;")
+      ) {
         this.addLineClampCSS(typographyEl, cellContainer);
       }
-
       this.createTruncationTooltip(typographyEl, cellContainer);
     }
   }
+  private setTableDimensions = () => {
+    let tableHostDimensions = {};
+
+    if (this.width) {
+      tableHostDimensions = {
+        ...tableHostDimensions,
+        ["--table-width"]: this.width,
+      };
+    }
+
+    if (this.height) {
+      tableHostDimensions = {
+        ...tableHostDimensions,
+        ["--table-height"]: this.height,
+      };
+    }
+
+    if (this.maxWidth) {
+      tableHostDimensions = {
+        ...tableHostDimensions,
+        ["--table-max-width"]: this.maxWidth,
+      };
+    }
+
+    if (this.minWidth) {
+      tableHostDimensions = {
+        ...tableHostDimensions,
+        ["--table-min-width"]: this.minWidth,
+      };
+    }
+
+    return tableHostDimensions;
+  };
 
   private removeTooltip(
     cellContainer: HTMLElement,
@@ -1448,101 +1710,107 @@ export class DataTable {
     } = this;
 
     return (
-      <div class="table-container">
-        {isSlotUsed(this.el, "title-bar") && <slot name="title-bar" />}
-        <div
-          class={{
-            ["table-row-container"]: true,
-            scrollable,
-          }}
-          tabIndex={scrollable ? 0 : null}
-          onScroll={updateScrollOffset}
-        >
+      <Host style={{ ...this.setTableDimensions() }}>
+        <div class="table-container">
           {isSlotUsed(this.el, "title-bar") && <slot name="title-bar" />}
-          <table>
-            <caption class="table-caption">{caption}</caption>
-            {!hideColumnHeaders && (
-              <thead
-                class={{
-                  ["column-header-sticky"]: stickyColumnHeaders,
-                  ["column-header-overlay"]:
-                    stickyColumnHeaders && scrollOffset !== 0,
-                }}
-              >
-                <tr>{createColumnHeaders()}</tr>
-              </thead>
-            )}
-            {updating &&
-              !loading &&
-              (hideColumnHeaders ? (
-                <thead>{createUpdatingIndicator()}</thead>
-              ) : (
-                createUpdatingIndicator()
-              ))}
-            {data?.length > 0 && !loading && <tbody>{createRows()}</tbody>}
-          </table>
-          {!data?.length &&
-            !loading &&
-            (isSlotUsed(this.el, "empty-state") ? (
-              <slot name="empty-state" />
-            ) : (
-              <ic-empty-state
-                aligned="center"
-                heading="No Data"
-                class="loading-empty"
-              ></ic-empty-state>
-            ))}
-        </div>
-        {loading && (
-          <ic-loading-indicator
-            appearance={loadingOptions?.appearance}
+          <div
             class={{
-              "loading-empty": loading,
-              loading: true,
-              "show-background": loadingOptions.showBackground,
+              ["table-row-container"]: true,
+              scrollable,
             }}
-            description={loadingOptions.description || "Loading table data"}
-            label={loadingOptions.label || "Loading..."}
-            labelDuration={loadingOptions?.labelDuration}
-            max={loadingOptions?.max}
-            min={loadingOptions?.min}
-            progress={loadingOptions?.progress}
-            ref={(el: HTMLIcLoadingIndicatorElement) =>
-              (this.loadingIndicator = el)
-            }
-          ></ic-loading-indicator>
-        )}
-        {(showPagination || isSlotUsed(this.el, "pagination-bar")) && (
-          <div class="pagination-container">
-            {isSlotUsed(this.el, "pagination-bar") ? (
-              <slot name="pagination-bar" />
-            ) : (
-              <ic-pagination-bar
-                totalItems={data.length}
-                type={paginationBarOptions.type}
-                rangeLabelType={paginationBarOptions.rangeLabelType}
-                showItemsPerPageControl={
-                  paginationBarOptions.showItemsPerPageControl
-                }
-                showGoToPageControl={paginationBarOptions.showGoToPageControl}
-                itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
-                alignment={paginationBarOptions.alignment}
-                appearance={paginationBarOptions.appearance}
-                itemLabel={paginationBarOptions.itemLabel}
-                pageLabel={paginationBarOptions.pageLabel}
-                hideRangeLabel={paginationBarOptions.hideRangeLabel}
-              ></ic-pagination-bar>
-            )}
+            tabIndex={scrollable ? 0 : null}
+            onScroll={updateScrollOffset}
+          >
+            {isSlotUsed(this.el, "title-bar") && <slot name="title-bar" />}
+            <table
+              style={{
+                ["--table-layout"]: this.tableLayout,
+              }}
+            >
+              <caption class="table-caption">{caption}</caption>
+              {!hideColumnHeaders && (
+                <thead
+                  class={{
+                    ["column-header-sticky"]: stickyColumnHeaders,
+                    ["column-header-overlay"]:
+                      stickyColumnHeaders && scrollOffset !== 0,
+                  }}
+                >
+                  <tr>{createColumnHeaders()}</tr>
+                </thead>
+              )}
+              {updating &&
+                !loading &&
+                (hideColumnHeaders ? (
+                  <thead>{createUpdatingIndicator()}</thead>
+                ) : (
+                  createUpdatingIndicator()
+                ))}
+              {data?.length > 0 && !loading && <tbody>{createRows()}</tbody>}
+            </table>
+            {!data?.length &&
+              !loading &&
+              (isSlotUsed(this.el, "empty-state") ? (
+                <slot name="empty-state" />
+              ) : (
+                <ic-empty-state
+                  aligned="center"
+                  heading="No Data"
+                  class="loading-empty"
+                ></ic-empty-state>
+              ))}
           </div>
-        )}
-        {sortable && (
-          <div class="screen-reader-sort-text" aria-live="polite">
-            {sortedColumnOrder !== "unsorted" && sortedColumn
-              ? `${sortedColumn} sorted ${sortedColumnOrder}`
-              : "table unsorted"}
-          </div>
-        )}
-      </div>
+          {loading && (
+            <ic-loading-indicator
+              appearance={loadingOptions?.appearance}
+              class={{
+                "loading-empty": loading,
+                loading: true,
+                "show-background": loadingOptions.showBackground,
+              }}
+              description={loadingOptions.description || "Loading table data"}
+              label={loadingOptions.label || "Loading..."}
+              labelDuration={loadingOptions?.labelDuration}
+              max={loadingOptions?.max}
+              min={loadingOptions?.min}
+              progress={loadingOptions?.progress}
+              ref={(el: HTMLIcLoadingIndicatorElement) =>
+                (this.loadingIndicator = el)
+              }
+            ></ic-loading-indicator>
+          )}
+          {(showPagination || isSlotUsed(this.el, "pagination-bar")) && (
+            <div class="pagination-container">
+              {isSlotUsed(this.el, "pagination-bar") ? (
+                <slot name="pagination-bar" />
+              ) : (
+                <ic-pagination-bar
+                  totalItems={data.length}
+                  type={paginationBarOptions.type}
+                  rangeLabelType={paginationBarOptions.rangeLabelType}
+                  showItemsPerPageControl={
+                    paginationBarOptions.showItemsPerPageControl
+                  }
+                  showGoToPageControl={paginationBarOptions.showGoToPageControl}
+                  itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
+                  alignment={paginationBarOptions.alignment}
+                  appearance={paginationBarOptions.appearance}
+                  itemLabel={paginationBarOptions.itemLabel}
+                  pageLabel={paginationBarOptions.pageLabel}
+                  hideRangeLabel={paginationBarOptions.hideRangeLabel}
+                ></ic-pagination-bar>
+              )}
+            </div>
+          )}
+          {sortable && (
+            <div class="screen-reader-sort-text" aria-live="polite">
+              {sortedColumnOrder !== "unsorted" && sortedColumn
+                ? `${sortedColumn} sorted ${sortedColumnOrder}`
+                : "table unsorted"}
+            </div>
+          )}
+        </div>
+      </Host>
     );
   }
 }

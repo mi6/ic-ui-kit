@@ -30,6 +30,7 @@ import {
   TruncationShowHide,
   TruncationTextWrap,
   TruncationTooltip,
+  DataTableSizing,
   CustomTitleBar,
   UpdatingData,
   SlottedPagination,
@@ -1327,6 +1328,10 @@ When a row is given a set height, and has content that no longer fits into the c
 
 These values are set using the `truncation-pattern` attribute.
 
+By default, `global-row-height` is set to `auto`. If the `truncation-pattern` attribute is set to `tooltip` or `show-hide` while `global-row-height` is `auto`, the data will not appear truncated due to the row height being set to the data which has the most height.
+
+To see the data truncated, the `global-row-height` or `variable-row-height` needs to be explicitly set to a height which is shorter than data which has the most lines.
+
 #### Data truncation tooltip
 
 <Canvas withSource="none">
@@ -1518,6 +1523,73 @@ const data = [
         textWrap: true,
       },
     },
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Table sizing and column width
+
+The dimensions of the data table can be set using the `width` and `height` attributes. The attribute accepts dimensions in `px`, `%`, `rem` and `auto`.
+
+By default, the width is set to `100%` so the table spans across the viewport or parent container.
+
+To set the column widths, the `columnWidth` property should be added to the relevant column within the column array.
+
+The [table layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute is vital to how the table resizing and column widths behave. By default, the table layout is set to `fixed`. If no column width is set, the columns widths will be equally set within the viewport or parent container.
+
+A table with a `fixed` layout will force the table column widths to take precedence over the data with the table cells.
+
+For the column widths to be dictated by the content inside, set the `table-layout` attribute to `auto` and set the table `width` to `auto`.
+
+To set the min and max width of a table cell, set a `minWidth` or `maxWidth` value into `columnWidth`. The min and max width accepts dimensions in `px`, `%`, `rem`.
+
+<Canvas withSource="none">
+  <Story
+    name="Table sizing and column width"
+    parameters={{ loki: { skip: true } }}
+  >
+    {DataTableSizing()}
+  </Story>
+</Canvas>
+
+#### Table sizing and column width code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Text Wrap"
+  width="800px"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    { key: "firstName", title: "First name", dataType: "string", columnWidth: "15%" },
+    { key: "lastName", title: "Last name", dataType: "string", columnWidth: "300px" },
+    {
+      key: "age",
+      title: "Age",
+      dataType: "number",
+      columnWidth: {
+        maxWidth: "100px",
+      },
+    },
+    { key: "jobTitle", title: "Job title", dataType: "string" },
+    { key: "address", title: "Address", dataType: "address" },
+  ]
+
+
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bartholomew Christoper Augustine Zacchaeus Ashford", // cspell:disable-line
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
   ];
   dataTable.columns = columns;
   dataTable.data = data;

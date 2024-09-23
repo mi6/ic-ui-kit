@@ -39,6 +39,7 @@ import {
   TextFieldWithinForm,
   Controlled,
   Uncontrolled,
+  TextFieldWithMaxLengthMessage,
 } from "./IcTextFieldTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -359,6 +360,20 @@ describe("IcTextField visual regression tests", () => {
         cy.compareSnapshot({
           name: "icon-value-max-length-exceeded",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.052),
+        });
+      });
+  });
+
+  it("should render a text field with custom max length message", () => {
+    mount(<TextFieldWithMaxLengthMessage />);
+
+    cy.get(IC_TEXTFIELD)
+      .invoke("prop", "value", "This should exceed 25 characters")
+      .then(() => {
+        cy.checkA11yWithWait(undefined, 500);
+        cy.compareSnapshot({
+          name: "max-length-message",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.054),
         });
       });
   });

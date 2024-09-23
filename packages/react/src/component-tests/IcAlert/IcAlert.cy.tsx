@@ -1,7 +1,12 @@
 /// <reference types="Cypress" />
 import { mount } from "@cypress/react";
 import React from "react";
-import { BE_VISIBLE, NOT_BE_VISIBLE } from "../utils/constants";
+import {
+  BE_VISIBLE,
+  HAVE_ATTR,
+  NOT_BE_VISIBLE,
+  NOT_EXIST,
+} from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
   Neutral,
@@ -16,7 +21,10 @@ import {
   CustomMessage,
   WithAction,
   MessageOnly,
+  NoIcon,
+  SlottedIcon,
 } from "./IcAlertTestData";
+import { IcAlert } from "../../components";
 
 const ALERT_SELECTOR = "ic-alert";
 const TYPOGRAPHY_SELECTOR = "ic-typography";
@@ -137,6 +145,21 @@ describe("IcAlert end-to-end tests", () => {
       .should(BE_VISIBLE);
     cy.get("ic-button").should(BE_VISIBLE).click();
   });
+
+  it("should render icon when showDefaultIcon is set to false on an alert that is not neutral", () => {
+    mount(
+      <IcAlert
+        variant="info"
+        message="This alert does not have an icon"
+        showDefaultIcon={false}
+      />
+    );
+
+    cy.checkHydrated(ALERT_SELECTOR);
+    cy.findShadowEl(ALERT_SELECTOR, "svg")
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, "aria-labelledby", "info-title");
+  });
 });
 
 describe("IcAlert visual regression and a11y tests", () => {
@@ -239,6 +262,33 @@ describe("IcAlert visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
+
+  it("should render neutral alert with no icon", () => {
+    mount(<NoIcon />);
+
+    cy.checkHydrated(ALERT_SELECTOR);
+    cy.findShadowEl(ALERT_SELECTOR, "svg").should(NOT_EXIST);
+    cy.wait(500);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "no-icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render neutral alert with a slotted icon", () => {
+    mount(<SlottedIcon />);
+
+    cy.checkHydrated(ALERT_SELECTOR);
+    cy.wait(500);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "slotted-icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
+    });
+  });
 });
 
 describe("IcAlert visual regression tests in high contrast mode", () => {
@@ -303,6 +353,18 @@ describe("IcAlert visual regression tests in high contrast mode", () => {
     cy.compareSnapshot({
       name: "dismissible-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render neutral alert with a slotted icon in high contrast mode", () => {
+    mount(<SlottedIcon />);
+
+    cy.checkHydrated(ALERT_SELECTOR);
+    cy.wait(500);
+
+    cy.compareSnapshot({
+      name: "slotted-icon-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
 });

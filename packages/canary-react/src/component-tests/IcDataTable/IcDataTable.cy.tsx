@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { mount } from "cypress/react";
 import { IcDataTable, IcDataTableTitleBar } from "../../components";
 import {
@@ -32,6 +32,11 @@ import {
   COLUMNS_NO_TEXT_WRAP,
   LONG_DATA_VALUES_UPDATE,
   LONG_TEXT,
+  VERY_LONG_DATA,
+  DATA_REACT_ELEMENTS,
+  textWrapCell,
+  textWrapColumns,
+  textWrapRow,
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
@@ -49,12 +54,38 @@ import {
 } from "@ukic/react/src/component-tests/utils/constants";
 
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
+import { IcDataTableTruncationTypes } from "@ukic/canary-web-components";
+import {
+  multipleColumnWidth,
+  newData,
+  singleColumnTruncationWidth,
+  singleColumnWidth,
+} from "./IcDataTableTestData";
 
 const DATA_TABLE_SELECTOR = "ic-data-table";
 const DEFAULT_THRESHOLD = 0.04;
 const LOADING_INDICATOR_SELECTOR = "ic-loading-indicator";
+const SORT_BUTTON_SELECTOR = ".sort-button";
+const TOOLTIP_BUTTON_SELECTOR = "ic-tooltip button";
+const ARIA_LABEL = "aria-label";
+const TITLE_BAR_SELECTOR = "ic-data-table-title-bar";
+const TYPOGRAPHY_SELECTOR = "ic-typography";
+const NEXT_PAGE_BUTTON_ID = "#next-page-button";
+const PAGINATION_BAR_SELECTOR = "ic-pagination-bar";
+const TABLE_CELL_SELECTOR = ".table-cell";
+const TOOLTIP_SELECTOR = "ic-tooltip";
+const GLOBAL_ROW_HEIGHT = "global-row-height";
+const TABLE_ROW_SELECTOR = ".table-row";
+const LAST_CELL_SELECTOR = ".table-cell:last-child";
+const LAST_CELL_TYPOGRAPHY_SELECTOR = `${LAST_CELL_SELECTOR} ic-typography`;
+const PAGINATION_SELECTOR = "ic-pagination";
+const PAGINATION_GO_TO_PAGE_TEXT_FIELD_SELECTOR =
+  ".go-to-page-holder ic-text-field";
+const PAGINATION_GO_TO_PAGE_BUTTON_SELECTOR = ".go-to-page-holder ic-button";
+const ITEMS_PER_PAGE_SELECTOR = ".items-per-page-input";
 
-export const BasicDataTable = (dataTableProps?): ReactElement => (
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+export const BasicDataTable = (dataTableProps?: any): ReactElement => (
   <IcDataTable
     columns={COLS}
     data={DATA}
@@ -63,7 +94,7 @@ export const BasicDataTable = (dataTableProps?): ReactElement => (
   />
 );
 
-export const BasicSectionContainer = () => {
+export const BasicSectionContainer = (): ReactElement => {
   return (
     <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
       <IcPageHeader heading="Page header">
@@ -192,7 +223,7 @@ describe("IcDataTables", () => {
       },
     });
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(1).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(1).click();
 
     cy.wait(250);
 
@@ -204,7 +235,7 @@ describe("IcDataTables", () => {
       },
     });
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(2).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(2).click();
 
     cy.wait(250);
 
@@ -222,13 +253,13 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
       .eq(0)
       .shadow()
-      .find("ic-tooltip button")
-      .should(HAVE_ATTR, "aria-label", "Sort ascending");
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, "Sort ascending");
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
       .eq(1)
@@ -236,13 +267,13 @@ describe("IcDataTables", () => {
       .eq(0)
       .should(HAVE_TEXT, "Joe");
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
       .eq(0)
       .shadow()
-      .find("ic-tooltip button")
-      .should(HAVE_ATTR, "aria-label", "Sort descending");
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, "Sort descending");
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
       .eq(1)
@@ -252,13 +283,13 @@ describe("IcDataTables", () => {
 
     cy.checkA11yWithWait();
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
       .eq(0)
       .shadow()
-      .find("ic-tooltip button")
-      .should(HAVE_ATTR, "aria-label", "Remove sort");
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, "Remove sort");
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
       .eq(1)
@@ -285,11 +316,11 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
       .eq(1)
       .shadow()
-      .find("ic-tooltip button")
-      .should(HAVE_ATTR, "aria-label", "Remove sort");
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, "Remove sort");
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
       .eq(1)
@@ -297,13 +328,13 @@ describe("IcDataTables", () => {
       .eq(1)
       .should(HAVE_TEXT, "Ashford");
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(1).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(1).click();
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
       .eq(1)
       .shadow()
-      .find("ic-tooltip button")
-      .should(HAVE_ATTR, "aria-label", "Sort ascending");
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, "Sort ascending");
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
       .eq(1)
@@ -538,7 +569,7 @@ describe("IcDataTables", () => {
 
     cy.wait(350);
 
-    cy.get("ic-data-table").invoke("prop", "loading", true);
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR).should(
       HAVE_CLASS,
@@ -604,7 +635,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR)
       .shadow()
       .find(".ic-loading-linear-outer")
-      .should(HAVE_ATTR, "aria-label", "Updating");
+      .should(HAVE_ATTR, ARIA_LABEL, "Updating");
 
     cy.compareSnapshot({
       name: "multiple-updating-options",
@@ -694,12 +725,12 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.get("ic-data-table-title-bar").find(".primary-button").click();
+    cy.get(TITLE_BAR_SELECTOR).find(".primary-button").click();
     cy.get("@primaryActionClick").should(HAVE_BEEN_CALLED_ONCE);
 
     cy.wait(300);
 
-    cy.get("ic-data-table-title-bar").find(".custom-action-button").click();
+    cy.get(TITLE_BAR_SELECTOR).find(".custom-action-button").click();
     cy.get("@customActionClick").should(HAVE_BEEN_CALLED_ONCE);
 
     cy.wait(300);
@@ -713,7 +744,7 @@ describe("IcDataTables", () => {
     });
 
     cy.findShadowEl(
-      "ic-data-table-title-bar",
+      TITLE_BAR_SELECTOR,
       ".header-container .ic-typography-h3"
     ).should(HAVE_TEXT, "Data Tables");
   });
@@ -907,9 +938,9 @@ describe("IcDataTables", () => {
       delay: 500,
     });
 
-    cy.get("ic-data-table-title-bar").shadow().find("ic-select").click();
+    cy.get(TITLE_BAR_SELECTOR).shadow().find("ic-select").click();
 
-    cy.get("ic-data-table-title-bar")
+    cy.get(TITLE_BAR_SELECTOR)
       .shadow()
       .find("ic-select")
       .shadow()
@@ -917,7 +948,7 @@ describe("IcDataTables", () => {
       .eq(1)
       .click();
 
-    cy.get("ic-data-table-title-bar")
+    cy.get(TITLE_BAR_SELECTOR)
       .shadow()
       .find("ic-select")
       .shadow()
@@ -944,7 +975,7 @@ describe("IcDataTables", () => {
       .should("equal", "151px");
 
     cy.document().then((doc) => {
-      const dataTable = doc.querySelector("ic-data-table");
+      const dataTable = doc.querySelector(DATA_TABLE_SELECTOR);
       dataTable?.resetRowHeights(80);
     });
 
@@ -998,7 +1029,7 @@ describe("IcDataTables", () => {
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(2).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(2).click();
 
     cy.get("@sortChanged").should(HAVE_BEEN_CALLED_ONCE);
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
@@ -1006,7 +1037,10 @@ describe("IcDataTables", () => {
       sorted: "ascending",
     });
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(1).click().click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
+      .eq(1)
+      .click()
+      .click();
 
     cy.get("@sortChanged").should("have.callCount", 3);
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
@@ -1063,16 +1097,16 @@ describe("IcDataTables with IcPaginationBar", () => {
 
     cy.get(DATA_TABLE_SELECTOR)
       .find("ic-pagination-item", { includeShadowDom: true })
-      .find("ic-typography", { includeShadowDom: true })
+      .find(TYPOGRAPHY_SELECTOR, { includeShadowDom: true })
       .should(HAVE_TEXT, "Page 1");
 
     cy.get(DATA_TABLE_SELECTOR)
-      .find("#next-page-button", { includeShadowDom: true })
+      .find(NEXT_PAGE_BUTTON_ID, { includeShadowDom: true })
       .click();
 
     cy.get(DATA_TABLE_SELECTOR)
       .find("ic-pagination-item", { includeShadowDom: true })
-      .find("ic-typography", { includeShadowDom: true })
+      .find(TYPOGRAPHY_SELECTOR, { includeShadowDom: true })
       .should(HAVE_TEXT, "Page 2");
   });
 
@@ -1136,61 +1170,61 @@ describe("IcDataTables with IcPaginationBar", () => {
       .then(() => {
         cy.wait(100);
         cy.get(DATA_TABLE_SELECTOR)
-          .find("ic-pagination-bar", { includeShadowDom: true })
+          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "itemsPerPageOptions")
           .then((itemsPerPageOptions) => {
             expect(itemsPerPageOptions.length).to.equal(1);
           });
         cy.get(DATA_TABLE_SELECTOR)
-          .find("ic-pagination-bar", { includeShadowDom: true })
+          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "rangeLabelType")
           .then((rangeLabelType) => {
             expect(rangeLabelType).to.equal("data");
           });
         cy.get(DATA_TABLE_SELECTOR)
-          .find("ic-pagination-bar", { includeShadowDom: true })
+          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "type")
           .then((type) => {
             expect(type).to.equal("complex");
           });
         cy.get(DATA_TABLE_SELECTOR)
-          .find("ic-pagination-bar", { includeShadowDom: true })
+          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "showItemsPerPageControl")
           .then((showItemsPerPageControl) => {
             expect(showItemsPerPageControl).to.be.false;
           });
         cy.get(DATA_TABLE_SELECTOR)
-          .find("ic-pagination-bar", { includeShadowDom: true })
+          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "showGoToPageControl")
           .then((showGoToPageControl) => {
             expect(showGoToPageControl).to.be.false;
           });
         cy.get(DATA_TABLE_SELECTOR)
-          .find("ic-pagination-bar", { includeShadowDom: true })
+          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "alignment")
           .then((alignment) => {
             expect(alignment).to.equal("left");
           });
         cy.get(DATA_TABLE_SELECTOR)
-          .find("ic-pagination-bar", { includeShadowDom: true })
+          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "appearance")
           .then((appearance) => {
             expect(appearance).to.equal("dark");
           });
         cy.get(DATA_TABLE_SELECTOR)
-          .find("ic-pagination-bar", { includeShadowDom: true })
+          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "itemLabel")
           .then((itemLabel) => {
             expect(itemLabel).to.equal("Row");
           });
         cy.get(DATA_TABLE_SELECTOR)
-          .find("ic-pagination-bar", { includeShadowDom: true })
+          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "pageLabel")
           .then((pageLabel) => {
             expect(pageLabel).to.equal("Screen");
           });
         cy.get(DATA_TABLE_SELECTOR)
-          .find("ic-pagination-bar", { includeShadowDom: true })
+          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "hideRangeLabel")
           .then((hideRangeLabel) => {
             expect(hideRangeLabel).to.be.true;
@@ -1243,10 +1277,10 @@ describe("IcDataTable with truncation", () => {
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
         .eq(0)
-        .find(".table-cell")
+        .find(TABLE_CELL_SELECTOR)
         .eq(4)
-        .find("ic-tooltip")
-        .should("have.attr", "label", LONG_DATA_VALUES[0].jobTitle);
+        .find(TOOLTIP_SELECTOR)
+        .should(HAVE_ATTR, "label", LONG_DATA_VALUES[0].jobTitle);
 
       cy.checkA11yWithWait();
 
@@ -1292,8 +1326,8 @@ describe("IcDataTable with truncation", () => {
           <IcButton
             onClick={() =>
               document
-                .querySelector("ic-data-table")
-                ?.setAttribute("global-row-height", "150")
+                .querySelector(DATA_TABLE_SELECTOR)
+                ?.setAttribute(GLOBAL_ROW_HEIGHT, "150")
             }
           >
             Set global row height
@@ -1305,10 +1339,10 @@ describe("IcDataTable with truncation", () => {
 
       cy.get("ic-button").click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child ic-typography")
-          .should("have.attr", "style", "--ic-line-clamp: 0");
+          .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
+          .should(HAVE_ATTR, "style", "--ic-line-clamp: 0");
       });
     });
 
@@ -1326,12 +1360,12 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(2).click();
+      cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(2).click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .last()
-        .find(".table-cell:last-child ic-tooltip")
-        .should("have.attr", "label", LONG_DATA_VALUES[2].jobTitle);
+        .find(`${LAST_CELL_SELECTOR} ic-tooltip`)
+        .should(HAVE_ATTR, "label", LONG_DATA_VALUES[2].jobTitle);
 
       cy.compareSnapshot({
         name: "tooltip-truncation-sort",
@@ -1358,11 +1392,11 @@ describe("IcDataTable with truncation", () => {
 
       cy.wait(250);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child")
-          .find("ic-tooltip")
-          .should("not.exist");
+          .find(LAST_CELL_SELECTOR)
+          .find(TOOLTIP_SELECTOR)
+          .should(NOT_EXIST);
       });
 
       cy.compareSnapshot({
@@ -1383,7 +1417,7 @@ describe("IcDataTable with truncation", () => {
           />
           <IcButton
             onClick={() =>
-              document.querySelector("ic-data-table")?.resetRowHeights(40)
+              document.querySelector(DATA_TABLE_SELECTOR)?.resetRowHeights(40)
             }
           >
             Reset
@@ -1397,10 +1431,10 @@ describe("IcDataTable with truncation", () => {
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
         .eq(0)
-        .find(".table-cell")
+        .find(TABLE_CELL_SELECTOR)
         .eq(4)
-        .find("ic-tooltip")
-        .should("have.attr", "label", LONG_DATA_VALUES[0].jobTitle);
+        .find(TOOLTIP_SELECTOR)
+        .should(HAVE_ATTR, "label", LONG_DATA_VALUES[0].jobTitle);
 
       cy.compareSnapshot({
         name: "tooltip-truncation-reset-rowheight", // cspell:disable-line
@@ -1431,7 +1465,7 @@ describe("IcDataTable with truncation", () => {
         .filter(":lt(3)")
         .each(($row) => {
           cy.wrap($row)
-            .find(".table-cell:last-child ic-tooltip")
+            .find(`${LAST_CELL_SELECTOR} ic-tooltip`)
             .should("exist");
         });
     });
@@ -1457,14 +1491,16 @@ describe("IcDataTable with truncation", () => {
         250
       );
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row, i) => {
-        if (i > 5 && i < 11) {
-          cy.wrap($row)
-            .find(".table-cell:last-child")
-            .find("ic-tooltip")
-            .should("exist");
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(
+        ($row, i) => {
+          if (i > 5 && i < 11) {
+            cy.wrap($row)
+              .find(LAST_CELL_SELECTOR)
+              .find(TOOLTIP_SELECTOR)
+              .should("exist");
+          }
         }
-      });
+      );
     });
 
     it("should removed tooltip truncation if table cell is wide enough to display all content", () => {
@@ -1497,11 +1533,11 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child")
-          .find("ic-tooltip")
-          .should("not.exist");
+          .find(LAST_CELL_SELECTOR)
+          .find(TOOLTIP_SELECTOR)
+          .should(NOT_EXIST);
       });
 
       cy.compareSnapshot({
@@ -1528,8 +1564,8 @@ describe("IcDataTable with truncation", () => {
         .filter(":lt(3)")
         .each(($row) => {
           cy.wrap($row)
-            .find(".table-cell:last-child")
-            .find("ic-tooltip")
+            .find(LAST_CELL_SELECTOR)
+            .find(TOOLTIP_SELECTOR)
             .should("exist");
         });
 
@@ -1557,8 +1593,8 @@ describe("IcDataTable with truncation", () => {
         .filter(":lt(3)")
         .each(($row) => {
           cy.wrap($row)
-            .find(".table-cell:last-child")
-            .find("ic-tooltip")
+            .find(LAST_CELL_SELECTOR)
+            .find(TOOLTIP_SELECTOR)
             .should("exist");
         });
 
@@ -1583,15 +1619,15 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find("ic-pagination")
+        .find(PAGINATION_SELECTOR)
         .shadow()
-        .find("#next-page-button")
+        .find(NEXT_PAGE_BUTTON_ID)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
-        cy.wrap($row).find("ic-tooltip").should("exist");
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
+        cy.wrap($row).find(TOOLTIP_SELECTOR).should("exist");
       });
     });
 
@@ -1610,34 +1646,34 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".go-to-page-holder ic-text-field")
+        .find(PAGINATION_GO_TO_PAGE_TEXT_FIELD_SELECTOR)
         .shadow()
         .find("input")
         .type("2");
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".go-to-page-holder ic-button")
+        .find(PAGINATION_GO_TO_PAGE_BUTTON_SELECTOR)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
-        cy.wrap($row).find("ic-tooltip").should("exist");
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
+        cy.wrap($row).find(TOOLTIP_SELECTOR).should("exist");
       });
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".go-to-page-holder ic-text-field")
+        .find(PAGINATION_GO_TO_PAGE_TEXT_FIELD_SELECTOR)
         .shadow()
         .find("input")
         .type("1");
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".go-to-page-holder ic-button")
+        .find(PAGINATION_GO_TO_PAGE_BUTTON_SELECTOR)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
-        cy.wrap($row).find("ic-tooltip").should("exist");
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
+        cy.wrap($row).find(TOOLTIP_SELECTOR).should("exist");
       });
     });
 
@@ -1665,21 +1701,21 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".items-per-page-input")
+        .find(ITEMS_PER_PAGE_SELECTOR)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".items-per-page-input")
+        .find(ITEMS_PER_PAGE_SELECTOR)
         .shadow()
         .find("li")
         .eq(1)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
-        cy.wrap($row).find("ic-tooltip").should("exist");
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
+        cy.wrap($row).find(TOOLTIP_SELECTOR).should("exist");
       });
     });
 
@@ -1707,55 +1743,55 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".items-per-page-input")
+        .find(ITEMS_PER_PAGE_SELECTOR)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".items-per-page-input")
+        .find(ITEMS_PER_PAGE_SELECTOR)
         .shadow()
         .find("li")
         .eq(1)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".items-per-page-input")
+        .find(ITEMS_PER_PAGE_SELECTOR)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".items-per-page-input")
+        .find(ITEMS_PER_PAGE_SELECTOR)
         .shadow()
         .find("li")
         .eq(2)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find("ic-pagination")
+        .find(PAGINATION_SELECTOR)
         .shadow()
-        .find("#next-page-button")
+        .find(NEXT_PAGE_BUTTON_ID)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find("ic-pagination")
+        .find(PAGINATION_SELECTOR)
         .shadow()
         .find("#previous-page-button")
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
-        .find(".table-cell:last-child ic-typography")
-        .should("have.attr", "style", "--ic-line-clamp: 1");
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
+        .should(HAVE_ATTR, "style", "--ic-line-clamp: 1");
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child")
-          .find("ic-tooltip")
+          .find(LAST_CELL_SELECTOR)
+          .find(TOOLTIP_SELECTOR)
           .should("exist");
       });
     });
@@ -1774,6 +1810,8 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
+      cy.wait(350);
+
       cy.compareSnapshot({
         name: "tooltip-truncation-custom-icon",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.023),
@@ -1781,6 +1819,58 @@ describe("IcDataTable with truncation", () => {
           capture: "viewport",
         },
       });
+    });
+
+    it("should render truncation on all items once pagination is showing all items and sorted", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={VERY_LONG_DATA(100)}
+          caption="Data Tables"
+          truncationPattern="tooltip"
+          globalRowHeight={40}
+          showPagination
+          sortable
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+        .shadow()
+        .find(".items-per-page-input")
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+        .shadow()
+        .find(".items-per-page-input")
+        .shadow()
+        .find("li")
+        .eq(3)
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(odd)")
+        .filter(":gt(4)")
+        .filter(":lt(11)")
+        .each(($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child")
+            .find("ic-tooltip")
+            .should("exist");
+        });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(odd)")
+        .filter(":gt(4)")
+        .filter(":lt(11)")
+        .each(($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .should("have.attr", "style", "--ic-line-clamp: 1");
+        });
     });
   });
 
@@ -1798,14 +1888,14 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .should("have.text", LONG_DATA_VALUES[0].jobTitle);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .should("have.text", "See more");
@@ -1820,16 +1910,16 @@ describe("IcDataTable with truncation", () => {
         },
       });
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .should("have.text", "See less");
@@ -1856,9 +1946,9 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .focus();
@@ -1886,25 +1976,25 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(1).click();
+      cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(1).click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .should("have.text", "Junior Tester");
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
-        .find(".table-cell")
+        .find(TABLE_CELL_SELECTOR)
         .eq(2)
-        .find("ic-typography")
+        .find(TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .should("have.text", "See more");
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(1)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .should("have.text", "See more");
@@ -1925,12 +2015,12 @@ describe("IcDataTable with truncation", () => {
 
       cy.wait(250);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child ic-typography")
+          .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
           .find("button")
-          .should("not.exist");
+          .should(NOT_EXIST);
       });
 
       cy.compareSnapshot({
@@ -1952,8 +2042,8 @@ describe("IcDataTable with truncation", () => {
           <IcButton
             onClick={() =>
               document
-                .querySelector("ic-data-table")
-                ?.setAttribute("global-row-height", "150")
+                .querySelector(DATA_TABLE_SELECTOR)
+                ?.setAttribute(GLOBAL_ROW_HEIGHT, "150")
             }
           >
             Set global row height
@@ -1965,9 +2055,9 @@ describe("IcDataTable with truncation", () => {
 
       cy.get("ic-button").click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child ic-typography")
+          .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .should("not.have.attr", "max-lines");
       });
     });
@@ -1986,8 +2076,8 @@ describe("IcDataTable with truncation", () => {
           <IcButton
             onClick={() =>
               document
-                .querySelector("ic-data-table")
-                ?.setAttribute("global-row-height", "80")
+                .querySelector(DATA_TABLE_SELECTOR)
+                ?.setAttribute(GLOBAL_ROW_HEIGHT, "80")
             }
           >
             Set global row height
@@ -1997,18 +2087,18 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(2)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .click();
 
       cy.get("ic-button").click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child ic-typography")
+          .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .should("not.have.attr", "max-lines");
       });
     });
@@ -2025,7 +2115,7 @@ describe("IcDataTable with truncation", () => {
           />
           <IcButton
             onClick={() =>
-              document.querySelector("ic-data-table")?.resetRowHeights(40)
+              document.querySelector(DATA_TABLE_SELECTOR)?.resetRowHeights(40)
             }
           >
             Reset
@@ -2037,11 +2127,11 @@ describe("IcDataTable with truncation", () => {
 
       cy.get("ic-button").click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .filter(":lt(2)")
         .each(($row) => {
           cy.wrap($row)
-            .find(".table-cell:last-child ic-typography")
+            .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
             .shadow()
             .find("button")
             .should("have.text", "See more");
@@ -2069,23 +2159,23 @@ describe("IcDataTable with truncation", () => {
         LONG_DATA_VALUES_UPDATE
       );
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
-        .should("not.exist");
+        .should(NOT_EXIST);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(2)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .should("have.text", "See more");
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(2)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .click();
@@ -2118,15 +2208,17 @@ describe("IcDataTable with truncation", () => {
         250
       );
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row, i) => {
-        if (i > 5 && i < 11) {
-          cy.wrap($row)
-            .find(".table-cell:last-child ic-typography")
-            .shadow()
-            .find("button")
-            .should("have.text", "See more");
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(
+        ($row, i) => {
+          if (i > 5 && i < 11) {
+            cy.wrap($row)
+              .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
+              .shadow()
+              .find("button")
+              .should("have.text", "See more");
+          }
         }
-      });
+      );
 
       cy.compareSnapshot({
         name: "show-hide-truncation-scroll",
@@ -2137,23 +2229,23 @@ describe("IcDataTable with truncation", () => {
       });
     });
 
+    const newColumns = () => {
+      return COLUMNS_NO_TEXT_WRAP.filter((col) => {
+        if (col.key === "department" || col.key === "jobTitle") {
+          return col;
+        }
+      });
+    };
+
+    const newData = () => {
+      return LONG_DATA_VALUES.map((d) => ({
+        department: d.department,
+        jobTitle: d.jobTitle,
+      }));
+    };
+
     it("should remove show hide truncation if table cell is wide enough to display all content", () => {
       cy.viewport(1400, 768);
-
-      const newColumns = () => {
-        return COLUMNS_NO_TEXT_WRAP.filter((col) => {
-          if (col.key === "department" || col.key === "jobTitle") {
-            return col;
-          }
-        });
-      };
-
-      const newData = () => {
-        return LONG_DATA_VALUES.map((d) => ({
-          department: d.department,
-          jobTitle: d.jobTitle,
-        }));
-      };
 
       mount(
         <IcDataTable
@@ -2169,31 +2261,16 @@ describe("IcDataTable with truncation", () => {
 
       cy.wait(250);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child ic-typography")
+          .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
           .find("button")
-          .should("not.exist");
+          .should(NOT_EXIST);
       });
     });
 
     it("should increase table width from small to make sure truncation is still displayed", () => {
-      const newColumns = () => {
-        return COLUMNS_NO_TEXT_WRAP.filter((col) => {
-          if (col.key === "department" || col.key === "jobTitle") {
-            return col;
-          }
-        });
-      };
-
-      const newData = () => {
-        return LONG_DATA_VALUES.map((d) => ({
-          department: d.department,
-          jobTitle: d.jobTitle,
-        }));
-      };
-
       mount(
         <IcDataTable
           columns={newColumns()}
@@ -2206,45 +2283,45 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .filter(":gt(0)")
         .filter(":lt(3)")
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .click({ multiple: true });
 
       cy.viewport(1250, 768);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(1)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .should("have.text", "See less");
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(2)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
         .should("have.text", "See less");
 
       cy.viewport(2100, 768);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(1)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
-        .should("not.exist");
+        .should(NOT_EXIST);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(2)
-        .find(".table-cell:last-child ic-typography")
+        .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
         .find("button")
-        .should("not.exist");
+        .should(NOT_EXIST);
     });
 
     it("should render show hide truncation when data table is set to dense", () => {
@@ -2325,16 +2402,16 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find("ic-pagination")
+        .find(PAGINATION_SELECTOR)
         .shadow()
-        .find("#next-page-button")
+        .find(NEXT_PAGE_BUTTON_ID)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child ic-typography")
+          .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
           .find("button")
           .should("have.text", "See more");
@@ -2355,39 +2432,39 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".go-to-page-holder ic-text-field")
+        .find(PAGINATION_GO_TO_PAGE_TEXT_FIELD_SELECTOR)
         .shadow()
         .find("input")
         .type("2");
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".go-to-page-holder ic-button")
+        .find(PAGINATION_GO_TO_PAGE_BUTTON_SELECTOR)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child ic-typography")
+          .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
           .find("button")
           .should("have.text", "See more");
       });
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".go-to-page-holder ic-text-field")
+        .find(PAGINATION_GO_TO_PAGE_TEXT_FIELD_SELECTOR)
         .shadow()
         .find("input")
         .type("1");
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".go-to-page-holder ic-button")
+        .find(PAGINATION_GO_TO_PAGE_BUTTON_SELECTOR)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child ic-typography")
+          .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
           .find("button")
           .should("have.text", "See more");
@@ -2418,22 +2495,22 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".items-per-page-input")
+        .find(ITEMS_PER_PAGE_SELECTOR)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
         .shadow()
-        .find(".items-per-page-input")
+        .find(ITEMS_PER_PAGE_SELECTOR)
         .shadow()
         .find("li")
         .eq(1)
         .click();
 
-      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
-          .find(".table-cell:last-child ic-typography")
+          .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
           .find("button")
           .should("have.text", "See more");
@@ -2483,53 +2560,453 @@ describe("IcDataTable with truncation", () => {
         },
       });
     });
+
+    it("should render truncation on all items once pagination is showing all items and sorted", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={VERY_LONG_DATA(100)}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+          globalRowHeight={40}
+          showPagination
+          sortable
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+        .shadow()
+        .find(".items-per-page-input")
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+        .shadow()
+        .find(".items-per-page-input")
+        .shadow()
+        .find("li")
+        .eq(3)
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(0).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(odd)")
+        .filter(":gt(4)")
+        .filter(":lt(11)")
+        .each(($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        });
+    });
+
+    it("should render the truncation correctly when setting truncation > setting height and updating data", () => {
+      const TruncationDataTable = () => {
+        const [truncationPattern, setTruncationPattern] =
+          useState<IcDataTableTruncationTypes>(undefined);
+        const [rowHeight, setRowHeight] = useState<number>();
+        const [updatedRows, setUpdatedRows] = useState<number>(5);
+        const handleTruncationClick = (
+          truncationPattern: IcDataTableTruncationTypes
+        ) => {
+          setTruncationPattern(truncationPattern);
+        };
+        const handleRowHeight = (height: number) => {
+          setRowHeight(height);
+        };
+        const handleDataUpdate = (rows: number) => {
+          setUpdatedRows(rows);
+        };
+        return (
+          <>
+            <IcDataTable
+              columns={COLS}
+              data={VERY_LONG_DATA(updatedRows)}
+              caption="Data Tables"
+              truncationPattern={truncationPattern}
+              globalRowHeight={rowHeight}
+              showPagination
+            />
+            <IcButton
+              onClick={() => handleTruncationClick("show-hide")}
+              class="truncation"
+            >
+              Set show/hide truncation
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(40)} class="row-height">
+              Set row height: 40
+            </IcButton>
+            <IcButton onClick={() => handleDataUpdate(200)} class="update-data">
+              Update data: 200
+            </IcButton>
+          </>
+        );
+      };
+
+      mount(<TruncationDataTable />);
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(".truncation").click();
+
+      cy.get(".row-height").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      );
+
+      cy.get(".update-data").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      );
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-tooltip")
+            .should("not.exist");
+        }
+      );
+    });
+
+    it("should render the truncation when switching between tooltip and show hide truncation", () => {
+      const TruncationDataTable = () => {
+        const [truncationPattern, setTruncationPattern] =
+          useState<IcDataTableTruncationTypes>(undefined);
+        const [rowHeight, setRowHeight] = useState<number>();
+        const [updatedRows, setUpdatedRows] = useState<number>(5);
+        const handleTruncationClick = (
+          truncationPattern: IcDataTableTruncationTypes
+        ) => {
+          setTruncationPattern(truncationPattern);
+        };
+        const handleRowHeight = (height: number) => {
+          setRowHeight(height);
+        };
+        return (
+          <>
+            <IcDataTable
+              columns={COLS}
+              data={VERY_LONG_DATA(updatedRows)}
+              caption="Data Tables"
+              truncationPattern={truncationPattern}
+              globalRowHeight={rowHeight}
+              showPagination
+            />
+            <IcButton
+              onClick={() => handleTruncationClick("show-hide")}
+              class="truncation-show-hide"
+            >
+              Set show/hide truncation
+            </IcButton>
+            <IcButton
+              onClick={() => handleTruncationClick("tooltip")}
+              class="truncation-tooltip"
+            >
+              Set tooltip truncation
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(40)} class="row-height">
+              Set row height: 40
+            </IcButton>
+          </>
+        );
+      };
+
+      mount(<TruncationDataTable />);
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(".truncation-show-hide").click();
+
+      cy.get(".row-height").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      );
+
+      cy.get(".truncation-tooltip").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-tooltip")
+            .should("exist");
+        }
+      );
+
+      cy.get(".truncation-show-hide").click();
+
+      cy.wait(250);
+
+      cy.compareSnapshot({
+        name: "show-hide-truncation-toggle",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.09),
+        cypressScreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      );
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      );
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-tooltip")
+            .should("not.exist");
+        }
+      );
+    });
+
+    it("should revert all row heights back to auto after show-hide and different row heights have been set", () => {
+      const TruncationDataTable = () => {
+        const [truncationPattern, setTruncationPattern] =
+          useState<IcDataTableTruncationTypes>(undefined);
+        const [rowHeight, setRowHeight] = useState<number | "auto">();
+        const [updatedRows, setUpdatedRows] = useState<number>(5);
+        const handleTruncationClick = (
+          truncationPattern: IcDataTableTruncationTypes
+        ) => {
+          setTruncationPattern(truncationPattern);
+        };
+        const handleRowHeight = (height: number | "auto") => {
+          setRowHeight(height);
+        };
+        return (
+          <>
+            <IcDataTable
+              columns={COLS}
+              data={VERY_LONG_DATA(updatedRows)}
+              caption="Data Tables"
+              truncationPattern={truncationPattern}
+              globalRowHeight={rowHeight}
+              showPagination
+            />
+            <IcButton
+              onClick={() => handleTruncationClick("show-hide")}
+              class="truncation-show-hide"
+            >
+              Set show/hide truncation
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(40)} class="row-height-40">
+              Set row height: 40
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(80)} class="row-height-80">
+              Set row height: 80
+            </IcButton>
+            <IcButton
+              onClick={() => handleRowHeight("auto")}
+              class="row-height-auto"
+            >
+              Set row auto
+            </IcButton>
+          </>
+        );
+      };
+
+      mount(<TruncationDataTable />);
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(".truncation-show-hide").click();
+
+      cy.wait(500).get(".row-height-40").click();
+      cy.wait(500).get(".row-height-80").click();
+      cy.wait(500).get(".row-height-auto").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child ic-typography")
+          .shadow()
+          .find("button")
+          .should("not.exist");
+      });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child")
+          .invoke("outerHeight")
+          .should("equal", 89);
+      });
+    });
+
+    it("should display tooltip truncation after setting show-hide > row height 40 > tooltip", () => {
+      const TruncationDataTable = () => {
+        const [truncationPattern, setTruncationPattern] =
+          useState<IcDataTableTruncationTypes>(undefined);
+        const [rowHeight, setRowHeight] = useState<number | "auto">();
+        const [updatedRows, setUpdatedRows] = useState<number>(5);
+        const handleTruncationClick = (
+          truncationPattern: IcDataTableTruncationTypes
+        ) => {
+          setTruncationPattern(truncationPattern);
+        };
+        const handleRowHeight = (height: number | "auto") => {
+          setRowHeight(height);
+        };
+        return (
+          <>
+            <IcDataTable
+              columns={COLS}
+              data={VERY_LONG_DATA(updatedRows)}
+              caption="Data Tables"
+              truncationPattern={truncationPattern}
+              globalRowHeight={rowHeight}
+              showPagination
+            />
+            <IcButton
+              onClick={() => handleTruncationClick("show-hide")}
+              class="truncation-show-hide"
+            >
+              Set show/hide truncation
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(40)} class="row-height-40">
+              Set row height: 40
+            </IcButton>
+            <IcButton
+              onClick={() => handleTruncationClick("tooltip")}
+              class="truncation-tooltip"
+            >
+              Set tooltip truncation
+            </IcButton>
+          </>
+        );
+      };
+
+      mount(<TruncationDataTable />);
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(".truncation-show-hide").click();
+
+      cy.wait(500).get(".row-height-40").click();
+      cy.wait(500).get(".truncation-tooltip").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child ic-typography")
+          .shadow()
+          .find("button")
+          .should("not.exist");
+      });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row).find(".table-cell:last-child ic-tooltip");
+        }
+      );
+    });
+
+    it("should display tooltip truncation after setting show-hide > row height 80 > tooltip", () => {
+      const TruncationDataTable = () => {
+        const [truncationPattern, setTruncationPattern] =
+          useState<IcDataTableTruncationTypes>(undefined);
+        const [rowHeight, setRowHeight] = useState<number | "auto">();
+        const [updatedRows, setUpdatedRows] = useState<number>(5);
+        const handleTruncationClick = (
+          truncationPattern: IcDataTableTruncationTypes
+        ) => {
+          setTruncationPattern(truncationPattern);
+        };
+        const handleRowHeight = (height: number | "auto") => {
+          setRowHeight(height);
+        };
+        return (
+          <>
+            <IcDataTable
+              columns={COLS}
+              data={VERY_LONG_DATA(updatedRows)}
+              caption="Data Tables"
+              truncationPattern={truncationPattern}
+              globalRowHeight={rowHeight}
+              showPagination
+            />
+            <IcButton
+              onClick={() => handleTruncationClick("show-hide")}
+              class="truncation-show-hide"
+            >
+              Set show/hide truncation
+            </IcButton>
+            <IcButton onClick={() => handleRowHeight(80)} class="row-height-80">
+              Set row height: 80
+            </IcButton>
+            <IcButton
+              onClick={() => handleTruncationClick("tooltip")}
+              class="truncation-tooltip"
+            >
+              Set tooltip truncation
+            </IcButton>
+          </>
+        );
+      };
+
+      mount(<TruncationDataTable />);
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(".truncation-show-hide").click();
+
+      cy.wait(500).get(".row-height-80").click();
+      cy.wait(500).get(".truncation-tooltip").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child ic-typography")
+          .shadow()
+          .find("button")
+          .should("not.exist");
+      });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row:nth-child(even)").each(
+        ($row) => {
+          cy.wrap($row).find(".table-cell:last-child ic-tooltip");
+        }
+      );
+    });
   });
+
   describe("textWrap", () => {
-    const textWrapColumns = () => {
-      return COLUMNS_NO_TEXT_WRAP.map((col) => {
-        if (col.key === "jobTitle") {
-          return {
-            ...col,
-            textWrap: true,
-          };
-        }
-        return col;
-      });
-    };
-
-    const textWrapRow = () => {
-      return LONG_DATA_VALUES.map((data) => {
-        if (data.name === "Luke Fisher" || data.name === "John Smith") {
-          return {
-            ...data,
-            rowOptions: {
-              textWrap: true,
-            },
-          };
-        }
-
-        return data;
-      });
-    };
-
-    const textWrapCell = () => {
-      return LONG_DATA_VALUES.map((data) => {
-        if (
-          data.jobTitle === "Senior Financial Operations and Reporting Analyst"
-        ) {
-          return {
-            ...data,
-            jobTitle: {
-              data: data.jobTitle,
-              textWrap: true,
-            },
-          };
-        }
-
-        return data;
-      });
-    };
-
     it("renders textWrap via columns with tooltip truncation", () => {
       mount(
         <IcDataTable
@@ -2632,6 +3109,8 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
+      cy.wait(400);
+
       cy.compareSnapshot({
         name: "text-wrap-tooltip-truncation-table-cell",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
@@ -2665,6 +3144,682 @@ describe("IcDataTable with truncation", () => {
   });
 });
 
+describe("IcDataTable table sizing and column width", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("should set the column width to the 200 when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("200px")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+  });
+  it("should set the column width to the correct % when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("25%")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 256);
+    });
+  });
+  it("should set the column width to the correct rem when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("12.5rem")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+  });
+
+  it("should set the column width to the correct px when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("200px")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+  });
+  it("should set the column width to the correct % when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("25%")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 125);
+    });
+  });
+  it("should set the column width to the correct rem when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("12.5rem")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+  });
+
+  it("should set 2 column width to the correct px when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("200px", "100px")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 100);
+    });
+  });
+  it("should set 2 column width to the correct % when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("25%", "10%")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 256);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 102.390625);
+    });
+  });
+  it("should set 2 column width to the correct rem when table width is 100%", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("12.5rem", "6.25rem")}
+        data={newData()}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 100);
+    });
+  });
+
+  it("should set 2 column width to the correct px when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("200px", "100px")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 100);
+    });
+  });
+  it("should set 2 column width to the correct % when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("25%", "10%")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 125);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 50);
+    });
+  });
+  it("should set 2 column width to the correct rem when table width is 500px", () => {
+    mount(
+      <IcDataTable
+        columns={multipleColumnWidth("12.5rem", "6.25rem")}
+        data={newData()}
+        caption="Data Tables"
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:last-child")
+        .invoke("outerWidth")
+        .should("equal", 100);
+    });
+  });
+
+  it("should display tooltip truncation on truncation column set with px", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={singleColumnTruncationWidth("200px")}
+        data={newData()}
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(2) ic-tooltip")
+      .should("exist");
+  });
+  it("should display show-hide truncation on truncation column set with px", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={singleColumnTruncationWidth("200px")}
+        data={newData()}
+        truncationPattern="show-hide"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(2) ic-typography")
+      .shadow()
+      .find("button")
+      .should("have.text", "See more");
+  });
+
+  it("should display tooltip truncation on column when first column width set with px and table width set to 500px", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={singleColumnWidth("300px")}
+        data={newData()}
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+        width="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(2) ic-tooltip")
+      .should("exist");
+  });
+  it("should display show-hide truncation on column when first column width set with px and table width set to 500px", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={singleColumnWidth("250px")}
+        data={newData()}
+        width="500px"
+        truncationPattern="show-hide"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(2) ic-typography")
+      .shadow()
+      .find("button")
+      .should("have.text", "See more");
+  });
+  it("should set column width to correct px when data table includes pagination and navigating to different pages", () => {
+    const nextData = (rows: number) => {
+      const newData: { firstName: string; lastName: string; age: number }[] =
+        [];
+      for (let i = 0; i < rows; i++) {
+        const obj = {
+          firstName: `firstName-${i}`,
+          lastName: `lastName-${i}`,
+          age: i,
+        };
+        newData.push(obj);
+      }
+
+      return newData;
+    };
+    mount(
+      <IcDataTable
+        columns={singleColumnWidth("200px")}
+        data={nextData(50)}
+        caption="Data Tables"
+        showPagination
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+      .shadow()
+      .find("ic-pagination")
+      .shadow()
+      .find("#next-page-button")
+      .click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 200);
+    });
+  });
+
+  it("should render data table height to 500 using px in height prop", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={singleColumnWidth("250px")}
+        data={newData()}
+        height="500px"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should("equal", 500);
+  });
+
+  it("should render data table height to 700 using percentages in height prop", () => {
+    mount(
+      <div style={{ height: "700px" }}>
+        <IcDataTable
+          caption="Basic Table"
+          columns={COLS}
+          data={DATA}
+          height="100%"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should("equal", 700);
+  });
+
+  it("should render data table height to 400 using rem in height prop", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        columns={COLS}
+        data={DATA}
+        height="37.5rem"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerHeight").should("equal", 600);
+  });
+
+  it("should set the table layout to auto", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data Tables"
+        tableLayout="auto"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .then(($el) => {
+        return window.getComputedStyle($el[0]);
+      })
+      .invoke("getPropertyValue", "table-layout")
+      .should("equal", "auto");
+  });
+
+  it("should set a max width of 700px", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data Tables"
+        maxWidth="700px"
+        showPagination
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .then(($el) => {
+        return window.getComputedStyle($el[0]);
+      })
+      .invoke("getPropertyValue", "max-width")
+      .should("equal", "700px");
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerWidth").should("equal", 700);
+  });
+
+  it("should set a min width of 500px", () => {
+    mount(
+      <div style={{ width: "400px" }}>
+        <IcDataTable
+          columns={[
+            {
+              key: "firstName",
+              title: "First name",
+              dataType: "string",
+            },
+            {
+              key: "lastName",
+              title: "Last name",
+              dataType: "string",
+            },
+          ]}
+          data={[
+            {
+              firstName: "Jon",
+              lastName: "Doe",
+            },
+            {
+              firstName: "Jane",
+              lastName: "Doe",
+            },
+          ]}
+          caption="Data Tables"
+          minWidth="500px"
+          width="auto"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .then(($el) => {
+        return window.getComputedStyle($el[0]);
+      })
+      .invoke("getPropertyValue", "min-width")
+      .should("equal", "500px");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "table")
+      .invoke("outerWidth")
+      .should("equal", 500);
+  });
+
+  it("should set a min width of 800px with pagination", () => {
+    mount(
+      <div style={{ width: "700px" }}>
+        <IcDataTable
+          showPagination
+          columns={[
+            {
+              key: "firstName",
+              title: "First name",
+              dataType: "string",
+            },
+            {
+              key: "lastName",
+              title: "Last name",
+              dataType: "string",
+            },
+            {
+              key: "age",
+              title: "Age",
+              dataType: "number",
+            },
+            {
+              key: "address",
+              title: "Address",
+              dataType: "string",
+            },
+          ]}
+          data={[
+            {
+              firstName: "Jon",
+              lastName: "Doe",
+              age: "34",
+              address: "1 High Street, Main, AABB CC DD", // cspell:disable-line
+            },
+            {
+              firstName: "Jane",
+              lastName: "Doe",
+              age: "34",
+              address: "1 High Street, Main, AABB CC DD", // cspell:disable-line
+            },
+          ]}
+          caption="Data Tables"
+          minWidth="800px"
+          width="auto"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .then(($el) => {
+        return window.getComputedStyle($el[0]);
+      })
+      .invoke("getPropertyValue", "min-width")
+      .should("equal", "800px");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "table")
+      .invoke("outerWidth")
+      .should("equal", 800);
+  });
+
+  it("should set a max width of 900px with pagination", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data Tables"
+        maxWidth="900px"
+        showPagination
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .then(($el) => {
+        return window.getComputedStyle($el[0]);
+      })
+      .invoke("getPropertyValue", "max-width")
+      .should("equal", "900px");
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("outerWidth").should("equal", 900);
+  });
+
+  it("should set first name column to 300px with table layout set to auto", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        tableLayout="auto"
+        columns={singleColumnWidth("300px")}
+        data={newData()}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 300);
+    });
+  });
+
+  it("should set first name column to 300px and age t0 100px with table layout set to auto", () => {
+    mount(
+      <IcDataTable
+        caption="Basic Table"
+        tableLayout="auto"
+        columns={multipleColumnWidth("300px", "100px")}
+        data={newData()}
+        width="auto"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+      cy.wrap($row)
+        .find(".table-cell:first-child")
+        .invoke("outerWidth")
+        .should("equal", 300);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child")
+          .invoke("outerWidth")
+          .should("equal", 100);
+      });
+    });
+  });
+});
+
 // This test needs to be last as it seems to affect other tests.
 // For example, it will remove the last column for the remaining tests if placed higher.
 describe("IcDataTable row deletion", () => {
@@ -2678,7 +3833,7 @@ describe("IcDataTable row deletion", () => {
   });
 
   it('should delete a row when the "Delete" button is clicked', () => {
-    const nextData = [...DATA];
+    const nextData = [...DATA_REACT_ELEMENTS];
     mount(
       <IcDataTable
         columns={COLS_ELEMENTS}
@@ -2686,13 +3841,23 @@ describe("IcDataTable row deletion", () => {
         caption="Data tables"
       >
         {nextData.map((_, index) => (
-          <IcButton
-            key={index}
-            slot={`actions-${index}`}
-            onClick={() => nextData.splice(index, 1)}
-          >
-            Delete
-          </IcButton>
+          <>
+            <IcButton
+              key={`actions-${index}`}
+              slot={`actions-${index}`}
+              onClick={() => nextData.splice(index, 1)}
+            >
+              Delete
+            </IcButton>
+            <IcButton
+              key={`actions2-${index}`}
+              variant="secondary"
+              slot={`actions2-${index}`}
+              onClick={() => nextData.splice(index, 1)}
+            >
+              Add
+            </IcButton>
+          </>
         ))}
       </IcDataTable>
     );

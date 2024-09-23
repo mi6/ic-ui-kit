@@ -139,6 +139,10 @@ export namespace Components {
          */
         "message"?: string;
         /**
+          * If `true`, the default icon for the neutral variant will be appear on the left of the alert.
+         */
+        "showDefaultIcon": boolean;
+        /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
@@ -653,7 +657,7 @@ export namespace Components {
          */
         "cancelDialog": () => Promise<void>;
         /**
-          * If set to `true`, the dialog will not close when the backdrop is clicked.
+          * If set to `false`, the dialog will not close when the backdrop is clicked.
          */
         "closeOnBackdropClick"?: boolean;
         /**
@@ -2094,6 +2098,10 @@ export namespace Components {
          */
         "maxLength": number;
         /**
+          * The text to display as the validation message when the maximum length is exceeded.
+         */
+        "maxLengthMessage": string;
+        /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
         "min": string | number;
@@ -3463,6 +3471,10 @@ declare namespace LocalJSX {
          */
         "onIcDismiss"?: (event: IcAlertCustomEvent<void>) => void;
         /**
+          * If `true`, the default icon for the neutral variant will be appear on the left of the alert.
+         */
+        "showDefaultIcon"?: boolean;
+        /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
@@ -3977,7 +3989,7 @@ declare namespace LocalJSX {
          */
         "buttons"?: boolean;
         /**
-          * If set to `true`, the dialog will not close when the backdrop is clicked.
+          * If set to `false`, the dialog will not close when the backdrop is clicked.
          */
         "closeOnBackdropClick"?: boolean;
         /**
@@ -5523,6 +5535,10 @@ declare namespace LocalJSX {
           * The count of characters in the field. Will display a warning if the bound is reached.
          */
         "maxLength"?: number;
+        /**
+          * The text to display as the validation message when the maximum length is exceeded.
+         */
+        "maxLengthMessage"?: string;
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */

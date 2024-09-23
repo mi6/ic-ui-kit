@@ -1,9 +1,15 @@
 import { Config } from "@stencil/core";
+import { JsonDocs } from "@stencil/core/internal";
 import autoprefixer from "autoprefixer";
 import { inlineSvg } from "stencil-inline-svg";
 import { postcss } from "@stencil/postcss";
 import { reactOutputTarget } from "@stencil/react-output-target";
 import { excludeComps } from "../web-components/comps-list";
+
+// If timestamp is undefined, it deletes timestamp from the json doc instead of empty string
+interface StencilOverride extends Omit<JsonDocs, "timestamp"> {
+  timestamp: string | undefined
+}
 
 export const config: Config = {
   namespace: "core",
@@ -42,6 +48,12 @@ export const config: Config = {
     {
       type: "docs-json",
       file: "../canary-docs/docs.json",
+    },
+    {
+      type: "docs-custom",
+      generator: (docs: StencilOverride) => {
+        docs.timestamp = undefined;
+      }
     },
   ],
   testing: {

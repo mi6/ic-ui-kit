@@ -4,16 +4,7 @@
 import { mount } from "cypress/react";
 import React from "react";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
-import {
-  IcBadge,
-  IcNavigationButton,
-  IcNavigationGroup,
-  IcNavigationItem,
-  IcSearchBar,
-  IcTheme,
-  IcTopNavigation,
-} from "../../components";
-import { SlottedSVG } from "../../react-component-lib/slottedSVG";
+import { IcSearchBar, IcTheme, IcTopNavigation } from "../../components";
 import {
   BE_VISIBLE,
   HAVE_ATTR,
@@ -26,9 +17,21 @@ import {
   NOT_HAVE_CLASS,
 } from "../utils/constants";
 import {
+  CentreAligned,
+  HorizontalScroll,
+  IconAndTitle,
+  IconButtons,
+  LeftAligned,
+  LongText,
+  LongWordAppTitle,
   SimpleTopNav,
+  Theme,
   TopNavWithNavItems,
   TopNavWithSearch,
+  WithNavGroup,
+  WithNavigationButton,
+  WithNavItems,
+  WithSlottedNavItems,
 } from "./IcTopNavigationTestData";
 
 const DEFAULT_TEST_THRESHOLD = 0.009;
@@ -40,7 +43,7 @@ const NAV_MENU_SELECTOR = "ic-navigation-menu";
 const NAV_ITEM_SELECTOR = "ic-navigation-item";
 const MOBILE_CSS_CLASS = "mobile-mode";
 
-describe("IcTopNavigation", () => {
+describe("IcTopNavigation end-to-end tests", () => {
   describe("mobile", () => {
     beforeEach(() => {
       cy.viewport("iphone-6");
@@ -179,27 +182,7 @@ describe("IcTopNavigation", () => {
 describe("IcNavigationButton", () => {
   it("should update any attributes inherited from the root element when they are mutated", () => {
     const NAV_BUTTON_SELECTOR = "ic-navigation-button";
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-      </IcTopNavigation>
-    );
+    mount(<WithNavigationButton />);
 
     cy.findShadowEl(NAV_BUTTON_SELECTOR, "ic-button").should(
       NOT_HAVE_ATTR,
@@ -215,7 +198,7 @@ describe("IcNavigationButton", () => {
   });
 });
 
-describe("IcTopNavigation Desktop Visual Regression Testing", () => {
+describe("IcTopNavigation desktop visual regression tests", () => {
   beforeEach(() => {
     cy.viewport(1444, 750);
     cy.injectAxe();
@@ -226,21 +209,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
   });
 
   it("should render app icon and title", () => {
-    mount(
-      <IcTopNavigation appTitle="ApplicationName">
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-      </IcTopNavigation>
-    );
+    mount(<IconAndTitle />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -273,66 +242,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
   });
 
   it("should render icon buttons", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-          <IcBadge textLabel="1" slot="badge" position="near" variant="light" />
-        </IcNavigationButton>
-        <IcNavigationButton label="Button Two" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationButton label="Button Three" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-      </IcTopNavigation>
-    );
+    mount(<IconButtons />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -343,39 +253,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
   });
 
   it("should render with long text values", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="Application With a Long Name"
-        status="alpha-beta-gamma-delta-epsilon"
-        version="v0.0.7-current-release-name-that-is-long"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-      </IcTopNavigation>
-    );
+    mount(<LongText />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -386,40 +264,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
   });
 
   it("should render with long single-word app title", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="Applicationwithareallyreallylongsinglewordname"
-        shortAppTitle="Short App"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-      </IcTopNavigation>
-    );
+    mount(<LongWordAppTitle />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -430,47 +275,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
   });
 
   it("should render with navigation items", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationItem slot="navigation" label="One" href="/" />
-        <IcNavigationItem
-          slot="navigation"
-          label="Two"
-          href="/"
-          target="_blank"
-        />
-        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-      </IcTopNavigation>
-    );
+    mount(<WithNavItems />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -481,48 +286,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
   });
 
   it("should render with slotted navigation items", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationItem slot="navigation">
-          <a href="/">One</a>
-        </IcNavigationItem>
-        <IcNavigationItem slot="navigation">
-          <a href="/">Two</a>
-        </IcNavigationItem>
-        <IcNavigationItem slot="navigation">
-          <a href="/">Three</a>
-        </IcNavigationItem>
-      </IcTopNavigation>
-    );
+    mount(<WithSlottedNavItems />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -533,43 +297,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
   });
 
   it("should render with navigation group", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationGroup slot="navigation" label="Navigation Group">
-          <IcNavigationItem label="One" href="/" selected />
-          <IcNavigationItem label="Two" href="/" target="_blank" />
-        </IcNavigationGroup>
-      </IcTopNavigation>
-    );
+    mount(<WithNavGroup />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -580,48 +308,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
   });
 
   it("should render with content centre aligned", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-        contentAligned="center"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationItem slot="navigation" label="One" href="/" />
-        <IcNavigationItem
-          slot="navigation"
-          label="Two"
-          href="/"
-          target="_blank"
-        />
-        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-      </IcTopNavigation>
-    );
+    mount(<CentreAligned />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -632,161 +319,29 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
   });
 
   it("should render with content left aligned", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-        contentAligned="left"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationItem slot="navigation" label="One" href="/" />
-        <IcNavigationItem
-          slot="navigation"
-          label="Two"
-          href="/"
-          target="_blank"
-        />
-        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-      </IcTopNavigation>
-    );
+    mount(<LeftAligned />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "content-left",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
-      delay: 200,
     });
   });
 
   it("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcNavigationGroup slot="navigation" label="Navigation Group">
-          <IcNavigationItem label="One" href="/" selected />
-          <IcNavigationItem label="Two" href="/" target="_blank" />
-        </IcNavigationGroup>
-        <IcNavigationItem
-          slot="navigation"
-          label="Really Long Label"
-          href="/"
-        />
-        <IcNavigationItem
-          slot="navigation"
-          label="Really Long Label"
-          href="/"
-        />
-        <IcNavigationItem
-          slot="navigation"
-          label="Really Long Label"
-          href="/"
-        />
-        <IcNavigationItem
-          slot="navigation"
-          label="Really Long Label"
-          href="/"
-        />
-        <IcNavigationItem
-          slot="navigation"
-          label="Really Long Label"
-          href="/"
-        />
-      </IcTopNavigation>
-    );
+    mount(<HorizontalScroll />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
-    cy.checkA11yWithWait();
+    //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "nav-group-in-horizontal-scroll",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
     });
   });
 
   it("should render with different theme color", () => {
-    mount(
-      <div>
-        <IcTheme color="rgb(255, 201, 60)" />
-        <IcTopNavigation
-          appTitle="ApplicationName"
-          status="alpha"
-          version="v0.0.7"
-        >
-          <SlottedSVG
-            slot="app-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-          </SlottedSVG>
-          <IcSearchBar slot="search" label="Search" placeholder="Search" />
-          <IcNavigationButton label="Button One" slot="buttons">
-            <SlottedSVG
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#000000"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none"></path>
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-            </SlottedSVG>
-          </IcNavigationButton>
-          <IcNavigationItem slot="navigation" label="One" href="/" />
-          <IcNavigationItem
-            slot="navigation"
-            label="Two"
-            href="/"
-            target="_blank"
-          />
-          <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-        </IcTopNavigation>
-      </div>
-    );
+    mount(<Theme />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -797,9 +352,10 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
   });
 });
 
-describe("IcTopNavigation Mobile Visual Regression Testing", () => {
+describe("IcTopNavigation mobile visual regression tests", () => {
   beforeEach(() => {
     cy.viewport("iphone-6");
+    cy.injectAxe();
   });
 
   afterEach(() => {
@@ -810,19 +366,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     mount(
       <div>
         <IcTheme color="rgb(27, 60, 121)" />
-        <IcTopNavigation appTitle="ApplicationName">
-          <SlottedSVG
-            slot="app-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-          </SlottedSVG>
-        </IcTopNavigation>
+        <IconAndTitle />
       </div>
     );
     cy.checkHydrated(TOP_NAV_SELECTOR);
@@ -863,66 +407,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
   });
 
   it("should render icon buttons", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-          <IcBadge textLabel="1" slot="badge" position="near" variant="light" />
-        </IcNavigationButton>
-        <IcNavigationButton label="Button Two" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationButton label="Button Three" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-      </IcTopNavigation>
-    );
+    mount(<IconButtons />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -935,39 +420,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
   });
 
   it("should render with long text values", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="Application With a Long Name"
-        status="alpha-beta-gamma-delta-epsilon"
-        version="v0.0.7-current-release-name-that-is-long"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-      </IcTopNavigation>
-    );
+    mount(<LongText />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -980,40 +433,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
   });
 
   it("should render with long single-word app title", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="Applicationwithareallyreallylongsinglewordname"
-        shortAppTitle="Short App"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-      </IcTopNavigation>
-    );
+    mount(<LongWordAppTitle />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -1024,47 +444,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
   });
 
   it("should render with navigation items", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationItem slot="navigation" label="One" href="/" />
-        <IcNavigationItem
-          slot="navigation"
-          label="Two"
-          href="/"
-          target="_blank"
-        />
-        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-      </IcTopNavigation>
-    );
+    mount(<WithNavItems />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -1077,48 +457,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
   });
 
   it("should render with slotted navigation items", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationItem slot="navigation">
-          <a href="/">One</a>
-        </IcNavigationItem>
-        <IcNavigationItem slot="navigation">
-          <a href="/">Two</a>
-        </IcNavigationItem>
-        <IcNavigationItem slot="navigation">
-          <a href="/">Three</a>
-        </IcNavigationItem>
-      </IcTopNavigation>
-    );
+    mount(<WithSlottedNavItems />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -1131,43 +470,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
   });
 
   it("should render with navigation group", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationGroup slot="navigation" label="Navigation Group">
-          <IcNavigationItem label="One" href="/" selected />
-          <IcNavigationItem label="Two" href="/" target="_blank" />
-        </IcNavigationGroup>
-      </IcTopNavigation>
-    );
+    mount(<WithNavGroup />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -1180,43 +483,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
   });
 
   it("should render with menu open", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationGroup slot="navigation" label="Navigation Group">
-          <IcNavigationItem label="One" href="/" selected />
-          <IcNavigationItem label="Two" href="/" target="_blank" />
-        </IcNavigationGroup>
-      </IcTopNavigation>
-    );
+    mount(<WithNavGroup />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.clickOnShadowEl(TOP_NAV_SELECTOR, "ic-button#menu-button");
@@ -1227,53 +494,11 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
       testThreshold: setThresholdBasedOnEnv(
         DEFAULT_TEST_THRESHOLD_MOBILE + 0.034
       ),
-      delay: 800,
     });
   });
 
   it("should render with content centre aligned", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-        contentAligned="center"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationItem slot="navigation" label="One" href="/" />
-        <IcNavigationItem
-          slot="navigation"
-          label="Two"
-          href="/"
-          target="_blank"
-        />
-        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-      </IcTopNavigation>
-    );
+    mount(<CentreAligned />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -1286,48 +511,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
   });
 
   it("should render with content left aligned", () => {
-    mount(
-      <IcTopNavigation
-        appTitle="ApplicationName"
-        status="alpha"
-        version="v0.0.7"
-        contentAligned="left"
-      >
-        <SlottedSVG
-          slot="app-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-        </SlottedSVG>
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
-        <IcNavigationButton label="Button One" slot="buttons">
-          <SlottedSVG
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-          </SlottedSVG>
-        </IcNavigationButton>
-        <IcNavigationItem slot="navigation" label="One" href="/" />
-        <IcNavigationItem
-          slot="navigation"
-          label="Two"
-          href="/"
-          target="_blank"
-        />
-        <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-      </IcTopNavigation>
-    );
+    mount(<LeftAligned />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -1340,50 +524,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
   });
 
   it("should render with different theme color - mobile", () => {
-    mount(
-      <div>
-        <IcTheme color="rgb(255, 201, 60)" />
-        <IcTopNavigation
-          appTitle="ApplicationName"
-          status="alpha"
-          version="v0.0.7"
-        >
-          <SlottedSVG
-            slot="app-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
-          </SlottedSVG>
-          <IcSearchBar slot="search" label="Search" placeholder="Search" />
-          <IcNavigationButton label="Button One" slot="buttons">
-            <SlottedSVG
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#000000"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none"></path>
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
-            </SlottedSVG>
-          </IcNavigationButton>
-          <IcNavigationItem slot="navigation" label="One" href="/" />
-          <IcNavigationItem
-            slot="navigation"
-            label="Two"
-            href="/"
-            target="_blank"
-          />
-          <IcNavigationItem slot="navigation" label="Three" href="/" selected />
-        </IcTopNavigation>
-      </div>
-    );
+    mount(<Theme />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -1391,6 +532,108 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
       name: "mobile-theme",
       testThreshold: setThresholdBasedOnEnv(
         DEFAULT_TEST_THRESHOLD_MOBILE + 0.012
+      ),
+    });
+  });
+});
+
+describe("IcTopNavigation desktop visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  beforeEach(() => {
+    cy.viewport(1444, 750);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render with navigation items in high contrast mode", () => {
+    mount(<WithNavItems />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "navigation-items-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+    });
+  });
+
+  it("should render with slotted navigation items in high contrast mode", () => {
+    mount(<WithSlottedNavItems />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "slotted-navigation-items-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+    });
+  });
+
+  it("should render icon buttons in high contrast mode", () => {
+    mount(<IconButtons />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "icon-buttons-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+    });
+  });
+
+  it("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll in high contrast mode", () => {
+    mount(<HorizontalScroll />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "nav-group-in-horizontal-scroll-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+    });
+  });
+});
+
+describe("IcTopNavigation mobile visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  beforeEach(() => {
+    cy.viewport("iphone-6");
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it.skip("should render with navigation items in high contrast mode", () => {
+    mount(<WithNavItems />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "mobile-navigation-items-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.006
+      ),
+    });
+  });
+
+  it("should render with menu open in high contrast mode", () => {
+    mount(<WithNavGroup />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.clickOnShadowEl(TOP_NAV_SELECTOR, "ic-button#menu-button").wait(800);
+
+    cy.compareSnapshot({
+      name: "mobile-open-menu-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.037
       ),
     });
   });

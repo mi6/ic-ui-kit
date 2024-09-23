@@ -22,6 +22,7 @@ import {
   IcThemeForegroundEnum,
 } from "./types"; // Using @ukic/web-components/dist/types/utils/types does not work so duplicated constants into canary package
 import { EventEmitter } from "@stencil/core";
+import { IcDataTableDataType } from "../interface";
 
 const DARK_MODE_THRESHOLD = 133.3505;
 
@@ -87,6 +88,18 @@ export const debounce = (
   return (...args: unknown[]) => {
     clearTimeout(timer);
     timer = setTimeout(func, wait, ...args);
+  };
+};
+
+export const dynamicDebounce = (
+  func: (...args: unknown[]) => void,
+  getDelay: () => number
+): unknown => {
+  let timer: ReturnType<typeof setTimeout>;
+  return (...args: unknown[]) => {
+    const delay = getDelay();
+    clearTimeout(timer);
+    timer = setTimeout(func, delay, ...args);
   };
 };
 
@@ -529,7 +542,7 @@ export const hasClassificationBanner = (): boolean =>
 export const pxToRem = (px: string, base = 16): string =>
   `${(1 / base) * parseInt(px)}rem`;
 
-export const isNumeric = (value: string) => {
+export const isNumeric = (value: string): boolean => {
   return /^-?\d+$/.test(value);
 };
 
@@ -642,4 +655,24 @@ export const checkSlotInChildMutations = (
   const hasSlot = (nodeList: NodeList) =>
     Array.from(nodeList).some((node) => (node as Element).slot === slotName);
   return hasSlot(addedNodes) || hasSlot(removedNodes);
+};
+
+export const addDataToPosition = (
+  dataObject: IcDataTableDataType,
+  newKeys: { key: string; index: number }[],
+  newValue: unknown
+): IcDataTableDataType => {
+  const newData: IcDataTableDataType = {};
+  const newIndexes = newKeys.map((key) => key.index);
+  let controlledIndex = 0; // When a new key is added to the data, need to increment the index to account for this new object value
+
+  Object.keys(dataObject).forEach((dataKey) => {
+    if (newIndexes.includes(controlledIndex)) {
+      newData[newKeys[newIndexes.indexOf(controlledIndex)].key] = newValue;
+      controlledIndex++;
+    }
+    newData[dataKey] = dataObject[dataKey];
+    controlledIndex++;
+  });
+  return newData;
 };
