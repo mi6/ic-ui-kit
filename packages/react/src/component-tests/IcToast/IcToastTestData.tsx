@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { IcToast, IcButton, IcToastRegion, SlottedSVG, IcLink } from "../..";
 
 export const SimpleToast = () => {
@@ -213,5 +213,22 @@ export const DismissAriaLabelToast = () => {
         />
       </IcToastRegion>
     </>
+  );
+};
+
+export const AutoLoadToast = (): JSX.Element => {
+  const toastRegionEl = useRef<HTMLIcToastRegionElement>(null);
+  const shareToastEl = useRef<HTMLIcToastElement>(null);
+
+  useEffect(() => {
+    if (toastRegionEl.current && shareToastEl.current) {
+      toastRegionEl.current.openToast = shareToastEl.current;
+    }
+  }, []);
+
+  return (
+    <IcToastRegion ref={toastRegionEl}>
+      <IcToast heading="My toast heading" ref={shareToastEl} />
+    </IcToastRegion>
   );
 };
