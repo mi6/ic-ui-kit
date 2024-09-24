@@ -28,6 +28,13 @@ export class ToastRegion {
     }
   }
 
+  componentDidLoad(): void {
+    if (this.openToast) {
+      this.showToast(this.openToast);
+      this.openToast = undefined;
+    }
+  }
+
   @Listen("icDismiss", { capture: true })
   handleDismissedToast(): void {
     if (this.pendingVisibility.length > 0) {
