@@ -6,6 +6,7 @@ import {
   IcButton,
   IcTypography,
 } from "../components";
+import { useEffect, useRef } from "react";
 import readme from "../../../web-components/src/components/ic-toast/readme.md";
 
 <Meta title="Toast" component={IcToast} />
@@ -335,6 +336,31 @@ import readme from "../../../web-components/src/components/ic-toast/readme.md";
         </>
       );
     }}
+  </Story>
+</Canvas>
+
+### Display on page load
+
+export const AutoLoadToast = () => {
+  const toastRegionEl = useRef(null);
+  const shareToastEl = useRef(null);
+
+  useEffect(() => {
+    if (toastRegionEl.current && shareToastEl.current) {
+      toastRegionEl.current.openToast = shareToastEl.current;
+    }
+  }, []);
+
+  return (
+    <IcToastRegion ref={toastRegionEl}>
+      <IcToast heading="My toast heading" ref={shareToastEl} />
+    </IcToastRegion>
+  );
+};
+
+<Canvas>
+  <Story name="Display on page load">
+    <AutoLoadToast />
   </Story>
 </Canvas>
 
