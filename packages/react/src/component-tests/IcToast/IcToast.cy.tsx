@@ -139,6 +139,11 @@ describe("IcToast end-to-end tests", () => {
       .find(DISMISS_BUTTON_SELECTOR)
       .should("exist");
   });
+  
+  it("should render a toast on page load if openToast is set early", () => {
+    mount(<AutoLoadToast />);
+    cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "hidden");
+  });
 });
 
 describe("IcToast visual regression and a11y tests", () => {
