@@ -13,6 +13,7 @@ import {
   HAVE_BEEN_CALLED_ONCE,
 } from "../utils/constants";
 import {
+  AutoLoadToast,
   DismissAriaLabelToast,
   HeadingOnlyToast,
   MultilineMessageToast,
@@ -118,6 +119,11 @@ describe("IcToast end-to-end tests", () => {
     cy.clickOnShadowEl(IC_TOAST_SELECTOR, DISMISS_BUTTON_SELECTOR);
     cy.get(IC_TOAST_SELECTOR).should(HAVE_CLASS, "hidden");
     cy.get("@icDismiss").should(HAVE_BEEN_CALLED_ONCE);
+  });
+
+  it("should render a toast on page load if openToast is set early", () => {
+    mount(<AutoLoadToast />);
+    cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "hidden");
   });
 });
 
