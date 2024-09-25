@@ -366,3 +366,32 @@ export const EditableRow = () => {
     </>
   );
 };
+
+export const Theme = () => {
+  const DataList = (theme: "inherit" | "light" | "dark") => {
+    return (
+      <IcDataList heading="Personal Details" theme={theme}>
+        <IcDataRow label="Name" value="Michael Johnson" />
+        <IcDataRow label="Date of birth" value="16 October 1995" />
+      </IcDataList>
+    );
+  };
+  return (
+    <div style={{ padding: "16px" }}>
+      <div style={{ margin: "16px" }}>
+        <IcTypography style={{ marginBottom: "8px" }}>Inherit</IcTypography>
+        {DataList("inherit")}
+      </div>
+      <div style={{ margin: "16px" }}>
+        <IcTypography style={{ marginBottom: "8px" }}>Light</IcTypography>
+        {DataList("light")}
+      </div>
+      <div style={{ backgroundColor: "black", margin: "16px" }}>
+        <IcTypography style={{ color: "white", marginBottom: "8px" }}>
+          Dark
+        </IcTypography>
+        {DataList("dark")}
+      </div>
+    </div>
+  );
+};
