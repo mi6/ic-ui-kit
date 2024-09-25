@@ -4012,6 +4012,43 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [],
@@ -4105,6 +4142,43 @@
             },
             {
               "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             }
           ],
@@ -17594,11 +17668,6 @@
       "declaration": "export type IcTooltipPlacements =\n  | \"top-start\"\n  | \"top\"\n  | \"top-end\"\n  | \"right-start\"\n  | \"right\"\n  | \"right-end\"\n  | \"bottom-end\"\n  | \"bottom\"\n  | \"bottom-start\"\n  | \"left-end\"\n  | \"left\"\n  | \"left-start\";",
       "docstring": "",
       "path": "src/components/ic-tooltip/ic-tooltip.types.ts"
-    },
-    "src/utils/types.ts::IcThemeMode": {
-      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcAdditionalFieldTypes": {
       "declaration": "export type IcAdditionalFieldTypes = \"static\" | \"dynamic\";",
