@@ -18,6 +18,7 @@ import {
   OneDataRow,
   SlottedHeadingLabel,
   Small,
+  Theme,
   WithButton,
   WithLinks,
   WithStatusTags,
@@ -255,6 +256,17 @@ describe("IcDataList end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "editable-name-data",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
+    });
+  });
+
+  it("should render with theme prop", () => {
+    mount(<Theme />);
+
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
 });
