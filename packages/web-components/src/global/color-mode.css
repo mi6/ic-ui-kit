@@ -9,6 +9,13 @@ ic-theme,
   --ic-color-tertiary-text: var(--ic-color-tertiary-text-light);
   --ic-color-inverse-text: var(--ic-color-inverse-text-light);
 
+  /* Data list */
+  --ic-data-list-text-cell: var(--ic-color-primary-text);
+  --ic-data-list-text-heading: var(--ic-color-primary-text);
+  --ic-data-list-text-label: var(--ic-color-tertiary-text);
+  --ic-data-list-keyline-heading: var(--ic-border-neutral);
+  --ic-data-list-keyline-cell: var(--ic-border-neutral);
+
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-inverse-text);
   --ic-status-tag-text-inverted: var(--ic-color-primary-text);
@@ -51,6 +58,13 @@ ic-theme,
     --ic-color-secondary-text: var(--ic-color-secondary-text-dark);
     --ic-color-tertiary-text: var(--ic-color-tertiary-text-dark);
     --ic-color-inverse-text: var(--ic-color-inverse-text-dark);
+
+    /* Data list */
+    --ic-data-list-text-cell: var(--ic-color-primary-text);
+    --ic-data-list-text-heading: var(--ic-color-primary-text);
+    --ic-data-list-text-label: var(--ic-color-tertiary-text);
+    --ic-data-list-keyline-heading: var(--ic-border-neutral);
+    --ic-data-list-keyline-cell: var(--ic-border-neutral);
 
     /* Status tags */
     --ic-status-tag-text: var(--ic-color-inverse-text);
@@ -96,6 +110,13 @@ ic-theme,
   --ic-color-secondary-text: var(--ic-color-secondary-text-dark);
   --ic-color-tertiary-text: var(--ic-color-tertiary-text-dark);
   --ic-color-inverse-text: var(--ic-color-inverse-text-dark);
+
+  /* Data list */
+  --ic-data-list-text-cell: var(--ic-color-primary-text);
+  --ic-data-list-text-heading: var(--ic-color-primary-text);
+  --ic-data-list-text-label: var(--ic-color-tertiary-text);
+  --ic-data-list-keyline-heading: var(--ic-border-neutral);
+  --ic-data-list-keyline-cell: var(--ic-border-neutral);
 
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-inverse-text);
