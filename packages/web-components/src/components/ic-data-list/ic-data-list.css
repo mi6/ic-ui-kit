@@ -4,6 +4,10 @@
   display: block;
 }
 
+.heading {
+  --ic-typography-color: var(--ic-data-list-text-heading);
+}
+
 .rows {
   display: flex;
   flex-direction: column;
@@ -18,7 +22,7 @@
   margin-top: var(--ic-space-lg);
   margin-bottom: var(--ic-space-md);
   height: var(--ic-border-width);
-  background-color: var(--ic-architectural-300);
+  background-color: var(--ic-data-list-keyline-heading);
 }
 
 :host(.ic-data-list-small) .divider {
