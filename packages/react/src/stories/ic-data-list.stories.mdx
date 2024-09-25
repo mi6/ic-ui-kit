@@ -469,6 +469,8 @@ export const defaultArgs = {
   rowSize: "default",
   value: "Michael Johnson",
   endCompSlot: "end-component",
+  theme: "inherit",
+  rowTheme: "inherit",
 };
 
 <Canvas>
@@ -494,15 +496,28 @@ export const defaultArgs = {
           type: "select",
         },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      rowTheme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
     }}
     name="Playground"
   >
     {(args) => (
-      <IcDataList heading={args.heading} size={args.size}>
+      <IcDataList heading={args.heading} size={args.size} theme={args.theme}>
         <IcDataRow
           label={args.label}
           value={args.value}
           size={args.rowSize}
+          theme={args.rowTheme}
         >
           <IcButton variant="icon" aria-label="Edit" slot={args.endCompSlot}>
             <svg
