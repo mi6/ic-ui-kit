@@ -467,7 +467,7 @@ describe("Visual regression tests in high contrast mode", () => {
       });
     });
 
-    it.skip("should render a focused accordion in high contrast mode", () => {
+    it("should render a focused accordion in high contrast mode", () => {
       mount(
         <div style={{ padding: "10px" }}>
           <SimpleAccordion />
@@ -479,6 +479,7 @@ describe("Visual regression tests in high contrast mode", () => {
         .focus()
         .realPress("Space");
 
+      cy.wait(200);
       cy.compareSnapshot({
         name: "focused-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
