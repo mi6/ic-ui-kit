@@ -113,3 +113,9 @@ button:disabled {
 .expanded-content-opened {
   overflow: visible;
 }
+
+@media (forced-colors: active) {
+  button:focus {
+    border: var(--ic-hc-border) !important;
+  }
+}
