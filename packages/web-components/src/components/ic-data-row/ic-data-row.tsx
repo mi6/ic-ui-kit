@@ -6,7 +6,7 @@ import {
   isSlotUsed,
   slotHasContent,
 } from "../../utils/helpers";
-import { IcSizesNoLarge } from "../../utils/types";
+import { IcSizesNoLarge, IcThemeMode } from "../../utils/types";
 
 /**
  * @slot label - Content will be rendered in the leftmost cell.
@@ -36,6 +36,11 @@ export class DataRow {
    * The size of the data row component.
    */
   @Prop() size?: IcSizesNoLarge = "medium";
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The value of the middle (right if no end-component supplied) cell of the row.
@@ -112,6 +117,7 @@ export class DataRow {
       label,
       renderCellContent,
       size,
+      theme,
       value,
     } = this;
 
@@ -121,6 +127,7 @@ export class DataRow {
           ["ic-data-row-small"]: size === "small",
           ["breakpoint-medium"]: listSize === "m",
           ["breakpoint-xs"]: listSize === "xs",
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         role="listitem"
       >
