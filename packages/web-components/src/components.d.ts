@@ -574,6 +574,10 @@ export namespace Components {
           * The size of the data list component.
          */
         "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcDataRow {
         /**
@@ -584,6 +588,10 @@ export namespace Components {
           * The size of the data row component.
          */
         "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
@@ -3733,6 +3741,10 @@ declare namespace LocalJSX {
           * The size of the data list component.
          */
         "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcDataRow {
         /**
@@ -3743,6 +3755,10 @@ declare namespace LocalJSX {
           * The size of the data row component.
          */
         "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
