@@ -9,6 +9,7 @@ import {
   Element,
   Method,
   Watch,
+  Host,
 } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
@@ -36,20 +37,19 @@ export class Chip {
 
   @Element() el: HTMLIcChipElement;
 
+  @State() customColorClass: string = "";
   @State() hovered: boolean = false;
   @State() visible: boolean = true;
 
   /**
-   * The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`.
+   * The custom chip colour. This will override the theme colour.
    * Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
   @Prop() customColor?: IcColor = null;
 
   @Watch("customColor")
   customColorHandler(): void {
-    if (!this.dismissible) {
-      this.setChipColour();
-    }
+    this.setChipColour();
   }
 
   /**
@@ -71,9 +71,14 @@ export class Chip {
    * The size of the chip.
    */
   @Prop() size?: IcSizes = "medium";
+  /**
+   * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+   * Setting the "customColor" prop will override this.
+   */
+  @Prop() theme?: "dark" | "light" | "inherit" = "inherit";
 
   /**
-   * If `true`, the outlined variant of chip will have a transparent background rather than white.
+   * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
    */
   @Prop() transparentBackground?: boolean = true;
 
@@ -89,10 +94,7 @@ export class Chip {
 
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
-
-    if (!this.dismissible) {
-      this.setChipColour();
-    }
+    this.customColorHandler();
   }
 
   componentWillRender(): void {
@@ -137,67 +139,88 @@ export class Chip {
     const colorRGBA = convertToRGBA(this.customColor);
     if (colorRGBA) {
       const { r, g, b, a } = colorRGBA;
-      const foregroundColour =
-        (r * 299 + g * 587 + b * 114) / 1000 > 133.3505 ? "black" : "white";
+      this.customColorClass =
+        (r * 299 + g * 587 + b * 114) / 1000 > 133.3505
+          ? "ic-chip-dark-text"
+          : "ic-chip-light-text";
       this.el.setAttribute(
         "style",
-        `--chip-custom-color: rgba(${r}, ${g}, ${b}, ${a}); --chip-custom-foreground-color: var(--ic-architectural-${foregroundColour})`
+        `--chip-custom-color: rgba(${r}, ${g}, ${b}, ${a});`
       );
+    } else {
+      this.customColorClass = "";
     }
   };
 
   render() {
-    const { label, variant, size, dismissible, visible, disabled, hovered } =
-      this;
+    const {
+      label,
+      variant,
+      size,
+      dismissible,
+      visible,
+      disabled,
+      hovered,
+      theme,
+      customColorClass,
+    } = this;
 
     return (
-      visible && (
-        <div
-          class={{
-            chip: true,
-            [`${variant}`]: true,
-            [`${size}`]: true,
-            disabled,
-            dismissible,
-            hovered,
-            "white-background":
-              this.variant === "outlined" && !this.transparentBackground,
-          }}
-        >
-          {isSlotUsed(this.el, "icon") && (
-            <div class="icon">
-              <slot name="icon" />
-            </div>
-          )}
-          <ic-typography
-            variant="label"
-            apply-vertical-margins={false}
-            class={{ label: true, "in-ag-grid": this.inAGGrid }}
+      <Host
+        class={{
+          [`ic-theme-${theme}`]: theme !== "inherit",
+          [`${customColorClass}`]:
+            variant === "filled" && customColorClass !== "",
+        }}
+      >
+        {visible && (
+          <div
+            class={{
+              chip: true,
+              [`${variant}`]: true,
+              [`${size}`]: true,
+              disabled,
+              dismissible,
+              hovered,
+              "non-transparent":
+                this.variant === "outlined" && !this.transparentBackground,
+            }}
           >
-            <span>{label}</span>
-          </ic-typography>
-          {dismissible && (
-            <ic-tooltip
-              label="Dismiss"
-              target="dismiss-icon"
-              class={{ "tooltip-disabled": disabled }}
+            {isSlotUsed(this.el, "icon") && (
+              <div class="icon">
+                <slot name="icon" />
+              </div>
+            )}
+            <ic-typography
+              variant="label"
+              apply-vertical-margins={false}
+              class={{ label: true, "in-ag-grid": this.inAGGrid }}
             >
-              <button
-                id="dismiss-icon"
-                class="dismiss-icon"
-                aria-label={`Dismiss ${label} chip`}
-                disabled={disabled}
-                tabindex={disabled ? -1 : 0}
-                onClick={this.dismissAction}
-                onMouseEnter={this.mouseEnterHandler}
-                onMouseLeave={this.mouseLeaveHandler}
-                innerHTML={dismissIcon}
-              ></button>
-            </ic-tooltip>
-          )}
-          {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
-        </div>
-      )
+              <span>{label}</span>
+            </ic-typography>
+            {dismissible && (
+              <ic-tooltip
+                label="Dismiss"
+                target="dismiss-icon"
+                class={{ "tooltip-disabled": disabled }}
+              >
+                <button
+                  id="dismiss-icon"
+                  class="dismiss-icon"
+                  aria-label={`Dismiss ${label} chip`}
+                  disabled={disabled}
+                  tabindex={disabled ? -1 : 0}
+                  onClick={this.dismissAction}
+                  onMouseEnter={this.mouseEnterHandler}
+                  onMouseLeave={this.mouseLeaveHandler}
+                  innerHTML={dismissIcon}
+                ></button>
+              </ic-tooltip>
+            )}
+            {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
+          </div>
+        )}
+      </Host>
     );
   }
 }
