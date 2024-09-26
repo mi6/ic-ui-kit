@@ -94,6 +94,26 @@ describe("ic-chip component renders label", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render outlined variant", async () => {
+    const page = await newSpecPage({
+      components: [Chip],
+      html: `<ic-chip label="Label" variant="outlined">
+        </ic-chip>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render outlined variant with solid-background", async () => {
+    const page = await newSpecPage({
+      components: [Chip],
+      html: `<ic-chip label="Label" variant="outlined" transparent-background="false">
+        </ic-chip>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should apply 'hovered' style when cursor is on dismiss button", async () => {
     const page = await newSpecPage({
       components: [Chip],

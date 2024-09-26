@@ -116,7 +116,7 @@ ic-theme,
 
   /* Chips */
   --ic-chip-label: var(--ic-color-text-primary);
-  --ic-chip-label-inactive: var(-ic-color-text-inactive);
+  --ic-chip-label-inactive: var(--ic-color-text-inactive);
   --ic-chip-icon: var(--ic-color-icon-neutral);
   --ic-chip-icon-inactive: var(--ic-color-icon-disabled-dark);
   --ic-chip-outline: var(--ic-color-text-primary);
