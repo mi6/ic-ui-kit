@@ -3582,7 +3582,7 @@
           "mutable": false,
           "attr": "custom-color",
           "reflectToAttr": false,
-          "docs": "The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`.\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
+          "docs": "The custom chip colour. This will override the theme colour.\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
           "docsTags": [],
           "default": "null",
           "values": [
@@ -3702,6 +3702,37 @@
           "required": false
         },
         {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "\"dark\" | \"light\" | \"inherit\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the chip to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.\nSetting the \"customColor\" prop will override this.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "transparentBackground",
           "type": "boolean",
           "complexType": {
@@ -3712,7 +3743,7 @@
           "mutable": false,
           "attr": "transparent-background",
           "reflectToAttr": false,
-          "docs": "If `true`, the outlined variant of chip will have a transparent background rather than white.",
+          "docs": "If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.",
           "docsTags": [],
           "default": "true",
           "values": [
