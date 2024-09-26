@@ -516,7 +516,7 @@ export namespace Components {
     }
     interface IcChip {
         /**
-          * The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
+          * The custom chip colour. This will override the theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
         "customColor"?: IcColor;
         /**
@@ -540,7 +540,11 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
-          * If `true`, the outlined variant of chip will have a transparent background rather than white.
+          * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component. Setting the "customColor" prop will override this.
+         */
+        "theme"?: "dark" | "light" | "inherit";
+        /**
+          * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
          */
         "transparentBackground"?: boolean;
         /**
@@ -3693,7 +3697,7 @@ declare namespace LocalJSX {
     }
     interface IcChip {
         /**
-          * The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
+          * The custom chip colour. This will override the theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
         "customColor"?: IcColor;
         /**
@@ -3717,7 +3721,11 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
-          * If `true`, the outlined variant of chip will have a transparent background rather than white.
+          * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component. Setting the "customColor" prop will override this.
+         */
+        "theme"?: "dark" | "light" | "inherit";
+        /**
+          * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
          */
         "transparentBackground"?: boolean;
         /**
