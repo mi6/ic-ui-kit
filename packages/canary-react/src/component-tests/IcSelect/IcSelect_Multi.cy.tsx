@@ -3,13 +3,37 @@
 import "./IcSelect.css";
 import React from "react";
 import { mount } from "cypress/react";
-import { MultiSelectDefault } from "./IcSelectTestData";
+import {
+  MultiSelectDefault,
+  MultiSelectDisabledOptions,
+  MultiSelectGroups,
+  MultiSelectLarge,
+  MultiSelectReadOnly,
+  MultiSelectSmall,
+  MultiSelectWithAllValues,
+  MultiSelectWithDescriptions,
+  MultiSelectDefaultValue,
+} from "./IcSelectTestData";
 import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers";
 
-const MULTI_SELECT = "ic-select-with-multi";
-const DROPDOWN_ARROW = "button.select-input";
+import {
+  HAVE_ATTR,
+  HAVE_BEEN_CALLED_ONCE,
+  HAVE_FOCUS,
+  NOT_EXIST,
+} from "@ukic/react/src/component-tests/utils/constants";
+import {
+  ARIA_SELECTED,
+  DATA_VALUE_CAP,
+  IC_INPUT_CONTAINER,
+} from "@ukic/react/src/component-tests/IcSelect/IcSelectConstants";
 
-const DEFAULT_TEST_THRESHOLD = 0.076;
+const MULTI_SELECT = "ic-select-with-multi";
+const MULTI_SELECT_MENU = "ic-menu-with-multi ul";
+const DROPDOWN_ARROW = "button.select-input";
+const SELECT_ALL_BUTTON = "ic-menu-with-multi .select-all-button";
+
+const DEFAULT_TEST_THRESHOLD = 0.056;
 const SCREENSHOT_DELAY = 300;
 
 describe("IcSelect - Multi", () => {
@@ -25,17 +49,204 @@ describe("IcSelect - Multi", () => {
     mount(<MultiSelectDefault />);
 
     cy.checkHydrated(MULTI_SELECT);
-
     cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).focus().click();
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "default-multi-select",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
         capture: "viewport",
       },
+    });
+  });
+
+  it("should render with default value set", () => {
+    mount(<MultiSelectDefaultValue />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).focus().click();
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.compareSnapshot({
+      name: "multi-select-default-value",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render options with descriptions", () => {
+    mount(<MultiSelectWithDescriptions />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).focus().click();
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.compareSnapshot({
+      name: "multi-select-descriptions",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render small", () => {
+    mount(<MultiSelectSmall />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).focus().click();
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.compareSnapshot({
+      name: "multi-select-small",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render large", () => {
+    mount(<MultiSelectLarge />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).focus().click();
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.compareSnapshot({
+      name: "multi-select-large",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render with disabled options", () => {
+    mount(<MultiSelectDisabledOptions />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).focus().click();
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.compareSnapshot({
+      name: "multi-select-disabled-options",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render as read-only", () => {
+    mount(<MultiSelectReadOnly />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "multi-select-read-only",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render options as groups", () => {
+    mount(<MultiSelectGroups />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).focus().click();
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.compareSnapshot({
+      name: "multi-select-groups",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should emit icChange and icOptionSelect when an option is selected", () => {
+    mount(<MultiSelectDefault />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.get(MULTI_SELECT).invoke("on", "icChange", cy.stub().as("icChange"));
+    cy.get(MULTI_SELECT).invoke(
+      "on",
+      "icOptionSelect",
+      cy.stub().as("icOptionSelect")
+    );
+
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .click()
+      .realPress("ArrowDown")
+      .realPress("Enter");
+
+    cy.get("@icChange").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get("@icChange").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value.length).to.equal(1);
+      expect(stub.getCall(0).args[0].detail.value[0]).to.equal("Cap");
+    });
+    cy.get("@icOptionSelect").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get("@icOptionSelect").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value).to.equal("Cap");
+    });
+  });
+
+  it("should deselect an option correctly - emit icChange and icOptionDeselect, and remove check icon and aria-selected", () => {
+    mount(<MultiSelectDefault />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.get(MULTI_SELECT).invoke("on", "icChange", cy.stub().as("icChange"));
+    cy.get(MULTI_SELECT).invoke(
+      "on",
+      "icOptionDeselect",
+      cy.stub().as("icOptionDeselect")
+    );
+
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .click()
+      .realPress("ArrowDown")
+      .realPress("Enter");
+
+    cy.findShadowEl(MULTI_SELECT, DATA_VALUE_CAP).should(
+      HAVE_ATTR,
+      ARIA_SELECTED,
+      "true"
+    );
+    cy.findShadowEl(MULTI_SELECT, `${DATA_VALUE_CAP} .check-icon`).should(
+      "exist"
+    );
+
+    cy.realPress("ArrowDown").realPress("Enter");
+
+    cy.findShadowEl(MULTI_SELECT, DATA_VALUE_CAP).should(
+      HAVE_ATTR,
+      ARIA_SELECTED,
+      "false"
+    );
+    cy.findShadowEl(MULTI_SELECT, `${DATA_VALUE_CAP} .check-icon`).should(
+      NOT_EXIST
+    );
+    cy.get("@icChange").should((stub) => {
+      expect(stub.getCall(1).args[0].detail.value).to.equal(null);
+    });
+    cy.get("@icOptionDeselect").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get("@icOptionDeselect").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value).to.equal("Cap");
     });
   });
 
@@ -51,7 +262,7 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "multi-select-shift-arrow-down",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -71,7 +282,7 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "multi-select-shift-arrow-up",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -92,7 +303,7 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "multi-select-shift-ctrl-end",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -113,7 +324,7 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "multi-select-shift-ctrl-home",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -135,7 +346,7 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "multi-select-shift-click",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -157,11 +368,112 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "multi-select-shift-click-from-bottom",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
         capture: "viewport",
       },
     });
+  });
+
+  it("should move focus to select all button and back again", () => {
+    mount(<MultiSelectDefault />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).click().realPress("Tab");
+
+    cy.findShadowEl(MULTI_SELECT, SELECT_ALL_BUTTON).should(HAVE_FOCUS);
+
+    cy.realPress(["Shift", "Tab"]);
+
+    cy.findShadowEl(MULTI_SELECT, MULTI_SELECT_MENU).should(HAVE_FOCUS);
+  });
+
+  it("should move focus from option (i.e. when option is highlighted) to select all button", () => {
+    mount(<MultiSelectDefault />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .click()
+      .realPress("ArrowDown");
+
+    cy.findShadowEl(MULTI_SELECT, DATA_VALUE_CAP).should(HAVE_FOCUS);
+
+    cy.realPress("Tab");
+
+    cy.findShadowEl(MULTI_SELECT, SELECT_ALL_BUTTON).should(HAVE_FOCUS);
+  });
+
+  it("should emit icChange when the select all button is pressed, and emit icOptionSelect only for unselected options", () => {
+    mount(<MultiSelectDefaultValue />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.get(MULTI_SELECT).invoke("on", "icChange", cy.stub().as("icChange"));
+    cy.get(MULTI_SELECT).invoke(
+      "on",
+      "icOptionSelect",
+      cy.stub().as("icOptionSelect")
+    );
+
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .click()
+      .realPress("Tab")
+      .realPress("Enter");
+
+    cy.get("@icChange").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value.length).to.equal(7);
+    });
+    cy.get("@icOptionSelect").should("have.callCount", 4);
+  });
+
+  it("should emit icChange when the clear all button is pressed, and emit icOptionDeselect for all options", () => {
+    mount(<MultiSelectWithAllValues />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.get(MULTI_SELECT).invoke("on", "icChange", cy.stub().as("icChange"));
+    cy.get(MULTI_SELECT).invoke(
+      "on",
+      "icOptionDeselect",
+      cy.stub().as("icOptionDeselect")
+    );
+
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW)
+      .click()
+      .realPress("Tab")
+      .realPress("Enter");
+
+    cy.get("@icChange").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value).to.equal(null);
+    });
+    cy.get("@icOptionDeselect").should("have.callCount", 7);
+  });
+
+  it("should select and clear all options on Ctrl+A", () => {
+    mount(<MultiSelectDefault />);
+
+    cy.checkHydrated(MULTI_SELECT);
+    cy.get(MULTI_SELECT).invoke("on", "icChange", cy.stub().as("icChange"));
+    cy.get(MULTI_SELECT).invoke(
+      "on",
+      "icOptionSelect",
+      cy.stub().as("icOptionSelect")
+    );
+    cy.get(MULTI_SELECT).invoke(
+      "on",
+      "icOptionDeselect",
+      cy.stub().as("icOptionDeselect")
+    );
+
+    cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).click().type("{ctrl}a");
+
+    cy.get("@icChange").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get("@icOptionSelect").should("have.callCount", 7);
+
+    cy.findShadowEl(MULTI_SELECT, IC_INPUT_CONTAINER).type("{ctrl}a");
+
+    cy.get("@icChange").should((stub) => {
+      expect(stub.getCall(1).args[0].detail.value).to.equal(null);
+    });
+    cy.get("@icOptionDeselect").should("have.callCount", 7);
   });
 });
