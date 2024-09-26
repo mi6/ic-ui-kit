@@ -104,10 +104,6 @@
   --ic-architectural-white: #fff;
   --ic-architectural-black: #000;
 
-  /* borders */
-  --ic-color-border-neutral-gray: var(--ic-architectural-400);
-  --ic-color-border-neutral-light-gray: var(--ic-architectural-40);
-
   /* text */
 
   --ic-color-primary-text-light: var(--ic-architectural-900);
@@ -119,8 +115,10 @@
   --ic-color-white-text: var(--ic-architectural-white);
   --ic-color-inverse-text-light: var(--ic-color-primary-text-dark);
   --ic-color-inverse-text-dark: var(--ic-color-primary-text-light);
+  --ic-color-inactive-text: var(--ic-architectural-400);
 
   /* backgrounds */
+
   --ic-background-primary-light: var(--ic-architectural-white);
   --ic-background-primary-dark: var(--ic-architectural-800);
 
@@ -277,7 +275,7 @@
   /* tooltips */
   --ic-tooltip-background: var(--ic-background-primary-dark);
   --ic-tooltip-text: var(--ic-color-primary-text-dark);
-  --ic-tooltip-border: var(--ic-color-border-neutral-light-gray);
+  --ic-tooltip-border: var(--ic-border-neutral-light-grey);
 
   /* icons */
   --ic-icon-neutral: var(--ic-architectural-black);
@@ -286,9 +284,12 @@
   --ic-icon-grey-dark: var(--ic-architectural-500);
   --ic-icon-action-default: var(--ic-hyperlink);
   --ic-icon-action-default-dark: var(--ic-hyperlink-dark);
+  --ic-icon-disabled-dark: var(--ic-architectural-500);
+  --ic-icon-chevron: var(--ic-architectural-400);
 
   /* state layers */
   --ic-state-layer-neutral: var(--ic-architectural-200);
   --ic-state-layer-neutral-light: var(--ic-architectural-100);
   --ic-state-layer-neutral-dark: var(--ic-architectural-400);
+  --ic-state-layer-neutral-darker: var(--ic-architectural-600);
 }
