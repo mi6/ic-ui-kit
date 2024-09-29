@@ -11,6 +11,14 @@ interface StencilOverride extends Omit<JsonDocs, "timestamp"> {
   timestamp: string | undefined
 }
 
+const fs = require("fs");
+const path = require("path");
+const crypto = require('node:crypto');
+
+const { version } = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json')));
+
+const hash = crypto.createHash('sha256').update("bacon").digest('hex');
+
 export const config: Config = {
   namespace: "core",
   globalStyle: "../web-components/src/global/icds.css",
@@ -81,4 +89,9 @@ export const config: Config = {
   extras: {
     experimentalImportInjection: true,
   },
+  env: {
+    IC_UI_KIT_CANARY_WEB_COMPONENTS_VERSION: version,
+    IC_UI_KIT_CANARY_WEB_COMPONENTS_BUILD_DATE: new Date().toString(),
+    IC_UI_KIT_CANARY_WEB_COMPONENTS_BUILD_HASH: hash
+  }
 };
