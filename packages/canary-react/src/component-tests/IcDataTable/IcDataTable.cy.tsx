@@ -4133,7 +4133,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     mount(<BasicDataTable sortable />);
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.compareSnapshot({
+    cy.wait(300).compareSnapshot({
       name: "sortable-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
       cypressScreenshotOptions: {
