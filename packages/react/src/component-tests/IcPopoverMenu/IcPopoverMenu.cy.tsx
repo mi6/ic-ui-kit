@@ -251,6 +251,30 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.get("@icPopoverClosed").should(HAVE_BEEN_CALLED_ONCE);
   });
 
+  it("should correctly reopen when closed from a submenu", () => {
+    mount(<PopoverDropdown />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+    // cy.checkA11yWithWait()
+
+    cy.get(POPOVER_SELECTOR).invoke(
+      "on",
+      "icPopoverClosed",
+      cy.stub().as("icPopoverClosed")
+    );
+
+    cy.get(BUTTON_SELECTOR).click();
+    cy.get("#submenu-trigger-actions").click().wait(250);
+    cy.get("body").click("bottomRight");
+    cy.get("@icPopoverClosed").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get(BUTTON_SELECTOR).click();
+
+    cy.compareSnapshot({
+      name: "default-after-click-button",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+    });
+  });
+
   it("should emit handleMenuItemClick when user clicks a menu item", () => {
     mount(<PopoverMenuDescription />);
 
