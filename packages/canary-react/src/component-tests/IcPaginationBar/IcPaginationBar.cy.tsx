@@ -673,7 +673,7 @@ describe("IcPaginationBar visual regression tests in high contrast mode", () => 
     cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
       .shadow()
       .find("ic-input-component-container")
-      .should(HAVE_CLASS, "error");
+      .should(HAVE_CLASS, "ic-input-component-container-error");
 
     cy.findShadowEl(PAGINATION_BAR, ".go-to-page-button").click();
 
