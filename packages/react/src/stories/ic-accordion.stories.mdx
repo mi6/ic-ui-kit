@@ -522,12 +522,14 @@ export const Dialog = () => {
 <Canvas>
   <Story name="Slotted headings">
       <IcAccordionGroup>
-  <h1 slot="label">Group title</h1>
-  <IcAccordion>
-    <h2 slot="heading">Heading</h2>
-    Text
-  </IcAccordion>
-  </IcAccordionGroup>
+        <h1 slot="group-title">Group title</h1>
+        <IcAccordion>
+          <h2 slot="heading">Heading</h2>
+            <IcTypography variant="body">
+              Text
+            </IcTypography>  
+        </IcAccordion>
+      </IcAccordionGroup>
   </Story>
 </Canvas>
 
