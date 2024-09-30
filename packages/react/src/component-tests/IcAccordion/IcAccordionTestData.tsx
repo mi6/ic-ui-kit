@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { IcAccordion, IcAccordionGroup } from "../../components";
+import { IcAccordion, IcAccordionGroup, IcTypography } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 export const SimpleAccordion = (): ReactElement => (
@@ -49,7 +49,7 @@ export const SlottedHeadingAccordion = (): ReactElement => (
     <h1 slot="group-title">Group title</h1>
     <IcAccordion>
       <h2 slot="heading">Heading</h2>
-      Text
+      <IcTypography variant="body">Text</IcTypography>
     </IcAccordion>
   </IcAccordionGroup>
 );
