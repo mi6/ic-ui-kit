@@ -189,6 +189,7 @@ export class PopoverMenu {
         break;
       case "Escape":
       case "Tab":
+        ev.preventDefault();
         if (this.open) {
           this.closeMenu(true);
           this.el.blur();
@@ -251,16 +252,21 @@ export class PopoverMenu {
   };
 
   /**
-   * Close the popover menu, emit isPopoverClosed event
+   * @internal Close the menu, emit icPopoverClosed of the root popover
    * @param setFocusToAnchor when true return focus to anchor element when menu is closed
    */
-  private closeMenu = (setFocusToAnchor = false) => {
+  @Method()
+  async closeMenu(setFocusToAnchor = false): Promise<void> {
     this.open = false;
-    if (setFocusToAnchor) {
-      this.anchorEl?.focus();
+    if (this.parentPopover) {
+      this.parentPopover.closeMenu(setFocusToAnchor);
+    } else {
+      if (setFocusToAnchor) {
+        this.anchorEl?.focus();
+      }
+      this.icPopoverClosed.emit();
     }
-    this.icPopoverClosed.emit();
-  };
+  }
 
   private getNextItemToSelect = (
     currentItem: number,

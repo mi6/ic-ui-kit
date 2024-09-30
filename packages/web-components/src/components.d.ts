@@ -1302,6 +1302,10 @@ export namespace Components {
          */
         "anchor": string;
         /**
+          * @param setFocusToAnchor when true return focus to anchor element when menu is closed
+         */
+        "closeMenu": (setFocusToAnchor?: boolean) => Promise<void>;
+        /**
           * If `true`, the popover menu will be displayed.
          */
         "open": boolean;
