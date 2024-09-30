@@ -8,11 +8,15 @@ import {
   DateInputUpdateValue,
   DateInputUpdateHelperText,
   DateInputHideHelperText,
+  DateInputValidation,
 } from "./IcDateInputTestData";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import {
+  BE_VISIBLE,
+  HAVE_FOCUS,
   HAVE_TEXT,
   HAVE_VALUE,
+  NOT_EXIST,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 const DATE_INPUT = "ic-date-input";
@@ -30,7 +34,7 @@ const STATUS_TEXT_SPAN = ".statustext";
 const DEFAULT_HELPER_TEXT = "Use format DD/MM/YYYY";
 const DEFAULT_THRESHOLD = 0.04;
 
-describe("IcDateInput", () => {
+describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -39,11 +43,15 @@ describe("IcDateInput", () => {
   });
 
   it("should render", () => {
-    mount(<IcDateInput label="Test Label" />);
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput label="Test Label" />
+      </div>
+    );
 
     cy.checkHydrated(DATE_INPUT);
 
-    cy.get(DATE_INPUT).should("to.be.visible");
+    cy.get(DATE_INPUT).should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -127,7 +135,7 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
 
-    cy.findShadowEl(DATE_INPUT, "ic-input-validation").should("not.exist");
+    cy.findShadowEl(DATE_INPUT, "ic-input-validation").should(NOT_EXIST);
   });
 
   it("should remove validation status (until now) when disabled date is updated", () => {
@@ -142,7 +150,7 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3000");
 
-    cy.findShadowEl(DATE_INPUT, "ic-input-validation").should("not.exist");
+    cy.findShadowEl(DATE_INPUT, "ic-input-validation").should(NOT_EXIST);
   });
 
   it("should increase day when switching between input and arrow up", () => {
@@ -164,7 +172,7 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(HAVE_VALUE, "01");
 
-    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should("have.focus");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(HAVE_FOCUS);
   });
 
   it("should increase month when switching between input and arrow up", () => {
@@ -192,7 +200,7 @@ describe("IcDateInput", () => {
       "12"
     );
 
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should("have.focus");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(HAVE_FOCUS);
   });
 
   it("should increase year when switching between input and arrow up", () => {
@@ -288,7 +296,11 @@ describe("IcDateInput", () => {
   });
 
   it("should enter complete date and check for accessibility", () => {
-    mount(<IcDateInput label="Test Label" />);
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput label="Test Label" />
+      </div>
+    );
 
     cy.checkHydrated(DATE_INPUT);
 
@@ -334,7 +346,11 @@ describe("IcDateInput", () => {
   });
 
   it("should display validation message if date before min with date string with slashes", () => {
-    mount(<IcDateInput label="Test Label" min="01/07/2001" />);
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput label="Test Label" min="01/07/2001" />
+      </div>
+    );
 
     cy.checkHydrated(DATE_INPUT);
 
@@ -359,7 +375,11 @@ describe("IcDateInput", () => {
   });
 
   it("should display validation message if date before max with date string with slashes", () => {
-    mount(<IcDateInput label="Test Label" max="01/07/2024" />);
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput label="Test Label" max="01/07/2024" />
+      </div>
+    );
 
     cy.checkHydrated(DATE_INPUT);
 
@@ -390,7 +410,7 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("/");
 
-    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should("have.focus");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(HAVE_FOCUS);
   });
 
   it("should move the cursor to the next input when using dash. Day > Month", () => {
@@ -400,7 +420,7 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("-");
 
-    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should("have.focus");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(HAVE_FOCUS);
   });
 
   it("should display custom invalidDateMessage", () => {
@@ -430,11 +450,13 @@ describe("IcDateInput", () => {
 
   it("should display custom disabledDaysMessage if disabled day is set", () => {
     mount(
-      <IcDateInput
-        label="Test Label"
-        disableDaysMessage={CUSTOM_DISABLE_DAY_MESSAGE}
-        disableDays={[0]}
-      />
+      <div style={{ padding: "10px" }}>
+        <IcDateInput
+          label="Test Label"
+          disableDaysMessage={CUSTOM_DISABLE_DAY_MESSAGE}
+          disableDays={[0]}
+        />
+      </div>
     );
 
     cy.checkHydrated(DATE_INPUT);
@@ -461,11 +483,13 @@ describe("IcDateInput", () => {
 
   it("should display a long custom disabledDaysMessage if disabled day is set", () => {
     mount(
-      <IcDateInput
-        label="Test Label"
-        disableDaysMessage={LONG_CUSTOM_DISABLE_DAY_MESSAGE}
-        disableDays={[0]}
-      />
+      <div style={{ padding: "10px" }}>
+        <IcDateInput
+          label="Test Label"
+          disableDaysMessage={LONG_CUSTOM_DISABLE_DAY_MESSAGE}
+          disableDays={[0]}
+        />
+      </div>
     );
 
     cy.checkHydrated(DATE_INPUT);
@@ -487,11 +511,13 @@ describe("IcDateInput", () => {
 
   it("should display custom disabledFutureMessage if disabled future day is set", () => {
     mount(
-      <IcDateInput
-        label="Test Label"
-        disableFutureMessage={CUSTOM_DISABLE_DAY_MESSAGE}
-        disableFuture
-      />
+      <div style={{ padding: "10px" }}>
+        <IcDateInput
+          label="Test Label"
+          disableFutureMessage={CUSTOM_DISABLE_DAY_MESSAGE}
+          disableFuture
+        />
+      </div>
     );
 
     cy.checkHydrated(DATE_INPUT);
@@ -518,11 +544,13 @@ describe("IcDateInput", () => {
 
   it("should display long custom disabledFutureMessage if disabled future day is set", () => {
     mount(
-      <IcDateInput
-        label="Test Label"
-        disableFutureMessage={LONG_CUSTOM_DISABLE_DAY_MESSAGE}
-        disableFuture
-      />
+      <div style={{ padding: "10px" }}>
+        <IcDateInput
+          label="Test Label"
+          disableFutureMessage={LONG_CUSTOM_DISABLE_DAY_MESSAGE}
+          disableFuture
+        />
+      </div>
     );
 
     cy.checkHydrated(DATE_INPUT);
@@ -544,11 +572,13 @@ describe("IcDateInput", () => {
 
   it("should display custom disabledPastMessage if disabled past day is set", () => {
     mount(
-      <IcDateInput
-        label="Test Label"
-        disablePastMessage={CUSTOM_DISABLE_DAY_MESSAGE}
-        disablePast
-      />
+      <div style={{ padding: "10px" }}>
+        <IcDateInput
+          label="Test Label"
+          disablePastMessage={CUSTOM_DISABLE_DAY_MESSAGE}
+          disablePast
+        />
+      </div>
     );
 
     cy.checkHydrated(DATE_INPUT);
@@ -575,11 +605,13 @@ describe("IcDateInput", () => {
 
   it("should display long custom disabledPastMessage if disabled past day is set", () => {
     mount(
-      <IcDateInput
-        label="Test Label"
-        disablePastMessage={LONG_CUSTOM_DISABLE_DAY_MESSAGE}
-        disablePast
-      />
+      <div style={{ padding: "10px" }}>
+        <IcDateInput
+          label="Test Label"
+          disablePastMessage={LONG_CUSTOM_DISABLE_DAY_MESSAGE}
+          disablePast
+        />
+      </div>
     );
 
     cy.checkHydrated(DATE_INPUT);
@@ -667,11 +699,13 @@ describe("IcDateInput", () => {
 
   it("should display error validation", () => {
     mount(
-      <IcDateInput
-        label="Test Label"
-        validationStatus="error"
-        validationText="Error"
-      />
+      <div style={{ padding: "10px" }}>
+        <IcDateInput
+          label="Test Label"
+          validationStatus="error"
+          validationText="Error"
+        />
+      </div>
     );
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(HAVE_TEXT, "Error");
@@ -689,11 +723,13 @@ describe("IcDateInput", () => {
 
   it("should display warning validation", () => {
     mount(
-      <IcDateInput
-        label="Test Label"
-        validationStatus="warning"
-        validationText="Warning"
-      />
+      <div style={{ padding: "10px" }}>
+        <IcDateInput
+          label="Test Label"
+          validationStatus="warning"
+          validationText="Warning"
+        />
+      </div>
     );
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(HAVE_TEXT, "Warning");
@@ -711,11 +747,13 @@ describe("IcDateInput", () => {
 
   it("should display success validation", () => {
     mount(
-      <IcDateInput
-        label="Test Label"
-        validationStatus="success"
-        validationText="Success"
-      />
+      <div style={{ padding: "10px" }}>
+        <IcDateInput
+          label="Test Label"
+          validationStatus="success"
+          validationText="Success"
+        />
+      </div>
     );
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(HAVE_TEXT, "Success");
@@ -791,5 +829,86 @@ describe("IcDateInput", () => {
     // When hideHelperText is set to true, helper text should not render
     cy.get("button#hideText").focus().click();
     cy.findShadowEl(DATE_INPUT, ".helpertext").should(HAVE_TEXT, "");
+  });
+});
+
+describe("IcDateInput visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render default in high contrast mode", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput label="Test Label" />
+      </div>
+    );
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.get(DATE_INPUT).should(BE_VISIBLE);
+
+    cy.compareSnapshot({
+      name: "date-input-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.006),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render with custom disabled days message in high contrast mode", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput
+          label="Test Label"
+          disableDaysMessage={CUSTOM_DISABLE_DAY_MESSAGE}
+          disableDays={[0]}
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024").wait(200);
+
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
+      HAVE_TEXT,
+      CUSTOM_DISABLE_DAY_MESSAGE
+    );
+
+    cy.wait(500).compareSnapshot({
+      name: "date-input-with-custom-disable-days-message-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.013),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render with validation in high contrast mode", () => {
+    mount(<DateInputValidation />);
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.wait(500).compareSnapshot({
+      name: "date-input-with-validation-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.102),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
   });
 });

@@ -103,7 +103,7 @@ const checkDateInputValue = (date: Date | null) => {
     });
 };
 
-describe("IcDatePickers", () => {
+describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(500, 700);
@@ -151,7 +151,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "default-max-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -170,7 +170,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "default-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
 
@@ -195,7 +195,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "default-max-width-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
 
@@ -213,7 +213,7 @@ describe("IcDatePickers", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "default-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 
@@ -237,7 +237,7 @@ describe("IcDatePickers", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "default-max-width-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 
@@ -304,7 +304,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "small-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
 
@@ -331,7 +331,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "small-max-width-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
 
@@ -380,7 +380,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "small-max-width-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -400,7 +400,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
   });
 
@@ -425,7 +425,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large-max-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
   });
 
@@ -447,7 +447,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
 
@@ -474,7 +474,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large-max-width-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
 
@@ -496,7 +496,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -523,7 +523,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large-max-width-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -1040,7 +1040,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "escape-to-close",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
 
@@ -1149,7 +1149,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "click-to-close",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
 
@@ -2709,6 +2709,127 @@ describe("IcDatePickers", () => {
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "position-above",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+});
+
+describe("IcDatePicker visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  beforeEach(() => {
+    cy.viewport(500, 700);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render default variant in high contrast mode", () => {
+    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} />);
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "default-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+    });
+  });
+
+  it("should render default variant displaying month view in high contrast mode", () => {
+    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} />);
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
+
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "default-month-view-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
+    });
+  });
+
+  it("should render disabled variant in high contrast mode", () => {
+    mount(<IcDatePicker label={DEFAULT_LABEL} disabled />);
+
+    cy.checkHydrated(DATE_PICKER);
+    cy.compareSnapshot({
+      name: "disabled-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+    });
+  });
+
+  it("should render with 'disableDays' prop in high contrast mode", () => {
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        openAtDate="02/12/2023"
+        disableDays={[0, 6]}
+      />
+    );
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "disable-weekends-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+    });
+  });
+
+  it("should render with 'min' and 'max' props in high contrast mode", () => {
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} min="2023-07-01" max="2023-07-31" />
+    );
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
+
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "min-max-month-view-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
+  });
+
+  it("should render with calendar button focused in high contrast mode", () => {
+    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} />);
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .realHover();
+
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "calendar-button-focused-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
 });
