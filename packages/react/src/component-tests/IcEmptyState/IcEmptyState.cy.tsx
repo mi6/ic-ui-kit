@@ -11,6 +11,7 @@ import {
   EmptyStateImage,
   TruncatedText,
   SlottedContent,
+  EmptyStateTheme,
 } from "./IcEmptyStateTestData";
 import { HAVE_ATTR, BE_VISIBLE } from "../utils/constants";
 import { IcEmptyState } from "../..";
@@ -199,6 +200,18 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "slotted-content",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+  });
+
+  it("should render with slotted content", () => {
+    mount(<EmptyStateTheme />);
+
+    cy.checkHydrated(EMPTY_STATE);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "theme-prop",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
   });
 });
