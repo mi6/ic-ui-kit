@@ -105,58 +105,83 @@ export const Appearance = (): ReactElement => {
         <IcBreadcrumb pageTitle="Breadcrumb 1" href="/breadcrumb-1">
           <ReusableSlottedIcon />
         </IcBreadcrumb>
-        <IcBreadcrumb pageTitle="Breadcrumb 2" current="true" href="/">
+        <IcBreadcrumb pageTitle="Breadcrumb 2" current={true} href="/">
           <ReusableSlottedIcon />
         </IcBreadcrumb>
       </IcBreadcrumbGroup>
-      <IcBreadcrumbGroup backBreadcrumbOnly="true">
+      <IcBreadcrumbGroup backBreadcrumbOnly={true}>
         <IcBreadcrumb
           pageTitle="Breadcrumb 1"
           href="/breadcrumb-1"
         ></IcBreadcrumb>
         <IcBreadcrumb
-          current="true"
+          current={true}
           pageTitle="Breadcrumb 2"
           href="/breadcrumb-2"
         ></IcBreadcrumb>
       </IcBreadcrumbGroup>
-      <IcBreadcrumbGroup appearance="dark">
+      <IcBreadcrumbGroup theme="light" monochrome={true}>
         <IcBreadcrumb pageTitle="Breadcrumb 1" href="/breadcrumb-1">
           <ReusableSlottedIcon />
         </IcBreadcrumb>
-        <IcBreadcrumb pageTitle="Breadcrumb 2" current="true" href="/">
+        <IcBreadcrumb pageTitle="Breadcrumb 2" current={true} href="/">
           <ReusableSlottedIcon />
         </IcBreadcrumb>
       </IcBreadcrumbGroup>
-      <IcBreadcrumbGroup appearance="dark" backBreadcrumbOnly="true">
+      <IcBreadcrumbGroup
+        theme="light"
+        monochrome={true}
+        backBreadcrumbOnly={true}
+      >
         <IcBreadcrumb
           pageTitle="Breadcrumb 1"
           href="/breadcrumb-1"
         ></IcBreadcrumb>
         <IcBreadcrumb
-          current="true"
+          current={true}
           pageTitle="Breadcrumb 2"
           href="/breadcrumb-2"
         ></IcBreadcrumb>
       </IcBreadcrumbGroup>
       <div style={{ backgroundColor: "black", width: "fit-content" }}>
-        <IcBreadcrumbGroup appearance="light">
+        <IcBreadcrumbGroup theme="dark">
           <IcBreadcrumb pageTitle="Breadcrumb 1" href="/breadcrumb-1">
             <ReusableSlottedIcon />
           </IcBreadcrumb>
-          <IcBreadcrumb pageTitle="Breadcrumb 2" current="true" href="/">
+          <IcBreadcrumb pageTitle="Breadcrumb 2" current={true} href="/">
             <ReusableSlottedIcon />
           </IcBreadcrumb>
         </IcBreadcrumbGroup>
-      </div>
-      <div style={{ backgroundColor: "black", width: "fit-content" }}>
-        <IcBreadcrumbGroup appearance="light" backBreadcrumbOnly="true">
+        <IcBreadcrumbGroup theme="dark" backBreadcrumbOnly={true}>
           <IcBreadcrumb
             pageTitle="Breadcrumb 1"
             href="/breadcrumb-1"
           ></IcBreadcrumb>
           <IcBreadcrumb
-            current="true"
+            current={true}
+            pageTitle="Breadcrumb 2"
+            href="/breadcrumb-2"
+          ></IcBreadcrumb>
+        </IcBreadcrumbGroup>
+        <IcBreadcrumbGroup theme="dark" monochrome={true}>
+          <IcBreadcrumb pageTitle="Breadcrumb 1" href="/breadcrumb-1">
+            <ReusableSlottedIcon />
+          </IcBreadcrumb>
+          <IcBreadcrumb pageTitle="Breadcrumb 2" current={true} href="/">
+            <ReusableSlottedIcon />
+          </IcBreadcrumb>
+        </IcBreadcrumbGroup>
+        <IcBreadcrumbGroup
+          theme="dark"
+          monochrome={true}
+          backBreadcrumbOnly={true}
+        >
+          <IcBreadcrumb
+            pageTitle="Breadcrumb 1"
+            href="/breadcrumb-1"
+          ></IcBreadcrumb>
+          <IcBreadcrumb
+            current={true}
             pageTitle="Breadcrumb 2"
             href="/breadcrumb-2"
           ></IcBreadcrumb>

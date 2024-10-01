@@ -31,26 +31,6 @@ import { NavLink, MemoryRouter, Route, Routes } from "react-router-dom";
   </Story>
 </Canvas>
 
-### Dark
-
-<Canvas>
-  <Story name="Dark">
-    <IcLink href="/" appearance="dark" target="_blank">
-      This is a link
-    </IcLink>
-  </Story>
-</Canvas>
-
-### Light
-
-<Canvas>
-  <Story name="Light" parameters={{ backgrounds: { default: "dark" } }}>
-    <IcLink href="/" appearance="light" target="_blank">
-      This is a link
-    </IcLink>
-  </Story>
-</Canvas>
-
 ### React Router
 
 export const HomePage = () => (
@@ -102,10 +82,11 @@ export const DailyTippers = () => (
 ### Playground
 
 export const defaultArgs = {
-  appearance: "default",
   href: "/",
   target: "",
   download: false,
+  theme: "inherit",
+  monochrome: false,
 };
 
 <Canvas>
@@ -113,30 +94,27 @@ export const defaultArgs = {
     args={defaultArgs}
     parameters={{ loki: { skip: true } }}
     argTypes={{
-      appearance: {
-        options: ["default", "light", "dark"],
-        control: {
-          type: "radio",
-        },
-      },
       target: {
         options: ["_blank", "_self", "_parent", "_top", ""],
         control: {
           type: "radio",
         },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
     name="Playground"
   >
     {(args) =>(
-        <div style={{ backgroundColor: args.appearance == "light" ? "black" : ""}}>
-          <IcLink
-            href={args.href}
-            appearance={args.appearance}
-            target={args.target}
-            download={args.download === true}
-          >This is a link</IcLink>
-        </div>
+      <IcLink
+        href={args.href}
+        target={args.target}
+        download={args.download === true}
+        theme={args.theme}
+        monochrome={args.monochrome}
+      >This is a link</IcLink>
     )}
   </Story>
 </Canvas>
