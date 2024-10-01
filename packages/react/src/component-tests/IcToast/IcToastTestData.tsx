@@ -90,7 +90,7 @@ export const SlottedLinkToast = () => {
           message="Please dismiss and collect"
           variant="success"
         >
-          <IcLink href="/" slot="action" appearance="light">
+          <IcLink href="/" slot="action" theme="dark" monochrome={true}>
             Test
           </IcLink>
         </IcToast>
