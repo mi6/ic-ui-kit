@@ -4,7 +4,7 @@ import {
   DEVICE_SIZES,
   getCurrentDeviceSize,
 } from "../../utils/helpers";
-import { IcThemeForeground } from "../../utils/types";
+import { IcThemeMode } from "../../utils/types";
 
 @Component({
   tag: "ic-breadcrumb-group",
@@ -30,15 +30,6 @@ export class BreadcrumbGroup {
   @State() expandedBreadcrumbs: boolean = false;
 
   /**
-   * The appearance of the breadcrumb group.
-   */
-  @Prop() appearance: IcThemeForeground = "default";
-  @Watch("appearance")
-  watchAppearanceHandler(): void {
-    this.setAppearance();
-  }
-
-  /**
    * If `true`, display only a single breadcrumb for the parent page with a back icon.
    */
   @Prop() backBreadcrumbOnly: boolean = false;
@@ -52,12 +43,31 @@ export class BreadcrumbGroup {
    */
   @Prop() collapsed: boolean = false;
 
+  /**
+   * If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.
+   */
+  @Prop() monochrome?: boolean = false;
+  @Watch("monochrome")
+  watchMonochromeHandler(): void {
+    this.setBreadcrumbMonochrome();
+  }
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+  @Watch("theme")
+  watchThemeHandler(): void {
+    this.setBreadcrumbTheme();
+  }
+
   componentWillLoad(): void {
     const allBreadcrumbs = Array.from(
       this.el.querySelectorAll(this.IC_BREADCRUMB)
     );
 
-    this.setAppearance();
+    this.setBreadcrumbTheme();
+    this.setBreadcrumbMonochrome();
 
     if (this.backBreadcrumbOnly) {
       this.setBackBreadcrumb();
@@ -92,13 +102,23 @@ export class BreadcrumbGroup {
       );
   }
 
-  private setAppearance = () => {
+  private setBreadcrumbTheme = () => {
     const allBreadcrumbs = Array.from(
       this.el.querySelectorAll(this.IC_BREADCRUMB)
     );
 
-    allBreadcrumbs.forEach((breadcrumb) => {
-      breadcrumb.setAttribute("appearance", this.appearance);
+    allBreadcrumbs.forEach((breadcrumb: HTMLIcBreadcrumbElement) => {
+      breadcrumb.theme = this.theme;
+    });
+  };
+
+  private setBreadcrumbMonochrome = () => {
+    const allBreadcrumbs = Array.from(
+      this.el.querySelectorAll(this.IC_BREADCRUMB)
+    );
+
+    allBreadcrumbs.forEach((breadcrumb: HTMLIcBreadcrumbElement) => {
+      breadcrumb.monochrome = this.monochrome;
     });
   };
 
@@ -290,6 +310,7 @@ export class BreadcrumbGroup {
         class={{
           "ic-breadcrumb-group-back": this.backBreadcrumbOnly,
           "ic-breadcrumb-group-collapsed": this.collapsed,
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >
         <nav aria-label="breadcrumbs">

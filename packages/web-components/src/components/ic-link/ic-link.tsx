@@ -16,6 +16,7 @@ import {
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
+  IcThemeMode,
 } from "../../utils/types";
 
 /**
@@ -37,11 +38,6 @@ export class Link {
   @Element() el: HTMLIcLinkElement;
 
   /**
-   * The appearance of the link, e.g. dark, light, or default.
-   */
-  @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
-
-  /**
    * If `true`, the user can save the linked URL instead of navigating to it.
    */
   @Prop() download?: string | boolean = false;
@@ -55,6 +51,11 @@ export class Link {
    * The human language of the linked URL.
    */
   @Prop() hreflang?: string;
+
+  /**
+   * If `true`, the link will display as black in the light theme, and white in the dark theme.
+   */
+  @Prop() monochrome?: boolean = false;
 
   /**
    * How much of the referrer to send when following the link.
@@ -71,9 +72,15 @@ export class Link {
    */
   @Prop() target?: string;
 
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+
   componentWillLoad(): void {
     this.inheritedAttributes = inheritAttributes(this.el, IC_INHERITED_ARIA);
     this.updateTheme();
+    this.el.setAttribute("exportparts", "link");
   }
 
   componentDidLoad(): void {
@@ -104,7 +111,12 @@ export class Link {
     const theme = getThemeFromContext(this.el, newTheme);
 
     if (theme !== IcThemeForegroundEnum.Default) {
-      this.appearance = theme;
+      this.monochrome = true;
+      if (theme === IcThemeForegroundEnum.Light) {
+        this.theme = "dark";
+      } else {
+        this.theme = "light";
+      }
     }
   }
 
@@ -139,18 +151,24 @@ export class Link {
       referrerpolicy,
       rel,
       target,
-      appearance,
+      monochrome,
+      theme,
     } = this;
 
     return (
-      <Host class={{ ["ic-link"]: true, [`ic-link-${appearance}`]: true }}>
+      <Host
+        class={{
+          ["ic-link"]: true,
+          [`ic-theme-${theme}`]: theme !== "inherit",
+          ["ic-link-monochrome"]: monochrome,
+        }}
+      >
         {this.hasRouterSlot() ? (
           <slot name="router-item"></slot>
         ) : (
           <a
             class={{
               ["link"]: href !== null,
-              [`${appearance}`]: href !== null,
             }}
             download={download !== false ? download : null}
             href={href}
@@ -160,6 +178,7 @@ export class Link {
             target={target}
             tabindex={href !== null ? "0" : "-1"}
             {...this.inheritedAttributes}
+            part="link"
           >
             <slot />
             {target === "_blank" && (
