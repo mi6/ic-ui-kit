@@ -258,6 +258,9 @@
   /* hyperlinks */
   --ic-hyperlink: #1759bc;
   --ic-hyperlink-visited: #330072;
+  --ic-hyperlink-dark: #5da0ea;
+  --ic-hyperlink-visited-dark: #c988fd;
+  --ic-hyperlink-visited-monochrome-dark: #b0b0b0;
   --ic-hyperlink-hover: #7c2855;
   --ic-hyperlink-contrast: #5c98f2;
   --ic-hyperlink-contrast-visited: #bc75ff;
@@ -279,6 +282,10 @@
   /* icons */
   --ic-icon-neutral: var(--ic-architectural-black);
   --ic-icon-inverted: var(--ic-architectural-white);
+  --ic-icon-grey: var(--ic-architectural-400);
+  --ic-icon-grey-dark: var(--ic-architectural-500);
+  --ic-icon-action-default: var(--ic-hyperlink);
+  --ic-icon-action-default-dark: var(--ic-hyperlink-dark);
 
   /* state layers */
   --ic-state-layer-neutral: var(--ic-architectural-200);

@@ -9,16 +9,7 @@ describe("ic-link component", () => {
       html: `<ic-link>IC Link Test</ic-link>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <ic-link class="ic-link-default ic-link">
-      <mock:shadow-root>
-        <a tabindex="-1">
-        <slot></slot>
-        </a>
-        </mock:shadow-root>
-        IC Link Test
-      </ic-link>
-    `);
+    expect(page.root).toMatchSnapshot("default-link");
   });
 
   it("should apply the 'download' attribute to the anchor element", async () => {
@@ -27,16 +18,7 @@ describe("ic-link component", () => {
       html: `<ic-link download="test-download">IC Link Test</ic-link>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-link class="ic-link-default ic-link" download="test-download">
-    <mock:shadow-root>
-        <a download="test-download" tabindex="-1">
-        <slot></slot>
-        </a>
-        </mock:shadow-root>
-        IC Link Test
-      </ic-link>
-    `);
+    expect(page.root).toMatchSnapshot("download-link");
   });
 
   it("should apply the 'href' attribute and ic-link styling to the anchor element", async () => {
@@ -45,34 +27,16 @@ describe("ic-link component", () => {
       html: `<ic-link href="test-href">IC Link Test</ic-link>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-link href="test-href" class="ic-link-default ic-link">
-    <mock:shadow-root>
-        <a class="default link" href="test-href" tabindex="0">
-        <slot></slot>
-        </a>
-        </mock:shadow-root>
-        IC Link Test
-      </ic-link>
-    `);
+    expect(page.root).toMatchSnapshot("default-link-href");
   });
 
-  it("should apply the 'dark' appearance styling and ic-link styling", async () => {
+  it("should apply the 'dark' theme styling and ic-link styling", async () => {
     const page = await newSpecPage({
       components: [Link],
-      html: `<ic-link  href="test-href" appearance="dark">IC Link Test</ic-link>`,
+      html: `<ic-link  href="test-href" theme="dark">IC Link Test</ic-link>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-link href="test-href" appearance="dark" class="ic-link-dark ic-link">
-    <mock:shadow-root>
-        <a class="dark link" href="test-href" tabindex="0">
-        <slot></slot>
-        </a>
-        </mock:shadow-root>
-        IC Link Test
-      </ic-link>
-    `);
+    expect(page.root).toMatchSnapshot("link-dark-theme");
   });
 
   it("should apply the 'hreflang' attribute to the anchor element", async () => {
@@ -81,16 +45,7 @@ describe("ic-link component", () => {
       html: `<ic-link hreflang="test-hreflang">IC Link Test</ic-link>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-link class="ic-link-default ic-link" hreflang="test-hreflang">
-    <mock:shadow-root>
-        <a hreflang="test-hreflang" tabindex="-1">
-        <slot></slot>
-        </a>
-        </mock:shadow-root>
-        IC Link Test
-      </ic-link>
-    `);
+    expect(page.root).toMatchSnapshot("default-link-hreflang");
   });
 
   it("should apply the 'referrerpolicy' attribute to the anchor element", async () => {
@@ -99,16 +54,7 @@ describe("ic-link component", () => {
       html: `<ic-link referrerpolicy="no-referrer">IC Link Test</ic-link>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-link class="ic-link-default ic-link" referrerpolicy="no-referrer">
-    <mock:shadow-root>
-        <a referrerpolicy="no-referrer" tabindex="-1">
-        <slot></slot>
-        </a>
-        </mock:shadow-root>
-        IC Link Test
-      </ic-link>
-    `);
+    expect(page.root).toMatchSnapshot("default-link-referrerpolicy");
   });
 
   it("should apply the 'rel' attribute to the anchor element", async () => {
@@ -117,16 +63,7 @@ describe("ic-link component", () => {
       html: `<ic-link rel="test-rel">IC Link Test</ic-link>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-link class="ic-link-default ic-link" rel="test-rel">
-    <mock:shadow-root>
-        <a rel="test-rel" tabindex="-1">
-        <slot></slot>
-        </a>
-        </mock:shadow-root>
-        IC Link Test
-      </ic-link>
-    `);
+    expect(page.root).toMatchSnapshot("default-link-rel");
   });
 
   it("should apply the 'target' attribute to the anchor element", async () => {
@@ -135,16 +72,7 @@ describe("ic-link component", () => {
       html: `<ic-link target="test-target">IC Link Test</ic-link>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-link class="ic-link-default ic-link" target="test-target">
-    <mock:shadow-root>
-        <a target="test-target" tabindex="-1">
-        <slot></slot>
-        </a>
-        </mock:shadow-root>
-        IC Link Test
-      </ic-link>
-    `);
+    expect(page.root).toMatchSnapshot("default-link-target");
   });
 
   it("should render an 'open in new' icon when target is blank", async () => {
@@ -153,19 +81,7 @@ describe("ic-link component", () => {
       html: `<ic-link target="_blank">IC Link Test</ic-link>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-link class="ic-link-default ic-link" target="_blank">
-    <mock:shadow-root>
-        <a tabindex="-1" target="_blank">
-          <slot></slot>
-          <span class="ic-link-open-in-new-icon">
-            svg
-          </span>
-        </a>
-        </mock:shadow-root>
-        IC Link Test
-      </ic-link>
-    `);
+    expect(page.root).toMatchSnapshot("default-link-target-blank");
   });
 
   it("should render a slotted link", async () => {
@@ -176,20 +92,7 @@ describe("ic-link component", () => {
       </ic-link>`,
     });
 
-    expect(page.root).toEqualHtml(`<ic-link class="ic-link-default ic-link">
-    <mock:shadow-root>
-      <slot name="router-item"></slot>
-    </mock:shadow-root>
-    <ic-link class="ic-link-default ic-link" slot="router-item">
-      <mock:shadow-root>
-        <a tabindex="-1">
-          <slot></slot>
-        </a>
-      </mock:shadow-root>
-      Slotted Link
-      </ic-link>
-      </ic-link>
-    `);
+    expect(page.root).toMatchSnapshot("slotted-link");
   });
 
   it("should get theme from context", async () => {
@@ -213,12 +116,12 @@ describe("ic-link component", () => {
     page.rootInstance.themeChangeHandler({ detail: { mode: "dark" } });
     await page.waitForChanges();
 
-    expect(page.rootInstance.appearance).toBe("dark");
+    expect(page.rootInstance.theme).toBe("light");
 
     page.rootInstance.themeChangeHandler({ detail: { mode: "light" } });
     await page.waitForChanges();
 
-    expect(page.rootInstance.appearance).toBe("light");
+    expect(page.rootInstance.theme).toBe("dark");
   });
 
   it("should call 'setFocus' when link is focused", async () => {
