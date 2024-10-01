@@ -1,5 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-link component should apply the 'dark' theme styling and ic-link styling: link-dark-theme 1`] = `
+<ic-link class="ic-link ic-theme-dark" exportparts="link" href="test-href" theme="dark">
+  <mock:shadow-root>
+    <a class="link" href="test-href" part="link" tabindex="0">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  IC Link Test
+</ic-link>
+`;
+
+exports[`ic-link component should apply the 'download' attribute to the anchor element: download-link 1`] = `
+<ic-link class="ic-link" download="test-download" exportparts="link">
+  <mock:shadow-root>
+    <a download="test-download" part="link" tabindex="-1">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  IC Link Test
+</ic-link>
+`;
+
+exports[`ic-link component should apply the 'href' attribute and ic-link styling to the anchor element: default-link-href 1`] = `
+<ic-link class="ic-link" exportparts="link" href="test-href">
+  <mock:shadow-root>
+    <a class="link" href="test-href" part="link" tabindex="0">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  IC Link Test
+</ic-link>
+`;
+
+exports[`ic-link component should apply the 'hreflang' attribute to the anchor element: default-link-hreflang 1`] = `
+<ic-link class="ic-link" exportparts="link" hreflang="test-hreflang">
+  <mock:shadow-root>
+    <a hreflang="test-hreflang" part="link" tabindex="-1">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  IC Link Test
+</ic-link>
+`;
+
+exports[`ic-link component should apply the 'referrerpolicy' attribute to the anchor element: default-link-referrerpolicy 1`] = `
+<ic-link class="ic-link" exportparts="link" referrerpolicy="no-referrer">
+  <mock:shadow-root>
+    <a part="link" referrerpolicy="no-referrer" tabindex="-1">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  IC Link Test
+</ic-link>
+`;
+
+exports[`ic-link component should apply the 'rel' attribute to the anchor element: default-link-rel 1`] = `
+<ic-link class="ic-link" exportparts="link" rel="test-rel">
+  <mock:shadow-root>
+    <a part="link" rel="test-rel" tabindex="-1">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  IC Link Test
+</ic-link>
+`;
+
+exports[`ic-link component should apply the 'target' attribute to the anchor element: default-link-target 1`] = `
+<ic-link class="ic-link" exportparts="link" target="test-target">
+  <mock:shadow-root>
+    <a part="link" tabindex="-1" target="test-target">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  IC Link Test
+</ic-link>
+`;
+
 exports[`ic-link component should get theme from context: alert-theme-context 1`] = `
 <ic-alert class="dark" message="This has an action" role="alert">
   <mock:shadow-root>
@@ -25,13 +102,54 @@ exports[`ic-link component should get theme from context: alert-theme-context 1`
       <div class="dismiss-icon-container"></div>
     </div>
   </mock:shadow-root>
-  <ic-link class="ic-link ic-link-default" slot="action">
+  <ic-link class="ic-link" exportparts="link" slot="action">
     <mock:shadow-root>
-      <a tabindex="-1">
+      <a part="link" tabindex="-1">
         <slot></slot>
       </a>
     </mock:shadow-root>
     Theme context link
   </ic-link>
 </ic-alert>
+`;
+
+exports[`ic-link component should render a link by default with the correct text: default-link 1`] = `
+<ic-link class="ic-link" exportparts="link">
+  <mock:shadow-root>
+    <a part="link" tabindex="-1">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  IC Link Test
+</ic-link>
+`;
+
+exports[`ic-link component should render a slotted link: slotted-link 1`] = `
+<ic-link class="ic-link" exportparts="link">
+  <mock:shadow-root>
+    <slot name="router-item"></slot>
+  </mock:shadow-root>
+  <ic-link class="ic-link" exportparts="link" slot="router-item">
+    <mock:shadow-root>
+      <a part="link" tabindex="-1">
+        <slot></slot>
+      </a>
+    </mock:shadow-root>
+    Slotted Link
+  </ic-link>
+</ic-link>
+`;
+
+exports[`ic-link component should render an 'open in new' icon when target is blank: default-link-target-blank 1`] = `
+<ic-link class="ic-link" exportparts="link" target="_blank">
+  <mock:shadow-root>
+    <a part="link" tabindex="-1" target="_blank">
+      <slot></slot>
+      <span class="ic-link-open-in-new-icon">
+        svg
+      </span>
+    </a>
+  </mock:shadow-root>
+  IC Link Test
+</ic-link>
 `;

@@ -54,38 +54,13 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### Dark
-
-<Canvas>
-  <Story
-    name="Dark"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
-    {html`<ic-link href="/" appearance="dark" target="_blank"
-      >This is a link</ic-link
-    >`}
-  </Story>
-</Canvas>
-
-### Light
-
-<Canvas>
-  <Story
-    name="Light"
-    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
-  >
-    {html` <ic-link href="/" appearance="light" target="_blank"
-      >This is a link</ic-link
-    >`}
-  </Story>
-</Canvas>
-
 ### Playground
 
 export const defaultArgs = {
-  appearance: "default",
   href: "/",
   target: "",
+  monochrome: false,
+  theme: "inherit",
 };
 
 <Canvas>
@@ -93,32 +68,27 @@ export const defaultArgs = {
     args={defaultArgs}
     parameters={{ loki: { skip: true } }}
     argTypes={{
-      appearance: {
-        options: ["default", "light", "dark"],
-        control: {
-          type: "radio",
-        },
-      },
       target: {
         options: ["_blank", "_self", "_parent", "_top", ""],
         control: {
           type: "radio",
         },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
     name="Playground"
   >
     {(args) =>
-      html` <div
-        style="background-color: ${args.appearance == "light" ? "black" : ""}"
-      >
-        <ic-link
-          href=${args.href}
-          appearance=${args.appearance}
-          target=${args.target}
-          >This is a link</ic-link
-        >
-      </div>`
+      html` <ic-link
+        href=${args.href}
+        target=${args.target}
+        monochrome=${args.monochrome}
+        theme=${args.theme}
+        >This is a link</ic-link
+      >`
     }
   </Story>
 </Canvas>
