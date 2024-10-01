@@ -47,3 +47,18 @@
   height: calc(4 * var(--ic-space-xl)) !important;
   width: calc(4 * var(--ic-space-xl)) !important;
 }
+
+::slotted([slot="heading"]),
+.empty-state-heading {
+  --ic-typography-color: var(--ic-empty-state-title);
+}
+
+::slotted([slot="subheading"]),
+.empty-state-subheading {
+  --ic-typography-color: var(--ic-empty-state-subtitle);
+}
+
+::slotted([slot="body"]),
+.empty-state-body {
+  --ic-typography-color: var(--ic-empty-state-body);
+}
