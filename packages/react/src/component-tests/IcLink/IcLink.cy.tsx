@@ -56,7 +56,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
   it("should render dark IcLink", () => {
     mount(
       <div style={{ margin: "16px" }}>
-        <IcLink appearance={"dark"} href="/components/link/code">
+        <IcLink theme="light" monochrome={true} href="/components/link/code">
           About our coffees
         </IcLink>
       </div>
@@ -74,7 +74,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
   it("should render dark IcLink with focus", () => {
     mount(
       <div style={{ margin: "16px" }}>
-        <IcLink appearance={"dark"} href="/components/link/code">
+        <IcLink theme="light" monochrome={true} href="/components/link/code">
           About our coffees
         </IcLink>
       </div>
@@ -96,7 +96,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
       <div
         style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
       >
-        <IcLink href="/" appearance="light">
+        <IcLink href="/" theme="dark" monochrome={true}>
           About our coffees
         </IcLink>
       </div>
@@ -116,7 +116,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
       <div
         style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
       >
-        <IcLink href="/" appearance="light">
+        <IcLink href="/" theme="dark" monochrome={true}>
           About our coffees
         </IcLink>
       </div>
