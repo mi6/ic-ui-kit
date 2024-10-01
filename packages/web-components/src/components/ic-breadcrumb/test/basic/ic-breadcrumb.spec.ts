@@ -35,7 +35,7 @@ describe("ic-breadcrumb", () => {
             <span aria-hidden="true" class="chevron">
               svg
             </span>
-            <ic-link appearance="default" class="breadcrumb-link" href="/">
+            <ic-link theme="inherit" class="breadcrumb-link" href="/">
               foo
             </ic-link>
           </div>
@@ -57,7 +57,7 @@ describe("ic-breadcrumb", () => {
             <span aria-hidden="true" class="chevron">
               svg
             </span>
-            <span class="current-page-container default">
+            <span class="current-page-container">
               foo
             </span>
           </div>
@@ -94,7 +94,7 @@ describe("ic-breadcrumb", () => {
             <span aria-hidden="true" class="chevron">
               svg
             </span>
-            <span class="current-page-container default">
+            <span class="current-page-container">
               <slot name="icon"></slot>
               foo
             </span>
