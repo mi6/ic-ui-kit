@@ -1287,43 +1287,6 @@
       "usage": {},
       "props": [
         {
-          "name": "appearance",
-          "type": "\"dark\" | \"default\" | \"light\"",
-          "complexType": {
-            "original": "IcThemeForeground",
-            "resolved": "\"dark\" | \"default\" | \"light\"",
-            "references": {
-              "IcThemeForeground": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForeground"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "The appearance of the breadcrumb group.",
-          "docsTags": [],
-          "default": "\"default\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "backBreadcrumbOnly",
           "type": "boolean",
           "complexType": {
@@ -1365,6 +1328,65 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "monochrome",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
           "required": false
         }
       ],
@@ -6630,43 +6652,6 @@
       "usage": {},
       "props": [
         {
-          "name": "appearance",
-          "type": "\"dark\" | \"default\" | \"light\"",
-          "complexType": {
-            "original": "IcThemeForeground",
-            "resolved": "\"dark\" | \"default\" | \"light\"",
-            "references": {
-              "IcThemeForeground": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForeground"
-              }
-            }
-          },
-          "mutable": true,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "The appearance of the link, e.g. dark, light, or default.",
-          "docsTags": [],
-          "default": "\"default\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "download",
           "type": "boolean | string",
           "complexType": {
@@ -6729,6 +6714,28 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "monochrome",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "If `true`, the link will display as black in the light theme, and white in the dark theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,
@@ -6828,6 +6835,43 @@
           "docsTags": [],
           "values": [
             {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             }
           ],
