@@ -7,14 +7,15 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                                                    | Type                             | Default     |
-| ------------ | ------------ | -------------------------------------------------------------- | -------------------------------- | ----------- |
-| `aligned`    | `aligned`    | The alignment of the empty state container.                    | `"center" \| "left" \| "right"`  | `"left"`    |
-| `body`       | `body`       | The body text rendered in the empty state container.           | `string`                         | `undefined` |
-| `heading`    | `heading`    | The title rendered in the empty state container.               | `string`                         | `undefined` |
-| `imageSize`  | `image-size` | The size of the image or icon used in the image slot.          | `"large" \| "medium" \| "small"` | `"medium"`  |
-| `maxLines`   | `max-lines`  | The number of lines of body text to display before truncating. | `number`                         | `undefined` |
-| `subheading` | `subheading` | The subtitle rendered in the empty state container.            | `string`                         | `undefined` |
+| Property     | Attribute    | Description                                                                                                                             | Type                             | Default     |
+| ------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------- |
+| `aligned`    | `aligned`    | The alignment of the empty state container.                                                                                             | `"center" \| "left" \| "right"`  | `"left"`    |
+| `body`       | `body`       | The body text rendered in the empty state container.                                                                                    | `string`                         | `undefined` |
+| `heading`    | `heading`    | The title rendered in the empty state container.                                                                                        | `string`                         | `undefined` |
+| `imageSize`  | `image-size` | The size of the image or icon used in the image slot.                                                                                   | `"large" \| "medium" \| "small"` | `"medium"`  |
+| `maxLines`   | `max-lines`  | The number of lines of body text to display before truncating.                                                                          | `number`                         | `undefined` |
+| `subheading` | `subheading` | The subtitle rendered in the empty state container.                                                                                     | `string`                         | `undefined` |
+| `theme`      | `theme`      | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"` | `"inherit"` |
 
 
 ## Slots

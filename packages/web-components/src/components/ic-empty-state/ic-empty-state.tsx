@@ -6,7 +6,7 @@ import {
   onComponentRequiredPropUndefined,
   checkSlotInChildMutations,
 } from "../../utils/helpers";
-import { IcSizes } from "../../utils/types";
+import { IcSizes, IcThemeMode } from "../../utils/types";
 
 /**
  * @slot image - Content is placed at the top above all other content.
@@ -55,6 +55,11 @@ export class EmptyState {
    */
   @Prop() subheading?: string;
 
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+
   disconnectedCallback(): void {
     this.hostMutationObserver?.disconnect();
   }
@@ -88,24 +93,35 @@ export class EmptyState {
   };
 
   render() {
-    const { aligned, body, maxLines, heading, imageSize, subheading } = this;
+    const { aligned, body, maxLines, heading, imageSize, subheading, theme } =
+      this;
     return (
       <Host
         class={{
           [`ic-empty-state-${aligned}`]: true,
           [`image-${imageSize}`]: isSlotUsed(this.el, "image"),
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
         {isSlotUsed(this.el, "image") && <slot name="image"></slot>}
         <div>
           <slot name="heading">
-            <ic-typography variant="h4">{heading}</ic-typography>
+            <ic-typography variant="h4" class="empty-state-heading">
+              {heading}
+            </ic-typography>
           </slot>
           <slot name="subheading">
-            <ic-typography variant="subtitle-small">{subheading}</ic-typography>
+            <ic-typography
+              variant="subtitle-small"
+              class="empty-state-subheading"
+            >
+              {subheading}
+            </ic-typography>
           </slot>
           <slot name="body">
-            <ic-typography maxLines={maxLines}>{body}</ic-typography>
+            <ic-typography maxLines={maxLines} class="empty-state-body">
+              {body}
+            </ic-typography>
           </slot>
         </div>
         {isSlotUsed(this.el, "actions") && (

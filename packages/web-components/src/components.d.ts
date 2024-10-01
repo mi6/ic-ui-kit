@@ -683,6 +683,10 @@ export namespace Components {
           * The subtitle rendered in the empty state container.
          */
         "subheading"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcFooter {
         /**
@@ -3867,6 +3871,10 @@ declare namespace LocalJSX {
           * The subtitle rendered in the empty state container.
          */
         "subheading"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcFooter {
         /**
