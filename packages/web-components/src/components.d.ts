@@ -202,7 +202,6 @@ export namespace Components {
         "visible": boolean;
     }
     interface IcBreadcrumb {
-        "appearance": IcThemeForeground;
         /**
           * If `true`, aria-current will be set on the breadcrumb.
          */
@@ -211,6 +210,7 @@ export namespace Components {
           * The URL that the breadcrumb link points to.
          */
         "href"?: string;
+        "monochrome"?: boolean;
         /**
           * The title of the breadcrumb.
          */
@@ -220,12 +220,9 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         "showBackIcon": boolean;
+        "theme"?: IcThemeMode;
     }
     interface IcBreadcrumbGroup {
-        /**
-          * The appearance of the breadcrumb group.
-         */
-        "appearance": IcThemeForeground;
         /**
           * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
@@ -234,6 +231,14 @@ export namespace Components {
           * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
          */
         "collapsed": boolean;
+        /**
+          * If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcButton {
         /**
@@ -885,10 +890,6 @@ export namespace Components {
     }
     interface IcLink {
         /**
-          * The appearance of the link, e.g. dark, light, or default.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
@@ -900,6 +901,10 @@ export namespace Components {
           * The human language of the linked URL.
          */
         "hreflang"?: string;
+        /**
+          * If `true`, the link will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
         /**
           * How much of the referrer to send when following the link.
          */
@@ -916,6 +921,10 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcLoadingIndicator {
         /**
@@ -3365,7 +3374,6 @@ declare namespace LocalJSX {
         "visible"?: boolean;
     }
     interface IcBreadcrumb {
-        "appearance"?: IcThemeForeground;
         /**
           * If `true`, aria-current will be set on the breadcrumb.
          */
@@ -3374,17 +3382,15 @@ declare namespace LocalJSX {
           * The URL that the breadcrumb link points to.
          */
         "href"?: string;
+        "monochrome"?: boolean;
         /**
           * The title of the breadcrumb.
          */
         "pageTitle": string;
         "showBackIcon"?: boolean;
+        "theme"?: IcThemeMode;
     }
     interface IcBreadcrumbGroup {
-        /**
-          * The appearance of the breadcrumb group.
-         */
-        "appearance"?: IcThemeForeground;
         /**
           * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
@@ -3393,6 +3399,14 @@ declare namespace LocalJSX {
           * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
          */
         "collapsed"?: boolean;
+        /**
+          * If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcButton {
         /**
@@ -4060,10 +4074,6 @@ declare namespace LocalJSX {
     }
     interface IcLink {
         /**
-          * The appearance of the link, e.g. dark, light, or default.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
@@ -4076,6 +4086,10 @@ declare namespace LocalJSX {
          */
         "hreflang"?: string;
         /**
+          * If `true`, the link will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * How much of the referrer to send when following the link.
          */
         "referrerpolicy"?: ReferrerPolicy;
@@ -4087,6 +4101,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcLoadingIndicator {
         /**

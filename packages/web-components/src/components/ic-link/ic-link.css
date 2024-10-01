@@ -2,25 +2,45 @@
 
 :host(.ic-link) .link,
 :host(.ic-link) ::slotted(a) {
-  color: var(--ic-hyperlink);
+  color: var(--ic-link-text);
   text-decoration: underline;
   font-weight: var(--ic-font-weight-bold);
   transition: var(--ic-easing-transition-fast);
 }
 
-:host(.ic-link.ic-link-dark) .link.dark,
-:host(.ic-link.ic-link-dark) ::slotted(a) {
-  color: var(--ic-color-primary-text-light);
-}
-
-:host(.ic-link.ic-link-light) .link.light,
-:host(.ic-link.ic-link-light) ::slotted(a) {
-  color: var(--ic-color-primary-text-dark);
-}
-
 :host(.ic-link) .link:visited,
-:host(.ic-link) ::slotted(a:visited) {
-  color: var(--ic-hyperlink-visited);
+:host(.ic-link) ::slotted(a:visited),
+:host(.ic-link) .link:visited:hover,
+:host(.ic-link) ::slotted(a:visited:hover),
+:host(.ic-link) .link:visited:active,
+:host(.ic-link) ::slotted(a:visited:active),
+:host(.ic-link) .link:visited:focus,
+:host(.ic-link) ::slotted(a:visited:focus) {
+  color: var(--ic-link-text-visited);
+}
+
+:host(.ic-link) .link:hover {
+  color: var(--ic-link-text-hover);
+}
+
+:host(.ic-link) .link:active {
+  color: var(--ic-link-text-pressed);
+}
+
+:host(.ic-link) .link:focus {
+  color: var(--ic-link-text-focused);
+}
+
+:host(.ic-link-monochrome) .link:hover {
+  color: var(--ic-link-text-hover-monochrome);
+}
+
+:host(.ic-link-monochrome) .link:active {
+  color: var(--ic-link-text-pressed-monochrome);
+}
+
+:host(.ic-link-monochrome) .link:focus {
+  color: var(--ic-link-text-focused-monochrome);
 }
 
 :host(.ic-link) .link:hover,
@@ -61,7 +81,7 @@
 }
 
 .link > .ic-link-open-in-new-icon {
-  fill: var(--ic-hyperlink);
+  fill: var(--ic-link-icon-launch);
 }
 
 .ic-link-open-in-new-icon > svg {
@@ -71,17 +91,61 @@
 }
 
 .link:visited > .ic-link-open-in-new-icon {
-  fill: var(--ic-hyperlink-visited);
+  fill: var(--ic-link-icon-launch-visited);
 }
 
-.link.light:visited > .ic-link-open-in-new-icon {
-  fill: var(--ic-hyperlink-contrast-visited);
+:host(.ic-link-monochrome) .link,
+:host(.ic-link-monochrome) ::slotted(a) {
+  color: var(--ic-link-text-monochrome);
+}
+
+:host(.ic-link-monochrome) .link:visited,
+:host(.ic-link-monochrome) ::slotted(a:visited),
+:host(.ic-link-monochrome) .link:visited:hover,
+:host(.ic-link-monochrome) ::slotted(a:visited:hover),
+:host(.ic-link-monochrome) .link:visited:active,
+:host(.ic-link-monochrome) ::slotted(a:visited:active),
+:host(.ic-link-monochrome) .link:visited:focus,
+:host(.ic-link-monochrome) ::slotted(a:visited:focus) {
+  color: var(--ic-link-text-visited-monochrome);
+}
+
+:host(.ic-link-monochrome) .link > .ic-link-open-in-new-icon {
+  fill: var(--ic-link-icon-launch-monochrome);
+}
+
+:host(.ic-link-monochrome) .link:visited > .ic-link-open-in-new-icon {
+  fill: var(--ic-link-icon-launch-visited-monochrome);
 }
 
 :host(.breadcrumb-link) .link {
   display: var(--breadcrumb-link-display);
   align-items: var(--breadcrumb-link-align-items);
   gap: var(--breadcrumb-link-gap);
+}
+
+:host(.breadcrumb-link) .link {
+  color: var(--ic-breadcrumb-page-title);
+}
+
+:host(.ic-link-monochrome.breadcrumb-link) .link {
+  color: var(--ic-breadcrumb-page-title-monochrome);
+}
+
+:host(.breadcrumb-link) .link:hover {
+  color: var(--ic-breadcrumb-page-title-hover);
+}
+
+:host(.ic-link-monochrome.breadcrumb-link) .link:hover {
+  color: var(--ic-breadcrumb-page-title-hover-monochrome);
+}
+
+:host(.breadcrumb-link) .link:active {
+  color: var(--ic-breadcrumb-page-title-pressed);
+}
+
+:host(.ic-link-monochrome.breadcrumb-link) .link:active {
+  color: var(--ic-breadcrumb-page-title-pressed-monochrome);
 }
 
 :host(.breadcrumb-link) .link ::slotted(.back-icon) {
