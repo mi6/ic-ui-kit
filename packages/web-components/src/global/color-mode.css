@@ -9,12 +9,42 @@ ic-theme,
   --ic-color-tertiary-text: var(--ic-color-tertiary-text-light);
   --ic-color-inverse-text: var(--ic-color-inverse-text-light);
 
+  /* Breadcrumbs */
+  --ic-breadcrumb-page-title: var(--ic-hyperlink);
+  --ic-breadcrumb-page-title-hover: var(--ic-hyperlink);
+  --ic-breadcrumb-page-title-pressed: var(--ic-hyperlink);
+  --ic-breadcrumb-page-title-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-page-title-hover-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-page-title-pressed-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-icon-chevron: var(--ic-icon-grey);
+  --ic-breadcrumb-icon-chevron-monochrome: var(--ic-icon-grey-dark);
+  --ic-breadcrumb-page-icon: var(--ic-icon-action-default);
+  --ic-breadcrumb-page-icon-monochrome: var(--ic-icon-neutral);
+  --ic-breadcrumb-text: var(--ic-color-primary-text);
+  --ic-breadcrumb-text-monochrome: var(--ic-color-primary-text);
+
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-primary-text);
   --ic-data-list-text-heading: var(--ic-color-primary-text);
   --ic-data-list-text-label: var(--ic-color-tertiary-text);
   --ic-data-list-keyline-heading: var(--ic-border-neutral);
   --ic-data-list-keyline-cell: var(--ic-border-neutral);
+
+  /* Links */
+  --ic-link-text: var(--ic-hyperlink);
+  --ic-link-text-hover: var(--ic-hyperlink);
+  --ic-link-text-pressed: var(--ic-hyperlink);
+  --ic-link-text-focused: var(--ic-hyperlink);
+  --ic-link-text-visited: var(--ic-hyperlink-visited);
+  --ic-link-text-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-hover-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-pressed-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-focused-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-visited-monochrome: var(--ic-color-secondary-text);
+  --ic-link-icon-launch: var(--ic-hyperlink);
+  --ic-link-icon-launch-visited: var(--ic-hyperlink-visited);
+  --ic-link-icon-launch-monochrome: var(--ic-color-primary-text);
+  --ic-link-icon-launch-visited-monochrome: var(--ic-color-secondary-text);
 
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-inverse-text);
@@ -73,12 +103,46 @@ ic-theme,
     --ic-color-tertiary-text: var(--ic-color-tertiary-text-dark);
     --ic-color-inverse-text: var(--ic-color-inverse-text-dark);
 
+    /* Breadcrumbs */
+    --ic-breadcrumb-page-title: var(--ic-hyperlink-dark);
+    --ic-breadcrumb-page-title-hover: var(--ic-hyperlink-dark);
+    --ic-breadcrumb-page-title-pressed: var(--ic-hyperlink-dark);
+    --ic-breadcrumb-page-title-monochrome: var(--ic-color-primary-text);
+    --ic-breadcrumb-page-title-hover-monochrome: var(--ic-color-primary-text);
+    --ic-breadcrumb-page-title-pressed-monochrome: var(--ic-color-primary-text);
+    --ic-breadcrumb-icon-chevron: var(--ic-icon-grey);
+    --ic-breadcrumb-icon-chevron-monochrome: var(--ic-icon-grey-dark);
+    --ic-breadcrumb-page-icon: var(--ic-icon-action-default-dark);
+    --ic-breadcrumb-page-icon-monochrome: var(--ic-icon-inverted);
+    --ic-breadcrumb-text: var(--ic-color-primary-text);
+    --ic-breadcrumb-text-monochrome: var(--ic-color-primary-text);
+
     /* Data list */
     --ic-data-list-text-cell: var(--ic-color-primary-text);
     --ic-data-list-text-heading: var(--ic-color-primary-text);
     --ic-data-list-text-label: var(--ic-color-tertiary-text);
     --ic-data-list-keyline-heading: var(--ic-border-neutral);
     --ic-data-list-keyline-cell: var(--ic-border-neutral);
+
+    /* Links */
+    --ic-link-text: var(--ic-hyperlink-dark);
+    --ic-link-text-hover: var(--ic-hyperlink-dark);
+    --ic-link-text-pressed: var(--ic-hyperlink-dark);
+    --ic-link-text-focused: var(--ic-hyperlink-dark);
+    --ic-link-text-visited: var(--ic-hyperlink-visited-dark);
+    --ic-link-text-monochrome: var(--ic-color-primary-text);
+    --ic-link-text-hover-monochrome: var(--ic-color-primary-text);
+    --ic-link-text-pressed-monochrome: var(--ic-color-primary-text);
+    --ic-link-text-focused-monochrome: var(--ic-color-primary-text);
+    --ic-link-text-visited-monochrome: var(
+      --ic-hyperlink-visited-monochrome-dark
+    );
+    --ic-link-icon-launch: var(--ic-hyperlink-dark);
+    --ic-link-icon-launch-visited: var(--ic-hyperlink-visited-dark);
+    --ic-link-icon-launch-monochrome: var(--ic-color-primary-text);
+    --ic-link-icon-launch-visited-monochrome: var(
+      --ic-hyperlink-visited-monochrome-dark
+    );
 
     /* Status tags */
     --ic-status-tag-text: var(--ic-color-inverse-text);
@@ -139,12 +203,46 @@ ic-theme,
   --ic-color-tertiary-text: var(--ic-color-tertiary-text-dark);
   --ic-color-inverse-text: var(--ic-color-inverse-text-dark);
 
+  /* Breadcrumbs */
+  --ic-breadcrumb-page-title: var(--ic-hyperlink-dark);
+  --ic-breadcrumb-page-title-hover: var(--ic-hyperlink-dark);
+  --ic-breadcrumb-page-title-pressed: var(--ic-hyperlink-dark);
+  --ic-breadcrumb-page-title-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-page-title-hover-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-page-title-pressed-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-icon-chevron: var(--ic-icon-grey);
+  --ic-breadcrumb-icon-chevron-monochrome: var(--ic-icon-grey-dark);
+  --ic-breadcrumb-page-icon: var(--ic-icon-action-default-dark);
+  --ic-breadcrumb-page-icon-monochrome: var(--ic-icon-inverted);
+  --ic-breadcrumb-text: var(--ic-color-primary-text);
+  --ic-breadcrumb-text-monochrome: var(--ic-color-primary-text);
+
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-primary-text);
   --ic-data-list-text-heading: var(--ic-color-primary-text);
   --ic-data-list-text-label: var(--ic-color-tertiary-text);
   --ic-data-list-keyline-heading: var(--ic-border-neutral);
   --ic-data-list-keyline-cell: var(--ic-border-neutral);
+
+  /* Links */
+  --ic-link-text: var(--ic-hyperlink-dark);
+  --ic-link-text-hover: var(--ic-hyperlink-dark);
+  --ic-link-text-pressed: var(--ic-hyperlink-dark);
+  --ic-link-text-focused: var(--ic-hyperlink-dark);
+  --ic-link-text-visited: var(--ic-hyperlink-visited-dark);
+  --ic-link-text-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-hover-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-pressed-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-focused-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-visited-monochrome: var(
+    --ic-hyperlink-visited-monochrome-dark
+  );
+  --ic-link-icon-launch: var(--ic-hyperlink-dark);
+  --ic-link-icon-launch-visited: var(--ic-hyperlink-visited-dark);
+  --ic-link-icon-launch-monochrome: var(--ic-color-primary-text);
+  --ic-link-icon-launch-visited-monochrome: var(
+    --ic-hyperlink-visited-monochrome-dark
+  );
 
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-inverse-text);
