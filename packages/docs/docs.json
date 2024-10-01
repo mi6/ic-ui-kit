@@ -976,9 +976,15 @@
           "name": "theme",
           "type": "\"dark\" | \"inherit\" | \"light\"",
           "complexType": {
-            "original": "\"dark\" | \"light\" | \"inherit\"",
+            "original": "IcThemeMode",
             "resolved": "\"dark\" | \"inherit\" | \"light\"",
-            "references": {}
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
           },
           "mutable": false,
           "attr": "theme",
@@ -17639,6 +17645,11 @@
       "docstring": "",
       "path": "src/components/ic-badge/ic-badge.types.ts"
     },
+    "src/utils/types.ts::IcThemeMode": {
+      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/components/ic-badge/ic-badge.types.ts::IcBadgeTypes": {
       "declaration": "export type IcBadgeTypes = \"dot\" | \"text\" | \"icon\";",
       "docstring": "",
@@ -17651,11 +17662,6 @@
     },
     "src/utils/types.ts::IcEmphasisType": {
       "declaration": "export type IcEmphasisType = \"filled\" | \"outlined\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcThemeMode": {
-      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
