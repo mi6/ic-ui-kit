@@ -9,37 +9,37 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb appearance="default" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+  <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-1">
+        <ic-link class="breadcrumb-link" href="/breadcrumb-1" theme="inherit">
           Breadcrumb 1
         </ic-link>
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="default" class="visuallyhidden" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+  <ic-breadcrumb class="visuallyhidden" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-2">
+        <ic-link class="breadcrumb-link" href="/breadcrumb-2" theme="inherit">
           Breadcrumb 2
         </ic-link>
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="default" aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
+  <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <span class="current-page-container default">
+        <span class="current-page-container">
           Breadcrumb 3
         </span>
       </div>
@@ -57,43 +57,43 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb appearance="default" aria-current="page" current="true" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+  <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <span class="current-page-container default">
+        <span class="current-page-container">
           Breadcrumb 1
         </span>
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="default" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+  <ic-breadcrumb href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-2">
+        <ic-link class="breadcrumb-link" href="/breadcrumb-2" theme="inherit">
           Breadcrumb 2
         </ic-link>
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="default" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
+  <ic-breadcrumb href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-3">
+        <ic-link class="breadcrumb-link" href="/breadcrumb-3" theme="inherit">
           Breadcrumb 3
         </ic-link>
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="default" class="ic-breadcrumb-back show" href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem" show-back-icon="true">
+  <ic-breadcrumb class="ic-breadcrumb-back show" href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem" show-back-icon="true">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -102,7 +102,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
         <span class="hide" id="breadcrumb-4-describedby">
           Back to Breadcrumb 4
         </span>
-        <ic-link appearance="default" aria-describedby="breadcrumb-4-describedby" class="breadcrumb-link" href="/breadcrumb-4">
+        <ic-link aria-describedby="breadcrumb-4-describedby" class="breadcrumb-link" href="/breadcrumb-4" theme="inherit">
           <div class="back-icon">
             svg
           </div>
@@ -114,8 +114,8 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
 </ic-breadcrumb-group>
 `;
 
-exports[`ic-breadcrumb-group should render current appearance styling: should render current appearance styling 1`] = `
-<ic-breadcrumb-group appearance="light">
+exports[`ic-breadcrumb-group should render current theme styling: should render current theme styling 1`] = `
+<ic-breadcrumb-group class="ic-theme-light" theme="light">
   <mock:shadow-root>
     <nav aria-label="breadcrumbs">
       <ol>
@@ -123,13 +123,13 @@ exports[`ic-breadcrumb-group should render current appearance styling: should re
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb appearance="light" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+  <ic-breadcrumb class="ic-theme-light" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link appearance="light" class="breadcrumb-link" href="/breadcrumb-1">
+        <ic-link class="breadcrumb-link" href="/breadcrumb-1" theme="light">
           <slot name="icon"></slot>
           Breadcrumb 1
         </ic-link>
@@ -139,13 +139,13 @@ exports[`ic-breadcrumb-group should render current appearance styling: should re
       <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
     </svg>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="light" aria-current="page" current="true" href="/" page-title="Breadcrumb 2" role="listitem">
+  <ic-breadcrumb aria-current="page" class="ic-theme-light" current="true" href="/" page-title="Breadcrumb 2" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <span class="current-page-container light">
+        <span class="current-page-container">
           <slot name="icon"></slot>
           Breadcrumb 2
         </span>
@@ -179,13 +179,13 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb appearance="default" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+  <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-1">
+        <ic-link class="breadcrumb-link" href="/breadcrumb-1" theme="inherit">
           Breadcrumb 1
         </ic-link>
       </div>
@@ -210,25 +210,25 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
       ...
     </button>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="default" class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+  <ic-breadcrumb class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-2">
+        <ic-link class="breadcrumb-link" href="/breadcrumb-2" theme="inherit">
           Breadcrumb 2
         </ic-link>
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="default" aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
+  <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <span class="current-page-container default">
+        <span class="current-page-container">
           Breadcrumb 3
         </span>
       </div>
@@ -246,7 +246,7 @@ exports[`ic-breadcrumb-group should render with ic-breadcrumb: should render wit
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb appearance="default" role="listitem">
+  <ic-breadcrumb role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -280,13 +280,13 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb appearance="default" aria-current="page" current="true" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+  <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <span class="current-page-container default">
+        <span class="current-page-container">
           Breadcrumb 1
         </span>
       </div>
@@ -311,37 +311,37 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
       ...
     </button>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="default" class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+  <ic-breadcrumb class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-2">
+        <ic-link class="breadcrumb-link" href="/breadcrumb-2" theme="inherit">
           Breadcrumb 2
         </ic-link>
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="default" class="hide" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
+  <ic-breadcrumb class="hide" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-3">
+        <ic-link class="breadcrumb-link" href="/breadcrumb-3" theme="inherit">
           Breadcrumb 3
         </ic-link>
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb appearance="default" class="show" href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem" show-back-icon="true">
+  <ic-breadcrumb class="show" href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem" show-back-icon="true">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-4">
+        <ic-link class="breadcrumb-link" href="/breadcrumb-4" theme="inherit">
           Breadcrumb 4
         </ic-link>
       </div>

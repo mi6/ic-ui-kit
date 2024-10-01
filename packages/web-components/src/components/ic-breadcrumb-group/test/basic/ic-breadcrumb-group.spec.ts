@@ -24,10 +24,10 @@ describe("ic-breadcrumb-group", () => {
     expect(page.root).toMatchSnapshot("should render styling from props");
   });
 
-  it("should render current appearance styling", async () => {
+  it("should render current theme styling", async () => {
     const page = await newSpecPage({
       components: [BreadcrumbGroup, Breadcrumb],
-      html: `<ic-breadcrumb-group appearance="light">
+      html: `<ic-breadcrumb-group theme="light">
       <ic-breadcrumb page-title="Breadcrumb 1" href="/breadcrumb-1">
         <svg
           slot="icon"
@@ -61,9 +61,7 @@ describe("ic-breadcrumb-group", () => {
     </ic-breadcrumb-group>`,
     });
 
-    expect(page.root).toMatchSnapshot(
-      "should render current appearance styling"
-    );
+    expect(page.root).toMatchSnapshot("should render current theme styling");
   });
 
   it("should render with ic-breadcrumb", async () => {
