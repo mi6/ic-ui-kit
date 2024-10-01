@@ -4,7 +4,7 @@ import { IcBreadcrumbDefault } from "./ic-breadcrumb.types";
 import chevronIcon from "../../assets/chevron-icon.svg";
 import backIcon from "../../assets/back-icon.svg";
 import { isPropDefined, isSlotUsed } from "../../utils/helpers";
-import { IcThemeForeground } from "../../utils/types";
+import { IcThemeMode } from "../../utils/types";
 
 /**
  * @slot icon - Content will be rendered to the left of the breadcrumb page title.
@@ -20,11 +20,6 @@ export class Breadcrumb {
   @Element() el: HTMLIcBreadcrumbElement;
 
   /**
-   * @internal The appearance of the breadcrumb.
-   */
-  @Prop() appearance: IcThemeForeground = "default";
-
-  /**
    * If `true`, aria-current will be set on the breadcrumb.
    */
   @Prop() current?: boolean = false;
@@ -35,6 +30,11 @@ export class Breadcrumb {
   @Prop() href?: string;
 
   /**
+   * @internal If `true`, the breadcrumb will display as black in the light theme, and white in the dark theme.
+   */
+  @Prop() monochrome?: boolean = false;
+
+  /**
    * The title of the breadcrumb.
    */
   @Prop() pageTitle!: string;
@@ -43,6 +43,11 @@ export class Breadcrumb {
    * @internal If `true`, back icon will be displayed.
    */
   @Prop({ reflect: true }) showBackIcon: boolean = false;
+
+  /**
+   * @internal Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   componentWillRender(): void {
     this.setSlottedCurrentPageClass();
@@ -72,7 +77,6 @@ export class Breadcrumb {
         <span
           class={{
             "current-page-container": current,
-            [this.appearance]: true,
           }}
         >
           {isSlotUsed(this.el, "icon") && <slot name="icon"></slot>}
@@ -83,7 +87,8 @@ export class Breadcrumb {
 
     return (
       <ic-link
-        appearance={this.appearance}
+        theme={this.theme}
+        monochrome={this.monochrome}
         href={href}
         class="breadcrumb-link"
         aria-describedby={this.showBackIcon && describedById && describedById}
@@ -125,6 +130,8 @@ export class Breadcrumb {
       <Host
         class={{
           "ic-breadcrumb-back": this.showBackIcon,
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+          "ic-breadcrumb-monochrome": this.monochrome,
         }}
         aria-current={current && "page"}
         role="listitem"
