@@ -1,7 +1,7 @@
 {
-  "total": 660,
+  "total": 659,
   "totalPassed": 659,
-  "totalFailed": 1,
+  "totalFailed": 0,
   "totalSuites": 36,
   "suites": [
     {
@@ -1409,14 +1409,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx-theme.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCardVertical.cy.tsx-theme-clickable",
-          "percentage": 0.2909406548532959,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
           "specFilename": "IcCardVertical.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx-theme-clickable.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCardVertical.cy.tsx-theme-clickable.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx-theme-clickable.png"
         },
         {
@@ -3061,17 +3061,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx-full-width.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-full-width.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcHero.cy.tsx-theme",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcHero/IcHero.cy.tsx",
-          "specFilename": "IcHero.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx-theme.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-theme.png"
         },
         {
           "status": "pass",
@@ -7481,9 +7470,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-01T10:24:50.101Z",
-  "endedAt": "2024-10-01T10:37:14.787Z",
-  "duration": 669194,
+  "startedAt": "2024-10-01T11:05:08.952Z",
+  "endedAt": "2024-10-01T11:17:59.434Z",
+  "duration": 693003,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
