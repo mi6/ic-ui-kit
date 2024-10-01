@@ -337,6 +337,7 @@ export const defaultArgs = {
   subheading: "This is the subheading",
   showImage: false,
   showActions: false,
+  theme: "inherit",
 };
 
 <Canvas>
@@ -356,6 +357,12 @@ export const defaultArgs = {
           type: "radio",
         },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
     }}
     name="Playground"
   >
@@ -367,6 +374,7 @@ export const defaultArgs = {
         imageSize={args.imageSize}
         maxLines={args.maxLines}
         aligned={args.aligned}
+        theme={args.theme}
       >
       {args.showImage && (
         <svg
