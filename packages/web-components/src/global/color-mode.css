@@ -65,6 +65,11 @@ ic-theme,
   --ic-link-icon-launch-monochrome: var(--ic-color-primary-text);
   --ic-link-icon-launch-visited-monochrome: var(--ic-color-secondary-text);
 
+  /* Loading indicator */
+  --ic-loading-indicator-inner-color: var(--ic-action-default);
+  --ic-loading-indicator-outer-color: var(--ic-architectural-100);
+  --ic-loading-indicator-label-color: var(--ic-color-primary-text);
+
   /* Chips */
   --ic-chip-label: var(--ic-color-primary-text);
   --ic-chip-label-inactive: var(--ic-color-inactive-text);
@@ -180,6 +185,11 @@ ic-theme,
     --ic-link-icon-launch-visited-monochrome: var(
       --ic-hyperlink-visited-monochrome-dark
     );
+
+    /* Loading indicator */
+    --ic-loading-indicator-inner-color: var(--ic-color-primary-text);
+    --ic-loading-indicator-outer-color: var(--ic-background-primary);
+    --ic-loading-indicator-label-color: var(--ic-color-primary-text);
 
     /* Chips */
     --ic-chip-label: var(--ic-color-primary-text-dark);
@@ -299,6 +309,11 @@ ic-theme,
     --ic-hyperlink-visited-monochrome-dark
   );
 
+  /* Loading indicator */
+  --ic-loading-indicator-inner-color: var(--ic-color-primary-text);
+  --ic-loading-indicator-outer-color: var(--ic-background-primary);
+  --ic-loading-indicator-label-color: var(--ic-color-primary-text);
+
   /* Chips */
   --ic-chip-label: var(--ic-color-primary-text-dark);
   --ic-chip-label-inactive: var(--ic-color-inactive-text);
@@ -348,4 +363,16 @@ ic-theme,
   --ic-tab-item-monochrome: var(--ic-action-light);
   --ic-tab-item-hover: var(--ic-action-light-bg-hover);
   --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+}
+
+/** 
+ * When a component has a dark theme applied but its host component doesn't,
+ * the `ic-theme-dark` class won't pass the dark style tokens since it is blocked by the shadow-dom.
+ * This class contains style tokens which are utilised in a dark theme within some of our other components.
+ */
+.contains-dark-component {
+  /* Loading indicator */
+  --ic-loading-indicator-inner-color: var(--ic-color-primary-text-dark);
+  --ic-loading-indicator-outer-color: var(--ic-background-primary-dark);
+  --ic-loading-indicator-label-color: var(--ic-color-primary-text-dark);
 }

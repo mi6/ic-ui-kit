@@ -4,10 +4,7 @@ import {
   IcLoadingSizes,
   IcLoadingTypes,
 } from "./ic-loading-indicator.types";
-import {
-  IcThemeForegroundEnum,
-  IcThemeForegroundNoDefault,
-} from "../../utils/types";
+import { IcThemeMode } from "../../utils/types";
 
 @Component({
   tag: "ic-loading-indicator",
@@ -28,11 +25,6 @@ export class LoadingIndicator {
   @State() indeterminate: boolean;
   @State() indicatorLabel: string;
   @State() clipInnerElement: boolean = false;
-
-  /**
-   * The appearance of the loading indicator, e.g. dark or light.
-   */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   /**
    * The description that will be set as the aria-label of the loading indicator when not using a visible label.
@@ -99,6 +91,11 @@ export class LoadingIndicator {
       this.updateCircularProgressMeter();
     }
   }
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme: IcThemeMode = "inherit";
 
   disconnectedCallback(): void {
     clearInterval(this.interval);
@@ -285,18 +282,16 @@ export class LoadingIndicator {
   };
 
   render() {
-    const { appearance, label, description, size, fullWidth, innerLabel } =
-      this;
+    const { theme, label, description, size, fullWidth, innerLabel } = this;
     const { x, y, r } = this.setCircleXY();
 
     return (
       <Host
         class={{
-          ["ic-loading-indicator-light"]:
-            appearance === IcThemeForegroundEnum.Light,
-          ["ic-loading-indicator-label"]: !!label,
-          ["ic-loading-indicator-full-width"]: fullWidth,
-          ["inner-label"]: !!innerLabel,
+          [`ic-theme-${theme}`]: theme !== "inherit",
+          "ic-loading-indicator-label": !!label,
+          "ic-loading-indicator-full-width": fullWidth,
+          "inner-label": !!innerLabel,
         }}
       >
         <div class="ic-loading-container" part="ic-loading-container">

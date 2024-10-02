@@ -129,6 +129,11 @@ ic-button {
   padding: var(--ic-space-xs);
 }
 
+ic-loading-indicator.ic-theme-dark {
+  --ic-loading-indicator-inner-color: var(--ic-color-primary-text-dark);
+  --ic-loading-indicator-outer-color: var(--ic-background-primary-dark);
+}
+
 .toast-dismiss-timer {
   padding: var(--ic-space-sm);
 }

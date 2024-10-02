@@ -337,7 +337,7 @@ export class Toast {
     } = this;
     return (
       <Host
-        class={{ ["ic-toast-hidden"]: !visible }}
+        class={{ "ic-toast-hidden": !visible }}
         role={isManual ? "dialog" : "status"}
         tabindex="0"
         onFocus={this.onFocus}
@@ -388,7 +388,7 @@ export class Toast {
           {!isManual ? (
             <ic-loading-indicator
               class="toast-dismiss-timer"
-              appearance="light"
+              theme="dark"
               size="icon"
               progress={this.timerProgress}
               description=""

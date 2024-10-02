@@ -78,11 +78,11 @@ exports[`button component should render correct HTML for tertiary variant 1`] = 
 `;
 
 exports[`button component should render correct HTML when loading - appearance light 1`] = `
-<ic-button appearance="light" class="ic-button-light ic-button-loading ic-button-size-medium ic-button-variant-primary" exportparts="button" loading="">
+<ic-button appearance="light" class="contains-dark-component ic-button-light ic-button-loading ic-button-size-medium ic-button-variant-primary" exportparts="button" loading="">
   <mock:shadow-root>
     <button aria-disabled="true" aria-label="Loading" class="button" part="button" type="button">
       <div class="loading-container">
-        <ic-loading-indicator appearance="light" type="linear"></ic-loading-indicator>
+        <ic-loading-indicator theme="dark" type="linear"></ic-loading-indicator>
       </div>
     </button>
   </mock:shadow-root>
@@ -91,11 +91,11 @@ exports[`button component should render correct HTML when loading - appearance l
 `;
 
 exports[`button component should render correct HTML when loading - destructive 1`] = `
-<ic-button class="ic-button-loading ic-button-size-medium ic-button-variant-destructive" exportparts="button" loading="" variant="destructive">
+<ic-button class="contains-dark-component ic-button-loading ic-button-size-medium ic-button-variant-destructive" exportparts="button" loading="" variant="destructive">
   <mock:shadow-root>
     <button aria-disabled="true" aria-label="Loading" class="button" part="button" type="button">
       <div class="loading-container">
-        <ic-loading-indicator appearance="light" type="linear"></ic-loading-indicator>
+        <ic-loading-indicator theme="dark" type="linear"></ic-loading-indicator>
       </div>
     </button>
   </mock:shadow-root>
@@ -108,7 +108,7 @@ exports[`button component should render correct HTML when loading - secondary 1`
   <mock:shadow-root>
     <button aria-disabled="true" aria-label="Loading" class="button" part="button" type="button">
       <div class="loading-container">
-        <ic-loading-indicator appearance="dark" type="linear"></ic-loading-indicator>
+        <ic-loading-indicator theme="light" type="linear"></ic-loading-indicator>
       </div>
     </button>
   </mock:shadow-root>
@@ -121,7 +121,7 @@ exports[`button component should render correct HTML when loading - tertiary 1`]
   <mock:shadow-root>
     <button aria-disabled="true" aria-label="Loading" class="button" part="button" type="button">
       <div class="loading-container">
-        <ic-loading-indicator appearance="dark" type="linear"></ic-loading-indicator>
+        <ic-loading-indicator theme="light" type="linear"></ic-loading-indicator>
       </div>
     </button>
   </mock:shadow-root>
@@ -130,11 +130,11 @@ exports[`button component should render correct HTML when loading - tertiary 1`]
 `;
 
 exports[`button component should render correct HTML when loading 1`] = `
-<ic-button class="ic-button-loading ic-button-size-medium ic-button-variant-primary" exportparts="button" loading="">
+<ic-button class="contains-dark-component ic-button-loading ic-button-size-medium ic-button-variant-primary" exportparts="button" loading="">
   <mock:shadow-root>
     <button aria-disabled="true" aria-label="Loading" class="button" part="button" type="button">
       <div class="loading-container">
-        <ic-loading-indicator appearance="light" type="linear"></ic-loading-indicator>
+        <ic-loading-indicator theme="dark" type="linear"></ic-loading-indicator>
       </div>
     </button>
   </mock:shadow-root>
