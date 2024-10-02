@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.29.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.28.0...@ukic/web-components@2.29.0) (2024-10-02)
+
+### Bug Fixes
+
+- **web-components:** update focused styling for accordion in high contrast mode ([e243d1a](https://github.com/mi6/ic-ui-kit/commit/e243d1a0adeab945d04349a2159f6022bbbcf94c)), closes [#2172](https://github.com/mi6/ic-ui-kit/issues/2172)
+
+### Features
+
+- **web-components:** added componentDidLoad check to ic-toast-region ([e83fd6f](https://github.com/mi6/ic-ui-kit/commit/e83fd6f558721aa0d7072f8b6d4e5489f29b7bc3))
+
 # [2.28.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.27.1...@ukic/web-components@2.28.0) (2024-09-23)
 
 ### Bug Fixes

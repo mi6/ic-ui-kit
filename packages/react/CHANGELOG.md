@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.29.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.28.0...@ukic/react@2.29.0) (2024-10-02)
+
+### Bug Fixes
+
+- **react:** fix Slotted Heading react storybook for accordion ([a9cd4cc](https://github.com/mi6/ic-ui-kit/commit/a9cd4cc8879859d771e66506c2216707697757fa))
+
+### Features
+
+- **react:** added test for new IcToastRegion componentDidLoad ([16b08d5](https://github.com/mi6/ic-ui-kit/commit/16b08d543b500bf821cc0b865ca46b74e8d697cb))
+
 # [2.28.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.27.1...@ukic/react@2.28.0) (2024-09-23)
 
 ### Bug Fixes

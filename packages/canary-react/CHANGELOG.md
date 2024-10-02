@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.26](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.25...@ukic/canary-react@2.0.0-canary.26) (2024-10-02)
+
+### Features
+
+- **canary-react:** change multi-select E2E, a11y and visual tests to use Cypress ([a0fa675](https://github.com/mi6/ic-ui-kit/commit/a0fa675db88698f9f3ee0fe3964aa88f83ce1abe))
+
 # [2.0.0-canary.25](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.24...@ukic/canary-react@2.0.0-canary.25) (2024-09-23)
 
 ### Features

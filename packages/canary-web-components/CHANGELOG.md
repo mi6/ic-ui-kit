@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.26](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.25...@ukic/canary-web-components@2.0.0-canary.26) (2024-10-02)
+
+### Features
+
+- **canary-web-components:** delete old visual test screenshots, accessibility tests and E2E tests ([1edc8af](https://github.com/mi6/ic-ui-kit/commit/1edc8af3b73d0b60fb7524495386e6ea1d64706d))
+
 # [2.0.0-canary.25](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.24...@ukic/canary-web-components@2.0.0-canary.25) (2024-09-23)
 
 ### Bug Fixes
