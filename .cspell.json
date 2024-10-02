@@ -148,7 +148,8 @@
       "rhoncusut",
       "screenreader",
       "screenreaders",
-      "showdefaulticon"
+      "showdefaulticon",
+      "spelcheck"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc", "la"],
     "ignorePaths": [
