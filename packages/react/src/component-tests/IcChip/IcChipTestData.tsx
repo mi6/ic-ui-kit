@@ -1,4 +1,4 @@
-import { IcBadge, IcButton, IcChip } from "../../";
+import { IcBadge, IcButton, IcChip, IcTheme } from "../../";
 import React, { ReactElement, useRef } from "react";
 import { AgGridReact, CustomCellRendererProps } from "ag-grid-react";
 import { ColDef } from "ag-grid-community";
@@ -19,6 +19,14 @@ const ReusableSlottedIcon = (): ReactElement => (
   </svg>
 );
 
+const DefaultChip = (props, children) => {
+  return (
+    <IcChip label="Medium" {...props}>
+      {...children}
+    </IcChip>
+  );
+};
+
 export const SwitchColour = () => {
   const chipEl = useRef<any>();
   return (
@@ -31,46 +39,61 @@ export const SwitchColour = () => {
   );
 };
 
+const ColouredChips = () => {
+  return (
+    <>
+      <DefaultChip customColor="#F8C8DC">
+        <ReusableSlottedIcon />
+      </DefaultChip>
+      <DefaultChip variant="outlined" customColor="#F8C8DC">
+        <ReusableSlottedIcon />
+      </DefaultChip>
+      <DefaultChip customColor="#00008B">
+        <ReusableSlottedIcon />
+      </DefaultChip>
+    </>
+  );
+};
+
 export const CustomColour = () => {
   return (
-    <div style={{ padding: "8px", gap: "8px" }}>
-      <IcChip label="Default" customColor="#F8C8DC">
-        <ReusableSlottedIcon />
-      </IcChip>
-      <IcChip label="Default" variant="outlined" customColor="#F8C8DC">
-        <ReusableSlottedIcon />
-      </IcChip>
-      <IcChip label="Default" customColor="#00008B">
-        <ReusableSlottedIcon />
-      </IcChip>
+    <div>
+      <div style={{ padding: "8px", gap: "8px" }}>
+        <IcTheme theme="light">
+          <ColouredChips />
+        </IcTheme>
+      </div>
+      <div style={{ padding: "8px", gap: "8px", backgroundColor: "black" }}>
+        <IcTheme theme="dark">
+          <ColouredChips />
+        </IcTheme>
+      </div>
     </div>
   );
 };
 
-export const WhiteBackground = () => {
+export const Transparency = () => {
   return (
     <div
       style={{
-        backgroundColor: "#2c2f34",
-        padding: "6px 10px",
-        width: "fit-content",
+        display: "inline-flex",
+        padding: "8px",
+        gap: "8px",
+        backgroundColor: "#ff00ff",
       }}
     >
-      <IcChip
-        label="White background"
+      <DefaultChip variant="outlined" theme="light" />
+      <DefaultChip
         variant="outlined"
-        transparentBackground="false"
-      >
-        <ReusableSlottedIcon />
-      </IcChip>
-      <IcChip
-        label="White background"
-        dismissible
+        theme="light"
+        transparentBackground={false}
+      />
+      <DefaultChip variant="outlined" theme="dark" />
+      <DefaultChip
         variant="outlined"
-        transparentBackground="false"
-      >
-        <ReusableSlottedIcon />
-      </IcChip>
+        theme="dark"
+        transparentBackground={false}
+      />
     </div>
   );
 };
@@ -105,66 +128,178 @@ export const LongLabel = () => {
   );
 };
 
+const Sizes = (props) => {
+  return (
+    <>
+      <IcChip label="Small" size="small" {...props} />
+      <DefaultChip {...props} />
+      <IcChip label="Large" size="large" {...props} />
+    </>
+  );
+};
+
+const SizesWithIcons = (props) => {
+  return (
+    <>
+      <IcChip label="Small" size="small" {...props}>
+        <ReusableSlottedIcon />
+      </IcChip>
+      <DefaultChip {...props}>
+        <ReusableSlottedIcon />
+      </DefaultChip>
+      <IcChip label="Large" size="large" {...props}>
+        <ReusableSlottedIcon />
+      </IcChip>
+    </>
+  );
+};
+
+export const AllSizes = () => {
+  return (
+    <div>
+      <div style={{ padding: "8px" }}>
+        <IcTheme theme="light">
+          <Sizes />
+          <Sizes variant="outlined" />
+        </IcTheme>
+      </div>
+      <div style={{ padding: "8px", backgroundColor: "black" }}>
+        <IcTheme theme="dark">
+          <Sizes />
+          <Sizes variant="outlined" />
+        </IcTheme>
+      </div>
+    </div>
+  );
+};
+
+const DisabledChips = () => {
+  return (
+    <>
+      <DefaultChip disabled />
+      <DefaultChip variant="outlined" disabled />
+      <DefaultChip dismissible disabled>
+        <ReusableSlottedIcon />
+      </DefaultChip>
+      <DefaultChip dismissible variant="outlined" disabled>
+        <ReusableSlottedIcon />
+      </DefaultChip>
+    </>
+  );
+};
+
 export const Disabled = () => {
   return (
-    <div style={{ padding: "8px" }}>
-      <IcChip label="Default" disabled />
-      <IcChip label="Default" variant="outlined" disabled />
-      <IcChip label="Default" dismissible disabled />
-      <IcChip label="Default" dismissible variant="outlined" disabled />
+    <div>
+      <div style={{ padding: "8px" }}>
+        <IcTheme theme="light">
+          <DisabledChips />
+        </IcTheme>
+      </div>
+      <div style={{ padding: "8px", backgroundColor: "black" }}>
+        <IcTheme theme="dark">
+          <DisabledChips />
+        </IcTheme>
+      </div>
     </div>
+  );
+};
+
+export const SingleDismissible = () => {
+  return (
+    <div style={{ padding: "8px" }}>
+      <DefaultChip dismissible />
+    </div>
+  );
+};
+
+const DismissibleChips = () => {
+  return (
+    <>
+      <Sizes dismissible />
+      <Sizes dismissible variant="outlined" />
+    </>
   );
 };
 
 export const Dismissible = () => {
   return (
-    <div style={{ padding: "8px" }}>
-      <IcChip id="small-chip" label="Small" size="small" dismissible />
-      <IcChip id="default-chip" label="Default" dismissible />
-      <IcChip id="large-chip" label="Large" size="large" dismissible />
-      <IcChip
-        id="small-chip"
-        label="Small"
-        size="small"
-        variant="outlined"
-        dismissible
-      />
-      <IcChip
-        id="default-chip"
-        label="Default"
-        variant="outlined"
-        dismissible
-      />
-      <IcChip
-        id="large-chip"
-        label="Large"
-        size="large"
-        variant="outlined"
-        dismissible
-      />
+    <div>
+      <div style={{ padding: "8px" }}>
+        <IcTheme theme="light">
+          <DismissibleChips />
+        </IcTheme>
+      </div>
+      <div style={{ padding: "8px", backgroundColor: "black" }}>
+        <IcTheme theme="dark">
+          <DismissibleChips />
+        </IcTheme>
+      </div>
     </div>
   );
 };
 
 export const WithIcon = () => {
   return (
-    <div style={{ padding: "8px" }}>
-      <IcChip label="Default">
-        <ReusableSlottedIcon />
-      </IcChip>
+    <div>
+      <div style={{ padding: "8px" }}>
+        <IcTheme theme="light">
+          <SizesWithIcons />
+          <SizesWithIcons variant="outlined" />
+        </IcTheme>
+      </div>
+      <div style={{ padding: "8px", backgroundColor: "black" }}>
+        <IcTheme theme="dark">
+          <SizesWithIcons />
+          <SizesWithIcons variant="outlined" />
+        </IcTheme>
+      </div>
+    </div>
+  );
+};
+
+export const DismissibleWithIcon = () => {
+  return (
+    <div>
+      <div style={{ padding: "8px" }}>
+        <IcTheme theme="light">
+          <SizesWithIcons dismissible />
+          <SizesWithIcons dismissible variant="outlined" />
+        </IcTheme>
+      </div>
+      <div style={{ padding: "8px", backgroundColor: "black" }}>
+        <IcTheme theme="dark">
+          <SizesWithIcons dismissible />
+          <SizesWithIcons dismissible variant="outlined" />
+        </IcTheme>
+      </div>
     </div>
   );
 };
 
 export const WithBadgeSlot = () => {
   return (
-    <div style={{ padding: "8px" }}>
-      <IcChip label="Default">
-        <IcBadge label="1" slot="badge" variant="success" position="near" />
-      </IcChip>
-      <IcChip label="Default" variant="outlined">
-        <IcBadge label="1" slot="badge" variant="success" position="near" />
-      </IcChip>
+    <div>
+      <div style={{ padding: "8px" }}>
+        <IcTheme theme="light">
+          <DefaultChip>
+            <IcBadge label="1" slot="badge" variant="success" position="near" />
+          </DefaultChip>
+          <DefaultChip variant="outlined">
+            <IcBadge label="1" slot="badge" variant="success" position="near" />
+          </DefaultChip>
+        </IcTheme>
+      </div>
+      <div style={{ padding: "8px", backgroundColor: "black" }}>
+        <IcTheme theme="dark">
+          <DefaultChip>
+            <IcBadge label="1" slot="badge" variant="success" position="near" />
+          </DefaultChip>
+          <DefaultChip variant="outlined">
+            <IcBadge label="1" slot="badge" variant="success" position="near" />
+          </DefaultChip>
+        </IcTheme>
+      </div>
     </div>
   );
 };
