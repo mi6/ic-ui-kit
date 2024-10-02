@@ -15,20 +15,16 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Description markdown={readme} />
 
 export const defaultArgs = {
-  appearance: "dark",
   description: "Loading",
   fullWidth: false,
   labelDuration: 8000,
   size: "medium",
   type: "circular",
   label: [],
+  theme: "inherit"
 };
 
 export const defaultArgTypes = {
-  appearance: {
-    options: ["dark", "light"],
-    control: { type: "radio" },
-  },
   label: {
     control: { type: "text" },
   },
@@ -39,6 +35,10 @@ export const defaultArgTypes = {
   type: {
     options: ["circular", "linear"],
     control: { type: "radio" },
+  },
+  theme: {
+    options: ["inherit", "light", "dark"],
+    control: { type: "inline-radio" },
   },
   label: {
     control: { type: "array" },
@@ -305,9 +305,9 @@ export const defaultArgTypes = {
     argTypes={defaultArgTypes}
   >
     {(args) => (
-        <div style={{ backgroundColor: args.appearance === "light" ? "#393939" : "#FFFFFF", padding: "16px" }}>
+        <div style={{ backgroundColor: args.theme === "dark" ? "#393939" : "#FFFFFF", padding: "16px" }}>
           <IcLoadingIndicator
-            appearance={args.appearance}
+            theme={args.theme}
             description={args.description}
             fullWidth={args.fullWidth}
             labelDuration={args.labelDuration}
@@ -333,9 +333,9 @@ export const defaultArgTypes = {
     argTypes={defaultArgTypes}
   >
     {(args) => (
-        <div style={{ backgroundColor: args.appearance === "light" ? "#393939" : "#FFFFFF", padding: "16px" }}>
+        <div style={{ backgroundColor: args.theme === "dark" ? "#393939" : "#FFFFFF", padding: "16px" }}>
           <IcLoadingIndicator
-            appearance={args.appearance}
+            theme={args.theme}
             description={args.description}
             fullWidth={args.fullWidth}
             labelDuration={args.labelDuration}
