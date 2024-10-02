@@ -17,44 +17,9 @@ import { PaginationBarItemsPerPage } from "./IcPaginationBarTestData";
 const PAGINATION_BAR = "ic-pagination-bar";
 const DEFAULT_TEST_THRESHOLD = 0.027;
 
-describe("IcPaginationBar", () => {
+describe("IcPaginationBar end-to-end tests", () => {
   beforeEach(() => {
-    cy.injectAxe();
     cy.viewport(1024, 768);
-  });
-
-  afterEach(() => {
-    cy.task("generateReport");
-  });
-
-  it("should render", () => {
-    mount(<PaginationBarItemsPerPage />);
-
-    cy.checkHydrated(PAGINATION_BAR);
-
-    cy.findShadowEl(
-      PAGINATION_BAR,
-      ".items-per-page-holder ic-typography"
-    ).should(HAVE_TEXT, "Items per page");
-
-    cy.compareSnapshot({
-      name: "right-alignment",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
-    });
-
-    cy.get(PAGINATION_BAR).invoke("prop", "alignment", "left");
-
-    cy.compareSnapshot({
-      name: "left-alignment",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
-    });
-
-    cy.get(PAGINATION_BAR).invoke("prop", "alignment", "space-between");
-
-    cy.compareSnapshot({
-      name: "space-between-alignment",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
-    });
   });
 
   it("should update pages label when clicking next and last page chevron", () => {
@@ -193,60 +158,6 @@ describe("IcPaginationBar", () => {
       HAVE_TEXT,
       "Page 1 of 10"
     );
-  });
-
-  it("should render go to page input", () => {
-    mount(<PaginationBarItemsPerPage showGoToPageControl />);
-
-    cy.checkHydrated(PAGINATION_BAR);
-
-    cy.compareSnapshot({
-      name: "go-to-page",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
-    });
-  });
-
-  it("should display tooltip if invalid page number is entered", () => {
-    mount(<PaginationBarItemsPerPage showGoToPageControl />);
-
-    cy.checkHydrated(PAGINATION_BAR);
-
-    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
-      .shadow()
-      .find("input")
-      .type("11");
-
-    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
-      .shadow()
-      .find("ic-input-component-container")
-      .should(HAVE_CLASS, "error");
-
-    cy.findShadowEl(PAGINATION_BAR, ".go-to-page-button").click();
-
-    cy.wait(350);
-
-    cy.compareSnapshot({
-      name: "go-to-page-invalid-tooltip",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
-    });
-  });
-
-  it("should not display a tooltip if the page number is valid", () => {
-    mount(<PaginationBarItemsPerPage showGoToPageControl />);
-
-    cy.checkHydrated(PAGINATION_BAR);
-
-    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
-      .shadow()
-      .find("input")
-      .type("10");
-
-    cy.checkA11yWithWait();
-
-    cy.compareSnapshot({
-      name: "go-to-page-valid",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
-    });
   });
 
   it("should render the complex pagination bar", () => {
@@ -557,5 +468,166 @@ describe("IcPaginationBar", () => {
       PAGINATION_BAR,
       "ic-typography.item-pagination-label"
     ).should(HAVE_TEXT, "1 - 10 of 100 rows");
+  });
+});
+
+describe("IcPaginationBar visual regression and a11y tests", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("should render right aligned", () => {
+    mount(<PaginationBarItemsPerPage />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      ".items-per-page-holder ic-typography"
+    ).should(HAVE_TEXT, "Items per page");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "right-alignment",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render left aligned", () => {
+    mount(<PaginationBarItemsPerPage />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+    cy.get(PAGINATION_BAR).invoke("prop", "alignment", "left");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "left-alignment",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render with space between alignment", () => {
+    mount(<PaginationBarItemsPerPage />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+    cy.get(PAGINATION_BAR).invoke("prop", "alignment", "space-between");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "space-between-alignment",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render go to page input", () => {
+    mount(<PaginationBarItemsPerPage showGoToPageControl />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "go-to-page",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+  });
+
+  it("should not display a tooltip if the page number is valid", () => {
+    mount(<PaginationBarItemsPerPage showGoToPageControl />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
+      .shadow()
+      .find("input")
+      .type("10");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "go-to-page-valid",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+    });
+  });
+
+  it("should display tooltip if invalid page number is entered", () => {
+    mount(<PaginationBarItemsPerPage showGoToPageControl />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
+      .shadow()
+      .find("input")
+      .type("11");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
+      .shadow()
+      .find("ic-input-component-container")
+      .should(HAVE_CLASS, "error");
+
+    cy.findShadowEl(PAGINATION_BAR, ".go-to-page-button").click();
+
+    cy.wait(350);
+
+    cy.compareSnapshot({
+      name: "go-to-page-invalid-tooltip",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+    });
+  });
+});
+
+describe("IcPaginationBar visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  beforeEach(() => {
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render go to page input in high contrast mode", () => {
+    mount(<PaginationBarItemsPerPage showGoToPageControl />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.compareSnapshot({
+      name: "go-to-page-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
+  });
+
+  it("should display tooltip if invalid page number is entered in high contrast mode", () => {
+    mount(<PaginationBarItemsPerPage showGoToPageControl />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
+      .shadow()
+      .find("input")
+      .type("11");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
+      .shadow()
+      .find("ic-input-component-container")
+      .should(HAVE_CLASS, "error");
+
+    cy.findShadowEl(PAGINATION_BAR, ".go-to-page-button").click();
+
+    cy.wait(350);
+
+    cy.compareSnapshot({
+      name: "go-to-page-invalid-tooltip-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+    });
   });
 });

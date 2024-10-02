@@ -74,7 +74,9 @@ Note that the `multiple` prop still needs to be applied in order to enable the m
 An example of a default multi-select (with no additional functionality).
 
 <Canvas withSource="none">
-  <Story name="Default">{Default()}</Story>
+  <Story name="Default" parameters={{ loki: { skip: true } }}>
+    {Default()}
+  </Story>
 </Canvas>
 
 #### Default code example
@@ -113,7 +115,9 @@ An example of a default multi-select (with no additional functionality).
 Show options as pre-selected by setting the `value` prop to an array containing the values of these options.
 
 <Canvas withSource="none">
-  <Story name="Default Value">{DefaultValue()}</Story>
+  <Story name="Default Value" parameters={{ loki: { skip: true } }}>
+    {DefaultValue()}
+  </Story>
 </Canvas>
 
 #### Default value code example
@@ -148,7 +152,9 @@ Display a clear button by using the `show-clear-button` prop.
 This will appear when the user has selected some options and allow them to easily clear their selection.
 
 <Canvas withSource="none">
-  <Story name="With Clear Button">{WithClearButton()}</Story>
+  <Story name="With Clear Button" parameters={{ loki: { skip: true } }}>
+    {WithClearButton()}
+  </Story>
 </Canvas>
 
 #### With clear button code example
@@ -182,7 +188,9 @@ This will appear when the user has selected some options and allow them to easil
 Display extra information about the options by providing a description using the `description` property for each option.
 
 <Canvas withSource="none">
-  <Story name="With Descriptions">{WithDescriptions()}</Story>
+  <Story name="With Descriptions" parameters={{ loki: { skip: true } }}>
+    {WithDescriptions()}
+  </Story>
 </Canvas>
 
 #### With descriptions code example
@@ -244,7 +252,9 @@ Display extra information about the options by providing a description using the
 Display helper text to provide additional information by using the `helper-text` prop.
 
 <Canvas withSource="none">
-  <Story name="Helper Text">{HelperText()}</Story>
+  <Story name="Helper Text" parameters={{ loki: { skip: true } }}>
+    {HelperText()}
+  </Story>
 </Canvas>
 
 #### Helper text code example
@@ -280,7 +290,9 @@ Depending on the chosen size, the prop will apply styling to increase or decreas
 The `default` variant is seen in the first [default](#default) example.
 
 <Canvas withSource="none">
-  <Story name="Sizes">{Sizes()}</Story>
+  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+    {Sizes()}
+  </Story>
 </Canvas>
 
 #### Sizes code example
@@ -357,7 +369,9 @@ The `default` variant is seen in the first [default](#default) example.
 Disable the multi-select and prevent user interaction by using the `disabled` prop.
 
 <Canvas withSource="none">
-  <Story name="Disabled">{Disabled()}</Story>
+  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+    {Disabled()}
+  </Story>
 </Canvas>
 
 #### Disabled code example
@@ -391,7 +405,9 @@ Disable the multi-select and prevent user interaction by using the `disabled` pr
 Disable certain options by setting the `disabled` property to `true` for each option.
 
 <Canvas withSource="none">
-  <Story name="Disabled Options">{DisabledOptions()}</Story>
+  <Story name="Disabled Options" parameters={{ loki: { skip: true } }}>
+    {DisabledOptions()}
+  </Story>
 </Canvas>
 
 #### Disabled options code example
@@ -424,7 +440,9 @@ Disable certain options by setting the `disabled` property to `true` for each op
 Hide the visible label for the multi-select by using the `hide-label` prop.
 
 <Canvas withSource="none">
-  <Story name="Hidden Label">{HiddenLabel()}</Story>
+  <Story name="Hidden Label" parameters={{ loki: { skip: true } }}>
+    {HiddenLabel()}
+  </Story>
 </Canvas>
 
 #### Hidden label code example
@@ -459,7 +477,9 @@ Inform the user that the multi-select is a required field by using the `required
 This will display an asterisk next to the label and apply the `aria-required` attribute.
 
 <Canvas withSource="none">
-  <Story name="Required">{Required()}</Story>
+  <Story name="Required" parameters={{ loki: { skip: true } }}>
+    {Required()}
+  </Story>
 </Canvas>
 
 #### Required code example
@@ -494,7 +514,9 @@ Make the multi-select read-only by using the `readonly` prop.
 Use the `value` prop to set which options are selected and will be displayed when it is read-only.
 
 <Canvas withSource="none">
-  <Story name="Read-only">{ReadOnly()}</Story>
+  <Story name="Read-only" parameters={{ loki: { skip: true } }}>
+    {ReadOnly()}
+  </Story>
 </Canvas>
 
 #### Read-only code example
@@ -530,7 +552,9 @@ Display options in groups by passing an array of child options to the `children`
 The parent option will be rendered as the title of the group.
 
 <Canvas withSource="none">
-  <Story name="Groups">{Groups()}</Story>
+  <Story name="Groups" parameters={{ loki: { skip: true } }}>
+    {Groups()}
+  </Story>
 </Canvas>
 
 #### Groups code example
@@ -571,7 +595,9 @@ Display certain options at the top of the option list by setting the `recommende
 This will allow for quick access to these options.
 
 <Canvas withSource="none">
-  <Story name="Recommended">{Recommended()}</Story>
+  <Story name="Recommended" parameters={{ loki: { skip: true } }}>
+    {Recommended()}
+  </Story>
 </Canvas>
 
 #### Recommended code example
@@ -605,7 +631,9 @@ Display a validation status and message by using the `validation-status` and `va
 The `validation-status` prop takes the values `success`, `warning` or `error`.
 
 <Canvas withSource="none">
-  <Story name="Validation">{Validation()}</Story>
+  <Story name="Validation" parameters={{ loki: { skip: true } }}>
+    {Validation()}
+  </Story>
 </Canvas>
 
 #### Validation code example
@@ -685,7 +713,9 @@ Display the loading state by using the `loading` prop.
 The multi-select will show a loading error after the amount of time specified using the `timeout` prop has elapsed.
 
 <Canvas withSource="none">
-  <Story name="Loading With Error">{LoadingWithError()}</Story>
+  <Story name="Loading With Error" parameters={{ loki: { skip: true } }}>
+    {LoadingWithError()}
+  </Story>
 </Canvas>
 
 #### Loading with error code example
@@ -723,7 +753,9 @@ The multi-select will show a loading error after the amount of time specified us
 An example of the multi-select working in a form. The value will appear in the console on submit.
 
 <Canvas withSource="none">
-  <Story name="In Form">{InForm()}</Story>
+  <Story name="In Form" parameters={{ loki: { skip: true } }}>
+    {InForm()}
+  </Story>
 </Canvas>
 
 #### In form code example
