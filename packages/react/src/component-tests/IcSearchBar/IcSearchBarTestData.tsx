@@ -233,11 +233,16 @@ export const LongOptionLabel = () => {
   );
 };
 
+const submitForm = (ev: React.FormEvent<HTMLFormElement>) => {
+  ev.preventDefault();
+  console.log("form submit");
+};
+
 export const InAForm = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <form onSubmit={() => console.log("form submit")}>
-        <IcSearchBar label="What is your favourite coffee?" />
+      <form onSubmit={submitForm}>
+        <IcSearchBar label="What is your favourite coffee?" spellcheck={true} />
       </form>
     </div>
   );
@@ -252,6 +257,18 @@ export const QuerySearchMode = () => {
         onIcSubmitSearch={() => console.log("submit search")}
         options={defaultOptions}
       />
+    </div>
+  );
+};
+
+export const WithButton = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar
+        label="What is your favourite coffee?"
+        options={defaultOptions}
+      />
+      <IcButton id="button">Button</IcButton>
     </div>
   );
 };
