@@ -83,6 +83,11 @@
   color: var(--ic-color-primary-text);
 }
 
+:host(.footer-link-light) ::part(link),
+:host(.footer-link-dark) ::part(link) {
+  color: var(--ic-theme-text);
+}
+
 :host(.footer-link-light) ::slotted(svg),
 :host(.footer-link-dark) ::slotted(svg) {
   fill: var(--ic-theme-text);
