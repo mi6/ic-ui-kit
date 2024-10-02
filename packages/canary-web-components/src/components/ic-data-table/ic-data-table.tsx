@@ -29,7 +29,9 @@ import {
   IcSortEventDetail,
 } from "./ic-data-table.types";
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
-import { IcPaginationBarOptions } from "../../utils/types";
+import {
+  IcPaginationBarOptions,
+} from "../../utils/types";
 // Unable to import helper functions via @ukic/web-components
 import {
   isEmptyString,
@@ -1081,7 +1083,7 @@ export class DataTable {
     return (
       <th colSpan={this.columns.length} class="updating-state">
         <ic-loading-indicator
-          appearance={appearance}
+          theme={appearance}
           description={description || "Updating table data"}
           fullWidth={true}
           max={max}
@@ -1762,7 +1764,7 @@ export class DataTable {
           </div>
           {loading && (
             <ic-loading-indicator
-              appearance={loadingOptions?.appearance}
+              theme={loadingOptions?.appearance}
               class={{
                 "loading-empty": loading,
                 loading: true,
