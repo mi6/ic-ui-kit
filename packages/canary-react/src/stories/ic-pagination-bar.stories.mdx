@@ -1,6 +1,8 @@
 import { Meta, Description, Canvas, Story } from "@storybook/addon-docs";
 import { IcPaginationBar } from "../components";
+import { IcLink } from "@ukic/react";
 import readme from "../../../canary-web-components/src/components/ic-pagination-bar/readme.md";
+import { useArgs } from '@storybook/client-api';
 
 <Meta
   title="React Components/Pagination Bar"
@@ -442,3 +444,78 @@ const PaginationBar = () => (
 
 export default PaginationBar;
 ```
+
+
+### Playground
+
+Go to the <IcLink href="/?path=/story/react-components-pagination-bar--playground">separate page for the playground example</IcLink> to view the prop controls.
+
+export const defaultArgs = {
+  alignment: "right",
+  appearance: "default",
+  currentPage: 1,
+  hideRangeLabel: false,
+  itemLabel: "Item",
+  itemsPerPageOptions: [
+    { label: "10", value: "10" },
+    { label: "25", value: "25" },
+    { label: "50", value: "50" },
+  ],
+  pageLabel: "Page",
+  rangeLabelType: "page",
+  showItemsPerPageControl: false,
+  showGoToPageControl: false,
+  totalItems: 100,
+  type: "simple",
+};
+
+<Canvas withSource="none">
+  <Story
+    args={defaultArgs}
+    argTypes={{
+       alignment: {
+        options: ["left", "right", "space-between"],
+        control: { type: "inline-radio" },
+      },
+      appearance: {
+        options: ["default", "dark", "light"],
+        control: { type: "inline-radio" },
+      },
+      rangeLabelType: {
+        options: ["page", "data"],
+        control: { type: "inline-radio" },
+      },
+      type: {
+        options: ["simple", "complex"],
+        control: { type: "inline-radio" },
+      },     
+    }}
+    name="Playground"
+  >
+    {(args) => {
+      const [{ value }, updateArgs] = useArgs();
+
+      const updatePageNum = (ev) => {
+        updateArgs({ currentPage: ev.detail.value });
+      }; 
+      return (
+        <IcPaginationBar
+          alignment={args.alignment}
+          appearance={args.appearance}
+          currentPage={args.currentPage}
+          hideRangeLabel={args.hideRangeLabel}
+          itemLabel={args.itemLabel}
+          itemsPerPageOptions={args.itemsPerPageOptions}
+          pageLabel={args.pageLabel}
+          rangeLabelType={args.rangeLabelType}
+          showItemsPerPageControl={args.showItemsPerPageControl}
+          showGoToPageControl={args.showGoToPageControl}
+          totalItems={args.totalItems}
+          type={args.type}
+          onIcPageChange={updatePageNum}
+        >
+        </IcPaginationBar>
+      )
+    }}
+  </Story>
+</Canvas>
