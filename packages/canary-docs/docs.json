@@ -3469,6 +3469,28 @@
           "required": false
         },
         {
+          "name": "currentPage",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "current-page",
+          "reflectToAttr": false,
+          "docs": "The current page number to be displayed on the pagination bar.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "hideRangeLabel",
           "type": "boolean",
           "complexType": {
@@ -3704,16 +3726,22 @@
         },
         {
           "event": "icPageChange",
-          "detail": "{ value: number; }",
+          "detail": "IcPageChangeEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "{ value: number }",
-            "resolved": "{ value: number; }",
-            "references": {}
+            "original": "IcPageChangeEventDetail",
+            "resolved": "IcPageChangeEventDetail",
+            "references": {
+              "IcPageChangeEventDetail": {
+                "location": "import",
+                "path": "./ic-pagination-bar.types",
+                "id": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when a page is navigated to via the 'go to' input.",
+          "docs": "Emitted when a page is navigated to via the 'go to' input.\nThe `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.",
           "docsTags": []
         }
       ],
@@ -5406,6 +5434,11 @@
       "declaration": "export type IcPaginationLabelTypes = \"page\" | \"data\";",
       "docstring": "",
       "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
+    },
+    "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail": {
+      "declaration": "export interface IcPageChangeEventDetail {\n  value: number;\n  fromItemsPerPage?: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDensityUpdateEventDetail": {
       "declaration": "export interface IcDensityUpdateEventDetail {\n  value: IcDataTableDensityOptions;\n}",
