@@ -11,6 +11,7 @@
 | ------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- | ----------- |
 | `alignment`               | `alignment`                   | Sets the alignment of the items in the pagination bar.                                                                                                                         | `"left" \| "right" \| "space-between"` | `"right"`   |
 | `appearance`              | `appearance`                  | Sets the styling for the items in the pagination bar.                                                                                                                          | `"dark" \| "default" \| "light"`       | `"default"` |
+| `currentPage`             | `current-page`                | The current page number to be displayed on the pagination bar.                                                                                                                 | `number`                               | `1`         |
 | `hideRangeLabel`          | `hide-range-label`            | If `true`, the number of total items and current item range or number of total pages and current page will be hidden.                                                          | `boolean`                              | `false`     |
 | `itemLabel`               | `item-label`                  | The text which will be used in place of 'Item' on the pagination bar.                                                                                                          | `string`                               | `"Item"`    |
 | `itemsPerPageOptions`     | --                            | The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items. | `{ label: string; value: string; }[]`  | `undefined` |
@@ -24,10 +25,10 @@
 
 ## Events
 
-| Event                  | Description                                                | Type                              |
-| ---------------------- | ---------------------------------------------------------- | --------------------------------- |
-| `icItemsPerPageChange` | Emitted when the items per page option is changed.         | `CustomEvent<{ value: number; }>` |
-| `icPageChange`         | Emitted when a page is navigated to via the 'go to' input. | `CustomEvent<{ value: number; }>` |
+| Event                  | Description                                                                                                                                                                                                                                       | Type                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `icItemsPerPageChange` | Emitted when the items per page option is changed.                                                                                                                                                                                                | `CustomEvent<{ value: number; }>`      |
+| `icPageChange`         | Emitted when a page is navigated to via the 'go to' input. The `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring. | `CustomEvent<IcPageChangeEventDetail>` |
 
 
 ## Dependencies

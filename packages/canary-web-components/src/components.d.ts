@@ -12,6 +12,7 @@ import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSea
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
+import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
@@ -19,6 +20,7 @@ export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSea
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
+export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export namespace Components {
     interface IcCardHorizontal {
         /**
@@ -495,6 +497,10 @@ export namespace Components {
          */
         "appearance"?: IcThemeForeground;
         /**
+          * The current page number to be displayed on the pagination bar.
+         */
+        "currentPage"?: number;
+        /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
         "hideRangeLabel"?: boolean;
@@ -851,7 +857,7 @@ declare global {
         new (): HTMLIcMenuWithMultiElement;
     };
     interface HTMLIcPaginationBarElementEventMap {
-        "icPageChange": { value: number };
+        "icPageChange": IcPageChangeEventDetail;
         "icItemsPerPageChange": { value: number };
     }
     interface HTMLIcPaginationBarElement extends Components.IcPaginationBar, HTMLStencilElement {
@@ -1417,6 +1423,10 @@ declare namespace LocalJSX {
          */
         "appearance"?: IcThemeForeground;
         /**
+          * The current page number to be displayed on the pagination bar.
+         */
+        "currentPage"?: number;
+        /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
         "hideRangeLabel"?: boolean;
@@ -1436,9 +1446,9 @@ declare namespace LocalJSX {
          */
         "onIcItemsPerPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
         /**
-          * Emitted when a page is navigated to via the 'go to' input.
+          * Emitted when a page is navigated to via the 'go to' input. The `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.
          */
-        "onIcPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
+        "onIcPageChange"?: (event: IcPaginationBarCustomEvent<IcPageChangeEventDetail>) => void;
         /**
           * The text which will be used in place of 'Page' on the pagination bar.
          */
