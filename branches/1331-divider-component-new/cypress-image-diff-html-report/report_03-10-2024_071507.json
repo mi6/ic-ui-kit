@@ -1,7 +1,7 @@
 {
   "total": 658,
-  "totalPassed": 651,
-  "totalFailed": 7,
+  "totalPassed": 653,
+  "totalFailed": 5,
   "totalSuites": 37,
   "suites": [
     {
@@ -2501,25 +2501,25 @@
       "path": "src/component-tests/IcDivider/IcDivider.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDivider.cy.tsx-appearance",
-          "percentage": 0.08480566018845677,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDivider/IcDivider.cy.tsx",
           "specFilename": "IcDivider.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDivider.cy.tsx-appearance.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDivider.cy.tsx-appearance.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDivider.cy.tsx-appearance.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDivider.cy.tsx-border-styles",
-          "percentage": 0.033645207682521446,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDivider/IcDivider.cy.tsx",
           "specFilename": "IcDivider.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDivider.cy.tsx-border-styles.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDivider.cy.tsx-border-styles.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDivider.cy.tsx-border-styles.png"
         }
       ]
@@ -7465,9 +7465,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-02T20:21:01.011Z",
-  "endedAt": "2024-10-02T20:35:17.456Z",
-  "duration": 776353,
+  "startedAt": "2024-10-03T07:15:07.103Z",
+  "endedAt": "2024-10-03T07:29:13.591Z",
+  "duration": 766791,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
