@@ -745,7 +745,7 @@
         {
           "status": "fail",
           "name": "IcButton.cy.tsx-secondary",
-          "percentage": 0.044721359549995794,
+          "percentage": 0.04498888751680797,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
@@ -767,7 +767,7 @@
         {
           "status": "fail",
           "name": "IcButton.cy.tsx-destructive",
-          "percentage": 0.04543126676640219,
+          "percentage": 0.045343136195018535,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
@@ -6390,7 +6390,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx-loading",
-          "percentage": 0.044721359549995794,
+          "percentage": 0.0463033476111609,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -6434,7 +6434,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx-appearance-dark",
-          "percentage": 0.06343500610861483,
+          "percentage": 0.06324555320336758,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -6638,7 +6638,7 @@
         {
           "status": "fail",
           "name": "IcToggleButtonGroup.cy.tsx-loading-light",
-          "percentage": 0.16861791126686393,
+          "percentage": 0.07868926229162401,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
@@ -7437,9 +7437,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-02T14:50:20.975Z",
-  "endedAt": "2024-10-02T15:03:51.479Z",
-  "duration": 734449,
+  "startedAt": "2024-10-03T10:28:04.447Z",
+  "endedAt": "2024-10-03T10:41:55.958Z",
+  "duration": 754352,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
