@@ -1702,7 +1702,7 @@
         {
           "status": "fail",
           "name": "IcDrawer.cy.tsx-right-position-closed",
-          "percentage": 0.9974332292815394,
+          "percentage": 0.6597940327784908,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
           "specFilename": "IcDrawer.cy.tsx",
@@ -1713,7 +1713,7 @@
         {
           "status": "fail",
           "name": "IcDrawer.cy.tsx-left-position-closed",
-          "percentage": 0.9974364163713775,
+          "percentage": 0.6597988508014243,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
           "specFilename": "IcDrawer.cy.tsx",
@@ -1724,7 +1724,7 @@
         {
           "status": "fail",
           "name": "IcDrawer.cy.tsx-top-position-closed",
-          "percentage": 0.9974364163713775,
+          "percentage": 0.6597988508014243,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
           "specFilename": "IcDrawer.cy.tsx",
@@ -1757,7 +1757,7 @@
         {
           "status": "fail",
           "name": "IcDrawer.cy.tsx-bottom-position-closed",
-          "percentage": 0.9949052090117027,
+          "percentage": 0.7596668744736248,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
           "specFilename": "IcDrawer.cy.tsx",
@@ -2281,9 +2281,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-03T01:28:26.042Z",
-  "endedAt": "2024-10-03T01:34:10.536Z",
-  "duration": 326129,
+  "startedAt": "2024-10-03T07:04:08.326Z",
+  "endedAt": "2024-10-03T07:09:57.659Z",
+  "duration": 331191,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
