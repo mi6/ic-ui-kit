@@ -1,8 +1,8 @@
 {
-  "total": 196,
-  "totalPassed": 196,
-  "totalFailed": 0,
-  "totalSuites": 8,
+  "total": 202,
+  "totalPassed": 198,
+  "totalFailed": 4,
+  "totalSuites": 9,
   "suites": [
     {
       "name": "IcCardHorizontal.cy.tsx",
@@ -1696,6 +1696,78 @@
       ]
     },
     {
+      "name": "IcDrawer.cy.tsx",
+      "path": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
+      "tests": [
+        {
+          "status": "fail",
+          "name": "IcDrawer.cy.tsx-right-position-closed",
+          "percentage": 0.9974332292815394,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
+          "specFilename": "IcDrawer.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx-right-position-closed.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDrawer.cy.tsx-right-position-closed.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx-right-position-closed.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcDrawer.cy.tsx-left-position-closed",
+          "percentage": 0.9974364163713775,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
+          "specFilename": "IcDrawer.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx-left-position-closed.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDrawer.cy.tsx-left-position-closed.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx-left-position-closed.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcDrawer.cy.tsx-top-position-closed",
+          "percentage": 0.9974364163713775,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
+          "specFilename": "IcDrawer.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx-top-position-closed.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDrawer.cy.tsx-top-position-closed.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx-top-position-closed.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDrawer.cy.tsx-small-size-expanded",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
+          "specFilename": "IcDrawer.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx-small-size-expanded.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx-small-size-expanded.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDrawer.cy.tsx-large-size-expanded",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
+          "specFilename": "IcDrawer.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx-large-size-expanded.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx-large-size-expanded.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcDrawer.cy.tsx-bottom-position-closed",
+          "percentage": 0.9949052090117027,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
+          "specFilename": "IcDrawer.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx-bottom-position-closed.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDrawer.cy.tsx-bottom-position-closed.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx-bottom-position-closed.png"
+        }
+      ]
+    },
+    {
       "name": "IcPaginationBar.cy.tsx",
       "path": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
       "tests": [
@@ -2209,9 +2281,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-03T00:59:19.013Z",
-  "endedAt": "2024-10-03T01:04:29.391Z",
-  "duration": 292450,
+  "startedAt": "2024-10-03T01:28:26.042Z",
+  "endedAt": "2024-10-03T01:34:10.536Z",
+  "duration": 326129,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
