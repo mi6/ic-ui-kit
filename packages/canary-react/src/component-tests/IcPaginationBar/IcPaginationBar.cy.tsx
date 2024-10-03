@@ -160,6 +160,58 @@ describe("IcPaginationBar end-to-end tests", () => {
     );
   });
 
+  it("should render go to page input", () => {
+    mount(<PaginationBarItemsPerPage showGoToPageControl />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.compareSnapshot({
+      name: "go-to-page",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+  });
+
+  it("should display tooltip if invalid page number is entered", () => {
+    mount(<PaginationBarItemsPerPage showGoToPageControl />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
+      .shadow()
+      .find("input")
+      .type("11");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
+      .shadow()
+      .find("ic-input-component-container")
+      .should(HAVE_CLASS, "ic-input-component-container-error");
+
+    cy.findShadowEl(PAGINATION_BAR, ".go-to-page-button").click();
+
+    cy.wait(350);
+
+    cy.compareSnapshot({
+      name: "go-to-page-invalid-tooltip",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+    });
+  });
+
+  it("should not display a tooltip if the page number is valid", () => {
+    mount(<PaginationBarItemsPerPage showGoToPageControl />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
+      .shadow()
+      .find("input")
+      .type("10");
+
+    cy.compareSnapshot({
+      name: "go-to-page-valid",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+    });
+  });
+
   it("should render the complex pagination bar", () => {
     mount(<PaginationBarItemsPerPage type="complex" />);
 
@@ -535,23 +587,6 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
     });
   });
 
-  it("should not display a tooltip if the page number is valid", () => {
-    mount(<PaginationBarItemsPerPage showGoToPageControl />);
-
-    cy.checkHydrated(PAGINATION_BAR);
-
-    cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
-      .shadow()
-      .find("input")
-      .type("10");
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "go-to-page-valid",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
-    });
-  });
-
   it("should display tooltip if invalid page number is entered", () => {
     mount(<PaginationBarItemsPerPage showGoToPageControl />);
 
@@ -565,7 +600,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
     cy.findShadowEl(PAGINATION_BAR, "ic-text-field")
       .shadow()
       .find("ic-input-component-container")
-      .should(HAVE_CLASS, "error");
+      .should(HAVE_CLASS, "ic-input-component-container-error");
 
     cy.findShadowEl(PAGINATION_BAR, ".go-to-page-button").click();
 
