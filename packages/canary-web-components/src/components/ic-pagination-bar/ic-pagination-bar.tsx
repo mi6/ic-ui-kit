@@ -11,12 +11,12 @@ import {
 } from "@stencil/core";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 import { checkResizeObserver, capitalize } from "../../utils/helpers";
+import { IcPageChangeEventDetail } from "./ic-pagination-bar.types";
 import {
   IcPaginationAlignmentOptions,
   IcPaginationLabelTypes,
   IcPaginationTypes,
 } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-import { IcPageChangeEventDetail } from "./ic-pagination-bar.types";
 
 @Component({
   tag: "ic-pagination-bar",
@@ -236,7 +236,7 @@ export class PaginationBar {
     if (page <= this.totalPages && page > 0) {
       this.changePage(page);
       this.paginationEl.setCurrentPage(page);
-      this.currentPage = page;
+      this.activePage = page;
       input.value = "";
       this.icPageChange.emit({ value: page });
       this.pageInputTooltipEl.displayTooltip(false, false);
@@ -500,6 +500,7 @@ export class PaginationBar {
               pages={totalPages}
               label={pageLabel}
               ref={(el: HTMLIcPaginationElement) => (this.paginationEl = el)}
+              currentPage={activePage}
             ></ic-pagination>
           </div>
           {showGoToPageControl && (
