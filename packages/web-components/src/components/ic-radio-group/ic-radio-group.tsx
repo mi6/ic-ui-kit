@@ -288,8 +288,8 @@ export class RadioGroup {
         this.radioOptions !== undefined &&
         (this.radioOptions.length > 2 ||
           (this.radioOptions.length === 2 &&
-            (isSlotUsed(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
-            isSlotUsed(this.radioOptions[1], this.ADDITIONAL_FIELD))))
+            (slotHasContent(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
+              slotHasContent(this.radioOptions[1], this.ADDITIONAL_FIELD))))
       ) {
         this.currentOrientation = this.RADIO_VERTICAL;
       }

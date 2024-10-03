@@ -139,7 +139,7 @@ describe("IcToast end-to-end tests", () => {
       .find("ic-button#dismiss-button")
       .should("exist");
   });
-  
+
   it("should render a toast on page load if openToast is set early", () => {
     mount(<AutoLoadToast />);
     cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "hidden");
