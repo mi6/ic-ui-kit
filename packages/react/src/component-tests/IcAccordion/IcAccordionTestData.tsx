@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { IcAccordion, IcAccordionGroup } from "../../components";
+import { IcAccordion, IcAccordionGroup, IcTypography } from "../../components";
 
 export const SimpleAccordion = (): ReactElement => (
   <IcAccordion heading="Accordion 1">Text</IcAccordion>
