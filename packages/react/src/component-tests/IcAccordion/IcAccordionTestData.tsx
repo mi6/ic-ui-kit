@@ -1,6 +1,5 @@
 import React, { ReactElement } from "react";
 import { IcAccordion, IcAccordionGroup, IcTypography } from "../../components";
-import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 export const SimpleAccordion = (): ReactElement => (
   <IcAccordion heading="Accordion 1">Text</IcAccordion>
