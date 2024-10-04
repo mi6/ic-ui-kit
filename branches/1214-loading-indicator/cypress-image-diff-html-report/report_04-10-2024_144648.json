@@ -1,7 +1,7 @@
 {
   "total": 196,
-  "totalPassed": 194,
-  "totalFailed": 2,
+  "totalPassed": 195,
+  "totalFailed": 1,
   "totalSuites": 8,
   "suites": [
     {
@@ -380,7 +380,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-loading-options",
-          "percentage": 0.04742783803805041,
+          "percentage": 0.016876928902103804,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -411,14 +411,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-updating-options.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx-multiple-updating-options",
-          "percentage": 0.07216878364870322,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-multiple-updating-options.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-multiple-updating-options.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-multiple-updating-options.png"
         },
         {
@@ -2209,9 +2209,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-04T14:01:10.353Z",
-  "endedAt": "2024-10-04T14:06:40.812Z",
-  "duration": 314509,
+  "startedAt": "2024-10-04T14:46:48.314Z",
+  "endedAt": "2024-10-04T14:52:02.454Z",
+  "duration": 297985,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
