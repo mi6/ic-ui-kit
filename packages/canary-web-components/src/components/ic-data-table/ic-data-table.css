@@ -351,6 +351,11 @@ td.table-density-spacious {
   width: 100%;
 }
 
+ic-loading-indicator.ic-theme-dark {
+  --ic-loading-indicator-inner-color: var(--ic-color-primary-text-dark);
+  --ic-loading-indicator-outer-color: var(--ic-background-primary-dark);
+}
+
 @media screen and (min-width: 576px) {
   .column-header-inner-container {
     display: flex;

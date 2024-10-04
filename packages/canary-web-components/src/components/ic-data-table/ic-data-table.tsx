@@ -1081,7 +1081,7 @@ export class DataTable {
     return (
       <th colSpan={this.columns.length} class="updating-state">
         <ic-loading-indicator
-          appearance={appearance}
+          theme={appearance}
           description={description || "Updating table data"}
           fullWidth={true}
           max={max}
@@ -1762,7 +1762,7 @@ export class DataTable {
           </div>
           {loading && (
             <ic-loading-indicator
-              appearance={loadingOptions?.appearance}
+              theme={loadingOptions?.appearance}
               class={{
                 "loading-empty": loading,
                 loading: true,
