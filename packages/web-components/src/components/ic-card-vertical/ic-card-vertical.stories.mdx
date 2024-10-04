@@ -943,6 +943,7 @@ export const defaultArgs = {
   showImageMid: false,
   showInteractionControls: false,
   showExpandedContent: false,
+  theme: "inherit",
 };
 
 <Canvas>
@@ -950,6 +951,14 @@ export const defaultArgs = {
     args={defaultArgs}
     parameters={{ loki: { skip: true } }}
     name="Playground"
+    argTypes={{
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+    }}
   >
     {(args) =>
       html`<ic-card-vertical
@@ -961,6 +970,7 @@ export const defaultArgs = {
         href=${args.href}
         message=${args.message}
         subheading=${args.subheading}
+        theme=${args.theme}
       >
         ${args.showIcon &&
         html`

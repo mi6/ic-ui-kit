@@ -6,7 +6,7 @@
 
 a {
   text-decoration: none !important;
-  color: var(--ic-architechtural-black) !important;
+  color: var(--ic-card-vertical-card-text) !important;
 }
 
 button {
@@ -15,8 +15,7 @@ button {
   outline: var(--ic-hc-focus-outline);
 }
 
-.card,
-.card.clickable {
+.card {
   display: flex;
   flex-direction: column;
   border: var(--ic-border-default);
@@ -24,45 +23,71 @@ button {
   box-sizing: border-box;
   padding: var(--ic-space-md);
   text-align: left;
-  color: var(--ic-architechtural-black);
+  color: var(--ic-card-vertical-card-text);
   transition: var(--ic-easing-transition-fast);
   position: relative;
   width: inherit;
   min-width: fit-content;
   height: fit-content;
   min-height: 100%;
-}
 
-.dark.card,
-.dark.card.clickable {
-  border: var(--ic-border-width) solid var(--ic-architectural-700);
-}
+  ::slotted(svg) {
+    fill: var(--ic-card-vertical-card-text);
+  }
+  &.dark {
+    border: var(--ic-border-width) solid
+      var(--ic-color-border-neutral-pressed-dark);
+  }
+  &.fullwidth {
+    width: 100%;
+  }
+  &.clickable {
+    &:hover {
+      background-color: var(--ic-card-vertical-clickable-focus-hover-bg);
+      border: var(--ic-border-hover);
+      cursor: pointer;
+    }
+    &.focussed,
+    &:focus {
+      background-color: var(--ic-card-vertical-clickable-focus-hover-bg);
+      box-shadow: var(--ic-border-focus);
+      outline: var(--ic-hc-focus-outline);
+      border: var(--ic-border-pressed-default);
+    }
+    &:active {
+      background-color: var(--ic-card-vertical-clickable-active-bg);
+      box-shadow: var(--ic-border-focus);
 
-.card.clickable:hover {
-  background-color: var(--ic-action-default-bg-hover);
-  border: var(--ic-border-hover);
-  cursor: pointer;
-}
+      .card-title {
+        text-decoration: none;
+      }
+    }
+    .card-title {
+      --ic-typography-color: var(--ic-card-vertical-clickable-text);
 
-.card.clickable:focus,
-.card.clickable.focussed {
-  background-color: var(--ic-action-default-bg-hover);
-  box-shadow: var(--ic-border-focus);
-  outline: var(--ic-hc-focus-outline);
-  border: var(--ic-border-pressed-default);
-}
+      color: var(--ic-card-vertical-clickable-text);
+      text-decoration: underline;
+      text-decoration-thickness: var(--ic-space-1px);
+    }
+  }
+  &.disabled {
+    border: var(--ic-border-disabled);
 
-.card.clickable:active {
-  background-color: var(--ic-action-default-bg-active);
-  box-shadow: var(--ic-border-focus);
-}
-
-.card.disabled {
-  border: var(--ic-border-disabled);
-}
-
-.card.fullwidth {
-  width: 100%;
+    .card-message,
+    .subheading,
+    .card-title {
+      --ic-typography-color: var(--ic-card-vertical-disabled-text);
+    }
+    .card-title {
+      text-decoration: underline;
+      text-decoration-thickness: var(--ic-space-1px);
+      text-decoration-color: var(--ic-card-vertical-disabled-text);
+      color: var(--ic-card-vertical-disabled-text);
+    }
+    ::slotted(svg) {
+      fill: var(--ic-card-vertical-disabled-text);
+    }
+  }
 }
 
 .card-header {
@@ -74,18 +99,6 @@ button {
   display: flex;
   align-items: center;
   padding-right: var(--ic-space-xs);
-}
-
-.card.disabled ::slotted(svg) {
-  fill: var(--ic-color-text-tertiary);
-}
-
-.card.clickable .card-title {
-  --ic-typography-color: var(--ic-color-hyperlink-default);
-
-  color: var(--ic-color-hyperlink-default);
-  text-decoration: underline;
-  text-decoration-thickness: var(--ic-space-1px);
 }
 
 .card.clickable:hover .card-title,
@@ -109,19 +122,6 @@ button {
   }
 }
 
-.card.clickable:active .card-title {
-  text-decoration: none;
-}
-
-.card.disabled .card-title {
-  text-decoration: underline;
-  text-decoration-thickness: var(--ic-space-1px);
-  text-decoration-color: var(--ic-color-text-tertiary);
-  color: var(--ic-color-text-tertiary);
-
-  --ic-typography-color: var(--ic-color-text-tertiary);
-}
-
 .subheading {
   margin-top: var(--ic-space-xxs);
 }
@@ -133,11 +133,6 @@ button {
 .card-message {
   margin-top: var(--ic-space-md);
   align-items: left;
-}
-
-.card.disabled .card-message,
-.card.disabled .subheading {
-  --ic-typography-color: var(--ic-color-text-tertiary);
 }
 
 .interaction-button {
@@ -172,7 +167,7 @@ button {
 }
 
 .toggle-button {
-  color: var(--ic-action-default);
+  color: var(--ic-card-vertical-toggle-button);
   width: 2.5rem;
   height: 2.5rem;
   padding: var(--ic-space-xs);
@@ -190,33 +185,30 @@ button {
   box-sizing: border-box;
   white-space: nowrap;
   vertical-align: middle;
+
+  &:hover {
+    background-color: var(--ic-card-vertical-clickable-focus-hover-bg);
+    color: var(--ic-card-vertical-toggle-button-focus-hover);
+  }
+  &:focus {
+    box-shadow: var(--ic-border-focus);
+  }
+  &:active:not(:focus) {
+    background-color: var(--ic-card-vertical-clickable-active-bg);
+    color: var(--ic-card-vertical-toggle-button-active);
+  }
+
+  svg {
+    pointer-events: none;
+    width: 100% !important;
+    height: 100% !important;
+    fill: currentcolor !important;
+  }
 }
 
 #ic-tooltip-expand-button {
   margin-left: auto;
   position: relative;
-}
-
-.toggle-button:hover,
-.toggle-button:hover:focus {
-  background-color: var(--ic-action-default-bg-hover);
-  color: var(--ic-action-default-hover);
-}
-
-.toggle-button:focus {
-  box-shadow: var(--ic-border-focus);
-}
-
-.toggle-button:active:not(:focus) {
-  background-color: var(--ic-action-default-bg-active);
-  color: var(--ic-action-default-pressed);
-}
-
-.toggle-button svg {
-  pointer-events: none;
-  width: 100% !important;
-  height: 100% !important;
-  fill: currentcolor !important;
 }
 
 .toggle-button-closed svg {
@@ -233,31 +225,23 @@ button {
 
 /** High Contrast **/
 @media (forced-colors: active) {
-  .card ::slotted(svg) {
-    fill: currentcolor;
-  }
+  .card {
+    ::slotted(svg) {
+      fill: currentcolor;
+    }
+    &.disabled {
+      border-color: GrayText !important;
 
-  .card.disabled ::slotted(svg) {
-    fill: GrayText !important;
-  }
+      ::slotted(svg) {
+        fill: GrayText !important;
+      }
+      .card-message,
+      .subheading,
+      .card-title {
+        color: GrayText;
 
-  .card.disabled {
-    border-color: GrayText !important;
-  }
-
-  .card.disabled .card-message,
-  .card.disabled .subheading,
-  .card.disabled .card-title {
-    color: GrayText;
-
-    --ic-typography-color: GrayText;
+        --ic-typography-color: GrayText;
+      }
+    }
   }
 }
-
-/* Add back in after storybook has the `color-scheme: light dark` code */
-
-/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
-  ::slotted([slot="icon"]) {
-    fill: var(--ic-architectural-white);
-  }
-} */
