@@ -1757,6 +1757,7 @@ export namespace Components {
           * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
          */
         "subheading"?: string;
+        "theme"?: IcThemeMode;
         /**
           * The state of the step within the stepper.
          */
@@ -1769,10 +1770,6 @@ export namespace Components {
          */
         "aligned"?: IcStepperAlignment;
         /**
-          * The appearance of the stepper.
-         */
-        "appearance"?: "light" | "default";
-        /**
           * The length of the connector between each step in pixels. Minimum length is 100px.
          */
         "connectorWidth"?: number;
@@ -1780,6 +1777,10 @@ export namespace Components {
           * If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.
          */
         "hideStepInfo"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The variant of the stepper.
          */
@@ -5010,6 +5011,7 @@ declare namespace LocalJSX {
           * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
          */
         "subheading"?: string;
+        "theme"?: IcThemeMode;
         /**
           * The state of the step within the stepper.
          */
@@ -5022,10 +5024,6 @@ declare namespace LocalJSX {
          */
         "aligned"?: IcStepperAlignment;
         /**
-          * The appearance of the stepper.
-         */
-        "appearance"?: "light" | "default";
-        /**
           * The length of the connector between each step in pixels. Minimum length is 100px.
          */
         "connectorWidth"?: number;
@@ -5033,6 +5031,10 @@ declare namespace LocalJSX {
           * If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.
          */
         "hideStepInfo"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The variant of the stepper.
          */

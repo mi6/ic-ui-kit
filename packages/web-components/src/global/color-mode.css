@@ -178,6 +178,49 @@ ic-theme,
   );
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-mid);
 
+  /* Stepper */
+  --ic-step-title: var(--ic-color-text-primary);
+  --ic-step-title-current: var(--ic-status-info-default);
+  --ic-step-title-success: var(--ic-status-success-default);
+  --ic-step-title-active: var(--ic-color-text-tertiary);
+  --ic-step-title-disabled: var(--ic-color-text-disabled-default);
+  --ic-step-title-status-text-current: var(--ic-color-text-primary);
+  --ic-step-title-status-text-inactive: var(--ic-color-text-tertiary);
+  --ic-step-title-status-text-disabled: var(--ic-color-text-disabled-default);
+  --ic-stepper-connector-success: var(--ic-status-success-default);
+  --ic-stepper-connector-current-status: var(--ic-status-info-default);
+  --ic-stepper-connector-remaining-status: var(--ic-architectural-200);
+  --ic-stepper-connector-disabled: var(--ic-architectural-200);
+  --ic-step-number-background-active: var(--ic-status-info-default);
+  --ic-step-number-background-success: var(--ic-status-success-default);
+  --ic-step-number-text: var(--ic-color-text-inverse);
+  --ic-step-number-text-inactive: var(--ic-color-text-primary);
+  --ic-step-number-text-disabled: var(--ic-color-text-disabled-default);
+  --ic-step-number-icon-success: var(--ic-color-icon-inverted);
+  --ic-step-number-inactive: var(--ic-color-background-primary);
+  --ic-step-number-disabled: var(--ic-architectural-200);
+  --ic-step-number-inactive-outline: var(--ic-architectural-200);
+  --ic-step-number-current-outer-fill: var(--ic-color-background-primary);
+  --ic-step-number-current-outline: var(--ic-status-info-default);
+  --ic-step-indicator-status-current: var(--ic-status-info-default);
+  --ic-step-indicator-text-current: var(--ic-status-info-default);
+  --ic-step-indicator-status-remaining: var(--ic-architectural-200);
+  --ic-step-indicator-background: var(--ic-color-background-primary);
+  --ic-step-indicator-status-disabled: var(--ic-color-border-neutral-grey);
+  --ic-step-indicator-status-disabled-outline: var(
+    --ic-color-border-neutral-grey
+  );
+  --ic-step-indicator-text-disabled: var(--ic-color-text-tertiary);
+  --ic-stepper-compact-step-title: var(--ic-color-text-primary);
+  --ic-stepper-compact-step-title-disabled: var(--ic-color-text-tertiary);
+  --ic-stepper-compact-step-stage-text: var(--ic-color-text-secondary);
+  --ic-stepper-compact-step-next-text: var(--ic-color-text-primary);
+  --ic-stepper-compact-step-requirement-text: var(--ic-color-text-secondary);
+  --ic-stepper-compact-step-requirement-text-disabled: var(
+    --ic-color-text-tertiary
+  );
+  --ic-stepper-compact-step-completed-text: var(--ic-status-success-default);
+
   /* Tabs */
   --ic-tab-label: var(--ic-color-text-primary);
   --ic-tab-label-monochrome: var(--ic-color-text-primary);
@@ -375,6 +418,49 @@ ic-theme,
     --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-light);
     --ic-status-tag-outlined-neutral: var(--ic-status-unknown-default);
 
+    /* Stepper */
+    --ic-step-title: var(--ic-architectural-200);
+    --ic-step-title-current: var(--ic-status-info-contrast);
+    --ic-step-title-success: var(--ic-status-success-contrast);
+    --ic-step-title-active: var(--ic-color-text-tertiary);
+    --ic-step-title-disabled: var(--ic-color-text-inactive);
+    --ic-step-title-status-text-current: var(--ic-color-text-primary);
+    --ic-step-title-status-text-inactive: var(--ic-color-text-primary);
+    --ic-step-title-status-text-disabled: var(--ic-color-text-tertiary);
+    --ic-stepper-connector-success: var(--ic-status-success-contrast);
+    --ic-stepper-connector-current-status: var(--ic-status-info-contrast);
+    --ic-stepper-connector-remaining-status: var(--ic-architectural-600);
+    --ic-stepper-connector-disabled: var(--ic-architectural-600);
+    --ic-step-number-background-active: var(--ic-status-info-contrast);
+    --ic-step-number-background-success: var(--ic-status-success-contrast);
+    --ic-step-number-text: var(--ic-color-text-primary);
+    --ic-step-number-text-inactive: var(--ic-color-text-primary);
+    --ic-step-number-text-disabled: var(--ic-color-text-inactive);
+    --ic-step-number-icon-success: var(--ic-color-icon-grey-darker);
+    --ic-step-number-inactive: var(--ic-color-background-primary);
+    --ic-step-number-disabled: var(--ic-color-border-neutral-grey-dark);
+    --ic-step-number-inactive-outline: var(--ic-color-border-neutral-grey-dark);
+    --ic-step-number-current-outer-fill: var(--ic-color-background-primary);
+    --ic-step-number-current-outline: var(--ic-status-info-contrast);
+    --ic-step-indicator-status-current: var(--ic-status-info-contrast);
+    --ic-step-indicator-text-current: var(--ic-status-info-contrast);
+    --ic-step-indicator-status-remaining: var(--ic-architectural-600);
+    --ic-step-indicator-background: var(--ic-color-background-primary);
+    --ic-step-indicator-status-disabled: var(--ic-color-border-neutral-grey);
+    --ic-step-indicator-status-disabled-outline: var(
+      --ic-color-border-neutral-grey
+    );
+    --ic-step-indicator-text-disabled: var(--ic-color-text-inactive);
+    --ic-stepper-compact-step-title: var(--ic-color-text-primary);
+    --ic-stepper-compact-step-title-disabled: var(--ic-color-text-inactive);
+    --ic-stepper-compact-step-stage-text: var(--ic-color-text-secondary);
+    --ic-stepper-compact-step-next-text: var(--ic-color-text-primary);
+    --ic-stepper-compact-step-requirement-text: var(--ic-color-text-secondary);
+    --ic-stepper-compact-step-requirement-text-disabled: var(
+      --ic-color-text-inactive
+    );
+    --ic-stepper-compact-step-completed-text: var(--ic-status-success-contrast);
+
     /* Tabs */
     --ic-tab-label: var(--ic-color-text-primary-dark);
     --ic-tab-label-monochrome: var(--ic-color-text-inverse-light);
@@ -571,6 +657,49 @@ ic-theme,
   --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
   --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-light);
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-default);
+
+  /* Stepper */
+  --ic-step-title: var(--ic-architectural-200);
+  --ic-step-title-current: var(--ic-status-info-contrast);
+  --ic-step-title-success: var(--ic-status-success-contrast);
+  --ic-step-title-active: var(--ic-color-text-tertiary);
+  --ic-step-title-disabled: var(--ic-color-text-inactive);
+  --ic-step-title-status-text-current: var(--ic-color-text-primary);
+  --ic-step-title-status-text-inactive: var(--ic-color-text-primary);
+  --ic-step-title-status-text-disabled: var(--ic-color-text-tertiary);
+  --ic-stepper-connector-success: var(--ic-status-success-contrast);
+  --ic-stepper-connector-current-status: var(--ic-status-info-contrast);
+  --ic-stepper-connector-remaining-status: var(--ic-architectural-600);
+  --ic-stepper-connector-disabled: var(--ic-architectural-600);
+  --ic-step-number-background-active: var(--ic-status-info-contrast);
+  --ic-step-number-background-success: var(--ic-status-success-contrast);
+  --ic-step-number-text: var(--ic-color-text-primary);
+  --ic-step-number-text-inactive: var(--ic-color-text-primary);
+  --ic-step-number-text-disabled: var(--ic-color-text-inactive);
+  --ic-step-number-icon-success: var(--ic-color-icon-grey-darker);
+  --ic-step-number-inactive: var(--ic-color-background-primary);
+  --ic-step-number-disabled: var(--ic-color-border-neutral-grey-dark);
+  --ic-step-number-inactive-outline: var(--ic-color-border-neutral-grey-dark);
+  --ic-step-number-current-outer-fill: var(--ic-color-background-primary);
+  --ic-step-number-current-outline: var(--ic-status-info-contrast);
+  --ic-step-indicator-status-current: var(--ic-status-info-contrast);
+  --ic-step-indicator-text-current: var(--ic-status-info-contrast);
+  --ic-step-indicator-status-remaining: var(--ic-architectural-600);
+  --ic-step-indicator-background: var(--ic-color-background-primary);
+  --ic-step-indicator-status-disabled: var(--ic-color-border-neutral-grey);
+  --ic-step-indicator-status-disabled-outline: var(
+    --ic-color-border-neutral-grey
+  );
+  --ic-step-indicator-text-disabled: var(--ic-color-text-inactive);
+  --ic-stepper-compact-step-title: var(--ic-color-text-primary);
+  --ic-stepper-compact-step-title-disabled: var(--ic-color-text-inactive);
+  --ic-stepper-compact-step-stage-text: var(--ic-color-text-secondary);
+  --ic-stepper-compact-step-next-text: var(--ic-color-text-primary);
+  --ic-stepper-compact-step-requirement-text: var(--ic-color-text-secondary);
+  --ic-stepper-compact-step-requirement-text-disabled: var(
+    --ic-color-text-inactive
+  );
+  --ic-stepper-compact-step-completed-text: var(--ic-status-success-contrast);
 
   /* Tabs */
   --ic-tab-label: var(--ic-color-text-primary-dark);

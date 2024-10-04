@@ -23,6 +23,10 @@
   white-space: pre-line;
 }
 
+.next-step {
+  color: var(--ic-stepper-compact-step-next-text);
+}
+
 .visually-hidden {
   position: absolute;
   left: -625rem;
@@ -36,13 +40,9 @@
 :host(.ic-step-compact) {
   column-gap: var(--ic-space-sm);
 
-  --compact-step-inner-color: var(--ic-status-info-default);
+  --compact-step-inner-color: var(--ic-step-indicator-status-current);
+  --compact-step-outer-color: var(--ic-step-indicator-status-remaining);
   --compact-step-circular-line-width: var(--ic-space-xxs);
-}
-
-:host(.ic-step-compact.ic-step-light) {
-  --compact-step-inner-color: var(--ic-status-info-contrast);
-  --compact-step-outer-color: var(--ic-architectural-600);
 }
 
 :host(.ic-step-compact) .step {
@@ -63,8 +63,8 @@
   border-radius: 50%;
 }
 
-:host(:not(.ic-step-light)) ic-loading-indicator::part(ic-loading-container) {
-  background-color: var(--ic-architectural-white);
+:host() ic-loading-indicator::part(ic-loading-container) {
+  background-color: var(--ic-step-indicator-background);
 }
 
 :host(.ic-step-compact) .heading-area {
@@ -73,8 +73,12 @@
   width: 14.25rem;
 }
 
-:host(.ic-step-compact.ic-step-light) .disabled .heading-area {
-  color: var(--ic-architectural-400);
+:host(.ic-step-compact) .heading {
+  color: var(--ic-stepper-compact-step-title);
+}
+
+:host(.ic-step-compact) .disabled .heading {
+  color: var(--ic-stepper-compact-step-title);
 }
 
 .info-line {
@@ -84,33 +88,21 @@
 
 .step-status {
   display: flex;
-  color: var(--ic-color-text-secondary);
+  color: var(--ic-stepper-compact-step-requirement-text);
   column-gap: var(--ic-space-xxxs);
 }
 
 .compact-step-completed .step-status {
-  color: var(--ic-status-success-default);
-}
-
-:host(.ic-step-light) .compact-step-completed .step-status {
-  color: var(--ic-status-success-contrast);
+  color: var(--ic-stepper-compact-step-completed-text);
 }
 
 .compact-step-disabled :is(.heading, .step-status) {
-  color: var(--ic-color-text-tertiary);
-}
-
-:host(.ic-step-light) .compact-step-disabled :is(.step-status) {
-  color: var(--ic-architectural-white);
+  color: var(--ic-stepper-compact-step-requirement-text-disabled);
 }
 
 .step-num {
-  color: var(--ic-color-text-secondary);
+  color: var(--ic-stepper-compact-step-stage-text);
   white-space: nowrap;
-}
-
-:host(.ic-step-light) .step-num {
-  color: var(--ic-architectural-white);
 }
 
 :host(.ic-step-compact) .step-icon {
@@ -143,8 +135,8 @@
   border-radius: 50%;
 }
 
-:host(.ic-step-default:not(.ic-step-light)) .step-icon {
-  background-color: var(--ic-architectural-white);
+:host(.ic-step-default) .step-icon {
+  background-color: var(--ic-step-number-inactive);
 }
 
 .step-icon-inner {
@@ -154,6 +146,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  color: var(--ic-step-number-text-inactive);
 }
 
 :host(.ic-step-default) .current {
@@ -184,16 +177,32 @@
   width: fit-content;
 }
 
-.subheading {
-  color: var(--ic-color-text-tertiary);
+.heading {
+  color: var(--ic-step-title);
 }
 
-:host(.ic-step-light) .subheading {
-  color: var(--ic-architectural-white);
+.current .heading {
+  color: var(--ic-step-title-current);
+}
+
+.completed .heading {
+  color: var(--ic-step-title-success);
+}
+
+.disabled .heading {
+  color: var(--ic-step-title-disabled);
+}
+
+.subheading {
+  color: var(--ic-step-title-status-text-inactive);
 }
 
 .current .subheading {
-  color: var(--ic-color-text-primary);
+  color: var(--ic-step-title-status-text-current);
+}
+
+.disabled .subheading {
+  color: var(--ic-step-title-status-text-disabled);
 }
 
 :host(.ic-step-default) .completed {
@@ -206,7 +215,7 @@
 }
 
 .active .step-icon-inner {
-  box-shadow: inset var(--ic-architectural-200) 0 0 0 0.125rem;
+  box-shadow: inset var(--ic-step-number-inactive-outline) 0 0 0 0.125rem;
 }
 
 :host(.ic-step-light) .active .step-icon-inner {
@@ -214,12 +223,8 @@
 }
 
 .current .step-icon-inner {
-  background-color: var(--ic-status-info-default);
-  color: var(--ic-architectural-white);
-}
-
-:host(.ic-step-light) .current .step-icon-inner {
-  background-color: var(--ic-status-info-contrast);
+  background-color: var(--ic-step-number-background-active);
+  color: var(--ic-step-number-text);
 }
 
 .disabled {
@@ -232,53 +237,38 @@
 }
 
 .disabled .step-icon-inner {
-  border: var(--ic-border-width) dashed var(--ic-architectural-200);
+  border: var(--ic-border-width) dashed var(--ic-step-number-disabled);
   width: calc(var(--ic-space-xl) - var(--ic-space-xxxs));
   height: calc(var(--ic-space-xl) - var(--ic-space-xxxs));
+  color: var(--ic-step-number-text-disabled);
 }
 
-:host(.ic-step-light) .disabled .step-icon-inner {
-  border: var(--ic-border-width) dashed var(--ic-architectural-400);
-}
-
-.disabled .heading-area,
-:host(.ic-step-default.ic-step-light) .disabled .subheading {
-  color: var(--ic-color-text-tertiary);
+.disabled .step-icon {
+  background-color: transparent !important;
 }
 
 .completed .step-icon-inner {
-  background: var(--ic-status-success-default);
-  box-shadow: inset var(--ic-status-success-default) 0 0 0 var(--ic-space-xxxs);
+  background: var(--ic-step-number-background-success);
+  box-shadow: inset var(--ic-step-number-background-success) 0 0 0
+    var(--ic-space-xxxs);
   border-radius: 100%;
 }
 
-:host(.ic-step-light) .completed .step-icon-inner {
-  background: var(--ic-status-success-contrast);
-  box-shadow: inset var(--ic-status-success-contrast) 0 0 0 var(--ic-space-xxxs);
-}
-
 :host(.ic-step-default) .current .step-icon {
-  border: var(--ic-space-xxxs) solid var(--ic-status-info-default);
+  border: var(--ic-space-xxxs) solid var(--ic-step-number-current-outline);
   padding: var(--ic-space-xxxs);
   margin: 0 calc(-1 * var(--ic-space-xxxs));
+  background-color: var(--ic-step-number-current-outer-fill);
 
   /* compensating for the circle being bigger than other steps */
 }
 
-:host(.ic-step-default.ic-step-light) .current .step-icon {
-  border: var(--ic-space-xxxs) solid var(--ic-status-info-contrast);
-}
-
 .step-connect {
   height: var(--ic-space-xxxs);
-  background-color: var(--ic-architectural-200);
+  background-color: var(--ic-stepper-connector-remaining-status);
   margin: 0 var(--ic-space-xs);
   border-radius: var(--ic-space-xxs);
   width: 100%;
-}
-
-:host(.ic-step-light) .step-connect {
-  background-color: var(--ic-architectural-600);
 }
 
 .aligned-full-width.step-connect {
@@ -289,20 +279,12 @@
 .disabled .step-connect {
   height: 0;
   background-color: rgb(0 0 0 / 0%);
-  border-top: 0.125rem dashed var(--ic-architectural-200);
+  border-top: 0.125rem dashed var(--ic-stepper-connector-disabled);
   border-radius: 0;
 }
 
-:host(.ic-step-light) .disabled .step-connect {
-  border-top: 0.125rem dashed var(--ic-architectural-600);
-}
-
 .completed .step-connect {
-  background-color: var(--ic-status-success-default);
-}
-
-:host(.ic-step-light) .completed .step-connect {
-  background-color: var(--ic-status-success-contrast);
+  background-color: var(--ic-stepper-connector-success);
 }
 
 .step-connect-inner {
@@ -311,11 +293,7 @@
   flex: auto;
   height: var(--ic-space-xxxs);
   border-radius: var(--ic-space-xxs);
-  background-color: var(--ic-status-info-default);
-}
-
-:host(.ic-step-light) .step-connect-inner {
-  background-color: var(--ic-status-info-contrast);
+  background-color: var(--ic-stepper-connector-current-status);
 }
 
 .step-icon-inner .check-icon {
@@ -328,7 +306,7 @@
 }
 
 .step-icon-inner .check-icon > svg > path {
-  fill: var(--ic-color-white-text);
+  fill: var(--ic-step-number-icon-success);
 }
 
 /** High Contrast **/
@@ -358,7 +336,9 @@
   }
 
   .disabled,
-  .disabled .heading-area {
+  .disabled .heading-area,
+  .disabled .step-icon-inner,
+  .disabled .heading {
     color: GrayText;
   }
 
@@ -371,16 +351,3 @@
     fill: canvastext;
   }
 }
-
-/* Add back in after storybook has the `color-scheme: light dark` code */
-
-/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
-  :host(:not(.ic-step-light)) .step-icon-inner {
-    color: var(--ic-architectural-black);
-  }
-
-  .step-num,
-  .subheading {
-    color: var(--ic-architectural-white) !important;
-  }
-} */

@@ -938,10 +938,10 @@ describe("switch between the compact and default stepper depending on whether th
     expect(page.rootInstance["variantOverride"]).toBeTruthy();
   });
 
-  it("should render a light stepper", async () => {
+  it("should render a dark theme stepper", async () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
-      html: `<ic-stepper appearance="light">
+      html: `<ic-stepper theme="dark">
       <ic-step heading="Create" type="completed"></ic-step>
       <ic-step heading="Read" type="current"></ic-step>
       <ic-step heading="Update"></ic-step>
@@ -951,12 +951,12 @@ describe("switch between the compact and default stepper depending on whether th
 
     await page.waitForChanges();
 
-    expect(page.rootInstance.appearance).toMatch("light");
+    expect(page.rootInstance.theme).toMatch("dark");
 
     const steps = page.root.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
-      expect(step.classList.contains("ic-step-light")).toBeTruthy();
+      expect(step.classList.contains("ic-theme-dark")).toBeTruthy();
     });
 
     expect(page.root).toMatchSnapshot();

@@ -2,6 +2,7 @@ import { Component, Element, Host, Prop, h, State, Watch } from "@stencil/core";
 import { checkResizeObserver, pxToRem } from "../../utils/helpers";
 import { IcStepperAlignment } from "./ic-stepper.types";
 import { IcStepTypes, IcStepVariants } from "../ic-step/ic-step.types";
+import { IcThemeMode } from "../../utils/types";
 
 @Component({
   tag: "ic-stepper",
@@ -32,11 +33,6 @@ export class Stepper {
   @Prop() aligned?: IcStepperAlignment = "full-width";
 
   /**
-   * The appearance of the stepper.
-   */
-  @Prop() appearance?: "light" | "default" = "default";
-
-  /**
    * The length of the connector between each step in pixels. Minimum length is 100px.
    */
   @Prop() connectorWidth?: number = 100;
@@ -45,6 +41,18 @@ export class Stepper {
    * If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.
    */
   @Prop() hideStepInfo?: boolean = false;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+  @Watch("theme")
+  handleThemeChange(): void {
+    this.getChildren();
+    this.steps.forEach((step) => {
+      step.theme = this.theme;
+    });
+  }
 
   /**
    * The variant of the stepper.
@@ -66,6 +74,7 @@ export class Stepper {
 
   componentWillLoad(): void {
     this.setStepTypes();
+    this.handleThemeChange();
 
     if (this.variant === "compact") {
       this.variantOverride = false;
@@ -282,6 +291,7 @@ export class Stepper {
     this.overrideVariant();
     this.setStepperWidth();
     this.initialiseStepStates();
+    this.handleThemeChange();
   };
 
   private runResizeObserver = () => {
@@ -298,6 +308,7 @@ export class Stepper {
           [`ic-stepper-${this.variant}`]: true,
           ["ic-stepper-aligned-left"]:
             this.variant === "default" && this.aligned === "left",
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >
         <ul class="step-item-list">
