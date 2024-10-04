@@ -6944,39 +6944,6 @@
       "usage": {},
       "props": [
         {
-          "name": "appearance",
-          "type": "\"dark\" | \"light\"",
-          "complexType": {
-            "original": "IcThemeForegroundNoDefault",
-            "resolved": "\"dark\" | \"light\"",
-            "references": {
-              "IcThemeForegroundNoDefault": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForegroundNoDefault"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "The appearance of the loading indicator, e.g. dark or light.",
-          "docsTags": [],
-          "default": "\"dark\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "description",
           "type": "string",
           "complexType": {
@@ -7170,6 +7137,43 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -17916,11 +17920,6 @@
       "declaration": "export type IcAriaLiveModeVariants = \"polite\" | \"assertive\";",
       "docstring": "",
       "path": "src/components/ic-input-validation/ic-input-validation.types.tsx"
-    },
-    "src/utils/types.ts::IcThemeForegroundNoDefault": {
-      "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/components/ic-loading-indicator/ic-loading-indicator.types.tsx::IcLoadingSizes": {
       "declaration": "export type IcLoadingSizes = \"medium\" | \"small\" | \"large\" | \"icon\";",
