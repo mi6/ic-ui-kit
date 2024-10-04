@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0-canary.1 (2024-10-04)
+
+### Bug Fixes
+
+- **root:** fixes after big rebase ([490c292](https://github.com/mi6/ic-ui-kit/commit/490c292e9294c97d938575ea114f769a730628bc))
+
+### Code Refactoring
+
+- **canary-react:** change size prop ([73e4005](https://github.com/mi6/ic-ui-kit/commit/73e400566977f3a3c0796f34779738d15fe1ca1e))
+
+### Features
+
+- **canary-react:** add cypress test for icSortChange event ([7afd75c](https://github.com/mi6/ic-ui-kit/commit/7afd75cfab2fe33bed5adc2765889d34b5d09621))
+- **canary-react:** add invalidDateMessage prop for date input and date picker ([78c1f07](https://github.com/mi6/ic-ui-kit/commit/78c1f07d402fec4b76c9fd5493bd7fa28e0bf86f))
+- **canary-react:** added column width tests ([c2d59dd](https://github.com/mi6/ic-ui-kit/commit/c2d59dd79368bf012ed7d72b1c0394d5305e772c))
+- **canary-react:** change multi-select E2E, a11y and visual tests to use Cypress ([adce3e3](https://github.com/mi6/ic-ui-kit/commit/adce3e32d26f9c8e46b5b893b698e7efc4c74fff))
+- **canary-react:** ic-typography color changes ([1c8112e](https://github.com/mi6/ic-ui-kit/commit/1c8112ed377c64143bfb3b153e08123040cfdc8f))
+
+### BREAKING CHANGES
+
+- **canary-react:** prop change
+
 # [2.0.0-canary.23](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.22...@ukic/canary-react@2.0.0-canary.23) (2024-08-28)
 
 **Note:** Version bump only for package @ukic/canary-react

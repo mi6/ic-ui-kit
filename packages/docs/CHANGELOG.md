@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0...@ukic/docs@3.0.0-alpha.1) (2024-10-04)
+
+### Code Refactoring
+
+- **docs:** component size prop changed ([ba9d2a4](https://github.com/mi6/ic-ui-kit/commit/ba9d2a46177fa9d087278a6f7ee5c29f81113908))
+
+### Documentation
+
+- **docs:** change the name of the data-entity component to data-list ([5e31b62](https://github.com/mi6/ic-ui-kit/commit/5e31b6222d13be68446113605b002522a7bcc3ca)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([5556494](https://github.com/mi6/ic-ui-kit/commit/5556494553c2c7717158420d18a622c90790dc96)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([02f1862](https://github.com/mi6/ic-ui-kit/commit/02f1862b31dea240f6fd0be86d202be90f976ad4)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([749dd65](https://github.com/mi6/ic-ui-kit/commit/749dd658e64257547ececafd914340e87cd0e60b)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([d9c7b59](https://github.com/mi6/ic-ui-kit/commit/d9c7b590b788fd14607156d82e3641515f99dab8)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([d6f28cb](https://github.com/mi6/ic-ui-kit/commit/d6f28cb0b5d04af78d2cd856f98e0ecaece4b2df)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+
+### BREAKING CHANGES
+
+- **docs:** Size prop type changed from 'default' to 'medium'
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+
 # [3.0.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.13.0...@ukic/docs@3.0.0) (2024-08-28)
 
 ### Documentation

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0-canary.1 (2024-10-04)
+
+### Bug Fixes
+
+- **canary-docs:** update docs to have updated data table prop description ([28bcecb](https://github.com/mi6/ic-ui-kit/commit/28bcecbc868f81fddb4b0c3abe5d52d2216abc83))
+
+### Code Refactoring
+
+- **docs:** component size prop changed ([ba9d2a4](https://github.com/mi6/ic-ui-kit/commit/ba9d2a46177fa9d087278a6f7ee5c29f81113908))
+
+### BREAKING CHANGES
+
+- **docs:** Size prop type changed from 'default' to 'medium'
+
 # [2.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.18...@ukic/canary-docs@2.0.0-canary.19) (2024-08-28)
 
 ### Documentation

@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0...@ukic/react@3.0.0-alpha.1) (2024-10-04)
+
+### Bug Fixes
+
+- **react:** fix cypress tests broken by big rebase ([ece6697](https://github.com/mi6/ic-ui-kit/commit/ece6697d3b536461b8ee4f48395e4db1b7663ca3))
+- **react:** fix Slotted Heading react storybook for accordion ([a1cf975](https://github.com/mi6/ic-ui-kit/commit/a1cf975b769c9b9e21dfec77538aeec19190aafd))
+- **react:** update accordion story to be lowercase ([bffe63b](https://github.com/mi6/ic-ui-kit/commit/bffe63b59e2a803072f2281cf928b5642397504d))
+- **react:** update loading indicator stories/cypress tests for changing label ([ed4d165](https://github.com/mi6/ic-ui-kit/commit/ed4d1653e1ab67e8c37b63192680ec860f79718a)), closes [#248](https://github.com/mi6/ic-ui-kit/issues/248)
+- **react:** update storybook/cypress tests with tab context theme changes ([73e8a3c](https://github.com/mi6/ic-ui-kit/commit/73e8a3cc1afa4389377a250dd53249e985e74c21))
+- **react:** update theme storybook to have a visualisation playground ([ca6b69c](https://github.com/mi6/ic-ui-kit/commit/ca6b69cae995a69302be817a52f6cd53f7fdf2b8))
+- **react:** updating packages ([3aaf726](https://github.com/mi6/ic-ui-kit/commit/3aaf726ad9d4845cac81db16ee5d383c310f337c))
+- **root:** fixes after big rebase ([490c292](https://github.com/mi6/ic-ui-kit/commit/490c292e9294c97d938575ea114f769a730628bc))
+
+### Code Refactoring
+
+- **react:** component size prop options changed ([61b3921](https://github.com/mi6/ic-ui-kit/commit/61b39213f184e4fca002962fb7800be01fe7c867))
+
+### Features
+
+- **react:** add Cypress tests for icon button variants with tooltip ([1b9daca](https://github.com/mi6/ic-ui-kit/commit/1b9dacaec94feaa9216d9b749e1e4bc7fd01436d))
+- **react:** add maxLengthMessage prop to text field ([edb89af](https://github.com/mi6/ic-ui-kit/commit/edb89af8471d9583528ba2f6e1911a6a9c9507d0))
+- **react:** add react stories and cypress tests for showDefaultIcon prop and neutral-icon slot for alert ([be1ec44](https://github.com/mi6/ic-ui-kit/commit/be1ec44268843879822113858d5dd79decbddb36))
+- **react:** added test for new IcToastRegion componentDidLoad ([13a7cbb](https://github.com/mi6/ic-ui-kit/commit/13a7cbb6e46670109edb3bb71032585e424bc1b1))
+- **react:** adds theme playground for testing dark mode ([cd6b853](https://github.com/mi6/ic-ui-kit/commit/cd6b8535898963dc24d881d39f42b909678797e7))
+- **react:** improve component prop names ([d979d0d](https://github.com/mi6/ic-ui-kit/commit/d979d0d9397f3e4871f0591e11a650138371ba46))
+- **react:** typography color and theme prop changes ([e496a94](https://github.com/mi6/ic-ui-kit/commit/e496a94fc3ce084734b932b43f4396f186c48349))
+- **react:** update badge to use theme to set dark/light mode colour ([a97d04d](https://github.com/mi6/ic-ui-kit/commit/a97d04d04e73c4a5ed1ff2a21d76f77c4a087cf5))
+- **react:** update data list and data row to have theme prop ([342d834](https://github.com/mi6/ic-ui-kit/commit/342d8344fabee674554598d2f8cdeab6f857f93e))
+- **react:** update link and breadcrumb to use theme prop instead of appearance ([d0dc78b](https://github.com/mi6/ic-ui-kit/commit/d0dc78bd6d43b6a9683a9f2a784455d41938aeaf))
+- **react:** update status tags to use theme prop to determine light/dark mode ([d1672ec](https://github.com/mi6/ic-ui-kit/commit/d1672ec0c66e67df4e1a070d49d2cf41b184dfdf))
+- **react:** updates tooltip storybook for theme prop ([12df2da](https://github.com/mi6/ic-ui-kit/commit/12df2da7b6a2988d2a0e930ea14e6396392714f2))
+
+### BREAKING CHANGES
+
+- **react:** For link and breadcrumb components, appearance has been replaced by theme and
+  monochrome
+- **react:** prop type changed
+- **react:** Instead of passing "loading/still loading" to a loading indicator to dynamically
+  change the label, it's now passed as ["loading", "still loading"]
+- **react:** Accordion group and footer link group “groupTitle” renamed to “label”, badge
+  “textLabel” renamed to “label”, empty state “bodyMaxLines” renamed to “maxLines”, input label
+  “error” renamed to “status” with error as an option, pagination “boundaryCount” and “adjacentCount”
+  renamed to “boundaryPageCount” and “adjacentPageCount”, search bar and select “disableFilter”
+  renamed to “disableAutoFiltering”, search bar “hintText” renamed to “assistiveHintText”, step props
+  had the word “step” removed from the start e.g “stepStatus” renamed to “status”, toggle button
+  “toggleChecked” renamed to “checked”.
+
 # [3.0.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.26.0...@ukic/react@3.0.0) (2024-08-28)
 
 ### Bug Fixes

@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0...@ukic/web-components@3.0.0-alpha.1) (2024-10-04)
+
+### Bug Fixes
+
+- **root:** fixes after big rebase ([490c292](https://github.com/mi6/ic-ui-kit/commit/490c292e9294c97d938575ea114f769a730628bc))
+- **web-components:** added componentDidLoad check to ic-toast-region ([a376e93](https://github.com/mi6/ic-ui-kit/commit/a376e9349b8e8d421af85b158942263b0bc00d5b))
+- **web-components:** dont generate timestamp in stencil ([22b0293](https://github.com/mi6/ic-ui-kit/commit/22b02934271db6fd1c26cdfbe289b1d5d16bee92))
+- **web-components:** make dot type badges read to screenreaders ([2b17094](https://github.com/mi6/ic-ui-kit/commit/2b17094ed448035a4c5dd2b99641381019a3c550)), closes [#1717](https://github.com/mi6/ic-ui-kit/issues/1717)
+- **web-components:** restore isSlotUsed after rebase ([eaf7b2a](https://github.com/mi6/ic-ui-kit/commit/eaf7b2a7ad8b2492d71a47ceb9b2969435bb594b))
+- **web-components:** update accordion story to be lowercase ([3890d94](https://github.com/mi6/ic-ui-kit/commit/3890d94db025e90d33a56e3979f60dddef243881))
+- **web-components:** update button to add tooltip for every icon variant ([6e6ae0d](https://github.com/mi6/ic-ui-kit/commit/6e6ae0d02b30ac46283cd67e050b9381dad428cb)), closes [#2299](https://github.com/mi6/ic-ui-kit/issues/2299)
+- **web-components:** update focused styling for accordion in high contrast mode ([39156a4](https://github.com/mi6/ic-ui-kit/commit/39156a44b781273e098a087f247d1cd7aac238b7)), closes [#2172](https://github.com/mi6/ic-ui-kit/issues/2172)
+- **web-components:** update loading indicator to use an array when splitting labels ([8c16d80](https://github.com/mi6/ic-ui-kit/commit/8c16d80dcaf8401f81d63d50351efd569f342cf0)), closes [#248](https://github.com/mi6/ic-ui-kit/issues/248)
+- **web-components:** update tabs to use theme and monochrome prop ([260277a](https://github.com/mi6/ic-ui-kit/commit/260277abe608c0c0dfc9bc8e339b9a76fef86a6b)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** update theme storybook to have a visualisation playground ([b7683d6](https://github.com/mi6/ic-ui-kit/commit/b7683d626795ba008815c3617818455506703bf2)), closes [#2373](https://github.com/mi6/ic-ui-kit/issues/2373)
+- **web-components:** update toast animation to only work when prefers reduced motion is off ([632c270](https://github.com/mi6/ic-ui-kit/commit/632c270cb745580de569df0544e63a3377177179)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
+
+### Code Refactoring
+
+- **react:** component size prop options changed ([61b3921](https://github.com/mi6/ic-ui-kit/commit/61b39213f184e4fca002962fb7800be01fe7c867))
+- **web-components:** component sizes changed ([9e5c004](https://github.com/mi6/ic-ui-kit/commit/9e5c0042e5298502f3e49da650fafd4894a03709))
+
+### Features
+
+- **web-components:** add maxLengthMessage prop to text field ([6d656ce](https://github.com/mi6/ic-ui-kit/commit/6d656ce70533cab7f283250d21c4443c09c09ac7)), closes [#2248](https://github.com/mi6/ic-ui-kit/issues/2248)
+- **web-components:** add showDefaultIcon prop and neutral-icon slot to alert ([cb8c2ea](https://github.com/mi6/ic-ui-kit/commit/cb8c2ea2d0a43d6027708790299981584e03b8d7))
+- **web-components:** adds ic-tooltip theme styling ([2566d0c](https://github.com/mi6/ic-ui-kit/commit/2566d0cea6e219dc8bd0c07fba939111cbcbb0cd))
+- **web-components:** fixes color issues after typography change ([7c33338](https://github.com/mi6/ic-ui-kit/commit/7c333386aead6f7bc45dbb64572880b4fbe73034))
+- **web-components:** initial ic-theme changes for dark mode support ([624267e](https://github.com/mi6/ic-ui-kit/commit/624267e4313a0f8bed5529b5af3b44cc30a11358))
+- **web-components:** remove deprecated props/slots/events/methods ([c920f2e](https://github.com/mi6/ic-ui-kit/commit/c920f2e3f71220454ebeee2028e0cbc15dde1afc)), closes [#230](https://github.com/mi6/ic-ui-kit/issues/230)
+- **web-components:** update badge to use theme to set dark/light mode colour ([ebd7920](https://github.com/mi6/ic-ui-kit/commit/ebd792043fc6f4d0fdeb9ef51bdb5809b3a689ef)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** update data list and data row to have theme prop ([ee0e4c4](https://github.com/mi6/ic-ui-kit/commit/ee0e4c4c1e7c8b333361add82672c6ca1288c3bd)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** update link and breadcrumb to use theme prop instead of appearance ([74fbcb3](https://github.com/mi6/ic-ui-kit/commit/74fbcb303c13d8ba017bfac3784ef541dcd5ba08))
+- **web-components:** update status tags to use theme to determine light/dark mode ([6f4af9a](https://github.com/mi6/ic-ui-kit/commit/6f4af9a415aae371047e3274dd46b16ba7b35564)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+
+### BREAKING CHANGES
+
+- **web-components:** For link and breadcrumb components, appearance has been replaced with theme and
+  monochrome
+- **web-components:** Appearance prop replaced with monochrome/theme prop on tab context
+- **react:** prop type changed
+- **web-components:** The default size for components has been changed to 'medium' in preparation for v3
+- **web-components:** Instead of passing "loading/still loading" to a loading indicator to dynamically
+  change the label, it's now passed as ["loading", "still loading"]
+- **web-components:** Deprecated props/slots/events/methods have been removed entirely.
+
 # [3.0.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.26.0...@ukic/web-components@3.0.0) (2024-08-28)
 
 ### Bug Fixes

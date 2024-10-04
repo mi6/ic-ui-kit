@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0-canary.1 (2024-10-04)
+
+### Bug Fixes
+
+- **canary-web-components:** dont generate timestamp in stencil ([ae07d9d](https://github.com/mi6/ic-ui-kit/commit/ae07d9d5c655024da0b0ce7cdc1eb5c31ecaadf3))
+- **canary-web-components:** ensures that slotted columns now render data in correct order ([264f247](https://github.com/mi6/ic-ui-kit/commit/264f247dc8a0f40e59484c346f0b57e2e5bb366a))
+- **canary-web-components:** reapply truncation data on sort ([a0d472b](https://github.com/mi6/ic-ui-kit/commit/a0d472b2771f2ac83b942787c01dfaf8dc9304a4))
+- **canary-web-components:** update data table prop description to have spaces ([718fa55](https://github.com/mi6/ic-ui-kit/commit/718fa5503a94c0c3fc6c52cff66192cfb7c723a9))
+
+### Code Refactoring
+
+- **canary-web-components:** size prop changed ([2f24a63](https://github.com/mi6/ic-ui-kit/commit/2f24a63e256a06748874cf1a2043746ac73c5df4))
+
+### Features
+
+- **canary-web-components:** add invalidDateMessage prop to date input and date picker ([6ab5d5f](https://github.com/mi6/ic-ui-kit/commit/6ab5d5f575e05e93724280ff4701e6bc0120b849)), closes [#2248](https://github.com/mi6/ic-ui-kit/issues/2248)
+- **canary-web-components:** added data table column width functionality ([cb8d8e0](https://github.com/mi6/ic-ui-kit/commit/cb8d8e005cf994a7cbd752627a24ef552b67dfee)), closes [#1005](https://github.com/mi6/ic-ui-kit/issues/1005)
+- **canary-web-components:** delete old visual test screenshots, accessibility tests and E2E tests ([d19b572](https://github.com/mi6/ic-ui-kit/commit/d19b5721baa2d19fdb59ef6ac009f5d830ea8ef2))
+- **canary-web-components:** exported missing types for data tables ([195c211](https://github.com/mi6/ic-ui-kit/commit/195c211430a0e402527dd2bc8bc1a9b3c23a1991))
+- **canary-web-components:** fixes colors after typography color token change ([5d2b554](https://github.com/mi6/ic-ui-kit/commit/5d2b554a857660c11e6b791c94316f6eb4f27faa))
+- **canary-web-components:** update sort on data tables to emit event ([9ff601c](https://github.com/mi6/ic-ui-kit/commit/9ff601c142a8a988049660767e17eaa9290a5042)), closes [#2179](https://github.com/mi6/ic-ui-kit/issues/2179)
+
+### BREAKING CHANGES
+
+- **canary-web-components:** prop change
+
 # [2.0.0-canary.23](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.22...@ukic/canary-web-components@2.0.0-canary.23) (2024-08-28)
 
 ### Code Refactoring
