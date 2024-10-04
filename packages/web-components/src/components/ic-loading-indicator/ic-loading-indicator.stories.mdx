@@ -13,26 +13,26 @@ import readme from "./readme.md";
 <Description markdown={readme} />
 
 export const defaultArgs = {
-  appearance: "dark",
   description: "Loading",
   fullWidth: false,
   labelDuration: 8000,
   size: "medium",
   type: "circular",
   label: null,
+  theme: "inherit",
 };
 
 export const defaultArgTypes = {
-  appearance: {
-    options: ["dark", "light"],
-    control: { type: "radio" },
-  },
   label: {
     control: { type: "text" },
   },
   size: {
     options: ["small", "medium", "large", "icon"],
     control: { type: "radio" },
+  },
+  theme: {
+    options: ["inherit", "light", "dark"],
+    control: { type: "inline-radio" },
   },
   type: {
     options: ["circular", "linear"],
@@ -258,11 +258,11 @@ export const defaultArgTypes = {
   </Story>
 </Canvas>
 
-### Circular light
+### Circular dark mode
 
 <Canvas>
   <Story
-    name="Circular light"
+    name="Circular dark mode"
     parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
   >
     {(args) =>
@@ -270,43 +270,43 @@ export const defaultArgTypes = {
         <ic-loading-indicator
           label="Small"
           size="small"
-          appearance="light"
+          theme="dark"
         ></ic-loading-indicator>
         <ic-loading-indicator
           label="Default"
-          appearance="light"
+          theme="dark"
         ></ic-loading-indicator>
         <ic-loading-indicator
           label="Large"
           size="large"
-          appearance="light"
+          theme="dark"
         ></ic-loading-indicator>
       </div>`
     }
   </Story>
 </Canvas>
 
-### Icon light
+### Icon dark mode
 
 <Canvas>
   <Story
-    name="Icon light"
+    name="Icon dark mode"
     parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
   >
     {(args) =>
       html`<ic-loading-indicator
         size="icon"
-        appearance="light"
+        theme="dark"
       ></ic-loading-indicator>`
     }
   </Story>
 </Canvas>
 
-### Linear light
+### Linear dark mode
 
 <Canvas>
   <Story
-    name="Linear light"
+    name="Linear dark mode"
     parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
   >
     {(args) =>
@@ -314,19 +314,19 @@ export const defaultArgTypes = {
         <ic-loading-indicator
           label="Default"
           type="linear"
-          appearance="light"
+          theme="dark"
         ></ic-loading-indicator>
         <ic-loading-indicator
           label="Large"
           size="large"
           type="linear"
-          appearance="light"
+          theme="dark"
         ></ic-loading-indicator>
         <ic-loading-indicator
           label="Full-width"
           type="linear"
           full-width="true"
-          appearance="light"
+          theme="dark"
         ></ic-loading-indicator>
         <ic-loading-indicator
           progress="30"
@@ -334,7 +334,7 @@ export const defaultArgTypes = {
           max="100"
           label="Default"
           type="linear"
-          appearance="light"
+          theme="dark"
         ></ic-loading-indicator>
         <ic-loading-indicator
           progress="30"
@@ -343,7 +343,7 @@ export const defaultArgTypes = {
           label="Large"
           size="large"
           type="linear"
-          appearance="light"
+          theme="dark"
         ></ic-loading-indicator>
         <ic-loading-indicator
           progress="30"
@@ -352,7 +352,7 @@ export const defaultArgTypes = {
           label="Full-width"
           type="linear"
           full-width="true"
-          appearance="light"
+          theme="dark"
         ></ic-loading-indicator>
       </div>`
     }
@@ -436,12 +436,12 @@ export const defaultArgTypes = {
   >
     {(args) =>
       html`<div
-        style="background-color: ${args.appearance === "light"
+        style="background-color: ${args.theme === "dark"
           ? "#393939"
           : "#FFFFFF"}; padding: 16px;"
       >
         <ic-loading-indicator
-          appearance=${args.appearance}
+          theme=${args.theme}
           description=${args.description}
           full-width=${args.fullWidth}
           label-duration=${args.labelDuration}
@@ -471,12 +471,12 @@ export const defaultArgTypes = {
   >
     {(args) =>
       html`<div
-        style="background-color: ${args.appearance === "light"
+        style="background-color: ${args.theme === "dark"
           ? "#393939"
           : "#FFFFFF"}; padding: 16px;"
       >
         <ic-loading-indicator
-          appearance=${args.appearance}
+          theme=${args.theme}
           description=${args.description}
           full-width=${args.fullWidth}
           label-duration=${args.labelDuration}
