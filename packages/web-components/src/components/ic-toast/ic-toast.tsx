@@ -388,7 +388,7 @@ export class Toast {
           {!isManual ? (
             <ic-loading-indicator
               class="toast-dismiss-timer"
-              appearance="light"
+              theme="dark"
               size="icon"
               progress={this.timerProgress}
               description=""

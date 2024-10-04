@@ -529,13 +529,13 @@ export class Button {
             <div class="loading-container">
               <ic-loading-indicator
                 type="linear"
-                appearance={
+                theme={
                   this.variant === "primary" ||
                   this.variant === "destructive" ||
                   this.appearance === IcThemeForegroundEnum.Dark ||
                   this.appearance === IcThemeForegroundEnum.Light
-                    ? "light"
-                    : "dark"
+                    ? "dark"
+                    : "light"
                 }
               ></ic-loading-indicator>
             </div>

@@ -128,7 +128,7 @@ describe("ic-toast component", () => {
               </ic-typography>
             </div>
           </div>
-          <ic-loading-indicator appearance="light" class="toast-dismiss-timer" description="" progress="100" size="icon"></ic-loading-indicator>
+          <ic-loading-indicator class="toast-dismiss-timer" description="" progress="100" size="icon" theme="dark"></ic-loading-indicator>
         </div>
       </mock:shadow-root>
     </ic-toast>`);

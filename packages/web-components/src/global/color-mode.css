@@ -46,6 +46,11 @@ ic-theme,
   --ic-link-icon-launch-monochrome: var(--ic-color-primary-text);
   --ic-link-icon-launch-visited-monochrome: var(--ic-color-secondary-text);
 
+  /* Loading indicator */
+  --ic-loading-indicator-inner-color: var(--ic-action-default);
+  --ic-loading-indicator-outer-color: var(--ic-architectural-100);
+  --ic-loading-indicator-label-color: var(--ic-color-primary-text);
+
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-inverse-text);
   --ic-status-tag-text-inverted: var(--ic-color-primary-text);
@@ -143,6 +148,11 @@ ic-theme,
     --ic-link-icon-launch-visited-monochrome: var(
       --ic-hyperlink-visited-monochrome-dark
     );
+
+    /* Loading indicator */
+    --ic-loading-indicator-inner-color: var(--ic-color-primary-text);
+    --ic-loading-indicator-outer-color: var(--ic-background-primary);
+    --ic-loading-indicator-label-color: var(--ic-color-primary-text);
 
     /* Status tags */
     --ic-status-tag-text: var(--ic-color-inverse-text);
@@ -243,6 +253,11 @@ ic-theme,
   --ic-link-icon-launch-visited-monochrome: var(
     --ic-hyperlink-visited-monochrome-dark
   );
+
+  /* Loading indicator */
+  --ic-loading-indicator-inner-color: var(--ic-color-primary-text);
+  --ic-loading-indicator-outer-color: var(--ic-background-primary);
+  --ic-loading-indicator-label-color: var(--ic-color-primary-text);
 
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-inverse-text);
