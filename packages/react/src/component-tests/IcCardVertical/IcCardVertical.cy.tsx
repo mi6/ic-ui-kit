@@ -1,11 +1,9 @@
-/* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
 import { mount } from "cypress/react";
 import React from "react";
 import { IcCardVertical } from "../../components";
 import {
-  StaticCard,
   ThreeVariants,
   WithIcon,
   WithMessage,
@@ -27,6 +25,7 @@ import {
   ReducedWidth,
   IncreasedWidth,
   AdditionalHeight,
+  Theme,
 } from "./IcCardVerticalTestData";
 import {
   BE_VISIBLE,
@@ -410,6 +409,26 @@ describe("IcCardVertical end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "render-three",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
+    });
+  });
+
+  it("should render with theme prop", () => {
+    mount(Theme());
+
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "theme",
+    });
+  });
+
+  it("should render clickable with theme prop", () => {
+    mount(Theme(true));
+
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "theme-clickable",
     });
   });
 

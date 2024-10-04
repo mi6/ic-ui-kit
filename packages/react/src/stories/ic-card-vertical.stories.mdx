@@ -849,13 +849,22 @@ export const defaultArgs = {
   showImageTop: false,
   showImageMid: false,
   showInteractionControls: false,
-  showExpandedContent: false
+  showExpandedContent: false,
+  theme: "inherit"
 };
 
 <Canvas>
   <Story
     args={defaultArgs}
     name="Playground"
+    argTypes={{
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+    }}
   >
     {(args) => (
     <IcCardVertical
@@ -867,6 +876,7 @@ export const defaultArgs = {
       href={args.href}
       message={args.message}
       subheading={args.subheading}
+      theme={args.theme}
     >
       {args.showIcon && (
         <svg
