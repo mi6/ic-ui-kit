@@ -15,20 +15,16 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Description markdown={readme} />
 
 export const defaultArgs = {
-  appearance: "dark",
   description: "Loading",
   fullWidth: false,
   labelDuration: 8000,
   size: "medium",
   type: "circular",
   label: [],
+  theme: "inherit"
 };
 
 export const defaultArgTypes = {
-  appearance: {
-    options: ["dark", "light"],
-    control: { type: "radio" },
-  },
   label: {
     control: { type: "text" },
   },
@@ -39,6 +35,10 @@ export const defaultArgTypes = {
   type: {
     options: ["circular", "linear"],
     control: { type: "radio" },
+  },
+  theme: {
+    options: ["inherit", "light", "dark"],
+    control: { type: "inline-radio" },
   },
   label: {
     control: { type: "array" },
@@ -223,9 +223,9 @@ export const defaultArgTypes = {
 <Canvas>
   <Story name="Circular dark" parameters={{ backgrounds: { default: "dark" } }}>
     <div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator label="Small" size="small" dark />
-      <IcLoadingIndicator label="Default" dark />
-      <IcLoadingIndicator label="Large" size="large" dark />
+      <IcLoadingIndicator label="Small" size="small" theme="dark" />
+      <IcLoadingIndicator label="Default" theme="dark" />
+      <IcLoadingIndicator label="Large" size="large" theme="dark" />
     </div>
   </Story>
 </Canvas>
@@ -237,7 +237,7 @@ export const defaultArgTypes = {
     name="Icon dark (circular)"
     parameters={{ backgrounds: { default: "dark" } }}
   >
-    <IcLoadingIndicator size="icon" dark />
+    <IcLoadingIndicator size="icon" theme="dark" />
   </Story>
 </Canvas>
 
@@ -246,8 +246,8 @@ export const defaultArgTypes = {
 <Canvas>
   <Story name="Linear dark" parameters={{ backgrounds: { default: "dark" } }}>
     <div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator label="Default" type="linear" dark />
-      <IcLoadingIndicator label="Large" size="large" type="linear" dark />
+      <IcLoadingIndicator label="Default" type="linear" theme="dark" />
+      <IcLoadingIndicator label="Large" size="large" type="linear" theme="dark" />
       <IcLoadingIndicator
         label="Full-width"
         type="linear"
@@ -305,9 +305,9 @@ export const defaultArgTypes = {
     argTypes={defaultArgTypes}
   >
     {(args) => (
-        <div style={{ backgroundColor: args.appearance === "light" ? "#393939" : "#FFFFFF", padding: "16px" }}>
+        <div style={{ backgroundColor: args.theme === "dark" ? "#393939" : "#FFFFFF", padding: "16px" }}>
           <IcLoadingIndicator
-            appearance={args.appearance}
+            theme={args.theme}
             description={args.description}
             fullWidth={args.fullWidth}
             labelDuration={args.labelDuration}
@@ -333,9 +333,9 @@ export const defaultArgTypes = {
     argTypes={defaultArgTypes}
   >
     {(args) => (
-        <div style={{ backgroundColor: args.appearance === "light" ? "#393939" : "#FFFFFF", padding: "16px" }}>
+        <div style={{ backgroundColor: args.theme === "dark" ? "#393939" : "#FFFFFF", padding: "16px" }}>
           <IcLoadingIndicator
-            appearance={args.appearance}
+            theme={args.theme}
             description={args.description}
             fullWidth={args.fullWidth}
             labelDuration={args.labelDuration}
