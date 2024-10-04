@@ -7,6 +7,7 @@ import {
   h,
   Method,
   forceUpdate,
+  Host,
 } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
@@ -19,6 +20,7 @@ import {
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
+  IcThemeMode,
 } from "../../utils/types";
 import chevronIcon from "../../assets/chevron-icon.svg";
 
@@ -79,7 +81,7 @@ export class CardVertical {
   /**
    * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
    */
-  @Prop() href?: string | undefined;
+  @Prop() href?: string;
 
   /**
    * The human language of the linked URL.
@@ -110,6 +112,11 @@ export class CardVertical {
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
   @Prop() target?: string;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   disconnectedCallback(): void {
     if (this.parentIsAnchorTag) {
@@ -155,9 +162,8 @@ export class CardVertical {
   }
 
   @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.updateTheme(theme.mode);
+  themeChangeHandler(ev: CustomEvent<IcTheme>): void {
+    this.updateTheme(ev.detail.mode);
   }
 
   /**
@@ -181,7 +187,7 @@ export class CardVertical {
   };
 
   private updateTheme(newTheme: IcThemeForeground = null): void {
-    const foregroundColor = getThemeFromContext(this.el, newTheme || null);
+    const foregroundColor = getThemeFromContext(this.el, newTheme);
 
     if (foregroundColor !== IcThemeForegroundEnum.Default) {
       this.appearance = foregroundColor;
@@ -216,29 +222,30 @@ export class CardVertical {
 
   render() {
     const {
+      appearance,
       clickable,
       disabled,
       expandable,
+      fullWidth,
       heading,
+      isFocussed,
       message,
       href,
       hreflang,
+      parentIsAnchorTag,
       referrerpolicy,
       rel,
       subheading,
       target,
-      fullWidth,
-      parentIsAnchorTag,
-      isFocussed,
+      theme,
     } = this;
 
-    const Component = parentIsAnchorTag
-      ? "div"
-      : clickable
-      ? this.href === undefined
+    const Component =
+      parentIsAnchorTag || !clickable
+        ? "div"
+        : href === undefined
         ? "button"
-        : "a"
-      : "div";
+        : "a";
 
     const attrs = Component == "a" && {
       href: href,
@@ -249,110 +256,114 @@ export class CardVertical {
     };
 
     return (
-      <Component
+      <Host
         class={{
-          ["card"]: true,
-          ["clickable"]: clickable && !disabled,
-          ["disabled"]: disabled,
-          ["fullwidth"]: fullWidth,
-          ["focussed"]: isFocussed,
-          ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
-        tabindex={clickable && !parentIsAnchorTag ? 0 : null}
-        aria-disabled={disabled ? "true" : null}
-        disabled={disabled ? true : null}
-        {...attrs}
       >
-        {isSlotUsed(this.el, "image-top") && (
-          <div class="image-top">
-            <slot name="image-top"></slot>
-          </div>
-        )}
-        <div class="card-header">
-          {isSlotUsed(this.el, "icon") && (
-            <div class="icon">
-              <slot name="icon" />
+        <Component
+          class={{
+            card: true,
+            clickable: clickable && !disabled,
+            disabled,
+            fullwidth: fullWidth,
+            focussed: isFocussed,
+            dark: appearance === IcThemeForegroundEnum.Dark,
+          }}
+          tabindex={clickable && !parentIsAnchorTag ? 0 : null}
+          aria-disabled={disabled ? "true" : null}
+          disabled={disabled ? true : null}
+          {...attrs}
+        >
+          {isSlotUsed(this.el, "image-top") && (
+            <div class="image-top">
+              <slot name="image-top"></slot>
             </div>
           )}
-          <div class="card-title">
-            <slot name="heading">
-              <ic-typography variant="h4">
-                <p>{heading}</p>
-              </ic-typography>
-            </slot>
-          </div>
-          {isSlotUsed(this.el, "interaction-button") && (
-            <div class="interaction-button">
-              <slot name="interaction-button"></slot>
+          <div class="card-header">
+            {isSlotUsed(this.el, "icon") && (
+              <div class="icon">
+                <slot name="icon" />
+              </div>
+            )}
+            <div class="card-title">
+              <slot name="heading">
+                <ic-typography variant="h4">
+                  <p>{heading}</p>
+                </ic-typography>
+              </slot>
             </div>
-          )}
-        </div>
-        {(subheading || isSlotUsed(this.el, "subheading")) && (
-          <div class="subheading">
-            <slot name="subheading">
-              <ic-typography variant="subtitle-small">
-                {subheading}
-              </ic-typography>
-            </slot>
-          </div>
-        )}
-        {isSlotUsed(this.el, "adornment") && (
-          <div class="adornment">
-            <slot name="adornment"></slot>
-          </div>
-        )}
-        {isSlotUsed(this.el, "image-mid") && (
-          <div class="image-mid">
-            <slot name="image-mid"></slot>
-          </div>
-        )}
-        {(message || isSlotUsed(this.el, "message")) && (
-          <div
-            class={{
-              ["card-message"]: true,
-            }}
-          >
-            {message && <ic-typography variant="body">{message}</ic-typography>}
-            {isSlotUsed(this.el, "message") && <slot name="message"></slot>}
-          </div>
-        )}
-        {(isSlotUsed(this.el, "interaction-controls") || expandable) && (
-          <div class="interaction-area">
-            <div class="interaction-controls">
-              <slot name="interaction-controls"></slot>
-            </div>
-            {expandable && (
-              <ic-tooltip
-                id="ic-tooltip-expand-button"
-                label="Toggle expandable area"
-                silent
-              >
-                <button
-                  class={{
-                    ["toggle-button"]: true,
-                    [`toggle-button-${
-                      this.areaExpanded ? "expanded" : "closed"
-                    }`]: true,
-                  }}
-                  aria-label="Toggle expandable area"
-                  aria-expanded={`${this.areaExpanded}`}
-                  aria-controls={
-                    this.areaExpanded ? "expanded-content-area" : null
-                  }
-                  onClick={this.toggleExpanded}
-                  innerHTML={chevronIcon}
-                ></button>
-              </ic-tooltip>
+            {isSlotUsed(this.el, "interaction-button") && (
+              <div class="interaction-button">
+                <slot name="interaction-button"></slot>
+              </div>
             )}
           </div>
-        )}
-        {isSlotUsed(this.el, "expanded-content") && this.areaExpanded && (
-          <div class="expanded-content" id="expanded-content-area">
-            <slot name="expanded-content"></slot>
-          </div>
-        )}
-        {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
-      </Component>
+          {(subheading || isSlotUsed(this.el, "subheading")) && (
+            <div class="subheading">
+              <slot name="subheading">
+                <ic-typography variant="subtitle-small">
+                  {subheading}
+                </ic-typography>
+              </slot>
+            </div>
+          )}
+          {isSlotUsed(this.el, "adornment") && (
+            <div class="adornment">
+              <slot name="adornment"></slot>
+            </div>
+          )}
+          {isSlotUsed(this.el, "image-mid") && (
+            <div class="image-mid">
+              <slot name="image-mid"></slot>
+            </div>
+          )}
+          {(message || isSlotUsed(this.el, "message")) && (
+            <div class="card-message">
+              {message && (
+                <ic-typography variant="body">{message}</ic-typography>
+              )}
+              {isSlotUsed(this.el, "message") && <slot name="message"></slot>}
+            </div>
+          )}
+          {(isSlotUsed(this.el, "interaction-controls") || expandable) && (
+            <div class="interaction-area">
+              <div class="interaction-controls">
+                <slot name="interaction-controls"></slot>
+              </div>
+              {expandable && (
+                <ic-tooltip
+                  id="ic-tooltip-expand-button"
+                  label="Toggle expandable area"
+                  silent
+                >
+                  <button
+                    class={{
+                      "toggle-button": true,
+                      [`toggle-button-${
+                        this.areaExpanded ? "expanded" : "closed"
+                      }`]: true,
+                    }}
+                    aria-label="Toggle expandable area"
+                    aria-expanded={`${this.areaExpanded}`}
+                    aria-controls={
+                      this.areaExpanded ? "expanded-content-area" : null
+                    }
+                    onClick={this.toggleExpanded}
+                    innerHTML={chevronIcon}
+                  ></button>
+                </ic-tooltip>
+              )}
+            </div>
+          )}
+          {isSlotUsed(this.el, "expanded-content") && this.areaExpanded && (
+            <div class="expanded-content" id="expanded-content-area">
+              <slot name="expanded-content"></slot>
+            </div>
+          )}
+          {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
+        </Component>
+      </Host>
     );
   }
 }
