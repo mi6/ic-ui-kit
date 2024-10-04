@@ -388,7 +388,7 @@ export namespace Components {
         /**
           * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
          */
-        "href"?: string | undefined;
+        "href"?: string;
         /**
           * The human language of the linked URL.
          */
@@ -417,6 +417,10 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcCheckbox {
         /**
@@ -3565,7 +3569,7 @@ declare namespace LocalJSX {
         /**
           * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
          */
-        "href"?: string | undefined;
+        "href"?: string;
         /**
           * The human language of the linked URL.
          */
@@ -3590,6 +3594,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcCheckbox {
         /**

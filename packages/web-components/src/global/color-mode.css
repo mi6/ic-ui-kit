@@ -127,6 +127,20 @@ ic-theme,
   --ic-chip-action-hover: var(--ic-action-dark-bg-hover);
   --ic-chip-action-pressed: var(--ic-action-dark-bg-pressed);
 
+  /* Card vertical */
+  --ic-card-vertical-card-text: var(--ic-color-text-primary);
+  --ic-card-vertical-disabled-text: var(--ic-color-text-tertiary);
+  --ic-card-vertical-clickable-text: var(--ic-color-hyperlink-default);
+  --ic-card-vertical-clickable-focus-hover-bg: var(
+    --ic-action-default-bg-hover
+  );
+  --ic-card-vertical-clickable-active-bg: var(--ic-action-default-bg-active);
+  --ic-card-vertical-toggle-button: var(--ic-action-default);
+  --ic-card-vertical-toggle-button-focus-hover: var(--ic-action-default-hover);
+  --ic-card-vertical-toggle-button-active: var(
+    --ic-action-default-active-alpha
+  );
+
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
   --ic-data-list-text-heading: var(--ic-color-text-primary);
@@ -277,6 +291,9 @@ ic-theme,
     --ic-color-icon-action-default: var(--ic-color-icon-action-default-dark);
     --ic-color-icon-error: var(--ic-color-icon-error-dark);
 
+    /* Typography */
+    --ic-typography-color: var(--ic-color-text-primary);
+
     /* Badge */
     --ic-badge-text: var(--ic-color-text-inverse);
     --ic-badge-icon: var(--ic-color-text-inverse);
@@ -317,6 +334,20 @@ ic-theme,
     --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-darker);
     --ic-chip-action-hover: var(--ic-action-light-bg-hover);
     --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
+
+    /* Card vertical */
+    --ic-card-vertical-card-text: var(--ic-color-text-primary);
+    --ic-card-vertical-disabled-text: var(--ic-color-text-tertiary);
+    --ic-card-vertical-clickable-text: var(--ic-color-hyperlink-default);
+    --ic-card-vertical-clickable-focus-hover-bg: var(
+      --ic-color-background-primary
+    );
+    --ic-card-vertical-clickable-active-bg: var(--ic-color-background-pressed);
+    --ic-card-vertical-toggle-button: var(--ic-action-default);
+    --ic-card-vertical-toggle-button-focus-hover: var(
+      --ic-action-default-hover
+    );
+    --ic-card-vertical-toggle-button-active: var(--ic-action-default-pressed);
 
     /* Data list */
     --ic-data-list-text-cell: var(--ic-color-text-primary);
@@ -474,6 +505,9 @@ ic-theme,
   --ic-color-icon-action-default: var(--ic-color-icon-action-default-dark);
   --ic-color-icon-error: var(--ic-color-icon-error-dark);
 
+  /* Typography */
+  --ic-typography-color: var(--ic-color-text-primary);
+
   /* Badge */
   --ic-badge-text: var(--ic-color-text-inverse);
   --ic-badge-icon: var(--ic-color-text-inverse);
@@ -514,6 +548,18 @@ ic-theme,
   --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-darker);
   --ic-chip-action-hover: var(--ic-action-light-bg-hover);
   --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
+
+  /* Card vertical */
+  --ic-card-vertical-card-text: var(--ic-color-text-primary);
+  --ic-card-vertical-disabled-text: var(--ic-color-text-tertiary);
+  --ic-card-vertical-clickable-text: var(--ic-color-hyperlink-default);
+  --ic-card-vertical-clickable-focus-hover-bg: var(
+    --ic-color-background-primary
+  );
+  --ic-card-vertical-clickable-active-bg: var(--ic-color-background-pressed);
+  --ic-card-vertical-toggle-button: var(--ic-action-default);
+  --ic-card-vertical-toggle-button-focus-hover: var(--ic-action-default-hover);
+  --ic-card-vertical-toggle-button-active: var(--ic-action-default-pressed);
 
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
