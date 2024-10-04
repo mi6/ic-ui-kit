@@ -531,7 +531,7 @@ describe("IcDataTables", () => {
         columns={COLS}
         loading
         loadingOptions={{
-          appearance: "light",
+          appearance: "dark",
           progress: 30,
           min: 0,
           max: 100,
@@ -620,7 +620,7 @@ describe("IcDataTables", () => {
         data={DATA}
         updating
         updatingOptions={{
-          appearance: "light",
+          appearance: "dark",
           progress: 45,
           min: 0,
           max: 50,
