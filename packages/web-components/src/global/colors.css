@@ -119,6 +119,8 @@
   --ic-color-white-text: var(--ic-architectural-white);
   --ic-color-inverse-text-light: var(--ic-color-primary-text-dark);
   --ic-color-inverse-text-dark: var(--ic-color-primary-text-light);
+  --ic-color-inactive-text: var(--ic-architectural-400);
+  --ic-color-disabled-text: var(--ic-architectural-300);
 
   /* backgrounds */
   --ic-background-primary-light: var(--ic-architectural-white);
@@ -284,6 +286,7 @@
   --ic-icon-inverted: var(--ic-architectural-white);
   --ic-icon-grey: var(--ic-architectural-400);
   --ic-icon-grey-dark: var(--ic-architectural-500);
+  --ic-icon-grey-darker: var(--ic-architectural-700);
   --ic-icon-action-default: var(--ic-hyperlink);
   --ic-icon-action-default-dark: var(--ic-hyperlink-dark);
 
