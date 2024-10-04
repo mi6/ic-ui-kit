@@ -498,7 +498,7 @@ describe("IcButton visual regression and a11y tests", () => {
   });
 
   it("should render tooltip on an icon button on hover", () => {
-    mount(<IconBtnWithTooltip />);
+    mount(IconBtnWithTooltip("icon-primary"));
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
     cy.get(IC_BUTTON_SELECTOR)
@@ -510,6 +510,57 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tooltip-icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+
+  it("should render tooltip on a secondary icon button on hover", () => {
+    mount(IconBtnWithTooltip("icon-secondary"));
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .trigger("mouseover");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "tooltip-icon-secondary",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+
+  it("should render tooltip on a tertiary icon button on hover", () => {
+    mount(IconBtnWithTooltip("icon-tertiary"));
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .trigger("mouseover");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "tooltip-icon-tertiary",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+
+  it("should render tooltip on a destructive icon button on hover", () => {
+    mount(IconBtnWithTooltip("icon-destructive"));
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .trigger("mouseover");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "tooltip-icon-destructive",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -741,7 +792,7 @@ describe("IcButton visual regression tests in high contrast mode", () => {
   });
 
   it("should render tooltip on an icon button on hover in high contrast mode", () => {
-    mount(<IconBtnWithTooltip />);
+    mount(IconBtnWithTooltip("icon-primary"));
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
     cy.get(IC_BUTTON_SELECTOR)

@@ -10,6 +10,7 @@ import {
 import { Instance, Options, createPopper } from "@popperjs/core";
 import { IcTooltipPlacements } from "./ic-tooltip.types";
 import { onComponentRequiredPropUndefined } from "../../utils/helpers";
+import { IcThemeMode } from "../../utils/types";
 
 @Component({
   tag: "ic-tooltip",
@@ -64,6 +65,11 @@ export class Tooltip {
    * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
    */
   @Prop({ reflect: true }) target?: string;
+
+  /**
+   * Sets the tooltip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The text to display on the tooltip.
@@ -297,9 +303,14 @@ export class Tooltip {
   };
 
   render() {
-    const { label, maxLines, silent } = this;
+    const { label, maxLines, silent, theme } = this;
     return (
-      <Host class={{ "ic-tooltip": true }}>
+      <Host
+        class={{
+          "ic-tooltip": true,
+          [`ic-theme-${theme}`]: theme !== "inherit",
+        }}
+      >
         <div
           ref={(el) => (this.toolTip = el as HTMLDivElement)}
           role="tooltip"

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 import { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -33,7 +33,7 @@ import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 import { Options } from "@popperjs/core";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -137,6 +137,10 @@ export namespace Components {
          */
         "message"?: string;
         /**
+          * If `true`, the default icon for the neutral variant will be appear on the left of the alert.
+         */
+        "showDefaultIcon": boolean;
+        /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
@@ -181,6 +185,10 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The type of badge to be displayed.
          */
         "type"?: IcBadgeTypes;
@@ -194,7 +202,6 @@ export namespace Components {
         "visible": boolean;
     }
     interface IcBreadcrumb {
-        "appearance": IcThemeForeground;
         /**
           * If `true`, aria-current will be set on the breadcrumb.
          */
@@ -203,6 +210,7 @@ export namespace Components {
           * The URL that the breadcrumb link points to.
          */
         "href"?: string;
+        "monochrome"?: boolean;
         /**
           * The title of the breadcrumb.
          */
@@ -212,12 +220,9 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         "showBackIcon": boolean;
+        "theme"?: IcThemeMode;
     }
     interface IcBreadcrumbGroup {
-        /**
-          * The appearance of the breadcrumb group.
-         */
-        "appearance": IcThemeForeground;
         /**
           * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
@@ -226,6 +231,14 @@ export namespace Components {
           * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
          */
         "collapsed": boolean;
+        /**
+          * If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcButton {
         /**
@@ -566,6 +579,10 @@ export namespace Components {
           * The size of the data list component.
          */
         "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcDataRow {
         /**
@@ -576,6 +593,10 @@ export namespace Components {
           * The size of the data row component.
          */
         "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
@@ -591,7 +612,7 @@ export namespace Components {
          */
         "cancelDialog": () => Promise<void>;
         /**
-          * If set to `true`, the dialog will not close when the backdrop is clicked.
+          * If set to `false`, the dialog will not close when the backdrop is clicked.
          */
         "closeOnBackdropClick"?: boolean;
         /**
@@ -869,10 +890,6 @@ export namespace Components {
     }
     interface IcLink {
         /**
-          * The appearance of the link, e.g. dark, light, or default.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
@@ -884,6 +901,10 @@ export namespace Components {
           * The human language of the linked URL.
          */
         "hreflang"?: string;
+        /**
+          * If `true`, the link will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
         /**
           * How much of the referrer to send when following the link.
          */
@@ -900,6 +921,10 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcLoadingIndicator {
         /**
@@ -916,9 +941,9 @@ export namespace Components {
         "fullWidth"?: boolean;
         "innerLabel"?: number;
         /**
-          * The label to be displayed beneath the loading indicator. Display a changing label by separating multiple messages with forward slashes.
+          * The label to be displayed beneath the loading indicator. Display a changing label by supplying an array of messages.
          */
-        "label"?: string;
+        "label"?: string | string[];
         /**
           * The time in milliseconds before the label changes.
          */
@@ -1700,6 +1725,10 @@ export namespace Components {
          */
         "status"?: IcStatusTagStatuses;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: "dark" | "light" | "inherit";
+        /**
           * The emphasis of the status tag.
          */
         "variant"?: IcEmphasisType;
@@ -1795,12 +1824,12 @@ export namespace Components {
         "value"?: string | null;
     }
     interface IcTab {
-        "appearance"?: IcThemeForegroundNoDefault;
         "contextId"?: string;
         /**
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
+        "monochrome"?: boolean;
         "selected"?: boolean;
         /**
           * Sets focus on the tab.
@@ -1808,6 +1837,7 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         "tabId"?: string;
         "tabPosition"?: number;
+        "theme"?: IcThemeMode;
     }
     interface IcTabContext {
         /**
@@ -1815,21 +1845,24 @@ export namespace Components {
          */
         "activationType"?: IcActivationTypes;
         /**
-          * The appearance of the tab context, e.g dark, or light.
-         */
-        "appearance"?: IcThemeForegroundNoDefault;
-        /**
           * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
          */
         "contextId"?: string;
+        /**
+          * If `true`, the tabs will display as black in the light theme.
+         */
+        "monochrome"?: boolean;
         /**
           * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
         "tabRemovedHandler": (hadFocus?: boolean) => Promise<void>;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcTabGroup {
-        "appearance"?: IcThemeForegroundNoDefault;
         /**
           * If `true`, the tabs and tab panels will be positioned separately.
          */
@@ -1838,12 +1871,15 @@ export namespace Components {
           * The label to describe the purpose of the set of tabs to screen reader users.
          */
         "label": string;
+        "monochrome"?: boolean;
+        "theme"?: IcThemeMode;
     }
     interface IcTabPanel {
-        "appearance"?: IcThemeForegroundNoDefault;
+        "monochrome"?: boolean;
         "panelId"?: string;
         "selectedTab"?: string;
         "tabPosition"?: number;
+        "theme"?: IcThemeMode;
     }
     interface IcTextField {
         "ariaActiveDescendant"?: string;
@@ -1984,6 +2020,10 @@ export namespace Components {
           * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
         "color"?: IcColor;
+        /**
+          * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
+         */
+        "theme": "dark" | "light" | "system";
     }
     interface IcToast {
         /**
@@ -2143,6 +2183,10 @@ export namespace Components {
           * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
          */
         "target"?: string;
+        /**
+          * Sets the tooltip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcTopNavigation {
         /**
@@ -2205,6 +2249,10 @@ export namespace Components {
           * If `true`, the typography will have a line through it.
          */
         "strikethrough"?: boolean;
+        /**
+          * Sets the text color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the typography will have a line under it.
          */
@@ -3261,6 +3309,10 @@ declare namespace LocalJSX {
          */
         "onIcDismiss"?: (event: IcAlertCustomEvent<void>) => void;
         /**
+          * If `true`, the default icon for the neutral variant will be appear on the left of the alert.
+         */
+        "showDefaultIcon"?: boolean;
+        /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
@@ -3305,6 +3357,10 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The type of badge to be displayed.
          */
         "type"?: IcBadgeTypes;
@@ -3318,7 +3374,6 @@ declare namespace LocalJSX {
         "visible"?: boolean;
     }
     interface IcBreadcrumb {
-        "appearance"?: IcThemeForeground;
         /**
           * If `true`, aria-current will be set on the breadcrumb.
          */
@@ -3327,17 +3382,15 @@ declare namespace LocalJSX {
           * The URL that the breadcrumb link points to.
          */
         "href"?: string;
+        "monochrome"?: boolean;
         /**
           * The title of the breadcrumb.
          */
         "pageTitle": string;
         "showBackIcon"?: boolean;
+        "theme"?: IcThemeMode;
     }
     interface IcBreadcrumbGroup {
-        /**
-          * The appearance of the breadcrumb group.
-         */
-        "appearance"?: IcThemeForeground;
         /**
           * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
@@ -3346,6 +3399,14 @@ declare namespace LocalJSX {
           * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
          */
         "collapsed"?: boolean;
+        /**
+          * If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcButton {
         /**
@@ -3694,6 +3755,10 @@ declare namespace LocalJSX {
           * The size of the data list component.
          */
         "size"?: IcSizesNoLarge;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcDataRow {
         /**
@@ -3705,6 +3770,10 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizesNoLarge;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
         "value"?: string;
@@ -3715,7 +3784,7 @@ declare namespace LocalJSX {
          */
         "buttons"?: boolean;
         /**
-          * If set to `true`, the dialog will not close when the backdrop is clicked.
+          * If set to `false`, the dialog will not close when the backdrop is clicked.
          */
         "closeOnBackdropClick"?: boolean;
         /**
@@ -4005,10 +4074,6 @@ declare namespace LocalJSX {
     }
     interface IcLink {
         /**
-          * The appearance of the link, e.g. dark, light, or default.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
@@ -4021,6 +4086,10 @@ declare namespace LocalJSX {
          */
         "hreflang"?: string;
         /**
+          * If `true`, the link will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * How much of the referrer to send when following the link.
          */
         "referrerpolicy"?: ReferrerPolicy;
@@ -4032,6 +4101,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcLoadingIndicator {
         /**
@@ -4048,9 +4121,9 @@ declare namespace LocalJSX {
         "fullWidth"?: boolean;
         "innerLabel"?: number;
         /**
-          * The label to be displayed beneath the loading indicator. Display a changing label by separating multiple messages with forward slashes.
+          * The label to be displayed beneath the loading indicator. Display a changing label by supplying an array of messages.
          */
-        "label"?: string;
+        "label"?: string | string[];
         /**
           * The time in milliseconds before the label changes.
          */
@@ -4908,6 +4981,10 @@ declare namespace LocalJSX {
          */
         "status"?: IcStatusTagStatuses;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: "dark" | "light" | "inherit";
+        /**
           * The emphasis of the status tag.
          */
         "variant"?: IcEmphasisType;
@@ -5011,12 +5088,12 @@ declare namespace LocalJSX {
         "value"?: string | null;
     }
     interface IcTab {
-        "appearance"?: IcThemeForegroundNoDefault;
         "contextId"?: string;
         /**
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
+        "monochrome"?: boolean;
         "onTabClick"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "onTabCreated"?: (event: IcTabCustomEvent<HTMLIcTabElement>) => void;
         "onTabEnabled"?: (event: IcTabCustomEvent<void>) => void;
@@ -5025,6 +5102,7 @@ declare namespace LocalJSX {
         "selected"?: boolean;
         "tabId"?: string;
         "tabPosition"?: number;
+        "theme"?: IcThemeMode;
     }
     interface IcTabContext {
         /**
@@ -5032,13 +5110,13 @@ declare namespace LocalJSX {
          */
         "activationType"?: IcActivationTypes;
         /**
-          * The appearance of the tab context, e.g dark, or light.
-         */
-        "appearance"?: IcThemeForegroundNoDefault;
-        /**
           * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
          */
         "contextId"?: string;
+        /**
+          * If `true`, the tabs will display as black in the light theme.
+         */
+        "monochrome"?: boolean;
         /**
           * Emitted when a user selects a tab.
          */
@@ -5047,9 +5125,12 @@ declare namespace LocalJSX {
           * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcTabGroup {
-        "appearance"?: IcThemeForegroundNoDefault;
         /**
           * If `true`, the tabs and tab panels will be positioned separately.
          */
@@ -5058,14 +5139,17 @@ declare namespace LocalJSX {
           * The label to describe the purpose of the set of tabs to screen reader users.
          */
         "label": string;
+        "monochrome"?: boolean;
+        "theme"?: IcThemeMode;
     }
     interface IcTabPanel {
-        "appearance"?: IcThemeForegroundNoDefault;
+        "monochrome"?: boolean;
         "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
         "onTabPanelRemoved"?: (event: IcTabPanelCustomEvent<void>) => void;
         "panelId"?: string;
         "selectedTab"?: string;
         "tabPosition"?: number;
+        "theme"?: IcThemeMode;
     }
     interface IcTextField {
         "ariaActiveDescendant"?: string;
@@ -5224,6 +5308,10 @@ declare namespace LocalJSX {
          */
         "color"?: IcColor;
         "onThemeChange"?: (event: IcThemeCustomEvent<IcTheme>) => void;
+        /**
+          * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
+         */
+        "theme"?: "dark" | "light" | "system";
     }
     interface IcToast {
         /**
@@ -5382,6 +5470,10 @@ declare namespace LocalJSX {
           * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
          */
         "target"?: string;
+        /**
+          * Sets the tooltip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcTopNavigation {
         /**
@@ -5448,6 +5540,10 @@ declare namespace LocalJSX {
           * If `true`, the typography will have a line through it.
          */
         "strikethrough"?: boolean;
+        /**
+          * Sets the text color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the typography will have a line under it.
          */

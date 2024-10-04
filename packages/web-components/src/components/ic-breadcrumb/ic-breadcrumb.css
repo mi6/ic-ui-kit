@@ -17,7 +17,11 @@
 }
 
 :host .chevron svg {
-  color: var(--ic-architectural-400);
+  color: var(--ic-breadcrumb-icon-chevron);
+}
+
+:host(.ic-breadcrumb-monochrome) .chevron svg {
+  color: var(--ic-breadcrumb-icon-chevron-monochrome);
 }
 
 :host(:first-child) .chevron {
@@ -25,7 +29,11 @@
 }
 
 .back-icon svg {
-  color: currentcolor;
+  color: var(--ic-breadcrumb-page-icon);
+}
+
+:host(.ic-breadcrumb-monochrome) .back-icon svg {
+  color: var(--ic-breadcrumb-page-icon-monochrome);
 }
 
 :host(.ic-breadcrumb-back) {
@@ -47,14 +55,11 @@ ic-link {
   display: flex;
   align-items: center;
   gap: var(--ic-space-xs);
+  color: var(--ic-breadcrumb-text);
 }
 
-:host([aria-current="page"]) .current-page-container.dark {
-  color: var(--ic-color-primary-text);
-}
-
-:host([aria-current="page"]) .current-page-container.light {
-  color: var(--ic-color-white-text);
+:host([aria-current="page"].ic-breadcrumb-monochrome) .current-page-container {
+  color: var(--ic-breadcrumb-text-monochrome);
 }
 
 :host(.collapsed-breadcrumb-wrapper) {

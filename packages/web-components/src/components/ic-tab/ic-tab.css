@@ -2,16 +2,15 @@
 
 :host {
   --indicator-initial-color: rgba(23 89 188 / 0%);
-  --indicator-color: var(--ic-action-default);
   --focus-indicator: var(--ic-border-focus);
-  --label-color: var(--ic-color-primary-text);
-  --background-color-hover: var(--ic-action-default-bg-hover);
-  --background-color-active: var(--ic-action-default-bg-active);
 
   display: flex;
   align-items: center;
   border-radius: 0;
-  color: var(--label-color);
+  color: var(--ic-tab-label);
+
+  --ic-typography-color: var(--ic-tab-label);
+
   height: 2.5rem;
   padding: 0 var(--ic-space-md);
   cursor: pointer;
@@ -19,6 +18,10 @@
   border-bottom: var(--ic-space-xxs) solid var(--indicator-initial-color);
   gap: var(--ic-space-xs);
   transition: all var(--ic-easing-transition-fast);
+}
+
+::slotted([slot="icon"]) {
+  fill: var(--ic-tab-icon);
 }
 
 :host(:focus) {
@@ -31,29 +34,46 @@
 }
 
 :host(:hover) {
-  background-color: var(--background-color-hover);
+  background-color: var(--ic-tab-item-hover);
 }
 
 :host(:active) {
-  background-color: var(--background-color-active);
-}
-
-:host(.ic-tab-light) {
-  --indicator-initial-color: rgb(255 255 255 / 0%);
-  --indicator-color: rgb(255 255 255 / 100%);
-  --focus-indicator: var(--ic-border-focus);
-  --label-color: white;
-  --background-color-hover: var(--ic-action-dark-bg-hover);
-  --background-color-active: var(--ic-action-dark-bg-active);
+  background-color: var(--ic-tab-item-pressed);
 }
 
 :host(.ic-tab-selected) {
-  border-bottom: var(--ic-space-xxs) solid var(--indicator-color);
+  border-bottom: var(--ic-space-xxs) solid var(--ic-tab-item);
 }
 
 :host(.ic-tab-disabled) {
   pointer-events: none;
   color: var(--ic-architectural-300);
+}
+
+:host(.ic-tab-disabled) ic-typography {
+  color: var(--ic-architectural-300);
+
+  --ic-typography-color: var(--ic-architectural-300);
+}
+
+:host(.ic-tab-monochrome) {
+  color: var(--ic-tab-label-monochrome);
+}
+
+:host(.ic-tab-monochrome) ::slotted([slot="icon"]) {
+  fill: var(--ic-tab-icon-monochrome);
+}
+
+:host(.ic-tab-monochrome.ic-tab-selected) {
+  border-bottom: var(--ic-space-xxs) solid var(--ic-tab-item-monochrome);
+}
+
+:host(.ic-tab-monochrome:hover) {
+  background-color: var(--ic-tab-item-hover-monochrome);
+}
+
+:host(.ic-tab-monochrome:active) {
+  background-color: var(--ic-tab-item-pressed-monochrome);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -79,6 +99,12 @@
 
   :host(.ic-tab-disabled) {
     color: GrayText;
+  }
+
+  :host(.ic-tab-disabled) ic-typography {
+    color: GrayText;
+
+    --ic-typography-color: GrayText;
   }
 }
 

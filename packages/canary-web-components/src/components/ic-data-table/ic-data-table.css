@@ -1,8 +1,11 @@
 :host {
   position: relative;
-  display: block;
-  height: 100%;
+  display: inline-flex;
   max-height: 100%;
+  width: var(--table-width, 100%);
+  height: 100%;
+  min-width: var(--table-min-width);
+  max-width: var(--table-max-width);
 }
 
 tbody {
@@ -14,12 +17,14 @@ tbody {
   height: calc(100% - var(--ic-space-xxxs));
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .cell-container {
   display: flex;
   min-height: 1.5rem;
   overflow-y: hidden;
+  height: var(--row-height);
 }
 
 .truncation-show-hide {
@@ -53,9 +58,10 @@ ic-loading-indicator {
 }
 
 table {
-  table-layout: fixed;
+  table-layout: var(--table-layout, "fixed");
   border-spacing: 0;
   width: 100%;
+  height: var(--table-height, auto);
 }
 
 .table-row-container:focus {
@@ -68,6 +74,11 @@ table {
 
 :host([embedded="true"]) .table-row-container {
   border: var(--ic-border-light);
+}
+
+.column-header-inner-container {
+  padding: var(--ic-space-xs);
+  box-sizing: border-box;
 }
 
 .column-header-sticky {
@@ -118,7 +129,8 @@ table {
   color: var(--ic-color-tertiary-text);
 }
 
-.table-density-dense {
+.table-density-dense .column-header-inner-container,
+td.table-density-dense {
   padding: var(--ic-space-xxs) var(--ic-space-xs) !important;
 }
 
@@ -126,7 +138,8 @@ table {
   font-size: var(--ic-font-size-label);
 }
 
-.table-density-spacious {
+.table-density-spacious .column-header-inner-container,
+td.table-density-spacious {
   padding: 0.625rem var(--ic-space-xs) !important;
 }
 
@@ -138,13 +151,20 @@ table {
   font-weight: var(--ic-font-weight-bold);
 }
 
-.column-header,
-.row-header {
+.row-header,
+.column-header {
   text-align: left;
   padding: var(--ic-space-xs);
   background-color: var(--ic-architectural-40);
   border-right: var(--ic-border-light);
   border-bottom: var(--ic-border-light);
+}
+
+.column-header {
+  padding: 0;
+  width: var(--column-width);
+  min-width: var(--column-min-width, 4rem);
+  max-width: var(--column-max-width);
 }
 
 .column-header:last-child {
@@ -197,6 +217,9 @@ table {
   padding: var(--ic-space-xs);
   border-bottom: solid var(--ic-architectural-100) var(--ic-space-1px);
   overflow: hidden;
+  box-sizing: border-box;
+  max-width: var(--column-max-width);
+  min-width: var(--column-min-width);
 }
 
 .data-type-string,
@@ -228,7 +251,7 @@ table {
 }
 
 .cell-emphasis-low {
-  color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-secondary-text);
 }
 
 .cell-emphasis-high {
@@ -325,6 +348,7 @@ table {
 
 .ic-tooltip-overflow {
   overflow: hidden;
+  width: 100%;
 }
 
 @media screen and (min-width: 576px) {

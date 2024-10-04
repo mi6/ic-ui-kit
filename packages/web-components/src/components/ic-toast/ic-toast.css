@@ -4,6 +4,16 @@
  * @prop --ic-z-index-toast: z-index of toast
  */
 
+@media (prefers-reduced-motion: no-preference) {
+  :host {
+    animation: fadein var(--ic-transition-duration-slow) ease-in-out;
+  }
+
+  :host(.hidden) {
+    animation: fadeout var(--ic-transition-duration-slow) ease-in-out;
+  }
+}
+
 :host {
   --bottom-position: var(--ic-space-xl);
 
@@ -11,13 +21,11 @@
   bottom: var(--bottom-position);
   left: 50%;
   transform: translate(-50%);
-  animation: fadein var(--ic-transition-duration-slow) ease-in-out;
   z-index: var(--ic-z-index-toast);
 }
 
 :host(.ic-toast-hidden) {
   display: none;
-  animation: fadeout var(--ic-transition-duration-slow) ease-in-out;
 }
 
 :host(:focus) {
@@ -30,7 +38,9 @@
   box-shadow: var(--ic-elevation-overlay);
   min-height: 3.5rem;
   background-color: var(--ic-architectural-800);
-  color: var(--ic-color-white-text);
+
+  --ic-typography-color: var(--ic-color-primary-text-dark);
+
   display: flex;
   align-items: center;
   position: relative;

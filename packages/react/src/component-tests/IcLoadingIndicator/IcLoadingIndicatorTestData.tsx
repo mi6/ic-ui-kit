@@ -75,7 +75,7 @@ export const DeterminateLinearLoadingIndWithLabelSizeSmallDefaultLargeFull =
         min={args.min}
         max={args.max}
         label="Full-width"
-        size="default"
+        size="medium"
         type="linear"
         fullWidth={true}
       />
@@ -204,7 +204,7 @@ export const DeterminateCircularLoadingIndWithInnerLabel = (args: {
 export const IndeterminateCircularLoadingIndE2EWithDuration =
   (): ReactElement => (
     <IcLoadingIndicator
-      label="First label/Second label/Third label"
+      label={["First label", "Second label", "Third label"]}
       labelDuration={250}
     />
   );

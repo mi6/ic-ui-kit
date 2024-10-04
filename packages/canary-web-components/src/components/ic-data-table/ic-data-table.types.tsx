@@ -12,6 +12,12 @@ export type IcDataTableColumnDataTypes =
   | "element"
   | "date";
 
+export type IcDataTableColumnWidthTypes = {
+  width?: string;
+  minWidth?: string;
+  maxWidth?: string;
+};
+
 export type IcDataTableColumnObject = {
   key: string;
   title: string;
@@ -20,7 +26,10 @@ export type IcDataTableColumnObject = {
     horizontal?: string;
     vertical?: string;
   };
-  rowOptions?: IcDataTableRowOptions;
+  rowOptions?: {
+    textWrap: boolean;
+  };
+  columnWidth?: string | IcDataTableColumnWidthTypes;
   textWrap?: boolean;
   cellAlignment?: string;
   emphasis?: string;
@@ -32,10 +41,6 @@ export type IcDataTableColumnObject = {
   };
 };
 
-export type IcDataTableRowOptions = {
-  textWrap: boolean;
-};
-
 export type IcDataTableRowHeights = number | "auto";
 
 export interface IcDensityUpdateEventDetail {
@@ -43,6 +48,14 @@ export interface IcDensityUpdateEventDetail {
 }
 export type IcDataTableTruncationTypes = "tooltip" | "show-hide" | undefined;
 
+export interface IcSortEventDetail {
+  columnName: string;
+  sorted: IcDataTableSortOrderOptions;
+}
+
 export type truncWrapperDetailsTypes = {
   scrollHeight: number | null;
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type IcDataTableDataType = { [key: string]: any };

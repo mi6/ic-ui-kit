@@ -179,6 +179,11 @@ export class DateInput {
   @Prop() inputId?: string = `ic-date-input-${inputIds++}`;
 
   /**
+   * The text to display as the validation message when an invalid date is entered.
+   */
+  @Prop() invalidDateMessage?: string = "Please enter a valid date.";
+
+  /**
    * The label for the date input.
    */
   @Prop() label!: string;
@@ -255,7 +260,7 @@ export class DateInput {
   /**
    * The size of the date input to be displayed.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
@@ -875,7 +880,7 @@ export class DateInput {
     }
 
     if (!(this.isValidDay && this.isValidMonth && this.isValidDate)) {
-      this.invalidDateText = "Please enter a valid date.";
+      this.invalidDateText = this.invalidDateMessage;
     } else if (this.isDisabledDate && this.selectedDate !== null) {
       if (this.isBeforeMin) {
         if (this.disablePast) {

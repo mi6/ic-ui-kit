@@ -3,6 +3,7 @@
 :host {
   display: block;
   position: relative;
+  color: var(--ic-typography-color, var(--ic-color-primary-text));
 }
 
 :host(.ic-typography-vertical-margins-h1) {
@@ -183,6 +184,11 @@
 
 :host(.ic-typography-bold) {
   font-weight: var(--ic-font-weight-bold);
+}
+
+:host(.ic-theme-dark),
+:host(.ic-theme-light) {
+  --ic-typography-color: var(--ic-color-primary-text);
 }
 
 :host(.in-ag-grid),

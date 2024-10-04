@@ -125,6 +125,24 @@ describe("ic-text-field", () => {
     expect(page.root).toMatchSnapshot("renders-with-max-characters-long-value");
   });
 
+  it("should render with max characters and hidden character count", async () => {
+    const page = await newSpecPage({
+      components: [TextField],
+      html: `<ic-text-field label="Test label" value="Test value" max-characters=25 hide-char-count></ic-text-field>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-with-hidden-char-count");
+  });
+
+  it("should render with max characters and a value set which exceeds the max number of characters", async () => {
+    const page = await newSpecPage({
+      components: [TextField],
+      html: `<ic-text-field label="Test label" value="A long value which exceeds the max characters" max-characters=25></ic-text-field>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-with-max-characters-long-value");
+  });
+
   it("should render with name & full width", async () => {
     const page = await newSpecPage({
       components: [TextField],

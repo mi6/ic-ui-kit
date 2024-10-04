@@ -843,10 +843,11 @@ export const defaultArgs = {
   customColor: null,
   maxNumber: 1000,
   position: "far",
-  size: "default",
+  size: "medium",
   label: "1",
   type: "text",
   variant: "neutral",
+  theme: "inherit",
 };
 
 <Canvas>
@@ -863,7 +864,7 @@ export const defaultArgs = {
         },
       },
       size: {
-          options: ["small", "default", "large"],
+          options: ["small", "medium", "large"],
         control: {
           type: "radio",
         },
@@ -888,6 +889,12 @@ export const defaultArgs = {
           type: "select",
         },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      }
     }}
     name="Playground"
   >
@@ -902,6 +909,7 @@ export const defaultArgs = {
           label={args.label}
           type={args.type}
           variant={args.variant}
+          theme={args.theme}
         >
           <svg
             slot="badge-icon"

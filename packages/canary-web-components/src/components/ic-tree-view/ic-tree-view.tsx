@@ -56,7 +56,7 @@ export class TreeView {
   /**
    * The size of the tree view.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
   @Watch("size")
   watchSizeHandler() {
     this.treeItems.forEach((treeItem) => {
@@ -280,7 +280,7 @@ export class TreeView {
         context-id={this.treeViewId}
         class={{
           [`ic-tree-view-${appearance}`]: true,
-          [`ic-tree-view-${size}`]: size !== "default",
+          [`ic-tree-view-${size}`]: size !== "medium",
         }}
         onKeyDown={this.handleKeyDown}
         aria-label={this.isHeadingDefined() ? heading : null}

@@ -17,7 +17,7 @@ export const defaultArgs = {
   description: "Loading",
   fullWidth: false,
   labelDuration: 8000,
-  size: "default",
+  size: "medium",
   type: "circular",
   label: null,
 };
@@ -31,7 +31,7 @@ export const defaultArgTypes = {
     control: { type: "text" },
   },
   size: {
-    options: ["small", "default", "large", "icon"],
+    options: ["small", "medium", "large", "icon"],
     control: { type: "radio" },
   },
   type: {
@@ -203,7 +203,7 @@ export const defaultArgTypes = {
         ></ic-loading-indicator>
         <ic-loading-indicator
           label="Full-width"
-          size="default"
+          size="medium"
           type="linear"
           full-width="true"
         ></ic-loading-indicator>
@@ -249,7 +249,7 @@ export const defaultArgTypes = {
           min="0"
           max="100"
           label="Full-width"
-          size="default"
+          size="medium"
           type="linear"
           full-width="true"
         ></ic-loading-indicator>
@@ -393,10 +393,13 @@ export const defaultArgTypes = {
 <Canvas>
   <Story name="Changing label" parameters={{ loki: { skip: true } }}>
     {(args) =>
-      html`<ic-loading-indicator
-        label="Loading.../Still loading..."
-        label-duration="4000"
-      ></ic-loading-indicator>`
+      html`<ic-loading-indicator label-duration="4000"></ic-loading-indicator>
+        <script>
+          document.querySelector("ic-loading-indicator").label = [
+            "Loading...",
+            "Still loading...",
+          ];
+        </script> `
     }
   </Story>
 </Canvas>

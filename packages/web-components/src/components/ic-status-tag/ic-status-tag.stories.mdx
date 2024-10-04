@@ -79,11 +79,11 @@ import readme from "./readme.md";
         variant="outlined"
         size="small"
       ></ic-status-tag>
-      <ic-status-tag label="Default" size="default"></ic-status-tag>
+      <ic-status-tag label="Default" size="medium"></ic-status-tag>
       <ic-status-tag
         label="Default"
         variant="outlined"
-        size="default"
+        size="medium"
       ></ic-status-tag>
       <ic-status-tag label="Large" size="large"></ic-status-tag>
       <ic-status-tag
@@ -135,9 +135,10 @@ import readme from "./readme.md";
 export const defaultArgs = {
   announced: false,
   label: "Status tag label",
-  size: "default",
+  size: "medium",
   status: "neutral",
   variant: "filled",
+  theme: "inherit",
 };
 
 <Canvas>
@@ -146,7 +147,7 @@ export const defaultArgs = {
     parameters={{ loki: { skip: true } }}
     argTypes={{
       size: {
-        options: ["default", "small", "large"],
+        options: ["medium", "small", "large"],
         control: {
           type: "inline-radio",
         },
@@ -163,6 +164,12 @@ export const defaultArgs = {
           type: "inline-radio",
         },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
     }}
     name="Playground"
   >
@@ -173,6 +180,7 @@ export const defaultArgs = {
         status=${args.status}
         variant=${args.variant}
         announced=${args.announced}
+        theme=${args.theme}
       ></ic-status-tag>`
     }
   </Story>

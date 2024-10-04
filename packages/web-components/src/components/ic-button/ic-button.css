@@ -93,7 +93,7 @@
 
 :host(.ic-button-variant-primary.ic-button-light) .button,
 :host(.ic-button-variant-primary.ic-button-light) ::slotted(a) {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-primary-text-light);
 
   --button-default-hover: var(--ic-action-light-hover);
   --button-default-active: var(--ic-action-light-active);
@@ -101,6 +101,8 @@
 
 :host(.ic-button-variant-primary.ic-button-dark) .button,
 :host(.ic-button-variant-primary.ic-button-dark) ::slotted(a) {
+  color: var(--ic-color-primary-text-dark);
+
   --button-default-hover: var(--ic-action-dark-hover);
   --button-default-active: var(--ic-action-dark-active);
 }
@@ -327,7 +329,7 @@
 
 :host(.ic-button-variant-icon-primary.ic-button-light) .button,
 :host(.ic-button-variant-icon-primary.ic-button-light) ::slotted(a) {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-primary-text-light);
 }
 
 :host(.ic-button-variant-icon-primary.ic-button-light) .button:hover,
@@ -501,7 +503,7 @@
 
 /* Sizing */
 
-:host(.ic-button-size-default) .button {
+:host(.ic-button-size-medium) .button {
   height: var(--height, 2.5rem);
   padding: var(--ic-space-xs) var(--ic-space-md);
 }
@@ -516,16 +518,16 @@
   padding: var(--ic-space-sm) var(--ic-space-md);
 }
 
-:host(.ic-button-size-default.ic-button-variant-icon) .button,
-:host(.ic-button-size-default.ic-button-variant-icon-primary) .button,
-:host(.ic-button-size-default.ic-button-variant-icon-secondary) .button,
-:host(.ic-button-size-default.ic-button-variant-icon-tertiary) .button,
-:host(.ic-button-size-default.ic-button-variant-icon-destructive) .button,
-:host(.ic-button-size-default.ic-button-variant-icon-primary) ::slotted(a),
-:host(.ic-button-size-default.ic-button-variant-icon-secondary) ::slotted(a),
-:host(.ic-button-size-default.ic-button-variant-icon-tertiary) ::slotted(a),
-:host(.ic-button-size-default.ic-button-variant-icon-destructive) ::slotted(a),
-:host(.ic-button-size-default.ic-button-variant-icon) ::slotted(a) {
+:host(.ic-button-size-medium.ic-button-variant-icon) .button,
+:host(.ic-button-size-medium.ic-button-variant-icon-primary) .button,
+:host(.ic-button-size-medium.ic-button-variant-icon-secondary) .button,
+:host(.ic-button-size-medium.ic-button-variant-icon-tertiary) .button,
+:host(.ic-button-size-medium.ic-button-variant-icon-destructive) .button,
+:host(.ic-button-size-medium.ic-button-variant-icon-primary) ::slotted(a),
+:host(.ic-button-size-medium.ic-button-variant-icon-secondary) ::slotted(a),
+:host(.ic-button-size-medium.ic-button-variant-icon-tertiary) ::slotted(a),
+:host(.ic-button-size-medium.ic-button-variant-icon-destructive) ::slotted(a),
+:host(.ic-button-size-medium.ic-button-variant-icon) ::slotted(a) {
   height: var(--height, var(--ic-space-xl));
   width: var(--ic-space-xl);
   padding: 0.375rem;
@@ -829,7 +831,7 @@ slot[name="router-item"]::slotted(a) {
   background-color: var(--ic-action-destructive-active) !important;
 }
 
-:host(.ic-button-size-default) ::slotted(a) {
+:host(.ic-button-size-medium) ::slotted(a) {
   height: var(--height, 2.5rem) !important;
   padding: var(--ic-space-xs) var(--ic-space-md) !important;
 }
@@ -844,7 +846,7 @@ slot[name="router-item"]::slotted(a) {
   padding: var(--ic-space-sm) var(--ic-space-md) !important;
 }
 
-:host(.ic-button-size-default.ic-button-variant-icon) ::slotted(a) {
+:host(.ic-button-size-medium.ic-button-variant-icon) ::slotted(a) {
   height: var(--height, var(--ic-space-xl)) !important;
   padding: 0.375rem !important;
 }

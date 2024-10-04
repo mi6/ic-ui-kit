@@ -11,6 +11,7 @@ import {
   MaxNumber,
   PositionNear,
   PositionInline,
+  ThemeDark,
 } from "./IcBadgeTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -180,6 +181,18 @@ describe("IcBadge visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
       name: "position-inline",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render badge with dark theme", () => {
+    mount(<ThemeDark />);
+
+    cy.checkHydrated(IC_BADGE_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });

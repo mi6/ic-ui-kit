@@ -15,6 +15,7 @@ module.exports = {
     "@storybook/addon-postcss",
     "@storybook/addon-a11y",
     "@storybook/addon-mdx-gfm",
+    "storybook-addon-performance",
     "./addon-tab/register"
   ],
 

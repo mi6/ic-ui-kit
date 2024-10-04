@@ -30,8 +30,8 @@
   text-align: center;
 }
 
-:host(.image-default) ::slotted(svg),
-:host(.image-default) ::slotted(img) {
+:host(.image-medium) ::slotted(svg),
+:host(.image-medium) ::slotted(img) {
   height: calc(3 * var(--ic-space-lg)) !important;
   width: calc(3 * var(--ic-space-lg)) !important;
 }

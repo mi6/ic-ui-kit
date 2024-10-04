@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.css"
   ],
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "React-wrapped web components served on a nextjs storybook",
   "author": "mi6",
   "private": true,
@@ -44,7 +44,7 @@
     "babel-loader": "^8.3.0",
     "css-loader": "^6.8.1",
     "mkdirp": "^1.0.4",
-    "next": "14.1.1",
+    "next": "14.2.12",
     "np": "^10.0.1",
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
     "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0",

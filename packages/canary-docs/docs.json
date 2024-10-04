@@ -1,5 +1,4 @@
 {
-  "timestamp": "2024-08-19T07:51:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -465,11 +464,17 @@
         },
         {
           "name": "data",
-          "type": "{ [key: string]: any; }[]",
+          "type": "IcDataTableDataType[]",
           "complexType": {
-            "original": "{ [key: string]: any }[]",
-            "resolved": "{ [key: string]: any; }[]",
-            "references": {}
+            "original": "IcDataTableDataType[]",
+            "resolved": "IcDataTableDataType[]",
+            "references": {
+              "IcDataTableDataType": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableDataType"
+              }
+            }
           },
           "mutable": false,
           "reflectToAttr": false,
@@ -477,7 +482,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ [key: string]: any; }[]"
+              "type": "IcDataTableDataType[]"
             }
           ],
           "optional": false,
@@ -575,6 +580,27 @@
           "required": false
         },
         {
+          "name": "height",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "height",
+          "reflectToAttr": false,
+          "docs": "Sets the table height. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "hideColumnHeaders",
           "type": "boolean",
           "complexType": {
@@ -639,6 +665,48 @@
           "values": [
             {
               "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "maxWidth",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-width",
+          "reflectToAttr": false,
+          "docs": "Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "minWidth",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "min-width",
+          "reflectToAttr": false,
+          "docs": "Sets the minimum width of the data table. Can be set in `px`, `rem`, or `%`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": true,
@@ -809,6 +877,33 @@
           "required": false
         },
         {
+          "name": "tableLayout",
+          "type": "\"auto\" | \"fixed\"",
+          "complexType": {
+            "original": "\"fixed\" | \"auto\"",
+            "resolved": "\"auto\" | \"fixed\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "table-layout",
+          "reflectToAttr": false,
+          "docs": "Sets the layout of the table",
+          "docsTags": [],
+          "default": "\"fixed\"",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "fixed",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "truncationPattern",
           "type": "\"show-hide\" | \"tooltip\"",
           "complexType": {
@@ -825,7 +920,7 @@
           "mutable": false,
           "attr": "truncation-pattern",
           "reflectToAttr": false,
-          "docs": "Sets the method used to truncate longer text in cells where textWrap is `false`.\nThe `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography \"See more\"/\"See less\" buttons.",
+          "docs": "Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography \"See more\"/\"See less\" buttons.",
           "docsTags": [],
           "values": [
             {
@@ -913,6 +1008,27 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "width",
+          "reflectToAttr": false,
+          "docs": "Sets the table width. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [
@@ -964,6 +1080,26 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.",
+          "docsTags": []
+        },
+        {
+          "event": "icSortChange",
+          "detail": "IcSortEventDetail",
+          "bubbles": true,
+          "complexType": {
+            "original": "IcSortEventDetail",
+            "resolved": "IcSortEventDetail",
+            "references": {
+              "IcSortEventDetail": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcSortEventDetail"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a column sort button is clicked.",
           "docsTags": []
         }
       ],
@@ -1566,6 +1702,28 @@
           "required": false
         },
         {
+          "name": "invalidDateMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "invalid-date-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message when an invalid date is entered.",
+          "docsTags": [],
+          "default": "\"Please enter a valid date.\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "label",
           "type": "string",
           "complexType": {
@@ -1714,10 +1872,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -1731,14 +1889,14 @@
           "reflectToAttr": false,
           "docs": "The size of the date input to be displayed.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -2247,6 +2405,28 @@
           "required": false
         },
         {
+          "name": "invalidDateMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "invalid-date-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message when an invalid date is entered.",
+          "docsTags": [],
+          "default": "\"Please enter a valid date.\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "label",
           "type": "string",
           "complexType": {
@@ -2468,10 +2648,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -2485,14 +2665,14 @@
           "reflectToAttr": false,
           "docs": "The size of the date picker to be displayed.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -3010,10 +3190,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -3027,14 +3207,14 @@
           "reflectToAttr": false,
           "docs": "The size of the menu.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -4141,10 +4321,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -4158,14 +4338,14 @@
           "reflectToAttr": false,
           "docs": "The size of the select.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -4900,10 +5080,10 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"large\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"default\" | \"large\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -4917,14 +5097,14 @@
           "reflectToAttr": false,
           "docs": "The size of the tree view.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "\"medium\"",
           "values": [
             {
-              "value": "default",
+              "value": "large",
               "type": "string"
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -4986,7 +5166,12 @@
       "path": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: IcDataTableRowOptions;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
+      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: {\n    textWrap: boolean;\n  };\n  columnWidth?: string | IcDataTableColumnWidthTypes;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableDataType": {
+      "declaration": "{ [key: string]: any }",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5017,6 +5202,11 @@
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
       "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"show-hide\" | undefined;",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcSortEventDetail": {
+      "declaration": "export interface IcSortEventDetail {\n  columnName: string;\n  sorted: IcDataTableSortOrderOptions;\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5056,7 +5246,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcSizes": {
-      "declaration": "export type IcSizes = \"default\" | \"large\" | \"small\";",
+      "declaration": "export type IcSizes = \"medium\" | \"large\" | \"small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },

@@ -350,25 +350,25 @@ exports[`ic-page-header component renders additional functionality should render
         </ol>
       </nav>
     </mock:shadow-root>
-    <ic-breadcrumb appearance="default" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+    <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
       <mock:shadow-root>
         <div class="breadcrumb">
           <span aria-hidden="true" class="chevron">
             svg
           </span>
-          <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-1">
+          <ic-link class="breadcrumb-link" href="/breadcrumb-1" theme="inherit">
             Breadcrumb 1
           </ic-link>
         </div>
       </mock:shadow-root>
     </ic-breadcrumb>
-    <ic-breadcrumb appearance="default" aria-current="page" current="true" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+    <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
       <mock:shadow-root>
         <div class="breadcrumb">
           <span aria-hidden="true" class="chevron">
             svg
           </span>
-          <span class="current-page-container default">
+          <span class="current-page-container">
             Breadcrumb 2
           </span>
         </div>

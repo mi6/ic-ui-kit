@@ -7,7 +7,8 @@
   display: inline-block;
   min-width: 2.5rem;
   text-align: center;
-  color: var(--ic-color-primary-text);
+
+  --ic-typography-color: var(--ic-status-tag-text);
 }
 
 .small {
@@ -21,22 +22,20 @@
 }
 
 .filled-neutral {
-  background-color: var(--ic-architectural-700);
-  color: var(--ic-architectural-white);
+  background-color: var(--ic-status-tag-neutral);
 }
 
 .filled-success {
-  background-color: var(--ic-status-success);
-  color: var(--ic-architectural-white);
+  background-color: var(--ic-status-tag-success);
 }
 
 .filled-warning {
-  background-color: var(--ic-status-warning-contrast);
+  background-color: var(--ic-status-tag-warning);
+  --ic-typography-color: var(--ic-status-tag-outlined-text);
 }
 
 .filled-danger {
-  background-color: var(--ic-status-error);
-  color: var(--ic-architectural-white);
+  background-color: var(--ic-status-tag-error);
 }
 
 .outlined {
@@ -54,23 +53,27 @@
 }
 
 .outlined-neutral {
-  background-color: var(--ic-architectural-200);
-  border: var(--ic-border-width) solid var(--ic-architectural-400);
+  background-color: var(--ic-status-tag-outlined-background-neutral);
+  border: var(--ic-border-width) solid var(--ic-status-tag-outlined-neutral);
+  --ic-typography-color: var(--ic-status-tag-outlined-text);
 }
 
 .outlined-success {
-  background-color: var(--ic-status-success-light);
-  border: var(--ic-border-width) solid var(--ic-status-success);
+  background-color: var(--ic-status-tag-outlined-background-success);
+  border: var(--ic-border-width) solid var(--ic-status-tag-outlined-success);
+  --ic-typography-color: var(--ic-status-tag-outlined-text);
 }
 
 .outlined-warning {
-  background-color: var(--ic-status-warning-light);
-  border: var(--ic-border-width) solid var(--ic-status-warning-dark);
+  background-color: var(--ic-status-tag-outlined-background-warning);
+  border: var(--ic-border-width) solid var(--ic-status-tag-outlined-warning);
+  --ic-typography-color: var(--ic-status-tag-outlined-text);
 }
 
 .outlined-danger {
-  background-color: var(--ic-status-error-light);
-  border: var(--ic-border-width) solid var(--ic-status-error);
+  background-color: var(--ic-status-tag-outlined-background-error);
+  border: var(--ic-border-width) solid var(--ic-status-tag-outlined-error);
+  --ic-typography-color: var(--ic-status-tag-outlined-text);
 }
 
 @media (forced-colors: active) {

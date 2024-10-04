@@ -1,0 +1,297 @@
+/* colors for system light mode\light theme */
+:root,
+ic-theme,
+.ic-theme-light {
+  --ic-background-primary: var(--ic-background-primary-light);
+  --ic-typography-color: var(--ic-color-primary-text);
+  --ic-color-primary-text: var(--ic-color-primary-text-light);
+  --ic-color-secondary-text: var(--ic-color-secondary-text-light);
+  --ic-color-tertiary-text: var(--ic-color-tertiary-text-light);
+  --ic-color-inverse-text: var(--ic-color-inverse-text-light);
+
+  /* Breadcrumbs */
+  --ic-breadcrumb-page-title: var(--ic-hyperlink);
+  --ic-breadcrumb-page-title-hover: var(--ic-hyperlink);
+  --ic-breadcrumb-page-title-pressed: var(--ic-hyperlink);
+  --ic-breadcrumb-page-title-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-page-title-hover-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-page-title-pressed-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-icon-chevron: var(--ic-icon-grey);
+  --ic-breadcrumb-icon-chevron-monochrome: var(--ic-icon-grey-dark);
+  --ic-breadcrumb-page-icon: var(--ic-icon-action-default);
+  --ic-breadcrumb-page-icon-monochrome: var(--ic-icon-neutral);
+  --ic-breadcrumb-text: var(--ic-color-primary-text);
+  --ic-breadcrumb-text-monochrome: var(--ic-color-primary-text);
+
+  /* Data list */
+  --ic-data-list-text-cell: var(--ic-color-primary-text);
+  --ic-data-list-text-heading: var(--ic-color-primary-text);
+  --ic-data-list-text-label: var(--ic-color-tertiary-text);
+  --ic-data-list-keyline-heading: var(--ic-border-neutral);
+  --ic-data-list-keyline-cell: var(--ic-border-neutral);
+
+  /* Links */
+  --ic-link-text: var(--ic-hyperlink);
+  --ic-link-text-hover: var(--ic-hyperlink);
+  --ic-link-text-pressed: var(--ic-hyperlink);
+  --ic-link-text-focused: var(--ic-hyperlink);
+  --ic-link-text-visited: var(--ic-hyperlink-visited);
+  --ic-link-text-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-hover-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-pressed-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-focused-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-visited-monochrome: var(--ic-color-secondary-text);
+  --ic-link-icon-launch: var(--ic-hyperlink);
+  --ic-link-icon-launch-visited: var(--ic-hyperlink-visited);
+  --ic-link-icon-launch-monochrome: var(--ic-color-primary-text);
+  --ic-link-icon-launch-visited-monochrome: var(--ic-color-secondary-text);
+
+  /* Status tags */
+  --ic-status-tag-text: var(--ic-color-inverse-text);
+  --ic-status-tag-text-inverted: var(--ic-color-primary-text);
+  --ic-status-tag-outlined-text: var(--ic-color-primary-text);
+  --ic-status-tag-success: var(--ic-status-success);
+  --ic-status-tag-outlined-background-success: var(--ic-status-success-light);
+  --ic-status-tag-outlined-success: var(--ic-status-success);
+  --ic-status-tag-error: var(--ic-status-error);
+  --ic-status-tag-outlined-background-error: var(--ic-status-error-light);
+  --ic-status-tag-outlined-error: var(--ic-status-error-dark);
+  --ic-status-tag-warning: var(--ic-status-warning-contrast);
+  --ic-status-tag-outlined-background-warning: var(--ic-status-warning-light);
+  --ic-status-tag-outlined-warning: var(--ic-status-warning-dark);
+  --ic-status-tag-neutral: var(--ic-status-unknown-mid);
+  --ic-status-tag-outlined-background-neutral: var(
+    --ic-status-unknown-outlined
+  );
+  --ic-status-tag-outlined-neutral: var(--ic-status-unknown-mid);
+
+  /* Tabs */
+  --ic-tab-label: var(--ic-color-primary-text);
+  --ic-tab-label-monochrome: var(--ic-color-primary-text);
+  --ic-tab-icon: var(--ic-icon-neutral);
+  --ic-tab-icon-monochrome: var(--ic-icon-neutral);
+  --ic-tab-bottom-border: var(--ic-border-neutral-grey);
+  --ic-tab-bottom-border-monochrome: var(--ic-border-neutral-black);
+  --ic-tab-item-pressed: var(--ic-action-default-bg-active);
+  --ic-tab-item-pressed-monochrome: var(--ic-action-dark-bg-active);
+  --ic-tab-item: var(--ic-action-default);
+  --ic-tab-item-monochrome: var(--ic-action-dark);
+  --ic-tab-item-hover: var(--ic-action-default-bg-hover);
+  --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+  /* Badge */
+  --ic-badge-text: var(--ic-color-inverse-text);
+  --ic-badge-icon: var(--ic-color-inverse-text);
+  --ic-badge-warning-text: var(--ic-color-primary-text);
+  --ic-badge-warning-icon: var(--ic-icon-neutral);
+  --ic-badge-light-text: var(--ic-color-primary-text);
+  --ic-badge-light-icon: var(--ic-icon-neutral);
+  --ic-badge-success: var(--ic-status-success);
+  --ic-badge-warning: var(--ic-status-warning);
+  --ic-badge-error: var(--ic-status-error);
+  --ic-badge-info: var(--ic-status-info);
+  --ic-badge-neutral: var(--ic-status-unknown-mid);
+  --ic-badge-light: var(--ic-background-primary);
+}
+
+/* colors for system dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ic-background-primary: var(--ic-background-primary-dark);
+    --ic-color-primary-text: var(--ic-color-primary-text-dark);
+    --ic-color-secondary-text: var(--ic-color-secondary-text-dark);
+    --ic-color-tertiary-text: var(--ic-color-tertiary-text-dark);
+    --ic-color-inverse-text: var(--ic-color-inverse-text-dark);
+
+    /* Breadcrumbs */
+    --ic-breadcrumb-page-title: var(--ic-hyperlink-dark);
+    --ic-breadcrumb-page-title-hover: var(--ic-hyperlink-dark);
+    --ic-breadcrumb-page-title-pressed: var(--ic-hyperlink-dark);
+    --ic-breadcrumb-page-title-monochrome: var(--ic-color-primary-text);
+    --ic-breadcrumb-page-title-hover-monochrome: var(--ic-color-primary-text);
+    --ic-breadcrumb-page-title-pressed-monochrome: var(--ic-color-primary-text);
+    --ic-breadcrumb-icon-chevron: var(--ic-icon-grey);
+    --ic-breadcrumb-icon-chevron-monochrome: var(--ic-icon-grey-dark);
+    --ic-breadcrumb-page-icon: var(--ic-icon-action-default-dark);
+    --ic-breadcrumb-page-icon-monochrome: var(--ic-icon-inverted);
+    --ic-breadcrumb-text: var(--ic-color-primary-text);
+    --ic-breadcrumb-text-monochrome: var(--ic-color-primary-text);
+
+    /* Data list */
+    --ic-data-list-text-cell: var(--ic-color-primary-text);
+    --ic-data-list-text-heading: var(--ic-color-primary-text);
+    --ic-data-list-text-label: var(--ic-color-tertiary-text);
+    --ic-data-list-keyline-heading: var(--ic-border-neutral);
+    --ic-data-list-keyline-cell: var(--ic-border-neutral);
+
+    /* Links */
+    --ic-link-text: var(--ic-hyperlink-dark);
+    --ic-link-text-hover: var(--ic-hyperlink-dark);
+    --ic-link-text-pressed: var(--ic-hyperlink-dark);
+    --ic-link-text-focused: var(--ic-hyperlink-dark);
+    --ic-link-text-visited: var(--ic-hyperlink-visited-dark);
+    --ic-link-text-monochrome: var(--ic-color-primary-text);
+    --ic-link-text-hover-monochrome: var(--ic-color-primary-text);
+    --ic-link-text-pressed-monochrome: var(--ic-color-primary-text);
+    --ic-link-text-focused-monochrome: var(--ic-color-primary-text);
+    --ic-link-text-visited-monochrome: var(
+      --ic-hyperlink-visited-monochrome-dark
+    );
+    --ic-link-icon-launch: var(--ic-hyperlink-dark);
+    --ic-link-icon-launch-visited: var(--ic-hyperlink-visited-dark);
+    --ic-link-icon-launch-monochrome: var(--ic-color-primary-text);
+    --ic-link-icon-launch-visited-monochrome: var(
+      --ic-hyperlink-visited-monochrome-dark
+    );
+
+    /* Status tags */
+    --ic-status-tag-text: var(--ic-color-inverse-text);
+    --ic-status-tag-text-inverted: var(--ic-color-primary-text);
+    --ic-status-tag-outlined-text: var(--ic-color-inverse-text);
+    --ic-status-tag-success: var(--ic-status-success-contrast);
+    --ic-status-tag-outlined-background-success: var(
+      --ic-status-success-outlined
+    );
+    --ic-status-tag-outlined-success: var(--ic-status-success-contrast);
+    --ic-status-tag-error: var(--ic-status-error-contrast);
+    --ic-status-tag-outlined-background-error: var(--ic-status-error-outlined);
+    --ic-status-tag-outlined-error: var(--ic-status-error-light);
+    --ic-status-tag-warning: var(--ic-status-warning-light);
+    --ic-status-tag-outlined-background-warning: var(
+      --ic-status-warning-outlined
+    );
+    --ic-status-tag-outlined-warning: var(--ic-status-warning-light);
+    --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
+    --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-light);
+    --ic-status-tag-outlined-neutral: var(--ic-status-unknown);
+
+    /* Tabs */
+    --ic-tab-label: var(--ic-color-primary-text-dark);
+    --ic-tab-label-monochrome: var(--ic-color-inverse-text-light);
+    --ic-tab-icon: var(--ic-icon-inverted);
+    --ic-tab-icon-monochrome: var(--ic-icon-inverted);
+    --ic-tab-bottom-border: var(--ic-border-neutral-inverted);
+    --ic-tab-bottom-border-monochrome: var(--ic-border-neutral-inverted);
+    --ic-tab-item-pressed: var(--ic-action-light-bg-active);
+    --ic-tab-item-pressed-monochrome: var(--ic-action-light-bg-active);
+    --ic-tab-item: var(--ic-action-light);
+    --ic-tab-item-monochrome: var(--ic-action-light);
+    --ic-tab-item-hover: var(--ic-action-light-bg-hover);
+    --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+    /* Badge */
+    --ic-badge-text: var(--ic-color-inverse-text);
+    --ic-badge-icon: var(--ic-color-inverse-text);
+    --ic-badge-warning-text: var(--ic-color-inverse-text);
+    --ic-badge-warning-icon: var(--ic-icon-neutral);
+    --ic-badge-light-text: var(--ic-color-primary-text);
+    --ic-badge-light-icon: var(--ic-icon-inverted);
+    --ic-badge-success: var(--ic-status-success-contrast);
+    --ic-badge-warning: var(--ic-status-warning-contrast);
+    --ic-badge-error: var(--ic-status-error-contrast);
+    --ic-badge-info: var(--ic-status-info-light);
+    --ic-badge-light: var(--ic-status-unknown-dark);
+    --ic-badge-neutral: var(--ic-background-primary-light);
+  }
+}
+
+/* colors for dark theme */
+.ic-theme-dark {
+  --ic-background-primary: var(--ic-background-primary-dark);
+  --ic-color-primary-text: var(--ic-color-primary-text-dark);
+  --ic-color-secondary-text: var(--ic-color-secondary-text-dark);
+  --ic-color-tertiary-text: var(--ic-color-tertiary-text-dark);
+  --ic-color-inverse-text: var(--ic-color-inverse-text-dark);
+
+  /* Breadcrumbs */
+  --ic-breadcrumb-page-title: var(--ic-hyperlink-dark);
+  --ic-breadcrumb-page-title-hover: var(--ic-hyperlink-dark);
+  --ic-breadcrumb-page-title-pressed: var(--ic-hyperlink-dark);
+  --ic-breadcrumb-page-title-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-page-title-hover-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-page-title-pressed-monochrome: var(--ic-color-primary-text);
+  --ic-breadcrumb-icon-chevron: var(--ic-icon-grey);
+  --ic-breadcrumb-icon-chevron-monochrome: var(--ic-icon-grey-dark);
+  --ic-breadcrumb-page-icon: var(--ic-icon-action-default-dark);
+  --ic-breadcrumb-page-icon-monochrome: var(--ic-icon-inverted);
+  --ic-breadcrumb-text: var(--ic-color-primary-text);
+  --ic-breadcrumb-text-monochrome: var(--ic-color-primary-text);
+
+  /* Data list */
+  --ic-data-list-text-cell: var(--ic-color-primary-text);
+  --ic-data-list-text-heading: var(--ic-color-primary-text);
+  --ic-data-list-text-label: var(--ic-color-tertiary-text);
+  --ic-data-list-keyline-heading: var(--ic-border-neutral);
+  --ic-data-list-keyline-cell: var(--ic-border-neutral);
+
+  /* Links */
+  --ic-link-text: var(--ic-hyperlink-dark);
+  --ic-link-text-hover: var(--ic-hyperlink-dark);
+  --ic-link-text-pressed: var(--ic-hyperlink-dark);
+  --ic-link-text-focused: var(--ic-hyperlink-dark);
+  --ic-link-text-visited: var(--ic-hyperlink-visited-dark);
+  --ic-link-text-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-hover-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-pressed-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-focused-monochrome: var(--ic-color-primary-text);
+  --ic-link-text-visited-monochrome: var(
+    --ic-hyperlink-visited-monochrome-dark
+  );
+  --ic-link-icon-launch: var(--ic-hyperlink-dark);
+  --ic-link-icon-launch-visited: var(--ic-hyperlink-visited-dark);
+  --ic-link-icon-launch-monochrome: var(--ic-color-primary-text);
+  --ic-link-icon-launch-visited-monochrome: var(
+    --ic-hyperlink-visited-monochrome-dark
+  );
+
+  /* Status tags */
+  --ic-status-tag-text: var(--ic-color-inverse-text);
+  --ic-status-tag-text-inverted: var(--ic-color-primary-text);
+  --ic-status-tag-outlined-text: var(--ic-color-inverse-text);
+  --ic-status-tag-success: var(--ic-status-success-contrast);
+  --ic-status-tag-outlined-background-success: var(
+    --ic-status-success-outlined
+  );
+  --ic-status-tag-outlined-success: var(--ic-status-success-contrast);
+  --ic-status-tag-error: var(--ic-status-error-contrast);
+  --ic-status-tag-outlined-background-error: var(--ic-status-error-outlined);
+  --ic-status-tag-outlined-error: var(--ic-status-error-light);
+  --ic-status-tag-warning: var(--ic-status-warning-light);
+  --ic-status-tag-outlined-background-warning: var(
+    --ic-status-warning-outlined
+  );
+  --ic-status-tag-outlined-warning: var(--ic-status-warning-light);
+  --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
+  --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-light);
+  --ic-status-tag-outlined-neutral: var(--ic-status-unknown);
+
+  /* Tabs */
+  --ic-tab-label: var(--ic-color-primary-text-dark);
+  --ic-tab-label-monochrome: var(--ic-color-inverse-text-light);
+  --ic-tab-icon: var(--ic-icon-inverted);
+  --ic-tab-icon-monochrome: var(--ic-icon-inverted);
+  --ic-tab-divider: var(--ic-state-layer-neutral-light);
+  --ic-tab-divider-monochrome: var(--ic-icon-inverted);
+  --ic-tab-bottom-border: var(--ic-border-neutral-inverted);
+  --ic-tab-bottom-border-monochrome: var(--ic-border-neutral-inverted);
+  --ic-tab-item-pressed: var(--ic-action-light-bg-active);
+  --ic-tab-item-pressed-monochrome: var(--ic-action-light-bg-active);
+  --ic-tab-item: var(--ic-action-light);
+  --ic-tab-item-monochrome: var(--ic-action-light);
+  --ic-tab-item-hover: var(--ic-action-light-bg-hover);
+  --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+  /* Badge */
+  --ic-badge-text: var(--ic-color-inverse-text);
+  --ic-badge-icon: var(--ic-color-inverse-text);
+  --ic-badge-warning-text: var(--ic-color-inverse-text);
+  --ic-badge-warning-icon: var(--ic-icon-neutral);
+  --ic-badge-light-text: var(--ic-color-primary-text);
+  --ic-badge-light-icon: var(--ic-icon-inverted);
+  --ic-badge-success: var(--ic-status-success-contrast);
+  --ic-badge-warning: var(--ic-status-warning-contrast);
+  --ic-badge-error: var(--ic-status-error-contrast);
+  --ic-badge-info: var(--ic-status-info-light);
+  --ic-badge-light: var(--ic-status-unknown-dark);
+  --ic-badge-neutral: var(--ic-background-primary-light);
+}

@@ -14,13 +14,16 @@
   display: flex;
   flex-grow: 1;
   min-width: 0;
+
+  --ic-typography-color: var(--ic-data-list-text-cell);
 }
 
 .label {
   width: 12.5rem;
   min-width: 12.5rem;
   margin-right: var(--ic-space-md);
-  color: var(--ic-color-tertiary-text);
+
+  --ic-typography-color: var(--ic-data-list-text-label);
 }
 
 .value {
@@ -47,7 +50,7 @@ slot[name="value"]::slotted(ic-text-field[readonly][hide-label][rows]) {
 .divider {
   margin-top: var(--ic-space-md);
   height: var(--ic-border-width);
-  background-color: var(--ic-architectural-300);
+  background-color: var(--ic-data-list-keyline-cell);
 }
 
 :host(.ic-data-row-small) .divider {

@@ -4,6 +4,6 @@
   display: block;
 }
 
-:host(.ic-tab-panel-light) {
-  color: white;
+:host {
+  color: var(--ic-color-primary-text);
 }

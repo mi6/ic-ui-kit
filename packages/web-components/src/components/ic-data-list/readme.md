@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property  | Attribute | Description                          | Type                   | Default     |
-| --------- | --------- | ------------------------------------ | ---------------------- | ----------- |
-| `heading` | `heading` | The title for the data list.         | `string`               | `undefined` |
-| `size`    | `size`    | The size of the data list component. | `"default" \| "small"` | `"default"` |
+| Property  | Attribute | Description                                                                                                                             | Type                             | Default     |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------- |
+| `heading` | `heading` | The title for the data list.                                                                                                            | `string`                         | `undefined` |
+| `size`    | `size`    | The size of the data list component.                                                                                                    | `"medium" \| "small"`            | `"medium"`  |
+| `theme`   | `theme`   | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"` | `"inherit"` |
 
 
 ## Slots

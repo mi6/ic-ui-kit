@@ -1,3 +1,4 @@
+import { IcButtonVariants } from "@ukic/web-components";
 import { SlottedSVG, IcButton, IcPopoverMenu, IcMenuItem } from "../../";
 import React, { ReactElement, useRef } from "react";
 
@@ -10,7 +11,7 @@ export const DARK_BG_STYLE = {
 export const iconProps = {
   iconDefault: {
     title: "Default",
-    size: "default",
+    size: "medium",
     appearance: "default",
     loading: false,
     disabled: false,
@@ -31,42 +32,42 @@ export const iconProps = {
   },
   iconLoading: {
     title: "Loading",
-    size: "default",
+    size: "medium",
     appearance: "default",
     loading: true,
     disabled: false,
   },
   iconDisabled: {
     title: "Disabled",
-    size: "default",
+    size: "medium",
     appearance: "default",
     loading: false,
     disabled: true,
   },
   iconDark: {
     title: "Dark",
-    size: "default",
+    size: "medium",
     appearance: "dark",
     loading: false,
     disabled: false,
   },
   iconDarkLoading: {
     title: "Dark Loading",
-    size: "default",
+    size: "medium",
     appearance: "dark",
     loading: true,
     disabled: false,
   },
   iconLight: {
     title: "Light",
-    size: "default",
+    size: "medium",
     appearance: "light",
     loading: false,
     disabled: false,
   },
   iconLightLoading: {
     title: "Light Loading",
-    size: "default",
+    size: "medium",
     appearance: "light",
     loading: true,
     disabled: false,
@@ -818,11 +819,11 @@ export const IconButtonGroup = (): ReactElement => {
   );
 };
 
-export const IconBtnWithTooltip = (): ReactElement => {
+export const IconBtnWithTooltip = (variant: IcButtonVariants): ReactElement => {
   return (
     <div style={{ padding: "6px" }}>
       <IcButton
-        variant="icon-primary"
+        variant={variant}
         title="This is a tooltip"
         tooltipPlacement="bottom"
         aria-label="refresh"

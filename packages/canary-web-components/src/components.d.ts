@@ -6,14 +6,14 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
-import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
+import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcThemeForegroundNoDefault as IcThemeForegroundNoDefault1, IcValueEventDetail, IcWeekDays } from "./utils/types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
-export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
+export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcThemeForegroundNoDefault as IcThemeForegroundNoDefault1, IcValueEventDetail, IcWeekDays } from "./utils/types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
@@ -78,7 +78,7 @@ export namespace Components {
         /**
           * The row content for the table.
          */
-        "data": { [key: string]: any }[];
+        "data": IcDataTableDataType[];
         /**
           * Set the density of the table including font and padding.
          */
@@ -91,6 +91,10 @@ export namespace Components {
           * Sets the row height on all rows in the table that aren't set using the `variableRowHeight` method.
          */
         "globalRowHeight"?: IcDataTableRowHeights;
+        /**
+          * Sets the table height. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
+         */
+        "height"?: string;
         /**
           * If `true`, column headers will not be visible.
          */
@@ -112,6 +116,14 @@ export namespace Components {
     progress?: number;
     showBackground?: boolean;
   };
+        /**
+          * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
+         */
+        "maxWidth"?: string;
+        /**
+          * Sets the minimum width of the data table. Can be set in `px`, `rem`, or `%`.
+         */
+        "minWidth"?: string;
         /**
           * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
          */
@@ -148,7 +160,11 @@ export namespace Components {
          */
         "stickyRowHeaders"?: boolean;
         /**
-          * Sets the method used to truncate longer text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
+          * Sets the layout of the table
+         */
+        "tableLayout"?: "fixed" | "auto";
+        /**
+          * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
          */
         "truncationPattern"?: IcDataTableTruncationTypes;
         /**
@@ -172,6 +188,10 @@ export namespace Components {
     [key: string]: any;
     index: number;
   }) => IcDataTableRowHeights | null;
+        /**
+          * Sets the table width. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
+         */
+        "width"?: string;
     }
     interface IcDataTableTitleBar {
         /**
@@ -241,6 +261,10 @@ export namespace Components {
           * The ID for the input.
          */
         "inputId"?: string;
+        /**
+          * The text to display as the validation message when an invalid date is entered.
+         */
+        "invalidDateMessage"?: string;
         /**
           * The label for the date input.
          */
@@ -331,6 +355,10 @@ export namespace Components {
           * The ID for the input field. The default will be an automatically generated value.
          */
         "inputId"?: string;
+        /**
+          * The text to display as the validation message when an invalid date is entered.
+         */
+        "invalidDateMessage"?: string;
         /**
           * The label for the date input.
          */
@@ -728,6 +756,7 @@ declare global {
     };
     interface HTMLIcDataTableElementEventMap {
         "icRowHeightChange": void;
+        "icSortChange": IcSortEventDetail;
     }
     interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcDataTableElementEventMap>(type: K, listener: (this: HTMLIcDataTableElement, ev: IcDataTableCustomEvent<HTMLIcDataTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -954,7 +983,7 @@ declare namespace LocalJSX {
         /**
           * The row content for the table.
          */
-        "data"?: { [key: string]: any }[];
+        "data"?: IcDataTableDataType[];
         /**
           * Set the density of the table including font and padding.
          */
@@ -967,6 +996,10 @@ declare namespace LocalJSX {
           * Sets the row height on all rows in the table that aren't set using the `variableRowHeight` method.
          */
         "globalRowHeight"?: IcDataTableRowHeights;
+        /**
+          * Sets the table height. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
+         */
+        "height"?: string;
         /**
           * If `true`, column headers will not be visible.
          */
@@ -989,6 +1022,14 @@ declare namespace LocalJSX {
     showBackground?: boolean;
   };
         /**
+          * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
+         */
+        "maxWidth"?: string;
+        /**
+          * Sets the minimum width of the data table. Can be set in `px`, `rem`, or `%`.
+         */
+        "minWidth"?: string;
+        /**
           * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
          */
         "minimumLoadingDisplayDuration"?: number;
@@ -996,6 +1037,10 @@ declare namespace LocalJSX {
           * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
          */
         "onIcRowHeightChange"?: (event: IcDataTableCustomEvent<void>) => void;
+        /**
+          * Emitted when a column sort button is clicked.
+         */
+        "onIcSortChange"?: (event: IcDataTableCustomEvent<IcSortEventDetail>) => void;
         /**
           * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
          */
@@ -1024,7 +1069,11 @@ declare namespace LocalJSX {
          */
         "stickyRowHeaders"?: boolean;
         /**
-          * Sets the method used to truncate longer text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
+          * Sets the layout of the table
+         */
+        "tableLayout"?: "fixed" | "auto";
+        /**
+          * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
          */
         "truncationPattern"?: IcDataTableTruncationTypes;
         /**
@@ -1048,6 +1097,10 @@ declare namespace LocalJSX {
     [key: string]: any;
     index: number;
   }) => IcDataTableRowHeights | null;
+        /**
+          * Sets the table width. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
+         */
+        "width"?: string;
     }
     interface IcDataTableTitleBar {
         /**
@@ -1116,6 +1169,10 @@ declare namespace LocalJSX {
           * The ID for the input.
          */
         "inputId"?: string;
+        /**
+          * The text to display as the validation message when an invalid date is entered.
+         */
+        "invalidDateMessage"?: string;
         /**
           * The label for the date input.
          */
@@ -1216,6 +1273,10 @@ declare namespace LocalJSX {
           * The ID for the input field. The default will be an automatically generated value.
          */
         "inputId"?: string;
+        /**
+          * The text to display as the validation message when an invalid date is entered.
+         */
+        "invalidDateMessage"?: string;
         /**
           * The label for the date input.
          */

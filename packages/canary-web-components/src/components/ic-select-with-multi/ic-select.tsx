@@ -189,7 +189,7 @@ export class Select {
   /**
    * The size of the select.
    */
-  @Prop() size?: IcSizes = "default";
+  @Prop() size?: IcSizes = "medium";
 
   /**
    * If using external filtering, set a timeout for when loading takes too long.
@@ -1104,7 +1104,7 @@ export class Select {
         class={{
           ["ic-select-disabled"]: disabled,
           ["ic-select-searchable"]: searchable,
-          [`ic-select-${size}`]: size !== "default",
+          [`ic-select-${size}`]: size !== "medium",
           ["ic-select-full-width"]: fullWidth,
         }}
         onBlur={this.onBlur}

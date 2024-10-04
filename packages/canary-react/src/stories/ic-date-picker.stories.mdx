@@ -525,6 +525,7 @@ export const defaultArgs = {
   disablePastMessage: "This date is in the past",
   helperText: "Choose a date",
   hideHelperText: false,
+  invalidDateMessage: "Invalid date",
   label: "When would you like to collect your coffee?",
   max: "",
   min: "",
@@ -533,7 +534,7 @@ export const defaultArgs = {
   showDaysOutsideMonth: true,
   showPickerClearButton: true,
   showPickerTodayButton: true,
-  size: "default",
+  size: "medium",
   startOfWeek: 1,
   validationStatus: "",
   validationText: "",
@@ -557,7 +558,7 @@ export const defaultArgs = {
         },
       },
       size: {
-        options: ["small", "default", "large"],
+        options: ["small", "medium", "large"],
         control: {
           type: "radio",
         },
@@ -598,6 +599,7 @@ export const defaultArgs = {
           disablePastMessage={args.disablePastMessage}
           helperText={args.helperText}
           hideHelperText={args.hideHelperText}
+          invalidDateMessage={args.invalidDateMessage}
           label={args.label}
           max={args.max}
           min={args.min}

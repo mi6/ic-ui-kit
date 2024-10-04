@@ -26,7 +26,8 @@ import {
   ICON_DATA,
   ICON_COLS,
   COLUMNS_TEXT_WRAP,
-  TEXT_WRAP_LONG_DATA
+  TEXT_WRAP_LONG_DATA,
+  COLS_WIDTH
 } from "../../../canary-web-components/src/components/ic-data-table/story-data";
 
 import { mdiAccountGroup, mdiImage } from "@mdi/js";
@@ -1029,14 +1030,24 @@ Custom HTML elements can be slotted or passed via the `data` prop to display in 
       data={DATA_REACT_ELEMENTS}
     >
       {DATA_REACT_ELEMENTS.map((_, index) => (
-        <IcButton
-          key={index}
-          variant="destructive"
-          slot={`actions-${index}`}
-          onClick={() => console.log("Delete")}
-        >
-          Delete
-        </IcButton>
+        <>
+          <IcButton
+            key={`actions-${index}`}
+            variant="destructive"
+            slot={`actions-${index}`}
+            onClick={() => console.log("Delete")}
+          >
+            Delete
+          </IcButton>
+          <IcButton
+            key={`actions2-${index}`}
+            variant="secondary"
+            slot={`actions2-${index}`}
+            onClick={() => console.log("Add")}
+          >
+            Add
+          </IcButton>
+        </>
       ))}
     </IcDataTable>
   </Story>
@@ -1296,6 +1307,10 @@ When a row is given a set height, and has content that no longer fits into the c
 - `show-hide`: Adds a `See more/See less` button underneath the cell text, allowing the user to display the full content should they wish.
 
 These values are set using the `truncationPattern` property.
+
+By default, `globalRowHeight` is set to `auto`. If the `truncationPattern` attribute is set to `tooltip` or `show-hide` while `globalRowHeight` is `auto`, the data will not appear truncated due to the row height being set to the data which has the most height.
+
+To see the data truncated, the `globalRowHeight` or `variableRowHeight` needs to be explicitly set to a height which is shorter than data which has the most lines.
 
 #### Data truncation tooltip
 
@@ -1870,7 +1885,7 @@ import { useState } from "react";
 import { IcDataTable, IcPaginationBar } from "@ukic/canary-react";
 import { IcDataTableColumnObject } from "@ukic/canary-web-components";
 
-const columns: IcDataTableColumnObject[] = [
+const COLS: IcDataTableColumnObject[] = [
   {
     key: "firstName",
     title: "First name",
@@ -1879,7 +1894,7 @@ const columns: IcDataTableColumnObject[] = [
   ...
 ];
 
-const long_data = [
+const DATA = [
   {
     firstName: "Joe",
     lastName: "Bloggs",
@@ -1891,7 +1906,7 @@ const long_data = [
 ];
 
 const DataTable = () => {
-  const [data, setData] = useState(long_data);
+  const [data, setData] = useState(DATA);
   const [itemsPerPage, setItemsPerPage] = useState(5);
 
   const icItemsPerPageChangeHandler = (ev) => {
@@ -1905,7 +1920,7 @@ const DataTable = () => {
   }
 
   return (
-    <IcDataTable caption="Slotted pagination bar" columns={LONG_COLS} data={data}>
+    <IcDataTable caption="Slotted pagination bar" columns={COLS} data={data}>
       <IcPaginationBar
         slot="pagination-bar"
         showItemsPerPageControl
@@ -1922,6 +1937,78 @@ const DataTable = () => {
 };
 ```
 
+
+### Table sizing and column width
+
+The dimensions of the data table can be set using the `width` and `height` prop. The prop accepts dimensions in `px`, `%`, `rem` and `auto`.
+
+By default, the width is set to `100%` so the table spans across the viewport or parent container.
+
+To set the column widths, the `columnWidth` property should be added to the relevant column within the column array.
+
+The [table layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) prop is vital to how the table resizing and column widths behave. By default, the table layout is set to `fixed`. If no column width is set, the columns widths will be equally set within the viewport or parent container.
+
+A table with a `fixed` layout will force the table column widths to take precedence over the data with the table cells. 
+
+For the column widths to be dictated by the content inside, set the `tableLayout` prop to `auto` and set the table `width` to `auto`.
+
+To set the min and max width of a table cell, set a `minWidth` or `maxWidth` value into `columnWidth`. The min and max width accepts dimensions in `px`, `%`, `rem`.
+
+<Canvas withSource="none">
+  <Story name="Table sizing and column width">
+    <IcDataTable
+      caption='Basic Table'
+      columns={COLS_WIDTH}
+      data={DATA}
+      width="800px"
+    />
+  </Story>
+</Canvas>
+
+### Table Sizing and column width code example
+
+```jsx
+import { useState } from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const COLS: IcDataTableColumnObject[] = [
+  { key: "firstName", title: "First name", dataType: "string", columnWidth: "15%" },
+  { key: "lastName", title: "Last name", dataType: "string", columnWidth: "300px" },
+  { 
+    key: "age", 
+    title: "Age", 
+    dataType: "number",
+    columnWidth: {
+      maxWidth: "100px",
+    },
+  },
+  ...
+];
+
+const DATA = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => {
+  return (
+    <IcDataTable 
+      caption="Table sizing and column widths"
+      columns={COLS}
+      data={DATA}
+      width="800px"
+    />
+  );
+};
+```
+
 ### Playground example
 
 Go to the <IcLink href="/?path=/story/react-components-data-table--playground-example">separate page for the playground example</IcLink> to view the prop controls.
@@ -1933,6 +2020,7 @@ export const defaultArgs = {
   density: "default",
   embedded: false,
   globalRowHeight: 40,
+  height: "",
   hideColumnHeaders: false,
   loading: false,
   loadingAppearance: "dark",
@@ -1975,9 +2063,11 @@ export const defaultArgs = {
   titleBarHeading: "Title bar heading",
   truncationPattern: "tooltip",
   hideDensitySelect: false,
+  tableLayout: "fixed",
   titleBarMetadata: "128 items | 32gb | Updated: 01/02/03",
   titleBarPrimaryActionSlot: true,
   titleBarCustomActionSlot: true,
+  width: ""
 };
 
 <Canvas withSource="none">
@@ -2006,6 +2096,10 @@ export const defaultArgs = {
       },
       paginationAlignment: {
         options: ["left", "right", "space-between"],
+        control: { type: "inline-radio" },
+      },
+      tableLayout: {
+        options: ["fixed", "auto"],
         control: { type: "inline-radio" },
       },
       truncationPattern: {
@@ -2045,6 +2139,7 @@ export const defaultArgs = {
         density={args.density}
         embedded={args.embedded}
         globalRowHeight={args.globalRowHeight}
+        height={args.height}
         hideColumnHeaders={args.hideColumnHeaders}
         loading={args.loading}
         loadingOptions={{
@@ -2078,6 +2173,7 @@ export const defaultArgs = {
         }}
         stickyColumnHeaders={args.stickyColumnHeaders}
         stickyRowHeaders={args.stickyRowHeaders}
+        tableLayout={args.tableLayout}
         truncationPattern={args.truncationPattern}
         updating={args.updating}
         updatingOptions={{
@@ -2087,7 +2183,7 @@ export const defaultArgs = {
           min: args.updatingMin,
           progress: args.updatingProgress
         }}
-        style={{ height: "450px" }}
+        width={args.width}
       >
         <IcDataTableTitleBar
           slot={args.titleBarSlot}

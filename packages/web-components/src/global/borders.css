@@ -1,0 +1,39 @@
+/* borders */
+:root {
+  --ic-border-radius: 2px;
+  --ic-border-radius-inset: 11px;
+  --ic-border-width: 0.0625rem;
+  --ic-border-focus: 0 0 0 2px var(--ic-architectural-white),
+    0 0 0 4px var(--ic-focus-blue), 0 0 0 8px var(--ic-focus-glow);
+  --ic-border-focus-inset: inset 0 0 0 4px var(--ic-focus-glow),
+    inset 0 0 0 6px var(--ic-focus-blue),
+    inset 0 0 0 8px var(--ic-architectural-white);
+  --ic-border-focus-dark: 0 0 0 2px white, 0 0 0 5px rgba(255 255 255 / 52%);
+  --ic-border-disabled: var(--ic-space-1px) dashed var(--ic-architectural-200);
+  --ic-border-light: var(--ic-space-1px) solid var(--ic-architectural-200);
+  --ic-border-default: var(--ic-space-1px) solid var(--ic-architectural-400);
+  --ic-border-hover: var(--ic-space-1px) solid var(--ic-architectural-500);
+  --ic-border-pressed: var(--ic-space-1px) solid var(--ic-architectural-600);
+  --ic-hc-border: var(--ic-space-1px) solid transparent;
+  --ic-error-border-default: var(--ic-space-xxxs) solid var(--ic-status-error);
+  --ic-error-border-hover: var(--ic-space-xxxs) solid
+    var(--ic-status-error-hover);
+  --ic-error-border-pressed: var(--ic-space-xxxs) solid
+    var(--ic-status-error-pressed);
+  --ic-success-border-default: var(--ic-space-xxxs) solid
+    var(--ic-status-success);
+  --ic-success-border-hover: var(--ic-space-xxxs) solid
+    var(--ic-status-success-hover);
+  --ic-success-border-pressed: var(--ic-space-xxxs) solid
+    var(--ic-status-success-pressed);
+  --ic-warning-border-default: var(--ic-space-xxxs) solid
+    var(--ic-status-warning);
+  --ic-warning-border-hover: var(--ic-space-xxxs) solid
+    var(--ic-status-warning-hover);
+  --ic-warning-border-pressed: var(--ic-space-xxxs) solid
+    var(--ic-status-warning-pressed);
+  --ic-border-neutral-black: var(--ic-architectural-black);
+  --ic-border-neutral: var(--ic-architectural-300);
+  --ic-border-neutral-grey: var(--ic-architectural-400);
+  --ic-border-neutral-inverted: var(--ic-architectural-white);
+}
