@@ -241,7 +241,7 @@ export const WithHiddenStepInformation = () => {
 export const Light = () => {
   return (
     <div style={{ padding: "100px", backgroundColor: "#2c2f34" }}>
-      <IcStepper appearance="light">
+      <IcStepper theme="dark">
         <IcStep heading="Create" type="completed" />
         <IcStep heading="Read" type="current" />
         <IcStep heading="Update" type="active" />

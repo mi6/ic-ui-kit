@@ -20,13 +20,13 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
 export const defaultArgs = {
   aligned: "full-width",
   connectorWidth: 100,
-  appearance: "default",
   variant: "default",
   hideStepInfo: false,
   heading: "Editable step",
   type: "current",
   status: "optional",
   subheading: "Optional subtitle",
+  theme: "inherit",
 };
 
 export const CompactButtons = () => (
@@ -171,21 +171,6 @@ export const CompactButtons = () => (
   </Story>
 </Canvas>
 
-### Light
-
-<Canvas>
-  <Story name="Light">
-    <div style={{ backgroundColor: "#2c2f34" }}>
-      <IcStepper appearance="light">
-        <IcStep heading="Create" type="completed" />
-        <IcStep heading="Read" type="current" />
-        <IcStep heading="Update" type="active" />
-        <IcStep heading="Delete" type="disabled" />
-      </IcStepper>
-    </div>
-  </Story>
-</Canvas>
-
 ### Custom connector width
 
 <Canvas>
@@ -217,26 +202,6 @@ export const CompactButtons = () => (
       <IcStep heading="Update" status="optional" />
       <IcStep heading="Delete" status="required" />
     </IcStepper>
-    <CompactButtons/>
-  </Story>
-</Canvas>
-
-### Compact stepper light
-
-<Canvas>
-  <Story name="Compact stepper light" parameters={{ loki: { skip: true } }}>
-    <div style={{ backgroundColor: "#2c2f34" }}>
-      <IcStepper
-        variant="compact"
-        id="standard-compact-stepper"
-        appearance="light"
-      >
-        <IcStep heading="Create" />
-        <IcStep heading="Read" type="current" />
-        <IcStep heading="Update" status="optional" />
-        <IcStep heading="Delete" status="required" />
-      </IcStepper>
-    </div>
     <CompactButtons/>
   </Story>
 </Canvas>
@@ -355,10 +320,6 @@ export const CompactButtons = () => (
         control: { type: "range", min: 100, max: 500, step: 5 },
         description: 'Width of the connector, only available when IcStepper is left-aligned.',
       },
-      appearance: {
-        options: ["default", "light"],
-        control: { type: "inline-radio" },
-      },
       variant: {
         options: ["default", "compact"],
         control: { type: "inline-radio" },
@@ -375,11 +336,16 @@ export const CompactButtons = () => (
       subheading: {
         control: "text",
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio"
+      }
+      },
     }}
       >
       {(args) => (
-        <div style={{backgroundColor: args.appearance === 'light' ? '#585858' : null, padding: '1rem'}}>
-          <IcStepper aligned={args.aligned} appearance={args.appearance} variant={args.variant} connectorWidth={args.connectorWidth} hideStepInfo={args.hideStepInfo} id={args.variant === 'compact' ? 'standard-compact-stepper' : 'default-stepper'}>
+        <div>
+          <IcStepper aligned={args.aligned} variant={args.variant} connectorWidth={args.connectorWidth} hideStepInfo={args.hideStepInfo} theme={args.theme} id={args.variant === 'compact' ? 'standard-compact-stepper' : 'default-stepper'}>
             <IcStep heading="Create" type="completed" />
             <IcStep heading={args.heading} subheading={args.subheading} type={args.type} status={args.status} />
             <IcStep heading="Update" type="active"/>

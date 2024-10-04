@@ -112,21 +112,6 @@ import Step from "../ic-step/readme.md";
   </Story>
 </Canvas>
 
-### Light
-
-<Canvas>
-  <Story name="Light" parameters={{ loki: { skip: true } }}>
-    {html`<div style="background-color:#24262b;">
-      <ic-stepper appearance="light">
-        <ic-step heading="Create" type="completed"></ic-step>
-        <ic-step heading="Read" type="current"></ic-step>
-        <ic-step heading="Update" type="active"></ic-step>
-        <ic-step heading="Delete" type="disabled"></ic-step>
-      </ic-stepper>
-    </div>`}
-  </Story>
-</Canvas>
-
 ### Compact stepper
 
 <Canvas>
@@ -137,77 +122,6 @@ import Step from "../ic-step/readme.md";
         <ic-step heading="Update" status="optional"></ic-step>
         <ic-step heading="Delete" status="required"></ic-step>
       </ic-stepper>
-      <ic-button
-        class="back-btn-compact-stepper"
-        style="margin-right: var(--ic-space-lg)"
-        onclick="toPreviousStep()"
-        >Back</ic-button
-      >
-      <ic-button class="next-btn-compact-stepper" onclick="toNextStep()"
-        >Next</ic-button
-      >
-      <script>
-        const compactStepTypes = [
-          "active",
-          "completed",
-          "disabled",
-          "completed",
-        ];
-        const backBtn = document.querySelector(".back-btn-compact-stepper");
-        const nextBtn = document.querySelector(".next-btn-compact-stepper");
-        const steps = document.querySelectorAll(
-          "#standard-compact-stepper > ic-step"
-        );
-        function toPreviousStep() {
-          for (let i = steps.length - 1; i > 0; i--) {
-            if (steps[i].type === "current") {
-              steps[i].type = compactStepTypes[i];
-              steps[i - 1].type = "current";
-              i--;
-            }
-          }
-          if (steps[steps.length - 2].type === "current") {
-            nextBtn.setAttribute("disabled", "false");
-          }
-          if (steps[0].type === "current") {
-            backBtn.setAttribute("disabled", "true");
-          }
-        }
-        function toNextStep() {
-          for (let i = 0; i < steps.length - 1; i++) {
-            if (steps[i].type === "current") {
-              steps[i].type = compactStepTypes[i];
-              steps[i + 1].type = "current";
-              i++;
-            }
-          }
-          if (steps[1].type === "current") {
-            backBtn.setAttribute("disabled", "false");
-          }
-          if (steps[steps.length - 1].type === "current") {
-            nextBtn.setAttribute("disabled", "true");
-          }
-        }
-      </script>`}
-  </Story>
-</Canvas>
-
-### Compact stepper light
-
-<Canvas>
-  <Story name="Compact stepper light" parameters={{ loki: { skip: true } }}>
-    {html`<div style="background-color:#24262b;">
-        <ic-stepper
-          variant="compact"
-          id="standard-compact-stepper"
-          appearance="light"
-        >
-          <ic-step heading="Create"></ic-step>
-          <ic-step heading="Read" type="current"></ic-step>
-          <ic-step heading="Update" status="optional"></ic-step>
-          <ic-step heading="Delete" status="required"></ic-step>
-        </ic-stepper>
-      </div>
       <ic-button
         class="back-btn-compact-stepper"
         style="margin-right: var(--ic-space-lg)"
@@ -346,5 +260,46 @@ import Step from "../ic-step/readme.md";
           }
         }
       </script>`}
+  </Story>
+</Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  heading: "Create",
+  subheading: "Optional",
+  theme: "inherit",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) =>
+      html`<ic-stepper theme=${args.theme}>
+        <ic-step
+          heading=${args.heading}
+          subheading=${args.subheading}
+          type="completed"
+        ></ic-step>
+        <ic-step heading="Read" type="current" subheading="Optional"></ic-step>
+        <ic-step heading="Update" type="active"></ic-step>
+        <ic-step
+          heading="Delete"
+          type="disabled"
+          subheading="Optional"
+        ></ic-step>
+      </ic-stepper>`
+    }
   </Story>
 </Canvas>

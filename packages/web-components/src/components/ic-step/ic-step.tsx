@@ -3,6 +3,7 @@ import checkIcon from "../../assets/check-icon.svg";
 import warningIcon from "../../assets/warning-icon-outline.svg";
 import { IcStepVariants, IcStepStatuses, IcStepTypes } from "./ic-step.types";
 import { isPropDefined } from "../../utils/helpers";
+import { IcThemeMode } from "../../utils/types";
 
 @Component({
   tag: "ic-step",
@@ -61,6 +62,11 @@ export class Step {
    * The title of the step within the stepper.
    */
   @Prop() heading?: string;
+
+  /**
+   * @internal Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * @internal The variant of the step. This is managed by ic-stepper.
@@ -286,9 +292,7 @@ export class Step {
               "ic-stepper-aligned-left"
             ),
           [`ic-step-${this.variant}`]: true,
-          ["ic-step-light"]:
-            (this.el.parentElement as HTMLIcStepperElement)?.appearance ===
-            "light",
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >
         {this.variant === "compact" ? compactStep : defaultStep}
