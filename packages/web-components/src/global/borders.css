@@ -35,5 +35,6 @@
   --ic-border-neutral-black: var(--ic-architectural-black);
   --ic-border-neutral: var(--ic-architectural-300);
   --ic-border-neutral-grey: var(--ic-architectural-400);
+  --ic-border-neutral-dark-grey: var(--ic-architectural-700);
   --ic-border-neutral-inverted: var(--ic-architectural-white);
 }
