@@ -1033,8 +1033,7 @@ export class Select {
       disabled
     );
 
-    const invalid =
-      validationStatus === IcInformationStatus.Error ? "true" : "false";
+    const invalid = `${validationStatus === IcInformationStatus.Error}`;
 
     const describedBy = getInputDescribedByText(
       this.inputId,
@@ -1050,9 +1049,9 @@ export class Select {
     return (
       <Host
         class={{
-          disabled: disabled,
-          searchable: searchable,
-          small: small,
+          disabled,
+          searchable,
+          small,
           [size]: size !== "default",
           "full-width": fullWidth,
         }}
@@ -1151,9 +1150,9 @@ export class Select {
                   aria-describedby={describedBy}
                   aria-activedescendant={this.ariaActiveDescendant}
                   aria-autocomplete="list"
-                  aria-expanded={this.open ? "true" : "false"}
+                  aria-expanded={`${this.open}`}
                   aria-invalid={invalid}
-                  aria-required={required ? "true" : "false"}
+                  aria-required={`${required}`}
                   aria-controls={menuId}
                   ref={(el) => (this.searchableSelectElement = el)}
                   id={this.inputId}
