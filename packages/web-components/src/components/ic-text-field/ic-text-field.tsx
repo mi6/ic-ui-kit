@@ -484,7 +484,7 @@ export class TextField {
       hiddenInput,
     } = this;
 
-    const disabledMode = readonly ? true : disabled;
+    const disabledMode = readonly || disabled;
 
     const currentStatus =
       maxValueExceeded ||
