@@ -1,6 +1,6 @@
 {
-  "total": 646,
-  "totalPassed": 646,
+  "total": 651,
+  "totalPassed": 651,
   "totalFailed": 0,
   "totalSuites": 36,
   "suites": [
@@ -4305,6 +4305,17 @@
       "tests": [
         {
           "status": "pass",
+          "name": "IcSearchBar.cy.tsx-default",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
+          "specFilename": "IcSearchBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-default.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-default.png"
+        },
+        {
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx-disabled",
           "percentage": 0,
           "failureThreshold": 0,
@@ -4313,6 +4324,50 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-disabled.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-disabled.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSearchBar.cy.tsx-full-width",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
+          "specFilename": "IcSearchBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-full-width.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-full-width.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSearchBar.cy.tsx-helper-text",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
+          "specFilename": "IcSearchBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-helper-text.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-helper-text.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSearchBar.cy.tsx-hidden-label",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
+          "specFilename": "IcSearchBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-hidden-label.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-hidden-label.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSearchBar.cy.tsx-small",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
+          "specFilename": "IcSearchBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-small.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-small.png"
         },
         {
           "status": "pass",
@@ -7327,9 +7382,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-07T12:53:17.287Z",
-  "endedAt": "2024-10-07T13:06:10.709Z",
-  "duration": 697575,
+  "startedAt": "2024-10-07T14:25:12.154Z",
+  "endedAt": "2024-10-07T14:37:54.879Z",
+  "duration": 686899,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
