@@ -20,6 +20,7 @@
   display: none;
   z-index: var(--ic-z-index-tooltip);
   box-shadow: var(--ic-elevation-overlay);
+  width: max-content;
 }
 
 :host(.ic-tooltip) ic-typography {
