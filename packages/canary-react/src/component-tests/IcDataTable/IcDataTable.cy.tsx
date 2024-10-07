@@ -13,6 +13,7 @@ import {
   IcSectionContainer,
 } from "@ukic/react";
 import { IcPaginationBarOptions } from "@ukic/canary-web-components/src/utils/types";
+import { mdiPlus } from "@mdi/js";
 
 import {
   COLS,
@@ -3851,17 +3852,25 @@ describe("IcDataTable row deletion", () => {
             </IcButton>
             <IcButton
               key={`actions2-${index}`}
-              variant="secondary"
+              variant="icon"
               slot={`actions2-${index}`}
               onClick={() => nextData.splice(index, 1)}
+              aria-label="Add info"
             >
-              Add
+              <SlottedSVG path={mdiPlus} viewBox="0 0 24 24" />
             </IcButton>
           </>
         ))}
       </IcDataTable>
     );
     cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find("ic-button.button-variant-icon")
+      .eq(0)
+      .shadow()
+      .find("button")
+      .focus();
 
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell",
@@ -4173,17 +4182,25 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
             </IcButton>
             <IcButton
               key={`actions2-${index}`}
-              variant="secondary"
+              variant="icon"
               slot={`actions2-${index}`}
               onClick={() => nextData.splice(index, 1)}
+              aria-label="Add info"
             >
-              Add
+              <SlottedSVG path={mdiPlus} viewBox="0 0 24 24" />
             </IcButton>
           </>
         ))}
       </IcDataTable>
     );
     cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find("ic-button.button-variant-icon")
+      .eq(0)
+      .shadow()
+      .find("button")
+      .focus();
 
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell-high-contrast",
