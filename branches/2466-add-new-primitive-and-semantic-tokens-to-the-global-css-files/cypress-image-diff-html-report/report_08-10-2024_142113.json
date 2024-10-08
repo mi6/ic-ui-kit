@@ -1,7 +1,7 @@
 {
-  "total": 658,
-  "totalPassed": 599,
-  "totalFailed": 59,
+  "total": 646,
+  "totalPassed": 621,
+  "totalFailed": 25,
   "totalSuites": 36,
   "suites": [
     {
@@ -224,14 +224,14 @@
       "path": "src/component-tests/IcAlert/IcAlert.cy.tsx",
       "tests": [
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcAlert.cy.tsx-variants",
-          "percentage": 0,
+          "percentage": 0.05029858762099256,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
           "specFilename": "IcAlert.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx-variants.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcAlert.cy.tsx-variants.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx-variants.png"
         },
         {
@@ -323,14 +323,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx-slotted-icon.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcAlert.cy.tsx-variants-high-contrast",
-          "percentage": 0,
+          "percentage": 0.029344883787005248,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
           "specFilename": "IcAlert.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx-variants-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcAlert.cy.tsx-variants-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx-variants-high-contrast.png"
         },
         {
@@ -417,14 +417,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx-focussed.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBackToTop.cy.tsx-focussed-icon-only",
-          "percentage": 0.025298221281347035,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx-focussed-icon-only.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBackToTop.cy.tsx-focussed-icon-only.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx-focussed-icon-only.png"
         },
         {
@@ -478,36 +478,36 @@
       "path": "src/component-tests/IcBadge/IcBadge.cy.tsx",
       "tests": [
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcBadge.cy.tsx-success",
-          "percentage": 0,
+          "percentage": 0.06254598308444756,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-success.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-success.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-success.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcBadge.cy.tsx-error",
-          "percentage": 0,
+          "percentage": 0.062481997407253236,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-error.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-error.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-error.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcBadge.cy.tsx-warning",
-          "percentage": 0,
+          "percentage": 0.062481997407253236,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-warning.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-warning.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-warning.png"
         },
         {
@@ -556,17 +556,6 @@
         },
         {
           "status": "pass",
-          "name": "IcBadge.cy.tsx-max-number",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
-          "specFilename": "IcBadge.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-max-number.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-max-number.png"
-        },
-        {
-          "status": "pass",
           "name": "IcBadge.cy.tsx-position-near",
           "percentage": 0,
           "failureThreshold": 0,
@@ -577,14 +566,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-position-near.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-position-inline",
-          "percentage": 0.041679045780138216,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-position-inline.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-position-inline.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-position-inline.png"
         },
         {
@@ -671,14 +660,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBreadcrumb.cy.tsx-focussed.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBreadcrumb.cy.tsx-appearance",
-          "percentage": 0.03706343098886916,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBreadcrumb/IcBreadcrumb.cy.tsx",
           "specFilename": "IcBreadcrumb.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBreadcrumb.cy.tsx-appearance.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBreadcrumb.cy.tsx-appearance.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBreadcrumb.cy.tsx-appearance.png"
         },
         {
@@ -864,58 +853,58 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-icon-variants-button-group.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx-tooltip-primary",
-          "percentage": 0.03382306905057552,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-tooltip-primary.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-tooltip-primary.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-tooltip-primary.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx-tooltip-icon",
-          "percentage": 0.04368065933568311,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-tooltip-icon.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-tooltip-icon.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-tooltip-icon.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx-tooltip-icon-secondary",
-          "percentage": 0.04368065933568311,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-tooltip-icon-secondary.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-tooltip-icon-secondary.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-tooltip-icon-secondary.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx-tooltip-icon-tertiary",
-          "percentage": 0.04368065933568311,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-tooltip-icon-tertiary.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-tooltip-icon-tertiary.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-tooltip-icon-tertiary.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx-tooltip-icon-destructive",
-          "percentage": 0.04368065933568311,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-tooltip-icon-destructive.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-tooltip-icon-destructive.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-tooltip-icon-destructive.png"
         },
         {
@@ -1222,14 +1211,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx-slotted-headings.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCardVertical.cy.tsx-interaction",
-          "percentage": 0.03704051835490427,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
           "specFilename": "IcCardVertical.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx-interaction.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCardVertical.cy.tsx-interaction.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx-interaction.png"
         },
         {
@@ -1343,14 +1332,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx-expandable.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCardVertical.cy.tsx-expanded-clicked",
-          "percentage": 0.04381780460041329,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
           "specFilename": "IcCardVertical.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx-expanded-clicked.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCardVertical.cy.tsx-expanded-clicked.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx-expanded-clicked.png"
         },
         {
@@ -1592,17 +1581,6 @@
         },
         {
           "status": "pass",
-          "name": "IcCheckbox.cy.tsx-validation",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
-          "specFilename": "IcCheckbox.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx-validation.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx-validation.png"
-        },
-        {
-          "status": "pass",
           "name": "IcCheckbox.cy.tsx-focus",
           "percentage": 0,
           "failureThreshold": 0,
@@ -1668,14 +1646,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx-dynamic-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcCheckbox.cy.tsx-validation-high-contrast",
-          "percentage": 0,
+          "percentage": 0.020784609690826527,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
           "specFilename": "IcCheckbox.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx-validation-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcCheckbox.cy.tsx-validation-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx-validation-high-contrast.png"
         },
         {
@@ -1751,14 +1729,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx-dismissible.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcChip.cy.tsx-dismissible-focus",
-          "percentage": 0.031176914536239792,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
           "specFilename": "IcChip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx-dismissible-focus.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcChip.cy.tsx-dismissible-focus.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx-dismissible-focus.png"
         },
         {
@@ -1806,14 +1784,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx-custom-colour.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcChip.cy.tsx-badge-slot",
-          "percentage": 0,
+          "percentage": 0.033645207682521446,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
           "specFilename": "IcChip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx-badge-slot.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcChip.cy.tsx-badge-slot.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx-badge-slot.png"
         },
         {
@@ -2072,17 +2050,6 @@
         },
         {
           "status": "pass",
-          "name": "IcDataList.cy.tsx-status-tag-as-value",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDataList/IcDataList.cy.tsx",
-          "specFilename": "IcDataList.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataList.cy.tsx-status-tag-as-value.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataList.cy.tsx-status-tag-as-value.png"
-        },
-        {
-          "status": "pass",
           "name": "IcDataList.cy.tsx-size-small",
           "percentage": 0,
           "failureThreshold": 0,
@@ -2319,36 +2286,36 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-info-alert.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDialog.cy.tsx-warning-alert",
-          "percentage": 0,
+          "percentage": 0.03338537604001688,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-warning-alert.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-warning-alert.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-warning-alert.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDialog.cy.tsx-error-alert",
-          "percentage": 0,
+          "percentage": 0.033850160019316504,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-error-alert.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-error-alert.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-error-alert.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDialog.cy.tsx-success-alert",
-          "percentage": 0,
+          "percentage": 0.034610932762158646,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-success-alert.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-success-alert.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-success-alert.png"
         },
         {
@@ -2374,25 +2341,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-large.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx-no-dialog-controls",
-          "percentage": 0.015975241260567343,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-no-dialog-controls.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-no-dialog-controls.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-no-dialog-controls.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx-destructive-dialog-controls",
-          "percentage": 0.015975241260567343,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-destructive-dialog-controls.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-destructive-dialog-controls.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-destructive-dialog-controls.png"
         },
         {
@@ -2484,25 +2451,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-slotted-content-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDialog.cy.tsx-success-alert-high-contrast",
-          "percentage": 0,
+          "percentage": 0.016770509831248424,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-success-alert-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-success-alert-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-success-alert-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDialog.cy.tsx-warning-alert-high-contrast",
-          "percentage": 0,
+          "percentage": 0.014160537889972024,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-warning-alert-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-warning-alert-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-warning-alert-high-contrast.png"
         },
         {
@@ -3488,14 +3455,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPageHeader.cy.tsx-with-action-input-tab.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcPageHeader.cy.tsx-with-action-input-step",
-          "percentage": 0,
+          "percentage": 0.07339078209524492,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPageHeader/IcPageHeader.cy.tsx",
           "specFilename": "IcPageHeader.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPageHeader.cy.tsx-with-action-input-step.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPageHeader.cy.tsx-with-action-input-step.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPageHeader.cy.tsx-with-action-input-step.png"
         },
         {
@@ -3582,14 +3549,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-simple.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-focus-simple",
-          "percentage": 0.033466401061363026,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-focus-simple.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-focus-simple.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-focus-simple.png"
         },
         {
@@ -3604,14 +3571,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-complex.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-focus-complex",
-          "percentage": 0.033466401061363026,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-focus-complex.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-focus-complex.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-focus-complex.png"
         },
         {
@@ -3626,14 +3593,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-dark-complex-appearance.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-dark-complex-focus",
-          "percentage": 0.033466401061363026,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-dark-complex-focus.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-dark-complex-focus.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-dark-complex-focus.png"
         },
         {
@@ -3648,14 +3615,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-dark-simple-appearance.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-dark-simple-focus",
-          "percentage": 0.033466401061363026,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-dark-simple-focus.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-dark-simple-focus.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-dark-simple-focus.png"
         },
         {
@@ -3670,14 +3637,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-light-complex-appearance.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-light-complex-focus",
-          "percentage": 0.033466401061363026,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-light-complex-focus.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-light-complex-focus.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-light-complex-focus.png"
         },
         {
@@ -3692,14 +3659,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-light-simple-appearance.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-light-simple-focus",
-          "percentage": 0.033999999999999996,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-light-simple-focus.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-light-simple-focus.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-light-simple-focus.png"
         },
         {
@@ -3791,25 +3758,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-default-page-4.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-simple-after-click-next-page-1",
-          "percentage": 0.03394112549695428,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-simple-after-click-next-page-1.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-simple-after-click-next-page-1.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-simple-after-click-next-page-1.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-complex-after-click-next-page-1",
-          "percentage": 0.03394112549695428,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-complex-after-click-next-page-1.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-complex-after-click-next-page-1.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-complex-after-click-next-page-1.png"
         },
         {
@@ -3835,14 +3802,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-simple-after-click-page-3.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-complex-after-click-lastPage-button",
-          "percentage": 0.033466401061363026,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-complex-after-click-lastPage-button.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-complex-after-click-lastPage-button.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-complex-after-click-lastPage-button.png"
         },
         {
@@ -3857,14 +3824,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-complex-after-click-page-13-button.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-simple-after-click-lastPage-button",
-          "percentage": 0.033466401061363026,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-simple-after-click-lastPage-button.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-simple-after-click-lastPage-button.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-simple-after-click-lastPage-button.png"
         },
         {
@@ -3879,47 +3846,47 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-simple-after-click-page-13-button.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-simple-previous-page-button-clicked",
-          "percentage": 0.038,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-simple-previous-page-button-clicked.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-simple-previous-page-button-clicked.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-simple-previous-page-button-clicked.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-complex-previous-page-button-clicked",
-          "percentage": 0.038,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-complex-previous-page-button-clicked.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-complex-previous-page-button-clicked.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-complex-previous-page-button-clicked.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-simple-first-page-button-clicked",
-          "percentage": 0.033466401061363026,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-simple-first-page-button-clicked.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-simple-first-page-button-clicked.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-simple-first-page-button-clicked.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx-complex-first-page-button-clicked",
-          "percentage": 0.033466401061363026,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-complex-first-page-button-clicked.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-complex-first-page-button-clicked.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-complex-first-page-button-clicked.png"
         },
         {
@@ -4211,17 +4178,6 @@
         },
         {
           "status": "pass",
-          "name": "IcRadio.cy.tsx-validation",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
-          "specFilename": "IcRadio.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-validation.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-validation.png"
-        },
-        {
-          "status": "pass",
           "name": "IcRadio.cy.tsx-empty-initial-before-update",
           "percentage": 0,
           "failureThreshold": 0,
@@ -4287,14 +4243,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-first-selected.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcRadio.cy.tsx-conditional-dynamic-second-selected",
-          "percentage": 0,
+          "percentage": 0.020784609690826527,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-second-selected.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-conditional-dynamic-second-selected.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-second-selected.png"
         },
         {
@@ -4309,14 +4265,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-default-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcRadio.cy.tsx-conditional-dynamic-high-contrast",
-          "percentage": 0,
+          "percentage": 0.020784609690826527,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png"
         }
       ]
@@ -4640,14 +4596,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx-hidden-label.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSelect.cy.tsx-validation",
-          "percentage": 0,
+          "percentage": 0.03794733192202055,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelect.cy.tsx-validation.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSelect.cy.tsx-validation.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx-validation.png"
         },
         {
@@ -4915,14 +4871,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx-recommended-open-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSelect.cy.tsx-validation-high-contrast",
-          "percentage": 0,
+          "percentage": 0.03789459064299283,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelect.cy.tsx-validation-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSelect.cy.tsx-validation-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx-validation-high-contrast.png"
         },
         {
@@ -5495,17 +5451,6 @@
         },
         {
           "status": "pass",
-          "name": "IcStatusTag.cy.tsx-success",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx-success.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx-success.png"
-        },
-        {
-          "status": "pass",
           "name": "IcStatusTag.cy.tsx-warning",
           "percentage": 0,
           "failureThreshold": 0,
@@ -5514,39 +5459,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx-warning.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx-warning.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx-danger",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx-danger.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx-danger.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx-small",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx-small.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx-small.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStatusTag.cy.tsx-large",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
-          "specFilename": "IcStatusTag.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx-large.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx-large.png"
         },
         {
           "status": "pass",
@@ -5588,58 +5500,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx-custom-compact.png"
         },
         {
-          "status": "pass",
-          "name": "IcStepper.cy.tsx-full-width",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
-          "specFilename": "IcStepper.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStepper.cy.tsx-full-width.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx-full-width.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStepper.cy.tsx-left-aligned",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
-          "specFilename": "IcStepper.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStepper.cy.tsx-left-aligned.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx-left-aligned.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStepper.cy.tsx-custom-connector-width",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
-          "specFilename": "IcStepper.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStepper.cy.tsx-custom-connector-width.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx-custom-connector-width.png"
-        },
-        {
-          "status": "pass",
+          "status": "fail",
           "name": "IcStepper.cy.tsx-without-step-titles",
-          "percentage": 0,
+          "percentage": 0.06593675947451468,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcStepper.cy.tsx-without-step-titles.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcStepper.cy.tsx-without-step-titles.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx-without-step-titles.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcStepper.cy.tsx-with-hidden-step-information",
-          "percentage": 0,
+          "percentage": 0.04662432975389566,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcStepper.cy.tsx-with-hidden-step-information.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcStepper.cy.tsx-with-hidden-step-information.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx-with-hidden-step-information.png"
         },
         {
@@ -5652,17 +5531,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcStepper.cy.tsx-light.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx-light.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcStepper.cy.tsx-small-connector-width",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
-          "specFilename": "IcStepper.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStepper.cy.tsx-small-connector-width.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx-small-connector-width.png"
         },
         {
           "status": "pass",
@@ -5842,36 +5710,36 @@
       "path": "src/component-tests/IcTabs/IcTabs.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-default",
-          "percentage": 0.03588871688985272,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-default.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-default.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-default.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-disabled",
-          "percentage": 0.03588871688985272,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-disabled.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-disabled.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-disabled.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-responsive",
-          "percentage": 0.038626415831655936,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-responsive.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-responsive.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-responsive.png"
         },
         {
@@ -5897,25 +5765,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-light.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-with-icons",
-          "percentage": 0.0340587727318528,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-with-icons.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-with-icons.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-with-icons.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-with-inline-badges",
-          "percentage": 0.03709447398198281,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-with-inline-badges.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-with-inline-badges.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-with-inline-badges.png"
         },
         {
@@ -5930,47 +5798,47 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-with-inline-prop.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-compact",
-          "percentage": 0.03924283374069717,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-compact.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-compact.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-compact.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-nested",
-          "percentage": 0.05145872132107443,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-nested.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-nested.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-nested.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-manual-activation",
-          "percentage": 0.03588871688985272,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-manual-activation.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-manual-activation.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-manual-activation.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-focused",
-          "percentage": 0.03638681079732051,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-focused.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-focused.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-focused.png"
         },
         {
@@ -5985,14 +5853,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-focused-light.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTabs.cy.tsx-min-max",
-          "percentage": 0.021540659228538015,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
           "specFilename": "IcTabs.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-min-max.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx-min-max.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-min-max.png"
         },
         {
@@ -6079,36 +5947,36 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-multiline-text-area-with-resize.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-inline-validation-text-field",
-          "percentage": 0,
+          "percentage": 0.02433105012119288,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-inline-validation-text-field.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-inline-validation-text-field.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-inline-validation-text-field.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-validation-text-field",
-          "percentage": 0,
+          "percentage": 0.0378339996671659,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-validation-text-field.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-validation-text-field.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-validation-text-field.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-readonly-text-field",
-          "percentage": 0,
+          "percentage": 0.02433105012119288,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-readonly-text-field.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-readonly-text-field.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-readonly-text-field.png"
         },
         {
@@ -6167,25 +6035,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-disabled-text-field-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-readonly-text-field-high-contrast",
-          "percentage": 0,
+          "percentage": 0.02424871130596428,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-readonly-text-field-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-readonly-text-field-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-readonly-text-field-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-validation-text-field-high-contrast",
-          "percentage": 0,
+          "percentage": 0.03778141590350944,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-validation-text-field-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-validation-text-field-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-validation-text-field-high-contrast.png"
         }
       ]
@@ -6195,36 +6063,36 @@
       "path": "src/component-tests/IcToast/IcToast.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToast.cy.tsx-default",
-          "percentage": 0.02576819745345025,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToast.cy.tsx-default.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToast.cy.tsx-default.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx-default.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToast.cy.tsx-message-variant",
-          "percentage": 0.025845695966640173,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToast.cy.tsx-message-variant.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToast.cy.tsx-message-variant.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx-message-variant.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToast.cy.tsx-multiline",
-          "percentage": 0.031176914536239792,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToast.cy.tsx-multiline.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToast.cy.tsx-multiline.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx-multiline.png"
         },
         {
@@ -6261,25 +6129,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx-auto-dismiss.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToast.cy.tsx-custom-icon",
-          "percentage": 0.025845695966640173,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToast.cy.tsx-custom-icon.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToast.cy.tsx-custom-icon.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx-custom-icon.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToast.cy.tsx-custom-aria-label",
-          "percentage": 0.0285657137141714,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToast.cy.tsx-custom-aria-label.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToast.cy.tsx-custom-aria-label.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToast.cy.tsx-custom-aria-label.png"
         },
         {
@@ -6388,14 +6256,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx-sizes.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcToggleButton.cy.tsx-with-badge",
-          "percentage": 0,
+          "percentage": 0.022978250586152115,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx-with-badge.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButton.cy.tsx-with-badge.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx-with-badge.png"
         },
         {
@@ -6719,179 +6587,179 @@
       "path": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-default",
-          "percentage": 0.06349803146555018,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-default.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-default.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-default.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-top-placement-start",
-          "percentage": 0.06286493458200684,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-top-placement-start.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-top-placement-start.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-top-placement-start.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-top-placement",
-          "percentage": 0.047244047244070865,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-top-placement.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-top-placement.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-top-placement.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-top-placement-end",
-          "percentage": 0.062481997407253236,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-top-placement-end.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-top-placement-end.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-top-placement-end.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-bottom-placement-start",
-          "percentage": 0.06349803146555018,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-bottom-placement-start.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-bottom-placement-start.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-bottom-placement-start.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-bottom-placement",
-          "percentage": 0.048538644398046386,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-bottom-placement.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-bottom-placement.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-bottom-placement.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-bottom-placement-end",
-          "percentage": 0.06428063471995278,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-bottom-placement-end.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-bottom-placement-end.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-bottom-placement-end.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-right-placement-start",
-          "percentage": 0.06324555320336758,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-right-placement-start.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-right-placement-start.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-right-placement-start.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-right-placement",
-          "percentage": 0.04753945729601885,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-right-placement.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-right-placement.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-right-placement.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-right-placement-end",
-          "percentage": 0.06393746945258312,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-right-placement-end.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-right-placement-end.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-right-placement-end.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-left-placement-start",
-          "percentage": 0.06318227599572526,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-left-placement-start.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-left-placement-start.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-left-placement-start.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-left-placement",
-          "percentage": 0.04669047011971501,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-left-placement.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-left-placement.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-left-placement.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-left-placement-end",
-          "percentage": 0.06254598308444756,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-left-placement-end.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-left-placement-end.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-left-placement-end.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-dark-background",
-          "percentage": 0.06991423317179414,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-dark-background.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-dark-background.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-dark-background.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-truncated-text",
-          "percentage": 0.12258874336577563,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-truncated-text.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-truncated-text.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-truncated-text.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTooltip.cy.tsx-on-chip",
-          "percentage": 0.04547526800360829,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTooltip/IcTooltip.cy.tsx",
           "specFilename": "IcTooltip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTooltip.cy.tsx-on-chip.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTooltip.cy.tsx-on-chip.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTooltip.cy.tsx-on-chip.png"
         },
         {
@@ -7165,14 +7033,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-mobile-navigation-group.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx-mobile-open-menu",
-          "percentage": 0.03993998496244834,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx-mobile-open-menu.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTopNavigation.cy.tsx-mobile-open-menu.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-mobile-open-menu.png"
         },
         {
@@ -7459,9 +7327,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-08T09:21:56.855Z",
-  "endedAt": "2024-10-08T09:44:25.410Z",
-  "duration": 1271994,
+  "startedAt": "2024-10-08T14:21:13.292Z",
+  "endedAt": "2024-10-08T14:38:58.602Z",
+  "duration": 987472,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
