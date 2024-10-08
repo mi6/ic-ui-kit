@@ -6,7 +6,7 @@ li {
 }
 
 :host ::part(button) {
-  color: var(--ic-color-text-primary);
+  color: var(--ic-popover-menu-item-check);
   padding: calc(var(--ic-space-xxxs) / 2);
   display: flex;
   align-items: flex-start;
@@ -29,9 +29,9 @@ li {
 }
 
 :host(.ic-menu-item-disabled) ::part(button) {
-  color: var(--ic-architectural-200) !important;
+  color: var(--ic-popover-menu-item-check-disabled) !important;
 
-  --ic-typography-color: var(--ic-architectural-200) !important;
+  --ic-typography-color: var(--ic-popover-menu-item-check-disabled) !important;
 
   pointer-events: none;
 }
@@ -39,69 +39,69 @@ li {
 :host(.ic-menu-item-disabled) .menu-item-label,
 :host(.ic-menu-item-disabled) .shortcut,
 :host(.ic-menu-item-disabled) .menu-item-description {
-  --ic-typography-color: var(--ic-architectural-200) !important;
+  --ic-typography-color: var(--ic-popover-menu-item-label-disabled) !important;
 }
 
 :host([variant="destructive"]) ::part(button) {
-  color: var(--ic-action-destructive);
+  color: var(--ic-popover-menu-destructive-item-icon);
 
-  --ic-typography-color: var(--ic-action-destructive);
+  --ic-typography-color: var(--ic-popover-menu-destructive-item-label);
 }
 
 :host ::part(button):hover {
-  background-color: var(--ic-action-dark-bg-hover);
+  background-color: var(--ic-popover-background-hover);
 }
 
 :host ::part(button):focus-visible,
 :host ::part(button):focus {
-  color: var(--ic-color-white-text);
+  color: var(--ic-popover-menu-item-icon-focused);
 
-  --ic-typography-color: var(--ic-color-white-text);
+  --ic-typography-color: purple;
 
-  background-color: var(--ic-color-focus-inner);
+  background-color: var(--ic-popover-background-focus);
   box-shadow: none;
 }
 
 :host(.ic-menu-item-disabled) ::part(button):focus-visible,
 :host(.ic-menu-item-disabled) ::part(button):focus {
-  color: var(--ic-theme-lighten-40) !important;
+  color: var(--ic-popover-menu-item-icon-disabled) !important;
 
-  --ic-typography-color: var(--ic-theme-lighten-40) !important;
+  --ic-typography-color: orange !important;
 }
 
 :host([variant="destructive"]) ::part(button):focus-visible,
 :host([variant="destructive"]) ::part(button):focus {
-  background-color: var(--ic-action-destructive);
+  background-color: var(--ic-popover-destructive-background-focus);
 }
 
 ic-button:focus-within .menu-item-label,
 ic-button:focus-within .shortcut,
 ic-button:focus-within .menu-item-description {
-  --ic-typography-color: var(--ic-color-white-text);
+  --ic-typography-color: var(--ic-popover-menu-item-label-focused);
 }
 
 :host(.ic-menu-item-disabled) ic-button:focus-within .focus-border {
-  border-color: var(--ic-architectural-white);
+  border-color: var(--ic-popover-menu-border);
 }
 
 :host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-label,
 :host(.ic-menu-item-disabled) ic-button:focus-within .shortcut,
 :host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-description {
-  --ic-typography-color: var(--ic-theme-lighten-40) !important;
+  --ic-typography-color: var(--ic-popover-menu-item-label-disabled) !important;
 }
 
 :host ::part(button):active {
-  background-color: var(--ic-action-dark-bg-pressed);
-  color: var(--ic-color-text-primary) !important;
+  background-color: var(--ic-popover-background-pressed);
+  color: var(--ic-popover-menu-item-label) !important;
 
-  --ic-typography-color: var(--ic-color-text-primary) !important;
+  --ic-typography-color: var(--ic-popover-menu-item-label) !important;
 }
 
 :host([variant="destructive"]) ::part(button):active {
-  background-color: var(--ic-action-dark-bg-pressed);
-  color: var(--ic-action-destructive) !important;
+  background-color: var(--ic-popover-background-pressed);
+  color: var(--ic-popover-menu-destructive-item-label) !important;
 
-  --ic-typography-color: var(--ic-action-destructive) !important;
+  --ic-typography-color: var(--ic-popover-menu-destructive-item-label) !important;
 }
 
 .menu-item-info {
@@ -120,11 +120,11 @@ ic-button:focus-within .menu-item-description {
 }
 
 .menu-item-description {
-  --ic-typography-color: var(--ic-color-text-secondary);
+  --ic-typography-color: var(--ic-popover-menu-item-description);
 }
 
 .shortcut {
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-popover-menu-item-shortcut);
 
   display: flex;
   flex: min-content;
@@ -137,19 +137,19 @@ ic-button:focus-within .menu-item-description {
 }
 
 ic-button:active .menu-item-label {
-  --ic-typography-color: var(--ic-color-text-primary);
+  --ic-typography-color: var(--ic-popover-menu-item-label);
 }
 
 ic-button:active .menu-item-description {
-  --ic-typography-color: var(--ic-color-text-secondary);
+  --ic-typography-color: var( --ic-popover-menu-item-description);
 }
 
 ic-button:active .shortcut {
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-popover-menu-item-shortcut);
 }
 
 :host([variant="destructive"]) ic-button:active .menu-item-label {
-  --ic-typography-color: var(--ic-action-destructive) !important;
+  --ic-typography-color: var(--ic-popover-menu-destructive-item-label) !important;
 }
 
 .icon,
