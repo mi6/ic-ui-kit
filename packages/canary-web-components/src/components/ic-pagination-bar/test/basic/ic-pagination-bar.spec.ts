@@ -174,8 +174,6 @@ describe("ic-pagination-bar", () => {
       { label: "All", value: "150" },
     ];
 
-    page.rootInstance.trimItemsPerPageOptions();
-
     await page.waitForChanges();
 
     expect(page.rootInstance.displayedItemsPerPageOptions).toEqual([
@@ -210,6 +208,21 @@ describe("ic-pagination-bar", () => {
       { label: "50", value: "50" },
       { label: "All", value: "100" },
     ]);
+  });
+
+  it("should update page details when currentPage prop is changed", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination],
+      html: `<ic-pagination-bar total-items="100"></ic-pagination-bar>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.root.currentPage = 4;
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should wrap pagination when the device size is small", async () => {
@@ -251,17 +264,31 @@ describe("ic-pagination-bar", () => {
 
     expect(text.textContent).toEqual("Page 1 of 10");
 
+    const eventSpy = jest.fn();
+
+    paginationBar.addEventListener("icPageChange", eventSpy);
+
     select.value = "25";
+    expect(eventSpy).toHaveBeenCalledTimes(0);
 
     page.rootInstance.changeItemsPerPage();
-
-    page.rootInstance.setNumberPages();
 
     await page.waitForChanges();
 
     expect(select.value).toEqual("25");
 
     expect(text.textContent).toEqual("Page 1 of 4");
+
+    expect(eventSpy).toHaveBeenCalledTimes(1);
+
+    expect(eventSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: expect.objectContaining({
+          value: 1,
+          fromItemsPerPage: true,
+        }),
+      })
+    );
   });
 
   it("should change page when the pagination controls are clicked", async () => {
