@@ -30,7 +30,7 @@ import {
   COLS_WIDTH
 } from "../../../canary-web-components/src/components/ic-data-table/story-data";
 
-import { mdiAccountGroup, mdiImage } from "@mdi/js";
+import { mdiAccountGroup, mdiImage, mdiDelete } from "@mdi/js";
 
 <Meta
   title="React Components/Data Table"
@@ -1041,11 +1041,12 @@ Custom HTML elements can be slotted or passed via the `data` prop to display in 
           </IcButton>
           <IcButton
             key={`actions2-${index}`}
-            variant="secondary"
+            variant="icon"
             slot={`actions2-${index}`}
-            onClick={() => console.log("Add")}
+            aria-label="Delete row"
+            onClick={() => console.log("Delete")}
           >
-            Add
+            <SlottedSVG path={mdiDelete} viewBox="0 0 24 24" />
           </IcButton>
         </>
       ))}

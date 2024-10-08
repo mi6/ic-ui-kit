@@ -1220,6 +1220,7 @@ export class DataTable {
             class={{
               ["table-cell"]: true,
               [`table-density-${this.density}`]: this.notDefaultDensity(),
+              ["with-overflow"]: columnProps?.dataType === "element",
             }}
             style={{ ...this.getColumnWidth(columnProps.columnWidth) }}
           >

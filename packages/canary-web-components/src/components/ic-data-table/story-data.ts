@@ -844,7 +844,7 @@ export const DATA_ELEMENTS = [
       data: "Joe",
       href: "https://www.example.com",
     },
-    actions2: `<ic-button variant='secondary' onClick='this.closest("tr").remove()'>Add</ic-button>`,
+    actions2: `<ic-button aria-label="Delete row" variant='icon' onClick='this.closest("tr").remove()'><svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem; height: 1.5rem;"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" style="fill: currentcolor;"></path></svg></ic-button>`,
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
@@ -852,7 +852,7 @@ export const DATA_ELEMENTS = [
   {
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
     firstName: "Sarah",
-    actions2: `<ic-button variant='secondary' onClick='this.closest("tr").remove()'>Add</ic-button>`,
+    actions2: `<ic-button aria-label="Delete row" variant='icon' onClick='this.closest("tr").remove()'><svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem; height: 1.5rem;"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" style="fill: currentcolor;"></path></svg></ic-button>`,
     age: 28,
     jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
@@ -860,7 +860,7 @@ export const DATA_ELEMENTS = [
   {
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
     firstName: "Mark",
-    actions2: `<ic-button variant='secondary' onClick='this.closest("tr").remove()'>Add</ic-button>`,
+    actions2: `<ic-button aria-label="Delete row" variant='icon' onClick='this.closest("tr").remove()'><svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem; height: 1.5rem;"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" style="fill: currentcolor;"></path></svg></ic-button>`,
     age: 45,
     jobTitle: "Team Lead",
     address: "12 Key Street, Town, Country, Postcode",
@@ -868,7 +868,7 @@ export const DATA_ELEMENTS = [
   {
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
     firstName: "Naomi",
-    actions2: `<ic-button variant='secondary' onClick='this.closest("tr").remove()'>Add</ic-button>`,
+    actions2: `<ic-button aria-label="Delete row" variant='icon' onClick='this.closest("tr").remove()'><svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem; height: 1.5rem;"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" style="fill: currentcolor;"></path></svg></ic-button>`,
     age: 32,
     jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
@@ -876,7 +876,7 @@ export const DATA_ELEMENTS = [
   {
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
     firstName: "Luke",
-    actions2: `<ic-button variant='secondary' onClick='this.closest("tr").remove()'>Add</ic-button>`,
+    actions2: `<ic-button aria-label="Delete row" variant='icon' onClick='this.closest("tr").remove()'><svg viewBox="0 0 24 24" role="presentation" style="width: 1.5rem; height: 1.5rem;"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" style="fill: currentcolor;"></path></svg></ic-button>`,
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
