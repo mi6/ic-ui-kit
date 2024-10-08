@@ -1699,9 +1699,9 @@ export namespace Components {
     }
     interface IcSkeleton {
         /**
-          * The appearance of the skeleton.
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "appearance"?: "light" | "default";
+        "theme"?: IcThemeMode;
         /**
           * The variant of the skeleton that will be displayed.
          */
@@ -4952,9 +4952,9 @@ declare namespace LocalJSX {
     }
     interface IcSkeleton {
         /**
-          * The appearance of the skeleton.
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "appearance"?: "light" | "default";
+        "theme"?: IcThemeMode;
         /**
           * The variant of the skeleton that will be displayed.
          */
