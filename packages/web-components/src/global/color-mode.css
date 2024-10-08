@@ -155,6 +155,42 @@ ic-theme,
   --ic-link-icon-launch-monochrome: var(--ic-color-text-primary);
   --ic-link-icon-launch-visited-monochrome: var(--ic-color-text-secondary);
 
+  /* Popover menu */
+  --ic-popover-background: var(--ic-color-background-primary-light);
+  --ic-popover-divider: var(--ic-color-border-neutral-default);
+  --ic-popover-border: var(--ic-color-border-neutral-grey);
+  --ic-popover-background-focus: var(--ic-focus-inner);
+  --ic-popover-destructive-background-focus: var(--ic-action-destructive-light);
+  --ic-popover-background-hover: var(--ic-color-background-hover-dark);
+  --ic-popover-background-pressed: var(--ic-action-dark-pressed);
+  --ic-popover-menu-item-label: var(--ic-color-text-primary-light);
+  --ic-popover-nav-text: var(--ic-color-text-primary-light);
+  --ic-popover-menu-item-description: var(--ic-color-text-secondary-light);
+  --ic-popover-menu-item-shortcut: var(--ic-color-text-tertiary-light);
+  --ic-popover-parent-label: var(--ic-color-text-tertiary-light);
+  --ic-popover-menu-destructive-item-label: var(--ic-action-destructive-light);
+  --ic-popover-menu-item-shortcut-focused: var(--ic-color-text-inverse-light);
+  --ic-popover-menu-item-label-focused: var(--ic-color-text-inverse-light);
+  --ic-popover-menu-item-icon-focused: var(--ic-color-text-inverse-light);
+  --ic-popover-menu-item-description-focused: var(
+    --ic-color-text-inverse-light
+  );
+  --ic-popover-menu-item: var(--ic-color-text-primary-light);
+  --ic-popover-menu-destructive-item-icon: var(--ic-action-destructive-light);
+  --ic-popover-menu-item-check: var(--ic-color-text-primary-light);
+  --ic-popover-menu-item-check-focused: var(--ic-color-text-inverse-light);
+  --ic-popover-menu-item-label-disabled: var(--ic-color-text-disabled-default);
+  --ic-popover-menu-item-icon-disabled: var(--ic-color-text-disabled-default);
+  --ic-popover-menu-item-description-disabled: var(
+    --ic-color-text-disabled-default
+  );
+  --ic-popover-menu-item-check-disabled: var(--ic-color-text-disabled-default);
+  --ic-popover-menu-item-shortcut-disabled: var(
+    --ic-color-text-disabled-default
+  );
+  --ic-popover-menu-border: var(--ic-color-border-neutral-inverse);
+  --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
+
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-text-inverse);
   --ic-status-tag-text-inverted: var(--ic-color-text-primary);
@@ -301,6 +337,19 @@ ic-theme,
     --ic-breadcrumb-text: var(--ic-color-text-primary);
     --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
 
+    /* Chips */
+    --ic-chip-label: var(--ic-color-text-primary-dark);
+    --ic-chip-label-inactive: var(--ic-color-text-inactive);
+    --ic-chip-icon: var(--ic-color-icon-inverted);
+    --ic-chip-icon-inactive: var(--ic-color-icon-chevron);
+    --ic-chip-outline: var(--ic-color-text-primary-dark);
+    --ic-chip-outline-inactive: var(--ic-color-border-neutral-white);
+    --ic-chip-outline-background: var(--ic-color-background-primary-dark);
+    --ic-chip-background-filled-default: var(--ic-state-layer-neutral-darker);
+    --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-darker);
+    --ic-chip-action-hover: var(--ic-action-light-bg-hover);
+    --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
+
     /* Data list */
     --ic-data-list-text-cell: var(--ic-color-text-primary);
     --ic-data-list-text-heading: var(--ic-color-text-primary);
@@ -333,18 +382,43 @@ ic-theme,
       --ic-color-hyperlink-visited-monochrome-dark
     );
 
-    /* Chips */
-    --ic-chip-label: var(--ic-color-text-primary-dark);
-    --ic-chip-label-inactive: var(--ic-color-text-inactive);
-    --ic-chip-icon: var(--ic-color-icon-inverted);
-    --ic-chip-icon-inactive: var(--ic-color-icon-chevron);
-    --ic-chip-outline: var(--ic-color-text-primary-dark);
-    --ic-chip-outline-inactive: var(--ic-color-border-neutral-white);
-    --ic-chip-outline-background: var(--ic-color-background-primary-dark);
-    --ic-chip-background-filled-default: var(--ic-state-layer-neutral-darker);
-    --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-darker);
-    --ic-chip-action-hover: var(--ic-action-light-bg-hover);
-    --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
+    /* Popover menu */
+    --ic-popover-background: var(--ic-color-background-primary-dark);
+    --ic-popover-divider: var(--ic-color-border-neutral-default);
+    --ic-popover-border: var(--ic-color-border-neutral-grey-light);
+    --ic-popover-background-focus: var(--ic-focus-inner);
+    --ic-popover-destructive-background-focus: var(
+      --ic-action-destructive-light
+    );
+    --ic-popover-background-hover: var(--ic-color-background-hover-dark);
+    --ic-popover-background-pressed: var(--ic-action-light-pressed);
+    --ic-popover-menu-item-label: var(--ic-color-text-primary-dark);
+    --ic-popover-nav-text: var(--ic-color-text-primary-dark);
+    --ic-popover-menu-item-description: var(--ic-color-text-secondary-dark);
+    --ic-popover-menu-item-shortcut: var(--ic-color-text-tertiary-dark);
+    --ic-popover-parent-label: var(--ic-color-text-tertiary-dark);
+    --ic-popover-menu-destructive-item-label: var(--ic-action-destructive-dark);
+    --ic-popover-menu-item-shortcut-focused: var(--ic-color-text-inverse-light);
+    --ic-popover-menu-item-label-focused: var(--ic-color-text-inverse-light);
+    --ic-popover-menu-item-icon-focused: var(--ic-color-text-inverse-light);
+    --ic-popover-menu-item-description-focused: var(
+      --ic-color-text-inverse-light
+    );
+    --ic-popover-menu-item: var(--ic-color-text-primary-dark);
+    --ic-popover-menu-destructive-item-icon: var(--ic-action-destructive-dark);
+    --ic-popover-menu-item-check: var(--ic-color-text-primary-dark);
+    --ic-popover-menu-item-check-focused: var(--ic-color-text-inverse-light);
+    --ic-popover-menu-item-label-disabled: var(--ic-color-text-disabled-light);
+    --ic-popover-menu-item-icon-disabled: var(--ic-color-text-disabled-light);
+    --ic-popover-menu-item-description-disabled: var(
+      --ic-color-text-disabled-light
+    );
+    --ic-popover-menu-item-check-disabled: var(--ic-color-text-disabled-light);
+    --ic-popover-menu-item-shortcut-disabled: var(
+      --ic-color-text-disabled-light
+    );
+    --ic-popover-menu-border: var(--ic-color-border-neutral-inverse);
+    --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
 
     /* Status tags */
     --ic-status-tag-text: var(--ic-color-text-inverse);
@@ -494,6 +568,19 @@ ic-theme,
   --ic-breadcrumb-text: var(--ic-color-text-primary);
   --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
 
+  /* Chips */
+  --ic-chip-label: var(--ic-color-text-primary-dark);
+  --ic-chip-label-inactive: var(--ic-color-text-inactive);
+  --ic-chip-icon: var(--ic-color-icon-inverted);
+  --ic-chip-icon-inactive: var(--ic-color-icon-chevron);
+  --ic-chip-outline: var(--ic-color-text-primary-dark);
+  --ic-chip-outline-inactive: var(--ic-color-border-neutral-white);
+  --ic-chip-outline-background: var(--ic-color-background-primary-dark);
+  --ic-chip-background-filled-default: var(--ic-state-layer-neutral-darker);
+  --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-darker);
+  --ic-chip-action-hover: var(--ic-action-light-bg-hover);
+  --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
+
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
   --ic-data-list-text-heading: var(--ic-color-text-primary);
@@ -526,18 +613,39 @@ ic-theme,
     --ic-color-hyperlink-visited-monochrome-dark
   );
 
-  /* Chips */
-  --ic-chip-label: var(--ic-color-text-primary-dark);
-  --ic-chip-label-inactive: var(--ic-color-text-inactive);
-  --ic-chip-icon: var(--ic-color-icon-inverted);
-  --ic-chip-icon-inactive: var(--ic-color-icon-chevron);
-  --ic-chip-outline: var(--ic-color-text-primary-dark);
-  --ic-chip-outline-inactive: var(--ic-color-border-neutral-white);
-  --ic-chip-outline-background: var(--ic-color-background-primary-dark);
-  --ic-chip-background-filled-default: var(--ic-state-layer-neutral-darker);
-  --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-darker);
-  --ic-chip-action-hover: var(--ic-action-light-bg-hover);
-  --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
+  /* Popover menu */
+  --ic-popover-background: var(--ic-color-background-primary-dark);
+  --ic-popover-divider: var(--ic-color-border-neutral-default);
+  --ic-popover-border: var(--ic-color-border-neutral-grey-light);
+  --ic-popover-background-focus: var(--ic-focus-inner);
+  --ic-popover-destructive-background-focus: var(--ic-action-destructive-light);
+  --ic-popover-background-hover: var(--ic-color-background-hover-dark);
+  --ic-popover-background-pressed: var(--ic-action-light-pressed);
+  --ic-popover-menu-item-label: var(--ic-color-text-primary-dark);
+  --ic-popover-nav-text: var(--ic-color-text-primary-dark);
+  --ic-popover-menu-item-description: var(--ic-color-text-secondary-dark);
+  --ic-popover-menu-item-shortcut: var(--ic-color-text-tertiary-dark);
+  --ic-popover-parent-label: var(--ic-color-text-tertiary-dark);
+  --ic-popover-menu-destructive-item-label: var(--ic-action-destructive-dark);
+  --ic-popover-menu-item-shortcut-focused: var(--ic-color-text-inverse-light);
+  --ic-popover-menu-item-label-focused: var(--ic-color-text-inverse-light);
+  --ic-popover-menu-item-icon-focused: var(--ic-color-text-inverse-light);
+  --ic-popover-menu-item-description-focused: var(
+    --ic-color-text-inverse-light
+  );
+  --ic-popover-menu-item: var(--ic-color-text-primary-dark);
+  --ic-popover-menu-destructive-item-icon: var(--ic-action-destructive-dark);
+  --ic-popover-menu-item-check: var(--ic-color-text-primary-dark);
+  --ic-popover-menu-item-check-focused: var(--ic-color-text-inverse-light);
+  --ic-popover-menu-item-label-disabled: var(--ic-color-text-disabled-light);
+  --ic-popover-menu-item-icon-disabled: var(--ic-color-text-disabled-light);
+  --ic-popover-menu-item-description-disabled: var(
+    --ic-color-text-disabled-light
+  );
+  --ic-popover-menu-item-check-disabled: var(--ic-color-text-disabled-light);
+  --ic-popover-menu-item-shortcut-disabled: var(--ic-color-text-disabled-light);
+  --ic-popover-menu-border: var(--ic-color-border-neutral-inverse);
+  --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
 
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-text-inverse);

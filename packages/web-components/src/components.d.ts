@@ -1314,6 +1314,10 @@ export namespace Components {
          */
         "submenuId"?: string;
         "submenuLevel": number;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcRadioGroup {
         /**
@@ -4493,6 +4497,10 @@ declare namespace LocalJSX {
          */
         "submenuId"?: string;
         "submenuLevel"?: number;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcRadioGroup {
         /**
