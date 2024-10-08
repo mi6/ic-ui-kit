@@ -14,11 +14,12 @@ import {
 } from "./IcStatusTagTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import "cypress-axe";
+import { HAVE_ATTR, HAVE_TEXT, NOT_HAVE_ATTR } from "../utils/constants";
 
 const STATUS_TAG_SELECTOR = "ic-status-tag";
 const DEFAULT_TEST_THRESHOLD = 0.02;
 
-describe("IcStatusTag visual regression and a11y tests", () => {
+describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -32,6 +33,11 @@ describe("IcStatusTag visual regression and a11y tests", () => {
 
     cy.checkHydrated(STATUS_TAG_SELECTOR);
 
+    cy.get(STATUS_TAG_SELECTOR).eq(0).should(HAVE_ATTR, "label", "Neutral");
+    cy.findShadowEl(STATUS_TAG_SELECTOR, "ic-typography")
+      .eq(0)
+      .should(HAVE_TEXT, "Neutral");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "neutral",
@@ -39,10 +45,13 @@ describe("IcStatusTag visual regression and a11y tests", () => {
     });
   });
 
-  it("should render success status tag", () => {
+  it("should render success status tag and add role='status' when announced is set to true", () => {
     mount(<Success />);
 
     cy.checkHydrated(STATUS_TAG_SELECTOR);
+
+    cy.get(STATUS_TAG_SELECTOR).eq(0).should(HAVE_ATTR, "role", "status");
+    cy.get(STATUS_TAG_SELECTOR).eq(1).should(NOT_HAVE_ATTR, "role", "status");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
