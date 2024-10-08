@@ -8,10 +8,10 @@ representing so that any changes, such as the real element replacing the skeleto
 
 ## Properties
 
-| Property     | Attribute    | Description                                         | Type                                | Default       |
-| ------------ | ------------ | --------------------------------------------------- | ----------------------------------- | ------------- |
-| `appearance` | `appearance` | The appearance of the skeleton.                     | `"default" \| "light"`              | `"default"`   |
-| `variant`    | `variant`    | The variant of the skeleton that will be displayed. | `"circle" \| "rectangle" \| "text"` | `"rectangle"` |
+| Property  | Attribute | Description                                                                                                                             | Type                                | Default       |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------- |
+| `theme`   | `theme`   | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"`    | `"inherit"`   |
+| `variant` | `variant` | The variant of the skeleton that will be displayed.                                                                                     | `"circle" \| "rectangle" \| "text"` | `"rectangle"` |
 
 
 ----------------------------------------------
