@@ -13,7 +13,7 @@ export const Neutral = () => {
 export const Success = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcStatusTag label="Success" status="success" />
+      <IcStatusTag label="Success" status="success" announced={true} />
       <IcStatusTag label="Success" status="success" variant="outlined" />
     </div>
   );
