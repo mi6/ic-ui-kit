@@ -266,3 +266,50 @@ export const MaxHeight = () => {
     </div>
   );
 };
+
+export const PopoverTheme = ({ theme }) => {
+  const buttonEl = useRef<any>();
+  const popoverEl = useRef<any>();
+  const handleClick = () => {
+    popoverEl.current.open = buttonEl.current.dropdownExpanded;
+  };
+  const handleClose = () => {
+    buttonEl.current.dropdownExpanded = popoverEl.current.open;
+  };
+  return (
+    <div style={{ padding: "1rem" }}>
+      <>
+        <IcButton
+          id="popover-button"
+          dropdown
+          variant="primary"
+          onClick={() => handleClick()}
+          ref={buttonEl}
+        >
+          Button
+        </IcButton>
+        <IcPopoverMenu
+          anchor="popover-button"
+          aria-label="popover"
+          onIcPopoverClosed={() => handleClose()}
+          ref={popoverEl}
+          theme={theme}
+          open
+        >
+          <IcMenuItem label="Copy code"></IcMenuItem>
+          <IcMenuItem label="Paste code"></IcMenuItem>
+          <IcMenuItem
+            label="Actions"
+            submenuTriggerFor="actions"
+            id="submenu-trigger-actions"
+          />
+        </IcPopoverMenu>
+        <IcPopoverMenu submenuId="actions" aria-label="popover" theme={theme}>
+          <IcMenuItem label="Edit" />
+          <IcMenuItem label="Find" />
+          <IcMenuItem label="Delete" variant="destructive" />
+        </IcPopoverMenu>
+      </>
+    </div>
+  );
+};
