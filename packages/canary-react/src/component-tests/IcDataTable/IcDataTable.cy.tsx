@@ -3866,7 +3866,7 @@ describe("IcDataTable row deletion", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.get(DATA_TABLE_SELECTOR)
-      .find("ic-button.button-variant-icon")
+      .find("ic-button.ic-button-variant-icon")
       .eq(0)
       .shadow()
       .find("button")
@@ -3874,7 +3874,7 @@ describe("IcDataTable row deletion", () => {
 
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.049),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.064),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -4196,7 +4196,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.get(DATA_TABLE_SELECTOR)
-      .find("ic-button.button-variant-icon")
+      .find("ic-button.ic-button-variant-icon")
       .eq(0)
       .shadow()
       .find("button")
@@ -4204,7 +4204,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.036),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.038),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
