@@ -17,6 +17,7 @@ import {
   PopoverDropdown,
   PopoverMenuDescription,
   PopoverMenuWithVariants,
+  PopoverTheme,
   PopoverWithMenuGroups,
 } from "./IcPopoverMenuData";
 
@@ -42,6 +43,42 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default-after-click-button",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+    });
+  });
+
+  it.only("should render 'inherit' theme", () => {
+    mount(<PopoverTheme theme="inherit" />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+    cy.get(BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "inherit-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+    });
+  });
+
+  it.only("should render 'light' theme", () => {
+    mount(<PopoverTheme theme="light" />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+    cy.get(BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "light-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+    });
+  });
+
+  it.only("should render 'dark' theme", () => {
+    mount(<PopoverTheme theme="dark" />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+    cy.get(BUTTON_SELECTOR).click().wait(500);
+
+    cy.compareSnapshot({
+      name: "dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
