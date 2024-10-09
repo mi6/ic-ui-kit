@@ -36,7 +36,7 @@
 }
 
 .ic-link > .ic-link-open-in-new-icon {
-  fill: var(--ic-hyperlink);
+  fill: var(--ic-color-hyperlink-default);
 }
 
 .ic-link-open-in-new-icon > svg {
@@ -46,11 +46,11 @@
 }
 
 .ic-link:visited > .ic-link-open-in-new-icon {
-  fill: var(--ic-hyperlink-visited);
+  fill: var(--ic-color-hyperlink-visited);
 }
 
 .ic-link.light:visited > .ic-link-open-in-new-icon {
-  fill: var(--ic-hyperlink-contrast-visited);
+  fill: var(--ic-color-hyperlink-contrast-visited);
 }
 
 :host(.breadcrumb-link) .ic-link {
@@ -80,7 +80,7 @@
 }
 
 :host(.breadcrumb-link.current-page) .ic-link:visited {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
 }
 
 :host(.footer-link-light) ::part(link),

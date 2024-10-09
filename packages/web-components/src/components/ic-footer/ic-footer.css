@@ -21,13 +21,13 @@
 :host(.ic-footer-foreground-light) {
   --footer-theme-secondary: var(--ic-theme-secondary);
   --footer-theme-tertiary: var(--ic-theme-tertiary);
-  --footer-keyline: var(--ic-keyline-lighten);
+  --footer-keyline: var(--ic-border-keyline-lighten);
 }
 
 :host(.ic-footer-foreground-dark) {
   --footer-theme-secondary: var(--ic-theme-secondary-light);
   --footer-theme-tertiary: var(--ic-theme-tertiary-light);
-  --footer-keyline: var(--ic-keyline-darken);
+  --footer-keyline: var(--ic-border-keyline-darken);
 }
 
 :host(.ic-footer-small.ic-footer-ungrouped) {
@@ -104,6 +104,6 @@ footer {
 
 @media (forced-colors: active) {
   footer {
-    border-top: var(--ic-hc-border);
+    border-top: var(--ic-border-hc);
   }
 }

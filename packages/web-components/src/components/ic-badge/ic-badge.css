@@ -94,7 +94,7 @@
 }
 
 :host(.ic-badge-foreground-dark) ::slotted(*) {
-  fill: var(--ic-color-primary-text-light);
+  fill: var(--ic-color-text-primary-light);
 }
 
 :host(.ic-badge-foreground-light) ::slotted(*) {
@@ -102,7 +102,7 @@
 }
 
 :host(.ic-badge-foreground-dark) ic-typography {
-  --ic-typography-color: var(--ic-color-primary-text-light);
+  --ic-typography-color: var(--ic-color-text-primary-light);
 }
 
 :host(.ic-badge-foreground-light) ic-typography {
