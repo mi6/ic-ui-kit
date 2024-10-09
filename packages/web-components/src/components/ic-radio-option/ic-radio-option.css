@@ -82,20 +82,20 @@ ic-radio-option.ic-radio-option-disabled {
 /* When pressed, adds the active colours */
 .container:active input ~ .checkmark {
   background-color: var(--ic-action-default-bg-active-no-alpha);
-  border: var(--ic-border-width) solid var(--ic-action-default-active);
+  border: var(--ic-border-width) solid var(--ic-action-default-pressed);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-active);
 }
 
 /* When pressed, adds the active colours */
 .container:active input:checked ~ .checkmark {
   background-color: var(--ic-action-default-bg-active);
-  border: 0.125rem solid var(--ic-action-default-active);
+  border: 0.125rem solid var(--ic-action-default-pressed);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-active);
 }
 
 /* When pressed and selected, adds the active colours */
 .container:active input:checked ~ .checkmark::after {
-  background-color: var(--ic-action-default-active);
+  background-color: var(--ic-action-default-pressed);
 }
 
 /* When the radio button is checked */

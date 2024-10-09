@@ -9,7 +9,7 @@
 
 :host ic-typography,
 :host .expand-chevron {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
 }
 
 :host(.ic-accordion-light) ic-typography,
@@ -62,7 +62,7 @@ button:hover:enabled {
 }
 
 button:active {
-  background-color: var(--ic-action-dark-bg-active);
+  background-color: var(--ic-action-dark-bg-pressed);
 }
 
 button:focus {
@@ -118,6 +118,6 @@ button:disabled {
 
 @media (forced-colors: active) {
   button:focus {
-    border: var(--ic-hc-border) !important;
+    border: var(--ic-border-hc) !important;
   }
 }

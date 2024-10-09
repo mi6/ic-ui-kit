@@ -25,9 +25,9 @@
   width: 16rem;
   bottom: 0;
   background-color: var(--ic-architectural-20);
-  color: var(--ic-color-primary-text-light);
+  color: var(--ic-color-text-primary-light);
 
-  --ic-typography-color: var(--ic-color-primary-text-light);
+  --ic-typography-color: var(--ic-color-text-primary-light);
 
   box-shadow: var(--ic-elevation-overlay);
   overflow-y: auto;

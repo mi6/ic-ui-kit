@@ -16,11 +16,11 @@
 }
 
 :host(.footer-link-group-light.footer-link-group-small) {
-  --footer-link-group-border-bottom: var(--ic-keyline-lighten);
+  --footer-link-group-border-bottom: var(--ic-border-keyline-lighten);
 }
 
 :host(.footer-link-group-dark.footer-link-group-small) {
-  --footer-link-group-border-bottom: var(--ic-keyline-darken);
+  --footer-link-group-border-bottom: var(--ic-border-keyline-darken);
 }
 
 :host(.footer-link-group) {
@@ -53,11 +53,11 @@
 }
 
 :host(.footer-link-group-small.footer-link-group-light:active) {
-  background-color: var(--ic-action-light-bg-active);
+  background-color: var(--ic-action-light-bg-pressed);
 }
 
 :host(.footer-link-group-small.footer-link-group-dark:active) {
-  background-color: var(--ic-action-dark-bg-active);
+  background-color: var(--ic-action-dark-bg-pressed);
 }
 
 .footer-link-label {

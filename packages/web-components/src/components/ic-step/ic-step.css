@@ -36,7 +36,7 @@
 :host(.ic-step-compact) {
   column-gap: var(--ic-space-sm);
 
-  --compact-step-inner-color: var(--ic-status-info);
+  --compact-step-inner-color: var(--ic-status-info-default);
   --compact-step-circular-line-width: var(--ic-space-xxs);
 }
 
@@ -84,12 +84,12 @@
 
 .step-status {
   display: flex;
-  color: var(--ic-color-secondary-text);
+  color: var(--ic-color-text-secondary);
   column-gap: var(--ic-space-xxxs);
 }
 
 .compact-step-completed .step-status {
-  color: var(--ic-status-success);
+  color: var(--ic-status-success-default);
 }
 
 :host(.ic-step-light) .compact-step-completed .step-status {
@@ -97,7 +97,7 @@
 }
 
 .compact-step-disabled :is(.heading, .step-status) {
-  color: var(--ic-color-tertiary-text);
+  color: var(--ic-color-text-tertiary);
 }
 
 :host(.ic-step-light) .compact-step-disabled :is(.step-status) {
@@ -105,7 +105,7 @@
 }
 
 .step-num {
-  color: var(--ic-color-secondary-text);
+  color: var(--ic-color-text-secondary);
   white-space: nowrap;
 }
 
@@ -157,7 +157,7 @@
 }
 
 :host(.ic-step-default) .current {
-  color: var(--ic-status-info);
+  color: var(--ic-status-info-default);
 }
 
 :host(.ic-step-default.ic-step-light) .current,
@@ -185,7 +185,7 @@
 }
 
 .subheading {
-  color: var(--ic-color-tertiary-text);
+  color: var(--ic-color-text-tertiary);
 }
 
 :host(.ic-step-light) .subheading {
@@ -193,11 +193,11 @@
 }
 
 .current .subheading {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
 }
 
 :host(.ic-step-default) .completed {
-  color: var(--ic-status-success);
+  color: var(--ic-status-success-default);
 }
 
 :host(.ic-step-default.ic-step-light) .completed,
@@ -214,7 +214,7 @@
 }
 
 .current .step-icon-inner {
-  background-color: var(--ic-status-info);
+  background-color: var(--ic-status-info-default);
   color: var(--ic-architectural-white);
 }
 
@@ -243,12 +243,12 @@
 
 .disabled .heading-area,
 :host(.ic-step-default.ic-step-light) .disabled .subheading {
-  color: var(--ic-color-tertiary-text);
+  color: var(--ic-color-text-tertiary);
 }
 
 .completed .step-icon-inner {
-  background: var(--ic-status-success);
-  box-shadow: inset var(--ic-status-success) 0 0 0 var(--ic-space-xxxs);
+  background: var(--ic-status-success-default);
+  box-shadow: inset var(--ic-status-success-default) 0 0 0 var(--ic-space-xxxs);
   border-radius: 100%;
 }
 
@@ -258,7 +258,7 @@
 }
 
 :host(.ic-step-default) .current .step-icon {
-  border: var(--ic-space-xxxs) solid var(--ic-status-info);
+  border: var(--ic-space-xxxs) solid var(--ic-status-info-default);
   padding: var(--ic-space-xxxs);
   margin: 0 calc(-1 * var(--ic-space-xxxs));
 
@@ -298,7 +298,7 @@
 }
 
 .completed .step-connect {
-  background-color: var(--ic-status-success);
+  background-color: var(--ic-status-success-default);
 }
 
 :host(.ic-step-light) .completed .step-connect {
@@ -311,7 +311,7 @@
   flex: auto;
   height: var(--ic-space-xxxs);
   border-radius: var(--ic-space-xxs);
-  background-color: var(--ic-status-info);
+  background-color: var(--ic-status-info-default);
 }
 
 :host(.ic-step-light) .step-connect-inner {
@@ -340,7 +340,7 @@
 
   /* DEFAULT STEP */
   .step-connect:not(.disabled .step-connect) {
-    border: var(--ic-hc-border);
+    border: var(--ic-border-hc);
   }
 
   .active .step-icon-inner,

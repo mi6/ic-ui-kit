@@ -5,5 +5,5 @@
 }
 
 :host {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
 }
