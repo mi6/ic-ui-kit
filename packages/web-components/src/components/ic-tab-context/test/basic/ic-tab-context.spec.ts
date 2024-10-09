@@ -442,7 +442,7 @@ describe("ic-tab-context component", () => {
     ) as HTMLIcTabPanelElement;
 
     expect(newTab.tabId).toBe("ic-tab--3-context-default");
-    expect(newTabPanel.panelId).toBe("ic-tab--3-context-default");
+    expect(newTabPanel.id).toBe("ic-tab-panel-3-context-default");
   });
 
   it("should reassign ids if tab and tab panel are dynamically removed", async () => {
@@ -487,7 +487,7 @@ describe("ic-tab-context component", () => {
     ) as HTMLIcTabPanelElement;
 
     expect(newlyUpdatedTab.tabId).toBe("ic-tab--1-context-default");
-    expect(newlyUpdatedTabPanel.panelId).toBe("ic-tab--1-context-default");
+    expect(newlyUpdatedTabPanel.id).toBe("ic-tab-panel-1-context-default");
   });
 
   it("should add a tab to enabledTabs when the tab changes from disabled to enabled", async () => {

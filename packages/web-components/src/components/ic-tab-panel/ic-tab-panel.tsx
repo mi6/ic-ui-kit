@@ -11,7 +11,6 @@ import {
   IcThemeForegroundEnum,
   IcThemeForegroundNoDefault,
 } from "../../utils/types";
-import { isPropDefined } from "../../utils/helpers";
 
 @Component({
   tag: "ic-tab-panel",
@@ -33,21 +32,6 @@ export class TabPanel {
   @Prop({ reflect: true }) contextId?: string = "default";
 
   /**
-   * @internal The shared ID that links the panel and tab.
-   */
-  @Prop({ reflect: true }) panelId?: string;
-
-  /**
-   * @internal The shared ID of the currently selected tab.
-   */
-  @Prop() selectedTab?: string;
-
-  /**
-   * @internal The position of the tab panel inside the tabs array in context.
-   */
-  @Prop({ reflect: true }) tabPosition?: number;
-
-  /**
    * @internal Emitted when a tab panel is dynamically created.
    */
   @Event() tabPanelCreated: EventEmitter<HTMLIcTabPanelElement>;
@@ -62,27 +46,20 @@ export class TabPanel {
   }
 
   disconnectedCallback(): void {
-    const tabContext = document.querySelector(
-      `ic-tab-context[context-id=${this.contextId}]`
-    ) as HTMLIcTabContextElement;
-    if (tabContext) {
-      tabContext.tabRemovedHandler();
-    }
+    document
+      .querySelector<HTMLIcTabContextElement>(
+        `ic-tab-context[context-id=${this.contextId}]`
+      )
+      ?.tabRemovedHandler();
   }
 
   render() {
-    const { panelId, selectedTab, appearance } = this;
     return (
       <Host
         class={{
-          ["ic-tab-panel-light"]: appearance === IcThemeForegroundEnum.Light,
+          "ic-tab-panel-light": this.appearance === IcThemeForegroundEnum.Light,
         }}
         role="tabpanel"
-        hidden={
-          isPropDefined(panelId) && isPropDefined(selectedTab)
-            ? !(panelId === selectedTab)
-            : true
-        }
       >
         <div>
           <slot></slot>
