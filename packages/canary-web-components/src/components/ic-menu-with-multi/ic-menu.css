@@ -14,9 +14,9 @@
   max-height: 0;
   width: var(--menu-width, var(--input-width, 20rem));
   min-width: 20rem;
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
 
-  --ic-typography-color: var(--ic-color-primary-text);
+  --ic-typography-color: var(--ic-color-text-primary);
 
   background-color: var(--ic-architectural-white);
   position: relative;
@@ -130,7 +130,7 @@
 }
 
 .option:not(.disabled-option):active {
-  background-color: var(--ic-action-dark-bg-active);
+  background-color: var(--ic-action-dark-bg-pressed);
 }
 
 .option:focus-visible {
@@ -138,7 +138,7 @@
 }
 
 .option:not(.disabled-option) .option-description {
-  --ic-typography-color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-text-secondary);
 }
 
 .option .option-label {
@@ -165,15 +165,15 @@
 
 .option.loading-option .option-text-container {
   margin-left: calc(var(--ic-space-xs) + var(--ic-space-xxxs));
-  color: var(--ic-color-secondary-text);
+  color: var(--ic-color-text-secondary);
 
-  --ic-typography-color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-text-secondary);
 }
 
 .error-icon-svg {
   height: var(--ic-space-md);
   width: var(--ic-space-md);
-  fill: var(--ic-status-error);
+  fill: var(--ic-status-error-default);
   align-self: center;
   display: flex;
   margin-right: calc(var(--ic-space-xxs) * 1.2);
@@ -199,7 +199,7 @@
   padding: var(--ic-space-lg) calc(var(--ic-space-xs) - var(--ic-space-1px))
     var(--ic-space-xs);
 
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 }
 
 :host(.ic-menu-small) .option-group-title {
@@ -222,7 +222,7 @@
 
 .focused-option,
 .focused-option .option-description {
-  background-color: var(--ic-focus-blue) !important;
+  background-color: var(--ic-color-focus-inner) !important;
   color: var(--ic-architectural-white) !important;
 
   --ic-typography-color: var(--ic-architectural-white) !important;

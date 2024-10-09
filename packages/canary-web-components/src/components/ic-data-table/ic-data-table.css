@@ -118,7 +118,7 @@ table {
 }
 
 .sort-button:active {
-  background-color: var(--ic-action-dark-bg-active);
+  background-color: var(--ic-action-dark-bg-pressed);
 }
 
 .sort-button svg {
@@ -126,7 +126,7 @@ table {
 }
 
 .sort-button-unsorted svg {
-  color: var(--ic-color-tertiary-text);
+  color: var(--ic-color-text-tertiary);
 }
 
 .table-density-dense .column-header-inner-container,
@@ -255,7 +255,7 @@ td.table-density-spacious {
 }
 
 .cell-emphasis-low {
-  --ic-typography-color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-text-secondary);
 }
 
 .cell-emphasis-high {
