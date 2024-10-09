@@ -6,7 +6,7 @@
 }
 
 ic-typography {
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 
   margin: var(--ic-space-xs) var(--ic-space-xs) 0;
 }

@@ -78,13 +78,13 @@
 }
 
 .checkbox:checked:active {
-  background-color: var(--ic-action-default-active);
+  background-color: var(--ic-action-default-pressed);
 }
 
 .checkbox:indeterminate:active,
 .checkbox.indeterminate:checked:active {
   background-color: var(--ic-action-default-bg-active-no-alpha);
-  border: 0.125rem solid var(--ic-action-default-active);
+  border: 0.125rem solid var(--ic-action-default-pressed);
 }
 
 .checkbox:hover {
@@ -96,7 +96,7 @@
 .checkbox:active {
   background-color: var(--ic-action-default-bg-active-no-alpha);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-active);
-  border: var(--ic-border-width) solid var(--ic-action-default-active);
+  border: var(--ic-border-width) solid var(--ic-action-default-pressed);
 }
 
 .checkbox:focus {
@@ -165,7 +165,7 @@
 }
 
 .container:active .indeterminate-symbol {
-  background-color: var(--ic-action-default-active);
+  background-color: var(--ic-action-default-pressed);
 }
 
 .additional-field-wrapper {

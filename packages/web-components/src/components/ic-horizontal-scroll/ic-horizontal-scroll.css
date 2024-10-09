@@ -9,11 +9,11 @@
 }
 
 :host(.ic-horizontal-scroll-light) {
-  --splitter-color: var(--ic-keyline-lighten-rgb);
+  --splitter-color: var(--ic-color-keyline-lighten);
 }
 
 :host(.ic-horizontal-scroll-dark) {
-  --splitter-color: var(--ic-keyline-darken-rgb);
+  --splitter-color: var(--ic-color-keyline-darken);
 }
 
 /* Slotted items container element */
@@ -85,7 +85,7 @@
 }
 
 .disabled ic-button > svg {
-  color: var(--ic-keyline-darken-rgb);
+  color: var(--ic-color-keyline-darken);
 }
 
 :host(.ic-horizontal-scroll-dark) .disabled ic-button > svg,

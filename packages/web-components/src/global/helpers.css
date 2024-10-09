@@ -1,6 +1,6 @@
 html {
   font-family: var(--ic-font-body-family);
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
 }
 
 a.ic-card-wrapper-link {

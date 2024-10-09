@@ -135,7 +135,7 @@ ic-tooltip {
 
 @media (forced-colors: active) {
   .chip {
-    border: var(--ic-hc-border);
+    border: var(--ic-border-hc);
   }
 
   .filled.small {

@@ -10,7 +10,7 @@
   --linear-border-radius: 0.25rem;
   --inner-color: var(--ic-action-default);
   --outer-color: var(--ic-architectural-100);
-  --label-color: var(--ic-color-primary-text);
+  --label-color: var(--ic-color-text-primary);
   --margin: none;
   --linear-line-height: var(--ic-space-xs);
 }
@@ -186,11 +186,14 @@
   overflow: hidden;
   margin: auto;
 
-  --ic-typography-color: var(--compact-step-inner-color, var(--ic-status-info));
+  --ic-typography-color: var(
+    --compact-step-inner-color,
+    var(--ic-status-info-default)
+  );
 }
 
 :host(.not-required.compact-step-progress-indicator) .inner-text {
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 }
 
 :host(.ic-loading-indicator-light.not-required.compact-step-progress-indicator)
@@ -205,7 +208,7 @@
   }
 
   .ic-loading-linear-outer {
-    border: var(--ic-hc-border);
+    border: var(--ic-border-hc);
   }
 
   .ic-loading-linear-inner {

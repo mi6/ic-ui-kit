@@ -49,7 +49,7 @@ button {
   background-color: var(--ic-action-default-bg-hover);
   box-shadow: var(--ic-border-focus);
   outline: var(--ic-hc-focus-outline);
-  border: var(--ic-border-pressed);
+  border: var(--ic-border-pressed-default);
 }
 
 .card.clickable:active {
@@ -77,13 +77,13 @@ button {
 }
 
 .card.disabled ::slotted(svg) {
-  fill: var(--ic-color-tertiary-text);
+  fill: var(--ic-color-text-tertiary);
 }
 
 .card.clickable .card-title {
-  --ic-typography-color: var(--ic-hyperlink);
+  --ic-typography-color: var(--ic-color-hyperlink-default);
 
-  color: var(--ic-hyperlink);
+  color: var(--ic-color-hyperlink-default);
   text-decoration: underline;
   text-decoration-thickness: var(--ic-space-1px);
 }
@@ -116,10 +116,10 @@ button {
 .card.disabled .card-title {
   text-decoration: underline;
   text-decoration-thickness: var(--ic-space-1px);
-  text-decoration-color: var(--ic-color-tertiary-text);
-  color: var(--ic-color-tertiary-text);
+  text-decoration-color: var(--ic-color-text-tertiary);
+  color: var(--ic-color-text-tertiary);
 
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 }
 
 .subheading {
@@ -137,7 +137,7 @@ button {
 
 .card.disabled .card-message,
 .card.disabled .subheading {
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 }
 
 .interaction-button {
@@ -209,7 +209,7 @@ button {
 
 .toggle-button:active:not(:focus) {
   background-color: var(--ic-action-default-bg-active);
-  color: var(--ic-action-default-active);
+  color: var(--ic-action-default-pressed);
 }
 
 .toggle-button svg {
