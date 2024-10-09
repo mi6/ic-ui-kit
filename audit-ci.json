@@ -4,63 +4,63 @@
       "GHSA-pfrx-2q88-qq97": {
         "active": true,
         "notes": "requires upgrade to np@8.0.4, which is a breaking change",
-        "expiry": "10 October 2024"
+        "expiry": "9 November 2024"
       }
     },
     {
       "GHSA-c2qf-rxjj-qqgw": {
         "active": true,
         "notes": "requires lerna v7, which is a breaking change",
-        "expiry": "10 October 2024"
+        "expiry": "9 November 2024"
       }
     },
     {
       "GHSA-7fh5-64p2-3v2j": {
         "active": true,
         "notes": "requires upgrade to postcss v8.4.31, which doesn't align with the version used by @storybook/addon-postcss",
-        "expiry": "10 October 2024"
+        "expiry": "9 November 2024"
       }
     },
     {
       "GHSA-f5x3-32g6-xq36": {
         "active": true,
         "notes": "issue in 'tar' package used by '@lerna/legacy-package-management' v6.6.2 - no current fix",
-        "expiry": "10 October 2024"
+        "expiry": "9 November 2024"
       }
     },
     {
       "GHSA-2p57-rm9w-gvfp": {
         "active": true,
         "notes": "issue in 'ip' package <= 2.0.1 - no current fix",
-        "expiry": "10 October 2024"
+        "expiry": "9 November 2024"
       }
     },
     {
       "GHSA-grv7-fg5c-xmjg": {
         "active": true,
         "notes": "braces package has a vulnerability which is fixed in v3.0.3, but cannot currrently upgrade",
-        "expiry": "10 October 2024"
+        "expiry": "9 November 2024"
       }
     },
     {
       "GHSA-3h5v-q93c-6h6q": {
         "active": true,
         "notes": "ws package has a vulnerability but requires multiple package upgrades to fix",
-        "expiry": "10 October 2024"
+        "expiry": "9 November 2024"
       }
     },
     {
       "GHSA-952p-6rrq-rcjv": {
         "active": true,
         "notes": "issue in 'micromatch' package, we're currently on the highest version available so no fix",
-        "expiry": "10 October 2024"
+        "expiry": "9 November 2024"
       }
     },
     {
       "GHSA-m6fv-jmcg-4jfg": {
         "active": true,
         "notes": "issue in 'send' package within 'serve-static' package being v0.18.0, fix requires 0.19.0",
-        "expiry": "10 October 2024"
+        "expiry": "9 November 2024"
       }
     } 
   ]
