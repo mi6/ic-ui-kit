@@ -12,7 +12,7 @@
 }
 
 ::placeholder {
-  color: var(--ic-color-tertiary-text);
+  color: var(--ic-color-text-tertiary);
   opacity: 1;
 }
 
@@ -47,7 +47,7 @@ textarea:disabled {
 
 input.readonly,
 textarea.readonly {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
 }
 
 /* Chrome, Safari, Edge */
@@ -67,7 +67,7 @@ textarea.no-resize {
 }
 
 .char-count-text {
-  --ic-typography-color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-text-secondary);
 
   padding-right: var(--ic-space-xxxs);
 }
@@ -77,11 +77,11 @@ textarea.no-resize {
 }
 
 ::slotted([slot="icon"]) {
-  fill: var(--ic-color-tertiary-text);
+  fill: var(--ic-color-text-tertiary);
 }
 
 .has-value ::slotted([slot="icon"]) {
-  fill: var(--ic-color-primary-text);
+  fill: var(--ic-color-text-primary);
 }
 
 .char-count {

@@ -5,7 +5,7 @@
 }
 
 ic-input-label.error {
-  --ic-typography-color: var(--ic-status-error);
+  --ic-typography-color: var(--ic-status-error-default);
 }
 
 ic-input-validation {

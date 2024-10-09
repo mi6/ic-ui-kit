@@ -13,6 +13,22 @@
   z-index: var(--ic-z-index-classification-banner);
 
   --ic-typography-color: currentcolor;
+
+  /* classification official */
+  --ic-color-classification-official: var(--ic-color-classification-blue);
+  --ic-color-classification-official-foreground: #fff;
+
+  /* classification secret */
+  --ic-color-classification-secret: var(--ic-color-classification-yellow);
+  --ic-color-classification-secret-foreground: #000;
+
+  /* classification top secret */
+  --ic-color-classification-top-secret: var(--ic-color-classification-red);
+  --ic-color-classification-top-secret-foreground: #fff;
+
+  /* classification not set */
+  --ic-color-classification-not-set: var(--ic-color-classification-grey);
+  --ic-color-classification-not-set-foreground: #fff;
 }
 
 :host(.ic-classification-banner-inline) {
@@ -30,24 +46,24 @@
 }
 
 .default {
-  background-color: var(--ic-classification-not-set);
-  color: var(--ic-classification-not-set-foreground);
+  background-color: var(--ic-color-classification-not-set);
+  color: var(--ic-color-classification-not-set-foreground);
 }
 
 .official,
 .official-sensitive {
-  background-color: var(--ic-classification-official);
-  color: var(--ic-classification-official-foreground);
+  background-color: var(--ic-color-classification-official);
+  color: var(--ic-color-classification-official-foreground);
 }
 
 .secret {
-  background-color: var(--ic-classification-secret);
-  color: var(--ic-classification-secret-foreground);
+  background-color: var(--ic-color-classification-secret);
+  color: var(--ic-color-classification-secret-foreground);
 }
 
 .top-secret {
-  background-color: var(--ic-classification-top-secret);
-  color: var(--ic-classification-top-secret-foreground);
+  background-color: var(--ic-color-classification-top-secret);
+  color: var(--ic-color-classification-top-secret-foreground);
 }
 
 .offscreen {
@@ -60,6 +76,6 @@
 
 @media (forced-colors: active) {
   .classification-banner {
-    border: var(--ic-hc-border);
+    border: var(--ic-border-hc);
   }
 }

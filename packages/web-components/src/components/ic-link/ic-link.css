@@ -169,5 +169,5 @@
 }
 
 :host(.breadcrumb-link.current-page) .link:visited {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
 }
