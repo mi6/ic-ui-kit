@@ -196,6 +196,7 @@ export const defaultArgs = {
   label: "Copy code",
   variant: "default",
   iconSlot: true,
+  theme: "inherit",
 };
 
 <Canvas>
@@ -217,12 +218,18 @@ export const defaultArgs = {
           false: "",
         },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
     }}
     name="Playground"
   >
     {(args) => (
       <div>
-          <IcPopoverMenu ariaLabel="popover" open={args.open}>
+          <IcPopoverMenu ariaLabel="popover" open={args.open} theme={args.theme}>
             <IcMenuGroup label={args.groupLabel}>
               <IcMenuItem
                 description={args.description}
@@ -249,7 +256,7 @@ export const defaultArgs = {
             </IcMenuGroup>
             <IcMenuItem label="Actions" submenuTriggerFor="abc" />
           </IcPopoverMenu>
-          <IcPopoverMenu submenuId="abc">
+          <IcPopoverMenu submenuId="abc" theme={args.theme}>
             <IcMenuItem label="Edit" />
             <IcMenuItem label="Find" />
             <IcMenuItem label="Delete" variant="destructive" />
