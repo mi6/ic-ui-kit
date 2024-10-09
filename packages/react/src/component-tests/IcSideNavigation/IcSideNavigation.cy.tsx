@@ -26,7 +26,7 @@ import {
 } from "./IcSideNavigationTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_HEIGHT = 1171;
+const DEFAULT_HEIGHT = 600;
 const DEFAULT_WIDTH = 576;
 const DEFAULT_TEST_THRESHOLD = 0;
 
