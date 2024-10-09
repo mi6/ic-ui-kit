@@ -1543,7 +1543,7 @@ A table with a `fixed` layout will force the table column widths to take precede
 
 For the column widths to be dictated by the content inside, set the `table-layout` attribute to `auto` and set the table `width` to `auto`.
 
-To set the min and max width of a table cell, set a `minWidth` or `maxWidth` value into `columnWidth`. The min and max width accepts dimensions in `px`, `%`, `rem`.
+To set the min and max width of a table cell, set the `table-layout` attribute to `auto` and set a `minWidth` or `maxWidth` value into `columnWidth`. The min and max width accepts dimensions in `px`, `%`, `rem`.
 
 <Canvas withSource="none">
   <Story
@@ -1561,6 +1561,7 @@ To set the min and max width of a table cell, set a `minWidth` or `maxWidth` val
   id="data-table"
   caption="Text Wrap"
   width="800px"
+  table-layout="auto"
 ></ic-data-table>
 <script>
   const dataTable = document.querySelector("#data-table");
