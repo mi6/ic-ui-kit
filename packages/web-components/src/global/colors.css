@@ -1,91 +1,7 @@
 @import "color-mode.css";
 
-/* colours */
 :root {
-  --ic-keyline-darken-rgb: rgb(0 0 0 / 20%);
-  --ic-keyline-darken: 1px solid var(--ic-keyline-darken-rgb);
-  --ic-keyline-lighten-rgb: rgb(255 255 255 / 20%);
-  --ic-keyline-lighten: 1px solid var(--ic-keyline-lighten-rgb);
-
-  /* status */
-  --ic-status-success-light: #e8fef3;
-  --ic-status-success-r: 0;
-  --ic-status-success-g: 112;
-  --ic-status-success-b: 60;
-  --ic-status-success-a: 1;
-  --ic-status-success: rgb(
-    var(--ic-status-success-r) var(--ic-status-success-g)
-      var(--ic-status-success-b) / var(--ic-status-success-a)
-  );
-  --ic-status-success-hover: rgb(
-    calc(var(--ic-status-success-r) * 0.8)
-      calc(var(--ic-status-success-g) * 0.8)
-      calc(var(--ic-status-success-b) * 0.8) / var(--ic-status-success-a)
-  );
-  --ic-status-success-pressed: rgb(
-    calc(var(--ic-status-success-r) * 0.6)
-      calc(var(--ic-status-success-g) * 0.6)
-      calc(var(--ic-status-success-b) * 0.6) / var(--ic-status-success-a)
-  );
-  --ic-status-success-outlined: #b2fad6;
-  --ic-status-success-contrast: #1bb56c;
-  --ic-status-success-dark: #0e3020;
-  --ic-status-warning-light: #fffbd8;
-  --ic-status-warning-contrast: #ffc107;
-  --ic-status-warning-r: 208;
-  --ic-status-warning-g: 121;
-  --ic-status-warning-b: 50;
-  --ic-status-warning-a: 1;
-  --ic-status-warning: rgb(
-    var(--ic-status-warning-r) var(--ic-status-warning-g)
-      var(--ic-status-warning-b) / var(--ic-status-warning-a)
-  );
-  --ic-status-warning-hover: rgb(
-    calc(var(--ic-status-warning-r) * 0.8)
-      calc(var(--ic-status-warning-g) * 0.8)
-      calc(var(--ic-status-warning-b) * 0.8) / var(--ic-status-warning-a)
-  );
-  --ic-status-warning-pressed: rgb(
-    calc(var(--ic-status-warning-r) * 0.6)
-      calc(var(--ic-status-warning-g) * 0.6)
-      calc(var(--ic-status-warning-b) * 0.6) / var(--ic-status-warning-a)
-  );
-  --ic-status-warning-dark: #7a4c3c;
-  --ic-status-warning-outlined: #ffed83;
-  --ic-status-error-light: #ffe4e3;
-  --ic-status-error-contrast: #f15b4e;
-  --ic-status-error-r: 212;
-  --ic-status-error-g: 53;
-  --ic-status-error-b: 28;
-  --ic-status-error-a: 1;
-  --ic-status-error: rgb(
-    var(--ic-status-error-r) var(--ic-status-error-g) var(--ic-status-error-b) /
-      var(--ic-status-error-a)
-  );
-  --ic-status-error-hover: rgb(
-    calc(var(--ic-status-error-r) * 0.8) calc(var(--ic-status-error-g) * 0.8)
-      calc(var(--ic-status-error-b) * 0.8) / var(--ic-status-error-a)
-  );
-  --ic-status-error-pressed: rgb(
-    calc(var(--ic-status-error-r) * 0.6) calc(var(--ic-status-error-g) * 0.6)
-      calc(var(--ic-status-error-b) * 0.6) / var(--ic-status-error-a)
-  );
-  --ic-status-error-dark: #610a05;
-  --ic-status-error-outlined: #ec4e3d;
-  --ic-status-info-light: #e1f0fc;
-  --ic-status-info-contrast: #488fe3;
-  --ic-status-info: rgb(18 77 179);
-  --ic-status-info-dark: #041144;
-  --ic-status-anomalous-light: #efdbff;
-  --ic-status-anomalous-contrast: #b764fb;
-  --ic-status-anomalous: #7c25c2;
-  --ic-status-anomalous-dark: #350f54;
-  --ic-status-unknown-light: var(--ic-architectural-40);
-  --ic-status-unknown-outlined: var(--ic-architectural-200);
-  --ic-status-unknown-contrast: var(--ic-architectural-300);
-  --ic-status-unknown: var(--ic-architectural-500);
-  --ic-status-unknown-mid: var(--ic-architectural-700);
-  --ic-status-unknown-dark: var(--ic-architectural-800);
+  /* BASE COLOURS */
 
   /* architectural */
   --ic-architectural-20: #f9fafa;
@@ -103,68 +19,395 @@
   --ic-architectural-900: #0b0c0c;
   --ic-architectural-white: #fff;
   --ic-architectural-black: #000;
+  --ic-architectural-700-state-layer-10: rgb(65 70 77 / 10%);
+  --ic-architectural-700-state-layer-20: rgb(65 70 77 / 20%);
+  --ic-architectural-white-state-layer-10: rgb(255 255 255 / 10%);
+  --ic-architectural-white-state-layer-20: rgb(255 255 255 / 20%);
+  --ic-architectural-white-state-layer-25: rgb(255 255 255 / 25%);
+  --ic-architectural-white-state-layer-40: rgb(255 255 255 / 40%);
+  --ic-architectural-white-state-layer-50: rgb(255 255 255 / 50%);
+  --ic-architectural-black-state-layer-20: rgb(0 0 0 / 20%);
+  --ic-architectural-black-state-layer-25: rgb(0 0 0 / 25%);
+  --ic-architectural-black-state-layer-30: rgb(0 0 0 / 30%);
+  --ic-architectural-black-state-layer-40: rgb(0 0 0 / 40%);
+  --ic-architectural-black-state-layer-50: rgb(0 0 0 / 50%);
 
-  /* borders */
-  --ic-color-border-neutral-gray: var(--ic-architectural-400);
-  --ic-color-border-neutral-light-gray: var(--ic-architectural-40);
+  /* blue */
+  --ic-blue-0: #e1f0fc;
+  --ic-blue-50: #c3e1f9;
+  --ic-blue-100: #98c9f5;
+  --ic-blue-200: #77b4f0;
+  --ic-blue-300: #5da0ea;
+  --ic-blue-400: #488fe3;
+  --ic-blue-500: #377fdb;
+  --ic-blue-600: #2a71d2;
+  --ic-blue-700: #2064c8;
+  --ic-blue-800: #1759bc;
+  --ic-blue-900: #124db3;
+  --ic-blue-1000: #0e43a8;
+  --ic-blue-1100: #0b399c;
+  --ic-blue-1200: #09308e;
+  --ic-blue-1300: #07277e;
+  --ic-blue-1400: #1b3c79;
+  --ic-blue-1500: #122e63;
+  --ic-blue-1600: #041144;
+  --ic-blue-800-state-layer-10: rgb(23 89 188 / 10%);
+  --ic-blue-800-state-layer-20: rgb(23 89 188 / 20%);
+  --ic-blue-800-state-layer-50: rgb(23 89 188 / 50%);
 
-  /* text */
+  /* red */
+  --ic-red-0: #ffe4e3;
+  --ic-red-50: #fec9c8;
+  --ic-red-100: #fca19e;
+  --ic-red-200: #f9837d;
+  --ic-red-300: #f66d63;
+  --ic-red-400: #f15b4e;
+  --ic-red-500: #ec4e3d;
+  --ic-red-600: #e54330;
+  --ic-red-700: #dd3b25;
+  --ic-red-800: #d4351c;
+  --ic-red-900: #c92c16;
+  --ic-red-1000: #bc2411;
+  --ic-red-1100: #ad1e0e;
+  --ic-red-1300: #8b1209;
+  --ic-red-1500: #610a05;
 
-  --ic-color-primary-text-light: var(--ic-architectural-900);
-  --ic-color-primary-text-dark: var(--ic-architectural-white);
-  --ic-color-secondary-text-light: var(--ic-architectural-700);
-  --ic-color-secondary-text-dark: var(--ic-architectural-100);
-  --ic-color-tertiary-text-light: var(--ic-architectural-500);
-  --ic-color-tertiary-text-dark: var(--ic-architectural-200);
-  --ic-color-white-text: var(--ic-architectural-white);
-  --ic-color-inverse-text-light: var(--ic-color-primary-text-dark);
-  --ic-color-inverse-text-dark: var(--ic-color-primary-text-light);
+  /* green */
+  --ic-green-0: #e8fef3;
+  --ic-green-50: #d1fde7;
+  --ic-green-100: #b2fad6;
+  --ic-green-200: #97f6c8;
+  --ic-green-300: #81f2bb;
+  --ic-green-400: #6dedaf;
+  --ic-green-500: #5ce7a3;
+  --ic-green-600: #4cdf98;
+  --ic-green-700: #3ed78d;
+  --ic-green-800: #31cd83;
+  --ic-green-900: #26c278;
+  --ic-green-1000: #1bb56c;
+  --ic-green-1100: #12a661;
+  --ic-green-1200: #0b9655;
+  --ic-green-1300: #058449;
+  --ic-green-1400: #00703c;
+  --ic-green-1600: #0e462b;
+  --ic-green-1700: #0e3020;
 
-  /* backgrounds */
-  --ic-background-primary-light: var(--ic-architectural-white);
-  --ic-background-primary-dark: var(--ic-architectural-800);
+  /* yellow */
+  --ic-yellow-0: #fffbd8;
+  --ic-yellow-50: #fff7b0;
+  --ic-yellow-100: #ffed83;
+  --ic-yellow-200: #ffe058;
+  --ic-yellow-300: #ffd12e;
+  --ic-yellow-400: #ffc107;
+  --ic-yellow-500: #f8ae10;
+  --ic-yellow-600: #f09d19;
+  --ic-yellow-700: #e78f22;
+  --ic-yellow-800: #dc832a;
+  --ic-yellow-900: #d07932;
+  --ic-yellow-1000: #c26f38;
+  --ic-yellow-1100: #b3673c;
+  --ic-yellow-1200: #a25e3f;
+  --ic-yellow-1300: #8f553e;
+  --ic-yellow-1400: #7a4c3c;
+
+  /* purple */
+  --ic-purple-0: #f9f2ff;
+  --ic-purple-50: #efdbff;
+  --ic-purple-100: #e4c5ff;
+  --ic-purple-200: #d5a2fe;
+  --ic-purple-300: #c988fd;
+  --ic-purple-400: #bf74fc;
+  --ic-purple-500: #b764fb;
+  --ic-purple-600: #b057f9;
+  --ic-purple-700: #ab4df7;
+  --ic-purple-800: #a645f5;
+  --ic-purple-900: #a13ef2;
+  --ic-purple-1000: #9c38ee;
+  --ic-purple-1100: #9733e8;
+  --ic-purple-1200: #902fe0;
+  --ic-purple-1300: #882ad5;
+  --ic-purple-1400: #7c25c2;
+
+  /* light blue */
+  --ic-light-blue-0: #f7faff;
+  --ic-light-blue-100: #e3ecfd;
+  --ic-light-blue-600: #769ee7;
+  --ic-light-blue-1000: #3d6abe;
+  --ic-light-blue-1400: #1b3c79;
+
+  /* classification colours */
+  --ic-color-classification-blue: #2b71c7;
+  --ic-color-classification-yellow: #f39c2c;
+  --ic-color-classification-red: #a00;
+  --ic-color-classification-grey: #616161;
+
+  /* BRAND */
+
+  /* brand blue */
+  --ic-brand-blue-primary: #1b3c79;
+  --ic-brand-blue-0: #eff3fa;
+  --ic-brand-blue-20: #cdd5e3;
+  --ic-brand-blue-40: #abb6ce;
+  --ic-brand-blue-60: #8997b7;
+  --ic-brand-blue-80: #6678a0;
+  --ic-brand-blue-100: #445a8b;
+  --ic-brand-blue-500: #192b50;
+  --ic-brand-blue-700: #0c213a;
+  --ic-brand-blue-800: #0e1c30;
+  --ic-brand-blue-900: #0a1321;
+
+  /* brand state layers */
+  --ic-brand-darken-20: var(--ic-architectural-black-state-layer-20);
+  --ic-brand-darken-30: var(--ic-architectural-black-state-layer-30);
+  --ic-brand-darken-40: var(--ic-architectural-black-state-layer-40);
+  --ic-brand-lighten-20: var(--ic-architectural-white-state-layer-20);
+  --ic-brand-lighten-40: var(--ic-architectural-white-state-layer-40);
+
+  /* HYPERLINKS */
+  --ic-color-hyperlink-default-light: var(--ic-blue-800);
+  --ic-color-hyperlink-default-dark: var(--ic-blue-300);
+  --ic-color-hyperlink-visited-light: #330072; /* TODO */
+  --ic-color-hyperlink-visited-dark: var(--ic-purple-300);
+  --ic-color-hyperlink-visited-monochrome-light: var(--ic-architectural-700);
+  --ic-color-hyperlink-visited-monochrome-dark: #b0b0b0; /* TODO */
+  --ic-color-hyperlink-contrast: #5c98f2; /* TODO */
+  --ic-color-hyperlink-contrast-visited: #bc75ff; /* TODO */
+  --ic-color-hyperlink-contrast-hover: #db76ac; /* TODO */
+  --ic-color-hyperlink-brand: var(--ic-architectural-white);
+
+  /* FOCUS */
+  --ic-color-focus-inner: #0044d7;
+  --ic-color-focus-outer: #80a1e8;
+  --ic-hc-focus-outline: 3px solid transparent;
+
+  /* KEYLINE */
+  --ic-color-keyline-darken: var(--ic-architectural-black-state-layer-20);
+  --ic-color-keyline-lighten: var(--ic-architectural-white-state-layer-20);
+
+  /* STATUS */
+
+  /* success status */
+  --ic-status-success-default: var(--ic-green-1400);
+  --ic-status-success-light: var(--ic-green-0);
+  --ic-status-success-dark: var(--ic-green-1700);
+  --ic-status-success-outlined: var(--ic-green-100);
+  --ic-status-success-contrast: var(--ic-green-1000);
+  --ic-status-success-r: 0;
+  --ic-status-success-g: 112;
+  --ic-status-success-b: 60;
+  --ic-status-success-a: 1;
+  --ic-status-success-hover: rgb(
+    calc(var(--ic-status-success-r) * 0.8)
+      calc(var(--ic-status-success-g) * 0.8)
+      calc(var(--ic-status-success-b) * 0.8) / var(--ic-status-success-a)
+  );
+  --ic-status-success-pressed: rgb(
+    calc(var(--ic-status-success-r) * 0.6)
+      calc(var(--ic-status-success-g) * 0.6)
+      calc(var(--ic-status-success-b) * 0.6) / var(--ic-status-success-a)
+  );
+
+  /* warning status */
+  --ic-status-warning-default: var(--ic-yellow-900);
+  --ic-status-warning-light: var(--ic-yellow-0);
+  --ic-status-warning-dark: var(--ic-yellow-1400);
+  --ic-status-warning-outlined: var(--ic-yellow-100);
+  --ic-status-warning-contrast: var(--ic-yellow-400);
+  --ic-status-warning-r: 208;
+  --ic-status-warning-g: 121;
+  --ic-status-warning-b: 50;
+  --ic-status-warning-a: 1;
+  --ic-status-warning-hover: rgb(
+    calc(var(--ic-status-warning-r) * 0.8)
+      calc(var(--ic-status-warning-g) * 0.8)
+      calc(var(--ic-status-warning-b) * 0.8) / var(--ic-status-warning-a)
+  );
+  --ic-status-warning-pressed: rgb(
+    calc(var(--ic-status-warning-r) * 0.6)
+      calc(var(--ic-status-warning-g) * 0.6)
+      calc(var(--ic-status-warning-b) * 0.6) / var(--ic-status-warning-a)
+  );
+
+  /* error status */
+  --ic-status-error-default: var(--ic-red-800);
+  --ic-status-error-light: var(--ic-red-0);
+  --ic-status-error-dark: var(--ic-red-1500);
+  --ic-status-error-outlined: var(--ic-red-500);
+  --ic-status-error-contrast: var(--ic-red-400);
+  --ic-status-error-r: 212;
+  --ic-status-error-g: 53;
+  --ic-status-error-b: 28;
+  --ic-status-error-a: 1;
+  --ic-status-error-hover: rgb(
+    calc(var(--ic-status-error-r) * 0.8) calc(var(--ic-status-error-g) * 0.8)
+      calc(var(--ic-status-error-b) * 0.8) / var(--ic-status-error-a)
+  );
+  --ic-status-error-pressed: rgb(
+    calc(var(--ic-status-error-r) * 0.6) calc(var(--ic-status-error-g) * 0.6)
+      calc(var(--ic-status-error-b) * 0.6) / var(--ic-status-error-a)
+  );
+
+  /* info status */
+  --ic-status-info-default: var(--ic-blue-900);
+  --ic-status-info-light: var(--ic-blue-0);
+  --ic-status-info-dark: var(--ic-blue-1600);
+  --ic-status-info-contrast: var(--ic-blue-400);
+
+  /* anomalous status */
+  --ic-status-anomalous-default: var(--ic-purple-1400);
+  --ic-status-anomalous-light: var(--ic-purple-50);
+  --ic-status-anomalous-dark: #350f54;
+  --ic-status-anomalous-contrast: var(--ic-purple-500);
+
+  /* status unknown */
+  --ic-status-unknown-default: var(--ic-architectural-500);
+  --ic-status-unknown-mid: var(--ic-architectural-700);
+  --ic-status-unknown-light: var(--ic-architectural-40);
+  --ic-status-unknown-dark: var(--ic-architectural-800);
+  --ic-status-unknown-outlined: var(--ic-architectural-200);
+  --ic-status-unknown-contrast: var(--ic-architectural-300);
+
+  /* TEXT */
+  --ic-color-brand-text: var(--ic-architectural-white);
+  --ic-color-text-primary-light: var(--ic-architectural-900);
+  --ic-color-text-primary-dark: var(--ic-architectural-white);
+  --ic-color-text-secondary-light: var(--ic-architectural-700);
+  --ic-color-text-secondary-dark: var(--ic-architectural-100);
+  --ic-color-text-tertiary-light: var(--ic-architectural-500);
+  --ic-color-text-tertiary-dark: var(--ic-architectural-200);
+  --ic-color-text-inverse-light: var(--ic-color-text-primary-dark);
+  --ic-color-text-inverse-dark: var(--ic-color-text-primary-light);
+  --ic-color-white-text: var(--ic-architectural-white); /* to be removed */
+  --ic-color-text-disabled-default: var(--ic-architectural-300);
+  --ic-color-text-disabled-light: var(--ic-architectural-200);
+  --ic-color-text-disabled-dark: var(--ic-architectural-600);
+  --ic-color-text-inactive: var(--ic-architectural-400);
 
   /* actions */
+  --ic-color-text-action: var(--ic-blue-800);
+  --ic-color-text-action-dark: var(--ic-blue-500);
+  --ic-color-text-action-hover: var(--ic-blue-1100);
+  --ic-color-text-action-pressed: var(--ic-blue-1300);
+  --ic-color-text-error-light: var(--ic-red-300);
+  --ic-color-text-error-dark: var(--ic-red-800);
 
-  --ic-action-default: #1759bc;
-  --ic-action-default-hover: #0b399c;
-  --ic-action-default-active: #07277e;
-  --ic-action-default-active-alpha: rgba(23 89 188 / 50%);
-  --ic-action-default-bg-hover: rgb(23 89 188 / 10%);
-  --ic-action-default-bg-active: rgb(23 89 188 / 20%);
+  /* BACKGROUNDS */
+  --ic-color-background-primary-light: var(--ic-architectural-white);
+  --ic-color-background-primary-dark: var(--ic-architectural-800);
+  --ic-color-background-secondary-light: var(--ic-architectural-20);
+  --ic-color-background-secondary-dark: var(--ic-architectural-700);
+  --ic-color-background-neutral-light: var(--ic-architectural-800);
+  --ic-color-background-neutral-dark: var(--ic-architectural-900);
+  --ic-color-background-active-light: var(--ic-blue-800);
+  --ic-color-background-active-dark: var(--ic-blue-300);
+  --ic-color-background-hover-default: var(--ic-blue-1100);
+  --ic-color-background-hover-light: var(--ic-architectural-200);
+  --ic-color-background-hover-dark: var(--ic-architectural-800);
+  --ic-color-background-pressed-default: var(--ic-blue-1300);
+  --ic-color-background-pressed-light: var(--ic-architectural-300);
+  --ic-color-background-pressed-dark: var(--ic-architectural-700);
+  --ic-color-background-disabled-light: var(--ic-architectural-80);
+  --ic-color-background-disabled-dark: var(--ic-architectural-300);
+  --ic-color-background-selected: var(--ic-architectural-white);
+
+  /* status */
+  --ic-color-background-success-light: var(--ic-green-1400);
+  --ic-color-background-success-dark: var(--ic-green-300);
+  --ic-color-background-warning-light: var(--ic-yellow-400);
+  --ic-color-background-warning-dark: var(--ic-yellow-300);
+  --ic-color-background-destructive-light: var(--ic-red-800);
+  --ic-color-background-destructive-dark: var(--ic-red-300);
+  --ic-color-background-destructive-hover-light: var(--ic-red-1100);
+  --ic-color-background-destructive-hover-dark: var(--ic-red-400);
+  --ic-color-background-destructive-pressed-light: var(--ic-red-1300);
+  --ic-color-background-destructive-pressed-dark: var(--ic-red-700);
+
+  /* BORDERS */
+  --ic-color-border-neutral-default: var(--ic-architectural-300);
+  --ic-color-border-neutral-black: var(--ic-architectural-black);
+  --ic-color-border-neutral-white: var(--ic-architectural-white);
+  --ic-color-border-neutral-grey-light: var(--ic-architectural-40);
+  --ic-color-border-neutral-grey-dark: var(--ic-architectural-400);
+  --ic-color-border-neutral-pressed-default: var(--ic-architectural-600);
+  --ic-color-border-neutral-pressed-light: var(--ic-architectural-200);
+  --ic-color-border-neutral-pressed-dark: var(--ic-architectural-700);
+  --ic-color-border-neutral-hover-default: var(--ic-architectural-500);
+  --ic-color-border-neutral-hover-light: var(--ic-architectural-200);
+  --ic-color-border-neutral-hover-dark: var(--ic-architectural-800);
+  --ic-color-border-neutral-disabled-light: var(--ic-architectural-200);
+  --ic-color-border-neutral-disabled-dark: var(--ic-architectural-600);
+
+  /* status borders */
+  --ic-color-border-success-light: var(--ic-green-1400);
+  --ic-color-border-success-dark: var(--ic-green-300);
+  --ic-color-border-success-hover-light: var(--ic-green-1600);
+  --ic-color-border-success-hover-dark: var(--ic-green-400);
+  --ic-color-border-success-pressed-light: var(--ic-green-1700);
+  --ic-color-border-success-pressed-dark: var(--ic-green-600);
+  --ic-color-border-warning-light: var(--ic-yellow-900);
+  --ic-color-border-warning-dark: var(--ic-yellow-300);
+  --ic-color-border-warning-hover-light: var(--ic-yellow-1100);
+  --ic-color-border-warning-hover-dark: var(--ic-yellow-400);
+  --ic-color-border-warning-pressed-light: var(--ic-yellow-1300);
+  --ic-color-border-warning-pressed-dark: var(--ic-yellow-500);
+  --ic-color-border-error-light: var(--ic-red-800);
+  --ic-color-border-error-dark: var(--ic-red-300);
+  --ic-color-border-error-hover-light: var(--ic-red-1100);
+  --ic-color-border-error-hover-dark: var(--ic-red-400);
+  --ic-color-border-error-pressed-light: var(--ic-red-1300);
+  --ic-color-border-error-pressed-dark: var(--ic-red-700);
+
+  /* action borders */
+  --ic-color-border-action-light: var(--ic-blue-800);
+  --ic-color-border-action-dark: var(--ic-blue-300);
+  --ic-color-border-action-hover-light: var(--ic-blue-1100);
+  --ic-color-border-action-hover-dark: var(--ic-blue-100);
+  --ic-color-border-action-pressed-light: var(--ic-blue-1300);
+  --ic-color-border-action-pressed-dark: var(--ic-blue-400);
+
+  /* ACTIONS */
+
+  /* default */
+  --ic-action-default-light: var(--ic-blue-800);
+  --ic-action-default-dark: var(--ic-blue-300);
+  --ic-action-default-hover-light: var(--ic-blue-1100);
+  --ic-action-default-hover-dark: var(--ic-blue-100);
+  --ic-action-default-pressed-light: var(--ic-blue-1300);
+  --ic-action-default-pressed-dark: var(--ic-blue-400);
+  --ic-action-default-disabled: var(--ic-blue-50); /* think this is wrong */
+  --ic-action-default-active-alpha: var(--ic-blue-800-state-layer-50);
+  --ic-action-default-bg-hover: var(--ic-blue-800-state-layer-10);
+  --ic-action-default-bg-active: var(--ic-blue-800-state-layer-20);
   --ic-action-default-bg-hover-no-alpha: #e7eef8;
   --ic-action-default-bg-active-no-alpha: #d0def2;
-  --ic-action-destructive: #d4351c;
-  --ic-action-destructive-hover: #ad1e0e;
-  --ic-action-destructive-active: #8b1209;
-  --ic-action-light: #fff;
-  --ic-action-light-hover: #c4c8cd;
-  --ic-action-light-active: #a7acb3;
-  --ic-action-light-bg-hover: rgb(255 255 255 / 10%);
-  --ic-action-light-bg-active: rgb(255 255 255 / 20%);
-  --ic-action-dark: #0b0c0c;
-  --ic-action-dark-hover: #2c2f34;
-  --ic-action-dark-active: #41464d;
-  --ic-action-dark-bg-hover: rgb(65 70 77 / 10%);
-  --ic-action-dark-bg-active: rgb(65 70 77 / 20%);
+
+  /* destructive */
+  --ic-action-destructive-light: var(--ic-red-800);
+  --ic-action-destructive-dark: var(--ic-red-300);
+  --ic-action-destructive-hover-light: var(--ic-red-1100);
+  --ic-action-destructive-hover-dark: var(--ic-red-400);
+  --ic-action-destructive-pressed-light: var(--ic-red-1300);
+  --ic-action-destructive-pressed-dark: var(--ic-red-700);
+
+  /* light */
+  --ic-action-light: var(--ic-architectural-white);
+  --ic-action-light-hover: var(--ic-architectural-200);
+  --ic-action-light-pressed: var(--ic-architectural-300);
+  --ic-action-light-bg-hover: var(--ic-state-layer-lighten-10);
+  --ic-action-light-bg-pressed: var(--ic-state-layer-lighten-20);
+
+  /* dark */
+  --ic-action-dark: var(--ic-architectural-900);
+  --ic-action-dark-hover: var(--ic-architectural-800);
+  --ic-action-dark-pressed: var(--ic-architectural-700);
+  --ic-action-dark-bg-hover: var(--ic-architectural-700-state-layer-10);
+  --ic-action-dark-bg-pressed: var(--ic-architectural-700-state-layer-20);
   --ic-action-dark-bg-hover-no-alpha: #ececed;
   --ic-action-dark-bg-active-no-alpha: #d9dadb;
 
-  /* classification official */
-  --ic-classification-official: #2b71c7;
-  --ic-classification-official-foreground: #fff;
-
-  /* classification secret */
-  --ic-classification-secret: #f39c2c;
-  --ic-classification-secret-foreground: #000;
-
-  /* classification top secret */
-  --ic-classification-top-secret: #a00;
-  --ic-classification-top-secret-foreground: #fff;
-
-  /* classification not set */
-  --ic-classification-not-set: #616161;
-  --ic-classification-not-set-foreground: #fff;
+  /* neutral */
+  --ic-action-neutral-light: var(--ic-architectural-100);
+  --ic-action-neutral-dark: var(--ic-architectural-800);
 
   /* theme */
 
@@ -255,40 +498,57 @@
       min(255, calc(var(--ic-theme-calc) + 77)) / 20%
   );
 
-  /* hyperlinks */
-  --ic-hyperlink: #1759bc;
-  --ic-hyperlink-visited: #330072;
-  --ic-hyperlink-dark: #5da0ea;
-  --ic-hyperlink-visited-dark: #c988fd;
-  --ic-hyperlink-visited-monochrome-dark: #b0b0b0;
-  --ic-hyperlink-hover: #7c2855;
-  --ic-hyperlink-contrast: #5c98f2;
-  --ic-hyperlink-contrast-visited: #bc75ff;
-  --ic-hyperlink-contrast-hover: #db76ac;
-
-  /* focus */
-  --ic-focus-blue: #0044d7;
-  --ic-focus-glow: #80a1e8;
-  --ic-hc-focus-outline: 3px solid transparent;
-
   /* data tables */
   --ic-table-row-selected: #c7d7ef;
 
-  /* tooltips */
-  --ic-tooltip-background: var(--ic-background-primary-dark);
-  --ic-tooltip-text: var(--ic-color-primary-text-dark);
-  --ic-tooltip-border: var(--ic-color-border-neutral-light-gray);
-
-  /* icons */
-  --ic-icon-neutral: var(--ic-architectural-black);
-  --ic-icon-inverted: var(--ic-architectural-white);
-  --ic-icon-grey: var(--ic-architectural-400);
-  --ic-icon-grey-dark: var(--ic-architectural-500);
-  --ic-icon-action-default: var(--ic-hyperlink);
-  --ic-icon-action-default-dark: var(--ic-hyperlink-dark);
+  /* ICONS */
+  --ic-color-icon-brand: var(--ic-architectural-white);
+  --ic-color-icon-neutral: var(--ic-architectural-black);
+  --ic-color-icon-inverted: var(--ic-architectural-white);
+  --ic-color-icon-hover-light: var(--ic-architectural-200);
+  --ic-color-icon-hover-dark: var(--ic-architectural-800);
+  --ic-color-icon-pressed-light: var(--ic-architectural-300);
+  --ic-color-icon-pressed-dark: var(--ic-architectural-700);
+  --ic-color-icon-disabled-light: var(--ic-architectural-300);
+  --ic-color-icon-disabled-dark: var(--ic-architectural-500);
+  --ic-color-icon-grey-default: var(--ic-architectural-400);
+  --ic-color-icon-grey-lighter: var(--ic-architectural-100);
+  --ic-color-icon-grey-light: var(--ic-architectural-200);
+  --ic-color-icon-grey-dark: var(--ic-architectural-500);
+  --ic-color-icon-grey-darker: var(--ic-architectural-700);
+  --ic-color-icon-action-default-light: var(--ic-blue-800);
+  --ic-color-icon-action-default-dark: var(--ic-blue-300);
+  --ic-color-icon-action-hover: var(--ic-blue-1100);
+  --ic-color-icon-action-pressed: var(--ic-blue-1300);
+  --ic-color-icon-error-light: var(--ic-red-300);
+  --ic-color-icon-error-dark: var(--ic-red-800);
+  --ic-color-icon-action-dark: var(--ic-architectural-white);
+  --ic-color-icon-chevron: var(--ic-architectural-400);
 
   /* state layers */
-  --ic-state-layer-neutral: var(--ic-architectural-200);
+  --ic-state-layer-primary: var(--ic-brand-blue-primary);
+  --ic-state-layer-secondary-default: var(--ic-blue-50);
+  --ic-state-layer-secondary-light: var(--ic-blue-0);
+  --ic-state-layer-secondary-dark: var(--ic-blue-100);
+  --ic-state-layer-neutral-default: var(--ic-architectural-200);
   --ic-state-layer-neutral-light: var(--ic-architectural-100);
   --ic-state-layer-neutral-dark: var(--ic-architectural-400);
+  --ic-state-layer-neutral-darker: var(--ic-architectural-600);
+  --ic-state-layer-darken-20: var(--ic-architectural-black-state-layer-20);
+  --ic-state-layer-darken-25: var(--ic-architectural-black-state-layer-25);
+  --ic-state-layer-darken-30: var(--ic-architectural-black-state-layer-30);
+  --ic-state-layer-darken-40: var(--ic-architectural-black-state-layer-40);
+  --ic-state-layer-darken-50: var(--ic-architectural-black-state-layer-50);
+  --ic-state-layer-lighten-10: var(--ic-architectural-white-state-layer-10);
+  --ic-state-layer-lighten-20: var(--ic-architectural-white-state-layer-20);
+  --ic-state-layer-lighten-25: var(--ic-architectural-white-state-layer-25);
+  --ic-state-layer-lighten-40: var(--ic-architectural-white-state-layer-40);
+  --ic-state-layer-lighten-50: var(--ic-architectural-white-state-layer-50);
+
+  /* SURFACE */
+  --ic-surface-brand: var(--ic-architectural-white);
+  --ic-surface-primary: var(--ic-architectural-white);
+  --ic-surface-secondary: var(--ic-architectural-white);
+  --ic-surface-inverted: var(--ic-architectural-white);
+  --ic-surface-disabled: var(--ic-architectural-white);
 }

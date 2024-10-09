@@ -6,7 +6,7 @@ li {
 }
 
 :host ::part(button) {
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
   padding: calc(var(--ic-space-xxxs) / 2);
   display: flex;
   align-items: flex-start;
@@ -58,7 +58,7 @@ li {
 
   --ic-typography-color: var(--ic-color-white-text);
 
-  background-color: var(--ic-focus-blue);
+  background-color: var(--ic-color-focus-inner);
   box-shadow: none;
 }
 
@@ -91,14 +91,14 @@ ic-button:focus-within .menu-item-description {
 }
 
 :host ::part(button):active {
-  background-color: var(--ic-action-dark-bg-active);
-  color: var(--ic-color-primary-text) !important;
+  background-color: var(--ic-action-dark-bg-pressed);
+  color: var(--ic-color-text-primary) !important;
 
-  --ic-typography-color: var(--ic-color-primary-text) !important;
+  --ic-typography-color: var(--ic-color-text-primary) !important;
 }
 
 :host([variant="destructive"]) ::part(button):active {
-  background-color: var(--ic-action-dark-bg-active);
+  background-color: var(--ic-action-dark-bg-pressed);
   color: var(--ic-action-destructive) !important;
 
   --ic-typography-color: var(--ic-action-destructive) !important;
@@ -120,11 +120,11 @@ ic-button:focus-within .menu-item-description {
 }
 
 .menu-item-description {
-  --ic-typography-color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-text-secondary);
 }
 
 .shortcut {
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 
   display: flex;
   flex: min-content;
@@ -137,15 +137,15 @@ ic-button:focus-within .menu-item-description {
 }
 
 ic-button:active .menu-item-label {
-  --ic-typography-color: var(--ic-color-primary-text);
+  --ic-typography-color: var(--ic-color-text-primary);
 }
 
 ic-button:active .menu-item-description {
-  --ic-typography-color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-text-secondary);
 }
 
 ic-button:active .shortcut {
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 }
 
 :host([variant="destructive"]) ic-button:active .menu-item-label {

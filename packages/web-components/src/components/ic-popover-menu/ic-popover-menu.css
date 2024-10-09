@@ -18,9 +18,9 @@
 
 :host {
   border-radius: var(--ic-border-radius);
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
 
-  --ic-typography-color: var(--ic-color-primary-text);
+  --ic-typography-color: var(--ic-color-text-primary);
 
   background-color: var(--ic-architectural-white);
   position: relative;
@@ -79,7 +79,7 @@
 }
 
 .parent-label {
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 
   margin: var(--ic-space-xs) var(--ic-space-xs) 0;
 }
