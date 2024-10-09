@@ -144,9 +144,9 @@ svg {
   height: auto;
   width: 100%;
   box-sizing: border-box;
-  color: var(--ic-color-primary-text-light);
+  color: var(--ic-color-text-primary-light);
 
-  --ic-typography-color: var(--ic-color-primary-text-light);
+  --ic-typography-color: var(--ic-color-text-primary-light);
 
   display: flex;
   align-items: center;
@@ -202,7 +202,7 @@ svg {
   height: 2.5rem;
   width: fit-content;
   min-width: 9.063rem;
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -241,18 +241,18 @@ svg {
 }
 
 :host(.navigation-item-side-menu) .link:active:not(:focus) {
-  background-color: var(--ic-action-dark-bg-active);
+  background-color: var(--ic-action-dark-bg-pressed);
 }
 
 :host(.navigation-item-top-nav-child) .link:active:not(:focus),
 :host(.navigation-item-top-nav-child) ::slotted(a:active):not(:focus) {
   outline: var(--ic-hc-focus-outline);
-  background-color: var(--ic-action-dark-bg-active);
+  background-color: var(--ic-action-dark-bg-pressed);
 }
 
 :host(.navigation-item-top-nav-child) ::slotted(a:active):not(:focus),
 :host(.navigation-item-side-menu) ::slotted(a:active):not(:focus) {
-  background-color: var(--ic-action-dark-bg-active) !important;
+  background-color: var(--ic-action-dark-bg-pressed) !important;
 }
 
 :host(.navigation-item-side-menu-selected) *,
@@ -540,7 +540,7 @@ svg {
 :host(.navigation-item-page-header) a,
 :host(.navigation-item-page-header) ::slotted(a) {
   height: 2.5rem !important;
-  color: var(--ic-color-primary-text) !important;
+  color: var(--ic-color-text-primary) !important;
   transition: all var(--ic-easing-transition-fast) !important;
   box-shadow: rgba(23 89 188 / 0%) !important;
 }
@@ -624,7 +624,7 @@ svg {
 :host(.navigation-item-page-header) .open-in-new-icon svg,
 :host(.navigation-item-top-nav-child) .open-in-new-icon svg,
 :host(.navigation-item-side-menu) .open-in-new-icon svg {
-  fill: var(--ic-color-primary-text);
+  fill: var(--ic-color-text-primary);
 }
 
 @media (forced-colors: active) {

@@ -6,7 +6,7 @@
 
 :host ic-typography,
 :host ::slotted(ic-typography) {
-  --ic-typography-color: var(--ic-color-primary-text-light);
+  --ic-typography-color: var(--ic-color-text-primary-light);
 }
 
 .container {
@@ -51,23 +51,23 @@
 }
 
 .divider-neutral {
-  background-color: var(--ic-status-unknown);
+  background-color: var(--ic-status-unknown-default);
 }
 
 .divider-info {
-  background-color: var(--ic-status-info);
+  background-color: var(--ic-status-info-default);
 }
 
 .divider-warning {
-  background-color: var(--ic-status-warning);
+  background-color: var(--ic-color-border-warning);
 }
 
 .divider-error {
-  background-color: var(--ic-status-error);
+  background-color: var(--ic-color-border-error);
 }
 
 .divider-success {
-  background-color: var(--ic-status-success);
+  background-color: var(--ic-color-border-success);
 }
 
 .alert-icon {
@@ -91,23 +91,23 @@
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
   display: inline-block;
-  fill: var(--ic-status-unknown);
+  fill: var(--ic-status-unknown-default);
 }
 
 :host([variant="info"]) .alert-icon svg {
-  fill: var(--ic-status-info);
+  fill: var(--ic-status-info-default);
 }
 
 :host([variant="warning"]) .alert-icon svg {
-  fill: var(--ic-status-warning);
+  fill: var(--ic-status-warning-default);
 }
 
 :host([variant="error"]) .alert-icon svg {
-  fill: var(--ic-status-error);
+  fill: var(--ic-status-error-default);
 }
 
 :host([variant="success"]) .alert-icon svg {
-  fill: var(--ic-status-success);
+  fill: var(--ic-status-success-default);
 }
 
 .alert-content {
@@ -182,6 +182,6 @@
 
 @media (forced-colors: active) {
   .container {
-    border: var(--ic-hc-border);
+    border: var(--ic-border-hc);
   }
 }
