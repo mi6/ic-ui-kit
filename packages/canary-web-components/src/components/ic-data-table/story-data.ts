@@ -940,6 +940,7 @@ export const Basic = (): HTMLIcDataTableElement => {
 export const DataTableSizing = (): HTMLElement => {
   const dataTable = createDataTableElement("Basic Table", COLS_WIDTH, DATA);
   dataTable.setAttribute("width", "800px");
+  dataTable.setAttribute("table-layout", "auto");
   return dataTable;
 };
 
