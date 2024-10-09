@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   IcButton,
   IcPopoverMenu,
@@ -8,14 +8,10 @@ import {
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 export const PopoverDropdown = () => {
-  const buttonEl = useRef<any>();
-  const popoverEl = useRef<any>();
-  const handleClick = () => {
-    popoverEl.current.open = buttonEl.current.dropdownExpanded;
-  };
-  const handleClose = () => {
-    buttonEl.current.dropdownExpanded = popoverEl.current.open;
-  };
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const togglePopoverOpen = () => setPopoverOpen((value) => !value);
+  const closePopover = () => setPopoverOpen(false);
+
   return (
     <div style={{ padding: "1rem" }}>
       <>
@@ -23,16 +19,16 @@ export const PopoverDropdown = () => {
           id="popover-button"
           dropdown
           variant="primary"
-          onClick={() => handleClick()}
-          ref={buttonEl}
+          onClick={togglePopoverOpen}
+          dropdownExpanded={popoverOpen}
         >
           Button
         </IcButton>
         <IcPopoverMenu
           anchor="popover-button"
           aria-label="popover"
-          onIcPopoverClosed={() => handleClose()}
-          ref={popoverEl}
+          onIcPopoverClosed={closePopover}
+          open={popoverOpen}
         >
           <IcMenuItem label="Copy code"></IcMenuItem>
           <IcMenuItem label="Paste code"></IcMenuItem>
