@@ -3,7 +3,7 @@
 :host {
   display: block;
   position: relative;
-  color: var(--ic-typography-color, var(--ic-color-primary-text));
+  color: var(--ic-typography-color, var(--ic-color-text-primary));
 }
 
 :host(.ic-typography-vertical-margins-h1) {
@@ -151,7 +151,7 @@
   border: none;
   background: none;
   padding: 0;
-  color: var(--ic-color-primary-text);
+  color: var(--ic-color-text-primary);
   text-decoration: underline;
   font-weight: var(--ic-font-weight-bold);
   transition: var(--ic-easing-transition-fast);
@@ -188,7 +188,7 @@
 
 :host(.ic-theme-dark),
 :host(.ic-theme-light) {
-  --ic-typography-color: var(--ic-color-primary-text);
+  --ic-typography-color: var(--ic-color-text-primary);
 }
 
 :host(.in-ag-grid),

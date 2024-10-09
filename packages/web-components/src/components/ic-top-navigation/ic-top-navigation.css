@@ -61,7 +61,7 @@
 }
 
 :host .nav-panel-container {
-  border-top: var(--ic-keyline-lighten);
+  border-top: var(--ic-border-keyline-lighten);
   padding: 0 var(--ic-space-lg);
   margin-left: calc(-1 * var(--section-container-margin));
   margin-right: calc(-1 * var(--section-container-margin));
@@ -69,7 +69,7 @@
 }
 
 :host(.dark) .nav-panel-container {
-  border-top: var(--ic-keyline-darken);
+  border-top: var(--ic-border-keyline-darken);
 }
 
 .top-panel-container {
@@ -114,7 +114,7 @@
 :host .app-status {
   border-radius: var(--ic-space-md);
   background-color: var(--ic-architectural-white);
-  color: var(--ic-color-primary-text-light);
+  color: var(--ic-color-text-primary-light);
   padding: var(--ic-space-xxs) var(--ic-space-lg);
   margin-left: var(--ic-space-md);
   flex: 1 1 0;
@@ -228,7 +228,7 @@ slot[name="toggle-icon"] svg {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: var(--ic-keyline-darken);
+  border-top: var(--ic-border-keyline-darken);
   height: 4rem;
   padding-left: var(--ic-space-md);
   padding-right: var(--ic-space-md);
@@ -272,12 +272,12 @@ slot[name="toggle-icon"] svg {
 
 @media (forced-colors: active) {
   :host .top-navigation {
-    border-bottom: var(--ic-hc-border);
+    border-bottom: var(--ic-border-hc);
   }
 
   .app-status,
   .app-version {
-    border: var(--ic-hc-border);
+    border: var(--ic-border-hc);
   }
 
   slot[name="app-icon"]::slotted(*) {

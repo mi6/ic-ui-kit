@@ -25,7 +25,7 @@ button {
 .ellipsis {
   pointer-events: none;
 
-  --ic-typography-color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-text-secondary);
 }
 
 .item-container:focus {
@@ -70,7 +70,7 @@ button {
 }
 
 .page-selected {
-  --ic-typography-color: var(--ic-color-primary-text);
+  --ic-typography-color: var(--ic-color-text-primary);
 }
 
 /** LIGHT STATES **/
@@ -79,7 +79,7 @@ button {
 }
 
 .item-container.page.light:active:not(.selected):not(:focus) {
-  background-color: var(--ic-action-light-bg-active);
+  background-color: var(--ic-action-light-bg-pressed);
 }
 
 ic-typography.light,
@@ -102,11 +102,11 @@ ic-typography.page-selected.light {
 }
 
 .item-container.page.dark:active:not(.selected):not(:focus) {
-  background-color: var(--ic-action-dark-bg-active);
+  background-color: var(--ic-action-dark-bg-pressed);
 }
 
 ic-typography.dark {
-  --ic-typography-color: var(--ic-color-primary-text);
+  --ic-typography-color: var(--ic-color-text-primary);
 }
 
 .selected.dark::after {

@@ -3,9 +3,9 @@ hr {
   margin: 0;
   border: none;
   height: var(--ic-space-1px);
-  background-color: var(--ic-keyline-darken-rgb);
+  background-color: var(--ic-color-keyline-darken);
 }
 
 hr.light {
-  background-color: var(--ic-keyline-lighten-rgb);
+  background-color: var(--ic-color-keyline-lighten);
 }

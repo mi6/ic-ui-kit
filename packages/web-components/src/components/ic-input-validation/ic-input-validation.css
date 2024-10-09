@@ -18,15 +18,15 @@ ic-input-validation span.status-icon > svg {
 }
 
 ic-input-validation span.icon-success > svg {
-  fill: var(--ic-status-success);
+  fill: var(--ic-status-success-default);
 }
 
 ic-input-validation span.icon-error > svg {
-  fill: var(--ic-status-error);
+  fill: var(--ic-status-error-default);
 }
 
 ic-input-validation span.icon-warning > svg {
-  fill: var(--ic-status-warning);
+  fill: var(--ic-status-warning-default);
 }
 
 ic-input-validation .statustext {
