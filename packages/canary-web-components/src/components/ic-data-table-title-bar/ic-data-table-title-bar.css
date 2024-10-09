@@ -28,7 +28,7 @@ ic-typography.heading h3 {
 }
 
 ic-typography.ic-typography-subtitle-small {
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 }
 
 ic-typography.ic-typography-h3,
@@ -38,9 +38,9 @@ ic-typography.ic-typography-h3,
 
 ic-typography.ic-typography-body,
 ::slotted([slot="description"]) {
-  color: var(--ic-color-secondary-text);
+  color: var(--ic-color-text-secondary);
 
-  --ic-typography-color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-text-secondary);
 }
 
 ic-typography.ic-typography-body,
