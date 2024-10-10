@@ -175,7 +175,9 @@ export class Typography {
   };
 
   private getElementTop = (el: HTMLElement) => {
-    return el.getClientRects ? el.getClientRects()[0].top : 0;
+    return el.getClientRects && el.getClientRects()[0]
+      ? el.getClientRects()[0].top
+      : 0;
   };
 
   private runResizeObserver = () => {
