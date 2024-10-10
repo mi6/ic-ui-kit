@@ -7,6 +7,7 @@ import {
   IcBadge,
 } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
+import { IcThemeMode } from "@ukic/web-components";
 
 const ReusableCoffeeIcon = (): ReactElement => (
   <SlottedSVG
@@ -342,6 +343,7 @@ export const ClickableButton = (): ReactElement => {
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
         clickable
+        // eslint-disable-next-line react/jsx-no-bind
         onClick={(ev) => console.log(ev)}
       >
         <ReusableCoffeeIcon />
@@ -577,6 +579,41 @@ export const AdditionalHeight = (): ReactElement => {
           Hide
         </IcButton>
       </IcCardVertical>
+    </div>
+  );
+};
+
+export const Theme = (clickable?: boolean): ReactElement => {
+  const ThemeCard = (theme: IcThemeMode = "inherit") => {
+    return (
+      <IcCardVertical
+        heading="Americano order"
+        subheading="Name: Michael"
+        message="Extras: Double espresso shot and oat milk."
+        clickable={clickable}
+        theme={theme}
+        expandable={!clickable}
+      >
+        <ReusableCoffeeIcon />
+      </IcCardVertical>
+    );
+  };
+  return (
+    <div style={{ padding: "16px" }}>
+      <div style={{ margin: "16px" }}>
+        <IcTypography style={{ marginBottom: "8px" }}>Inherit</IcTypography>
+        {ThemeCard()}
+      </div>
+      <div style={{ margin: "16px" }}>
+        <IcTypography style={{ marginBottom: "8px" }}>Light</IcTypography>
+        {ThemeCard("light")}
+      </div>
+      <div style={{ backgroundColor: "#121212", margin: "16px" }}>
+        <IcTypography style={{ color: "white", marginBottom: "8px" }}>
+          Dark
+        </IcTypography>
+        {ThemeCard("dark")}
+      </div>
     </div>
   );
 };
