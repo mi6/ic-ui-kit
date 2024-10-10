@@ -11,12 +11,211 @@ import {
   LeftPlacement,
   Truncation,
   Chip,
+  TwoButtons,
+  DisableHover,
+  ExternalNoPersist,
+  External,
 } from "./IcTooltipTestData";
+import {
+  BE_VISIBLE,
+  HAVE_ATTR,
+  HAVE_TEXT,
+  NOT_BE_VISIBLE,
+  NOT_HAVE_ATTR,
+} from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import "cypress-axe";
 
 const TOOLTIP_SELECTOR = "ic-tooltip";
 const DEFAULT_TEST_THRESHOLD = 0.041;
+
+describe("IcTooltip end-to-end tests", () => {
+  it("should apply the correct label", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.findShadowEl(TOOLTIP_SELECTOR, "ic-typography").should(
+      HAVE_TEXT,
+      "This is a description of the button"
+    );
+  });
+
+  it("should apply the correct placement", () => {
+    mount(<TopPlacement />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.get(TOOLTIP_SELECTOR).eq(0).should(HAVE_ATTR, "placement", "top-start");
+    cy.get(TOOLTIP_SELECTOR).eq(1).should(HAVE_ATTR, "placement", "top");
+    cy.get(TOOLTIP_SELECTOR).eq(2).should(HAVE_ATTR, "placement", "top-end");
+    cy.get("#test-button-top-start").realHover("mouse");
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container")
+      .eq(0)
+      .should(HAVE_ATTR, "data-popper-placement", "top-start");
+  });
+
+  it("should show on focus", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_HAVE_ATTR,
+      "data-show"
+    );
+    cy.get("button").focus();
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      HAVE_ATTR,
+      "data-show"
+    );
+  });
+
+  it("should show on hover", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_HAVE_ATTR,
+      "data-show"
+    );
+    cy.get("button").realHover("mouse");
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      HAVE_ATTR,
+      "data-show"
+    );
+  });
+
+  it("should still show when cursor moves to tooltip", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.get("button").realHover("mouse");
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").realHover(
+      "mouse"
+    );
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+  });
+
+  it("should close when cursor moves away", () => {
+    mount(<TwoButtons />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.get("#button-1").realHover("mouse");
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+    cy.get("#button-2").realHover("mouse");
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+  });
+
+  it("should close when focus moves away", () => {
+    mount(<TwoButtons />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.get("#button-1").focus();
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+    cy.get("#button-2").focus();
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+  });
+
+  it("should close when escape key pressed", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.get("button").focus();
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+    cy.realPress("Escape");
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+  });
+
+  it("should not show on hover when disableHover is true", () => {
+    mount(<DisableHover />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.get("button").realHover("mouse");
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+    cy.get("button").click();
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+  });
+
+  it("should display the tooltip when the displayTooltip method is called", () => {
+    mount(<External />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+    cy.get("#external-method").click();
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+    cy.realPress("Escape");
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+    cy.get("#external-method").click();
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+  });
+
+  it("should still dismiss the tooltip using the keyboard if persistTooltip is false", () => {
+    mount(<ExternalNoPersist />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+    cy.get("#external-method").click();
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+    cy.realPress("Escape");
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+  });
+});
 
 describe("IcTooltip visual regression and a11y tests", () => {
   beforeEach(() => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, useState, useRef } from "react";
 import { IcTooltip, IcChip } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
@@ -245,3 +245,91 @@ export const Chip = () => {
     </div>
   );
 };
+
+export const TwoButtons = () => {
+  return (
+    <div style={{ margin: "40px" }}>
+      <IcTooltip
+        label="This is a description of the button"
+        id="ic-tooltip-test-button"
+        target="button-1"
+      >
+        <button aria-describedby="ic-tooltip-test-button-1" id="button-1">
+          Button 1
+        </button>
+      </IcTooltip>
+      <button aria-describedby="ic-tooltip-test-button-2" id="button-2">
+        Button 2
+      </button>
+    </div>
+  );
+};
+
+export const DisableHover = () => {
+  return (
+    <div style={{ margin: "40px" }}>
+      <IcTooltip
+        label="This is a description of the button"
+        id="ic-tooltip-test-button"
+        target="button"
+        disableHover={true}
+      >
+        <button aria-describedby="ic-tooltip-test-button" id="button">
+          Disabled Hover
+        </button>
+      </IcTooltip>
+    </div>
+  );
+};
+
+const External: FC = () => {
+  const [display, setDisplay] = useState<boolean>(true);
+  const tooltipEl = useRef<HTMLIcTooltipElement | null>(null);
+  const handleDisplay = () => {
+    tooltipEl.current?.displayTooltip(display, display);
+    setDisplay(!display);
+  };
+  return (
+    <div>
+      <button id="external-method" onClick={handleDisplay}>
+        Show tooltip
+      </button>
+      <IcTooltip
+        ref={tooltipEl}
+        label="Add Americano to favourites"
+        target="test-button"
+      >
+        <button aria-describedby="ic-tooltip-test-button" id="test-button">
+          Add
+        </button>
+      </IcTooltip>
+    </div>
+  );
+};
+export { External };
+
+const ExternalNoPersist: FC = () => {
+  const [display, setDisplay] = useState<boolean>(true);
+  const tooltipEl = useRef<HTMLIcTooltipElement | null>(null);
+  const handleDisplay = () => {
+    tooltipEl.current?.displayTooltip(display, false);
+    setDisplay(!display);
+  };
+  return (
+    <div>
+      <button id="external-method" onClick={handleDisplay}>
+        Show tooltip
+      </button>
+      <IcTooltip
+        ref={tooltipEl}
+        label="Add Americano to favourites"
+        target="test-button"
+      >
+        <button aria-describedby="ic-tooltip-test-button" id="test-button">
+          Add
+        </button>
+      </IcTooltip>
+    </div>
+  );
+};
+export { ExternalNoPersist };
