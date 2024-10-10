@@ -25,10 +25,49 @@ const threeOptions = [
   { label: "Disabled", value: "valueName3", disabled: true },
 ];
 
+export const Tabbable = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <button>Button</button>
+      <IcRadioGroup label="This is a label" name="radio-group-1">
+        {fourOptions.map((option, index) => (
+          <IcRadioOption
+            key={index + option.value}
+            value={option.value}
+            label={option.label}
+          />
+        ))}
+      </IcRadioGroup>
+    </div>
+  );
+};
+
+export const TabbableSelected = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <button>Button</button>
+      <IcRadioGroup label="This is a label" name="radio-group-1">
+        {fourOptions.map((option, index) => (
+          <IcRadioOption
+            key={index + option.value}
+            value={option.value}
+            label={option.label}
+            selected={option.value === "valueName2"}
+          />
+        ))}
+      </IcRadioGroup>
+    </div>
+  );
+};
+
 export const Default = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcRadioGroup label="This is a label" name="radio-group-1">
+      <IcRadioGroup
+        label="This is a label"
+        name="radio-group-1"
+        orientation="horizontal"
+      >
         {threeOptions.map((option, index) => (
           <IcRadioOption
             key={index + option.value}
@@ -202,7 +241,7 @@ export const Disabled = () => {
     <div style={{ padding: "10px" }}>
       <IcRadioGroup label="This is a label" name="radio-group-1">
         <IcRadioOption value="valueName1" label="Option 1" disabled />
-        <IcRadioOption value="valueName2" label="Option 2" disabled />
+        <IcRadioOption value="valueName2" label="Option 2" />
         <IcRadioOption value="valueName3" label="Option 3" disabled selected />
       </IcRadioGroup>
     </div>
@@ -318,5 +357,59 @@ export const ConditionalDynamic = () => {
         </IcRadioOption>
       </IcRadioGroup>
     </div>
+  );
+};
+
+export const ConditionalDynamicTextFieldValue = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcRadioGroup
+        label="Conditional dynamic"
+        name="radio-group-1"
+        orientation="horizontal"
+        onIcChange={(ev) => console.log(ev.detail.selectedOption)}
+      >
+        <IcRadioOption
+          additionalFieldDisplay="dynamic"
+          value="valueName1"
+          label="Option 1"
+          selected={true}
+          dynamicText="Custom dynamic text"
+        >
+          <IcTextField
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+            value="testValue1"
+          />
+        </IcRadioOption>
+        <IcRadioOption value="valueName2" label="Option 2" />
+      </IcRadioGroup>
+    </div>
+  );
+};
+
+export const InAForm = () => {
+  const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+    const inputElement = document.querySelector(
+      "input[name='1']"
+    ) as HTMLInputElement;
+    console.log("Form value: " + inputElement?.value);
+  };
+  return (
+    <form onSubmit={(ev) => handleSubmit(ev)}>
+      <IcRadioGroup label="This is a label" name="1">
+        <IcRadioOption value="valueName1" label="Unselected / Default" />
+        <IcRadioOption value="valueName2" label="Selected / Default" />
+        <IcRadioOption
+          value="valueName3"
+          label="Unselected / Disabled"
+          disabled
+        />
+      </IcRadioGroup>
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
   );
 };
