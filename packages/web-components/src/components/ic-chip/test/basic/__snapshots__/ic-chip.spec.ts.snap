@@ -50,6 +50,34 @@ exports[`ic-chip component renders label should render dismissible 1`] = `
 </ic-chip>
 `;
 
+exports[`ic-chip component renders label should render outlined variant 1`] = `
+<ic-chip label="Label" variant="outlined">
+  <mock:shadow-root>
+    <div class="chip medium outlined">
+      <ic-typography class="label" variant="label">
+        <span>
+          Label
+        </span>
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-chip>
+`;
+
+exports[`ic-chip component renders label should render outlined variant with solid-background 1`] = `
+<ic-chip label="Label" transparent-background="false" variant="outlined">
+  <mock:shadow-root>
+    <div class="chip medium non-transparent outlined">
+      <ic-typography class="label" variant="label">
+        <span>
+          Label
+        </span>
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-chip>
+`;
+
 exports[`ic-chip component renders label should render small 1`] = `
 <ic-chip dismissible="true" label="Label" size="small">
   <mock:shadow-root>
@@ -96,7 +124,7 @@ exports[`ic-chip component renders label should render static 1`] = `
 `;
 
 exports[`ic-chip component renders label should render with custom colour 1`] = `
-<ic-chip custom-color="#F8C8DC" label="Label" style="--chip-custom-color: rgba(248, 200, 220, 1); --chip-custom-foreground-color: var(--ic-architectural-black);">
+<ic-chip class="ic-chip-dark-text" custom-color="#F8C8DC" label="Label" style="--chip-custom-color: rgba(248, 200, 220, 1);">
   <mock:shadow-root>
     <div class="chip filled medium">
       <div class="icon">
@@ -116,7 +144,7 @@ exports[`ic-chip component renders label should render with custom colour 1`] = 
 `;
 
 exports[`ic-chip component renders label should render with custom colour that sets white foreground text 1`] = `
-<ic-chip custom-color="#00008B" label="Label" style="--chip-custom-color: rgba(0, 0, 139, 1); --chip-custom-foreground-color: var(--ic-architectural-white);">
+<ic-chip class="ic-chip-light-text" custom-color="#00008B" label="Label" style="--chip-custom-color: rgba(0, 0, 139, 1);">
   <mock:shadow-root>
     <div class="chip filled medium">
       <div class="icon">
@@ -136,7 +164,7 @@ exports[`ic-chip component renders label should render with custom colour that s
 `;
 
 exports[`ic-chip component renders label should render with custom rgb colour 1`] = `
-<ic-chip custom-color="rgb(248,200,220)" label="Label" style="--chip-custom-color: rgba(248, 200, 220, 1); --chip-custom-foreground-color: var(--ic-architectural-black);">
+<ic-chip class="ic-chip-dark-text" custom-color="rgb(248,200,220)" label="Label" style="--chip-custom-color: rgba(248, 200, 220, 1);">
   <mock:shadow-root>
     <div class="chip filled medium">
       <div class="icon">
