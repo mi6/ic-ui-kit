@@ -355,7 +355,7 @@ td.table-density-spacious {
   width: 100%;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 577px) {
   .column-header-inner-container {
     display: flex;
     align-items: center;
