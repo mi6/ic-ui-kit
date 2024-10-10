@@ -123,7 +123,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "helper-text",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
     });
   });
 
@@ -193,7 +193,7 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "helper-text-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
     });
   });
 });

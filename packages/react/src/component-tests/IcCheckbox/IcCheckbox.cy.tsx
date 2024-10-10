@@ -525,7 +525,7 @@ describe("IcCheckbox visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "helper",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.08),
     });
   });
 
@@ -664,7 +664,7 @@ describe("IcCheckbox visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "helper-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.08),
     });
   });
 

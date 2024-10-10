@@ -12,6 +12,7 @@ ic-input-label.readonly {
 
 ic-input-label .helpertext {
   margin-top: var(--ic-space-xxxs);
+  padding-bottom: var(--ic-space-xxs);
 }
 
 ic-input-label .helpertext-normal {
