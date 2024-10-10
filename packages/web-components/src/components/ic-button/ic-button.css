@@ -323,7 +323,7 @@
 :host(.ic-button-variant-icon-primary.ic-button-loading)
   .button
   ic-loading-indicator {
-  --inner-color: var(--ic-architectural-white);
+  --ic-loading-indicator-inner-color: var(--ic-architectural-white);
 }
 
 :host(.ic-button-variant-icon-primary.ic-button-disabled) .button,
@@ -491,7 +491,7 @@
 :host(.ic-button-variant-icon-destructive.ic-button-loading)
   .button
   ic-loading-indicator {
-  --inner-color: var(--ic-architectural-white);
+  --ic-loading-indicator-inner-color: var(--ic-architectural-white);
 }
 
 :host(.ic-button-variant-icon-destructive.ic-button-disabled) .button,
@@ -584,7 +584,11 @@ div.loading-container {
 }
 
 ic-loading-indicator {
-  --outer-color: transparent;
+  --ic-loading-indicator-outer-color: transparent;
+}
+
+ic-loading-indicator.ic-theme-dark {
+  --ic-loading-indicator-inner-color: var(--ic-color-text-primary-dark);
 }
 
 @keyframes loading-animation {
