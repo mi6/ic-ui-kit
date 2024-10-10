@@ -1,5 +1,6 @@
 import { Component, Element, Host, Prop, h } from "@stencil/core";
 import { IcSkeletonVariants } from "./ic-skeleton.types";
+import { IcThemeMode } from "../../utils/types";
 
 const DEFAULT_HEIGHTS = {
   text: "1em",
@@ -16,9 +17,9 @@ export class Skeleton {
   @Element() el: HTMLIcSkeletonElement;
 
   /**
-   * The appearance of the skeleton.
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() appearance?: "light" | "default" = "default";
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The variant of the skeleton that will be displayed.
@@ -26,7 +27,7 @@ export class Skeleton {
   @Prop() variant?: IcSkeletonVariants = "rectangle";
 
   render() {
-    const { variant, appearance, el } = this;
+    const { variant, theme, el } = this;
 
     const style = !el.firstElementChild
       ? {
@@ -40,7 +41,7 @@ export class Skeleton {
         class={{
           skeleton: true,
           "ic-skeleton-circle": variant === "circle",
-          "ic-skeleton-light": appearance === "light",
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         style={style}
         aria-disabled="true"

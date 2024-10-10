@@ -104,24 +104,26 @@ import readme from "../../../web-components/src/components/ic-skeleton/readme.md
   </Story>
 </Canvas>
 
-### Light
+### Dark mode
 
 <Canvas>
-  <Story name="Light">
-    <IcSkeleton variant="circle" height="20" appearance="light" />
-    <div style={{ height: "8px" }}></div>
-    <IcTypography variant="caption">
-      <IcSkeleton variant="text" appearance="light" />
-    </IcTypography>
-    <div style={{ height: "8px" }}></div>
-    <IcSkeleton appearance="light" />
+  <Story name="Dark mode">
+    <div style={{ backgroundColor: "black" }}>
+      <IcSkeleton variant="circle" height="20" theme="dark" />
+      <div style={{ height: "8px" }}></div>
+      <IcTypography variant="caption">
+        <IcSkeleton variant="text" theme="dark" />
+      </IcTypography>
+      <div style={{ height: "8px" }}></div>
+      <IcSkeleton theme="dark" />
+    </div>
   </Story>
 </Canvas>
 
 ### Playground
 
 export const defaultArgs = {
-  appearance: "default",
+  theme: "inherit",
   variant: "rectangle",
 };
 
@@ -130,8 +132,8 @@ export const defaultArgs = {
     args={defaultArgs}
     parameters={{ loki: { skip: true } }}
     argTypes={{
-      appearance: {
-        options: ["default", "light"],
+      theme: {
+        options: ["inherit", "light", "dark"],
         control: {
           type: "inline-radio",
         },
@@ -148,7 +150,7 @@ export const defaultArgs = {
     {(args) => (
       <div>
         <IcSkeleton
-          appearance={args.appearance}
+          theme={args.theme}
           variant={args.variant}
           style={{ height: args.variant == "circle" ? "20px" : "", width: args.variant == "circle" ? "20px" : "" }}
         ></IcSkeleton>

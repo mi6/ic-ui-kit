@@ -155,6 +155,10 @@ ic-theme,
   --ic-link-icon-launch-monochrome: var(--ic-color-text-primary);
   --ic-link-icon-launch-visited-monochrome: var(--ic-color-text-secondary);
 
+  /* Skeleton */
+  --ic-skeleton-background: var(--ic-architectural-100);
+  --ic-skeleton-background-secondary: var(--ic-architectural-200);
+
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-text-inverse);
   --ic-status-tag-text-inverted: var(--ic-color-text-primary);
@@ -301,6 +305,19 @@ ic-theme,
     --ic-breadcrumb-text: var(--ic-color-text-primary);
     --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
 
+    /* Chips */
+    --ic-chip-label: var(--ic-color-text-primary-dark);
+    --ic-chip-label-inactive: var(--ic-color-text-inactive);
+    --ic-chip-icon: var(--ic-color-icon-inverted);
+    --ic-chip-icon-inactive: var(--ic-color-icon-chevron);
+    --ic-chip-outline: var(--ic-color-text-primary-dark);
+    --ic-chip-outline-inactive: var(--ic-color-border-neutral-white);
+    --ic-chip-outline-background: var(--ic-color-background-primary-dark);
+    --ic-chip-background-filled-default: var(--ic-state-layer-neutral-darker);
+    --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-darker);
+    --ic-chip-action-hover: var(--ic-action-light-bg-hover);
+    --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
+
     /* Data list */
     --ic-data-list-text-cell: var(--ic-color-text-primary);
     --ic-data-list-text-heading: var(--ic-color-text-primary);
@@ -333,18 +350,9 @@ ic-theme,
       --ic-color-hyperlink-visited-monochrome-dark
     );
 
-    /* Chips */
-    --ic-chip-label: var(--ic-color-text-primary-dark);
-    --ic-chip-label-inactive: var(--ic-color-text-inactive);
-    --ic-chip-icon: var(--ic-color-icon-inverted);
-    --ic-chip-icon-inactive: var(--ic-color-icon-chevron);
-    --ic-chip-outline: var(--ic-color-text-primary-dark);
-    --ic-chip-outline-inactive: var(--ic-color-border-neutral-white);
-    --ic-chip-outline-background: var(--ic-color-background-primary-dark);
-    --ic-chip-background-filled-default: var(--ic-state-layer-neutral-darker);
-    --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-darker);
-    --ic-chip-action-hover: var(--ic-action-light-bg-hover);
-    --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
+    /* Skeleton */
+    --ic-skeleton-background: var(--ic-architectural-400);
+    --ic-skeleton-background-secondary: var(--ic-architectural-600);
 
     /* Status tags */
     --ic-status-tag-text: var(--ic-color-text-inverse);
@@ -494,6 +502,19 @@ ic-theme,
   --ic-breadcrumb-text: var(--ic-color-text-primary);
   --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
 
+  /* Chips */
+  --ic-chip-label: var(--ic-color-text-primary-dark);
+  --ic-chip-label-inactive: var(--ic-color-text-inactive);
+  --ic-chip-icon: var(--ic-color-icon-inverted);
+  --ic-chip-icon-inactive: var(--ic-color-icon-chevron);
+  --ic-chip-outline: var(--ic-color-text-primary-dark);
+  --ic-chip-outline-inactive: var(--ic-color-border-neutral-white);
+  --ic-chip-outline-background: var(--ic-color-background-primary-dark);
+  --ic-chip-background-filled-default: var(--ic-state-layer-neutral-darker);
+  --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-darker);
+  --ic-chip-action-hover: var(--ic-action-light-bg-hover);
+  --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
+
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
   --ic-data-list-text-heading: var(--ic-color-text-primary);
@@ -526,18 +547,9 @@ ic-theme,
     --ic-color-hyperlink-visited-monochrome-dark
   );
 
-  /* Chips */
-  --ic-chip-label: var(--ic-color-text-primary-dark);
-  --ic-chip-label-inactive: var(--ic-color-text-inactive);
-  --ic-chip-icon: var(--ic-color-icon-inverted);
-  --ic-chip-icon-inactive: var(--ic-color-icon-chevron);
-  --ic-chip-outline: var(--ic-color-text-primary-dark);
-  --ic-chip-outline-inactive: var(--ic-color-border-neutral-white);
-  --ic-chip-outline-background: var(--ic-color-background-primary-dark);
-  --ic-chip-background-filled-default: var(--ic-state-layer-neutral-darker);
-  --ic-chip-background-filled-inactive: var(--ic-state-layer-neutral-darker);
-  --ic-chip-action-hover: var(--ic-action-light-bg-hover);
-  --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
+  /* Skeleton */
+  --ic-skeleton-background: var(--ic-architectural-400);
+  --ic-skeleton-background-secondary: var(--ic-architectural-600);
 
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-text-inverse);
