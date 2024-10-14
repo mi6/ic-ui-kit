@@ -1,7 +1,7 @@
 {
   "total": 658,
-  "totalPassed": 647,
-  "totalFailed": 11,
+  "totalPassed": 648,
+  "totalFailed": 10,
   "totalSuites": 36,
   "suites": [
     {
@@ -3328,14 +3328,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx-determinate-circular-with-desc-no-label.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcLoadingIndicator.cy.tsx-determinate-circular-with-inner-label",
-          "percentage": 0.03741657386773942,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx-determinate-circular-with-inner-label.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcLoadingIndicator.cy.tsx-determinate-circular-with-inner-label.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx-determinate-circular-with-inner-label.png"
         },
         {
@@ -3490,7 +3490,7 @@
         {
           "status": "fail",
           "name": "IcPageHeader.cy.tsx-with-action-input-step",
-          "percentage": 0.08369072786775415,
+          "percentage": 0.012649110640673518,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPageHeader/IcPageHeader.cy.tsx",
           "specFilename": "IcPageHeader.cy.tsx",
@@ -5568,7 +5568,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx-compact",
-          "percentage": 0.021830311495716227,
+          "percentage": 0.009581068572972432,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -5579,7 +5579,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx-custom-compact",
-          "percentage": 0.03617449032121946,
+          "percentage": 0.031560952932381495,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -5590,7 +5590,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx-full-width",
-          "percentage": 0.08171740558167519,
+          "percentage": 0.048492911853177056,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -5601,7 +5601,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx-left-aligned",
-          "percentage": 0.06737256489105932,
+          "percentage": 0.017732826198888885,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -5612,7 +5612,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx-custom-connector-width",
-          "percentage": 0.09019293556038632,
+          "percentage": 0.04014135180832853,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -5623,7 +5623,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx-without-step-titles",
-          "percentage": 0.08147804535578894,
+          "percentage": 0.005229125165837972,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -5634,7 +5634,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx-with-hidden-step-information",
-          "percentage": 0.0670820393249937,
+          "percentage": 0.007781187248742958,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -5645,7 +5645,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx-light",
-          "percentage": 0.01991191540259249,
+          "percentage": 0.019515618744994995,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -5656,7 +5656,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx-small-connector-width",
-          "percentage": 0.0890816865298362,
+          "percentage": 0.04014135180832853,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -7459,9 +7459,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-14T07:13:05.008Z",
-  "endedAt": "2024-10-14T07:29:05.513Z",
-  "duration": 868035,
+  "startedAt": "2024-10-14T07:34:12.365Z",
+  "endedAt": "2024-10-14T07:48:08.007Z",
+  "duration": 757895,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
