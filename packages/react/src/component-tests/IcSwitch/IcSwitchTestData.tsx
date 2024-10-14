@@ -43,7 +43,14 @@ export const Uncontrolled = () => {
 export const Default = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSwitch label="Label" />
+      <IcSwitch
+        label="Label"
+        onIcChange={(ev) =>
+          console.log({
+            checked: ev.detail.checked,
+          })
+        }
+      />
     </div>
   );
 };
@@ -116,5 +123,26 @@ export const HiddenLabel = () => {
     <div style={{ padding: "10px" }}>
       <IcSwitch label="Label" hideLabel />
     </div>
+  );
+};
+
+export const InAForm = () => {
+  const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+    const formElement = ev.currentTarget;
+    const formData = new FormData(formElement);
+
+    formData.forEach((value, key) => {
+      console.log(`Form data: ${key} = ${value}`);
+    });
+  };
+  return (
+    <form onSubmit={(ev) => handleSubmit(ev)} id="form">
+      <IcSwitch id="switch" label="Label" name="test-name"></IcSwitch>
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
   );
 };
