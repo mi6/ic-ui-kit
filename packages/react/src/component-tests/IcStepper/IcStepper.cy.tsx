@@ -15,11 +15,19 @@ import {
   SmallConnectorWidth,
 } from "./IcStepperTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+import {
+  BE_VISIBLE,
+  HAVE_ATTR,
+  HAVE_CSS,
+  HAVE_LENGTH,
+  HAVE_TEXT,
+  NOT_BE_VISIBLE,
+} from "../utils/constants";
 
 const STEPPER_SELECTOR = "ic-stepper";
 const DEFAULT_TEST_THRESHOLD = 0.007;
 
-describe("IcStepper visual regression and a11y tests", () => {
+describe("IcStepper end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.viewport(1024, 500);
     cy.injectAxe();
@@ -33,6 +41,8 @@ describe("IcStepper visual regression and a11y tests", () => {
     mount(<Compact />);
 
     cy.checkHydrated(STEPPER_SELECTOR);
+    cy.get("ic-step[step-type='current']").should(BE_VISIBLE);
+    cy.get("ic-step:not([step-type='current'])").should(NOT_BE_VISIBLE);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -57,6 +67,16 @@ describe("IcStepper visual regression and a11y tests", () => {
     mount(<FullWidth />);
 
     cy.checkHydrated(STEPPER_SELECTOR);
+    cy.get("ic-step").should(HAVE_LENGTH, 4);
+    cy.findShadowEl("ic-step", ".step-connect").should(HAVE_LENGTH, 3);
+
+    cy.findShadowEl("ic-step", ".step-icon-inner")
+      .eq(0)
+      .find(".check-icon")
+      .should(BE_VISIBLE);
+    cy.findShadowEl("ic-step", ".step-icon-inner").eq(1).should(HAVE_TEXT, "2");
+    cy.findShadowEl("ic-step", ".step-icon-inner").eq(2).should(HAVE_TEXT, "3");
+    cy.findShadowEl("ic-step", ".step-icon-inner").eq(3).should(HAVE_TEXT, "4");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -135,6 +155,12 @@ describe("IcStepper visual regression and a11y tests", () => {
     mount(<SmallConnectorWidth />);
 
     cy.checkHydrated(STEPPER_SELECTOR);
+    cy.get(STEPPER_SELECTOR).should(HAVE_ATTR, "connector-width", "80");
+    cy.findShadowEl("ic-step", ".step-connect").should(
+      HAVE_CSS,
+      "width",
+      "100px"
+    );
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({

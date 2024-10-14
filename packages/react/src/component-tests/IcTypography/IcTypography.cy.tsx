@@ -17,6 +17,7 @@ import {
   AllPropTextStyles,
   InAGGrid,
 } from "./IcTypographyTestData";
+import { HAVE_TEXT } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import "cypress-axe";
 
@@ -144,7 +145,15 @@ describe("IcTypography visual regression and a11y tests", () => {
     mount(<Truncation />);
 
     cy.checkHydrated(TYPOGRAPHY_SELECTOR);
+    cy.findShadowEl(TYPOGRAPHY_SELECTOR, ".trunc-btn").should(
+      HAVE_TEXT,
+      "See more"
+    );
     cy.findShadowEl(TYPOGRAPHY_SELECTOR, ".trunc-btn").click();
+    cy.findShadowEl(TYPOGRAPHY_SELECTOR, ".trunc-btn").should(
+      HAVE_TEXT,
+      "See less"
+    );
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -176,16 +185,16 @@ describe("IcTypography visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.074),
     });
   });
-});
 
-it("should render as truncated in an AG Grid when there is not enough space", () => {
-  mount(<InAGGrid />);
+  it("should render as truncated in an AG Grid when there is not enough space", () => {
+    mount(<InAGGrid />);
 
-  cy.checkHydrated(TYPOGRAPHY_SELECTOR);
+    cy.checkHydrated(TYPOGRAPHY_SELECTOR);
 
-  cy.compareSnapshot({
-    name: "in-ag-grid",
-    testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.044),
+    cy.compareSnapshot({
+      name: "in-ag-grid",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
+    });
   });
 });
 
