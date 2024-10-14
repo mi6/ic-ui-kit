@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Meta,
   Story,
@@ -14,6 +14,7 @@ import {
   IcButton,
   IcBadge
 } from "../components";
+import { SlottedSVG } from "../react-component-lib/slottedSVG";
 import readme from "../../../web-components/src/components/ic-tab-context/readme.md";
 import TabContextReadme from "../../../web-components/src/components/ic-tab-context/readme.md";
 import TabReadme from "../../../web-components/src/components/ic-tab/readme.md";
@@ -295,6 +296,88 @@ export const ControlledTabsExample = () => {
       <IcTabPanel>Tab Eight</IcTabPanel>
       <IcTabPanel>Tab Nine</IcTabPanel>
     </IcTabContext>
+  </Story>
+</Canvas>
+
+export const DynamicRender = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setData([
+        { label: 'Ingredients' },
+        { label: 'Method' },
+        { label: 'History' },
+      ]);
+    }, 3000);
+  }, []);
+
+  const createRandomLabel = () => {
+  const chars = "abcdefghijklmnopqrstuvwxyz";
+  let result = "";
+  for (let i = 0; i < 3; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
+
+  const addTab = () => {
+    setData([...data, { label: createRandomLabel() }]);
+  };
+
+  const removeTab = () => {
+    data.pop();
+    setData([...data]);
+  };
+
+  return (
+    <div className="wrapper">
+      <IcButton onClick={addTab}>Add Tab</IcButton>
+      <IcButton onClick={removeTab}>Remove Tab</IcButton>
+      <IcTabContext
+        onIcTabSelect={(ev) =>
+          console.log({
+            tabIndex: ev.detail.tabIndex,
+            tabLabel: ev.detail.tabLabel,
+          })
+        }
+      >
+        <IcTabGroup label="Example tab group">
+          {data.map((item, i) => (
+            <IcTab key={`${item.label}-${i}`}>
+              {i === 2 && (
+                <SlottedSVG
+                  slot="icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  fill="#000000"
+                >
+                  <path d="M9,21V22H7V21A2,2 0 0,1 5,19V4A2,2 0 0,1 7,2H17A2,2 0 0,1 19,4V19A2,2 0 0,1 17,21V22H15V21H9M7,4V9H17V4H7M7,19H17V11H7V19M8,12H10V15H8V12M8,6H10V8H8V6Z" />
+                </SlottedSVG>
+              )}
+              {item.label}
+            </IcTab>
+          ))}
+        </IcTabGroup>
+        <span></span>
+        {data.map((item, i) => (
+          <IcTabPanel key={`${item.label}-${i}`}>
+            <p>Tab {i} - {item.label}</p>
+          </IcTabPanel>
+        ))}
+      </IcTabContext>
+    </div>
+  );
+};
+
+### Dynamic rendering
+
+<Canvas>
+  <Story name="Dynamic rendering">
+    <DynamicRender />
   </Story>
 </Canvas>
 
