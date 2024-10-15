@@ -155,6 +155,14 @@ ic-theme,
   --ic-link-icon-launch-monochrome: var(--ic-color-text-primary);
   --ic-link-icon-launch-visited-monochrome: var(--ic-color-text-secondary);
 
+  /* Loading indicator */
+  --ic-loading-indicator-inner-color: var(--ic-status-info-default);
+  --ic-loading-indicator-outer-color: var(--ic-action-neutral);
+  --ic-loading-indicator-label-color: var(--ic-color-text-primary);
+  --ic-loading-indicator-inner-color-monochrome: var(--ic-action-neutral-dark);
+  --ic-loading-indicator-outer-color-monochrome: var(--ic-action-light);
+  --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
+
   /* Skeleton */
   --ic-skeleton-background: var(--ic-architectural-100);
   --ic-skeleton-background-secondary: var(--ic-architectural-200);
@@ -392,6 +400,16 @@ ic-theme,
     --ic-link-icon-launch-visited-monochrome: var(
       --ic-color-hyperlink-visited-monochrome-dark
     );
+
+    /* Loading indicator */
+    --ic-loading-indicator-inner-color: var(--ic-action-default);
+    --ic-loading-indicator-outer-color: var(--ic-action-neutral-light);
+    --ic-loading-indicator-label-color: var(--ic-color-text-primary);
+    --ic-loading-indicator-inner-color-monochrome: var(--ic-action-light);
+    --ic-loading-indicator-outer-color-monochrome: var(
+      --ic-action-neutral-dark
+    );
+    --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
 
     /* Skeleton */
     --ic-skeleton-background: var(--ic-architectural-400);
@@ -632,6 +650,14 @@ ic-theme,
   --ic-link-icon-launch-visited-monochrome: var(
     --ic-color-hyperlink-visited-monochrome-dark
   );
+
+  /* Loading indicator */
+  --ic-loading-indicator-inner-color: var(--ic-action-default);
+  --ic-loading-indicator-outer-color: var(--ic-action-neutral-light);
+  --ic-loading-indicator-label-color: var(--ic-color-text-primary);
+  --ic-loading-indicator-inner-color-monochrome: var(--ic-action-light);
+  --ic-loading-indicator-outer-color-monochrome: var(--ic-action-neutral-dark);
+  --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
 
   /* Skeleton */
   --ic-skeleton-background: var(--ic-architectural-400);

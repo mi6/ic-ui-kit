@@ -498,6 +498,11 @@ export class Button {
     }
 
     const ButtonContent = () => {
+      const darkAppearance =
+        this.variant.includes("primary") ||
+        this.variant.includes("destructive") ||
+        this.appearance === IcThemeForegroundEnum.Dark ||
+        this.appearance === IcThemeForegroundEnum.Light;
       return (
         <TagType
           class="button"
@@ -529,14 +534,8 @@ export class Button {
             <div class="loading-container">
               <ic-loading-indicator
                 type="linear"
-                appearance={
-                  this.variant === "primary" ||
-                  this.variant === "destructive" ||
-                  this.appearance === IcThemeForegroundEnum.Dark ||
-                  this.appearance === IcThemeForegroundEnum.Light
-                    ? "light"
-                    : "dark"
-                }
+                monochrome={darkAppearance}
+                theme={darkAppearance ? "dark" : "light"}
               ></ic-loading-indicator>
             </div>
           ) : (

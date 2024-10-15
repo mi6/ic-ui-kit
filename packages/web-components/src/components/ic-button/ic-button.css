@@ -320,12 +320,6 @@
   background: var(--button-default-active);
 }
 
-:host(.ic-button-variant-icon-primary.ic-button-loading)
-  .button
-  ic-loading-indicator {
-  --inner-color: var(--ic-architectural-white);
-}
-
 :host(.ic-button-variant-icon-primary.ic-button-disabled) .button,
 :host(.ic-button-variant-icon-primary.ic-button-disabled) ::slotted(a) {
   color: var(--ic-architectural-300);
@@ -488,12 +482,6 @@
   background-color: var(--ic-action-destructive-pressed);
 }
 
-:host(.ic-button-variant-icon-destructive.ic-button-loading)
-  .button
-  ic-loading-indicator {
-  --inner-color: var(--ic-architectural-white);
-}
-
 :host(.ic-button-variant-icon-destructive.ic-button-disabled) .button,
 :host(.ic-button-variant-icon-destructive.ic-button-disabled) .button:hover,
 :host(.ic-button-variant-icon-destructive.ic-button-disabled) .button:active,
@@ -585,6 +573,10 @@ div.loading-container {
 
 ic-loading-indicator {
   --outer-color: transparent;
+}
+
+ic-loading-indicator.ic-theme-dark.ic-loading-indicator-monochrome {
+  --inner-color: var(--ic-action-light);
 }
 
 @keyframes loading-animation {

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 import { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -33,7 +33,7 @@ import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 import { Options } from "@popperjs/core";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -932,10 +932,6 @@ export namespace Components {
     }
     interface IcLoadingIndicator {
         /**
-          * The appearance of the loading indicator, e.g. dark or light.
-         */
-        "appearance"?: IcThemeForegroundNoDefault;
-        /**
           * The description that will be set as the aria-label of the loading indicator when not using a visible label.
          */
         "description"?: string;
@@ -961,6 +957,10 @@ export namespace Components {
          */
         "min"?: number;
         /**
+          * If `true`, the element will display as black and white.
+         */
+        "monochrome"?: boolean;
+        /**
           * The current amount of progress made. If not provided, component acts as an indeterminate loading indicator.
          */
         "progress"?: number;
@@ -968,6 +968,10 @@ export namespace Components {
           * The size of the loading indicator.
          */
         "size"?: IcLoadingSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
         /**
           * The type of indicator, either linear or circular.
          */
@@ -4121,10 +4125,6 @@ declare namespace LocalJSX {
     }
     interface IcLoadingIndicator {
         /**
-          * The appearance of the loading indicator, e.g. dark or light.
-         */
-        "appearance"?: IcThemeForegroundNoDefault;
-        /**
           * The description that will be set as the aria-label of the loading indicator when not using a visible label.
          */
         "description"?: string;
@@ -4150,6 +4150,10 @@ declare namespace LocalJSX {
          */
         "min"?: number;
         /**
+          * If `true`, the element will display as black and white.
+         */
+        "monochrome"?: boolean;
+        /**
           * The current amount of progress made. If not provided, component acts as an indeterminate loading indicator.
          */
         "progress"?: number;
@@ -4157,6 +4161,10 @@ declare namespace LocalJSX {
           * The size of the loading indicator.
          */
         "size"?: IcLoadingSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The type of indicator, either linear or circular.
          */

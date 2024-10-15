@@ -129,6 +129,11 @@ ic-button {
   padding: var(--ic-space-xs);
 }
 
+ic-loading-indicator {
+  --outer-color: transparent;
+  --inner-color: var(--ic-action-light);
+}
+
 .toast-dismiss-timer {
   padding: var(--ic-space-sm);
 }
