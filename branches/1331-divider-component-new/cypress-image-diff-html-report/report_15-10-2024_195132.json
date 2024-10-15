@@ -1,6 +1,6 @@
 {
-  "total": 663,
-  "totalPassed": 649,
+  "total": 667,
+  "totalPassed": 653,
   "totalFailed": 14,
   "totalSuites": 37,
   "suites": [
@@ -4068,17 +4068,6 @@
       "tests": [
         {
           "status": "pass",
-          "name": "IcPopoverMenu.cy.tsx-default-after-click-button",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
-          "specFilename": "IcPopoverMenu.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx-default-after-click-button.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-default-after-click-button.png"
-        },
-        {
-          "status": "pass",
           "name": "IcPopoverMenu.cy.tsx-description",
           "percentage": 0,
           "failureThreshold": 0,
@@ -4153,6 +4142,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx-submenu-focused.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-submenu-focused.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx-default-after-click-button",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx-default-after-click-button.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-default-after-click-button.png"
         },
         {
           "status": "pass",
@@ -4239,14 +4239,14 @@
         },
         {
           "status": "pass",
-          "name": "IcRadio.cy.tsx-disabled",
+          "name": "IcRadio.cy.tsx-disabled-options",
           "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-disabled.png",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-disabled-options.png",
           "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-disabled.png"
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-disabled-options.png"
         },
         {
           "status": "pass",
@@ -4357,6 +4357,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-second-selected.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-second-selected.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcRadio.cy.tsx-conditional-dynamic-text",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
+          "specFilename": "IcRadio.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-text.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-text.png"
         },
         {
           "status": "pass",
@@ -4506,6 +4517,39 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-long-option-label.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-long-option-label.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSearchBar.cy.tsx-search-submit-tooltip",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
+          "specFilename": "IcSearchBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-search-submit-tooltip.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-search-submit-tooltip.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSearchBar.cy.tsx-readonly",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
+          "specFilename": "IcSearchBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-readonly.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-readonly.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSearchBar.cy.tsx-spellcheck",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
+          "specFilename": "IcSearchBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-spellcheck.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-spellcheck.png"
         },
         {
           "status": "pass",
@@ -5430,7 +5474,7 @@
         {
           "status": "fail",
           "name": "IcSideNavigation.cy.tsx-slotted-app-title-open-desktop",
-          "percentage": 0.5097247248285619,
+          "percentage": 0.002556120398852314,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
@@ -7520,9 +7564,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-14T08:50:39.895Z",
-  "endedAt": "2024-10-14T09:05:37.442Z",
-  "duration": 818011,
+  "startedAt": "2024-10-15T19:51:32.924Z",
+  "endedAt": "2024-10-15T20:07:04.040Z",
+  "duration": 851974,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
