@@ -15,20 +15,17 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Description markdown={readme} />
 
 export const defaultArgs = {
-  appearance: "dark",
   description: "Loading",
   fullWidth: false,
   labelDuration: 8000,
   size: "medium",
   type: "circular",
   label: [],
+  theme: "inherit",
+  monochrome: false,
 };
 
 export const defaultArgTypes = {
-  appearance: {
-    options: ["dark", "light"],
-    control: { type: "radio" },
-  },
   label: {
     control: { type: "text" },
   },
@@ -39,6 +36,10 @@ export const defaultArgTypes = {
   type: {
     options: ["circular", "linear"],
     control: { type: "radio" },
+  },
+  theme: {
+    options: ["inherit", "light", "dark"],
+    control: { type: "inline-radio" },
   },
   label: {
     control: { type: "array" },
@@ -223,9 +224,9 @@ export const defaultArgTypes = {
 <Canvas>
   <Story name="Circular dark" parameters={{ backgrounds: { default: "dark" } }}>
     <div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator label="Small" size="small" dark />
-      <IcLoadingIndicator label="Default" dark />
-      <IcLoadingIndicator label="Large" size="large" dark />
+      <IcLoadingIndicator label="Small" size="small" theme="dark" />
+      <IcLoadingIndicator label="Default" theme="dark" />
+      <IcLoadingIndicator label="Large" size="large" theme="dark" />
     </div>
   </Story>
 </Canvas>
@@ -237,7 +238,7 @@ export const defaultArgTypes = {
     name="Icon dark (circular)"
     parameters={{ backgrounds: { default: "dark" } }}
   >
-    <IcLoadingIndicator size="icon" dark />
+    <IcLoadingIndicator size="icon" theme="dark" />
   </Story>
 </Canvas>
 
@@ -246,14 +247,61 @@ export const defaultArgTypes = {
 <Canvas>
   <Story name="Linear dark" parameters={{ backgrounds: { default: "dark" } }}>
     <div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator label="Default" type="linear" dark />
-      <IcLoadingIndicator label="Large" size="large" type="linear" dark />
+      <IcLoadingIndicator label="Default" type="linear" theme="dark" />
+      <IcLoadingIndicator label="Large" size="large" type="linear" theme="dark" />
       <IcLoadingIndicator
         label="Full-width"
         type="linear"
         fullWidth={true}
-        dark
+        theme="dark"
       />
+    </div>
+  </Story>
+</Canvas>
+
+### Monochrome
+
+<Canvas>
+  <Story
+    name="Monochrome"
+    parameters={{ loki: { skip: true } }}
+  >
+    <div style={{ display: "grid", gap: "50px" }}>
+      <IcLoadingIndicator
+        label="Light"
+        monochrome
+      ></IcLoadingIndicator>
+      <div style={{ backgroundColor: "black" }}>
+        <IcLoadingIndicator
+          label="Dark"
+          theme="dark"
+          monochrome
+        ></IcLoadingIndicator>
+      </div>
+      <IcLoadingIndicator
+        size="icon"
+        monochrome
+      ></IcLoadingIndicator>
+      <div style={{ backgroundColor: "black", display: "flex", justifyContent: "center" }}>
+        <IcLoadingIndicator
+          size="icon"
+          theme="dark"
+          monochrome
+        ></IcLoadingIndicator>
+      </div>
+      <IcLoadingIndicator
+        label="Light"
+        type="linear"
+        monochrome
+      ></IcLoadingIndicator>
+      <div style={{ backgroundColor: "black", padding: "var(--ic-space-xs)" }}>
+        <IcLoadingIndicator
+          label="Dark"
+          type="linear"
+          theme="dark"
+          monochrome
+        ></IcLoadingIndicator>
+      </div>
     </div>
   </Story>
 </Canvas>
@@ -305,9 +353,10 @@ export const defaultArgTypes = {
     argTypes={defaultArgTypes}
   >
     {(args) => (
-        <div style={{ backgroundColor: args.appearance === "light" ? "#393939" : "#FFFFFF", padding: "16px" }}>
+        <div style={{ backgroundColor: args.theme === "dark" ? "#393939" : "#FFFFFF", padding: "16px" }}>
           <IcLoadingIndicator
-            appearance={args.appearance}
+            monochrome={args.monochrome}
+            theme={args.theme}
             description={args.description}
             fullWidth={args.fullWidth}
             labelDuration={args.labelDuration}
@@ -333,9 +382,10 @@ export const defaultArgTypes = {
     argTypes={defaultArgTypes}
   >
     {(args) => (
-        <div style={{ backgroundColor: args.appearance === "light" ? "#393939" : "#FFFFFF", padding: "16px" }}>
+        <div style={{ backgroundColor: args.theme === "dark" ? "#393939" : "#FFFFFF", padding: "16px" }}>
           <IcLoadingIndicator
-            appearance={args.appearance}
+            monochrome={args.monochrome}
+            theme={args.theme}
             description={args.description}
             fullWidth={args.fullWidth}
             labelDuration={args.labelDuration}
