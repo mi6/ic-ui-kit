@@ -195,16 +195,22 @@ export class RadioGroup {
         totalWidth = 0;
       }
 
-      if (
-        this.currentOrientation === this.RADIO_HORIZONTAL &&
-        totalWidth > this.radioContainer.clientWidth
-      ) {
-        this.currentOrientation = this.RADIO_VERTICAL;
-      } else if (
-        this.currentOrientation === this.RADIO_VERTICAL &&
-        totalWidth < this.radioContainer.clientWidth
-      ) {
-        this.currentOrientation = this.RADIO_HORIZONTAL;
+      if (this.initialOrientation == this.RADIO_HORIZONTAL) {
+        if (
+          this.radioOptions !== undefined &&
+          (this.radioOptions.length > 2 ||
+            (this.radioOptions.length === 2 &&
+              (slotHasContent(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
+                slotHasContent(this.radioOptions[1], this.ADDITIONAL_FIELD))))
+        ) {
+          this.currentOrientation = this.RADIO_VERTICAL;
+        } else {
+          if (totalWidth >= this.radioContainer?.clientWidth) {
+            this.currentOrientation = this.RADIO_VERTICAL;
+          } else if (totalWidth < this.radioContainer?.clientWidth) {
+            this.currentOrientation = this.RADIO_HORIZONTAL;
+          }
+        }
       }
     }
   }
