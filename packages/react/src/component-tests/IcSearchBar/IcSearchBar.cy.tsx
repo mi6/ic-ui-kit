@@ -124,7 +124,7 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(NOT_EXIST);
     cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").should(
       HAVE_CLASS,
-      "disabled"
+      "ic-button-disabled"
     );
 
     cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
@@ -595,7 +595,7 @@ describe("IcSearchBar end-to-end tests", () => {
       .type("Ga");
     cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").should(
       HAVE_CLASS,
-      "disabled"
+      "ic-button-disabled"
     );
   });
 
@@ -851,7 +851,7 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.findShadowEl(SEARCH_SELECTOR, "#retry-button").should("exist");
     cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").should(
       HAVE_CLASS,
-      "disabled"
+      "ic-button-disabled"
     );
   });
 
