@@ -45,6 +45,18 @@ ic-loading-indicator {
   top: 20px;
 }
 
+ic-loading-indicator.ic-theme-dark {
+  --inner-color: var(--ic-action-default-dark);
+  --outer-color: var(--ic-action-neutral-light);
+  --label-color: var(--ic-color-text-primary-dark);
+}
+
+ic-loading-indicator.ic-theme-dark.ic-loading-indicator-monochrome {
+  --inner-color: var(--ic-action-light);
+  --outer-color: var(--ic-action-neutral-dark);
+  --label-color: var(--ic-color-text-inverse-dark);
+}
+
 .table-row-container {
   position: relative;
   height: 100%;

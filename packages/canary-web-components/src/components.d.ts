@@ -117,6 +117,7 @@ export namespace Components {
     min?: number;
     progress?: number;
     showBackground?: boolean;
+    monochrome?: boolean;
   };
         /**
           * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
@@ -182,6 +183,7 @@ export namespace Components {
     max?: number;
     min?: number;
     progress?: number;
+    monochrome?: boolean;
   };
         /**
           * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index. If the function returns `null`, that row's height will be set to the `globalRowHeight` property.
@@ -1026,6 +1028,7 @@ declare namespace LocalJSX {
     min?: number;
     progress?: number;
     showBackground?: boolean;
+    monochrome?: boolean;
   };
         /**
           * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
@@ -1095,6 +1098,7 @@ declare namespace LocalJSX {
     max?: number;
     min?: number;
     progress?: number;
+    monochrome?: boolean;
   };
         /**
           * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index. If the function returns `null`, that row's height will be set to the `globalRowHeight` property.
