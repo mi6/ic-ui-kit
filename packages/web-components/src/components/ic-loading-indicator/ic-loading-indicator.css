@@ -8,17 +8,17 @@
   display: block;
 
   --linear-border-radius: 0.25rem;
-  --inner-color: var(--ic-action-default);
-  --outer-color: var(--ic-architectural-100);
-  --label-color: var(--ic-color-text-primary);
+  --inner-color: var(--ic-loading-indicator-inner-color);
+  --outer-color: var(--ic-loading-indicator-outer-color);
+  --label-color: var(--ic-loading-indicator-label-color);
   --margin: none;
   --linear-line-height: var(--ic-space-xs);
 }
 
-:host(.ic-loading-indicator-light) {
-  --inner-color: var(--ic-architectural-white);
-  --outer-color: var(--ic-architectural-800);
-  --label-color: var(--ic-architectural-white);
+:host(.ic-loading-indicator-monochrome) {
+  --inner-color: var(--ic-loading-indicator-inner-color-monochrome);
+  --outer-color: var(--ic-loading-indicator-outer-color-monochrome);
+  --label-color: var(--ic-loading-indicator-label-color-monochrome);
 }
 
 .ic-loading-container {
@@ -171,6 +171,7 @@
   grid-row: 1;
 }
 
+/** ic-stepper **/
 :host(.not-required.compact-step-progress-indicator)
   .ic-loading-circular-svg
   circle:nth-child(2) {
