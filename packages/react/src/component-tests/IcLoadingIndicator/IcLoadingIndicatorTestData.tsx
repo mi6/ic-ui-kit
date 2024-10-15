@@ -94,14 +94,16 @@ export const DeterminateCircularLightLoadingIndSizeSmallDefaultLarge = (args: {
       max={args.max}
       label="Small"
       size="small"
-      appearance="light"
+      theme="dark"
+      monochrome
     />
     <IcLoadingIndicator
       progress={args.progress}
       min={args.min}
       max={args.max}
       label="Default"
-      appearance="light"
+      theme="dark"
+      monochrome
     />
     <IcLoadingIndicator
       progress={args.progress}
@@ -109,7 +111,8 @@ export const DeterminateCircularLightLoadingIndSizeSmallDefaultLarge = (args: {
       max={args.max}
       label="Large"
       size="large"
-      appearance="light"
+      theme="dark"
+      monochrome
     />
   </div>
 );
@@ -125,7 +128,62 @@ export const DeterminateCircularLightLoadingIndIconNoLabel = (args: {
       min={args.min}
       max={args.max}
       size="icon"
-      appearance="light"
+      theme="dark"
+      monochrome
+    />
+  </div>
+);
+
+export const DarkModeColours = (): ReactElement => (
+  <div style={{ display: "grid", gap: "50px", backgroundColor: "#2d2d2d" }}>
+    <IcLoadingIndicator
+      progress={30}
+      min={0}
+      max={100}
+      label="Circular"
+      type="linear"
+      theme="dark"
+    />
+    <IcLoadingIndicator
+      progress={30}
+      min={0}
+      max={100}
+      size="icon"
+      theme="dark"
+    />
+    <IcLoadingIndicator
+      progress={30}
+      min={0}
+      max={100}
+      label="Linear"
+      theme="dark"
+    />
+  </div>
+);
+
+export const LightMonochrome = (): ReactElement => (
+  <div style={{ display: "grid", gap: "50px" }}>
+    <IcLoadingIndicator
+      progress={30}
+      min={0}
+      max={100}
+      label="Circular"
+      type="linear"
+      monochrome
+    />
+    <IcLoadingIndicator
+      progress={30}
+      min={0}
+      max={100}
+      size="icon"
+      monochrome
+    />
+    <IcLoadingIndicator
+      progress={30}
+      min={0}
+      max={100}
+      label="Linear"
+      monochrome
     />
   </div>
 );
@@ -142,7 +200,8 @@ export const DeterminateLinearLightLoadingIndSizeDefaultLargeFull = (args: {
       max={args.max}
       label="Default"
       type="linear"
-      appearance="light"
+      theme="dark"
+      monochrome
     />
     <IcLoadingIndicator
       progress={args.progress}
@@ -151,7 +210,8 @@ export const DeterminateLinearLightLoadingIndSizeDefaultLargeFull = (args: {
       label="Large"
       size="large"
       type="linear"
-      appearance="light"
+      theme="dark"
+      monochrome
     />
     <IcLoadingIndicator
       progress={args.progress}
@@ -160,7 +220,8 @@ export const DeterminateLinearLightLoadingIndSizeDefaultLargeFull = (args: {
       label="Full-width"
       type="linear"
       fullWidth={true}
-      appearance="light"
+      theme="dark"
+      monochrome
     />
   </div>
 );
