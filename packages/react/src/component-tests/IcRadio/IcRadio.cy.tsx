@@ -149,9 +149,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
-    cy.findShadowEl(RADIO_SELECTOR, "input")
-      .eq(0)
-      .should(HAVE_ATTR, "tabindex", 0);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_ATTR, "tabindex", 0);
   });
 
   it("should not be clickable when disabled", () => {
@@ -160,10 +158,10 @@ describe("IcRadio end-to-end tests", () => {
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
 
-    cy.get(RADIO_SELECTOR).eq(1).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
     cy.realPress("ArrowDown");
     cy.get(RADIO_SELECTOR).eq(2).should(HAVE_PROP, "selected", false);
     cy.realPress("ArrowUp");
@@ -176,11 +174,11 @@ describe("IcRadio end-to-end tests", () => {
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", true);
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", false);
     cy.findShadowEl(TEXT_FIELD_SELECTOR, INPUT).type("test");
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "value", "test");
-    cy.get(RADIO_SELECTOR).eq(1).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", true);
   });
 
@@ -192,17 +190,17 @@ describe("IcRadio end-to-end tests", () => {
     cy.get(TEXT_FIELD_SELECTOR).eq(0).should(NOT_BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(1).should(NOT_BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(2).should(NOT_BE_VISIBLE);
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get(TEXT_FIELD_SELECTOR).eq(0).should("be.visible");
     cy.get(TEXT_FIELD_SELECTOR).eq(1).should(NOT_BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(2).should(NOT_BE_VISIBLE);
 
-    cy.get(RADIO_SELECTOR).eq(1).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
     cy.get(TEXT_FIELD_SELECTOR).eq(0).should(NOT_BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(1).should("be.visible");
     cy.get(TEXT_FIELD_SELECTOR).eq(2).should(NOT_BE_VISIBLE);
 
-    cy.get(RADIO_SELECTOR).eq(2).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(2).find(".container").click();
     cy.get(TEXT_FIELD_SELECTOR).eq(0).should(NOT_BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(1).should(NOT_BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(2).should("be.visible");
@@ -223,7 +221,7 @@ describe("IcRadio end-to-end tests", () => {
       cy.stub().as("icCheck")
     );
 
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
 
     cy.get("@icChange").should(HAVE_BEEN_CALLED);
@@ -237,7 +235,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.get(BUTTON).focus();
     cy.realPress("Tab");
-    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_FOCUS);
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
     cy.realPress("Space");
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
@@ -250,7 +248,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.get(BUTTON).focus();
     cy.realPress("Tab");
-    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_FOCUS);
     cy.realPress("ArrowDown");
     cy.get(RADIO_SELECTOR).eq(1).should(HAVE_PROP, "selected", true);
   });
@@ -262,7 +260,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.get(BUTTON).focus();
     cy.realPress("Tab");
-    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_FOCUS);
     cy.realPress("ArrowRight");
     cy.get(RADIO_SELECTOR).eq(1).should(HAVE_PROP, "selected", true);
   });
@@ -274,7 +272,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.get(BUTTON).focus();
     cy.realPress("Tab");
-    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_FOCUS);
     cy.realPress("ArrowUp");
     cy.get(RADIO_SELECTOR).eq(3).should(HAVE_PROP, "selected", true);
   });
@@ -286,7 +284,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.get(BUTTON).focus();
     cy.realPress("Tab");
-    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_FOCUS);
     cy.realPress("ArrowLeft");
     cy.get(RADIO_SELECTOR).eq(3).should(HAVE_PROP, "selected", true);
   });
@@ -298,7 +296,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.get(BUTTON).focus();
     cy.realPress("Tab");
-    cy.get(RADIO_SELECTOR).eq(1).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(1).should(HAVE_FOCUS);
   });
 
   it("should move focus to the dynamically displayed field when tabbing on from the radio group", () => {
@@ -306,7 +304,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
     cy.realPress("Tab");
     cy.get(TEXT_FIELD_SELECTOR).eq(0).should(HAVE_FOCUS);
@@ -317,11 +315,11 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", false);
     cy.realPress("ArrowDown");
-    cy.get(RADIO_SELECTOR).eq(1).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(1).should(HAVE_FOCUS);
   });
 
   it("should pass the value of radio button correctly when already selected", () => {
@@ -347,7 +345,7 @@ describe("IcRadio end-to-end tests", () => {
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
     cy.spy(window.console, "log").as("spyWinConsoleLog");
 
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
     cy.get("input[type='submit']").click();
     cy.get("@spyWinConsoleLog").should(
@@ -361,7 +359,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
 
     cy.get("input[type='reset']").click();
