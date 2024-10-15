@@ -1,6 +1,6 @@
 {
-  "total": 662,
-  "totalPassed": 657,
+  "total": 661,
+  "totalPassed": 656,
   "totalFailed": 5,
   "totalSuites": 36,
   "suites": [
@@ -855,7 +855,7 @@
         {
           "status": "fail",
           "name": "IcButton.cy.tsx-icon-variants-button-group",
-          "percentage": 0.06945502141674136,
+          "percentage": 0.06922427319950712,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
@@ -3304,17 +3304,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx-light-monochrome-colours.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx-light-monochrome-colours.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcLoadingIndicator.cy.tsx-determinate-linears-light-with-3-sizes",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
-          "specFilename": "IcLoadingIndicator.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx-determinate-linears-light-with-3-sizes.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx-determinate-linears-light-with-3-sizes.png"
         },
         {
           "status": "pass",
@@ -7503,9 +7492,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-15T10:01:37.533Z",
-  "endedAt": "2024-10-15T10:21:56.930Z",
-  "duration": 1141860,
+  "startedAt": "2024-10-15T10:43:14.245Z",
+  "endedAt": "2024-10-15T11:03:26.095Z",
+  "duration": 1135146,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
