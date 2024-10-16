@@ -118,6 +118,17 @@ npm link ../path/to/ic-ui-kit/packages/react
 > [!NOTE]
 > Now you can develop and debug faster with `ic-ui-kit` in `ic-design-system`.
 
+## Accessing the version of ui-kit
+
+When using the web-components package, you can import and use the components through react and also with the other targets ic-ui-kit supports. After using the component system either through nextjs, react or web-components, the project exposes the base version of ic-ui-kit on the global window, which is accessed during the runtime (in the browser).
+
+```javascript
+window['IC_UI_KIT_WEB_COMPONENTS_VERSION'] // version
+window['IC_UI_KIT_WEB_COMPONENTS_BUILD_DATE'] // date of last release
+window['IC_UI_KIT_WEB_COMPONENTS_BUILD_HASH'] // unique hash relative to the version
+```
+
+
 ## Contributing
 
 We have a couple of resources to help you with contributing.
