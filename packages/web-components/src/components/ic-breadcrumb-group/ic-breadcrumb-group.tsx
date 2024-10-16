@@ -42,6 +42,10 @@ export class BreadcrumbGroup {
    * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
    */
   @Prop() collapsed: boolean = false;
+  @Watch("collapsed")
+  watchCollapsedHandler(): void {
+    this.setCollapsed();
+  }
 
   /**
    * If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.
@@ -75,15 +79,11 @@ export class BreadcrumbGroup {
       checkResizeObserver(this.runResizeObserver);
     }
 
-    if (this.collapsed) {
-      this.collapsedBreadcrumbWrapper = this.renderCollapsedBreadcrumb();
-
-      if (allBreadcrumbs.length > 2) {
-        if (getCurrentDeviceSize() === DEVICE_SIZES.S) {
-          this.setLastParentCollapsedBackBreadcrumb();
-        } else {
-          this.setCollapsed();
-        }
+    if (this.collapsed && allBreadcrumbs.length > 2) {
+      if (getCurrentDeviceSize() === DEVICE_SIZES.S) {
+        this.setLastParentCollapsedBackBreadcrumb();
+      } else {
+        this.setCollapsed();
       }
     }
   }
@@ -124,7 +124,9 @@ export class BreadcrumbGroup {
 
   private setBackBreadcrumb = () => {
     if (this.backBreadcrumbOnly) {
-      this.setBackBreadcrumbAttr();
+      this.setLastParentCollapsedBackBreadcrumb();
+    } else {
+      this.revertLastParentCollapsedBreadcrumb();
     }
   };
 
@@ -144,10 +146,8 @@ export class BreadcrumbGroup {
       return null;
     }
 
-    this.breadcrumbs = allBreadcrumbs.filter(
-      (breadcrumb) => !breadcrumb.getAttribute("current")
-    );
-    this.breadcrumb = this.breadcrumbs[this.breadcrumbs.length - 1];
+    this.breadcrumbs = allBreadcrumbs;
+    this.breadcrumb = this.breadcrumbs[this.breadcrumbs.length - 2];
 
     return this.breadcrumb;
   };
@@ -164,22 +164,31 @@ export class BreadcrumbGroup {
   };
 
   private setCollapsed = () => {
+    const allBreadcrumbs: HTMLIcBreadcrumbElement[] = Array.from(
+      this.el.querySelectorAll(this.IC_BREADCRUMB)
+    );
+    const firstBreadcrumb = allBreadcrumbs[0];
+    if (this.collapsedBreadcrumbs) {
+      this.collapsedBreadcrumbs.forEach((breadcrumb) => {
+        breadcrumb.classList.remove("visuallyhidden");
+        breadcrumb.classList.remove("fade");
+      });
+    }
+
     if (this.collapsed) {
-      const allBreadcrumbs: HTMLIcBreadcrumbElement[] = Array.from(
-        this.el.querySelectorAll(this.IC_BREADCRUMB)
-      );
+      this.renderCollapsedBreadcrumb();
+
       this.collapsedBreadcrumbs = allBreadcrumbs
         .splice(1, allBreadcrumbs.length - 2)
         .filter(
           (breadcrumb) =>
             !breadcrumb.classList.contains("collapsed-breadcrumb-wrapper")
         );
-
-      this.collapsedBreadcrumbs.forEach((breadcrumb) =>
-        breadcrumb.classList.add("hide")
-      );
-
-      const firstBreadcrumb = allBreadcrumbs[0];
+      if (!this.backBreadcrumbOnly) {
+        this.collapsedBreadcrumbs.forEach((breadcrumb) =>
+          breadcrumb.classList.add("hide")
+        );
+      }
 
       if (firstBreadcrumb) {
         firstBreadcrumb.insertAdjacentElement(
@@ -187,11 +196,13 @@ export class BreadcrumbGroup {
           this.collapsedBreadcrumbWrapper
         );
       }
+    } else {
+      this.collapsedBreadcrumbWrapper.remove();
     }
   };
 
   private clickHandler = () => {
-    this.handleHiddenCollapsedBreadcrumbs(this.collapsedBreadcrumbWrapper);
+    this.handleHiddenCollapsedBreadcrumbs();
   };
 
   private renderCollapsedBreadcrumb = () => {
@@ -231,10 +242,8 @@ export class BreadcrumbGroup {
     return this.collapsedBreadcrumbWrapper;
   };
 
-  private handleHiddenCollapsedBreadcrumbs = (
-    collapsedBreadcrumbWrapper: HTMLIcBreadcrumbElement
-  ) => {
-    collapsedBreadcrumbWrapper.remove();
+  private handleHiddenCollapsedBreadcrumbs = () => {
+    this.collapsedBreadcrumbWrapper.remove();
     this.collapsedBreadcrumbs.forEach((breadcrumb) => {
       breadcrumb.classList.add("visuallyhidden");
       breadcrumb.classList.remove("hide");
@@ -260,12 +269,19 @@ export class BreadcrumbGroup {
   };
 
   private setLastParentCollapsedBackBreadcrumb = () => {
+    this.lastParentBreadcrumb = this.getLastParentBreadcrumb();
     this.setBackBreadcrumbAttr();
-    this.lastParentBreadcrumb.classList.remove("hide");
+    if (this.lastParentBreadcrumb) {
+      this.lastParentBreadcrumb.classList.remove("hide");
+      this.lastParentBreadcrumb.classList.add("show");
+    }
   };
 
   private revertLastParentCollapsedBreadcrumb = () => {
     this.lastParentBreadcrumb.setAttribute(this.SHOW_BACK_ICON, "false");
+    if (this.collapsed) {
+      this.lastParentBreadcrumb.classList.add("hide");
+    }
   };
 
   private resizeObserverCallback = (currSize: number) => {
