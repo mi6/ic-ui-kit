@@ -1,6 +1,6 @@
 {
-  "total": 660,
-  "totalPassed": 659,
+  "total": 661,
+  "totalPassed": 660,
   "totalFailed": 1,
   "totalSuites": 36,
   "suites": [
@@ -5815,6 +5815,17 @@
         },
         {
           "status": "pass",
+          "name": "IcSwitch.cy.tsx-focus",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSwitch/IcSwitch.cy.tsx",
+          "specFilename": "IcSwitch.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSwitch.cy.tsx-focus.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSwitch.cy.tsx-focus.png"
+        },
+        {
+          "status": "pass",
           "name": "IcSwitch.cy.tsx-unchecked-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7481,9 +7492,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-16T10:12:20.948Z",
-  "endedAt": "2024-10-16T10:25:25.862Z",
-  "duration": 709055,
+  "startedAt": "2024-10-16T11:43:36.707Z",
+  "endedAt": "2024-10-16T11:56:21.442Z",
+  "duration": 689726,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
