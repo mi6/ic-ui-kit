@@ -1,0 +1,7 @@
+import { Env } from "@stencil/core";
+
+export default function() {
+    window['IC_UI_KIT_WEB_COMPONENTS_VERSION'] = Env.IC_UI_KIT_WEB_COMPONENTS_VERSION;
+    window['IC_UI_KIT_WEB_COMPONENTS_BUILD_DATE'] = Env.IC_UI_KIT_WEB_COMPONENTS_BUILD_DATE;
+    window['IC_UI_KIT_WEB_COMPONENTS_BUILD_HASH'] = Env.IC_UI_KIT_WEB_COMPONENTS_BUILD_HASH;
+}
