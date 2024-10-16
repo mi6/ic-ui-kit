@@ -1383,6 +1383,10 @@ export namespace Components {
          */
         "anchor": string;
         /**
+          * @param setFocusToAnchor when true return focus to anchor element when menu is closed
+         */
+        "closeMenu": (setFocusToAnchor?: boolean) => Promise<void>;
+        /**
           * If `true`, the popover menu will be displayed.
          */
         "open": boolean;
@@ -2027,9 +2031,6 @@ export namespace Components {
           * @deprecated This is no longer required. The context id is passed down from `ic-tab-context`
          */
         "contextId"?: string;
-        "panelId"?: string;
-        "selectedTab"?: string;
-        "tabPosition"?: number;
     }
     interface IcTextField {
         "ariaActiveDescendant"?: string;
@@ -5465,9 +5466,6 @@ declare namespace LocalJSX {
         "contextId"?: string;
         "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
         "onTabPanelRemoved"?: (event: IcTabPanelCustomEvent<void>) => void;
-        "panelId"?: string;
-        "selectedTab"?: string;
-        "tabPosition"?: number;
     }
     interface IcTextField {
         "ariaActiveDescendant"?: string;

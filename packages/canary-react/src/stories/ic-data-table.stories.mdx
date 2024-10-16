@@ -30,7 +30,7 @@ import {
   COLS_WIDTH
 } from "../../../canary-web-components/src/components/ic-data-table/story-data";
 
-import { mdiAccountGroup, mdiImage } from "@mdi/js";
+import { mdiAccountGroup, mdiImage, mdiDelete } from "@mdi/js";
 
 <Meta
   title="React Components/Data Table"
@@ -1041,11 +1041,12 @@ Custom HTML elements can be slotted or passed via the `data` prop to display in 
           </IcButton>
           <IcButton
             key={`actions2-${index}`}
-            variant="secondary"
+            variant="icon"
             slot={`actions2-${index}`}
-            onClick={() => console.log("Add")}
+            aria-label="Delete row"
+            onClick={() => console.log("Delete")}
           >
-            Add
+            <SlottedSVG path={mdiDelete} viewBox="0 0 24 24" />
           </IcButton>
         </>
       ))}
@@ -1952,7 +1953,7 @@ A table with a `fixed` layout will force the table column widths to take precede
 
 For the column widths to be dictated by the content inside, set the `tableLayout` prop to `auto` and set the table `width` to `auto`.
 
-To set the min and max width of a table cell, set a `minWidth` or `maxWidth` value into `columnWidth`. The min and max width accepts dimensions in `px`, `%`, `rem`.
+To set the min and max width of a table cell, set the `table-layout` attribute to `auto` and set a `minWidth` or `maxWidth` value into `columnWidth`. The min and max width accepts dimensions in `px`, `%`, `rem`.
 
 <Canvas withSource="none">
   <Story name="Table sizing and column width">
@@ -1961,6 +1962,7 @@ To set the min and max width of a table cell, set a `minWidth` or `maxWidth` val
       columns={COLS_WIDTH}
       data={DATA}
       width="800px"
+      tableLayout="auto"
     />
   </Story>
 </Canvas>
@@ -2004,6 +2006,7 @@ const DataTable = () => {
       columns={COLS}
       data={DATA}
       width="800px"
+      tableLayout="auto"
     />
   );
 };

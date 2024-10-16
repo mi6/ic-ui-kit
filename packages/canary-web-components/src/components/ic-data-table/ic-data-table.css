@@ -222,6 +222,10 @@ td.table-density-spacious {
   min-width: var(--column-min-width);
 }
 
+.table-cell.with-overflow {
+  overflow: visible;
+}
+
 .data-type-string,
 .data-type-address {
   text-align: left;
@@ -351,7 +355,7 @@ td.table-density-spacious {
   width: 100%;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 577px) {
   .column-header-inner-container {
     display: flex;
     align-items: center;

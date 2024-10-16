@@ -13,6 +13,7 @@ import {
   IcSectionContainer,
 } from "@ukic/react";
 import { IcPaginationBarOptions } from "@ukic/canary-web-components/src/utils/types";
+import { mdiPlus } from "@mdi/js";
 
 import {
   COLS,
@@ -34,6 +35,7 @@ import {
   LONG_TEXT,
   VERY_LONG_DATA,
   DATA_REACT_ELEMENTS,
+  DATA_REACT_ELEMENTS_WITH_ICONS,
   textWrapCell,
   textWrapColumns,
   textWrapRow,
@@ -3851,17 +3853,25 @@ describe("IcDataTable row deletion", () => {
             </IcButton>
             <IcButton
               key={`actions2-${index}`}
-              variant="secondary"
+              variant="icon"
               slot={`actions2-${index}`}
               onClick={() => nextData.splice(index, 1)}
+              aria-label="Add info"
             >
-              Add
+              <SlottedSVG path={mdiPlus} viewBox="0 0 24 24" />
             </IcButton>
           </>
         ))}
       </IcDataTable>
     );
     cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find("ic-button.button-variant-icon")
+      .eq(0)
+      .shadow()
+      .find("button")
+      .focus();
 
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell",
@@ -3877,6 +3887,44 @@ describe("IcDataTable row deletion", () => {
     cy.get(DATA_TABLE_SELECTOR).find("ic-button").eq(2).click();
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 5);
+  });
+
+  it("should render table correctly when only some rows have an icon in the column", () => {
+    const data = [...DATA_REACT_ELEMENTS_WITH_ICONS];
+    mount(
+      <IcDataTable columns={COLS_ELEMENTS} data={data} caption="Data tables">
+        {data.map((_, index) => (
+          <>
+            <IcButton
+              key={`actions-${index}`}
+              slot={`actions-${index}`}
+              onClick={() => data.splice(index, 1)}
+            >
+              Delete
+            </IcButton>
+            <IcButton
+              key={`actions2-${index}`}
+              variant="icon"
+              slot={`actions2-${index}`}
+              onClick={() => data.splice(index, 1)}
+              aria-label="Add info"
+            >
+              <SlottedSVG path={mdiPlus} viewBox="0 0 24 24" />
+            </IcButton>
+          </>
+        ))}
+      </IcDataTable>
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "icons-only-in-some-rows",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.038),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+      delay: 500,
+    });
   });
 });
 
@@ -4173,17 +4221,25 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
             </IcButton>
             <IcButton
               key={`actions2-${index}`}
-              variant="secondary"
+              variant="icon"
               slot={`actions2-${index}`}
               onClick={() => nextData.splice(index, 1)}
+              aria-label="Add info"
             >
-              Add
+              <SlottedSVG path={mdiPlus} viewBox="0 0 24 24" />
             </IcButton>
           </>
         ))}
       </IcDataTable>
     );
     cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find("ic-button.button-variant-icon")
+      .eq(0)
+      .shadow()
+      .find("button")
+      .focus();
 
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell-high-contrast",

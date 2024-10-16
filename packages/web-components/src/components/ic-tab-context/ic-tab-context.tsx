@@ -21,11 +21,12 @@ import {
   IcTabSelectEventDetail,
 } from "../ic-tab/ic-tab.types";
 
+const CONTEXT_ID_ATTR = "context-id";
+
 @Component({
   tag: "ic-tab-context",
 })
 export class TabContext {
-  private controlledMode: boolean;
   private enabledTabs: HTMLIcTabElement[];
   private focusedTabIndex: number;
   private newTabPanels: HTMLIcTabPanelElement[] = [];
@@ -82,10 +83,12 @@ export class TabContext {
   @Event({ bubbles: false }) tabSelect: EventEmitter<IcTabSelectEventDetail>;
 
   componentDidLoad(): void {
-    this.setControlledMode();
+    if (this.selectedTabIndex !== undefined) {
+      this.selectedTab = this.selectedTabIndex;
+    }
     this.getChildren();
     this.linkTabs();
-    this.attachEventListeners();
+    this.tabGroup.addEventListener("keydown", this.keydownHandler);
     this.setInitialTab();
     this.configureTabs();
   }
@@ -106,20 +109,7 @@ export class TabContext {
     ) {
       this.selectedTab = event.detail.position;
     }
-    /* eslint-disable no-unexpected-multiline */
-    this.icTabSelect.emit({
-      tabIndex: event.detail.position,
-      tabLabel: this.el
-        .querySelectorAll("ic-tab")
-        [event.detail.position].textContent.trim(),
-    });
-    this.tabSelect.emit({
-      tabIndex: event.detail.position,
-      tabLabel: this.el
-        .querySelectorAll("ic-tab")
-        [event.detail.position].textContent.trim(),
-    });
-    /* eslint-enable no-unexpected-multiline */
+    this.emitEvents(event.detail.position);
     event.stopImmediatePropagation();
   }
 
@@ -133,6 +123,9 @@ export class TabContext {
         this.tabPanels.push(...this.newTabPanels);
         this.enabledTabs = this.getEnabledTabs();
         this.linkTabs();
+        if (!this.tabs[this.selectedTab] || !this.tabPanels[this.selectedTab])
+          this.setInitialTab();
+        this.configureTabs();
         this.newTabs = [];
         this.newTabPanels = [];
       }
@@ -150,12 +143,10 @@ export class TabContext {
   @Method()
   async tabRemovedHandler(hadFocus?: boolean): Promise<void> {
     this.getChildren();
-    this.enabledTabs = this.getEnabledTabs();
     this.linkTabs();
     if (this.tabs[this.selectedTab] && this.tabPanels[this.selectedTab]) {
       this.tabs[this.selectedTab].selected = true;
-      this.tabPanels[this.selectedTab].selectedTab =
-        this.tabs[this.selectedTab].tabId;
+      this.tabPanels[this.selectedTab].hidden = false;
     } else {
       this.setInitialTab();
     }
@@ -165,24 +156,29 @@ export class TabContext {
     }
   }
 
-  // Sets attributes to link tab-group, tabs and tab-panels
+  private emitEvents = (tabIndex: number) => {
+    const tabLabel = this.el
+      .querySelectorAll("ic-tab")
+      // eslint-disable-next-line no-unexpected-multiline
+      [tabIndex].textContent.trim();
+    this.icTabSelect.emit({ tabIndex, tabLabel });
+    this.tabSelect.emit({ tabIndex, tabLabel });
+  };
+
+  /** Sets attributes to link tab-group, tabs and tab-panels */
   private linkTabs = () => {
     this.tabs.forEach((tab, index) => {
       const tabId = `ic-tab-${index}-context-${this.contextId}`;
       const tabPanelId = `ic-tab-panel-${index}-context-${this.contextId}`;
-      const shared = `ic-tab--${index}-context-${this.contextId}`;
-      const contextIdAttr = "context-id";
       tab.setAttribute("id", tabId);
-      tab.tabId = shared;
+      tab.tabId = `ic-tab--${index}-context-${this.contextId}`;
       tab.tabPosition = index;
       tab.setAttribute("aria-controls", tabPanelId);
-      tab.setAttribute(contextIdAttr, this.contextId);
-      this.tabGroup.setAttribute(contextIdAttr, this.contextId);
+      tab.setAttribute(CONTEXT_ID_ATTR, this.contextId);
+      this.tabGroup.setAttribute(CONTEXT_ID_ATTR, this.contextId);
       this.tabPanels[index].setAttribute("id", tabPanelId);
-      this.tabPanels[index].panelId = shared;
-      this.tabPanels[index].tabPosition = index;
       this.tabPanels[index].setAttribute("aria-labelledby", tabId);
-      this.tabPanels[index].setAttribute(contextIdAttr, this.contextId);
+      this.tabPanels[index].setAttribute(CONTEXT_ID_ATTR, this.contextId);
 
       if (this.appearance === IcThemeForegroundEnum.Light) {
         tab.appearance = this.appearance;
@@ -195,8 +191,9 @@ export class TabContext {
     }
   };
 
-  // Gets tabs and tabpanels with the same context ID
-  // Using querySelector to selector the children in relation to the host
+  /**
+   * Gets tabs and tabpanels with the same context ID using querySelector to selector the children in relation to the host
+   */
   private getChildren = (): void => {
     this.tabGroup = this.el.querySelector("ic-tab-group");
     this.tabs = Array.from(this.tabGroup.querySelectorAll("ic-tab"));
@@ -207,30 +204,48 @@ export class TabContext {
   };
 
   private keydownHandler = (event: KeyboardEvent) => {
-    if (this.activationType === "automatic") {
-      this.handleKeyBoardNavAutomatic(event);
-    } else {
-      this.handleKeyBoardNavManual(event);
+    const isManual = this.activationType === "manual";
+    const enabledTabIndex = this.enabledTabs.findIndex(
+      (tab) =>
+        tab.tabId ===
+        this.tabs[isManual ? this.focusedTabIndex : this.selectedTab].tabId
+    );
+    const keyboardFunction = isManual
+      ? this.keyboardFocusTab
+      : this.keyboardSelectTab;
+    let preventDefault = true;
+    switch (event.key) {
+      case "Home":
+        keyboardFunction(0);
+        break;
+      case "End":
+        keyboardFunction(this.enabledTabs.length - 1);
+        break;
+      case "ArrowRight":
+        keyboardFunction(
+          enabledTabIndex < this.enabledTabs.length - 1
+            ? enabledTabIndex + 1
+            : 0
+        );
+        break;
+      case "ArrowLeft":
+        keyboardFunction(
+          (enabledTabIndex > 0 ? enabledTabIndex : this.enabledTabs.length) - 1
+        );
+        break;
+      default:
+        if (isManual && (event.key === "Enter" || event.key === " ")) {
+          this.keyboardSelectTab(this.focusedTabIndex);
+        } else {
+          preventDefault = false;
+        }
     }
+    if (preventDefault) event.preventDefault();
   };
 
-  // Determines how keyboard navigation is to be handled based on the activation type
-  private attachEventListeners = (): void => {
-    this.tabGroup.addEventListener("keydown", this.keydownHandler);
-  };
-
-  // Determines whether the selected tab is being controlled within the component
-  // or by the user (via selectedTabIndex and onIcTabSelect)
-  private setControlledMode = (): void => {
-    if (this.selectedTabIndex !== undefined) {
-      this.controlledMode = true;
-      this.selectedTab = this.selectedTabIndex;
-    }
-  };
-
-  // Sets the tab that is selected on initial render
+  /** Sets the tab that is selected on initial render */
   private setInitialTab = (): void => {
-    if (this.controlledMode) {
+    if (this.selectedTabIndex !== undefined) {
       this.selectedTab = this.selectedTabIndex;
       this.focusedTabIndex = this.selectedTabIndex;
     } else {
@@ -242,127 +257,38 @@ export class TabContext {
     }
   };
 
-  // Passes the selected tab to the tab and tab panel components
+  /** Passes the selected tab to the tab and tab panel components */
   private configureTabs = () => {
     this.enabledTabs.forEach((tab) => {
       tab.selected = tab.tabPosition === this.selectedTab;
     });
-    this.tabPanels.forEach((tabPanel) => {
-      tabPanel.selectedTab = this.tabs[this.selectedTab].tabId;
+    this.tabPanels.forEach((tabPanel, index) => {
+      tabPanel.hidden = index !== this.selectedTab;
     });
   };
 
-  private getEnabledTabs = () => {
-    return Array.from(this.tabs).filter((child) => !child.disabled);
-  };
+  private getEnabledTabs = () =>
+    Array.from(this.tabs).filter((child) => !child.disabled);
 
-  private getIndexOfEnabledTab = (allTabsIndex: number) => {
-    return this.enabledTabs.findIndex(
-      (tab) => tab.tabId === this.tabs[allTabsIndex].tabId
-    );
-  };
-
-  // Sets focus on tab and selects it
+  /** Sets focus on tab and selects it */
   private keyboardSelectTab = (enabledTabIndex: number) => {
     const newIndex = this.tabs.findIndex(
       (tab) => tab.tabId === this.enabledTabs[enabledTabIndex].tabId
     );
     this.enabledTabs[enabledTabIndex].focus();
-    if (!this.controlledMode) {
+    if (this.selectedTabIndex === undefined) {
       this.selectedTab = newIndex;
     } else {
-      /* eslint-disable no-unexpected-multiline */
-      this.icTabSelect.emit({
-        tabIndex: newIndex,
-        tabLabel: this.el
-          .querySelectorAll("ic-tab")
-          [newIndex].textContent.trim(),
-      });
-      this.tabSelect.emit({
-        tabIndex: newIndex,
-        tabLabel: this.el
-          .querySelectorAll("ic-tab")
-          [newIndex].textContent.trim(),
-      });
+      this.emitEvents(newIndex);
     }
-    /* eslint-enable no-unexpected-multiline */
   };
 
-  // Sets focus on tab without selecting it (for manual activation)
+  /** Sets focus on tab without selecting it (for manual activation) */
   private keyboardFocusTab = (enabledTabIndex: number) => {
-    const newIndex = this.tabs.findIndex(
+    this.enabledTabs[enabledTabIndex].focus();
+    this.focusedTabIndex = this.tabs.findIndex(
       (tab) => tab.tabId === this.enabledTabs[enabledTabIndex].tabId
     );
-    this.enabledTabs[enabledTabIndex].focus();
-    this.focusedTabIndex = newIndex;
-  };
-
-  private handleKeyBoardNavAutomatic = (event: KeyboardEvent) => {
-    const key = event.key;
-    const enabledTabIndex = this.getIndexOfEnabledTab(this.selectedTab);
-    let preventDefault = true;
-    switch (key) {
-      case "Home":
-        this.keyboardSelectTab(0);
-        break;
-      case "End":
-        this.keyboardSelectTab(this.enabledTabs.length - 1);
-        break;
-      case "ArrowRight":
-        if (enabledTabIndex < this.enabledTabs.length - 1) {
-          this.keyboardSelectTab(enabledTabIndex + 1);
-        } else {
-          this.keyboardSelectTab(0);
-        }
-        break;
-      case "ArrowLeft":
-        if (enabledTabIndex > 0) {
-          this.keyboardSelectTab(enabledTabIndex - 1);
-        } else {
-          this.keyboardSelectTab(this.enabledTabs.length - 1);
-        }
-        break;
-      default:
-        preventDefault = false;
-    }
-    if (preventDefault) event.preventDefault();
-  };
-
-  private handleKeyBoardNavManual = (event: KeyboardEvent) => {
-    const key = event.key;
-    const enabledTabIndex = this.getIndexOfEnabledTab(this.focusedTabIndex);
-    let preventDefault = true;
-    switch (key) {
-      case "Home":
-        this.keyboardFocusTab(0);
-        break;
-      case "End":
-        this.keyboardFocusTab(this.enabledTabs.length - 1);
-        break;
-      case "ArrowRight":
-        if (enabledTabIndex < this.enabledTabs.length - 1) {
-          this.keyboardFocusTab(enabledTabIndex + 1);
-        } else {
-          this.keyboardFocusTab(0);
-        }
-        break;
-      case "ArrowLeft":
-        if (enabledTabIndex > 0) {
-          this.keyboardFocusTab(enabledTabIndex - 1);
-        } else {
-          this.keyboardFocusTab(this.enabledTabs.length - 1);
-        }
-        break;
-      case "Enter":
-        this.keyboardSelectTab(this.focusedTabIndex);
-        break;
-      case " ":
-        this.keyboardSelectTab(this.focusedTabIndex);
-        break;
-      default:
-        preventDefault = false;
-    }
-    if (preventDefault) event.preventDefault();
   };
 
   render() {

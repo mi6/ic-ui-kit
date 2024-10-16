@@ -1220,6 +1220,7 @@ export class DataTable {
             class={{
               ["table-cell"]: true,
               [`table-density-${this.density}`]: this.notDefaultDensity(),
+              ["with-overflow"]: columnProps?.dataType === "element",
             }}
             style={{ ...this.getColumnWidth(columnProps.columnWidth) }}
           >
@@ -1280,10 +1281,11 @@ export class DataTable {
                   {isSlotUsed(this.el, `${cellSlotName}-icon`) ? (
                     <slot name={`${cellSlotName}-icon`} />
                   ) : (
-                    (hasIcon || columnProps?.icon?.onAllCells) && (
+                    (hasIcon || columnProps?.icon?.onAllCells) &&
+                    (cellValue("icon") || columnProps?.icon?.icon) && (
                       <span
                         class="icon"
-                        innerHTML={cellValue("icon") || columnProps?.icon.icon}
+                        innerHTML={cellValue("icon") || columnProps?.icon?.icon}
                       ></span>
                     )
                   )}
