@@ -18,7 +18,12 @@ import {
   getNavItemParentDetails,
   isSlotUsed,
 } from "../../utils/helpers";
-import { IcNavType, IcTheme } from "../../utils/types";
+import {
+  IcNavType,
+  IcTheme,
+  IcThemeForeground,
+  IcThemeForegroundNoDefault,
+} from "../../utils/types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
 
@@ -46,7 +51,8 @@ export class NavigationItem {
   @Element() el: HTMLIcNavigationItemElement;
 
   @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() focusStyle = getThemeForegroundColor();
+  @State() focusStyle: IcThemeForegroundNoDefault | IcThemeForeground =
+    getThemeForegroundColor();
   @State() inTopNavSideMenu: boolean = false;
   @State() isSideNavMobile: boolean = false;
   @State() isTopNavChild: boolean = false;
