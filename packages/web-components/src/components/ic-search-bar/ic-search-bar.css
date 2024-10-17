@@ -45,8 +45,8 @@
 
 .clear-button:focus,
 .clear-button:active {
-  background-color: var(--ic-focus-blue);
-  box-shadow: inset 0 0 0 0.125rem var(--ic-focus-glow);
+  background-color: var(--ic-color-focus-inner);
+  box-shadow: inset 0 0 0 0.125rem var(--ic-color-focus-outer);
   border-radius: 0.25rem;
 }
 
@@ -71,8 +71,8 @@
 
 .search-submit-button:focus,
 .search-submit-button:active {
-  background-color: var(--ic-focus-blue) !important;
-  box-shadow: inset 0 0 0 0.125rem var(--ic-focus-glow) !important;
+  background-color: var(--ic-color-focus-inner) !important;
+  box-shadow: inset 0 0 0 0.125rem var(--ic-color-focus-outer) !important;
   border-radius: var(--ic-space-xxs);
 }
 
@@ -83,7 +83,7 @@
 
 .divider {
   width: var(--ic-border-width);
-  background-color: var(--ic-action-dark-active);
+  background-color: var(--ic-action-dark-pressed);
   height: var(--divider-height);
 }
 

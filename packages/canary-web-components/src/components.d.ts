@@ -12,6 +12,7 @@ import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSea
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
+import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
@@ -19,6 +20,7 @@ export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSea
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
+export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export namespace Components {
     interface IcCardHorizontal {
         /**
@@ -115,6 +117,7 @@ export namespace Components {
     min?: number;
     progress?: number;
     showBackground?: boolean;
+    monochrome?: boolean;
   };
         /**
           * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
@@ -180,6 +183,7 @@ export namespace Components {
     max?: number;
     min?: number;
     progress?: number;
+    monochrome?: boolean;
   };
         /**
           * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index. If the function returns `null`, that row's height will be set to the `globalRowHeight` property.
@@ -494,6 +498,10 @@ export namespace Components {
           * Sets the styling for the items in the pagination bar.
          */
         "appearance"?: IcThemeForeground;
+        /**
+          * The current page number to be displayed on the pagination bar.
+         */
+        "currentPage"?: number;
         /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
@@ -851,7 +859,7 @@ declare global {
         new (): HTMLIcMenuWithMultiElement;
     };
     interface HTMLIcPaginationBarElementEventMap {
-        "icPageChange": { value: number };
+        "icPageChange": IcPageChangeEventDetail;
         "icItemsPerPageChange": { value: number };
     }
     interface HTMLIcPaginationBarElement extends Components.IcPaginationBar, HTMLStencilElement {
@@ -1020,6 +1028,7 @@ declare namespace LocalJSX {
     min?: number;
     progress?: number;
     showBackground?: boolean;
+    monochrome?: boolean;
   };
         /**
           * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
@@ -1089,6 +1098,7 @@ declare namespace LocalJSX {
     max?: number;
     min?: number;
     progress?: number;
+    monochrome?: boolean;
   };
         /**
           * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index. If the function returns `null`, that row's height will be set to the `globalRowHeight` property.
@@ -1417,6 +1427,10 @@ declare namespace LocalJSX {
          */
         "appearance"?: IcThemeForeground;
         /**
+          * The current page number to be displayed on the pagination bar.
+         */
+        "currentPage"?: number;
+        /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
         "hideRangeLabel"?: boolean;
@@ -1436,9 +1450,9 @@ declare namespace LocalJSX {
          */
         "onIcItemsPerPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
         /**
-          * Emitted when a page is navigated to via the 'go to' input.
+          * Emitted when a page is navigated to via the 'go to' input. The `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.
          */
-        "onIcPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
+        "onIcPageChange"?: (event: IcPaginationBarCustomEvent<IcPageChangeEventDetail>) => void;
         /**
           * The text which will be used in place of 'Page' on the pagination bar.
          */

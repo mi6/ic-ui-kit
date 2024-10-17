@@ -7,7 +7,7 @@ ic-input-label.with-helper {
 }
 
 ic-input-label.ic-input-label-readonly {
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 }
 
 ic-input-label .helpertext {
@@ -15,19 +15,19 @@ ic-input-label .helpertext {
 }
 
 ic-input-label .helpertext-normal {
-  --ic-typography-color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-text-secondary);
 }
 
 ic-input-label .helpertext-readonly {
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-color-text-tertiary);
 }
 
 ic-input-label .readonly-label {
-  --ic-typography-color: var(--ic-color-secondary-text);
+  --ic-typography-color: var(--ic-color-text-secondary);
 }
 
 ic-input-label .error-label {
-  --ic-typography-color: var(--ic-status-error);
+  --ic-typography-color: var(--ic-status-error-default);
 }
 
 ic-input-label .dark {

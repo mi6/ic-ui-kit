@@ -21,7 +21,7 @@ ic-input-component-container {
 
 ic-input-component-container,
 ic-input-component-container:hover {
-  color: var(--ic-color-tertiary-text);
+  color: var(--ic-color-text-tertiary);
 }
 
 ic-input-component-container .focus-indicator {
@@ -86,8 +86,8 @@ ic-input-component-container .focus-indicator {
 .calendar-button:focus,
 .clear-button:active,
 .calendar-button:active {
-  background-color: var(--ic-focus-blue) !important;
-  box-shadow: inset 0 0 0 0.125rem var(--ic-focus-glow) !important;
+  background-color: var(--ic-color-focus-inner) !important;
+  box-shadow: inset 0 0 0 0.125rem var(--ic-color-focus-outer) !important;
   border-radius: 0.25rem;
 }
 

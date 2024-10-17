@@ -101,28 +101,26 @@ import IcTypography from "../ic-typography/readme.md";
   </Story>
 </Canvas>
 
-### Light
+### Dark mode
 
 <Canvas>
-  <Story name="Light" parameters={{ loki: { skip: true } }}>
-    {html` <ic-skeleton
-        variant="circle"
-        height="20"
-        appearance="light"
-      ></ic-skeleton>
+  <Story name="Dark mode" parameters={{ loki: { skip: true } }}>
+    {html` <div style="background-color:black;">
+      <ic-skeleton variant="circle" height="20" theme="dark"></ic-skeleton>
       <div style="height:8px"></div>
       <ic-typography variant="caption"
-        ><ic-skeleton variant="text" appearance="light"
+        ><ic-skeleton variant="text" theme="dark"
       /></ic-typography>
       <div style="height:8px"></div>
-      <ic-skeleton appearance="light"></ic-skeleton>`}
+      <ic-skeleton theme="dark"></ic-skeleton>
+    </div>`}
   </Story>
 </Canvas>
 
 ### Playground
 
 export const defaultArgs = {
-  appearance: "default",
+  theme: "inherit",
   variant: "rectangle",
 };
 
@@ -131,8 +129,8 @@ export const defaultArgs = {
     args={defaultArgs}
     parameters={{ loki: { skip: true } }}
     argTypes={{
-      appearance: {
-        options: ["default", "light"],
+      theme: {
+        options: ["inherit", "light", "dark"],
         control: {
           type: "inline-radio",
         },
@@ -149,7 +147,7 @@ export const defaultArgs = {
     {(args) =>
       html` <div>
         <ic-skeleton
-          appearance=${args.appearance}
+          theme=${args.theme}
           variant=${args.variant}
           style="height: ${args.variant == "circle"
             ? "20px"

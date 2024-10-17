@@ -11,6 +11,7 @@ import {
 } from "@stencil/core";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 import { checkResizeObserver, capitalize } from "../../utils/helpers";
+import { IcPageChangeEventDetail } from "./ic-pagination-bar.types";
 import {
   IcPaginationAlignmentOptions,
   IcPaginationLabelTypes,
@@ -40,7 +41,7 @@ export class PaginationBar {
 
   @State() capitalizedPageLabel: string;
 
-  @State() currentPage: number = 1;
+  @State() activePage: number = 1;
 
   @State() displayedItemsPerPageOptions?: {
     label: string;
@@ -76,6 +77,15 @@ export class PaginationBar {
    * Sets the styling for the items in the pagination bar.
    */
   @Prop() appearance?: IcThemeForeground = "default";
+
+  /**
+   * The current page number to be displayed on the pagination bar.
+   */
+  @Prop() currentPage?: number = 1;
+  @Watch("currentPage")
+  watchPageNumberHandler(): void {
+    this.activePage = this.currentPage;
+  }
 
   /**
    * The text which will be used in place of 'Item' on the pagination bar.
@@ -159,8 +169,9 @@ export class PaginationBar {
 
   /**
    * Emitted when a page is navigated to via the 'go to' input.
+   * The `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.
    */
-  @Event() icPageChange: EventEmitter<{ value: number }>;
+  @Event() icPageChange: EventEmitter<IcPageChangeEventDetail>;
 
   /**
    * Emitted when the items per page option is changed.
@@ -172,6 +183,7 @@ export class PaginationBar {
   }
 
   componentWillLoad(): void {
+    this.watchPageNumberHandler();
     this.watchPageLabelHandler();
     this.watchItemLabelHandler();
     this.setPaginationBarContent();
@@ -204,7 +216,7 @@ export class PaginationBar {
   };
 
   private changePage = (page: number) => {
-    this.currentPage = page;
+    this.activePage = page;
     this.lowerBound = page !== 1 ? (page - 1) * this.itemsPerPage + 1 : page;
     this.setUpperBound();
   };
@@ -219,7 +231,7 @@ export class PaginationBar {
     if (page <= this.totalPages && page > 0) {
       this.changePage(page);
       this.paginationEl.setCurrentPage(page);
-      this.currentPage = page;
+      this.activePage = page;
       input.value = "";
       this.icPageChange.emit({ value: page });
       this.pageInputTooltipEl.displayTooltip(false, false);
@@ -334,11 +346,11 @@ export class PaginationBar {
         : 1;
 
     this.setUpperBound();
-    if (this.currentPage > this.totalPages) {
+    if (this.activePage > this.totalPages) {
       this.paginationEl.setCurrentPage(this.totalPages);
-      this.currentPage = this.totalPages;
+      this.activePage = this.totalPages;
     }
-    this.icPageChange.emit({ value: this.currentPage });
+    this.icPageChange.emit({ value: this.activePage, fromItemsPerPage: true });
   };
 
   private setPaginationBarContent = (): void => {
@@ -401,7 +413,7 @@ export class PaginationBar {
       capitalizedItemLabel,
       lowerCaseItemLabel,
       totalPages,
-      currentPage,
+      activePage,
       itemsPerPageString,
     } = this;
 
@@ -464,7 +476,7 @@ export class PaginationBar {
                   variant="label"
                   aria-live="polite"
                 >
-                  {capitalizedPageLabel} {currentPage} of {totalPages}
+                  {capitalizedPageLabel} {activePage} of {totalPages}
                 </ic-typography>
               ))}
           </div>
@@ -482,6 +494,7 @@ export class PaginationBar {
               pages={totalPages}
               label={pageLabel}
               ref={(el: HTMLIcPaginationElement) => (this.paginationEl = el)}
+              currentPage={activePage}
             ></ic-pagination>
           </div>
           {showGoToPageControl && (

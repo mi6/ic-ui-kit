@@ -3,17 +3,30 @@
 :host {
   display: inline-block;
   max-width: 100%;
+  vertical-align: middle;
 }
 
 .chip {
+  --chip-bg-color: transparent;
+  --chip-hover-bg: var(--ic-chip-action-hover);
+  --chip-pressed-bg: var(--ic-chip-action-pressed);
+
   display: flex;
   padding: var(--ic-space-xxs);
   font-size: 0.875rem;
   border-radius: var(--ic-space-md);
   text-align: left;
   text-decoration: none;
-  transition: var(--ic-easing-transition-fast);
   position: relative;
+  background-color: var(--chip-bg-color);
+  border: var(--ic-border-width) solid transparent;
+  justify-content: space-between;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chip {
+    transition: var(--ic-easing-transition-fast);
+  }
 }
 
 .chip.small {
@@ -30,18 +43,10 @@
   padding: 0 var(--ic-space-xs);
 }
 
-.chip.hovered:not(:focus-within) {
-  background-color: var(--ic-architectural-300);
-}
-
 .chip:focus-within {
   box-shadow: var(--ic-border-focus);
   outline: var(--ic-hc-focus-outline);
   z-index: 1;
-}
-
-.chip.outlined.hovered:not(:focus-within) {
-  background-color: var(--ic-action-dark-bg-hover);
 }
 
 ic-tooltip:focus-within {
@@ -49,50 +54,68 @@ ic-tooltip:focus-within {
 }
 
 .filled {
-  background-color: var(--chip-custom-color, var(--ic-architectural-200));
-  color: var(--chip-custom-foreground-color, black);
+  --chip-bg-color: var(
+    --chip-custom-color,
+    var(--ic-chip-background-filled-default)
+  );
+  --ic-typography-color: var(
+    --chip-custom-foreground-color,
+    var(--ic-chip-label)
+  );
 
-  --ic-typography-color: var(--chip-custom-foreground-color, black);
-
-  border: none;
+  color: var(--chip-custom-foreground-color, var(--ic-chip-label));
 }
 
 .filled.disabled {
-  background-color: var(--ic-architectural-100);
+  --chip-bg-color: var(--ic-chip-background-filled-inactive);
+}
+
+:host(.ic-chip-dark-text) {
+  --chip-custom-foreground-color: var(--ic-architectural-black);
+}
+
+:host(.ic-chip-light-text) {
+  --chip-custom-foreground-color: var(--ic-architectural-white);
+}
+
+:host(.ic-chip-dark-text) .chip.filled.hovered:not(:focus-within) {
+  --chip-hover-bg: var(--ic-action-dark-bg-hover);
+}
+
+:host(.ic-chip-dark-text) .chip.filled:focus-within {
+  --chip-pressed-bg: var(--ic-action-dark-bg-pressed);
+}
+
+:host(.ic-chip-light-text) .chip.filled.hovered:not(:focus-within) {
+  --chip-hover-bg: var(--ic-action-light-bg-hover);
+}
+
+:host(.ic-chip-light-text) .chip.filled:focus-within {
+  --chip-pressed-bg: var(--ic-action-light-bg-pressed);
 }
 
 .outlined {
-  color: var(--ic-architectural-900);
-  border: var(--ic-border-width) solid
-    var(--chip-custom-color, var(--ic-architectural-900));
-  padding: calc(var(--ic-space-xxs) - var(--ic-space-1px));
-}
+  color: var(--ic-chip-label);
+  border-color: var(--chip-custom-color, var(--ic-chip-outline));
+  padding: calc(var(--ic-space-xxs));
 
-.outlined.small {
-  padding: calc(var(--ic-space-xxxs) - var(--ic-space-1px));
-}
-
-.outlined.large {
-  padding: calc(var(--ic-space-xs) - var(--ic-space-1px));
+  --ic-typography-color: var(--ic-chip-label);
 }
 
 .outlined.disabled {
   border: var(--ic-border-disabled);
-  background: none;
+  border-color: var(--ic-chip-outline-inactive);
 }
 
 .chip.disabled ic-typography {
-  --ic-typography-color: var(--ic-architectural-500);
-}
-
-.filled.disabled ic-typography {
-  --ic-typography-color: var(--ic-architectural-600);
+  --ic-typography-color: var(--ic-chip-label-inactive);
 }
 
 .dismiss-icon {
   border: none;
   border-radius: 50%;
   padding: 0;
+  color: currentcolor;
   background: none;
   cursor: pointer;
   margin: var(--ic-space-xxxs);
@@ -106,7 +129,7 @@ ic-tooltip:focus-within {
 
 .dismiss-icon[disabled] {
   pointer-events: none;
-  color: var(--ic-architectural-200);
+  color: var(--ic-chip-icon-inactive);
 }
 
 .icon {
@@ -122,32 +145,24 @@ ic-tooltip {
 
 .chip.disabled path,
 .chip.disabled ::slotted(svg) {
-  fill: var(--ic-architectural-200);
+  fill: var(--ic-chip-icon-inactive);
 }
 
-.chip.white-background {
-  background-color: var(--ic-architectural-white);
+.outlined.non-transparent {
+  background-color: var(--ic-chip-outline-background);
 }
 
-.chip.white-background.hovered:not(:focus-within) {
-  background-color: var(--ic-action-dark-bg-hover-no-alpha) !important;
+:host .chip.hovered:not(:focus-within) {
+  background-image: linear-gradient(var(--chip-hover-bg) 0 0);
+}
+
+:host .chip:focus-within {
+  background-image: linear-gradient(var(--chip-pressed-bg) 0 0);
 }
 
 @media (forced-colors: active) {
   .chip {
-    border: var(--ic-hc-border);
-  }
-
-  .filled.small {
-    padding: calc(var(--ic-space-xxxs) - var(--ic-space-1px));
-  }
-
-  .filled {
-    padding: calc(var(--ic-space-xxxs) + var(--ic-space-1px));
-  }
-
-  .filled.large {
-    padding: calc(var(--ic-space-xs) - var(--ic-space-1px));
+    border: var(--ic-border-hc);
   }
 
   .chip.disabled {

@@ -17,7 +17,7 @@ exports[`ic-pagination-bar should only allow a maximum of 4 custom items per pag
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="6" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="6" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@ exports[`ic-pagination-bar should render 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@ exports[`ic-pagination-bar should render with a custom item label 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@ exports[`ic-pagination-bar should render with a custom page label 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Sheet" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Sheet" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -142,7 +142,7 @@ exports[`ic-pagination-bar should render with custom items per page options 1`] 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="7" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="7" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -161,7 +161,7 @@ exports[`ic-pagination-bar should render with dark appearance 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -180,7 +180,7 @@ exports[`ic-pagination-bar should render with data pagination type 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -199,7 +199,7 @@ exports[`ic-pagination-bar should render with go to page controls 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
         <div class="go-to-page-holder">
           <ic-typography class="pagination-text-default" variant="label">
@@ -235,7 +235,7 @@ exports[`ic-pagination-bar should render with items per page controls 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -254,7 +254,7 @@ exports[`ic-pagination-bar should render with left alignment 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -273,7 +273,7 @@ exports[`ic-pagination-bar should render with light appearance 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="light" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="light" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -292,7 +292,7 @@ exports[`ic-pagination-bar should render with space between alignment 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -306,7 +306,81 @@ exports[`ic-pagination-bar should render without range text 1`] = `
     <div class="pagination-bar pagination-bar-right">
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should update page details when currentPage prop is changed 1`] = `
+<ic-pagination-bar total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination>
+            <mock:shadow-root>
+              <nav aria-label="Pagination Navigation" role="navigation">
+                <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
+                  svg
+                </ic-button>
+                <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
+                  svg
+                </ic-button>
+                <ic-pagination-item appearance="default" label="Page" page="1" pages="10" type="simple-current"></ic-pagination-item>
+                <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
+                  svg
+                </ic-button>
+                <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
+                  svg
+                </ic-button>
+              </nav>
+            </mock:shadow-root>
+          </ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should update page details when currentPage prop is changed 2`] = `
+<ic-pagination-bar total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
+          Page 4 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination>
+            <mock:shadow-root>
+              <nav aria-label="Pagination Navigation" role="navigation">
+                <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" id="first-page-button" variant="icon">
+                  svg
+                </ic-button>
+                <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" id="previous-page-button" variant="icon">
+                  svg
+                </ic-button>
+                <ic-pagination-item appearance="default" label="Page" page="4" pages="10" type="simple-current"></ic-pagination-item>
+                <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
+                  svg
+                </ic-button>
+                <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
+                  svg
+                </ic-button>
+              </nav>
+            </mock:shadow-root>
+          </ic-pagination>
         </div>
       </div>
     </div>
@@ -325,7 +399,7 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="1" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="1" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -344,7 +418,7 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -363,153 +437,10 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" label="Page" pages="5" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" currentpage="1" label="Page" pages="5" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
   </mock:shadow-root>
 </ic-pagination-bar>
-`;
-
-exports[`ic-pagination-bar should wrap pagination when the device size is small 1`] = `
-Object {
-  "body": <body>
-  <ic-pagination-bar show-go-to-page-control="true" total-items="100">
-    <mock:shadow-root>
-      <div class="pagination-bar pagination-bar-right">
-        <div class="item-controls">
-          <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
-            Page 1 of 10
-          </ic-typography>
-        </div>
-        <div class="pagination-controls">
-          <div class="pagination-holder">
-            <ic-pagination>
-              <mock:shadow-root>
-                <nav aria-label="Pagination Navigation" role="navigation">
-                  <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
-                    svg
-                  </ic-button>
-                  <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
-                    svg
-                  </ic-button>
-                  <ic-pagination-item appearance="default" label="Page" page="1" type="simple-current"></ic-pagination-item>
-                  <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
-                    svg
-                  </ic-button>
-                  <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
-                    svg
-                  </ic-button>
-                </nav>
-              </mock:shadow-root>
-            </ic-pagination>
-          </div>
-          <div class="go-to-page-holder">
-            <ic-typography class="pagination-text-default" variant="label">
-              Go to page
-            </ic-typography>
-            <ic-tooltip disableclick="" disablehover="" label="Please enter a valid page" target="#go-to-page-input">
-              <ic-text-field class="go-to-page-input" hidelabel="" id="go-to-page-input" label="go-to-page-input" max="10" min="1" size="small" type="number" validationinlineinternal=""></ic-text-field>
-            </ic-tooltip>
-            <ic-button appearance="default" class="go-to-page-button" size="small" variant="secondary">
-              Go
-            </ic-button>
-          </div>
-        </div>
-      </div>
-    </mock:shadow-root>
-  </ic-pagination-bar>
-</body>,
-  "build": Object {
-    "allRenderFn": true,
-    "appendChildSlotFix": false,
-    "asyncLoading": true,
-    "asyncQueue": true,
-    "attachStyles": false,
-    "cloneNodeFix": false,
-    "cmpDidLoad": true,
-    "cmpDidRender": true,
-    "cmpDidUnload": true,
-    "cmpDidUpdate": true,
-    "cmpShouldUpdate": true,
-    "cmpWillLoad": true,
-    "cmpWillRender": true,
-    "cmpWillUpdate": true,
-    "connectedCallback": true,
-    "constructableCSS": true,
-    "cssAnnotations": false,
-    "devTools": false,
-    "disconnectedCallback": true,
-    "element": true,
-    "event": true,
-    "experimentalScopedSlotChanges": false,
-    "experimentalSlotFixes": false,
-    "formAssociated": true,
-    "hasRenderFn": true,
-    "hostListener": true,
-    "hostListenerTarget": true,
-    "hostListenerTargetBody": true,
-    "hostListenerTargetDocument": true,
-    "hostListenerTargetParent": true,
-    "hostListenerTargetWindow": true,
-    "hotModuleReplacement": false,
-    "hydrateClientSide": false,
-    "hydrateServerSide": false,
-    "hydratedAttribute": false,
-    "hydratedClass": true,
-    "initializeNextTick": true,
-    "invisiblePrehydration": true,
-    "isDebug": false,
-    "isDev": true,
-    "isTesting": true,
-    "lazyLoad": true,
-    "lifecycle": true,
-    "lifecycleDOMEvents": true,
-    "member": true,
-    "method": true,
-    "mode": true,
-    "observeAttribute": true,
-    "profile": true,
-    "prop": true,
-    "propBoolean": true,
-    "propMutable": true,
-    "propNumber": true,
-    "propString": true,
-    "reflect": true,
-    "scoped": true,
-    "scopedSlotTextContentFix": false,
-    "scriptDataOpts": false,
-    "shadowDelegatesFocus": true,
-    "shadowDom": true,
-    "shadowDomShim": false,
-    "slot": true,
-    "slotChildNodesFix": false,
-    "slotRelocation": true,
-    "state": true,
-    "style": true,
-    "svg": true,
-    "taskQueue": true,
-    "transformTagName": true,
-    "updatable": true,
-    "vdomAttribute": true,
-    "vdomClass": true,
-    "vdomFunctional": true,
-    "vdomKey": true,
-    "vdomListener": true,
-    "vdomPropOrAttr": true,
-    "vdomRef": true,
-    "vdomRender": true,
-    "vdomStyle": true,
-    "vdomText": true,
-    "vdomXlink": true,
-    "watchCallback": true,
-  },
-  "doc": ,
-  "flushLoadModule": [Function],
-  "flushQueue": [Function],
-  "setContent": [Function],
-  "styles": Map {},
-  "waitForChanges": [Function],
-  "win": [MockWindow],
-}
 `;

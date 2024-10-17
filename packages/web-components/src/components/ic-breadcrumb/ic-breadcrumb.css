@@ -72,7 +72,7 @@ ic-link {
 :host(.collapsed-breadcrumb-wrapper) ::slotted(.collapsed-breadcrumb) {
   border: none;
   background-color: transparent;
-  color: var(--ic-hyperlink);
+  color: var(--ic-color-hyperlink-default);
   text-decoration: underline;
   font-weight: var(--ic-font-weight-bold);
   cursor: pointer;

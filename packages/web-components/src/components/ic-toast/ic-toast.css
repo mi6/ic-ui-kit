@@ -39,7 +39,7 @@
   min-height: 3.5rem;
   background-color: var(--ic-architectural-800);
 
-  --ic-typography-color: var(--ic-color-primary-text-dark);
+  --ic-typography-color: var(--ic-color-text-primary-dark);
 
   display: flex;
   align-items: center;
@@ -61,7 +61,7 @@
 }
 
 .divider-neutral {
-  background-color: var(--ic-status-unknown);
+  background-color: var(--ic-status-unknown-default);
 }
 
 .divider-info {
@@ -89,7 +89,7 @@
 
 :host([variant="neutral"]) .toast-icon svg,
 ::slotted(svg) {
-  fill: var(--ic-status-unknown);
+  fill: var(--ic-status-unknown-default);
 }
 
 :host([variant="info"]) .toast-icon svg {
@@ -129,6 +129,11 @@ ic-button {
   padding: var(--ic-space-xs);
 }
 
+ic-loading-indicator {
+  --outer-color: transparent;
+  --inner-color: var(--ic-action-light);
+}
+
 .toast-dismiss-timer {
   padding: var(--ic-space-sm);
 }
@@ -149,7 +154,7 @@ ic-button {
 
 @media (forced-colors: active) {
   .container {
-    border: var(--ic-hc-border);
+    border: var(--ic-border-hc);
   }
 }
 

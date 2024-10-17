@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
-      "readme": "# ic-horizontal-card\n\n\n",
+      "readme": "# ic-horizontal-card\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -389,7 +389,7 @@
       "filePath": "src/components/ic-data-table/ic-data-table.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table",
-      "readme": "# ic-data-table\n\n\n",
+      "readme": "# ic-data-table\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -646,10 +646,10 @@
         },
         {
           "name": "loadingOptions",
-          "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; }",
+          "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }",
           "complexType": {
-            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    showBackground?: boolean;\n  }",
-            "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; }",
+            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    showBackground?: boolean;\n    monochrome?: boolean;\n  }",
+            "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }",
             "references": {
               "IcThemeForegroundNoDefault": {
                 "location": "import",
@@ -664,7 +664,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; }"
+              "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }"
             }
           ],
           "optional": true,
@@ -959,10 +959,10 @@
         },
         {
           "name": "updatingOptions",
-          "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; }",
+          "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
           "complexType": {
-            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    max?: number;\n    min?: number;\n    progress?: number;\n  }",
-            "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; }",
+            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n  }",
+            "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
             "references": {
               "IcThemeForegroundNoDefault": {
                 "location": "import",
@@ -977,7 +977,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; }"
+              "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }"
             }
           ],
           "optional": true,
@@ -1236,7 +1236,7 @@
       "filePath": "src/components/ic-data-table-title-bar/ic-data-table-title-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table-title-bar",
-      "readme": "# ic-data-table-title-bar\n\n\n",
+      "readme": "# ic-data-table-title-bar\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -1435,7 +1435,7 @@
       "filePath": "src/components/ic-date-input/ic-date-input.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-input",
-      "readme": "# ic-date-input\n\n\n",
+      "readme": "# ic-date-input\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2139,7 +2139,7 @@
       "filePath": "src/components/ic-date-picker/ic-date-picker.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-picker",
-      "readme": "# ic-date-picker\n\n\n",
+      "readme": "# ic-date-picker\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2912,7 +2912,7 @@
       "filePath": "src/components/ic-menu-with-multi/ic-menu.tsx",
       "encapsulation": "scoped",
       "tag": "ic-menu-with-multi",
-      "readme": "# ic-menu-with-multi\n\n\n",
+      "readme": "# ic-menu-with-multi\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3361,7 +3361,7 @@
       "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-bar",
-      "readme": "# ic-pagination-bar\n\n\n",
+      "readme": "# ic-pagination-bar\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3435,6 +3435,28 @@
             {
               "value": "light",
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "currentPage",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "current-page",
+          "reflectToAttr": false,
+          "docs": "The current page number to be displayed on the pagination bar.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
             }
           ],
           "optional": true,
@@ -3676,16 +3698,22 @@
         },
         {
           "event": "icPageChange",
-          "detail": "{ value: number; }",
+          "detail": "IcPageChangeEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "{ value: number }",
-            "resolved": "{ value: number; }",
-            "references": {}
+            "original": "IcPageChangeEventDetail",
+            "resolved": "IcPageChangeEventDetail",
+            "references": {
+              "IcPageChangeEventDetail": {
+                "location": "import",
+                "path": "./ic-pagination-bar.types",
+                "id": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when a page is navigated to via the 'go to' input.",
+          "docs": "Emitted when a page is navigated to via the 'go to' input.\nThe `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.",
           "docsTags": []
         }
       ],
@@ -3772,7 +3800,7 @@
       "filePath": "src/components/ic-select-with-multi/ic-select.tsx",
       "encapsulation": "shadow",
       "tag": "ic-select-with-multi",
-      "readme": "# ic-select\n\n\n",
+      "readme": "# ic-select\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4699,7 +4727,7 @@
       "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-item",
-      "readme": "# ic-tree-item\n\n\n",
+      "readme": "# ic-tree-item\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -5009,7 +5037,7 @@
       "filePath": "src/components/ic-tree-view/ic-tree-view.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-view",
-      "readme": "# ic-tree-view\n\n\n",
+      "readme": "# ic-tree-view\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -5229,6 +5257,11 @@
       "declaration": "export type IcPaginationLabelTypes = \"page\" | \"data\";",
       "docstring": "",
       "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
+    },
+    "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail": {
+      "declaration": "export interface IcPageChangeEventDetail {\n  value: number;\n  fromItemsPerPage?: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDensityUpdateEventDetail": {
       "declaration": "export interface IcDensityUpdateEventDetail {\n  value: IcDataTableDensityOptions;\n}",

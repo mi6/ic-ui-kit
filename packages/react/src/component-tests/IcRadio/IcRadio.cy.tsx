@@ -16,6 +16,10 @@ import {
   Validation,
   ConditionalStatic,
   ConditionalDynamic,
+  Tabbable,
+  TabbableSelected,
+  ConditionalDynamicTextFieldValue,
+  InAForm,
 } from "./IcRadioTestData";
 import {
   HAVE_PROP,
@@ -24,6 +28,9 @@ import {
   HAVE_BEEN_CALLED_WITH,
   HAVE_CLASS,
   NOT_HAVE_CLASS,
+  HAVE_ATTR,
+  NOT_BE_VISIBLE,
+  HAVE_BEEN_CALLED,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -32,6 +39,7 @@ const RADIO_SELECTOR = "ic-radio-option";
 const IC_BUTTON = "ic-button";
 const BUTTON = "button";
 const INPUT = "input";
+const TEXT_FIELD_SELECTOR = "ic-text-field";
 const DEFAULT_TEST_THRESHOLD = 0.026;
 
 describe("IcRadio end-to-end tests", () => {
@@ -135,6 +143,229 @@ describe("IcRadio end-to-end tests", () => {
       .eq(0)
       .should(NOT_HAVE_CLASS, "ic-radio-option-disabled");
   });
+
+  it("first option should have tabIndex of 0 when no options are selected", () => {
+    mount(<Validation />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_ATTR, "tabindex", 0);
+  });
+
+  it("should not be clickable when disabled", () => {
+    mount(<Disabled />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
+
+    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
+    cy.realPress("ArrowDown");
+    cy.get(RADIO_SELECTOR).eq(2).should(HAVE_PROP, "selected", false);
+    cy.realPress("ArrowUp");
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
+  });
+
+  it("should enable textfield when associated option is selected when static", () => {
+    mount(<ConditionalStatic />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", true);
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", false);
+    cy.findShadowEl(TEXT_FIELD_SELECTOR, INPUT).type("test");
+    cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "value", "test");
+    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
+    cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", true);
+  });
+
+  it("should display textfield when associated option is selected when dynamic", () => {
+    mount(<ConditionalDynamic />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(TEXT_FIELD_SELECTOR).eq(0).should(NOT_BE_VISIBLE);
+    cy.get(TEXT_FIELD_SELECTOR).eq(1).should(NOT_BE_VISIBLE);
+    cy.get(TEXT_FIELD_SELECTOR).eq(2).should(NOT_BE_VISIBLE);
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(TEXT_FIELD_SELECTOR).eq(0).should("be.visible");
+    cy.get(TEXT_FIELD_SELECTOR).eq(1).should(NOT_BE_VISIBLE);
+    cy.get(TEXT_FIELD_SELECTOR).eq(2).should(NOT_BE_VISIBLE);
+
+    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
+    cy.get(TEXT_FIELD_SELECTOR).eq(0).should(NOT_BE_VISIBLE);
+    cy.get(TEXT_FIELD_SELECTOR).eq(1).should("be.visible");
+    cy.get(TEXT_FIELD_SELECTOR).eq(2).should(NOT_BE_VISIBLE);
+
+    cy.get(RADIO_SELECTOR).eq(2).find(".container").click();
+    cy.get(TEXT_FIELD_SELECTOR).eq(0).should(NOT_BE_VISIBLE);
+    cy.get(TEXT_FIELD_SELECTOR).eq(1).should(NOT_BE_VISIBLE);
+    cy.get(TEXT_FIELD_SELECTOR).eq(2).should("be.visible");
+  });
+
+  it("should emit icChange and icCheck events when radio option is selected", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+    cy.get(RADIO_GROUP_SELECTOR).invoke(
+      "on",
+      "icChange",
+      cy.stub().as("icChange")
+    );
+    cy.get(RADIO_GROUP_SELECTOR).invoke(
+      "on",
+      "icCheck",
+      cy.stub().as("icCheck")
+    );
+
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
+
+    cy.get("@icChange").should(HAVE_BEEN_CALLED);
+    cy.get("@icCheck").should(HAVE_BEEN_CALLED);
+  });
+
+  it("should select option when spacebar is pressed", () => {
+    mount(<Tabbable />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(BUTTON).focus();
+    cy.realPress("Tab");
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
+    cy.realPress("Space");
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
+  });
+
+  it("should select next radio option down when arrow down is used", () => {
+    mount(<Tabbable />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(BUTTON).focus();
+    cy.realPress("Tab");
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_FOCUS);
+    cy.realPress("ArrowDown");
+    cy.get(RADIO_SELECTOR).eq(1).should(HAVE_PROP, "selected", true);
+  });
+
+  it("should select next radio option down when arrow right is used", () => {
+    mount(<Tabbable />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(BUTTON).focus();
+    cy.realPress("Tab");
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_FOCUS);
+    cy.realPress("ArrowRight");
+    cy.get(RADIO_SELECTOR).eq(1).should(HAVE_PROP, "selected", true);
+  });
+
+  it("should select next radio option up when arrow up is used", () => {
+    mount(<Tabbable />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(BUTTON).focus();
+    cy.realPress("Tab");
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_FOCUS);
+    cy.realPress("ArrowUp");
+    cy.get(RADIO_SELECTOR).eq(3).should(HAVE_PROP, "selected", true);
+  });
+
+  it("should select next radio option up when arrow left is used", () => {
+    mount(<Tabbable />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(BUTTON).focus();
+    cy.realPress("Tab");
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(0).should(HAVE_FOCUS);
+    cy.realPress("ArrowLeft");
+    cy.get(RADIO_SELECTOR).eq(3).should(HAVE_PROP, "selected", true);
+  });
+
+  it("should apply focus to the selected option when tabbing to a radio group with an option already selected", () => {
+    mount(<TabbableSelected />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(BUTTON).focus();
+    cy.realPress("Tab");
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(1).should(HAVE_FOCUS);
+  });
+
+  it("should move focus to the dynamically displayed field when tabbing on from the radio group", () => {
+    mount(<ConditionalDynamic />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
+    cy.realPress("Tab");
+    cy.get(TEXT_FIELD_SELECTOR).eq(0).should(HAVE_FOCUS);
+  });
+
+  it("should move focus to the next radio option when pressing arrow keys when on radio option with a textfield", () => {
+    mount(<ConditionalStatic />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
+    cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", false);
+    cy.realPress("ArrowDown");
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(1).should(HAVE_FOCUS);
+  });
+
+  it("should pass the value of radio button correctly when already selected", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(RADIO_SELECTOR).eq(1).should(HAVE_VALUE, "valueName2");
+  });
+
+  it("should pass the value of radio button and textfield correctly when textfield value is set and option is already selected", () => {
+    mount(<ConditionalDynamicTextFieldValue />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_VALUE, "valueName1");
+    cy.get(TEXT_FIELD_SELECTOR).eq(0).should(HAVE_PROP, "value", "testValue1");
+  });
+
+  it("should work in a form", () => {
+    mount(<InAForm />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+    cy.spy(window.console, "log").as("spyWinConsoleLog");
+
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
+    cy.get("input[type='submit']").click();
+    cy.get("@spyWinConsoleLog").should(
+      HAVE_BEEN_CALLED_WITH,
+      "Form value: valueName1"
+    );
+  });
+
+  it("should reset to initial state on form reset event", () => {
+    mount(<InAForm />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
+
+    cy.get("input[type='reset']").click();
+
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
+  });
 });
 
 describe("IcRadio visual regression and a11y tests", () => {
@@ -146,7 +377,7 @@ describe("IcRadio visual regression and a11y tests", () => {
     cy.task("generateReport");
   });
 
-  it("should render default IcRadio", () => {
+  it("should render default IcRadio with vertical orientation when there are more than two options", () => {
     mount(<Default />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
@@ -189,8 +420,8 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      name: "disabled-options",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
 
@@ -316,6 +547,18 @@ describe("IcRadio visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "conditional-dynamic-second-selected",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.065),
+    });
+  });
+
+  it("should render with custom dynamicText and with vertical orientation when using additional-field slot", () => {
+    mount(<ConditionalDynamicTextFieldValue />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "conditional-dynamic-text",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
     });
   });
 });

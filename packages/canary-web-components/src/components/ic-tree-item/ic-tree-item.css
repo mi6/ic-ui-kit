@@ -45,7 +45,7 @@
 
 :host .tree-item-content:active,
 ::slotted([slot="router-item"]:active) {
-  background-color: var(--ic-action-dark-bg-active) !important;
+  background-color: var(--ic-action-dark-bg-pressed) !important;
 }
 
 :host(.ic-tree-item-selected) .tree-item-content,
@@ -160,7 +160,7 @@
 
   :host .tree-item-content:focus,
   ::slotted([slot="router-item"]:focus) {
-    border: var(--ic-hc-border) !important;
+    border: var(--ic-border-hc) !important;
   }
 
   :host(.ic-tree-item-selected) .tree-item-content,

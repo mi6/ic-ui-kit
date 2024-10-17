@@ -104,7 +104,7 @@ input {
 }
 
 .ic-switch-input:not([disabled]) + .ic-switch-toggle:active::before {
-  box-shadow: 0 0 0 0.75rem var(--ic-action-dark-bg-active);
+  box-shadow: 0 0 0 0.75rem var(--ic-action-dark-bg-pressed);
 }
 
 .ic-switch-input:not([disabled]):checked + .ic-switch-toggle:hover::before {
@@ -188,7 +188,7 @@ input {
 @media (forced-colors: active) {
   .ic-switch-toggle::before,
   .ic-switch-input:checked + .ic-switch-toggle {
-    border: var(--ic-hc-border);
+    border: var(--ic-border-hc);
   }
 
   .ic-switch-input:checked + .ic-switch-toggle::before {

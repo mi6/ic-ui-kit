@@ -2,38 +2,20 @@
 
 @keyframes loading {
   0% {
-    background-color: var(--ic-architectural-100);
+    background-color: var(--ic-skeleton-background);
   }
 
   50% {
-    background-color: var(--ic-architectural-200);
+    background-color: var(--ic-skeleton-background-secondary);
   }
 
   100% {
-    background-color: var(--ic-architectural-100);
+    background-color: var(--ic-skeleton-background);
   }
-}
-
-@keyframes loading-light {
-  0% {
-    background-color: var(--ic-architectural-600);
-  }
-
-  50% {
-    background-color: var(--ic-architectural-400);
-  }
-
-  100% {
-    background-color: var(--ic-architectural-600);
-  }
-}
-
-:host {
-  display: inline-block;
 }
 
 :host(.skeleton) {
-  background-color: var(--ic-architectural-100);
+  background-color: var(--ic-skeleton-background);
   border-radius: var(--ic-border-radius);
   animation: loading 1200ms infinite;
   display: inline-block;
@@ -46,11 +28,6 @@
 
 :host(.ic-skeleton-circle) {
   border-radius: 50%;
-}
-
-:host(.ic-skeleton-light) {
-  background-color: var(--ic-architectural-600);
-  animation: loading-light 1200ms infinite;
 }
 
 @media (forced-colors: active) {

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 import { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -33,7 +33,7 @@ import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 import { Options } from "@popperjs/core";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -516,7 +516,7 @@ export namespace Components {
     }
     interface IcChip {
         /**
-          * The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
+          * The custom chip colour. This will override the theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
         "customColor"?: IcColor;
         /**
@@ -540,7 +540,11 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
-          * If `true`, the outlined variant of chip will have a transparent background rather than white.
+          * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component. Setting the "customColor" prop will override this.
+         */
+        "theme"?: "dark" | "light" | "inherit";
+        /**
+          * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
          */
         "transparentBackground"?: boolean;
         /**
@@ -928,10 +932,6 @@ export namespace Components {
     }
     interface IcLoadingIndicator {
         /**
-          * The appearance of the loading indicator, e.g. dark or light.
-         */
-        "appearance"?: IcThemeForegroundNoDefault;
-        /**
           * The description that will be set as the aria-label of the loading indicator when not using a visible label.
          */
         "description"?: string;
@@ -957,6 +957,10 @@ export namespace Components {
          */
         "min"?: number;
         /**
+          * If `true`, the element will display as black and white.
+         */
+        "monochrome"?: boolean;
+        /**
           * The current amount of progress made. If not provided, component acts as an indeterminate loading indicator.
          */
         "progress"?: number;
@@ -964,6 +968,10 @@ export namespace Components {
           * The size of the loading indicator.
          */
         "size"?: IcLoadingSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
         /**
           * The type of indicator, either linear or circular.
          */
@@ -1301,6 +1309,10 @@ export namespace Components {
           * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
          */
         "anchor": string;
+        /**
+          * @param setFocusToAnchor when true return focus to anchor element when menu is closed
+         */
+        "closeMenu": (setFocusToAnchor?: boolean) => Promise<void>;
         /**
           * If `true`, the popover menu will be displayed.
          */
@@ -1699,9 +1711,9 @@ export namespace Components {
     }
     interface IcSkeleton {
         /**
-          * The appearance of the skeleton.
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "appearance"?: "light" | "default";
+        "theme"?: IcThemeMode;
         /**
           * The variant of the skeleton that will be displayed.
          */
@@ -1753,6 +1765,7 @@ export namespace Components {
           * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
          */
         "subheading"?: string;
+        "theme"?: IcThemeMode;
         /**
           * The state of the step within the stepper.
          */
@@ -1765,10 +1778,6 @@ export namespace Components {
          */
         "aligned"?: IcStepperAlignment;
         /**
-          * The appearance of the stepper.
-         */
-        "appearance"?: "light" | "default";
-        /**
           * The length of the connector between each step in pixels. Minimum length is 100px.
          */
         "connectorWidth"?: number;
@@ -1776,6 +1785,10 @@ export namespace Components {
           * If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.
          */
         "hideStepInfo"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The variant of the stepper.
          */
@@ -3692,7 +3705,7 @@ declare namespace LocalJSX {
     }
     interface IcChip {
         /**
-          * The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
+          * The custom chip colour. This will override the theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
         "customColor"?: IcColor;
         /**
@@ -3716,7 +3729,11 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
-          * If `true`, the outlined variant of chip will have a transparent background rather than white.
+          * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component. Setting the "customColor" prop will override this.
+         */
+        "theme"?: "dark" | "light" | "inherit";
+        /**
+          * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
          */
         "transparentBackground"?: boolean;
         /**
@@ -4108,10 +4125,6 @@ declare namespace LocalJSX {
     }
     interface IcLoadingIndicator {
         /**
-          * The appearance of the loading indicator, e.g. dark or light.
-         */
-        "appearance"?: IcThemeForegroundNoDefault;
-        /**
           * The description that will be set as the aria-label of the loading indicator when not using a visible label.
          */
         "description"?: string;
@@ -4137,6 +4150,10 @@ declare namespace LocalJSX {
          */
         "min"?: number;
         /**
+          * If `true`, the element will display as black and white.
+         */
+        "monochrome"?: boolean;
+        /**
           * The current amount of progress made. If not provided, component acts as an indeterminate loading indicator.
          */
         "progress"?: number;
@@ -4144,6 +4161,10 @@ declare namespace LocalJSX {
           * The size of the loading indicator.
          */
         "size"?: IcLoadingSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The type of indicator, either linear or circular.
          */
@@ -4955,9 +4976,9 @@ declare namespace LocalJSX {
     }
     interface IcSkeleton {
         /**
-          * The appearance of the skeleton.
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "appearance"?: "light" | "default";
+        "theme"?: IcThemeMode;
         /**
           * The variant of the skeleton that will be displayed.
          */
@@ -5009,6 +5030,7 @@ declare namespace LocalJSX {
           * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
          */
         "subheading"?: string;
+        "theme"?: IcThemeMode;
         /**
           * The state of the step within the stepper.
          */
@@ -5021,10 +5043,6 @@ declare namespace LocalJSX {
          */
         "aligned"?: IcStepperAlignment;
         /**
-          * The appearance of the stepper.
-         */
-        "appearance"?: "light" | "default";
-        /**
           * The length of the connector between each step in pixels. Minimum length is 100px.
          */
         "connectorWidth"?: number;
@@ -5032,6 +5050,10 @@ declare namespace LocalJSX {
           * If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.
          */
         "hideStepInfo"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The variant of the stepper.
          */

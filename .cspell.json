@@ -147,7 +147,9 @@
       "architechtural",
       "rhoncusut",
       "screenreader",
-      "screenreaders"
+      "screenreaders",
+      "showdefaulticon",
+      "spelcheck"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc", "la"],
     "ignorePaths": [

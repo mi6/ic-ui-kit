@@ -81,7 +81,7 @@
 :host .navigation-group:active,
 :host .selected {
   background-color: var(--ic-architectural-20);
-  color: var(--ic-color-primary-text-light);
+  color: var(--ic-color-text-primary-light);
   outline: none;
   cursor: pointer;
 }
@@ -117,7 +117,7 @@
 
 :host(.in-side-menu) .navigation-group-side-menu-expanded:active:not(:focus),
 :host(.in-side-menu) .navigation-group-side-menu-collapsed:active:not(:focus) {
-  background-color: var(--ic-action-dark-bg-active);
+  background-color: var(--ic-action-dark-bg-pressed);
   color: var(--ic-action-default);
 }
 

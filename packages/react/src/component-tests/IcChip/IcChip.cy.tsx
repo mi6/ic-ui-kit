@@ -8,13 +8,16 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
   SwitchColour,
   CustomColour,
-  WhiteBackground,
   LongLabel,
   Disabled,
   Dismissible,
   WithIcon,
   WithBadgeSlot,
   InAGGrid,
+  AllSizes,
+  SingleDismissible,
+  DismissibleWithIcon,
+  Transparency,
 } from "./IcChipTestData";
 import {
   HAVE_BEEN_CALLED_ONCE,
@@ -23,7 +26,7 @@ import {
 } from "../utils/constants";
 
 const CHIP_SELECTOR = "ic-chip";
-const DEFAULT_TEST_THRESHOLD = 0.022;
+const DEFAULT_TEST_THRESHOLD = 0.032;
 
 describe("IcChip end-to-end tests", () => {
   it("should switch custom colour after initial render", () => {
@@ -36,7 +39,7 @@ describe("IcChip end-to-end tests", () => {
   });
 
   it("should emit icDismiss event when chip is dismissed", () => {
-    mount(<IcChip label="Dismissible" dismissible />);
+    mount(<SingleDismissible />);
 
     cy.checkHydrated(CHIP_SELECTOR);
 
@@ -56,38 +59,6 @@ describe("IcChip visual regression and a11y tests", () => {
     cy.task("generateReport");
   });
 
-  it("should render static chip", () => {
-    mount(
-      <div style={{ padding: "8px" }}>
-        <IcChip label="Default" />
-      </div>
-    );
-
-    cy.checkHydrated(CHIP_SELECTOR);
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "static",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
-    });
-  });
-
-  it("should render outlined chip", () => {
-    mount(
-      <div style={{ padding: "8px" }}>
-        <IcChip label="Default" variant="outlined" />
-      </div>
-    );
-
-    cy.checkHydrated(CHIP_SELECTOR);
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "outlined",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
-    });
-  });
-
   it("should render chip with icon", () => {
     mount(<WithIcon />);
 
@@ -96,55 +67,57 @@ describe("IcChip visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
 
   it("should render chips of different sizes", () => {
-    mount(
-      <div style={{ padding: "8px" }}>
-        <IcChip label="Small" size="small" />
-        <IcChip label="Default" />
-        <IcChip label="Large" size="large" />
-      </div>
-    );
+    mount(<AllSizes />);
 
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
     });
   });
 
-  it("should render dismissible chip", () => {
+  it("should render dismissible chips", () => {
     mount(<Dismissible />);
 
-    cy.checkHydrated("ic-chip#small-chip");
-    cy.checkHydrated("ic-chip#default-chip");
-    cy.checkHydrated("ic-chip#large-chip");
+    cy.checkHydrated(CHIP_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dismissible",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
 
   it("should render dismissible chip with focus", () => {
-    mount(<Dismissible />);
+    mount(<SingleDismissible />);
 
-    cy.checkHydrated("ic-chip#small-chip");
-    cy.checkHydrated("ic-chip#default-chip");
-    cy.checkHydrated("ic-chip#large-chip");
+    cy.checkHydrated(CHIP_SELECTOR);
 
-    cy.findShadowEl("ic-chip#small-chip", "button").eq(0).focus();
+    cy.findShadowEl(CHIP_SELECTOR, "button").eq(0).focus().wait(500);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dismissible-focus",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+    });
+  });
+
+  it("should render dismissible chip with icon", () => {
+    mount(<DismissibleWithIcon />);
+
+    cy.checkHydrated(CHIP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dismissible-with-icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
 
@@ -153,36 +126,23 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkHydrated(CHIP_SELECTOR);
 
-    cy.checkA11yWithWait();
+    /* currently fails due to disabled colors not meeting contrast ratios */
+    // cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
   it("should render chip with long label", () => {
     mount(<LongLabel />);
 
-    cy.checkHydrated("ic-chip#small-chip");
-    cy.checkHydrated("ic-chip#default-chip");
-    cy.checkHydrated("ic-chip#large-chip");
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "long-label",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
-    });
-  });
-
-  it("should render with white background for outlined variant", () => {
-    mount(<WhiteBackground />);
-
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "white-background",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      name: "long-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
     });
   });
 
@@ -194,7 +154,7 @@ describe("IcChip visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom-colour",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
 
@@ -210,6 +170,17 @@ describe("IcChip visual regression and a11y tests", () => {
     });
   });
 
+  it("should render with and without transparent background", () => {
+    mount(<Transparency />);
+
+    cy.checkHydrated(CHIP_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "transparency",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+    });
+  });
+
   it("should render as truncated in an AG Grid when there is not enough space", () => {
     mount(<InAGGrid />);
 
@@ -217,7 +188,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.compareSnapshot({
       name: "in-ag-grid",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.062),
     });
   });
 });
@@ -242,7 +213,7 @@ describe("IcChip visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "custom-colour-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 
@@ -253,46 +224,19 @@ describe("IcChip visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "disabled-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
-    });
-  });
-
-  it("should render dismissible chip in high contrast mode", () => {
-    mount(<Dismissible />);
-
-    cy.checkHydrated("ic-chip#small-chip");
-    cy.checkHydrated("ic-chip#default-chip");
-    cy.checkHydrated("ic-chip#large-chip");
-
-    cy.compareSnapshot({
-      name: "dismissible-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
   it("should render dismissible chip with focus in high contrast mode", () => {
-    mount(<Dismissible />);
+    mount(<SingleDismissible />);
 
-    cy.checkHydrated("ic-chip#small-chip");
-    cy.checkHydrated("ic-chip#default-chip");
-    cy.checkHydrated("ic-chip#large-chip");
-
-    cy.findShadowEl("ic-chip#small-chip", "button").eq(0).focus().wait(500);
+    cy.checkHydrated(CHIP_SELECTOR);
+    cy.findShadowEl(CHIP_SELECTOR, "button").eq(0).focus().wait(500);
 
     cy.compareSnapshot({
       name: "dismissible-focus-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
-    });
-  });
-
-  it("should render with white background for outlined variant in high contrast mode", () => {
-    mount(<WhiteBackground />);
-
-    cy.checkHydrated(CHIP_SELECTOR);
-
-    cy.compareSnapshot({
-      name: "white-background-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
 });

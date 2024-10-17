@@ -15,6 +15,8 @@ import {
   DeterminateLoadingIndWithNameNoLabel,
   DeterminateCircularLoadingIndWithInnerLabel,
   IndeterminateCircularLoadingIndE2EWithDuration,
+  DarkModeColours,
+  LightMonochrome,
 } from "./IcLoadingIndicatorTestData";
 
 const ICON_CLIP = { x: 0, y: 0, width: 50, height: 50 };
@@ -28,6 +30,7 @@ const defaultArgs = {
 };
 
 const LOADING_INDICATOR_SELECTOR = "ic-loading-indicator";
+const LOADING_LABEL_SELECTOR = "ic-typography#ic-loading-label";
 const DEFAULT_TEST_THRESHOLD = 0;
 
 describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () => {
@@ -42,10 +45,10 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
   it("should render indeterminate circular loading indicator", () => {
     mount(<IndeterminateCircularLoadingIndWithLabel />);
 
-    cy.findShadowEl(
-      "ic-loading-indicator",
-      "ic-typography#ic-loading-label"
-    ).should(HAVE_TEXT, "Loading...");
+    cy.findShadowEl("ic-loading-indicator", LOADING_LABEL_SELECTOR).should(
+      HAVE_TEXT,
+      "Loading..."
+    );
 
     cy.checkA11yWithWait();
   });
@@ -124,8 +127,12 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
 
     cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
     cy.get(LOADING_INDICATOR_SELECTOR)
-      .invoke("prop", "appearance")
-      .should("eq", "light");
+      .invoke("prop", "theme")
+      .should("eq", "dark");
+
+    cy.get(LOADING_INDICATOR_SELECTOR)
+      .invoke("prop", "monochrome")
+      .should("eq", true);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -145,8 +152,13 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
 
     cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
     cy.get(LOADING_INDICATOR_SELECTOR)
-      .invoke("prop", "appearance")
-      .should("eq", "light");
+      .invoke("prop", "theme")
+      .should("eq", "dark");
+
+    cy.get(LOADING_INDICATOR_SELECTOR)
+      .invoke("prop", "monochrome")
+      .should("eq", true);
+
     cy.get(LOADING_INDICATOR_SELECTOR)
       .invoke("prop", "size")
       .should("eq", "icon");
@@ -158,6 +170,30 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
       cypressScreenshotOptions: {
         clip: ICON_CLIP,
       },
+    });
+  });
+
+  it("should render dark mode colours", () => {
+    mount(<DarkModeColours />);
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-mode-colours",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render light monochrome colours", () => {
+    mount(<LightMonochrome />);
+
+    cy.checkHydrated(LOADING_INDICATOR_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "light-monochrome-colours",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -234,17 +270,11 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
   it("should change label after specified amount of time", () => {
     mount(<IndeterminateCircularLoadingIndE2EWithDuration />);
 
-    cy.findShadowEl(
-      LOADING_INDICATOR_SELECTOR,
-      "ic-typography#ic-loading-label"
-    )
+    cy.findShadowEl(LOADING_INDICATOR_SELECTOR, LOADING_LABEL_SELECTOR)
       .find("p")
       .should(HAVE_TEXT, "First label");
     cy.wait(250);
-    cy.findShadowEl(
-      LOADING_INDICATOR_SELECTOR,
-      "ic-typography#ic-loading-label"
-    )
+    cy.findShadowEl(LOADING_INDICATOR_SELECTOR, LOADING_LABEL_SELECTOR)
       .find("p")
       .should(HAVE_TEXT, "Second label");
   });

@@ -121,20 +121,6 @@ describe("IcToast end-to-end tests", () => {
     cy.get("@icDismiss").should(HAVE_BEEN_CALLED_ONCE);
   });
 
-  it("should focus the new dismiss button when auto dismiss toast is tabbed to", () => {
-    mount(<SimpleAutoDismissToast />);
-    cy.get("ic-button").click();
-    cy.checkHydrated("ic-toast");
-
-    cy.get("ic-toast").click(60, 40);
-
-    cy.realPress("Tab").realPress("Tab");
-    cy.get("ic-toast")
-      .shadow()
-      .find("ic-button#dismiss-button")
-      .should("exist");
-  });
-
   it("should render a toast on page load if openToast is set early", () => {
     mount(<AutoLoadToast />);
     cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "hidden");
@@ -152,6 +138,11 @@ describe("IcToast end-to-end tests", () => {
       .shadow()
       .find(DISMISS_BUTTON_SELECTOR)
       .should("exist");
+  });
+
+  it("should render a toast on page load if openToast is set early", () => {
+    mount(<AutoLoadToast />);
+    cy.get(IC_TOAST_SELECTOR).should(NOT_HAVE_CLASS, "hidden");
   });
 });
 

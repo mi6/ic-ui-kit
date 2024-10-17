@@ -8,17 +8,17 @@
   display: block;
 
   --linear-border-radius: 0.25rem;
-  --inner-color: var(--ic-action-default);
-  --outer-color: var(--ic-architectural-100);
-  --label-color: var(--ic-color-primary-text);
+  --inner-color: var(--ic-loading-indicator-inner-color);
+  --outer-color: var(--ic-loading-indicator-outer-color);
+  --label-color: var(--ic-loading-indicator-label-color);
   --margin: none;
   --linear-line-height: var(--ic-space-xs);
 }
 
-:host(.ic-loading-indicator-light) {
-  --inner-color: var(--ic-architectural-white);
-  --outer-color: var(--ic-architectural-800);
-  --label-color: var(--ic-architectural-white);
+:host(.ic-loading-indicator-monochrome) {
+  --inner-color: var(--ic-loading-indicator-inner-color-monochrome);
+  --outer-color: var(--ic-loading-indicator-outer-color-monochrome);
+  --label-color: var(--ic-loading-indicator-label-color-monochrome);
 }
 
 .ic-loading-container {
@@ -171,6 +171,7 @@
   grid-row: 1;
 }
 
+/** ic-stepper **/
 :host(.not-required.compact-step-progress-indicator)
   .ic-loading-circular-svg
   circle:nth-child(2) {
@@ -186,11 +187,14 @@
   overflow: hidden;
   margin: auto;
 
-  --ic-typography-color: var(--compact-step-inner-color, var(--ic-status-info));
+  --ic-typography-color: var(
+    --ic-step-indicator-text-current,
+    var(--ic-status-info-default)
+  );
 }
 
 :host(.not-required.compact-step-progress-indicator) .inner-text {
-  --ic-typography-color: var(--ic-color-tertiary-text);
+  --ic-typography-color: var(--ic-step-indicator-text-disabled);
 }
 
 :host(.ic-loading-indicator-light.not-required.compact-step-progress-indicator)
@@ -205,7 +209,7 @@
   }
 
   .ic-loading-linear-outer {
-    border: var(--ic-hc-border);
+    border: var(--ic-border-hc);
   }
 
   .ic-loading-linear-inner {

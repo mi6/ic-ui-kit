@@ -11,7 +11,7 @@
 
   --button-default: var(--ic-action-default);
   --button-default-hover: var(--ic-action-default-hover);
-  --button-default-active: var(--ic-action-default-active);
+  --button-default-active: var(--ic-action-default-pressed);
   --button-default-background-hover: var(--ic-action-default-bg-hover);
   --button-default-background-active: var(--ic-action-default-bg-active);
   --icon-width: 100%;
@@ -59,20 +59,20 @@
 
 :host(.ic-button-dark) .button,
 :host(.ic-button-dark) ::slotted(a) {
-  --button-default: var(--ic-action-dark);
-  --button-default-hover: var(--ic-action-dark);
-  --button-default-active: var(--ic-action-dark);
+  --button-default: var(--ic-color-border-neutral-black);
+  --button-default-hover: var(--ic-action-dark-hover);
+  --button-default-active: var(--ic-action-dark-pressed);
   --button-default-background-hover: var(--ic-action-dark-bg-hover);
-  --button-default-background-active: var(--ic-action-dark-bg-active);
+  --button-default-background-active: var(--ic-action-dark-bg-pressed);
 }
 
 :host(.ic-button-light) .button,
 :host(.ic-button-light) ::slotted(a) {
-  --button-default: var(--ic-action-light);
-  --button-default-hover: var(--ic-action-light);
-  --button-default-active: var(--ic-action-light);
+  --button-default: var(--ic-color-border-neutral-white);
+  --button-default-hover: var(--ic-action-light-hover);
+  --button-default-active: var(--ic-action-light-pressed);
   --button-default-background-hover: var(--ic-action-light-bg-hover);
-  --button-default-background-active: var(--ic-action-light-bg-active);
+  --button-default-background-active: var(--ic-action-light-bg-pressed);
 }
 
 :host(.white-background) .button,
@@ -93,18 +93,18 @@
 
 :host(.ic-button-variant-primary.ic-button-light) .button,
 :host(.ic-button-variant-primary.ic-button-light) ::slotted(a) {
-  color: var(--ic-color-primary-text-light);
+  color: var(--ic-color-text-primary-light);
 
   --button-default-hover: var(--ic-action-light-hover);
-  --button-default-active: var(--ic-action-light-active);
+  --button-default-active: var(--ic-action-light-pressed);
 }
 
 :host(.ic-button-variant-primary.ic-button-dark) .button,
 :host(.ic-button-variant-primary.ic-button-dark) ::slotted(a) {
-  color: var(--ic-color-primary-text-dark);
+  color: var(--ic-color-text-primary-dark);
 
   --button-default-hover: var(--ic-action-dark-hover);
-  --button-default-active: var(--ic-action-dark-active);
+  --button-default-active: var(--ic-action-dark-pressed);
 }
 
 :host(.ic-button-disabled),
@@ -173,9 +173,14 @@
 }
 
 :host(.ic-button-variant-secondary) .button:active,
-:host(.ic-button-variant-secondary) ::slotted(a:active),
-:host(.ic-button-variant-secondary.ic-button-loading) .button {
+:host(.ic-button-variant-secondary) ::slotted(a:active) {
   border-color: var(--button-default-active);
+  background-color: var(--button-default-background-active);
+  color: var(--button-default-active);
+}
+
+:host(.ic-button-variant-secondary.ic-button-loading) .button {
+  border-color: var(--button-default);
   background-color: var(--button-default-background-active);
   color: var(--button-default-active);
 }
@@ -241,7 +246,7 @@
 
 :host(.ic-button-variant-destructive) .button:active,
 :host(.ic-button-variant-destructive.ic-button-loading) .button {
-  background-color: var(--ic-action-destructive-active);
+  background-color: var(--ic-action-destructive-pressed);
 }
 
 :host(.ic-button-variant-destructive.ic-button-disabled) .button,
@@ -315,12 +320,6 @@
   background: var(--button-default-active);
 }
 
-:host(.ic-button-variant-icon-primary.ic-button-loading)
-  .button
-  ic-loading-indicator {
-  --inner-color: var(--ic-architectural-white);
-}
-
 :host(.ic-button-variant-icon-primary.ic-button-disabled) .button,
 :host(.ic-button-variant-icon-primary.ic-button-disabled) ::slotted(a) {
   color: var(--ic-architectural-300);
@@ -329,7 +328,7 @@
 
 :host(.ic-button-variant-icon-primary.ic-button-light) .button,
 :host(.ic-button-variant-icon-primary.ic-button-light) ::slotted(a) {
-  color: var(--ic-color-primary-text-light);
+  color: var(--ic-color-text-primary-light);
 }
 
 :host(.ic-button-variant-icon-primary.ic-button-light) .button:hover,
@@ -343,7 +342,7 @@
   .button,
 :host(.ic-button-variant-icon-primary.ic-button-light.ic-button-loading)
   ::slotted(a) {
-  background: var(--ic-action-light-active);
+  background: var(--ic-action-light-pressed);
 }
 
 :host(.ic-button-variant-icon-primary.ic-button-dark) .button:hover,
@@ -356,7 +355,7 @@
 :host(.ic-button-variant-icon-primary.ic-button-dark.ic-button-loading) .button,
 :host(.ic-button-variant-icon-primary.ic-button-dark.ic-button-loading)
   ::slotted(a) {
-  background: var(--ic-action-dark-active);
+  background: var(--ic-action-dark-pressed);
 }
 
 /* Icon-secondary */
@@ -480,13 +479,7 @@
 :host(.ic-button-variant-icon-destructive) .button:active,
 :host(.ic-button-variant-icon-destructive) ::slotted(a:active),
 :host(.ic-button-variant-icon-destructive.ic-button-loading) .button {
-  background-color: var(--ic-action-destructive-active);
-}
-
-:host(.ic-button-variant-icon-destructive.ic-button-loading)
-  .button
-  ic-loading-indicator {
-  --inner-color: var(--ic-architectural-white);
+  background-color: var(--ic-action-destructive-pressed);
 }
 
 :host(.ic-button-variant-icon-destructive.ic-button-disabled) .button,
@@ -580,6 +573,10 @@ div.loading-container {
 
 ic-loading-indicator {
   --outer-color: transparent;
+}
+
+ic-loading-indicator.ic-theme-dark.ic-loading-indicator-monochrome {
+  --inner-color: var(--ic-action-light);
 }
 
 @keyframes loading-animation {
@@ -828,7 +825,7 @@ slot[name="router-item"]::slotted(a) {
 }
 
 :host(.ic-button-variant-destructive) ::slotted(a:active) {
-  background-color: var(--ic-action-destructive-active) !important;
+  background-color: var(--ic-action-destructive-pressed) !important;
 }
 
 :host(.ic-button-size-medium) ::slotted(a) {
