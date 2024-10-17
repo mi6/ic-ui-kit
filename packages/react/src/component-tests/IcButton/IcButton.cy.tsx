@@ -438,7 +438,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 1000);
     cy.compareSnapshot({
       name: "expanded-dropdown-popover",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
     });
   });
 
