@@ -18,11 +18,10 @@
 
 :host {
   border-radius: var(--ic-border-radius);
-  color: var(--ic-color-text-primary);
+  color: var(--ic-popover-nav-text);
 
-  --ic-typography-color: var(--ic-color-text-primary);
+  --ic-typography-color: var(--ic-popover-nav-text);
 
-  background-color: var(--ic-architectural-white);
   position: relative;
   z-index: var(--ic-z-index-popover);
   box-sizing: border-box;
@@ -44,8 +43,9 @@
 
 .menu {
   border: var(--ic-border-default);
+  border-color: var(--ic-popover-border);
   border-radius: var(--ic-border-radius);
-  background-color: var(--ic-architectural-white);
+  background-color: var(--ic-popover-background);
   visibility: hidden;
   height: 0;
 }
@@ -79,7 +79,7 @@
 }
 
 .parent-label {
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-popover-parent-label);
 
   margin: var(--ic-space-xs) var(--ic-space-xs) 0;
 }
