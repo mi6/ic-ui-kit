@@ -161,7 +161,7 @@ export class RadioGroup {
 
     if (this.radioOptions !== undefined) {
       this.radioOptions.forEach((radioOption, index) => {
-        radioOption.selected = this.checkedValue === radioOption.value;
+        radioOption.selected = selectedOption === radioOption;
         if (radioOption.selected) {
           this.selectedChild = index;
         }
