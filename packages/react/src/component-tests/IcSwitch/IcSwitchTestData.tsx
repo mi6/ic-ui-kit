@@ -146,3 +146,21 @@ export const InAForm = () => {
     </form>
   );
 };
+
+export const ThemeDark = () => {
+  return (
+    <div
+      style={{
+        padding: "10px",
+        display: "flex",
+        gap: "10px",
+        backgroundColor: "black",
+      }}
+    >
+      <IcSwitch label="Label" theme="dark" />
+      <IcSwitch label="Label" checked theme="dark" />
+      <IcSwitch label="Label" disabled theme="dark" />
+      <IcSwitch label="Label" disabled checked theme="dark" />
+    </div>
+  );
+};

@@ -13,6 +13,7 @@ import {
   HelperText,
   HiddenLabel,
   InAForm,
+  ThemeDark,
 } from "./IcSwitchTestData";
 import {
   HAVE_ATTR,
@@ -264,6 +265,18 @@ describe("IcSwitch visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+    });
+  });
+
+  it("should render a switch in dark theme", () => {
+    mount(<ThemeDark />);
+
+    cy.checkHydrated(SWITCH_SELECTOR);
+
+    // cy.checkA11yWithWait(); A11y failure for colour contrast
+    cy.compareSnapshot({
+      name: "theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 });
