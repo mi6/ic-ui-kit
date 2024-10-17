@@ -176,6 +176,7 @@ export class DataTable {
     min?: number;
     progress?: number;
     showBackground?: boolean;
+    monochrome?: boolean;
   };
 
   /**
@@ -267,6 +268,7 @@ export class DataTable {
     max?: number;
     min?: number;
     progress?: number;
+    monochrome?: boolean;
   };
 
   /**
@@ -1076,12 +1078,13 @@ export class DataTable {
   };
 
   private createUpdatingIndicator = () => {
-    const { appearance, description, max, min, progress } =
+    const { appearance, description, max, min, progress, monochrome } =
       this.updatingOptions || {};
     return (
       <th colSpan={this.columns.length} class="updating-state">
         <ic-loading-indicator
-          appearance={appearance}
+          theme={appearance}
+          monochrome={monochrome}
           description={description || "Updating table data"}
           fullWidth={true}
           max={max}
@@ -1764,7 +1767,8 @@ export class DataTable {
           </div>
           {loading && (
             <ic-loading-indicator
-              appearance={loadingOptions?.appearance}
+              theme={loadingOptions?.appearance}
+              monochrome={loadingOptions?.monochrome}
               class={{
                 "loading-empty": loading,
                 loading: true,
