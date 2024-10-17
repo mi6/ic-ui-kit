@@ -34,8 +34,8 @@ input {
   height: var(--ic-space-xl);
   position: relative;
   border-radius: 100vw;
-  background-color: var(--ic-architectural-200);
-  border: var(--ic-border-width) solid var(--ic-architectural-700);
+  background-color: var(--ic-switch-unchecked-bg);
+  border: var(--ic-border-width) solid var(--ic-switch-unchecked);
   box-sizing: border-box;
   transition: var(--ic-transition-duration-fast);
 }
@@ -47,6 +47,7 @@ input {
 .ic-switch-checked-status {
   padding-left: var(--ic-space-xxs);
   width: var(--ic-space-lg);
+  color: var(--ic-switch-help-text);
 }
 
 .ic-switch-toggle::before {
@@ -59,7 +60,7 @@ input {
   top: 50%;
   left: 0.333rem;
   transform: translate(0, -50%);
-  background-color: var(--ic-architectural-700);
+  background-color: var(--ic-switch-unchecked);
   transition: var(--ic-transition-duration-slow);
 }
 
@@ -76,11 +77,11 @@ input {
 }
 
 .ic-switch-icon-circle {
-  stroke: var(--ic-architectural-700);
+  stroke: var(--ic-switch-indicator-off);
 }
 
 .ic-switch-icon-line {
-  stroke: var(--ic-architectural-white);
+  stroke: var(--ic-switch-indicator-on);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -90,29 +91,29 @@ input {
 }
 
 .ic-switch-input:checked + .ic-switch-toggle {
-  background-color: var(--ic-action-default);
+  background-color: var(--ic-switch-checked-bg);
   border: none;
 }
 
 .ic-switch-input:checked + .ic-switch-toggle::before {
   transform: translate(var(--ic-space-xl), -50%);
-  background-color: var(--ic-architectural-white);
+  background-color: var(--ic-switch-checked);
 }
 
 .ic-switch-input:not([disabled]) + .ic-switch-toggle:hover::before {
-  box-shadow: 0 0 0 0.75rem var(--ic-action-dark-bg-hover);
+  box-shadow: 0 0 0 0.75rem var(--ic-switch-unchecked-bg-hover);
 }
 
 .ic-switch-input:not([disabled]) + .ic-switch-toggle:active::before {
-  box-shadow: 0 0 0 0.75rem var(--ic-action-dark-bg-pressed);
+  box-shadow: 0 0 0 0.75rem var(--ic-switch-unchecked-bg-pressed);
 }
 
 .ic-switch-input:not([disabled]):checked + .ic-switch-toggle:hover::before {
-  box-shadow: 0 0 0 0.75rem var(--ic-action-default-bg-hover);
+  box-shadow: 0 0 0 0.75rem var(--ic-switch-checked-bg-hover);
 }
 
 .ic-switch-input:not([disabled]):checked + .ic-switch-toggle:active::before {
-  box-shadow: 0 0 0 0.75rem var(--ic-action-default-bg-active);
+  box-shadow: 0 0 0 0.75rem var(--ic-switch-checked-bg-pressed);
 }
 
 .ic-switch-input:focus:not([disabled]) + .ic-switch-toggle,
@@ -125,16 +126,16 @@ input {
 }
 
 .ic-switch-disabled .ic-switch-icon-circle {
-  stroke: var(--ic-architectural-300);
+  stroke: var(--ic-switch-indicator-off-disabled);
 }
 
 .ic-switch-disabled .ic-switch-icon-line {
-  stroke: var(--ic-action-default-bg-active);
+  stroke: var(--ic-switch-indicator-on-disabled);
 }
 
 .ic-switch-input:disabled + .ic-switch-toggle {
-  background-color: var(--ic-architectural-80);
-  border: var(--ic-border-disabled);
+  background-color: var(--ic-switch-unchecked-bg-disabled);
+  border: var(--ic-space-1px) dashed var(--ic-switch-unchecked-outline-disabled);
 }
 
 .ic-switch-input:disabled ~ .ic-switch-checked-status {
@@ -142,16 +143,17 @@ input {
 }
 
 .ic-switch-input:disabled + .ic-switch-toggle::before {
-  background-color: var(--ic-architectural-300);
+  background-color: var(--ic-switch-unchecked-disabled);
 }
 
 .ic-switch-input:disabled:checked + .ic-switch-toggle {
-  background-color: var(--ic-status-info-light);
-  border: var(--ic-border-width) dashed #98c9f5;
+  background-color: var(--ic-switch-checked-bg-disabled);
+  border: var(--ic-border-width) dashed
+    var(--ic-switch-checked-outline-disabled);
 }
 
 .ic-switch-input:disabled:checked + .ic-switch-toggle::before {
-  background-color: var(--ic-architectural-white);
+  background-color: var(--ic-switch-checked);
 }
 
 .ic-switch-small {
@@ -182,7 +184,7 @@ input {
 }
 
 ::slotted(svg) {
-  fill: currentcolor;
+  fill: var(--ic-switch-icon);
 }
 
 @media (forced-colors: active) {
@@ -210,13 +212,3 @@ input {
     stroke: GrayText;
   }
 }
-
-/* Add back in after storybook has the `color-scheme: light dark` code */
-
-/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
-  .ic-switch-label .ic-typography-label,
-  ic-input-label .helpertext,
-  .ic-switch-checked-status {
-    color: var(--ic-architectural-white);
-  }
-} */

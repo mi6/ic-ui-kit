@@ -221,6 +221,36 @@ ic-theme,
   );
   --ic-stepper-compact-step-completed-text: var(--ic-status-success-default);
 
+  /* Switch */
+  --ic-switch-checked-bg: var(--ic-color-background-active);
+  --ic-switch-checked: var(--ic-color-background-selected);
+  --ic-switch-checked-bg-disabled: var(--ic-state-layer-secondary-light);
+  --ic-switch-checked-outline-disabled: var(--ic-state-layer-secondary-dark);
+  --ic-switch-unchecked-bg: var(--ic-state-layer-neutral-default);
+  --ic-switch-unchecked: var(--ic-status-unknown-mid);
+  --ic-switch-unchecked-bg-disabled: var(--ic-color-background-disabled);
+  --ic-switch-unchecked-outline-disabled: var(
+    --ic-color-border-neutral-disabled
+  );
+  --ic-switch-unchecked-disabled: var(--ic-color-icon-disabled);
+  --ic-switch-label: var(
+    --ic-color-text-primary
+  ); /* Reliant on ic-input-label so not added yet */
+
+  --ic-switch-help-text: var(
+    --ic-color-text-secondary
+  ); /* Reliant on ic-input-label so not added yet */
+
+  --ic-switch-icon: var(--ic-color-icon-neutral);
+  --ic-switch-indicator-on: var(--ic-color-border-neutral-grey);
+  --ic-switch-indicator-on-disabled: var(--ic-state-layer-secondary-dark);
+  --ic-switch-indicator-off: var(--ic-status-unknown-mid);
+  --ic-switch-indicator-off-disabled: var(--ic-color-icon-disabled-light);
+  --ic-switch-unchecked-bg-hover: var(--ic-action-dark-bg-hover);
+  --ic-switch-unchecked-bg-pressed: var(--ic-action-dark-bg-pressed);
+  --ic-switch-checked-bg-hover: var(--ic-action-default-bg-hover);
+  --ic-switch-checked-bg-pressed: var(--ic-action-default-bg-pressed);
+
   /* Tabs */
   --ic-tab-label: var(--ic-color-text-primary);
   --ic-tab-label-monochrome: var(--ic-color-text-primary);
@@ -461,6 +491,38 @@ ic-theme,
     );
     --ic-stepper-compact-step-completed-text: var(--ic-status-success-contrast);
 
+    /* Switch */
+    --ic-switch-checked-bg: var(--ic-color-background-active-dark);
+    --ic-switch-checked: var(--ic-color-background-selected);
+    --ic-switch-checked-bg-disabled: var(--ic-state-layer-secondary-light);
+    --ic-switch-checked-outline-disabled: var(--ic-state-layer-secondary-dark);
+    --ic-switch-unchecked-bg: var(--ic-state-layer-neutral-dark);
+    --ic-switch-unchecked: var(--ic-status-unknown-dark);
+    --ic-switch-unchecked-bg-disabled: var(
+      --ic-color-background-disabled-default
+    );
+    --ic-switch-unchecked-outline-disabled: var(
+      --ic-color-border-neutral-disabled
+    );
+    --ic-switch-unchecked-disabled: var(--ic-color-icon-disabled-light);
+    --ic-switch-label: var(
+      --ic-color-text-primary
+    ); /* Reliant on ic-input-label so not added yet */
+
+    --ic-switch-help-text: var(
+      --ic-color-text-secondary
+    ); /* Reliant on ic-input-label so not added yet */
+
+    --ic-switch-icon: var(--ic-color-icon-inverted);
+    --ic-switch-indicator-on: var(--ic-color-border-neutral-grey-light);
+    --ic-switch-indicator-on-disabled: var(--ic-state-layer-secondary-dark);
+    --ic-switch-indicator-off: var(--ic-status-unknown-mid);
+    --ic-switch-indicator-off-disabled: var(--ic-color-icon-disabled-light);
+    --ic-switch-unchecked-bg-hover: var(--ic-action-light-bg-hover);
+    --ic-switch-unchecked-bg-pressed: var(--ic-action-light-bg-pressed);
+    --ic-switch-checked-bg-hover: var(--ic-action-light-bg-hover);
+    --ic-switch-checked-bg-pressed: var(--ic-action-light-bg-pressed);
+
     /* Tabs */
     --ic-tab-label: var(--ic-color-text-primary-dark);
     --ic-tab-label-monochrome: var(--ic-color-text-inverse-light);
@@ -700,6 +762,38 @@ ic-theme,
     --ic-color-text-inactive
   );
   --ic-stepper-compact-step-completed-text: var(--ic-status-success-contrast);
+
+  /* Switch */
+  --ic-switch-checked-bg: var(--ic-color-background-active-dark);
+  --ic-switch-checked: var(--ic-color-background-selected);
+  --ic-switch-checked-bg-disabled: var(--ic-state-layer-secondary-light);
+  --ic-switch-checked-outline-disabled: var(--ic-state-layer-secondary-dark);
+  --ic-switch-unchecked-bg: var(--ic-state-layer-neutral-dark);
+  --ic-switch-unchecked: var(--ic-status-unknown-dark);
+  --ic-switch-unchecked-bg-disabled: var(
+    --ic-color-background-disabled-default
+  );
+  --ic-switch-unchecked-outline-disabled: var(
+    --ic-color-border-neutral-disabled
+  );
+  --ic-switch-unchecked-disabled: var(--ic-color-icon-disabled-light);
+  --ic-switch-label: var(
+    --ic-color-text-primary
+  ); /* Reliant on ic-input-label so not added yet */
+
+  --ic-switch-help-text: var(
+    --ic-color-text-secondary
+  ); /* Reliant on ic-input-label so not added yet */
+
+  --ic-switch-icon: var(--ic-color-icon-inverted);
+  --ic-switch-indicator-on: var(--ic-color-border-neutral-grey-light);
+  --ic-switch-indicator-on-disabled: var(--ic-state-layer-secondary-dark);
+  --ic-switch-indicator-off: var(--ic-status-unknown-mid);
+  --ic-switch-indicator-off-disabled: var(--ic-color-icon-disabled-light);
+  --ic-switch-unchecked-bg-hover: var(--ic-action-light-bg-hover);
+  --ic-switch-unchecked-bg-pressed: var(--ic-action-light-bg-pressed);
+  --ic-switch-checked-bg-hover: var(--ic-action-light-bg-hover);
+  --ic-switch-checked-bg-pressed: var(--ic-action-light-bg-pressed);
 
   /* Tabs */
   --ic-tab-label: var(--ic-color-text-primary-dark);
