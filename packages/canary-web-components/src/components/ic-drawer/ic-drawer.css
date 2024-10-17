@@ -1,0 +1,308 @@
+@import "../../../dist/core/normalize.css";
+
+/**
+  @prop --ic-z-index-drawer: z-index of drawer.
+  @prop --ic-drawer-width: the width of the expanded left or right drawer.
+  @prop --ic-drawer-height: the width of the expanded top or bottom drawer.
+*/
+
+:host(.ic-drawer) {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: var(--ic-z-index-drawer);
+
+  --vertical-drawer-line-clamp: 0;
+}
+
+/* Collapsed state */
+
+:host(.ic-drawer.collapsed) {
+  flex: 0 0 56px;
+}
+
+:host(.ic-drawer) .collapsed-drawer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  background-color: var(--ic-architectural-white);
+  box-shadow: var(--ic-elevation-overlay);
+}
+
+:host(.ic-drawer.ic-left-position) .collapsed-drawer,
+:host(.ic-drawer.ic-right-position) .collapsed-drawer {
+  height: 100%;
+}
+
+:host(.ic-drawer.ic-top-position) .collapsed-drawer,
+:host(.ic-drawer.ic-bottom-position) .collapsed-drawer {
+  width: 100%;
+  align-items: center;
+}
+
+:host(.ic-drawer.ic-left-position) .collapsed-drawer .chevron-btn,
+:host(.ic-drawer.ic-right-position) .collapsed-drawer .chevron-btn {
+  margin: var(--ic-space-md) var(--ic-space-sm) 0;
+}
+
+:host(.ic-drawer.ic-top-position) .collapsed-drawer .chevron-btn,
+:host(.ic-drawer.ic-bottom-position) .collapsed-drawer .chevron-btn {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: center;
+  margin: var(--ic-space-xs) 0;
+}
+
+/* Expanded state */
+
+:host(.ic-drawer.expanded) {
+  width: 100vw;
+  height: 100vh;
+}
+
+:host(.ic-drawer) .ic-drawer-overlay {
+  z-index: -1;
+  flex: auto;
+  background-color: rgb(0 0 0 / 20%);
+}
+
+:host(.ic-drawer) .ic-drawer-panel {
+  display: flex;
+  position: fixed;
+  background-color: var(--ic-architectural-white);
+  box-shadow: var(--ic-elevation-overlay);
+}
+
+:host(.ic-drawer.ic-top-position) .ic-drawer-panel,
+:host(.ic-drawer.ic-bottom-position) .ic-drawer-panel {
+  width: 100%;
+}
+
+:host(.ic-drawer.ic-right-position.expanded) .ic-drawer-panel.small,
+:host(.ic-drawer.ic-left-position.expanded) .ic-drawer-panel.small {
+  width: var(--ic-drawer-width, calc(var(--ic-space-sm) * 25));
+}
+
+:host(.ic-drawer.ic-right-position.expanded) .ic-drawer-panel.medium,
+:host(.ic-drawer.ic-left-position.expanded) .ic-drawer-panel.medium {
+  width: var(--ic-drawer-width, calc(var(--ic-space-sm) * 37.5));
+}
+
+:host(.ic-drawer.ic-right-position.expanded) .ic-drawer-panel.large,
+:host(.ic-drawer.ic-left-position.expanded) .ic-drawer-panel.large {
+  width: var(--ic-drawer-width, calc(var(--ic-space-sm) * 50));
+}
+
+:host(.ic-drawer.ic-top-position.expanded) .ic-drawer-panel.small,
+:host(.ic-drawer.ic-bottom-position.expanded) .ic-drawer-panel.small {
+  height: var(--ic-drawer-height, calc(var(--ic-space-sm) * 25));
+}
+
+:host(.ic-drawer.ic-top-position.expanded) .ic-drawer-panel.medium,
+:host(.ic-drawer.ic-bottom-position.expanded) .ic-drawer-panel.medium {
+  height: var(--ic-drawer-height, calc(var(--ic-space-sm) * 37.5));
+}
+
+:host(.ic-drawer.ic-top-position.expanded) .ic-drawer-panel.large,
+:host(.ic-drawer.ic-bottom-position.expanded) .ic-drawer-panel.large {
+  height: var(--ic-drawer-height, calc(var(--ic-space-sm) * 50));
+}
+
+:host(.ic-drawer.ic-right-position),
+:host(.ic-drawer.ic-left-position) {
+  top: 0;
+  bottom: 0;
+}
+
+:host(.ic-drawer.ic-right-position.expanded) .ic-drawer-panel,
+:host(.ic-drawer.ic-left-position.expanded) .ic-drawer-panel {
+  height: 100%;
+}
+
+:host(.ic-drawer) .inner-drawer-panel {
+  display: flex;
+  flex-flow: column;
+  flex: 1 1 0;
+
+  --section-container-margin: 0;
+}
+
+:host(.ic-drawer.ic-top-position),
+:host(.ic-drawer.ic-bottom-position) {
+  left: 0;
+  right: 0;
+}
+
+:host(.ic-drawer.ic-right-position.expanded) {
+  transition: right var(--ic-easing-transition-slow);
+  right: 0;
+}
+
+:host(.ic-drawer.ic-right-position) .collapsed-drawer,
+:host(.ic-drawer.ic-right-position) .ic-drawer-panel {
+  right: 0;
+}
+
+:host(.ic-drawer.ic-left-position) .collapsed-drawer,
+:host(.ic-drawer.ic-left-position) .ic-drawer-panel {
+  left: 0;
+}
+
+:host(.ic-drawer.ic-top-position) .collapsed-drawer,
+:host(.ic-drawer.ic-top-position) .ic-drawer-panel {
+  top: 0;
+}
+
+:host(.ic-drawer.ic-bottom-position) .collapsed-drawer,
+:host(.ic-drawer.ic-bottom-position) .ic-drawer-panel {
+  bottom: 0;
+}
+
+/* Drawer panel styling */
+
+:host(.ic-drawer) .drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ic-space-sm) var(--ic-space-xs);
+  border-bottom: var(--ic-border-light);
+}
+
+:host(.ic-drawer) .heading-area {
+  display: flex;
+  align-items: center;
+  gap: var(--ic-space-xs);
+}
+
+:host(.ic-drawer) .heading-area.no-arrow {
+  padding-left: var(--ic-space-xs);
+}
+
+:host(.ic-drawer) .main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100% - var(--ic-space-xl));
+  margin-bottom: var(--ic-space-xs);
+
+  --section-container-margin: 0;
+}
+
+:host(.ic-drawer) .message-area {
+  overflow-y: auto;
+  flex: 1 1 0;
+  padding-top: var(--ic-space-md);
+}
+
+:host(.ic-drawer) .message-area.message-area-padding {
+  margin: var(--ic-space-md) var(--ic-space-md) 0;
+}
+
+:host(.ic-drawer) .body-text.message-area-padding {
+  padding: 0 var(--ic-space-md);
+}
+
+:host(.ic-drawer) .message-area .body-text {
+  height: 100%;
+
+  /* overflow-y: auto; */
+
+  /* box-shadow: 0 4px 16px rgb(0 0 0 / 25%) */
+  background:
+  /* Shadow Cover TOP */ linear-gradient(
+        white 30%,
+        rgb(255 255 255 / 0%)
+      )
+      center top,
+    /* Shadow Cover BOTTOM */ linear-gradient(rgb(255 255 255 / 0%), white 70%)
+      center bottom,
+    /* Shadow TOP */
+      linear-gradient(
+        to bottom,
+        rgb(0 0 0 / 10%) 0%,
+        rgb(0 0 0 / 5%) 50%,
+        rgb(0 0 0 / 0%)
+      )
+      center top,
+    /* Shadow BOTTOM */
+      linear-gradient(
+        to top,
+        rgb(0 0 0 / 10%) 0%,
+        rgb(0 0 0 / 5%) 40%,
+        rgb(0 0 0 / 5%) 70%,
+        rgb(0 0 0 / 0%)
+      )
+      center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 12px, 100% 12px, 100% 12px, 100% 12px;
+  background-attachment: local, local, scroll, scroll;
+  white-space: break-spaces;
+}
+
+:host(.ic-drawer) .action-area {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--ic-space-md);
+  padding: 0 var(--ic-space-md);
+  gap: var(--ic-space-md);
+}
+
+/* box-shadow: var(--ic-elevation-inset); */
+
+/* :host(.ic-drawer) .action-area.main-content-overflow {
+  box-shadow: var(--ic-elevation-overlay);
+} */
+
+/* Chevron styling */
+:host(.ic-drawer) .chevron-btn::part(button) {
+  padding: 0;
+}
+
+/* :host(.ic-drawer) .chevron-btn {
+  --height: calc(var(--ic-space-md) * 2);--min-width: calc(var(--ic-space-md) * 2);
+
+} */
+
+:host(.ic-drawer.ic-left-position.expanded) .chevron-btn svg,
+:host(.ic-drawer.ic-right-position.collapsed) .chevron-btn svg {
+  transform: rotate(180deg);
+}
+
+:host(.ic-drawer.ic-top-position.expanded) .chevron-btn svg,
+:host(.ic-drawer.ic-bottom-position.collapsed) .chevron-btn svg {
+  transform: rotate(270deg);
+}
+
+:host(.ic-drawer.ic-top-position.collapsed) .chevron-btn svg,
+:host(.ic-drawer.ic-bottom-position.expanded) .chevron-btn svg {
+  transform: rotate(90deg);
+}
+
+.drawer-expanded-body {
+  overflow: hidden !important;
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+  :host(.ic-drawer.ic-left-position) .collapsed-drawer,
+  :host(.ic-drawer.ic-left-position) .ic-drawer-panel {
+    border-right: solid 1px transparent;
+  }
+
+  :host(.ic-drawer.ic-right-position) .collapsed-drawer,
+  :host(.ic-drawer.ic-right-position) .ic-drawer-panel {
+    border-left: solid 1px transparent;
+  }
+
+  :host(.ic-drawer.ic-top-position) .collapsed-drawer,
+  :host(.ic-drawer.ic-top-position) .ic-drawer-panel {
+    border-bottom: solid 1px transparent;
+  }
+
+  :host(.ic-drawer.ic-bottom-position) .collapsed-drawer,
+  :host(.ic-drawer.ic-bottom-position) .ic-drawer-panel {
+    border-top: solid 1px transparent;
+  }
+}
