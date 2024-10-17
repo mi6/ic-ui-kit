@@ -12,7 +12,11 @@ import {
   getThemeForegroundColor,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
-import { IcTheme } from "../../utils/types";
+import {
+  IcTheme,
+  IcThemeForeground,
+  IcThemeForegroundNoDefault,
+} from "../../utils/types";
 
 @Component({
   tag: "ic-footer-link-group",
@@ -26,7 +30,8 @@ export class FooterLinkGroup {
 
   @State() expanded: boolean = false;
   @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() dropdownIconStyle = getThemeForegroundColor();
+  @State() dropdownIconStyle: IcThemeForegroundNoDefault | IcThemeForeground =
+    getThemeForegroundColor();
   @State() small: boolean = false;
 
   /**

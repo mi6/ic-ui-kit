@@ -21,6 +21,7 @@ import {
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
+  IcThemeForegroundNoDefault,
 } from "../../utils/types";
 import { IcNavButtonModes } from "./ic-navigation-button.types";
 
@@ -45,7 +46,8 @@ export class NavigationButton {
 
   @Element() el: HTMLIcNavigationButtonElement;
 
-  @State() initialAppearance = getThemeForegroundColor();
+  @State() initialAppearance: IcThemeForegroundNoDefault | IcThemeForeground =
+    getThemeForegroundColor();
   /**
    * The display mode.
    */

@@ -11,6 +11,7 @@ import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic
 import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+import { IcDividerLabelPlacement, IcDividerStyles, IcDividerWeights } from "./components/ic-divider/ic-divider.types";
 import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
@@ -39,6 +40,7 @@ export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+export { IcDividerLabelPlacement, IcDividerStyles, IcDividerWeights } from "./components/ic-divider/ic-divider.types";
 export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
@@ -661,6 +663,34 @@ export namespace Components {
         "size"?: "small" | "medium" | "large";
     }
     interface IcDivider {
+        /**
+          * The line style of the divider.
+         */
+        "borderStyle": IcDividerStyles;
+        /**
+          * The label for the divider.
+         */
+        "label"?: string;
+        /**
+          * The position the label is placed on the divider. `Left` and `right` placement is only applicable when orientation is set to `horizontal`. `Top` and `bottom` placement is only applicable when orientation is set to `vertical`. `Center` placement is applicable for both orientations.
+         */
+        "labelPlacement"?: IcDividerLabelPlacement;
+        /**
+          * If `true`, the breadcrumb will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * The orientation of the divider.
+         */
+        "orientation": IcOrientation;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode | IcThemeForeground;
+        /**
+          * The thickness of the divider.
+         */
+        "weight": IcDividerWeights;
     }
     interface IcEmptyState {
         /**
@@ -3858,6 +3888,34 @@ declare namespace LocalJSX {
         "size"?: "small" | "medium" | "large";
     }
     interface IcDivider {
+        /**
+          * The line style of the divider.
+         */
+        "borderStyle"?: IcDividerStyles;
+        /**
+          * The label for the divider.
+         */
+        "label"?: string;
+        /**
+          * The position the label is placed on the divider. `Left` and `right` placement is only applicable when orientation is set to `horizontal`. `Top` and `bottom` placement is only applicable when orientation is set to `vertical`. `Center` placement is applicable for both orientations.
+         */
+        "labelPlacement"?: IcDividerLabelPlacement;
+        /**
+          * If `true`, the breadcrumb will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * The orientation of the divider.
+         */
+        "orientation"?: IcOrientation;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode | IcThemeForeground;
+        /**
+          * The thickness of the divider.
+         */
+        "weight"?: IcDividerWeights;
     }
     interface IcEmptyState {
         /**
