@@ -19,7 +19,7 @@ import {
   removeDisabledFalse,
 } from "../../utils/helpers";
 import { IcSwitchChangeEventDetail } from "./ic-switch.types";
-import { IcSizesNoLarge } from "../../utils/types";
+import { IcSizesNoLarge, IcThemeMode } from "../../utils/types";
 
 let inputIds = 0;
 
@@ -85,6 +85,11 @@ export class Switch {
    * The size of the switch component.
    */
   @Prop() size?: IcSizesNoLarge = "medium";
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The value of the toggle does not mean if it's checked or not, use the `checked`
@@ -169,6 +174,7 @@ export class Switch {
       hideLabel,
       helperText,
       inputId,
+      theme,
     } = this;
 
     renderHiddenInput(true, this.el, name, checkedState ? value : "", disabled);
@@ -186,6 +192,7 @@ export class Switch {
             ["ic-switch-container"]: true,
             ["ic-switch-disabled"]: disabled,
             ["ic-switch-small"]: size === "small",
+            [`ic-theme-${theme}`]: theme !== "inherit",
           }}
           htmlFor={inputId}
         >
