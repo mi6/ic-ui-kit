@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.1...@ukic/canary-react@3.0.0-canary.2) (2024-10-17)
+
+### Bug Fixes
+
+- **canary-react:** adds test for icon data-table fix ([9d46ce7](https://github.com/mi6/ic-ui-kit/commit/9d46ce70c06c313400491c64294ce0b177b062ba))
+- **canary-react:** fixes data-table column width example ([d52ba3a](https://github.com/mi6/ic-ui-kit/commit/d52ba3a6d3e19f3331c6066be4ce0f974a9d7097))
+- **canary-react:** fixes tooltip display in data-tables ([66adb5b](https://github.com/mi6/ic-ui-kit/commit/66adb5b28cbbb248a6894ae33a74e2de751b6119))
+
+### Features
+
+- **canary-react:** adds currentPage prop to pagination bar ([7d4d2b8](https://github.com/mi6/ic-ui-kit/commit/7d4d2b89fea55f4080884dce9b323da721bd97f7))
+
 # 3.0.0-canary.1 (2024-10-04)
 
 ### Bug Fixes

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.1...@ukic/canary-web-components@3.0.0-canary.2) (2024-10-17)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes data-table column width example ([5d19758](https://github.com/mi6/ic-ui-kit/commit/5d1975839d30486669140e57b34f8a141ee8f273))
+- **canary-web-components:** fixes issue with icons in datatable ([25be337](https://github.com/mi6/ic-ui-kit/commit/25be3370412c9ece108c1e55187a2f1bca083416))
+- **canary-web-components:** fixes tooltips being hidden in datatables ([38d9383](https://github.com/mi6/ic-ui-kit/commit/38d938359b2ea9fe345b0cb0f7fc1addf10fd92c))
+- **canary-web-components:** updated breakpoint for data-table ([1c38cea](https://github.com/mi6/ic-ui-kit/commit/1c38cea311219124d663b8dad18d471da5fe8447))
+
+### Features
+
+- **canary-web-components:** added monochrome option to loading indicator options in ic-data-table ([bf29ea1](https://github.com/mi6/ic-ui-kit/commit/bf29ea1fcd6abdb650f52ab7930622d1254fb669))
+- **canary-web-components:** adds currentPage prop to pagination bar ([14f985b](https://github.com/mi6/ic-ui-kit/commit/14f985bb3a9cdb1f371c1fd32d2997461c4e5985))
+- **canary-web-components:** update existing CSS tokens after the renaming of global tokens ([9dfb23d](https://github.com/mi6/ic-ui-kit/commit/9dfb23daa31262d82e2620b5e439ca2d78b4cc19)), closes [#2466](https://github.com/mi6/ic-ui-kit/issues/2466) [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+
+### BREAKING CHANGES
+
+- **canary-web-components:** Rename some of the existing CSS tokens following the move towards primitive, semantic and component tokens
+
 # 3.0.0-canary.1 (2024-10-04)
 
 ### Bug Fixes

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.1...@ukic/docs@3.0.0-alpha.2) (2024-10-17)
+
+### Documentation
+
+- **docs:** change the name of the data-entity component to data-list ([cde4def](https://github.com/mi6/ic-ui-kit/commit/cde4def47e061e64a1894b43443e1e83957de949)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([1c81c74](https://github.com/mi6/ic-ui-kit/commit/1c81c74bf415ced629ec835df61c875b8f6c67a8)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([bbcadfb](https://github.com/mi6/ic-ui-kit/commit/bbcadfbdc770e39d4cb75eb50d40af5bb6f5b7b7)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([488f26e](https://github.com/mi6/ic-ui-kit/commit/488f26e78aad8ab400aad416d9b7df159a0c14ea)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([483f9f4](https://github.com/mi6/ic-ui-kit/commit/483f9f4b43d8c18eb6beab0f29c596a2a5bde6a2)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **docs:** change the name of the data-entity component to data-list ([c2d375f](https://github.com/mi6/ic-ui-kit/commit/c2d375fd724504ca5ffbb9ca1a67b73450a2132d)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+
+### BREAKING CHANGES
+
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+- **docs:** This change involves a component name change from data-entity to data-list
+
 # [3.0.0-alpha.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0...@ukic/docs@3.0.0-alpha.1) (2024-10-04)
 
 ### Code Refactoring

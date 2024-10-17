@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.1...@ukic/react@3.0.0-alpha.2) (2024-10-17)
+
+### Bug Fixes
+
+- **react:** updates baseline images after tooltip change ([4e5f7be](https://github.com/mi6/ic-ui-kit/commit/4e5f7bea7532e5791f45e9f1ba4e484cd3ae6a09))
+
+### Features
+
+- **react:** adds theme prop for ic-chip ([9bc35bb](https://github.com/mi6/ic-ui-kit/commit/9bc35bb422d140bcdf1e065b08c68836ff4bdaad))
+- **react:** added new props and tests to IcLoadingIndicator ([ab220a4](https://github.com/mi6/ic-ui-kit/commit/ab220a4d56c262d7422b8669297318ba70c3f809))
+- **react:** added new theme prop for IcSkeleton to storybook ([854b1d9](https://github.com/mi6/ic-ui-kit/commit/854b1d98e55c196ba3ee0eb4b11dfd9476c9b0bc))
+- **react:** added test for new IcToastRegion componentDidLoad ([404594f](https://github.com/mi6/ic-ui-kit/commit/404594f104e278388e0694884095a436935d8463))
+- **react:** added test for new IcToastRegion componentDidLoad ([8a603e6](https://github.com/mi6/ic-ui-kit/commit/8a603e69c56d266539834ec7eeacf7e055f408bd))
+- **react:** update stepper to use theme prop instead of appearance ([20928b3](https://github.com/mi6/ic-ui-kit/commit/20928b3634575f0fe004a358f6d7757a53170950))
+
+### BREAKING CHANGES
+
+- **react:** removed appearance prop
+- **react:** Stepper appearance prop swapped for theme
+- **react:** component will honour system preference by default
+- **react:** removed appearance prop in favour of theme prop
+
 # [3.0.0-alpha.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0...@ukic/react@3.0.0-alpha.1) (2024-10-04)
 
 ### Bug Fixes

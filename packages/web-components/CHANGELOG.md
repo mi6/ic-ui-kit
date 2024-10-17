@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.1...@ukic/web-components@3.0.0-alpha.2) (2024-10-17)
+
+### Bug Fixes
+
+- **web-components:** adds check for undefined element in typography ([e79d281](https://github.com/mi6/ic-ui-kit/commit/e79d2810c26330173bc25f6cc4172e993b44afda))
+- **web-components:** changed conditional for applying aria-role to ic-search-bar ([cbe4be8](https://github.com/mi6/ic-ui-kit/commit/cbe4be8b2af87c7cdd151012d8882d2f2aee373f))
+- **web-components:** fix icpopoverclosed event not emitting when closed via submenu ([87010e7](https://github.com/mi6/ic-ui-kit/commit/87010e73d20713f09d544f1f47f6e466f1b149d1)), closes [#2297](https://github.com/mi6/ic-ui-kit/issues/2297)
+- **web-components:** fixed not autoselecting first tab during dynamic render ([e2140eb](https://github.com/mi6/ic-ui-kit/commit/e2140ebf734f4b36eb76cffb71b0b45caa76171c))
+- **web-components:** fixes issue with showDefaultIcon in gatsby ([84719d9](https://github.com/mi6/ic-ui-kit/commit/84719d93de2255cf76cf1cfb0d820c499ff95193))
+- **web-components:** fixes tooltips wrapping onto multiple lines ([28321f7](https://github.com/mi6/ic-ui-kit/commit/28321f73610fbdbb57e93b982375403315a32ac8))
+- **web-components:** restore radio orientation overrides after rebase ([a29a4d7](https://github.com/mi6/ic-ui-kit/commit/a29a4d72d6b300ee391d8d460a324229b0f42c50))
+- **web-components:** update auto dismiss toast to turn manual when hovered over ([a12ab96](https://github.com/mi6/ic-ui-kit/commit/a12ab9651088fc750593c7b87a83b52a219b5d37)), closes [#1291](https://github.com/mi6/ic-ui-kit/issues/1291)
+- **web-components:** update toast animation to only work when prefers reduced motion is off ([e99ffa8](https://github.com/mi6/ic-ui-kit/commit/e99ffa833842e6f798c202271f88fbcd24a0a162)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
+
+### Features
+
+- **web-components:** add global primitive and semantic CSS tokens to allow for use in dark mode ([d07633c](https://github.com/mi6/ic-ui-kit/commit/d07633c3535bd78f7ec9b7309d5cfe1712239a63)), closes [#2466](https://github.com/mi6/ic-ui-kit/issues/2466) [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** added theme and monochrome prop to ic-loading-indicator ([46868f2](https://github.com/mi6/ic-ui-kit/commit/46868f231e8927d97ce956a21bb3eeb69f1cf79d))
+- **web-components:** adds theme prop to ic-chip ([16bae57](https://github.com/mi6/ic-ui-kit/commit/16bae57c59ee2b5c4df8d9cbe8017a1e46e7e3bb))
+- **web-components:** replaced appearance with theme prop on ic-skeleton ([b9e269f](https://github.com/mi6/ic-ui-kit/commit/b9e269f66833082e1e716e2c6bb2a7563e1e3200))
+- **web-components:** update stepper to use theme prop instead of appearance ([2164c9d](https://github.com/mi6/ic-ui-kit/commit/2164c9d99f6d687ccbb85cc7f806dc4cd7cf2be2))
+
+### BREAKING CHANGES
+
+- **web-components:** removed appearance prop, added new props
+- **web-components:** component will honour system preference by default
+
+# Conflicts:
+
+# packages/web-components/src/global/borders.css
+
+# packages/web-components/src/global/color-mode.css
+
+# packages/web-components/src/global/colors.css
+
+- **web-components:** removed appearance and added theme prop
+- **web-components:** tooltip wrapping change that may affect visual regression snapshots
+- **web-components:** Rename some of the existing CSS tokens following the move towards primitive, semantic and component tokens
+- **web-components:** Behaviour change to auto dismiss toasts to show dismiss button when toast is hovered
+  over or focussed. May cause test breakages.
+
 # [3.0.0-alpha.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0...@ukic/web-components@3.0.0-alpha.1) (2024-10-04)
 
 ### Bug Fixes
