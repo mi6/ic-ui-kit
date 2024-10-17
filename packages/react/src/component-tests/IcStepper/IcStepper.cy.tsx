@@ -41,8 +41,8 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
     mount(<Compact />);
 
     cy.checkHydrated(STEPPER_SELECTOR);
-    cy.get("ic-step[step-type='current']").should(BE_VISIBLE);
-    cy.get("ic-step:not([step-type='current'])").should(NOT_BE_VISIBLE);
+    cy.get("ic-step[type='current']").should(BE_VISIBLE);
+    cy.get("ic-step:not([type='current'])").should(NOT_BE_VISIBLE);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
