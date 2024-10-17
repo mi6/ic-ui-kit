@@ -209,3 +209,5 @@ type RGBA = `rgba(${string})`;
 type HEX = `#${string}`;
 
 export type IcColor = RGB | RGBA | HEX;
+
+export type IcPosition = "left" | "right" | "top" | "bottom";

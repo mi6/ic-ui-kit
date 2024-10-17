@@ -416,4 +416,5 @@
   --ic-z-index-toast: calc(var(--ic-z-index-base-value) + 110);
   --ic-z-index-tooltip: calc(var(--ic-z-index-base-value) + 110);
   --ic-z-index-classification-banner: calc(var(--ic-z-index-base-value) + 200);
+  --ic-z-index-drawer: calc(var(--ic-z-index-base-value) + 210);
 }
