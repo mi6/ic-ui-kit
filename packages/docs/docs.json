@@ -13127,8 +13127,8 @@
       "filePath": "src/components/ic-skeleton/ic-skeleton.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skeleton",
-      "readme": "# ic-skeleton\r\n\r\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \r\n\r",
-      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
+      "readme": "# ic-skeleton\n\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \n",
+      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -13935,6 +13935,43 @@
             },
             {
               "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             }
           ],
