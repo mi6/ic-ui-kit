@@ -149,7 +149,10 @@
       "screenreader",
       "screenreaders",
       "showdefaulticon",
-      "spelcheck"
+      "spelcheck",
+      "Déja",
+      "consectetuer",
+      "facilisi"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc", "la"],
     "ignorePaths": [
