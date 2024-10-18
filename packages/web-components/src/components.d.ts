@@ -139,7 +139,7 @@ export namespace Components {
          */
         "message"?: string;
         /**
-          * If `true`, the default icon for the neutral variant will be appear on the left of the alert.
+          * If `true`, the default icon for the neutral variant will appear on the left of the alert.
          */
         "showDefaultIcon": boolean;
         /**
@@ -3472,7 +3472,7 @@ declare namespace LocalJSX {
          */
         "onIcDismiss"?: (event: IcAlertCustomEvent<void>) => void;
         /**
-          * If `true`, the default icon for the neutral variant will be appear on the left of the alert.
+          * If `true`, the default icon for the neutral variant will appear on the left of the alert.
          */
         "showDefaultIcon"?: boolean;
         /**
