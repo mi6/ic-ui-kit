@@ -120,12 +120,47 @@ npm link ../path/to/ic-ui-kit/packages/react
 
 ## Accessing the version of ui-kit
 
-When using the web-components package, you can import and use the components through react and also with the other targets ic-ui-kit supports. After using the component system either through nextjs, react or web-components, the project exposes the base version of ic-ui-kit on the global window, which is accessed during the runtime (in the browser).
+When using the component system through:
+
+- [nextjs](./packages/nextjs/README.md)
+- [react](./packages/react/README.md)
+- [web-components](./packages/web-components/README.md)
+- [canary-web-components](./packages/canary-web-components/README.md)
+- [canary-react](./packages/canary-react/README.md)
+- [fonts](./packages/fonts/README.md)
+
+..then the ic-ui-kit project expose the version, build date and unique build hash of packages on the global variable `window`. This metadata is accessed and sealed, which means that window  variables cant be changed during runtime in any web application. Below is all the variables that are available:
 
 ```javascript
-window['IC_UI_KIT_WEB_COMPONENTS_VERSION'] // version
-window['IC_UI_KIT_WEB_COMPONENTS_BUILD_DATE'] // date of last release
-window['IC_UI_KIT_WEB_COMPONENTS_BUILD_HASH'] // unique hash relative to the version
+    // web components metadata
+    window['IC_UI_KIT_WEB_COMPONENTS_VERSION'];
+    window['IC_UI_KIT_WEB_COMPONENTS_BUILD_DATE'];
+    window['IC_UI_KIT_WEB_COMPONENTS_BUILD_HASH'];
+
+    // canary web components metadata 
+    window['IC_UI_KIT_CANARY_WEB_COMPONENTS_VERSION'];
+    window['IC_UI_KIT_CANARY_WEB_COMPONENTS_BUILD_DATE'];
+    window['IC_UI_KIT_CANARY_WEB_COMPONENTS_BUILD_HASH'];
+
+    // fonts metadata
+    window['IC_UI_KIT_FONTS_VERSION'];
+    window['IC_UI_KIT_FONTS_BUILD_DATE'];
+    window['IC_UI_KIT_FONTS_BUILD_HASH'];
+
+    // nextjs metadata
+    window['IC_UI_KIT_NEXTJS_VERSION'];
+    window['IC_UI_KIT_NEXTJS_BUILD_DATE'];
+    window['IC_UI_KIT_NEXTJS_BUILD_HASH'];
+
+    // reactjs metadata
+    window['IC_UI_KIT_REACT_VERSION'];
+    window['IC_UI_KIT_REACT_BUILD_DATE'];
+    window['IC_UI_KIT_REACT_BUILD_HASH']
+
+    // canary react metadata
+    window['IC_UI_KIT_CANARY_REACT_VERSION'];
+    window['IC_UI_KIT_CANARY_REACT_BUILD_DATE'];
+    window['IC_UI_KIT_CANARY_REACT_BUILD_HASH']
 ```
 
 
