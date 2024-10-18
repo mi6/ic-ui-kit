@@ -21,6 +21,7 @@
 | `rel`            | `rel`            | The relationship of the linked URL as space-separated link types.                                                                           | `string`                                                                                                                                                                                 | `undefined` |
 | `subheading`     | `subheading`     | The subheading for the card.                                                                                                                | `string`                                                                                                                                                                                 | `undefined` |
 | `target`         | `target`         | The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).                                         | `string`                                                                                                                                                                                 | `undefined` |
+| `theme`          | `theme`          | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.     | `"dark" \| "inherit" \| "light"`                                                                                                                                                         | `"inherit"` |
 
 
 ## Methods
