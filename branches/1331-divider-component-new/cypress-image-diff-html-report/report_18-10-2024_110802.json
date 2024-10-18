@@ -1,7 +1,7 @@
 {
-  "total": 664,
-  "totalPassed": 663,
-  "totalFailed": 1,
+  "total": 667,
+  "totalPassed": 664,
+  "totalFailed": 3,
   "totalSuites": 37,
   "suites": [
     {
@@ -2501,20 +2501,20 @@
       "path": "src/component-tests/IcDivider/IcDivider.cy.tsx",
       "tests": [
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDivider.cy.tsx-horizontal-weights",
-          "percentage": 0,
+          "percentage": 0.2934961669255665,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDivider/IcDivider.cy.tsx",
           "specFilename": "IcDivider.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDivider.cy.tsx-horizontal-weights.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDivider.cy.tsx-horizontal-weights.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDivider.cy.tsx-horizontal-weights.png"
         },
         {
           "status": "fail",
           "name": "IcDivider.cy.tsx-vertical-weights",
-          "percentage": 0.03924283374069717,
+          "percentage": 0.2776328510821441,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDivider/IcDivider.cy.tsx",
           "specFilename": "IcDivider.cy.tsx",
@@ -2545,14 +2545,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDivider.cy.tsx-border-styles.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDivider.cy.tsx-labels-and-label-placement",
-          "percentage": 0,
+          "percentage": 0.1300575487482159,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDivider/IcDivider.cy.tsx",
           "specFilename": "IcDivider.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDivider.cy.tsx-labels-and-label-placement.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDivider.cy.tsx-labels-and-label-placement.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDivider.cy.tsx-labels-and-label-placement.png"
         }
       ]
@@ -3332,6 +3332,28 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx-determinate-circular-light-with-icon.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx-determinate-circular-light-with-icon.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLoadingIndicator.cy.tsx-dark-mode-colours",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
+          "specFilename": "IcLoadingIndicator.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx-dark-mode-colours.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx-dark-mode-colours.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcLoadingIndicator.cy.tsx-light-monochrome-colours",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
+          "specFilename": "IcLoadingIndicator.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcLoadingIndicator.cy.tsx-light-monochrome-colours.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcLoadingIndicator.cy.tsx-light-monochrome-colours.png"
         },
         {
           "status": "pass",
@@ -5865,6 +5887,17 @@
         },
         {
           "status": "pass",
+          "name": "IcSwitch.cy.tsx-focus",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSwitch/IcSwitch.cy.tsx",
+          "specFilename": "IcSwitch.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSwitch.cy.tsx-focus.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSwitch.cy.tsx-focus.png"
+        },
+        {
+          "status": "pass",
           "name": "IcSwitch.cy.tsx-unchecked-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7531,9 +7564,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-16T13:47:42.227Z",
-  "endedAt": "2024-10-16T14:01:00.337Z",
-  "duration": 717180,
+  "startedAt": "2024-10-18T11:08:02.377Z",
+  "endedAt": "2024-10-18T11:21:25.807Z",
+  "duration": 723882,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
