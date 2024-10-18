@@ -14,11 +14,21 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("node:crypto");
 
-const { version } = JSON.parse(
+const stencilVersion = JSON.parse(
   fs.readFileSync(path.join(__dirname, "package.json"))
-);
+).version;
 
-const hash = crypto.createHash("sha256").update("bacon").digest("hex");
+function findVersion(packageName: string) {
+  return JSON.parse(fs.readFileSync(path.join(__dirname, "..", packageName, "package.json"))).version;
+}
+
+function generateDate() {
+  return new Date().toString()
+}
+
+function generateHash() {
+  return crypto.createHash("sha256").update("bacon").digest("hex");
+}
 
 export const config: Config = {
   namespace: "core",
@@ -99,9 +109,36 @@ export const config: Config = {
     experimentalImportInjection: true,
   },
   env: {
-    IC_UI_KIT_WEB_COMPONENTS_VERSION: version,
-    IC_UI_KIT_WEB_COMPONENTS_BUILD_DATE: new Date().toString(),
-    IC_UI_KIT_WEB_COMPONENTS_BUILD_HASH: hash,
+    // web components metadata
+    IC_UI_KIT_WEB_COMPONENTS_VERSION: Object.freeze(stencilVersion),
+    IC_UI_KIT_WEB_COMPONENTS_BUILD_DATE: Object.freeze(generateDate()),
+    IC_UI_KIT_WEB_COMPONENTS_BUILD_HASH: Object.freeze(generateHash()),
+
+    // canary web components metadata 
+    IC_UI_KIT_CANARY_WEB_COMPONENTS_VERSION: Object.freeze(findVersion("canary-web-components")),
+    IC_UI_KIT_CANARY_WEB_COMPONENTS_BUILD_DATE: Object.freeze(generateDate()),
+    IC_UI_KIT_CANARY_WEB_COMPONENTS_BUILD_HASH: Object.freeze(generateHash()),
+
+    // fonts metadata
+    IC_UI_KIT_FONTS_VERSION: Object.freeze(findVersion("fonts")),
+    IC_UI_KIT_FONTS_BUILD_DATE: Object.freeze(generateDate()),
+    IC_UI_KIT_FONTS_BUILD_HASH: Object.freeze(generateHash()),
+
+    // nextjs metadata
+    IC_UI_KIT_NEXTJS_VERSION: Object.freeze(findVersion("nextjs")),
+    IC_UI_KIT_NEXTJS_BUILD_DATE: Object.freeze(generateDate()),
+    IC_UI_KIT_NEXTJS_BUILD_HASH: Object.freeze(generateHash()),
+
+    // reactjs metadata
+    IC_UI_KIT_REACT_VERSION: Object.freeze(findVersion("react")),
+    IC_UI_KIT_REACT_BUILD_DATE: Object.freeze(generateDate()),
+    IC_UI_KIT_REACT_BUILD_HASH: Object.freeze(generateHash()),
+
+    // canary react metadata
+    IC_UI_KIT_CANARY_REACT_VERSION: Object.freeze(findVersion("canary-react")),
+    IC_UI_KIT_CANARY_REACT_BUILD_DATE: Object.freeze(generateDate()),
+    IC_UI_KIT_CANARY_REACT_BUILD_HASH: Object.freeze(generateHash()),
+
   },
   globalScript: './bootstrap_window.ts'
 };
