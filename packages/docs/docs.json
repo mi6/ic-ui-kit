@@ -4767,7 +4767,249 @@
       "docs": "",
       "docsTags": [],
       "usage": {},
-      "props": [],
+      "props": [
+        {
+          "name": "borderStyle",
+          "type": "\"dashed\" | \"solid\"",
+          "complexType": {
+            "original": "IcDividerStyles",
+            "resolved": "\"dashed\" | \"solid\"",
+            "references": {
+              "IcDividerStyles": {
+                "location": "import",
+                "path": "./ic-divider.types",
+                "id": "src/components/ic-divider/ic-divider.types.tsx::IcDividerStyles"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "border-style",
+          "reflectToAttr": false,
+          "docs": "The line style of the divider.",
+          "docsTags": [],
+          "default": "\"solid\"",
+          "values": [
+            {
+              "value": "dashed",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label for the divider.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "labelPlacement",
+          "type": "\"bottom\" | \"center\" | \"left\" | \"right\" | \"top\"",
+          "complexType": {
+            "original": "IcDividerLabelPlacement",
+            "resolved": "\"bottom\" | \"center\" | \"left\" | \"right\" | \"top\"",
+            "references": {
+              "IcDividerLabelPlacement": {
+                "location": "import",
+                "path": "./ic-divider.types",
+                "id": "src/components/ic-divider/ic-divider.types.tsx::IcDividerLabelPlacement"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "label-placement",
+          "reflectToAttr": false,
+          "docs": "The position the label is placed on the divider. `Left` and `right` placement is only applicable when orientation is set to `horizontal`. `Top` and `bottom` placement is only applicable when orientation is set to `vertical`. `Center` placement is applicable for both orientations.",
+          "docsTags": [],
+          "default": "\"center\"",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "monochrome",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "monochrome",
+          "reflectToAttr": true,
+          "docs": "If `true`, the breadcrumb will display as black in the light theme, and white in the dark theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\"",
+          "complexType": {
+            "original": "IcOrientation",
+            "resolved": "\"horizontal\" | \"vertical\"",
+            "references": {
+              "IcOrientation": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcOrientation"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "orientation",
+          "reflectToAttr": false,
+          "docs": "The orientation of the divider.",
+          "docsTags": [],
+          "default": "\"horizontal\"",
+          "values": [
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "vertical",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"default\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode | IcThemeForeground",
+            "resolved": "\"dark\" | \"default\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              },
+              "IcThemeForeground": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeForeground"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "\"medium\" | \"thick\" | \"thin\" | \"very-thick\"",
+          "complexType": {
+            "original": "IcDividerWeights",
+            "resolved": "\"medium\" | \"thick\" | \"thin\" | \"very-thick\"",
+            "references": {
+              "IcDividerWeights": {
+                "location": "import",
+                "path": "./ic-divider.types",
+                "id": "src/components/ic-divider/ic-divider.types.tsx::IcDividerWeights"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "weight",
+          "reflectToAttr": false,
+          "docs": "The thickness of the divider.",
+          "docsTags": [],
+          "default": "\"thin\"",
+          "values": [
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "thick",
+              "type": "string"
+            },
+            {
+              "value": "thin",
+              "type": "string"
+            },
+            {
+              "value": "very-thick",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
       "methods": [],
       "events": [],
       "listeners": [
@@ -4778,14 +5020,35 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-divider-horizontal-width",
+          "annotation": "prop",
+          "docs": "The width of a horizontal divider. The default value is `inherit`."
+        },
+        {
+          "name": "--ic-divider-vertical-height",
+          "annotation": "prop",
+          "docs": "The height of a vertical divider. The default value is `inherit`."
+        },
+        {
+          "name": "--ic-divider-weight",
+          "annotation": "prop",
+          "docs": "The thickness of the divider."
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [
         "ic-side-navigation"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
+        "ic-divider": [
+          "ic-typography"
+        ],
         "ic-side-navigation": [
           "ic-divider"
         ]
@@ -13146,6 +13409,9 @@
         ],
         "ic-tooltip": [
           "ic-typography"
+        ],
+        "ic-divider": [
+          "ic-typography"
         ]
       }
     },
@@ -13153,8 +13419,8 @@
       "filePath": "src/components/ic-skeleton/ic-skeleton.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skeleton",
-      "readme": "# ic-skeleton\r\n\r\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \r\n\r",
-      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
+      "readme": "# ic-skeleton\n\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \n",
+      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -17686,6 +17952,7 @@
         "ic-data-list",
         "ic-data-row",
         "ic-dialog",
+        "ic-divider",
         "ic-empty-state",
         "ic-footer",
         "ic-footer-link-group",
@@ -17747,6 +18014,9 @@
           "ic-typography"
         ],
         "ic-dialog": [
+          "ic-typography"
+        ],
+        "ic-divider": [
           "ic-typography"
         ],
         "ic-empty-state": [
@@ -17974,15 +18244,35 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
-    "src/components/ic-empty-state/ic-empty-state.types.ts::IcEmptyStateAlignment": {
-      "declaration": "export type IcEmptyStateAlignment = \"left\" | \"center\" | \"right\";",
+    "src/components/ic-divider/ic-divider.types.tsx::IcDividerStyles": {
+      "declaration": "export type IcDividerStyles = \"solid\" | \"dashed\";",
       "docstring": "",
-      "path": "src/components/ic-empty-state/ic-empty-state.types.ts"
+      "path": "src/components/ic-divider/ic-divider.types.tsx"
+    },
+    "src/components/ic-divider/ic-divider.types.tsx::IcDividerLabelPlacement": {
+      "declaration": "export type IcDividerLabelPlacement =\n  | \"left\"\n  | \"center\"\n  | \"right\"\n  | \"top\"\n  | \"bottom\";",
+      "docstring": "",
+      "path": "src/components/ic-divider/ic-divider.types.tsx"
+    },
+    "src/utils/types.ts::IcOrientation": {
+      "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/components/ic-divider/ic-divider.types.tsx::IcDividerWeights": {
+      "declaration": "export type IcDividerWeights = \"thin\" | \"medium\" | \"thick\" | \"very-thick\";",
+      "docstring": "",
+      "path": "src/components/ic-divider/ic-divider.types.tsx"
     },
     "src/utils/types.ts::IcTypographyVariants": {
       "declaration": "export type IcTypographyVariants =\n  | \"h1\"\n  | \"h2\"\n  | \"h3\"\n  | \"h4\"\n  | \"subtitle-large\"\n  | \"subtitle-small\"\n  | \"body\"\n  | \"label\"\n  | \"label-uppercase\"\n  | \"caption\"\n  | \"caption-uppercase\"\n  | \"code-large\"\n  | \"code-small\"\n  | \"code-extra-small\"\n  | \"badge\"\n  | \"badge-small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/components/ic-empty-state/ic-empty-state.types.ts::IcEmptyStateAlignment": {
+      "declaration": "export type IcEmptyStateAlignment = \"left\" | \"center\" | \"right\";",
+      "docstring": "",
+      "path": "src/components/ic-empty-state/ic-empty-state.types.ts"
     },
     "src/components/ic-hero/ic-hero.types.tsx::IcHeroContentAlignments": {
       "declaration": "export type IcHeroContentAlignments = \"left\" | \"center\";",
@@ -18063,11 +18353,6 @@
       "declaration": "export type IcPaginationItemType = \"page\" | \"ellipsis\" | \"simple-current\";",
       "docstring": "",
       "path": "src/components/ic-pagination-item/ic-pagination-item.types.ts"
-    },
-    "src/utils/types.ts::IcOrientation": {
-      "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail": {
       "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",

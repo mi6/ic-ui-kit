@@ -134,6 +134,12 @@ ic-theme,
   --ic-data-list-keyline-heading: var(--ic-color-border-neutral-default);
   --ic-data-list-keyline-cell: var(--ic-color-border-neutral-default);
 
+  /* Divider */
+  --ic-divider-background: var(--ic-brand-blue-primary);
+  --ic-divider-background-monochrome: var(--ic-brand-darken-20);
+  --ic-divider-label: var(--ic-brand-blue-primary);
+  --ic-divider-label-monochrome: var(--ic-brand-darken-20);
+
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);
   --ic-empty-state-subtitle: var(--ic-color-text-secondary);
@@ -375,6 +381,12 @@ ic-theme,
     --ic-data-list-text-label: var(--ic-color-text-tertiary);
     --ic-data-list-keyline-heading: var(--ic-color-border-neutral-default);
     --ic-data-list-keyline-cell: var(--ic-color-border-neutral-default);
+
+    /* Divider */
+    --ic-divider-background: var(--ic-state-layer-neutral-default);
+    --ic-divider-background-monochrome: var(--ic-brand-lighten-20);
+    --ic-divider-label: var(--ic-state-layer-neutral-default);
+    --ic-divider-label-monochrome: var(--ic-brand-lighten-20);
 
     /* Empty state */
     --ic-empty-state-title: var(--ic-color-text-primary);
@@ -625,6 +637,12 @@ ic-theme,
   --ic-data-list-text-label: var(--ic-color-text-tertiary);
   --ic-data-list-keyline-heading: var(--ic-color-border-neutral-default);
   --ic-data-list-keyline-cell: var(--ic-color-border-neutral-default);
+
+  /* Divider */
+  --ic-divider-background: var(--ic-state-layer-neutral-default);
+  --ic-divider-background-monochrome: var(--ic-brand-lighten-20);
+  --ic-divider-label: var(--ic-state-layer-neutral-default);
+  --ic-divider-label-monochrome: var(--ic-brand-lighten-20);
 
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);

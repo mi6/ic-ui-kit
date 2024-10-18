@@ -8,6 +8,7 @@ import {
   IcColorRGBA,
   IcDeviceSizes,
   IcColor,
+  IcThemeForegroundNoDefault,
 } from "./types";
 
 import {
@@ -404,7 +405,7 @@ export const getThemeColorBrightness = (): number => {
  */
 export const getThemeForegroundColor = (
   brightness = getThemeColorBrightness()
-): IcThemeForeground =>
+): IcThemeForegroundNoDefault =>
   brightness > DARK_MODE_THRESHOLD
     ? IcThemeForegroundEnum.Dark
     : IcThemeForegroundEnum.Light;
