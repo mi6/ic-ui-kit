@@ -149,7 +149,8 @@
       "screenreader",
       "screenreaders",
       "showdefaulticon",
-      "spelcheck"
+      "spelcheck",
+      "reactjs"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc", "la"],
     "ignorePaths": [
