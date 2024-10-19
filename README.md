@@ -155,12 +155,12 @@ When using the component system through:
     // reactjs metadata
     window['IC_UI_KIT_REACT_VERSION'];
     window['IC_UI_KIT_REACT_BUILD_DATE'];
-    window['IC_UI_KIT_REACT_BUILD_HASH']
+    window['IC_UI_KIT_REACT_BUILD_HASH'];
 
     // canary react metadata
     window['IC_UI_KIT_CANARY_REACT_VERSION'];
     window['IC_UI_KIT_CANARY_REACT_BUILD_DATE'];
-    window['IC_UI_KIT_CANARY_REACT_BUILD_HASH']
+    window['IC_UI_KIT_CANARY_REACT_BUILD_HASH'];
 ```
 
 
