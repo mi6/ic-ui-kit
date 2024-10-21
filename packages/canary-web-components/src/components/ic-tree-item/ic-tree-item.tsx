@@ -55,7 +55,7 @@ export class TreeItem {
   @Prop() disabled?: boolean = false;
 
   /**
-   * @internal If `true`, the tree item appears in the expanded state.
+   * If `true`, the tree item appears in the expanded state.
    */
   @Prop({ mutable: true }) expanded: boolean = false;
 

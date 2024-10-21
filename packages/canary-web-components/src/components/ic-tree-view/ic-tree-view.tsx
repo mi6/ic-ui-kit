@@ -229,7 +229,7 @@ export class TreeView {
   private truncateTreeViewHeading = () => {
     const typographyEl: HTMLIcTypographyElement =
       this.el.shadowRoot.querySelector(".tree-view-header");
-    const tooltip = typographyEl.closest("ic-tooltip");
+    const tooltip = typographyEl?.closest("ic-tooltip");
     const headingContainer: HTMLElement = this.el.shadowRoot.querySelector(
       ".heading-area-container"
     );
