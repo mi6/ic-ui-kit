@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.27](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.26...@ukic/canary-web-components@2.0.0-canary.27) (2024-10-16)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes data-table column width example ([a773f12](https://github.com/mi6/ic-ui-kit/commit/a773f12d3a1a20d44cec1b46e2c1f2bc4f0bb5d7))
+- **canary-web-components:** fixes issue with icons in datatable ([3eb1024](https://github.com/mi6/ic-ui-kit/commit/3eb1024b2c13b305ac8f2508038629f3993c5f23))
+- **canary-web-components:** fixes tooltips being hidden in datatables ([370858d](https://github.com/mi6/ic-ui-kit/commit/370858db872e08b23d1c4e1f35a07a2b6de2caed))
+- **canary-web-components:** updated breakpoint for data-table ([a8b34c8](https://github.com/mi6/ic-ui-kit/commit/a8b34c8a8bf435ebf9c45d3c07ad30f1fde57350))
+
+### Features
+
+- **canary-web-components:** adds currentPage prop to pagination bar ([d56f585](https://github.com/mi6/ic-ui-kit/commit/d56f5859fc4796182e5c726754c5e54f931b1979))
+
 # [2.0.0-canary.26](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.25...@ukic/canary-web-components@2.0.0-canary.26) (2024-10-02)
 
 ### Features
