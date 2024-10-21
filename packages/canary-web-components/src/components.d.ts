@@ -700,6 +700,9 @@ export namespace Components {
           * If `true`, the tree item appears in the disabled state.
          */
         "disabled"?: boolean;
+        /**
+          * If `true`, the tree item appears in the expanded state.
+         */
         "expanded": boolean;
         "hasParentExpanded": boolean;
         /**
@@ -1694,6 +1697,9 @@ declare namespace LocalJSX {
           * If `true`, the tree item appears in the disabled state.
          */
         "disabled"?: boolean;
+        /**
+          * If `true`, the tree item appears in the expanded state.
+         */
         "expanded"?: boolean;
         "hasParentExpanded"?: boolean;
         /**
