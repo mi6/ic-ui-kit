@@ -43,6 +43,8 @@
     "test-cypress:canary:headless": "lerna run cypress:ci --scope=@ukic/canary-react --stream",
     "test-cypress:ci:canary": "npm run build:all && npm run test-cypress:canary:headless",
     "test-cypress:ci:all": "npm run build:all && npm run test-cypress:headless && npm run test-cypress:canary:headless",
+    "test-cypress-perf:ci": "npm run build && npm run test-cypress-perf:headless",
+    "test-cypress-perf:headless": "lerna run test:performance --scope=@ukic/react --stream",
     "audit": "npm run audit-expiry && audit-ci -m --config audit-ci.json && lerna run audit",
     "audit:bypass-expiry": "audit-ci -m --config audit-ci.json && lerna run audit",
     "audit-expiry": "node check-audit-expiry.js",
