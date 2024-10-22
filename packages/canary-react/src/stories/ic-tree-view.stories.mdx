@@ -801,6 +801,108 @@ const TreeView = () => (
 export default TreeView;
 ```
 
+### Expanded
+
+An example with expanded prop set to true on a parent tree item.
+
+<Canvas withSource="none">
+  <Story name="Expanded">
+    <div style={{ width: "250px" }}>
+      <IcTreeView heading="Menu">
+        <IcTreeItem label="Coffee" expanded>
+          <IcTreeItem label="Americano" expanded>
+            <IcTreeItem label="With milk" />
+          </IcTreeItem>
+          <IcTreeItem label="Latte" />
+          <IcTreeItem label="Espresso" />
+        </IcTreeItem>
+        <IcTreeItem label="Tea">
+          <IcTreeItem label="Earl Grey" />
+          <IcTreeItem label="Chai" />
+        </IcTreeItem>
+        <IcTreeItem label="Hot chocolate" />
+      </IcTreeView>
+    </div>
+  </Story>
+</Canvas>
+
+#### Expanded code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu">
+  <IcTreeItem label="Coffee" expanded>
+    <IcTreeItem label="Americano" expanded>
+      <IcTreeItem label="With milk" />
+    </IcTreeItem>
+    <IcTreeItem label="Latte" />
+    <IcTreeItem label="Espresso" />
+  </IcTreeItem>
+  <IcTreeItem label="Tea">
+    <IcTreeItem label="Earl Grey" />
+    <IcTreeItem label="Chai" />
+  </IcTreeItem>
+  <IcTreeItem label="Hot chocolate" />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Focus inset
+
+An example with the tree item focus inset.
+
+<Canvas withSource="none">
+  <Story name="Focus inset">
+    <div style={{ width: "250px" }}>
+      <IcTreeView heading="Menu" focusInset>
+        <IcTreeItem label="Coffee">
+          <IcTreeItem label="Americano">
+            <IcTreeItem label="With milk" />
+          </IcTreeItem>
+          <IcTreeItem label="Latte" />
+          <IcTreeItem label="Espresso" />
+        </IcTreeItem>
+        <IcTreeItem label="Tea">
+          <IcTreeItem label="Earl Grey" />
+          <IcTreeItem label="Chai" />
+        </IcTreeItem>
+        <IcTreeItem label="Hot chocolate" />
+      </IcTreeView>
+    </div>
+  </Story>
+</Canvas>
+
+#### Focus inset code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu" focusInset>
+  <IcTreeItem label="Coffee">
+    <IcTreeItem label="Americano">
+      <IcTreeItem label="With milk" />
+    </IcTreeItem>
+    <IcTreeItem label="Latte" />
+    <IcTreeItem label="Espresso" />
+  </IcTreeItem>
+  <IcTreeItem label="Tea">
+    <IcTreeItem label="Earl Grey" />
+    <IcTreeItem label="Chai" />
+  </IcTreeItem>
+  <IcTreeItem label="Hot chocolate" />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
 ### Updating options
 
 An example with updating tree items after initial render.
@@ -856,6 +958,7 @@ export const defaultArgs = {
   treeItemLabel: "Coffee",
   treeItemSelected: false,
   showTreeItemIcon: false,
+  focusInset: false,
 };
 
 <Canvas withSource="none">
@@ -879,6 +982,7 @@ export const defaultArgs = {
         heading={args.heading}
         appearance={args.appearance}
         size={args.size}
+        focusInset={args.focusInset}
       >
         {args.showIcon && (
           <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
