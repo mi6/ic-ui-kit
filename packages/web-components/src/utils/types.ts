@@ -109,6 +109,8 @@ export type IcThemeForeground = "default" | "dark" | "light";
 
 export type IcThemeForegroundNoDefault = "dark" | "light";
 
+export type IcThemeForegroundWithTheme = "default" | "dark" | "light" | "theme";
+
 export type IcTheme = {
   mode: IcThemeForeground;
   color: IcColorRGB;

@@ -15,7 +15,12 @@ import {
   getThemeForegroundColor,
   getNavItemParentDetails,
 } from "../../utils/helpers";
-import { IcNavType, IcTheme } from "../../utils/types";
+import {
+  IcNavType,
+  IcTheme,
+  IcThemeForeground,
+  IcThemeForegroundNoDefault,
+} from "../../utils/types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
 @Component({
@@ -43,7 +48,8 @@ export class NavigationGroup {
   @State() deviceSize: number = DEVICE_SIZES.XL;
   @State() dropdownOpen: boolean = false;
   @State() expanded: boolean = true;
-  @State() focusStyle = getThemeForegroundColor();
+  @State() focusStyle: IcThemeForegroundNoDefault | IcThemeForeground =
+    getThemeForegroundColor();
   @State() inTopNavSideMenu: boolean = false;
   @State() navigationType: IcNavType | "";
   @State() parentEl: HTMLElement;
