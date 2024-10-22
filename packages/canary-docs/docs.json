@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
-      "readme": "# ic-horizontal-card\r\n\r\n\r\n\r",
+      "readme": "# ic-horizontal-card\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -389,7 +389,7 @@
       "filePath": "src/components/ic-data-table/ic-data-table.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table",
-      "readme": "# ic-data-table\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1236,7 +1236,7 @@
       "filePath": "src/components/ic-data-table-title-bar/ic-data-table-title-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table-title-bar",
-      "readme": "# ic-data-table-title-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table-title-bar\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1435,7 +1435,7 @@
       "filePath": "src/components/ic-date-input/ic-date-input.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-input",
-      "readme": "# ic-date-input\r\n\r\n\r\n\r",
+      "readme": "# ic-date-input\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2139,7 +2139,7 @@
       "filePath": "src/components/ic-date-picker/ic-date-picker.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-picker",
-      "readme": "# ic-date-picker\r\n\r\n\r\n\r",
+      "readme": "# ic-date-picker\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2912,7 +2912,7 @@
       "filePath": "src/components/ic-menu-with-multi/ic-menu.tsx",
       "encapsulation": "scoped",
       "tag": "ic-menu-with-multi",
-      "readme": "# ic-menu-with-multi\r\n\r\n\r\n\r",
+      "readme": "# ic-menu-with-multi\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3361,7 +3361,7 @@
       "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-bar",
-      "readme": "# ic-pagination-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination-bar\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3800,7 +3800,7 @@
       "filePath": "src/components/ic-select-with-multi/ic-select.tsx",
       "encapsulation": "shadow",
       "tag": "ic-select-with-multi",
-      "readme": "# ic-select\r\n\r\n\r\n\r",
+      "readme": "# ic-select\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4727,7 +4727,7 @@
       "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-item",
-      "readme": "# ic-tree-item\r\n\r\n\r\n\r",
+      "readme": "# ic-tree-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5037,7 +5037,7 @@
       "filePath": "src/components/ic-tree-view/ic-tree-view.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-view",
-      "readme": "# ic-tree-view\r\n\r\n\r\n\r",
+      "readme": "# ic-tree-view\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5079,6 +5079,28 @@
             {
               "value": "light",
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "focusInset",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "focus-inset",
+          "reflectToAttr": false,
+          "docs": "If `true`, tree items will have inset focus.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,
