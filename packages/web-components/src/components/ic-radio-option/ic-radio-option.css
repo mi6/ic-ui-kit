@@ -19,6 +19,7 @@
 /* Focus states */
 
 .container input:focus + span.checkmark,
+.container:active input:focus + span.checkmark,
 :host(:focus) .container input:checked + span.checkmark {
   box-shadow: var(--ic-border-focus);
 }

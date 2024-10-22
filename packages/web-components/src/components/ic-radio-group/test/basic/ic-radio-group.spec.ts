@@ -227,7 +227,7 @@ describe("ic-radio-group", () => {
 
     const callbackFn = jest.fn();
     page.doc.addEventListener("icCheck", callbackFn);
-    page.rootInstance.textfieldValueHandler({
+    page.rootInstance.additionalFieldValueHandler({
       detail: { value: "value" },
       stopImmediatePropagation: jest.fn(),
     });
@@ -246,7 +246,7 @@ describe("ic-radio-group", () => {
 
     const callbackFn = jest.fn();
     page.doc.addEventListener("icCheck", callbackFn);
-    page.rootInstance.textfieldValueHandler({
+    page.rootInstance.additionalFieldValueHandler({
       detail: { value: "" },
       stopImmediatePropagation: jest.fn(),
     });

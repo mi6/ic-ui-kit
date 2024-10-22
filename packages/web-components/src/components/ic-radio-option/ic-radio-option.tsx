@@ -22,7 +22,6 @@ import {
 } from "../../utils/helpers";
 
 const ADDITIONAL_FIELD = "additional-field";
-const TEXT_FIELD_SELECTOR = "ic-text-field";
 
 /**
  * @slot additional-field - Content to displayed alongside a radio option.
@@ -141,8 +140,7 @@ export class RadioOption {
   componentWillLoad(): void {
     if (isSlotUsed(this.el, ADDITIONAL_FIELD)) {
       this.hasAdditionalField = true;
-      const textField = this.el.querySelector(TEXT_FIELD_SELECTOR);
-      if (textField) textField.hiddenInput = false;
+      this.getAdditionalField();
     }
 
     this.defaultRadioValue = this.value;
@@ -163,8 +161,7 @@ export class RadioOption {
     const hasSlot = isSlotUsed(this.el, ADDITIONAL_FIELD);
     if (hasSlot && !this.hasAdditionalField) {
       this.hasAdditionalField = true;
-      const textField = this.el.querySelector(TEXT_FIELD_SELECTOR);
-      if (textField) textField.hiddenInput = false;
+      this.getAdditionalField();
     } else if (!hasSlot && this.hasAdditionalField) {
       this.hasAdditionalField = false;
     }
@@ -172,17 +169,17 @@ export class RadioOption {
 
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
-      const textfield = this.el.querySelector(TEXT_FIELD_SELECTOR);
+      const additionalField = this.getAdditionalField();
       if (!this.selected || this.disabled) {
-        textfield?.setAttribute("disabled", "");
+        additionalField?.setAttribute("disabled", "");
       } else {
-        textfield?.removeAttribute("disabled");
+        additionalField?.removeAttribute("disabled");
       }
     }
   }
 
   @Listen("icChange")
-  textfieldValueHandler(event: CustomEvent<{ value: string }>): void {
+  additionalFieldValueHandler(event: CustomEvent<{ value: string }>): void {
     if (this.selected) {
       this.value = event.detail.value || this.defaultRadioValue;
       this.icCheck.emit({
@@ -212,17 +209,28 @@ export class RadioOption {
     this.radioElement.tabIndex = value;
   }
 
-  private handleClick = () => {
-    if (!this.disabled) {
+  private getAdditionalField(): HTMLIcTextFieldElement {
+    const additionalField = this.el.querySelector(
+      '[slot="additional-field"]'
+    ) as HTMLIcTextFieldElement;
+    if (additionalField) additionalField.hiddenInput = false;
+    return additionalField;
+  }
+
+  private handleClick = (event: MouseEvent) => {
+    const clickedAdditionalField = (event.target as Element).matches(
+      ".dynamic-container, .dynamic-container *"
+    );
+
+    if (!this.disabled && !clickedAdditionalField) {
+      event.stopPropagation();
       if (this.skipFocus === false) {
         this.radioElement.focus();
       }
       this.skipFocus = false;
 
       if (this.hasAdditionalField) {
-        this.value =
-          this.el.querySelector(TEXT_FIELD_SELECTOR).value ||
-          this.defaultRadioValue;
+        this.value = this.getAdditionalField().value || this.defaultRadioValue;
       }
 
       this.icCheck.emit({
@@ -235,8 +243,15 @@ export class RadioOption {
     }
   };
 
-  private swallowClick = (event: MouseEvent) => {
-    event.stopPropagation();
+  private handleKeyDown = (event: KeyboardEvent) => {
+    const preventPropagationElements = ["IC-DATE-INPUT", "IC-DATE-PICKER"];
+
+    if (
+      this.getAdditionalField() == document.activeElement &&
+      preventPropagationElements.includes(this.getAdditionalField().nodeName)
+    ) {
+      event.stopPropagation();
+    }
   };
 
   private handleFormReset = (): void => {
@@ -257,19 +272,23 @@ export class RadioOption {
       formtarget,
       groupLabel,
       handleClick,
+      handleKeyDown,
       hasAdditionalField,
       label,
       name,
       selected,
-      swallowClick,
       value,
     } = this;
 
     const id = `ic-radio-option-${isPropDefined(label) || value}-${groupLabel}`;
 
     return (
-      <Host onClick={handleClick} class={{ disabled }}>
-        <div class={{ ["container"]: true, disabled }}>
+      <Host
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
+        class={{ ["disabled"]: disabled }}
+      >
+        <div class={{ container: true, disabled }}>
           <div>
             <input
               role="radio"
@@ -297,7 +316,6 @@ export class RadioOption {
 
         {hasAdditionalField && (
           <div
-            onClick={swallowClick}
             class={{
               "dynamic-container": true,
               hidden: additionalFieldDisplay === "dynamic" && !selected,
