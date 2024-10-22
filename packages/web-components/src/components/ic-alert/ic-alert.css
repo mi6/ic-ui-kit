@@ -84,7 +84,7 @@
 /* required for Gatsby as prop does not seem to work when set to false */
 :host([showdefaulticon="false"]) .icon-neutral {
   visibility: hidden;
-  width: 0px;
+  width: 0;
   margin-left: 0.625rem;
 }
 
