@@ -211,19 +211,15 @@ export class PageHeader {
                   </slot>
                   <slot name="heading-adornment" />
                 </div>
-                <div>
+                <div
+                  class={{
+                    ["subheading-content"]:
+                      !!subheading || isSlotUsed(this.el, "subheading"),
+                    ["small"]: small || size === "small",
+                  }}
+                >
                   <slot name="subheading">
-                    {subheading && (
-                      <ic-typography
-                        variant="body"
-                        class={{
-                          ["subheading"]: true,
-                          ["small"]: small || size === "small",
-                        }}
-                      >
-                        {subheading}
-                      </ic-typography>
-                    )}
+                    <ic-typography variant="body">{subheading}</ic-typography>
                   </slot>
                 </div>
               </div>
