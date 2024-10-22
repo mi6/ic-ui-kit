@@ -723,3 +723,95 @@ An example where the tree item is rendered as a link.
   <ic-tree-item label="Hot chocolate" disabled="true" href="#"></ic-tree-item>
 </ic-tree-view>
 ```
+
+### Expanded
+
+An example with expanded prop set to true on a parent tree item.
+
+<Canvas withSource="none">
+  <Story name="Expanded" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu">
+          <ic-tree-item label="Coffee" expanded="true">
+            <ic-tree-item label="Americano" expanded="true">
+              <ic-tree-item label="With milk"></ic-tree-item>
+            </ic-tree-item>
+            <ic-tree-item label="Latte"></ic-tree-item>
+            <ic-tree-item label="Espresso"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Tea">
+            <ic-tree-item label="Earl Grey"></ic-tree-item>
+            <ic-tree-item label="Chai"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Expanded code example
+
+```html
+<ic-tree-view heading="Menu">
+  <ic-tree-item label="Coffee" expanded="true">
+    <ic-tree-item label="Americano" expanded="true">
+      <ic-tree-item label="With milk"></ic-tree-item>
+    </ic-tree-item>
+    <ic-tree-item label="Latte"></ic-tree-item>
+    <ic-tree-item label="Espresso"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Tea">
+    <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item label="Chai"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Focus inset
+
+An example with the tree item focus inset.
+
+<Canvas withSource="none">
+  <Story name="Focus inset" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu" focus-inset="true">
+          <ic-tree-item label="Coffee">
+            <ic-tree-item label="Americano">
+              <ic-tree-item label="With milk"></ic-tree-item>
+            </ic-tree-item>
+            <ic-tree-item label="Latte"></ic-tree-item>
+            <ic-tree-item label="Espresso"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Tea">
+            <ic-tree-item label="Earl Grey"></ic-tree-item>
+            <ic-tree-item label="Chai"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Focus inset code example
+
+```html
+<ic-tree-view heading="Menu">
+  <ic-tree-item label="Coffee">
+    <ic-tree-item label="Americano">
+      <ic-tree-item label="With milk"></ic-tree-item>
+    </ic-tree-item>
+    <ic-tree-item label="Latte"></ic-tree-item>
+    <ic-tree-item label="Espresso"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Tea">
+    <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item label="Chai"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+</ic-tree-view>
+```

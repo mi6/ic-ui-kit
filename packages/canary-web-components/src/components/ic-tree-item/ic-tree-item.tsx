@@ -60,6 +60,11 @@ export class TreeItem {
   @Prop({ mutable: true }) expanded: boolean = false;
 
   /**
+   * @internal If `true`, the tree item will have an inset focus border.
+   */
+  @Prop() focusInset?: boolean = false;
+
+  /**
    * @internal Determines if the parent tree item has been expanded.
    */
   @Prop({ mutable: true }) hasParentExpanded: boolean = false;
@@ -344,7 +349,15 @@ export class TreeItem {
   };
 
   render() {
-    const { appearance, disabled, label, selected, size, expanded } = this;
+    const {
+      appearance,
+      disabled,
+      label,
+      selected,
+      size,
+      expanded,
+      focusInset,
+    } = this;
 
     const Component = this.href && !this.disabled ? "a" : "div";
 
@@ -363,6 +376,7 @@ export class TreeItem {
           "ic-tree-item-disabled": disabled,
           "ic-tree-item-selected": !disabled && selected,
           [`ic-tree-item-${size}`]: size !== "medium",
+          [`ic-tree-item-focus-inset`]: focusInset,
         }}
         id={this.treeItemId}
       >

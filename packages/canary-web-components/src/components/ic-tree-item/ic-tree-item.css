@@ -37,6 +37,17 @@
   outline: none;
 }
 
+:host(.ic-tree-item-focus-inset) .tree-item-content:focus,
+:host(.ic-tree-item-focus-inset) ::slotted([slot="router-item"]:focus) {
+  box-shadow: var(--ic-border-focus-inset);
+  border-radius: var(--ic-border-radius-inset);
+}
+
+:host(.ic-tree-item-focus-inset) .tree-item-content,
+:host(.ic-tree-item-focus-inset) ::slotted([slot="router-item"]) {
+  padding: 0 var(--ic-space-sm);
+}
+
 :host .tree-item-content:hover,
 ::slotted([slot="router-item"]:hover) {
   background-color: var(--ic-action-dark-bg-hover) !important;

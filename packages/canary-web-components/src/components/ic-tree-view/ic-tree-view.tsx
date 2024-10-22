@@ -49,6 +49,17 @@ export class TreeView {
   }
 
   /**
+   * If `true`, tree items will have inset focus.
+   */
+  @Prop() focusInset?: boolean = false;
+  @Watch("focusInset")
+  watchFocusInsetHandler() {
+    this.treeItems.forEach((treeItem) => {
+      treeItem.focusInset = this.focusInset;
+    });
+  }
+
+  /**
    * The heading of the tree view.
    */
   @Prop() heading?: string = "";
@@ -75,6 +86,8 @@ export class TreeView {
 
     this.watchAppearanceHandler();
     this.watchSizeHandler();
+    this.watchFocusInsetHandler();
+
     setTimeout(() => {
       this.truncateTreeViewHeading();
     }, 100);
