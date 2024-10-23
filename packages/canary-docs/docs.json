@@ -1680,6 +1680,28 @@
           "required": false
         },
         {
+          "name": "hideLabel",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-label",
+          "reflectToAttr": false,
+          "docs": "If `true`, the label will be visually hidden, but will still be read out by screen readers.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "inputId",
           "type": "string",
           "complexType": {
@@ -2381,6 +2403,28 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideLabel",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-label",
+          "reflectToAttr": false,
+          "docs": "If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {
