@@ -13,13 +13,6 @@
 | `variant`             | `variant` | The variant of the button to render                             | `"default" \| "icon"` | `"default"` |
 
 
-## CSS Custom Properties
-
-| Name                       | Description            |
-| -------------------------- | ---------------------- |
-| `--ic-z-index-back-to-top` | z-index of back to top |
-
-
 ## Dependencies
 
 ### Depends on

@@ -65,13 +65,6 @@ Type: `Promise<void>`
 | `"label"`           | Content will be placed above the dialog heading.                     |
 
 
-## CSS Custom Properties
-
-| Name                  | Description       |
-| --------------------- | ----------------- |
-| `--ic-z-index-dialog` | z-index of dialog |
-
-
 ## Dependencies
 
 ### Depends on

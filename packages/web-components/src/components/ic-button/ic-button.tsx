@@ -27,7 +27,7 @@ import {
   IcButtonTooltipPlacement,
 } from "./ic-button.types";
 import {
-  IcSizes,
+  IcExtraSizes,
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
@@ -200,7 +200,7 @@ export class Button {
   /**
    * The size of the button to be displayed.
    */
-  @Prop() size?: IcSizes = "medium";
+  @Prop() size?: IcExtraSizes = "medium";
 
   /**
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).

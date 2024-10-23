@@ -67,15 +67,6 @@ Type: `Promise<void>`
 
 
 
-## CSS Custom Properties
-
-| Name                | Description                |
-| ------------------- | -------------------------- |
-| `--ic-z-index-menu` | z-index of select menu     |
-| `--input-width`     | Width of the input field   |
-| `--menu-width`      | Width of the dropdown menu |
-
-
 ## Dependencies
 
 ### Depends on

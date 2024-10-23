@@ -31,6 +31,8 @@ export enum IcInformationStatus {
 
 export type IcSizes = "medium" | "large" | "small";
 
+export type IcExtraSizes = "medium" | "large" | "small" | "extra-small";
+
 export type IcSizesNoLarge = "medium" | "small";
 
 export type IcInformationStatusOrEmpty = "warning" | "error" | "success" | "";
