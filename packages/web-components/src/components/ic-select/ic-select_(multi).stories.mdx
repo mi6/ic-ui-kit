@@ -8,18 +8,18 @@ import {
 import { html } from "lit-html";
 import readme from "./readme.md";
 
-<Meta title="Web Components/Select/Single" component="ic-select" />
+<Meta title="Web Components/Select/Multi" component="ic-select" />
 
 <Description markdown={readme} />
 
 export const defaultArgs = {
   disabled: false,
   ["full-width"]: false,
-  ["helper-text"]: "Select one option from the list",
+  ["helper-text"]: "Select some options from the list",
   ["hide-label"]: false,
   loading: false,
   loadingLabel: "Loading...",
-  label: "What is your favourite coffee?",
+  label: "What are your favourite types of coffee?",
   placeholder: "Select an option",
   readonly: false,
   required: false,
@@ -36,7 +36,8 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-default"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
         ></ic-select>
         <script>
           var select = document.querySelector("#select-default");
@@ -44,12 +45,19 @@ export const defaultArgs = {
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
           });
           select.addEventListener("icOptionSelect", function (event) {
             console.log("icOptionSelect: " + event.detail.value);
+          });
+          select.addEventListener("icOptionDeselect", function (event) {
+            console.log("icOptionDeselect: " + event.detail.value);
           });
           select.addEventListener("icOpen", function () {
             console.log("select dropdown opened");
@@ -68,9 +76,10 @@ export const defaultArgs = {
   <Story name="Async default" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`<ic-select
-          label="What is your favourite coffee?"
-          loading
+          label="What are your favourite types of coffee?"
           id="select-async"
+          multiple
+          loading
         ></ic-select>
         <script>
           var select = document.querySelector("#select-async");
@@ -101,15 +110,20 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-default-value"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
         ></ic-select>
         <script>
           var select = document.querySelector("#select-default-value");
-          select.value = "Cap";
+          select.value = ["Ame", "Fil", "Moc"];
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -126,7 +140,8 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-clear"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           show-clear-button
         ></ic-select>
         <script>
@@ -135,6 +150,10 @@ export const defaultArgs = {
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -151,7 +170,8 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-descriptions"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
         ></ic-select>
         <script>
           var select = document.querySelector("#select-descriptions");
@@ -171,6 +191,27 @@ export const defaultArgs = {
               value: "Ame",
               description: "Espresso coffee diluted with hot water",
             },
+            {
+              label: "Filter",
+              value: "Fil",
+              description: "Coffee filtered using paper or a mesh",
+            },
+            {
+              label: "Flat white",
+              value: "Fla",
+              description:
+                "Coffee without froth made with espresso and hot steamed milk",
+            },
+            {
+              label: "Mocha",
+              value: "Moc",
+              description: "A mixture of coffee and chocolate",
+            },
+            {
+              label: "Macchiato",
+              value: "Mac",
+              description: "Espresso coffee with a dash of frothy steamed milk",
+            },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -187,8 +228,9 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-helper"
-          label="What is your favourite coffee?"
-          helper-text="Select one option from the list"
+          label="What are your favourite types of coffee?"
+          multiple
+          helper-text="Select some options from the list"
         ></ic-select>
         <script>
           var select = document.querySelector("#select-helper");
@@ -196,6 +238,10 @@ export const defaultArgs = {
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -211,16 +257,21 @@ export const defaultArgs = {
   <Story name="Custom placeholder" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`<ic-select
-          id="select-7"
-          label="What is your favourite coffee?"
+          id="select-placeholder"
+          label="What are your favourite types of coffee?"
+          multiple
           placeholder="Placeholder goes here"
         ></ic-select>
         <script>
-          var select = document.querySelector("#select-7");
+          var select = document.querySelector("#select-placeholder");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -236,11 +287,12 @@ export const defaultArgs = {
   <Story name="Custom components" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`<ic-select
-          id="select-1"
-          label="What is your favourite coffee?"
+          id="select-custom-components"
+          label="What are your favourite types of coffee?"
+          multiple
         ></ic-select>
         <script>
-          var select = document.querySelector("#select-1");
+          var select = document.querySelector("#select-custom-components");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             {
@@ -262,6 +314,10 @@ export const defaultArgs = {
             </g>
             </svg>\`,
             },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -279,7 +335,8 @@ export const defaultArgs = {
       html`<div style="display: flex; flex-direction: column; gap: 16px;">
         <ic-select
           id="select-size-small"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           size="small"
         ></ic-select>
         <script>
@@ -299,7 +356,8 @@ export const defaultArgs = {
         </script>
         <ic-select
           id="select-size-medium"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
         ></ic-select>
         <script>
           var select = document.querySelector("#select-size-medium");
@@ -318,7 +376,8 @@ export const defaultArgs = {
         </script>
         <ic-select
           id="select-size-large"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           size="large"
         ></ic-select>
         <script>
@@ -348,7 +407,8 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-disabled"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           disabled
         ></ic-select>
         <script>
@@ -357,6 +417,10 @@ export const defaultArgs = {
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -373,7 +437,8 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-disabled-options"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
         ></ic-select>
         <script>
           var select = document.querySelector("#select-disabled-options");
@@ -381,6 +446,10 @@ export const defaultArgs = {
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat", disabled: true },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil", disabled: true },
+            { label: "Flat white", value: "Fla", disabled: true },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -397,7 +466,8 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-full-width"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           full-width
         ></ic-select>
         <script>
@@ -406,6 +476,10 @@ export const defaultArgs = {
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -422,7 +496,8 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-hidden-label"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           hide-label
         ></ic-select>
         <script>
@@ -431,6 +506,10 @@ export const defaultArgs = {
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -447,7 +526,8 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-required"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           required
         ></ic-select>
         <script>
@@ -456,6 +536,10 @@ export const defaultArgs = {
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -472,16 +556,21 @@ export const defaultArgs = {
     {() =>
       html`<ic-select
           id="select-read-only"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           readonly
-          value="Cap"
         ></ic-select>
         <script>
           var select = document.querySelector("#select-read-only");
+          select.value = ["Cap", "Fla", "Moc"];
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -498,7 +587,8 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-groups"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
         ></ic-select>
         <script>
           var select = document.querySelector("#select-groups");
@@ -518,7 +608,6 @@ export const defaultArgs = {
               ],
             },
           ];
-          select.value = "Lat";
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
           });
@@ -534,16 +623,19 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-recommended"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
         ></ic-select>
         <script>
           var select = document.querySelector("#select-recommended");
           select.options = [
-            { label: "Cappuccino", value: "Cappuccino" },
-            { label: "Flat white", value: "Flat white", recommended: true },
-            { label: "Latte", value: "Latte" },
-            { label: "Americano", value: "Americano", recommended: true },
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame", recommended: true },
             { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla", recommended: true },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -560,17 +652,21 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-success"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           validation-status="success"
           validation-text="Coffee available"
         ></ic-select>
         <script>
           var select1 = document.querySelector("#select-success");
-          var option1 = "Cappuccino";
           select1.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select1.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -578,17 +674,21 @@ export const defaultArgs = {
         </script>
         <ic-select
           id="select-warning"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           validation-status="warning"
           validation-text="Only a few left"
         ></ic-select>
         <script>
           var select2 = document.querySelector("#select-warning");
-          var option2 = "Cappuccino";
           select2.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select2.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -596,17 +696,21 @@ export const defaultArgs = {
         </script>
         <ic-select
           id="select-error"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           validation-status="error"
           validation-text="Coffee unavailable"
         ></ic-select>
         <script>
           var select3 = document.querySelector("#select-error");
-          var option3 = "Cappuccino";
           select3.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select3.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -623,7 +727,8 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-scroll"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
         ></ic-select>
         <script>
           var select = document.querySelector("#select-scroll");
@@ -656,12 +761,22 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select
           id="select-loading"
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
+          multiple
           loading
           timeout="1000"
         ></ic-select>
         <script>
           var select = document.querySelector("#select-loading");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
           });
@@ -684,7 +799,8 @@ This shows how the single select works within a form. The value will appear in t
         <form>
           <ic-select
             id="select-form"
-            label="What is your favourite coffee?"
+            label="What are your favourite types of coffee?"
+            multiple
           ></ic-select>
           <br />
           <br />
@@ -697,6 +813,10 @@ This shows how the single select works within a form. The value will appear in t
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
@@ -707,34 +827,6 @@ This shows how the single select works within a form. The value will appear in t
           });
         </script>
       `
-    }
-  </Story>
-</Canvas>
-
-### Emitting icOptionSelect on enter
-
-<Canvas>
-  <Story
-    name="Emitting icOptionSelect on enter"
-    parameters={{ loki: { skip: true } }}
-  >
-    {(args) =>
-      html`<ic-select
-          id="select-icoptionselect"
-          label="What is your favourite coffee?"
-          select-on-enter
-        ></ic-select>
-        <script>
-          var select = document.querySelector("#select-icoptionselect");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-          ];
-          select.addEventListener("icOptionSelect", function (event) {
-            console.log("icOptionSelect: " + event.detail.value);
-          });
-        </script>`
     }
   </Story>
 </Canvas>
@@ -764,6 +856,7 @@ This shows how the single select works within a form. The value will appear in t
     {(args) =>
       html` <ic-select
           id="select-playground"
+          multiple
           disabled=${args.disabled}
           full-width=${args["full-width"]}
           helper-text=${args["helper-text"]}
