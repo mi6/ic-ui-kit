@@ -988,6 +988,10 @@ export namespace Components {
         "anchorEl": HTMLElement;
         "autoFocusOnSelected": boolean;
         /**
+          * If `true`, the menu will close when an option is selected.
+         */
+        "closeOnSelect": boolean;
+        /**
           * If `true`, the menu will fill the width of the container.
          */
         "fullWidth": boolean;
@@ -1030,13 +1034,13 @@ export namespace Components {
         "searchMode"?: IcSearchBarSearchModes;
         "selectOnEnter"?: boolean;
         /**
-          * The size of the menu component.
+          * The size of the menu.
          */
         "size"?: IcSizes;
         /**
-          * The value of the currently selected option.
+          * The value of the currently selected option - or array of values (if multiple options allowed).
          */
-        "value": string;
+        "value": string | string[];
         /**
           * The custom name for the value field for IcMenuOption.
          */
@@ -1574,7 +1578,7 @@ export namespace Components {
          */
         "form"?: string;
         /**
-          * If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.
+          * If `true`, the select will fill the width of the container.
          */
         "fullWidth": boolean;
         /**
@@ -1610,6 +1614,10 @@ export namespace Components {
          */
         "loadingLabel"?: string;
         /**
+          * If `true`, multiple options can be selected.
+         */
+        "multiple"?: boolean;
+        /**
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
@@ -1638,7 +1646,7 @@ export namespace Components {
          */
         "searchable"?: boolean;
         /**
-          * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown.
+          * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.
          */
         "selectOnEnter"?: boolean;
         /**
@@ -1650,7 +1658,7 @@ export namespace Components {
          */
         "showClearButton"?: boolean;
         /**
-          * The size of the select component.
+          * The size of the select.
          */
         "size"?: IcSizes;
         /**
@@ -1666,9 +1674,9 @@ export namespace Components {
          */
         "validationText"?: string;
         /**
-          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input.
+          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
          */
-        "value"?: string;
+        "value"?: string | string[];
     }
     interface IcSideNavigation {
         /**
@@ -2680,8 +2688,8 @@ declare global {
         "menuKeyPress": { isNavKey: boolean; key: string };
         "menuOptionId": IcMenuOptionIdEventDetail;
         "menuOptionSelect": IcOptionSelectEventDetail;
+        "menuOptionSelectAll": { select: boolean };
         "menuStateChange": IcMenuChangeEventDetail;
-        "menuValueChange": IcValueEventDetail;
         "retryButtonClicked": IcValueEventDetail;
         "timeoutBlur": { ev: FocusEvent };
         "ungroupedOptionsSet": { options: IcMenuOption[] };
@@ -2909,6 +2917,7 @@ declare global {
         "icInput": IcValueEventDetail;
         "icOpen": void;
         "icOptionSelect": IcOptionSelectEventDetail;
+        "icOptionDeselect": IcOptionSelectEventDetail;
         "icRetryLoad": IcValueEventDetail;
     }
     interface HTMLIcSelectElement extends Components.IcSelect, HTMLStencilElement {
@@ -4189,6 +4198,10 @@ declare namespace LocalJSX {
         "anchorEl": HTMLElement;
         "autoFocusOnSelected"?: boolean;
         /**
+          * If `true`, the menu will close when an option is selected.
+         */
+        "closeOnSelect"?: boolean;
+        /**
           * If `true`, the menu will fill the width of the container.
          */
         "fullWidth"?: boolean;
@@ -4211,8 +4224,8 @@ declare namespace LocalJSX {
         "onMenuKeyPress"?: (event: IcMenuCustomEvent<{ isNavKey: boolean; key: string }>) => void;
         "onMenuOptionId"?: (event: IcMenuCustomEvent<IcMenuOptionIdEventDetail>) => void;
         "onMenuOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
+        "onMenuOptionSelectAll"?: (event: IcMenuCustomEvent<{ select: boolean }>) => void;
         "onMenuStateChange"?: (event: IcMenuCustomEvent<IcMenuChangeEventDetail>) => void;
-        "onMenuValueChange"?: (event: IcMenuCustomEvent<IcValueEventDetail>) => void;
         "onRetryButtonClicked"?: (event: IcMenuCustomEvent<IcValueEventDetail>) => void;
         "onTimeoutBlur"?: (event: IcMenuCustomEvent<{ ev: FocusEvent }>) => void;
         "onUngroupedOptionsSet"?: (event: IcMenuCustomEvent<{ options: IcMenuOption[] }>) => void;
@@ -4231,13 +4244,13 @@ declare namespace LocalJSX {
         "searchMode"?: IcSearchBarSearchModes;
         "selectOnEnter"?: boolean;
         /**
-          * The size of the menu component.
+          * The size of the menu.
          */
         "size"?: IcSizes;
         /**
-          * The value of the currently selected option.
+          * The value of the currently selected option - or array of values (if multiple options allowed).
          */
-        "value": string;
+        "value": string | string[];
         /**
           * The custom name for the value field for IcMenuOption.
          */
@@ -4811,7 +4824,7 @@ declare namespace LocalJSX {
          */
         "form"?: string;
         /**
-          * If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.
+          * If `true`, the select will fill the width of the container.
          */
         "fullWidth"?: boolean;
         /**
@@ -4847,6 +4860,10 @@ declare namespace LocalJSX {
          */
         "loadingLabel"?: string;
         /**
+          * If `true`, multiple options can be selected.
+         */
+        "multiple"?: boolean;
+        /**
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
@@ -4879,7 +4896,11 @@ declare namespace LocalJSX {
          */
         "onIcOpen"?: (event: IcSelectCustomEvent<void>) => void;
         /**
-          * Emitted when an option is highlighted within the menu. Highlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated.
+          * Emitted when `multiple` is `true` and an option is deselected.
+         */
+        "onIcOptionDeselect"?: (event: IcSelectCustomEvent<IcOptionSelectEventDetail>) => void;
+        /**
+          * Emitted when an option is selected. Selecting an option will also trigger an `icChange/onIcChange` due to the value being updated.
          */
         "onIcOptionSelect"?: (event: IcSelectCustomEvent<IcOptionSelectEventDetail>) => void;
         /**
@@ -4911,7 +4932,7 @@ declare namespace LocalJSX {
          */
         "searchable"?: boolean;
         /**
-          * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown.
+          * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.
          */
         "selectOnEnter"?: boolean;
         /**
@@ -4919,7 +4940,7 @@ declare namespace LocalJSX {
          */
         "showClearButton"?: boolean;
         /**
-          * The size of the select component.
+          * The size of the select.
          */
         "size"?: IcSizes;
         /**
@@ -4935,9 +4956,9 @@ declare namespace LocalJSX {
          */
         "validationText"?: string;
         /**
-          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input.
+          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
          */
-        "value"?: string;
+        "value"?: string | string[];
     }
     interface IcSideNavigation {
         /**

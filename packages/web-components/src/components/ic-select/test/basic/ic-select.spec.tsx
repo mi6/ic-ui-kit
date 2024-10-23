@@ -73,6 +73,13 @@ const menuOptionsWithDuplicates = [
   },
 ];
 
+const menuOptionsWithDisabled = [
+  { label: label1, value: value1 },
+  { label: label2, value: value2 },
+  { label: label3, value: value3, disabled: true },
+  { label: label4, value: value4 },
+];
+
 const menuOptionsWithGroups = [
   {
     label: "Fancy",
@@ -207,7 +214,7 @@ describe("ic-select", () => {
 
     const clearButton = page.root.shadowRoot.querySelector(
       clearButtonId
-    ) as HTMLIcButtonElement;
+    ) as HTMLButtonElement;
 
     clearButton.focus();
     await page.waitForChanges();
@@ -588,7 +595,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
     const retryButton = page.root.shadowRoot
       .querySelector("ic-menu")
-      .querySelector(retryButtonId) as HTMLIcButtonElement;
+      .querySelector(retryButtonId) as HTMLButtonElement;
     retryButton.blur();
     expect(page.rootInstance.open).toBeFalsy;
     expect(eventSpy).toHaveBeenCalled;
@@ -837,7 +844,7 @@ describe("ic-select searchable", () => {
 
     const clearButton = page.root.shadowRoot.querySelector(
       clearButtonId
-    ) as HTMLIcButtonElement;
+    ) as HTMLButtonElement;
 
     clearButton.focus();
     await page.waitForChanges();
@@ -1590,7 +1597,7 @@ describe("ic-select searchable", () => {
     await page.waitForChanges();
   });
 
-  it("should test menus opens and closes when enter pressed - external filtering", async () => {
+  it("should test menu opens and closes when enter pressed - external filtering", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" disable-auto-filtering="true" debounce="300"></ic-select>`,
@@ -1754,7 +1761,7 @@ describe("ic-select searchable", () => {
     await page.waitForChanges();
     const retryButton = page.root.shadowRoot
       .querySelector("ic-menu")
-      .querySelector(retryButtonId) as HTMLIcButtonElement;
+      .querySelector(retryButtonId) as HTMLButtonElement;
     retryButton.click();
     page.rootInstance.loading = true;
     await page.waitForChanges();
@@ -1815,7 +1822,7 @@ describe("ic-select searchable", () => {
     });
     const retryButton = page.root.shadowRoot
       .querySelector("ic-menu")
-      .querySelector(retryButtonId) as HTMLIcButtonElement;
+      .querySelector(retryButtonId) as HTMLButtonElement;
     retryButton.dispatchEvent(event);
     expect(spy).toHaveBeenCalled;
   });
@@ -1840,7 +1847,7 @@ describe("ic-select searchable", () => {
 
     const clearButton = page.root.shadowRoot.querySelector(
       clearButtonId
-    ) as HTMLIcButtonElement;
+    ) as HTMLButtonElement;
     clearButton.click();
     await page.waitForChanges();
     expect(page.rootInstance.filteredOptions).toHaveLength(1);
@@ -1877,5 +1884,219 @@ describe("ic-select searchable", () => {
     page.rootInstance.value = undefined;
     await page.waitForChanges();
     expect(page.rootInstance.searchableSelectInputValue).toBeUndefined;
+  });
+});
+
+describe("ic-select multi", () => {
+  it("should not render a native select on a mobile / tablet screen", async () => {
+    Object.defineProperty(helpers, "isMobileOrTablet", {
+      value: jest.fn().mockReturnValue(true),
+    });
+
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer, Button],
+      html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should test handleKeyboardOpen method on menu - arrow down", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer, Button],
+      html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    await page.waitForChanges();
+
+    const menu = page.root.shadowRoot.querySelector("ic-menu");
+
+    const KeyEvent = {
+      key: "ArrowDown",
+      preventDefault: (): void => null,
+    } as KeyboardEvent;
+
+    await menu.handleKeyboardOpen(KeyEvent);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBeTruthy;
+
+    // Test option is not selected by automatic selection
+    expect(page.rootInstance.value).toBe(undefined);
+  });
+
+  it("should test menu handleKeyboardOpen method - arrow up", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer, Button],
+      html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    await page.waitForChanges();
+
+    const menu = page.root.shadowRoot.querySelector("ic-menu");
+
+    const KeyEvent = {
+      key: "ArrowUp",
+      preventDefault: (): void => null,
+    } as KeyboardEvent;
+
+    await menu.handleKeyboardOpen(KeyEvent);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBeTruthy;
+
+    // Test option is not selected by automatic selection
+    expect(page.rootInstance.value).toBe(undefined);
+  });
+
+  it("should test keydown on menu - arrow down, up, and enter", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer, Button],
+      html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+
+    const menu = page.root.shadowRoot.querySelector(menuUl);
+
+    menu.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "ArrowDown",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    await page.waitForChanges();
+
+    menu.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "Enter",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    await page.waitForChanges();
+
+    expect(page.rootInstance.value).toEqual([value1]);
+    expect(page.root).toMatchSnapshot();
+
+    menu.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "ArrowDown",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    await page.waitForChanges();
+
+    menu.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "Enter",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    await page.waitForChanges();
+
+    expect(page.rootInstance.value).toEqual([value1, value2]);
+    expect(page.root).toMatchSnapshot();
+
+    menu.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "ArrowUp",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    await page.waitForChanges();
+
+    menu.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "Enter",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    await page.waitForChanges();
+
+    expect(page.rootInstance.value).toEqual([value2]);
+  });
+
+  it("should select all options - handleSelectAllChange", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer, Button],
+      html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
+    });
+
+    const eventSpy = jest.fn();
+    page.win.addEventListener("icOptionSelect", eventSpy);
+
+    page.root.options = menuOptionsWithDisabled;
+    await page.waitForChanges();
+
+    page.rootInstance.handleSelectAllChange({ detail: { select: true } });
+
+    // Test disabled option not selected
+    expect(page.rootInstance.value).toEqual([value1, value2, value4]);
+    expect(eventSpy).toHaveBeenCalledTimes(3);
+  });
+
+  it("should emit icOptionSelect only for unselected options - handleSelectAllChange", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer, Button],
+      html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
+    });
+
+    const eventSpy = jest.fn();
+    page.win.addEventListener("icOptionSelect", eventSpy);
+
+    page.root.options = menuOptionsWithDisabled;
+    page.root.value = [value1];
+    await page.waitForChanges();
+
+    page.rootInstance.handleSelectAllChange({ detail: { select: true } });
+
+    expect(eventSpy).toHaveBeenCalledTimes(2);
+  });
+
+  it("should deselect all options - handleSelectAllChange", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer, Button],
+      html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptionsWithDisabled;
+    page.root.value = [value1, value2, value4];
+    await page.waitForChanges();
+
+    page.rootInstance.handleSelectAllChange({ detail: { select: false } });
+
+    expect(page.rootInstance.value).toEqual(null);
+  });
+
+  it("should sort the selected options by the order of the options in the menu", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer, Button],
+      html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    page.root.value = [value1];
+    await page.waitForChanges();
+
+    page.root.value = [value2, value1];
+    await page.waitForChanges();
+
+    const button = page.root.shadowRoot.querySelector("button.select-input");
+
+    expect(page.rootInstance.currValue).toEqual([value1, value2]);
+    expect(button.textContent).toContain(`${label1}, ${label2}`);
   });
 });
