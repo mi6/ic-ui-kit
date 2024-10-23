@@ -830,6 +830,26 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.get("button#hideText").focus().click();
     cy.findShadowEl(DATE_INPUT, ".helpertext").should(HAVE_TEXT, "");
   });
+
+  it("should hide the label when hideLabel is true and the label should appear within the screen reader span", () => {
+    const DATE_INPUT_LABEL = "Test label";
+    mount(<IcDateInput label={DATE_INPUT_LABEL} hideLabel />);
+
+    cy.checkHydrated("ic-date-input");
+
+    cy.findShadowEl(DATE_INPUT, "ic-input-label").should("not.exist");
+
+    const inputContainerID = cy
+      .findShadowEl(DATE_INPUT, "ic-input-component-container")
+      .invoke("attr", "id");
+
+    inputContainerID.then((id) => {
+      cy.findShadowEl(DATE_INPUT, `#${id}-screen-reader-info`).should(
+        "contain.text",
+        DATE_INPUT_LABEL
+      );
+    });
+  });
 });
 
 describe("IcDateInput visual regression tests in high contrast mode", () => {
