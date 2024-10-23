@@ -3926,7 +3926,7 @@ describe("IcDataTable row deletion", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.get(DATA_TABLE_SELECTOR)
-      .find("ic-button.button-variant-icon")
+      .find("ic-button.ic-button-variant-icon")
       .eq(4)
       .shadow()
       .find("button")
