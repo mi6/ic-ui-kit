@@ -7375,6 +7375,28 @@
           "required": true
         },
         {
+          "name": "closeOnSelect",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "close-on-select",
+          "reflectToAttr": false,
+          "docs": "If `true`, the menu will close when an option is selected.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "fullWidth",
           "type": "boolean",
           "complexType": {
@@ -7582,7 +7604,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The size of the menu component.",
+          "docs": "The size of the menu.",
           "docsTags": [],
           "default": "\"medium\"",
           "values": [
@@ -7604,20 +7626,23 @@
         },
         {
           "name": "value",
-          "type": "string",
+          "type": "string | string[]",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "string | string[]",
+            "resolved": "string | string[]",
             "references": {}
           },
-          "mutable": true,
+          "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the currently selected option.",
+          "docs": "The value of the currently selected option - or array of values (if multiple options allowed).",
           "docsTags": [],
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "string[]"
             }
           ],
           "optional": false,
@@ -12080,7 +12105,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.",
+          "docs": "If `true`, the select will fill the width of the container.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -12267,6 +12292,28 @@
           "required": false
         },
         {
+          "name": "multiple",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "multiple",
+          "reflectToAttr": false,
+          "docs": "If `true`, multiple options can be selected.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "name",
           "type": "string",
           "complexType": {
@@ -12447,7 +12494,7 @@
           "mutable": false,
           "attr": "select-on-enter",
           "reflectToAttr": false,
-          "docs": "If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown.",
+          "docs": "If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -12497,7 +12544,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The size of the select component.",
+          "docs": "The size of the select.",
           "docsTags": [],
           "default": "\"medium\"",
           "values": [
@@ -12602,20 +12649,23 @@
         },
         {
           "name": "value",
-          "type": "string",
+          "type": "string | string[]",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "string | string[]",
+            "resolved": "string | string[]",
             "references": {}
           },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input.",
+          "docs": "The value of the select, reflected by the value of the currently selected option.\nFor the searchable variant, the value is also reflected by the user input.\nFor the multi-select variant, the value must be an array of option values.",
           "docsTags": [],
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "string[]"
             }
           ],
           "optional": true,
@@ -12758,6 +12808,26 @@
           "docsTags": []
         },
         {
+          "event": "icOptionDeselect",
+          "detail": "IcOptionSelectEventDetail",
+          "bubbles": true,
+          "complexType": {
+            "original": "IcOptionSelectEventDetail",
+            "resolved": "IcOptionSelectEventDetail",
+            "references": {
+              "IcOptionSelectEventDetail": {
+                "location": "import",
+                "path": "../ic-menu/ic-menu.types",
+                "id": "src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when `multiple` is `true` and an option is deselected.",
+          "docsTags": []
+        },
+        {
           "event": "icOptionSelect",
           "detail": "IcOptionSelectEventDetail",
           "bubbles": true,
@@ -12774,7 +12844,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when an option is highlighted within the menu.\nHighlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated.",
+          "docs": "Emitted when an option is selected.\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
           "docsTags": []
         },
         {
@@ -12809,6 +12879,11 @@
           "name": "--input-width",
           "annotation": "prop",
           "docs": "Width of the input field"
+        },
+        {
+          "name": "--menu-width",
+          "annotation": "prop",
+          "docs": "Width of the dropdown menu"
         }
       ],
       "slots": [
@@ -18044,7 +18119,7 @@
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcValueEventDetail": {
-      "declaration": "export interface IcValueEventDetail {\n  value: string;\n  keyPressed?: string;\n}",
+      "declaration": "export interface IcValueEventDetail {\n  value: string | string[];\n  keyPressed?: string;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
