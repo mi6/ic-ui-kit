@@ -53,6 +53,11 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     cy.get(DATE_INPUT).should(BE_VISIBLE);
 
+    cy.findShadowEl(DATE_INPUT, "ic-input-label").then(($el) => {
+      cy.wrap($el).find("label").should("exist");
+      cy.wrap($el).find(".helpertext").should("exist");
+    });
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "date-input-render",
@@ -829,6 +834,36 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     // When hideHelperText is set to true, helper text should not render
     cy.get("button#hideText").focus().click();
     cy.findShadowEl(DATE_INPUT, ".helpertext").should(HAVE_TEXT, "");
+  });
+
+  it("should hide the label when hideLabel is true and the label should appear within the screen reader span", () => {
+    const DATE_INPUT_LABEL = "Test label";
+    mount(<IcDateInput label={DATE_INPUT_LABEL} hideLabel />);
+
+    cy.checkHydrated("ic-date-input");
+
+    cy.findShadowEl(DATE_INPUT, "label").should("not.exist");
+
+    const inputContainerID = cy
+      .findShadowEl(DATE_INPUT, "ic-input-component-container")
+      .invoke("attr", "id");
+
+    inputContainerID.then((id) => {
+      cy.findShadowEl(DATE_INPUT, `#${id}-screen-reader-info`).should(
+        "contain.text",
+        DATE_INPUT_LABEL
+      );
+    });
+
+    cy.checkA11yWithWait();
+  });
+
+  it("should remove ic-input-label if hideLabel and hideHelperText is true", () => {
+    mount(<IcDateInput label="Test Label" hideLabel hideHelperText />);
+
+    cy.checkHydrated("ic-date-input");
+
+    cy.findShadowEl(DATE_INPUT, "ic-input-label").should("not.exist");
   });
 });
 
