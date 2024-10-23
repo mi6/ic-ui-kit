@@ -37,6 +37,7 @@ import {
   pxToRem,
   addDataToPosition,
   dynamicDebounce,
+  getSlotElements,
 } from "../../utils/helpers";
 
 /**
@@ -359,6 +360,10 @@ export class DataTable {
     ) {
       this.truncateUpdatedData();
     }
+  }
+
+  componentDidRender(): void {
+    this.fixCellTooltips();
   }
 
   private truncateUpdatedData() {
@@ -1688,6 +1693,25 @@ export class DataTable {
     cellContainer.appendChild(tooltipEl);
     tooltipEl.appendChild(typographyEl);
   }
+
+  private fixCellTooltips = () => {
+    const elements = this.el.shadowRoot.querySelectorAll(".data-type-element");
+    elements.forEach((element) => {
+      const slotElements = getSlotElements(element);
+      slotElements.forEach((slottedEl: HTMLElement) => {
+        const tooltipEl = (
+          slottedEl.tagName === "IC-TOOLTIP"
+            ? slottedEl
+            : slottedEl.shadowRoot?.querySelector("ic-tooltip")
+        ) as HTMLIcTooltipElement;
+        if (tooltipEl) {
+          tooltipEl.setExternalPopperProps({
+            strategy: "fixed",
+          });
+        }
+      });
+    });
+  };
 
   render() {
     const {
