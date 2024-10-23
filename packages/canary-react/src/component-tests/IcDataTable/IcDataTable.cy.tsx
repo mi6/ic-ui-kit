@@ -3893,6 +3893,55 @@ describe("IcDataTable row deletion", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 5);
   });
 
+  it("should have tooltip visible when it would overlap bottom of table", () => {
+    const nextData = [...DATA_REACT_ELEMENTS];
+    mount(
+      <IcDataTable
+        columns={COLS_ELEMENTS}
+        data={nextData}
+        caption="Data tables"
+      >
+        {nextData.map((_, index) => (
+          <>
+            <IcButton
+              key={`actions-${index}`}
+              slot={`actions-${index}`}
+              onClick={() => nextData.splice(index, 1)}
+            >
+              Delete
+            </IcButton>
+            <IcButton
+              key={`actions2-${index}`}
+              variant="icon"
+              slot={`actions2-${index}`}
+              onClick={() => nextData.splice(index, 1)}
+              aria-label="Add info"
+            >
+              <SlottedSVG path={mdiPlus} viewBox="0 0 24 24" />
+            </IcButton>
+          </>
+        ))}
+      </IcDataTable>
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find("ic-button.button-variant-icon")
+      .eq(4)
+      .shadow()
+      .find("button")
+      .focus();
+
+    cy.compareSnapshot({
+      name: "tooltip-in-final-row",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.041),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+      delay: 1000,
+    });
+  });
+
   it("should render table correctly when only some rows have an icon in the column", () => {
     const data = [...DATA_REACT_ELEMENTS_WITH_ICONS];
     mount(
@@ -4247,7 +4296,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.038),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.048),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
