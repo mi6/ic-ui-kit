@@ -272,6 +272,27 @@ To set the date input as a required field, set the `required` attribute to `true
 ></ic-date-input>
 ```
 
+### Hide label
+
+To hide the label, set the `hide-label` attribute to `true`. The required `label` will still be read out by screen readers.
+
+<Canvas withSource="none">
+  <Story name="Hide label" parameters={{ loki: { skip: true } }}>
+    {html`<ic-date-input
+      label="When would you like to collect your coffee?"
+      hide-label="true"
+    ></ic-date-input> `}
+  </Story>
+</Canvas>
+
+```html
+<ic-date-input
+  label="When would you like to collect your coffee?"
+  date-format="DD/MM/YYYY"
+  hide-label="true"
+></ic-date-input>
+```
+
 ### Disabled
 
 Set the `disabled` attribute to `true` to prevent interaction with the date input.
