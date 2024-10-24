@@ -864,7 +864,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-tooltip-in-final-row",
-          "percentage": 0.017249532942046578,
+          "percentage": 0.0229993772560621,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -2231,9 +2231,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-23T14:24:10.765Z",
-  "endedAt": "2024-10-23T14:29:34.447Z",
-  "duration": 306436,
+  "startedAt": "2024-10-24T08:22:16.255Z",
+  "endedAt": "2024-10-24T08:27:31.424Z",
+  "duration": 298303,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
