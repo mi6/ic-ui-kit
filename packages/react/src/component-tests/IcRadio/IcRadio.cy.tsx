@@ -206,6 +206,17 @@ describe("IcRadio end-to-end tests", () => {
     cy.get(TEXT_FIELD_SELECTOR).eq(2).should("be.visible");
   });
 
+  it("should call onclick function of component in additional-field slot when slotted component is clicked", () => {
+    mount(<ConditionalDynamic />);
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(TEXT_FIELD_SELECTOR).eq(0).click();
+    cy.spy(window.console, "log").as("spyWinConsoleLog");
+    cy.get("@spyWinConsoleLog").should(
+      HAVE_BEEN_CALLED_WITH,
+      "Textfield clicked"
+    );
+  });
+
   it("should emit icChange and icCheck events when radio option is selected", () => {
     mount(<Default />);
 
