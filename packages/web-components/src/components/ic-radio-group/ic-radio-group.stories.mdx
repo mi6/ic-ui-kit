@@ -152,6 +152,12 @@ import readme from "./readme.md";
           function handleIcChange(ev) {
             console.log(ev.detail.selectedOption);
           }
+          function handleClick() {
+            alert("Button clicked!");
+          }
+          document
+            .querySelector("ic-button")
+            .addEventListener("click", handleClick);
           document
             .querySelector("ic-radio-group")
             .addEventListener("icChange", handleIcChange);
@@ -186,13 +192,9 @@ import readme from "./readme.md";
           <ic-radio-option
             additional-field-display="dynamic"
             value="valueName3"
-            label="option3"
+            label="option3 - clickable component"
           >
-            <ic-text-field
-              slot="additional-field"
-              placeholder="Placeholder"
-              label="What's your favourite type of coffee?"
-            ></ic-text-field>
+            <ic-button slot="additional-field"> Click me! </ic-button>
           </ic-radio-option>
         </ic-radio-group>
       `
