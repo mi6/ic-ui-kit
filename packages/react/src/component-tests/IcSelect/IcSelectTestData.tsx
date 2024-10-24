@@ -205,15 +205,6 @@ export const searchableGroupCoffeeOption = [
   },
 ];
 
-export const coffeeOptionsReadonly = [
-  { label: "Espresso", value: "espresso", readonly: true },
-  { label: "Double Espresso", value: "doubleespresso", readonly: true },
-  { label: "Flat White", value: "flatwhite", readonly: true },
-  { label: "Cappuccino", value: "cappuccino", readonly: true },
-  { label: "Americano", value: "americano", readonly: true },
-  { label: "Mocha", value: "mocha", readonly: true },
-];
-
 const setLoading = () => {
   const select = document.querySelector("ic-select");
   if (select) select.loading = true;
@@ -334,5 +325,140 @@ export const UncontrolledSearchableSelect = () => {
         onIcChange={handleChange}
       />
     </>
+  );
+};
+
+export const MultiSelectDefault = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={coffeeOptions}
+        multiple
+      />
+    </div>
+  );
+};
+
+export const MultiSelectDefaultValue = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={coffeeOptions}
+        value={["doubleespresso", "flatwhite", "mocha"]}
+        multiple
+      />
+    </div>
+  );
+};
+
+export const MultiSelectWithDescriptions = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={coffeeOptionsDescriptions}
+        multiple
+      />
+    </div>
+  );
+};
+
+export const MultiSelectSmall = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={coffeeOptions}
+        size="small"
+        multiple
+      />
+    </div>
+  );
+};
+
+export const MultiSelectLarge = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={coffeeOptions}
+        size="large"
+        multiple
+      />
+    </div>
+  );
+};
+
+export const MultiSelectDisabledOptions = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={coffeeDisabledOption}
+        multiple
+      />
+    </div>
+  );
+};
+
+export const MultiSelectReadOnly = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={coffeeOptions}
+        value={["doubleespresso", "flatwhite", "mocha"]}
+        readonly
+        multiple
+      />
+    </div>
+  );
+};
+
+export const MultiSelectGroups = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={groupCoffeeOption}
+        multiple
+      />
+    </div>
+  );
+};
+
+export const MultiSelectWithAllValues = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={coffeeOptions}
+        value={[
+          "espresso",
+          "doubleespresso",
+          "flatwhite",
+          "cappuccino",
+          "americano",
+          "mocha",
+        ]}
+        multiple
+      />
+    </div>
+  );
+};
+
+export const MultiSelectWithClearButton = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSelect
+        label="What are your favourite types of coffee?"
+        options={coffeeOptions}
+        multiple
+        showClearButton
+        value={["espresso"]}
+      />
+    </div>
   );
 };
