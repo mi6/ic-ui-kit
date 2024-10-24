@@ -13,6 +13,7 @@ import {
 } from "@stencil/core";
 import { getSlotElements, isPropDefined } from "../../utils/helpers";
 import { createPopper, Instance as PopperInstance } from "@popperjs/core";
+import { IcThemeMode } from "../../utils/types";
 
 @Component({
   tag: "ic-popover-menu",
@@ -58,6 +59,11 @@ export class PopoverMenu {
    * @internal The level of menu being displayed.
    */
   @Prop() submenuLevel: number = 1;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * If `true`, the popover menu will be displayed.
@@ -342,7 +348,12 @@ export class PopoverMenu {
 
   render() {
     return (
-      <Host class={{ "ic-popover-menu-open": this.open }}>
+      <Host
+        class={{
+          ["ic-popover-menu-open"]: this.open,
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+        }}
+      >
         <div
           id={
             this.parentPopover === undefined
