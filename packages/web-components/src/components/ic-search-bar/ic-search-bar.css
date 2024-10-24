@@ -6,6 +6,7 @@
 
 :host(.ic-search-bar-search) {
   --divider-height: 1.5rem;
+  --ic-input-label-helpertext-padding: var(--ic-space-xxs);
 }
 
 :host(.ic-search-bar-search.ic-search-bar-small) {
