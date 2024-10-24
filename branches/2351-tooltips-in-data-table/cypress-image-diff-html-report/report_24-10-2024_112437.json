@@ -1,7 +1,7 @@
 {
   "total": 198,
-  "totalPassed": 196,
-  "totalFailed": 2,
+  "totalPassed": 197,
+  "totalFailed": 1,
   "totalSuites": 8,
   "suites": [
     {
@@ -862,14 +862,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-slotted-custom-element-in-cell.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx-tooltip-in-final-row",
-          "percentage": 0.0229993772560621,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-tooltip-in-final-row.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-tooltip-in-final-row.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-tooltip-in-final-row.png"
         },
         {
@@ -2231,9 +2231,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-24T10:24:55.889Z",
-  "endedAt": "2024-10-24T10:30:09.167Z",
-  "duration": 297017,
+  "startedAt": "2024-10-24T11:24:37.125Z",
+  "endedAt": "2024-10-24T11:29:55.416Z",
+  "duration": 301534,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
