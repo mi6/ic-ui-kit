@@ -13,7 +13,7 @@
 }
 
 ::placeholder {
-  color: var(--ic-color-text-tertiary);
+  color: var(--text-field-placeholder-color, var(--ic-color-text-tertiary));
   opacity: 1;
 }
 
@@ -21,7 +21,8 @@ input,
 textarea {
   border: 0;
   border-radius: var(--ic-border-radius);
-  background-color: var(--ic-architectural-white);
+  color: var(--text-field-text-color, var(--ic-color-text-primary));
+  background-color: var(--input-bg-color, var(--ic-architectural-white));
   line-height: 1.5rem;
   letter-spacing: 0.005rem;
   width: 100%;
@@ -43,7 +44,7 @@ textarea:focus {
 
 input:disabled,
 textarea:disabled {
-  color: var(--ic-architectural-200);
+  color: var(--text-field-disabled-text-color, var(--ic-architectural-200));
 }
 
 input.readonly,
