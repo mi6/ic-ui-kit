@@ -28,9 +28,10 @@
 
 ## CSS Custom Properties
 
-| Name             | Description                                    |
-| ---------------- | ---------------------------------------------- |
-| `--border-color` | Border colour of the input component container |
+| Name                      | Description                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| `--border-color`          | Border colour of the input component container               |
+| `--border-color-disabled` | Border colour of the input component container when disabled |
 
 
 ## Dependencies

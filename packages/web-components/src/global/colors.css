@@ -551,4 +551,20 @@
   --ic-surface-secondary: var(--ic-architectural-white);
   --ic-surface-inverted: var(--ic-architectural-white);
   --ic-surface-disabled: var(--ic-architectural-white);
+
+  /* ATOMS */
+  --ic-atoms-input-text-area-content-placeholder-light: var(
+    --ic-color-text-tertiary-light
+  );
+  --ic-atoms-input-text-area-content-placeholder-dark: var(
+    --ic-color-text-tertiary-dark
+  );
+  --ic-atoms-input-search-button-light: var(
+    --ic-color-icon-action-default-light
+  );
+  --ic-atoms-input-search-button-dark: var(--ic-color-icon-action-default-dark);
+  --ic-atoms-input-divider-light: var(--ic-color-icon-pressed-light);
+  --ic-atoms-input-divider-dark: var(--ic-color-icon-pressed-light);
+  --ic-atoms-input-clear-button-light: var(--ic-color-icon-neutral);
+  --ic-atoms-input-clear-button-dark: var(--ic-color-icon-inverted);
 }

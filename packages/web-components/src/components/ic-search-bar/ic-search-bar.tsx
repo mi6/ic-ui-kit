@@ -18,6 +18,7 @@ import {
   IcThemeForegroundEnum,
   IcMenuOption,
   IcSizesNoLarge,
+  IcThemeMode,
 } from "../../utils/types";
 import {
   getInputDescribedByText,
@@ -212,6 +213,11 @@ export class SearchBar {
    * If `true`, the value of the search will have its spelling and grammar checked.
    */
   @Prop() spellcheck: boolean = false;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * If using external filtering, set a timeout for when loading takes too long.
@@ -778,6 +784,7 @@ export class SearchBar {
       autocapitalize,
       autocomplete,
       filteredOptions,
+      theme,
     } = this;
 
     const disabledMode = readonly || disabled;
@@ -821,6 +828,7 @@ export class SearchBar {
           ["ic-search-bar-full-width"]: fullWidth,
           ["ic-search-bar-disabled"]: disabled,
           ["ic-search-bar-small"]: size === "small",
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         onFocus={this.handleHostFocus}
         onBlur={this.handleHostBlur}
@@ -869,7 +877,10 @@ export class SearchBar {
           >
             <ic-button
               id="clear-button"
-              class="clear-button"
+              class={{
+                "clear-button": true,
+                "clear-button-unfocused": !this.clearButtonFocused,
+              }}
               aria-label="Clear"
               innerHTML={clearIcon}
               onClick={this.handleClear}
@@ -881,9 +892,7 @@ export class SearchBar {
               type="submit"
               variant="icon"
               appearance={
-                this.clearButtonFocused
-                  ? IcThemeForegroundEnum.Light
-                  : IcThemeForegroundEnum.Dark
+                this.clearButtonFocused && IcThemeForegroundEnum.Light
               }
             ></ic-button>
             <div class="divider"></div>
@@ -902,6 +911,8 @@ export class SearchBar {
               class={{
                 ["search-submit-button"]: true,
                 ["search-submit-button-small"]: size === "small",
+                ["search-submit-button-unfocused"]: !this.searchSubmitFocused,
+                ["search-submit-button-disabled"]: this.isSubmitDisabled(),
               }}
               disabled={this.isSubmitDisabled()}
               innerHTML={searchIcon}
@@ -914,9 +925,7 @@ export class SearchBar {
               type="submit"
               variant="icon"
               appearance={
-                this.searchSubmitFocused
-                  ? IcThemeForegroundEnum.Light
-                  : IcThemeForegroundEnum.Default
+                this.searchSubmitFocused && IcThemeForegroundEnum.Light
               }
             ></ic-button>
           </div>

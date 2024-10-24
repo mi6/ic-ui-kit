@@ -14,11 +14,14 @@
   border-radius: var(--ic-border-radius);
   max-height: 0;
   width: var(--input-width, 20rem);
-  color: var(--ic-color-text-primary);
+  color: var(--menu-item-text-color, var(--ic-color-text-primary));
 
-  --ic-typography-color: var(--ic-color-text-primary);
+  --ic-typography-color: var(
+    --menu-item-text-color,
+    var(--ic-color-text-primary)
+  );
 
-  background-color: var(--ic-architectural-white);
+  background-color: var(--menu-bg-color, var(--ic-architectural-white));
   position: relative;
   z-index: var(--ic-z-index-menu);
   box-sizing: border-box;
@@ -44,9 +47,10 @@
 .menu {
   text-decoration: none;
   list-style-type: none;
-  border: var(--ic-border-width) solid var(--ic-architectural-400);
+  border: var(--ic-border-width) solid
+    var(--menu-border-color, var(--ic-architectural-400));
   border-radius: var(--ic-border-radius);
-  background-color: var(--ic-architectural-white);
+  background-color: var(--menu-bg-color, var(--ic-architectural-white));
   visibility: hidden;
   max-height: 0;
   overflow-y: hidden;

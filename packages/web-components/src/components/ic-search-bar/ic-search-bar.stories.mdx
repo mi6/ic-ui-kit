@@ -604,6 +604,7 @@ export const defaultArgs = {
   required: false,
   size: "medium",
   spellcheck: false,
+  theme: "inherit",
 };
 
 ### Playground
@@ -622,6 +623,10 @@ export const defaultArgs = {
       },
       size: {
         options: ["medium", "small"],
+        control: { type: "inline-radio" },
+      },
+      theme: {
+        options: ["inherit", "light", "dark"],
         control: { type: "inline-radio" },
       },
     }}
@@ -644,6 +649,7 @@ export const defaultArgs = {
           hide-label=${args.hideLabel}
           placeholder=${args.placeholder}
           size=${args.size}
+          theme=${args.theme}
         >
         </ic-search-bar>
         <script>
