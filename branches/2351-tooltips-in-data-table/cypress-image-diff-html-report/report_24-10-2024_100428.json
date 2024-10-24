@@ -202,14 +202,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-default.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDataTable.cy.tsx-section-container",
-          "percentage": 0,
+          "percentage": 0.20038656388022616,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-section-container.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-section-container.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-section-container.png"
         },
         {
@@ -862,14 +862,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-slotted-custom-element-in-cell.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx-tooltip-in-final-row",
-          "percentage": 0.0229993772560621,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-tooltip-in-final-row.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-tooltip-in-final-row.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-tooltip-in-final-row.png"
         },
         {
@@ -2231,9 +2231,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-24T08:22:16.255Z",
-  "endedAt": "2024-10-24T08:27:31.424Z",
-  "duration": 298303,
+  "startedAt": "2024-10-24T10:04:28.520Z",
+  "endedAt": "2024-10-24T10:09:31.867Z",
+  "duration": 287051,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
