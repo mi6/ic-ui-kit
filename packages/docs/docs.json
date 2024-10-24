@@ -2584,7 +2584,7 @@
           "name": "href",
           "type": "string",
           "complexType": {
-            "original": "string | undefined",
+            "original": "string",
             "resolved": "string",
             "references": {}
           },
@@ -2760,6 +2760,43 @@
           "docsTags": [],
           "values": [
             {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             }
           ],
