@@ -193,9 +193,10 @@ export type IcOrientation = "horizontal" | "vertical";
 export type IcEmphasisType = "filled" | "outlined";
 
 export interface IcValueEventDetail {
-  value: string;
+  value: string | string[];
   keyPressed?: string;
 }
+
 export interface IcBlurEventDetail {
   relatedTarget: IcRelatedTarget;
 }

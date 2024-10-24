@@ -5,18 +5,18 @@ import { IcSelect } from "../components";
 import readme from "../../../web-components/src/components/ic-select/readme.md";
 import {SlottedSVG} from "../react-component-lib/slottedSVG";
 
-<Meta title="Select/Single" component={IcSelect} />
+<Meta title="Select/Multi" component={IcSelect} />
 
 <Description markdown={readme} />
 
 export const defaultArgs = {
   disabled: false,
   fullWidth: false,
-  helperText: "Select one option from the list",
+  helperText: "Select some options from the list",
   hideLabel: false,
   loading: false,
   loadingLabel: "Loading...",
-  label: "What is your favourite coffee?",
+  label: "What are your favourite types of coffee?",
   placeholder: "Select an option",
   readonly: false,
   required: false,
@@ -30,6 +30,10 @@ export const options = [
   { label: "Cappuccino", value: "Cap" },
   { label: "Latte", value: "Lat" },
   { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
 ];
 
 export const optionsWithCustomElements = [
@@ -50,38 +54,67 @@ export const optionsWithCustomElements = [
     value: "Ame",
     icon: `<svg aria-labelledby="warning-title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><g id="warning"><path id="Vector" d="M4.47 20.5037H19.53C21.07 20.5037 22.03 18.8337 21.26 17.5037L13.73 4.49375C12.96 3.16375 11.04 3.16375 10.27 4.49375L2.74 17.5037C1.97 18.8337 2.93 20.5037 4.47 20.5037ZM12 13.5037C11.45 13.5037 11 13.0537 11 12.5037V10.5037C11 9.95375 11.45 9.50375 12 9.50375C12.55 9.50375 13 9.95375 13 10.5037V12.5037C13 13.0537 12.55 13.5037 12 13.5037ZM13 17.5037H11V15.5037H13V17.5037Z" /></g></svg>`,
   },
+  { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
 ];
 
 export const optionsWithDisabled = [
-  { label: "Cappuccino", value: "Cap" },
-  { label: "Latte", value: "Lat", disabled: true },
-  { label: "Americano", value: "Ame" },
-];
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat", disabled: true },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil", disabled: true },
+            { label: "Flat white", value: "Fla", disabled: true },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
 
 export const optionsWithDescriptions = [
-  {
-    label: "Cappuccino",
-    value: "Cap",
-    description: "Coffee frothed up with pressurised steam",
-  },
-  {
-    label: "Latte",
-    value: "Lat",
-    description: "A milkier coffee than a cappuccino",
-  },
-  {
-    label: "Americano",
-    value: "Ame",
-    description: "Espresso coffee diluted with hot water",
-  },
-];
+            {
+              label: "Cappuccino",
+              value: "Cap",
+              description: "Coffee frothed up with pressurised steam",
+            },
+            {
+              label: "Latte",
+              value: "Lat",
+              description: "A milkier coffee than a cappuccino",
+            },
+            {
+              label: "Americano",
+              value: "Ame",
+              description: "Espresso coffee diluted with hot water",
+            },
+            {
+              label: "Filter",
+              value: "Fil",
+              description: "Coffee filtered using paper or a mesh",
+            },
+            {
+              label: "Flat white",
+              value: "Fla",
+              description:
+                "Coffee without froth made with espresso and hot steamed milk",
+            },
+            {
+              label: "Mocha",
+              value: "Moc",
+              description: "A mixture of coffee and chocolate",
+            },
+            {
+              label: "Macchiato",
+              value: "Mac",
+              description: "Espresso coffee with a dash of frothy steamed milk",
+            },
+          ];
 
 export const groupedOptions = [
   {
     label: "Fancy",
     children: [
       { label: "Cappuccino", value: "Cap" },
-      { label: "Flat white", value: "Flat" },
+      { label: "Flat white", value: "Fla" },
     ],
   },
   {
@@ -94,12 +127,14 @@ export const groupedOptions = [
 ];
 
 export const optionsWithRecommended = [
-  { label: "Cappuccino", value: "Cappuccino" },
-  { label: "Flat white", value: "Flat white", recommended: true },
-  { label: "Latte", value: "Latte" },
-  { label: "Americano", value: "Americano", recommended: true },
-  { label: "Filter", value: "Fil" },
-];
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame", recommended: true },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla", recommended: true },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
 
 export const manyOptions = [
   { label: "Cappuccino", value: "Cap" },
@@ -172,8 +207,9 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
           options={options}
+          multiple
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           onIcOptionSelect={(event) =>
             console.log(`icOptionSelect: ${event.detail.value}`)
@@ -193,9 +229,10 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
           options={options}
-          value="Cap"
+          multiple
+          value={["Ame", "Fil", "Moc"]}
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -210,9 +247,10 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
-          showClearButton
+          label="What are your favourite types of coffee?"
           options={options}
+          multiple
+          showClearButton
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -227,8 +265,9 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
           options={optionsWithDescriptions}
+          multiple
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -243,9 +282,10 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
-          helperText="Select one option from the list"
+          label="What are your favourite types of coffee?"
           options={options}
+          multiple
+          helperText="Select some options from the list"
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -260,9 +300,10 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
-          placeholder="Placeholder goes here"
+          label="What are your favourite types of coffee?"
           options={options}
+          multiple
+          placeholder="Placeholder goes here"
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -277,8 +318,9 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
           options={optionsWithCustomElements}
+          multiple
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -294,23 +336,26 @@ export const playgroundOptions = [
       return (
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <IcSelect
-            label="What is your favourite coffee?"
+            label="What are your favourite types of coffee?"
             options={options}
+            multiple
             size="small"
             onIcChange={(event) =>
               console.log(`icChange: ${event.detail.value}`)
             }
           />
           <IcSelect
-            label="What is your favourite coffee?"
+            label="What are your favourite types of coffee?"
             options={options}
+            multiple
             onIcChange={(event) =>
               console.log(`icChange: ${event.detail.value}`)
             }
           />
           <IcSelect
-            label="What is your favourite coffee?"
+            label="What are your favourite types of coffee?"
             options={options}
+            multiple
             size="large"
             onIcChange={(event) =>
               console.log(`icChange: ${event.detail.value}`)
@@ -329,9 +374,10 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
-          disabled
+          label="What are your favourite types of coffee?"
           options={options}
+          multiple
+          disabled
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -346,8 +392,9 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
           options={optionsWithDisabled}
+          multiple
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -362,9 +409,10 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
-          fullWidth
+          label="What are your favourite types of coffee?"
           options={options}
+          multiple
+          fullWidth
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -379,9 +427,10 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
-          hideLabel
+          label="What are your favourite types of coffee?"
           options={options}
+          multiple
+          hideLabel
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -396,9 +445,10 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
-          required
+          label="What are your favourite types of coffee?"
           options={options}
+          multiple
+          required
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -413,10 +463,11 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
-          readonly
+          label="What are your favourite types of coffee?"
           options={options}
-          value="Cap"
+          multiple
+          readonly
+          value={["Cap", "Fla", "Moc"]}
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -431,8 +482,9 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
           options={groupedOptions}
+          multiple
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -447,8 +499,9 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
           options={optionsWithRecommended}
+          multiple
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -464,28 +517,31 @@ export const playgroundOptions = [
       return (
         <div>
           <IcSelect
-            label="What is your favourite coffee?"
+            label="What are your favourite types of coffee?"
             validationStatus="success"
             validationText="Coffee available"
             options={options}
+            multiple
             onIcChange={(event) =>
               console.log(`icChange: ${event.detail.value}`)
             }
           />
           <IcSelect
-            label="What is your favourite coffee?"
+            label="What are your favourite types of coffee?"
             validationStatus="warning"
             validationText="Only a few left"
             options={options}
+            multiple
             onIcChange={(event) =>
               console.log(`icChange: ${event.detail.value}`)
             }
           />
           <IcSelect
-            label="What is your favourite coffee?"
+            label="What are your favourite types of coffee?"
             validationStatus="error"
             validationText="Coffee unavailable"
             options={options}
+            multiple
             onIcChange={(event) =>
               console.log(`icChange: ${event.detail.value}`)
             }
@@ -503,8 +559,9 @@ export const playgroundOptions = [
     {() => {
       return (
         <IcSelect
-          label="What is your favourite coffee?"
+          label="What are your favourite types of coffee?"
           options={manyOptions}
+          multiple
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
@@ -521,6 +578,7 @@ export const LoadingWithError = () => {
       ref={selectEl}
       label="What are your favourite types of coffee?"
       options={options}
+      multiple
       loading
       timeout="1000"
       onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
@@ -535,29 +593,10 @@ export const LoadingWithError = () => {
   </Story>
 </Canvas>
 
-### Emitting icOptionSelect on enter
-
-<Canvas>
-  <Story name="Emitting icOptionSelect on enter">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={options}
-          selectOnEnter
-          onIcOptionSelect={(event) =>
-            console.log(`icOptionSelect: ${event.detail.value}`)
-          }
-        />
-      );
-    }}
-  </Story>
-</Canvas>
-
 ### Controlled
 
 export const ControlledExample = () => {
-  const [value, setValue] = useState("Cap");
+  const [value, setValue] = useState(["Cap"]);
   const handleChange = (event) => {
     console.log(event.detail.value);
     setValue(event.detail.value);
@@ -567,6 +606,7 @@ export const ControlledExample = () => {
       placeholder="Controlled"
       label="Controlled"
       options={options}
+      multiple
       value={value}
       onIcChange={handleChange}
     />
@@ -593,6 +633,7 @@ export const Uncontrolled = () => {
         placeholder="Uncontrolled"
         label="Uncontrolled"
         options={options}
+        multiple
         onIcChange={handleChange}
       />
     </>
@@ -628,6 +669,7 @@ export const Uncontrolled = () => {
   >
     {(args) => (
       <IcSelect
+        multiple
         options={playgroundOptions}
         disabled={args.disabled}
         fullWidth={args.fullWidth}
