@@ -294,6 +294,18 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
     cy.task("generateReport");
   });
 
+  it("should render with focus in High Contrast", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(SWITCH_SELECTOR);
+    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").focus().wait(200);
+
+    cy.compareSnapshot({
+      name: "focus-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+    });
+  });
+
   it("should render an unchecked switch in high contrast mode", () => {
     mount(<State />);
 
