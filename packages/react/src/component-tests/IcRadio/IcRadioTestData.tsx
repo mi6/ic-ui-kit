@@ -313,6 +313,9 @@ export const ConditionalStatic = () => {
 };
 
 export const ConditionalDynamic = () => {
+  const handleTextfieldClicked = () => {
+    console.log("Textfield clicked");
+  };
   return (
     <div style={{ padding: "10px" }}>
       <IcRadioGroup
@@ -329,6 +332,7 @@ export const ConditionalDynamic = () => {
             slot="additional-field"
             placeholder="Placeholder"
             label="What's your favourite type of coffee?"
+            onClick={handleTextfieldClicked}
           />
         </IcRadioOption>
         <IcRadioOption
