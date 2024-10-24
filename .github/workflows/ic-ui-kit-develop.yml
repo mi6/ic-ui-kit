@@ -137,6 +137,11 @@ jobs:
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
         run: npm run test-visual:ci:canary
 
+      - name: Cypress performance tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        id: core_cypress_performance_tests
+        run: npm run test-cypress-perf:ci
+
   ic-ui-kit-cypress-tests:
     needs: [check-updates]
     name: "Cypress tests"
