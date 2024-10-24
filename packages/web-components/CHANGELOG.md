@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.29.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.29.0...@ukic/web-components@2.29.1) (2024-10-16)
+
+### Bug Fixes
+
+- **web-components:** adds check for undefined element in typography ([8819041](https://github.com/mi6/ic-ui-kit/commit/88190419dc4ee328b73e99bdc7122de1f8a24fb7))
+- **web-components:** changed conditional for applying aria-role to ic-search-bar ([dfe19cd](https://github.com/mi6/ic-ui-kit/commit/dfe19cd4ee67edfd28f3b0e6802c31af4cdd02dc))
+- **web-components:** fix icpopoverclosed event not emitting when closed via submenu ([97dca9b](https://github.com/mi6/ic-ui-kit/commit/97dca9b5ca929c5848c43157b13d4955485b6225)), closes [#2297](https://github.com/mi6/ic-ui-kit/issues/2297)
+- **web-components:** fixed not autoselecting first tab during dynamic render ([d242af1](https://github.com/mi6/ic-ui-kit/commit/d242af1ce2b7ef290b76fbe6d750ab902f1a3702))
+- **web-components:** fixes issue with showDefaultIcon in gatsby ([f29a2d1](https://github.com/mi6/ic-ui-kit/commit/f29a2d115d07a0794deec897e01edf244b85353e))
+
 # [2.29.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.28.0...@ukic/web-components@2.29.0) (2024-10-02)
 
 ### Bug Fixes
