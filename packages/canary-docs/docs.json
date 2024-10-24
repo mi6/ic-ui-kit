@@ -4945,6 +4945,28 @@
           "required": false
         },
         {
+          "name": "expanded",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "expanded",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tree item appears in the expanded state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "href",
           "type": "string",
           "complexType": {
