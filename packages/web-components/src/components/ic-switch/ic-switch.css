@@ -193,6 +193,11 @@ input {
     border: var(--ic-border-hc);
   }
 
+  .ic-switch-input:focus + .ic-switch-toggle {
+    border-color: highlight;
+    outline: var(--ic-space-xxxs) solid highlight;
+  }
+
   .ic-switch-input:checked + .ic-switch-toggle::before {
     transform: translate(calc(var(--ic-space-xl) - 0.125rem), -50%);
   }
