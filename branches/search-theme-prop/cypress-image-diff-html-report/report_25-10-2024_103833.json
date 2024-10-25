@@ -3009,17 +3009,6 @@
         },
         {
           "status": "pass",
-          "name": "IcHero.cy.tsx-theme",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcHero/IcHero.cy.tsx",
-          "specFilename": "IcHero.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx-theme.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-theme.png"
-        },
-        {
-          "status": "pass",
           "name": "IcHero.cy.tsx-default-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -4392,14 +4381,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-full-width.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx-helper-text",
-          "percentage": 0.010392304845413263,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-helper-text.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-helper-text.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-helper-text.png"
         },
         {
@@ -4511,6 +4500,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-spellcheck.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-spellcheck.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcSearchBar.cy.tsx-theme-dark",
+          "percentage": 0.262030532572065,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
+          "specFilename": "IcSearchBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-theme-dark.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-theme-dark.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-theme-dark.png"
         },
         {
           "status": "pass",
@@ -7547,9 +7547,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-25T09:06:51.982Z",
-  "endedAt": "2024-10-25T09:20:00.924Z",
-  "duration": 711376,
+  "startedAt": "2024-10-25T10:38:33.097Z",
+  "endedAt": "2024-10-25T10:51:50.002Z",
+  "duration": 719863,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
