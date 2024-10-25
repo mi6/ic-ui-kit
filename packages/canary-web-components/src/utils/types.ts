@@ -189,6 +189,7 @@ export interface IcPaginationBarOptions {
   itemLabel?: string;
   pageLabel?: string;
   hideRangeLabel?: boolean;
+  hideAllFromItemsPerPage?: boolean;
 }
 
 export type IcCallbackFunctionNoReturn = (...args: unknown[]) => void;

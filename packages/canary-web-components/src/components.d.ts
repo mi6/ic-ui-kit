@@ -495,6 +495,14 @@ export namespace Components {
          */
         "appearance"?: IcThemeForeground;
         /**
+          * The current page number to be displayed on the pagination bar.
+         */
+        "currentPage"?: number;
+        /**
+          * If `true`, the 'All' option will be hidden from the 'items per page' select input.
+         */
+        "hideAllFromItemsPerPage"?: boolean;
+        /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
         "hideRangeLabel"?: boolean;
@@ -503,7 +511,7 @@ export namespace Components {
          */
         "itemLabel"?: string;
         /**
-          * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
+          * The options which will be displayed for 'items per page' select input.
          */
         "itemsPerPageOptions"?: {
     label: string;
@@ -1417,6 +1425,14 @@ declare namespace LocalJSX {
          */
         "appearance"?: IcThemeForeground;
         /**
+          * The current page number to be displayed on the pagination bar.
+         */
+        "currentPage"?: number;
+        /**
+          * If `true`, the 'All' option will be hidden from the 'items per page' select input.
+         */
+        "hideAllFromItemsPerPage"?: boolean;
+        /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
         "hideRangeLabel"?: boolean;
@@ -1425,7 +1441,7 @@ declare namespace LocalJSX {
          */
         "itemLabel"?: string;
         /**
-          * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
+          * The options which will be displayed for 'items per page' select input.
          */
         "itemsPerPageOptions"?: {
     label: string;

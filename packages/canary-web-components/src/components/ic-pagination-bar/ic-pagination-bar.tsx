@@ -16,6 +16,7 @@ import {
   IcPaginationLabelTypes,
   IcPaginationTypes,
 } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
+import { IcPageChangeEventDetail } from "./ic-pagination-bar.types";
 
 @Component({
   tag: "ic-pagination-bar",
@@ -40,7 +41,7 @@ export class PaginationBar {
 
   @State() capitalizedPageLabel: string;
 
-  @State() currentPage: number = 1;
+  @State() activePage: number = 1;
 
   @State() displayedItemsPerPageOptions?: {
     label: string;
@@ -78,6 +79,20 @@ export class PaginationBar {
   @Prop() appearance?: IcThemeForeground = "default";
 
   /**
+   * The current page number to be displayed on the pagination bar.
+   */
+  @Prop() currentPage?: number = 1;
+  @Watch("currentPage")
+  watchPageNumberHandler(): void {
+    this.activePage = this.currentPage;
+  }
+
+  /**
+   * If `true`, the 'All' option will be hidden from the 'items per page' select input.
+   */
+  @Prop() hideAllFromItemsPerPage?: boolean = false;
+
+  /**
    * The text which will be used in place of 'Item' on the pagination bar.
    */
   @Prop() itemLabel?: string = "Item";
@@ -89,7 +104,7 @@ export class PaginationBar {
   }
 
   /**
-   * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
+   * The options which will be displayed for 'items per page' select input.
    */
   @Prop() itemsPerPageOptions?: {
     label: string;
@@ -159,8 +174,9 @@ export class PaginationBar {
 
   /**
    * Emitted when a page is navigated to via the 'go to' input.
+   * The `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.
    */
-  @Event() icPageChange: EventEmitter<{ value: number }>;
+  @Event() icPageChange: EventEmitter<IcPageChangeEventDetail>;
 
   /**
    * Emitted when the items per page option is changed.
@@ -172,6 +188,7 @@ export class PaginationBar {
   }
 
   componentWillLoad(): void {
+    this.watchPageNumberHandler();
     this.watchPageLabelHandler();
     this.watchItemLabelHandler();
     this.setPaginationBarContent();
@@ -204,7 +221,7 @@ export class PaginationBar {
   };
 
   private changePage = (page: number) => {
-    this.currentPage = page;
+    this.activePage = page;
     this.lowerBound = page !== 1 ? (page - 1) * this.itemsPerPage + 1 : page;
     this.setUpperBound();
   };
@@ -334,16 +351,16 @@ export class PaginationBar {
         : 1;
 
     this.setUpperBound();
-    if (this.currentPage > this.totalPages) {
+    if (this.activePage > this.totalPages) {
       this.paginationEl.setCurrentPage(this.totalPages);
-      this.currentPage = this.totalPages;
+      this.activePage = this.totalPages;
     }
-    this.icPageChange.emit({ value: this.currentPage });
+    this.icPageChange.emit({ value: this.activePage, fromItemsPerPage: true });
   };
 
   private setPaginationBarContent = (): void => {
     const displayedItemsPerPageOptions =
-      this.itemsPerPageOptions?.slice(0, 3) ||
+      this.itemsPerPageOptions ||
       (this.totalItems <= 100
         ? [
             { label: "10", value: "10" },
@@ -355,10 +372,11 @@ export class PaginationBar {
             { label: "100", value: "100" },
             { label: "1000", value: "1000" },
           ]);
-    displayedItemsPerPageOptions.push({
-      label: "All",
-      value: String(this.totalItems),
-    });
+    !this.hideAllFromItemsPerPage &&
+      displayedItemsPerPageOptions.push({
+        label: "All",
+        value: String(this.totalItems),
+      });
 
     this.displayedItemsPerPageOptions = displayedItemsPerPageOptions.filter(
       ({ value }) => this.totalItems >= Number(value)
@@ -401,7 +419,7 @@ export class PaginationBar {
       capitalizedItemLabel,
       lowerCaseItemLabel,
       totalPages,
-      currentPage,
+      activePage,
       itemsPerPageString,
     } = this;
 
@@ -464,7 +482,7 @@ export class PaginationBar {
                   variant="label"
                   aria-live="polite"
                 >
-                  {capitalizedPageLabel} {currentPage} of {totalPages}
+                  {capitalizedPageLabel} {activePage} of {totalPages}
                 </ic-typography>
               ))}
           </div>
