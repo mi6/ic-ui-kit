@@ -4471,7 +4471,7 @@
         {
           "status": "fail",
           "name": "IcSearchBar.cy.tsx-long-option-label",
-          "percentage": 0.2287269114030966,
+          "percentage": 0.2176235281397671,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
@@ -7784,9 +7784,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-24T18:36:34.599Z",
-  "endedAt": "2024-10-24T18:56:30.845Z",
-  "duration": 1115340,
+  "startedAt": "2024-10-25T09:48:16.840Z",
+  "endedAt": "2024-10-25T10:07:53.738Z",
+  "duration": 1097287,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
