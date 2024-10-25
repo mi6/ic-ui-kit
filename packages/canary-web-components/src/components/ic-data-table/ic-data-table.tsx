@@ -212,6 +212,7 @@ export class DataTable {
     itemLabel: "Item",
     pageLabel: "Page",
     hideRangeLabel: false,
+    hideAllFromItemsPerPage: false,
   };
 
   /**
@@ -1824,6 +1825,9 @@ export class DataTable {
                   itemLabel={paginationBarOptions.itemLabel}
                   pageLabel={paginationBarOptions.pageLabel}
                   hideRangeLabel={paginationBarOptions.hideRangeLabel}
+                  hideAllFromItemsPerPage={
+                    paginationBarOptions.hideAllFromItemsPerPage
+                  }
                 ></ic-pagination-bar>
               )}
             </div>
