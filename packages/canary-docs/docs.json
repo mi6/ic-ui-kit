@@ -752,7 +752,7 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
           "docsTags": [],
-          "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    appearance: \"default\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n  }",
+          "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    appearance: \"default\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n    hideAllFromItemsPerPage: false,\n  }",
           "values": [
             {
               "type": "IcPaginationBarOptions"
@@ -3463,6 +3463,28 @@
           "required": false
         },
         {
+          "name": "hideAllFromItemsPerPage",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-all-from-items-per-page",
+          "reflectToAttr": false,
+          "docs": "If `true`, the 'All' option will be hidden from the 'items per page' select input.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "hideRangeLabel",
           "type": "boolean",
           "complexType": {
@@ -3516,7 +3538,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.",
+          "docs": "The options which will be displayed for 'items per page' select input.",
           "docsTags": [],
           "values": [
             {
@@ -5263,7 +5285,7 @@
       "path": "../web-components/dist/types/utils/types.d.ts"
     },
     "src/utils/types.ts::IcPaginationBarOptions": {
-      "declaration": "export interface IcPaginationBarOptions {\n  itemsPerPageOptions?: { label: string; value: string }[];\n  rangeLabelType?: IcPaginationLabelTypes;\n  type?: IcPaginationTypes;\n  showItemsPerPageControl?: boolean;\n  showGoToPageControl?: boolean;\n  alignment?: IcPaginationAlignmentOptions;\n  appearance?: IcThemeForeground;\n  itemLabel?: string;\n  pageLabel?: string;\n  hideRangeLabel?: boolean;\n}",
+      "declaration": "export interface IcPaginationBarOptions {\n  itemsPerPageOptions?: { label: string; value: string }[];\n  rangeLabelType?: IcPaginationLabelTypes;\n  type?: IcPaginationTypes;\n  showItemsPerPageControl?: boolean;\n  showGoToPageControl?: boolean;\n  alignment?: IcPaginationAlignmentOptions;\n  appearance?: IcThemeForeground;\n  itemLabel?: string;\n  pageLabel?: string;\n  hideRangeLabel?: boolean;\n  hideAllFromItemsPerPage?: boolean;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
