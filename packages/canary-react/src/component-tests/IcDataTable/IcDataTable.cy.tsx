@@ -1130,6 +1130,7 @@ describe("IcDataTables with IcPaginationBar", () => {
       itemLabel: "Item",
       pageLabel: "Page",
       hideRangeLabel: false,
+      hideAllFromItemsPerPage: true,
     };
 
     mount(
@@ -1167,6 +1168,7 @@ describe("IcDataTables with IcPaginationBar", () => {
       itemLabel: "Row",
       pageLabel: "Screen",
       hideRangeLabel: true,
+      hideAllFromItemsPerPage: true,
     };
 
     cy.get(DATA_TABLE_SELECTOR)
