@@ -225,6 +225,26 @@ export const Truncation = () => {
   );
 };
 
+export const LargeLabel = () => {
+  return (
+    <div style={{ margin: "40px" }}>
+      <IcTooltip
+        label="This is a body of text that is purposefully long to test whether text is being wrapped within the tooltip. It has been wrapped based on the necessity to prevent future bugs and that the user may read the entire body of text. The number of lines in the text is clamped to the number passed through the maxLines prop."
+        maxLines={10}
+        id="ic-tooltip-test-button-large-label"
+        target="test-button-large-label"
+      >
+        <button
+          aria-describedby="ic-tooltip-test-button-large-label"
+          id="test-button-large-label"
+        >
+          Default
+        </button>
+      </IcTooltip>
+    </div>
+  );
+};
+
 export const Chip = () => {
   return (
     <div style={{ margin: "40px" }}>
