@@ -4620,7 +4620,7 @@
         {
           "status": "fail",
           "name": "IcSelect.cy.tsx-custom-elements-open",
-          "percentage": 0.04142463035441596,
+          "percentage": 0.02842534080710379,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -4873,7 +4873,7 @@
         {
           "status": "fail",
           "name": "IcSelect.cy.tsx-custom-elements-open-high-contrast",
-          "percentage": 0.040298883359219766,
+          "percentage": 0.027640549922170507,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -5325,7 +5325,7 @@
         {
           "status": "fail",
           "name": "IcSelectSearchable.cy.tsx-searchable-custom-elements-open",
-          "percentage": 0.04142463035441596,
+          "percentage": 0.02842534080710379,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -7784,9 +7784,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-26T17:22:41.309Z",
-  "endedAt": "2024-10-26T17:36:59.094Z",
-  "duration": 777630,
+  "startedAt": "2024-10-26T18:50:04.389Z",
+  "endedAt": "2024-10-26T19:03:53.451Z",
+  "duration": 750866,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
