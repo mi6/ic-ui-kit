@@ -927,6 +927,10 @@ export namespace Components {
          */
         "helperText": string;
         /**
+          * The label will be visually hidden.
+         */
+        "hideLabel": boolean;
+        /**
           * The text content of the label.
          */
         "label": string;
@@ -4263,6 +4267,10 @@ declare namespace LocalJSX {
           * The helper text that will be displayed.
          */
         "helperText"?: string;
+        /**
+          * The label will be visually hidden.
+         */
+        "hideLabel"?: boolean;
         /**
           * The text content of the label.
          */

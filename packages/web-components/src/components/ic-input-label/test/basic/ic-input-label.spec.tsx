@@ -106,4 +106,38 @@ describe("ic-input-label", () => {
     </ic-input-label>
     `);
   });
+
+  it("should remove label but keep helpertext", async () => {
+    const page = await newSpecPage({
+      components: [InputLabel],
+      html: `<ic-input-label for="test-input-id" label="Test label" hide-label='true' helper-text="Some helper text"></ic-input-label>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+    <ic-input-label class="with-helper" for="test-input-id" helper-text="Some helper text" hide-label="true" label="Test label">
+      <ic-typography class="helpertext helpertext-normal" variant="caption">
+        <span id="test-input-id-helper-text">
+          Some helper text
+        </span>
+      </ic-typography>
+    </ic-input-label>
+    `);
+  });
+
+  it("should remove helpertext but keep label", async () => {
+    const page = await newSpecPage({
+      components: [InputLabel],
+      html: `<ic-input-label for="test-input-id" label="Test label" helper-text=""></ic-input-label>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <ic-input-label for="test-input-id" helper-text="" label="Test label">
+        <ic-typography variant="label">
+          <label htmlfor="test-input-id">
+            Test label
+          </label>
+        </ic-typography>
+      </ic-input-label>
+    `);
+  });
 });
