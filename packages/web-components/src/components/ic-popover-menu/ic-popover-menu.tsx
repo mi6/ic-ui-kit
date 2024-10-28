@@ -80,7 +80,7 @@ export class PopoverMenu {
         this.popoverMenuEls.unshift(this.backButton);
       }
 
-      this.currentFocus = isPropDefined(this.submenuId) ? 1 : 0;
+      this.currentFocus = 0;
       // Needed so that anchorEl isn't always focused
       setTimeout(this.setButtonFocus, 50);
     } else if (this.popperInstance) {
@@ -398,21 +398,7 @@ export class PopoverMenu {
                 </ic-typography>
               </div>
             )}
-            <ul
-              class="button"
-              aria-label={this.getMenuAriaLabel()}
-              role="menu"
-              aria-owns={
-                isPropDefined(this.submenuId)
-                  ? `ic-popover-submenu-back-button-${this.submenuLevel}`
-                  : false
-              }
-              aria-controls={
-                isPropDefined(this.submenuId)
-                  ? `ic-popover-submenu-back-button-${this.submenuLevel}`
-                  : false
-              }
-            >
+            <ul class="button" aria-label={this.getMenuAriaLabel()} role="menu">
               <slot></slot>
             </ul>
           </div>
