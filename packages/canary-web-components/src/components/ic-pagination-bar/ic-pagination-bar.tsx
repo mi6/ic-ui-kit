@@ -88,6 +88,11 @@ export class PaginationBar {
   }
 
   /**
+   * If `true`, the 'All' option will be hidden from the 'items per page' select input.
+   */
+  @Prop() hideAllFromItemsPerPage?: boolean = false;
+
+  /**
    * The text which will be used in place of 'Item' on the pagination bar.
    */
   @Prop() itemLabel?: string = "Item";
@@ -99,7 +104,7 @@ export class PaginationBar {
   }
 
   /**
-   * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
+   * The options which will be displayed for 'items per page' select input.
    */
   @Prop() itemsPerPageOptions?: {
     label: string;
@@ -355,7 +360,7 @@ export class PaginationBar {
 
   private setPaginationBarContent = (): void => {
     const displayedItemsPerPageOptions =
-      this.itemsPerPageOptions?.slice(0, 3) ||
+      this.itemsPerPageOptions ||
       (this.totalItems <= 100
         ? [
             { label: "10", value: "10" },
@@ -367,10 +372,11 @@ export class PaginationBar {
             { label: "100", value: "100" },
             { label: "1000", value: "1000" },
           ]);
-    displayedItemsPerPageOptions.push({
-      label: "All",
-      value: String(this.totalItems),
-    });
+    !this.hideAllFromItemsPerPage &&
+      displayedItemsPerPageOptions.push({
+        label: "All",
+        value: String(this.totalItems),
+      });
 
     this.displayedItemsPerPageOptions = displayedItemsPerPageOptions.filter(
       ({ value }) => this.totalItems >= Number(value)

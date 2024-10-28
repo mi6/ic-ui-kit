@@ -576,6 +576,20 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
+
+  it("should render with 'All' hidden from items per page dropdown", () => {
+    mount(<PaginationBarItemsPerPage hideAllFromItemsPerPage />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, ".items-per-page-input").click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "hide-all-option",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
 });
 
 describe("IcPaginationBar visual regression tests in high contrast mode", () => {
