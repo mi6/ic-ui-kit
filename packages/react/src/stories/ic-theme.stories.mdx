@@ -105,11 +105,11 @@ export const Controlled = () => {
         full-width
       >
         <div slot="interaction" style={{ display: "flex" }}>
-          <ic-text-field
+          <IcTextField
             placeholder="Filter display"
             label="Filter display"
             hide-label
-          ></ic-text-field>
+          ></IcTextField>
           <IcButton variant="primary" style={{ marginLeft: 16 }}>
             Filter
           </IcButton>
@@ -117,13 +117,13 @@ export const Controlled = () => {
         <IcButton variant="secondary" slot="interaction">
           See all
         </IcButton>
-        <ic-link
+        <IcLink
           href="https://google.com"
           slot="interaction"
           style={{ marginTop: 10 }}
         >
           Help
-        </ic-link>
+        </IcLink>
       </IcHero>
       <IcAlert
         heading="This alert uses a custom message slot"
@@ -135,13 +135,13 @@ export const Controlled = () => {
         <IcTypography variant="body" slot="message">
           <p>
             This is some text and
-            <ic-link href="/"> this is an inline link ic-link</ic-link>
+            <IcLink href="/"> this is an inline link ic-link</IcLink>
             within the text
           </p>
         </IcTypography>
       </IcAlert>
       <IcFooter
-        align="full-width"
+        aligned="full-width"
         description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
             please get in touch."
         caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
@@ -169,7 +169,7 @@ export const Controlled = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "var(--ic-space-sm);",
+            gap: "var(--ic-space-sm)",
           }}
         >
           <IcButton>Slotted Button</IcButton>
@@ -269,11 +269,11 @@ export const defaultArgs = {
         full-width
       >
         <div slot="interaction" style={{ display: "flex" }}>
-          <ic-text-field
+          <IcTextField
             placeholder="Filter display"
             label="Filter display"
             hide-label
-          ></ic-text-field>
+          ></IcTextField>
           <IcButton variant="primary" style={{ marginLeft: 16 }}>
             Filter
           </IcButton>
@@ -281,13 +281,13 @@ export const defaultArgs = {
         <IcButton variant="secondary" slot="interaction">
           See all
         </IcButton>
-        <ic-link
+        <IcLink
           href="https://google.com"
           slot="interaction"
           style={{ marginTop: 10 }}
         >
           Help
-        </ic-link>
+        </IcLink>
       </IcHero>
       <IcSectionContainer style={{ display: "flex", flexDirection: "column", gap: "0.5rem"}}>
         <IcCheckbox
@@ -312,7 +312,7 @@ export const defaultArgs = {
           <IcTypography variant="body" slot="message">
             <p>
               This is some text and
-              <ic-link href="/"> this is an inline link ic-link</ic-link>
+              <IcLink href="/"> this is an inline link ic-link</IcLink>
               within the text
             </p>
           </IcTypography>
@@ -361,7 +361,7 @@ export const defaultArgs = {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "var(--ic-space-sm);",
+            gap: "var(--ic-space-sm)",
           }}
         >
           <IcButton>Slotted Button</IcButton>
