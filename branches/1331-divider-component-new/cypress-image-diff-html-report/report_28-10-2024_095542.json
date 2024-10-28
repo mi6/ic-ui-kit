@@ -1,6 +1,6 @@
 {
-  "total": 667,
-  "totalPassed": 664,
+  "total": 671,
+  "totalPassed": 668,
   "totalFailed": 3,
   "totalSuites": 37,
   "suites": [
@@ -4057,6 +4057,39 @@
       "tests": [
         {
           "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx-inherit-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx-inherit-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-inherit-theme.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx-light-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx-light-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-light-theme.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx-dark-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx-dark-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-dark-theme.png"
+        },
+        {
+          "status": "pass",
           "name": "IcPopoverMenu.cy.tsx-description",
           "percentage": 0,
           "failureThreshold": 0,
@@ -5898,6 +5931,17 @@
         },
         {
           "status": "pass",
+          "name": "IcSwitch.cy.tsx-theme-dark",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSwitch/IcSwitch.cy.tsx",
+          "specFilename": "IcSwitch.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSwitch.cy.tsx-theme-dark.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSwitch.cy.tsx-theme-dark.png"
+        },
+        {
+          "status": "pass",
           "name": "IcSwitch.cy.tsx-unchecked-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7564,9 +7608,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-18T11:08:02.377Z",
-  "endedAt": "2024-10-18T11:21:25.807Z",
-  "duration": 723882,
+  "startedAt": "2024-10-28T09:55:42.382Z",
+  "endedAt": "2024-10-28T10:09:33.209Z",
+  "duration": 751150,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
