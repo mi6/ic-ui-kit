@@ -1,6 +1,6 @@
 {
-  "total": 208,
-  "totalPassed": 208,
+  "total": 209,
+  "totalPassed": 209,
   "totalFailed": 0,
   "totalSuites": 9,
   "suites": [
@@ -1905,6 +1905,17 @@
         },
         {
           "status": "pass",
+          "name": "IcPaginationBar.cy.tsx-hide-all-option",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
+          "specFilename": "IcPaginationBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPaginationBar.cy.tsx-hide-all-option.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPaginationBar.cy.tsx-hide-all-option.png"
+        },
+        {
+          "status": "pass",
           "name": "IcPaginationBar.cy.tsx-go-to-page-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -2347,9 +2358,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-17T17:15:03.480Z",
-  "endedAt": "2024-10-17T17:20:29.178Z",
-  "duration": 307258,
+  "startedAt": "2024-10-28T10:56:13.230Z",
+  "endedAt": "2024-10-28T11:01:44.483Z",
+  "duration": 312580,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
