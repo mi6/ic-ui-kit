@@ -56,7 +56,6 @@ header.tabs {
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
-  margin-bottom: var(--ic-space-xs);
   column-gap: var(--ic-space-md);
 }
 
@@ -66,8 +65,12 @@ header.tabs {
   hyphens: auto;
 }
 
-.subheading.small {
+.subheading-content {
   margin-top: var(--ic-space-xs);
+}
+
+.subheading-content.small {
+  margin-top: var(--ic-space-md);
 }
 
 .action-area {
