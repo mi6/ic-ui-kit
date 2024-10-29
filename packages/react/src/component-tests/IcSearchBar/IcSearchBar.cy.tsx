@@ -22,6 +22,7 @@ import {
   QuerySearchMode,
   ExternalFilteringSearchBar,
   WithButton,
+  ThemeDark,
 } from "./IcSearchBarTestData";
 import {
   BE_VISIBLE,
@@ -1181,6 +1182,23 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "spellcheck",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+    });
+  });
+
+  it("should render dark theme search bar", () => {
+    mount(<ThemeDark />);
+
+    cy.checkHydrated(SEARCH_SELECTOR);
+
+    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
+      .shadow()
+      .find(IC_INPUT_CONTAINER)
+      .type("Lat");
+
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 });
