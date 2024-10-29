@@ -349,3 +349,15 @@ export const ExternalFilteringSearchBar = () => {
     </div>
   );
 };
+
+export const ThemeDark = () => {
+  return (
+    <div style={{ padding: "10px", backgroundColor: "black" }}>
+      <IcSearchBar
+        label="What is your favourite coffee?"
+        options={defaultOptions}
+        theme="dark"
+      />
+    </div>
+  );
+};
