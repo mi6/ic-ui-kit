@@ -50,6 +50,11 @@ export class InputLabel {
    */
   @Prop() status: "error" | "" = "";
 
+  /**
+   * @internal If `true`, wraps label text in label tag
+   */
+  @Prop() useLabelTag: boolean = true;
+
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
@@ -66,13 +71,15 @@ export class InputLabel {
       helperText,
       status,
       appearance,
+      useLabelTag,
     } = this;
     const labelText = required ? label + " *" : label;
-    const labelContent = readonly ? (
-      `${labelText}`
-    ) : (
-      <label htmlFor={this.for}>{labelText}</label>
-    );
+    const labelContent =
+      readonly || !useLabelTag ? (
+        `${labelText}`
+      ) : (
+        <label htmlFor={this.for}>{labelText}</label>
+      );
 
     const id = getInputHelperTextID(this.for);
 
