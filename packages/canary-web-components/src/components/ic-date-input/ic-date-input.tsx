@@ -174,6 +174,11 @@ export class DateInput {
   @Prop() hideHelperText: boolean = false;
 
   /**
+   * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+   */
+  @Prop() hideLabel?: boolean = false;
+
+  /**
    * The ID for the input.
    */
   @Prop() inputId?: string = `ic-date-input-${inputIds++}`;
@@ -941,23 +946,24 @@ export class DateInput {
 
     if (labelEl !== null && labelEl !== undefined) {
       labelEl.id = labelId;
-
-      const hasValidation =
-        (!isEmptyString(this.validationStatus) &&
-          !isEmptyString(this.validationText)) ||
-        !isEmptyString(this.invalidDateText);
-
-      const labelledBy = `${labelId} ${
-        this.screenReaderInfoId
-      } ${getInputDescribedByText(
-        this.inputId,
-        this.helperText !== "" && this.helperText !== this.defaultHelperText,
-        hasValidation
-      )} ${this.selectedDate ? this.selectedDateInfoId : ""} ${
-        this.assistiveHintId
-      }`;
-      this.inputCompContainerEl.setAttribute(this.ARIA_LABELLED_BY, labelledBy);
     }
+
+    const hasValidation =
+      (!isEmptyString(this.validationStatus) &&
+        !isEmptyString(this.validationText)) ||
+      !isEmptyString(this.invalidDateText);
+
+    const labelledBy = `${labelEl?.id ?? ""} ${
+      this.screenReaderInfoId
+    } ${getInputDescribedByText(
+      this.inputId,
+      this.helperText !== "" && this.helperText !== this.defaultHelperText,
+      hasValidation
+    )} ${this.selectedDate ? this.selectedDateInfoId : ""} ${
+      this.assistiveHintId
+    }`;
+
+    this.inputCompContainerEl.setAttribute(this.ARIA_LABELLED_BY, labelledBy);
   };
 
   // Sets boolean for each input, used to limit the number of characters within each field (2 for day / month, 4 for year)
@@ -1539,6 +1545,7 @@ export class DateInput {
       disabled,
       helperText,
       hideHelperText,
+      hideLabel,
       showClearButton,
       showCalendarButton,
       size,
@@ -1567,14 +1574,18 @@ export class DateInput {
     return (
       <Host onBlur={this.handleHostBlur} onFocus={this.handleHostFocus}>
         <ic-input-container disabled={disabled}>
-          <ic-input-label
-            for={inputId}
-            label={label}
-            helperText={!hideHelperText ? helperText : null}
-            disabled={disabled}
-          ></ic-input-label>
+          {!(hideLabel && hideHelperText) && (
+            <ic-input-label
+              for={inputId}
+              label={label}
+              hideLabel={hideLabel}
+              helperText={!hideHelperText ? helperText : null}
+              disabled={disabled}
+            ></ic-input-label>
+          )}
           <span id={this.screenReaderInfoId} class="sr-only" aria-hidden="true">
             {this.getScreenReaderInfo(validationStatus)}
+            {hideLabel && `${label}\n`}
             {hideHelperText && `${helperText}\n`}
             {`${this.defaultHelperText}.`}
           </span>

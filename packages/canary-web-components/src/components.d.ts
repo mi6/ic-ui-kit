@@ -260,6 +260,10 @@ export namespace Components {
          */
         "hideHelperText": boolean;
         /**
+          * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+         */
+        "hideLabel"?: boolean;
+        /**
           * The ID for the input.
          */
         "inputId"?: string;
@@ -353,6 +357,10 @@ export namespace Components {
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
          */
         "hideHelperText": boolean;
+        /**
+          * If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.
+         */
+        "hideLabel"?: boolean;
         /**
           * The ID for the input field. The default will be an automatically generated value.
          */
@@ -937,6 +945,10 @@ declare namespace LocalJSX {
          */
         "hideHelperText"?: boolean;
         /**
+          * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+         */
+        "hideLabel"?: boolean;
+        /**
           * The ID for the input.
          */
         "inputId"?: string;
@@ -1040,6 +1052,10 @@ declare namespace LocalJSX {
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
          */
         "hideHelperText"?: boolean;
+        /**
+          * If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.
+         */
+        "hideLabel"?: boolean;
         /**
           * The ID for the input field. The default will be an automatically generated value.
          */
