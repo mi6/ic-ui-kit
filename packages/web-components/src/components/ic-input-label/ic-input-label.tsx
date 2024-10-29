@@ -31,6 +31,11 @@ export class InputLabel {
   @Prop() helperText: string = "";
 
   /**
+   * The label will be visually hidden.
+   */
+  @Prop() hideLabel: boolean = false;
+
+  /**
    * The text content of the label.
    */
   @Prop() label!: string;
@@ -65,6 +70,7 @@ export class InputLabel {
       required,
       helperText,
       status,
+      hideLabel,
       appearance,
     } = this;
     const labelText = required ? label + " *" : label;
@@ -84,16 +90,18 @@ export class InputLabel {
           ["with-helper"]: helperText !== "",
         }}
       >
-        <ic-typography
-          variant="label"
-          class={{
-            ["readonly-label"]: readonly,
-            ["error-label"]: status === "error" && !(readonly || disabled),
-            ["dark"]: appearance === "dark",
-          }}
-        >
-          {labelContent}
-        </ic-typography>
+        {!hideLabel && (
+          <ic-typography
+            variant="label"
+            class={{
+              ["readonly-label"]: readonly,
+              ["error-label"]: status === "error" && !(readonly || disabled),
+              ["dark"]: appearance === "dark",
+            }}
+          >
+            {labelContent}
+          </ic-typography>
+        )}
 
         {helperText !== "" && (
           <ic-typography
