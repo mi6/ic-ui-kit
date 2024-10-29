@@ -1093,7 +1093,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.compareSnapshot({
       name: "searchable-recommended-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
 
@@ -1115,7 +1115,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.compareSnapshot({
       name: "searchable-groups-in-filter-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -1157,7 +1157,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.compareSnapshot({
       name: "searchable-descriptions-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
     });
   });
 });

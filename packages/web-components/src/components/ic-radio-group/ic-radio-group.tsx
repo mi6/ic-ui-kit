@@ -143,7 +143,7 @@ export class RadioGroup {
 
   @Listen("icCheck")
   selectHandler({ detail, target }: CustomEvent<IcValueEventDetail>): void {
-    this.checkedValue = detail.value;
+    this.checkedValue = detail.value as string;
     const selectedOption = target as HTMLIcRadioOptionElement;
     this.icChange.emit({
       value: this.checkedValue,
