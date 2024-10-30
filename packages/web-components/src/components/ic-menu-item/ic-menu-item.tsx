@@ -99,10 +99,7 @@ export class MenuItem {
   /**
    * @internal Emitted when the user clicks a menu item.
    */
-  @Event() handleMenuItemClick: EventEmitter<{
-    label: string;
-    hasSubMenu: boolean;
-  }>;
+  @Event() handleMenuItemClick: EventEmitter<HTMLIcMenuItemElement>;
 
   /**
    * @internal Emitted when the user clicks a menu item that triggers a popover menu instance.
@@ -138,10 +135,7 @@ export class MenuItem {
       e.preventDefault();
       this.toggleChecked = !this.toggleChecked;
     }
-    this.handleMenuItemClick.emit({
-      label: this.label,
-      hasSubMenu: !!this.el.submenuTriggerFor,
-    });
+    this.handleMenuItemClick.emit(this.el);
   };
 
   private getMenuItemAriaLabel = (): string => {
