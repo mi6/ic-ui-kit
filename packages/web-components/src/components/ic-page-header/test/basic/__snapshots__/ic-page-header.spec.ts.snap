@@ -18,7 +18,9 @@ exports[`ic-page-header component renders additional functionality should render
               <slot name="heading-adornment"></slot>
             </div>
             <div>
-              <slot name="subheading"></slot>
+              <slot name="subheading">
+                <ic-typography variant="body"></ic-typography>
+              </slot>
             </div>
           </div>
         </div>
@@ -53,9 +55,9 @@ exports[`ic-page-header component renders additional functionality should render
               </slot>
               <slot name="heading-adornment"></slot>
             </div>
-            <div>
+            <div class="subheading-content">
               <slot name="subheading">
-                <ic-typography class="subheading" variant="body">
+                <ic-typography variant="body">
                   This is a simple page header component and this is the text.
                 </ic-typography>
               </slot>
@@ -110,9 +112,9 @@ exports[`ic-page-header component renders additional functionality should render
               </slot>
               <slot name="heading-adornment"></slot>
             </div>
-            <div>
+            <div class="subheading-content">
               <slot name="subheading">
-                <ic-typography class="subheading" variant="body">
+                <ic-typography variant="body">
                   This is a simple page header component and this is the text.
                 </ic-typography>
               </slot>
@@ -170,9 +172,9 @@ exports[`ic-page-header component renders additional functionality should render
               </slot>
               <slot name="heading-adornment"></slot>
             </div>
-            <div>
+            <div class="subheading-content">
               <slot name="subheading">
-                <ic-typography class="subheading" variant="body">
+                <ic-typography variant="body">
                   This is a simple page header component and this is the text.
                 </ic-typography>
               </slot>
@@ -214,9 +216,9 @@ exports[`ic-page-header component renders additional functionality should render
               </slot>
               <slot name="heading-adornment"></slot>
             </div>
-            <div>
+            <div class="subheading-content">
               <slot name="subheading">
-                <ic-typography class="subheading" variant="body">
+                <ic-typography variant="body">
                   This is a simple page header component and this is the text.
                 </ic-typography>
               </slot>
@@ -251,9 +253,9 @@ exports[`ic-page-header component renders additional functionality should render
               </slot>
               <slot name="heading-adornment"></slot>
             </div>
-            <div>
+            <div class="subheading-content">
               <slot name="subheading">
-                <ic-typography class="subheading" variant="body">
+                <ic-typography variant="body">
                   This is a simple page header component and this is the text.
                 </ic-typography>
               </slot>
@@ -295,9 +297,9 @@ exports[`ic-page-header component renders additional functionality should render
               </slot>
               <slot name="heading-adornment"></slot>
             </div>
-            <div>
+            <div class="subheading-content">
               <slot name="subheading">
-                <ic-typography class="subheading" variant="body">
+                <ic-typography variant="body">
                   This is a simple page header component and this is the text.
                 </ic-typography>
               </slot>
@@ -330,9 +332,9 @@ exports[`ic-page-header component renders additional functionality should render
               </slot>
               <slot name="heading-adornment"></slot>
             </div>
-            <div>
+            <div class="subheading-content">
               <slot name="subheading">
-                <ic-typography class="subheading" variant="body">
+                <ic-typography variant="body">
                   This is a simple page header component and this is the text.
                 </ic-typography>
               </slot>
@@ -395,9 +397,9 @@ exports[`simple ic-page-header renders should render with a heading & sub-headin
               </slot>
               <slot name="heading-adornment"></slot>
             </div>
-            <div>
+            <div class="subheading-content">
               <slot name="subheading">
-                <ic-typography class="subheading" variant="body">
+                <ic-typography variant="body">
                   This is a simple page header component and this is the text.
                 </ic-typography>
               </slot>

@@ -260,6 +260,10 @@ export namespace Components {
          */
         "hideHelperText": boolean;
         /**
+          * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+         */
+        "hideLabel"?: boolean;
+        /**
           * The ID for the input.
          */
         "inputId"?: string;
@@ -353,6 +357,10 @@ export namespace Components {
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
          */
         "hideHelperText": boolean;
+        /**
+          * If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.
+         */
+        "hideLabel"?: boolean;
         /**
           * The ID for the input field. The default will be an automatically generated value.
          */
@@ -505,6 +513,10 @@ export namespace Components {
          */
         "currentPage"?: number;
         /**
+          * If `true`, the 'All' option will be hidden from the 'items per page' select input.
+         */
+        "hideAllFromItemsPerPage"?: boolean;
+        /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
         "hideRangeLabel"?: boolean;
@@ -513,7 +525,7 @@ export namespace Components {
          */
         "itemLabel"?: string;
         /**
-          * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
+          * The options which will be displayed for 'items per page' select input.
          */
         "itemsPerPageOptions"?: {
     label: string;
@@ -700,6 +712,9 @@ export namespace Components {
           * If `true`, the tree item appears in the disabled state.
          */
         "disabled"?: boolean;
+        /**
+          * If `true`, the tree item appears in the expanded state.
+         */
         "expanded": boolean;
         "hasParentExpanded": boolean;
         /**
@@ -1204,6 +1219,10 @@ declare namespace LocalJSX {
          */
         "hideHelperText"?: boolean;
         /**
+          * If `true`, the label will be visually hidden, but will still be read out by screen readers.
+         */
+        "hideLabel"?: boolean;
+        /**
           * The ID for the input.
          */
         "inputId"?: string;
@@ -1307,6 +1326,10 @@ declare namespace LocalJSX {
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
          */
         "hideHelperText"?: boolean;
+        /**
+          * If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.
+         */
+        "hideLabel"?: boolean;
         /**
           * The ID for the input field. The default will be an automatically generated value.
          */
@@ -1463,6 +1486,10 @@ declare namespace LocalJSX {
          */
         "currentPage"?: number;
         /**
+          * If `true`, the 'All' option will be hidden from the 'items per page' select input.
+         */
+        "hideAllFromItemsPerPage"?: boolean;
+        /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
         "hideRangeLabel"?: boolean;
@@ -1471,7 +1498,7 @@ declare namespace LocalJSX {
          */
         "itemLabel"?: string;
         /**
-          * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
+          * The options which will be displayed for 'items per page' select input.
          */
         "itemsPerPageOptions"?: {
     label: string;
@@ -1694,6 +1721,9 @@ declare namespace LocalJSX {
           * If `true`, the tree item appears in the disabled state.
          */
         "disabled"?: boolean;
+        /**
+          * If `true`, the tree item appears in the expanded state.
+         */
         "expanded"?: boolean;
         "hasParentExpanded"?: boolean;
         /**

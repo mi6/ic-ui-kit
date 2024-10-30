@@ -31,7 +31,7 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
           </ic-menu-item>
           <ic-typography class="parent-label" variant="subtitle-small"></ic-typography>
         </div>
-        <ul aria-controls="ic-popover-submenu-back-button-1" aria-label="popover-menu, within nested level 1 undefined submenu," aria-owns="ic-popover-submenu-back-button-1" class="button" role="menu">
+        <ul aria-label="popover-menu, within nested level 1 undefined submenu," class="button" role="menu">
           <slot></slot>
         </ul>
       </div>

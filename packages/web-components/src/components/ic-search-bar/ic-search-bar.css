@@ -6,6 +6,7 @@
 
 :host(.search) {
   --divider-height: 1.5rem;
+  --ic-input-label-helpertext-padding: var(--ic-space-xxs);
 }
 
 :host(.search.small) {

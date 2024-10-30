@@ -445,6 +445,42 @@ const PaginationBar = () => (
 export default PaginationBar;
 ```
 
+### Hide 'All' from items per page
+
+If you have a predefined list of items you want in the itemsPerPage select, the 'All' option can be hidden by setting `hide-all-from-items-per-page` to `true`.
+
+<Canvas withSource="none">
+  <Story name="Hide all from items per page">
+    <div style={{
+      height: '150px'
+    }}>
+        <IcPaginationBar
+          totalItems="100"
+          showItemsPerPageControl
+          showGoToPageControl
+          hideAllFromItemsPerPage
+        />
+    </div>
+  </Story>
+</Canvas>
+
+#### Hide 'All' from items per page code example
+
+```jsx
+import * as React from "react";
+import { IcPaginationBar } from '@ukic/canary-react';
+
+const PaginationBar = () => (
+    <IcPaginationBar
+      totalItems="100"
+      showItemsPerPageControl
+      showGoToPageControl
+      hideAllFromItemsPerPage
+    />
+);
+
+export default PaginationBar;
+```
 
 ### Playground
 
