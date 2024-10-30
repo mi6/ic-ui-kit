@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.28](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.27...@ukic/canary-web-components@2.0.0-canary.28) (2024-10-30)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes tooltip display issue in data-table ([8301d4c](https://github.com/mi6/ic-ui-kit/commit/8301d4cd69318559a23036f97c2804fef0e4270f))
+- **canary-web-components:** update tree view with heading and expanded improvements ([8d151d3](https://github.com/mi6/ic-ui-kit/commit/8d151d3656544cb6da9d6bd939fc8c95c7a6f5e2))
+
+### Features
+
+- **canary-web-components:** added new hidelabel prop ([0a1fb65](https://github.com/mi6/ic-ui-kit/commit/0a1fb65d7344fe0ecc4e5067a378ceb3342b943c))
+- **canary-web-components:** implement hideAllFromItemsPerPage & remove limit on itemsPerPage opts ([c355f80](https://github.com/mi6/ic-ui-kit/commit/c355f8093e8297e8b2e768120bd2780826c7a6d2)), closes [#1950](https://github.com/mi6/ic-ui-kit/issues/1950)
+
 # [2.0.0-canary.27](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.26...@ukic/canary-web-components@2.0.0-canary.27) (2024-10-16)
 
 ### Bug Fixes

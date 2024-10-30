@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.29.1...@ukic/react@2.30.0) (2024-10-30)
+
+### Bug Fixes
+
+- **react:** adds test for high contrast focus ([5ab173d](https://github.com/mi6/ic-ui-kit/commit/5ab173dcb515d0020f6d5f3a70e4108efe565966))
+- **react:** updating cypress tests and replacing images ([5569cd6](https://github.com/mi6/ic-ui-kit/commit/5569cd6a01397528fd3436f15de3474d281f37f7))
+
+### Features
+
+- **react:** created workflow for performance testing ([00d21ed](https://github.com/mi6/ic-ui-kit/commit/00d21ed6544fcf66a66268a37d7eee1b9abd8a8d))
+- **react:** update Cypress visual regression test baseline images ([0765ea4](https://github.com/mi6/ic-ui-kit/commit/0765ea44a0cb4c75f5fb8b7cb8215e4acb93b84a))
+
 ## [2.29.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.29.0...@ukic/react@2.29.1) (2024-10-16)
 
 **Note:** Version bump only for package @ukic/react

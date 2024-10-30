@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.28](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.27...@ukic/canary-react@2.0.0-canary.28) (2024-10-30)
+
+### Bug Fixes
+
+- **canary-react:** adds test for tooltip fix ([15fb601](https://github.com/mi6/ic-ui-kit/commit/15fb6015cd38350706e2e8439470d8e75b14f5f3))
+- **canary-react:** update tree view stories to include expanded example ([f563b1e](https://github.com/mi6/ic-ui-kit/commit/f563b1e584a93c336b639e29283a88ad8345aa92))
+
+### Features
+
+- **canary-react:** added tests for date input ([df2ae7f](https://github.com/mi6/ic-ui-kit/commit/df2ae7fe28c1def6075cb8b4dccca0efdd4a6575))
+- **canary-react:** implement hideAllFromItemsPerPage & remove limit on itemsPerPage opts ([423dbda](https://github.com/mi6/ic-ui-kit/commit/423dbdab682c6834fbb55afd3194cf3f331b5157))
+
 # [2.0.0-canary.27](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.26...@ukic/canary-react@2.0.0-canary.27) (2024-10-16)
 
 ### Bug Fixes

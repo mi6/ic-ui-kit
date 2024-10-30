@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.14.0 (2024-10-30)
+
+### Features
+
+- **docs:** added hide label description for ic-input-label ([6d05e4d](https://github.com/mi6/ic-ui-kit/commit/6d05e4d76a5084a1b5dbd492e7907b92dc4e0e31))
+
 ## [2.13.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.13.2...@ukic/docs@2.13.3) (2024-10-02)
 
 **Note:** Version bump only for package @ukic/docs

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.29.1...@ukic/web-components@2.30.0) (2024-10-30)
+
+### Bug Fixes
+
+- **web-components:** adds high contrast focus ([97086dd](https://github.com/mi6/ic-ui-kit/commit/97086dd677e27563761da1d5232728ff1548a160))
+- **web-components:** change to previous fix with hiding icon ([8f4b68c](https://github.com/mi6/ic-ui-kit/commit/8f4b68c2b0b739efde2e87835bf7e1d173fa7aa5))
+- **web-components:** fix breadcrumb group collapsed prop not toggling correctly ([739f44f](https://github.com/mi6/ic-ui-kit/commit/739f44ff77b2113b0625e66ec8daf58aa21548de)), closes [#2028](https://github.com/mi6/ic-ui-kit/issues/2028) [#1998](https://github.com/mi6/ic-ui-kit/issues/1998)
+- **web-components:** fix focus overlapping text ([e61bd6e](https://github.com/mi6/ic-ui-kit/commit/e61bd6ec83a37808aa22e141ffde1b78bdba86dc))
+- **web-components:** fix multiple radio options being selected with the same value ([490ed51](https://github.com/mi6/ic-ui-kit/commit/490ed5131e3a58ae9f0b00aff7bb887294615477)), closes [#2567](https://github.com/mi6/ic-ui-kit/issues/2567)
+- **web-components:** fix nav group not align with other nav items ([ba950b8](https://github.com/mi6/ic-ui-kit/commit/ba950b8714cc663a81fd970aee3817941706cf2a))
+- **web-components:** popover accessibility order match visual order ([25c4f04](https://github.com/mi6/ic-ui-kit/commit/25c4f04bbcb3fafbd7478d427435af3a4298bea9))
+- **web-components:** remove REM explicit width/height from checkbox SVG in favour of CSS default ([09a29e0](https://github.com/mi6/ic-ui-kit/commit/09a29e0cce8707ad8bb52cb288e1bcbf682f0e2e))
+- **web-components:** removed margin-bottom from heading ([2ec7923](https://github.com/mi6/ic-ui-kit/commit/2ec7923a1c228885436d0b3e2c605d892a8c48e3))
+
+### Features
+
+- **web-components:** added hidelabel to remove label specifically ([67e23c3](https://github.com/mi6/ic-ui-kit/commit/67e23c34da690ec8077cd6945e8e6d983e04d166)), closes [#1813](https://github.com/mi6/ic-ui-kit/issues/1813)
+
 ## [2.29.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.29.0...@ukic/web-components@2.29.1) (2024-10-16)
 
 ### Bug Fixes
