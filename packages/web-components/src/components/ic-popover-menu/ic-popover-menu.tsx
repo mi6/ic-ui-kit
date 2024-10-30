@@ -296,7 +296,9 @@ export class PopoverMenu {
       if (el.tagName === "IC-MENU-ITEM") {
         this.popoverMenuEls.push(el);
       } else if (el.tagName === "IC-MENU-GROUP") {
-        const groupSlotWrapper = el.shadowRoot.querySelector("ul");
+        const groupSlotWrapper = el.shadowRoot.querySelector(
+          ".menu-items-wrapper"
+        );
         const menuGroupElements = getSlotElements(groupSlotWrapper);
 
         this.addMenuItems(menuGroupElements);
@@ -354,43 +356,45 @@ export class PopoverMenu {
           }}
           tabindex={open ? "0" : "-1"}
         >
-          <div
+          <span
             class={{
               "opening-from-parent": this.openingFromParent,
               "opening-from-child": this.openingFromChild,
             }}
           >
             {isPropDefined(this.submenuId) && (
-              <div>
-                <ic-menu-item
-                  class="ic-popover-submenu-back-button"
-                  ref={(el) => (this.backButton = el)}
-                  label="Back"
-                  onClick={this.handleBackButtonClick}
-                  id={`ic-popover-submenu-back-button-${this.submenuLevel}`}
-                >
-                  <svg
-                    slot="icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="submenu-back-icon"
+              <span>
+                <span role="menu">
+                  <ic-menu-item
+                    class="ic-popover-submenu-back-button"
+                    ref={(el) => (this.backButton = el)}
+                    label="Back"
+                    onClick={this.handleBackButtonClick}
+                    id={`ic-popover-submenu-back-button-${this.submenuLevel}`}
                   >
-                    <path
-                      d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </ic-menu-item>
+                    <svg
+                      slot="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="submenu-back-icon"
+                    >
+                      <path
+                        d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </ic-menu-item>
+                </span>
                 <ic-typography variant="subtitle-small" class="parent-label">
                   {this.parentLabel}
                 </ic-typography>
-              </div>
+              </span>
             )}
             <ul class="button" aria-label={this.getMenuAriaLabel()} role="menu">
               <slot></slot>
             </ul>
-          </div>
+          </span>
         </div>
       </Host>
     );
