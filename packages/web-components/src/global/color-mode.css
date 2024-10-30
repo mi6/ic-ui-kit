@@ -294,6 +294,26 @@ ic-theme,
   /* Typography */
   --ic-typography-color: var(--ic-color-text-primary);
 
+  /* Alert */
+  --ic-alert-background-success: var(--ic-status-success);
+  --ic-alert-background-error: var(--ic-status-error);
+  --ic-alert-background-warning: var(--ic-status-warning);
+  --ic-alert-background-info: var(--ic-status-info);
+  --ic-alert-background-neutral: var(--ic-status-unknown);
+  --ic-alert-status-type-success: var(--ic-status-success-default);
+  --ic-alert-status-type-error: var(--ic-status-error-default);
+  --ic-alert-status-type-warning: var(--ic-status-warning-default);
+  --ic-alert-status-type-info: var(--ic-status-info-default);
+  --ic-alert-status-type-neutral: var(--ic-status-unknown-default);
+  --ic-alert-title: var(--ic-color-text-primary);
+  --ic-alert-description: var(--ic-color-text-primary);
+  --ic-alert-icon-success: var(--ic-status-success-default);
+  --ic-alert-icon-error: var(--ic-status-error-default);
+  --ic-alert-icon-warning: var(--ic-status-warning-default);
+  --ic-alert-icon-info: var(--ic-status-info-default);
+  --ic-alert-icon-neutral: var(--ic-status-unknown-default);
+  --ic-alert-icon-dismissible: var(--ic-atoms-input-clear-button);
+
   /* Badge */
   --ic-badge-text: var(--ic-color-text-inverse);
   --ic-badge-icon: var(--ic-color-text-inverse);
@@ -830,6 +850,26 @@ ic-theme,
 
     /* Typography */
     --ic-typography-color: var(--ic-color-text-primary);
+
+    /* Alert */
+    --ic-alert-background-success: var(--ic-status-success);
+    --ic-alert-background-error: var(--ic-status-error);
+    --ic-alert-background-warning: var(--ic-status-warning);
+    --ic-alert-background-info: var(--ic-status-info);
+    --ic-alert-background-neutral: var(--ic-status-unknown);
+    --ic-alert-status-type-success: var(--ic-status-success-light);
+    --ic-alert-status-type-error: var(--ic-status-error-light);
+    --ic-alert-status-type-warning: var(--ic-status-warning-light);
+    --ic-alert-status-type-info: var(--ic-status-info-light);
+    --ic-alert-status-type-neutral: var(--ic-status-unknown-light);
+    --ic-alert-title: var(--ic-color-text-primary);
+    --ic-alert-description: var(--ic-color-text-primary);
+    --ic-alert-icon-success: var(--ic-status-success-light);
+    --ic-alert-icon-error: var(--ic-status-error-light);
+    --ic-alert-icon-warning: var(--ic-status-warning-light);
+    --ic-alert-icon-info: var(--ic-status-info-light);
+    --ic-alert-icon-neutral: var(--ic-status-unknown-light);
+    --ic-alert-icon-dismissible: var(--ic-atoms-input-clear-button);
 
     /* Badge */
     --ic-badge-text: var(--ic-color-text-inverse);
@@ -1375,6 +1415,26 @@ ic-theme,
 
   /* Typography */
   --ic-typography-color: var(--ic-color-text-primary);
+
+  /* Alert */
+  --ic-alert-background-success: var(--ic-status-success);
+  --ic-alert-background-error: var(--ic-status-error);
+  --ic-alert-background-warning: var(--ic-status-warning);
+  --ic-alert-background-info: var(--ic-status-info);
+  --ic-alert-background-neutral: var(--ic-status-unknown);
+  --ic-alert-status-type-success: var(--ic-status-success-light);
+  --ic-alert-status-type-error: var(--ic-status-error-light);
+  --ic-alert-status-type-warning: var(--ic-status-warning-light);
+  --ic-alert-status-type-info: var(--ic-status-info-light);
+  --ic-alert-status-type-neutral: var(--ic-status-unknown-light);
+  --ic-alert-title: var(--ic-color-text-primary);
+  --ic-alert-description: var(--ic-color-text-primary);
+  --ic-alert-icon-success: var(--ic-status-success-light);
+  --ic-alert-icon-error: var(--ic-status-error-light);
+  --ic-alert-icon-warning: var(--ic-status-warning-light);
+  --ic-alert-icon-info: var(--ic-status-info-light);
+  --ic-alert-icon-neutral: var(--ic-status-unknown-light);
+  --ic-alert-icon-dismissible: var(--ic-atoms-input-clear-button);
 
   /* Badge */
   --ic-badge-text: var(--ic-color-text-inverse);

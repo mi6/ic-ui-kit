@@ -12,7 +12,11 @@ import {
 } from "@stencil/core";
 import closeIcon from "../../assets/close-icon.svg";
 import { isSlotUsed, checkSlotInChildMutations } from "../../utils/helpers";
-import { IcThemeForegroundEnum, IcStatusVariants } from "../../utils/types";
+import {
+  IcThemeForegroundEnum,
+  IcStatusVariants,
+  IcThemeMode,
+} from "../../utils/types";
 import { VARIANT_ICONS } from "../../utils/constants";
 
 /**
@@ -54,6 +58,16 @@ export class Alert {
   @Prop() message?: string;
 
   /**
+   * If `true`, the default icon for the neutral variant will appear on the left of the alert.
+   */
+  @Prop() showDefaultIcon: boolean = true;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+
+  /**
    * If `true`, the title and message will appear above and below instead of inline.
    */
   @Prop() titleAbove?: boolean = false;
@@ -62,11 +76,6 @@ export class Alert {
    * The variant of the alert which will be rendered.
    */
   @Prop() variant?: IcStatusVariants = "neutral";
-
-  /**
-   * If `true`, the default icon for the neutral variant will appear on the left of the alert.
-   */
-  @Prop() showDefaultIcon: boolean = true;
 
   /**
    * Is emitted when the user dismisses the alert.
@@ -123,6 +132,7 @@ export class Alert {
       announced,
       visible,
       showDefaultIcon,
+      theme,
     } = this;
 
     return (
@@ -131,6 +141,7 @@ export class Alert {
           role={announced ? "alert" : null}
           class={{
             [IcThemeForegroundEnum.Dark]: true,
+            [`ic-theme-${theme}`]: theme !== "inherit",
           }}
         >
           <div
@@ -213,7 +224,6 @@ export class Alert {
                   innerHTML={closeIcon}
                   onClick={this.dismissAction}
                   variant="icon"
-                  appearance={IcThemeForegroundEnum.Dark}
                   title="dismiss"
                 ></ic-button>
               )}

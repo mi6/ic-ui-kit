@@ -4,9 +4,8 @@
   display: block;
 }
 
-:host ic-typography,
 :host ::slotted(ic-typography) {
-  --ic-typography-color: var(--ic-color-text-primary-light);
+  --ic-typography-color: var(--ic-alert-description);
 }
 
 .container {
@@ -18,23 +17,23 @@
 }
 
 .container-neutral {
-  background-color: var(--ic-status-unknown-light);
+  background-color: var(--ic-alert-background-neutral);
 }
 
 .container-info {
-  background-color: var(--ic-status-info-light);
+  background-color: var(--ic-alert-background-info);
 }
 
 .container-warning {
-  background-color: var(--ic-status-warning-light);
+  background-color: var(--ic-alert-background-warning);
 }
 
 .container-error {
-  background-color: var(--ic-status-error-light);
+  background-color: var(--ic-alert-background-error);
 }
 
 .container-success {
-  background-color: var(--ic-status-success-light);
+  background-color: var(--ic-alert-background-success);
 }
 
 .alert-icon-container {
@@ -51,23 +50,23 @@
 }
 
 .divider-neutral {
-  background-color: var(--ic-status-unknown-default);
+  background-color: var(--ic-alert-status-type-neutral);
 }
 
 .divider-info {
-  background-color: var(--ic-status-info-default);
+  background-color: var(--ic-alert-status-type-info);
 }
 
 .divider-warning {
-  background-color: var(--ic-color-border-warning);
+  background-color: var(--ic-alert-status-type-warning);
 }
 
 .divider-error {
-  background-color: var(--ic-color-border-error);
+  background-color: var(--ic-alert-status-type-error);
 }
 
 .divider-success {
-  background-color: var(--ic-color-border-success);
+  background-color: var(--ic-alert-status-type-success);
 }
 
 .alert-icon {
@@ -98,23 +97,23 @@
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
   display: inline-block;
-  fill: var(--ic-status-unknown-default);
+  fill: var(--ic-alert-icon-neutral);
 }
 
 :host([variant="info"]) .alert-icon svg {
-  fill: var(--ic-status-info-default);
+  fill: var(--ic-alert-icon-info);
 }
 
 :host([variant="warning"]) .alert-icon svg {
-  fill: var(--ic-status-warning-default);
+  fill: var(--ic-alert-icon-warning);
 }
 
 :host([variant="error"]) .alert-icon svg {
-  fill: var(--ic-status-error-default);
+  fill: var(--ic-alert-icon-error);
 }
 
 :host([variant="success"]) .alert-icon svg {
-  fill: var(--ic-status-success-default);
+  fill: var(--ic-alert-icon-success);
 }
 
 .alert-content {
@@ -129,6 +128,7 @@
   align-items: center;
   padding: var(--ic-space-xs) var(--ic-space-xs) var(--ic-space-xs) 0;
   flex: 1;
+  --ic-typography-color: var(--ic-alert-description);
 }
 
 .alert-message-title-above {
@@ -137,6 +137,7 @@
 
 .alert-title {
   margin-right: var(--ic-space-xs);
+  --ic-typography-color: var(--ic-alert-title);
 }
 
 .alert-title-above {
@@ -159,6 +160,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.dismiss-icon > svg {
+  color: var(--ic-alert-icon-dismissible);
 }
 
 .dismiss-icon:hover {
