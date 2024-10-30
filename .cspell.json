@@ -149,7 +149,11 @@
       "screenreader",
       "screenreaders",
       "showdefaulticon",
-      "spelcheck"
+      "spelcheck",
+      "sippin",
+      "chillin",
+      "maxin",
+      "relaxin"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc", "la"],
     "ignorePaths": [
