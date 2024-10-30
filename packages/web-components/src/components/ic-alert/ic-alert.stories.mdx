@@ -23,6 +23,7 @@ export const defaultArgs = {
   showAction: false,
   showDefaultIcon: true,
   showSlottedIcon: false,
+  theme: "inherit",
 };
 
 ### Variants
@@ -251,6 +252,10 @@ export const defaultArgs = {
         options: ["neutral", "info", "warning", "error", "success"],
         control: { type: "select" },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
     name="Playground"
     parameters={{ loki: { skip: true } }}
@@ -263,6 +268,7 @@ export const defaultArgs = {
         message=${args.message}
         title-above=${args.titleAbove}
         show-default-icon=${args.showDefaultIcon}
+        theme=${args.theme}
       >
         ${args.showAction &&
         html`<ic-button slot="action" variant="secondary">Button</ic-button>`} ${args.showSlottedIcon &&
