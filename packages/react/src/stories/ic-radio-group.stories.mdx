@@ -136,13 +136,14 @@ import { useState, useEffect, useRef } from "react";
       <IcRadioOption
         additionalFieldDisplay="dynamic"
         value="valueName3"
-        label="option3"
+        label="option3 - clickable component"
       >
-        <IcTextField
+        <IcButton
           slot="additional-field"
-          placeholder="Placeholder"
-          label="What's your favourite type of coffee? "
-        />
+          onClick={()=>alert("Button clicked!")}
+        >
+          Click me for an alert!
+        </IcButton>
       </IcRadioOption>
     </IcRadioGroup>
   </Story>
