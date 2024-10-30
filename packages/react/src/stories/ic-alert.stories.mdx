@@ -22,6 +22,7 @@ export const defaultArgs = {
   showAction: false,
   showDefaultIcon: true,
   showSlottedIcon: false,
+  theme: "inherit",
 };
 
 ### Variants
@@ -218,6 +219,10 @@ export const defaultArgs = {
         ],
         control: { type: "select" },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
     name="Playground"
   >
@@ -229,6 +234,7 @@ export const defaultArgs = {
         message={args.message}
         titleAbove={args.titleAbove}
         showDefaultIcon={args.showDefaultIcon}
+        theme={args.theme}
       >
         {args.showAction && (
           <IcButton slot="action" variant="secondary">

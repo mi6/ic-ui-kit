@@ -176,3 +176,44 @@ export const SlottedIcon = (): ReactElement => {
     </IcAlert>
   );
 };
+
+export const ThemeDark = (): ReactElement => {
+  return (
+    <div style={{ backgroundColor: "black", padding: "8px" }}>
+      <IcAlert
+        heading="Neutral"
+        message="This alert is for displaying miscellaneous messages."
+        dismissible
+        theme="dark"
+      />
+      <IcAlert
+        variant="info"
+        heading="Info"
+        message="This alert is for displaying information."
+        dismissible
+        theme="dark"
+      />
+      <IcAlert
+        variant="error"
+        heading="Error"
+        message="This alert is for displaying errors."
+        dismissible
+        theme="dark"
+      />
+      <IcAlert
+        variant="warning"
+        heading="Warning"
+        message="This alert is for displaying warnings."
+        dismissible
+        theme="dark"
+      />
+      <IcAlert
+        variant="success"
+        heading="Success"
+        message="This alert is for displaying success messages."
+        dismissible
+        theme="dark"
+      />
+    </div>
+  );
+};
