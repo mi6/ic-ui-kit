@@ -869,6 +869,7 @@ export namespace Components {
           * The status of the label - e.g. 'error'.
          */
         "status": "error" | "";
+        "useLabelTag": boolean;
     }
     interface IcInputValidation {
         /**
@@ -4083,6 +4084,7 @@ declare namespace LocalJSX {
           * The status of the label - e.g. 'error'.
          */
         "status"?: "error" | "";
+        "useLabelTag"?: boolean;
     }
     interface IcInputValidation {
         /**

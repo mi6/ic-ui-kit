@@ -183,7 +183,7 @@ export class CheckboxGroup {
                 helperText={helperText}
                 required={required}
                 disabled={disabled}
-                for={name}
+                useLabelTag={false}
               ></ic-input-label>
             </legend>
           )}
