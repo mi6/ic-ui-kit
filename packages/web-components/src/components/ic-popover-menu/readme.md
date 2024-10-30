@@ -17,9 +17,9 @@ This is a wrapper component to be placed around one or more ic-menu-item compone
 
 ## Events
 
-| Event             | Description                              | Type                |
-| ----------------- | ---------------------------------------- | ------------------- |
-| `icPopoverClosed` | Emitted when the popover menu is closed. | `CustomEvent<void>` |
+| Event             | Description                              | Type                                 |
+| ----------------- | ---------------------------------------- | ------------------------------------ |
+| `icPopoverClosed` | Emitted when the popover menu is closed. | `CustomEvent<HTMLIcMenuItemElement>` |
 
 
 ## CSS Custom Properties

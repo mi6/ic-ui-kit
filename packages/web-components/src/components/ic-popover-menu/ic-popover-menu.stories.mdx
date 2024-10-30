@@ -30,6 +30,10 @@ import menuGroupReadme from "../ic-menu-group/readme.md";
           function buttonClick() {
             icPopover.open = !icPopover.open;
           }
+          icPopover.addEventListener("icPopoverClosed", handleClosed);
+          function handleClosed(event) {
+            console.log(event.detail.value);
+          }
         </script>
         <div>
           <ic-popover-menu anchor="button-1" aria-label="popover">
