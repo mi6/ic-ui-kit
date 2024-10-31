@@ -416,6 +416,42 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render with column headers hidden", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          hide-column-headers
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with column header truncation", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          column-header-truncation
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.root.columnHeaderTruncation = false;
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render sortable", async () => {
     const page = await newSpecPage({
       components: [DataTable],
