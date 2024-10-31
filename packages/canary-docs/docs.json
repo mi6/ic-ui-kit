@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
-      "readme": "# ic-horizontal-card\r\n\r\n\r\n\r",
+      "readme": "# ic-horizontal-card\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -389,7 +389,7 @@
       "filePath": "src/components/ic-data-table/ic-data-table.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table",
-      "readme": "# ic-data-table\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -752,7 +752,7 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
           "docsTags": [],
-          "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    appearance: \"default\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n  }",
+          "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    appearance: \"default\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n    hideAllFromItemsPerPage: false,\n  }",
           "values": [
             {
               "type": "IcPaginationBarOptions"
@@ -1236,7 +1236,7 @@
       "filePath": "src/components/ic-data-table-title-bar/ic-data-table-title-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table-title-bar",
-      "readme": "# ic-data-table-title-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table-title-bar\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1435,7 +1435,7 @@
       "filePath": "src/components/ic-date-input/ic-date-input.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-input",
-      "readme": "# ic-date-input\r\n\r\n\r\n\r",
+      "readme": "# ic-date-input\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1677,6 +1677,28 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideLabel",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-label",
+          "reflectToAttr": false,
+          "docs": "If `true`, the label will be visually hidden, but will still be read out by screen readers.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {
@@ -2139,7 +2161,7 @@
       "filePath": "src/components/ic-date-picker/ic-date-picker.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-picker",
-      "readme": "# ic-date-picker\r\n\r\n\r\n\r",
+      "readme": "# ic-date-picker\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2381,6 +2403,28 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideLabel",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-label",
+          "reflectToAttr": false,
+          "docs": "If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {
@@ -2909,459 +2953,10 @@
       }
     },
     {
-      "filePath": "src/components/ic-menu-with-multi/ic-menu.tsx",
-      "encapsulation": "scoped",
-      "tag": "ic-menu-with-multi",
-      "readme": "# ic-menu-with-multi\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "activationType",
-          "type": "\"automatic\" | \"manual\"",
-          "complexType": {
-            "original": "IcActivationTypes",
-            "resolved": "\"automatic\" | \"manual\"",
-            "references": {
-              "IcActivationTypes": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/utils/types",
-                "id": "../web-components/dist/types/utils/types.d.ts::IcActivationTypes"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "activation-type",
-          "reflectToAttr": false,
-          "docs": "Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.",
-          "docsTags": [],
-          "default": "\"automatic\"",
-          "values": [
-            {
-              "value": "automatic",
-              "type": "string"
-            },
-            {
-              "value": "manual",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "anchorEl",
-          "type": "HTMLElement",
-          "complexType": {
-            "original": "HTMLElement",
-            "resolved": "HTMLElement",
-            "references": {
-              "HTMLElement": {
-                "location": "global",
-                "id": "global::HTMLElement"
-              }
-            }
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "The reference to an anchor element the menu will position itself from when rendered.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "HTMLElement"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "closeOnSelect",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "close-on-select",
-          "reflectToAttr": false,
-          "docs": "If `true`, the menu will close when an option is selected.",
-          "docsTags": [],
-          "default": "true",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "fullWidth",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "full-width",
-          "reflectToAttr": false,
-          "docs": "If `true`, the menu will fill the width of the container.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "inputEl",
-          "type": "HTMLElement",
-          "complexType": {
-            "original": "HTMLElement",
-            "resolved": "HTMLElement",
-            "references": {
-              "HTMLElement": {
-                "location": "global",
-                "id": "global::HTMLElement"
-              }
-            }
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "The reference to the input element.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "HTMLElement"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "inputLabel",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "input-label",
-          "reflectToAttr": false,
-          "docs": "The label for the input element.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "labelField",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "label-field",
-          "reflectToAttr": false,
-          "docs": "The custom name for the label field for IcMenuOption.",
-          "docsTags": [],
-          "default": "\"label\"",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "menuId",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "menu-id",
-          "reflectToAttr": false,
-          "docs": "The ID of the menu.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "open",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "open",
-          "reflectToAttr": true,
-          "docs": "If `true`, the menu will be displayed open.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "options",
-          "type": "IcMenuOption[]",
-          "complexType": {
-            "original": "IcMenuOption[]",
-            "resolved": "IcMenuOption[]",
-            "references": {
-              "IcMenuOption": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/utils/types",
-                "id": "../web-components/dist/types/utils/types.d.ts::IcMenuOption"
-              }
-            }
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "The possible menu selection options.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "IcMenuOption[]"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "searchMode",
-          "type": "\"navigation\" | \"query\"",
-          "complexType": {
-            "original": "IcSearchBarSearchModes",
-            "resolved": "\"navigation\" | \"query\"",
-            "references": {
-              "IcSearchBarSearchModes": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/components",
-                "id": "../web-components/dist/types/components.d.ts::IcSearchBarSearchModes"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "search-mode",
-          "reflectToAttr": false,
-          "docs": "Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.",
-          "docsTags": [],
-          "default": "\"navigation\"",
-          "values": [
-            {
-              "value": "navigation",
-              "type": "string"
-            },
-            {
-              "value": "query",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\"",
-          "complexType": {
-            "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\"",
-            "references": {
-              "IcSizes": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcSizes"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "size",
-          "reflectToAttr": false,
-          "docs": "The size of the menu.",
-          "docsTags": [],
-          "default": "\"medium\"",
-          "values": [
-            {
-              "value": "large",
-              "type": "string"
-            },
-            {
-              "value": "medium",
-              "type": "string"
-            },
-            {
-              "value": "small",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "value",
-          "type": "string | string[]",
-          "complexType": {
-            "original": "string | string[]",
-            "resolved": "string | string[]",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "value",
-          "reflectToAttr": false,
-          "docs": "The value of the currently selected option - or array of values (if multiple options allowed).",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "string[]"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "valueField",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "value-field",
-          "reflectToAttr": false,
-          "docs": "The custom name for the value field for IcMenuOption.",
-          "docsTags": [],
-          "default": "\"value\"",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "handleKeyboardOpen",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "(event: KeyboardEvent) => Promise<void>",
-            "parameters": [
-              {
-                "name": "event",
-                "type": "KeyboardEvent",
-                "docs": "- keyboard event"
-              }
-            ],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "KeyboardEvent": {
-                "location": "global",
-                "id": "global::KeyboardEvent"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "handleKeyboardOpen(event: KeyboardEvent) => Promise<void>",
-          "parameters": [
-            {
-              "name": "event",
-              "type": "KeyboardEvent",
-              "docs": "- keyboard event"
-            }
-          ],
-          "docs": "Used alongside activationType\nIf menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.",
-          "docsTags": [
-            {
-              "name": "param",
-              "text": "event - keyboard event"
-            }
-          ]
-        }
-      ],
-      "events": [],
-      "listeners": [],
-      "styles": [
-        {
-          "name": "--ic-z-index-menu",
-          "annotation": "prop",
-          "docs": "z-index of menu"
-        }
-      ],
-      "slots": [],
-      "parts": [],
-      "dependents": [
-        "ic-select-with-multi"
-      ],
-      "dependencies": [
-        "ic-loading-indicator",
-        "ic-typography",
-        "ic-button"
-      ],
-      "dependencyGraph": {
-        "ic-menu-with-multi": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-select-with-multi": [
-          "ic-menu-with-multi"
-        ]
-      }
-    },
-    {
       "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-bar",
-      "readme": "# ic-pagination-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination-bar\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3463,6 +3058,28 @@
           "required": false
         },
         {
+          "name": "hideAllFromItemsPerPage",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-all-from-items-per-page",
+          "reflectToAttr": false,
+          "docs": "If `true`, the 'All' option will be hidden from the 'items per page' select input.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "hideRangeLabel",
           "type": "boolean",
           "complexType": {
@@ -3516,7 +3133,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.",
+          "docs": "The options which will be displayed for 'items per page' select input.",
           "docsTags": [],
           "values": [
             {
@@ -3797,937 +3414,10 @@
       }
     },
     {
-      "filePath": "src/components/ic-select-with-multi/ic-select.tsx",
-      "encapsulation": "shadow",
-      "tag": "ic-select-with-multi",
-      "readme": "# ic-select\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "debounce",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "debounce",
-          "reflectToAttr": false,
-          "docs": "The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.",
-          "docsTags": [],
-          "default": "0",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "disableAutoFiltering",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "disable-auto-filtering",
-          "reflectToAttr": false,
-          "docs": "If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "disabled",
-          "reflectToAttr": true,
-          "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "emptyOptionListText",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "empty-option-list-text",
-          "reflectToAttr": false,
-          "docs": "The text displayed when there are no options in the option list.",
-          "docsTags": [],
-          "default": "\"No results found\"",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "form",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "form",
-          "reflectToAttr": false,
-          "docs": "The <form> element to associate the select with.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "fullWidth",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "full-width",
-          "reflectToAttr": false,
-          "docs": "If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "helperText",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "helper-text",
-          "reflectToAttr": false,
-          "docs": "The helper text that will be displayed for additional field guidance.",
-          "docsTags": [],
-          "default": "\"\"",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "hideLabel",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "hide-label",
-          "reflectToAttr": false,
-          "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "includeDescriptionsInSearch",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "include-descriptions-in-search",
-          "reflectToAttr": false,
-          "docs": "If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "includeGroupTitlesInSearch",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "include-group-titles-in-search",
-          "reflectToAttr": false,
-          "docs": "If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "label",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "label",
-          "reflectToAttr": false,
-          "docs": "The label for the select.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
-          "name": "loading",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "loading",
-          "reflectToAttr": false,
-          "docs": "If `true`, the loading state will be triggered when fetching options asynchronously.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "loadingErrorLabel",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "loading-error-label",
-          "reflectToAttr": false,
-          "docs": "The message displayed when external loading times out.",
-          "docsTags": [],
-          "default": "\"Loading Error\"",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "loadingLabel",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "loading-label",
-          "reflectToAttr": false,
-          "docs": "The message displayed whilst the options are being loaded externally.",
-          "docsTags": [],
-          "default": "\"Loading...\"",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "multiple",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "multiple",
-          "reflectToAttr": false,
-          "docs": "If `true`, multiple options can be selected.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "name",
-          "reflectToAttr": false,
-          "docs": "The name of the control, which is submitted with the form data.",
-          "docsTags": [],
-          "default": "this.inputId",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "options",
-          "type": "IcMenuOption[]",
-          "complexType": {
-            "original": "IcMenuOption[]",
-            "resolved": "IcMenuOption[]",
-            "references": {
-              "IcMenuOption": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/utils/types",
-                "id": "../web-components/dist/types/utils/types.d.ts::IcMenuOption"
-              }
-            }
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "The possible selection options.",
-          "docsTags": [],
-          "default": "[]",
-          "values": [
-            {
-              "type": "IcMenuOption[]"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "placeholder",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "placeholder",
-          "reflectToAttr": false,
-          "docs": "The placeholder value to be displayed.",
-          "docsTags": [],
-          "default": "\"Select an option\"",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "readonly",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "readonly",
-          "reflectToAttr": false,
-          "docs": "If `true`, the readonly state will be set.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "required",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "required",
-          "reflectToAttr": false,
-          "docs": "If `true`, the select will require a value.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "searchMatchPosition",
-          "type": "\"anywhere\" | \"start\"",
-          "complexType": {
-            "original": "IcSearchMatchPositions",
-            "resolved": "\"anywhere\" | \"start\"",
-            "references": {
-              "IcSearchMatchPositions": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcSearchMatchPositions"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "search-match-position",
-          "reflectToAttr": false,
-          "docs": "Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.",
-          "docsTags": [],
-          "default": "\"anywhere\"",
-          "values": [
-            {
-              "value": "anywhere",
-              "type": "string"
-            },
-            {
-              "value": "start",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "searchable",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "searchable",
-          "reflectToAttr": false,
-          "docs": "If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "selectOnEnter",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "select-on-enter",
-          "reflectToAttr": false,
-          "docs": "If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "showClearButton",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "show-clear-button",
-          "reflectToAttr": false,
-          "docs": "If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\"",
-          "complexType": {
-            "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\"",
-            "references": {
-              "IcSizes": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcSizes"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "size",
-          "reflectToAttr": false,
-          "docs": "The size of the select.",
-          "docsTags": [],
-          "default": "\"medium\"",
-          "values": [
-            {
-              "value": "large",
-              "type": "string"
-            },
-            {
-              "value": "medium",
-              "type": "string"
-            },
-            {
-              "value": "small",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "timeout",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "timeout",
-          "reflectToAttr": false,
-          "docs": "If using external filtering, set a timeout for when loading takes too long.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "validationStatus",
-          "type": "\"\" | \"error\" | \"success\" | \"warning\"",
-          "complexType": {
-            "original": "IcInformationStatusOrEmpty",
-            "resolved": "\"\" | \"error\" | \"success\" | \"warning\"",
-            "references": {
-              "IcInformationStatusOrEmpty": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcInformationStatusOrEmpty"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "validation-status",
-          "reflectToAttr": false,
-          "docs": "The validation status - e.g. 'error' | 'warning' | 'success'.",
-          "docsTags": [],
-          "default": "\"\"",
-          "values": [
-            {
-              "type": "\"\""
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "validationText",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "validation-text",
-          "reflectToAttr": false,
-          "docs": "The text to display as the validation message.",
-          "docsTags": [],
-          "default": "\"\"",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "value",
-          "type": "string | string[]",
-          "complexType": {
-            "original": "string | string[]",
-            "resolved": "string | string[]",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "value",
-          "reflectToAttr": false,
-          "docs": "The value of the select, reflected by the value of the currently selected option.\nFor the searchable variant, the value is also reflected by the user input.\nFor the multi-select variant, the value must be an array of option values.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "string[]"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "setFocus",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "setFocus() => Promise<void>",
-          "parameters": [],
-          "docs": "Sets focus on the input box.",
-          "docsTags": []
-        }
-      ],
-      "events": [
-        {
-          "event": "icBlur",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when the select loses focus.",
-          "docsTags": []
-        },
-        {
-          "event": "icChange",
-          "detail": "IcValueEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
-            "references": {
-              "IcValueEventDetail": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when the value changes.",
-          "docsTags": []
-        },
-        {
-          "event": "icClear",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when the clear button is clicked.",
-          "docsTags": []
-        },
-        {
-          "event": "icFocus",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when the select gains focus.",
-          "docsTags": []
-        },
-        {
-          "event": "icInput",
-          "detail": "IcValueEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
-            "references": {
-              "IcValueEventDetail": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when a keyboard input occurred.",
-          "docsTags": []
-        },
-        {
-          "event": "icOptionDeselect",
-          "detail": "IcOptionSelectEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcOptionSelectEventDetail",
-            "resolved": "IcOptionSelectEventDetail",
-            "references": {
-              "IcOptionSelectEventDetail": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/components",
-                "id": "../web-components/dist/types/components.d.ts::IcOptionSelectEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when `multiple` is `true` and an option is deselected.",
-          "docsTags": []
-        },
-        {
-          "event": "icOptionSelect",
-          "detail": "IcOptionSelectEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcOptionSelectEventDetail",
-            "resolved": "IcOptionSelectEventDetail",
-            "references": {
-              "IcOptionSelectEventDetail": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/components",
-                "id": "../web-components/dist/types/components.d.ts::IcOptionSelectEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when an option is selected.\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
-          "docsTags": []
-        },
-        {
-          "event": "icRetryLoad",
-          "detail": "IcValueEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
-            "references": {
-              "IcValueEventDetail": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when the 'retry loading' button is clicked for a searchable variant.",
-          "docsTags": []
-        }
-      ],
-      "listeners": [],
-      "styles": [
-        {
-          "name": "--ic-z-index-menu",
-          "annotation": "prop",
-          "docs": "z-index of select menu"
-        },
-        {
-          "name": "--input-width",
-          "annotation": "prop",
-          "docs": "Width of the input field"
-        },
-        {
-          "name": "--menu-width",
-          "annotation": "prop",
-          "docs": "Width of the dropdown menu"
-        }
-      ],
-      "slots": [],
-      "parts": [],
-      "dependents": [],
-      "dependencies": [
-        "ic-input-container",
-        "ic-input-label",
-        "ic-input-component-container",
-        "ic-typography",
-        "ic-button",
-        "ic-menu-with-multi",
-        "ic-input-validation"
-      ],
-      "dependencyGraph": {
-        "ic-select-with-multi": [
-          "ic-input-container",
-          "ic-input-label",
-          "ic-input-component-container",
-          "ic-typography",
-          "ic-button",
-          "ic-menu-with-multi",
-          "ic-input-validation"
-        ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu-with-multi": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
-      }
-    },
-    {
       "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-item",
-      "readme": "# ic-tree-item\r\n\r\n\r\n\r",
+      "readme": "# ic-tree-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4765,6 +3455,28 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "expanded",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tree item appears in the expanded state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -5037,7 +3749,7 @@
       "filePath": "src/components/ic-tree-view/ic-tree-view.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-view",
-      "readme": "# ic-tree-view\r\n\r\n\r\n\r",
+      "readme": "# ic-tree-view\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5079,6 +3791,28 @@
             {
               "value": "light",
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "focusInset",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "focus-inset",
+          "reflectToAttr": false,
+          "docs": "If `true`, tree items will have inset focus.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,
@@ -5219,7 +3953,7 @@
       "path": "../web-components/dist/types/utils/types.d.ts"
     },
     "src/utils/types.ts::IcPaginationBarOptions": {
-      "declaration": "export interface IcPaginationBarOptions {\n  itemsPerPageOptions?: { label: string; value: string }[];\n  rangeLabelType?: IcPaginationLabelTypes;\n  type?: IcPaginationTypes;\n  showItemsPerPageControl?: boolean;\n  showGoToPageControl?: boolean;\n  alignment?: IcPaginationAlignmentOptions;\n  appearance?: IcThemeForeground;\n  itemLabel?: string;\n  pageLabel?: string;\n  hideRangeLabel?: boolean;\n}",
+      "declaration": "export interface IcPaginationBarOptions {\n  itemsPerPageOptions?: { label: string; value: string }[];\n  rangeLabelType?: IcPaginationLabelTypes;\n  type?: IcPaginationTypes;\n  showItemsPerPageControl?: boolean;\n  showGoToPageControl?: boolean;\n  alignment?: IcPaginationAlignmentOptions;\n  appearance?: IcThemeForeground;\n  itemLabel?: string;\n  pageLabel?: string;\n  hideRangeLabel?: boolean;\n  hideAllFromItemsPerPage?: boolean;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -5285,46 +4019,6 @@
     },
     "src/utils/types.ts::IcInformationStatusOrEmpty": {
       "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "../web-components/dist/types/utils/types.d.ts::IcActivationTypes": {
-      "declaration": "export type IcActivationTypes = \"automatic\" | \"manual\";",
-      "docstring": "",
-      "path": "../web-components/dist/types/utils/types.d.ts"
-    },
-    "../web-components/dist/types/components.d.ts::IcSearchBarSearchModes": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "../web-components/dist/types/components.d.ts"
-    },
-    "../web-components/dist/types/utils/types.d.ts::IcMenuOption": {
-      "declaration": "export interface IcMenuOption {\n    description?: string;\n    disabled?: boolean;\n    recommended?: boolean;\n    children?: IcMenuOption[];\n    loading?: boolean;\n    timedOut?: boolean;\n    [key: string]: any;\n    element?: {\n        component: any;\n        ariaLabel: string;\n    };\n    icon?: any;\n}",
-      "docstring": "",
-      "path": "../web-components/dist/types/utils/types.d.ts"
-    },
-    "../web-components/dist/types/components.d.ts::IcMenuOptionIdEventDetail": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "../web-components/dist/types/components.d.ts"
-    },
-    "../web-components/dist/types/components.d.ts::IcOptionSelectEventDetail": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "../web-components/dist/types/components.d.ts"
-    },
-    "../web-components/dist/types/components.d.ts::IcMenuChangeEventDetail": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "../web-components/dist/types/components.d.ts"
-    },
-    "src/utils/types.ts::IcValueEventDetail": {
-      "declaration": "export interface IcValueEventDetail {\n  value: string | string[];\n  keyPressed?: string;\n}",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcSearchMatchPositions": {
-      "declaration": "export type IcSearchMatchPositions = \"start\" | \"anywhere\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },

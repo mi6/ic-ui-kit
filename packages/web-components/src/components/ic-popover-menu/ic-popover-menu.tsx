@@ -13,6 +13,7 @@ import {
 } from "@stencil/core";
 import { getSlotElements, isPropDefined } from "../../utils/helpers";
 import { createPopper, Instance as PopperInstance } from "@popperjs/core";
+import { IcThemeMode } from "../../utils/types";
 
 @Component({
   tag: "ic-popover-menu",
@@ -60,6 +61,11 @@ export class PopoverMenu {
   @Prop() submenuLevel: number = 1;
 
   /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+
+  /**
    * If `true`, the popover menu will be displayed.
    */
   @Prop({ reflect: true, mutable: true }) open: boolean = undefined;
@@ -74,7 +80,7 @@ export class PopoverMenu {
         this.popoverMenuEls.unshift(this.backButton);
       }
 
-      this.currentFocus = isPropDefined(this.submenuId) ? 1 : 0;
+      this.currentFocus = 0;
       // Needed so that anchorEl isn't always focused
       setTimeout(this.setButtonFocus, 50);
     } else if (this.popperInstance) {
@@ -342,7 +348,12 @@ export class PopoverMenu {
 
   render() {
     return (
-      <Host class={{ "ic-popover-menu-open": this.open }}>
+      <Host
+        class={{
+          ["ic-popover-menu-open"]: this.open,
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+        }}
+      >
         <div
           id={
             this.parentPopover === undefined
@@ -387,21 +398,7 @@ export class PopoverMenu {
                 </ic-typography>
               </div>
             )}
-            <ul
-              class="button"
-              aria-label={this.getMenuAriaLabel()}
-              role="menu"
-              aria-owns={
-                isPropDefined(this.submenuId)
-                  ? `ic-popover-submenu-back-button-${this.submenuLevel}`
-                  : false
-              }
-              aria-controls={
-                isPropDefined(this.submenuId)
-                  ? `ic-popover-submenu-back-button-${this.submenuLevel}`
-                  : false
-              }
-            >
+            <ul class="button" aria-label={this.getMenuAriaLabel()} role="menu">
               <slot></slot>
             </ul>
           </div>

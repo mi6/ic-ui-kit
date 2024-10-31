@@ -64,7 +64,7 @@ export class Alert {
   @Prop() variant?: IcStatusVariants = "neutral";
 
   /**
-   * If `true`, the default icon for the neutral variant will be appear on the left of the alert.
+   * If `true`, the default icon for the neutral variant will appear on the left of the alert.
    */
   @Prop() showDefaultIcon: boolean = true;
 

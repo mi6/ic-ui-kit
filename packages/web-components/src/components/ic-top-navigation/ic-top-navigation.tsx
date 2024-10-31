@@ -171,13 +171,13 @@ export class TopNavigation {
         //don't hide if blur was triggered by click on search button - let the click handler toggle the state
         this.toggleSearchBar();
       }
-      this.searchValue = detail.value;
+      this.searchValue = detail.value as string;
     }
   }
 
   @Listen("icChange", {})
   searchValueChangeHandler({ detail }: CustomEvent<IcValueEventDetail>): void {
-    this.searchValue = detail.value;
+    this.searchValue = detail.value as string;
   }
 
   @Listen("themeChange", { target: "document" })

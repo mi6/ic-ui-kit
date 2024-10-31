@@ -20,6 +20,7 @@ export const defaultArgs = {
   hideLabel: false,
   showState: false,
   size: "medium",
+  theme: "inherit",
 };
 
 ### Default
@@ -179,6 +180,10 @@ export const defaultArgs = {
         options: ["medium", "small"],
         control: { type: "inline-radio" },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
     name="Playground"
     parameters={{ loki: { skip: true } }}
@@ -192,6 +197,7 @@ export const defaultArgs = {
         hide-label=${args.hideLabel}
         helper-text=${args.helperText}
         size=${args.size}
+        theme=${args.theme}
       ></ic-switch>`
     }
   </Story>

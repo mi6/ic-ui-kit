@@ -232,6 +232,33 @@ const DateInput = () => (
 export default DateInput;
 ```
 
+### Hide label
+
+To hide the label, set the `hideLabel` prop to `true`. The required `label` will still be read out by screen readers. 
+
+<Canvas withSource="none">
+  <Story name="Hide label" parameters={{ loki: { skip: true } }}>
+    <IcDateInput
+      label="When would you like to collect your coffee?"
+      hideLabel
+    />
+  </Story>
+</Canvas>
+
+```jsx
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    hideLabel
+  />
+);
+
+export default DateInput;
+```
+
 ### Required
 
 To set the date input as a required field, add the `required` prop. This will add an asterisk at the end of the date input label.
@@ -653,6 +680,7 @@ export const defaultArgs = {
   disablePastMessage: "This date is in the past",
   helperText: "Choose a date",
   hideHelperText: false,
+  hideLabel: false,
   invalidDateMessage: "Invalid date",
   label: "When would you like to collect your coffee?",
   max: "",
@@ -713,6 +741,7 @@ export const defaultArgs = {
           disablePastMessage={args.disablePastMessage}
           helperText={args.helperText}
           hideHelperText={args.hideHelperText}
+          hideLabel={args.hideLabel}
           invalidDateMessage={args.invalidDateMessage}
           label={args.label}
           max={args.max}

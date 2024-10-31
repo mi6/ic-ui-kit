@@ -5,7 +5,7 @@ exports[`ic-checkbox-group should pass the size on the checkbox group to the chi
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label"></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -44,7 +44,7 @@ exports[`ic-checkbox-group should prioritise the size on an individual checkbox 
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label"></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -94,7 +94,7 @@ exports[`ic-checkbox-group should remove disabled attribute from static addition
   <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" xmlns="http://www.w3.org/2000/svg">
+        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>
             checkmark icon
           </title>
@@ -136,7 +136,7 @@ exports[`ic-checkbox-group should render an aria label when checkbox label hidde
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label"></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -185,7 +185,7 @@ exports[`ic-checkbox-group should render as helper text: renders-with-helpertext
   <mock:shadow-root>
     <fieldset aria-labelledby="test-helper-text" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="helper test" label="test label"></ic-input-label>
+        <ic-input-label helpertext="helper test" label="test label"></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -215,7 +215,7 @@ exports[`ic-checkbox-group should render as required: renders-required 1`] = `
     </span>
     <fieldset aria-labelledby="screenReaderOnlyText" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="" label="test label" required=""></ic-input-label>
+        <ic-input-label helpertext="" label="test label" required=""></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -242,7 +242,7 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label"></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -252,7 +252,7 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
   <ic-checkbox additional-field-display="static" checked="" class="ic-checkbox-medium" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" xmlns="http://www.w3.org/2000/svg">
+        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>
             checkmark icon
           </title>
@@ -276,7 +276,7 @@ exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label"></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -303,7 +303,7 @@ exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label"></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -389,7 +389,7 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
   <ic-checkbox additional-field-display="dynamic" checked="" class="ic-checkbox-medium" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" xmlns="http://www.w3.org/2000/svg">
+        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>
             checkmark icon
           </title>
@@ -517,7 +517,7 @@ exports[`ic-checkbox-group should render: renders 1`] = `
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label"></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -559,7 +559,7 @@ exports[`ic-checkbox-group should test labelNameHandler 1`] = `
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label"></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -586,7 +586,7 @@ exports[`ic-checkbox-group should test labelNameHandler 2`] = `
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label for="test" helpertext="" label="new label"></ic-input-label>
+        <ic-input-label helpertext="" label="new label"></ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>

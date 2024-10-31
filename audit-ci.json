@@ -69,6 +69,13 @@
         "notes": "issue in 'webpack' package",
         "expiry": "12 September 2024"
       }
+    },
+    {
+      "GHSA-p6mc-m468-83gw": {
+        "active": true,
+        "notes": "issue in 'lodash.set' package use by '@cypress-audit/lighthouse>lighthouse' - no current fix",
+        "expiry": "9 November 2024"
+      }
     } 
   ]
 }

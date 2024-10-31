@@ -138,6 +138,20 @@ describe("IcTreeView", () => {
     });
   });
 
+  it("should render with focus inset", () => {
+    mount(BasicTreeView({ focusInset: true }));
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).focus();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "focus-inset",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.09),
+    });
+  });
+
   it("should render with disabled tree item", () => {
     mount(BasicTreeView({}, { disabled: true }));
 

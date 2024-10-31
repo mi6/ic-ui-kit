@@ -49,6 +49,17 @@ export class TreeView {
   }
 
   /**
+   * If `true`, tree items will have inset focus.
+   */
+  @Prop() focusInset?: boolean = false;
+  @Watch("focusInset")
+  watchFocusInsetHandler() {
+    this.treeItems.forEach((treeItem) => {
+      treeItem.focusInset = this.focusInset;
+    });
+  }
+
+  /**
    * The heading of the tree view.
    */
   @Prop() heading?: string = "";
@@ -75,6 +86,8 @@ export class TreeView {
 
     this.watchAppearanceHandler();
     this.watchSizeHandler();
+    this.watchFocusInsetHandler();
+
     setTimeout(() => {
       this.truncateTreeViewHeading();
     }, 100);
@@ -229,7 +242,7 @@ export class TreeView {
   private truncateTreeViewHeading = () => {
     const typographyEl: HTMLIcTypographyElement =
       this.el.shadowRoot.querySelector(".tree-view-header");
-    const tooltip = typographyEl.closest("ic-tooltip");
+    const tooltip = typographyEl?.closest("ic-tooltip");
     const headingContainer: HTMLElement = this.el.shadowRoot.querySelector(
       ".heading-area-container"
     );

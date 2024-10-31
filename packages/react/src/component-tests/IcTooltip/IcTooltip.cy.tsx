@@ -15,6 +15,7 @@ import {
   DisableHover,
   ExternalNoPersist,
   External,
+  LargeLabel,
 } from "./IcTooltipTestData";
 import {
   BE_VISIBLE,
@@ -237,6 +238,20 @@ describe("IcTooltip visual regression and a11y tests", () => {
       name: "default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
       delay: 200,
+    });
+  });
+
+  it("should render a IcTooltip with a large label", () => {
+    mount(<LargeLabel />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+    cy.get("button").realHover("mouse");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "very-large-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.081),
+      delay: 500,
     });
   });
 

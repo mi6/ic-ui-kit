@@ -61,6 +61,7 @@ interface IcDateInputProps {
   disablePastMessage?: string;
   helperText?: string;
   hideHelperText?: boolean;
+  hideLabel?: boolean;
   inputId?: string;
   invalidDateMessage?: string;
   label: string;
@@ -189,6 +190,11 @@ export class DatePicker {
    * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
    */
   @Prop() hideHelperText: boolean = false;
+
+  /**
+   * If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.
+   */
+  @Prop() hideLabel?: boolean = false;
 
   /**
    * The ID for the input field. The default will be an automatically generated value.
@@ -1222,6 +1228,7 @@ export class DatePicker {
 
   private setDateInputProps = (): IcDateInputProps => {
     const inputProps: IcDateInputProps = {
+      hideLabel: this.hideLabel,
       invalidDateMessage: this.invalidDateMessage,
       label: this.label,
       showClearButton: true,

@@ -31,6 +31,11 @@ export class InputLabel {
   @Prop() helperText: string = "";
 
   /**
+   * The label will be visually hidden.
+   */
+  @Prop() hideLabel: boolean = false;
+
+  /**
    * The text content of the label.
    */
   @Prop() label!: string;
@@ -50,6 +55,11 @@ export class InputLabel {
    */
   @Prop() status: "error" | "" = "";
 
+  /**
+   * @internal If `true`, wraps label text in label tag
+   */
+  @Prop() useLabelTag: boolean = true;
+
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
@@ -65,14 +75,17 @@ export class InputLabel {
       required,
       helperText,
       status,
+      hideLabel,
       appearance,
+      useLabelTag,
     } = this;
     const labelText = required ? label + " *" : label;
-    const labelContent = readonly ? (
-      `${labelText}`
-    ) : (
-      <label htmlFor={this.for}>{labelText}</label>
-    );
+    const labelContent =
+      readonly || !useLabelTag ? (
+        `${labelText}`
+      ) : (
+        <label htmlFor={this.for}>{labelText}</label>
+      );
 
     const id = getInputHelperTextID(this.for);
 
@@ -84,16 +97,18 @@ export class InputLabel {
           ["with-helper"]: helperText !== "",
         }}
       >
-        <ic-typography
-          variant="label"
-          class={{
-            ["readonly-label"]: readonly,
-            ["error-label"]: status === "error" && !(readonly || disabled),
-            ["dark"]: appearance === "dark",
-          }}
-        >
-          {labelContent}
-        </ic-typography>
+        {!hideLabel && (
+          <ic-typography
+            variant="label"
+            class={{
+              ["readonly-label"]: readonly,
+              ["error-label"]: status === "error" && !(readonly || disabled),
+              ["dark"]: appearance === "dark",
+            }}
+          >
+            {labelContent}
+          </ic-typography>
+        )}
 
         {helperText !== "" && (
           <ic-typography

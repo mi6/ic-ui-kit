@@ -6,7 +6,7 @@
 }
 
 ic-typography {
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-popover-parent-label);
 
   margin: var(--ic-space-xs) var(--ic-space-xs) 0;
 }
@@ -20,6 +20,6 @@ ul {
 hr {
   display: flex;
   align-self: stretch;
-  border: calc(var(--ic-space-xxxs) / 2) solid var(--ic-architectural-300);
+  border: calc(var(--ic-space-xxxs) / 2) solid var(--ic-popover-border);
   margin: var(--ic-space-xxs) 0 calc(var(--ic-space-sm) / 4);
 }

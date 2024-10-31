@@ -162,6 +162,7 @@
 }
 
 :host(.inner-label) .ic-loading-circular-inner {
+  height: 100%;
   display: grid;
 }
 

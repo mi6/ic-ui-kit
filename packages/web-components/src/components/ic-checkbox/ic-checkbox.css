@@ -39,6 +39,11 @@
   flex-shrink: 0;
 }
 
+:host .container svg {
+  width: var(--ic-space-lg);
+  height: var(--ic-space-lg);
+}
+
 :host(.ic-checkbox-small) .checkbox,
 :host(.ic-checkbox-small) .container svg {
   width: var(--ic-space-md);
