@@ -562,7 +562,7 @@ export class DateInput {
   private handleKeyDown = (event: KeyboardEvent, isInputPrevented: boolean) => {
     const input = event.target as HTMLInputElement;
 
-    const eventKey = event.key.toLowerCase();
+    const eventKey = event.key?.toLowerCase();
     // Regex required due to FF allowing all characters as values for number text field.
     const regex =
       /-?\d*\.?\d+(e[-+]?\d+)?|[/-]|arrowup|arrowdown|arrowleft|arrowright|shift|tab|backspace|delete/;
