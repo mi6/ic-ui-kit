@@ -38,6 +38,7 @@ import {
   addDataToPosition,
   dynamicDebounce,
   getSlotElements,
+  checkResizeObserver,
 } from "../../utils/helpers";
 
 /**
@@ -95,6 +96,10 @@ export class DataTable {
   private previousPaginationPage: number;
   private truncationPatternUpdated: boolean = false;
   private isNewDebounceDelaySet = false;
+  private headerResizeObserver: ResizeObserver = null;
+  private prevTableContainerWidth: number;
+  private IC_TOOLTIP_STRING = "ic-tooltip";
+  private SHOW_TRUNC_TOOLTIP_STRING = "show-trunc-tooltip";
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -124,6 +129,26 @@ export class DataTable {
    * The title for the table only visible to screen readers.
    */
   @Prop() caption!: string;
+
+  /**
+   * Determines whether the column header should be truncated and display a tooltip. Default is `false`.
+   */
+  @Prop() columnHeaderTruncation: boolean = false;
+
+  @Watch("columnHeaderTruncation")
+  headerTruncationChangeHandler(): void {
+    if (this.columnHeaderTruncation) {
+      this.prevTableContainerWidth = 0;
+    } else {
+      const headers = this.el.shadowRoot.querySelectorAll("th.column-header");
+      headers.forEach((header) => {
+        const tooltip = header.querySelector(this.IC_TOOLTIP_STRING);
+        if (tooltip) {
+          tooltip.classList.remove(this.SHOW_TRUNC_TOOLTIP_STRING);
+        }
+      });
+    }
+  }
 
   /**
    * The column headers for the table.
@@ -297,6 +322,7 @@ export class DataTable {
 
   disconnectedCallback(): void {
     this.resizeObserver?.disconnect();
+    this.headerResizeObserver?.disconnect();
   }
 
   componentWillLoad(): void {
@@ -318,6 +344,8 @@ export class DataTable {
   componentDidLoad(): void {
     const tableElement = this.el.shadowRoot.querySelector("table");
     const tableContainer = this.el.shadowRoot.querySelector(".table-container");
+
+    checkResizeObserver(this.runHeaderResizeObserver);
 
     if (this.dataUpdated) {
       this.dataUpdated = false;
@@ -366,6 +394,34 @@ export class DataTable {
   componentDidRender(): void {
     this.fixCellTooltips();
   }
+
+  private runHeaderResizeObserver = () => {
+    this.headerResizeObserver = new ResizeObserver(() => {
+      this.headerResizeCallback();
+    });
+    this.headerResizeObserver.observe(this.el);
+  };
+
+  private headerResizeCallback = () => {
+    if (!this.hideColumnHeaders && this.columnHeaderTruncation) {
+      const tableContainerWidth =
+        this.el.shadowRoot.querySelector(".table-container").clientWidth;
+      if (tableContainerWidth !== this.prevTableContainerWidth) {
+        const headers = this.el.shadowRoot.querySelectorAll("th.column-header");
+        headers.forEach((header) => {
+          const tooltip = header.querySelector(this.IC_TOOLTIP_STRING);
+          const typographyEls = header.querySelectorAll("ic-typography");
+          if (tooltip && typographyEls && typographyEls.length === 2) {
+            tooltip.classList.remove(this.SHOW_TRUNC_TOOLTIP_STRING);
+            if (typographyEls[1].clientWidth > typographyEls[0].clientWidth) {
+              tooltip.classList.add(this.SHOW_TRUNC_TOOLTIP_STRING);
+            }
+          }
+        });
+        this.prevTableContainerWidth = tableContainerWidth;
+      }
+    }
+  };
 
   private truncateUpdatedData() {
     if (this.dataUpdated) {
@@ -1336,7 +1392,7 @@ export class DataTable {
 
   private createColumnHeaders = () => {
     return this.columns.map(
-      ({ cellAlignment, colspan, icon, key, title, columnWidth }) => (
+      ({ cellAlignment, colspan, icon, key, title, columnWidth }, index) => (
         <th
           scope="col"
           class={{
@@ -1350,6 +1406,7 @@ export class DataTable {
           <div
             class={{
               "column-header-inner-container": true,
+              "truncation-tooltip": this.columnHeaderTruncation,
               [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
             }}
           >
@@ -1361,15 +1418,30 @@ export class DataTable {
                 <span class="icon" innerHTML={icon.icon}></span>
               )
             )}
-            <ic-typography
-              variant="body"
-              class={{
-                ["column-header-text"]: true,
-                [`text-${this.density}`]: this.notDefaultDensity(),
-              }}
-            >
-              {title}
-            </ic-typography>
+            {this.columnHeaderTruncation ? (
+              <ic-tooltip label={title} target={`column-header-${index}`}>
+                <ic-typography
+                  id={`column-header-${index}`}
+                  variant="body"
+                  class={{
+                    ["column-header-text"]: true,
+                    [`text-${this.density}`]: this.notDefaultDensity(),
+                  }}
+                >
+                  {title}
+                </ic-typography>
+              </ic-tooltip>
+            ) : (
+              <ic-typography
+                variant="body"
+                class={{
+                  ["column-header-text"]: true,
+                  [`text-${this.density}`]: this.notDefaultDensity(),
+                }}
+              >
+                {title}
+              </ic-typography>
+            )}
             {this.sortable && (
               <ic-button
                 variant="icon"
@@ -1393,6 +1465,19 @@ export class DataTable {
               ></ic-button>
             )}
           </div>
+          {this.columnHeaderTruncation && (
+            <ic-typography
+              variant="body"
+              aria-hidden="true"
+              class={{
+                ["column-header-text"]: true,
+                ["dummy-column-header-text"]: this.columnHeaderTruncation,
+                [`text-${this.density}`]: this.notDefaultDensity(),
+              }}
+            >
+              {title}
+            </ic-typography>
+          )}
         </th>
       )
     );
@@ -1683,7 +1768,9 @@ export class DataTable {
     typographyEl: HTMLIcTypographyElement,
     cellContainer: HTMLElement
   ) {
-    const tooltipEl = document.createElement("ic-tooltip");
+    const tooltipEl = document.createElement(
+      this.IC_TOOLTIP_STRING
+    ) as HTMLIcTooltipElement;
     tooltipEl.setAttribute("target", typographyEl.id);
     tooltipEl.setAttribute("label", typographyEl.textContent);
     tooltipEl.classList.add("ic-tooltip-overflow");
@@ -1703,7 +1790,7 @@ export class DataTable {
         const tooltipEl = (
           slottedEl.tagName === "IC-TOOLTIP"
             ? slottedEl
-            : slottedEl.shadowRoot?.querySelector("ic-tooltip")
+            : slottedEl.shadowRoot?.querySelector(this.IC_TOOLTIP_STRING)
         ) as HTMLIcTooltipElement;
         if (tooltipEl) {
           tooltipEl.setExternalPopperProps({

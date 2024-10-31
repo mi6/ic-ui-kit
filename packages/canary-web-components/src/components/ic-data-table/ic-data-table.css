@@ -81,6 +81,18 @@ table {
   box-sizing: border-box;
 }
 
+.column-header-inner-container ic-tooltip {
+  pointer-events: none;
+}
+
+.column-header-inner-container ic-tooltip.show-trunc-tooltip {
+  pointer-events: auto;
+}
+
+.column-header-inner-container ic-tooltip .column-header-text {
+  --ic-line-clamp: 1;
+}
+
 .column-header-sticky {
   position: sticky;
   top: 0;
@@ -149,6 +161,13 @@ td.table-density-spacious {
 
 .column-header-text {
   font-weight: var(--ic-font-weight-bold);
+}
+
+.dummy-column-header-text {
+  white-space: nowrap;
+  overflow: hidden;
+  height: 0;
+  width: fit-content;
 }
 
 .row-header,

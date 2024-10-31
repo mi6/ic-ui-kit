@@ -74,6 +74,10 @@ export namespace Components {
          */
         "caption": string;
         /**
+          * Determines whether the column header should be truncated and display a tooltip. Default is `false`.
+         */
+        "columnHeaderTruncation": boolean;
+        /**
           * The column headers for the table.
          */
         "columns": IcDataTableColumnObject[];
@@ -1029,6 +1033,10 @@ declare namespace LocalJSX {
           * The title for the table only visible to screen readers.
          */
         "caption": string;
+        /**
+          * Determines whether the column header should be truncated and display a tooltip. Default is `false`.
+         */
+        "columnHeaderTruncation"?: boolean;
         /**
           * The column headers for the table.
          */
