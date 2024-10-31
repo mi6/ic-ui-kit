@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.2...@ukic/react@3.0.0-alpha.3) (2024-10-31)
+
+### Bug Fixes
+
+- **react:** add relevant storybook component to demostrate the onClick event ([f884e02](https://github.com/mi6/ic-ui-kit/commit/f884e02e1395c582391360d8c35b17612367bd92))
+- **react:** adds test for high contrast focus ([c1bd2bc](https://github.com/mi6/ic-ui-kit/commit/c1bd2bc6fab62ce59de80800e4ef776fceb0898d))
+- **react:** updates baseline images after tooltip change ([4e5f7be](https://github.com/mi6/ic-ui-kit/commit/4e5f7bea7532e5791f45e9f1ba4e484cd3ae6a09))
+- **react:** updating cypress tests and replacing images ([606d0f5](https://github.com/mi6/ic-ui-kit/commit/606d0f518f057fd1843b0afc503da4e32e0ece16))
+
+### Features
+
+- **react:** adds theme prop for ic-chip ([9bc35bb](https://github.com/mi6/ic-ui-kit/commit/9bc35bb422d140bcdf1e065b08c68836ff4bdaad))
+- **react:** add multi-select Cypress tests and stories (moved from canary) ([c6cd55b](https://github.com/mi6/ic-ui-kit/commit/c6cd55bc7c91bab13119eb813e881d3c7cc1c02e))
+- **react:** add theme prop to switch to enable light and dark mode ([97f98ba](https://github.com/mi6/ic-ui-kit/commit/97f98baba049ca7bed1ac143a1ac0b3755af2ef1))
+- **react:** added new props and tests to IcLoadingIndicator ([ab220a4](https://github.com/mi6/ic-ui-kit/commit/ab220a4d56c262d7422b8669297318ba70c3f809))
+- **react:** added new theme prop for IcSkeleton to storybook ([854b1d9](https://github.com/mi6/ic-ui-kit/commit/854b1d98e55c196ba3ee0eb4b11dfd9476c9b0bc))
+- **react:** added test for new IcToastRegion componentDidLoad ([404594f](https://github.com/mi6/ic-ui-kit/commit/404594f104e278388e0694884095a436935d8463))
+- **react:** added test for new IcToastRegion componentDidLoad ([8a603e6](https://github.com/mi6/ic-ui-kit/commit/8a603e69c56d266539834ec7eeacf7e055f408bd))
+- **react:** created workflow for performance testing ([e98f801](https://github.com/mi6/ic-ui-kit/commit/e98f801f1b84746c6aa6ca916bb4535e952cb293))
+- **react:** dark mode popover ([4315011](https://github.com/mi6/ic-ui-kit/commit/431501140fe926fb4859b155a599013922da3ff1))
+- **react:** update Cypress visual regression test baseline images ([f8c044f](https://github.com/mi6/ic-ui-kit/commit/f8c044f946fffa17f490bd5bf6477bf0f4fdeb08))
+- **react:** update stepper to use theme prop instead of appearance ([20928b3](https://github.com/mi6/ic-ui-kit/commit/20928b3634575f0fe004a358f6d7757a53170950))
+
+### Performance Improvements
+
+- **react:** add the ability to change between themes in Storybook toolbar ([2e60dd8](https://github.com/mi6/ic-ui-kit/commit/2e60dd83d9330f205edabc87667b3cff6984b465))
+
+### BREAKING CHANGES
+
+- **react:** "IcSelect" needs to be used to get the multi-select variant, and from the react
+  package (rather than "IcSelectWithMulti" from canary-react).
+- **react:** dark mode
+- **react:** removed appearance prop
+- **react:** Stepper appearance prop swapped for theme
+- **react:** component will honour system preference by default
+- **react:** removed appearance prop in favour of theme prop
+
 # [3.0.0-alpha.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.1...@ukic/react@3.0.0-alpha.2) (2024-10-17)
 
 ### Bug Fixes

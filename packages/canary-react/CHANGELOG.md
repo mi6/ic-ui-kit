@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.2...@ukic/canary-react@3.0.0-canary.3) (2024-10-31)
+
+### Bug Fixes
+
+- **canary-react:** adds test for tooltip fix ([a35bc74](https://github.com/mi6/ic-ui-kit/commit/a35bc744ff0d5655c2c80b18f4f0d2408e32ee19))
+- **canary-react:** update tree view stories to include expanded example ([fe66b26](https://github.com/mi6/ic-ui-kit/commit/fe66b264e6787a2a3bf5c5a8778e52bc7b5ccc2b))
+
+### Features
+
+- **canary-react:** add focus inset prop to tree view items ([6ba7285](https://github.com/mi6/ic-ui-kit/commit/6ba7285c1a18367ae136a6322053faca83e7f2ee))
+- **canary-react:** added tests for date input ([c1f6c8d](https://github.com/mi6/ic-ui-kit/commit/c1f6c8d38a2a91142ea5dc663d6b82255f28efa5))
+- **canary-react:** implement hideAllFromItemsPerPage & remove limit on itemsPerPage opts ([ba7ca3b](https://github.com/mi6/ic-ui-kit/commit/ba7ca3bf9afebcd2b3a1db9bdd1987527d141738))
+- **canary-react:** remove all multi-select files (moved to core package) ([d7fb59a](https://github.com/mi6/ic-ui-kit/commit/d7fb59af37384bf77a0440d1bb5ad286732cc3a7))
+
+### Performance Improvements
+
+- **canary-react:** add the ability to change between themes in Storybook toolbar ([dd34ce8](https://github.com/mi6/ic-ui-kit/commit/dd34ce8da9a8d1fec8db1542120820d836c977ec))
+
 # [3.0.0-canary.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.1...@ukic/canary-react@3.0.0-canary.2) (2024-10-17)
 
 ### Bug Fixes

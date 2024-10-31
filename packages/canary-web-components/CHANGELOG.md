@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.2...@ukic/canary-web-components@3.0.0-canary.3) (2024-10-31)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes tooltip display issue in data-table ([462ec4f](https://github.com/mi6/ic-ui-kit/commit/462ec4fb416a42d31150f3d8c11d99baeee2a7cf))
+- **canary-web-components:** update tree view with heading and expanded improvements ([b821d10](https://github.com/mi6/ic-ui-kit/commit/b821d10c845dfb94b1824fb15a63a047ad7bc4c5))
+
+### Features
+
+- **canary-web-components:** add focus inset prop to tree view items ([37d969d](https://github.com/mi6/ic-ui-kit/commit/37d969d959bb19f378e6ad6518611260475076bb))
+- **canary-web-components:** added new hidelabel prop ([23067fa](https://github.com/mi6/ic-ui-kit/commit/23067fa0fcf043639b469164ba7c3022f535cbcd))
+- **canary-web-components:** implement hideAllFromItemsPerPage & remove limit on itemsPerPage opts ([d338294](https://github.com/mi6/ic-ui-kit/commit/d338294cbd688c923f16c9e17c4ed7315c281cd5)), closes [#1950](https://github.com/mi6/ic-ui-kit/issues/1950)
+- **canary-web-components:** remove all multi-select files (moved to core package) ([39431bd](https://github.com/mi6/ic-ui-kit/commit/39431bd397548750f08fa0c827c07e7f74e7d48d))
+- **react:** update Cypress visual regression test baseline images ([f8c044f](https://github.com/mi6/ic-ui-kit/commit/f8c044f946fffa17f490bd5bf6477bf0f4fdeb08))
+
+### Performance Improvements
+
+- **canary-web-components:** add the ability to change between themes in Storybook toolbar ([6a40ac1](https://github.com/mi6/ic-ui-kit/commit/6a40ac12b84251505bcf66470505b239e3384196))
+
 # [3.0.0-canary.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.1...@ukic/canary-web-components@3.0.0-canary.2) (2024-10-17)
 
 ### Bug Fixes

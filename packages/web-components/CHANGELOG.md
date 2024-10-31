@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.2...@ukic/web-components@3.0.0-alpha.3) (2024-10-31)
+
+### Bug Fixes
+
+- **react:** add relevant storybook component to demostrate the onClick event ([f884e02](https://github.com/mi6/ic-ui-kit/commit/f884e02e1395c582391360d8c35b17612367bd92))
+- **web-components:** added styling to loading indicator ([e4bf5b5](https://github.com/mi6/ic-ui-kit/commit/e4bf5b506b2a0bb0da503a88ff348f542af583af))
+- **web-components:** added useLabelTag Prop ([4202f50](https://github.com/mi6/ic-ui-kit/commit/4202f50b61ce2876a48153a6af8216b927afe0ce))
+- **web-components:** adds check for undefined element in typography ([e79d281](https://github.com/mi6/ic-ui-kit/commit/e79d2810c26330173bc25f6cc4172e993b44afda))
+- **web-components:** adds high contrast focus ([9ceb0b7](https://github.com/mi6/ic-ui-kit/commit/9ceb0b7329e8181ff0add03ead3e130f73374761))
+- **web-components:** change to previous fix with hiding icon ([daa0949](https://github.com/mi6/ic-ui-kit/commit/daa0949bf7296cf0fe8b21b67b2bfc4406265e2a))
+- **web-components:** changed conditional for applying aria-role to ic-search-bar ([cbe4be8](https://github.com/mi6/ic-ui-kit/commit/cbe4be8b2af87c7cdd151012d8882d2f2aee373f))
+- **web-components:** fix click event not working on conditional elements in radio buttons ([b61ec80](https://github.com/mi6/ic-ui-kit/commit/b61ec80206f68842bd1ad85226766b6f24194ffe)), closes [#2514](https://github.com/mi6/ic-ui-kit/issues/2514)
+- **web-components:** fix focus overlapping text ([e7d135d](https://github.com/mi6/ic-ui-kit/commit/e7d135d3a6eb8a9baea0f900963be4793e346ba6))
+- **web-components:** fix icpopoverclosed event not emitting when closed via submenu ([87010e7](https://github.com/mi6/ic-ui-kit/commit/87010e73d20713f09d544f1f47f6e466f1b149d1)), closes [#2297](https://github.com/mi6/ic-ui-kit/issues/2297)
+- **web-components:** fix multiple radio options being selected with the same value ([35b1603](https://github.com/mi6/ic-ui-kit/commit/35b1603b8321ec9a3d84017b6545fd9b778d1c86)), closes [#2567](https://github.com/mi6/ic-ui-kit/issues/2567)
+- **web-components:** fix nav group not align with other nav items ([bbb33d8](https://github.com/mi6/ic-ui-kit/commit/bbb33d844300a35ebd9be7c5fd041cc1af826c51))
+- **web-components:** fixed not autoselecting first tab during dynamic render ([e2140eb](https://github.com/mi6/ic-ui-kit/commit/e2140ebf734f4b36eb76cffb71b0b45caa76171c))
+- **web-components:** fixes issue with showDefaultIcon in gatsby ([84719d9](https://github.com/mi6/ic-ui-kit/commit/84719d93de2255cf76cf1cfb0d820c499ff95193))
+- **web-components:** fixes tooltips wrapping onto multiple lines ([28321f7](https://github.com/mi6/ic-ui-kit/commit/28321f73610fbdbb57e93b982375403315a32ac8))
+- **web-components:** popover accessibility order match visual order ([bcf7018](https://github.com/mi6/ic-ui-kit/commit/bcf70181775840e0eac4fd07c0ff761053a2b507))
+- **web-components:** remove REM explicit width/height from checkbox SVG in favour of CSS default ([f8a856e](https://github.com/mi6/ic-ui-kit/commit/f8a856edd0a7c85fba358c8b14f9cd5bbe4a45e4))
+- **web-components:** removed margin-bottom from heading ([c4827cb](https://github.com/mi6/ic-ui-kit/commit/c4827cb8b5d82ced877a0ff3b8adbaf1e3ded60b))
+- **web-components:** restore radio orientation overrides after rebase ([a29a4d7](https://github.com/mi6/ic-ui-kit/commit/a29a4d72d6b300ee391d8d460a324229b0f42c50))
+- **web-components:** update auto dismiss toast to turn manual when hovered over ([a12ab96](https://github.com/mi6/ic-ui-kit/commit/a12ab9651088fc750593c7b87a83b52a219b5d37)), closes [#1291](https://github.com/mi6/ic-ui-kit/issues/1291)
+- **web-components:** update toast animation to only work when prefers reduced motion is off ([e99ffa8](https://github.com/mi6/ic-ui-kit/commit/e99ffa833842e6f798c202271f88fbcd24a0a162)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
+
+### Features
+
+- **web-components:** add atoms css tokens to colors.css and color-mode.css ([3d7e6d8](https://github.com/mi6/ic-ui-kit/commit/3d7e6d84b215992e509dc36d5993c26fd3ced84e))
+- **web-components:** add global primitive and semantic CSS tokens to allow for use in dark mode ([d07633c](https://github.com/mi6/ic-ui-kit/commit/d07633c3535bd78f7ec9b7309d5cfe1712239a63)), closes [#2466](https://github.com/mi6/ic-ui-kit/issues/2466) [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** add multi-select functionality (moved from canary) ([cea50ef](https://github.com/mi6/ic-ui-kit/commit/cea50ef69f35ed27fd3bd4e668f006d3ac5280e3)), closes [#1966](https://github.com/mi6/ic-ui-kit/issues/1966) [#1652](https://github.com/mi6/ic-ui-kit/issues/1652) [#1658](https://github.com/mi6/ic-ui-kit/issues/1658) [#1816](https://github.com/mi6/ic-ui-kit/issues/1816) [#1917](https://github.com/mi6/ic-ui-kit/issues/1917) [#1767](https://github.com/mi6/ic-ui-kit/issues/1767) [#2071](https://github.com/mi6/ic-ui-kit/issues/2071)
+- **web-components:** add theme prop to switch to enable light and dark mode ([829c187](https://github.com/mi6/ic-ui-kit/commit/829c187f810d2ecbe1292bcf53e9236967979fc3))
+- **web-components:** added hidelabel to remove label specifically ([13f77d1](https://github.com/mi6/ic-ui-kit/commit/13f77d198927a8fff303f6cce8707e6c8395dd15)), closes [#1813](https://github.com/mi6/ic-ui-kit/issues/1813)
+- **web-components:** added theme and monochrome prop to ic-loading-indicator ([46868f2](https://github.com/mi6/ic-ui-kit/commit/46868f231e8927d97ce956a21bb3eeb69f1cf79d))
+- **web-components:** adds theme prop to ic-chip ([16bae57](https://github.com/mi6/ic-ui-kit/commit/16bae57c59ee2b5c4df8d9cbe8017a1e46e7e3bb))
+- **web-components:** dark mode popover ([09a636b](https://github.com/mi6/ic-ui-kit/commit/09a636b1f973c940763e89eee0fc7b5d35f9fc73))
+- **web-components:** replaced appearance with theme prop on ic-skeleton ([b9e269f](https://github.com/mi6/ic-ui-kit/commit/b9e269f66833082e1e716e2c6bb2a7563e1e3200))
+- **web-components:** update stepper to use theme prop instead of appearance ([2164c9d](https://github.com/mi6/ic-ui-kit/commit/2164c9d99f6d687ccbb85cc7f806dc4cd7cf2be2))
+
+### Performance Improvements
+
+- **web-components:** add the ability to change between themes in Storybook toolbar ([fe9c232](https://github.com/mi6/ic-ui-kit/commit/fe9c232f14c6945bcbea37a0a787b46c0f806f0e))
+
+### BREAKING CHANGES
+
+- **web-components:** "ic-select" needs to be used to get the multi-select variant, and from the
+  web-components package (rather than "ic-select-with-multi" from canary-web-components).
+- **web-components:** dark mode
+- **web-components:** removed appearance prop, added new props
+- **web-components:** component will honour system preference by default
+
+# Conflicts:
+
+# packages/web-components/src/global/borders.css
+
+# packages/web-components/src/global/color-mode.css
+
+# packages/web-components/src/global/colors.css
+
+- **web-components:** removed appearance and added theme prop
+- **web-components:** tooltip wrapping change that may affect visual regression snapshots
+- **web-components:** Rename some of the existing CSS tokens following the move towards primitive, semantic and component tokens
+- **web-components:** Behaviour change to auto dismiss toasts to show dismiss button when toast is hovered
+  over or focussed. May cause test breakages.
+
 # [3.0.0-alpha.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.1...@ukic/web-components@3.0.0-alpha.2) (2024-10-17)
 
 ### Bug Fixes

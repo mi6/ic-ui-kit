@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/nextjs@3.0.0-alpha.1...@ukic/nextjs@3.0.0-alpha.2) (2024-10-31)
+
+### Performance Improvements
+
+- **nextjs:** add the ability to change between themes in Storybook toolbar ([5b72148](https://github.com/mi6/ic-ui-kit/commit/5b721487ecf3800a2e82477b8ba44e6ff7e3da64))
+
 # 3.0.0-alpha.1 (2024-10-04)
 
 ### Bug Fixes
