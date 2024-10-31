@@ -10,7 +10,11 @@ import {
   Method,
   Watch,
 } from "@stencil/core";
-import { IcAdditionalFieldTypes, IcSizes } from "../../utils/types";
+import {
+  IcAdditionalFieldTypes,
+  IcSizes,
+  IcThemeMode,
+} from "../../utils/types";
 import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
@@ -105,6 +109,11 @@ export class Checkbox {
   @Prop() size?: IcSizes;
 
   /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+
+  /**
    * The value for the checkbox.
    */
   @Prop() value!: string;
@@ -194,6 +203,7 @@ export class Checkbox {
       name,
       size,
       value,
+      theme,
     } = this;
 
     const id = `ic-checkbox-${
@@ -212,6 +222,7 @@ export class Checkbox {
         class={{
           "ic-checkbox-disabled": disabled,
           [`ic-checkbox-${size || parentElementSize}`]: true,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
         <div class="container">
