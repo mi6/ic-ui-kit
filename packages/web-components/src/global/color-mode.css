@@ -322,6 +322,55 @@ ic-theme,
   --ic-breadcrumb-text: var(--ic-color-text-primary);
   --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
 
+  /* Checkbox */
+  --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey-dark);
+  --ic-checkbox-border-unselected-hover: var(
+    --ic-color-border-action-hover-light
+  );
+  --ic-checkbox-border-unselected-pressed: var(
+    --ic-color-border-action-pressed-light
+  );
+  --ic-checkbox-border-unselected-disabled: var(
+    --ic-color-border-neutral-disabled
+  );
+  --ic-checkbox-background-unselected: var(--ic-color-background-primary);
+  --ic-checkbox-background-selected: var(--ic-action-default);
+  --ic-checkbox-background-selected-hover: var(--ic-action-default-hover);
+  --ic-checkbox-background-selected-pressed: var(--ic-action-default-pressed);
+  --ic-checkbox-background-selected-disabled: var(
+    --ic-color-background-disabled
+  );
+  --ic-checkbox-background-indeterminate: var(--ic-action-default);
+  --ic-checkbox-background-indeterminate-hover: var(--ic-action-default-hover);
+  --ic-checkbox-background-indeterminate-pressed: var(
+    --ic-action-default-pressed
+  );
+  --ic-checkbox-background-indeterminate-disabled: var(
+    --ic-color-background-disabled
+  );
+  --ic-checkbox-action-background-hover: var(--ic-action-default-bg-hover);
+  --ic-checkbox-action-background-pressed: var(--ic-action-default-bg-active);
+  --ic-checkbox-icon-pressed: var(--ic-color-icon-brand);
+  --ic-checkbox-icon-indeterminate: var(--ic-color-icon-brand);
+  --ic-checkbox-text: var(--ic-color-text-primary);
+  --ic-checkbox-text-disabled: var(--ic-color-text-disabled-light);
+  --ic-checkbox-group-label: var(--ic-atoms-input-field-label);
+  --ic-checkbox-group-label-error: var(--ic-atoms-input-field-label-error);
+  --ic-checkbox-group-label-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-checkbox-group-subtitle: var(--ic-atoms-input-field-label-subtitle);
+  --ic-checkbox-group-subtitle-error: var(
+    --ic-atoms-input-field-label-subtitle
+  );
+  --ic-checkbox-group-subtitle-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-checkbox-state-icon-error: var(--ic-color-icon-error-dark);
+  --ic-checkbox-state-text: var(--ic-color-text-primary);
+  --ic-checkbox-required-bar: var(--ic-action-default);
+  --ic-checkbox-required-text: var(--ic-color-text-action);
+
   /* Chips */
   --ic-chip-label: var(--ic-color-text-primary);
   --ic-chip-label-inactive: var(--ic-color-text-inactive);
@@ -841,6 +890,57 @@ ic-theme,
     --ic-breadcrumb-page-icon-monochrome: var(--ic-color-icon-inverted);
     --ic-breadcrumb-text: var(--ic-color-text-primary);
     --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
+
+    /* Checkbox */
+    --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey-dark);
+    --ic-checkbox-border-unselected-hover: var(
+      --ic-color-border-action-hover-dark
+    );
+    --ic-checkbox-border-unselected-pressed: var(
+      --ic-color-border-action-pressed-dark
+    );
+    --ic-checkbox-border-unselected-disabled: var(
+      --ic-color-border-neutral-disabled
+    );
+    --ic-checkbox-background-unselected: var(--ic-color-background-primary);
+    --ic-checkbox-background-selected: var(--ic-action-default);
+    --ic-checkbox-background-selected-hover: var(--ic-action-default-hover);
+    --ic-checkbox-background-selected-pressed: var(--ic-action-default-pressed);
+    --ic-checkbox-background-selected-disabled: var(
+      --ic-color-background-disabled-darkest
+    );
+    --ic-checkbox-background-indeterminate: var(--ic-action-default);
+    --ic-checkbox-background-indeterminate-hover: var(
+      --ic-action-default-hover
+    );
+    --ic-checkbox-background-indeterminate-pressed: var(
+      --ic-action-default-pressed
+    );
+    --ic-checkbox-background-indeterminate-disabled: var(
+      --ic-color-background-disabled-darkest
+    );
+    --ic-checkbox-action-background-hover: var(--ic-action-light-bg-hover);
+    --ic-checkbox-action-background-pressed: var(--ic-action-light-bg-pressed);
+    --ic-checkbox-icon-pressed: var(--ic-color-icon-neutral);
+    --ic-checkbox-icon-indeterminate: var(--ic-color-icon-neutral);
+    --ic-checkbox-text: var(--ic-color-text-primary);
+    --ic-checkbox-text-disabled: var(--ic-color-text-disabled-dark);
+    --ic-checkbox-group-label: var(--ic-atoms-input-field-label);
+    --ic-checkbox-group-label-error: var(--ic-atoms-input-field-label-error);
+    --ic-checkbox-group-label-disabled: var(
+      --ic-atoms-input-field-label-subtitle-disabled
+    );
+    --ic-checkbox-group-subtitle: var(--ic-atoms-input-field-label-subtitle);
+    --ic-checkbox-group-subtitle-error: var(
+      --ic-atoms-input-field-label-subtitle
+    );
+    --ic-checkbox-group-subtitle-disabled: var(
+      --ic-atoms-input-field-label-subtitle-disabled
+    );
+    --ic-checkbox-state-icon-error: var(--ic-color-icon-error-light);
+    --ic-checkbox-state-text: var(--ic-color-text-primary);
+    --ic-checkbox-required-bar: var(--ic-action-default);
+    --ic-checkbox-required-text: var(--ic-color-text-action-dark);
 
     /* Chips */
     --ic-chip-label: var(--ic-color-text-primary-dark);
@@ -1369,6 +1469,55 @@ ic-theme,
   --ic-breadcrumb-page-icon-monochrome: var(--ic-color-icon-inverted);
   --ic-breadcrumb-text: var(--ic-color-text-primary);
   --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
+
+  /* Checkbox */
+  --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey-dark);
+  --ic-checkbox-border-unselected-hover: var(
+    --ic-color-border-action-hover-dark
+  );
+  --ic-checkbox-border-unselected-pressed: var(
+    --ic-color-border-action-pressed-dark
+  );
+  --ic-checkbox-border-unselected-disabled: var(
+    --ic-color-border-neutral-disabled
+  );
+  --ic-checkbox-background-unselected: var(--ic-color-background-primary);
+  --ic-checkbox-background-selected: var(--ic-action-default);
+  --ic-checkbox-background-selected-hover: var(--ic-action-default-hover);
+  --ic-checkbox-background-selected-pressed: var(--ic-action-default-pressed);
+  --ic-checkbox-background-selected-disabled: var(
+    --ic-color-background-disabled-darkest
+  );
+  --ic-checkbox-background-indeterminate: var(--ic-action-default);
+  --ic-checkbox-background-indeterminate-hover: var(--ic-action-default-hover);
+  --ic-checkbox-background-indeterminate-pressed: var(
+    --ic-action-default-pressed
+  );
+  --ic-checkbox-background-indeterminate-disabled: var(
+    --ic-color-background-disabled-darkest
+  );
+  --ic-checkbox-action-background-hover: var(--ic-action-light-bg-hover);
+  --ic-checkbox-action-background-pressed: var(--ic-action-light-bg-pressed);
+  --ic-checkbox-icon-pressed: var(--ic-color-icon-neutral);
+  --ic-checkbox-icon-indeterminate: var(--ic-color-icon-neutral);
+  --ic-checkbox-text: var(--ic-color-text-primary);
+  --ic-checkbox-text-disabled: var(--ic-color-text-disabled-dark);
+  --ic-checkbox-group-label: var(--ic-atoms-input-field-label);
+  --ic-checkbox-group-label-error: var(--ic-atoms-input-field-label-error);
+  --ic-checkbox-group-label-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-checkbox-group-subtitle: var(--ic-atoms-input-field-label-subtitle);
+  --ic-checkbox-group-subtitle-error: var(
+    --ic-atoms-input-field-label-subtitle
+  );
+  --ic-checkbox-group-subtitle-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-checkbox-state-icon-error: var(--ic-color-icon-error-light);
+  --ic-checkbox-state-text: var(--ic-color-text-primary);
+  --ic-checkbox-required-bar: var(--ic-action-default);
+  --ic-checkbox-required-text: var(--ic-color-text-action-dark);
 
   /* Chips */
   --ic-chip-label: var(--ic-color-text-primary-dark);

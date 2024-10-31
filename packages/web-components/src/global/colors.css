@@ -310,6 +310,7 @@
   --ic-color-background-disabled-default: var(--ic-architectural-200);
   --ic-color-background-disabled-light: var(--ic-architectural-80);
   --ic-color-background-disabled-dark: var(--ic-architectural-300);
+  --ic-color-background-disabled-darkest: var(--ic-architectural-600);
   --ic-color-background-selected: var(--ic-architectural-white);
 
   /* status */

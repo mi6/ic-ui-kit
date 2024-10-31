@@ -472,6 +472,10 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The value for the checkbox.
          */
         "value": string;
@@ -505,6 +509,10 @@ export namespace Components {
           * The size of the checkboxes to be displayed. This does not affect the font size of the label.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
@@ -3674,6 +3682,10 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The value for the checkbox.
          */
         "value": string;
@@ -3711,6 +3723,10 @@ declare namespace LocalJSX {
           * The size of the checkboxes to be displayed. This does not affect the font size of the label.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
