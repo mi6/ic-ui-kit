@@ -380,3 +380,30 @@ export const Validation = () => {
     </IcCheckboxGroup>
   );
 };
+
+export const ThemeDark = () => {
+  return (
+    <div style={{ padding: "5rem", backgroundColor: "black" }}>
+      <IcCheckboxGroup
+        label="Select your extras"
+        name="default"
+        helperText="Additional charges may apply."
+        validationStatus="error"
+        validationText="Sorry, this is currently unavailable."
+        theme="dark"
+      >
+        <IcCheckbox value="extra" label="Extra shot (50p)" />
+        <IcCheckbox value="Soya milk" label="Soya milk" checked />
+        <IcCheckbox value="extra" label="Extra shot (50p)" indeterminate />
+        <IcCheckbox value="keep cup" label="Takeaway cup" disabled />
+        <IcCheckbox
+          additionalFieldDisplay="dynamic"
+          value="other"
+          label="Other"
+        >
+          <IcTextField slot="additional-field" label="Please let us know..." />
+        </IcCheckbox>
+      </IcCheckboxGroup>
+    </div>
+  );
+};
