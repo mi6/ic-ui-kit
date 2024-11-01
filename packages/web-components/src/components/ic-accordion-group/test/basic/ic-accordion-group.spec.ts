@@ -17,12 +17,12 @@ describe("ic-accordion-group snapshots", () => {
     expect(page.root).toMatchSnapshot("renders as default");
   });
 
-  it("should match light snapshot", async () => {
+  it("should match dark snapshot", async () => {
     const page = await newSpecPage({
       components: [AccordionGroup],
-      html: `<ic-accordion-group appearance="light" label="Test heading"></ic-accordion-group>`,
+      html: `<ic-accordion-group theme="dark" label="Test heading"></ic-accordion-group>`,
     });
-    expect(page.root).toMatchSnapshot("renders as light");
+    expect(page.root).toMatchSnapshot("renders as dark");
   });
 });
 

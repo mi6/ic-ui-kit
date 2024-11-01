@@ -16,17 +16,17 @@ describe("ic-accordion snapshots", () => {
     expect(page.root).toMatchSnapshot("renders as default");
   });
 
-  it("should match light snapshot", async () => {
+  it("should match dark snapshot", async () => {
     const page = await newSpecPage({
       components: [Accordion],
       html: `
-      <ic-accordion heading="Accordion 1">
+      <ic-accordion heading="Accordion 1" theme="dark">
         <ic-typography variant="body">
           This is an example of the main body text.
         </ic-typography>
       </ic-accordion>`,
     });
-    expect(page.root).toMatchSnapshot("renders as light");
+    expect(page.root).toMatchSnapshot("renders as dark");
   });
 
   it("should match with icon snapshot", async () => {

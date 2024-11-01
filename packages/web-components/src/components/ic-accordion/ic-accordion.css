@@ -2,27 +2,15 @@
 
 :host {
   display: block;
-  border-bottom: var(--ic-border-default);
-
-  --ic-typography-color: currentcolor;
+  border-bottom: var(--ic-space-1px) solid var(--ic-accordion-divider);
 }
 
-:host ic-typography,
 :host .expand-chevron {
-  color: var(--ic-color-text-primary);
+  color: var(--ic-accordion-chevron);
 }
 
-:host(.ic-accordion-light) ic-typography,
-:host(.ic-accordion-light) .expanded-content,
-:host(.ic-accordion-light) .icon-container,
-:host(.ic-accordion-light) .expand-chevron {
-  color: var(--ic-architectural-white);
-}
-
-:host(.ic-accordion-disabled) ic-typography,
-:host(.ic-accordion-disabled) .icon-container,
 :host(.ic-accordion-disabled) .expand-chevron {
-  color: var(--ic-architectural-500);
+  color: var(--ic-accordion-chevron-disabled);
 }
 
 .section-button.small {
@@ -34,7 +22,7 @@
 }
 
 :host(:first-of-type) {
-  border-top: var(--ic-border-default);
+  border-top: var(--ic-space-1px) solid var(--ic-accordion-divider);
 }
 
 :focus {
@@ -52,17 +40,24 @@
 }
 
 .section-header {
+  --ic-typography-color: var(--ic-accordion-heading-text);
+  color: var(--ic-accordion-heading-text);
   text-align: left;
   flex: 1 0;
 }
 
-button:hover:enabled {
-  background-color: var(--ic-action-dark-bg-hover);
+:host(.ic-accordion-disabled) .section-header {
+  --ic-typography-color: var(--ic-accordion-heading-text-disabled);
+  color: var(--ic-accordion-heading-text-disabled);
+}
+
+button:hover {
+  background-color: var(--ic-accordion-background-hover);
   cursor: pointer;
 }
 
 button:active {
-  background-color: var(--ic-action-dark-bg-pressed);
+  background-color: var(--ic-accordion-background-pressed);
 }
 
 button:focus {
@@ -81,6 +76,11 @@ button:disabled {
   align-items: center;
   width: var(--ic-space-lg);
   height: var(--ic-space-lg);
+  color: var(--ic-accordion-icon);
+}
+
+:host(.ic-accordion-disabled) .icon-container {
+  color: var(--ic-accordion-icon-disabled);
 }
 
 ::slotted(svg) {
@@ -101,6 +101,8 @@ button:disabled {
 }
 
 .expanded-content {
+  --ic-typography-color: var(--ic-accordion-body-text);
+  color: var(--ic-accordion-body-text);
   height: 0;
   overflow: hidden;
   display: flex;

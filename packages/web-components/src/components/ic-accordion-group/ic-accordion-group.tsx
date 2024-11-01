@@ -9,7 +9,7 @@ import {
   Method,
   Watch,
 } from "@stencil/core";
-import { IcThemeForeground, IcSizes } from "../../utils/types";
+import { IcSizes, IcThemeMode } from "../../utils/types";
 import { isSlotUsed } from "../../utils/helpers";
 
 let accordionGroupIds = 0;
@@ -38,13 +38,13 @@ export class AccordionGroup {
   @Prop() accessibleButtonLabel: string = "accordions";
 
   /**
-   * The appearance of the accordion group, e.g dark, or light.
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() appearance: IcThemeForeground = "default";
-  @Watch("appearance")
-  watchAppearanceHandler() {
+  @Prop() theme?: IcThemeMode = "inherit";
+  @Watch("theme")
+  watchThemeHandler(): void {
     this.accordions.forEach((acc) => {
-      acc.appearance = this.appearance;
+      acc.theme = this.theme;
     });
   }
 
@@ -79,7 +79,7 @@ export class AccordionGroup {
     ) as HTMLIcAccordionElement[];
     this.linkAccordions();
     this.accordions.forEach((acc) => {
-      acc.appearance = this.appearance;
+      acc.theme = this.theme;
     });
     this.accordions.forEach((acc) => {
       acc.size = this.size;
@@ -153,15 +153,14 @@ export class AccordionGroup {
   };
 
   render() {
-    const { appearance, size, label, singleExpansion, accessibleButtonLabel } =
-      this;
+    const { size, label, singleExpansion, accessibleButtonLabel, theme } = this;
     return (
       <Host
         context-id={this.accordionGroupId}
         class={{
-          [`ic-accordion-group-${appearance}`]: true,
           [`ic-accordion-group-${size}`]: true,
           ["ic-accordion-group"]: true,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
         <div class="label-container">
@@ -173,7 +172,6 @@ export class AccordionGroup {
           {!singleExpansion && (
             <ic-button
               ref={(el) => (this.allButtonEl = el)}
-              appearance={appearance === "light" ? "light" : "default"}
               onClick={this.handleExpanded}
               variant="tertiary"
               aria-label={`${this.accordionOpenBtnText()} ${accessibleButtonLabel}`}

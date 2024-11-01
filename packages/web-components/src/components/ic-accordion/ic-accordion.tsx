@@ -11,7 +11,7 @@ import {
 } from "@stencil/core";
 import { isSlotUsed } from "../../utils/helpers";
 import chevronIcon from "../../assets/chevron-icon.svg";
-import { IcThemeForeground, IcSizes } from "../../utils/types";
+import { IcSizes, IcThemeMode } from "../../utils/types";
 
 let accordionIds = 0;
 
@@ -32,10 +32,6 @@ export class Accordion {
   private CONTENT_VISIBILITY_PROPERTY = "--ic-expanded-content-visibility";
 
   @Element() el: HTMLIcAccordionElement;
-  /**
-   * @internal Determines whether the light or dark variant of the accordion should be displayed.
-   */
-  @Prop() appearance?: IcThemeForeground = "default";
 
   /**
    * If `true`, the accordion will be disabled.
@@ -61,6 +57,11 @@ export class Accordion {
    * The size of the accordion.
    */
   @Prop() size?: IcSizes = "medium";
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * @internal Emitted when accordion is clicked.
@@ -188,13 +189,13 @@ export class Accordion {
   };
 
   render() {
-    const { appearance, size, disabled, expanded } = this;
+    const { size, disabled, expanded, theme } = this;
     return (
       <Host
         id={this.accordionId}
         class={{
-          [`ic-accordion-${appearance}`]: true,
           ["ic-accordion-disabled"]: disabled,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         aria-disabled={disabled ? "true" : "false"}
       >
