@@ -437,6 +437,28 @@
           "required": true
         },
         {
+          "name": "columnHeaderTruncation",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "column-header-truncation",
+          "reflectToAttr": false,
+          "docs": "Determines whether the column header should be truncated and display a tooltip. Default is `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "columns",
           "type": "IcDataTableColumnObject[]",
           "complexType": {
@@ -1160,8 +1182,8 @@
         "ic-loading-indicator",
         "ic-typography",
         "ic-link",
-        "ic-button",
         "ic-tooltip",
+        "ic-button",
         "ic-empty-state",
         "ic-pagination-bar"
       ],
@@ -1170,20 +1192,20 @@
           "ic-loading-indicator",
           "ic-typography",
           "ic-link",
-          "ic-button",
           "ic-tooltip",
+          "ic-button",
           "ic-empty-state",
           "ic-pagination-bar"
         ],
         "ic-loading-indicator": [
           "ic-typography"
         ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
         "ic-button": [
           "ic-loading-indicator",
           "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
         ],
         "ic-empty-state": [
           "ic-typography"
