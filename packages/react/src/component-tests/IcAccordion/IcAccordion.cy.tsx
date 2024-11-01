@@ -22,6 +22,9 @@ import {
   WithChildren,
   DifferentSizes,
   DifferentSizesGroup,
+  DarkTheme,
+  DarkThemeGroup,
+  DarkThemeGroupSlottedContent,
 } from "./IcAccordionTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -330,6 +333,18 @@ describe("Visual regression and a11y tests", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
       });
     });
+
+    it("should render an accordion in dark theme", () => {
+      mount(<DarkTheme />);
+
+      cy.checkHydrated(IC_ACCORDION);
+
+      cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "dark-theme",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+      });
+    });
   });
 
   describe("IcAccordionGroup", () => {
@@ -377,24 +392,6 @@ describe("Visual regression and a11y tests", () => {
       });
     });
 
-    it("should render accordion-groups with a light theme", () => {
-      mount(
-        <div style={{ backgroundColor: "black" }}>
-          <IcAccordionGroup appearance="light" label="Light theme">
-            <TwoAccordions />
-          </IcAccordionGroup>
-        </div>
-      );
-
-      cy.checkHydrated(IC_ACCORDION_GROUP);
-
-      cy.checkA11yWithWait();
-      cy.compareSnapshot({
-        name: "light-group-theme",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
-      });
-    });
-
     it("should render an accordion group and accordion with slotted headings", () => {
       mount(<SlottedHeadingAccordion />);
 
@@ -404,6 +401,30 @@ describe("Visual regression and a11y tests", () => {
       cy.compareSnapshot({
         name: "slotted-heading",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      });
+    });
+
+    it("should render an accordion group in dark theme", () => {
+      mount(<DarkThemeGroup />);
+
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+
+      cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "group-dark-theme",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      });
+    });
+
+    it("should render an accordion group in dark theme with slotted content", () => {
+      mount(<DarkThemeGroupSlottedContent />);
+
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+
+      cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "group-dark-theme-slotted",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
       });
     });
   });
