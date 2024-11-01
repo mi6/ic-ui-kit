@@ -214,6 +214,26 @@ describe("IcDataTables", () => {
     });
   });
 
+  it("should render with column header truncation", () => {
+    mount(
+      <div style={{ width: "500px" }}>
+        <BasicDataTable columnHeaderTruncation />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-tooltip").eq(0).realHover("mouse");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "column-header-truncation",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
   it("should sort data when the sort button is clicked", () => {
     mount(<BasicDataTable sortable />);
     cy.checkHydrated(DATA_TABLE_SELECTOR);

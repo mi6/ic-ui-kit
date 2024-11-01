@@ -374,6 +374,71 @@ const DataTable = () => (
 export default DataTable;
 ```
 
+### Column header truncation
+
+By default, column header labels will wrap when they exceed the column width. To keep the column header height constant, the `columnHeaderTruncation` can be used. When set to `true`, the label will appear truncated and will display a tooltip with the full text when hovered over.
+
+export const HeaderTruncation = () => {
+  return (
+    <IcDataTable
+      style={{ height: "400px", width:"500px" }}
+      caption="Column Header Truncation"
+      columns={COLS}
+      data={LONG_DATA}
+      columnHeaderTruncation
+    />
+  );
+};
+
+<Canvas withSource="none">
+  <Story name="Column header truncation">
+    <HeaderTruncation />
+  </Story>
+</Canvas>
+
+#### Column header truncation code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+// Copy columns array for 'basic' example
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+// Copy data array for 'basic' example
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable
+    style={{ height: "400px", width:"500px" }}
+    caption="Column Header Truncation"
+    columns={columns}
+    data={data}
+    columnHeaderTruncation
+  />
+);
+
+export default DataTable;
+```
+
+
 ### Row headers
 
 Row headers allow headings to be added to individual rows and styles them as column headings. The column collection includes an additional `header` key which aligns with the row headers. The structure of the `header` column is the same as the columns (i.e. key, title, dataType).
@@ -2018,6 +2083,7 @@ Go to the <IcLink href="/?path=/story/react-components-data-table--playground-ex
 
 export const defaultArgs = {
   caption: "Screen reader caption for data table",
+  columnHeaderTruncation: true,
   columns: COLS,
   data: LONG_DATA,
   density: "default",
@@ -2137,6 +2203,7 @@ export const defaultArgs = {
     {(args) => (
       <IcDataTable
         caption={args.caption}
+        columnHeaderTruncation={args.columnHeaderTruncation}
         columns={args.columns}
         data={args.data}
         density={args.density}
