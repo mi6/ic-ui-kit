@@ -659,6 +659,10 @@ export namespace Components {
           * Sets the maximum and minimum height and width for the dialog.
          */
         "size"?: "small" | "medium" | "large";
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcDivider {
     }
@@ -3878,6 +3882,10 @@ declare namespace LocalJSX {
           * Sets the maximum and minimum height and width for the dialog.
          */
         "size"?: "small" | "medium" | "large";
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcDivider {
     }
