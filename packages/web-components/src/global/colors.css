@@ -140,6 +140,11 @@
   --ic-color-classification-yellow: #f39c2c;
   --ic-color-classification-red: #a00;
   --ic-color-classification-grey: #616161;
+  --ic-classification-not-set: var(--ic-color-classification-grey);
+  --ic-classification-official: var(--ic-color-classification-blue);
+  --ic-classification-official-sensitive: var(--ic-color-classification-blue);
+  --ic-classification-secret: var(--ic-color-classification-yellow);
+  --ic-classification-top-secret: var(--ic-color-classification-red);
 
   /* BRAND */
 
@@ -553,6 +558,17 @@
   --ic-surface-secondary: var(--ic-architectural-white);
   --ic-surface-inverted: var(--ic-architectural-white);
   --ic-surface-disabled: var(--ic-architectural-white);
+
+  /* CLASSIFICATION */
+  --ic-classification-banner-text: var(--ic-color-text-primary-light);
+  --ic-classification-banner-text-inverted: var(--ic-color-text-inverse-light);
+  --ic-classification-banner-not-set: var(--ic-classification-not-set);
+  --ic-classification-banner-official: var(--ic-classification-official);
+  --ic-classification-banner-official-sensitive: var(
+    --ic-classification-official
+  );
+  --ic-classification-banner-secret: var(--ic-classification-secret);
+  --ic-classification-banner-top-secret: var(--ic-classification-top-secret);
 
   /* ATOMS */
   --ic-atoms-input-field-label-light: var(--ic-color-text-primary-light);
