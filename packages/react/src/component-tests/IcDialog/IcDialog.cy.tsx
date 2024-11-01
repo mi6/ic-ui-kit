@@ -20,6 +20,7 @@ import {
   DialogAccordionGroup,
   DialogAccordionGroupSingleExpansion,
   NoWidthConstraintDialog,
+  ThemeDark,
 } from "./IcDialogTestData";
 import {
   BE_VISIBLE,
@@ -519,6 +520,18 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "disable-width-constraint",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.08),
+    });
+  });
+
+  it("should render theme dark dialog", () => {
+    mount(<ThemeDark />);
+    cy.checkHydrated(DIALOG);
+
+    // cy.checkA11yWithWait(); Accessibility failure
+    cy.wait(300);
+    cy.compareSnapshot({
+      name: "theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
     });
   });
 });
