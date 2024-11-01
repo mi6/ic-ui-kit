@@ -356,6 +356,13 @@ ic-theme,
   --ic-data-list-keyline-heading: var(--ic-color-border-neutral-default);
   --ic-data-list-keyline-cell: var(--ic-color-border-neutral-default);
 
+  /* Dialog */
+  --ic-dialog-background: var(--ic-color-background-primary);
+  --ic-dialog-text-primary: var(--ic-color-text-primary);
+  --ic-dialog-icon: var(--ic-color-icon-neutral);
+  --ic-dialog-label: var(--ic-color-text-primary);
+  --ic-dialog-border: var(--ic-color-border-neutral-default);
+
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);
   --ic-empty-state-subtitle: var(--ic-color-text-secondary);
@@ -892,6 +899,13 @@ ic-theme,
     --ic-data-list-text-label: var(--ic-color-text-tertiary);
     --ic-data-list-keyline-heading: var(--ic-color-border-neutral-default);
     --ic-data-list-keyline-cell: var(--ic-color-border-neutral-default);
+
+    /* Dialog */
+    --ic-dialog-background: var(--ic-color-background-primary);
+    --ic-dialog-text-primary: var(--ic-color-text-primary);
+    --ic-dialog-icon: var(--ic-color-icon-inverted);
+    --ic-dialog-label: var(--ic-color-text-primary);
+    --ic-dialog-border: var(--ic-color-border-neutral-grey-dark);
 
     /* Empty state */
     --ic-empty-state-title: var(--ic-color-text-primary);
@@ -1435,6 +1449,13 @@ ic-theme,
   --ic-data-list-text-label: var(--ic-color-text-tertiary);
   --ic-data-list-keyline-heading: var(--ic-color-border-neutral-default);
   --ic-data-list-keyline-cell: var(--ic-color-border-neutral-default);
+
+  /* Dialog */
+  --ic-dialog-background: var(--ic-color-background-primary);
+  --ic-dialog-text-primary: var(--ic-color-text-primary);
+  --ic-dialog-icon: var(--ic-color-icon-inverted);
+  --ic-dialog-label: var(--ic-color-text-primary);
+  --ic-dialog-border: var(--ic-color-border-neutral-grey-dark);
 
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);
