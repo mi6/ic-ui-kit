@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Listen,
   h,
+  forceUpdate,
 } from "@stencil/core";
 import {
   isSlotUsed,
@@ -29,6 +30,7 @@ import { IcSizes, IcThemeForeground } from "../../utils/types";
 })
 export class ToggleButton {
   private iconPosition: "left" | "right" | "top";
+  private hostMutationObserver: MutationObserver = null;
 
   @Element() el: HTMLIcToggleButtonElement;
 
@@ -108,7 +110,28 @@ export class ToggleButton {
       ],
       "Toggle button"
     );
+    if (typeof MutationObserver !== "undefined") {
+      this.hostMutationObserver = new MutationObserver(
+        this.hostMutationCallback
+      );
+      this.hostMutationObserver.observe(this.el, {
+        childList: true,
+      });
+    }
   }
+
+  disconnectedCallback(): void {
+    if (
+      this.hostMutationObserver !== null &&
+      this.hostMutationObserver !== undefined
+    ) {
+      this.hostMutationObserver.disconnect();
+    }
+  }
+
+  private hostMutationCallback = (): void => {
+    forceUpdate(this);
+  };
 
   @Listen("click", { capture: true })
   handleHostClick(e: Event): void {
