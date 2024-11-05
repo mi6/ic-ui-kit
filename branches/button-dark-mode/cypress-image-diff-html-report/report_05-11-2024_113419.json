@@ -756,7 +756,7 @@
         {
           "status": "fail",
           "name": "IcButton.cy.tsx-icon-variants-button-group",
-          "percentage": 0.09597916440561462,
+          "percentage": 0.09193475947648963,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
@@ -5835,7 +5835,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx-appearance-dark",
-          "percentage": 0.0163707055437449,
+          "percentage": 0.015362291495737215,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -5846,7 +5846,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx-appearance-light",
-          "percentage": 0.030463092423455632,
+          "percentage": 0.03249615361854384,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -6717,9 +6717,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-05T08:50:56.940Z",
-  "endedAt": "2024-11-05T09:09:25.883Z",
-  "duration": 1026849,
+  "startedAt": "2024-11-05T11:34:19.895Z",
+  "endedAt": "2024-11-05T11:52:10.547Z",
+  "duration": 990564,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
