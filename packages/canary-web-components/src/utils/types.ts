@@ -117,6 +117,8 @@ export type IcTheme = {
   color: IcColorRGB;
 };
 
+export type IcThemeMode = "dark" | "light" | "inherit";
+
 export type IcAdditionalFieldTypes = "static" | "dynamic";
 
 export type IcColorRGB = {
@@ -185,11 +187,12 @@ export interface IcPaginationBarOptions {
   showItemsPerPageControl?: boolean;
   showGoToPageControl?: boolean;
   alignment?: IcPaginationAlignmentOptions;
-  appearance?: IcThemeForeground;
   itemLabel?: string;
   pageLabel?: string;
   hideRangeLabel?: boolean;
   hideAllFromItemsPerPage?: boolean;
+  theme?: IcThemeMode;
+  monochrome?: boolean;
 }
 
 export type IcCallbackFunctionNoReturn = (...args: unknown[]) => void;
