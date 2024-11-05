@@ -332,72 +332,6 @@ const PaginationBar = () => (
 export default PaginationBar;
 ```
 
-### Appearance
-
-The background colour of the pagination bar can be customized by adding a background colour to the parent element. The `appearance` prop can be set to `light` or `dark` to change the appearance of the pagination bar labels.
-
-<Canvas withSource="none">
-  <Story name="Appearance">
-  <div style={{
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '8px',
-    height: '220px'
-  }}>
-    <div style={{ backgroundColor: "var(--ic-architectural-black)" }}>
-      <IcPaginationBar
-        totalItems={100}
-        appearance="light"
-        showItemsPerPageControl
-        showGoToPageControl
-      />
-    </div>
-    <div style={{ backgroundColor: "var(--ic-status-info-contrast)" }}>
-      <IcPaginationBar
-        totalItems={100}
-        appearance="dark"
-        showItemsPerPageControl
-        showGoToPageControl
-      />
-    </div>
-  </div>
-  </Story>
-</Canvas>
-
-#### Appearance code example
-
-```jsx
-import * as React from "react";
-import { IcPaginationBar } from '@ukic/canary-react';
-
-const PaginationBar = () => (
-  <div style={{
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '8px'
-  }}>
-    <div style={{ backgroundColor: "var(--ic-architectural-black)" }}>
-      <IcPaginationBar
-        totalItems={100}
-        appearance="light"
-        showItemsPerPageControl
-        showGoToPageControl
-      />
-    </div>
-    <div style={{ backgroundColor: "var(--ic-status-info-contrast)" }}>
-      <IcPaginationBar
-        totalItems={100}
-        appearance="dark"
-        showItemsPerPageControl
-        showGoToPageControl
-      />
-    </div>
-  </div>
-);
-
-export default PaginationBar;
-```
-
 ### Hide range label
 
 If the pagination bar becomes cluttered due to the number of pagination elements displayed, the range label can be hidden by setting the `hideRangeLabel` prop to `true`.
@@ -412,7 +346,6 @@ If the pagination bar becomes cluttered due to the number of pagination elements
       }}>
         <IcPaginationBar
           totalItems={100}
-          appearance="dark"
           hideRangeLabel
           showItemsPerPageControl
           showGoToPageControl
@@ -434,7 +367,6 @@ const PaginationBar = () => (
   }}>
     <IcPaginationBar
       totalItems={100}
-      appearance="dark"
       hideRangeLabel
       showItemsPerPageControl
       showGoToPageControl
@@ -488,7 +420,6 @@ Go to the <IcLink href="/?path=/story/react-components-pagination-bar--playgroun
 
 export const defaultArgs = {
   alignment: "right",
-  appearance: "default",
   currentPage: 1,
   hideRangeLabel: false,
   itemLabel: "Item",
@@ -497,12 +428,14 @@ export const defaultArgs = {
     { label: "25", value: "25" },
     { label: "50", value: "50" },
   ],
+  monochrome: false,
   pageLabel: "Page",
   rangeLabelType: "page",
   showItemsPerPageControl: false,
   showGoToPageControl: false,
   totalItems: 100,
   type: "simple",
+  theme: "inherit",
 };
 
 <Canvas withSource="none">
@@ -513,10 +446,6 @@ export const defaultArgs = {
         options: ["left", "right", "space-between"],
         control: { type: "inline-radio" },
       },
-      appearance: {
-        options: ["default", "dark", "light"],
-        control: { type: "inline-radio" },
-      },
       rangeLabelType: {
         options: ["page", "data"],
         control: { type: "inline-radio" },
@@ -525,6 +454,10 @@ export const defaultArgs = {
         options: ["simple", "complex"],
         control: { type: "inline-radio" },
       },     
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      }
     }}
     name="Playground"
   >
@@ -537,7 +470,6 @@ export const defaultArgs = {
       return (
         <IcPaginationBar
           alignment={args.alignment}
-          appearance={args.appearance}
           currentPage={args.currentPage}
           hideRangeLabel={args.hideRangeLabel}
           itemLabel={args.itemLabel}
@@ -549,6 +481,8 @@ export const defaultArgs = {
           totalItems={args.totalItems}
           type={args.type}
           onIcPageChange={updatePageNum}
+          monochrome={args.monochrome}
+          theme={args.theme}
         >
         </IcPaginationBar>
       )
