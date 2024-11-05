@@ -9,7 +9,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const DEFAULT_TEST_THRESHOLD = 0.02;
 const BANNER = "ic-classification-banner";
 
-describe("IcClassificationButton visual regression and a11y tests", () => {
+describe("IcClassificationBanner visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
