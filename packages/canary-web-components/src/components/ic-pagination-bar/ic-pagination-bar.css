@@ -10,6 +10,8 @@
   gap: var(--ic-space-xl);
   padding: var(--ic-space-xs) var(--ic-space-md);
   box-sizing: border-box;
+
+  --ic-typography-color: var(--ic-pagination-text);
 }
 
 .pagination-bar-left {
@@ -34,6 +36,11 @@
 
 .items-per-page-input {
   --input-width: 5rem;
+
+  /* Add back in after select work has been done */
+
+  /* --ic-typography-color: var(--ic-pagination-select-content); */
+  --ic-typography-color: var(--ic-architectural-black);
 }
 
 .pagination-controls {
@@ -66,14 +73,8 @@
   --min-width: var(--ic-space-xl);
 }
 
-.pagination-text-default,
-.pagination-text-dark,
-.pagination-text-light {
+.items-per-page-control-label {
   white-space: nowrap;
-}
-
-.pagination-text-light {
-  --ic-typography-color: var(--ic-color-white-text);
 }
 
 @media screen and (max-width: 768px) {

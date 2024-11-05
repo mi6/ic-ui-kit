@@ -8,8 +8,9 @@ import {
   Listen,
   h,
   Watch,
+  Host,
 } from "@stencil/core";
-import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
+import { IcThemeMode } from "@ukic/web-components/dist/types/interface";
 import { checkResizeObserver, capitalize } from "../../utils/helpers";
 import { IcPageChangeEventDetail } from "./ic-pagination-bar.types";
 import {
@@ -74,11 +75,6 @@ export class PaginationBar {
   @Prop() alignment?: IcPaginationAlignmentOptions = "right";
 
   /**
-   * Sets the styling for the items in the pagination bar.
-   */
-  @Prop() appearance?: IcThemeForeground = "default";
-
-  /**
    * The current page number to be displayed on the pagination bar.
    */
   @Prop() currentPage?: number = 1;
@@ -125,6 +121,16 @@ export class PaginationBar {
     if (JSON.stringify(newVal) === JSON.stringify(oldVal)) return;
     this.setPaginationBarContent();
   }
+
+  /**
+   * If `true`, the pagination bar will display as black in the light theme, and white in dark theme.
+   */
+  @Prop() monochrome?: boolean = false;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * Whether the displayed pagination is simple or complex.
@@ -402,9 +408,25 @@ export class PaginationBar {
     );
   };
 
+  private handleButtonAppearance = () => {
+    if (this.monochrome) {
+      if (
+        this.theme === "dark" ||
+        (this.theme === "inherit" &&
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        return "light";
+      } else {
+        return "dark";
+      }
+    } else {
+      return "default";
+    }
+  };
+
   render() {
     const {
-      appearance,
       alignment,
       displayedItemsPerPageOptions,
       PAGE_INPUT_FIELD_ID,
@@ -421,137 +443,142 @@ export class PaginationBar {
       totalPages,
       activePage,
       itemsPerPageString,
+      theme,
+      monochrome,
     } = this;
 
     return (
-      <div
-        class={{
-          ["pagination-bar"]: true,
-          [`pagination-bar-${alignment}`]: true,
-        }}
-        ref={(el) => (this.paginationBarEl = el)}
-      >
-        {(!hideRangeLabel || showItemsPerPageControl) && (
-          <div class="item-controls">
-            {showItemsPerPageControl && (
-              <div class="items-per-page-holder">
-                <ic-typography
-                  class={{
-                    [`pagination-text-${appearance}`]: true,
-                    ["items-per-page-control-label"]: true,
-                  }}
-                  variant="label"
-                  onClick={this.itemsPerPageLabelClickHandler}
-                >
-                  {capitalizedItemLabel}s per {lowerCasePageLabel}
-                </ic-typography>
-                <ic-select
-                  size="small"
-                  label="items-per-page-input"
-                  class="items-per-page-input"
-                  hideLabel
-                  options={displayedItemsPerPageOptions}
-                  value={itemsPerPageString}
-                  onIcChange={this.changeItemsPerPage}
-                  ref={(el: HTMLIcSelectElement) => (this.pageDropdownEl = el)}
-                ></ic-select>
-              </div>
-            )}
-            {!hideRangeLabel &&
-              (rangeLabelType === "data" ? (
-                <ic-typography
-                  class={{
-                    [`pagination-text-${appearance}`]: true,
-                    ["item-pagination-label"]: true,
-                  }}
-                  variant="label"
-                  aria-live="polite"
-                >
-                  {this.upperBound === 0 && `0 ${lowerCaseItemLabel}s`}
-                  {this.upperBound > 0 &&
-                    `${this.lowerBound} - ${this.upperBound} of ${
-                      this.totalItems
-                    } ${lowerCaseItemLabel}${this.totalItems > 1 ? "s" : ""}`}
-                </ic-typography>
-              ) : (
-                <ic-typography
-                  class={{
-                    [`pagination-text-${appearance}`]: true,
-                    ["page-pagination-label"]: true,
-                  }}
-                  variant="label"
-                  aria-live="polite"
-                >
-                  {capitalizedPageLabel} {activePage} of {totalPages}
-                </ic-typography>
-              ))}
-          </div>
-        )}
+      <Host class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}>
         <div
           class={{
-            ["pagination-controls"]: true,
-            ["pagination-controls-wrap"]: this.paginationWrapped,
+            ["pagination-bar"]: true,
+            [`pagination-bar-${alignment}`]: true,
           }}
+          ref={(el) => (this.paginationBarEl = el)}
         >
-          <div class="pagination-holder">
-            <ic-pagination
-              appearance={appearance}
-              type={type}
-              pages={totalPages}
-              label={pageLabel}
-              ref={(el: HTMLIcPaginationElement) => (this.paginationEl = el)}
-              currentPage={activePage}
-            ></ic-pagination>
-          </div>
-          {showGoToPageControl && (
-            <div class="go-to-page-holder">
-              <ic-typography
-                class={{ [`pagination-text-${appearance}`]: true }}
-                variant="label"
-                onClick={this.goToPageLabelClickHandler}
-              >
-                Go to {lowerCasePageLabel}
-              </ic-typography>
-              <ic-tooltip
-                label={this.inputError}
-                target={`#${PAGE_INPUT_FIELD_ID}`}
-                disableHover
-                disableClick
-                ref={(el: HTMLIcTooltipElement) =>
-                  (this.pageInputTooltipEl = el)
-                }
-              >
-                <ic-text-field
-                  type="number"
-                  size="small"
-                  label={PAGE_INPUT_FIELD_ID}
-                  class={PAGE_INPUT_FIELD_ID}
-                  id={PAGE_INPUT_FIELD_ID}
-                  hideLabel
-                  onKeyDown={this.handleKeydown}
-                  onKeyUp={this.handleKeyUp}
-                  onInput={this.handleInputChange}
-                  max={totalPages}
-                  min="1"
-                  validationInlineInternal
-                  onBlur={this.handleBlur}
-                  onFocus={this.handleFocus}
-                  ref={(el: HTMLIcTextFieldElement) => (this.pageInputEl = el)}
-                ></ic-text-field>
-              </ic-tooltip>
-              <ic-button
-                appearance={appearance}
-                variant="secondary"
-                onClick={this.goToPage}
-                size="small"
-                class="go-to-page-button"
-              >
-                Go
-              </ic-button>
+          {(!hideRangeLabel || showItemsPerPageControl) && (
+            <div class="item-controls">
+              {showItemsPerPageControl && (
+                <div class="items-per-page-holder">
+                  <ic-typography
+                    class={{
+                      ["items-per-page-control-label"]: true,
+                    }}
+                    variant="label"
+                    onClick={this.itemsPerPageLabelClickHandler}
+                  >
+                    {capitalizedItemLabel}s per {lowerCasePageLabel}
+                  </ic-typography>
+                  <ic-select
+                    size="small"
+                    label="items-per-page-input"
+                    class="items-per-page-input"
+                    hideLabel
+                    options={displayedItemsPerPageOptions}
+                    value={itemsPerPageString}
+                    onIcChange={this.changeItemsPerPage}
+                    ref={(el: HTMLIcSelectElement) =>
+                      (this.pageDropdownEl = el)
+                    }
+                  ></ic-select>
+                </div>
+              )}
+              {!hideRangeLabel &&
+                (rangeLabelType === "data" ? (
+                  <ic-typography
+                    class={{
+                      ["item-pagination-label"]: true,
+                    }}
+                    variant="label"
+                    aria-live="polite"
+                  >
+                    {this.upperBound === 0 && `0 ${lowerCaseItemLabel}s`}
+                    {this.upperBound > 0 &&
+                      `${this.lowerBound} - ${this.upperBound} of ${
+                        this.totalItems
+                      } ${lowerCaseItemLabel}${this.totalItems > 1 ? "s" : ""}`}
+                  </ic-typography>
+                ) : (
+                  <ic-typography
+                    class={{
+                      ["page-pagination-label"]: true,
+                    }}
+                    variant="label"
+                    aria-live="polite"
+                  >
+                    {capitalizedPageLabel} {activePage} of {totalPages}
+                  </ic-typography>
+                ))}
             </div>
           )}
+          <div
+            class={{
+              ["pagination-controls"]: true,
+              ["pagination-controls-wrap"]: this.paginationWrapped,
+            }}
+          >
+            <div class="pagination-holder">
+              <ic-pagination
+                type={type}
+                pages={totalPages}
+                label={pageLabel}
+                ref={(el: HTMLIcPaginationElement) => (this.paginationEl = el)}
+                currentPage={activePage}
+                theme={theme}
+                monochrome={monochrome}
+              ></ic-pagination>
+            </div>
+            {showGoToPageControl && (
+              <div class="go-to-page-holder">
+                <ic-typography
+                  variant="label"
+                  onClick={this.goToPageLabelClickHandler}
+                >
+                  Go to {lowerCasePageLabel}
+                </ic-typography>
+                <ic-tooltip
+                  label={this.inputError}
+                  target={`#${PAGE_INPUT_FIELD_ID}`}
+                  disableHover
+                  disableClick
+                  ref={(el: HTMLIcTooltipElement) =>
+                    (this.pageInputTooltipEl = el)
+                  }
+                >
+                  <ic-text-field
+                    type="number"
+                    size="small"
+                    label={PAGE_INPUT_FIELD_ID}
+                    class={PAGE_INPUT_FIELD_ID}
+                    id={PAGE_INPUT_FIELD_ID}
+                    hideLabel
+                    onKeyDown={this.handleKeydown}
+                    onKeyUp={this.handleKeyUp}
+                    onInput={this.handleInputChange}
+                    max={totalPages}
+                    min="1"
+                    validationInlineInternal
+                    onBlur={this.handleBlur}
+                    onFocus={this.handleFocus}
+                    ref={(el: HTMLIcTextFieldElement) =>
+                      (this.pageInputEl = el)
+                    }
+                  ></ic-text-field>
+                </ic-tooltip>
+                <ic-button
+                  appearance={this.handleButtonAppearance()}
+                  variant="secondary"
+                  onClick={this.goToPage}
+                  size="small"
+                  class="go-to-page-button"
+                >
+                  Go
+                </ic-button>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }

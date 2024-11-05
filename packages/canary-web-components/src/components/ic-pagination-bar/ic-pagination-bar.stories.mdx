@@ -264,57 +264,6 @@ The pagination elements can be aligned to the `right` (default), `left` or `spac
 ></ic-pagination-bar>
 ```
 
-### Appearance
-
-The background colour of the pagination bar can be customized by adding a background colour to the parent element. The `appearance` attribute can be set to `light` or `dark` to change the appearance of the pagination bar labels.
-
-<Canvas withSource="none">
-  <Story name="Appearance" parameters={{ loki: { skip: true } }}>
-    {html`<div
-      style="display: flex; flex-direction: column; gap: 8px; height: 220px"
-    >
-      <div style="background-color: var(--ic-architectural-black)">
-        <ic-pagination-bar
-          total-items="100"
-          appearance="light"
-          show-items-per-page-control="true"
-          show-go-to-page-control="true"
-        ></ic-pagination-bar>
-      </div>
-      <div style="background-color: var(--ic-status-info-contrast)">
-        <ic-pagination-bar
-          total-items="100"
-          appearance="dark"
-          show-items-per-page-control="true"
-          show-go-to-page-control="true"
-        ></ic-pagination-bar>
-      </div>
-    </div>`}
-  </Story>
-</Canvas>
-
-#### Appearance code example
-
-```html
-<div style="background-color: var(--ic-architectural-black)">
-  <ic-pagination-bar
-    total-items="100"
-    appearance="light"
-    show-items-per-page-control="true"
-    show-go-to-page-control="true"
-  ></ic-pagination-bar>
-</div>
-
-<div style="background-color: var(--ic-status-info-contrast)">
-  <ic-pagination-bar
-    total-items="100"
-    appearance="dark"
-    show-items-per-page-control="true"
-    show-go-to-page-control="true"
-  ></ic-pagination-bar>
-</div>
-```
-
 ### Hide range label
 
 If the pagination bar becomes cluttered due to the number of pagination elements displayed, the range label can be hidden by setting the `hide-range-label` attribute to `true`.
@@ -325,7 +274,6 @@ If the pagination bar becomes cluttered due to the number of pagination elements
       <div style="background-color: var(--ic-architectural-100)">
         <ic-pagination-bar
           total-items="100"
-          appearance="dark"
           hide-range-label="true"
           show-items-per-page-control="true"
           show-go-to-page-control="true"
@@ -341,7 +289,6 @@ If the pagination bar becomes cluttered due to the number of pagination elements
 <div style="background-color: var(--ic-architectural-100)">
   <ic-pagination-bar
     total-items="100"
-    appearance="dark"
     hide-range-label="true"
     show-items-per-page-control="true"
     show-go-to-page-control="true"

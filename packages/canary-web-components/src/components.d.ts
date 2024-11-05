@@ -10,14 +10,14 @@ import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeForegroundNoDefault as IcThemeForegroundNoDefault1, IcWeekDays } from "./utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
+import { IcThemeMode } from "@ukic/web-components/dist/types/interface";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeForegroundNoDefault as IcThemeForegroundNoDefault1, IcWeekDays } from "./utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-export { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
+export { IcThemeMode } from "@ukic/web-components/dist/types/interface";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export namespace Components {
     interface IcCardHorizontal {
@@ -436,10 +436,6 @@ export namespace Components {
          */
         "alignment"?: IcPaginationAlignmentOptions;
         /**
-          * Sets the styling for the items in the pagination bar.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * The current page number to be displayed on the pagination bar.
          */
         "currentPage"?: number;
@@ -463,6 +459,10 @@ export namespace Components {
     value: string;
   }[];
         /**
+          * If `true`, the pagination bar will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * The text which will be used in place of 'Page' on the pagination bar.
          */
         "pageLabel"?: string;
@@ -478,6 +478,10 @@ export namespace Components {
           * If `true`, the select input to control 'items per page' should be displayed.
          */
         "showItemsPerPageControl"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -1139,10 +1143,6 @@ declare namespace LocalJSX {
          */
         "alignment"?: IcPaginationAlignmentOptions;
         /**
-          * Sets the styling for the items in the pagination bar.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * The current page number to be displayed on the pagination bar.
          */
         "currentPage"?: number;
@@ -1165,6 +1165,10 @@ declare namespace LocalJSX {
     label: string;
     value: string;
   }[];
+        /**
+          * If `true`, the pagination bar will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
         /**
           * Emitted when the items per page option is changed.
          */
@@ -1189,6 +1193,10 @@ declare namespace LocalJSX {
           * If `true`, the select input to control 'items per page' should be displayed.
          */
         "showItemsPerPageControl"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * Total number of items to be displayed across all pages.
          */
