@@ -518,3 +518,21 @@ export const DynamicDialog = () => {
     </>
   );
 };
+
+export const ThemeDark = () => {
+  return (
+    <div style={{ backgroundColor: "black" }}>
+      <IcDialog
+        heading="This is a default dialog"
+        label="Dialog"
+        theme="dark"
+        open
+      >
+        <IcTypography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </IcTypography>
+      </IcDialog>
+    </div>
+  );
+};
