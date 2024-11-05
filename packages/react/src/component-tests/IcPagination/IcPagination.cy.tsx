@@ -83,6 +83,67 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it("should render dark complex type pagination", () => {
+    mount(
+      <div style={{ margin: "16px", backgroundColor: "black" }}>
+        <IcPagination
+          pages={15}
+          type="complex"
+          aria-label="Complex pagination"
+          theme="dark"
+        />
+      </div>
+    );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "complex-dark-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
+  });
+
+  it("should render dark monochrome complex type pagination", () => {
+    mount(
+      <div style={{ margin: "16px", backgroundColor: "black" }}>
+        <IcPagination
+          pages={15}
+          type="complex"
+          aria-label="Complex pagination"
+          theme="dark"
+          monochrome
+        />
+      </div>
+    );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "complex-monochrome-dark-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+    });
+  });
+
+  it("should render light monochrome complex type pagination", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcPagination
+          pages={15}
+          type="complex"
+          aria-label="Complex pagination"
+          monochrome
+        />
+      </div>
+    );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "complex-monochrome",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+    });
+  });
+
   it("should render complex type pagination with focus", () => {
     mount(
       <div style={{ margin: "16px" }}>
@@ -105,166 +166,6 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "focus-complex",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
-    });
-  });
-
-  it("should render dark appearance for complex variant", () => {
-    mount(
-      <div style={{ margin: "16px" }}>
-        <IcPagination pages={15} type="complex" appearance="dark" />
-      </div>
-    );
-    cy.checkHydrated(PAGINATION_SELECTOR);
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "dark-complex-appearance",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
-    });
-  });
-
-  it("should render dark appearance for complex variant with focus", () => {
-    mount(
-      <div style={{ margin: "16px" }}>
-        <IcPagination pages={15} type="complex" appearance="dark" />
-      </div>
-    );
-    cy.checkHydrated(PAGINATION_SELECTOR);
-
-    cy.wait(500)
-      .findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR)
-      .each(($button) => {
-        $button.focus();
-      });
-
-    cy.checkA11yWithWait(undefined, 300);
-    cy.compareSnapshot({
-      name: "dark-complex-focus",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
-    });
-  });
-
-  it("should render dark appearance for simple variant", () => {
-    mount(
-      <div style={{ margin: "16px" }}>
-        <IcPagination
-          pages={15}
-          aria-label="Simple pagination"
-          appearance="dark"
-        />
-      </div>
-    );
-    cy.checkHydrated(PAGINATION_SELECTOR);
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "dark-simple-appearance",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
-    });
-  });
-
-  it("should render dark appearance for simple variant with focus", () => {
-    mount(
-      <div style={{ margin: "16px" }}>
-        <IcPagination
-          pages={15}
-          aria-label="Simple pagination"
-          appearance="dark"
-        />
-      </div>
-    );
-    cy.checkHydrated(PAGINATION_SELECTOR);
-
-    cy.wait(500)
-      .findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR)
-      .each(($button) => {
-        $button.focus();
-      });
-
-    cy.checkA11yWithWait(undefined, 300);
-    cy.compareSnapshot({
-      name: "dark-simple-focus",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
-    });
-  });
-
-  it("should render light appearance for complex variant", () => {
-    mount(
-      <div
-        style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
-      >
-        <IcPagination appearance="light" pages={15} type="complex" />
-      </div>
-    );
-    cy.checkHydrated(PAGINATION_SELECTOR);
-
-    cy.checkA11yWithWait(undefined, 300);
-    cy.compareSnapshot({
-      name: "light-complex-appearance",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
-    });
-  });
-
-  it("should render light appearance for complex variant with focus", () => {
-    mount(
-      <div
-        style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
-      >
-        <IcPagination appearance="light" pages={15} type="complex" />
-      </div>
-    );
-    cy.checkHydrated(PAGINATION_SELECTOR);
-
-    cy.wait(500)
-      .findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR)
-      .each(($button) => {
-        $button.focus();
-      });
-
-    cy.checkA11yWithWait(undefined, 300);
-    cy.compareSnapshot({
-      name: "light-complex-focus",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
-    });
-  });
-
-  it("should render light appearance for simple variant", () => {
-    mount(
-      <div
-        style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
-      >
-        <IcPagination appearance="light" pages={15} />
-      </div>
-    );
-    cy.checkHydrated(PAGINATION_SELECTOR);
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "light-simple-appearance",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
-    });
-  });
-
-  it("should render light appearance for simple variant with focus", () => {
-    mount(
-      <div
-        style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
-      >
-        <IcPagination appearance="light" pages={15} />
-      </div>
-    );
-    cy.checkHydrated(PAGINATION_SELECTOR);
-
-    cy.wait(500)
-      .findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR)
-      .each(($button) => {
-        $button.focus();
-      });
-
-    cy.checkA11yWithWait(undefined, 300);
-    cy.compareSnapshot({
-      name: "light-simple-focus",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
 
@@ -958,40 +859,6 @@ describe("IcPagination visual regression tests in high contrast mode", () => {
     cy.wait(500).compareSnapshot({
       name: "focus-complex-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
-    });
-  });
-
-  it("should render pagination with dark appearance in high contrast mode", () => {
-    mount(
-      <div style={{ margin: "16px" }}>
-        <IcPagination
-          pages={15}
-          aria-label="Simple pagination"
-          appearance="dark"
-        />
-      </div>
-    );
-    cy.checkHydrated(PAGINATION_SELECTOR);
-
-    cy.compareSnapshot({
-      name: "dark-simple-appearance-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
-    });
-  });
-
-  it("should render pagination with light appearance in high contrast mode", () => {
-    mount(
-      <div
-        style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
-      >
-        <IcPagination appearance="light" pages={15} type="complex" />
-      </div>
-    );
-    cy.checkHydrated(PAGINATION_SELECTOR);
-
-    cy.compareSnapshot({
-      name: "light-complex-appearance-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
 });

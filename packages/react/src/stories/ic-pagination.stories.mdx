@@ -16,34 +16,23 @@ import readme from "../../../web-components/src/components/ic-pagination/readme.
 export const defaultArgs = {
   pages: 15,
   paginationType: "simple",
-  appearance: "default",
   hideCurrentPage: false,
   hideFirstAndLastPageButton: false,
   defaultPage: 1,
   disabled: false,
   label: "",
+  monochrome: false,
   adjacentPageCount: 1,
   boundaryPageCount: 1,
+  theme: "inherit",
 };
 
 ### Simple
 
 <Canvas>
   <Story name="Simple">
-    <p>Default/Dark/Light appearance</p>
+    <p>Default appearance</p>
     <IcPagination pages="15" />
-    <br />
-    <IcPagination pages="20" appearance="dark" />
-    <br />
-    <div
-      style={{
-        backgroundColor: "#2c2f34",
-        width: "fit-content",
-        padding: "6px 8px",
-      }}
-    >
-      <IcPagination pages="15" appearance="light" />
-    </div>
     <br />
     <p>Hidden current page</p>
     <IcPagination pages="15" hideCurrentPage />
@@ -66,18 +55,8 @@ export const defaultArgs = {
 
 <Canvas>
   <Story name="Complex">
-    <p>Default/Dark/Light appearance</p>
+    <p>Default appearance</p>
     <IcPagination pages="15" type="complex" />
-    <IcPagination pages="15" type="complex" appearance="dark" />
-    <div
-      style={{
-        backgroundColor: "#2c2f34",
-        width: "fit-content",
-        padding: "6px 8px",
-      }}
-    >
-      <IcPagination pages="15" type="complex" appearance="light" />
-    </div>
     <br />
     <p>Hidden first and last buttons</p>
     <IcPagination pages="15" type="complex" hideFirstAndLastPageButton />
@@ -156,17 +135,16 @@ export const defaultArgs = {
       args={defaultArgs}
       argTypes={{
         paginationType: {
-          control: { type: "inline-radio" },
           options: ["simple", "complex"],
-        },
-        appearance: {
           control: { type: "inline-radio" },
-          options: ["default", "dark", "light"],
         },
-}}
+        theme: {
+          options: ["inherit", "light", "dark"],
+          control: { type: "inline-radio" },
+        },
+      }}
       >
       {(args) => (
-          <div style={{backgroundColor: args.appearance == "light" ? "black" : null, width: "fit-content"}}>
             <IcPagination
               pages={args.pages}
               type={args.paginationType}
@@ -177,9 +155,9 @@ export const defaultArgs = {
               defaultPage={args.defaultPage}
               hideFirstAndLastPageButton={args.hideFirstAndLastPageButton}
               hideCurrentPage={args.hideCurrentPage}
-              appearance={args.appearance}
+              theme={args.theme}
+              monochrome={args.monochrome}
             />
-          </div>
         )}
   </Story>
 </Canvas>
