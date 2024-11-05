@@ -1,6 +1,6 @@
 {
-  "total": 588,
-  "totalPassed": 565,
+  "total": 590,
+  "totalPassed": 567,
   "totalFailed": 23,
   "totalSuites": 37,
   "suites": [
@@ -756,7 +756,7 @@
         {
           "status": "fail",
           "name": "IcButton.cy.tsx-icon-variants-button-group",
-          "percentage": 0.09757048734120374,
+          "percentage": 0.09597916440561462,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
@@ -2353,6 +2353,17 @@
         },
         {
           "status": "pass",
+          "name": "IcDialog.cy.tsx-theme-dark",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
+          "specFilename": "IcDialog.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-theme-dark.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-theme-dark.png"
+        },
+        {
+          "status": "pass",
           "name": "IcDialog.cy.tsx-default-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -2929,6 +2940,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx-full-width.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-full-width.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcHero.cy.tsx-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcHero/IcHero.cy.tsx",
+          "specFilename": "IcHero.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-theme.png"
         },
         {
           "status": "pass",
@@ -5824,7 +5846,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx-appearance-light",
-          "percentage": 0.03249615361854384,
+          "percentage": 0.030463092423455632,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -6695,9 +6717,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-04T17:01:31.803Z",
-  "endedAt": "2024-11-04T17:19:31.753Z",
-  "duration": 999081,
+  "startedAt": "2024-11-05T08:50:56.940Z",
+  "endedAt": "2024-11-05T09:09:25.883Z",
+  "duration": 1026849,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
