@@ -392,6 +392,32 @@ ic-theme,
   --ic-loading-indicator-outer-color-monochrome: var(--ic-action-light);
   --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
 
+  /* Pagination */
+  --ic-pagination-dot-button-outer: var(--ic-color-background-active);
+  --ic-pagination-dot-button-outer-monochrome: var(
+    --ic-color-background-primary-dark
+  );
+  --ic-pagination-dot-button-inner: var(--ic-color-background-primary);
+  --ic-pagination-dot-button-inner-monochrome: var(
+    --ic-color-background-primary
+  );
+  --ic-pagination-dot: var(--ic-color-border-neutral-grey-dark);
+  --ic-pagination-hover: var(--ic-action-default-bg-hover);
+  --ic-pagination-pressed: var(--ic-action-default-bg-pressed);
+  --ic-pagination-hover-monochrome: var(--ic-action-dark-bg-hover);
+  --ic-pagination-pressed-monochrome: var(--ic-action-dark-bg-pressed);
+  --ic-pagination-chevron: var(--ic-action-default);
+  --ic-pagination-chevron-disabled: var(--ic-state-layer-darken-20);
+  --ic-pagination-chevron-monochrome: var(--ic-action-dark);
+  --ic-pagination-text: var(--ic-color-text-primary);
+  --ic-pagination-page-number: var(--ic-action-default);
+  --ic-pagination-page-number-monochrome: var(--ic-action-dark);
+  --ic-pagination-selected-banner: var(--ic-action-default);
+  --ic-pagination-selected-banner-monochrome: var(--ic-action-dark);
+  --ic-pagination-ellipsis: var(--ic-color-text-secondary);
+  --ic-pagination-ellipsis-monochrome: var(--ic-color-text-primary);
+  --ic-pagination-select-content: var(--ic-atoms-input-select-content-text);
+
   /* Popover menu */
   --ic-popover-background: var(--ic-color-background-primary-light);
   --ic-popover-divider: var(--ic-color-border-neutral-default);
@@ -942,6 +968,32 @@ ic-theme,
     );
     --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
 
+    /* Pagination */
+    --ic-pagination-dot-button-outer: var(--ic-color-background-primary-light);
+    --ic-pagination-dot-button-outer-monochrome: var(
+      --ic-color-background-primary-light
+    );
+    --ic-pagination-dot-button-inner: var(--ic-color-background-active);
+    --ic-pagination-dot-button-inner-monochrome: var(
+      --ic-color-background-primary
+    );
+    --ic-pagination-dot: var(--ic-color-border-neutral-grey-dark);
+    --ic-pagination-hover: var(--ic-action-light-bg-hover);
+    --ic-pagination-pressed: var(--ic-action-light-bg-pressed);
+    --ic-pagination-hover-monochrome: var(--ic-action-light-bg-hover);
+    --ic-pagination-pressed-monochrome: var(--ic-action-light-bg-pressed);
+    --ic-pagination-chevron: var(--ic-action-default);
+    --ic-pagination-chevron-disabled: var(--ic-state-layer-lighten-20);
+    --ic-pagination-chevron-monochrome: var(--ic-action-light);
+    --ic-pagination-text: var(--ic-color-text-primary);
+    --ic-pagination-page-number: var(--ic-action-default);
+    --ic-pagination-page-number-monochrome: var(--ic-action-light);
+    --ic-pagination-selected-banner: var(--ic-action-default);
+    --ic-pagination-selected-banner-monochrome: var(--ic-action-light);
+    --ic-pagination-ellipsis: var(--ic-color-text-secondary);
+    --ic-pagination-ellipsis-monochrome: var(--ic-color-text-primary);
+    --ic-pagination-select-content: var(--ic-atoms-input-select-content-text);
+
     /* Popover menu */
     --ic-popover-background: var(--ic-color-background-primary-dark);
     --ic-popover-divider: var(--ic-color-border-neutral-default);
@@ -1489,6 +1541,32 @@ ic-theme,
   --ic-loading-indicator-inner-color-monochrome: var(--ic-action-light);
   --ic-loading-indicator-outer-color-monochrome: var(--ic-action-neutral-dark);
   --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
+
+  /* Pagination */
+  --ic-pagination-dot-button-outer: var(--ic-color-background-primary-light);
+  --ic-pagination-dot-button-outer-monochrome: var(
+    --ic-color-background-primary-light
+  );
+  --ic-pagination-dot-button-inner: var(--ic-color-background-active);
+  --ic-pagination-dot-button-inner-monochrome: var(
+    --ic-color-background-primary
+  );
+  --ic-pagination-dot: var(--ic-color-border-neutral-grey-dark);
+  --ic-pagination-hover: var(--ic-action-light-bg-hover);
+  --ic-pagination-pressed: var(--ic-action-light-bg-pressed);
+  --ic-pagination-hover-monochrome: var(--ic-action-light-bg-hover);
+  --ic-pagination-pressed-monochrome: var(--ic-action-light-bg-pressed);
+  --ic-pagination-chevron: var(--ic-action-default);
+  --ic-pagination-chevron-disabled: var(--ic-state-layer-lighten-20);
+  --ic-pagination-chevron-monochrome: var(--ic-action-light);
+  --ic-pagination-text: var(--ic-color-text-primary);
+  --ic-pagination-page-number: var(--ic-action-default);
+  --ic-pagination-page-number-monochrome: var(--ic-action-light);
+  --ic-pagination-selected-banner: var(--ic-action-default);
+  --ic-pagination-selected-banner-monochrome: var(--ic-action-light);
+  --ic-pagination-ellipsis: var(--ic-color-text-secondary);
+  --ic-pagination-ellipsis-monochrome: var(--ic-color-text-primary);
+  --ic-pagination-select-content: var(--ic-atoms-input-select-content-text);
 
   /* Popover menu */
   --ic-popover-background: var(--ic-color-background-primary-dark);

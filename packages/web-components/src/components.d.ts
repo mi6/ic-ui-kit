@@ -1250,10 +1250,6 @@ export namespace Components {
          */
         "adjacentPageCount": number;
         /**
-          * The appearance of the pagination, e.g. dark, light or the default.
-         */
-        "appearance": IcThemeForeground;
-        /**
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
         "boundaryPageCount": number;
@@ -1282,6 +1278,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * If `true`, the pagination will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * The total number of pages.
          */
         "pages": number;
@@ -1291,15 +1291,15 @@ export namespace Components {
          */
         "setCurrentPage": (page: number) => Promise<void>;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The type of pagination to be used.
          */
         "type": IcPaginationTypes;
     }
     interface IcPaginationItem {
-        /**
-          * The appearance of the pagination, e.g. dark, light or the default.
-         */
-        "appearance": IcThemeForeground;
         /**
           * If `true`, the pagination item will be disabled.
          */
@@ -1309,6 +1309,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * If `true`, the pagination item will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * The current page number.
          */
         "page": number | null;
@@ -1316,6 +1320,10 @@ export namespace Components {
           * If `true`, the pagination item will be selected.
          */
         "selected": boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The type of pagination item - 'page' or 'ellipsis'.
          */
@@ -4470,10 +4478,6 @@ declare namespace LocalJSX {
          */
         "adjacentPageCount"?: number;
         /**
-          * The appearance of the pagination, e.g. dark, light or the default.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
         "boundaryPageCount"?: number;
@@ -4502,6 +4506,10 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
+          * If `true`, the pagination will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * Emitted when a page is selected.
          */
         "onIcPageChange"?: (event: IcPaginationCustomEvent<IcChangeEventDetail1>) => void;
@@ -4510,15 +4518,15 @@ declare namespace LocalJSX {
          */
         "pages": number;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The type of pagination to be used.
          */
         "type"?: IcPaginationTypes;
     }
     interface IcPaginationItem {
-        /**
-          * The appearance of the pagination, e.g. dark, light or the default.
-         */
-        "appearance"?: IcThemeForeground;
         /**
           * If `true`, the pagination item will be disabled.
          */
@@ -4527,6 +4535,10 @@ declare namespace LocalJSX {
           * The label for the pagination item (applicable when simple pagination is being used).
          */
         "label"?: string;
+        /**
+          * If `true`, the pagination item will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
         "onPaginationItemClick"?: (event: IcPaginationItemCustomEvent<{ page: number }>) => void;
         /**
           * The current page number.
@@ -4536,6 +4548,10 @@ declare namespace LocalJSX {
           * If `true`, the pagination item will be selected.
          */
         "selected"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The type of pagination item - 'page' or 'ellipsis'.
          */

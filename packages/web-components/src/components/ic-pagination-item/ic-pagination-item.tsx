@@ -9,7 +9,7 @@ import {
   Watch,
 } from "@stencil/core";
 import { IcPaginationItemType } from "./ic-pagination-item.types";
-import { IcThemeForeground } from "../../utils/types";
+import { IcThemeMode } from "../../utils/types";
 import { removeDisabledFalse, capitalize } from "../../utils/helpers";
 
 @Component({
@@ -21,11 +21,6 @@ export class PaginationItem {
   @Element() el: HTMLIcPaginationItemElement;
 
   @State() capitalizedLabel: string;
-
-  /**
-   * The appearance of the pagination, e.g. dark, light or the default.
-   */
-  @Prop() appearance: IcThemeForeground = "default";
 
   /**
    * If `true`, the pagination item will be disabled.
@@ -43,6 +38,11 @@ export class PaginationItem {
   }
 
   /**
+   * If `true`, the pagination item will display as black in the light theme, and white in dark theme.
+   */
+  @Prop() monochrome?: boolean = false;
+
+  /**
    * The current page number.
    */
   @Prop() page: number | null;
@@ -51,6 +51,11 @@ export class PaginationItem {
    * If `true`, the pagination item will be selected.
    */
   @Prop() selected: boolean = false;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The type of pagination item - 'page' or 'ellipsis'.
@@ -77,13 +82,13 @@ export class PaginationItem {
       selected,
       type,
       disabled,
-      appearance,
       label,
       capitalizedLabel,
+      monochrome,
     } = this;
 
     return (
-      <a>
+      <a class={{ ["monochrome"]: monochrome }}>
         {type === "ellipsis" ? (
           <div
             class={{
@@ -92,14 +97,7 @@ export class PaginationItem {
               ["disabled"]: disabled,
             }}
           >
-            <ic-typography
-              class={{
-                [`${appearance}`]: true,
-              }}
-              variant="label"
-            >
-              ...
-            </ic-typography>
+            <ic-typography variant="label">...</ic-typography>
           </div>
         ) : type === "page" ? (
           <button
@@ -115,7 +113,6 @@ export class PaginationItem {
               ["selected"]: !disabled && selected,
               ["disabled"]: disabled,
               ["item-container"]: true,
-              [`${appearance}`]: true,
               ["page"]: type === "page",
             }}
           >
@@ -124,7 +121,6 @@ export class PaginationItem {
               class={{
                 ["page-selected"]: selected,
                 ["disabled"]: disabled,
-                [`${appearance}`]: true,
               }}
             >
               {page}
@@ -134,7 +130,7 @@ export class PaginationItem {
           <ic-typography
             aria-live="polite"
             class={{
-              [`simple-current ${appearance}`]: true,
+              [`simple-current`]: true,
               ["disabled"]: disabled,
             }}
             variant="label"

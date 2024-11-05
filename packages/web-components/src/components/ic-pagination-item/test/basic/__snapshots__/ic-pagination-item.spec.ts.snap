@@ -5,7 +5,7 @@ exports[`ic-pagination-item should render as ellipsis type: render as ellipsis t
   <mock:shadow-root>
     <a>
       <div class="ellipsis item-container">
-        <ic-typography class="default" variant="label">
+        <ic-typography variant="label">
           ...
         </ic-typography>
       </div>
@@ -18,8 +18,8 @@ exports[`ic-pagination-item should render as selected item: render as selected i
 <ic-pagination-item page="1" selected="" type="page">
   <mock:shadow-root>
     <a>
-      <button aria-current="page" aria-label="Page: 1" class="default item-container page selected" role="button" tabindex="-1">
-        <ic-typography class="default page-selected" variant="label">
+      <button aria-current="page" aria-label="Page: 1" class="item-container page selected" role="button" tabindex="-1">
+        <ic-typography class="page-selected" variant="label">
           1
         </ic-typography>
       </button>
@@ -32,7 +32,7 @@ exports[`ic-pagination-item should render default pagination item: render defaul
 <ic-pagination-item page="1">
   <mock:shadow-root>
     <a>
-      <ic-typography aria-live="polite" class="default simple-current" variant="label">
+      <ic-typography aria-live="polite" class="simple-current" variant="label">
         Page 1
       </ic-typography>
     </a>
@@ -45,7 +45,7 @@ exports[`ic-pagination-item should render disabled ellipsis type: render disable
   <mock:shadow-root>
     <a>
       <div class="disabled ellipsis item-container">
-        <ic-typography class="default" variant="label">
+        <ic-typography variant="label">
           ...
         </ic-typography>
       </div>
@@ -58,8 +58,8 @@ exports[`ic-pagination-item should render disabled: render disabled 1`] = `
 <ic-pagination-item disabled="" page="1" type="page">
   <mock:shadow-root>
     <a>
-      <button aria-label="Go to Page 1" class="default disabled item-container page" disabled="" role="button" tabindex="0">
-        <ic-typography class="default disabled" variant="label">
+      <button aria-label="Go to Page 1" class="disabled item-container page" disabled="" role="button" tabindex="0">
+        <ic-typography class="disabled" variant="label">
           1
         </ic-typography>
       </button>
@@ -72,7 +72,7 @@ exports[`ic-pagination-item should render with custom label: render with custom 
 <ic-pagination-item label="screen" page="1">
   <mock:shadow-root>
     <a>
-      <ic-typography aria-live="polite" class="default simple-current" variant="label">
+      <ic-typography aria-live="polite" class="simple-current" variant="label">
         Screen 1
       </ic-typography>
     </a>
@@ -84,8 +84,8 @@ exports[`ic-pagination-item should render with dark appearance: render with dark
 <ic-pagination-item appearance="dark" page="1" type="page">
   <mock:shadow-root>
     <a>
-      <button aria-label="Go to Page 1" class="dark item-container page" role="button" tabindex="0">
-        <ic-typography class="dark" variant="label">
+      <button aria-label="Go to Page 1" class="item-container page" role="button" tabindex="0">
+        <ic-typography variant="label">
           1
         </ic-typography>
       </button>
@@ -98,8 +98,8 @@ exports[`ic-pagination-item should render with light appearance: render with lig
 <ic-pagination-item appearance="light" page="1" type="page">
   <mock:shadow-root>
     <a>
-      <button aria-label="Go to Page 1" class="item-container light page" role="button" tabindex="0">
-        <ic-typography class="light" variant="label">
+      <button aria-label="Go to Page 1" class="item-container page" role="button" tabindex="0">
+        <ic-typography variant="label">
           1
         </ic-typography>
       </button>
