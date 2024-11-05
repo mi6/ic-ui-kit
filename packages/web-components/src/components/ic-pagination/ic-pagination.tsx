@@ -13,7 +13,7 @@ import {
 } from "@stencil/core";
 import paginationNextPrevious from "../../assets/pagination-next-previous.svg";
 import paginationFirstLast from "../../assets/pagination-first-last.svg";
-import { IcThemeForeground } from "../../utils/types";
+import { IcThemeMode } from "../../utils/types";
 import { IcPaginationTypes, IcChangeEventDetail } from "./ic-pagination.types";
 import {
   onComponentRequiredPropUndefined,
@@ -45,11 +45,6 @@ export class Pagination {
       this.adjacentPageCount = 2;
     }
   }
-
-  /**
-   * The appearance of the pagination, e.g. dark, light or the default.
-   */
-  @Prop() appearance: IcThemeForeground = "default";
 
   /**
    * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
@@ -89,6 +84,11 @@ export class Pagination {
   @Prop() label: string = "Page";
 
   /**
+   * If `true`, the pagination will display as black in the light theme, and white in dark theme.
+   */
+  @Prop() monochrome?: boolean = false;
+
+  /**
    * The total number of pages.
    */
   @Prop() pages!: number;
@@ -97,6 +97,11 @@ export class Pagination {
   watchNumberPagesHandler(): void {
     this.watchPageChangeHandler();
   }
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The type of pagination to be used.
@@ -282,13 +287,32 @@ export class Pagination {
     this.icPageChange.emit({ value: this.currentPage });
   };
 
+  /**
+   * Temporary function to handle button appearance until other dark mode work is completed.
+   */
+  private handleButtonAppearance = () => {
+    if (this.monochrome) {
+      if (
+        this.theme === "dark" ||
+        (this.theme === "inherit" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        return "light";
+      } else {
+        return "dark";
+      }
+    } else {
+      return "default";
+    }
+  };
+
   // button rendering abstracted from component render methods for clarity
   private firstButton = () => {
     return (
       <ic-button
         id="first-page-button"
         aria-label="Go to first page"
-        appearance={this.appearance}
+        appearance={this.handleButtonAppearance()}
         onClick={this.handleClickFirst}
         class="page-button first-last"
         disabled={this.currentPage === 1 || this.disabled}
@@ -303,7 +327,7 @@ export class Pagination {
       <ic-button
         id="previous-page-button"
         aria-label="Go to previous page"
-        appearance={this.appearance}
+        appearance={this.handleButtonAppearance()}
         onClick={this.handleClickPrevious}
         class="page-button next-previous flip"
         disabled={this.currentPage === 1 || this.disabled}
@@ -318,7 +342,7 @@ export class Pagination {
       <ic-button
         id="next-page-button"
         aria-label="Go to next page"
-        appearance={this.appearance}
+        appearance={this.handleButtonAppearance()}
         onClick={this.handleClickNext}
         class="page-button next-previous"
         disabled={this.currentPage === this.pages || this.disabled}
@@ -333,7 +357,7 @@ export class Pagination {
       <ic-button
         id="last-page-button"
         aria-label="Go to last page"
-        appearance={this.appearance}
+        appearance={this.handleButtonAppearance()}
         onClick={this.handleClickLast}
         class="page-button first-last flip"
         disabled={this.currentPage === this.pages || this.disabled}
@@ -346,7 +370,8 @@ export class Pagination {
   private renderStartEllipsis = () => {
     return (
       <ic-pagination-item
-        appearance={this.appearance}
+        theme={this.theme}
+        monochrome={this.monochrome}
         type="ellipsis"
         id="start-ellipsis"
         disabled={this.disabled}
@@ -357,7 +382,8 @@ export class Pagination {
   private renderEndEllipsis = () => {
     return (
       <ic-pagination-item
-        appearance={this.appearance}
+        theme={this.theme}
+        monochrome={this.monochrome}
         type="ellipsis"
         id="end-ellipsis"
         disabled={this.disabled}
@@ -369,7 +395,8 @@ export class Pagination {
     return this.startItems.map((page: number) => {
       return (
         <ic-pagination-item
-          appearance={this.appearance}
+          theme={this.theme}
+          monochrome={this.monochrome}
           selected={page === this.currentPage}
           id={`pagination-item-${page}`}
           type="page"
@@ -384,7 +411,8 @@ export class Pagination {
     return this.endItems.map((page: number) => {
       return (
         <ic-pagination-item
-          appearance={this.appearance}
+          theme={this.theme}
+          monochrome={this.monochrome}
           selected={page === this.currentPage}
           id={`pagination-item-${page}`}
           type="page"
@@ -399,7 +427,8 @@ export class Pagination {
     return this.midItems.map((page: number) => {
       return (
         <ic-pagination-item
-          appearance={this.appearance}
+          theme={this.theme}
+          monochrome={this.monochrome}
           selected={page === this.currentPage}
           id={`pagination-item-${page}`}
           type="page"
@@ -418,10 +447,17 @@ export class Pagination {
       disabled,
       hideFirstAndLastPageButton,
       label,
+      theme,
+      monochrome,
     } = this;
 
     return (
-      <Host>
+      <Host
+        class={{
+          [`ic-theme-${theme}`]: theme !== "inherit",
+          ["ic-pagination-monochrome"]: monochrome,
+        }}
+      >
         {type === "simple" && (
           <nav
             class={{
@@ -433,7 +469,8 @@ export class Pagination {
             {hideFirstAndLastPageButton ? null : this.firstButton()}
             {this.previousButton()}
             <ic-pagination-item
-              appearance={this.appearance}
+              theme={this.theme}
+              monochrome={this.monochrome}
               type="simple-current"
               page={currentPage}
               label={label}

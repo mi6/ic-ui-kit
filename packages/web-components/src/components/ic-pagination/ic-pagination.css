@@ -31,6 +31,21 @@ ic-button.first-last {
   --icon-height: calc(var(--ic-space-xs) + var(--ic-space-xxxs));
 }
 
+ic-button.first-last::part(button),
+ic-button.next-previous::part(button) {
+  color: var(--ic-pagination-chevron);
+}
+
+:host(.ic-pagination-monochrome) ic-button.first-last::part(button),
+:host(.ic-pagination-monochrome) ic-button.next-previous::part(button) {
+  color: var(--ic-pagination-chevron-monochrome);
+}
+
+ic-button.ic-button-disabled.first-last::part(button),
+ic-button.ic-button-disabled.next-previous::part(button) {
+  color: var(--ic-pagination-chevron-disabled);
+}
+
 .disabled {
   color: var(--ic-architectural-200);
   pointer-events: none;

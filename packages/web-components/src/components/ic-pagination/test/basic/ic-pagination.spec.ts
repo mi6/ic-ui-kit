@@ -379,7 +379,7 @@ describe("ic-pagination complex type", () => {
     )) as HTMLIcPaginationItemElement;
 
     const btn = (await icPagItem.shadowRoot.querySelector(
-      ".item-container.default.page"
+      ".item-container.page"
     )) as AnyHTMLElement;
 
     await btn.click();
