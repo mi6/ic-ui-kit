@@ -568,6 +568,43 @@
           "required": false
         },
         {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "titleAbove",
           "type": "boolean",
           "complexType": {
@@ -18089,6 +18126,11 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/utils/types.ts::IcThemeMode": {
+      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/utils/types.ts::IcStatusVariants": {
       "declaration": "export type IcStatusVariants =\n  | \"neutral\"\n  | \"info\"\n  | \"warning\"\n  | \"error\"\n  | \"success\";",
       "docstring": "",
@@ -18138,11 +18180,6 @@
       "declaration": "export type IcBadgePositions = \"far\" | \"near\" | \"inline\";",
       "docstring": "",
       "path": "src/components/ic-badge/ic-badge.types.ts"
-    },
-    "src/utils/types.ts::IcThemeMode": {
-      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/components/ic-badge/ic-badge.types.ts::IcBadgeTypes": {
       "declaration": "export type IcBadgeTypes = \"dot\" | \"text\" | \"icon\";",

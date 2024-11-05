@@ -141,6 +141,10 @@ export namespace Components {
          */
         "showDefaultIcon": boolean;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
@@ -3355,6 +3359,10 @@ declare namespace LocalJSX {
           * If `true`, the default icon for the neutral variant will appear on the left of the alert.
          */
         "showDefaultIcon"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
