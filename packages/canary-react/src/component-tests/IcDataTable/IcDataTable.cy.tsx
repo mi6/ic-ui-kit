@@ -1146,7 +1146,6 @@ describe("IcDataTables with IcPaginationBar", () => {
       showItemsPerPageControl: true,
       showGoToPageControl: true,
       alignment: "right",
-      appearance: "default",
       itemLabel: "Item",
       pageLabel: "Page",
       hideRangeLabel: false,
@@ -1184,7 +1183,6 @@ describe("IcDataTables with IcPaginationBar", () => {
       showItemsPerPageControl: false,
       showGoToPageControl: false,
       alignment: "left",
-      appearance: "dark",
       itemLabel: "Row",
       pageLabel: "Screen",
       hideRangeLabel: true,
@@ -1233,12 +1231,6 @@ describe("IcDataTables with IcPaginationBar", () => {
           });
         cy.get(DATA_TABLE_SELECTOR)
           .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
-          .invoke("prop", "appearance")
-          .then((appearance) => {
-            expect(appearance).to.equal("dark");
-          });
-        cy.get(DATA_TABLE_SELECTOR)
-          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "itemLabel")
           .then((itemLabel) => {
             expect(itemLabel).to.equal("Row");
@@ -1271,7 +1263,6 @@ describe("IcDataTable with truncation", () => {
     showItemsPerPageControl: true,
     showGoToPageControl: true,
     alignment: "right",
-    appearance: "default",
     itemLabel: "Item",
     pageLabel: "Page",
     hideRangeLabel: false,
@@ -2408,7 +2399,6 @@ describe("IcDataTable with truncation", () => {
         showItemsPerPageControl: true,
         showGoToPageControl: true,
         alignment: "right",
-        appearance: "default",
         itemLabel: "Item",
         pageLabel: "Page",
         hideRangeLabel: false,
