@@ -12,7 +12,7 @@
 | `focusInset` | `focus-inset` | If `true`, tree items will have inset focus.                                                                                            | `boolean`                        | `false`     |
 | `heading`    | `heading`     | The heading of the tree view.                                                                                                           | `string`                         | `""`        |
 | `size`       | `size`        | The size of the tree view.                                                                                                              | `"large" \| "medium" \| "small"` | `"medium"`  |
-| `theme`      | `theme`       | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `IcThemeMode`                    | `"inherit"` |
+| `theme`      | `theme`       | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"` | `"inherit"` |
 
 
 ## Slots

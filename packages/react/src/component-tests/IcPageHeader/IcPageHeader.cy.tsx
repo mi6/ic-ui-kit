@@ -15,9 +15,12 @@ import {
   PageheaderAlign,
   ScrollStickyPageHeader,
   PageHeaderSlottedHeadings,
+  PageheaderDarkTheme,
 } from "./IcPageHeaderTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+
 const DEFAULT_TEST_THRESHOLD = 0.042;
+const PAGE_HEADER_SELECTOR = "ic-page-header";
 
 describe("IcPageHeader", () => {
   beforeEach(() => {
@@ -32,7 +35,7 @@ describe("IcPageHeader", () => {
   it("should render default", () => {
     mount(<PageHeaderDefault />);
 
-    cy.checkHydrated("ic-page-header");
+    cy.checkHydrated(PAGE_HEADER_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -61,7 +64,7 @@ describe("IcPageHeader", () => {
     cy.viewport("iphone-6");
     mount(<DesktopScrollablePageVariant />);
 
-    cy.checkHydrated("ic-page-header");
+    cy.checkHydrated(PAGE_HEADER_SELECTOR);
 
     cy.scrollTo("bottom");
 
@@ -155,6 +158,15 @@ describe("IcPageHeader", () => {
     cy.compareSnapshot({
       name: "with-slotted-headings",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+    });
+  });
+
+  it("should render in dark mode", () => {
+    mount(<PageheaderDarkTheme />);
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
