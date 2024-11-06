@@ -8562,6 +8562,28 @@
           "required": false
         },
         {
+          "name": "toggleChecked",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "toggle-checked",
+          "reflectToAttr": true,
+          "docs": "If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "variant",
           "type": "\"default\" | \"destructive\" | \"toggle\"",
           "complexType": {
@@ -8600,7 +8622,22 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "icToggleChecked",
+          "detail": "{ checked: boolean; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{\n    checked: boolean;\n  }",
+            "resolved": "{ checked: boolean; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the user clicks a menu item that is set to the toggle variant.",
+          "docsTags": []
+        }
+      ],
       "listeners": [
         {
           "event": "click",
