@@ -417,3 +417,21 @@ export const InAForm = () => {
     </form>
   );
 };
+
+export const ThemeDark = () => {
+  return (
+    <div style={{ padding: "10px", backgroundColor: "black" }}>
+      <IcRadioGroup label="This is a label" name="radio-group-1" theme="dark">
+        {threeOptions.map((option, index) => (
+          <IcRadioOption
+            key={index + option.value}
+            value={option.value}
+            label={option.label}
+            selected={option.selected}
+            disabled={option.disabled}
+          />
+        ))}
+      </IcRadioGroup>
+    </div>
+  );
+};
