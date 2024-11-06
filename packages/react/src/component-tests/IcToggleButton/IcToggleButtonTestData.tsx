@@ -1,5 +1,5 @@
-import React, { ReactElement } from "react";
-import { IcToggleButton } from "../../components";
+import React, { ReactElement, useState } from "react";
+import { IcBadge, IcToggleButton } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const ReusableSlottedIcon = (): ReactElement => (
@@ -162,6 +162,32 @@ export const Light = (): ReactElement => {
       <IcToggleButton label="Test" appearance="light" variant="icon" disabled>
         <ReusableSlottedIcon />
       </IcToggleButton>
+    </div>
+  );
+};
+
+export const ConditionalBadge = (): ReactElement => {
+  const [count, setCount] = useState(0);
+  const incrementCount = () => setCount((previous) => previous + 1);
+
+  return (
+    <div
+      style={{
+        padding: "var(--ic-space-sm)",
+      }}
+    >
+      <IcToggleButton>
+        Button with badge
+        {count > 0 && (
+          <IcBadge
+            slot="badge"
+            variant="info"
+            textLabel={`${count}`}
+            maxNumber={99}
+          />
+        )}
+      </IcToggleButton>
+      <button onClick={incrementCount}>Increment count</button>
     </div>
   );
 };
