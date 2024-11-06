@@ -382,6 +382,8 @@
   --ic-action-default-hover-dark: var(--ic-blue-100);
   --ic-action-default-pressed-light: var(--ic-blue-1300);
   --ic-action-default-pressed-dark: var(--ic-blue-400);
+  --ic-action-default-selected-light: var(--ic-blue-800-state-layer-10);
+  --ic-action-default-selected-dark: var(--ic-blue-1000);
   --ic-action-default-disabled: var(--ic-blue-50); /* think this is wrong */
   --ic-action-default-active-alpha: var(--ic-blue-800-state-layer-50);
   --ic-action-default-bg-hover: var(--ic-blue-800-state-layer-10);

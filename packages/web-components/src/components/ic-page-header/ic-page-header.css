@@ -17,11 +17,12 @@
 }
 
 header {
-  background-color: var(--ic-architectural-40);
+  background-color: var(--ic-page-header-background);
 }
 
 header.border-bottom {
   border-bottom: var(--ic-border-default);
+  border-bottom: var(--ic-space-1px) solid var(--ic-page-header-border);
 }
 
 header.tabs {
