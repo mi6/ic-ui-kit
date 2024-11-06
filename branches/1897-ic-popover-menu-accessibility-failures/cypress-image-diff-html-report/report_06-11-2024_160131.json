@@ -1,7 +1,7 @@
 {
-  "total": 660,
+  "total": 662,
   "totalPassed": 658,
-  "totalFailed": 2,
+  "totalFailed": 4,
   "totalSuites": 36,
   "suites": [
     {
@@ -4018,6 +4018,17 @@
         },
         {
           "status": "fail",
+          "name": "IcPopoverMenu.cy.tsx-variants",
+          "percentage": 0.15509996776273038,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx-variants.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPopoverMenu.cy.tsx-variants.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-variants.png"
+        },
+        {
+          "status": "fail",
           "name": "IcPopoverMenu.cy.tsx-menu-group",
           "percentage": 0.26753691334094437,
           "failureThreshold": 0,
@@ -4037,6 +4048,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx-max-height.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-max-height.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx-submenu-focused",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx-submenu-focused.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-submenu-focused.png"
         },
         {
           "status": "pass",
@@ -4072,14 +4094,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-disabled-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcPopoverMenu.cy.tsx-variants-high-contrast",
-          "percentage": 0,
+          "percentage": 0.10033942395688746,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
           "specFilename": "IcPopoverMenu.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx-variants-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPopoverMenu.cy.tsx-variants-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx-variants-high-contrast.png"
         },
         {
@@ -7481,9 +7503,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-06T11:37:52.543Z",
-  "endedAt": "2024-11-06T11:51:38.578Z",
-  "duration": 750177,
+  "startedAt": "2024-11-06T16:01:31.287Z",
+  "endedAt": "2024-11-06T16:15:39.604Z",
+  "duration": 770479,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
