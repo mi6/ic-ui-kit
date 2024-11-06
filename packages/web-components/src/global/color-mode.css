@@ -55,6 +55,7 @@ ic-theme,
   --ic-action-default: var(--ic-action-default-light);
   --ic-action-default-hover: var(--ic-action-default-hover-light);
   --ic-action-default-pressed: var(--ic-action-default-pressed-light);
+  --ic-action-default-selected: var(--ic-action-default-selected-light);
   --ic-action-destructive: var(--ic-action-destructive-light);
   --ic-action-destructive-hover: var(--ic-action-destructive-hover-light);
   --ic-action-destructive-pressed: var(--ic-action-destructive-pressed-light);
@@ -476,6 +477,15 @@ ic-theme,
   --ic-loading-indicator-outer-color-monochrome: var(--ic-action-light);
   --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
 
+  /* Page header */
+  --ic-page-header-text-primary: var(--ic-color-text-primary);
+  --ic-page-header-background: var(--ic-color-background-secondary-40);
+  --ic-page-header-border: var(--ic-color-border-neutral-grey-dark);
+  --ic-page-header-text-tertiary: var(--ic-color-text-tertiary);
+  --ic-page-header-placeholder-text-field: var(
+    --ic-atoms-input-text-area-content-placeholder
+  );
+
   /* Pagination */
   --ic-pagination-dot-button-outer: var(--ic-color-background-active);
   --ic-pagination-dot-button-outer-monochrome: var(
@@ -770,6 +780,7 @@ ic-theme,
     --ic-action-default: var(--ic-action-default-dark);
     --ic-action-default-hover: var(--ic-action-default-hover-dark);
     --ic-action-default-pressed: var(--ic-action-default-pressed-dark);
+    --ic-action-default-selected: var(--ic-action-default-selected-dark);
     --ic-action-destructive: var(--ic-action-destructive-dark);
     --ic-action-destructive-hover: var(--ic-action-destructive-hover-dark);
     --ic-action-destructive-pressed: var(--ic-action-destructive-pressed-dark);
@@ -1203,6 +1214,15 @@ ic-theme,
     );
     --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
 
+    /* Page header */
+    --ic-page-header-text-primary: var(--ic-color-text-primary);
+    --ic-page-header-background: var(--ic-color-background-primary);
+    --ic-page-header-border: var(--ic-color-border-neutral-grey-light);
+    --ic-page-header-text-tertiary: var(--ic-color-text-tertiary);
+    --ic-page-header-placeholder-text-field: var(
+      --ic-atoms-input-select-content-placeholder-text
+    );
+
     /* Pagination */
     --ic-pagination-dot-button-outer: var(--ic-color-background-primary-light);
     --ic-pagination-dot-button-outer-monochrome: var(
@@ -1505,6 +1525,7 @@ ic-theme,
   --ic-action-default: var(--ic-action-default-dark);
   --ic-action-default-hover: var(--ic-action-default-hover-dark);
   --ic-action-default-pressed: var(--ic-action-default-pressed-dark);
+  --ic-action-default-selected: var(--ic-action-default-selected-dark);
   --ic-action-destructive: var(--ic-action-destructive-dark);
   --ic-action-destructive-hover: var(--ic-action-destructive-hover-dark);
   --ic-action-destructive-pressed: var(--ic-action-destructive-pressed-dark);
@@ -1929,6 +1950,15 @@ ic-theme,
   --ic-loading-indicator-inner-color-monochrome: var(--ic-action-light);
   --ic-loading-indicator-outer-color-monochrome: var(--ic-action-neutral-dark);
   --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
+
+  /* Page header */
+  --ic-page-header-text-primary: var(--ic-color-text-primary);
+  --ic-page-header-background: var(--ic-color-background-primary);
+  --ic-page-header-border: var(--ic-color-border-neutral-grey-light);
+  --ic-page-header-text-tertiary: var(--ic-color-text-tertiary);
+  --ic-page-header-placeholder-text-field: var(
+    --ic-atoms-input-select-content-placeholder-text
+  );
 
   /* Pagination */
   --ic-pagination-dot-button-outer: var(--ic-color-background-primary-light);

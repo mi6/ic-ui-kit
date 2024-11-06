@@ -1288,6 +1288,10 @@ export namespace Components {
           * The subtitle to render on the page header.
          */
         "subheading"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcPagination {
         /**
@@ -4571,6 +4575,10 @@ declare namespace LocalJSX {
           * The subtitle to render on the page header.
          */
         "subheading"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcPagination {
         /**
