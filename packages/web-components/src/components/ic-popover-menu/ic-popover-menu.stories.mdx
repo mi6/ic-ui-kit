@@ -487,7 +487,11 @@ export const defaultArgs = {
   >
     {(args) =>
       html`<div>
-        <ic-popover-menu aria-label="popover" open=${args.open}>
+        <ic-popover-menu
+          aria-label="popover"
+          open=${args.open}
+          id="popover-menu-playground"
+        >
           <ic-menu-group label=${args.groupLabel}>
             <ic-menu-item
               description=${args.description}

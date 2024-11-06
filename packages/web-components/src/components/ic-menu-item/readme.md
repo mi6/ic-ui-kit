@@ -19,7 +19,15 @@
 | `rel`                | `rel`                 | The relationship of the linked URL as space-separated link types.                                                                            | `string`                                                                                                                                                                                 | `undefined` |
 | `submenuTriggerFor`  | `submenu-trigger-for` | This references the popover menu instance that the menu item is a trigger for. If this prop is set, then the variant will always be default. | `string`                                                                                                                                                                                 | `undefined` |
 | `target`             | `target`              | The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).                                          | `string`                                                                                                                                                                                 | `undefined` |
+| `toggleChecked`      | `toggle-checked`      | If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.                                | `boolean`                                                                                                                                                                                | `false`     |
 | `variant`            | `variant`             | The variant of the menu item.                                                                                                                | `"default" \| "destructive" \| "toggle"`                                                                                                                                                 | `"default"` |
+
+
+## Events
+
+| Event             | Description                                                                 | Type                                 |
+| ----------------- | --------------------------------------------------------------------------- | ------------------------------------ |
+| `icToggleChecked` | Emitted when the user clicks a menu item that is set to the toggle variant. | `CustomEvent<{ checked: boolean; }>` |
 
 
 ## Slots
