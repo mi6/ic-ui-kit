@@ -448,6 +448,36 @@ ic-theme,
   --ic-popover-menu-border: var(--ic-color-border-neutral-white);
   --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
 
+  /* Radio */
+  --ic-radio-button-border-default: var(--ic-color-border-neutral-grey-dark);
+  --ic-radio-button-border-disabled: var(--ic-color-border-neutral-disabled);
+  --ic-radio-button-background-default: var(--ic-color-background-primary);
+  --ic-radio-button-default-hover: var(--ic-action-default-hover);
+  --ic-radio-button-active-hover: var(--ic-action-default-bg-hover);
+  --ic-radio-button-default-pressed: var(--ic-action-default-pressed);
+  --ic-radio-button-active-pressed: var(--ic-action-default-bg-active);
+  --ic-radio-button-default-active: var(--ic-action-default);
+  --ic-radio-button-disabled: var(--ic-color-border-neutral-disabled);
+  --ic-radio-button-text-option: var(--ic-color-text-primary);
+  --ic-radio-button-text-option-disabled: var(--ic-color-text-disabled-light);
+  --ic-radio-button-input-field-label: var(--ic-atoms-input-field-label);
+  --ic-radio-button-input-field-label-disabled: var(
+    --ic-atoms-input-field-label-disabled
+  );
+  --ic-radio-button-input-field-subtitle: var(
+    --ic-atoms-input-field-label-subtitle
+  );
+  --ic-radio-button-input-field-subtitle-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-radio-button-input-field-label-error: var(
+    --ic-atoms-input-field-label-error
+  );
+  --ic-radio-button-state-text: var(--ic-atoms-input-state-text);
+  --ic-radio-button-state-icon-error: var(--ic-atoms-input-state-icon-error);
+  --ic-radio-button-required-bar: var(--ic-action-default);
+  --ic-radio-button-required-text: var(--ic-action-default);
+
   /* Search bar */
   --ic-search-bar-background: var(--ic-color-background-primary);
   --ic-search-bar-placeholder-text: var(
@@ -565,7 +595,7 @@ ic-theme,
   --ic-switch-unchecked-bg-hover: var(--ic-action-dark-bg-hover);
   --ic-switch-unchecked-bg-pressed: var(--ic-action-dark-bg-pressed);
   --ic-switch-checked-bg-hover: var(--ic-action-default-bg-hover);
-  --ic-switch-checked-bg-pressed: var(--ic-action-default-bg-pressed);
+  --ic-switch-checked-bg-pressed: var(--ic-action-default-bg-active);
 
   /* Tabs */
   --ic-tab-label: var(--ic-color-text-primary);
@@ -1042,6 +1072,38 @@ ic-theme,
     );
     --ic-popover-menu-border: var(--ic-color-border-neutral-white);
     --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
+
+    /* Radio */
+    --ic-radio-button-border-default: var(--ic-color-border-neutral-grey-light);
+    --ic-radio-button-border-disabled: var(--ic-color-border-neutral-disabled);
+    --ic-radio-button-background-default: var(--ic-color-background-primary);
+    --ic-radio-button-default-hover: var(--ic-action-default-hover);
+    --ic-radio-button-active-hover: var(--ic-action-light-bg-hover);
+    --ic-radio-button-default-pressed: var(--ic-action-default-pressed);
+    --ic-radio-button-active-pressed: var(--ic-action-light-bg-pressed);
+    --ic-radio-button-default-active: var(--ic-action-default);
+    --ic-radio-button-disabled: var(--ic-color-border-neutral-disabled);
+    --ic-radio-button-text-option: var(--ic-color-text-primary);
+    --ic-radio-button-text-option-disabled: var(
+      --ic-color-text-disabled-default
+    );
+    --ic-radio-button-input-field-label: var(--ic-atoms-input-field-label);
+    --ic-radio-button-input-field-label-disabled: var(
+      --ic-atoms-input-field-label-disabled
+    );
+    --ic-radio-button-input-field-subtitle: var(
+      --ic-atoms-input-field-label-subtitle
+    );
+    --ic-radio-button-input-field-subtitle-disabled: var(
+      --ic-atoms-input-field-label-subtitle-disabled
+    );
+    --ic-radio-button-input-field-label-error: var(
+      --ic-atoms-input-field-label-error
+    );
+    --ic-radio-button-state-text: var(--ic-atoms-input-state-text);
+    --ic-radio-button-state-icon-error: var(--ic-atoms-input-state-icon-error);
+    --ic-radio-button-required-bar: var(--ic-action-default);
+    --ic-radio-button-required-text: var(--ic-action-default);
 
     /* Search bar */
     --ic-search-bar-background: var(--ic-color-background-primary);
@@ -1629,6 +1691,36 @@ ic-theme,
   --ic-popover-menu-item-shortcut-disabled: var(--ic-color-text-disabled-light);
   --ic-popover-menu-border: var(--ic-color-border-neutral-white);
   --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
+
+  /* Radio */
+  --ic-radio-button-border-default: var(--ic-color-border-neutral-grey-light);
+  --ic-radio-button-border-disabled: var(--ic-color-border-neutral-disabled);
+  --ic-radio-button-background-default: var(--ic-color-background-primary);
+  --ic-radio-button-default-hover: var(--ic-action-default-hover);
+  --ic-radio-button-active-hover: var(--ic-action-light-bg-hover);
+  --ic-radio-button-default-pressed: var(--ic-action-default-pressed);
+  --ic-radio-button-active-pressed: var(--ic-action-light-bg-pressed);
+  --ic-radio-button-default-active: var(--ic-action-default);
+  --ic-radio-button-disabled: var(--ic-color-border-neutral-disabled);
+  --ic-radio-button-text-option: var(--ic-color-text-primary);
+  --ic-radio-button-text-option-disabled: var(--ic-color-text-disabled-default);
+  --ic-radio-button-input-field-label: var(--ic-atoms-input-field-label);
+  --ic-radio-button-input-field-label-disabled: var(
+    --ic-atoms-input-field-label-disabled
+  );
+  --ic-radio-button-input-field-subtitle: var(
+    --ic-atoms-input-field-label-subtitle
+  );
+  --ic-radio-button-input-field-subtitle-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-radio-button-input-field-label-error: var(
+    --ic-atoms-input-field-label-error
+  );
+  --ic-radio-button-state-text: var(--ic-atoms-input-state-text);
+  --ic-radio-button-state-icon-error: var(--ic-atoms-input-state-icon-error);
+  --ic-radio-button-required-bar: var(--ic-action-default);
+  --ic-radio-button-required-text: var(--ic-action-default);
 
   /* Search bar */
   --ic-search-bar-background: var(--ic-color-background-primary);

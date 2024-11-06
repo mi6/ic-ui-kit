@@ -370,6 +370,7 @@ export const defaultArgs = {
   value: "valueName1",
   selected: false,
   additionalFieldSlot: true,
+  theme: "inherit",
 };
 
 <Canvas>
@@ -407,6 +408,12 @@ export const defaultArgs = {
           false: "",
         },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
     }}
     name="Playground"
   >
@@ -423,6 +430,7 @@ export const defaultArgs = {
           helper-text=${args.helperText}
           disabled=${args.disabled}
           hide-label=${args.hideLabel}
+          theme=${args.theme}
         >
           <ic-radio-option
             additional-field-display=${args.additionalFieldDisplay}

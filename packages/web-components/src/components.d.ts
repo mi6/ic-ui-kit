@@ -1386,6 +1386,10 @@ export namespace Components {
          */
         "size"?: IcSizesNoLarge;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty;
@@ -1432,6 +1436,10 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         "setTabIndex": (value: number) => Promise<void>;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The value for the radio option.
          */
@@ -4616,6 +4624,10 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizesNoLarge;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -4665,6 +4677,10 @@ declare namespace LocalJSX {
           * If `true`, the radio option will be displayed in a selected state.
          */
         "selected"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The value for the radio option.
          */
