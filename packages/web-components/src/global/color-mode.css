@@ -383,6 +383,12 @@ ic-theme,
   --ic-dialog-label: var(--ic-color-text-primary);
   --ic-dialog-border: var(--ic-color-border-neutral-default);
 
+  /* Divider */
+  --ic-divider-background: var(--ic-state-layer-primary);
+  --ic-divider-background-monochrome: var(--ic-state-layer-darken-20);
+  --ic-divider-label: var(--ic-state-layer-primary);
+  --ic-divider-label-monochrome: var(--ic-state-layer-darken-20);
+
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);
   --ic-empty-state-subtitle: var(--ic-color-text-secondary);
@@ -969,6 +975,12 @@ ic-theme,
     --ic-dialog-icon: var(--ic-color-icon-inverted);
     --ic-dialog-label: var(--ic-color-text-primary);
     --ic-dialog-border: var(--ic-color-border-neutral-grey-dark);
+
+    /* Divider */
+    --ic-divider-background: var(--ic-state-layer-neutral-default);
+    --ic-divider-background-monochrome: var(--ic-state-layer-lighten-20);
+    --ic-divider-label: var(--ic-state-layer-neutral-default);
+    --ic-divider-label-monochrome: var(--ic-state-layer-lighten-20);
 
     /* Empty state */
     --ic-empty-state-title: var(--ic-color-text-primary);
@@ -1562,6 +1574,12 @@ ic-theme,
   --ic-dialog-icon: var(--ic-color-icon-inverted);
   --ic-dialog-label: var(--ic-color-text-primary);
   --ic-dialog-border: var(--ic-color-border-neutral-grey-dark);
+
+  /* Divider */
+  --ic-divider-background: var(--ic-state-layer-neutral-default);
+  --ic-divider-background-monochrome: var(--ic-state-layer-lighten-20);
+  --ic-divider-label: var(--ic-state-layer-neutral-default);
+  --ic-divider-label-monochrome: var(--ic-state-layer-lighten-20);
 
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);
