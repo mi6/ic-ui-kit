@@ -2,10 +2,26 @@
 
 :host {
   display: block;
+
+  --ic-input-label-text-color: var(--ic-radio-button-input-field-label);
+  --ic-input-label-helper-text-color: var(
+    --ic-radio-button-input-field-subtitle
+  );
+  --ic-input-validation-status-text-color: var(--ic-radio-button-state-text);
+  --ic-input-validation-error: var(--ic-radio-button-state-icon-error);
 }
 
 ic-input-label.error {
-  --ic-typography-color: var(--ic-status-error-default);
+  --ic-input-label-text-color: var(--ic-radio-button-input-field-label-error);
+}
+
+ic-input-label.disabled {
+  --ic-input-label-text-color: var(
+    --ic-radio-button-input-field-label-disabled
+  );
+  --ic-input-label-helper-text-color: var(
+    --ic-radio-button-input-field-subtitle-disabled
+  );
 }
 
 ic-input-validation {
