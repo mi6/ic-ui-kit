@@ -28,5 +28,5 @@ jobs:
             cherry-pick
           title: '[v3 cherry-pick] {old_title}'
           body: 'Cherry picking #{old_pull_request_id} onto this branch'
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.CHERRY_PAT }}
