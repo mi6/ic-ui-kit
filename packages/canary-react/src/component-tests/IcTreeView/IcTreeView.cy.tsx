@@ -26,7 +26,6 @@ export const BasicTreeView = (
     style={{
       width: "250px",
       padding: "16px",
-      backgroundColor: props.appearance === "light" ? "black" : "white",
     }}
   >
     <IcTreeView heading="Menu" {...props}>
@@ -126,14 +125,14 @@ describe("IcTreeView", () => {
     });
   });
 
-  it("should render light", () => {
-    mount(BasicTreeView({ appearance: "light" }));
+  it("should render dark theme", () => {
+    mount(BasicTreeView({ theme: "dark" }));
 
     cy.checkHydrated(TREE_VIEW);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light",
+      name: "theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
