@@ -18,15 +18,15 @@ ic-input-validation span.status-icon > svg {
 }
 
 ic-input-validation span.icon-success > svg {
-  fill: var(--ic-status-success-default);
+  fill: var(--ic-input-validation-success-icon-color);
 }
 
 ic-input-validation span.icon-error > svg {
-  fill: var(--ic-input-validation-error, var(--ic-status-error-default));
+  fill: var(--ic-input-validation-error, var(--ic-atoms-status-icon-error));
 }
 
 ic-input-validation span.icon-warning > svg {
-  fill: var(--ic-status-warning-default);
+  fill: var(--ic-input-validation-warning-icon-color);
 }
 
 ic-input-validation .statustext {
