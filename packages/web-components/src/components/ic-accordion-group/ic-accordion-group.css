@@ -1,6 +1,8 @@
 @import "../../global/normalize.css";
 
 .label-container {
+  --ic-typography-color: var(--ic-accordion-group-title-text);
+  color: var(--ic-accordion-group-title-text);
   padding: var(--ic-space-xs);
   display: flex;
   justify-content: space-between;
@@ -13,16 +15,4 @@
 
 :host(.ic-accordion-group-large) .label-container {
   padding: var(--ic-space-sm) var(--ic-space-xs);
-}
-
-:host(.ic-accordion-group-light) {
-  color: var(--ic-color-white-text);
-
-  --ic-typography-color: var(--ic-color-white-text);
-}
-
-:host(.ic-accordion-group.ic-accordion-group-dark) ::slotted(ic-accordion) {
-  color: var(--ic-color-white-text);
-
-  --ic-typography-color: var(--ic-color-white-text);
 }

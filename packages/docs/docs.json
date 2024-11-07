@@ -147,6 +147,43 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [
@@ -227,43 +264,6 @@
           "default": "\"accordions\"",
           "values": [
             {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "appearance",
-          "type": "\"dark\" | \"default\" | \"light\"",
-          "complexType": {
-            "original": "IcThemeForeground",
-            "resolved": "\"dark\" | \"default\" | \"light\"",
-            "references": {
-              "IcThemeForeground": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForeground"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "The appearance of the accordion group, e.g dark, or light.",
-          "docsTags": [],
-          "default": "\"default\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "light",
               "type": "string"
             }
           ],
@@ -367,6 +367,43 @@
             },
             {
               "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             }
           ],
@@ -18448,11 +18485,6 @@
     }
   ],
   "typeLibrary": {
-    "src/utils/types.ts::IcThemeForeground": {
-      "declaration": "export type IcThemeForeground = \"default\" | \"dark\" | \"light\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
     "src/utils/types.ts::IcSizes": {
       "declaration": "export type IcSizes = \"medium\" | \"large\" | \"small\";",
       "docstring": "",
@@ -18487,6 +18519,11 @@
       "declaration": "export type IcFooterBreakpoints =\n  | \"extra small\"\n  | \"small\"\n  | \"medium\"\n  | \"large\"\n  | \"extra large\";",
       "docstring": "",
       "path": "src/components/ic-footer/ic-footer.types.tsx"
+    },
+    "src/utils/types.ts::IcThemeForeground": {
+      "declaration": "export type IcThemeForeground = \"default\" | \"dark\" | \"light\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
     },
     "src/components/ic-button/ic-button.types.ts::IcButtonTooltipPlacement": {
       "declaration": "export type IcButtonTooltipPlacement = \"top\" | \"right\" | \"bottom\" | \"left\";",

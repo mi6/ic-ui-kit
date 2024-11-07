@@ -294,6 +294,19 @@ ic-theme,
   /* Typography */
   --ic-typography-color: var(--ic-color-text-primary);
 
+  /* Accordion */
+  --ic-accordion-heading-text: var(--ic-color-text-primary);
+  --ic-accordion-group-title-text: var(--ic-color-text-primary);
+  --ic-accordion-heading-text-disabled: var(--ic-color-text-disabled-light);
+  --ic-accordion-body-text: var(--ic-color-text-primary);
+  --ic-accordion-icon: var(--ic-color-icon-neutral);
+  --ic-accordion-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-accordion-background-hover: var(--ic-action-dark-bg-hover);
+  --ic-accordion-background-pressed: var(--ic-action-dark-bg-pressed);
+  --ic-accordion-divider: var(--ic-color-icon-grey-default);
+  --ic-accordion-chevron: var(--ic-color-icon-neutral);
+  --ic-accordion-chevron-disabled: var(--ic-color-icon-grey);
+
   /* Alert */
   --ic-alert-background-success: var(--ic-status-success);
   --ic-alert-background-error: var(--ic-status-error);
@@ -886,6 +899,19 @@ ic-theme,
 
     /* Typography */
     --ic-typography-color: var(--ic-color-text-primary);
+
+    /* Accordion */
+    --ic-accordion-heading-text: var(--ic-color-text-primary);
+    --ic-accordion-group-title-text: var(--ic-color-text-primary);
+    --ic-accordion-heading-text-disabled: var(--ic-color-text-tertiary-light);
+    --ic-accordion-body-text: var(--ic-color-text-primary);
+    --ic-accordion-icon: var(--ic-color-icon-inverted);
+    --ic-accordion-icon-disabled: var(--ic-color-icon-disabled);
+    --ic-accordion-background-hover: var(--ic-action-light-bg-hover);
+    --ic-accordion-background-pressed: var(--ic-action-light-bg-pressed);
+    --ic-accordion-divider: var(--ic-color-icon-inverted);
+    --ic-accordion-chevron: var(--ic-color-icon-inverted);
+    --ic-accordion-chevron-disabled: var(--ic-color-icon-disabled);
 
     /* Alert */
     --ic-alert-background-success: var(--ic-status-success);
@@ -1487,6 +1513,19 @@ ic-theme,
 
   /* Typography */
   --ic-typography-color: var(--ic-color-text-primary);
+
+  /* Accordion */
+  --ic-accordion-heading-text: var(--ic-color-text-primary);
+  --ic-accordion-group-title-text: var(--ic-color-text-primary);
+  --ic-accordion-heading-text-disabled: var(--ic-color-text-tertiary-light);
+  --ic-accordion-body-text: var(--ic-color-text-primary);
+  --ic-accordion-icon: var(--ic-color-icon-inverted);
+  --ic-accordion-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-accordion-background-hover: var(--ic-action-light-bg-hover);
+  --ic-accordion-background-pressed: var(--ic-action-light-bg-pressed);
+  --ic-accordion-divider: var(--ic-color-icon-inverted);
+  --ic-accordion-chevron: var(--ic-color-icon-inverted);
+  --ic-accordion-chevron-disabled: var(--ic-color-icon-disabled);
 
   /* Alert */
   --ic-alert-background-success: var(--ic-status-success);
