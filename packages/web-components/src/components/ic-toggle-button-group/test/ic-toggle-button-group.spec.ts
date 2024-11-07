@@ -197,5 +197,7 @@ describe("ic-toggle-button-group component unit tests", () => {
     const mockEvent = new FocusEvent("focus");
 
     expect(page.rootInstance.handleHostFocus(mockEvent)).toBeNull();
+
+    await page.rootInstance.disconnectedCallback();
   });
 });

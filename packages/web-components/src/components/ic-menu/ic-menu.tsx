@@ -214,8 +214,8 @@ export class Menu {
     if (this.popperInstance) {
       this.popperInstance.destroy();
     }
-    this.parentEl.removeEventListener("icClear", this.handleClearListener);
-    this.parentEl.removeEventListener(
+    this.parentEl?.removeEventListener("icClear", this.handleClearListener);
+    this.parentEl?.removeEventListener(
       "icSubmitSearch",
       this.handleSubmitSearch
     );
