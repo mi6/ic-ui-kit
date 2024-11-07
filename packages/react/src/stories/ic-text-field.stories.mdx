@@ -490,7 +490,8 @@ export const defaultArgs = {
   validationInline: false,
   validationStatus: "none",
   validationText: "",
-  debounce: 0
+  debounce: 0,
+  theme: "inherit"
 };
 
 <Canvas>
@@ -521,53 +522,60 @@ export const defaultArgs = {
       },
       showIconSlot: {
         control: { type: "boolean" }
+      },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" }
       }
     }}
     name="Playground"
   >
     {(args) => (
-      <IcTextField 
-        label={args.label}
-        disabled={args.disabled}
-        fullWidth={args.fullWidth}
-        helperText={args.helperText}
-        hideCharCount={args.hideCharCount}
-        hideLabel={args.hideLabel}
-        inputId={args.inputId}
-        inputmode={args.inputmode}
-        max={args.max}
-        maxCharacters={args.maxCharacters}
-        min={args.min}
-        minCharacters={args.minCharacters}
-        name={args.name}
-        placeholder={args.placeholder}
-        readonly={args.readonly}
-        required={args.required}
-        resize={args.resize}
-        rows={args.rows}
-        size={args.size}
-        spellcheck={args.spellcheck}
-        type={args.type}
-        validationInline={args.validationInline}
-        validationStatus={args.validationStatus}
-        validationText={args.validationText}
-        debounce={args.debounce}
-        onIcChange={(ev) => console.log(ev.detail.value)}
-      >
-        {args.showIconSlot && (
-          <SlottedSVG 
-            slot="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
-          </SlottedSVG>  
-        )}
-      </IcTextField>
+      <div style={{ backgroundColor: args.theme === "light" ? "white" : args.theme === "dark" ? "var(--ic-color-background-primary)" : "transparent" }}>
+        <IcTextField 
+          label={args.label}
+          disabled={args.disabled}
+          fullWidth={args.fullWidth}
+          helperText={args.helperText}
+          hideCharCount={args.hideCharCount}
+          hideLabel={args.hideLabel}
+          inputId={args.inputId}
+          inputmode={args.inputmode}
+          max={args.max}
+          maxCharacters={args.maxCharacters}
+          min={args.min}
+          minCharacters={args.minCharacters}
+          name={args.name}
+          placeholder={args.placeholder}
+          readonly={args.readonly}
+          required={args.required}
+          resize={args.resize}
+          rows={args.rows}
+          size={args.size}
+          spellcheck={args.spellcheck}
+          type={args.type}
+          validationInline={args.validationInline}
+          validationStatus={args.validationStatus}
+          validationText={args.validationText}
+          debounce={args.debounce}
+          theme={args.theme}
+          onIcChange={(ev) => console.log(ev.detail.value)}
+        >
+          {args.showIconSlot && (
+            <SlottedSVG 
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
+            </SlottedSVG>  
+          )}
+        </IcTextField>
+      </div>
     )}
   </Story>
 </Canvas>
