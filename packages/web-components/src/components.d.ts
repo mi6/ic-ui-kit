@@ -425,7 +425,7 @@ export namespace Components {
          */
         "additionalFieldDisplay": IcAdditionalFieldTypes;
         /**
-          * If `true`, the checkbox will be set to the checked state.
+          * If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.
          */
         "checked"?: boolean;
         /**
@@ -3754,7 +3754,7 @@ declare namespace LocalJSX {
          */
         "additionalFieldDisplay"?: IcAdditionalFieldTypes;
         /**
-          * If `true`, the checkbox will be set to the checked state.
+          * If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.
          */
         "checked"?: boolean;
         /**
