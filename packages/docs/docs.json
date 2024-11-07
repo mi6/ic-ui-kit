@@ -3037,7 +3037,7 @@
           "mutable": true,
           "attr": "checked",
           "reflectToAttr": true,
-          "docs": "If `true`, the checkbox will be set to the checked state.",
+          "docs": "If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.",
           "docsTags": [],
           "default": "false",
           "values": [
