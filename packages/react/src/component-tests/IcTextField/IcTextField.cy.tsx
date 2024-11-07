@@ -40,6 +40,8 @@ import {
   TextFieldWithinForm,
   Controlled,
   Uncontrolled,
+  DarkTheme,
+  DarkThemeValidation,
 } from "./IcTextFieldTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -442,6 +444,26 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "min-max-characters-text-field",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
+
+  it("should render with dark theme", () => {
+    mount(<DarkTheme />);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
+
+  it("should render validation with dark theme", () => {
+    mount(<DarkThemeValidation />);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme-validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
