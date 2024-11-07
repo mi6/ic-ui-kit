@@ -1085,7 +1085,7 @@ export namespace Components {
         /**
           * The label describing the keyboard shortcut for a menu item's action.
          */
-        "keyboardShortcut"?: string;
+        "keyboardShortcutLabel"?: string;
         /**
           * The label to display in the menu item.
          */
@@ -4308,7 +4308,7 @@ declare namespace LocalJSX {
         /**
           * The label describing the keyboard shortcut for a menu item's action.
          */
-        "keyboardShortcut"?: string;
+        "keyboardShortcutLabel"?: string;
         /**
           * The label to display in the menu item.
          */
