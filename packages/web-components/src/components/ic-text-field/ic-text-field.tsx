@@ -19,6 +19,7 @@ import {
   IcInformationStatusOrEmpty,
   IcValueEventDetail,
   IcSizesNoLarge,
+  IcThemeMode,
 } from "../../utils/types";
 import {
   inheritAttributes,
@@ -224,6 +225,12 @@ export class TextField {
    * If `true`, the value of the text field will have its spelling and grammar checked.
    */
   @Prop() spellcheck: boolean = false;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme: IcThemeMode = "inherit";
+
   /**
    * @internal If `true`, an ellipsis will be displayed at the end of the value if the value is longer than the container.
    */
@@ -482,6 +489,7 @@ export class TextField {
       fullWidth,
       truncateValue,
       hiddenInput,
+      theme,
     } = this;
 
     const disabledMode = readonly || disabled;
@@ -545,7 +553,12 @@ export class TextField {
       renderHiddenInput(true, this.el, name, value, disabledMode);
     }
     return (
-      <Host class={{ ["ic-text-field-full-width"]: fullWidth }}>
+      <Host
+        class={{
+          "ic-text-field-full-width": fullWidth,
+          [`ic-theme-${theme}`]: theme !== "inherit",
+        }}
+      >
         <ic-input-container readonly={readonly} disabled={disabledMode}>
           {!this.hideLabel && (
             <ic-input-label
@@ -570,8 +583,8 @@ export class TextField {
             {showLeftIcon && (
               <span
                 class={{
-                  ["readonly"]: readonly,
-                  ["has-value"]: value.length > 0,
+                  readonly,
+                  "has-value": value.length > 0,
                 }}
                 slot="left-icon"
               >
@@ -589,9 +602,9 @@ export class TextField {
                 max={max}
                 value={value}
                 class={{
-                  ["no-left-pad"]: !showLeftIcon && readonly,
-                  ["readonly"]: readonly,
-                  ["truncate-value"]: truncateValue,
+                  "no-left-pad": !showLeftIcon && readonly,
+                  readonly,
+                  "truncate-value": truncateValue,
                 }}
                 placeholder={placeholder ? placeholder : ""}
                 required={required}
@@ -620,9 +633,9 @@ export class TextField {
               <textarea
                 id={inputId}
                 class={{
-                  ["no-resize"]: resize === false || readonly,
-                  ["no-left-pad"]: !showLeftIcon && readonly,
-                  ["readonly"]: readonly,
+                  "no-resize": resize === false || readonly,
+                  "no-left-pad": !showLeftIcon && readonly,
+                  readonly,
                 }}
                 name={name}
                 ref={(el) => (this.inputEl = el as HTMLTextAreaElement)}
@@ -680,12 +693,7 @@ export class TextField {
                 {!readonly && maxNumChars > 0 && (
                   <div slot="validation-message-adornment">
                     {!hideCharCount && (
-                      <ic-typography
-                        variant="caption"
-                        class={{
-                          ["char-count-text"]: true,
-                        }}
-                      >
+                      <ic-typography variant="caption" class="char-count-text">
                         <span class="char-count">
                           {numChars}/{maxNumChars}
                         </span>

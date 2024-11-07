@@ -11,7 +11,7 @@ ic-input-label.with-helper {
 }
 
 ic-input-label.ic-input-label-readonly {
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-input-label-readonly-typography-color);
 }
 
 ic-input-label .helpertext {
@@ -31,28 +31,13 @@ ic-input-label .helpertext-normal {
 }
 
 ic-input-label .helpertext-readonly {
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-input-label-readonly-helpertext-color);
 }
 
 ic-input-label .readonly-label {
-  --ic-typography-color: var(--ic-color-text-secondary);
+  --ic-typography-color: var(--ic-input-label-readonly-label-color);
 }
 
 ic-input-label .error-label {
-  --ic-typography-color: var(--ic-status-error-default);
+  --ic-typography-color: var(--ic-input-label-error-label-color);
 }
-
-ic-input-label .dark {
-  --ic-typography-color: var(--ic-architectural-white);
-}
-
-/* Add back in after storybook has the `color-scheme: light dark` code */
-
-/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
-  ic-input-label,
-  ic-input-label .helpertext-normal,
-  ic-input-label .readonly-label,
-  ic-input-label .helpertext-readonly {
-    color: var(--ic-architectural-white);
-  }
-} */

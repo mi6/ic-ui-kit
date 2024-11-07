@@ -30,21 +30,4 @@
   /* Keyline borders */
   --ic-border-keyline-darken: 1px solid var(--ic-color-keyline-darken);
   --ic-border-keyline-lighten: 1px solid var(--ic-color-keyline-lighten);
-
-  /* Status borders */
-  --ic-border-error: var(--ic-space-xxxs) solid var(--ic-color-border-error);
-  --ic-border-error-hover: var(--ic-space-xxxs) solid
-    var(--ic-color-border-error-hover);
-  --ic-border-error-pressed: var(--ic-space-xxxs) solid
-    var(--ic-color-border-error-pressed);
-  --ic-border-success: var(--ic-space-xxxs) solid var(--ic-color-border-success);
-  --ic-border-success-hover: var(--ic-space-xxxs) solid
-    var(--ic-color-border-success-hover);
-  --ic-border-success-pressed: var(--ic-space-xxxs) solid
-    var(--ic-color-border-success-pressed);
-  --ic-border-warning: var(--ic-space-xxxs) solid var(--ic-color-border-warning);
-  --ic-border-warning-hover: var(--ic-space-xxxs) solid
-    var(--ic-color-border-warning-hover);
-  --ic-border-warning-pressed: var(--ic-space-xxxs) solid
-    var(--ic-color-border-warning-pressed);
 }

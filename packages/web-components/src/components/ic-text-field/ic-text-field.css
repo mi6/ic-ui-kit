@@ -23,7 +23,7 @@ textarea {
   border: 0;
   border-radius: var(--ic-border-radius);
   color: var(--text-field-text-color, var(--ic-color-text-primary));
-  background-color: var(--input-bg-color, var(--ic-architectural-white));
+  background-color: var(--input-bg-color, var(--ic-color-background-primary));
   line-height: 1.5rem;
   letter-spacing: 0.005rem;
   width: 100%;
@@ -45,12 +45,12 @@ textarea:focus {
 
 input:disabled,
 textarea:disabled {
-  color: var(--text-field-disabled-text-color, var(--ic-architectural-200));
+  color: var(--text-field-disabled-text-color, var(--ic-color-text-tertiary));
 }
 
 input.readonly,
 textarea.readonly {
-  color: var(--ic-color-text-primary);
+  color: var(--ic-text-field-input-readonly-color);
 }
 
 /* Chrome, Safari, Edge */
@@ -70,7 +70,7 @@ textarea.no-resize {
 }
 
 .char-count-text {
-  --ic-typography-color: var(--ic-color-text-secondary);
+  --ic-typography-color: var(--ic-text-field-char-count-text-color);
 
   padding-right: var(--ic-space-xxxs);
 }
@@ -80,11 +80,11 @@ textarea.no-resize {
 }
 
 ::slotted([slot="icon"]) {
-  fill: var(--ic-color-text-tertiary);
+  fill: var(--ic-text-field-no-value-icon-color);
 }
 
 .has-value ::slotted([slot="icon"]) {
-  fill: var(--ic-color-text-primary);
+  fill: var(--ic-text-field-has-value-icon-color);
 }
 
 .char-count {
