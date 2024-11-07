@@ -5,14 +5,17 @@
 :host {
   display: block;
   width: var(--tree-view-width, 100%);
+  background-color: var(--ic-tree-view-background);
 }
 
 :host .heading-area-container {
-  border-bottom: var(--ic-border-default);
+  border-bottom: var(--ic-space-1px) solid var(--ic-tree-view-divider);
   display: flex;
   align-items: center;
   height: calc(var(--ic-space-xl) + var(--ic-space-xs) - var(--ic-space-1px));
   padding: 0 var(--ic-space-xs);
+
+  --ic-typography-color: var(--ic-tree-view-text);
 }
 
 :host(.ic-tree-view-small) .heading-area-container {
@@ -21,14 +24,6 @@
 
 :host(.ic-tree-view-large) .heading-area-container {
   height: calc(var(--ic-space-xxl) - var(--ic-space-1px));
-}
-
-:host(.ic-tree-view-light) .heading-area-container {
-  color: var(--ic-architectural-white);
-
-  --ic-typography-color: var(--ic-architectural-white);
-
-  fill: var(--ic-architectural-white);
 }
 
 .icon-container {
@@ -49,6 +44,10 @@
 
 .ic-tooltip-overflow {
   overflow: hidden;
+}
+
+::slotted([slot="icon"]) {
+  fill: var(--ic-tree-view-icon);
 }
 
 /** High Contrast **/

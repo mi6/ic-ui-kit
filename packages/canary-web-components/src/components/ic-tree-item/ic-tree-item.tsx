@@ -12,13 +12,14 @@ import {
   forceUpdate,
   Method,
 } from "@stencil/core";
-import { IcSizes, IcThemeForegroundNoDefault } from "../../utils/types";
+import { IcSizes } from "../../utils/types";
 import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
   checkSlotInChildMutations,
 } from "../../utils/helpers";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
+import { IcThemeMode } from "@ukic/web-components";
 
 let treeItemIds = 0;
 
@@ -43,11 +44,6 @@ export class TreeItem {
   @Element() el: HTMLIcTreeItemElement;
 
   @State() childTreeItems: HTMLIcTreeItemElement[];
-
-  /**
-   * @internal Determines whether the light or dark variant of the tree item should be displayed.
-   */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   /**
    * If `true`, the tree item appears in the disabled state.
@@ -120,6 +116,11 @@ export class TreeItem {
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
   @Prop() target?: string;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * Emitted when tree item is selected.
@@ -351,15 +352,8 @@ export class TreeItem {
   };
 
   render() {
-    const {
-      appearance,
-      disabled,
-      label,
-      selected,
-      size,
-      expanded,
-      focusInset,
-    } = this;
+    const { disabled, label, selected, size, expanded, focusInset, theme } =
+      this;
 
     const Component = this.href && !this.disabled ? "a" : "div";
 
@@ -374,11 +368,11 @@ export class TreeItem {
     return (
       <Host
         class={{
-          [`ic-tree-item-${appearance}`]: true,
           "ic-tree-item-disabled": disabled,
           "ic-tree-item-selected": !disabled && selected,
           [`ic-tree-item-${size}`]: size !== "medium",
           [`ic-tree-item-focus-inset`]: focusInset,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         id={this.treeItemId}
       >

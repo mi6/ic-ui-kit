@@ -8,17 +8,19 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
-import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeForegroundNoDefault as IcThemeForegroundNoDefault1, IcWeekDays } from "./utils/types";
+import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcWeekDays } from "./utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcThemeMode } from "@ukic/web-components/dist/types/interface";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
+import { IcThemeMode } from "@ukic/web-components";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
-export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeForegroundNoDefault as IcThemeForegroundNoDefault1, IcWeekDays } from "./utils/types";
+export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcWeekDays } from "./utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcThemeMode } from "@ukic/web-components/dist/types/interface";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
+export { IcThemeMode } from "@ukic/web-components";
 export namespace Components {
     interface IcCardHorizontal {
         /**
@@ -492,7 +494,6 @@ export namespace Components {
         "type"?: IcPaginationTypes;
     }
     interface IcTreeItem {
-        "appearance"?: IcThemeForegroundNoDefault1;
         /**
           * If `true`, the tree item appears in the disabled state.
          */
@@ -537,13 +538,13 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         "updateAriaLabel": () => Promise<void>;
     }
     interface IcTreeView {
-        /**
-          * The appearance of the tree view, e.g. dark, or light.
-         */
-        "appearance"?: IcThemeForegroundNoDefault1;
         /**
           * If `true`, tree items will have inset focus.
          */
@@ -556,6 +557,10 @@ export namespace Components {
           * The size of the tree view.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
 }
 export interface IcDataTableCustomEvent<T> extends CustomEvent<T> {
@@ -1207,7 +1212,6 @@ declare namespace LocalJSX {
         "type"?: IcPaginationTypes;
     }
     interface IcTreeItem {
-        "appearance"?: IcThemeForegroundNoDefault1;
         /**
           * If `true`, the tree item appears in the disabled state.
          */
@@ -1252,12 +1256,12 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcTreeView {
-        /**
-          * The appearance of the tree view, e.g. dark, or light.
-         */
-        "appearance"?: IcThemeForegroundNoDefault1;
         /**
           * If `true`, tree items will have inset focus.
          */
@@ -1270,6 +1274,10 @@ declare namespace LocalJSX {
           * The size of the tree view.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IntrinsicElements {
         "ic-card-horizontal": IcCardHorizontal;
