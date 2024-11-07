@@ -164,7 +164,7 @@ export class SideNavigation {
       this.resizeObserver.disconnect();
     }
 
-    this.el.removeEventListener("transitionend", this.transitionEndHandler);
+    this.el?.removeEventListener("transitionend", this.transitionEndHandler);
   }
 
   @Listen("themeChange", { target: "document" })

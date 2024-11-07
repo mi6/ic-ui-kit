@@ -102,7 +102,7 @@ export class TabContext {
   }
 
   disconnectedCallback(): void {
-    this.tabGroup.removeEventListener("keydown", this.keydownHandler);
+    this.tabGroup?.removeEventListener("keydown", this.keydownHandler);
   }
 
   @Listen("tabClick")
