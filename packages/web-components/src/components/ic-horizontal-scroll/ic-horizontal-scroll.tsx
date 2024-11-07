@@ -94,13 +94,13 @@ export class HorizontalScroll {
       );
     });
 
-    this.items.forEach((item) => {
+    this.items?.forEach((item) => {
       if (item.removeEventListener) {
         item.removeEventListener(this.focusTrigger, this.focusHandler);
       }
     });
 
-    this.itemsContainerEl.removeEventListener("scroll", this.scrollHandler);
+    this.itemsContainerEl?.removeEventListener("scroll", this.scrollHandler);
   }
 
   /**

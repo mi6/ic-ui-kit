@@ -153,7 +153,7 @@ export class ToggleButtonGroup {
   }
 
   disconnectedCallback(): void {
-    document.removeEventListener("keydown", this.keyListener);
+    document?.removeEventListener("keydown", this.keyListener);
   }
 
   private keyListener = (ev: KeyboardEvent) => {
