@@ -402,6 +402,7 @@
   --ic-action-light-pressed: var(--ic-architectural-300);
   --ic-action-light-bg-hover: var(--ic-state-layer-lighten-10);
   --ic-action-light-bg-pressed: var(--ic-state-layer-lighten-20);
+  --ic-action-light-selected: var(--ic-blue-800-state-layer-10);
 
   /* dark */
   --ic-action-dark: var(--ic-architectural-900);
@@ -411,6 +412,7 @@
   --ic-action-dark-bg-pressed: var(--ic-architectural-700-state-layer-20);
   --ic-action-dark-bg-hover-no-alpha: #ececed;
   --ic-action-dark-bg-active-no-alpha: #d9dadb;
+  --ic-action-dark-selected: var(--ic-blue-900);
 
   /* neutral */
   --ic-action-neutral-light: var(--ic-architectural-100);
