@@ -19,15 +19,15 @@ describe("ic-toast component", () => {
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
-            <div class="toast-message">
-              <ic-typography variant="subtitle-large">
+            <div class="toast-text">
+              <ic-typography class="toast-heading" variant="subtitle-large">
                 <h5>
                   Heading
                 </h5>
               </ic-typography>
             </div>
           </div>
-          <ic-button appearance="light" id="dismiss-button" aria-label="dismiss" variant="icon">
+          <ic-button id="dismiss-button" aria-label="dismiss" variant="icon">
             svg
           </ic-button>
         </div>
@@ -49,20 +49,20 @@ describe("ic-toast component", () => {
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
-            <div class="toast-message">
-              <ic-typography variant="subtitle-large">
+            <div class="toast-text">
+              <ic-typography class="toast-heading" variant="subtitle-large">
                 <h5>
                   Heading
                 </h5>
               </ic-typography>
-              <ic-typography variant="body">
+              <ic-typography class="toast-message" variant="body">
                 <p>
                   toast message
                 </p>
               </ic-typography>
             </div>
           </div>
-          <ic-button appearance="light" id="dismiss-button" aria-label="dismiss" variant="icon">
+          <ic-button id="dismiss-button" aria-label="dismiss" variant="icon">
             svg
           </ic-button>
         </div>
@@ -90,15 +90,15 @@ describe("ic-toast component", () => {
             </span>
           </div>
           <div class="toast-content">
-            <div class="toast-message">
-              <ic-typography variant="subtitle-large">
+            <div class="toast-text">
+              <ic-typography class="toast-heading" variant="subtitle-large">
                 <h5>
                   Heading
                 </h5>
               </ic-typography>
             </div>
           </div>
-          <ic-button appearance="light" id="dismiss-button" aria-label="dismiss" variant="icon">
+          <ic-button id="dismiss-button" aria-label="dismiss" variant="icon">
             svg
           </ic-button>
         </div>
@@ -120,8 +120,8 @@ describe("ic-toast component", () => {
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
-            <div class="toast-message">
-              <ic-typography variant="subtitle-large">
+            <div class="toast-text">
+              <ic-typography class="toast-heading" variant="subtitle-large">
                 <h5>
                   Heading
                 </h5>
