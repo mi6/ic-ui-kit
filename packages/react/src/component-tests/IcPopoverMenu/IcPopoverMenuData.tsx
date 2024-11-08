@@ -167,7 +167,7 @@ export const PopoverMenuWithVariants = () => {
           ref={popoverEl}
         >
           <IcMenuItem label="Copy" disabled />
-          <IcMenuItem label="Paste" keyboardShortcut="Cmd + V" />
+          <IcMenuItem label="Paste" keyboardShortcutLabel="Cmd + V" />
           <IcMenuItem
             label="Edit"
             description="This is used to edit the original."
@@ -214,7 +214,7 @@ export const PopoverWithMenuGroups = () => {
         <IcPopoverMenu anchor="button-3" aria-label="popover" ref={popoverEl}>
           <IcMenuGroup label="Edit options">
             <IcMenuItem label="Copy" disabled />
-            <IcMenuItem label="Paste" keyboardShortcut="Cmd + V" />
+            <IcMenuItem label="Paste" keyboardShortcutLabel="Cmd + V" />
           </IcMenuGroup>
           <IcMenuGroup>
             <IcMenuItem label="Format" />
