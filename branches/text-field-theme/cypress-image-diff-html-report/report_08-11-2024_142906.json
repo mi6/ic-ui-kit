@@ -6880,7 +6880,7 @@
         {
           "status": "fail",
           "name": "IcTextField.cy.tsx-validation-text-field-high-contrast",
-          "percentage": 0.03739061717098535,
+          "percentage": 0.1747119682353221,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
@@ -8170,9 +8170,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-08T13:10:58.704Z",
-  "endedAt": "2024-11-08T13:26:05.040Z",
-  "duration": 821442,
+  "startedAt": "2024-11-08T14:29:06.225Z",
+  "endedAt": "2024-11-08T14:44:16.861Z",
+  "duration": 826327,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
