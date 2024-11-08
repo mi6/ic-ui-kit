@@ -581,16 +581,16 @@ slot[name="app-title"]::slotted(a) {
 :host(.sm-collapsed.side-display) ::slotted(ic-navigation-item),
 :host(.sm-collapsed.side-display) ::slotted(ic-navigation-group) {
   --navigation-item-label-opacity: 0;
-  --navigation-item-min-height: 56px;
-  --navigation-item-height: 56px;
+  --navigation-item-min-height: 3.5rem;
+  --navigation-item-height: 3.5rem;
 }
 
 :host(.sm-expanded.side-display) ::slotted(ic-navigation-item),
 :host(.sm-expanded.side-display) ::slotted(ic-navigation-group) {
   --navigation-item-label-opacity: 1;
   --navigation-item-height: auto;
-  --navigation-item-min-height: 56px;
-  --navigation-item-width: 320px;
+  --navigation-item-min-height: 3.5rem;
+  --navigation-item-width: 20rem;
   --navigation-item-side-nav-right: var(--ic-space-xl);
 }
 
@@ -645,6 +645,15 @@ slot[name="app-title"]::slotted(a) {
 }
 
 /* Media Queries */
+
+@media screen and (max-width: 419px) {
+  .top-bar {
+    height: var(--side-navigation-height);
+  }
+  .side-navigation {
+    width: 100%;
+  }
+}
 
 @media screen and (min-width: 340px) {
   .app-icon-container {
