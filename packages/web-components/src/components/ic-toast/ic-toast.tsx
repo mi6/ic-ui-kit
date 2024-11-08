@@ -19,11 +19,7 @@ import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
-import {
-  IcActivationTypes,
-  IcStatusVariants,
-  IcThemeForegroundEnum,
-} from "../../utils/types";
+import { IcActivationTypes, IcStatusVariants } from "../../utils/types";
 import { ActionAreaElementTypes } from "./ic-toast.types";
 
 const AUTO_DISMISS_TIMER_REFRESH_RATE_MS = 1000;
@@ -369,12 +365,12 @@ export class Toast {
                 variant === "neutral" && !isSlotUsed(this.el, "neutral-icon"),
             }}
           >
-            <div class="toast-message">
-              <ic-typography variant="subtitle-large">
+            <div class="toast-text">
+              <ic-typography variant="subtitle-large" class="toast-heading">
                 {visible && <h5>{heading}</h5>}
               </ic-typography>
               {message && (
-                <ic-typography variant="body">
+                <ic-typography variant="body" class="toast-message">
                   {visible && <p>{message}</p>}
                 </ic-typography>
               )}
@@ -400,7 +396,6 @@ export class Toast {
               innerHTML={closeIcon}
               onClick={this.dismissAction}
               variant="icon"
-              appearance={IcThemeForegroundEnum.Light}
               aria-label={dismissButtonAriaLabel}
             ></ic-button>
           )}

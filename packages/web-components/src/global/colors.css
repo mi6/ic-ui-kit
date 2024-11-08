@@ -571,6 +571,22 @@
   --ic-classification-banner-secret: var(--ic-classification-secret);
   --ic-classification-banner-top-secret: var(--ic-classification-top-secret);
 
+  /* TOAST */
+  --ic-toast-background: var(--ic-color-background-primary-dark);
+  --ic-toast-status-success: var(--ic-status-success-contrast);
+  --ic-toast-status-error: var(--ic-status-error-contrast);
+  --ic-toast-status-warning: var(--ic-status-warning-contrast);
+  --ic-toast-status-info: var(--ic-status-info-contrast);
+  --ic-toast-status-neutral: var(--ic-status-unknown-contrast);
+  --ic-toast-icon-success: var(--ic-status-success-contrast);
+  --ic-toast-icon-error: var(--ic-status-error-contrast);
+  --ic-toast-icon-warning: var(--ic-status-warning-contrast);
+  --ic-toast-icon-info: var(--ic-status-info-contrast);
+  --ic-toast-icon-neutral: var(--ic-status-unknown-contrast);
+  --ic-toast-title: var(--ic-color-text-inverse-light);
+  --ic-toast-description: var(--ic-color-text-inverse-light);
+  --ic-toast-dismiss-button: var(--ic-color-icon-inverted);
+
   /* ATOMS */
   --ic-atoms-input-field-label-light: var(--ic-color-text-primary-light);
   --ic-atoms-input-field-label-dark: var(--ic-color-text-primary-dark);
