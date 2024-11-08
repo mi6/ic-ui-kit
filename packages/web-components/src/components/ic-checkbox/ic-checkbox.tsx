@@ -45,7 +45,7 @@ export class Checkbox {
     "static";
 
   /**
-   * If `true`, the checkbox will be set to the checked state.
+   * If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.
    */
   @Prop({ reflect: true, mutable: true }) checked?: boolean = false;
   @State() initiallyChecked = this.checked;
