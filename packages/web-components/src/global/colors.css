@@ -571,6 +571,13 @@
   --ic-classification-banner-secret: var(--ic-classification-secret);
   --ic-classification-banner-top-secret: var(--ic-classification-top-secret);
 
+  /* HERO */
+  --ic-hero-background: var(--ic-theme-tertiary);
+  --ic-hero-heading: var(--ic-color-brand-text);
+  --ic-hero-secondary-heading: var(--ic-color-brand-text);
+  --ic-hero-body: var(--ic-color-brand-text);
+  --ic-hero-keyline: var(--ic-state-layer-lighten-20);
+
   /* TOAST */
   --ic-toast-background: var(--ic-color-background-primary-dark);
   --ic-toast-status-success: var(--ic-status-success-contrast);
