@@ -565,6 +565,7 @@ export const defaultArgs = {
   validationStatus: "",
   validationText: "",
   value: "checkbox-value",
+  theme: "inherit",
 };       
 
 <Canvas>
@@ -587,6 +588,10 @@ export const defaultArgs = {
         options: ["warning", "error", "success", ""],
         control: { type: "select" }
       },
+      theme: {
+        options: ["light", "dark", "inherit"],
+        control: { type: "inline-radio" }
+      }
     }}
     name="Playground"
   >
@@ -604,6 +609,7 @@ export const defaultArgs = {
           required={args.required}
           validationStatus={args.validationStatus}
           validationText={args.validationText}
+          theme={args.theme}
         >
           <IcCheckbox
             disabled={args.disabled}

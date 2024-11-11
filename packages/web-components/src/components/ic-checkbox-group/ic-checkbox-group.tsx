@@ -15,7 +15,11 @@ import {
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
 } from "../../utils/helpers";
-import { IcInformationStatusOrEmpty, IcSizes } from "../../utils/types";
+import {
+  IcInformationStatusOrEmpty,
+  IcSizes,
+  IcThemeMode,
+} from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-checkbox-group.types";
 
 @Component({
@@ -25,6 +29,7 @@ import { IcChangeEventDetail } from "./ic-checkbox-group.types";
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class CheckboxGroup {
+  private checkboxSelector: string = "ic-checkbox";
   @Element() el: HTMLIcCheckboxGroupElement;
 
   /**
@@ -59,13 +64,15 @@ export class CheckboxGroup {
     oldValue: string,
     propName: "label" | "name"
   ): void {
-    Array.from(this.el.querySelectorAll("ic-checkbox")).forEach((checkbox) => {
-      if (propName === "label") checkbox.groupLabel = newValue;
-      else if (checkbox.name === oldValue) {
-        // If the checkbox name has been set by the parent, then override it
-        checkbox.name = newValue;
+    Array.from(this.el.querySelectorAll(this.checkboxSelector)).forEach(
+      (checkbox: HTMLIcCheckboxElement) => {
+        if (propName === "label") checkbox.groupLabel = newValue;
+        else if (checkbox.name === oldValue) {
+          // If the checkbox name has been set by the parent, then override it
+          checkbox.name = newValue;
+        }
       }
-    });
+    );
   }
 
   /**
@@ -77,6 +84,19 @@ export class CheckboxGroup {
    * The size of the checkboxes to be displayed. This does not affect the font size of the label.
    */
   @Prop() size?: IcSizes = "medium";
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+  @Watch("theme")
+  watchThemeHandler(newValue: IcThemeMode): void {
+    Array.from(this.el.querySelectorAll(this.checkboxSelector)).forEach(
+      (checkbox: HTMLIcCheckboxElement) => {
+        checkbox.theme = newValue;
+      }
+    );
+  }
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
@@ -104,6 +124,7 @@ export class CheckboxGroup {
 
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
+    this.watchThemeHandler(this.theme);
   }
 
   componentDidLoad(): void {
@@ -140,6 +161,7 @@ export class CheckboxGroup {
       name,
       required,
       size,
+      theme,
       validationStatus,
       validationText,
     } = this;
@@ -154,6 +176,8 @@ export class CheckboxGroup {
       <Host
         class={{
           [`ic-checkbox-group-${size}`]: true,
+          [`ic-checkbox-group-disabled`]: disabled,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
         {(validationStatus === "error" || required || hideLabel) && (

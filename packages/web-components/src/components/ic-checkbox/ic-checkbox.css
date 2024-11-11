@@ -1,10 +1,6 @@
 @import "../../global/normalize.css";
 
 :host(.ic-checkbox-disabled) {
-  color: var(--ic-architectural-200);
-
-  --ic-typography-color: var(--ic-architectural-200);
-
   pointer-events: none;
 }
 
@@ -30,8 +26,8 @@
   left: 0;
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
-  background-color: var(--ic-architectural-white);
-  border: var(--ic-border-width) solid var(--ic-architectural-400);
+  background-color: var(--ic-checkbox-background-unselected);
+  border: var(--ic-border-width) solid var(--ic-checkbox-border-unselected);
   border-radius: var(--ic-border-radius);
   outline: none;
   cursor: pointer;
@@ -57,51 +53,59 @@
 }
 
 .checkbox:checked {
-  background-color: var(--ic-action-default);
-  border: var(--ic-border-width) solid var(--ic-action-default);
+  background-color: var(--ic-checkbox-background-selected);
+  border: var(--ic-border-width) solid var(--ic-checkbox-background-selected);
   transition: var(--ic-easing-transition-slow);
 }
 
 .checkbox:checked:disabled {
-  background-color: var(--ic-architectural-200);
+  background-color: var(--ic-checkbox-background-selected-disabled);
+  border: var(--ic-border-width) solid
+    var(--ic-checkbox-background-selected-disabled);
 }
 
 .checkbox:indeterminate,
 .checkbox.indeterminate:checked {
-  background-color: var(--ic-architectural-white);
-  border: 0.125rem solid var(--ic-action-default);
+  background-color: var(--ic-checkbox-background-indeterminate);
+  border: 0.125rem solid var(--ic-checkbox-background-indeterminate);
+}
+
+.checkbox:indeterminate:disabled,
+.checkbox.indeterminate:checked:disabled {
+  background-color: var(--ic-checkbox-background-indeterminate-disabled);
+  border: 0.125rem solid var(--ic-checkbox-background-indeterminate-disabled);
 }
 
 .checkbox:checked:hover {
-  background-color: var(--ic-action-default-hover);
+  background-color: var(--ic-checkbox-background-selected-hover);
 }
 
 .checkbox:indeterminate:hover,
 .checkbox.indeterminate:checked:hover {
-  background-color: var(--ic-action-default-bg-hover-no-alpha);
-  border: 0.125rem solid var(--ic-action-default-hover);
+  background-color: var(--ic-checkbox-background-indeterminate-hover);
+  border: 0.125rem solid var(--ic-checkbox-background-indeterminate-hover);
 }
 
 .checkbox:checked:active {
-  background-color: var(--ic-action-default-pressed);
+  background-color: var(--ic-checkbox-background-selected-pressed);
 }
 
 .checkbox:indeterminate:active,
 .checkbox.indeterminate:checked:active {
-  background-color: var(--ic-action-default-bg-active-no-alpha);
-  border: 0.125rem solid var(--ic-action-default-pressed);
+  background-color: var(--ic-checkbox-background-indeterminate-pressed);
+  border: 0.125rem solid var(--ic-checkbox-background-indeterminate-pressed);
 }
 
 .checkbox:hover {
-  background-color: var(--ic-action-default-bg-hover-no-alpha);
-  box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-hover);
-  border: var(--ic-border-width) solid var(--ic-action-default-hover);
+  box-shadow: 0 0 0 0.25rem var(--ic-checkbox-action-background-hover);
+  border: var(--ic-border-width) solid
+    var(--ic-checkbox-border-unselected-hover);
 }
 
 .checkbox:active {
-  background-color: var(--ic-action-default-bg-active-no-alpha);
-  box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-active);
-  border: var(--ic-border-width) solid var(--ic-action-default-pressed);
+  box-shadow: 0 0 0 0.25rem var(--ic-checkbox-action-background-pressed);
+  border: var(--ic-border-width) solid
+    var(--ic-checkbox-border-unselected-pressed);
 }
 
 .checkbox:focus {
@@ -109,11 +113,19 @@
 }
 
 .checkbox:disabled {
-  border: var(--ic-border-width) dashed var(--ic-architectural-200);
+  border: var(--ic-border-width) dashed
+    var(--ic-checkbox-border-unselected-disabled);
 }
 
 .checkbox-label {
   padding-left: var(--ic-space-sm);
+  color: var(--ic-checkbox-text);
+  --ic-typography-color: var(--ic-checkbox-text);
+}
+
+:host(.ic-checkbox-disabled) .checkbox-label {
+  color: var(--ic-checkbox-text-disabled);
+  --ic-typography-color: var(--ic-checkbox-text-disabled);
 }
 
 .checkbox-label:hover {
@@ -124,7 +136,7 @@
   position: relative;
   right: calc(-1 * var(--ic-space-lg));
   margin-left: calc(-1 * var(--ic-space-lg));
-  fill: white;
+  fill: var(--ic-checkbox-icon-pressed);
   z-index: 1;
   background-color: transparent;
   pointer-events: none;
@@ -148,7 +160,7 @@
   right: -1.188rem;
   margin-left: -0.875rem;
   z-index: 1;
-  background-color: var(--ic-action-default);
+  background-color: var(--ic-checkbox-icon-indeterminate);
   pointer-events: none;
   flex-shrink: 0;
 }
@@ -165,26 +177,17 @@
   margin-left: -1.25rem;
 }
 
-.container:hover .indeterminate-symbol {
-  background-color: var(--ic-action-default-hover);
-}
-
-.container:active .indeterminate-symbol {
-  background-color: var(--ic-action-default-pressed);
-}
-
 .additional-field-wrapper {
   margin-left: calc(var(--ic-space-md) + var(--ic-space-lg));
   margin-top: calc(var(--ic-space-sm) / 2);
 }
 
 .branch-corner {
-  color: var(--ic-action-default);
   height: var(--ic-space-md);
   width: var(--ic-space-xl);
   border-radius: 0 0 0 0.188rem;
-  border-bottom: 0.125rem solid var(--ic-action-default);
-  border-left: 0.125rem solid var(--ic-action-default);
+  border-bottom: 0.125rem solid var(--ic-checkbox-required-bar);
+  border-left: 0.125rem solid var(--ic-checkbox-required-bar);
 }
 
 .dynamic-container {
@@ -195,9 +198,9 @@
 }
 
 .dynamic-text {
-  color: var(--ic-action-default);
+  color: var(--ic-checkbox-required-text);
 
-  --ic-typography-color: var(--ic-action-default);
+  --ic-typography-color: var(--ic-checkbox-required-text);
 
   margin-top: calc(var(--ic-space-sm) / 2);
   margin-bottom: var(--ic-space-xs);
