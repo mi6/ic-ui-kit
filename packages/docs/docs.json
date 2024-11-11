@@ -9857,43 +9857,6 @@
           "required": false
         },
         {
-          "name": "appearance",
-          "type": "\"dark\" | \"default\" | \"light\"",
-          "complexType": {
-            "original": "IcThemeForeground",
-            "resolved": "\"dark\" | \"default\" | \"light\"",
-            "references": {
-              "IcThemeForeground": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForeground"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "The appearance of the pagination, e.g. dark, light or the default.",
-          "docsTags": [],
-          "default": "\"default\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "boundaryPageCount",
           "type": "number",
           "complexType": {
@@ -10048,6 +10011,28 @@
           "required": false
         },
         {
+          "name": "monochrome",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "If `true`, the pagination will display as black in the light theme, and white in dark theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "pages",
           "type": "number",
           "complexType": {
@@ -10067,6 +10052,43 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         },
         {
           "name": "type",
@@ -10210,43 +10232,6 @@
       "usage": {},
       "props": [
         {
-          "name": "appearance",
-          "type": "\"dark\" | \"default\" | \"light\"",
-          "complexType": {
-            "original": "IcThemeForeground",
-            "resolved": "\"dark\" | \"default\" | \"light\"",
-            "references": {
-              "IcThemeForeground": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForeground"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "The appearance of the pagination, e.g. dark, light or the default.",
-          "docsTags": [],
-          "default": "\"default\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "disabled",
           "type": "boolean",
           "complexType": {
@@ -10291,6 +10276,28 @@
           "required": false
         },
         {
+          "name": "monochrome",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "If `true`, the pagination item will display as black in the light theme, and white in dark theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "page",
           "type": "number",
           "complexType": {
@@ -10331,6 +10338,43 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {

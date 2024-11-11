@@ -234,11 +234,12 @@ export class DataTable {
     showItemsPerPageControl: true,
     showGoToPageControl: true,
     alignment: "right",
-    appearance: "default",
     itemLabel: "Item",
     pageLabel: "Page",
     hideRangeLabel: false,
     hideAllFromItemsPerPage: false,
+    theme: "inherit",
+    monochrome: false,
   };
 
   /**
@@ -1912,7 +1913,8 @@ export class DataTable {
                   showGoToPageControl={paginationBarOptions.showGoToPageControl}
                   itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
                   alignment={paginationBarOptions.alignment}
-                  appearance={paginationBarOptions.appearance}
+                  theme={paginationBarOptions.theme}
+                  monochrome={paginationBarOptions.monochrome}
                   itemLabel={paginationBarOptions.itemLabel}
                   pageLabel={paginationBarOptions.pageLabel}
                   hideRangeLabel={paginationBarOptions.hideRangeLabel}
