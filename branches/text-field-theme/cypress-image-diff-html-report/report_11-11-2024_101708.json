@@ -1,7 +1,7 @@
 {
-  "total": 721,
-  "totalPassed": 716,
-  "totalFailed": 5,
+  "total": 723,
+  "totalPassed": 719,
+  "totalFailed": 4,
   "totalSuites": 39,
   "suites": [
     {
@@ -1679,6 +1679,17 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx-focus.png"
         },
         {
+          "status": "fail",
+          "name": "IcCheckbox.cy.tsx-theme-dark",
+          "percentage": 0.18339045309883498,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
+          "specFilename": "IcCheckbox.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx-theme-dark.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcCheckbox.cy.tsx-theme-dark.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx-theme-dark.png"
+        },
+        {
           "status": "pass",
           "name": "IcCheckbox.cy.tsx-default-high-contrast",
           "percentage": 0,
@@ -1734,14 +1745,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx-dynamic-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCheckbox.cy.tsx-validation-high-contrast",
-          "percentage": 0.020784609690826527,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
           "specFilename": "IcCheckbox.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCheckbox.cy.tsx-validation-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCheckbox.cy.tsx-validation-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCheckbox.cy.tsx-validation-high-contrast.png"
         },
         {
@@ -4685,6 +4696,17 @@
         },
         {
           "status": "pass",
+          "name": "IcRadio.cy.tsx-dark-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
+          "specFilename": "IcRadio.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-dark-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-dark-theme.png"
+        },
+        {
+          "status": "pass",
           "name": "IcRadio.cy.tsx-default-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -4695,14 +4717,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-default-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcRadio.cy.tsx-conditional-dynamic-high-contrast",
-          "percentage": 0.020784609690826527,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png"
         }
       ]
@@ -8170,9 +8192,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-08T15:39:26.252Z",
-  "endedAt": "2024-11-08T15:54:35.243Z",
-  "duration": 824298,
+  "startedAt": "2024-11-11T10:17:08.023Z",
+  "endedAt": "2024-11-11T10:32:29.549Z",
+  "duration": 837296,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
