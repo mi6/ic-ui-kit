@@ -1,5 +1,9 @@
 @import "../../../dist/core/normalize.css";
 
+:host {
+  --ic-input-label-helpertext-padding: var(--ic-space-xxs);
+}
+
 input {
   border: 0;
   height: 100%;
