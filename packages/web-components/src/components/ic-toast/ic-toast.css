@@ -37,10 +37,7 @@
   min-width: 18rem;
   box-shadow: var(--ic-elevation-overlay);
   min-height: 3.5rem;
-  background-color: var(--ic-architectural-800);
-
-  --ic-typography-color: var(--ic-color-text-primary-dark);
-
+  background-color: var(--ic-toast-background);
   display: flex;
   align-items: center;
   position: relative;
@@ -61,23 +58,23 @@
 }
 
 .divider-neutral {
-  background-color: var(--ic-status-unknown-default);
+  background-color: var(--ic-toast-status-neutral);
 }
 
 .divider-info {
-  background-color: var(--ic-status-info-contrast);
+  background-color: var(--ic-toast-status-info);
 }
 
 .divider-warning {
-  background-color: var(--ic-status-warning-contrast);
+  background-color: var(--ic-toast-status-warning);
 }
 
 .divider-error {
-  background-color: var(--ic-status-error-contrast);
+  background-color: var(--ic-toast-status-error);
 }
 
 .divider-success {
-  background-color: var(--ic-status-success-contrast);
+  background-color: var(--ic-toast-status-success);
 }
 
 .toast-icon,
@@ -89,23 +86,23 @@
 
 :host([variant="neutral"]) .toast-icon svg,
 ::slotted(svg) {
-  fill: var(--ic-status-unknown-default);
+  fill: var(--ic-toast-icon-neutral);
 }
 
 :host([variant="info"]) .toast-icon svg {
-  fill: var(--ic-status-info-contrast);
+  fill: var(--ic-toast-icon-info);
 }
 
 :host([variant="warning"]) .toast-icon svg {
-  fill: var(--ic-status-warning-contrast);
+  fill: var(--ic-toast-icon-warning);
 }
 
 :host([variant="error"]) .toast-icon svg {
-  fill: var(--ic-status-error-contrast);
+  fill: var(--ic-toast-icon-error);
 }
 
 :host([variant="success"]) .toast-icon svg {
-  fill: var(--ic-status-success-contrast);
+  fill: var(--ic-toast-icon-success);
 }
 
 .toast-content {
@@ -117,16 +114,28 @@
   margin-left: var(--ic-space-md);
 }
 
-.toast-message {
+.toast-text {
   padding: var(--ic-space-xs) var(--ic-space-xs) var(--ic-space-xs) 0;
+}
+
+.toast-heading {
+  --ic-typography-color: var(--ic-toast-title);
+}
+
+.toast-message {
+  --ic-typography-color: var(--ic-toast-description);
 }
 
 .toast-action-container {
   padding-bottom: var(--ic-space-md);
 }
 
-ic-button {
+#dismiss-button {
   padding: var(--ic-space-xs);
+}
+
+#dismiss-button > svg {
+  color: var(--ic-toast-dismiss-button);
 }
 
 ic-loading-indicator {
