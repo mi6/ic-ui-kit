@@ -417,19 +417,15 @@ ic-theme,
   --ic-chip-action-hover: var(--ic-action-dark-bg-hover);
   --ic-chip-action-pressed: var(--ic-action-dark-bg-pressed);
 
-  /* Card vertical */
-  --ic-card-vertical-card-text: var(--ic-color-text-primary);
-  --ic-card-vertical-disabled-text: var(--ic-color-text-tertiary);
-  --ic-card-vertical-clickable-text: var(--ic-color-hyperlink-default);
-  --ic-card-vertical-clickable-focus-hover-bg: var(
-    --ic-action-default-bg-hover
-  );
-  --ic-card-vertical-clickable-active-bg: var(--ic-action-default-bg-active);
-  --ic-card-vertical-toggle-button: var(--ic-action-default);
-  --ic-card-vertical-toggle-button-focus-hover: var(--ic-action-default-hover);
-  --ic-card-vertical-toggle-button-active: var(
-    --ic-action-default-active-alpha
-  );
+  /* Card */
+  --ic-card-text: var(--ic-color-text-primary);
+  --ic-card-disabled-text: var(--ic-color-text-tertiary);
+  --ic-card-clickable-text: var(--ic-color-hyperlink-default);
+  --ic-card-clickable-focus-hover-bg: var(--ic-action-default-bg-hover);
+  --ic-card-clickable-active-bg: var(--ic-action-default-bg-active);
+  --ic-card-toggle-button: var(--ic-action-default);
+  --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
+  --ic-card-toggle-button-active: var(--ic-action-default-active-alpha);
 
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
@@ -1142,19 +1138,15 @@ ic-theme,
     --ic-chip-action-hover: var(--ic-action-light-bg-hover);
     --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
 
-    /* Card vertical */
-    --ic-card-vertical-card-text: var(--ic-color-text-primary);
-    --ic-card-vertical-disabled-text: var(--ic-color-text-secondary-light);
-    --ic-card-vertical-clickable-text: var(--ic-color-hyperlink-default);
-    --ic-card-vertical-clickable-focus-hover-bg: var(
-      --ic-color-background-primary
-    );
-    --ic-card-vertical-clickable-active-bg: var(--ic-color-background-pressed);
-    --ic-card-vertical-toggle-button: var(--ic-action-default);
-    --ic-card-vertical-toggle-button-focus-hover: var(
-      --ic-action-default-hover
-    );
-    --ic-card-vertical-toggle-button-active: var(--ic-action-default-pressed);
+    /* Card */
+    --ic-card-text: var(--ic-color-text-primary);
+    --ic-card-disabled-text: var(--ic-color-text-secondary-light);
+    --ic-card-clickable-text: var(--ic-color-hyperlink-default);
+    --ic-card-clickable-focus-hover-bg: var(--ic-color-background-primary);
+    --ic-card-clickable-active-bg: var(--ic-color-background-pressed);
+    --ic-card-toggle-button: var(--ic-action-default);
+    --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
+    --ic-card-toggle-button-active: var(--ic-action-default-pressed);
 
     /* Data list */
     --ic-data-list-text-cell: var(--ic-color-text-primary);
@@ -1875,17 +1867,15 @@ ic-theme,
   --ic-chip-action-hover: var(--ic-action-light-bg-hover);
   --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
 
-  /* Card vertical */
-  --ic-card-vertical-card-text: var(--ic-color-text-primary);
-  --ic-card-vertical-disabled-text: var(--ic-color-text-secondary-light);
-  --ic-card-vertical-clickable-text: var(--ic-color-hyperlink-default);
-  --ic-card-vertical-clickable-focus-hover-bg: var(
-    --ic-color-background-primary
-  );
-  --ic-card-vertical-clickable-active-bg: var(--ic-color-background-pressed);
-  --ic-card-vertical-toggle-button: var(--ic-action-default);
-  --ic-card-vertical-toggle-button-focus-hover: var(--ic-action-default-hover);
-  --ic-card-vertical-toggle-button-active: var(--ic-action-default-pressed);
+  /* Card */
+  --ic-card-text: var(--ic-color-text-primary);
+  --ic-card-disabled-text: var(--ic-color-text-secondary-light);
+  --ic-card-clickable-text: var(--ic-color-hyperlink-default);
+  --ic-card-clickable-focus-hover-bg: var(--ic-color-background-primary);
+  --ic-card-clickable-active-bg: var(--ic-color-background-pressed);
+  --ic-card-toggle-button: var(--ic-action-default);
+  --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
+  --ic-card-toggle-button-active: var(--ic-action-default-pressed);
 
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);

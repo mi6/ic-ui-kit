@@ -6,7 +6,7 @@
 
 a {
   text-decoration: none !important;
-  color: var(--ic-card-vertical-card-text) !important;
+  color: var(--ic-card-text) !important;
 }
 
 button {
@@ -23,7 +23,7 @@ button {
   box-sizing: border-box;
   padding: var(--ic-space-md);
   text-align: left;
-  color: var(--ic-card-vertical-card-text);
+  color: var(--ic-card-text);
   transition: var(--ic-easing-transition-fast);
   position: relative;
   width: inherit;
@@ -32,7 +32,7 @@ button {
   min-height: 100%;
 
   ::slotted(svg) {
-    fill: var(--ic-card-vertical-card-text);
+    fill: var(--ic-card-text);
   }
   &.dark {
     border: var(--ic-border-width) solid
@@ -43,19 +43,19 @@ button {
   }
   &.clickable {
     &:hover {
-      background-color: var(--ic-card-vertical-clickable-focus-hover-bg);
+      background-color: var(--ic-card-clickable-focus-hover-bg);
       border: var(--ic-border-hover);
       cursor: pointer;
     }
     &.focussed,
     &:focus {
-      background-color: var(--ic-card-vertical-clickable-focus-hover-bg);
+      background-color: var(--ic-card-clickable-focus-hover-bg);
       box-shadow: var(--ic-border-focus);
       outline: var(--ic-hc-focus-outline);
       border: var(--ic-border-pressed-default);
     }
     &:active {
-      background-color: var(--ic-card-vertical-clickable-active-bg);
+      background-color: var(--ic-card-clickable-active-bg);
       box-shadow: var(--ic-border-focus);
 
       .card-title {
@@ -63,9 +63,9 @@ button {
       }
     }
     .card-title {
-      --ic-typography-color: var(--ic-card-vertical-clickable-text);
+      --ic-typography-color: var(--ic-card-clickable-text);
 
-      color: var(--ic-card-vertical-clickable-text);
+      color: var(--ic-card-clickable-text);
       text-decoration: underline;
       text-decoration-thickness: var(--ic-space-1px);
     }
@@ -76,16 +76,16 @@ button {
     .card-message,
     .subheading,
     .card-title {
-      --ic-typography-color: var(--ic-card-vertical-disabled-text);
+      --ic-typography-color: var(--ic-card-disabled-text);
     }
     .card-title {
       text-decoration: underline;
       text-decoration-thickness: var(--ic-space-1px);
-      text-decoration-color: var(--ic-card-vertical-disabled-text);
-      color: var(--ic-card-vertical-disabled-text);
+      text-decoration-color: var(--ic-card-disabled-text);
+      color: var(--ic-card-disabled-text);
     }
     ::slotted(svg) {
-      fill: var(--ic-card-vertical-disabled-text);
+      fill: var(--ic-card-disabled-text);
     }
   }
 }
@@ -167,7 +167,7 @@ button {
 }
 
 .toggle-button {
-  color: var(--ic-card-vertical-toggle-button);
+  color: var(--ic-card-toggle-button);
   width: 2.5rem;
   height: 2.5rem;
   padding: var(--ic-space-xs);
@@ -187,15 +187,15 @@ button {
   vertical-align: middle;
 
   &:hover {
-    background-color: var(--ic-card-vertical-clickable-focus-hover-bg);
-    color: var(--ic-card-vertical-toggle-button-focus-hover);
+    background-color: var(--ic-card-clickable-focus-hover-bg);
+    color: var(--ic-card-toggle-button-focus-hover);
   }
   &:focus {
     box-shadow: var(--ic-border-focus);
   }
   &:active:not(:focus) {
-    background-color: var(--ic-card-vertical-clickable-active-bg);
-    color: var(--ic-card-vertical-toggle-button-active);
+    background-color: var(--ic-card-clickable-active-bg);
+    color: var(--ic-card-toggle-button-active);
   }
 
   svg {
