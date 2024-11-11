@@ -1331,6 +1331,7 @@ export const defaultArgs = {
   iconSlot: true,
   badgeSlot: true,
   showImage: false,
+  theme: "inherit",
 };
 
 <Canvas>
@@ -1357,6 +1358,10 @@ export const defaultArgs = {
         control: {
           type: "select",
         },
+      },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
       }
     }}
     name="Playground"
@@ -1369,6 +1374,7 @@ export const defaultArgs = {
       href={args.href}
       message={args.message}
       size={args.size}
+      theme={args.theme}
     >
       <svg
         slot={args.iconSlot}
