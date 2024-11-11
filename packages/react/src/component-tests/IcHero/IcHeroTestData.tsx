@@ -10,6 +10,7 @@ import {
   IcTextField,
 } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
+import { IcThemeMode } from "@ukic/web-components";
 
 export const Default = () => {
   return (
@@ -127,9 +128,9 @@ export const WithCard = () => {
         slot="secondary"
         class="hero-card"
         style={{
-          color: "var(--ic-theme-text)",
           width: "300px",
         }}
+        theme="dark"
       />
     </IcHero>
   );
@@ -215,7 +216,8 @@ export const LongHeading = () => {
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
         slot="secondary"
-      ></IcCardVertical>
+        theme="dark"
+      />
     </IcHero>
   );
 };
@@ -237,13 +239,16 @@ export const FullWidth = () => {
   );
 };
 
-export const Controlled = () => {
+export const Theme = () => {
   const [color, setColour] = useState("rgb(255, 201, 60)");
+  const [theme, setTheme] = useState<IcThemeMode>("light");
   const defaultButtonClickHandler = () => {
     setColour("rgb(27, 60, 121)");
+    setTheme("dark");
   };
   const differentButtonClickHandler = () => {
     setColour("rgb(255, 201, 60)");
+    setTheme("light");
   };
   return (
     <>
@@ -254,14 +259,6 @@ export const Controlled = () => {
       <IcButton variant="primary" onClick={differentButtonClickHandler}>
         Sunrise theme
       </IcButton>
-    </>
-  );
-};
-
-export const Theme = () => {
-  return (
-    <>
-      <Controlled />
       <IcHero
         heading="Hero heading"
         subheading="Hero description. This is a Hero component, it should be used as a page heading."
@@ -294,6 +291,7 @@ export const Theme = () => {
           heading="Latest announcement"
           message="This is some example text that can be included in the card copy."
           slot="secondary"
+          theme={theme}
         />
       </IcHero>
     </>
