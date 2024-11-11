@@ -11,7 +11,11 @@ import {
   Method,
   Watch,
 } from "@stencil/core";
-import { IcAdditionalFieldTypes, IcValueEventDetail } from "../../utils/types";
+import {
+  IcAdditionalFieldTypes,
+  IcThemeMode,
+  IcValueEventDetail,
+} from "../../utils/types";
 import {
   onComponentRequiredPropUndefined,
   addFormResetListener,
@@ -74,6 +78,11 @@ export class RadioOption {
    * The name for the radio option.
    */
   @Prop() name: string;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The value for the radio option.
@@ -234,6 +243,7 @@ export class RadioOption {
       name,
       selected,
       value,
+      theme,
     } = this;
 
     const id = `ic-radio-option-${isPropDefined(label) || value}-${groupLabel}`;
@@ -242,7 +252,10 @@ export class RadioOption {
       <Host
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        class={{ ["ic-radio-option-disabled"]: disabled }}
+        class={{
+          ["ic-radio-option-disabled"]: disabled,
+          [`ic-theme-${theme}`]: theme !== "inherit",
+        }}
       >
         <div class={{ container: true, disabled }}>
           <div>

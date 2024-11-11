@@ -21,6 +21,7 @@ import {
   IcInformationStatusOrEmpty,
   IcOrientation,
   IcSizesNoLarge,
+  IcThemeMode,
   IcValueEventDetail,
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-radio-group.types";
@@ -108,6 +109,15 @@ export class RadioGroup {
   }
 
   /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+  @Watch("theme")
+  watchThemeHandler(newValue: IcThemeMode): void {
+    this.radioOptions.forEach((radioOption) => (radioOption.theme = newValue));
+  }
+
+  /**
    * Emitted when a user selects a radio.
    */
   @Event() icChange: EventEmitter<IcChangeEventDetail>;
@@ -139,6 +149,8 @@ export class RadioGroup {
       ],
       "Radio Group"
     );
+
+    this.watchThemeHandler(this.theme);
   }
 
   @Listen("icCheck")
@@ -314,12 +326,16 @@ export class RadioGroup {
       size,
       validationStatus,
       validationText,
+      theme,
     } = this;
 
     return (
       <Host
         onKeyDown={handleKeyDown}
-        class={{ "ic-radio-group-small": size === "small" }}
+        class={{
+          "ic-radio-group-small": size === "small",
+          [`ic-theme-${theme}`]: theme !== "inherit",
+        }}
       >
         <div
           role="radiogroup"
@@ -327,7 +343,7 @@ export class RadioGroup {
         >
           {!hideLabel && (
             <ic-input-label
-              class={{ [`${validationStatus}`]: true }}
+              class={{ [`${validationStatus}`]: true, ["disabled"]: disabled }}
               label={label}
               helperText={helperText}
               required={required}
