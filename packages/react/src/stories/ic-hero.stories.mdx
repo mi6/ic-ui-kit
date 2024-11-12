@@ -21,15 +21,53 @@ import image from "./assets/example-background.png";
 
 export const Controlled = () => {
   const [color, setColour] = useState("rgb(255, 201, 60)");
+  const [theme, setTheme] = useState("light");
   const defaultButtonClickHandler = () => {
     setColour("rgb(27, 60, 121)");
+    setTheme("dark");
   };
   const differentButtonClickHandler = () => {
     setColour("rgb(255, 201, 60)");
+    setTheme("light");
   };
   return (
     <>
       <IcTheme color={color} />
+      <IcHero
+        heading="Hero heading"
+        subheading="Hero description. This is a Hero component, it should be used as a page heading."
+        aligned="center"
+      >
+        <div slot="interaction" style={{ display: "flex" }}>
+          <IcTextField
+            placeholder="Filter display"
+            label="Filter display"
+            hide-label
+          />
+          <IcButton
+            variant="primary"
+            style={{ marginLeft: "var(--ic-space-md)" }}
+          >
+            Filter
+          </IcButton>
+        </div>
+        <IcButton variant="secondary" slot="interaction">
+          See all
+        </IcButton>
+        <IcLink
+          href="https://google.com"
+          slot="interaction"
+          style={{ marginTop: "var(--ic-space-sm)" }}
+        >
+          Help
+        </IcLink>
+        <IcCardVertical
+          heading="Latest announcement"
+          message="This is some example text that can be included in the card copy."
+          slot="secondary"
+          theme={theme}
+        />
+      </IcHero>
       <IcButton variant="primary" onClick={defaultButtonClickHandler}>
         Default theme
       </IcButton>
@@ -112,6 +150,7 @@ export const defaultArgs = {
             <IcCardVertical
               heading="Latest announcement"
               message="This is some example text that can be included in the card copy."
+              theme="dark"
               slot="secondary"
             />
           )}
@@ -286,6 +325,7 @@ export const defaultArgs = {
       <IcCardVertical
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
+        theme="dark"
         slot="secondary"
       />
     </IcHero>
@@ -336,40 +376,6 @@ export const defaultArgs = {
 <Canvas>
   <Story name="Theming" parameters={{ layout: "fullscreen" }}>
     <Controlled />
-    <IcHero
-      heading="Hero heading"
-      subheading="Hero description. This is a Hero component, it should be used as a page heading."
-      aligned="center"
-    >
-      <div slot="interaction" style={{ display: "flex" }}>
-        <IcTextField
-          placeholder="Filter display"
-          label="Filter display"
-          hide-label
-        />
-        <IcButton
-          variant="primary"
-          style={{ marginLeft: "var(--ic-space-md)" }}
-        >
-          Filter
-        </IcButton>
-      </div>
-      <IcButton variant="secondary" slot="interaction">
-        See all
-      </IcButton>
-      <IcLink
-        href="https://google.com"
-        slot="interaction"
-        style={{ marginTop: "var(--ic-space-sm)" }}
-      >
-        Help
-      </IcLink>
-      <IcCardVertical
-        heading="Latest announcement"
-        message="This is some example text that can be included in the card copy."
-        slot="secondary"
-      />
-    </IcHero>
   </Story>
 </Canvas>
 

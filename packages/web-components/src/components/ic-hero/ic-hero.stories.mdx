@@ -122,6 +122,7 @@ import image from "./assets/example-background.png";
       <ic-card-vertical
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
+        theme="dark"
         slot="secondary"
       ></ic-card-vertical>
     </ic-hero>`}
@@ -262,6 +263,7 @@ import image from "./assets/example-background.png";
       <ic-card-vertical
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
+        theme="dark"
         slot="secondary"
       ></ic-card-vertical>
     </ic-hero>`}
@@ -336,24 +338,33 @@ import image from "./assets/example-background.png";
         <ic-card-vertical
           heading="Latest announcement"
           message="This is some example text that can be included in the card copy."
+          theme="dark"
           slot="secondary"
         ></ic-card-vertical>
       </ic-hero>
       <br />
-      <ic-button
-        variant="primary"
-        id="default-btn"
-        onClick="document.querySelector('ic-theme').color='rgb(27, 60, 121)'"
-      >
+      <ic-button variant="primary" id="default-btn" onClick="changeTheme()">
         Default theme
       </ic-button>
       <ic-button
         variant="primary"
         id="custom-btn"
-        onClick="document.querySelector('ic-theme').color='rgb(255, 201, 60)'"
+        onClick="changeSunriseTheme()"
       >
         Sunrise theme
-      </ic-button> `}
+      </ic-button>
+      <script>
+        var theme = document.querySelector("ic-theme");
+        var card = document.querySelector("ic-card-vertical");
+        function changeTheme() {
+          theme.color = "rgb(27, 60, 121)";
+          card.theme = "dark";
+        }
+        function changeSunriseTheme() {
+          theme.color = "rgb(255, 201, 60)";
+          card.theme = "light";
+        }
+      </script>`}
   </Story>
 </Canvas>
 
