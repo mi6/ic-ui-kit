@@ -85,12 +85,12 @@
 
 :host(.footer-link-light) ::part(link),
 :host(.footer-link-dark) ::part(link) {
-  color: var(--ic-theme-text);
+  color: var(--ic-footer-link);
 }
 
 :host(.footer-link-light) ::slotted(svg),
 :host(.footer-link-dark) ::slotted(svg) {
-  fill: var(--ic-theme-text);
+  fill: var(--ic-footer-icon);
 }
 
 @media (forced-colors: active) {

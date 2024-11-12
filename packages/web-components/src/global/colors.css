@@ -571,6 +571,18 @@
   --ic-classification-banner-secret: var(--ic-classification-secret);
   --ic-classification-banner-top-secret: var(--ic-classification-top-secret);
 
+  /* FOOTER */
+  --ic-footer-background: var(--ic-theme-secondary);
+  --ic-footer-text: var(--ic-color-brand-text);
+  --ic-footer-link: var(--ic-color-brand-text);
+  --ic-footer-icon: var(--ic-color-icon-brand);
+  --ic-footer-chevron-icon: var(--ic-color-icon-brand);
+  --ic-footer-logo: var(--ic-color-icon-brand);
+  --ic-footer-bottom-background: var(--ic-theme-tertiary);
+  --ic-footer-keyline: var(--ic-state-layer-lighten-20);
+  --ic-footer-hover: var(--ic-architectural-white-state-layer-10);
+  --ic-footer-pressed: var(--ic-architectural-white-state-layer-20);
+
   /* HERO */
   --ic-hero-background: var(--ic-theme-tertiary);
   --ic-hero-heading: var(--ic-color-brand-text);
