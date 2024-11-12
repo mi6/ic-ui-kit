@@ -102,7 +102,11 @@ npm install
 
 ## Faster development building with ic-design-system
 
-If you want to build the components in this repository and use them in [`ic-design-system`](https://github.com/mi6/ic-design-system), you can use `npm link`. This will speed up development because you do not have to generate a compressed npm package, but rather directly use the package after building it locally.
+If you want to build the components in this repository and use them in [`ic-design-system`](https://github.com/mi6/ic-design-system), you can use `npm link`.
+This will speed up development because you do not have to generate a compressed npm package, but rather directly use the package after building it locally.
+
+> [!NOTE]
+> You will need to rebuild the package after every change
 
 First, build the monorepo packages in the top-level directory of `ic-ui-kit`:
 
@@ -110,11 +114,30 @@ First, build the monorepo packages in the top-level directory of `ic-ui-kit`:
 npm run build
 ```
 
+For canary:
+
+```console
+npm run build:canary
+```
+
+To build everything:
+
+```console
+npm run build:all
+```
+
 Then, to use the package, make sure you are in the top-level directory of `ic-design-system`. You will need to link the generated build from `ic-ui-kit`, e.g.: 
 
 ```console
 npm link ../path/to/ic-ui-kit/packages/react
 ```
+
+For canary:
+
+```console
+npm link ../path/to/ic-ui-kit/packages/canary-react
+```
+
 > [!NOTE]
 > Now you can develop and debug faster with `ic-ui-kit` in `ic-design-system`.
 
