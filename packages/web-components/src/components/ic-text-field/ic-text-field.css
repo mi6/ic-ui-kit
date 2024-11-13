@@ -5,6 +5,7 @@
    * @prop --input-width: Width of the input field
    */
   display: block;
+
   --ic-input-label-helpertext-padding: var(--ic-space-xxs);
 }
 
