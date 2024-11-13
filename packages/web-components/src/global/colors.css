@@ -367,21 +367,21 @@
 
   /* action borders */
   --ic-color-border-action-light: var(--ic-blue-800);
-  --ic-color-border-action-dark: var(--ic-blue-300);
+  --ic-color-border-action-dark: var(--ic-blue-400);
   --ic-color-border-action-hover-light: var(--ic-blue-1100);
-  --ic-color-border-action-hover-dark: var(--ic-blue-100);
+  --ic-color-border-action-hover-dark: var(--ic-blue-200);
   --ic-color-border-action-pressed-light: var(--ic-blue-1300);
-  --ic-color-border-action-pressed-dark: var(--ic-blue-400);
+  --ic-color-border-action-pressed-dark: var(--ic-blue-100);
 
   /* ACTIONS */
 
   /* default */
   --ic-action-default-light: var(--ic-blue-800);
-  --ic-action-default-dark: var(--ic-blue-300);
+  --ic-action-default-dark: var(--ic-blue-400);
   --ic-action-default-hover-light: var(--ic-blue-1100);
-  --ic-action-default-hover-dark: var(--ic-blue-100);
+  --ic-action-default-hover-dark: var(--ic-blue-200);
   --ic-action-default-pressed-light: var(--ic-blue-1300);
-  --ic-action-default-pressed-dark: var(--ic-blue-400);
+  --ic-action-default-pressed-dark: var(--ic-blue-100);
   --ic-action-default-disabled: var(--ic-blue-50); /* think this is wrong */
   --ic-action-default-active-alpha: var(--ic-blue-800-state-layer-50);
   --ic-action-default-bg-hover: var(--ic-blue-800-state-layer-10);
