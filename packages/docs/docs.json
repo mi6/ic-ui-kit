@@ -838,13 +838,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ic-z-index-back-to-top",
-          "annotation": "prop",
-          "docs": "z-index of back to top"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -1536,43 +1530,6 @@
           "required": false
         },
         {
-          "name": "appearance",
-          "type": "\"dark\" | \"default\" | \"light\"",
-          "complexType": {
-            "original": "IcThemeForeground",
-            "resolved": "\"dark\" | \"default\" | \"light\"",
-            "references": {
-              "IcThemeForeground": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForeground"
-              }
-            }
-          },
-          "mutable": true,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "The appearance of the button, e.g. dark, light, or the default.",
-          "docsTags": [],
-          "default": "\"default\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "disableTooltip",
           "type": "boolean",
           "complexType": {
@@ -1942,6 +1899,28 @@
           "required": false
         },
         {
+          "name": "monochrome",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "If `true`, the button will display as monochromatic in either `light` or `dark` theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "multiple",
           "type": "boolean",
           "complexType": {
@@ -2119,6 +2098,43 @@
           "docsTags": [],
           "values": [
             {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             }
           ],
@@ -2373,18 +2389,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--height",
-          "annotation": "prop",
-          "docs": "The height of the button."
-        },
-        {
-          "name": "--min-width",
-          "annotation": "prop",
-          "docs": "Minimum width of the button."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "badge",
@@ -4193,13 +4198,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ic-z-index-classification-banner",
-          "annotation": "prop",
-          "docs": "z-index of classification banner"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -4933,13 +4932,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-z-index-dialog",
-          "annotation": "prop",
-          "docs": "z-index of dialog"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "alert",
@@ -5242,43 +5235,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-divider-background",
-          "annotation": "prop",
-          "docs": ""
-        },
-        {
-          "name": "--ic-divider-background-monochrome",
-          "annotation": "prop",
-          "docs": ""
-        },
-        {
-          "name": "--ic-divider-horizontal-width",
-          "annotation": "prop",
-          "docs": "The width of a horizontal divider. The default value is `inherit`."
-        },
-        {
-          "name": "--ic-divider-label",
-          "annotation": "prop",
-          "docs": ""
-        },
-        {
-          "name": "--ic-divider-label-monochrome",
-          "annotation": "prop",
-          "docs": ""
-        },
-        {
-          "name": "--ic-divider-label-width",
-          "annotation": "prop",
-          "docs": "The max-width of the divider label. When orientation is set to `horizontal`, the default value is `max(20rem, 60%)`. When orientation is set to `vertical`, the default value is `20 rem`."
-        },
-        {
-          "name": "--ic-divider-vertical-height",
-          "annotation": "prop",
-          "docs": "The height of a vertical divider. The default value is `inherit`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [
@@ -6624,63 +6581,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--border-color",
-          "annotation": "prop",
-          "docs": "Border colour of the input component container"
-        },
-        {
-          "name": "--border-color-disabled",
-          "annotation": "prop",
-          "docs": "Border colour of the input component container when disabled"
-        },
-        {
-          "name": "--border-color-error",
-          "annotation": "prop",
-          "docs": "Border colour of the error variant for input component container"
-        },
-        {
-          "name": "--border-color-error-hover",
-          "annotation": "prop",
-          "docs": "Border colour of the error hover variant for input component container"
-        },
-        {
-          "name": "--border-color-error-pressed",
-          "annotation": "prop",
-          "docs": "Border colour of the error pressed variant for input component container"
-        },
-        {
-          "name": "--border-color-success",
-          "annotation": "prop",
-          "docs": "Border colour of the success variant for input component container"
-        },
-        {
-          "name": "--border-color-success-hover",
-          "annotation": "prop",
-          "docs": "Border colour of the success hover variant for input component container"
-        },
-        {
-          "name": "--border-color-success-pressed",
-          "annotation": "prop",
-          "docs": "Border colour of the success pressed variant for input component container"
-        },
-        {
-          "name": "--border-color-warning",
-          "annotation": "prop",
-          "docs": "Border colour of the warning variant for input component container"
-        },
-        {
-          "name": "--border-color-warning-hover",
-          "annotation": "prop",
-          "docs": "Border colour of the warning hover variant for input component container"
-        },
-        {
-          "name": "--border-color-warning-pressed",
-          "annotation": "prop",
-          "docs": "Border colour of the warning pressed variant for input component container"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "left-icon",
@@ -7789,13 +7690,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--circular-diameter",
-          "annotation": "prop",
-          "docs": "Diameter of the circular-indicator"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [
         {
@@ -8241,13 +8136,7 @@
       ],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ic-z-index-menu",
-          "annotation": "prop",
-          "docs": "z-index of menu"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [
@@ -8916,6 +8805,43 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [
@@ -9046,6 +8972,43 @@
           ],
           "optional": false,
           "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [
@@ -9091,13 +9054,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-z-index-navigation-item",
-          "annotation": "prop",
-          "docs": "z-index of navigation group item"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -9342,6 +9299,43 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [
@@ -9377,13 +9371,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-z-index-navigation-item",
-          "annotation": "prop",
-          "docs": "z-index of navigation item"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "badge",
@@ -9456,6 +9444,43 @@
           "required": false
         },
         {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "version",
           "type": "string",
           "complexType": {
@@ -9493,13 +9518,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-z-index-navigation-menu",
-          "annotation": "prop",
-          "docs": "z-index of navigation menu"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "buttons",
@@ -9821,13 +9840,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ic-z-index-page-header",
-          "annotation": "prop",
-          "docs": "z-index of page-header"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "actions",
@@ -10656,23 +10669,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-z-index-popover",
-          "annotation": "prop",
-          "docs": "z-index of popover menu."
-        },
-        {
-          "name": "--max-height",
-          "annotation": "prop",
-          "docs": "Maximum height of the popover menu."
-        },
-        {
-          "name": "--popover-width",
-          "annotation": "prop",
-          "docs": "Default width of the popover menu."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -11457,10 +11454,10 @@
         },
         {
           "name": "autocomplete",
-          "type": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+          "type": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
           "complexType": {
             "original": "IcAutocompleteTypes",
-            "resolved": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+            "resolved": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
             "references": {
               "IcAutocompleteTypes": {
                 "location": "import",
@@ -11477,15 +11474,15 @@
           "default": "\"off\"",
           "values": [
             {
-              "value": "name",
-              "type": "string"
-            },
-            {
               "value": "on",
               "type": "string"
             },
             {
               "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "name",
               "type": "string"
             },
             {
@@ -12576,13 +12573,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-z-index-menu",
-          "annotation": "prop",
-          "docs": "z-index of search bar menu"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -13663,23 +13654,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ic-z-index-menu",
-          "annotation": "prop",
-          "docs": "z-index of select menu"
-        },
-        {
-          "name": "--input-width",
-          "annotation": "prop",
-          "docs": "Width of the input field"
-        },
-        {
-          "name": "--menu-width",
-          "annotation": "prop",
-          "docs": "Width of the dropdown menu"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon",
@@ -14005,13 +13980,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-z-index-side-navigation",
-          "annotation": "prop",
-          "docs": "z-index of side navigation panel"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "app-icon",
@@ -15481,10 +15450,10 @@
         },
         {
           "name": "autocomplete",
-          "type": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+          "type": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
           "complexType": {
             "original": "IcAutocompleteTypes",
-            "resolved": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+            "resolved": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
             "references": {
               "IcAutocompleteTypes": {
                 "location": "import",
@@ -15501,15 +15470,15 @@
           "default": "\"off\"",
           "values": [
             {
-              "value": "name",
-              "type": "string"
-            },
-            {
               "value": "on",
               "type": "string"
             },
             {
               "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "name",
               "type": "string"
             },
             {
@@ -16595,13 +16564,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--input-width",
-          "annotation": "prop",
-          "docs": "Width of the input field"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon",
@@ -16966,13 +16929,7 @@
           "passive": true
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-z-index-toast",
-          "annotation": "prop",
-          "docs": "z-index of toast"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "action",
@@ -17305,6 +17262,43 @@
             },
             {
               "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             }
           ],
@@ -17663,6 +17657,43 @@
           "required": false
         },
         {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "variant",
           "type": "\"default\" | \"icon\"",
           "complexType": {
@@ -17989,13 +18020,7 @@
       ],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ic-z-index-tooltip",
-          "annotation": "prop",
-          "docs": "z-index of tooltip"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [
@@ -18258,9 +18283,15 @@
           "name": "theme",
           "type": "\"dark\" | \"inherit\" | \"light\"",
           "complexType": {
-            "original": "\"dark\" | \"light\" | \"inherit\"",
+            "original": "IcThemeMode",
             "resolved": "\"dark\" | \"inherit\" | \"light\"",
-            "references": {}
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
           },
           "mutable": false,
           "attr": "theme",
@@ -18887,11 +18918,6 @@
       "docstring": "",
       "path": "src/components/ic-footer/ic-footer.types.tsx"
     },
-    "src/utils/types.ts::IcThemeForeground": {
-      "declaration": "export type IcThemeForeground = \"default\" | \"dark\" | \"light\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
     "src/components/ic-button/ic-button.types.ts::IcButtonTooltipPlacement": {
       "declaration": "export type IcButtonTooltipPlacement = \"top\" | \"right\" | \"bottom\" | \"left\";",
       "docstring": "",
@@ -19004,6 +19030,11 @@
     },
     "src/utils/types.ts::IcOrientation": {
       "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcThemeForeground": {
+      "declaration": "export type IcThemeForeground = \"default\" | \"dark\" | \"light\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
