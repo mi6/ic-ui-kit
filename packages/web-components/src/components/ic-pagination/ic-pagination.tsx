@@ -287,36 +287,18 @@ export class Pagination {
     this.icPageChange.emit({ value: this.currentPage });
   };
 
-  /**
-   * Temporary function to handle button appearance until other dark mode work is completed.
-   */
-  private handleButtonAppearance = () => {
-    if (this.monochrome) {
-      if (
-        this.theme === "dark" ||
-        (this.theme === "inherit" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        return "light";
-      } else {
-        return "dark";
-      }
-    } else {
-      return "default";
-    }
-  };
-
   // button rendering abstracted from component render methods for clarity
   private firstButton = () => {
     return (
       <ic-button
         id="first-page-button"
         aria-label="Go to first page"
-        appearance={this.handleButtonAppearance()}
+        theme={this.theme}
         onClick={this.handleClickFirst}
         class="page-button first-last"
         disabled={this.currentPage === 1 || this.disabled}
-        variant="icon"
+        variant="icon-tertiary"
+        monochrome={this.theme == "light" || this.theme == "dark"}
         innerHTML={paginationFirstLast}
       />
     );
@@ -327,11 +309,12 @@ export class Pagination {
       <ic-button
         id="previous-page-button"
         aria-label="Go to previous page"
-        appearance={this.handleButtonAppearance()}
+        theme={this.theme}
         onClick={this.handleClickPrevious}
         class="page-button next-previous flip"
         disabled={this.currentPage === 1 || this.disabled}
-        variant="icon"
+        variant="icon-tertiary"
+        monochrome={this.theme == "light" || this.theme == "dark"}
         innerHTML={paginationNextPrevious}
       />
     );
@@ -342,11 +325,12 @@ export class Pagination {
       <ic-button
         id="next-page-button"
         aria-label="Go to next page"
-        appearance={this.handleButtonAppearance()}
+        theme={this.theme}
         onClick={this.handleClickNext}
         class="page-button next-previous"
         disabled={this.currentPage === this.pages || this.disabled}
-        variant="icon"
+        variant="icon-tertiary"
+        monochrome={this.theme == "light" || this.theme == "dark"}
         innerHTML={paginationNextPrevious}
       />
     );
@@ -357,11 +341,12 @@ export class Pagination {
       <ic-button
         id="last-page-button"
         aria-label="Go to last page"
-        appearance={this.handleButtonAppearance()}
+        theme={this.theme}
         onClick={this.handleClickLast}
         class="page-button first-last flip"
         disabled={this.currentPage === this.pages || this.disabled}
-        variant="icon"
+        variant="icon-tertiary"
+        monochrome={this.theme == "light" || this.theme == "dark"}
         innerHTML={paginationFirstLast}
       />
     );

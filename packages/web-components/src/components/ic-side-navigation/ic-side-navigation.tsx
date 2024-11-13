@@ -641,7 +641,12 @@ export class SideNavigation {
               variant="secondary"
               size="small"
               full-width="true"
-              appearance={foregroundColor}
+              theme={
+                foregroundColor == "default" || foregroundColor == "light"
+                  ? "light"
+                  : "dark"
+              }
+              monochrome
               onClick={this.toggleMenu}
               ariaOwnsId="side-navigation"
               aria-haspopup="true"

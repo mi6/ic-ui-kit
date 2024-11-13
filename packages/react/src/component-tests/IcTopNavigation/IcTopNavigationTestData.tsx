@@ -342,7 +342,7 @@ export const ThemeDark = (): ReactElement => {
         placeholder="Search"
         theme="light"
       />
-      <IcNavigationButton label="Button One" slot="buttons">
+      <IcNavigationButton label="Button One" slot="buttons" theme="light">
         <ReusableIcon />
       </IcNavigationButton>
       <IcNavigationItem slot="navigation" label="One" href="/" />

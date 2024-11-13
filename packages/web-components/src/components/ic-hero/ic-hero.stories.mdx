@@ -25,10 +25,10 @@ import image from "./assets/example-background.png";
       heading="Hero heading"
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
     >
-      <ic-button variant="primary" appearance="light" slot="interaction"
+      <ic-button variant="primary" monochrome slot="interaction"
         >Button</ic-button
       >
-      <ic-button variant="secondary" appearance="light" slot="interaction"
+      <ic-button variant="secondary" monochrome slot="interaction"
         >Button</ic-button
       >
       <ic-link
@@ -53,10 +53,10 @@ import image from "./assets/example-background.png";
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="center"
     >
-      <ic-button variant="primary" appearance="light" slot="interaction"
+      <ic-button variant="primary" monochrome slot="interaction"
         >Button</ic-button
       >
-      <ic-button variant="secondary" appearance="light" slot="interaction"
+      <ic-button variant="secondary" monochrome slot="interaction"
         >Button</ic-button
       >
       <ic-link
@@ -79,10 +79,10 @@ import image from "./assets/example-background.png";
     {html`<ic-hero>
       <ic-typography slot="heading" variant="h1">Slotted heading</ic-typography>
       <ic-typography slot="subheading">Slotted subheading</ic-typography>
-      <ic-button variant="primary" appearance="light" slot="interaction"
+      <ic-button variant="primary" monochrome slot="interaction"
         >Button</ic-button
       >
-      <ic-button variant="secondary" appearance="light" slot="interaction"
+      <ic-button variant="secondary" monochrome slot="interaction"
         >Button</ic-button
       >
       <ic-link
@@ -107,10 +107,10 @@ import image from "./assets/example-background.png";
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="center"
     >
-      <ic-button variant="primary" appearance="light" slot="interaction"
+      <ic-button variant="primary" monochrome slot="interaction"
         >Button</ic-button
       >
-      <ic-button variant="secondary" appearance="light" slot="interaction"
+      <ic-button variant="secondary" monochrome slot="interaction"
         >Button</ic-button
       >
       <ic-link
@@ -141,10 +141,10 @@ import image from "./assets/example-background.png";
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="full-width"
     >
-      <ic-button variant="primary" appearance="light" slot="interaction"
+      <ic-button variant="primary" monochrome slot="interaction"
         >Button</ic-button
       >
-      <ic-button variant="secondary" appearance="light" slot="interaction"
+      <ic-button variant="secondary" monochrome slot="interaction"
         >Button</ic-button
       >
     </ic-hero>`}
@@ -164,10 +164,10 @@ import image from "./assets/example-background.png";
       aligned="center"
       content-aligned="center"
     >
-      <ic-button variant="primary" appearance="light" slot="interaction"
+      <ic-button variant="primary" monochrome slot="interaction"
         >Button</ic-button
       >
-      <ic-button variant="secondary" appearance="light" slot="interaction"
+      <ic-button variant="secondary" monochrome slot="interaction"
         >Button</ic-button
       >
     </ic-hero>`}
@@ -187,10 +187,10 @@ import image from "./assets/example-background.png";
       aligned="center"
       size="small"
     >
-      <ic-button variant="primary" appearance="light" slot="interaction"
+      <ic-button variant="primary" monochrome slot="interaction"
         >Button</ic-button
       >
-      <ic-button variant="secondary" appearance="light" slot="interaction"
+      <ic-button variant="secondary" monochrome slot="interaction"
         >Button</ic-button
       >
     </ic-hero>`}
@@ -211,10 +211,10 @@ import image from "./assets/example-background.png";
       secondary-subheading="This is a secondary description."
       aligned="center"
     >
-      <ic-button variant="primary" appearance="light" slot="interaction"
+      <ic-button variant="primary" monochrome slot="interaction"
         >Button</ic-button
       >
-      <ic-button variant="secondary" appearance="light" slot="interaction"
+      <ic-button variant="secondary" monochrome slot="interaction"
         >Button</ic-button
       >
     </ic-hero>`}
@@ -254,10 +254,10 @@ import image from "./assets/example-background.png";
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="full-width"
     >
-      <ic-button variant="primary" appearance="light" slot="interaction"
+      <ic-button variant="primary" monochrome slot="interaction"
         >Button</ic-button
       >
-      <ic-button variant="secondary" appearance="light" slot="interaction"
+      <ic-button variant="secondary" monochrome slot="interaction"
         >Button</ic-button
       >
       <ic-card-vertical
@@ -282,10 +282,10 @@ import image from "./assets/example-background.png";
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="center"
     >
-      <ic-button variant="primary" appearance="light" slot="interaction"
+      <ic-button variant="primary" monochrome slot="interaction"
         >Button</ic-button
       >
-      <ic-button variant="secondary" appearance="light" slot="interaction"
+      <ic-button variant="secondary" monochrome slot="interaction"
         >Button</ic-button
       >
       <svg
@@ -331,7 +331,10 @@ import image from "./assets/example-background.png";
             label="Filter display"
             hide-label
           ></ic-text-field>
-          <ic-button variant="primary" style="margin-left: var(--ic-space-md)"
+          <ic-button
+            variant="primary"
+            monochrome
+            style="margin-left: var(--ic-space-md)"
             >Filter</ic-button
           >
         </div>
@@ -397,11 +400,15 @@ import image from "./assets/example-background.png";
         background-image="${image}"
       >
         <div slot="interaction">
-          <ic-button variant="primary" style="margin-right: var(--ic-space-md)"
+          <ic-button
+            monochrome
+            variant="primary"
+            style="margin-right: var(--ic-space-md)"
             >Button</ic-button
           >
           <ic-button
             variant="secondary"
+            monochrome
             style="margin-right: var(--ic-space-md)"
             >Button</ic-button
           >
@@ -455,10 +462,14 @@ import image from "./assets/example-background.png";
         disable-background-parallax
       >
         <div slot="interaction">
-          <ic-button variant="primary" style="margin-right: var(--ic-space-md)"
+          <ic-button
+            monochrome
+            variant="primary"
+            style="margin-right: var(--ic-space-md)"
             >Button</ic-button
           >
           <ic-button
+            monochrome
             variant="secondary"
             style="margin-right: var(--ic-space-md)"
             >Button</ic-button

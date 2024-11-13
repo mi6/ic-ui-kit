@@ -18,6 +18,7 @@
 | `selectMethod`    | `select-method`    | If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`. | `"auto" \| "manual"`             | `"manual"`              |
 | `selectType`      | `select-type`      | Sets whether single or multiple options can be toggled. If `multi`, then the `selectMethod` is always `manual`.                                                                                                | `"multi" \| "single"`            | `"single"`              |
 | `size`            | `size`             | The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.                                                                                                    | `"large" \| "medium" \| "small"` | `"medium"`              |
+| `theme`           | `theme`            | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.                                                                        | `"dark" \| "inherit" \| "light"` | `"inherit"`             |
 | `variant`         | `variant`          | The variant of the toggle button.                                                                                                                                                                              | `"default" \| "icon"`            | `"default"`             |
 
 

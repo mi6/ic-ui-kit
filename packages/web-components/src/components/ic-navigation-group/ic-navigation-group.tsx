@@ -20,6 +20,7 @@ import {
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundNoDefault,
+  IcThemeMode,
 } from "../../utils/types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
@@ -63,6 +64,11 @@ export class NavigationGroup {
    * The label to display on the group.
    */
   @Prop() label: string;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   disconnectedCallback(): void {
     if (this.navigationType === "side") {
@@ -445,6 +451,7 @@ export class NavigationGroup {
           "ic-navigation-group-expanded": this.expanded,
           "ic-navigation-group-collapsed": !this.expanded,
           ["ic-navigation-group-side-nav"]: this.navigationType === "side",
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         role="listitem"
       >
