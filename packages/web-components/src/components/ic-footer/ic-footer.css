@@ -18,16 +18,17 @@
   --footer-link-inner-flex-direction: column;
 }
 
-:host(.ic-footer-foreground-light) {
-  --footer-theme-secondary: var(--ic-theme-secondary);
-  --footer-theme-tertiary: var(--ic-theme-tertiary);
-  --footer-keyline: var(--ic-border-keyline-lighten);
-}
-
 :host(.ic-footer-foreground-dark) {
-  --footer-theme-secondary: var(--ic-theme-secondary-light);
-  --footer-theme-tertiary: var(--ic-theme-tertiary-light);
-  --footer-keyline: var(--ic-border-keyline-darken);
+  --ic-footer-background: var(--ic-theme-secondary-light);
+  --ic-footer-bottom-background: var(--ic-theme-tertiary-light);
+  --ic-footer-keyline: var(--ic-state-layer-darken-20);
+  --ic-footer-text: var(--ic-color-text-primary-light);
+  --ic-footer-link: var(--ic-color-text-primary-light);
+  --ic-footer-icon: var(--ic-color-icon-neutral);
+  --ic-footer-chevron-icon: var(--ic-color-icon-neutral);
+  --ic-footer-logo: var(--ic-color-icon-neutral);
+  --ic-footer-hover: var(--ic-architectural-700-state-layer-10);
+  --ic-footer-pressed: var(--ic-architectural-700-state-layer-20);
 }
 
 :host(.ic-footer-small.ic-footer-ungrouped) {
@@ -44,12 +45,12 @@ footer {
 /* Description */
 
 .footer-description {
-  background-color: var(--footer-theme-secondary);
-  color: var(--ic-theme-text);
+  background-color: var(--ic-footer-background);
+  color: var(--ic-footer-text);
 
-  --ic-typography-color: var(--ic-theme-text);
+  --ic-typography-color: var(--ic-footer-text);
 
-  border-bottom: var(--footer-keyline);
+  border-bottom: var(--ic-space-1px) solid var(--ic-footer-keyline);
 }
 
 .footer-description-inner {
@@ -60,10 +61,10 @@ footer {
 
 .footer-links {
   padding: var(--footer-links-padding);
-  background-color: var(--footer-theme-secondary);
-  color: var(--ic-theme-text);
+  background-color: var(--ic-footer-background);
+  color: var(--ic-footer-link);
 
-  --ic-typography-color: var(--ic-theme-text);
+  --ic-typography-color: var(--ic-footer-link);
 }
 
 .footer-links-inner {
@@ -74,10 +75,10 @@ footer {
 /* Compliance */
 
 .footer-compliance {
-  background-color: var(--footer-theme-tertiary);
-  color: var(--ic-theme-text);
+  background-color: var(--ic-footer-bottom-background);
+  color: var(--ic-footer-text);
 
-  --ic-typography-color: var(--ic-theme-text);
+  --ic-typography-color: var(--ic-footer-text);
 }
 
 .footer-compliance-inner {
