@@ -6,21 +6,21 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
+import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
-import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcWeekDays } from "./utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-import { IcThemeMode } from "@ukic/web-components/dist/types/interface";
+import { IcThemeMode as IcThemeMode1 } from "@ukic/web-components/dist/types/interface";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
-import { IcThemeMode } from "@ukic/web-components";
+import { IcThemeMode as IcThemeMode2 } from "@ukic/web-components";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
+export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
-export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcWeekDays } from "./utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-export { IcThemeMode } from "@ukic/web-components/dist/types/interface";
+export { IcThemeMode as IcThemeMode1 } from "@ukic/web-components/dist/types/interface";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
-export { IcThemeMode } from "@ukic/web-components";
+export { IcThemeMode as IcThemeMode2 } from "@ukic/web-components";
 export namespace Components {
     interface IcCardHorizontal {
         /**
@@ -67,6 +67,10 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcDataTable {
         /**
@@ -483,7 +487,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -541,7 +545,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode2;
         "updateAriaLabel": () => Promise<void>;
     }
     interface IcTreeView {
@@ -560,7 +564,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode2;
     }
 }
 export interface IcDataTableCustomEvent<T> extends CustomEvent<T> {
@@ -760,6 +764,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcDataTable {
         /**
@@ -1201,7 +1209,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -1259,7 +1267,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode2;
     }
     interface IcTreeView {
         /**
@@ -1277,7 +1285,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode2;
     }
     interface IntrinsicElements {
         "ic-card-horizontal": IcCardHorizontal;

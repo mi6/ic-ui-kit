@@ -7,6 +7,7 @@ import {
   h,
   Method,
   forceUpdate,
+  Host,
 } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
@@ -19,6 +20,7 @@ import {
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
+  IcThemeMode,
 } from "../../utils/types";
 import { IcCardSizes } from "./ic-card-horizontal.types";
 
@@ -94,6 +96,11 @@ export class Card {
    */
   @Prop() target?: string;
 
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+
   disconnectedCallback(): void {
     if (this.parentIsAnchorTag) {
       this.parentEl.removeEventListener("focus", this.parentFocussed);
@@ -137,9 +144,8 @@ export class Card {
   }
 
   @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.updateTheme(theme.mode);
+  themeChangeHandler(ev: CustomEvent<IcTheme>): void {
+    this.updateTheme(ev.detail.mode);
   }
 
   /**
@@ -156,10 +162,10 @@ export class Card {
 
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     if (
-      mutationList.some(({ type, addedNodes, removedNodes }) =>
-        type === "childList"
-          ? checkSlotInChildMutations(addedNodes, removedNodes, "image")
-          : false
+      mutationList.some(
+        ({ type, addedNodes, removedNodes }) =>
+          type === "childList" &&
+          checkSlotInChildMutations(addedNodes, removedNodes, "image")
       )
     ) {
       forceUpdate(this);
@@ -175,7 +181,7 @@ export class Card {
   };
 
   private updateTheme(newTheme: IcThemeForeground = null): void {
-    const foregroundColor = getThemeFromContext(this.el, newTheme || null);
+    const foregroundColor = getThemeFromContext(this.el, newTheme);
 
     if (foregroundColor !== IcThemeForegroundEnum.Default) {
       this.appearance = foregroundColor;
@@ -184,6 +190,7 @@ export class Card {
 
   render() {
     const {
+      appearance,
       clickable,
       disabled,
       heading,
@@ -196,15 +203,15 @@ export class Card {
       parentIsAnchorTag,
       isFocussed,
       size,
+      theme,
     } = this;
 
-    const Component = parentIsAnchorTag
-      ? "div"
-      : clickable
-      ? this.href === undefined
+    const Component =
+      parentIsAnchorTag || !clickable
+        ? "div"
+        : href === undefined
         ? "button"
-        : "a"
-      : "div";
+        : "a";
 
     const attrs = Component == "a" && {
       href: href,
@@ -215,57 +222,55 @@ export class Card {
     };
 
     return (
-      <Component
-        class={{
-          ["card"]: true,
-          ["clickable"]: clickable && !disabled,
-          ["disabled"]: disabled,
-          ["focussed"]: isFocussed,
-          ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
-          [`${size}`]: true,
-          ["with-icon"]: isSlotUsed(this.el, "icon"),
-          ["with-image"]: isSlotUsed(this.el, "image"),
-        }}
-        tabindex={clickable && !parentIsAnchorTag ? 0 : null}
-        aria-disabled={disabled ? "true" : null}
-        disabled={disabled ? true : null}
-        {...attrs}
-      >
-        {isSlotUsed(this.el, "image") && (
-          <div class={{ ["image"]: true }}>
-            <slot name="image"></slot>
-          </div>
-        )}
-        <div class="card-content">
-          <div class="card-header">
-            {isSlotUsed(this.el, "icon") && (
-              <div class="icon">
-                <slot name="icon" />
-              </div>
-            )}
-            <div class="card-title">
-              <slot name="heading">
-                <ic-typography variant="h4">
-                  <p>{heading}</p>
-                </ic-typography>
-              </slot>
-            </div>
-          </div>
-          {(message || isSlotUsed(this.el, "message")) && (
-            <div
-              class={{
-                ["card-message"]: true,
-              }}
-            >
-              {message && (
-                <ic-typography variant="body">{message}</ic-typography>
-              )}
-              {isSlotUsed(this.el, "message") && <slot name="message"></slot>}
+      <Host class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}>
+        <Component
+          class={{
+            card: true,
+            clickable: clickable && !disabled,
+            disabled,
+            focussed: isFocussed,
+            dark: appearance === IcThemeForegroundEnum.Dark,
+            [`${size}`]: true,
+            "with-icon": isSlotUsed(this.el, "icon"),
+            "with-image": isSlotUsed(this.el, "image"),
+          }}
+          tabindex={clickable && !parentIsAnchorTag ? 0 : null}
+          aria-disabled={disabled ? "true" : null}
+          disabled={disabled ? true : null}
+          {...attrs}
+        >
+          {isSlotUsed(this.el, "image") && (
+            <div class="image">
+              <slot name="image"></slot>
             </div>
           )}
-        </div>
-        {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
-      </Component>
+          <div class="card-content">
+            <div class="card-header">
+              {isSlotUsed(this.el, "icon") && (
+                <div class="icon">
+                  <slot name="icon" />
+                </div>
+              )}
+              <div class="card-title">
+                <slot name="heading">
+                  <ic-typography variant="h4">
+                    <p>{heading}</p>
+                  </ic-typography>
+                </slot>
+              </div>
+            </div>
+            {(message || isSlotUsed(this.el, "message")) && (
+              <div class="card-message">
+                {message && (
+                  <ic-typography variant="body">{message}</ic-typography>
+                )}
+                {isSlotUsed(this.el, "message") && <slot name="message"></slot>}
+              </div>
+            )}
+          </div>
+          {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
+        </Component>
+      </Host>
     );
   }
 }
