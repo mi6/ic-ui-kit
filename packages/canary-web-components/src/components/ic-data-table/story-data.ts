@@ -1054,6 +1054,19 @@ export const Scrollable = (): HTMLElement => {
   return wrapper;
 };
 
+export const HeaderTruncation = (): HTMLElement => {
+  const dataTable = createDataTableElement(
+    "Column Header Truncation",
+    COLS,
+    LONG_DATA
+  );
+  dataTable.setAttribute("column-header-truncation", "true");
+  dataTable.style["height"] = "400px";
+  dataTable.style["width"] = "500px";
+
+  return dataTable;
+};
+
 export const RowHeaders = (): HTMLIcDataTableElement =>
   createDataTableElement("Row Header Table", ROW_HEADER_COLS, ROW_HEADER_DATA);
 

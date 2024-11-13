@@ -8,6 +8,7 @@
 :host {
   display: block;
   position: relative;
+
   --ic-input-label-helpertext-padding: var(--ic-space-xxs);
 }
 

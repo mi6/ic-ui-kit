@@ -138,7 +138,9 @@ export class TreeItem {
 
     this.updateAriaLabel();
 
-    this.truncateTreeItemLabel(this.el);
+    setTimeout(() => {
+      this.truncateTreeItemLabel(this.el);
+    }, 100);
 
     !isSlotUsed(this.el, "label") &&
       onComponentRequiredPropUndefined(

@@ -20,8 +20,10 @@ import {
   PopoverWithMenuGroups,
 } from "./IcPopoverMenuData";
 
-const POPOVER_SELECTOR = "ic-popover-menu";
 const BUTTON_SELECTOR = "ic-button";
+const MENU_ITEM_SELECTOR = "ic-menu-item";
+const POPOVER_SELECTOR = "ic-popover-menu";
+
 const DEFAULT_TEST_THRESHOLD = 0.016;
 
 describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
@@ -77,9 +79,9 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.get(BUTTON_SELECTOR).click();
-    cy.get("ic-menu-item").eq(0).click({ force: true });
-    cy.get("ic-menu-item").eq(1).click({ force: true });
-    cy.get("ic-menu-item").eq(2).click({ force: true });
+    cy.get(MENU_ITEM_SELECTOR).eq(0).click({ force: true });
+    cy.get(MENU_ITEM_SELECTOR).eq(1).click({ force: true });
+    cy.get(MENU_ITEM_SELECTOR).eq(2).click({ force: true });
 
     cy.get("@handleMenuItemClick").should(NOT_HAVE_BEEN_CALLED);
     cy.get("@triggerPopoverMenuInstance").should(NOT_BE_CALLED_ONCE);
@@ -246,7 +248,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.get(BUTTON_SELECTOR).click();
-    cy.get("ic-menu-item").eq(0).click();
+    cy.get(MENU_ITEM_SELECTOR).eq(0).click();
 
     cy.get("@icPopoverClosed").should(HAVE_BEEN_CALLED_ONCE);
   });
@@ -288,9 +290,24 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.get(BUTTON_SELECTOR).click();
-    cy.get("ic-menu-item").eq(0).click();
+    cy.get(MENU_ITEM_SELECTOR).eq(0).click();
 
     cy.get("@handleMenuItemClick").should(HAVE_BEEN_CALLED_ONCE);
+  });
+
+  it("should emit icToggleChecked when a user clicks a toggle menu item", () => {
+    mount(<PopoverMenuWithVariants />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+
+    cy.get(MENU_ITEM_SELECTOR)
+      .eq(3)
+      .invoke("on", "icToggleChecked", cy.stub().as("icToggleChecked"));
+
+    cy.get(BUTTON_SELECTOR).click();
+    cy.get(MENU_ITEM_SELECTOR).eq(3).click();
+
+    cy.get("@icToggleChecked").should(HAVE_BEEN_CALLED_ONCE);
   });
 });
 

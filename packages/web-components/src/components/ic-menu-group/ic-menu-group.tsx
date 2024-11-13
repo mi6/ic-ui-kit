@@ -17,13 +17,13 @@ export class MenuGroup {
     const parentMenu = this.el.closest("ic-popover-menu");
 
     return (
-      <Host aria-label={this.label !== null ? this.label : ""}>
+      <Host role="group" aria-label={this.label !== null ? this.label : ""}>
         {isPropDefined(this.label) && (
           <ic-typography variant="subtitle-small">{this.label}</ic-typography>
         )}
-        <ul role="group">
+        <span class="menu-items-wrapper">
           <slot></slot>
-        </ul>
+        </span>
         {/* The line under the menu group is added on all menu groups except in the case that the menu group is the last item in the popover menu */}
         {this.el !== parentMenu?.querySelector("ic-menu-group:last-child") && (
           <hr />

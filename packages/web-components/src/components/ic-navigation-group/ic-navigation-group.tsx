@@ -60,12 +60,12 @@ export class NavigationGroup {
 
   disconnectedCallback(): void {
     if (this.navigationType === "side") {
-      this.parentEl.removeEventListener(
+      this.parentEl?.removeEventListener(
         "sideNavExpanded",
         this.sideNavExpandHandler
       );
     } else if (this.navigationType === "top") {
-      this.parentEl.removeEventListener(
+      this.parentEl?.removeEventListener(
         "topNavResized",
         this.topNavResizedHandler
       );

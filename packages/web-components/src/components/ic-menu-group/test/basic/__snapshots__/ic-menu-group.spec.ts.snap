@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`menu group should render a menu group with a label 1`] = `
-<ic-menu-group aria-label="Menu item label" label="Menu item label">
+<ic-menu-group aria-label="Menu item label" label="Menu item label" role="group">
   <mock:shadow-root>
     <ic-typography variant="subtitle-small">
       Menu item label
     </ic-typography>
-    <ul role="group">
+    <span class="menu-items-wrapper">
       <slot></slot>
-    </ul>
+    </span>
     <hr>
   </mock:shadow-root>
   <ic-menu-item label="Button" variant="default">
@@ -83,11 +83,11 @@ exports[`menu group should render a menu group with a label 1`] = `
 `;
 
 exports[`menu group should render a menu group without a label 1`] = `
-<ic-menu-group>
+<ic-menu-group role="group">
   <mock:shadow-root>
-    <ul role="group">
+    <span class="menu-items-wrapper">
       <slot></slot>
-    </ul>
+    </span>
     <hr>
   </mock:shadow-root>
   <ic-menu-item label="Button" variant="default">

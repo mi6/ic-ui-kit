@@ -15,6 +15,10 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+input:-webkit-autofill {
+  box-shadow: 0 0 0 var(--ic-space-sm) var(--ic-architectural-white) inset;
+}
+
 ic-input-component-container {
   cursor: text;
 }

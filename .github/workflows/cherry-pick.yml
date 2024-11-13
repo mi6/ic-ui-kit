@@ -1,0 +1,32 @@
+name: Cherry pick into v3.0.0/develop
+permissions: read-all
+
+on:
+  pull_request:
+    branches:
+      - develop
+    types: ["closed"]
+
+jobs:
+  cherry_pick_release_v3_0:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    name: Cherry pick into v3.0.0/develop
+    if: ${{ github.event.pull_request.merged == true }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+        with:
+          fetch-depth: 0
+      - name: Cherry pick into v3.0.0/develop
+        uses: carloscastrojumo/github-cherry-pick-action@c980652a80bb76d11b6cdc38efb0a5cee28ff4e6 #v1.0.10
+        with:
+          branch: v3.0.0/develop
+          labels: |
+            cherry-pick
+          title: '[v3 cherry-pick] {old_title}'
+          body: 'Cherry picking #{old_pull_request_id} onto this branch'
+    env:
+      GITHUB_TOKEN: ${{ secrets.CHERRY_PAT }}

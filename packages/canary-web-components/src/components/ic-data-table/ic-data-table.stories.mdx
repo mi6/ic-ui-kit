@@ -13,6 +13,7 @@ import {
   Dense,
   Spacious,
   Scrollable,
+  HeaderTruncation,
   RowHeaders,
   Sort,
   SortOptions,
@@ -314,6 +315,52 @@ This can be mitigated by using the `sticky-column-headers` prop which takes a bo
   id="data-table"
   caption="Sticky header Table"
   sticky-column-headers="true"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Column header truncation
+
+By default, column header labels will wrap when they exceed the column width. To keep the column header height constant, the `columnHeaderTruncation` can be used. When set to `true`, the label will appear truncated and will display a tooltip with the full text when hovered over.
+
+<Canvas withSource="none">
+  <Story name="Column header truncation" parameters={{ loki: { skip: true } }}>
+    {HeaderTruncation()}
+  </Story>
+</Canvas>
+
+#### Column header truncation code example
+
+```html
+<ic-data-table
+  style="height: 400px; width: 500px;"
+  id="data-table"
+  caption="Column Header Truncation"
+  column-header-truncation="true"
 ></ic-data-table>
 <script>
   const dataTable = document.querySelector("#data-table");
