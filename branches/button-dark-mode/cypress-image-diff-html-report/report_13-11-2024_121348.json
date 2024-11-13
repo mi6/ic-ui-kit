@@ -1,7 +1,7 @@
 {
   "total": 695,
-  "totalPassed": 694,
-  "totalFailed": 1,
+  "totalPassed": 695,
+  "totalFailed": 0,
   "totalSuites": 39,
   "suites": [
     {
@@ -799,6 +799,17 @@
         },
         {
           "status": "pass",
+          "name": "IcButton.cy.tsx-dropdown",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-dropdown.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-dropdown.png"
+        },
+        {
+          "status": "pass",
           "name": "IcButton.cy.tsx-expanded-dropdown-popover",
           "percentage": 0,
           "failureThreshold": 0,
@@ -939,6 +950,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-focused-primary-light.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-focused-primary-light.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcButton.cy.tsx-focused-primary-dark",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-focused-primary-dark.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-focused-primary-dark.png"
         },
         {
           "status": "pass",
@@ -7492,17 +7514,6 @@
         },
         {
           "status": "pass",
-          "name": "IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
-          "specFilename": "IcTopNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll.png"
-        },
-        {
-          "status": "pass",
           "name": "IcTopNavigation.cy.tsx-mobile-app-icon-title",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7665,17 +7676,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx-icon-buttons-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-icon-buttons-high-contrast.png"
-        },
-        {
-          "status": "fail",
-          "name": "IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll-high-contrast",
-          "percentage": 0.0030386856273138196,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
-          "specFilename": "IcTopNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll-high-contrast.png",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll-high-contrast.png"
         },
         {
           "status": "pass",
@@ -7884,9 +7884,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-13T11:39:15.990Z",
-  "endedAt": "2024-11-13T11:53:28.791Z",
-  "duration": 767301,
+  "startedAt": "2024-11-13T12:13:48.589Z",
+  "endedAt": "2024-11-13T12:28:16.079Z",
+  "duration": 780404,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
