@@ -1152,6 +1152,10 @@ export namespace Components {
          */
         "target"?: string;
         /**
+          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+         */
+        "toggleChecked": boolean;
+        /**
           * The variant of the menu item.
          */
         "variant": IcMenuItemVariants;
@@ -2798,6 +2802,9 @@ declare global {
     label: string;
     hasSubMenu: boolean;
   };
+        "icToggleChecked": {
+    checked: boolean;
+  };
         "triggerPopoverMenuInstance": void;
     }
     interface HTMLIcMenuItemElement extends Components.IcMenuItem, HTMLStencilElement {
@@ -4426,6 +4433,12 @@ declare namespace LocalJSX {
     label: string;
     hasSubMenu: boolean;
   }>) => void;
+        /**
+          * Emitted when the user clicks a menu item that is set to the toggle variant.
+         */
+        "onIcToggleChecked"?: (event: IcMenuItemCustomEvent<{
+    checked: boolean;
+  }>) => void;
         "onTriggerPopoverMenuInstance"?: (event: IcMenuItemCustomEvent<void>) => void;
         /**
           * How much of the referrer to send when following the link.
@@ -4443,6 +4456,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+         */
+        "toggleChecked"?: boolean;
         /**
           * The variant of the menu item.
          */
