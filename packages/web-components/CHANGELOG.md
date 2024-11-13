@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.30.0...@ukic/web-components@2.31.0) (2024-11-13)
+
+### Bug Fixes
+
+- **web-components:** fix WCAG 1.3.1 issue in popover-menu ([53df1ac](https://github.com/mi6/ic-ui-kit/commit/53df1ac27d792e80262fe04fdbbf6ecfc86c2771))
+- **web-components:** fixes nav-item screen reader issue ([f080676](https://github.com/mi6/ic-ui-kit/commit/f080676dbdf1defdc24a31be31a01152f1a105ed))
+- **web-components:** optional chaining to removeEventListener functions ([12c28a9](https://github.com/mi6/ic-ui-kit/commit/12c28a9e8d2f1a05c5c1607b8fc202cd67b4ff1c))
+
+### Features
+
+- **web-components:** add icToggleChecked event to ic-menu-item ([8355a3f](https://github.com/mi6/ic-ui-kit/commit/8355a3f7df9e5ed8af6d41917525f220ef18137d))
+- **web-components:** added ag-grid icds theme file ([0b113a1](https://github.com/mi6/ic-ui-kit/commit/0b113a138deaf0b369540c3f2a7ad3949813c35f))
+
 # [2.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.29.1...@ukic/web-components@2.30.0) (2024-10-30)
 
 ### Bug Fixes

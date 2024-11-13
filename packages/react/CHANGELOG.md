@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.30.0...@ukic/react@2.31.0) (2024-11-13)
+
+### Bug Fixes
+
+- **react:** fixes nav-item screen reader issue ([74181d8](https://github.com/mi6/ic-ui-kit/commit/74181d836d5b8dbe417ef4f8366fa87ef5d877df))
+- **react:** reword wrong spelling ([ce1fca3](https://github.com/mi6/ic-ui-kit/commit/ce1fca39bc77f78edbcc7b4cb6c71009ca36a35e))
+
+### Features
+
+- **react:** add test for new onIcToggleChecked event in IcMenuItem ([c0a8f7b](https://github.com/mi6/ic-ui-kit/commit/c0a8f7b3433fe35fb561099e304c23da00007fc7))
+
 # [2.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.29.1...@ukic/react@2.30.0) (2024-10-30)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.29](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.28...@ukic/canary-react@2.0.0-canary.29) (2024-11-13)
+
+### Features
+
+- **canary-react:** data-table column header truncation ([8077bde](https://github.com/mi6/ic-ui-kit/commit/8077bde287bc8f29bce903fb2c9af51e1576c444))
+
 # [2.0.0-canary.28](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.27...@ukic/canary-react@2.0.0-canary.28) (2024-10-30)
 
 ### Bug Fixes
