@@ -106,6 +106,10 @@
   box-shadow: inset 0 0 0 var(--ic-space-xxxs) var(--ic-architectural-black);
 }
 
+:host(.ic-toggle-button-light.ic-toggle-button-checked) ::slotted(svg) {
+  color: var(--ic-color-text-primary);
+}
+
 :host(.ic-toggle-button-light.ic-toggle-button-checked) ::part(button):hover {
   background-color: var(--ic-action-light-hover);
 }

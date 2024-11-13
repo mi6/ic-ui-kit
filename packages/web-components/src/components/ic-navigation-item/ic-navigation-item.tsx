@@ -25,6 +25,7 @@ import {
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundNoDefault,
+  IcThemeMode,
 } from "../../utils/types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
@@ -121,6 +122,11 @@ export class NavigationItem {
    *  The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
   @Prop() target?: string;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * @internal - Emitted when item loses focus.
@@ -399,6 +405,7 @@ export class NavigationItem {
             this.collapsedIconLabel &&
             !this.isSideNavMobile,
           ["expandable"]: this.expandable,
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         onBlur={isTopNavChild && !inTopNavSideMenu ? this.handleBlur : null}
         onClick={this.handleClick}

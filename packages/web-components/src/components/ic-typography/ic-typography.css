@@ -209,11 +209,9 @@
   }
 }
 
-/* Add back in after storybook has the `color-scheme: light dark` code */
-
-/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
+@media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
   :host,
-  .trunc-btn {
-    color: var(--ic-architectural-white);
+  .trunc-btn::not(ic-tooltip) {
+    color: var(--ic-typography-color);
   }
-} */
+}

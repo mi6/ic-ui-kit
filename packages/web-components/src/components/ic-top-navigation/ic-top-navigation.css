@@ -19,10 +19,25 @@
   --ic-top-navigation-status-tag-text: var(--ic-color-brand-text);
   --ic-top-navigation-status-tag-secondary: var(--ic-state-layer-darken-10);
   --navigation-link-colour: var(--ic-color-text-primary-light);
+  --ic-button-secondary-text-monochrome: var(--ic-color-text-primary-light);
+  --ic-button-secondary-border-monochrome: var(--ic-color-text-primary-light);
+}
+
+:host(.ic-theme-dark) #menu-button {
+  --ic-button-secondary-text-monochrome: var(--ic-color-brand-text);
+  --ic-button-secondary-border-monochrome: var(--ic-color-brand-text);
 }
 
 :host ::slotted(ic-navigation-item) {
   --navigation-link-colour: var(--ic-top-navigation-text);
+}
+
+:host(.dark) ::slotted(ic-navigation-button) {
+  --ic-button-icon-monochrome: var(--ic-color-text-primary-light);
+}
+
+::slotted(ic-navigation-button) {
+  --ic-button-icon-monochrome: white;
 }
 
 :host .top-navigation {

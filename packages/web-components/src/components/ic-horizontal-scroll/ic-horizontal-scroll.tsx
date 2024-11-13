@@ -13,7 +13,11 @@ import RightArrow from "./assets/right-arrow.svg";
 import { getSlotElements } from "../../utils/helpers";
 
 import { checkResizeObserver, elementOverflowsX } from "../../utils/helpers";
-import { IcThemeForeground, IcThemeForegroundEnum } from "../../utils/types";
+import {
+  IcThemeForeground,
+  IcThemeForegroundEnum,
+  IcThemeMode,
+} from "../../utils/types";
 
 const SCROLL_DELAY_MS = 200;
 
@@ -41,6 +45,14 @@ export class HorizontalScroll {
    * The appearance of the horizontal scroll, e.g. dark, light or the default.
    */
   @Prop() appearance?: IcThemeForeground = "default";
+
+  /** @internal Determines whether black variant of the tabs should be displayed. */
+  @Prop() monochrome?: boolean = false;
+
+  /**
+   * @internal  Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * @internal The name of the event that triggers focus handler logic.
@@ -210,8 +222,7 @@ export class HorizontalScroll {
   };
 
   render() {
-    const { appearance, firstItemVisible, lastItemVisible, itemOverflow } =
-      this;
+    const { firstItemVisible, lastItemVisible, itemOverflow } = this;
 
     return (
       <Host
@@ -221,6 +232,7 @@ export class HorizontalScroll {
             this.appearance === IcThemeForegroundEnum.Dark,
           ["ic-horizontal-scroll-light"]:
             this.appearance === IcThemeForegroundEnum.Light,
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >
         <div
@@ -234,9 +246,14 @@ export class HorizontalScroll {
         >
           <ic-button
             class="scroll-arrow"
-            variant="icon"
+            variant="icon-tertiary"
             aria-label="Scroll left"
-            appearance={appearance}
+            theme={
+              this.theme === "light" || this.theme === "inherit"
+                ? "dark"
+                : "light"
+            }
+            monochrome={this.monochrome}
             innerHTML={LeftArrow}
             disabled={firstItemVisible}
             tabindex="-1"
@@ -258,9 +275,14 @@ export class HorizontalScroll {
           <span class="scroll-splitter-right"></span>
           <ic-button
             class="scroll-arrow"
-            variant="icon"
+            variant="icon-tertiary"
             aria-label="Scroll right"
-            appearance={appearance}
+            theme={
+              this.theme === "light" || this.theme === "inherit"
+                ? "dark"
+                : "light"
+            }
+            monochrome={this.monochrome}
             innerHTML={RightArrow}
             disabled={lastItemVisible}
             tabindex="-1"

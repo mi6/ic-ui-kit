@@ -34,23 +34,6 @@ export class TabGroup {
     );
   }
 
-  /**
-   * Temporary function to handle horizontal scroll appearance until other dark mode work is completed.
-   */
-  private handleHorizontalScrollAppearance = () => {
-    if (
-      this.theme === "dark" ||
-      (this.theme === "inherit" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      return "light";
-    } else if (this.monochrome) {
-      return "dark";
-    } else {
-      return "default";
-    }
-  };
-
   render() {
     const { theme, label, monochrome } = this;
 
@@ -65,8 +48,9 @@ export class TabGroup {
         }}
       >
         <ic-horizontal-scroll
-          appearance={this.handleHorizontalScrollAppearance()}
+          theme={this.theme}
           focus-trigger="tabFocus"
+          monochrome={this.monochrome}
         >
           <div class="tabs-container">
             <slot></slot>

@@ -28,7 +28,7 @@ describe("ic-navigation-button", () => {
     expect(page.root).toEqualHtml(`
       <ic-navigation-button label="button1" onclick="alert('test')">
         <mock:shadow-root>
-          <ic-button aria-label="button1" appearance="light" size="large" variant="icon">
+          <ic-button appearance="light" aria-label="button1" monochrome="" size="large" theme="light" variant="icon">
             <slot name="icon" slot="left-icon"></slot>
           </ic-button>
         </mock:shadow-root>

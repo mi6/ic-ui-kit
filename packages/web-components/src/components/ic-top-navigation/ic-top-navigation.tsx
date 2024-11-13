@@ -19,6 +19,7 @@ import {
   IcTheme,
   IcDeviceSizes,
   IcValueEventDetail,
+  IcThemeMode,
 } from "../../utils/types";
 import {
   checkResizeObserver,
@@ -100,7 +101,7 @@ export class TopNavigation {
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: "dark" | "light" | "inherit" = "inherit";
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The version info to be displayed.
@@ -420,10 +421,11 @@ export class TopNavigation {
                           id="search-toggle-button"
                           ref={(el) => (this.mobileSearchButtonEl = el)}
                           onMouseDown={searchButtonMouseDownHandler}
-                          variant="icon"
+                          variant="icon-tertiary"
+                          monochrome
                           size={searchButtonSize}
                           aria-label={mobileSearchButtonTitle}
-                          appearance={foregroundColor}
+                          theme={foregroundColor == "light" ? "dark" : "light"}
                           onClick={searchButtonClickHandler}
                         >
                           <slot name="toggle-icon">
@@ -459,8 +461,11 @@ export class TopNavigation {
                           >
                             <ic-button
                               id="menu-button"
-                              appearance={foregroundColor}
+                              theme={
+                                foregroundColor == "light" ? "light" : "dark"
+                              }
                               variant="secondary"
+                              monochrome
                               aria-expanded="false"
                               aria-haspopup="true"
                               aria-label={`Open ${
@@ -509,7 +514,10 @@ export class TopNavigation {
                     aria-labelledby="navigation-landmark-text"
                     class="nav-panel-container"
                   >
-                    <ic-horizontal-scroll appearance={foregroundColor}>
+                    <ic-horizontal-scroll
+                      monochrome
+                      appearance={foregroundColor}
+                    >
                       <ul class="navigation-item-list" tabindex="-1">
                         <slot name="navigation"></slot>
                       </ul>

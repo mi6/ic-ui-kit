@@ -13,7 +13,7 @@ import {
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
 } from "../../utils/helpers";
-import { IcSizes, IcThemeForeground } from "../../utils/types";
+import { IcSizes, IcThemeForeground, IcThemeMode } from "../../utils/types";
 
 /**
  * @slot icon - Content will be displayed alongside the toggle button label.
@@ -71,6 +71,11 @@ export class ToggleButton {
    * The size of the toggle button to be displayed.
    */
   @Prop() size?: IcSizes = "medium";
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * If `true`, the toggle button will be in a checked state.
@@ -135,6 +140,7 @@ export class ToggleButton {
     return (
       <Host
         class={{
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
           ["ic-toggle-button-disabled"]: this.disabled,
           ["ic-toggle-button-checked"]: this.checked,
           [`ic-toggle-button-${this.appearance}`]: true,
@@ -153,7 +159,12 @@ export class ToggleButton {
             this.accessibleLabel ? this.accessibleLabel : this.label
           }, ${this.checked ? "ticked" : "unticked"}`}
           disabled={this.disabled}
-          appearance={this.appearance}
+          theme={
+            this.appearance == "default" || this.appearance == "light"
+              ? "light"
+              : "dark"
+          }
+          monochrome={this.appearance == "light" || this.appearance == "dark"}
           size={this.size}
           fullWidth={this.fullWidth}
           loading={this.loading}
