@@ -704,6 +704,18 @@ ic-theme,
   --ic-tab-item-monochrome: var(--ic-action-dark);
   --ic-tab-item-hover: var(--ic-action-default-bg-hover);
   --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+  /* Tree view */
+  --ic-tree-view-text: var(--ic-color-text-primary);
+  --ic-tree-view-background: var(--ic-color-background-primary);
+  --ic-tree-view-text-disabled: var(--ic-color-text-disabled-light);
+  --ic-tree-view-icon-disabled: var(--ic-color-icon-grey);
+  --ic-tree-view-icon: var(--ic-color-icon-neutral);
+  --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
+  --ic-tree-view-divider: var(--ic-state-layer-neutral-dark);
+  --ic-tree-view-hover: var(--ic-action-dark-bg-hover);
+  --ic-tree-view-pressed: var(--ic-action-dark-bg-pressed);
+  --ic-tree-view-selected: var(--ic-action-light-selected);
 }
 
 /* colors for system dark mode */
@@ -1431,6 +1443,18 @@ ic-theme,
     --ic-tab-item-monochrome: var(--ic-action-light);
     --ic-tab-item-hover: var(--ic-action-light-bg-hover);
     --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+    /* Tree view */
+    --ic-tree-view-text: var(--ic-color-text-primary);
+    --ic-tree-view-background: var(--ic-color-background-primary);
+    --ic-tree-view-text-disabled: var(--ic-color-text-disabled-dark);
+    --ic-tree-view-icon-disabled: var(--ic-color-icon-disabled);
+    --ic-tree-view-icon: var(--ic-color-icon-inverted);
+    --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
+    --ic-tree-view-divider: var(--ic-state-layer-neutral-light);
+    --ic-tree-view-hover: var(--ic-action-light-bg-hover);
+    --ic-tree-view-pressed: var(--ic-action-light-bg-pressed);
+    --ic-tree-view-selected: var(--ic-action-dark-selected);
   }
 }
 
@@ -2142,4 +2166,16 @@ ic-theme,
   --ic-tab-item-monochrome: var(--ic-action-light);
   --ic-tab-item-hover: var(--ic-action-light-bg-hover);
   --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+  /* Tree view */
+  --ic-tree-view-text: var(--ic-color-text-primary);
+  --ic-tree-view-background: var(--ic-color-background-primary);
+  --ic-tree-view-text-disabled: var(--ic-color-text-disabled-dark);
+  --ic-tree-view-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-tree-view-icon: var(--ic-color-icon-inverted);
+  --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
+  --ic-tree-view-divider: var(--ic-state-layer-neutral-light);
+  --ic-tree-view-hover: var(--ic-action-light-bg-hover);
+  --ic-tree-view-pressed: var(--ic-action-light-bg-pressed);
+  --ic-tree-view-selected: var(--ic-action-dark-selected);
 }
