@@ -1,7 +1,7 @@
 {
   "total": 697,
-  "totalPassed": 694,
-  "totalFailed": 3,
+  "totalPassed": 697,
+  "totalFailed": 0,
   "totalSuites": 39,
   "suites": [
     {
@@ -765,14 +765,14 @@
       "path": "src/component-tests/IcButton/IcButton.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx-destructive",
-          "percentage": 0.1209297316626478,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-destructive.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-destructive.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-destructive.png"
         },
         {
@@ -820,14 +820,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-router-slot.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx-icon-variants-button-group",
-          "percentage": 0.09404254356406998,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-icon-variants-button-group.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-icon-variants-button-group.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-icon-variants-button-group.png"
         },
         {
@@ -7513,14 +7513,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-content-left.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll",
-          "percentage": 0.0031870003727342017,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll.png"
         },
         {
@@ -7906,9 +7906,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-13T09:37:32.343Z",
-  "endedAt": "2024-11-13T09:52:26.844Z",
-  "duration": 808469,
+  "startedAt": "2024-11-13T11:01:01.872Z",
+  "endedAt": "2024-11-13T11:15:26.337Z",
+  "duration": 778882,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
