@@ -1,6 +1,7 @@
 ic-input-component-container {
   /**
    * @prop --border-color: Border colour of the input component container
+   * @prop --border-color-disabled: Border colour of the input component container when disabled
    */
 
   display: flex;
@@ -11,7 +12,7 @@ ic-input-component-container {
   height: 2.5rem;
   width: var(--input-width, 20rem);
   padding: var(--ic-space-1px);
-  background-color: var(--ic-architectural-white);
+  background-color: var(--input-bg-color, var(--ic-architectural-white));
   box-sizing: border-box;
   fill: var(--ic-architectural-400);
   outline: none;
@@ -23,7 +24,8 @@ ic-input-component-container.ic-input-component-container-full-width {
 
 ic-input-component-container.ic-input-component-container-disabled,
 ic-input-component-container.ic-input-component-container-disabled:hover {
-  border: var(--ic-border-width) dashed var(--ic-architectural-200);
+  border: var(--ic-border-width) dashed
+    var(--border-color-disabled, var(--ic-architectural-200));
 }
 
 ic-input-component-container.ic-input-component-container-readonly,

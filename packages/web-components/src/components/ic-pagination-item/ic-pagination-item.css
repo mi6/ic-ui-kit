@@ -25,7 +25,11 @@ button {
 .ellipsis {
   pointer-events: none;
 
-  --ic-typography-color: var(--ic-color-text-secondary);
+  --ic-typography-color: var(--ic-pagination-ellipsis);
+}
+
+.monochrome .ellipsis {
+  --ic-typography-color: var(--ic-pagination-ellipsis-monochrome);
 }
 
 .item-container:focus {
@@ -36,7 +40,11 @@ button {
 }
 
 .page {
-  --ic-typography-color: var(--ic-action-default);
+  --ic-typography-color: var(--ic-pagination-page-number);
+}
+
+.monochrome .page {
+  --ic-typography-color: var(--ic-pagination-page-number-monochrome);
 }
 
 .simple-current {
@@ -48,11 +56,19 @@ button {
 /** DEFAULT STATES **/
 .item-container.page:hover:not(.selected):not(:focus) {
   border-radius: var(--ic-border-radius);
-  background-color: var(--ic-action-default-bg-hover);
+  background-color: var(--ic-pagination-hover);
 }
 
 .item-container.page:active:not(.selected):not(:focus) {
-  background-color: var(--ic-action-default-bg-active);
+  background-color: var(--ic-pagination-pressed);
+}
+
+.monochrome .item-container.page:hover:not(.selected):not(:focus) {
+  background-color: var(--ic-pagination-hover-monochrome);
+}
+
+.monochrome .item-container.page:active:not(.selected):not(:focus) {
+  background-color: var(--ic-pagination-pressed-monochrome);
 }
 
 .selected {
@@ -66,11 +82,15 @@ button {
   width: 100%;
   position: absolute;
   bottom: 0;
-  background-color: var(--ic-action-default);
+  background-color: var(--ic-pagination-selected-banner);
+}
+
+.monochrome .selected::after {
+  background-color: var(--ic-pagination-selected-banner-monochrome);
 }
 
 .page-selected {
-  --ic-typography-color: var(--ic-color-text-primary);
+  --ic-typography-color: var(--ic-pagination-text);
 }
 
 /** LIGHT STATES **/

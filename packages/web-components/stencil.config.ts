@@ -29,6 +29,10 @@ export const config: Config = {
         {
           src: "global/normalize.css",
           dest: "normalize.css",
+        },
+        {
+          src: "global/ag-theme-icds.css",
+          dest: "ag-theme-icds.css",
         }
       ]
     },
@@ -45,7 +49,7 @@ export const config: Config = {
     },
     {
       type: "docs-custom",
-      generator: (docs: StencilOverride) => {
+      generator: (docs: StencilOverride): void => {
         docs.timestamp = undefined;
       }
     },

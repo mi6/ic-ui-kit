@@ -10,7 +10,11 @@ import {
   Method,
   Watch,
 } from "@stencil/core";
-import { IcAdditionalFieldTypes, IcSizes } from "../../utils/types";
+import {
+  IcAdditionalFieldTypes,
+  IcSizes,
+  IcThemeMode,
+} from "../../utils/types";
 import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
@@ -45,7 +49,7 @@ export class Checkbox {
     "static";
 
   /**
-   * If `true`, the checkbox will be set to the checked state.
+   * If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.
    */
   @Prop({ reflect: true, mutable: true }) checked?: boolean = false;
   @State() initiallyChecked = this.checked;
@@ -103,6 +107,11 @@ export class Checkbox {
    * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
    */
   @Prop() size?: IcSizes;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The value for the checkbox.
@@ -194,6 +203,7 @@ export class Checkbox {
       name,
       size,
       value,
+      theme,
     } = this;
 
     const id = `ic-checkbox-${
@@ -212,6 +222,7 @@ export class Checkbox {
         class={{
           "ic-checkbox-disabled": disabled,
           [`ic-checkbox-${size || parentElementSize}`]: true,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
         <div class="container">

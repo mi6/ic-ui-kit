@@ -20,6 +20,7 @@ import {
   TabbableSelected,
   ConditionalDynamicTextFieldValue,
   InAForm,
+  ThemeDark,
 } from "./IcRadioTestData";
 import {
   HAVE_PROP,
@@ -570,6 +571,18 @@ describe("IcRadio visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "conditional-dynamic-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
+    });
+  });
+
+  it("should render with dark theme", () => {
+    mount(<ThemeDark />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
 });

@@ -581,6 +581,7 @@ export const defaultArgs = {
   label: "Dialog",
   open: true,
   size: "medium",
+  theme: "inherit",
 };
 
 <Canvas>
@@ -592,6 +593,12 @@ export const defaultArgs = {
         options: ["small", "medium", "large"],
         control: {
           type: "radio",
+        },
+      },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
         },
       }
     }}
@@ -610,6 +617,7 @@ export const defaultArgs = {
         disableWidthConstraint={args.disableWidthConstraint}
         hideCloseButton={args.hideCloseButton}
         buttons={args.buttons}
+        theme={args.theme}
         id="medium-dialog"
       >
         <IcTypography>

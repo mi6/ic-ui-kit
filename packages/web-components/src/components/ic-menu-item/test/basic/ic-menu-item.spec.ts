@@ -31,7 +31,7 @@ describe("menu item variants", () => {
       components: [MenuItem],
       html: `<ic-menu-item
               label="Toggle variant"
-              keyboard-shortcut="Cmd+"
+              keyboard-shortcut-label="Cmd+"
             />`,
     });
     expect(page.root).toMatchSnapshot();

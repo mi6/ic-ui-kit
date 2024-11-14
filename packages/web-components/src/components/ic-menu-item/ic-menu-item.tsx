@@ -58,7 +58,7 @@ export class MenuItem {
   /**
    * The label describing the keyboard shortcut for a menu item's action.
    */
-  @Prop() keyboardShortcut?: string;
+  @Prop() keyboardShortcutLabel?: string;
 
   /**
    * The label to display in the menu item.
@@ -151,8 +151,8 @@ export class MenuItem {
       ariaLabel = `${ariaLabel}, ${this.description}`;
     }
 
-    if (isPropDefined(this.keyboardShortcut)) {
-      ariaLabel = `${ariaLabel}, ${this.keyboardShortcut}`;
+    if (isPropDefined(this.keyboardShortcutLabel)) {
+      ariaLabel = `${ariaLabel}, ${this.keyboardShortcutLabel}`;
     }
 
     if (this.variant === "destructive") {
@@ -187,9 +187,9 @@ export class MenuItem {
         <div class="menu-item-info">
           <div class="menu-labels">
             <ic-typography class="menu-item-label">{this.label}</ic-typography>
-            {this.keyboardShortcut && (
+            {this.keyboardShortcutLabel && (
               <ic-typography variant="caption" class="shortcut">
-                {this.keyboardShortcut}
+                {this.keyboardShortcutLabel}
               </ic-typography>
             )}
           </div>
@@ -212,7 +212,11 @@ export class MenuItem {
           role={this.variant === "toggle" ? "menuitemcheckbox" : "menuitem"}
           aria-disabled={`${this.disabled}`}
           aria-checked={
-            this.variant === "toggle" ? this.toggleChecked : undefined
+            this.variant === "toggle"
+              ? this.toggleChecked
+                ? "true"
+                : "false"
+              : undefined
           }
         >
           <ic-button
@@ -228,20 +232,10 @@ export class MenuItem {
             }
             aria-disabled={`${this.disabled}`}
             aria-label={this.getMenuItemAriaLabel()}
-            ariaControlsId={
-              isPropDefined(this.submenuTriggerFor)
-                ? `ic-popover-submenu-${this.submenuTriggerFor}`
-                : false
-            }
             aria-haspopup={
               isPropDefined(this.submenuTriggerFor) ||
               this.el.classList.contains("ic-popover-submenu-back-button")
                 ? "menu"
-                : false
-            }
-            ariaOwnsId={
-              isPropDefined(this.submenuTriggerFor)
-                ? `ic-popover-submenu-${this.submenuTriggerFor}`
                 : false
             }
           >

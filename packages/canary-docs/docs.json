@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
-      "readme": "# ic-horizontal-card\n\n\n",
+      "readme": "# ic-horizontal-card\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -305,6 +305,43 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [
@@ -389,7 +426,7 @@
       "filePath": "src/components/ic-data-table/ic-data-table.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table",
-      "readme": "# ic-data-table\n\n\n",
+      "readme": "# ic-data-table\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -435,6 +472,28 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "columnHeaderTruncation",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "column-header-truncation",
+          "reflectToAttr": false,
+          "docs": "Determines whether the column header should be truncated and display a tooltip. Default is `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
         },
         {
           "name": "columns",
@@ -752,7 +811,7 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
           "docsTags": [],
-          "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    appearance: \"default\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n    hideAllFromItemsPerPage: false,\n  }",
+          "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n    hideAllFromItemsPerPage: false,\n    theme: \"inherit\",\n    monochrome: false,\n  }",
           "values": [
             {
               "type": "IcPaginationBarOptions"
@@ -1160,8 +1219,8 @@
         "ic-loading-indicator",
         "ic-typography",
         "ic-link",
-        "ic-button",
         "ic-tooltip",
+        "ic-button",
         "ic-empty-state",
         "ic-pagination-bar"
       ],
@@ -1170,20 +1229,20 @@
           "ic-loading-indicator",
           "ic-typography",
           "ic-link",
-          "ic-button",
           "ic-tooltip",
+          "ic-button",
           "ic-empty-state",
           "ic-pagination-bar"
         ],
         "ic-loading-indicator": [
           "ic-typography"
         ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
         "ic-button": [
           "ic-loading-indicator",
           "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
         ],
         "ic-empty-state": [
           "ic-typography"
@@ -1236,7 +1295,7 @@
       "filePath": "src/components/ic-data-table-title-bar/ic-data-table-title-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table-title-bar",
-      "readme": "# ic-data-table-title-bar\n\n\n",
+      "readme": "# ic-data-table-title-bar\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -1435,7 +1494,7 @@
       "filePath": "src/components/ic-date-input/ic-date-input.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-input",
-      "readme": "# ic-date-input\n\n\n",
+      "readme": "# ic-date-input\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2161,7 +2220,7 @@
       "filePath": "src/components/ic-date-picker/ic-date-picker.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-picker",
-      "readme": "# ic-date-picker\n\n\n",
+      "readme": "# ic-date-picker\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2956,7 +3015,7 @@
       "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-bar",
-      "readme": "# ic-pagination-bar\n\n\n",
+      "readme": "# ic-pagination-bar\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2992,43 +3051,6 @@
             },
             {
               "value": "space-between",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "appearance",
-          "type": "\"dark\" | \"default\" | \"light\"",
-          "complexType": {
-            "original": "IcThemeForeground",
-            "resolved": "\"dark\" | \"default\" | \"light\"",
-            "references": {
-              "IcThemeForeground": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/interface",
-                "id": "../web-components/dist/types/interface.d.ts::IcThemeForeground"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "Sets the styling for the items in the pagination bar.",
-          "docsTags": [],
-          "default": "\"default\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "light",
               "type": "string"
             }
           ],
@@ -3144,6 +3166,28 @@
           "required": false
         },
         {
+          "name": "monochrome",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "If `true`, the pagination bar will display as black in the light theme, and white in dark theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "pageLabel",
           "type": "string",
           "complexType": {
@@ -3237,6 +3281,43 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "@ukic/web-components/dist/types/interface",
+                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
             }
           ],
           "optional": true,
@@ -3417,7 +3498,7 @@
       "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-item",
-      "readme": "# ic-tree-item\n\n\n",
+      "readme": "# ic-tree-item\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -3665,6 +3746,43 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "@ukic/web-components",
+                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [
@@ -3749,7 +3867,7 @@
       "filePath": "src/components/ic-tree-view/ic-tree-view.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-view",
-      "readme": "# ic-tree-view\n\n\n",
+      "readme": "# ic-tree-view\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -3763,39 +3881,6 @@
       ],
       "usage": {},
       "props": [
-        {
-          "name": "appearance",
-          "type": "\"dark\" | \"light\"",
-          "complexType": {
-            "original": "IcThemeForegroundNoDefault",
-            "resolved": "\"dark\" | \"light\"",
-            "references": {
-              "IcThemeForegroundNoDefault": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForegroundNoDefault"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "The appearance of the tree view, e.g. dark, or light.",
-          "docsTags": [],
-          "default": "\"dark\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "focusInset",
           "type": "boolean",
@@ -3876,6 +3961,43 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "@ukic/web-components",
+                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [],
@@ -3927,6 +4049,11 @@
       "docstring": "",
       "path": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts"
     },
+    "src/utils/types.ts::IcThemeMode": {
+      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
       "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: {\n    textWrap: boolean;\n  };\n  columnWidth?: string | IcDataTableColumnWidthTypes;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
       "docstring": "",
@@ -3953,7 +4080,7 @@
       "path": "../web-components/dist/types/utils/types.d.ts"
     },
     "src/utils/types.ts::IcPaginationBarOptions": {
-      "declaration": "export interface IcPaginationBarOptions {\n  itemsPerPageOptions?: { label: string; value: string }[];\n  rangeLabelType?: IcPaginationLabelTypes;\n  type?: IcPaginationTypes;\n  showItemsPerPageControl?: boolean;\n  showGoToPageControl?: boolean;\n  alignment?: IcPaginationAlignmentOptions;\n  appearance?: IcThemeForeground;\n  itemLabel?: string;\n  pageLabel?: string;\n  hideRangeLabel?: boolean;\n  hideAllFromItemsPerPage?: boolean;\n}",
+      "declaration": "export interface IcPaginationBarOptions {\n  itemsPerPageOptions?: { label: string; value: string }[];\n  rangeLabelType?: IcPaginationLabelTypes;\n  type?: IcPaginationTypes;\n  showItemsPerPageControl?: boolean;\n  showGoToPageControl?: boolean;\n  alignment?: IcPaginationAlignmentOptions;\n  itemLabel?: string;\n  pageLabel?: string;\n  hideRangeLabel?: boolean;\n  hideAllFromItemsPerPage?: boolean;\n  theme?: IcThemeMode;\n  monochrome?: boolean;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -3977,7 +4104,7 @@
       "docstring": "",
       "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
     },
-    "../web-components/dist/types/interface.d.ts::IcThemeForeground": {
+    "../web-components/dist/types/interface.d.ts::IcThemeMode": {
       "declaration": "any",
       "docstring": "",
       "path": "../web-components/dist/types/interface.d.ts"
@@ -4022,10 +4149,10 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
-    "src/utils/types.ts::IcThemeForegroundNoDefault": {
-      "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
+    "../web-components/dist/types/interface.d.ts::IcThemeMode": {
+      "declaration": "any",
       "docstring": "",
-      "path": "src/utils/types.ts"
+      "path": "../web-components/dist/types/interface.d.ts"
     }
   }
 }

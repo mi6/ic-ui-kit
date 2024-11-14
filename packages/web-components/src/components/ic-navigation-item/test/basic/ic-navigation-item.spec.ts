@@ -14,6 +14,22 @@ describe("ic-navigation-item", () => {
     expect(page.root).toMatchSnapshot("renders-with-label");
   });
 
+  it("should render with aria-label", async () => {
+    const page = await newSpecPage({
+      components: [NavigationItem],
+      html: `<ic-navigation-item href="#link" label="Item label" aria-label="navigation item description"></ic-navigation-item>`,
+    });
+    expect(page.root).toMatchSnapshot("renders-with-aria-label");
+
+    page.root.setAttribute("aria-label", "New item description");
+    await page.waitForChanges();
+
+    page.rootInstance.hostMutationCallback([{ attributeName: "aria-label" }]);
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot("renders-with-new-aria-label");
+  });
+
   it("should test theme change", async () => {
     const page = await newSpecPage({
       components: [NavigationItem],

@@ -4,12 +4,27 @@
   display: block;
   background-color: var(--ic-theme-tertiary);
 
-  --ic-typography-color: var(--ic-theme-text);
   --hero-heading-bottom-margin: var(--ic-space-md);
 }
 
 :host(.ic-hero-dark) {
   background-color: var(--ic-theme-secondary);
+
+  --ic-hero-heading: var(--ic-color-text-primary-light);
+  --ic-hero-body: var(--ic-color-text-primary-light);
+  --ic-hero-secondary-heading: var(--ic-color-text-primary-light);
+}
+
+.heading {
+  --ic-typography-color: var(--ic-hero-heading);
+}
+
+.subheading {
+  --ic-typography-color: var(--ic-hero-body);
+}
+
+.secondary-container {
+  --ic-typography-color: var(--ic-hero-secondary-heading);
 }
 
 :host(.has-background-image) {
@@ -62,7 +77,7 @@ ic-typography.heading-bottom-spacing {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-left: var(--ic-space-xxxs) solid var(--ic-theme-text);
+  border-left: var(--ic-space-xxxs) solid var(--ic-hero-keyline);
 }
 
 .secondary-subheading {

@@ -214,6 +214,26 @@ describe("IcDataTables", () => {
     });
   });
 
+  it("should render with column header truncation", () => {
+    mount(
+      <div style={{ width: "500px" }}>
+        <BasicDataTable columnHeaderTruncation />
+      </div>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-tooltip").eq(0).realHover("mouse");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "column-header-truncation",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
   it("should sort data when the sort button is clicked", () => {
     mount(<BasicDataTable sortable />);
     cy.checkHydrated(DATA_TABLE_SELECTOR);
@@ -1126,7 +1146,6 @@ describe("IcDataTables with IcPaginationBar", () => {
       showItemsPerPageControl: true,
       showGoToPageControl: true,
       alignment: "right",
-      appearance: "default",
       itemLabel: "Item",
       pageLabel: "Page",
       hideRangeLabel: false,
@@ -1164,7 +1183,6 @@ describe("IcDataTables with IcPaginationBar", () => {
       showItemsPerPageControl: false,
       showGoToPageControl: false,
       alignment: "left",
-      appearance: "dark",
       itemLabel: "Row",
       pageLabel: "Screen",
       hideRangeLabel: true,
@@ -1213,12 +1231,6 @@ describe("IcDataTables with IcPaginationBar", () => {
           });
         cy.get(DATA_TABLE_SELECTOR)
           .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
-          .invoke("prop", "appearance")
-          .then((appearance) => {
-            expect(appearance).to.equal("dark");
-          });
-        cy.get(DATA_TABLE_SELECTOR)
-          .find(PAGINATION_BAR_SELECTOR, { includeShadowDom: true })
           .invoke("prop", "itemLabel")
           .then((itemLabel) => {
             expect(itemLabel).to.equal("Row");
@@ -1251,7 +1263,6 @@ describe("IcDataTable with truncation", () => {
     showItemsPerPageControl: true,
     showGoToPageControl: true,
     alignment: "right",
-    appearance: "default",
     itemLabel: "Item",
     pageLabel: "Page",
     hideRangeLabel: false,
@@ -2388,7 +2399,6 @@ describe("IcDataTable with truncation", () => {
         showItemsPerPageControl: true,
         showGoToPageControl: true,
         alignment: "right",
-        appearance: "default",
         itemLabel: "Item",
         pageLabel: "Page",
         hideRangeLabel: false,

@@ -30,7 +30,7 @@
 
 a {
   text-decoration: none !important;
-  color: var(--ic-architectural-black) !important;
+  color: var(--ic-card-text) !important;
 }
 
 button {
@@ -48,7 +48,7 @@ button {
   border-radius: var(--ic-border-radius);
   box-sizing: border-box;
   text-align: left;
-  color: var(--ic-architectural-black);
+  color: var(--ic-card-text);
   transition: var(--ic-easing-transition-fast);
   position: relative;
   max-width: var(--card-max-width);
@@ -58,25 +58,26 @@ button {
 
 .dark.card,
 .dark.card.clickable {
-  border: var(--ic-border-width) solid var(--ic-architectural-700);
+  border: var(--ic-border-width) solid
+    var(--ic-color-border-neutral-pressed-dark);
 }
 
 .card.clickable:hover {
-  background-color: var(--ic-action-default-bg-hover);
+  background-color: var(--ic-card-clickable-focus-hover-bg);
   border: var(--ic-border-hover);
   cursor: pointer;
 }
 
 .card.clickable:focus,
 .card.clickable.focussed {
-  background-color: var(--ic-action-default-bg-hover);
+  background-color: var(--ic-card-clickable-focus-hover-bg);
   box-shadow: var(--ic-border-focus);
   outline: var(--ic-hc-focus-outline);
   border: var(--ic-border-pressed-default);
 }
 
 .card.clickable:active {
-  background-color: var(--ic-action-default-bg-active);
+  background-color: var(--ic-card-clickable-active-bg);
   box-shadow: var(--ic-border-focus);
 }
 
@@ -95,14 +96,18 @@ button {
   padding-right: var(--ic-space-xs);
 }
 
+.card ::slotted(svg) {
+  fill: var(--ic-card-text);
+}
+
 .card.disabled ::slotted(svg) {
-  fill: var(--ic-color-text-tertiary);
+  fill: var(--ic-card-disabled-text);
 }
 
 .card.clickable .card-title {
-  --ic-typography-color: var(--ic-color-hyperlink-default-light);
+  --ic-typography-color: var(--ic-card-clickable-text);
 
-  color: var(--ic-color-hyperlink-default-light);
+  color: var(--ic-card-clickable-text);
   text-decoration: underline;
   text-decoration-thickness: var(--ic-space-1px);
 }
@@ -123,10 +128,10 @@ button {
 .card.disabled .card-title {
   text-decoration: underline;
   text-decoration-thickness: var(--ic-space-1px);
-  text-decoration-color: var(--ic-color-text-tertiary);
-  color: var(--ic-color-text-tertiary);
+  text-decoration-color: var(--ic-card-disabled-text);
+  color: var(--ic-card-disabled-text);
 
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-card-disabled-text);
 }
 
 .card-message {
@@ -135,7 +140,7 @@ button {
 }
 
 .card.disabled .card-message {
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-card-disabled-text);
 }
 
 .image {
@@ -208,11 +213,3 @@ button {
     --ic-typography-color: GrayText;
   }
 }
-
-/* Add back in after storybook has the `color-scheme: light dark` code */
-
-/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
-  ::slotted([slot="icon"]) {
-    fill: var(--ic-architectural-white);
-  }
-} */

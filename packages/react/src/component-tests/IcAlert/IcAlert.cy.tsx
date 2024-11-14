@@ -23,6 +23,7 @@ import {
   MessageOnly,
   NoIcon,
   SlottedIcon,
+  ThemeDark,
 } from "./IcAlertTestData";
 import { IcAlert } from "../../components";
 
@@ -287,6 +288,19 @@ describe("IcAlert visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "slotted-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
+    });
+  });
+
+  it("should render alerts with theme dark", () => {
+    mount(<ThemeDark />);
+
+    cy.checkHydrated(ALERT_SELECTOR);
+    cy.wait(500);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
 });

@@ -9,12 +9,13 @@ import {
   Listen,
   forceUpdate,
 } from "@stencil/core";
-import { IcSizes, IcThemeForegroundNoDefault } from "../../utils/types";
+import { IcSizes } from "../../utils/types";
 import {
   isPropDefined,
   isSlotUsed,
   checkSlotInChildMutations,
 } from "../../utils/helpers";
+import { IcThemeMode } from "@ukic/web-components";
 
 let treeViewIds = 0;
 
@@ -36,17 +37,6 @@ export class TreeView {
   @Element() el: HTMLIcTreeViewElement;
 
   @State() treeItems: HTMLIcTreeItemElement[];
-
-  /**
-   * The appearance of the tree view, e.g. dark, or light.
-   */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
-  @Watch("appearance")
-  watchAppearanceHandler() {
-    this.treeItems.forEach((treeItem) => {
-      treeItem.appearance = this.appearance;
-    });
-  }
 
   /**
    * If `true`, tree items will have inset focus.
@@ -75,6 +65,17 @@ export class TreeView {
     });
   }
 
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+  @Watch("theme")
+  watchThemeHandler() {
+    this.treeItems.forEach((treeItem) => {
+      treeItem.theme = this.theme;
+    });
+  }
+
   disconnectedCallback(): void {
     this.el?.removeEventListener("slotchange", this.setTreeItems);
 
@@ -84,9 +85,9 @@ export class TreeView {
   componentDidLoad(): void {
     this.setTreeItems();
 
-    this.watchAppearanceHandler();
     this.watchSizeHandler();
     this.watchFocusInsetHandler();
+    this.watchThemeHandler();
 
     setTimeout(() => {
       this.truncateTreeViewHeading();
@@ -286,14 +287,14 @@ export class TreeView {
   };
 
   render() {
-    const { appearance, heading, size } = this;
+    const { heading, size, theme } = this;
 
     return (
       <Host
         context-id={this.treeViewId}
         class={{
-          [`ic-tree-view-${appearance}`]: true,
           [`ic-tree-view-${size}`]: size !== "medium",
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         onKeyDown={this.handleKeyDown}
         aria-label={this.isHeadingDefined() ? heading : null}

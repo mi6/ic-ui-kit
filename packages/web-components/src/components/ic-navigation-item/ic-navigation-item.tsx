@@ -3,6 +3,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  forceUpdate,
   Listen,
   Method,
   h,
@@ -18,7 +19,12 @@ import {
   getNavItemParentDetails,
   isSlotUsed,
 } from "../../utils/helpers";
-import { IcNavType, IcTheme } from "../../utils/types";
+import {
+  IcNavType,
+  IcTheme,
+  IcThemeForeground,
+  IcThemeForegroundNoDefault,
+} from "../../utils/types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
 
@@ -42,17 +48,21 @@ export class NavigationItem {
   private navigationSlot: HTMLElement;
   private isInitialRender: boolean = true;
   private itemEl: HTMLElement;
+  private hostMutationObserver: MutationObserver = null;
+  private ARIA_LABEL_STRING = "aria-label";
 
   @Element() el: HTMLIcNavigationItemElement;
 
   @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() focusStyle = getThemeForegroundColor();
+  @State() focusStyle: IcThemeForegroundNoDefault | IcThemeForeground =
+    getThemeForegroundColor();
   @State() inTopNavSideMenu: boolean = false;
   @State() isSideNavMobile: boolean = false;
   @State() isTopNavChild: boolean = false;
   @State() navigationType: IcNavType | "";
   @State() parentEl: HTMLElement;
   @State() sideNavExpanded: boolean = false;
+  @State() ariaLabel: string = "";
 
   /**
    * @internal If `true`, the icon and label will be displayed when side navigation is collapsed.
@@ -131,6 +141,7 @@ export class NavigationItem {
         this.topNavResizedHandler
       );
     }
+    this.hostMutationObserver?.disconnect();
   }
 
   componentWillLoad(): void {
@@ -162,6 +173,17 @@ export class NavigationItem {
     if (this.navigationSlot) {
       this.navigationSlot.ariaLabel = this.navigationSlot.textContent.trim();
     }
+
+    if (this.el.hasAttribute(this.ARIA_LABEL_STRING)) {
+      this.ariaLabel = this.el.getAttribute(this.ARIA_LABEL_STRING);
+    }
+  }
+
+  componentDidLoad(): void {
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, {
+      attributes: true,
+    });
   }
 
   componentDidUpdate(): void {
@@ -214,6 +236,7 @@ export class NavigationItem {
           class="link"
           ref={(el) => (this.itemEl = el)}
           part="link"
+          aria-label={this.ariaLabel ? this.ariaLabel : null}
         >
           {IconComponent}
 
@@ -267,6 +290,20 @@ export class NavigationItem {
 
   private handleClick = () => {
     this.navItemClicked.emit();
+  };
+
+  // triggered when attributes of host element change
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    let forceComponentUpdate = false;
+    mutationList.forEach(({ attributeName }) => {
+      if (attributeName === this.ARIA_LABEL_STRING) {
+        this.ariaLabel = this.el.getAttribute(attributeName);
+        forceComponentUpdate = true;
+      }
+    });
+    if (forceComponentUpdate) {
+      forceUpdate(this);
+    }
   };
 
   private generateTooltipLabel = () => {

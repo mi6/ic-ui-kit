@@ -1,5 +1,9 @@
 @import "../../../dist/core/normalize.css";
 
+:host {
+  --ic-input-label-helpertext-padding: var(--ic-space-xxs);
+}
+
 input {
   border: 0;
   height: 100%;
@@ -13,6 +17,10 @@ input {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 var(--ic-space-sm) var(--ic-architectural-white) inset;
 }
 
 ic-input-component-container {

@@ -7,6 +7,23 @@
 :host(.ic-search-bar-search) {
   --divider-height: 1.5rem;
   --ic-input-label-helpertext-padding: var(--ic-space-xxs);
+  --border-color: var(--ic-search-bar-outline);
+  --input-bg-color: var(--ic-search-bar-background);
+  --border-color-disabled: var(--ic-search-bar-outline-disabled);
+  --text-field-placeholder-color: var(--ic-search-bar-placeholder-text);
+  --text-field-disabled-text-color: var(--ic-search-bar-disabled-text);
+  --text-field-text-color: var(--ic-search-bar-filled-text);
+  --menu-item-text-color: var(--ic-search-bar-dropdown-items-text);
+  --menu-bg-color: var(--ic-search-bar-dropdown-background);
+  --menu-border-color: var(--ic-search-bar-dropdown-outline);
+}
+
+:host(.ic-search-bar-search:hover) {
+  --border-color: var(--ic-search-bar-outline-hover);
+}
+
+:host(.ic-search-bar-search:active) {
+  --border-color: var(--ic-search-bar-outline-pressed);
 }
 
 :host(.ic-search-bar-search.ic-search-bar-small) {
@@ -51,6 +68,10 @@
   border-radius: 0.25rem;
 }
 
+.clear-button-unfocused * {
+  fill: var(--ic-search-bar-clear-button);
+}
+
 .clear-button:focus,
 .clear-button:active * {
   fill: white;
@@ -64,6 +85,14 @@
 .search-submit-button-container {
   display: flex;
   align-items: center;
+}
+
+.search-submit-button-unfocused * {
+  fill: var(--ic-search-bar-filled-icon);
+}
+
+.search-submit-button-disabled * {
+  fill: var(--ic-search-bar-icon-disabled);
 }
 
 .search-submit-button-disabled .ic-tooltip-container {
@@ -84,12 +113,8 @@
 
 .divider {
   width: var(--ic-border-width);
-  background-color: var(--ic-action-dark-pressed);
+  background-color: var(--ic-search-bar-dropdown-divider);
   height: var(--divider-height);
-}
-
-:host(.dark) .divider {
-  background-color: var(--ic-architectural-200);
 }
 
 .menu-container {
@@ -117,4 +142,14 @@
   position: absolute;
   white-space: nowrap;
   width: var(--ic-space-1px);
+}
+
+@media (forced-colors: active) {
+  .search-submit-button-unfocused * {
+    fill: canvastext;
+  }
+
+  .search-submit-button-disabled * {
+    fill: GrayText;
+  }
 }

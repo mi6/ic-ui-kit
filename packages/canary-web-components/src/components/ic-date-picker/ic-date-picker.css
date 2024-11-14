@@ -12,6 +12,7 @@
   --month-year-picker-button-width: 5rem;
   --month-button-width: 5.5rem;
   --input-field-width: var(--input-width, 19.125rem);
+  --ic-input-label-helpertext-padding: var(--ic-space-xxs);
 }
 
 :host(.ic-date-picker-large) {

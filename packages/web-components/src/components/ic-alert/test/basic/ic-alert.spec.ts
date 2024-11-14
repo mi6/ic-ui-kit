@@ -131,7 +131,7 @@ describe("ic-alert component", () => {
                             </div>
                         </div>
                         <div class="dismiss-icon-container">
-                            <ic-button appearance="dark" class="dismiss-icon svg-container" title="dismiss" variant="icon">
+                            <ic-button class="dismiss-icon svg-container" title="dismiss" variant="icon">
                                 svg
                             </ic-button>
                         </div>

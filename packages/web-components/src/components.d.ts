@@ -11,6 +11,7 @@ import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic
 import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+import { IcDividerLabelPlacement, IcDividerStyles, IcDividerWeights } from "./components/ic-divider/ic-divider.types";
 import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
@@ -39,6 +40,7 @@ export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+export { IcDividerLabelPlacement, IcDividerStyles, IcDividerWeights } from "./components/ic-divider/ic-divider.types";
 export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
@@ -63,7 +65,6 @@ export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 export { Options } from "@popperjs/core";
 export namespace Components {
     interface IcAccordion {
-        "appearance"?: IcThemeForeground;
         /**
           * If `true`, the accordion will be disabled.
          */
@@ -88,16 +89,16 @@ export namespace Components {
           * The size of the accordion.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcAccordionGroup {
         /**
           * The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.
          */
         "accessibleButtonLabel": string;
-        /**
-          * The appearance of the accordion group, e.g dark, or light.
-         */
-        "appearance": IcThemeForeground;
         /**
           * If `true`, the accordion will load in an expanded state.
          */
@@ -118,6 +119,10 @@ export namespace Components {
           * The size of the accordion.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcAlert {
         /**
@@ -140,6 +145,10 @@ export namespace Components {
           * If `true`, the default icon for the neutral variant will appear on the left of the alert.
          */
         "showDefaultIcon": boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
@@ -388,7 +397,7 @@ export namespace Components {
         /**
           * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
          */
-        "href"?: string | undefined;
+        "href"?: string;
         /**
           * The human language of the linked URL.
          */
@@ -417,6 +426,10 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcCheckbox {
         /**
@@ -424,7 +437,7 @@ export namespace Components {
          */
         "additionalFieldDisplay": IcAdditionalFieldTypes;
         /**
-          * If `true`, the checkbox will be set to the checked state.
+          * If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.
          */
         "checked"?: boolean;
         /**
@@ -472,6 +485,10 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The value for the checkbox.
          */
         "value": string;
@@ -505,6 +522,10 @@ export namespace Components {
           * The size of the checkboxes to be displayed. This does not affect the font size of the label.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
@@ -659,8 +680,40 @@ export namespace Components {
           * Sets the maximum and minimum height and width for the dialog.
          */
         "size"?: "small" | "medium" | "large";
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcDivider {
+        /**
+          * The line style of the divider.
+         */
+        "borderStyle": IcDividerStyles;
+        /**
+          * The label for the divider. The label placement will need to be set for the label to be displayed correctly.
+         */
+        "label"?: string;
+        /**
+          * The position the label is placed on the divider. `Left` and `right` placement is only applicable when orientation is set to `horizontal`. `Top` and `bottom` placement is only applicable when orientation is set to `vertical`. `Center` placement is applicable for both orientations.
+         */
+        "labelPlacement"?: IcDividerLabelPlacement;
+        /**
+          * If `true`, the divider will be displayed in a grey colour.
+         */
+        "monochrome"?: boolean;
+        /**
+          * The orientation of the divider.
+         */
+        "orientation": IcOrientation;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode | IcThemeForeground;
+        /**
+          * The thickness of the divider.
+         */
+        "weight": IcDividerWeights;
     }
     interface IcEmptyState {
         /**
@@ -1077,7 +1130,7 @@ export namespace Components {
         /**
           * The label describing the keyboard shortcut for a menu item's action.
          */
-        "keyboardShortcut"?: string;
+        "keyboardShortcutLabel"?: string;
         /**
           * The label to display in the menu item.
          */
@@ -1242,10 +1295,6 @@ export namespace Components {
          */
         "adjacentPageCount": number;
         /**
-          * The appearance of the pagination, e.g. dark, light or the default.
-         */
-        "appearance": IcThemeForeground;
-        /**
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
         "boundaryPageCount": number;
@@ -1274,6 +1323,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * If `true`, the pagination will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * The total number of pages.
          */
         "pages": number;
@@ -1283,15 +1336,15 @@ export namespace Components {
          */
         "setCurrentPage": (page: number) => Promise<void>;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The type of pagination to be used.
          */
         "type": IcPaginationTypes;
     }
     interface IcPaginationItem {
-        /**
-          * The appearance of the pagination, e.g. dark, light or the default.
-         */
-        "appearance": IcThemeForeground;
         /**
           * If `true`, the pagination item will be disabled.
          */
@@ -1301,6 +1354,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * If `true`, the pagination item will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * The current page number.
          */
         "page": number | null;
@@ -1308,6 +1365,10 @@ export namespace Components {
           * If `true`, the pagination item will be selected.
          */
         "selected": boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The type of pagination item - 'page' or 'ellipsis'.
          */
@@ -1374,6 +1435,10 @@ export namespace Components {
          */
         "size"?: IcSizesNoLarge;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty;
@@ -1420,6 +1485,10 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         "setTabIndex": (value: number) => Promise<void>;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The value for the radio option.
          */
@@ -1538,6 +1607,10 @@ export namespace Components {
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
         "spellcheck": boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
@@ -3273,7 +3346,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface IcAccordion {
-        "appearance"?: IcThemeForeground;
         /**
           * If `true`, the accordion will be disabled.
          */
@@ -3295,16 +3367,16 @@ declare namespace LocalJSX {
           * The size of the accordion.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcAccordionGroup {
         /**
           * The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.
          */
         "accessibleButtonLabel"?: string;
-        /**
-          * The appearance of the accordion group, e.g dark, or light.
-         */
-        "appearance"?: IcThemeForeground;
         /**
           * If `true`, the accordion will load in an expanded state.
          */
@@ -3321,6 +3393,10 @@ declare namespace LocalJSX {
           * The size of the accordion.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcAlert {
         /**
@@ -3347,6 +3423,10 @@ declare namespace LocalJSX {
           * If `true`, the default icon for the neutral variant will appear on the left of the alert.
          */
         "showDefaultIcon"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
@@ -3599,7 +3679,7 @@ declare namespace LocalJSX {
         /**
           * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
          */
-        "href"?: string | undefined;
+        "href"?: string;
         /**
           * The human language of the linked URL.
          */
@@ -3624,6 +3704,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcCheckbox {
         /**
@@ -3631,7 +3715,7 @@ declare namespace LocalJSX {
          */
         "additionalFieldDisplay"?: IcAdditionalFieldTypes;
         /**
-          * If `true`, the checkbox will be set to the checked state.
+          * If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.
          */
         "checked"?: boolean;
         /**
@@ -3679,6 +3763,10 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The value for the checkbox.
          */
         "value": string;
@@ -3716,6 +3804,10 @@ declare namespace LocalJSX {
           * The size of the checkboxes to be displayed. This does not affect the font size of the label.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
@@ -3878,8 +3970,40 @@ declare namespace LocalJSX {
           * Sets the maximum and minimum height and width for the dialog.
          */
         "size"?: "small" | "medium" | "large";
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcDivider {
+        /**
+          * The line style of the divider.
+         */
+        "borderStyle"?: IcDividerStyles;
+        /**
+          * The label for the divider. The label placement will need to be set for the label to be displayed correctly.
+         */
+        "label"?: string;
+        /**
+          * The position the label is placed on the divider. `Left` and `right` placement is only applicable when orientation is set to `horizontal`. `Top` and `bottom` placement is only applicable when orientation is set to `vertical`. `Center` placement is applicable for both orientations.
+         */
+        "labelPlacement"?: IcDividerLabelPlacement;
+        /**
+          * If `true`, the divider will be displayed in a grey colour.
+         */
+        "monochrome"?: boolean;
+        /**
+          * The orientation of the divider.
+         */
+        "orientation"?: IcOrientation;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode | IcThemeForeground;
+        /**
+          * The thickness of the divider.
+         */
+        "weight"?: IcDividerWeights;
     }
     interface IcEmptyState {
         /**
@@ -4292,7 +4416,7 @@ declare namespace LocalJSX {
         /**
           * The label describing the keyboard shortcut for a menu item's action.
          */
-        "keyboardShortcut"?: string;
+        "keyboardShortcutLabel"?: string;
         /**
           * The label to display in the menu item.
          */
@@ -4454,10 +4578,6 @@ declare namespace LocalJSX {
          */
         "adjacentPageCount"?: number;
         /**
-          * The appearance of the pagination, e.g. dark, light or the default.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
         "boundaryPageCount"?: number;
@@ -4486,6 +4606,10 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
+          * If `true`, the pagination will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * Emitted when a page is selected.
          */
         "onIcPageChange"?: (event: IcPaginationCustomEvent<IcChangeEventDetail1>) => void;
@@ -4494,15 +4618,15 @@ declare namespace LocalJSX {
          */
         "pages": number;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The type of pagination to be used.
          */
         "type"?: IcPaginationTypes;
     }
     interface IcPaginationItem {
-        /**
-          * The appearance of the pagination, e.g. dark, light or the default.
-         */
-        "appearance"?: IcThemeForeground;
         /**
           * If `true`, the pagination item will be disabled.
          */
@@ -4511,6 +4635,10 @@ declare namespace LocalJSX {
           * The label for the pagination item (applicable when simple pagination is being used).
          */
         "label"?: string;
+        /**
+          * If `true`, the pagination item will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
         "onPaginationItemClick"?: (event: IcPaginationItemCustomEvent<{ page: number }>) => void;
         /**
           * The current page number.
@@ -4520,6 +4648,10 @@ declare namespace LocalJSX {
           * If `true`, the pagination item will be selected.
          */
         "selected"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The type of pagination item - 'page' or 'ellipsis'.
          */
@@ -4588,6 +4720,10 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizesNoLarge;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -4637,6 +4773,10 @@ declare namespace LocalJSX {
           * If `true`, the radio option will be displayed in a selected state.
          */
         "selected"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The value for the radio option.
          */
@@ -4789,6 +4929,10 @@ declare namespace LocalJSX {
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
         "spellcheck"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */

@@ -22,7 +22,7 @@ ic-input-validation span.icon-success > svg {
 }
 
 ic-input-validation span.icon-error > svg {
-  fill: var(--ic-status-error-default);
+  fill: var(--ic-input-validation-error, var(--ic-status-error-default));
 }
 
 ic-input-validation span.icon-warning > svg {
@@ -31,4 +31,8 @@ ic-input-validation span.icon-warning > svg {
 
 ic-input-validation .statustext {
   flex-grow: 1;
+  color: var(
+    --ic-input-validation-status-text-color,
+    var(--ic-typography-color)
+  );
 }

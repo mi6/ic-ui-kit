@@ -56,9 +56,10 @@
 }
 
 .dialog {
-  background-color: var(--ic-architectural-white);
-  color: var(--ic-architectural-black);
-  border: var(--ic-border-default);
+  background-color: var(--ic-dialog-background);
+  color: var(--ic-dialog-text-primary);
+  --ic-typography-color: var(--ic-dialog-text-primary);
+  border: var(--ic-space-1px) solid var(--ic-dialog-border);
   border-radius: var(--ic-border-radius);
   padding: var(--ic-space-xs) 0 var(--ic-space-md);
   display: flex;
@@ -100,6 +101,10 @@
 
 .close-icon {
   margin-left: auto;
+}
+
+.close-icon > svg {
+  color: var(--ic-dialog-icon);
 }
 
 .content-area {
@@ -149,6 +154,14 @@
   z-index: var(--ic-z-index-dialog);
   padding-top: 16px;
   padding-bottom: 16px;
+}
+
+.heading ic-typography {
+  --ic-typography-color: var(--ic-dialog-text-primary);
+}
+
+.label ic-typography {
+  --ic-typography-color: var(--ic-dialog-label);
 }
 
 @media (min-width: 800px) {

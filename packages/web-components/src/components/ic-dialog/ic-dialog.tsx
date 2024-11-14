@@ -17,6 +17,7 @@ import {
   checkResizeObserver,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
+import { IcThemeMode } from "../../utils/types";
 
 /**
  * @slot dialog-controls - Content will be place at the bottom of the dialog.
@@ -125,6 +126,11 @@ export class Dialog {
    * Sets the maximum and minimum height and width for the dialog.
    */
   @Prop() size?: "small" | "medium" | "large" = "small";
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
@@ -521,6 +527,7 @@ export class Dialog {
           ["ic-dialog-hidden"]: !this.dialogRendered,
           ["ic-dialog-fade-in"]: this.fadeIn,
           ["disable-height-constraint"]: this.disableHeightConstraint,
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >
         {this.disableHeightConstraint ? (

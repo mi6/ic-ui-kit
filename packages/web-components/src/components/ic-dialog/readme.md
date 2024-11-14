@@ -20,6 +20,7 @@
 | `label`                   | `label`                     | Sets the optional label for the dialog which appears above the heading.                                                                                                                                               | `string`                         | `undefined` |
 | `open`                    | `open`                      | If `true`, the dialog will be displayed.                                                                                                                                                                              | `boolean`                        | `undefined` |
 | `size`                    | `size`                      | Sets the maximum and minimum height and width for the dialog.                                                                                                                                                         | `"large" \| "medium" \| "small"` | `"small"`   |
+| `theme`                   | `theme`                     | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.                                                                               | `"dark" \| "inherit" \| "light"` | `"inherit"` |
 
 
 ## Events

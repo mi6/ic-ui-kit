@@ -2,12 +2,25 @@
 
 :host {
   display: block;
+
+  --ic-input-label-text-color: var(--ic-checkbox-group-label);
+  --ic-input-label-helper-text-color: var(--ic-checkbox-group-subtitle);
+  --ic-input-validation-error: var(--ic-checkbox-state-icon-error);
+  --ic-input-validation-status-text-color: var(--ic-checkbox-state-text);
+}
+
+:host(.ic-checkbox-group-disabled) {
+  --ic-input-label-text-color: var(--ic-checkbox-group-label-disabled);
+  --ic-input-label-helper-text-color: var(
+    --ic-checkbox-group-subtitle-disabled
+  );
 }
 
 ic-input-label.error {
-  color: var(--ic-status-error-default);
+  color: var(--ic-checkbox-group-label-error);
 
-  --ic-typography-color: var(--ic-status-error-default);
+  --ic-typography-color: var(--ic-checkbox-group-label-error);
+  --ic-input-label-helper-text-color: var(--ic-checkbox-group-subtitle-error);
 }
 
 ic-input-label ic-typography {

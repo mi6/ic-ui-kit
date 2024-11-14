@@ -294,6 +294,39 @@ ic-theme,
   /* Typography */
   --ic-typography-color: var(--ic-color-text-primary);
 
+  /* Accordion */
+  --ic-accordion-heading-text: var(--ic-color-text-primary);
+  --ic-accordion-group-title-text: var(--ic-color-text-primary);
+  --ic-accordion-heading-text-disabled: var(--ic-color-text-disabled-light);
+  --ic-accordion-body-text: var(--ic-color-text-primary);
+  --ic-accordion-icon: var(--ic-color-icon-neutral);
+  --ic-accordion-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-accordion-background-hover: var(--ic-action-dark-bg-hover);
+  --ic-accordion-background-pressed: var(--ic-action-dark-bg-pressed);
+  --ic-accordion-divider: var(--ic-color-icon-grey-default);
+  --ic-accordion-chevron: var(--ic-color-icon-neutral);
+  --ic-accordion-chevron-disabled: var(--ic-color-icon-grey);
+
+  /* Alert */
+  --ic-alert-background-success: var(--ic-status-success);
+  --ic-alert-background-error: var(--ic-status-error);
+  --ic-alert-background-warning: var(--ic-status-warning);
+  --ic-alert-background-info: var(--ic-status-info);
+  --ic-alert-background-neutral: var(--ic-status-unknown);
+  --ic-alert-status-type-success: var(--ic-status-success-default);
+  --ic-alert-status-type-error: var(--ic-status-error-default);
+  --ic-alert-status-type-warning: var(--ic-status-warning-default);
+  --ic-alert-status-type-info: var(--ic-status-info-default);
+  --ic-alert-status-type-neutral: var(--ic-status-unknown-default);
+  --ic-alert-title: var(--ic-color-text-primary);
+  --ic-alert-description: var(--ic-color-text-primary);
+  --ic-alert-icon-success: var(--ic-status-success-default);
+  --ic-alert-icon-error: var(--ic-status-error-default);
+  --ic-alert-icon-warning: var(--ic-status-warning-default);
+  --ic-alert-icon-info: var(--ic-status-info-default);
+  --ic-alert-icon-neutral: var(--ic-status-unknown-default);
+  --ic-alert-icon-dismissible: var(--ic-atoms-input-clear-button);
+
   /* Badge */
   --ic-badge-text: var(--ic-color-text-inverse);
   --ic-badge-icon: var(--ic-color-text-inverse);
@@ -322,6 +355,55 @@ ic-theme,
   --ic-breadcrumb-text: var(--ic-color-text-primary);
   --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
 
+  /* Checkbox */
+  --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey-dark);
+  --ic-checkbox-border-unselected-hover: var(
+    --ic-color-border-action-hover-light
+  );
+  --ic-checkbox-border-unselected-pressed: var(
+    --ic-color-border-action-pressed-light
+  );
+  --ic-checkbox-border-unselected-disabled: var(
+    --ic-color-border-neutral-disabled
+  );
+  --ic-checkbox-background-unselected: var(--ic-color-background-primary);
+  --ic-checkbox-background-selected: var(--ic-action-default);
+  --ic-checkbox-background-selected-hover: var(--ic-action-default-hover);
+  --ic-checkbox-background-selected-pressed: var(--ic-action-default-pressed);
+  --ic-checkbox-background-selected-disabled: var(
+    --ic-color-background-disabled
+  );
+  --ic-checkbox-background-indeterminate: var(--ic-action-default);
+  --ic-checkbox-background-indeterminate-hover: var(--ic-action-default-hover);
+  --ic-checkbox-background-indeterminate-pressed: var(
+    --ic-action-default-pressed
+  );
+  --ic-checkbox-background-indeterminate-disabled: var(
+    --ic-color-background-disabled
+  );
+  --ic-checkbox-action-background-hover: var(--ic-action-default-bg-hover);
+  --ic-checkbox-action-background-pressed: var(--ic-action-default-bg-active);
+  --ic-checkbox-icon-pressed: var(--ic-color-icon-brand);
+  --ic-checkbox-icon-indeterminate: var(--ic-color-icon-brand);
+  --ic-checkbox-text: var(--ic-color-text-primary);
+  --ic-checkbox-text-disabled: var(--ic-color-text-disabled-light);
+  --ic-checkbox-group-label: var(--ic-atoms-input-field-label);
+  --ic-checkbox-group-label-error: var(--ic-atoms-input-field-label-error);
+  --ic-checkbox-group-label-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-checkbox-group-subtitle: var(--ic-atoms-input-field-label-subtitle);
+  --ic-checkbox-group-subtitle-error: var(
+    --ic-atoms-input-field-label-subtitle
+  );
+  --ic-checkbox-group-subtitle-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-checkbox-state-icon-error: var(--ic-color-icon-error-dark);
+  --ic-checkbox-state-text: var(--ic-color-text-primary);
+  --ic-checkbox-required-bar: var(--ic-action-default);
+  --ic-checkbox-required-text: var(--ic-color-text-action);
+
   /* Chips */
   --ic-chip-label: var(--ic-color-text-primary);
   --ic-chip-label-inactive: var(--ic-color-text-inactive);
@@ -335,12 +417,35 @@ ic-theme,
   --ic-chip-action-hover: var(--ic-action-dark-bg-hover);
   --ic-chip-action-pressed: var(--ic-action-dark-bg-pressed);
 
+  /* Card */
+  --ic-card-text: var(--ic-color-text-primary);
+  --ic-card-disabled-text: var(--ic-color-text-tertiary);
+  --ic-card-clickable-text: var(--ic-color-hyperlink-default);
+  --ic-card-clickable-focus-hover-bg: var(--ic-action-default-bg-hover);
+  --ic-card-clickable-active-bg: var(--ic-action-default-bg-active);
+  --ic-card-toggle-button: var(--ic-action-default);
+  --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
+  --ic-card-toggle-button-active: var(--ic-action-default-active-alpha);
+
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
   --ic-data-list-text-heading: var(--ic-color-text-primary);
   --ic-data-list-text-label: var(--ic-color-text-tertiary);
   --ic-data-list-keyline-heading: var(--ic-color-border-neutral-default);
   --ic-data-list-keyline-cell: var(--ic-color-border-neutral-default);
+
+  /* Dialog */
+  --ic-dialog-background: var(--ic-color-background-primary);
+  --ic-dialog-text-primary: var(--ic-color-text-primary);
+  --ic-dialog-icon: var(--ic-color-icon-neutral);
+  --ic-dialog-label: var(--ic-color-text-primary);
+  --ic-dialog-border: var(--ic-color-border-neutral-default);
+
+  /* Divider */
+  --ic-divider-background: var(--ic-state-layer-primary);
+  --ic-divider-background-monochrome: var(--ic-state-layer-darken-20);
+  --ic-divider-label: var(--ic-state-layer-primary);
+  --ic-divider-label-monochrome: var(--ic-state-layer-darken-20);
 
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);
@@ -370,6 +475,32 @@ ic-theme,
   --ic-loading-indicator-inner-color-monochrome: var(--ic-action-neutral-dark);
   --ic-loading-indicator-outer-color-monochrome: var(--ic-action-light);
   --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
+
+  /* Pagination */
+  --ic-pagination-dot-button-outer: var(--ic-color-background-active);
+  --ic-pagination-dot-button-outer-monochrome: var(
+    --ic-color-background-primary-dark
+  );
+  --ic-pagination-dot-button-inner: var(--ic-color-background-primary);
+  --ic-pagination-dot-button-inner-monochrome: var(
+    --ic-color-background-primary
+  );
+  --ic-pagination-dot: var(--ic-color-border-neutral-grey-dark);
+  --ic-pagination-hover: var(--ic-action-default-bg-hover);
+  --ic-pagination-pressed: var(--ic-action-default-bg-pressed);
+  --ic-pagination-hover-monochrome: var(--ic-action-dark-bg-hover);
+  --ic-pagination-pressed-monochrome: var(--ic-action-dark-bg-pressed);
+  --ic-pagination-chevron: var(--ic-action-default);
+  --ic-pagination-chevron-disabled: var(--ic-state-layer-darken-20);
+  --ic-pagination-chevron-monochrome: var(--ic-action-dark);
+  --ic-pagination-text: var(--ic-color-text-primary);
+  --ic-pagination-page-number: var(--ic-action-default);
+  --ic-pagination-page-number-monochrome: var(--ic-action-dark);
+  --ic-pagination-selected-banner: var(--ic-action-default);
+  --ic-pagination-selected-banner-monochrome: var(--ic-action-dark);
+  --ic-pagination-ellipsis: var(--ic-color-text-secondary);
+  --ic-pagination-ellipsis-monochrome: var(--ic-color-text-primary);
+  --ic-pagination-select-content: var(--ic-atoms-input-select-content-text);
 
   /* Popover menu */
   --ic-popover-background: var(--ic-color-background-primary-light);
@@ -406,6 +537,59 @@ ic-theme,
   );
   --ic-popover-menu-border: var(--ic-color-border-neutral-white);
   --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
+
+  /* Radio */
+  --ic-radio-button-border-default: var(--ic-color-border-neutral-grey-dark);
+  --ic-radio-button-border-disabled: var(--ic-color-border-neutral-disabled);
+  --ic-radio-button-background-default: var(--ic-color-background-primary);
+  --ic-radio-button-default-hover: var(--ic-action-default-hover);
+  --ic-radio-button-active-hover: var(--ic-action-default-bg-hover);
+  --ic-radio-button-default-pressed: var(--ic-action-default-pressed);
+  --ic-radio-button-active-pressed: var(--ic-action-default-bg-active);
+  --ic-radio-button-default-active: var(--ic-action-default);
+  --ic-radio-button-disabled: var(--ic-color-border-neutral-disabled);
+  --ic-radio-button-text-option: var(--ic-color-text-primary);
+  --ic-radio-button-text-option-disabled: var(--ic-color-text-disabled-light);
+  --ic-radio-button-input-field-label: var(--ic-atoms-input-field-label);
+  --ic-radio-button-input-field-label-disabled: var(
+    --ic-atoms-input-field-label-disabled
+  );
+  --ic-radio-button-input-field-subtitle: var(
+    --ic-atoms-input-field-label-subtitle
+  );
+  --ic-radio-button-input-field-subtitle-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-radio-button-input-field-label-error: var(
+    --ic-atoms-input-field-label-error
+  );
+  --ic-radio-button-state-text: var(--ic-atoms-input-state-text);
+  --ic-radio-button-state-icon-error: var(--ic-atoms-input-state-icon-error);
+  --ic-radio-button-required-bar: var(--ic-action-default);
+  --ic-radio-button-required-text: var(--ic-action-default);
+
+  /* Search bar */
+  --ic-search-bar-background: var(--ic-color-background-primary);
+  --ic-search-bar-placeholder-text: var(
+    --ic-atoms-input-text-field-content-placeholder
+  );
+  --ic-search-bar-filled-text: var(--ic-atoms-input-text-field-content);
+  --ic-search-bar-disabled-text: var(
+    --ic-atoms-input-text-field-content-disabled
+  );
+  --ic-search-bar-filled-icon: var(--ic-atoms-input-search-button);
+  --ic-search-bar-icon-disabled: var(--ic-state-layer-darken-20);
+  --ic-search-bar-outline: var(--ic-color-border-neutral-grey-dark);
+  --ic-search-bar-outline-hover: var(--ic-color-border-neutral-hover-default);
+  --ic-search-bar-outline-pressed: var(
+    --ic-color-border-neutral-pressed-default
+  );
+  --ic-search-bar-outline-disabled: var(--ic-color-border-neutral-disabled);
+  --ic-search-bar-dropdown-background: var(--ic-color-background-primary);
+  --ic-search-bar-dropdown-divider: var(--ic-atoms-input-divider);
+  --ic-search-bar-dropdown-items-text: var(--ic-color-text-primary);
+  --ic-search-bar-dropdown-outline: var(--ic-color-border-neutral-grey-dark);
+  --ic-search-bar-clear-button: var(--ic-atoms-input-clear-button);
 
   /* Skeleton */
   --ic-skeleton-background: var(--ic-architectural-100);
@@ -501,7 +685,7 @@ ic-theme,
   --ic-switch-unchecked-bg-hover: var(--ic-action-dark-bg-hover);
   --ic-switch-unchecked-bg-pressed: var(--ic-action-dark-bg-pressed);
   --ic-switch-checked-bg-hover: var(--ic-action-default-bg-hover);
-  --ic-switch-checked-bg-pressed: var(--ic-action-default-bg-pressed);
+  --ic-switch-checked-bg-pressed: var(--ic-action-default-bg-active);
 
   /* Tabs */
   --ic-tab-label: var(--ic-color-text-primary);
@@ -516,6 +700,18 @@ ic-theme,
   --ic-tab-item-monochrome: var(--ic-action-dark);
   --ic-tab-item-hover: var(--ic-action-default-bg-hover);
   --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+  /* Tree view */
+  --ic-tree-view-text: var(--ic-color-text-primary);
+  --ic-tree-view-background: var(--ic-color-background-primary);
+  --ic-tree-view-text-disabled: var(--ic-color-text-disabled-light);
+  --ic-tree-view-icon-disabled: var(--ic-color-icon-grey);
+  --ic-tree-view-icon: var(--ic-color-icon-neutral);
+  --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
+  --ic-tree-view-divider: var(--ic-state-layer-neutral-dark);
+  --ic-tree-view-hover: var(--ic-action-dark-bg-hover);
+  --ic-tree-view-pressed: var(--ic-action-dark-bg-pressed);
+  --ic-tree-view-selected: var(--ic-action-light-selected);
 }
 
 /* colors for system dark mode */
@@ -814,6 +1010,42 @@ ic-theme,
       --ic-atoms-input-autocomplete-field-border-dark
     );
 
+    /* Typography */
+    --ic-typography-color: var(--ic-color-text-primary);
+
+    /* Accordion */
+    --ic-accordion-heading-text: var(--ic-color-text-primary);
+    --ic-accordion-group-title-text: var(--ic-color-text-primary);
+    --ic-accordion-heading-text-disabled: var(--ic-color-text-tertiary-light);
+    --ic-accordion-body-text: var(--ic-color-text-primary);
+    --ic-accordion-icon: var(--ic-color-icon-inverted);
+    --ic-accordion-icon-disabled: var(--ic-color-icon-disabled);
+    --ic-accordion-background-hover: var(--ic-action-light-bg-hover);
+    --ic-accordion-background-pressed: var(--ic-action-light-bg-pressed);
+    --ic-accordion-divider: var(--ic-color-icon-inverted);
+    --ic-accordion-chevron: var(--ic-color-icon-inverted);
+    --ic-accordion-chevron-disabled: var(--ic-color-icon-disabled);
+
+    /* Alert */
+    --ic-alert-background-success: var(--ic-status-success);
+    --ic-alert-background-error: var(--ic-status-error);
+    --ic-alert-background-warning: var(--ic-status-warning);
+    --ic-alert-background-info: var(--ic-status-info);
+    --ic-alert-background-neutral: var(--ic-status-unknown);
+    --ic-alert-status-type-success: var(--ic-status-success-light);
+    --ic-alert-status-type-error: var(--ic-status-error-light);
+    --ic-alert-status-type-warning: var(--ic-status-warning-light);
+    --ic-alert-status-type-info: var(--ic-status-info-light);
+    --ic-alert-status-type-neutral: var(--ic-status-unknown-light);
+    --ic-alert-title: var(--ic-color-text-primary);
+    --ic-alert-description: var(--ic-color-text-primary);
+    --ic-alert-icon-success: var(--ic-status-success-light);
+    --ic-alert-icon-error: var(--ic-status-error-light);
+    --ic-alert-icon-warning: var(--ic-status-warning-light);
+    --ic-alert-icon-info: var(--ic-status-info-light);
+    --ic-alert-icon-neutral: var(--ic-status-unknown-light);
+    --ic-alert-icon-dismissible: var(--ic-atoms-input-clear-button);
+
     /* Badge */
     --ic-badge-text: var(--ic-color-text-inverse);
     --ic-badge-icon: var(--ic-color-text-inverse);
@@ -842,6 +1074,57 @@ ic-theme,
     --ic-breadcrumb-text: var(--ic-color-text-primary);
     --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
 
+    /* Checkbox */
+    --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey-dark);
+    --ic-checkbox-border-unselected-hover: var(
+      --ic-color-border-action-hover-dark
+    );
+    --ic-checkbox-border-unselected-pressed: var(
+      --ic-color-border-action-pressed-dark
+    );
+    --ic-checkbox-border-unselected-disabled: var(
+      --ic-color-border-neutral-disabled
+    );
+    --ic-checkbox-background-unselected: var(--ic-color-background-primary);
+    --ic-checkbox-background-selected: var(--ic-action-default);
+    --ic-checkbox-background-selected-hover: var(--ic-action-default-hover);
+    --ic-checkbox-background-selected-pressed: var(--ic-action-default-pressed);
+    --ic-checkbox-background-selected-disabled: var(
+      --ic-color-background-disabled-darkest
+    );
+    --ic-checkbox-background-indeterminate: var(--ic-action-default);
+    --ic-checkbox-background-indeterminate-hover: var(
+      --ic-action-default-hover
+    );
+    --ic-checkbox-background-indeterminate-pressed: var(
+      --ic-action-default-pressed
+    );
+    --ic-checkbox-background-indeterminate-disabled: var(
+      --ic-color-background-disabled-darkest
+    );
+    --ic-checkbox-action-background-hover: var(--ic-action-light-bg-hover);
+    --ic-checkbox-action-background-pressed: var(--ic-action-light-bg-pressed);
+    --ic-checkbox-icon-pressed: var(--ic-color-icon-neutral);
+    --ic-checkbox-icon-indeterminate: var(--ic-color-icon-neutral);
+    --ic-checkbox-text: var(--ic-color-text-primary);
+    --ic-checkbox-text-disabled: var(--ic-color-text-disabled-dark);
+    --ic-checkbox-group-label: var(--ic-atoms-input-field-label);
+    --ic-checkbox-group-label-error: var(--ic-atoms-input-field-label-error);
+    --ic-checkbox-group-label-disabled: var(
+      --ic-atoms-input-field-label-subtitle-disabled
+    );
+    --ic-checkbox-group-subtitle: var(--ic-atoms-input-field-label-subtitle);
+    --ic-checkbox-group-subtitle-error: var(
+      --ic-atoms-input-field-label-subtitle
+    );
+    --ic-checkbox-group-subtitle-disabled: var(
+      --ic-atoms-input-field-label-subtitle-disabled
+    );
+    --ic-checkbox-state-icon-error: var(--ic-color-icon-error-light);
+    --ic-checkbox-state-text: var(--ic-color-text-primary);
+    --ic-checkbox-required-bar: var(--ic-action-default);
+    --ic-checkbox-required-text: var(--ic-color-text-action-dark);
+
     /* Chips */
     --ic-chip-label: var(--ic-color-text-primary-dark);
     --ic-chip-label-inactive: var(--ic-color-text-inactive);
@@ -855,12 +1138,35 @@ ic-theme,
     --ic-chip-action-hover: var(--ic-action-light-bg-hover);
     --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
 
+    /* Card */
+    --ic-card-text: var(--ic-color-text-primary);
+    --ic-card-disabled-text: var(--ic-color-text-secondary-light);
+    --ic-card-clickable-text: var(--ic-color-hyperlink-default);
+    --ic-card-clickable-focus-hover-bg: var(--ic-color-background-primary);
+    --ic-card-clickable-active-bg: var(--ic-color-background-pressed);
+    --ic-card-toggle-button: var(--ic-action-default);
+    --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
+    --ic-card-toggle-button-active: var(--ic-action-default-pressed);
+
     /* Data list */
     --ic-data-list-text-cell: var(--ic-color-text-primary);
     --ic-data-list-text-heading: var(--ic-color-text-primary);
     --ic-data-list-text-label: var(--ic-color-text-tertiary);
     --ic-data-list-keyline-heading: var(--ic-color-border-neutral-default);
     --ic-data-list-keyline-cell: var(--ic-color-border-neutral-default);
+
+    /* Dialog */
+    --ic-dialog-background: var(--ic-color-background-primary);
+    --ic-dialog-text-primary: var(--ic-color-text-primary);
+    --ic-dialog-icon: var(--ic-color-icon-inverted);
+    --ic-dialog-label: var(--ic-color-text-primary);
+    --ic-dialog-border: var(--ic-color-border-neutral-grey-dark);
+
+    /* Divider */
+    --ic-divider-background: var(--ic-state-layer-neutral-default);
+    --ic-divider-background-monochrome: var(--ic-state-layer-lighten-20);
+    --ic-divider-label: var(--ic-state-layer-neutral-default);
+    --ic-divider-label-monochrome: var(--ic-state-layer-lighten-20);
 
     /* Empty state */
     --ic-empty-state-title: var(--ic-color-text-primary);
@@ -896,6 +1202,32 @@ ic-theme,
       --ic-action-neutral-dark
     );
     --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
+
+    /* Pagination */
+    --ic-pagination-dot-button-outer: var(--ic-color-background-primary-light);
+    --ic-pagination-dot-button-outer-monochrome: var(
+      --ic-color-background-primary-light
+    );
+    --ic-pagination-dot-button-inner: var(--ic-color-background-active);
+    --ic-pagination-dot-button-inner-monochrome: var(
+      --ic-color-background-primary
+    );
+    --ic-pagination-dot: var(--ic-color-border-neutral-grey-dark);
+    --ic-pagination-hover: var(--ic-action-light-bg-hover);
+    --ic-pagination-pressed: var(--ic-action-light-bg-pressed);
+    --ic-pagination-hover-monochrome: var(--ic-action-light-bg-hover);
+    --ic-pagination-pressed-monochrome: var(--ic-action-light-bg-pressed);
+    --ic-pagination-chevron: var(--ic-action-default);
+    --ic-pagination-chevron-disabled: var(--ic-state-layer-lighten-20);
+    --ic-pagination-chevron-monochrome: var(--ic-action-light);
+    --ic-pagination-text: var(--ic-color-text-primary);
+    --ic-pagination-page-number: var(--ic-action-default);
+    --ic-pagination-page-number-monochrome: var(--ic-action-light);
+    --ic-pagination-selected-banner: var(--ic-action-default);
+    --ic-pagination-selected-banner-monochrome: var(--ic-action-light);
+    --ic-pagination-ellipsis: var(--ic-color-text-secondary);
+    --ic-pagination-ellipsis-monochrome: var(--ic-color-text-primary);
+    --ic-pagination-select-content: var(--ic-atoms-input-select-content-text);
 
     /* Popover menu */
     --ic-popover-background: var(--ic-color-background-primary-dark);
@@ -934,6 +1266,61 @@ ic-theme,
     );
     --ic-popover-menu-border: var(--ic-color-border-neutral-white);
     --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
+
+    /* Radio */
+    --ic-radio-button-border-default: var(--ic-color-border-neutral-grey-light);
+    --ic-radio-button-border-disabled: var(--ic-color-border-neutral-disabled);
+    --ic-radio-button-background-default: var(--ic-color-background-primary);
+    --ic-radio-button-default-hover: var(--ic-action-default-hover);
+    --ic-radio-button-active-hover: var(--ic-action-light-bg-hover);
+    --ic-radio-button-default-pressed: var(--ic-action-default-pressed);
+    --ic-radio-button-active-pressed: var(--ic-action-light-bg-pressed);
+    --ic-radio-button-default-active: var(--ic-action-default);
+    --ic-radio-button-disabled: var(--ic-color-border-neutral-disabled);
+    --ic-radio-button-text-option: var(--ic-color-text-primary);
+    --ic-radio-button-text-option-disabled: var(
+      --ic-color-text-disabled-default
+    );
+    --ic-radio-button-input-field-label: var(--ic-atoms-input-field-label);
+    --ic-radio-button-input-field-label-disabled: var(
+      --ic-atoms-input-field-label-disabled
+    );
+    --ic-radio-button-input-field-subtitle: var(
+      --ic-atoms-input-field-label-subtitle
+    );
+    --ic-radio-button-input-field-subtitle-disabled: var(
+      --ic-atoms-input-field-label-subtitle-disabled
+    );
+    --ic-radio-button-input-field-label-error: var(
+      --ic-atoms-input-field-label-error
+    );
+    --ic-radio-button-state-text: var(--ic-atoms-input-state-text);
+    --ic-radio-button-state-icon-error: var(--ic-atoms-input-state-icon-error);
+    --ic-radio-button-required-bar: var(--ic-action-default);
+    --ic-radio-button-required-text: var(--ic-action-default);
+
+    /* Search bar */
+    --ic-search-bar-background: var(--ic-color-background-primary);
+    --ic-search-bar-placeholder-text: var(
+      --ic-atoms-input-text-field-content-placeholder
+    );
+    --ic-search-bar-filled-text: var(--ic-atoms-input-text-field-content);
+    --ic-search-bar-disabled-text: var(
+      --ic-atoms-input-text-field-content-disabled
+    );
+    --ic-search-bar-filled-icon: var(--ic-atoms-input-search-button);
+    --ic-search-bar-icon-disabled: var(--ic-state-layer-lighten-20);
+    --ic-search-bar-outline: var(--ic-color-border-neutral-grey);
+    --ic-search-bar-outline-hover: var(--ic-color-border-neutral-hover-light);
+    --ic-search-bar-outline-pressed: var(
+      --ic-color-border-neutral-pressed-light
+    );
+    --ic-search-bar-outline-disabled: var(--ic-color-border-neutral-disabled);
+    --ic-search-bar-dropdown-background: var(--ic-color-background-primary);
+    --ic-search-bar-dropdown-divider: var(--ic-atoms-input-divider);
+    --ic-search-bar-dropdown-items-text: var(--ic-color-text-primary);
+    --ic-search-bar-dropdown-outline: var(--ic-color-border-neutral-grey-light);
+    --ic-search-bar-clear-button: var(--ic-atoms-input-clear-button);
 
     /* Skeleton */
     --ic-skeleton-background: var(--ic-architectural-400);
@@ -1048,6 +1435,18 @@ ic-theme,
     --ic-tab-item-monochrome: var(--ic-action-light);
     --ic-tab-item-hover: var(--ic-action-light-bg-hover);
     --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+    /* Tree view */
+    --ic-tree-view-text: var(--ic-color-text-primary);
+    --ic-tree-view-background: var(--ic-color-background-primary);
+    --ic-tree-view-text-disabled: var(--ic-color-text-disabled-dark);
+    --ic-tree-view-icon-disabled: var(--ic-color-icon-disabled);
+    --ic-tree-view-icon: var(--ic-color-icon-inverted);
+    --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
+    --ic-tree-view-divider: var(--ic-state-layer-neutral-light);
+    --ic-tree-view-hover: var(--ic-action-light-bg-hover);
+    --ic-tree-view-pressed: var(--ic-action-light-bg-pressed);
+    --ic-tree-view-selected: var(--ic-action-dark-selected);
   }
 }
 
@@ -1342,6 +1741,42 @@ ic-theme,
     --ic-atoms-input-autocomplete-field-border-dark
   );
 
+  /* Typography */
+  --ic-typography-color: var(--ic-color-text-primary);
+
+  /* Accordion */
+  --ic-accordion-heading-text: var(--ic-color-text-primary);
+  --ic-accordion-group-title-text: var(--ic-color-text-primary);
+  --ic-accordion-heading-text-disabled: var(--ic-color-text-tertiary-light);
+  --ic-accordion-body-text: var(--ic-color-text-primary);
+  --ic-accordion-icon: var(--ic-color-icon-inverted);
+  --ic-accordion-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-accordion-background-hover: var(--ic-action-light-bg-hover);
+  --ic-accordion-background-pressed: var(--ic-action-light-bg-pressed);
+  --ic-accordion-divider: var(--ic-color-icon-inverted);
+  --ic-accordion-chevron: var(--ic-color-icon-inverted);
+  --ic-accordion-chevron-disabled: var(--ic-color-icon-disabled);
+
+  /* Alert */
+  --ic-alert-background-success: var(--ic-status-success);
+  --ic-alert-background-error: var(--ic-status-error);
+  --ic-alert-background-warning: var(--ic-status-warning);
+  --ic-alert-background-info: var(--ic-status-info);
+  --ic-alert-background-neutral: var(--ic-status-unknown);
+  --ic-alert-status-type-success: var(--ic-status-success-light);
+  --ic-alert-status-type-error: var(--ic-status-error-light);
+  --ic-alert-status-type-warning: var(--ic-status-warning-light);
+  --ic-alert-status-type-info: var(--ic-status-info-light);
+  --ic-alert-status-type-neutral: var(--ic-status-unknown-light);
+  --ic-alert-title: var(--ic-color-text-primary);
+  --ic-alert-description: var(--ic-color-text-primary);
+  --ic-alert-icon-success: var(--ic-status-success-light);
+  --ic-alert-icon-error: var(--ic-status-error-light);
+  --ic-alert-icon-warning: var(--ic-status-warning-light);
+  --ic-alert-icon-info: var(--ic-status-info-light);
+  --ic-alert-icon-neutral: var(--ic-status-unknown-light);
+  --ic-alert-icon-dismissible: var(--ic-atoms-input-clear-button);
+
   /* Badge */
   --ic-badge-text: var(--ic-color-text-inverse);
   --ic-badge-icon: var(--ic-color-text-inverse);
@@ -1370,6 +1805,55 @@ ic-theme,
   --ic-breadcrumb-text: var(--ic-color-text-primary);
   --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
 
+  /* Checkbox */
+  --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey-dark);
+  --ic-checkbox-border-unselected-hover: var(
+    --ic-color-border-action-hover-dark
+  );
+  --ic-checkbox-border-unselected-pressed: var(
+    --ic-color-border-action-pressed-dark
+  );
+  --ic-checkbox-border-unselected-disabled: var(
+    --ic-color-border-neutral-disabled
+  );
+  --ic-checkbox-background-unselected: var(--ic-color-background-primary);
+  --ic-checkbox-background-selected: var(--ic-action-default);
+  --ic-checkbox-background-selected-hover: var(--ic-action-default-hover);
+  --ic-checkbox-background-selected-pressed: var(--ic-action-default-pressed);
+  --ic-checkbox-background-selected-disabled: var(
+    --ic-color-background-disabled-darkest
+  );
+  --ic-checkbox-background-indeterminate: var(--ic-action-default);
+  --ic-checkbox-background-indeterminate-hover: var(--ic-action-default-hover);
+  --ic-checkbox-background-indeterminate-pressed: var(
+    --ic-action-default-pressed
+  );
+  --ic-checkbox-background-indeterminate-disabled: var(
+    --ic-color-background-disabled-darkest
+  );
+  --ic-checkbox-action-background-hover: var(--ic-action-light-bg-hover);
+  --ic-checkbox-action-background-pressed: var(--ic-action-light-bg-pressed);
+  --ic-checkbox-icon-pressed: var(--ic-color-icon-neutral);
+  --ic-checkbox-icon-indeterminate: var(--ic-color-icon-neutral);
+  --ic-checkbox-text: var(--ic-color-text-primary);
+  --ic-checkbox-text-disabled: var(--ic-color-text-disabled-dark);
+  --ic-checkbox-group-label: var(--ic-atoms-input-field-label);
+  --ic-checkbox-group-label-error: var(--ic-atoms-input-field-label-error);
+  --ic-checkbox-group-label-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-checkbox-group-subtitle: var(--ic-atoms-input-field-label-subtitle);
+  --ic-checkbox-group-subtitle-error: var(
+    --ic-atoms-input-field-label-subtitle
+  );
+  --ic-checkbox-group-subtitle-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-checkbox-state-icon-error: var(--ic-color-icon-error-light);
+  --ic-checkbox-state-text: var(--ic-color-text-primary);
+  --ic-checkbox-required-bar: var(--ic-action-default);
+  --ic-checkbox-required-text: var(--ic-color-text-action-dark);
+
   /* Chips */
   --ic-chip-label: var(--ic-color-text-primary-dark);
   --ic-chip-label-inactive: var(--ic-color-text-inactive);
@@ -1383,12 +1867,35 @@ ic-theme,
   --ic-chip-action-hover: var(--ic-action-light-bg-hover);
   --ic-chip-action-pressed: var(--ic-action-light-bg-pressed);
 
+  /* Card */
+  --ic-card-text: var(--ic-color-text-primary);
+  --ic-card-disabled-text: var(--ic-color-text-secondary-light);
+  --ic-card-clickable-text: var(--ic-color-hyperlink-default);
+  --ic-card-clickable-focus-hover-bg: var(--ic-color-background-primary);
+  --ic-card-clickable-active-bg: var(--ic-color-background-pressed);
+  --ic-card-toggle-button: var(--ic-action-default);
+  --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
+  --ic-card-toggle-button-active: var(--ic-action-default-pressed);
+
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
   --ic-data-list-text-heading: var(--ic-color-text-primary);
   --ic-data-list-text-label: var(--ic-color-text-tertiary);
   --ic-data-list-keyline-heading: var(--ic-color-border-neutral-default);
   --ic-data-list-keyline-cell: var(--ic-color-border-neutral-default);
+
+  /* Dialog */
+  --ic-dialog-background: var(--ic-color-background-primary);
+  --ic-dialog-text-primary: var(--ic-color-text-primary);
+  --ic-dialog-icon: var(--ic-color-icon-inverted);
+  --ic-dialog-label: var(--ic-color-text-primary);
+  --ic-dialog-border: var(--ic-color-border-neutral-grey-dark);
+
+  /* Divider */
+  --ic-divider-background: var(--ic-state-layer-neutral-default);
+  --ic-divider-background-monochrome: var(--ic-state-layer-lighten-20);
+  --ic-divider-label: var(--ic-state-layer-neutral-default);
+  --ic-divider-label-monochrome: var(--ic-state-layer-lighten-20);
 
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);
@@ -1423,6 +1930,32 @@ ic-theme,
   --ic-loading-indicator-outer-color-monochrome: var(--ic-action-neutral-dark);
   --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
 
+  /* Pagination */
+  --ic-pagination-dot-button-outer: var(--ic-color-background-primary-light);
+  --ic-pagination-dot-button-outer-monochrome: var(
+    --ic-color-background-primary-light
+  );
+  --ic-pagination-dot-button-inner: var(--ic-color-background-active);
+  --ic-pagination-dot-button-inner-monochrome: var(
+    --ic-color-background-primary
+  );
+  --ic-pagination-dot: var(--ic-color-border-neutral-grey-dark);
+  --ic-pagination-hover: var(--ic-action-light-bg-hover);
+  --ic-pagination-pressed: var(--ic-action-light-bg-pressed);
+  --ic-pagination-hover-monochrome: var(--ic-action-light-bg-hover);
+  --ic-pagination-pressed-monochrome: var(--ic-action-light-bg-pressed);
+  --ic-pagination-chevron: var(--ic-action-default);
+  --ic-pagination-chevron-disabled: var(--ic-state-layer-lighten-20);
+  --ic-pagination-chevron-monochrome: var(--ic-action-light);
+  --ic-pagination-text: var(--ic-color-text-primary);
+  --ic-pagination-page-number: var(--ic-action-default);
+  --ic-pagination-page-number-monochrome: var(--ic-action-light);
+  --ic-pagination-selected-banner: var(--ic-action-default);
+  --ic-pagination-selected-banner-monochrome: var(--ic-action-light);
+  --ic-pagination-ellipsis: var(--ic-color-text-secondary);
+  --ic-pagination-ellipsis-monochrome: var(--ic-color-text-primary);
+  --ic-pagination-select-content: var(--ic-atoms-input-select-content-text);
+
   /* Popover menu */
   --ic-popover-background: var(--ic-color-background-primary-dark);
   --ic-popover-divider: var(--ic-color-border-neutral-default);
@@ -1456,6 +1989,57 @@ ic-theme,
   --ic-popover-menu-item-shortcut-disabled: var(--ic-color-text-disabled-light);
   --ic-popover-menu-border: var(--ic-color-border-neutral-white);
   --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
+
+  /* Radio */
+  --ic-radio-button-border-default: var(--ic-color-border-neutral-grey-light);
+  --ic-radio-button-border-disabled: var(--ic-color-border-neutral-disabled);
+  --ic-radio-button-background-default: var(--ic-color-background-primary);
+  --ic-radio-button-default-hover: var(--ic-action-default-hover);
+  --ic-radio-button-active-hover: var(--ic-action-light-bg-hover);
+  --ic-radio-button-default-pressed: var(--ic-action-default-pressed);
+  --ic-radio-button-active-pressed: var(--ic-action-light-bg-pressed);
+  --ic-radio-button-default-active: var(--ic-action-default);
+  --ic-radio-button-disabled: var(--ic-color-border-neutral-disabled);
+  --ic-radio-button-text-option: var(--ic-color-text-primary);
+  --ic-radio-button-text-option-disabled: var(--ic-color-text-disabled-default);
+  --ic-radio-button-input-field-label: var(--ic-atoms-input-field-label);
+  --ic-radio-button-input-field-label-disabled: var(
+    --ic-atoms-input-field-label-disabled
+  );
+  --ic-radio-button-input-field-subtitle: var(
+    --ic-atoms-input-field-label-subtitle
+  );
+  --ic-radio-button-input-field-subtitle-disabled: var(
+    --ic-atoms-input-field-label-subtitle-disabled
+  );
+  --ic-radio-button-input-field-label-error: var(
+    --ic-atoms-input-field-label-error
+  );
+  --ic-radio-button-state-text: var(--ic-atoms-input-state-text);
+  --ic-radio-button-state-icon-error: var(--ic-atoms-input-state-icon-error);
+  --ic-radio-button-required-bar: var(--ic-action-default);
+  --ic-radio-button-required-text: var(--ic-action-default);
+
+  /* Search bar */
+  --ic-search-bar-background: var(--ic-color-background-primary);
+  --ic-search-bar-placeholder-text: var(
+    --ic-atoms-input-text-field-content-placeholder
+  );
+  --ic-search-bar-filled-text: var(--ic-atoms-input-text-field-content);
+  --ic-search-bar-disabled-text: var(
+    --ic-atoms-input-text-field-content-disabled
+  );
+  --ic-search-bar-filled-icon: var(--ic-atoms-input-search-button);
+  --ic-search-bar-icon-disabled: var(--ic-state-layer-lighten-20);
+  --ic-search-bar-outline: var(--ic-color-border-neutral-grey);
+  --ic-search-bar-outline-hover: var(--ic-color-border-neutral-hover-light);
+  --ic-search-bar-outline-pressed: var(--ic-color-border-neutral-pressed-light);
+  --ic-search-bar-outline-disabled: var(--ic-color-border-neutral-disabled);
+  --ic-search-bar-dropdown-background: var(--ic-color-background-primary);
+  --ic-search-bar-dropdown-divider: var(--ic-atoms-input-divider);
+  --ic-search-bar-dropdown-items-text: var(--ic-color-text-primary);
+  --ic-search-bar-dropdown-outline: var(--ic-color-border-neutral-grey-light);
+  --ic-search-bar-clear-button: var(--ic-atoms-input-clear-button);
 
   /* Skeleton */
   --ic-skeleton-background: var(--ic-architectural-400);
@@ -1572,4 +2156,16 @@ ic-theme,
   --ic-tab-item-monochrome: var(--ic-action-light);
   --ic-tab-item-hover: var(--ic-action-light-bg-hover);
   --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+  /* Tree view */
+  --ic-tree-view-text: var(--ic-color-text-primary);
+  --ic-tree-view-background: var(--ic-color-background-primary);
+  --ic-tree-view-text-disabled: var(--ic-color-text-disabled-dark);
+  --ic-tree-view-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-tree-view-icon: var(--ic-color-icon-inverted);
+  --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
+  --ic-tree-view-divider: var(--ic-state-layer-neutral-light);
+  --ic-tree-view-hover: var(--ic-action-light-bg-hover);
+  --ic-tree-view-pressed: var(--ic-action-light-bg-pressed);
+  --ic-tree-view-selected: var(--ic-action-dark-selected);
 }
