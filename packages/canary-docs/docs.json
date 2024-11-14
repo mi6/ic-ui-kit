@@ -4535,7 +4535,7 @@
           "mutable": false,
           "attr": "searchable",
           "reflectToAttr": false,
-          "docs": "If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.",
+          "docs": "If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.",
           "docsTags": [],
           "default": "false",
           "values": [
