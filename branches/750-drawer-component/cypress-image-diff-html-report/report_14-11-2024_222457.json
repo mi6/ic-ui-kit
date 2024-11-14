@@ -1,6 +1,6 @@
 {
-  "total": 209,
-  "totalPassed": 209,
+  "total": 213,
+  "totalPassed": 213,
   "totalFailed": 0,
   "totalSuites": 9,
   "suites": [
@@ -244,6 +244,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-embedded.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-embedded.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDataTable.cy.tsx-column-header-truncation",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
+          "specFilename": "IcDataTable.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-column-header-truncation.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-column-header-truncation.png"
         },
         {
           "status": "pass",
@@ -860,6 +871,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-slotted-custom-element-in-cell.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-slotted-custom-element-in-cell.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDataTable.cy.tsx-tooltip-in-final-row",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
+          "specFilename": "IcDataTable.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-tooltip-in-final-row.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-tooltip-in-final-row.png"
         },
         {
           "status": "pass",
@@ -1822,6 +1844,28 @@
         },
         {
           "status": "pass",
+          "name": "IcDrawer.cy.tsx-chevron-btn-aria-label-collapsed",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
+          "specFilename": "IcDrawer.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx-chevron-btn-aria-label-collapsed.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx-chevron-btn-aria-label-collapsed.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDrawer.cy.tsx-chevron-btn-aria-label-expanded",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
+          "specFilename": "IcDrawer.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx-chevron-btn-aria-label-expanded.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx-chevron-btn-aria-label-expanded.png"
+        },
+        {
+          "status": "pass",
           "name": "IcDrawer.cy.tsx-close-btn-aria-label-expanded",
           "percentage": 0,
           "failureThreshold": 0,
@@ -2358,9 +2402,9 @@
       ]
     }
   ],
-  "startedAt": "2024-10-28T10:56:13.230Z",
-  "endedAt": "2024-10-28T11:01:44.483Z",
-  "duration": 312580,
+  "startedAt": "2024-11-14T22:24:57.976Z",
+  "endedAt": "2024-11-14T22:30:34.800Z",
+  "duration": 318217,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
