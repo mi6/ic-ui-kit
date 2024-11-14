@@ -657,8 +657,11 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
   <ic-navigation-item class="light navigation-item navigation-item-side-nav" role="listitem" slot="primary-navigation">
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item" label="
+          
             
-          Daily Tippers" placement="right" target="navigation-item">
+          
+          Daily Tippers
+        " placement="right" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
     </mock:shadow-root>
@@ -690,8 +693,11 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
     <ic-navigation-item class="light navigation-item navigation-item-side-nav" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="
+            
               
-            Daily Tippers" placement="right" target="navigation-item">
+            
+            Daily Tippers
+          " placement="right" target="navigation-item">
           <slot name="navigation-item"></slot>
         </ic-tooltip>
       </mock:shadow-root>
@@ -710,8 +716,11 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
   <ic-navigation-item class="light navigation-item navigation-item-side-nav" role="listitem" slot="secondary-navigation">
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item" label="
+          
             
-          bar" placement="right" target="navigation-item">
+          
+          bar
+        " placement="right" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
     </mock:shadow-root>
