@@ -150,6 +150,10 @@ export class NavigationItem {
     this.parentEl = parent;
     this.deviceSize = getCurrentDeviceSize();
 
+    this.sideNavExpanded =
+      this.parentEl?.classList.contains("sm-expanded") ||
+      this.parentEl?.classList.contains("xs-menu-open");
+
     if (this.navigationType === "side") {
       this.parentEl.addEventListener(
         "icSideNavExpanded",
