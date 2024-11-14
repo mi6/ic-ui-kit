@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.3...@ukic/canary-react@3.0.0-canary.4) (2024-11-14)
+
+### Bug Fixes
+
+- **canary-react:** fixes version in package-lock ([57dd93c](https://github.com/mi6/ic-ui-kit/commit/57dd93c6ae0050fcc14612c62dd8c19e178e24e4))
+- **canary-react:** remove appearance from pagination stories and fix cypress tests ([e159b2c](https://github.com/mi6/ic-ui-kit/commit/e159b2cb6062cd46f33e1342a68b56f56bfd1f7d))
+- **canary-react:** update broken date picker test ([071c547](https://github.com/mi6/ic-ui-kit/commit/071c547ccd8a8a06f5e64a4a95e8c458a568ce4f))
+
+### Features
+
+- **canary-react:** added theme prop to IcCardHorizontal ([83a475f](https://github.com/mi6/ic-ui-kit/commit/83a475f7a0f5d22ae6416770398c34d4b39f5481))
+- **canary-react:** data-table column header truncation ([a9e996c](https://github.com/mi6/ic-ui-kit/commit/a9e996c2a7b4fb80452703189a441a7386027880))
+- **canary-react:** remove appearance prop and add theme prop to tree view ([9d1c2a8](https://github.com/mi6/ic-ui-kit/commit/9d1c2a8e8823c4aa7c05be70b3dce83e8135cef1))
+
+### BREAKING CHANGES
+
+- **canary-react:** new prop
+
 # [3.0.0-canary.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.2...@ukic/canary-react@3.0.0-canary.3) (2024-10-31)
 
 ### Bug Fixes

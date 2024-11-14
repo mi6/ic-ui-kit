@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.3...@ukic/canary-web-components@3.0.0-canary.4) (2024-11-14)
+
+### Bug Fixes
+
+- **canary-web-components:** add check to event.key to ensure it exists in date input ([a373b58](https://github.com/mi6/ic-ui-kit/commit/a373b5882752c4e2149f4670293c239ef5695ab5)), closes [#1967](https://github.com/mi6/ic-ui-kit/issues/1967)
+- **canary-web-components:** adjust spacing between helper text and input field to match designs ([c190a24](https://github.com/mi6/ic-ui-kit/commit/c190a245d646e69a8dc1b74bb8b292c912a66ea1)), closes [#2301](https://github.com/mi6/ic-ui-kit/issues/2301)
+- **canary-web-components:** fixes truncation of tree items ([add24b7](https://github.com/mi6/ic-ui-kit/commit/add24b77f1ac94bba36db87a81e17b506570211b))
+- **canary-web-components:** fixes version in package-lock ([6e0426f](https://github.com/mi6/ic-ui-kit/commit/6e0426f1114e23fb354d4b9bf8a3a441f398c0fb))
+
+### Features
+
+- **canary-web-components:** add pagination styles to pagination bar with theme prop ([267b821](https://github.com/mi6/ic-ui-kit/commit/267b8212f4fbf5af4e81a1567e9bf2eddc1a930e))
+- **canary-web-components:** added theme prop to ic-card-horizontal ([2972e07](https://github.com/mi6/ic-ui-kit/commit/2972e0787ed960eb357325f649cd45efb9bc5902))
+- **canary-web-components:** implements column header truncation ([d33da48](https://github.com/mi6/ic-ui-kit/commit/d33da48213cd9c68e15434f6fd3e7ab8592243a4))
+- **canary-web-components:** remove appearance prop and add theme prop to tree view ([84f69d0](https://github.com/mi6/ic-ui-kit/commit/84f69d0ce48b4442f5a0191416595c8937b2aaa8))
+
+### BREAKING CHANGES
+
+- **canary-web-components:** adding new theme prop
+- **canary-web-components:** Increase the size of the component overall
+
 # [3.0.0-canary.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.2...@ukic/canary-web-components@3.0.0-canary.3) (2024-10-31)
 
 ### Bug Fixes

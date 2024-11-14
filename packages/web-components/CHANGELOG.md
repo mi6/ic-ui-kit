@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.3...@ukic/web-components@3.0.0-alpha.4) (2024-11-14)
+
+### Bug Fixes
+
+- **web-components:** add tree view css tokens to color-mode.css ([122d8f1](https://github.com/mi6/ic-ui-kit/commit/122d8f1af4362bb558088698ea005dd0a4e7f79e))
+- **web-components:** fix WCAG 1.3.1 issue in popover-menu ([04df1f7](https://github.com/mi6/ic-ui-kit/commit/04df1f775b4b4d73badd810f09fe4c671fa5f75c))
+- **web-components:** fixes nav-item screen reader issue ([d8ca918](https://github.com/mi6/ic-ui-kit/commit/d8ca918ed95c5ad619dce9275e33ab7b0b7c9ad4))
+- **web-components:** optional chaining to removeEventListener functions ([688f8fd](https://github.com/mi6/ic-ui-kit/commit/688f8fda1d55630efa153f015860992c7f12ebea))
+- **web-components:** updated prop name ([9b53d80](https://github.com/mi6/ic-ui-kit/commit/9b53d80d0c9ffd6cec6b5a39a63f9bad5bb35090))
+
+### Features
+
+- **react:** implement theme prop on dialog ([3c4edf0](https://github.com/mi6/ic-ui-kit/commit/3c4edf0fb5e4e1bb4bce6ae4b6eae16939c888ae))
+- **web-components:** add additional functionality to existing ic-divider component ([d71bb97](https://github.com/mi6/ic-ui-kit/commit/d71bb97e00fd3c129f26c2a1e64a1b185fcd33ec)), closes [#1331](https://github.com/mi6/ic-ui-kit/issues/1331) [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** add theme prop to accordion component ([bd505d0](https://github.com/mi6/ic-ui-kit/commit/bd505d0c5e1bfe08198eb7e1ec55e573003b1e22))
+- **web-components:** add theme prop to radio group/radio option ([6ab3a0b](https://github.com/mi6/ic-ui-kit/commit/6ab3a0bb116c8a91b3b458cb6d663f75fd97d1cc))
+- **web-components:** add theme prop to search bar ([8bb9504](https://github.com/mi6/ic-ui-kit/commit/8bb950463aaa4b0910a5a583213c2b631cda982f))
+- **web-components:** add toast color tokens to colors.css and update toast CSS file to use tokens ([87819ae](https://github.com/mi6/ic-ui-kit/commit/87819aee87996c933125e76b189871344dceaf5b))
+- **web-components:** added ag-grid icds theme file ([7f4e9ec](https://github.com/mi6/ic-ui-kit/commit/7f4e9ec9ce169fdad211787d4aece570c8066829))
+- **web-components:** added theme prop to ic-card-vertical ([d8a8840](https://github.com/mi6/ic-ui-kit/commit/d8a8840aff9c6a5e537aa54b32b66d0ac87e4bfb))
+- **web-components:** implement theme prop on alert ([45a0788](https://github.com/mi6/ic-ui-kit/commit/45a0788a6fe9947147f7aa5eafb9c57360879f10))
+- **web-components:** implement theme prop on checkbox/checkbox group ([5d4eb71](https://github.com/mi6/ic-ui-kit/commit/5d4eb71128951264621b4f458cc14ecb9accba1d))
+- **web-components:** implement theme prop on dialog ([96f1948](https://github.com/mi6/ic-ui-kit/commit/96f194806f50aa7fb813a0285789fda9a5325bc8))
+- **web-components:** replace appearance prop with theme and monochrome props on pagination ([8e46dd8](https://github.com/mi6/ic-ui-kit/commit/8e46dd8260aa1993fffc78c166ee8de2c3c1bf4a))
+- **web-components:** update classification banner to use new css tokens ([5113dbb](https://github.com/mi6/ic-ui-kit/commit/5113dbb698252de59694f365b4fff5643a29d9f9))
+- **web-components:** update footer to use css tokens ([89f4981](https://github.com/mi6/ic-ui-kit/commit/89f498167e0d8dbd137cb04d830b4985df3718ed))
+- **web-components:** update hero to use theme css tokens ([fb0c360](https://github.com/mi6/ic-ui-kit/commit/fb0c3606a47ad85f4828b66a28a7effbdb612c99))
+
+### BREAKING CHANGES
+
+- **web-components:** Appearance prop removed from pagination component and replaced with theme and
+  monochrome
+- **web-components:** Prop renamed to 'keyboardShortcutLabel'
+
+2593
+
+- **web-components:** The "appearance" prop has been replaced with a prop called "theme" and the values
+  have been swapped (i.e. the "dark" theme has white text, rather than "light").
+- **web-components:** Change default styling and props on ic-divider
+- **web-components:** added theme prop and dark mode functionality
+
 # [3.0.0-alpha.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.2...@ukic/web-components@3.0.0-alpha.3) (2024-10-31)
 
 ### Bug Fixes

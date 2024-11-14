@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.3...@ukic/react@3.0.0-alpha.4) (2024-11-14)
+
+### Bug Fixes
+
+- **react:** fixes nav-item screen reader issue ([765918e](https://github.com/mi6/ic-ui-kit/commit/765918ef9ced08b99458514e05e046c80d28ea82))
+- **react:** reword wrong spelling ([2c869ac](https://github.com/mi6/ic-ui-kit/commit/2c869ac328274934b678136a08208e995831981c))
+- **react:** updated prop name ([d6fe08d](https://github.com/mi6/ic-ui-kit/commit/d6fe08dd7ccc58101fc642a925ef0a1aeadf2cb6))
+
+### Features
+
+- **react:** add new Cypress tests and stories for IcDivider ([edbc402](https://github.com/mi6/ic-ui-kit/commit/edbc4025950c8af5cec0af836fc9096ab4f5db6b)), closes [#1331](https://github.com/mi6/ic-ui-kit/issues/1331)
+- **react:** add theme prop to accordion component ([684326d](https://github.com/mi6/ic-ui-kit/commit/684326d035f9fb655bede8ade4608bd4cfe3c471))
+- **react:** add theme prop to radio group/radio option ([6ddf7a0](https://github.com/mi6/ic-ui-kit/commit/6ddf7a0c3175a20c18bbf0bfbf2be54fc6ad7a07))
+- **react:** added theme prop to react tests and storybook ([8699f57](https://github.com/mi6/ic-ui-kit/commit/8699f575ec4dc3e707fbb56ac1fce277c3784627))
+- **react:** implement theme prop on alert ([a50dcc1](https://github.com/mi6/ic-ui-kit/commit/a50dcc1a07d20746c814a1ad0ead77cc66bb7445))
+- **react:** implement theme prop on checkbox/checkbox group ([78e38e1](https://github.com/mi6/ic-ui-kit/commit/78e38e142e6b31d6f800bc2d8a578df7382c095d))
+- **react:** implement theme prop on dialog ([3c4edf0](https://github.com/mi6/ic-ui-kit/commit/3c4edf0fb5e4e1bb4bce6ae4b6eae16939c888ae))
+- **react:** replace appearance prop with theme and monochrome props on pagination ([781012c](https://github.com/mi6/ic-ui-kit/commit/781012cfb45f685b1ffc903e5bb695a2425834f9))
+- **react:** update Cypress visual regression tests to reflect search bar theme prop updates ([3939c2b](https://github.com/mi6/ic-ui-kit/commit/3939c2bf9fdf6bb27dc54d4be9e61cc7b3a3c2ac))
+- **react:** update hero to use css tokens ([bee3143](https://github.com/mi6/ic-ui-kit/commit/bee3143acee5e8c275ef7ef4cd3d80320561d4f1))
+
+### BREAKING CHANGES
+
+- **react:** Appearance prop on pagination replaced with theme and monochrome
+- **react:** Updated prop name to 'keyboardShortcutLabel'
+
+2593
+
+- **react:** The "appearance" prop has been replaced with a prop called "theme" and the values
+  have been swapped (i.e. the "dark" theme has white text, rather than "light").
+- **react:** Add default styling and props to IcDivider
+- **react:** adding dark mode
+
 # [3.0.0-alpha.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.2...@ukic/react@3.0.0-alpha.3) (2024-10-31)
 
 ### Bug Fixes
