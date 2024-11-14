@@ -1720,7 +1720,7 @@ export namespace Components {
          */
         "searchMatchPosition"?: IcSearchMatchPositions;
         /**
-          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
+          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
          */
         "searchable"?: boolean;
         /**
@@ -5082,7 +5082,7 @@ declare namespace LocalJSX {
          */
         "searchMatchPosition"?: IcSearchMatchPositions;
         /**
-          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
+          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
          */
         "searchable"?: boolean;
         /**
