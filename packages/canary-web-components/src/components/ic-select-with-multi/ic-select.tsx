@@ -199,7 +199,7 @@ export class Select {
   @Prop() required?: boolean = false;
 
   /**
-   * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
+   * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
    */
   @Prop() searchable?: boolean = false;
 
