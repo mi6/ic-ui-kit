@@ -29,6 +29,7 @@ export const defaultArgs = {
   ["include-descriptions-in-search"]: false,
   ["include-group-titles-in-search"]: false,
   ["search-match-position"]: "anywhere",
+  theme: "inherit",
 };
 
 ### Default
@@ -936,6 +937,10 @@ This shows how the searchable select works within a form. The value will appear 
       showIcon: {
         control: { type: "boolean" },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
   >
     {(args) =>
@@ -962,6 +967,7 @@ This shows how the searchable select works within a form. The value will appear 
           size=${args.size}
           validation-status=${args["validation-status"]}
           validation-text=${args["validation-text"]}
+          theme=${args.theme}
         >
           ${args.showIcon &&
           html` <svg

@@ -678,10 +678,10 @@
   --ic-atoms-input-select-content-icon-light: var(--ic-color-icon-neutral);
   --ic-atoms-input-select-content-icon-dark: var(--ic-color-icon-inverted);
   --ic-atoms-input-select-content-icon-disabled-light: var(
-    --ic-color-icon-disabled-light
+    --ic-color-icon-grey-light
   );
   --ic-atoms-input-select-content-icon-disabled-dark: var(
-    --ic-color-icon-disabled-light
+    --ic-color-icon-grey-light
   );
   --ic-atoms-input-select-content-divider-light: var(
     --ic-color-icon-grey-default

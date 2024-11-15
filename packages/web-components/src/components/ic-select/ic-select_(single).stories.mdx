@@ -27,6 +27,7 @@ export const defaultArgs = {
   ["validation-status"]: "none",
   ["validation-text"]: "",
   ["show-clear-button"]: false,
+  theme: "inherit",
 };
 
 ### Default
@@ -759,6 +760,10 @@ This shows how the single select works within a form. The value will appear in t
       showIcon: {
         control: { type: "boolean" },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
   >
     {(args) =>
@@ -778,6 +783,7 @@ This shows how the single select works within a form. The value will appear in t
           size=${args.size}
           validation-status=${args["validation-status"]}
           validation-text=${args["validation-text"]}
+          theme=${args.theme}
         >
           ${args.showIcon &&
           html` <svg
