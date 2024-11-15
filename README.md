@@ -45,7 +45,7 @@ To install the components, no additional configuration is needed for internal sy
 You can optionally install [nvm](https://github.com/nvm-sh/nvm) to use the correct node version. After installing nvm on your machine, install the suitable node version:
 
 ```console
-nvm i
+nvm install
 ```
 
 This is a monorepo using [`lerna`](https://github.com/lerna/lerna). To get started is simple:
