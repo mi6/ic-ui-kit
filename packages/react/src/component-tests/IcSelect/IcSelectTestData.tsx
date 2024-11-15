@@ -2,6 +2,7 @@
 
 import React, { ReactElement, useState, useRef } from "react";
 import { IcButton, IcSelect } from "../../components";
+import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 export const coffeeOptions = [
   { label: "Espresso", value: "espresso" },
@@ -462,3 +463,104 @@ export const MultiSelectWithClearButton = () => {
     </div>
   );
 };
+
+export const DarkTheme = (): ReactElement => (
+  <div style={{ backgroundColor: "#121212" }}>
+    <IcSelect
+      label="What are your favourite types of coffee?"
+      helperText="Select one option from the list"
+      theme="dark"
+      options={coffeeDisabledOption}
+      showClearButton
+      placeholder="Placeholder goes here"
+      required
+    >
+      <SlottedSVG
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+      >
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
+      </SlottedSVG>
+    </IcSelect>
+  </div>
+);
+
+export const DarkThemeGroupDescription = (): ReactElement => (
+  <div style={{ backgroundColor: "#121212" }}>
+    <IcSelect
+      label="What are your favourite types of coffee?"
+      theme="dark"
+      options={groupAndDescriptionCoffeeOption}
+    />
+  </div>
+);
+
+export const DarkThemeReadonlyDisabled = (): ReactElement => (
+  <div style={{ backgroundColor: "#121212" }}>
+    <IcSelect
+      label="What are your favourite types of coffee?"
+      theme="dark"
+      disabled
+    />
+    <IcSelect
+      label="What are your favourite types of coffee?"
+      theme="dark"
+      value="espresso"
+      options={coffeeOptions}
+      readonly
+    />
+  </div>
+);
+
+export const DarkThemeValidation = (): ReactElement => (
+  <div style={{ backgroundColor: "#121212" }}>
+    <IcSelect
+      label="What is your favourite coffee?"
+      validationStatus="success"
+      validationText="Coffee available"
+      theme="dark"
+      options={coffeeOptions}
+    />
+    <IcSelect
+      label="What is your favourite coffee?"
+      validationStatus="warning"
+      validationText="Only a few left"
+      theme="dark"
+      options={coffeeOptions}
+    />
+    <IcSelect
+      label="What is your favourite coffee?"
+      validationStatus="error"
+      validationText="Coffee unavailable"
+      theme="dark"
+      options={coffeeOptions}
+    />
+  </div>
+);
+
+export const DarkThemeMulti = (): ReactElement => (
+  <div style={{ backgroundColor: "#121212" }}>
+    <IcSelect
+      label="What are your favourite types of coffee?"
+      options={coffeeOptions}
+      multiple
+      value={["doubleespresso", "flatwhite", "mocha"]}
+      theme="dark"
+    />
+  </div>
+);
+
+export const DarkThemeSearchable = (): ReactElement => (
+  <div style={{ backgroundColor: "#121212" }}>
+    <IcSelect
+      label="What is your favourite coffee?"
+      options={searchableCoffeeOption}
+      theme="dark"
+      searchable
+    />
+  </div>
+);
