@@ -5,6 +5,7 @@ import React from "react";
 import {
   HAVE_ATTR,
   HAVE_BEEN_CALLED_ONCE,
+  HAVE_CALL_COUNT,
   HAVE_FOCUS,
   NOT_EXIST,
 } from "../utils/constants";
@@ -15,6 +16,8 @@ import {
   IC_INPUT_CONTAINER,
   IC_MENU_UL,
   IC_SELECT,
+  OPTION_DESELECT_STUB,
+  OPTION_SELECT_STUB,
 } from "./IcSelectConstants";
 import {
   MultiSelectDefault,
@@ -27,6 +30,7 @@ import {
   MultiSelectWithDescriptions,
   MultiSelectDefaultValue,
   MultiSelectWithClearButton,
+  DarkThemeMulti,
 } from "./IcSelectTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -200,8 +204,8 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
       expect(stub.getCall(0).args[0].detail.value.length).to.equal(1);
       expect(stub.getCall(0).args[0].detail.value[0]).to.equal("espresso");
     });
-    cy.get("@icOptionSelect").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get("@icOptionSelect").should((stub) => {
+    cy.get(OPTION_SELECT_STUB).should(HAVE_BEEN_CALLED_ONCE);
+    cy.get(OPTION_SELECT_STUB).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal("espresso");
     });
   });
@@ -244,8 +248,8 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     cy.get("@icChange").should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(null);
     });
-    cy.get("@icOptionDeselect").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get("@icOptionDeselect").should((stub) => {
+    cy.get(OPTION_DESELECT_STUB).should(HAVE_BEEN_CALLED_ONCE);
+    cy.get(OPTION_DESELECT_STUB).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal("espresso");
     });
   });
@@ -419,6 +423,23 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
       },
     });
   });
+
+  it("should render dark theme multi select variant", () => {
+    mount(<DarkThemeMulti />);
+
+    cy.checkHydrated(IC_SELECT);
+    cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.compareSnapshot({
+      name: "dark-theme-multi-select",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
 });
 
 describe("IcSelect - Multi visual regression tests in high contrast mode", () => {
@@ -573,7 +594,7 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     cy.get("@icChange").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value.length).to.equal(6);
     });
-    cy.get("@icOptionSelect").should("have.callCount", 3);
+    cy.get(OPTION_SELECT_STUB).should(HAVE_CALL_COUNT, 3);
   });
 
   it("should emit icChange when the clear all button is pressed, and emit icOptionDeselect for all options", () => {
@@ -595,7 +616,7 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     cy.get("@icChange").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(null);
     });
-    cy.get("@icOptionDeselect").should("have.callCount", 6);
+    cy.get(OPTION_DESELECT_STUB).should(HAVE_CALL_COUNT, 6);
   });
 
   it("should select and clear all options on Ctrl+A", () => {
@@ -617,13 +638,13 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).click().type("{ctrl}a");
 
     cy.get("@icChange").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get("@icOptionSelect").should("have.callCount", 6);
+    cy.get(OPTION_SELECT_STUB).should(HAVE_CALL_COUNT, 6);
 
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("{ctrl}a");
 
     cy.get("@icChange").should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(null);
     });
-    cy.get("@icOptionDeselect").should("have.callCount", 6);
+    cy.get(OPTION_DESELECT_STUB).should(HAVE_CALL_COUNT, 6);
   });
 });

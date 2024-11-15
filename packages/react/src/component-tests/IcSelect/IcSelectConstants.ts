@@ -20,3 +20,8 @@ export const INPUT_TYPE_HIDDEN = "input[type='hidden']";
 export const NO_RESULTS_FOUND = "No results found";
 export const RETRY_BUTTON = "#retry-button";
 export const LOADING_MESSAGE = "Loading...";
+
+export const COFFEE_EXAMPLE = "Café au lait";
+export const OPTION_SELECT_STUB = "@icOptionSelect";
+export const OPTION_DESELECT_STUB = "@icOptionDeselect";
+export const OPTION_GROUP_TITLE = "option-group-title";
