@@ -36,6 +36,7 @@ import {
   IcThemeForegroundEnum,
   IcValueEventDetail,
   IcSizes,
+  IcThemeMode,
 } from "../../utils/types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
@@ -201,6 +202,11 @@ export class Select {
    * If using external filtering, set a timeout for when loading takes too long.
    */
   @Prop() timeout?: number;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
@@ -1124,6 +1130,7 @@ export class Select {
       validationStatus,
       validationText,
       currValue,
+      theme,
     } = this;
 
     // HTML inputs only accept 'string' for their value
@@ -1156,10 +1163,11 @@ export class Select {
     return (
       <Host
         class={{
-          ["ic-select-disabled"]: disabled,
-          ["ic-select-searchable"]: searchable,
+          "ic-select-disabled": disabled,
+          "ic-select-searchable": searchable,
           [`ic-select-${size}`]: size !== "medium",
-          ["ic-select-full-width"]: fullWidth,
+          "ic-select-full-width": fullWidth,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         onBlur={this.onBlur}
       >
