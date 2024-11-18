@@ -44,7 +44,7 @@ button {
 .card.clickable {
   display: flex;
   flex-direction: row;
-  border: var(--ic-border-default);
+  border: var(--ic-space-1px) solid var(--ic-card-border-color);
   border-radius: var(--ic-border-radius);
   box-sizing: border-box;
   text-align: left;
@@ -64,7 +64,7 @@ button {
 
 .card.clickable:hover {
   background-color: var(--ic-card-clickable-focus-hover-bg);
-  border: var(--ic-border-hover);
+  border: var(--ic-space-1px) solid var(--ic-card-hover-border-color);
   cursor: pointer;
 }
 
@@ -73,7 +73,7 @@ button {
   background-color: var(--ic-card-clickable-focus-hover-bg);
   box-shadow: var(--ic-border-focus);
   outline: var(--ic-hc-focus-outline);
-  border: var(--ic-border-pressed-default);
+  border: var(--ic-space-1px) solid var(--ic-card-pressed-border-color);
 }
 
 .card.clickable:active {
@@ -82,7 +82,7 @@ button {
 }
 
 .card.disabled {
-  border: var(--ic-border-disabled);
+  border: var(--ic-space-1px) dashed var(--ic-card-disabled-border-color);
 }
 
 .card-header {
