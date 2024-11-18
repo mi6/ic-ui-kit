@@ -1,8 +1,8 @@
 {
-  "total": 663,
-  "totalPassed": 663,
+  "total": 661,
+  "totalPassed": 661,
   "totalFailed": 0,
-  "totalSuites": 37,
+  "totalSuites": 36,
   "suites": [
     {
       "name": "IcAccordion.cy.tsx",
@@ -2664,34 +2664,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcEmptyState.cy.tsx-truncated-text-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcEmptyState.cy.tsx-truncated-text-high-contrast.png"
-        }
-      ]
-    },
-    {
-      "name": "IcFooter.cy.tsx",
-      "path": "src/component-tests/IcFooter/IcFooter.cy.tsx",
-      "tests": [
-        {
-          "status": "pass",
-          "name": "IcFooter.cy.tsx-default",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcFooter/IcFooter.cy.tsx",
-          "specFilename": "IcFooter.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcFooter.cy.tsx-default.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-default.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcFooter.cy.tsx-group-links",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcFooter/IcFooter.cy.tsx",
-          "specFilename": "IcFooter.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcFooter.cy.tsx-group-links.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcFooter.cy.tsx-group-links.png"
         }
       ]
     },
@@ -7520,9 +7492,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-18T16:14:34.567Z",
-  "endedAt": "2024-11-18T16:28:51.504Z",
-  "duration": 770473,
+  "startedAt": "2024-11-18T16:52:23.497Z",
+  "endedAt": "2024-11-18T17:05:41.198Z",
+  "duration": 718166,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
