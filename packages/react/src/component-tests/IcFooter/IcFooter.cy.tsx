@@ -70,6 +70,29 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it.only("should focus grouped link in mobile viewport", () => {
+    mount(<GroupedLinks />);
+    cy.viewport(600, 750);
+
+    cy.checkHydrated(FOOTER_SELECTOR);
+
+    cy.get(FOOTER_LINK_GROUP_SELECTOR)
+      .should(BE_VISIBLE)
+      .should(HAVE_LENGTH, "3");
+
+    cy.get(FOOTER_LINK_GROUP_SELECTOR).last().click();
+    cy.realPress(["Shift", "Tab"])
+      .realPress(["Shift", "Tab"])
+      .realPress("Space");
+    cy.get(FOOTER_LINK_GROUP_SELECTOR).should(HAVE_ATTR, "aria-expanded");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "group-links-mobile",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+  });
+
   it("should toggle the link groups when clicked - before click", () => {
     mount(<ToggleGroupLinks />);
     cy.viewport(600, 750);
