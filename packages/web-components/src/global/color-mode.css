@@ -427,6 +427,12 @@ ic-theme,
   --ic-card-toggle-button: var(--ic-action-default);
   --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
   --ic-card-toggle-button-active: var(--ic-action-default-active-alpha);
+  --ic-card-border-color: var(--ic-color-border-neutral-default);
+  --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-default);
+  --ic-card-pressed-border-color: var(
+    --ic-color-border-neutral-pressed-default
+  );
+  --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled-dark);
 
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
@@ -1180,6 +1186,14 @@ ic-theme,
     --ic-card-toggle-button: var(--ic-action-default);
     --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
     --ic-card-toggle-button-active: var(--ic-action-default-pressed);
+    --ic-card-border-color: var(--ic-color-border-neutral-white);
+    --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-light);
+    --ic-card-pressed-border-color: var(
+      --ic-color-border-neutral-pressed-light
+    );
+    --ic-card-disabled-border-color: var(
+      --ic-color-border-neutral-disabled-light
+    );
 
     /* Data list */
     --ic-data-list-text-cell: var(--ic-color-text-primary);
@@ -1945,6 +1959,12 @@ ic-theme,
   --ic-card-toggle-button: var(--ic-action-default);
   --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
   --ic-card-toggle-button-active: var(--ic-action-default-pressed);
+  --ic-card-border-color: var(--ic-color-border-neutral-white);
+  --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-light);
+  --ic-card-pressed-border-color: var(--ic-color-border-neutral-pressed-light);
+  --ic-card-disabled-border-color: var(
+    --ic-color-border-neutral-disabled-light
+  );
 
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
