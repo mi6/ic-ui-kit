@@ -9,6 +9,8 @@ import {
   WithCurrentPage,
   Collapsed,
   Appearance,
+  ToggleCollapsed,
+  ToggleBackBreadcrumb,
 } from "./IcBreadcrumbTestData";
 import {
   BE_VISIBLE,
@@ -56,6 +58,23 @@ describe("IcBreadcrumb end-to-end tests", () => {
     cy.get('[page-title="Coffee"]').should(NOT_BE_VISIBLE);
   });
 
+  it("should switch from default view to back arrow with parent breadcrumb when backBreadcrumbOnly prop is set on IcBreadcrumbGroup and revert when prop is removed", () => {
+    mount(<ToggleBackBreadcrumb />);
+
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.get("ic-button").click();
+    cy.get('ic-breadcrumb[page-title="Beverages"]').should(
+      HAVE_ATTR,
+      "show-back-icon"
+    );
+    cy.get("ic-button").click();
+    cy.get('ic-breadcrumb[page-title="Beverages"]').should(
+      HAVE_ATTR,
+      "show-back-icon",
+      "false"
+    );
+  });
+
   it("should render breadcrumb with icons", () => {
     mount(<WithIcons />);
 
@@ -99,6 +118,16 @@ describe("IcBreadcrumb end-to-end tests", () => {
     cy.get("#collapsed-ellipsis").click();
     cy.get('[page-title="Beverages"]').should(BE_VISIBLE);
     cy.get("#collapsed-ellipsis").should(NOT_EXIST);
+  });
+
+  it("should render collapsed breadcrumb when toggled", () => {
+    mount(<ToggleCollapsed />);
+
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.get("ic-button").click();
+    cy.get("ic-button").click();
+    cy.get("ic-button").click();
+    cy.get(".collapsed-breadcrumb").should("have.length", 1);
   });
 });
 
