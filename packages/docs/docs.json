@@ -6434,33 +6434,6 @@
       "usage": {},
       "props": [
         {
-          "name": "appearance",
-          "type": "\"dark\" | \"default\"",
-          "complexType": {
-            "original": "\"dark\" | \"default\"",
-            "resolved": "\"dark\" | \"default\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "The appearance of the input component container.",
-          "docsTags": [],
-          "default": "\"default\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "disabled",
           "type": "boolean",
           "complexType": {
@@ -6661,6 +6634,51 @@
           "name": "--border-color-disabled",
           "annotation": "prop",
           "docs": "Border colour of the input component container when disabled"
+        },
+        {
+          "name": "--border-color-error",
+          "annotation": "prop",
+          "docs": "Border colour of the error variant for input component container"
+        },
+        {
+          "name": "--border-color-error-hover",
+          "annotation": "prop",
+          "docs": "Border colour of the error hover variant for input component container"
+        },
+        {
+          "name": "--border-color-error-pressed",
+          "annotation": "prop",
+          "docs": "Border colour of the error pressed variant for input component container"
+        },
+        {
+          "name": "--border-color-success",
+          "annotation": "prop",
+          "docs": "Border colour of the success variant for input component container"
+        },
+        {
+          "name": "--border-color-success-hover",
+          "annotation": "prop",
+          "docs": "Border colour of the success hover variant for input component container"
+        },
+        {
+          "name": "--border-color-success-pressed",
+          "annotation": "prop",
+          "docs": "Border colour of the success pressed variant for input component container"
+        },
+        {
+          "name": "--border-color-warning",
+          "annotation": "prop",
+          "docs": "Border colour of the warning variant for input component container"
+        },
+        {
+          "name": "--border-color-warning-hover",
+          "annotation": "prop",
+          "docs": "Border colour of the warning hover variant for input component container"
+        },
+        {
+          "name": "--border-color-warning-pressed",
+          "annotation": "prop",
+          "docs": "Border colour of the warning pressed variant for input component container"
         }
       ],
       "slots": [
@@ -6767,33 +6785,6 @@
       "docsTags": [],
       "usage": {},
       "props": [
-        {
-          "name": "appearance",
-          "type": "\"dark\" | \"default\"",
-          "complexType": {
-            "original": "\"dark\" | \"default\"",
-            "resolved": "\"dark\" | \"default\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "The appearance of the input label.",
-          "docsTags": [],
-          "default": "\"default\"",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "disabled",
           "type": "boolean",
@@ -16197,6 +16188,43 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
             }
           ],
           "optional": false,

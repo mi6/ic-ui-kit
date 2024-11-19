@@ -18,7 +18,7 @@ button {
 .card {
   display: flex;
   flex-direction: column;
-  border: var(--ic-border-default);
+  border: var(--ic-space-1px) solid var(--ic-card-border-color);
   border-radius: var(--ic-border-radius);
   box-sizing: border-box;
   padding: var(--ic-space-md);
@@ -44,7 +44,7 @@ button {
   &.clickable {
     &:hover {
       background-color: var(--ic-card-clickable-focus-hover-bg);
-      border: var(--ic-border-hover);
+      border: var(--ic-space-1px) solid var(--ic-card-hover-border-color);
       cursor: pointer;
     }
     &.focussed,
@@ -52,7 +52,7 @@ button {
       background-color: var(--ic-card-clickable-focus-hover-bg);
       box-shadow: var(--ic-border-focus);
       outline: var(--ic-hc-focus-outline);
-      border: var(--ic-border-pressed-default);
+      border: var(--ic-space-1px) solid var(--ic-card-pressed-border-color);
     }
     &:active {
       background-color: var(--ic-card-clickable-active-bg);
@@ -71,7 +71,7 @@ button {
     }
   }
   &.disabled {
-    border: var(--ic-border-disabled);
+    border: var(--ic-space-1px) dashed var(--ic-card-disabled-border-color);
 
     .card-message,
     .subheading,

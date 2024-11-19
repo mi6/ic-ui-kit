@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { useRef, useState, ReactElement } from "react";
 import { IcTextField, IcButton } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
@@ -17,9 +18,9 @@ const ReusableSlottedIcon = (): ReactElement => (
   </SlottedSVG>
 );
 
-export const Controlled = () => {
+export const Controlled = (): ReactElement => {
   const [value, setValue] = useState("");
-  const handleChange = (event: any) => {
+  const handleChange = (event) => {
     console.log(event.detail.value);
     setValue(event.detail.value);
   };
@@ -33,10 +34,10 @@ export const Controlled = () => {
   );
 };
 
-export const Uncontrolled = () => {
-  const textFieldEl = useRef<any>(null);
+export const Uncontrolled = (): ReactElement => {
+  const textFieldEl = useRef<HTMLIcTextFieldElement>(null);
   const handleChange = () => {
-    console.log(textFieldEl.current.value);
+    console.log(textFieldEl?.current?.value);
   };
   return (
     <IcTextField
@@ -342,5 +343,104 @@ export const CustomSizeTextField = (): ReactElement => (
       placeholder="Placeholder"
       helper-text="Such as Arabica, Robusta or Liberica"
     ></IcTextField>
+  </div>
+);
+
+export const DarkTheme = (): ReactElement => (
+  <div style={{ backgroundColor: "#121212" }}>
+    <IcTextField
+      theme="dark"
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+    >
+      <SlottedSVG
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+      >
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
+      </SlottedSVG>
+    </IcTextField>
+    <IcTextField
+      theme="dark"
+      label="What is your favourite coffee?"
+      required
+      helperText="Such as Arabica, Robusta or Liberica"
+      value="Arabica"
+      maxCharacters={25}
+    />
+    <IcTextField
+      theme="dark"
+      disabled
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      helperText="Such as Arabica, Robusta or Liberica"
+    />
+    <IcTextField
+      theme="dark"
+      readonly
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      helperText="Such as Arabica, Robusta or Liberica"
+    />
+    <IcTextField
+      theme="dark"
+      rows={6}
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      helperText="Such as Arabica, Robusta or Liberica"
+      resize
+      size="small"
+    />
+  </div>
+);
+
+export const DarkThemeValidation = (): ReactElement => (
+  <div style={{ backgroundColor: "#121212" }}>
+    <IcTextField
+      theme="dark"
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      helperText="Such as Arabica, Robusta or Liberica"
+      validationStatus="success"
+      validationText="Good choice!"
+    />
+    <IcTextField
+      theme="dark"
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      helperText="Such as Arabica, Robusta or Liberica"
+      validationStatus="success"
+      validationText="Good choice!"
+      validationInline
+    />
+    <IcTextField
+      theme="dark"
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      helperText="Such as Arabica, Robusta or Liberica"
+      validationStatus="warning"
+      validationText="A very long warning message to test if wrapping works"
+    />
+    <IcTextField
+      theme="dark"
+      value="Tea"
+      label="What is your favourite coffee?"
+      required
+      helperText="Such as Arabica, Robusta or Liberica"
+      validationStatus="error"
+      validationText="Now it has really gone to (coffee) pot"
+    />
   </div>
 );

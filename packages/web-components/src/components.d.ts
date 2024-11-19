@@ -847,10 +847,6 @@ export namespace Components {
     }
     interface IcInputComponentContainer {
         /**
-          * The appearance of the input component container.
-         */
-        "appearance"?: "dark" | "default";
-        /**
           * If `true`, the disabled state will be set.
          */
         "disabled": boolean;
@@ -890,10 +886,6 @@ export namespace Components {
         "readonly"?: boolean;
     }
     interface IcInputLabel {
-        /**
-          * The appearance of the input label.
-         */
-        "appearance"?: "dark" | "default";
         /**
           * If `true`, the disabled state will be set.
          */
@@ -2103,6 +2095,10 @@ export namespace Components {
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
         "spellcheck": boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
         "truncateValue"?: boolean;
         /**
           * The type of control to display. The default type is text.
@@ -4141,10 +4137,6 @@ declare namespace LocalJSX {
     }
     interface IcInputComponentContainer {
         /**
-          * The appearance of the input component container.
-         */
-        "appearance"?: "dark" | "default";
-        /**
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
@@ -4184,10 +4176,6 @@ declare namespace LocalJSX {
         "readonly"?: boolean;
     }
     interface IcInputLabel {
-        /**
-          * The appearance of the input label.
-         */
-        "appearance"?: "dark" | "default";
         /**
           * If `true`, the disabled state will be set.
          */
@@ -5503,6 +5491,10 @@ declare namespace LocalJSX {
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
         "spellcheck"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         "truncateValue"?: boolean;
         /**
           * The type of control to display. The default type is text.

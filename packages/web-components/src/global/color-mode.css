@@ -427,6 +427,12 @@ ic-theme,
   --ic-card-toggle-button: var(--ic-action-default);
   --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
   --ic-card-toggle-button-active: var(--ic-action-default-active-alpha);
+  --ic-card-border-color: var(--ic-color-border-neutral-default);
+  --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-default);
+  --ic-card-pressed-border-color: var(
+    --ic-color-border-neutral-pressed-default
+  );
+  --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled-dark);
 
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
@@ -452,6 +458,22 @@ ic-theme,
   --ic-empty-state-title: var(--ic-color-text-primary);
   --ic-empty-state-subtitle: var(--ic-color-text-secondary);
   --ic-empty-state-body: var(--ic-color-text-tertiary);
+
+  /* Input component container */
+  --ic-input-component-container-success-icon-inline-color: var(
+    --ic-atoms-status-icon-success
+  );
+  --ic-input-component-container-hover-border: var(--ic-border-hover);
+
+  /* Input label */
+  --ic-input-label-readonly-typography-color: var(--ic-color-text-tertiary);
+  --ic-input-label-readonly-label-color: var(--ic-color-text-secondary);
+  --ic-input-label-readonly-helpertext-color: var(--ic-color-text-tertiary);
+  --ic-input-label-error-label-color: var(--ic-atoms-input-field-label-error);
+
+  /* Input validation */
+  --ic-input-validation-success-icon-color: var(--ic-atoms-status-icon-success);
+  --ic-input-validation-warning-icon-color: var(--ic-atoms-status-icon-warning);
 
   /* Links */
   --ic-link-text: var(--ic-color-hyperlink-default);
@@ -710,6 +732,12 @@ ic-theme,
   --ic-tab-item-monochrome: var(--ic-action-dark);
   --ic-tab-item-hover: var(--ic-action-default-bg-hover);
   --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+  /* Text field */
+  --ic-text-field-input-readonly-color: var(--ic-color-text-primary);
+  --ic-text-field-char-count-text-color: var(--ic-color-text-secondary);
+  --ic-text-field-no-value-icon-color: var(--ic-color-text-tertiary);
+  --ic-text-field-has-value-icon-color: var(--ic-color-text-primary);
 
   /* Tree view */
   --ic-tree-view-text: var(--ic-color-text-primary);
@@ -1158,6 +1186,14 @@ ic-theme,
     --ic-card-toggle-button: var(--ic-action-default);
     --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
     --ic-card-toggle-button-active: var(--ic-action-default-pressed);
+    --ic-card-border-color: var(--ic-color-border-neutral-white);
+    --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-light);
+    --ic-card-pressed-border-color: var(
+      --ic-color-border-neutral-pressed-light
+    );
+    --ic-card-disabled-border-color: var(
+      --ic-color-border-neutral-disabled-light
+    );
 
     /* Data list */
     --ic-data-list-text-cell: var(--ic-color-text-primary);
@@ -1183,6 +1219,26 @@ ic-theme,
     --ic-empty-state-title: var(--ic-color-text-primary);
     --ic-empty-state-subtitle: var(--ic-color-text-secondary);
     --ic-empty-state-body: var(--ic-color-text-tertiary);
+
+    /* Input component container */
+    --ic-input-component-container-success-icon-inline-color: var(
+      --ic-atoms-status-icon-success
+    );
+    --ic-input-component-container-hover-border: var(--ic-border-light);
+
+    /* Input label */
+    --ic-input-label-readonly-typography-color: var(--ic-color-text-tertiary);
+    --ic-input-label-readonly-label-color: var(--ic-color-text-secondary);
+    --ic-input-label-readonly-helpertext-color: var(--ic-color-text-tertiary);
+    --ic-input-label-error-label-color: var(--ic-atoms-input-field-label-error);
+
+    /* Input validation */
+    --ic-input-validation-success-icon-color: var(
+      --ic-atoms-status-icon-success
+    );
+    --ic-input-validation-warning-icon-color: var(
+      --ic-atoms-status-icon-warning
+    );
 
     /* Links */
     --ic-link-text: var(--ic-color-hyperlink-default-dark);
@@ -1455,6 +1511,12 @@ ic-theme,
     --ic-tab-item-monochrome: var(--ic-action-light);
     --ic-tab-item-hover: var(--ic-action-light-bg-hover);
     --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+    /* Text field */
+    --ic-text-field-input-readonly-color: var(--ic-color-text-primary);
+    --ic-text-field-char-count-text-color: var(--ic-color-text-secondary);
+    --ic-text-field-no-value-icon-color: var(--ic-color-text-tertiary);
+    --ic-text-field-has-value-icon-color: var(--ic-color-text-primary);
 
     /* Tree view */
     --ic-tree-view-text: var(--ic-color-text-primary);
@@ -1897,6 +1959,12 @@ ic-theme,
   --ic-card-toggle-button: var(--ic-action-default);
   --ic-card-toggle-button-focus-hover: var(--ic-action-default-hover);
   --ic-card-toggle-button-active: var(--ic-action-default-pressed);
+  --ic-card-border-color: var(--ic-color-border-neutral-white);
+  --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-light);
+  --ic-card-pressed-border-color: var(--ic-color-border-neutral-pressed-light);
+  --ic-card-disabled-border-color: var(
+    --ic-color-border-neutral-disabled-light
+  );
 
   /* Data list */
   --ic-data-list-text-cell: var(--ic-color-text-primary);
@@ -1922,6 +1990,22 @@ ic-theme,
   --ic-empty-state-title: var(--ic-color-text-primary);
   --ic-empty-state-subtitle: var(--ic-color-text-secondary);
   --ic-empty-state-body: var(--ic-color-text-tertiary);
+
+  /* Input component container */
+  --ic-input-component-container-success-icon-inline-color: var(
+    --ic-atoms-status-icon-success
+  );
+  --ic-input-component-container-hover-border: var(--ic-border-light);
+
+  /* Input label */
+  --ic-input-label-readonly-typography-color: var(--ic-color-text-tertiary);
+  --ic-input-label-readonly-label-color: var(--ic-color-text-secondary);
+  --ic-input-label-readonly-helpertext-color: var(--ic-color-text-tertiary);
+  --ic-input-label-error-label-color: var(--ic-atoms-input-field-label-error);
+
+  /* Input validation */
+  --ic-input-validation-success-icon-color: var(--ic-atoms-status-icon-success);
+  --ic-input-validation-warning-icon-color: var(--ic-atoms-status-icon-warning);
 
   /* Links */
   --ic-link-text: var(--ic-color-hyperlink-default-dark);
@@ -2186,6 +2270,12 @@ ic-theme,
   --ic-tab-item-monochrome: var(--ic-action-light);
   --ic-tab-item-hover: var(--ic-action-light-bg-hover);
   --ic-tab-item-hover-monochrome: var(--ic-action-dark-bg-hover);
+
+  /* Text field */
+  --ic-text-field-input-readonly-color: var(--ic-color-text-primary);
+  --ic-text-field-char-count-text-color: var(--ic-color-text-secondary);
+  --ic-text-field-no-value-icon-color: var(--ic-color-text-tertiary);
+  --ic-text-field-has-value-icon-color: var(--ic-color-text-primary);
 
   /* Tree view */
   --ic-tree-view-text: var(--ic-color-text-primary);
