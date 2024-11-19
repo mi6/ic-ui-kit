@@ -1,7 +1,7 @@
 {
-  "total": 700,
-  "totalPassed": 700,
-  "totalFailed": 0,
+  "total": 703,
+  "totalPassed": 702,
+  "totalFailed": 1,
   "totalSuites": 39,
   "suites": [
     {
@@ -886,14 +886,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-router-slot.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcButton.cy.tsx-icon-variants-button-group",
-          "percentage": 0,
+          "percentage": 0.030983866769659335,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-icon-variants-button-group.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-icon-variants-button-group.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-icon-variants-button-group.png"
         },
         {
@@ -3864,6 +3864,17 @@
         },
         {
           "status": "pass",
+          "name": "IcPageHeader.cy.tsx-dark-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPageHeader/IcPageHeader.cy.tsx",
+          "specFilename": "IcPageHeader.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPageHeader.cy.tsx-dark-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPageHeader.cy.tsx-dark-theme.png"
+        },
+        {
+          "status": "pass",
           "name": "IcPageHeader.cy.tsx-with-slotted-headings",
           "percentage": 0,
           "failureThreshold": 0,
@@ -6736,6 +6747,28 @@
         },
         {
           "status": "pass",
+          "name": "IcTextField.cy.tsx-dark-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
+          "specFilename": "IcTextField.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-dark-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-dark-theme.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTextField.cy.tsx-dark-theme-validation",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
+          "specFilename": "IcTextField.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-dark-theme-validation.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-dark-theme-validation.png"
+        },
+        {
+          "status": "pass",
           "name": "IcTextField.cy.tsx-focused-input-text-field-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7939,9 +7972,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-18T09:02:52.940Z",
-  "endedAt": "2024-11-18T09:17:20.863Z",
-  "duration": 781624,
+  "startedAt": "2024-11-19T11:05:42.412Z",
+  "endedAt": "2024-11-19T11:20:00.189Z",
+  "duration": 771794,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
