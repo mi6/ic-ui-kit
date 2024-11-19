@@ -8345,6 +8345,28 @@
       "usage": {},
       "props": [
         {
+          "name": "checked",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "checked",
+          "reflectToAttr": true,
+          "docs": "If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "description",
           "type": "string",
           "complexType": {
@@ -8590,28 +8612,6 @@
             }
           ],
           "optional": true,
-          "required": false
-        },
-        {
-          "name": "toggleChecked",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "toggle-checked",
-          "reflectToAttr": true,
-          "docs": "If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
           "required": false
         },
         {
@@ -10615,16 +10615,15 @@
       "events": [
         {
           "event": "icPopoverClosed",
-          "detail": "IcValueEventDetail",
+          "detail": "HTMLIcMenuItemElement",
           "bubbles": true,
           "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
+            "original": "HTMLIcMenuItemElement",
+            "resolved": "HTMLIcMenuItemElement",
             "references": {
-              "IcValueEventDetail": {
-                "location": "import",
-                "path": "../../components",
-                "id": "src/components.d.ts::IcValueEventDetail"
+              "HTMLIcMenuItemElement": {
+                "location": "global",
+                "id": "global::HTMLIcMenuItemElement"
               }
             }
           },
@@ -18935,6 +18934,11 @@
       "docstring": "",
       "path": "src/components/ic-divider/ic-divider.types.tsx"
     },
+    "src/utils/types.ts::IcOrientation": {
+      "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/components/ic-divider/ic-divider.types.tsx::IcDividerWeights": {
       "declaration": "export type IcDividerWeights = \"thin\" | \"medium\" | \"thick\" | \"very-thick\";",
       "docstring": "",
@@ -19029,16 +19033,6 @@
       "declaration": "export type IcPaginationItemType = \"page\" | \"ellipsis\" | \"simple-current\";",
       "docstring": "",
       "path": "src/components/ic-pagination-item/ic-pagination-item.types.ts"
-    },
-    "src/components.d.ts::IcValueEventDetail": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "src/components.d.ts"
-    },
-    "src/utils/types.ts::IcOrientation": {
-      "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail": {
       "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",
