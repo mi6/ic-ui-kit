@@ -1,7 +1,7 @@
 {
-  "total": 716,
+  "total": 717,
   "totalPassed": 716,
-  "totalFailed": 0,
+  "totalFailed": 1,
   "totalSuites": 39,
   "suites": [
     {
@@ -3158,6 +3158,17 @@
         },
         {
           "status": "pass",
+          "name": "IcHero.cy.tsx-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcHero/IcHero.cy.tsx",
+          "specFilename": "IcHero.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-theme.png"
+        },
+        {
+          "status": "pass",
           "name": "IcHero.cy.tsx-default-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -4811,14 +4822,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-spellcheck.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSearchBar.cy.tsx-theme-dark",
-          "percentage": 0,
+          "percentage": 0.2749399934531169,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-theme-dark.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-theme-dark.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-theme-dark.png"
         },
         {
@@ -8115,9 +8126,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-19T10:09:10.497Z",
-  "endedAt": "2024-11-19T10:24:06.842Z",
-  "duration": 806559,
+  "startedAt": "2024-11-19T10:28:51.650Z",
+  "endedAt": "2024-11-19T10:43:05.526Z",
+  "duration": 768304,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
