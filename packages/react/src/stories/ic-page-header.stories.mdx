@@ -7,6 +7,7 @@ import {
 } from "@storybook/addon-docs";
 
 import {
+  IcChip,
   IcPageHeader,
   IcStatusTag,
   IcFooter,
@@ -46,7 +47,14 @@ export const defaultArgs = {
   size: "medium",
   sticky: false,
   stickyDesktopOnly: false,
-  subheading: "Page Header Subtitle",
+  subheading:
+    "A Latte is a popular Italian coffee, made with espresso, steamed milk and a thin layer of foam.",
+  theme: "inherit",
+  ["--ic-page-header-text-primary"]: "",
+  ["--ic-page-header-background"]: "",
+  ["--ic-page-header-border"]: "",
+  ["--ic-page-header-text-tertiary"]: "",
+  ["--ic-page-header-placeholder-text-field"]: "",
 };
 
 <Canvas>
@@ -57,69 +65,127 @@ export const defaultArgs = {
     argTypes={{
       aligned: {
         options: ["center", "full-width", "left"],
-        control: { type: "select" },
+        control: { type: "inline-radio" },
       },
       size: {
         options: ["medium", "small"],
-        control: { type: "select" },
+        control: { type: "inline-radio" },
+      },
+      theme: {
+        options: ["inherit", "dark", "light"],
+        control: {
+          type: "radio",
+        },
+      },
+      "--ic-page-header-text-primary": {
+        control: {
+          type: "color",
+        },
+      },
+      "--ic-page-header-background": {
+        control: {
+          type: "color",
+        },
+      },
+      "--ic-page-header-border": {
+        control: {
+          type: "color",
+        },
+      },
+      "--ic-page-header-text-tertiary": {
+        control: {
+          type: "color",
+        },
+      },
+      "--ic-page-header-placeholder-text-field": {
+        control: {
+          type: "color",
+        },
       },
     }}
   >
     {(args) => (
-        <>
-          <IcPageHeader
-            aligned={args.aligned}
-            border={args.border}
-            heading={args.heading}
-            reverseOrder={args.reverseOrder}
-            size={args.size}
-            sticky={args.sticky}
-            stickyDesktopOnly={args.stickyDesktopOnly}
-            subheading={args.subheading}
-          >
-            <IcStatusTag slot="heading-adornment" label="Beta" />
-            <IcButton slot="actions" variant="primary">
-                Create coffee
-                <svg
-                  slot="left-icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </IcButton>
-              <IcButton slot="actions" variant="tertiary">
-                Filter coffee
-              </IcButton>
-              <IcButton slot="actions" variant="tertiary">
-                Clean coffee
-              </IcButton>
-          </IcPageHeader>
-          <IcSectionContainer aligned={args.aligned}>
-            <IcTypography>Example page content to test out the sticky prop.</IcTypography>
-            <IcTypography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</IcTypography>
-            <IcTypography>Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</IcTypography>
-            <IcTypography>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</IcTypography>
-            <IcTypography>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</IcTypography>
-            <IcTypography>Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</IcTypography>
-            <IcTypography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</IcTypography>
-            <IcTypography>Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</IcTypography>
-            <IcTypography>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</IcTypography>
-            <IcTypography>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</IcTypography>
-            <IcTypography>Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</IcTypography>
-            <IcTypography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</IcTypography>
-            <IcTypography>Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</IcTypography>
-            <IcTypography>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</IcTypography>
-            <IcTypography>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</IcTypography>
-            <IcTypography>Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</IcTypography>
-          </IcSectionContainer>
-        </>
+      <>
+        <IcPageHeader
+          aligned={args.aligned}
+          border={args.border}
+          heading={args.heading}
+          reverseOrder={args.reverseOrder}
+          size={args.size}
+          sticky={args.sticky}
+          stickyDesktopOnly={args.stickyDesktopOnly}
+          subheading={args.subheading}
+          theme={args.theme}
+          style={{
+            "--ic-page-header-text-primary": args["--ic-page-header-text-primary"] !== "" ? args["--ic-page-header-text-primary"] : undefined,
+            "--ic-page-header-background": args["--ic-page-header-background"] !== "" ? args["--ic-page-header-background"] : undefined,
+            "--ic-page-header-border": args["--ic-page-header-border"] !== "" ? args["--ic-page-header-border"] : undefined,
+            "--ic-page-header-text-tertiary": args["--ic-page-header-text-tertiary"] !== "" ? args["--ic-page-header-text-tertiary"] : undefined,
+            "--ic-page-header-placeholder-text-field": args["--ic-page-header-placeholder-text-field"] !== "" ? args["--ic-page-header-placeholder-text-field"] : undefined,
+          }}
+        >
+          <IcBreadcrumbGroup slot="breadcrumbs">
+            <IcBreadcrumb
+              current
+              pageTitle="Drinks"
+              href="#"
+            ></IcBreadcrumb>
+            <IcBreadcrumb pageTitle="Coffees" href="#"> </IcBreadcrumb>
+            <IcBreadcrumb pageTitle="Latte" href="#"></IcBreadcrumb>
+          </IcBreadcrumbGroup>
+          <IcChip
+            slot="heading-adornment"
+            label="Beta" 
+            size="large" 
+          />
+          <IcButton slot="actions" variant="primary">
+              Create coffee
+              <svg
+                slot="left-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </IcButton>
+          <IcButton slot="actions" variant="tertiary">
+            Filter coffee
+          </IcButton>
+          <IcStepper slot="stepper">
+            <IcStep heading="Warm kettle" type="completed" />
+            <IcStep
+              heading="Warm milk"
+              subheading="Optional"
+              type="completed"
+            />
+            <IcStep heading="Pour milk" type="current" current />
+          </IcStepper>
+        </IcPageHeader>
+        <IcSectionContainer aligned={args.aligned}>
+          <IcTypography>Example page content to test out the sticky prop.</IcTypography>
+          <IcTypography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</IcTypography>
+          <IcTypography>Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</IcTypography>
+          <IcTypography>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</IcTypography>
+          <IcTypography>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</IcTypography>
+          <IcTypography>Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</IcTypography>
+          <IcTypography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</IcTypography>
+          <IcTypography>Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</IcTypography>
+          <IcTypography>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</IcTypography>
+          <IcTypography>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</IcTypography>
+          <IcTypography>Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</IcTypography>
+          <IcTypography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</IcTypography>
+          <IcTypography>Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</IcTypography>
+          <IcTypography>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</IcTypography>
+          <IcTypography>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</IcTypography>
+          <IcTypography>Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</IcTypography>
+        </IcSectionContainer>
+      </>
     )}
   </Story>
 </Canvas>

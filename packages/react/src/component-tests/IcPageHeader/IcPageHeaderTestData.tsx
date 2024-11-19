@@ -31,7 +31,6 @@ export const ScrollStickyPageHeader = () => {
           <IcButton slot="actions" variant="tertiary">
             Filter coffee
           </IcButton>
-
           <IcTextField
             slot="input"
             placeholder="Search for ingredients…"
@@ -64,9 +63,7 @@ export const ScrollStickyPageHeader = () => {
             years, sometimes by accident, sometimes on purpose (injected humour
             and the like).
           </IcTypography>
-
           <IcTypography>Hello world</IcTypography>
-
           <br />
           <IcTypography>
             It has survived not only five centuries, but also the leap into
@@ -338,6 +335,41 @@ export const PageHeaderSlottedHeadings = () => {
       <IcTypography slot="subheading" variant="body">
         Subheading
       </IcTypography>
+    </IcPageHeader>
+  );
+};
+
+export const PageheaderDarkTheme = () => {
+  return (
+    <IcPageHeader
+      heading="Latte recipe"
+      subheading="A Latte is a popular Italian coffee, made with espresso, steamed milk and a thin layer of foam. "
+      reverseOrder
+      theme="dark"
+    >
+      <IcChip slot="heading-adornment" label="BETA" size="large" theme="dark" />
+      <IcBreadcrumbGroup slot="breadcrumbs" theme="dark">
+        <IcBreadcrumb pageTitle="Drinks" href="#" />
+        <IcBreadcrumb pageTitle="Coffees" href="#" />
+        <IcBreadcrumb current pageTitle="Latte" href="#" />
+      </IcBreadcrumbGroup>
+      <IcButton slot="actions" variant="primary">
+        Create coffee
+      </IcButton>
+      <IcButton slot="actions" variant="tertiary">
+        Filter coffee
+      </IcButton>
+      <IcTextField
+        slot="input"
+        placeholder="Search for ingredients…"
+        label="Input"
+        hideLabel
+      />
+      <IcStepper slot="stepper" theme="dark">
+        <IcStep heading="Warm kettle" type="completed" />
+        <IcStep heading="Warm milk" subheading="Optional" type="completed" />
+        <IcStep heading="Pour milk" type="current" />
+      </IcStepper>
     </IcPageHeader>
   );
 };

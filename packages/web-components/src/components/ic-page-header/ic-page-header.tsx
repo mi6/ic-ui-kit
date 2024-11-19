@@ -1,6 +1,6 @@
 import { Component, Host, h, Prop, Element, State } from "@stencil/core";
 
-import { IcAlignment, IcSizesNoLarge } from "../../utils/types";
+import { IcAlignment, IcSizesNoLarge, IcThemeMode } from "../../utils/types";
 
 import {
   isSlotUsed,
@@ -73,6 +73,11 @@ export class PageHeader {
    * The subtitle to render on the page header.
    */
   @Prop() subheading?: string;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   disconnectedCallback(): void {
     if (this.resizeObserver !== null) {
@@ -162,6 +167,7 @@ export class PageHeader {
       aligned,
       sticky,
       stickyDesktopOnly,
+      theme,
     } = this;
 
     const navAriaLabel = heading
@@ -173,6 +179,7 @@ export class PageHeader {
         class={{
           ["ic-page-header-sticky"]: sticky,
           ["ic-page-header-sticky-desktop"]: !sticky && stickyDesktopOnly,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         aria-label={this.el.ariaLabel || "page header"}
       >
