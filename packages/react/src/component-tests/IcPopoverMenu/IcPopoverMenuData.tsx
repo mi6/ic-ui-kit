@@ -159,7 +159,6 @@ export const PopoverMenuWithVariants = () => {
         >
           Button
         </IcButton>
-
         <IcPopoverMenu
           anchor="popover-button"
           aria-label="popover"
