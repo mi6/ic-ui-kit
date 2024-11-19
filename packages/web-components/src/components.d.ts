@@ -1104,6 +1104,10 @@ export namespace Components {
     }
     interface IcMenuItem {
         /**
+          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+         */
+        "checked": boolean;
+        /**
           * The description displayed in the menu item, below the label.
          */
         "description"?: string;
@@ -1143,10 +1147,6 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
-        /**
-          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
-         */
-        "toggleChecked": boolean;
         /**
           * The variant of the menu item.
          */
@@ -1382,7 +1382,7 @@ export namespace Components {
         /**
           * @param setFocusToAnchor when true return focus to anchor element when menu is closed
          */
-        "closeMenu": (setFocusToAnchor?: boolean, element?: HTMLIcMenuItemElement) => Promise<void>;
+        "closeMenu": (setFocusToAnchor?: boolean, menuElement?: HTMLIcMenuItemElement) => Promise<void>;
         /**
           * If `true`, the popover menu will be displayed.
          */
@@ -2799,9 +2799,6 @@ declare global {
     interface HTMLIcMenuItemElementEventMap {
         "childBlur": void;
         "handleMenuItemClick": HTMLIcMenuItemElement;
-        "icToggleChecked": {
-    checked: boolean;
-  };
         "icToggleChecked": {
     checked: boolean;
   };
@@ -4397,6 +4394,10 @@ declare namespace LocalJSX {
     }
     interface IcMenuItem {
         /**
+          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+         */
+        "checked"?: boolean;
+        /**
           * The description displayed in the menu item, below the label.
          */
         "description"?: string;
@@ -4428,12 +4429,6 @@ declare namespace LocalJSX {
         "onIcToggleChecked"?: (event: IcMenuItemCustomEvent<{
     checked: boolean;
   }>) => void;
-        /**
-          * Emitted when the user clicks a menu item that is set to the toggle variant.
-         */
-        "onIcToggleChecked"?: (event: IcMenuItemCustomEvent<{
-    checked: boolean;
-  }>) => void;
         "onTriggerPopoverMenuInstance"?: (event: IcMenuItemCustomEvent<void>) => void;
         /**
           * How much of the referrer to send when following the link.
@@ -4451,10 +4446,6 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
-        /**
-          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
-         */
-        "toggleChecked"?: boolean;
         /**
           * The variant of the menu item.
          */
