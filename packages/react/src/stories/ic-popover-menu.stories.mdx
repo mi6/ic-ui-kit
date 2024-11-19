@@ -35,7 +35,11 @@ import menuGroupReadme from "../../../web-components/src/components/ic-menu-grou
           <IcButton id="button-1" onClick={buttonClick}>
             Show/Hide popover
           </IcButton>
-          <IcPopoverMenu anchor="button-1" aria-label="popover">
+          <IcPopoverMenu 
+            anchor="button-1" 
+            aria-label="popover" 
+            onIcPopoverClosed={(e)=>console.log(e.detail)}
+          >
             <IcMenuItem label="Copy code" disabled />
             <IcMenuGroup label="View">
               <IcMenuItem label="Zoom in" keyboardShortcut="Cmd+" />
