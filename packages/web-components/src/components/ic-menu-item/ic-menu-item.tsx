@@ -4,7 +4,6 @@ import {
   Host,
   Prop,
   h,
-  State,
   Event,
   EventEmitter,
   Listen,
@@ -32,8 +31,6 @@ import Chevron from "../../assets/chevron-icon.svg";
 })
 export class MenuItem {
   @Element() el: HTMLIcMenuItemElement;
-
-  @State() toggleChecked: boolean = false;
 
   /**
    * The description displayed in the menu item, below the label.
@@ -86,6 +83,11 @@ export class MenuItem {
   @Prop() target?: string;
 
   /**
+   * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+   */
+  @Prop({ mutable: true, reflect: true }) toggleChecked: boolean = false;
+
+  /**
    * The variant of the menu item.
    */
   @Prop({ mutable: true, reflect: true }) variant: IcMenuItemVariants =
@@ -100,6 +102,13 @@ export class MenuItem {
    * @internal Emitted when the user clicks a menu item.
    */
   @Event() handleMenuItemClick: EventEmitter<HTMLIcMenuItemElement>;
+
+  /**
+   * Emitted when the user clicks a menu item that is set to the toggle variant.
+   */
+  @Event() icToggleChecked: EventEmitter<{
+    checked: boolean;
+  }>;
 
   /**
    * @internal Emitted when the user clicks a menu item that triggers a popover menu instance.
@@ -134,6 +143,9 @@ export class MenuItem {
     } else if (this.variant === "toggle") {
       e.preventDefault();
       this.toggleChecked = !this.toggleChecked;
+      this.icToggleChecked.emit({
+        checked: this.toggleChecked,
+      });
     }
     this.handleMenuItemClick.emit(this.el);
   };
