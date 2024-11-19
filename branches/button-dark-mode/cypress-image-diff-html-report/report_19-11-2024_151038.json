@@ -888,7 +888,7 @@
         {
           "status": "fail",
           "name": "IcButton.cy.tsx-icon-variants-button-group",
-          "percentage": 0.030983866769659335,
+          "percentage": 0.06424951361683603,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
@@ -7972,9 +7972,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-19T11:05:42.412Z",
-  "endedAt": "2024-11-19T11:20:00.189Z",
-  "duration": 771794,
+  "startedAt": "2024-11-19T15:10:38.437Z",
+  "endedAt": "2024-11-19T15:25:20.962Z",
+  "duration": 794834,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
