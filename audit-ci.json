@@ -69,6 +69,13 @@
         "notes": "issue in 'lodash.set' package use by '@cypress-audit/lighthouse>lighthouse' - no current fix",
         "expiry": "9 December 2024"
       }
-    } 
+    },
+    {
+      "GHSA-3xgq-45jj-v275": {
+        "active": true,
+        "notes": "issue in 'cross-spawn' package - unable to upgrade currently",
+        "expiry": "9 December 2024"
+      }
+    }
   ]
 }
