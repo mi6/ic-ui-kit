@@ -101,10 +101,7 @@ export class MenuItem {
   /**
    * @internal Emitted when the user clicks a menu item.
    */
-  @Event() handleMenuItemClick: EventEmitter<{
-    label: string;
-    hasSubMenu: boolean;
-  }>;
+  @Event() handleMenuItemClick: EventEmitter<HTMLIcMenuItemElement>;
 
   /**
    * Emitted when the user clicks a menu item that is set to the toggle variant.
@@ -150,10 +147,7 @@ export class MenuItem {
         checked: this.toggleChecked,
       });
     }
-    this.handleMenuItemClick.emit({
-      label: this.label,
-      hasSubMenu: !!this.el.submenuTriggerFor,
-    });
+    this.handleMenuItemClick.emit(this.el);
   };
 
   private getMenuItemAriaLabel = (): string => {
