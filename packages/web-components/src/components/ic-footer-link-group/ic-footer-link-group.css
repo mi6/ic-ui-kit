@@ -60,6 +60,10 @@
   background-color: var(--ic-action-dark-bg-active);
 }
 
+:host ic-section-container {
+  outline: none;
+}
+
 .footer-link-group-title {
   margin-top: var(--footer-link-group-title-margin-top);
   margin-bottom: var(--footer-link-group-title-margin-bottom);
