@@ -425,9 +425,11 @@ export class SideNavigation {
     const navItemSVG = navItems[0].querySelector("svg");
 
     const navStyles = {
-      gap: window.getComputedStyle(navItemLink).gap,
-      iconWidth: window.getComputedStyle(navItemSVG).width,
-      paddingLeft: window.getComputedStyle(navItemLink).paddingLeft,
+      gap: navItemLink ? window.getComputedStyle(navItemLink).gap : "0",
+      iconWidth: navItemSVG ? window.getComputedStyle(navItemSVG).width : "0",
+      paddingLeft: navItemLink
+        ? window.getComputedStyle(navItemLink).paddingLeft
+        : "0",
     };
 
     return Object.values(navStyles).reduce((prev, curr) => {
@@ -490,11 +492,11 @@ export class SideNavigation {
    * @param value - padding-top css value
    */
   private setParentPaddingTop = (value: string) => {
-    this.el.parentElement.style.setProperty("padding-top", value);
+    this.el.parentElement?.style.setProperty("padding-top", value);
   };
 
   private setParentPaddingLeft = (value: string) => {
-    this.el.parentElement.style.setProperty("padding-left", value);
+    this.el.parentElement?.style.setProperty("padding-left", value);
   };
 
   private renderAppTitle = (isAppNameSubtitleVariant: boolean) => {
@@ -532,12 +534,12 @@ export class SideNavigation {
       );
       if (isSmallAndDisableTopBar) this.setParentPaddingLeft("0");
       if (isSmallAndDisableTopBar && this.inline) {
-        this.el.parentElement.style.setProperty(
+        this.el.parentElement?.style.setProperty(
           "height",
           `calc(100% - ${topBarHeight}px)`
         );
       } else if (!isSmallAndDisableTopBar) {
-        this.el.parentElement.style.setProperty("height", "100%");
+        this.el.parentElement?.style.setProperty("height", "100%");
       }
     }
 
