@@ -1,7 +1,7 @@
 {
-  "total": 638,
+  "total": 637,
   "totalPassed": 622,
-  "totalFailed": 16,
+  "totalFailed": 15,
   "totalSuites": 39,
   "suites": [
     {
@@ -3256,17 +3256,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPageHeader.cy.tsx-small-size.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPageHeader.cy.tsx-small-size.png"
-        },
-        {
-          "status": "fail",
-          "name": "IcPageHeader.cy.tsx-without-border",
-          "percentage": 0.016978688467280546,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcPageHeader/IcPageHeader.cy.tsx",
-          "specFilename": "IcPageHeader.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPageHeader.cy.tsx-without-border.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPageHeader.cy.tsx-without-border.png",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPageHeader.cy.tsx-without-border.png"
         },
         {
           "status": "fail",
@@ -7257,9 +7246,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-20T15:01:00.174Z",
-  "endedAt": "2024-11-20T15:21:07.377Z",
-  "duration": 1122030,
+  "startedAt": "2024-11-20T15:46:05.155Z",
+  "endedAt": "2024-11-20T16:06:32.651Z",
+  "duration": 1142278,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
