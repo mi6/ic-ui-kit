@@ -48,6 +48,10 @@
   background-color: var(--ic-footer-pressed);
 }
 
+:host ic-section-container {
+  outline: none;
+}
+
 .footer-link-label {
   margin-top: var(--footer-link-label-margin-top);
   margin-bottom: var(--footer-link-label-margin-bottom);
