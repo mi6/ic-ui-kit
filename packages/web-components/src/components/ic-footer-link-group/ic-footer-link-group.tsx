@@ -107,12 +107,12 @@ export class FooterLinkGroup {
           ["footer-link-group footer-link-group-small"]: true,
           [`footer-link-group-${this.dropdownIconStyle}`]: true,
         }}
-        tabIndex="1"
         onClick={this.toggleExpanded}
         onKeydown={this.handleKeydown}
         aria-expanded={this.expanded}
+        role="listitem"
       >
-        <ic-section-container fullHeight={true}>
+        <ic-section-container tabindex="0" fullHeight={true}>
           <div class="footer-link-group-header">
             <div class="footer-link-label">
               <ic-typography variant="label">{label}</ic-typography>

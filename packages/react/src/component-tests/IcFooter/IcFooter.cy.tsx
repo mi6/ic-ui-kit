@@ -3,7 +3,7 @@
 
 import React from "react";
 import { mount } from "cypress/react";
-import { BE_VISIBLE, HAVE_LENGTH } from "../utils/constants";
+import { BE_VISIBLE, HAVE_ATTR, HAVE_LENGTH } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
   CenterAlignment,
@@ -25,6 +25,7 @@ import {
 } from "./IcFooterTestData";
 
 const FOOTER_SELECTOR = "ic-footer";
+const FOOTER_LINK_GROUP_SELECTOR = "ic-footer-link-group";
 const DEFAULT_TEST_THRESHOLD = 0.034;
 
 describe("IcFooter end-to-end, visual regression and a11y tests", () => {
@@ -60,7 +61,9 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
     mount(<GroupedLinks />);
 
     cy.checkHydrated(FOOTER_SELECTOR);
-    cy.get("ic-footer-link-group").should(BE_VISIBLE).should(HAVE_LENGTH, "3");
+    cy.get(FOOTER_LINK_GROUP_SELECTOR)
+      .should(BE_VISIBLE)
+      .should(HAVE_LENGTH, "3");
     cy.get("ic-footer-link").should(BE_VISIBLE).should(HAVE_LENGTH, "12");
 
     cy.checkA11yWithWait();
@@ -70,13 +73,36 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it("should focus grouped link in mobile viewport", () => {
+    mount(<GroupedLinks />);
+    cy.viewport(600, 750);
+
+    cy.checkHydrated(FOOTER_SELECTOR);
+
+    cy.get(FOOTER_LINK_GROUP_SELECTOR)
+      .should(BE_VISIBLE)
+      .should(HAVE_LENGTH, "3");
+
+    cy.get(FOOTER_LINK_GROUP_SELECTOR).last().click();
+    cy.realPress(["Shift", "Tab"])
+      .realPress(["Shift", "Tab"])
+      .realPress("Space");
+    cy.get(FOOTER_LINK_GROUP_SELECTOR).should(HAVE_ATTR, "aria-expanded");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "group-links-mobile",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
+    });
+  });
+
   it("should toggle the link groups when clicked - before click", () => {
     mount(<ToggleGroupLinks />);
     cy.viewport(600, 750);
 
     cy.checkHydrated(FOOTER_SELECTOR);
 
-    //cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "before-click",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
@@ -95,7 +121,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
         cy.wrap($linkGroup).click({ force: true });
       });
 
-    //cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.wait(500).compareSnapshot({
       name: "after-click",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
