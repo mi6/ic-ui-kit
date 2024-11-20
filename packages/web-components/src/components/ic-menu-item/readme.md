@@ -9,6 +9,7 @@
 
 | Property                | Attribute                 | Description                                                                                                                                  | Type                                                                                                                                                                                     | Default     |
 | ----------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `checked`               | `checked`                 | If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.                                | `boolean`                                                                                                                                                                                | `false`     |
 | `description`           | `description`             | The description displayed in the menu item, below the label.                                                                                 | `string`                                                                                                                                                                                 | `undefined` |
 | `disabled`              | `disabled`                | If `true`, the menu item will be in disabled state.                                                                                          | `boolean`                                                                                                                                                                                | `false`     |
 | `href`                  | `href`                    | The URL that the link points to. This will render the menu item as an "a" tag.                                                               | `string`                                                                                                                                                                                 | `undefined` |
@@ -20,6 +21,13 @@
 | `submenuTriggerFor`     | `submenu-trigger-for`     | This references the popover menu instance that the menu item is a trigger for. If this prop is set, then the variant will always be default. | `string`                                                                                                                                                                                 | `undefined` |
 | `target`                | `target`                  | The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).                                          | `string`                                                                                                                                                                                 | `undefined` |
 | `variant`               | `variant`                 | The variant of the menu item.                                                                                                                | `"default" \| "destructive" \| "toggle"`                                                                                                                                                 | `"default"` |
+
+
+## Events
+
+| Event             | Description                                                                 | Type                                 |
+| ----------------- | --------------------------------------------------------------------------- | ------------------------------------ |
+| `icToggleChecked` | Emitted when the user clicks a menu item that is set to the toggle variant. | `CustomEvent<{ checked: boolean; }>` |
 
 
 ## Slots

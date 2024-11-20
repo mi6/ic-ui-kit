@@ -4,7 +4,6 @@ import {
   Host,
   Prop,
   h,
-  State,
   Event,
   EventEmitter,
   Listen,
@@ -33,7 +32,10 @@ import Chevron from "../../assets/chevron-icon.svg";
 export class MenuItem {
   @Element() el: HTMLIcMenuItemElement;
 
-  @State() toggleChecked: boolean = false;
+  /**
+   * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+   */
+  @Prop({ mutable: true, reflect: true }) checked: boolean = false;
 
   /**
    * The description displayed in the menu item, below the label.
@@ -102,6 +104,13 @@ export class MenuItem {
   @Event() handleMenuItemClick: EventEmitter<HTMLIcMenuItemElement>;
 
   /**
+   * Emitted when the user clicks a menu item that is set to the toggle variant.
+   */
+  @Event() icToggleChecked: EventEmitter<{
+    checked: boolean;
+  }>;
+
+  /**
    * @internal Emitted when the user clicks a menu item that triggers a popover menu instance.
    */
   @Event() triggerPopoverMenuInstance: EventEmitter<void>;
@@ -133,7 +142,10 @@ export class MenuItem {
       this.triggerPopoverMenuInstance.emit();
     } else if (this.variant === "toggle") {
       e.preventDefault();
-      this.toggleChecked = !this.toggleChecked;
+      this.checked = !this.checked;
+      this.icToggleChecked.emit({
+        checked: this.checked,
+      });
     }
     this.handleMenuItemClick.emit(this.el);
   };
@@ -207,7 +219,7 @@ export class MenuItem {
           aria-disabled={`${this.disabled}`}
           aria-checked={
             this.variant === "toggle"
-              ? this.toggleChecked
+              ? this.checked
                 ? "true"
                 : "false"
               : undefined
@@ -244,7 +256,7 @@ export class MenuItem {
                 <span
                   class={{
                     ["check-icon"]: true,
-                    ["hide"]: !this.toggleChecked,
+                    ["hide"]: !this.checked,
                   }}
                   aria-hidden="true"
                   innerHTML={Check}

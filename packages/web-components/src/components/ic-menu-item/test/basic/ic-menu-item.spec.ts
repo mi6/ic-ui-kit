@@ -49,7 +49,7 @@ describe("menu item variants", () => {
 
     expect(page.root).toMatchSnapshot();
     expect(page.rootInstance.variant).toMatch("toggle");
-    expect(page.rootInstance.toggleChecked).toBeFalsy();
+    expect(page.rootInstance.checked).toBeFalsy();
 
     const button = page.root.shadowRoot
       .querySelector("li > ic-button")

@@ -1104,6 +1104,10 @@ export namespace Components {
     }
     interface IcMenuItem {
         /**
+          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+         */
+        "checked": boolean;
+        /**
           * The description displayed in the menu item, below the label.
          */
         "description"?: string;
@@ -1378,7 +1382,7 @@ export namespace Components {
         /**
           * @param setFocusToAnchor when true return focus to anchor element when menu is closed
          */
-        "closeMenu": (setFocusToAnchor?: boolean, element?: HTMLIcMenuItemElement) => Promise<void>;
+        "closeMenu": (setFocusToAnchor?: boolean, menuElement?: HTMLIcMenuItemElement) => Promise<void>;
         /**
           * If `true`, the popover menu will be displayed.
          */
@@ -4389,6 +4393,10 @@ declare namespace LocalJSX {
         "label"?: string;
     }
     interface IcMenuItem {
+        /**
+          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+         */
+        "checked"?: boolean;
         /**
           * The description displayed in the menu item, below the label.
          */
