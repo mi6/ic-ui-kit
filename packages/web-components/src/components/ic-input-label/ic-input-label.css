@@ -1,5 +1,6 @@
 ic-input-label {
   margin-bottom: var(--ic-space-xs);
+
   --ic-typography-color: var(
     --ic-input-label-text-color,
     var(--ic-color-text-primary)
@@ -17,6 +18,7 @@ ic-input-label.ic-input-label-readonly {
 ic-input-label .helpertext {
   margin-top: var(--ic-space-xxxs);
   padding-bottom: var(--ic-input-label-helpertext-padding, 0);
+
   --ic-typography-color: var(
     --ic-input-label-helper-text-color,
     var(--ic-color-text-secondary)

@@ -34,6 +34,8 @@
 | `--border-color-error`           | Border colour of the error variant for input component container           |
 | `--border-color-error-hover`     | Border colour of the error hover variant for input component container     |
 | `--border-color-error-pressed`   | Border colour of the error pressed variant for input component container   |
+| `--border-color-hover`           | Border colour of the input component container on hover                    |
+| `--border-color-pressed`         | Border colour of the input component container when pressed                |
 | `--border-color-success`         | Border colour of the success variant for input component container         |
 | `--border-color-success-hover`   | Border colour of the success hover variant for input component container   |
 | `--border-color-success-pressed` | Border colour of the success pressed variant for input component container |

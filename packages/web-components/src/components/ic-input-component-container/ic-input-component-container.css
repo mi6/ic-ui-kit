@@ -1,6 +1,8 @@
 ic-input-component-container {
   /**
    * @prop --border-color: Border colour of the input component container
+   * @prop --border-color-hover: Border colour of the input component container on hover
+   * @prop --border-color-pressed: Border colour of the input component container when pressed
    * @prop --border-color-disabled: Border colour of the input component container when disabled
    * @prop --border-color-error: Border colour of the error variant for input component container
    * @prop --border-color-error-hover: Border colour of the error hover variant for input component container
@@ -142,11 +144,16 @@ ic-input-component-container .inline-success > svg {
 
 ic-input-component-container:hover {
   border: var(--ic-input-component-container-hover-border);
+  border-color: var(--border-color-hover, var(--ic-color-border-neutral-hover));
   color: var(--ic-action-dark-hover);
 }
 
 ic-input-component-container:focus {
   border: var(--ic-border-pressed);
+  border-color: var(
+    --border-color-pressed,
+    var(--ic-color-border-neutral-pressed)
+  );
 }
 
 .focus-indicator {
