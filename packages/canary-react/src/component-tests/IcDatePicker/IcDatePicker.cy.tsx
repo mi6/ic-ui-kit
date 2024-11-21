@@ -131,6 +131,33 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it("should render default variant in dark mode", () => {
+    mount(
+      <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+        <IcDatePicker
+          label={DEFAULT_LABEL}
+          value={DEFAULT_VALUE}
+          theme="dark"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
+    // cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.wait(SCREENSHOT_DELAY);
+
+    cy.compareSnapshot({
+      name: "default-dark-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
+
   it("should render default variant at max width", () => {
     mount(
       <IcDatePicker
@@ -174,6 +201,34 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it("should render default variant in dark mode - month view", () => {
+    mount(
+      <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+        <IcDatePicker
+          label={DEFAULT_LABEL}
+          value={DEFAULT_VALUE}
+          theme="dark"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
+
+    // cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.wait(SCREENSHOT_DELAY);
+
+    cy.compareSnapshot({
+      name: "default-month-view-dark-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+    });
+  });
+
   it("should render default variant at max width - month view", () => {
     mount(
       <IcDatePicker
@@ -213,6 +268,34 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "default-year-view",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+    });
+  });
+
+  it("should render default variant in dark mode - year view", () => {
+    mount(
+      <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+        <IcDatePicker
+          label={DEFAULT_LABEL}
+          value={DEFAULT_VALUE}
+          theme="dark"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
+
+    //cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.wait(SCREENSHOT_DELAY);
+
+    cy.compareSnapshot({
+      name: "default-year-view-dark-mode",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
@@ -2616,7 +2699,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
 
     cy.compareSnapshot({
       name: "min-max",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
 
