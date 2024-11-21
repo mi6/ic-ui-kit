@@ -26,6 +26,7 @@
   --ic-architectural-white-state-layer-25: rgb(255 255 255 / 25%);
   --ic-architectural-white-state-layer-40: rgb(255 255 255 / 40%);
   --ic-architectural-white-state-layer-50: rgb(255 255 255 / 50%);
+  --ic-architectural-black-state-layer-10: rgb(0 0 0 / 10%);
   --ic-architectural-black-state-layer-20: rgb(0 0 0 / 20%);
   --ic-architectural-black-state-layer-25: rgb(0 0 0 / 25%);
   --ic-architectural-black-state-layer-30: rgb(0 0 0 / 30%);
@@ -531,7 +532,9 @@
   --ic-color-icon-action-default-light: var(--ic-blue-800);
   --ic-color-icon-action-default-dark: var(--ic-blue-300);
   --ic-color-icon-action-hover: var(--ic-blue-1100);
+  --ic-color-icon-action-hover-dark: var(--ic-blue-200);
   --ic-color-icon-action-pressed: var(--ic-blue-1300);
+  --ic-color-icon-action-pressed-dark: var(--ic-blue-100);
   --ic-color-icon-error-light: var(--ic-red-300);
   --ic-color-icon-error-dark: var(--ic-red-800);
   --ic-color-icon-action-dark: var(--ic-architectural-white);
@@ -546,6 +549,7 @@
   --ic-state-layer-neutral-light: var(--ic-architectural-100);
   --ic-state-layer-neutral-dark: var(--ic-architectural-400);
   --ic-state-layer-neutral-darker: var(--ic-architectural-600);
+  --ic-state-layer-darken-10: var(--ic-architectural-black-state-layer-10);
   --ic-state-layer-darken-20: var(--ic-architectural-black-state-layer-20);
   --ic-state-layer-darken-25: var(--ic-architectural-black-state-layer-25);
   --ic-state-layer-darken-30: var(--ic-architectural-black-state-layer-30);

@@ -24,10 +24,10 @@
   right: 0;
   width: 16rem;
   bottom: 0;
-  background-color: var(--ic-architectural-20);
-  color: var(--ic-color-text-primary-light);
+  background-color: var(--ic-top-navigation-menu-background);
+  color: var(--ic-top-navigation-nav-item);
 
-  --ic-typography-color: var(--ic-color-text-primary-light);
+  --ic-typography-color: var(--ic-top-navigation-nav-item);
 
   box-shadow: var(--ic-elevation-overlay);
   overflow-y: auto;
@@ -70,9 +70,9 @@
 }
 
 .menu-status {
-  background-color: var(--ic-architectural-500);
+  background-color: var(--ic-status-tag-neutral);
 
-  --ic-typography-color: var(--ic-color-white-text);
+  --ic-typography-color: var(--ic-status-tag-text);
 
   border-radius: var(--ic-space-md);
   width: fit-content;
@@ -81,7 +81,10 @@
 
 .menu-version {
   border-radius: var(--ic-space-md);
-  background-color: var(--ic-architectural-100);
+  background-color: var(--ic-status-tag-outlined-background-neutral);
+
+  --ic-typography-color: var(--ic-color-text-primary-light);
+
   padding: var(--ic-space-xxs) var(--ic-space-sm);
 }
 
