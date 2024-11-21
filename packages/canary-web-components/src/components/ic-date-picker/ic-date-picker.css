@@ -42,12 +42,13 @@ ic-date-input {
   gap: var(--ic-space-xs);
   position: absolute;
   border: var(--ic-border-default);
+  border-color: var(--ic-date-picker-calendar-border);
   border-radius: var(--ic-border-radius);
   align-items: center;
-  background-color: var(--ic-architectural-white);
+  background-color: var(--ic-date-picker-calendar-bg);
   z-index: var(--ic-z-index-date-picker);
   box-sizing: border-box;
-  box-shadow: var(--ic-elevation-overlay);
+  box-shadow: var(--ic-date-picker-calendar-elevation);
   margin-top: var(--ic-space-xxxs);
   padding: var(--ic-space-xs);
   animation: fade-in-calendar var(--ic-transition-duration-slow);
@@ -238,7 +239,7 @@ ic-date-input {
 }
 
 :host .calendar-day-header ic-typography {
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-date-picker-calendar-label);
 
   text-align: center;
 }
@@ -268,7 +269,7 @@ ic-date-input {
   align-items: center;
   border: 0;
   border-radius: 2rem;
-  background-color: var(--ic-architectural-white);
+  background-color: var(--ic-date-picker-calendar-bg);
   width: 2rem;
   height: 2rem;
   cursor: pointer;
@@ -293,11 +294,11 @@ ic-date-input {
 :host .day-button ic-typography {
   width: 1.75rem;
 
-  --ic-typography-color: var(--ic-color-text-primary);
+  --ic-typography-color: var(--ic-date-picker-date-label-default);
 }
 
 :host .day-button.outside-range ic-typography {
-  --ic-typography-color: var(--ic-architectural-400);
+  --ic-typography-color: var(--ic-date-picker-date-label-disabled);
 }
 
 :host .day-button.outside-month ic-typography {
@@ -307,15 +308,15 @@ ic-date-input {
 :host
   .day-button.outside-month:not(.outside-range):not(.selected)
   ic-typography {
-  --ic-typography-color: var(--ic-color-text-primary);
+  --ic-typography-color: var(--ic-date-picker-date-label-default);
 }
 
 :host .day-button:hover:not(.disabled) {
-  background-color: var(--ic-action-dark-bg-hover);
+  background-color: var(--ic-date-picker-date-default-bg-hover);
 }
 
 :host .day-button:active:not(.disabled) {
-  background-color: var(--ic-action-dark-bg-pressed);
+  background-color: var(--ic-date-picker-date-default-bg-pressed);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -326,19 +327,19 @@ ic-date-input {
 }
 
 :host .day-button.selected:not(.hidden) {
-  background-color: var(--ic-action-default);
+  background-color: var(--ic-date-picker-date-active-bg-default);
 }
 
 :host .day-button.selected ic-typography {
-  --ic-typography-color: var(--ic-color-white-text);
+  --ic-typography-color: var(--ic-date-picker-date-label-selected);
 }
 
 :host .day-button.selected:not(.hidden):hover {
-  background-color: var(--ic-action-default-hover);
+  background-color: var(--ic-date-picker-date-active-bg-hover);
 }
 
 :host .day-button.selected:not(.hidden):active {
-  background-color: var(--ic-action-default-pressed);
+  background-color: var(--ic-date-picker-date-active-bg-pressed);
 }
 
 :host .day-button.focussed {
@@ -360,7 +361,7 @@ ic-date-input {
   height: 0.125rem;
   bottom: 0.4rem;
   border-radius: var(--ic-border-radius);
-  background-color: var(--ic-action-default);
+  background-color: var(--ic-date-picker-default-underline);
 }
 
 :host(.ic-date-picker-small) .day-button.today::after {
@@ -372,7 +373,7 @@ ic-date-input {
 }
 
 :host .day-button.today.selected::after {
-  background-color: var(--ic-architectural-white);
+  background-color: var(--ic-date-picker-selected-underline);
 }
 
 :host #select-month-hint,
