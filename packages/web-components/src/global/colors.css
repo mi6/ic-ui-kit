@@ -23,7 +23,9 @@
   --ic-architectural-700-state-layer-20: rgb(65 70 77 / 20%);
   --ic-architectural-white-state-layer-10: rgb(255 255 255 / 10%);
   --ic-architectural-white-state-layer-20: rgb(255 255 255 / 20%);
+  --ic-architectural-white-state-layer-24: rgb(255 255 255 / 24%);
   --ic-architectural-white-state-layer-25: rgb(255 255 255 / 25%);
+  --ic-architectural-white-state-layer-34: rgb(255 255 255 / 34%);
   --ic-architectural-white-state-layer-40: rgb(255 255 255 / 40%);
   --ic-architectural-white-state-layer-50: rgb(255 255 255 / 50%);
   --ic-architectural-black-state-layer-10: rgb(0 0 0 / 10%);
@@ -54,6 +56,8 @@
   --ic-blue-1600: #041144;
   --ic-blue-800-state-layer-10: rgb(23 89 188 / 10%);
   --ic-blue-800-state-layer-20: rgb(23 89 188 / 20%);
+  --ic-blue-800-state-layer-24: rgb(23 89 188 / 24%);
+  --ic-blue-800-state-layer-34: rgb(23 89 188 / 34%);
   --ic-blue-800-state-layer-50: rgb(23 89 188 / 50%);
 
   /* red */
@@ -189,6 +193,8 @@
   /* KEYLINE */
   --ic-color-keyline-darken: var(--ic-architectural-black-state-layer-20);
   --ic-color-keyline-lighten: var(--ic-architectural-white-state-layer-20);
+  --ic-color-keyline: var(--ic-architectural-200);
+  --ic-color-keyline-light: var(--ic-architectural-100);
 
   /* STATUS */
 
@@ -388,6 +394,8 @@
   --ic-action-default-disabled: var(--ic-blue-50); /* think this is wrong */
   --ic-action-default-active-alpha: var(--ic-blue-800-state-layer-50);
   --ic-action-default-bg-hover: var(--ic-blue-800-state-layer-10);
+  --ic-action-default-bg-hover-24: var(--ic-blue-800-state-layer-24);
+  --ic-action-default-bg-pressed-hover-34: var(--ic-blue-800-state-layer-34);
   --ic-action-default-bg-active: var(--ic-blue-800-state-layer-20);
   --ic-action-default-bg-hover-no-alpha: #e7eef8;
   --ic-action-default-bg-active-no-alpha: #d0def2;
