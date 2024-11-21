@@ -419,6 +419,50 @@ export const DATA_CELL_ALIGNMENT = [
   },
 ];
 
+export const DATA_EMPHASIS = [
+  {
+    firstName: {
+      data: "Joe",
+      emphasis: "high",
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  {
+    firstName: "Sarah",
+    lastName: {
+      data: "Smith",
+      emphasis: "low",
+    },
+    age: 28,
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
+    address: "2 Main Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Mark",
+    lastName: "Owens",
+    age: 45,
+    jobTitle: "Team Lead",
+    address: "12 Key Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Naomi",
+    lastName: "Thomas",
+    age: 32,
+    jobTitle: "Analyst",
+    address: "8 Side Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Luke",
+    lastName: "Ashford",
+    age: 18,
+    jobTitle: "Junior Developer",
+    address: "5 New Street, Town, Country, Postcode",
+  },
+];
+
 export const ROW_ALIGNMENT = [
   {
     header: {

@@ -12,14 +12,13 @@ import {
   forceUpdate,
   Method,
 } from "@stencil/core";
-import { IcSizes } from "../../utils/types";
+import { IcSizes, IcThemeMode } from "../../utils/types";
 import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
   checkSlotInChildMutations,
 } from "../../utils/helpers";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
-import { IcThemeMode } from "@ukic/web-components";
 
 let treeItemIds = 0;
 
@@ -100,7 +99,7 @@ export class TreeItem {
    */
   @Prop({ mutable: true }) selected: boolean = false;
   @Watch("selected")
-  watchSelectedHandler() {
+  watchSelectedHandler(): void {
     if (this.selected) {
       this.icTreeItemSelected.emit({ id: this.el.id });
     }
