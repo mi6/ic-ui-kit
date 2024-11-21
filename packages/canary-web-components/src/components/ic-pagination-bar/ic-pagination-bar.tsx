@@ -10,7 +10,7 @@ import {
   Watch,
   Host,
 } from "@stencil/core";
-import { IcThemeMode } from "@ukic/web-components/dist/types/interface";
+import { IcThemeMode } from "../../utils/types";
 import { checkResizeObserver, capitalize } from "../../utils/helpers";
 import { IcPageChangeEventDetail } from "./ic-pagination-bar.types";
 import {
@@ -470,6 +470,7 @@ export class PaginationBar {
                     {capitalizedItemLabel}s per {lowerCasePageLabel}
                   </ic-typography>
                   <ic-select
+                    theme={theme}
                     size="small"
                     label="items-per-page-input"
                     class="items-per-page-input"
@@ -546,6 +547,7 @@ export class PaginationBar {
                   }
                 >
                   <ic-text-field
+                    theme={theme}
                     type="number"
                     size="small"
                     label={PAGE_INPUT_FIELD_ID}

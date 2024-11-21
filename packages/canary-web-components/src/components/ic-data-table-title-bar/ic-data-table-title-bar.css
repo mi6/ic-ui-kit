@@ -15,7 +15,8 @@
 .title-bar-wrapper {
   flex-direction: column;
   padding: var(--ic-space-sm) var(--ic-space-xs);
-  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-300);
+  border-bottom: var(--ic-space-1px) solid
+    var(--ic-data-table-title-bar-keyline);
 }
 
 .full-width {
@@ -28,7 +29,7 @@ ic-typography.heading h3 {
 }
 
 ic-typography.ic-typography-subtitle-small {
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-data-table-title-bar-information);
 }
 
 ic-typography.ic-typography-h3,
@@ -38,9 +39,9 @@ ic-typography.ic-typography-h3,
 
 ic-typography.ic-typography-body,
 ::slotted([slot="description"]) {
-  color: var(--ic-color-text-secondary);
+  color: var(--ic-data-table-title-bar-description);
 
-  --ic-typography-color: var(--ic-color-text-secondary);
+  --ic-typography-color: var(--ic-data-table-title-bar-description);
 }
 
 ic-typography.ic-typography-body,

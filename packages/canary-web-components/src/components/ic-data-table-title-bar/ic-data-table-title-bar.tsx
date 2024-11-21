@@ -60,11 +60,11 @@ export class DataTableTitleBar {
   componentWillLoad(): void {
     const parentEl = this.el.parentElement;
     if (parentEl.tagName === "IC-DATA-TABLE") {
-      const dataTable = parentEl as HTMLIcDataTableElement;
-      this.initialDensitySelectOption = dataTable.density;
-      this.isEmbedded = dataTable.embedded;
+      const { caption, density, embedded } = parentEl as HTMLIcDataTableElement;
+      this.initialDensitySelectOption = density;
+      this.isEmbedded = embedded;
       if (this.heading === DEFAULT_TITLE_BAR_HEADING) {
-        this.heading = dataTable.caption;
+        this.heading = caption;
       }
     }
   }
@@ -101,7 +101,7 @@ export class DataTableTitleBar {
       >
         <div class="header-container">
           <slot name="heading">
-            <ic-typography variant="h3" className="heading">
+            <ic-typography variant="h3" class="heading">
               <h3>{heading}</h3>
             </ic-typography>
           </slot>

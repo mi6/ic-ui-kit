@@ -28,8 +28,7 @@ import {
   IcDensityUpdateEventDetail,
   IcSortEventDetail,
 } from "./ic-data-table.types";
-import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
-import { IcPaginationBarOptions } from "../../utils/types";
+import { IcPaginationBarOptions, IcThemeMode } from "../../utils/types";
 // Unable to import helper functions via @ukic/web-components
 import {
   isEmptyString,
@@ -194,7 +193,6 @@ export class DataTable {
    * Sets the props for the circular loading indicator used in the loading state.
    */
   @Prop() loadingOptions?: {
-    appearance?: IcThemeForegroundNoDefault;
     description?: string;
     label?: string;
     labelDuration?: number;
@@ -238,7 +236,6 @@ export class DataTable {
     pageLabel: "Page",
     hideRangeLabel: false,
     hideAllFromItemsPerPage: false,
-    theme: "inherit",
     monochrome: false,
   };
 
@@ -272,10 +269,16 @@ export class DataTable {
    * If `true`, row headers will remain to the left when scrolling horizontally.
    */
   @Prop() stickyRowHeaders?: boolean = false;
+
   /**
    * Sets the layout of the table
    */
   @Prop() tableLayout?: "fixed" | "auto" = "fixed";
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
@@ -291,7 +294,6 @@ export class DataTable {
    * Sets the props for the linear loading indicator used in the updating state.
    */
   @Prop() updatingOptions?: {
-    appearance?: IcThemeForegroundNoDefault;
     description?: string;
     max?: number;
     min?: number;
@@ -1141,12 +1143,12 @@ export class DataTable {
   };
 
   private createUpdatingIndicator = () => {
-    const { appearance, description, max, min, progress, monochrome } =
+    const { description, max, min, progress, monochrome } =
       this.updatingOptions || {};
     return (
       <th colSpan={this.columns.length} class="updating-state">
         <ic-loading-indicator
-          theme={appearance}
+          theme={this.theme}
           monochrome={monochrome}
           description={description || "Updating table data"}
           fullWidth={true}
@@ -1323,6 +1325,14 @@ export class DataTable {
                   rowOptions?.textWrap ||
                   !!this.getCellOptions(cell, "textWrap"),
                 ["cell-icon"]: hasIcon || !!columnProps?.icon?.icon,
+                [`cell-emphasis-${
+                  (this.isObject(cell) && cellValue("emphasis")) ||
+                  columnProps?.emphasis ||
+                  rowEmphasis
+                }`]:
+                  (this.isObject(cell) && !!cellValue("emphasis")) ||
+                  !!columnProps?.emphasis ||
+                  !!rowEmphasis,
                 ...this.setTruncationClass(),
               }}
               style={{
@@ -1360,21 +1370,16 @@ export class DataTable {
                       <ic-typography
                         variant="body"
                         class={{
-                          [`cell-emphasis-${
-                            (this.isObject(cell) && cellValue("emphasis")) ||
-                            columnProps?.emphasis ||
-                            rowEmphasis
-                          }`]:
-                            (this.isObject(cell) && !!cellValue("emphasis")) ||
-                            !!columnProps?.emphasis ||
-                            !!rowEmphasis,
                           [`text-${this.density}`]: this.notDefaultDensity(),
                         }}
                       >
                         {this.isObject(cell) &&
                         columnProps?.dataType !== "date" ? (
                           Object.keys(cell).includes("href") ? (
-                            <ic-link href={cellValue("href")}>
+                            <ic-link
+                              href={cellValue("href")}
+                              theme={this.theme}
+                            >
                               {cellValue("data")}
                             </ic-link>
                           ) : (
@@ -1825,10 +1830,14 @@ export class DataTable {
       stickyColumnHeaders,
       updateScrollOffset,
       updating,
+      theme,
     } = this;
 
     return (
-      <Host style={{ ...this.setTableDimensions() }}>
+      <Host
+        style={{ ...this.setTableDimensions() }}
+        class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}
+      >
         <div class="table-container">
           {isSlotUsed(this.el, "title-bar") && <slot name="title-bar" />}
           <div
@@ -1839,7 +1848,6 @@ export class DataTable {
             tabIndex={scrollable ? 0 : null}
             onScroll={updateScrollOffset}
           >
-            {isSlotUsed(this.el, "title-bar") && <slot name="title-bar" />}
             <table
               style={{
                 ["--table-layout"]: this.tableLayout,
@@ -1880,7 +1888,7 @@ export class DataTable {
           </div>
           {loading && (
             <ic-loading-indicator
-              theme={loadingOptions?.appearance}
+              theme={theme}
               monochrome={loadingOptions?.monochrome}
               class={{
                 "loading-empty": loading,
@@ -1913,7 +1921,7 @@ export class DataTable {
                   showGoToPageControl={paginationBarOptions.showGoToPageControl}
                   itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
                   alignment={paginationBarOptions.alignment}
-                  theme={paginationBarOptions.theme}
+                  theme={theme}
                   monochrome={paginationBarOptions.monochrome}
                   itemLabel={paginationBarOptions.itemLabel}
                   pageLabel={paginationBarOptions.pageLabel}

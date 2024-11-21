@@ -36,11 +36,7 @@
 
 .items-per-page-input {
   --input-width: 5rem;
-
-  /* Add back in after select work has been done */
-
-  /* --ic-typography-color: var(--ic-pagination-select-content); */
-  --ic-typography-color: var(--ic-architectural-black);
+  --ic-typography-color: var(--ic-pagination-select-content);
 }
 
 .pagination-controls {
