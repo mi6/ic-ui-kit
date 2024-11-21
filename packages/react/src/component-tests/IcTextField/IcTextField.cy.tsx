@@ -36,6 +36,7 @@ import {
   TextFieldWithMinMaxCharacters,
   TextFieldWithMinMaxValue,
   TextFieldWithValidation,
+  TextFieldWithEmptyValidation,
   TextFieldWithinForm,
   Controlled,
   Uncontrolled,
@@ -46,6 +47,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const IC_TEXTFIELD = "ic-text-field";
 const TEXTFIELD_INPUT = 'input[type="text"]';
 const DEFAULT_TEST_THRESHOLD = 0.03;
+const IC_VALIDATION = "ic-input-validation";
 
 describe("IcTextField end-to-end tests", () => {
   beforeEach(() => {
@@ -251,6 +253,12 @@ describe("IcTextField end-to-end tests", () => {
       .find('[id$="validation-text"]')
       .should(CONTAIN_TEXT, "Minimum value of 1 not met");
     cy.findShadowEl(IC_TEXTFIELD, ".icon-error").should(BE_VISIBLE);
+  });
+
+  it("should not render validation", () => {
+    mount(<TextFieldWithEmptyValidation />);
+
+    cy.get(IC_VALIDATION).should(NOT_EXIST);
   });
 
   it("should not be able to input text string when input type is set as number", () => {

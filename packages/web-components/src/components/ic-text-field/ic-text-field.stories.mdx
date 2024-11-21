@@ -1016,3 +1016,36 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  validationStatus: "error",
+  validationText: "Text",
+  validationInline: false,
+};
+
+<Canvas>
+  <Story
+    name="playground"
+    parameters={{ loki: { skip: true } }}
+    args={defaultArgs}
+    argTypes={{
+      validationInline: { control: { type: "boolean" } },
+    }}
+  >
+    {(args) =>
+      html`<ic-text-field
+        label="What is your favourite coffee?"
+        helper-text="Short answers only."
+        validation-status=${args.validationStatus}
+        validation-text=${args.validationText}
+        validation-inline=${args.validationInline}
+        value="Arabica"
+        required
+        placeholder="Placeholder"
+      >
+      </ic-text-field> `
+    }
+  </Story>
+</Canvas>

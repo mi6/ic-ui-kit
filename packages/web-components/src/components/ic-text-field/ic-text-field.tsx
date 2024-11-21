@@ -456,6 +456,28 @@ export class TextField {
     }
   };
 
+  private showValidation = (): boolean => {
+    const maxNumChars = this.readonly ? 0 : this.maxLength;
+    const emptyString =
+      isEmptyString(this.validationStatus) ||
+      isEmptyString(this.validationText);
+    const valueOutsideRange = this.minValueUnattained || this.maxValueExceeded;
+    const charOutsideRange =
+      maxNumChars > 0 ||
+      this.maxCharactersError ||
+      this.minCharactersUnattained;
+    console.log(
+      emptyString,
+      valueOutsideRange,
+      charOutsideRange,
+      this.validationInline
+    );
+    return (
+      (!emptyString || valueOutsideRange || charOutsideRange) &&
+      !(this.validationInline && this.validationStatus === "success")
+    );
+  };
+
   render() {
     const {
       inputId,
@@ -492,6 +514,7 @@ export class TextField {
       fullWidth,
       truncateValue,
       hiddenInput,
+      showValidation,
     } = this;
 
     const disabledMode = readonly || disabled;
@@ -664,53 +687,46 @@ export class TextField {
             )}
           </ic-input-component-container>
           {isSlotUsed(this.el, "menu") && <slot name="menu"></slot>}
-          {(!isEmptyString(validationStatus) ||
-            !isEmptyString(validationText) ||
-            maxNumChars > 0 ||
-            maxValueExceeded ||
-            maxCharactersError ||
-            minCharactersUnattained ||
-            minValueUnattained) &&
-            !validationInlineInternal && (
-              <ic-input-validation
-                status={
-                  this.hasStatus(currentStatus) === false ||
-                  (currentStatus === IcInformationStatus.Success &&
-                    validationInline) ||
-                  validationInlineInternal
-                    ? ""
-                    : currentStatus
-                }
-                message={showStatusText ? currentValidationText : ""}
-                ariaLiveMode={messageAriaLive}
-                for={inputId}
-                fullWidth={fullWidth}
-              >
-                {!readonly && maxNumChars > 0 && (
-                  <div slot="validation-message-adornment">
-                    <ic-typography
-                      variant="caption"
-                      class={{
-                        ["maxlengthtext"]: true,
-                        ["error"]: maxLengthExceeded,
-                        ["disabled"]: disabledText,
-                      }}
+          {showValidation() && (
+            <ic-input-validation
+              status={
+                this.hasStatus(currentStatus) === false ||
+                (currentStatus === IcInformationStatus.Success &&
+                  validationInline) ||
+                validationInlineInternal
+                  ? ""
+                  : currentStatus
+              }
+              message={showStatusText ? currentValidationText : ""}
+              ariaLiveMode={messageAriaLive}
+              for={inputId}
+              fullWidth={fullWidth}
+            >
+              {!readonly && maxNumChars > 0 && (
+                <div slot="validation-message-adornment">
+                  <ic-typography
+                    variant="caption"
+                    class={{
+                      ["maxlengthtext"]: true,
+                      ["error"]: maxLengthExceeded,
+                      ["disabled"]: disabledText,
+                    }}
+                  >
+                    <span
+                      aria-live="polite"
+                      id={`${inputId}-charcount`}
+                      class="charcount"
                     >
-                      <span
-                        aria-live="polite"
-                        id={`${inputId}-charcount`}
-                        class="charcount"
-                      >
-                        {numChars}/{maxNumChars}
-                      </span>
-                      <span hidden={true} id={hiddenCharCountDescId}>
-                        Field can contain a maximum of {maxNumChars} characters.
-                      </span>
-                    </ic-typography>
-                  </div>
-                )}
-              </ic-input-validation>
-            )}
+                      {numChars}/{maxNumChars}
+                    </span>
+                    <span hidden={true} id={hiddenCharCountDescId}>
+                      Field can contain a maximum of {maxNumChars} characters.
+                    </span>
+                  </ic-typography>
+                </div>
+              )}
+            </ic-input-validation>
+          )}
         </ic-input-container>
       </Host>
     );

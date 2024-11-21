@@ -305,6 +305,22 @@ export const TextFieldWithInlineValidation = (): ReactElement => (
   </div>
 );
 
+export const TextFieldWithEmptyValidation = (): ReactElement => (
+  <div style={style}>
+    <IcTextField
+      maxLength={25}
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      placeholder="Please enter…"
+      helperText="Such as Arabica, Robusta or Liberica"
+      validationStatus=""
+      validationText=""
+      validationInline
+    ></IcTextField>
+  </div>
+);
+
 export const ReadonlyTextField = (): ReactElement => (
   <div style={style}>
     <IcTextField
