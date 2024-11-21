@@ -33,6 +33,11 @@ ic-input-validation .statustext {
   flex-grow: 1;
   color: var(
     --ic-input-validation-status-text-color,
-    var(--ic-typography-color)
+    var(--ic-color-text-primary)
+  );
+
+  --ic-typography-color: var(
+    --ic-input-validation-status-text-color,
+    var(--ic-color-text-primary)
   );
 }
