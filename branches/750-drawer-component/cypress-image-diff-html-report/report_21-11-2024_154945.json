@@ -1,7 +1,7 @@
 {
   "total": 213,
-  "totalPassed": 213,
-  "totalFailed": 0,
+  "totalPassed": 212,
+  "totalFailed": 1,
   "totalSuites": 9,
   "suites": [
     {
@@ -1854,14 +1854,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx-chevron-btn-aria-label-collapsed.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDrawer.cy.tsx-chevron-btn-aria-label-expanded",
-          "percentage": 0,
+          "percentage": 0.13394223098124944,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDrawer/IcDrawer.cy.tsx",
           "specFilename": "IcDrawer.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDrawer.cy.tsx-chevron-btn-aria-label-expanded.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDrawer.cy.tsx-chevron-btn-aria-label-expanded.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDrawer.cy.tsx-chevron-btn-aria-label-expanded.png"
         },
         {
@@ -2402,9 +2402,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-18T08:59:22.645Z",
-  "endedAt": "2024-11-18T09:04:57.192Z",
-  "duration": 315652,
+  "startedAt": "2024-11-21T15:49:45.226Z",
+  "endedAt": "2024-11-21T15:55:16.188Z",
+  "duration": 311931,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
