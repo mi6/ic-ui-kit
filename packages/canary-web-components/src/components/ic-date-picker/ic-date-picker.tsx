@@ -32,6 +32,7 @@ import {
   IcDateFormat,
   IcSizes,
   IcInformationStatusOrEmpty,
+  IcThemeMode,
 } from "../../utils/types";
 import chevron from "../../assets/chevron-icon.svg";
 import { DayButton } from "./ic-day-button";
@@ -292,6 +293,11 @@ export class DatePicker {
       this.updateMonthInView();
     }
   }
+
+  /**
+   * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
@@ -662,7 +668,7 @@ export class DatePicker {
           disabled={disabled}
           onClick={this.monthYearNavClickHandler}
           class={{ flip: flip }}
-          variant="icon"
+          variant="icon-tertiary"
           innerHTML={chevron}
           size={buttonSize}
           tabIndex={-1}
@@ -1312,6 +1318,7 @@ export class DatePicker {
       showPickerClearButton,
       showPickerTodayButton,
       dialogDescription,
+      theme,
     } = this;
 
     let monthButtonText = "";
@@ -1346,7 +1353,10 @@ export class DatePicker {
     return (
       <Host
         onKeyDown={this.keyDownHandler}
-        class={{ [`ic-date-picker-${size}`]: true }}
+        class={{
+          [`ic-date-picker-${size}`]: true,
+          [`ic-theme-${theme}`]: theme !== "inherit",
+        }}
       >
         <div class="date-input-container">
           <ic-date-input
