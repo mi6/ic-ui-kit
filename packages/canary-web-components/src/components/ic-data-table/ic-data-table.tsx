@@ -1090,7 +1090,7 @@ export class DataTable {
   }
 
   private showLoadingIndicator() {
-    this.loadingIndicator.classList.add("show");
+    this.loadingIndicator?.classList.add("show");
   }
 
   private startLoadingTimer = (): void => {
