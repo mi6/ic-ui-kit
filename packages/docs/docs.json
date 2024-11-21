@@ -6673,6 +6673,16 @@
           "docs": "Border colour of the error pressed variant for input component container"
         },
         {
+          "name": "--border-color-hover",
+          "annotation": "prop",
+          "docs": "Border colour of the input component container on hover"
+        },
+        {
+          "name": "--border-color-pressed",
+          "annotation": "prop",
+          "docs": "Border colour of the input component container when pressed"
+        },
+        {
           "name": "--border-color-success",
           "annotation": "prop",
           "docs": "Border colour of the success variant for input component container"
