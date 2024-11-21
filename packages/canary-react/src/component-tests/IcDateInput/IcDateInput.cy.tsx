@@ -68,6 +68,25 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it("should render in dark mode", () => {
+    mount(
+      <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+        <IcDateInput label="Test Label" theme="dark" />
+      </div>
+    );
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "date-input-dark-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.006),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
   it("should update value on ArrowUp on day input", () => {
     mount(<IcDateInput label="Test Label" />);
 
@@ -768,6 +787,42 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
       name: "date-input-with-success-validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.0085),
       delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render validation in dark mode", () => {
+    mount(
+      <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+        <IcDateInput
+          label="Test Label"
+          theme="dark"
+          validationStatus="success"
+          validationText="Success"
+        />
+        <IcDateInput
+          label="Test Label"
+          theme="dark"
+          validationStatus="warning"
+          validationText="Warning"
+        />
+        <IcDateInput
+          label="Test Label"
+          theme="dark"
+          validationStatus="error"
+          validationText="Error"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "date-input-validation-dark-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.046),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
