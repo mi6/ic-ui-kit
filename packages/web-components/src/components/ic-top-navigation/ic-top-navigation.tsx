@@ -98,6 +98,11 @@ export class TopNavigation {
   @Prop() status: string = "";
 
   /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: "dark" | "light" | "inherit" = "inherit";
+
+  /**
    * The version info to be displayed.
    */
   @Prop() version: string = "";
@@ -299,6 +304,7 @@ export class TopNavigation {
       shortAppTitle,
       status,
       version,
+      theme,
     } = this;
 
     const hasStatus = status !== "";
@@ -335,6 +341,7 @@ export class TopNavigation {
           "mobile-mode": overMobileBreakpoint,
           [IcThemeForegroundEnum.Dark]:
             foregroundColor === IcThemeForegroundEnum.Dark,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
         <div class="top-navigation">
