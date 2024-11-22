@@ -90,7 +90,7 @@ export class SideNavigation {
 
   @Watch("expanded")
   watchExpandedHandler(): void {
-    this.setMenuExpanded(this.expanded);
+    this.toggleMenuExpanded(this.expanded);
   }
 
   /**
@@ -242,8 +242,10 @@ export class SideNavigation {
     }, this.ANIMATION_DURATION);
   };
 
-  private toggleMenuExpanded = (): void => {
-    this.menuExpanded = !this.menuExpanded;
+  private toggleMenuExpanded = (expanded: boolean): void => {
+    if (this.deviceSize > DEVICE_SIZES.S) {
+      this.menuExpanded = expanded;
+    }
 
     if (this.menuExpanded) {
       this.setAndRemoveNoWrapAfterMenuExpanded();
@@ -779,7 +781,7 @@ export class SideNavigation {
                 <button
                   class="menu-expand-button"
                   innerHTML={chevronIcon}
-                  onClick={this.toggleMenuExpanded}
+                  onClick={() => this.toggleMenuExpanded(!this.menuExpanded)}
                   aria-label={`${
                     menuExpanded ? "Collapse" : "Expand"
                   } side navigation`}
