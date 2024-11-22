@@ -131,7 +131,8 @@ export const WithAction = (): ReactElement => {
         type="button"
         slot="action"
         variant="secondary"
-        appearance="dark"
+        theme="dark"
+        monochrome
       >
         Button
       </IcButton>

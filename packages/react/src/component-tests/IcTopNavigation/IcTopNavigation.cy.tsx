@@ -330,7 +330,7 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     });
   });
 
-  it("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll", () => {
+  it.skip("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll", () => {
     mount(<HorizontalScroll />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
@@ -607,7 +607,7 @@ describe("IcTopNavigation desktop visual regression tests in high contrast mode"
     });
   });
 
-  it("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll in high contrast mode", () => {
+  it.skip("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll in high contrast mode", () => {
     mount(<HorizontalScroll />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 

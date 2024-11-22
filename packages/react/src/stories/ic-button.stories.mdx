@@ -6,7 +6,7 @@ import {
   Description,
 } from "@storybook/addon-docs";
 import { useRef } from "react";
-import { IcButton, IcPopoverMenu, IcMenuItem } from "../components";
+import { IcButton, IcPopoverMenu, IcMenuItem, IcTypography } from "../components";
 import readme from "../../../web-components/src/components/ic-button/readme.md";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 import  { iconProps } from "../component-tests/IcButton/IcButtonTestData"
@@ -20,67 +20,96 @@ export const defaultArgs = {
   message: "Custom Button",
   disabled: false,
   loading: false,
-  appearance: "default",
+  theme: "inherit",
   size: "medium",
   variant: "secondary",
   fullWidth: false,
 };
 
+export const customSVG = () => {
+  return (
+    <svg
+     xmlns="http://www.w3.org/2000/svg"
+     height="24px"
+     viewBox="0 0 24 24"
+     width="24px"
+     fill="#000000"
+   >
+     <path d="M0 0h24v24H0V0z" fill="none" />
+     <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+   </svg>
+  )
+}
+
+
 ### Primary
 
 <Canvas>
   <Story name="Primary">
-    <IcButton variant="primary" id="mybuttonid" onClick={() => alert("test")}>
-      Button
-    </IcButton>
-    <IcButton variant="primary" disabled>
-      Button
-    </IcButton>
-    <IcButton variant="primary" loading>
-      Button
-    </IcButton>
-    <IcButton variant="primary" appearance="dark" onClick={() => alert("test")}>
-      Button
-    </IcButton>
-    <IcButton variant="primary" disabled appearance="dark">
-      Button
-    </IcButton>
-    <IcButton variant="primary" loading appearance="dark">
-      Button
-    </IcButton>
     <div
-      style={{
-        backgroundColor: "#2c2f34",
-        display: "inline-block",
-        padding: "6px 10px",
-      }}
-    >
-      <IcButton
-        variant="primary"
-        appearance="light"
-        onClick={() => alert("test")}
+        style={{display: "flex", flexDirection: "row", width: "fit-content", backgroundColor: "#ececec"}}
       >
-        Button
-      </IcButton>
-      <IcButton variant="primary" disabled appearance="light">
-        Button
-      </IcButton>
-      <IcButton variant="primary" loading appearance="light">
-        Button
-      </IcButton>
-    </div>
-  </Story>
-</Canvas>
-
-### Router
-
-<Canvas>
-  <Story name="Router">
-    <IcButton>
-      <a slot="router-item" href="/">
-        Slotted link
-      </a>
-    </IcButton>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large"> Light theme </IcTypography>
+          <div>
+            <IcButton variant="primary" theme="light" id="mybuttonid">
+              Primary
+            </IcButton>
+            <IcButton variant="primary" theme="light" disabled>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large">
+            Light theme - monochrome
+          </IcTypography>
+          <div>
+            <IcButton variant="primary" monochrome theme="light"> Monochrome </IcButton>
+            <IcButton variant="primary" disabled monochrome theme="light">
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{display: "flex", flexDirection: "row", marginTop: "1rem", backgroundColor: "#474A48", borderRadius: "5px", width: "fit-content"}}
+      >
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme
+          </IcTypography>
+          <div>
+            <IcButton variant="primary" theme="dark" id="mybuttonid">
+              Primary
+            </IcButton>
+            <IcButton variant="primary" theme="dark" disabled>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme - monochrome
+          </IcTypography>
+          <div>
+            <IcButton variant="primary" monochrome theme="dark">
+              Monochrome
+            </IcButton>
+            <IcButton variant="primary" disabled monochrome theme="dark">
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+      </div>
   </Story>
 </Canvas>
 
@@ -88,52 +117,70 @@ export const defaultArgs = {
 
 <Canvas>
   <Story name="Secondary">
-    <IcButton variant="secondary">Button</IcButton>
-    <IcButton variant="secondary" disabled>
-      Button
-    </IcButton>
-    <IcButton variant="secondary" loading>
-      Button
-    </IcButton>
-    <IcButton variant="secondary" transparentBackground="false">
-      Button
-    </IcButton>
-    <IcButton variant="secondary" appearance="dark">
-      Button
-    </IcButton>
-    <IcButton variant="secondary" disabled appearance="dark">
-      Button
-    </IcButton>
-    <IcButton variant="secondary" loading appearance="dark">
-      Button
-    </IcButton>
-    <IcButton
-      variant="secondary"
-      transparentBackground="false"
-      appearance="dark"
-    >
-      Button
-    </IcButton>
-    <div
-      style={{
-        backgroundColor: "#2c2f34",
-        display: "inline-block",
-        padding: "6px 10px",
-      }}
-    >
-      <IcButton variant="secondary" appearance="light">
-        Button
-      </IcButton>
-      <IcButton variant="secondary" disabled appearance="light">
-        Button
-      </IcButton>
-      <IcButton variant="secondary" loading appearance="light">
-        Button
-      </IcButton>
-      <IcButton variant="secondary" transparentBackground="false">
-        Button
-      </IcButton>
-    </div>
+   <div
+        style={{display: "flex", flexDirection: "row", width: "fit-content", backgroundColor: "#ececec"}}
+      >
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large"> Light theme </IcTypography>
+          <div>
+            <IcButton variant="secondary" theme="light" id="mybuttonid">
+              Secondary
+            </IcButton>
+            <IcButton variant="secondary" theme="light" disabled>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large">
+            Light theme - monochrome
+          </IcTypography>
+          <div>
+            <IcButton variant="secondary" monochrome theme="light"> Monochrome </IcButton>
+            <IcButton variant="secondary" disabled monochrome theme="light">
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{display: "flex", flexDirection: "row", marginTop: "1rem", backgroundColor: "#474A48", borderRadius: "5px", width: "fit-content"}}
+      >
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme
+          </IcTypography>
+          <div>
+            <IcButton variant="secondary" theme="dark" id="mybuttonid">
+              Secondary
+            </IcButton>
+            <IcButton variant="secondary" theme="dark" disabled>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme - monochrome
+          </IcTypography>
+          <div>
+            <IcButton variant="secondary" monochrome theme="dark">
+              Monochrome
+            </IcButton>
+            <IcButton variant="secondary" disabled monochrome theme="dark">
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+      </div>
   </Story>
 </Canvas>
 
@@ -141,39 +188,70 @@ export const defaultArgs = {
 
 <Canvas>
   <Story name="Tertiary">
-    <IcButton variant="tertiary">Button</IcButton>
-    <IcButton variant="tertiary" disabled>
-      Button
-    </IcButton>
-    <IcButton variant="tertiary" loading>
-      Button
-    </IcButton>
-    <IcButton variant="tertiary" appearance="dark">
-      Button
-    </IcButton>
-    <IcButton variant="tertiary" disabled appearance="dark">
-      Button
-    </IcButton>
-    <IcButton variant="tertiary" loading appearance="dark">
-      Button
-    </IcButton>
-    <div
-      style={{
-        backgroundColor: "#2c2f34",
-        display: "inline-block",
-        padding: "6px 10px",
-      }}
-    >
-      <IcButton variant="tertiary" appearance="light">
-        Button
-      </IcButton>
-      <IcButton variant="tertiary" disabled appearance="light">
-        Button
-      </IcButton>
-      <IcButton variant="tertiary" loading appearance="light">
-        Button
-      </IcButton>
-    </div>
+   <div
+        style={{display: "flex", flexDirection: "row", width: "fit-content", backgroundColor: "#ececec"}}
+      >
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large"> Light theme </IcTypography>
+          <div>
+            <IcButton variant="tertiary" theme="light" id="mybuttonid">
+              Tertiary
+            </IcButton>
+            <IcButton variant="tertiary" theme="light" disabled>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large">
+            Light theme - monochrome
+          </IcTypography>
+          <div>
+            <IcButton variant="tertiary" monochrome theme="light"> Monochrome </IcButton>
+            <IcButton variant="tertiary" disabled monochrome theme="light">
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{display: "flex", flexDirection: "row", marginTop: "1rem", backgroundColor: "#474A48", borderRadius: "5px", width: "fit-content"}}
+      >
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme
+          </IcTypography>
+          <div>
+            <IcButton variant="tertiary" theme="dark" id="mybuttonid">
+              Tertiary
+            </IcButton>
+            <IcButton variant="tertiary" theme="dark" disabled>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme - monochrome
+          </IcTypography>
+          <div>
+            <IcButton variant="tertiary" monochrome theme="dark">
+              Monochrome
+            </IcButton>
+            <IcButton variant="tertiary" disabled monochrome theme="dark">
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+      </div>
   </Story>
 </Canvas>
 
@@ -181,13 +259,70 @@ export const defaultArgs = {
 
 <Canvas>
   <Story name="Destructive">
-    <IcButton variant="destructive">Button</IcButton>
-    <IcButton variant="destructive" disabled>
-      Button
-    </IcButton>
-    <IcButton variant="destructive" loading>
-      Button
-    </IcButton>
+    <div
+        style={{display: "flex", flexDirection: "row", width: "fit-content", backgroundColor: "#ececec"}}
+      >
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large"> Light theme </IcTypography>
+          <div>
+            <IcButton variant="destructive" theme="light" id="mybuttonid">
+              Destructive
+            </IcButton>
+            <IcButton variant="destructive" theme="light" disabled>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large">
+            Light theme - monochrome
+          </IcTypography>
+          <div>
+            <IcButton variant="destructive" monochrome theme="light"> Monochrome </IcButton>
+            <IcButton variant="destructive" disabled monochrome theme="light">
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{display: "flex", flexDirection: "row", marginTop: "1rem", backgroundColor: "#474A48", borderRadius: "5px", width: "fit-content"}}
+      >
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme
+          </IcTypography>
+          <div>
+            <IcButton variant="destructive" theme="dark" id="mybuttonid">
+              Destructive
+            </IcButton>
+            <IcButton variant="destructive" theme="dark" disabled>
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+        <div
+          style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem"}}
+        >
+          <IcTypography variant="subtitle-large" style={{color: "white"}}>
+            Dark theme - monochrome
+          </IcTypography>
+          <div>
+            <IcButton variant="destructive" monochrome theme="dark">
+              Monochrome
+            </IcButton>
+            <IcButton variant="destructive" disabled monochrome theme="dark">
+              Disabled
+            </IcButton>
+          </div>
+        </div>
+      </div>
   </Story>
 </Canvas>
 
@@ -195,9 +330,9 @@ export const defaultArgs = {
 
 <Canvas>
   <Story name="With icon">
-    <div>
+    <div style={{padding: "1rem", display:"flex", gap: "1rem"}}>
       <IcButton variant="primary">
-        Button
+        Primary
         <svg
           slot="left-icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -211,7 +346,7 @@ export const defaultArgs = {
         </svg>
       </IcButton>
       <IcButton variant="secondary">
-        Button
+        Secondary
         <svg
           slot="left-icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -225,21 +360,7 @@ export const defaultArgs = {
         </svg>
       </IcButton>
       <IcButton variant="tertiary">
-        Button
-        <svg
-          slot="left-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-        </svg>
-      </IcButton>
-      <IcButton appearance="dark">
-        Button
+        Tertiary
         <svg
           slot="left-icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -253,7 +374,7 @@ export const defaultArgs = {
         </svg>
       </IcButton>
       <IcButton variant="destructive">
-        Button
+        Destructive
         <svg
           slot="left-icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -266,74 +387,10 @@ export const defaultArgs = {
           <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
         </svg>
       </IcButton>
-      <IcButton variant="destructive" disabled>
-        Button
-        <svg
-          slot="left-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-        </svg>
-      </IcButton>
-      <div
-        style={{
-          backgroundColor: "#2c2f34",
-          display: "inline-block",
-          padding: "6px 10px",
-        }}
-      >
-        <IcButton variant="primary" appearance="light">
-          Button
-          <svg
-            slot="left-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-          </svg>
-        </IcButton>
-        <IcButton variant="secondary" appearance="light">
-          Button
-          <svg
-            slot="left-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-          </svg>
-        </IcButton>
-        <IcButton variant="tertiary" appearance="light">
-          Button
-          <svg
-            slot="left-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-          </svg>
-        </IcButton>
-      </div>
     </div>
-    <div>
+    <div style={{padding: "1rem", display:"flex", gap: "1rem"}}>
       <IcButton variant="primary">
-        Button
+        Primary
         <svg
           slot="right-icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -347,7 +404,7 @@ export const defaultArgs = {
         </svg>
       </IcButton>
       <IcButton variant="secondary">
-        Button
+        Secondary
         <svg
           slot="right-icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -361,21 +418,7 @@ export const defaultArgs = {
         </svg>
       </IcButton>
       <IcButton variant="tertiary">
-        Button
-        <svg
-          slot="right-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-        </svg>
-      </IcButton>
-      <IcButton appearance="dark">
-        Button
+        Tertiary
         <svg
           slot="right-icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -389,7 +432,7 @@ export const defaultArgs = {
         </svg>
       </IcButton>
       <IcButton variant="destructive">
-        Button
+        Destructive
         <svg
           slot="right-icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -402,70 +445,6 @@ export const defaultArgs = {
           <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
         </svg>
       </IcButton>
-      <IcButton variant="destructive" disabled>
-        Button
-        <svg
-          slot="right-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-        </svg>
-      </IcButton>
-      <div
-        style={{
-          backgroundColor: "#2c2f34",
-          display: "inline-block",
-          padding: "6px 10px",
-        }}
-      >
-        <IcButton variant="primary" appearance="light">
-          Button
-          <svg
-            slot="right-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-          </svg>
-        </IcButton>
-        <IcButton variant="secondary" appearance="light">
-          Button
-          <svg
-            slot="right-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-          </svg>
-        </IcButton>
-        <IcButton variant="tertiary" appearance="light">
-          Button
-          <svg
-            slot="right-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-          </svg>
-        </IcButton>
-      </div>
     </div>
   </Story>
 </Canvas>
@@ -476,10 +455,10 @@ export const defaultArgs = {
   <Story name="Dropdown">
     <div>
       <div style={{ padding: "6px" }}>
-        <IcButton dropdown="true" variant="primary">
+        <IcButton dropdown={true} variant="primary">
           Button
         </IcButton>
-        <IcButton dropdown="true" variant="primary">
+        <IcButton dropdown={true} variant="primary">
           Button
           <svg
             slot="left-icon"
@@ -493,18 +472,18 @@ export const defaultArgs = {
             <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
           </svg>
         </IcButton>
-        <IcButton dropdown="true" variant="secondary">
+        <IcButton dropdown={true} variant="secondary">
           Button
         </IcButton>
-        <IcButton dropdown="true" variant="tertiary">
+        <IcButton dropdown={true} variant="tertiary">
           Button
         </IcButton>
       </div>
       <div style={{ padding: "6px" }}>
-        <IcButton dropdown="true" disabled="true" variant="primary">
+        <IcButton dropdown={true} disabled="true" variant="primary">
           Button
         </IcButton>
-        <IcButton dropdown="true" disabled="true" variant="primary">
+        <IcButton dropdown={true} disabled="true" variant="primary">
           Button
           <svg
             slot="left-icon"
@@ -518,18 +497,18 @@ export const defaultArgs = {
             <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
           </svg>
         </IcButton>
-        <IcButton dropdown="true" disabled="true" variant="secondary">
+        <IcButton dropdown={true} disabled="true" variant="secondary">
           Button
         </IcButton>
-        <IcButton dropdown="true" disabled="true" variant="tertiary">
+        <IcButton dropdown={true} disabled="true" variant="tertiary">
           Button
         </IcButton>
       </div>
       <div style={{ padding: "6px" }}>
-        <IcButton dropdown="true" variant="primary" appearance="dark">
+        <IcButton dropdown={true} variant="primary" theme="dark">
           Button
         </IcButton>
-        <IcButton dropdown="true" appearance="dark" variant="primary">
+        <IcButton dropdown={true} theme="dark" variant="primary">
           Button
           <svg
             slot="left-icon"
@@ -543,10 +522,10 @@ export const defaultArgs = {
             <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
           </svg>
         </IcButton>
-        <IcButton dropdown="true" variant="secondary" appearance="dark">
+        <IcButton dropdown={true} variant="secondary" theme="dark">
           Button
         </IcButton>
-        <IcButton dropdown="true" variant="tertiary" appearance="dark">
+        <IcButton dropdown={true} variant="tertiary" theme="dark">
           Button
         </IcButton>
       </div>
@@ -557,10 +536,10 @@ export const defaultArgs = {
           width: "fit-content",
         }}
       >
-        <IcButton dropdown="true" variant="primary" appearance="light">
+        <IcButton dropdown={true} variant="primary" theme="light">
           Button
         </IcButton>
-        <IcButton dropdown="true" appearance="light" variant="primary">
+        <IcButton dropdown={true} theme="light" variant="primary">
           Button
           <svg
             slot="left-icon"
@@ -574,24 +553,24 @@ export const defaultArgs = {
             <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
           </svg>
         </IcButton>
-        <IcButton dropdown="true" variant="secondary" appearance="light">
+        <IcButton dropdown={true} variant="secondary" theme="light">
           Button
         </IcButton>
         <IcButton
-          dropdown="true"
+          dropdown={true}
           variant="tertiary"
-          appearance="light"
+          theme="light"
           id="mybuttonid"
-          onclick="alert('test')"
+          onClick={() => alert('test')}
         >
           Button
         </IcButton>
       </div>
       <div style={{ padding: "6px" }}>
-        <IcButton dropdown="true" variant="primary" size="small">
+        <IcButton dropdown={true} variant="primary" size="small">
           Button
         </IcButton>
-        <IcButton dropdown="true" size="small" variant="primary">
+        <IcButton dropdown={true} size="small" variant="primary">
           Button
           <svg
             slot="left-icon"
@@ -605,18 +584,18 @@ export const defaultArgs = {
             <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
           </svg>
         </IcButton>
-        <IcButton dropdown="true" variant="secondary" size="small">
+        <IcButton dropdown={true} variant="secondary" size="small">
           Button
         </IcButton>
-        <IcButton dropdown="true" variant="tertiary" size="small">
+        <IcButton dropdown={true} variant="tertiary" size="small">
           Button
         </IcButton>
       </div>
       <div style={{ padding: "6px" }}>
-        <IcButton dropdown="true" variant="primary" size="large">
+        <IcButton dropdown={true} variant="primary" size="large">
           Button
         </IcButton>
-        <IcButton dropdown="true" size="large" variant="primary">
+        <IcButton dropdown={true} size="large" variant="primary">
           Button
           <svg
             slot="left-icon"
@@ -630,10 +609,10 @@ export const defaultArgs = {
             <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
           </svg>
         </IcButton>
-        <IcButton dropdown="true" variant="secondary" size="large">
+        <IcButton dropdown={true} variant="secondary" size="large">
           Button
         </IcButton>
-        <IcButton dropdown="true" variant="tertiary" size="large">
+        <IcButton dropdown={true} variant="tertiary" size="large">
           Button
         </IcButton>
       </div>
@@ -739,6 +718,18 @@ export const PopoverDropdown = () => {
   </Story>
 </Canvas>
 
+### Router
+
+<Canvas>
+  <Story name="Router">
+    <IcButton>
+      <a slot="router-item" href="/">
+        Slotted link
+      </a>
+    </IcButton>
+  </Story>
+</Canvas>
+
 ### With mdi icons
 
 <Canvas>
@@ -762,7 +753,7 @@ export const PopoverDropdown = () => {
 
 <Canvas>
   <Story name="Full width">
-    <IcButton variant="primary" fullWidth="true">
+    <IcButton variant="primary" fullWidth={true}>
       Button
       <svg
         slot="left-icon"
@@ -776,7 +767,7 @@ export const PopoverDropdown = () => {
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
     </IcButton>
-    <IcButton variant="secondary" fullWidth="true">
+    <IcButton variant="secondary" fullWidth={true}>
       Button
       <svg
         slot="left-icon"
@@ -790,7 +781,7 @@ export const PopoverDropdown = () => {
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
     </IcButton>
-    <IcButton variant="tertiary" fullWidth="true">
+    <IcButton variant="tertiary" fullWidth={true}>
       Button
       <svg
         slot="left-icon"
@@ -804,7 +795,7 @@ export const PopoverDropdown = () => {
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
     </IcButton>
-    <IcButton appearance="dark" fullWidth="true">
+    <IcButton theme="dark" fullWidth={true}>
       Button
       <svg
         slot="left-icon"
@@ -818,7 +809,7 @@ export const PopoverDropdown = () => {
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
     </IcButton>
-    <IcButton variant="destructive" fullWidth="true">
+    <IcButton variant="destructive" fullWidth={true}>
       Button
       <svg
         slot="left-icon"
@@ -832,7 +823,7 @@ export const PopoverDropdown = () => {
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
     </IcButton>
-    <IcButton variant="destructive" disabled fullWidth="true">
+    <IcButton variant="destructive" disabled fullWidth={true}>
       Button
       <svg
         slot="left-icon"
@@ -847,7 +838,7 @@ export const PopoverDropdown = () => {
       </svg>
     </IcButton>
     <div style={{ backgroundColor: "#2c2f34", padding: "6px 10px" }}>
-      <IcButton variant="primary" appearance="light" fullWidth="true">
+      <IcButton variant="primary" theme="light" fullWidth={true}>
         Button
         <svg
           slot="left-icon"
@@ -861,7 +852,7 @@ export const PopoverDropdown = () => {
           <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
         </svg>
       </IcButton>
-      <IcButton variant="secondary" appearance="light" fullWidth="true">
+      <IcButton variant="secondary" theme="light" fullWidth={true}>
         Button
         <svg
           slot="left-icon"
@@ -875,7 +866,7 @@ export const PopoverDropdown = () => {
           <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
         </svg>
       </IcButton>
-      <IcButton variant="tertiary" appearance="light" fullWidth="true">
+      <IcButton variant="tertiary" theme="light" fullWidth={true}>
         Button
         <svg
           slot="left-icon"
@@ -947,7 +938,7 @@ export const PopoverDropdown = () => {
     </IcButton>
     <IcButton
       variant="icon"
-      appearance="dark"
+      theme="dark"
       size="large"
       aria-label="refresh"
     >
@@ -973,7 +964,7 @@ export const PopoverDropdown = () => {
         variant="icon"
         size="large"
         aria-label="refresh"
-        appearance="light"
+        theme="light"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -990,7 +981,7 @@ export const PopoverDropdown = () => {
         variant="icon"
         size="large"
         aria-label="refresh"
-        appearance="light"
+        theme="light"
         disabled
       >
         <svg
@@ -1015,60 +1006,24 @@ export const IconBtnGroup = (iconProps) => {
     <>
       <h1>{iconProps.title}</h1>
       <div style={{
-          backgroundColor: iconProps.appearance === "light"  ? "#2c2f34" : "#fff",
+          backgroundColor: iconProps.theme === "light"  ? "#2c2f34" : "#fff",
           display: "flex",
           gap: "0.5rem",
           marginBottom: "1rem",
           width: "fit-content",
-          padding: iconProps.appearance === "light"  ? "6px 10px" : "none",
+          padding: iconProps.theme === "light"  ? "6px 10px" : "none",
         }} >
-        <IcButton variant="icon-primary" size={iconProps.size} appearance={iconProps.appearance} loading={iconProps.loading} disabled={iconProps.disabled} aria-label="refresh" id="testButton" >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-          </svg>
+        <IcButton variant="icon-primary" size={iconProps.size} theme={iconProps.theme} loading={iconProps.loading} disabled={iconProps.disabled} monochrome={iconProps.monochrome} aria-label="refresh" id="testButton" >
+          {customSVG()}
         </IcButton>
-        <IcButton variant="icon-secondary" size={iconProps.size} appearance={iconProps.appearance} loading={iconProps.loading} disabled={iconProps.disabled} aria-label="refresh" id="testButton" >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-          </svg>
+        <IcButton variant="icon-secondary" size={iconProps.size} theme={iconProps.theme} loading={iconProps.loading} disabled={iconProps.disabled} monochrome={iconProps.monochrome} aria-label="refresh" id="testButton" >
+           {customSVG()}
         </IcButton>
-        <IcButton variant="icon-tertiary" size={iconProps.size} appearance={iconProps.appearance} loading={iconProps.loading} disabled={iconProps.disabled} aria-label="refresh" id="testButton" >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-          </svg>
+        <IcButton variant="icon-tertiary" size={iconProps.size} theme={iconProps.theme} loading={iconProps.loading} disabled={iconProps.disabled} monochrome={iconProps.monochrome} aria-label="refresh" id="testButton" >
+           {customSVG()}
         </IcButton>
-        <IcButton variant="icon-destructive" size={iconProps.size} appearance={iconProps.appearance} loading={iconProps.loading} disabled={iconProps.disabled} aria-label="refresh" id="testButton" >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-          </svg>
+        <IcButton variant="icon-destructive" size={iconProps.size} theme={iconProps.theme} loading={iconProps.loading} disabled={iconProps.disabled} monochrome={iconProps.monochrome} aria-label="refresh" id="testButton" >
+          {customSVG()}
         </IcButton>
       </div>
     </>
@@ -1080,12 +1035,9 @@ export const IconBtnGroup = (iconProps) => {
     {[IconBtnGroup(iconProps.iconDefault),
       IconBtnGroup(iconProps.iconSmall),
       IconBtnGroup(iconProps.iconLarge),
-      IconBtnGroup(iconProps.iconLoading),
       IconBtnGroup(iconProps.iconDisabled),
       IconBtnGroup(iconProps.iconLight),
-      IconBtnGroup(iconProps.iconLightLoading),
-      IconBtnGroup(iconProps.iconDark),
-      IconBtnGroup(iconProps.iconDarkLoading)
+      IconBtnGroup(iconProps.iconDark)
     ]}
   </Story>
 </Canvas>
@@ -1104,11 +1056,17 @@ export const IconBtnGroup = (iconProps) => {
         options: ["medium", "large", "small"],
         control: { type: "inline-radio" },
       },
-      appearance: {
-        options: ["default", "dark", "light"],
+      theme: {
+        options: ["inherit", "dark", "light"],
         control: { type: "inline-radio" },
       },
       fullWidth: {
+        control: { type: "boolean" },
+      },
+      monochrome: {
+        control: { type: "boolean" },
+      },
+      dropdown: {
         control: { type: "boolean" },
       },
     }}
@@ -1120,8 +1078,10 @@ export const IconBtnGroup = (iconProps) => {
         variant={args.variant}
         size={args.size}
         loading={args.loading}
-            appearance={args.appearance}
+        theme={args.theme}
         fullWidth={args.fullWidth}
+        monochrome={args.monochrome}
+        dropdown={args.dropdown}
       >
         {args.message}
       </IcButton>
@@ -1143,11 +1103,14 @@ export const IconBtnGroup = (iconProps) => {
         options: ["medium", "large", "small"],
         control: { type: "inline-radio" },
       },
-      appearance: {
+      theme: {
         options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
       fullWidth: {
+        control: { type: "boolean" },
+      },
+      monochrome: {
         control: { type: "boolean" },
       },
     }}
@@ -1159,8 +1122,9 @@ export const IconBtnGroup = (iconProps) => {
         variant={args.variant}
         size={args.size}
         loading={args.loading}
-        appearance={args.appearance}
+        theme={args.theme}
         fullWidth={args.fullWidth}
+        monochrome={args.monochrome}
       >
         {args.message}
         <svg

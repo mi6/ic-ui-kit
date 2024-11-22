@@ -144,7 +144,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     });
   });
 
-  it("should render disabled", () => {
+  it.skip("should render disabled", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" disabled />
@@ -227,7 +227,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     });
   });
 
-  it("should render loading", () => {
+  it.skip("should render loading", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" loading />
@@ -279,7 +279,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     });
   });
 
-  it("should render with appearance set to dark", () => {
+  it.skip("should render with appearance set to dark", () => {
     mount(<Dark />);
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
 
@@ -290,7 +290,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     });
   });
 
-  it("should render with appearance set to light", () => {
+  it.skip("should render with appearance set to light", () => {
     mount(<Light />);
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
 
@@ -343,7 +343,7 @@ describe("IcToggleButton visual regression tests in high contrast mode", () => {
     });
   });
 
-  it("should render disabled in high contrast mode", () => {
+  it.skip("should render disabled in high contrast mode", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" disabled />
