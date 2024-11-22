@@ -1,7 +1,7 @@
 {
-  "total": 184,
-  "totalPassed": 141,
-  "totalFailed": 43,
+  "total": 186,
+  "totalPassed": 144,
+  "totalFailed": 42,
   "totalSuites": 7,
   "suites": [
     {
@@ -446,7 +446,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-specified-row-height",
-          "percentage": 0.03581912683197635,
+          "percentage": 0.05065589495814299,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -512,7 +512,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-sticky-header",
-          "percentage": 0.05065589495814299,
+          "percentage": 0.06204054755573668,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -532,14 +532,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-density-default-dropdown.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx-density-dense-dropdown",
-          "percentage": 0.0625,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-density-dense-dropdown.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-density-dense-dropdown.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-density-dense-dropdown.png"
         },
         {
@@ -556,7 +556,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-pagination",
-          "percentage": 0.0716382536639527,
+          "percentage": 0.08009400249098582,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -567,7 +567,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-pagination-uncontrolled",
-          "percentage": 0.0716382536639527,
+          "percentage": 0.08009400249098582,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -666,7 +666,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-show-hide-truncation-hide",
-          "percentage": 0.05103103630798288,
+          "percentage": 0.0625,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -677,7 +677,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-show-hide-truncation-focus-hover-state",
-          "percentage": 0.05103103630798288,
+          "percentage": 0.0625,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -710,7 +710,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-show-hide-truncation-scroll",
-          "percentage": 0.05065589495814299,
+          "percentage": 0.06204054755573668,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -743,7 +743,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-show-hide-truncation-custom-icon",
-          "percentage": 0.04235775348857584,
+          "percentage": 0.05567833789902422,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -842,7 +842,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-slotted-custom-element-in-cell",
-          "percentage": 0.06143294850044505,
+          "percentage": 0.07059225307823415,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -853,7 +853,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-tooltip-in-final-row",
-          "percentage": 0.05013866270700561,
+          "percentage": 0.06177352856507558,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -864,7 +864,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-icons-only-in-some-rows",
-          "percentage": 0.05156397961892221,
+          "percentage": 0.06296619747721457,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -1005,14 +1005,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-row-overrides-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDataTable.cy.tsx-slotted-custom-element-in-cell-high-contrast",
-          "percentage": 0,
+          "percentage": 0.012197261715621872,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-slotted-custom-element-in-cell-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-slotted-custom-element-in-cell-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-slotted-custom-element-in-cell-high-contrast.png"
         },
         {
@@ -1036,6 +1036,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-dark-mode-embedded.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-dark-mode-embedded.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDataTable.cy.tsx-dark-mode-row-headers",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
+          "specFilename": "IcDataTable.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-dark-mode-row-headers.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-dark-mode-row-headers.png"
         },
         {
           "status": "pass",
@@ -1100,6 +1111,17 @@
       "tests": [
         {
           "status": "pass",
+          "name": "IcDataTableTitleBar.cy.tsx-default",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDataTableTitleBar/IcDataTableTitleBar.cy.tsx",
+          "specFilename": "IcDataTableTitleBar.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTableTitleBar.cy.tsx-default.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTableTitleBar.cy.tsx-default.png"
+        },
+        {
+          "status": "pass",
           "name": "IcDataTableTitleBar.cy.tsx-slotted-header-and-description",
           "percentage": 0,
           "failureThreshold": 0,
@@ -1121,14 +1143,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTableTitleBar.cy.tsx-metadata-and-description.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTableTitleBar.cy.tsx-default-high-contrast",
-          "percentage": 0.06234722538872019,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTableTitleBar/IcDataTableTitleBar.cy.tsx",
           "specFilename": "IcDataTableTitleBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTableTitleBar.cy.tsx-default-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTableTitleBar.cy.tsx-default-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTableTitleBar.cy.tsx-default-high-contrast.png"
         },
         {
@@ -2071,9 +2093,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-21T16:02:31.331Z",
-  "endedAt": "2024-11-21T16:19:18.904Z",
-  "duration": 992187,
+  "startedAt": "2024-11-22T11:04:21.598Z",
+  "endedAt": "2024-11-22T11:21:04.504Z",
+  "duration": 987698,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
