@@ -1,7 +1,7 @@
 {
-  "total": 192,
-  "totalPassed": 187,
-  "totalFailed": 5,
+  "total": 193,
+  "totalPassed": 192,
+  "totalFailed": 1,
   "totalSuites": 7,
   "suites": [
     {
@@ -301,15 +301,26 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-sortable.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx-sortable-first-sort",
-          "percentage": 0.05103103630798288,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-sortable-first-sort.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-sortable-first-sort.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-sortable-first-sort.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcDataTable.cy.tsx-sortable-second-sort",
+          "percentage": 0.05103103630798288,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
+          "specFilename": "IcDataTable.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-sortable-second-sort.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-sortable-second-sort.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-sortable-second-sort.png"
         },
         {
           "status": "pass",
@@ -510,14 +521,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-density-dense.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx-density-spacious",
-          "percentage": 0.05103103630798288,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-density-spacious.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-density-spacious.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-density-spacious.png"
         },
         {
@@ -543,14 +554,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-sticky-header.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx-sticky-header-removed",
-          "percentage": 0.06204054755573668,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-sticky-header-removed.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-sticky-header-removed.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-sticky-header-removed.png"
         },
         {
@@ -618,17 +629,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-tooltip-truncation.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-tooltip-truncation.png"
-        },
-        {
-          "status": "fail",
-          "name": "IcDataTable.cy.tsx-tooltip-truncation-sort",
-          "percentage": 0.07667933262674717,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
-          "specFilename": "IcDataTable.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-tooltip-truncation-sort.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-tooltip-truncation-sort.png",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-tooltip-truncation-sort.png"
         },
         {
           "status": "pass",
@@ -708,14 +708,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-show-hide-truncation-hide.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataTable.cy.tsx-show-hide-truncation-show",
-          "percentage": 0.05103103630798288,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-show-hide-truncation-show.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-show-hide-truncation-show.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-show-hide-truncation-show.png"
         },
         {
@@ -1113,6 +1113,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-dark-mode-emphasis.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-dark-mode-emphasis.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDataTable.cy.tsx-dark-mode-empty-state",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
+          "specFilename": "IcDataTable.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-dark-mode-empty-state.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-dark-mode-empty-state.png"
         },
         {
           "status": "pass",
@@ -2159,9 +2170,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-22T13:20:45.624Z",
-  "endedAt": "2024-11-22T13:27:34.459Z",
-  "duration": 393640,
+  "startedAt": "2024-11-22T16:23:48.025Z",
+  "endedAt": "2024-11-22T16:29:12.947Z",
+  "duration": 309504,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
