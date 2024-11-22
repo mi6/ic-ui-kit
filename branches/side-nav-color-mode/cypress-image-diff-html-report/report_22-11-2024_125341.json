@@ -1,7 +1,7 @@
 {
   "total": 720,
-  "totalPassed": 710,
-  "totalFailed": 10,
+  "totalPassed": 714,
+  "totalFailed": 6,
   "totalSuites": 39,
   "suites": [
     {
@@ -5825,14 +5825,14 @@
       "path": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSideNavigation.cy.tsx-basic",
-          "percentage": 0.009622504486493762,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-basic.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSideNavigation.cy.tsx-basic.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-basic.png"
         },
         {
@@ -5869,25 +5869,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-nav-group-open.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSideNavigation.cy.tsx-slotted-app-title",
-          "percentage": 0.009622504486493762,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-slotted-app-title.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSideNavigation.cy.tsx-slotted-app-title.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-slotted-app-title.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSideNavigation.cy.tsx-slotted-app-title-open",
-          "percentage": 0.009622504486493762,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-slotted-app-title-open.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSideNavigation.cy.tsx-slotted-app-title-open.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-slotted-app-title-open.png"
         },
         {
@@ -6012,14 +6012,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-slotted-app-title-open-desktop.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSideNavigation.cy.tsx-theme-desktop",
-          "percentage": 0.01371758152921836,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-theme-desktop.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSideNavigation.cy.tsx-theme-desktop.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-theme-desktop.png"
         },
         {
@@ -8159,9 +8159,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-22T11:11:02.800Z",
-  "endedAt": "2024-11-22T11:27:01.339Z",
-  "duration": 872804,
+  "startedAt": "2024-11-22T12:53:41.199Z",
+  "endedAt": "2024-11-22T13:09:31.497Z",
+  "duration": 863442,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
