@@ -1339,7 +1339,12 @@ export class DataTable {
               >
                 {this.isObject(cell) && columnProps?.dataType !== "date" ? (
                   Object.keys(cell).includes("href") ? (
-                    <ic-link href={cellValue("href")} theme={this.theme}>
+                    <ic-link
+                      href={cellValue("href")}
+                      theme={this.theme}
+                      target={cellValue("target") || undefined}
+                      rel={cellValue("rel") || undefined}
+                    >
                       {cellValue("data")}
                     </ic-link>
                   ) : (
