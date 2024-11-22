@@ -1,6 +1,6 @@
 {
-  "total": 704,
-  "totalPassed": 704,
+  "total": 705,
+  "totalPassed": 705,
   "totalFailed": 0,
   "totalSuites": 39,
   "suites": [
@@ -1027,6 +1027,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-height-width.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-height-width.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcButton.cy.tsx-dark-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-dark-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-dark-theme.png"
         },
         {
           "status": "pass",
@@ -7983,9 +7994,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-21T16:56:35.586Z",
-  "endedAt": "2024-11-21T17:10:41.372Z",
-  "duration": 760359,
+  "startedAt": "2024-11-22T14:18:43.711Z",
+  "endedAt": "2024-11-22T14:33:33.057Z",
+  "duration": 802840,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
