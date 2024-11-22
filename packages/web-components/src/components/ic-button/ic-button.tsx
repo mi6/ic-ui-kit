@@ -261,6 +261,8 @@ export class Button {
         "--min-width",
         `${this.el.getBoundingClientRect().width}px`
       );
+    } else {
+      this.el.style.removeProperty("--min-width");
     }
     this.setHasTooltip();
   }
