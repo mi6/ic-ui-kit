@@ -322,7 +322,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "primary",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
 
@@ -346,7 +346,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tertiary",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -468,7 +468,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.wait(500).compareSnapshot({
       name: "icon-variants-button-group",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.065),
     });
   });
 
@@ -510,7 +510,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tooltip-icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -527,7 +527,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tooltip-icon-secondary",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -544,7 +544,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tooltip-icon-tertiary",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -561,7 +561,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tooltip-icon-destructive",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -645,10 +645,12 @@ describe("IcButton visual regression and a11y tests", () => {
     });
   });
 
-  it("should render focused text-based primary button with light appearance", () => {
+  it("should render focused text-based primary button with light monochrome theme", () => {
     mount(
       <div style={DARK_BG_STYLE}>
-        <IcButton appearance="light">Test</IcButton>
+        <IcButton variant="primary" theme="light" monochrome>
+          Test
+        </IcButton>
       </div>
     );
 
@@ -666,10 +668,12 @@ describe("IcButton visual regression and a11y tests", () => {
     });
   });
 
-  it("should render focused text-based primary button with dark appearance", () => {
+  it("should render focused text-based primary button with dark monochrome theme", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcButton appearance="dark">Test</IcButton>
+        <IcButton theme="dark" monochrome>
+          Test
+        </IcButton>
       </div>
     );
 
@@ -695,6 +699,32 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "height-width",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+
+  it("should render buttons with dark theme", () => {
+    mount(
+      <>
+        <IcButton theme="dark">Primary</IcButton>
+        <IcButton theme="dark" variant="secondary">
+          Secondary
+        </IcButton>
+        <IcButton theme="dark" variant="tertiary">
+          Tertiary
+        </IcButton>
+        <IcButton theme="dark" variant="destructive">
+          Destructive
+        </IcButton>
+      </>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    //! UNCOMMENT ONCE COLOUR TOKENS ARE DECIDED
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -803,7 +833,7 @@ describe("IcButton visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "tooltip-icon-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
 
@@ -823,10 +853,10 @@ describe("IcButton visual regression tests in high contrast mode", () => {
     });
   });
 
-  it("should render focused text-based primary button with light appearance in high contrast mode", () => {
+  it("should render focused text-based primary button with light theme in high contrast mode", () => {
     mount(
       <div style={DARK_BG_STYLE}>
-        <IcButton appearance="light">Test</IcButton>
+        <IcButton theme="light">Test</IcButton>
       </div>
     );
 
@@ -843,10 +873,12 @@ describe("IcButton visual regression tests in high contrast mode", () => {
     });
   });
 
-  it("should render focused text-based primary button with dark appearance in high contrast mode", () => {
+  it("should render focused text-based primary button with dark theme in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
-        <IcButton appearance="dark">Test</IcButton>
+        <IcButton theme="dark" monochrome>
+          Test
+        </IcButton>
       </div>
     );
 

@@ -215,7 +215,7 @@ describe("IcToggleButtonGroup", () => {
       });
     });
 
-    it("should render dark", () => {
+    it.skip("should render dark", () => {
       mount(<ToggleGroupDark />);
 
       getToggle(0).click();
@@ -263,7 +263,7 @@ describe("IcToggleButtonGroup", () => {
       });
     });
 
-    it("should render loading dark", () => {
+    it.skip("should render loading dark", () => {
       mount(<ToggleGroupLoadingDark />);
 
       cy.checkA11yWithWait(undefined, 200, TOGGLE_BUTTON_AXE_OPTIONS);

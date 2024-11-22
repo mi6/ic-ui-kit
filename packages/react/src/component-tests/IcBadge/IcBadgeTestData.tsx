@@ -326,7 +326,8 @@ export const ThemeDark = (): ReactElement => {
     <div style={{ backgroundColor: "black", padding: "16px" }}>
       <IcButton
         variant="secondary"
-        appearance="light"
+        theme="light"
+        monochrome
         style={{ marginRight: "16px" }}
       >
         <IcBadge label="1" slot="badge" theme="dark" />
@@ -334,7 +335,8 @@ export const ThemeDark = (): ReactElement => {
       </IcButton>
       <IcButton
         variant="secondary"
-        appearance="light"
+        theme="light"
+        monochrome
         style={{ marginRight: "16px" }}
       >
         <IcBadge label="1" variant="light" slot="badge" theme="dark" />
@@ -342,7 +344,8 @@ export const ThemeDark = (): ReactElement => {
       </IcButton>
       <IcButton
         variant="secondary"
-        appearance="light"
+        theme="light"
+        monochrome
         style={{ marginRight: "16px" }}
       >
         <IcBadge label="1" variant="error" slot="badge" theme="dark" />
@@ -350,7 +353,8 @@ export const ThemeDark = (): ReactElement => {
       </IcButton>
       <IcButton
         variant="secondary"
-        appearance="light"
+        theme="light"
+        monochrome
         style={{ marginRight: "16px" }}
       >
         <IcBadge label="1" variant="success" slot="badge" theme="dark" />
@@ -358,7 +362,8 @@ export const ThemeDark = (): ReactElement => {
       </IcButton>
       <IcButton
         variant="secondary"
-        appearance="light"
+        theme="light"
+        monochrome
         style={{ marginRight: "16px" }}
       >
         <IcBadge label="1" variant="warning" slot="badge" theme="dark" />
@@ -366,7 +371,8 @@ export const ThemeDark = (): ReactElement => {
       </IcButton>
       <IcButton
         variant="secondary"
-        appearance="light"
+        theme="light"
+        monochrome
         style={{ marginRight: "16px" }}
       >
         <IcBadge label="1" variant="info" slot="badge" theme="dark" />
