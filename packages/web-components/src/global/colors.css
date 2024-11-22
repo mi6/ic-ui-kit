@@ -622,6 +622,28 @@
   --ic-hero-body: var(--ic-color-brand-text);
   --ic-hero-keyline: var(--ic-state-layer-lighten-20);
 
+  /* SIDE NAVIGATION */
+  --ic-side-navigation-background: var(--ic-theme-primary);
+  --ic-side-navigation-icon: var(--ic-color-icon-brand);
+  --ic-side-navigation-icon-disabled: var(--ic-color-icon-grey-light);
+  --ic-side-navigation-status-tag-text: var(--ic-color-text-primary-light);
+  --ic-side-navigation-logo: var(--ic-color-icon-brand);
+  --ic-side-navigation-keyline: var(--ic-state-layer-lighten-20);
+  --ic-side-navigation-icon-and-label: var(--ic-color-brand-text);
+  --ic-side-navigation-theme: var(--ic-color-background-primary-light);
+  --ic-side-navigation-hover: var(--ic-theme-hover);
+  --ic-side-navigation-pressed: var(--ic-theme-active);
+  --ic-side-navigation-icon-label: var(--ic-color-icon-brand);
+  --ic-side-navigation-text: var(--ic-theme-text);
+  --ic-side-navigation-status-tag: var(--ic-color-background-primary-light);
+  --ic-side-navigation-focussed: var(--ic-color-background-primary-light);
+  --ic-side-navigation-focussed-text: var(--ic-color-text-primary-light);
+  --ic-side-navigation-focussed-icon: var(--ic-color-text-primary-light);
+  --ic-side-navigation-selection-indicator: var(--ic-color-icon-brand);
+  --ic-side-navigation-selection-indicator-disabled: var(
+    --ic-color-icon-disabled-light
+  );
+
   /* TOAST */
   --ic-toast-background: var(--ic-color-background-primary-dark);
   --ic-toast-status-success: var(--ic-status-success-contrast);
