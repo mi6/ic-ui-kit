@@ -72,7 +72,7 @@ export const ToggleGroupLarge = (): ReactElement => {
 export const ToggleGroupLight = (): ReactElement => {
   return (
     <div style={{ margin: "10px  0 0 10px" }}>
-      <IcToggleButtonGroup appearance="light">
+      <IcToggleButtonGroup theme="dark" monochrome>
         <IcToggleButton label="First toggle"></IcToggleButton>
         <IcToggleButton label="Second toggle"></IcToggleButton>
         <IcToggleButton label="Third toggle"></IcToggleButton>
@@ -84,7 +84,7 @@ export const ToggleGroupLight = (): ReactElement => {
 export const ToggleGroupDark = (): ReactElement => {
   return (
     <div style={{ margin: "10px  0 0 10px" }}>
-      <IcToggleButtonGroup appearance="dark">
+      <IcToggleButtonGroup theme="light" monochrome>
         <IcToggleButton label="First toggle"></IcToggleButton>
         <IcToggleButton label="Second toggle"></IcToggleButton>
         <IcToggleButton label="Third toggle"></IcToggleButton>
@@ -108,18 +108,21 @@ export const ToggleGroupLoading = (): ReactElement => {
 export const ToggleGroupLoadingLight = (): ReactElement => {
   return (
     <div style={{ margin: "10px  0 0 10px" }}>
-      <IcToggleButtonGroup loading={true} appearance="light">
+      <IcToggleButtonGroup loading={true} theme="dark" monochrome>
         <IcToggleButton
           label="First toggle"
-          appearance="light"
+          theme="dark"
+          monochrome
         ></IcToggleButton>
         <IcToggleButton
           label="Second toggle"
-          appearance="light"
+          theme="dark"
+          monochrome
         ></IcToggleButton>
         <IcToggleButton
           label="Third toggle"
-          appearance="light"
+          theme="dark"
+          monochrome
         ></IcToggleButton>
       </IcToggleButtonGroup>
     </div>
@@ -129,13 +132,22 @@ export const ToggleGroupLoadingLight = (): ReactElement => {
 export const ToggleGroupLoadingDark = (): ReactElement => {
   return (
     <div style={{ margin: "10px  0 0 10px" }}>
-      <IcToggleButtonGroup loading={true} appearance="dark">
-        <IcToggleButton label="First toggle" appearance="dark"></IcToggleButton>
+      <IcToggleButtonGroup loading={true} theme="light" monochrome>
+        <IcToggleButton
+          label="First toggle"
+          theme="light"
+          monochrome
+        ></IcToggleButton>
         <IcToggleButton
           label="Second toggle"
-          appearance="dark"
+          theme="light"
+          monochrome
         ></IcToggleButton>
-        <IcToggleButton label="Third toggle" appearance="dark"></IcToggleButton>
+        <IcToggleButton
+          label="Third toggle"
+          theme="light"
+          monochrome
+        ></IcToggleButton>
       </IcToggleButtonGroup>
     </div>
   );
@@ -143,13 +155,47 @@ export const ToggleGroupLoadingDark = (): ReactElement => {
 
 export const ToggleGroupDisabled = (): ReactElement => {
   return (
-    <div style={{ margin: "10px  0 0 10px" }}>
-      <IcToggleButtonGroup disabled={true}>
-        <IcToggleButton label="First toggle"></IcToggleButton>
-        <IcToggleButton label="Second toggle"></IcToggleButton>
-        <IcToggleButton label="Third toggle"></IcToggleButton>
-      </IcToggleButtonGroup>
-    </div>
+    <>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          padding: "var(--ic-space-md)",
+          gap: "var(--ic-space-xs)",
+        }}
+      >
+        <IcToggleButtonGroup disabled={true}>
+          <IcToggleButton label="First toggle"></IcToggleButton>
+          <IcToggleButton label="Second toggle"></IcToggleButton>
+          <IcToggleButton label="Third toggle"></IcToggleButton>
+        </IcToggleButtonGroup>
+        <IcToggleButtonGroup disabled={true} monochrome={true}>
+          <IcToggleButton label="First toggle"></IcToggleButton>
+          <IcToggleButton label="Second toggle"></IcToggleButton>
+          <IcToggleButton label="Third toggle"></IcToggleButton>
+        </IcToggleButtonGroup>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          backgroundColor: "#2c2f34",
+          padding: "var(--ic-space-md)",
+          gap: "var(--ic-space-xs)",
+        }}
+      >
+        <IcToggleButtonGroup disabled={true} theme="dark">
+          <IcToggleButton label="First toggle"></IcToggleButton>
+          <IcToggleButton label="Second toggle"></IcToggleButton>
+          <IcToggleButton label="Third toggle"></IcToggleButton>
+        </IcToggleButtonGroup>
+        <IcToggleButtonGroup disabled={true} theme="dark" monochrome={true}>
+          <IcToggleButton label="First toggle"></IcToggleButton>
+          <IcToggleButton label="Second toggle"></IcToggleButton>
+          <IcToggleButton label="Third toggle"></IcToggleButton>
+        </IcToggleButtonGroup>
+      </div>
+    </>
   );
 };
 

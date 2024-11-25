@@ -279,24 +279,24 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     });
   });
 
-  it.skip("should render with appearance set to dark", () => {
+  it("should render with monochrome set to true", () => {
     mount(<Dark />);
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
 
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
-      name: "appearance-dark",
+      name: "light-theme-monochrome",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
 
-  it.skip("should render with appearance set to light", () => {
+  it("should render with dark theme and monochrome set to true", () => {
     mount(<Light />);
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
 
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
-      name: "appearance-light",
+      name: "dark-theme-monochrome",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
