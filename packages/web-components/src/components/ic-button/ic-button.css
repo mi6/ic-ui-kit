@@ -681,6 +681,7 @@ div.right-icon {
 :host(.menu-close-button) ::slotted(svg) {
   --icon-height: 0.875rem;
   --icon-width: 0.875rem;
+  color: var(--ic-top-navigation-icon-active);
 }
 
 :host(.popout-menu-button) .button {

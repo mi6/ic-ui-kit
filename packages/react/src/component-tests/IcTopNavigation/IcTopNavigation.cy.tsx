@@ -26,6 +26,7 @@ import {
   LongWordAppTitle,
   SimpleTopNav,
   Theme,
+  ThemeDark,
   TopNavWithNavItems,
   TopNavWithSearch,
   WithNavGroup,
@@ -340,6 +341,17 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     });
   });
 
+  it("should render with dark theme", () => {
+    mount(<ThemeDark />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
+  });
+
   it("should render with different theme color", () => {
     mount(<Theme />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
@@ -520,6 +532,17 @@ describe("IcTopNavigation mobile visual regression tests", () => {
       testThreshold: setThresholdBasedOnEnv(
         DEFAULT_TEST_THRESHOLD_MOBILE + 0.009
       ),
+    });
+  });
+
+  it("should render with dark theme - mobile", () => {
+    mount(<ThemeDark />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "mobile-theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 

@@ -2333,6 +2333,10 @@ export namespace Components {
          */
         "status": string;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: "dark" | "light" | "inherit";
+        /**
           * The version info to be displayed.
          */
         "version": string;
@@ -2803,9 +2807,6 @@ declare global {
     interface HTMLIcMenuItemElementEventMap {
         "childBlur": void;
         "handleMenuItemClick": HTMLIcMenuItemElement;
-        "icToggleChecked": {
-    checked: boolean;
-  };
         "triggerPopoverMenuInstance": void;
     }
     interface HTMLIcMenuItemElement extends Components.IcMenuItem, HTMLStencilElement {
@@ -4427,12 +4428,6 @@ declare namespace LocalJSX {
         "label": string;
         "onChildBlur"?: (event: IcMenuItemCustomEvent<void>) => void;
         "onHandleMenuItemClick"?: (event: IcMenuItemCustomEvent<HTMLIcMenuItemElement>) => void;
-        /**
-          * Emitted when the user clicks a menu item that is set to the toggle variant.
-         */
-        "onIcToggleChecked"?: (event: IcMenuItemCustomEvent<{
-    checked: boolean;
-  }>) => void;
         "onTriggerPopoverMenuInstance"?: (event: IcMenuItemCustomEvent<void>) => void;
         /**
           * How much of the referrer to send when following the link.
@@ -5742,6 +5737,10 @@ declare namespace LocalJSX {
           * The status info to be displayed.
          */
         "status"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: "dark" | "light" | "inherit";
         /**
           * The version info to be displayed.
          */
