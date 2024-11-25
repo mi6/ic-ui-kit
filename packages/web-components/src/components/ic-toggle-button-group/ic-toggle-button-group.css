@@ -11,7 +11,7 @@
   flex-direction: row;
   width: fit-content;
   min-width: min-content;
-  border: var(--ic-border-width) solid var(--ic-action-default);
+  border: var(--ic-border-width) solid var(--ic-toggle-button-unselected-border);
   border-radius: var(--ic-border-radius);
 }
 
@@ -37,40 +37,47 @@
   flex-grow: 1;
   width: min-content;
 
-  --toggle-button-border: none;
+  --toggle-button-border: none !important;
+  --toggle-button-border-hover: none !important;
+  --toggle-button-border-active: none !important;
 }
 
 ::slotted(ic-toggle-button:not(:last-of-type)) {
-  border-right: var(--ic-border-width) solid var(--ic-action-default);
+  border-right: var(--ic-border-width) solid
+    var(--ic-toggle-button-unselected-border);
 }
 
 /* DISABLED */
 :host(.ic-toggle-button-group-disabled) {
-  border: var(--ic-border-disabled);
+  border: var(--ic-space-1px) dashed
+    var(--ic-toggle-button-unselected-border-disabled);
   pointer-events: none;
 }
 
 :host(.ic-toggle-button-group-disabled)
   ::slotted(ic-toggle-button:not(:last-of-type)) {
-  border-right: var(--ic-border-disabled);
+  border-right: var(--ic-space-1px) dashed
+    var(--ic-toggle-button-unselected-border-disabled);
 }
 
-/* DARK */
-:host(.ic-toggle-button-group-dark) {
-  border: var(--ic-border-width) solid var(--ic-action-dark);
+:host(.ic-toggle-button-group-monochrome) {
+  border: var(--ic-border-width) solid
+    var(--ic-toggle-button-unselected-border-monochrome);
 }
 
-:host(.ic-toggle-button-group-dark)
+:host(.ic-toggle-button-group-monochrome)
   ::slotted(ic-toggle-button:not(:last-of-type)) {
-  border-right: var(--ic-border-width) solid var(--ic-action-dark);
+  border-right: var(--ic-border-width) solid
+    var(--ic-toggle-button-unselected-border-monochrome);
 }
 
-/* LIGHT */
-:host(.ic-toggle-button-group-light)
+:host(.ic-toggle-button-group-disabled.ic-toggle-button-group-monochrome) {
+  border: var(--ic-border-width) dashed
+    var(--ic-toggle-button-unselected-border-disabled-monochrome);
+}
+
+:host(.ic-toggle-button-group-disabled.ic-toggle-button-group-monochrome)
   ::slotted(ic-toggle-button:not(:last-of-type)) {
-  border-right: var(--ic-border-width) solid var(--ic-action-light);
-}
-
-:host(.ic-toggle-button-group-light) {
-  border: var(--ic-border-width) solid var(--ic-action-light);
+  border-right: var(--ic-border-width) solid
+    var(--ic-toggle-button-unselected-border-disabled-monochrome);
 }
