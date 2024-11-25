@@ -1,6 +1,6 @@
 {
-  "total": 193,
-  "totalPassed": 193,
+  "total": 192,
+  "totalPassed": 192,
   "totalFailed": 0,
   "totalSuites": 7,
   "suites": [
@@ -1116,17 +1116,6 @@
         },
         {
           "status": "pass",
-          "name": "IcDataTable.cy.tsx-dark-mode-empty-state",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
-          "specFilename": "IcDataTable.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-dark-mode-empty-state.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-dark-mode-empty-state.png"
-        },
-        {
-          "status": "pass",
           "name": "IcDataTable.cy.tsx-dark-mode-loading",
           "percentage": 0,
           "failureThreshold": 0,
@@ -2170,9 +2159,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-25T09:14:55.572Z",
-  "endedAt": "2024-11-25T09:20:24.314Z",
-  "duration": 313249,
+  "startedAt": "2024-11-25T10:58:41.447Z",
+  "endedAt": "2024-11-25T11:04:04.017Z",
+  "duration": 307417,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
