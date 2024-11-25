@@ -2208,10 +2208,6 @@ export namespace Components {
          */
         "accessibleLabel"?: string;
         /**
-          * The appearance of the toggle button.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * If `true`, the toggle button will be in a checked state.
          */
         "checked": boolean;
@@ -2236,6 +2232,10 @@ export namespace Components {
          */
         "loading"?: boolean;
         /**
+          * If `true`, the toggle button will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * The size of the toggle button to be displayed.
          */
         "size"?: IcSizes;
@@ -2254,10 +2254,6 @@ export namespace Components {
          */
         "accessibleLabel"?: string;
         /**
-          * The appearance of the toggle button group, e.g dark, or light.
-         */
-        "appearance": IcThemeForeground;
-        /**
           * If `true`, the toggle button group will be set to the disabled state.
          */
         "disabled": boolean;
@@ -2273,6 +2269,10 @@ export namespace Components {
           * If `true`, the toggle button group will be in loading state.
          */
         "loading"?: boolean;
+        /**
+          * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
         /**
           * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
          */
@@ -5647,10 +5647,6 @@ declare namespace LocalJSX {
          */
         "accessibleLabel"?: string;
         /**
-          * The appearance of the toggle button.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * If `true`, the toggle button will be in a checked state.
          */
         "checked"?: boolean;
@@ -5674,6 +5670,10 @@ declare namespace LocalJSX {
           * If `true`, the toggle button will be in loading state.
          */
         "loading"?: boolean;
+        /**
+          * If `true`, the toggle button will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
         /**
           * Emitted when the user clicks a toggle button.
          */
@@ -5699,10 +5699,6 @@ declare namespace LocalJSX {
          */
         "accessibleLabel"?: string;
         /**
-          * The appearance of the toggle button group, e.g dark, or light.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * If `true`, the toggle button group will be set to the disabled state.
          */
         "disabled"?: boolean;
@@ -5718,6 +5714,10 @@ declare namespace LocalJSX {
           * If `true`, the toggle button group will be in loading state.
          */
         "loading"?: boolean;
+        /**
+          * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
         /**
           * Emitted when a toggle button is selected.
          */

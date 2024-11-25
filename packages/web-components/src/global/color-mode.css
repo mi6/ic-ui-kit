@@ -50,6 +50,9 @@ ic-theme,
   --ic-color-border-error: var(--ic-color-border-error-light);
   --ic-color-border-error-hover: var(--ic-color-border-error-hover-light);
   --ic-color-border-error-pressed: var(--ic-color-border-error-pressed-light);
+  --ic-color-border-action: var(--ic-color-border-action-light);
+  --ic-color-border-action-hover: var(--ic-color-border-action-hover-light);
+  --ic-color-border-action-pressed: var(--ic-color-border-action-pressed-light);
 
   /* Action colors */
   --ic-action-default: var(--ic-action-default-light);
@@ -1014,6 +1017,118 @@ ic-theme,
   --ic-text-field-no-value-icon-color: var(--ic-color-text-tertiary);
   --ic-text-field-has-value-icon-color: var(--ic-color-text-primary);
 
+  /* Toggle button */
+  --ic-toggle-button-unselected-border: var(--ic-color-border-action);
+  --ic-toggle-button-unselected-text: var(--ic-color-text-action);
+  --ic-toggle-button-unselected-icon: var(--ic-color-icon-action-default);
+  --ic-toggle-button-unselected-border-hover: var(
+    --ic-color-border-action-hover
+  );
+  --ic-toggle-button-unselected-text-hover: var(--ic-color-text-action-hover);
+  --ic-toggle-button-unselected-icon-hover: var(--ic-color-icon-action-hover);
+  --ic-toggle-button-unselected-background-hover: var(
+    --ic-action-default-bg-hover
+  );
+  --ic-toggle-button-unselected-border-pressed: var(
+    --ic-color-border-action-pressed
+  );
+  --ic-toggle-button-unselected-text-pressed: var(
+    --ic-color-text-action-pressed
+  );
+  --ic-toggle-button-unselected-icon-pressed: var(
+    --ic-color-icon-action-pressed
+  );
+  --ic-toggle-button-unselected-background-pressed: var(
+    --ic-action-default-bg-active
+  );
+  --ic-toggle-button-loading-bar: var(--ic-color-icon-brand);
+  --ic-toggle-button-unselected-text-disabled: var(--ic-color-text-inactive);
+  --ic-toggle-button-unselected-icon-disabled: var(--ic-color-icon-grey);
+  --ic-toggle-button-unselected-border-disabled: var(
+    --ic-color-border-neutral-grey-dark
+  );
+  --ic-toggle-button-selected-background: var(--ic-color-background-active);
+  --ic-toggle-button-selected-background-hover: var(
+    --ic-color-background-hover-default
+  );
+  --ic-toggle-button-selected-border: var(--ic-color-border-action);
+  --ic-toggle-button-selected-border-hover: var(--ic-color-border-action-hover);
+  --ic-toggle-button-selected-background-pressed: var(
+    --ic-color-background-pressed-default
+  );
+  --ic-toggle-button-selected-border-pressed: var(
+    --ic-color-border-action-pressed
+  );
+  --ic-toggle-button-selected-loading-bar: var(--ic-color-icon-brand);
+  --ic-toggle-button-selected-text: var(--ic-color-brand-text);
+  --ic-toggle-button-selected-icon: var(--ic-color-icon-brand);
+  --ic-toggle-button-selected-background-disabled: var(
+    --ic-color-background-disabled-mid
+  );
+  --ic-toggle-button-selected-border-disabled: var(
+    --ic-color-border-neutral-disabled
+  );
+  --ic-toggle-button-selected-text-disabled: var(--ic-color-brand-text);
+  --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-brand);
+  --ic-toggle-button-unselected-border-monochrome: var(
+    --ic-color-border-neutral-black
+  );
+  --ic-toggle-button-unselected-text-monochrome: var(--ic-color-text-primary);
+  --ic-toggle-button-unselected-icon-monochrome: var(--ic-color-icon-neutral);
+  --ic-toggle-button-unselected-background-hover-monochrome: var(
+    --ic-action-dark-bg-hover
+  );
+  --ic-toggle-button-unselected-border-hover-monochrome: var(
+    --ic-color-border-neutral-hover-dark
+  );
+  --ic-toggle-button-unselected-background-pressed-monochrome: var(
+    --ic-action-dark-bg-pressed
+  );
+  --ic-toggle-button-unselected-border-pressed-monochrome: var(
+    --ic-color-border-neutral-pressed-dark
+  );
+  --ic-toggle-button-unselected-text-disabled-monochrome: var(
+    --ic-color-text-inactive
+  );
+  --ic-toggle-button-unselected-icon-disabled-monochrome: var(
+    --ic-color-icon-grey
+  );
+  --ic-toggle-button-unselected-border-disabled-monochrome: var(
+    --ic-color-border-neutral-disabled
+  );
+  --ic-toggle-button-selected-background-monochrome: var(
+    --ic-color-background-neutral-dark
+  );
+  --ic-toggle-button-selected-border-monochrome: var(
+    --ic-color-border-neutral-black
+  );
+  --ic-toggle-button-selected-icon-monochrome: var(--ic-color-icon-brand);
+  --ic-toggle-button-selected-text-monochrome: var(--ic-color-brand-text);
+  --ic-toggle-button-selected-background-hover-monochrome: var(
+    --ic-color-background-hover-dark
+  );
+  --ic-toggle-button-selected-border-hover-monochrome: var(
+    --ic-color-border-neutral-hover-dark
+  );
+  --ic-toggle-button-selected-background-pressed-monochrome: var(
+    --ic-color-background-pressed-dark
+  );
+  --ic-toggle-button-selected-border-pressed-monochrome: var(
+    --ic-color-border-neutral-pressed-dark
+  );
+  --ic-toggle-button-selected-background-disabled-monochrome: var(
+    --ic-color-background-disabled-mid
+  );
+  --ic-toggle-button-selected-border-disabled-monochrome: var(
+    --ic-color-border-neutral-disabled
+  );
+  --ic-toggle-button-selected-text-disabled-monochrome: var(
+    --ic-color-text-disabled-light
+  );
+  --ic-toggle-button-selected-icon-disabled-monochrome: var(
+    --ic-color-icon-disabled-mid
+  );
+
   /* Top Navigation */
   --ic-top-navigation-background: var(--ic-theme-primary);
   --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
@@ -1116,6 +1231,11 @@ ic-theme,
     --ic-color-border-error: var(--ic-color-border-error-dark);
     --ic-color-border-error-hover: var(--ic-color-border-error-hover-dark);
     --ic-color-border-error-pressed: var(--ic-color-border-error-pressed-dark);
+    --ic-color-border-action: var(--ic-color-border-action-dark);
+    --ic-color-border-action-hover: var(--ic-color-border-action-hover-dark);
+    --ic-color-border-action-pressed: var(
+      --ic-color-border-action-pressed-dark
+    );
 
     /* Action colors */
     --ic-action-default: var(--ic-action-default-dark);
@@ -2102,6 +2222,130 @@ ic-theme,
     --ic-text-field-no-value-icon-color: var(--ic-color-text-tertiary);
     --ic-text-field-has-value-icon-color: var(--ic-color-text-primary);
 
+    /* Toggle button */
+    --ic-toggle-button-unselected-border: var(--ic-color-border-action);
+    --ic-toggle-button-unselected-text: var(--ic-color-text-action-dark);
+    --ic-toggle-button-unselected-icon: var(--ic-color-icon-action-default);
+    --ic-toggle-button-unselected-border-hover: var(
+      --ic-color-border-action-hover
+    );
+    --ic-toggle-button-unselected-text-hover: var(
+      --ic-color-text-action-hover-dark
+    );
+    --ic-toggle-button-unselected-icon-hover: var(
+      --ic-color-icon-action-hover-dark
+    );
+    --ic-toggle-button-unselected-background-hover: var(
+      --ic-action-default-bg-hover
+    );
+    --ic-toggle-button-unselected-border-pressed: var(
+      --ic-color-border-action-pressed
+    );
+    --ic-toggle-button-unselected-text-pressed: var(
+      --ic-color-text-action-pressed-dark
+    );
+    --ic-toggle-button-unselected-icon-pressed: var(
+      --ic-color-icon-action-pressed-dark
+    );
+    --ic-toggle-button-unselected-background-pressed: var(
+      --ic-action-default-bg-active
+    );
+    --ic-toggle-button-loading-bar: var(--ic-color-icon-neutral);
+    --ic-toggle-button-unselected-text-disabled: var(
+      --ic-color-text-secondary-light
+    );
+    --ic-toggle-button-unselected-icon-disabled: var(
+      --ic-color-icon-grey-darker
+    );
+    --ic-toggle-button-unselected-border-disabled: var(
+      --ic-color-border-neutral-pressed
+    );
+    --ic-toggle-button-selected-background: var(--ic-color-background-active);
+    --ic-toggle-button-selected-background-hover: var(
+      --ic-color-background-active-hover-dark
+    );
+    --ic-toggle-button-selected-border: var(--ic-color-border-action);
+    --ic-toggle-button-selected-border-hover: var(
+      --ic-color-border-action-hover
+    );
+    --ic-toggle-button-selected-background-pressed: var(
+      --ic-color-background-active-pressed-dark
+    );
+    --ic-toggle-button-selected-border-pressed: var(
+      --ic-color-border-action-pressed
+    );
+    --ic-toggle-button-selected-loading-bar: var(--ic-color-icon-neutral);
+    --ic-toggle-button-selected-text: var(--ic-color-text-inverse);
+    --ic-toggle-button-selected-icon: var(--ic-color-icon-neutral);
+    --ic-toggle-button-selected-background-disabled: var(
+      --ic-color-background-disabled-darkest
+    );
+    --ic-toggle-button-selected-border-disabled: var(
+      --ic-color-border-neutral-disabled
+    );
+    --ic-toggle-button-selected-text-disabled: var(
+      --ic-color-text-tertiary-light
+    );
+    --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-disabled);
+    --ic-toggle-button-unselected-border-monochrome: var(
+      --ic-color-border-neutral-white
+    );
+    --ic-toggle-button-unselected-text-monochrome: var(--ic-color-brand-text);
+    --ic-toggle-button-unselected-icon-monochrome: var(--ic-color-icon-brand);
+    --ic-toggle-button-unselected-background-hover-monochrome: var(
+      --ic-action-light-bg-hover
+    );
+    --ic-toggle-button-unselected-border-hover-monochrome: var(
+      --ic-color-border-neutral-hover-light
+    );
+    --ic-toggle-button-unselected-background-pressed-monochrome: var(
+      --ic-action-light-bg-pressed
+    );
+    --ic-toggle-button-unselected-border-pressed-monochrome: var(
+      --ic-color-border-neutral-default
+    );
+    --ic-toggle-button-unselected-text-disabled-monochrome: var(
+      --ic-color-text-disabled-default
+    );
+    --ic-toggle-button-unselected-icon-disabled-monochrome: var(
+      --ic-color-icon-disabled-light
+    );
+    --ic-toggle-button-unselected-border-disabled-monochrome: var(
+      --ic-color-border-neutral-disabled-light
+    );
+    --ic-toggle-button-selected-background-monochrome: var(
+      --ic-color-background-primary-light
+    );
+    --ic-toggle-button-selected-border-monochrome: var(
+      --ic-color-border-neutral-white
+    );
+    --ic-toggle-button-selected-icon-monochrome: var(--ic-color-icon-neutral);
+    --ic-toggle-button-selected-text-monochrome: var(--ic-color-text-inverse);
+    --ic-toggle-button-selected-background-hover-monochrome: var(
+      --ic-color-background-hover-light
+    );
+    --ic-toggle-button-selected-border-hover-monochrome: var(
+      --ic-color-border-neutral-hover-light
+    );
+    --ic-toggle-button-selected-background-pressed-monochrome: var(
+      --ic-color-background-pressed-light
+    );
+    --ic-toggle-button-selected-border-pressed-monochrome: var(
+      --ic-color-border-neutral-pressed-light
+    );
+    --ic-toggle-button-selected-background-disabled-monochrome: var(
+      --ic-color-background-disabled-darkest
+    );
+    --ic-toggle-button-selected-border-disabled-monochrome: var(
+      --ic-color-border-neutral-disabled-light
+    );
+    --ic-toggle-button-selected-text-disabled-monochrome: var(
+      --ic-color-text-disabled-light
+    );
+    --ic-toggle-button-selected-icon-disabled-monochrome: var(
+      --ic-color-icon-disabled-mid
+    );
+
     /* Top Navigation */
     --ic-top-navigation-background: var(--ic-theme-primary);
     --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
@@ -2206,6 +2450,9 @@ ic-theme,
   --ic-color-border-error: var(--ic-color-border-error-dark);
   --ic-color-border-error-hover: var(--ic-color-border-error-hover-dark);
   --ic-color-border-error-pressed: var(--ic-color-border-error-pressed-dark);
+  --ic-color-border-action: var(--ic-color-border-action-dark);
+  --ic-color-border-action-hover: var(--ic-color-border-action-hover-dark);
+  --ic-color-border-action-pressed: var(--ic-color-border-action-pressed-dark);
 
   /* Action colors */
   --ic-action-default: var(--ic-action-default-dark);
@@ -3147,6 +3394,126 @@ ic-theme,
   --ic-text-field-char-count-text-color: var(--ic-color-text-secondary);
   --ic-text-field-no-value-icon-color: var(--ic-color-text-tertiary);
   --ic-text-field-has-value-icon-color: var(--ic-color-text-primary);
+
+  /* Toggle button */
+  --ic-toggle-button-unselected-border: var(--ic-color-border-action);
+  --ic-toggle-button-unselected-text: var(--ic-color-text-action-dark);
+  --ic-toggle-button-unselected-icon: var(--ic-color-icon-action-default);
+  --ic-toggle-button-unselected-border-hover: var(
+    --ic-color-border-action-hover
+  );
+  --ic-toggle-button-unselected-text-hover: var(
+    --ic-color-text-action-hover-dark
+  );
+  --ic-toggle-button-unselected-icon-hover: var(
+    --ic-color-icon-action-hover-dark
+  );
+  --ic-toggle-button-unselected-background-hover: var(
+    --ic-action-default-bg-hover
+  );
+  --ic-toggle-button-unselected-border-pressed: var(
+    --ic-color-border-action-pressed
+  );
+  --ic-toggle-button-unselected-text-pressed: var(
+    --ic-color-text-action-pressed-dark
+  );
+  --ic-toggle-button-unselected-icon-pressed: var(
+    --ic-color-icon-action-pressed-dark
+  );
+  --ic-toggle-button-unselected-background-pressed: var(
+    --ic-action-default-bg-active
+  );
+  --ic-toggle-button-loading-bar: var(--ic-color-icon-neutral);
+  --ic-toggle-button-unselected-text-disabled: var(
+    --ic-color-text-secondary-light
+  );
+  --ic-toggle-button-unselected-icon-disabled: var(--ic-color-icon-grey-darker);
+  --ic-toggle-button-unselected-border-disabled: var(
+    --ic-color-border-neutral-pressed
+  );
+  --ic-toggle-button-selected-background: var(--ic-color-background-active);
+  --ic-toggle-button-selected-background-hover: var(
+    --ic-color-background-active-hover-dark
+  );
+  --ic-toggle-button-selected-border: var(--ic-color-border-action);
+  --ic-toggle-button-selected-border-hover: var(--ic-color-border-action-hover);
+  --ic-toggle-button-selected-background-pressed: var(
+    --ic-color-background-active-pressed-dark
+  );
+  --ic-toggle-button-selected-border-pressed: var(
+    --ic-color-border-action-pressed
+  );
+  --ic-toggle-button-selected-loading-bar: var(--ic-color-icon-neutral);
+  --ic-toggle-button-selected-text: var(--ic-color-text-inverse);
+  --ic-toggle-button-selected-icon: var(--ic-color-icon-neutral);
+  --ic-toggle-button-selected-background-disabled: var(
+    --ic-color-background-disabled-darkest
+  );
+  --ic-toggle-button-selected-border-disabled: var(
+    --ic-color-border-neutral-disabled
+  );
+  --ic-toggle-button-selected-text-disabled: var(
+    --ic-color-text-tertiary-light
+  );
+  --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-toggle-button-unselected-border-monochrome: var(
+    --ic-color-border-neutral-white
+  );
+  --ic-toggle-button-unselected-text-monochrome: var(--ic-color-brand-text);
+  --ic-toggle-button-unselected-icon-monochrome: var(--ic-color-icon-brand);
+  --ic-toggle-button-unselected-background-hover-monochrome: var(
+    --ic-action-light-bg-hover
+  );
+  --ic-toggle-button-unselected-border-hover-monochrome: var(
+    --ic-color-border-neutral-hover-light
+  );
+  --ic-toggle-button-unselected-background-pressed-monochrome: var(
+    --ic-action-light-bg-pressed
+  );
+  --ic-toggle-button-unselected-border-pressed-monochrome: var(
+    --ic-color-border-neutral-default
+  );
+  --ic-toggle-button-unselected-text-disabled-monochrome: var(
+    --ic-color-text-disabled-default
+  );
+  --ic-toggle-button-unselected-icon-disabled-monochrome: var(
+    --ic-color-icon-disabled-light
+  );
+  --ic-toggle-button-unselected-border-disabled-monochrome: var(
+    --ic-color-border-neutral-disabled-light
+  );
+  --ic-toggle-button-selected-background-monochrome: var(
+    --ic-color-background-primary-light
+  );
+  --ic-toggle-button-selected-border-monochrome: var(
+    --ic-color-border-neutral-white
+  );
+  --ic-toggle-button-selected-icon-monochrome: var(--ic-color-icon-neutral);
+  --ic-toggle-button-selected-text-monochrome: var(--ic-color-text-inverse);
+  --ic-toggle-button-selected-background-hover-monochrome: var(
+    --ic-color-background-hover-light
+  );
+  --ic-toggle-button-selected-border-hover-monochrome: var(
+    --ic-color-border-neutral-hover-light
+  );
+  --ic-toggle-button-selected-background-pressed-monochrome: var(
+    --ic-color-background-pressed-light
+  );
+  --ic-toggle-button-selected-border-pressed-monochrome: var(
+    --ic-color-border-neutral-pressed-light
+  );
+  --ic-toggle-button-selected-background-disabled-monochrome: var(
+    --ic-color-background-disabled-darkest
+  );
+  --ic-toggle-button-selected-border-disabled-monochrome: var(
+    --ic-color-border-neutral-disabled-light
+  );
+  --ic-toggle-button-selected-text-disabled-monochrome: var(
+    --ic-color-text-disabled-light
+  );
+  --ic-toggle-button-selected-icon-disabled-monochrome: var(
+    --ic-color-icon-disabled-mid
+  );
 
   /* Top Navigation */
   --ic-top-navigation-background: var(--ic-theme-primary);

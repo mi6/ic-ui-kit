@@ -299,9 +299,9 @@
   --ic-color-text-action: var(--ic-blue-800);
   --ic-color-text-action-dark: var(--ic-blue-500);
   --ic-color-text-action-hover: var(--ic-blue-1100);
-  --ic-color-text-action-hover-dark: var(--ic-blue-100);
+  --ic-color-text-action-hover-dark: var(--ic-blue-200);
   --ic-color-text-action-pressed: var(--ic-blue-1300);
-  --ic-color-text-action-pressed-dark: var(--ic-blue-400);
+  --ic-color-text-action-pressed-dark: var(--ic-blue-100);
   --ic-color-text-error-light: var(--ic-red-300);
   --ic-color-text-error-dark: var(--ic-red-800);
 
@@ -319,15 +319,16 @@
   --ic-color-background-hover-light: var(--ic-architectural-200);
   --ic-color-background-hover-dark: var(--ic-architectural-800);
   --ic-color-background-active-hover-light: var(--ic-blue-1100);
-  --ic-color-background-active-hover-dark: var(--ic-blue-400);
+  --ic-color-background-active-hover-dark: var(--ic-blue-200);
   --ic-color-background-pressed-default: var(--ic-blue-1300);
   --ic-color-background-pressed-light: var(--ic-architectural-300);
   --ic-color-background-pressed-dark: var(--ic-architectural-700);
   --ic-color-background-active-pressed-light: var(--ic-blue-1300);
-  --ic-color-background-active-pressed-dark: var(--ic-blue-500);
+  --ic-color-background-active-pressed-dark: var(--ic-blue-600);
   --ic-color-background-disabled-default: var(--ic-architectural-200);
   --ic-color-background-disabled-light: var(--ic-architectural-80);
   --ic-color-background-disabled-dark: var(--ic-architectural-300);
+  --ic-color-background-disabled-mid: var(--ic-architectural-400);
   --ic-color-background-disabled-darkest: var(--ic-architectural-600);
   --ic-color-background-selected: var(--ic-architectural-white);
   --ic-color-background-clear-icon-hover: var(--ic-architectural-100);
@@ -546,6 +547,7 @@
   --ic-color-icon-hover-dark: var(--ic-architectural-800);
   --ic-color-icon-pressed-light: var(--ic-architectural-300);
   --ic-color-icon-pressed-dark: var(--ic-architectural-700);
+  --ic-color-icon-disabled-mid: var(--ic-architectural-200);
   --ic-color-icon-disabled-light: var(--ic-architectural-300);
   --ic-color-icon-disabled-dark: var(--ic-architectural-500);
   --ic-color-icon-grey-default: var(--ic-architectural-400);
