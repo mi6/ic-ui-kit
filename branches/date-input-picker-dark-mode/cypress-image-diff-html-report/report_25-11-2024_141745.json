@@ -886,14 +886,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-router-slot.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcButton.cy.tsx-icon-variants-button-group",
-          "percentage": 0,
+          "percentage": 0.030983866769659335,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-icon-variants-button-group.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-icon-variants-button-group.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-icon-variants-button-group.png"
         },
         {
@@ -5593,14 +5593,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectMulti.cy.tsx-multi-select-clear-button-focused.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSelectMulti.cy.tsx-dark-theme-multi-select",
-          "percentage": 0.19478192934664137,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelectMulti.cy.tsx",
           "specFilename": "IcSelectMulti.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectMulti.cy.tsx-dark-theme-multi-select.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSelectMulti.cy.tsx-dark-theme-multi-select.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectMulti.cy.tsx-dark-theme-multi-select.png"
         },
         {
@@ -8280,9 +8280,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-25T13:44:35.410Z",
-  "endedAt": "2024-11-25T13:58:53.609Z",
-  "duration": 772106,
+  "startedAt": "2024-11-25T14:17:45.445Z",
+  "endedAt": "2024-11-25T14:32:16.792Z",
+  "duration": 782537,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
