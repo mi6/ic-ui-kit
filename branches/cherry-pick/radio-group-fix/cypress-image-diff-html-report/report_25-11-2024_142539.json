@@ -1,7 +1,7 @@
 {
   "total": 682,
-  "totalPassed": 676,
-  "totalFailed": 6,
+  "totalPassed": 682,
+  "totalFailed": 0,
   "totalSuites": 37,
   "suites": [
     {
@@ -4348,14 +4348,14 @@
       "path": "src/component-tests/IcRadio/IcRadio.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcRadio.cy.tsx-default",
-          "percentage": 0.02280350850198276,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-default.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-default.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-default.png"
         },
         {
@@ -4370,58 +4370,58 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-horizontal.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcRadio.cy.tsx-helper-text",
-          "percentage": 0.02280350850198276,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-helper-text.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-helper-text.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-helper-text.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcRadio.cy.tsx-disabled-options",
-          "percentage": 0.026153393661244043,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-disabled-options.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-disabled-options.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-disabled-options.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcRadio.cy.tsx-disabled-group",
-          "percentage": 0.0322490309931942,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-disabled-group.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-disabled-group.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-disabled-group.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcRadio.cy.tsx-small",
-          "percentage": 0.02280350850198276,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-small.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-small.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-small.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcRadio.cy.tsx-validation",
-          "percentage": 0.018000000000000002,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-validation.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-validation.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-validation.png"
         },
         {
@@ -7729,9 +7729,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-25T11:27:05.477Z",
-  "endedAt": "2024-11-25T11:41:48.516Z",
-  "duration": 806329,
+  "startedAt": "2024-11-25T14:25:39.030Z",
+  "endedAt": "2024-11-25T14:39:14.188Z",
+  "duration": 737699,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
