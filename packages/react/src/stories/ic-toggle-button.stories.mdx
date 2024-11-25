@@ -83,27 +83,11 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
   </Story>
 </Canvas>
 
-### Appearance dark
+### Monochrome
 
 <Canvas>
-  <Story name="Appearance dark">
-    <IcToggleButton label="Toggle" appearance="dark" />
-  </Story>
-</Canvas>
-
-### Appearance light
-
-<Canvas>
-  <Story name="Appearance light">
-    <div
-      style={{
-        backgroundColor: "#2c2f34",
-        padding: "6px",
-        width: "fit-content",
-      }}
-    >
-      <IcToggleButton label="Toggle" appearance="light" />
-    </div>
+  <Story name="Monochrome">
+    <IcToggleButton label="Toggle" monochrome />
   </Story>
 </Canvas>
 
@@ -201,8 +185,9 @@ export const defaultArgs = {
   label: "Custom Button",
   disabled: false,
   loading: false,
-  appearance: "default",
+  monochrome: false,
   size: "medium",
+  theme: "inherit",
   variant: "default",
   fullWidth: false,
   checked: false,
@@ -216,32 +201,31 @@ export const defaultArgs = {
         options: ["medium", "large", "small"],
         control: { type: "inline-radio" },
       },
-      appearance: {
-        options: ["default", "dark", "light"],
-        control: { type: "inline-radio" },
-      },
       checked: {
         control: { type: "boolean" },
       },
       fullWidth: {
         control: { type: "boolean" },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      }
     }}
     name="Playground"
   >
     {(args) => (
-      <div style={{ backgroundColor: args.appearance === 'light' ? '#393939' : '#FFFFFF', width: args.fullWidth ? '95%' : 'fit-content', padding: '1rem'}}>
         <IcToggleButton
           label={args.label}
           disabled={args.disabled}
           variant={args.variant}
           size={args.size}
           loading={args.loading}
-          appearance={args.appearance}
+          monochrome={args.monochrome}
           fullWidth={args.fullWidth}
           checked={args.checked}
+          theme={args.theme}
         />
-      </div>
     )}
   </Story>
 </Canvas>
@@ -252,9 +236,10 @@ export const defaultWithIconArgs = {
   label: "Custom Button",
   disabled: false,
   loading: false,
-  appearance: "default",
+  monochrome: false,
   size: "medium",
   variant: "default",
+  theme: "inherit",
   fullWidth: false,
   iconPlacement: "left",
   checked: false,
@@ -269,10 +254,6 @@ export const defaultWithIconArgs = {
         options: ["medium", "large", "small"],
         control: { type: "inline-radio" },
       },
-      appearance: {
-        options: ["default", "dark", "light"],
-        control: { type: "inline-radio" },
-      },
       checked: {
         control: { type: "boolean" },
       },
@@ -283,21 +264,25 @@ export const defaultWithIconArgs = {
       fullWidth: {
         control: { type: "boolean" },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      }
     }}
     name="Playground - default with icon"
   >
     {(args) => (
-      <div style={{ backgroundColor: args.appearance === 'light' ? '#393939' : '#FFFFFF', width: args.fullWidth ? '95%' : 'fit-content', padding: '1rem'}}>
         <IcToggleButton
           label={args.label}
           disabled={args.disabled}
           variant={args.variant}
           size={args.size}
           loading={args.loading}
-          appearance={args.appearance}
+          monochrome={args.monochrome}
           fullWidth={args.fullWidth}
           checked={args.checked}
           iconPlacement={args.iconPlacement}
+          theme={args.theme}
         >
           <SlottedSVG
           xmlns="http://www.w3.org/2000/svg"
@@ -311,7 +296,6 @@ export const defaultWithIconArgs = {
           <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
         </SlottedSVG>
         </IcToggleButton>
-      </div>
     )}
   </Story>
 </Canvas>
@@ -322,8 +306,9 @@ export const defaultIconArgs = {
   label: "Custom Button",
   disabled: false,
   loading: false,
-  appearance: "default",
+  monochrome: false,
   size: "medium",
+  theme: "inherit",
   variant: "icon",
   fullWidth: false,
   checked: false,
@@ -338,31 +323,31 @@ export const defaultIconArgs = {
         options: ["medium", "large", "small"],
         control: { type: "inline-radio" },
       },
-      appearance: {
-        options: ["default", "dark", "light"],
-        control: { type: "inline-radio" },
-      },
       checked: {
         control: { type: "boolean" },
       },
       fullWidth: {
         control: { type: "boolean" },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      }
     }}
     name="Playground - icon variant"
   >
     {(args) => (
-      <div style={{ backgroundColor: args.appearance === 'light' ? '#393939' : '#FFFFFF', width: args.fullWidth ? '95%' : 'fit-content', padding: '1rem'}}>
         <IcToggleButton
           label={args.label}
           disabled={args.disabled}
           variant={args.variant}
           size={args.size}
           loading={args.loading}
-          appearance={args.appearance}
+          monochrome={args.monochrome}
           fullWidth={args.fullWidth}
           checked={args.checked}
           accessibleLabel={args.accessibleLabel}
+          theme={args.theme}
         >
           <SlottedSVG
           xmlns="http://www.w3.org/2000/svg"
@@ -376,7 +361,6 @@ export const defaultIconArgs = {
           <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
         </SlottedSVG>
         </IcToggleButton>
-      </div>
     )}
   </Story>
 </Canvas>
