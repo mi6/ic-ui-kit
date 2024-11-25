@@ -26,6 +26,7 @@ export const defaultArgs = {
   includeDescriptionsInSearch: false,
   includeGroupTitlesInSearch: false,
   searchMatchPosition: "anywhere",
+  theme: "inherit",
 };
 
 export const options = [
@@ -687,7 +688,11 @@ export const Uncontrolled = () => {
       },
       showIcon: {
         control: { type: "boolean" }
-      }
+      },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
   >
     {(args) => (
@@ -710,6 +715,7 @@ export const Uncontrolled = () => {
         size={args.size}
         validationStatus={args.validationStatus}
         validationText={args.validationText}
+        theme={args.theme}
       >
         {args.showIcon && (
           <SlottedSVG 

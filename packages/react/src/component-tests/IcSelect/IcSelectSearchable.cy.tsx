@@ -33,9 +33,11 @@ import {
   TYPE_DOWN_ARROW,
   TYPE_ENTER,
   IC_SELECT,
+  COFFEE_EXAMPLE,
 } from "./IcSelectConstants";
 import {
   ControlledSearchableSelect,
+  DarkThemeSearchable,
   LoadingSelectSearchable,
   LoadingSelectSearchableNoTimeout,
   UncontrolledSearchableSelect,
@@ -79,7 +81,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "3");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(0).contains("Cappuccino");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(1).contains("Americano");
-    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(2).contains("Café au lait");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(2).contains(COFFEE_EXAMPLE);
   });
 
   it("should keep the same options when characters are entered and the menu is closed and reopened", () => {
@@ -148,7 +150,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.findShadowEl(IC_SELECT, "input").click();
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "2");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(0).contains("Flat white");
-    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(1).contains("Café au lait");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(1).contains(COFFEE_EXAMPLE);
   });
 
   it("should include option descriptions in search", () => {
@@ -279,7 +281,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "3");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(0).contains("Cappuccino");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(1).contains("Americano");
-    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(2).contains("Café au lait");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(2).contains(COFFEE_EXAMPLE);
   });
 
   it("should emit icChange on delay", () => {
@@ -1059,6 +1061,17 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.compareSnapshot({
       name: "searchable-recommended-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+    });
+  });
+
+  it("should render searchable with dark mode", () => {
+    mount(<DarkThemeSearchable />);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("b");
+
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "searchable-dark-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 });

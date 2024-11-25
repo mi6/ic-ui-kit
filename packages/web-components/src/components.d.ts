@@ -1740,6 +1740,10 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
         "timeout"?: number;
@@ -5104,6 +5108,10 @@ declare namespace LocalJSX {
           * The size of the select.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */

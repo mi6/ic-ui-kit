@@ -499,6 +499,25 @@ ic-theme,
   --ic-loading-indicator-outer-color-monochrome: var(--ic-action-light);
   --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
 
+  /* Menu */
+  --ic-menu-list-option-text-color: var(--ic-atoms-list-option-text);
+  --ic-menu-list-option-background-color: var(
+    --ic-atoms-list-option-background
+  );
+  --ic-menu-border-color: var(--ic-atoms-dropdown-list-border);
+  --ic-menu-list-option-hover-background-color: var(
+    --ic-atoms-list-option-background-hover
+  );
+  --ic-menu-list-option-pressed-background-color: var(
+    --ic-atoms-list-option-background-pressed
+  );
+  --ic-menu-list-option-description-text-color: var(--ic-color-text-secondary);
+  --ic-menu-loading-list-option-text-color: var(--ic-color-text-secondary);
+  --ic-menu-option-group-label-text-color: var(--ic-color-text-tertiary);
+  --ic-menu-last-recommended-option-border: var(--ic-border-default);
+  --ic-menu-option-bar-background-color: var(--ic-atoms-option-bar-background);
+  --ic-menu-option-bar-divider-color: var(--ic-atoms-option-bar-divider);
+
   /* Page header */
   --ic-page-header-text-primary: var(--ic-color-text-primary);
   --ic-page-header-background: var(--ic-color-background-secondary-40);
@@ -622,6 +641,28 @@ ic-theme,
   --ic-search-bar-dropdown-items-text: var(--ic-color-text-primary);
   --ic-search-bar-dropdown-outline: var(--ic-color-border-neutral-grey-dark);
   --ic-search-bar-clear-button: var(--ic-atoms-input-clear-button);
+
+  /* Select */
+  --ic-select-background-color: var(--ic-color-background-primary);
+  --ic-select-input-component-container-hover-border-color: var(
+    --ic-color-border-neutral-hover-default
+  );
+  --ic-select-input-component-container-active-border-color: var(
+    --ic-color-border-neutral-pressed-default
+  );
+  --ic-select-content-text-color: var(--ic-atoms-input-select-content-text);
+  --ic-select-mobile-dropdown-icon: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  --ic-select-list-option-text-color: var(--ic-atoms-list-option-text);
+  --ic-select-disabled-content-text-color: var(
+    --ic-atoms-input-select-content-text-disabled
+  );
+  --ic-select-expand-icon-color: var(--ic-atoms-input-select-content-icon);
+  --ic-select-disabled-expand-icon-color: var(
+    --ic-atoms-input-select-content-icon-disabled
+  );
+  --ic-select-content-divider-color: var(
+    --ic-atoms-input-select-content-divider
+  );
 
   /* Skeleton */
   --ic-skeleton-background: var(--ic-architectural-100);
@@ -1270,6 +1311,29 @@ ic-theme,
     );
     --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
 
+    /* Menu */
+    --ic-menu-list-option-text-color: var(--ic-atoms-list-option-text);
+    --ic-menu-list-option-background-color: var(
+      --ic-atoms-list-option-background
+    );
+    --ic-menu-border-color: var(--ic-atoms-dropdown-list-border);
+    --ic-menu-list-option-hover-background-color: var(
+      --ic-atoms-list-option-background-hover
+    );
+    --ic-menu-list-option-pressed-background-color: var(
+      --ic-atoms-list-option-background-pressed
+    );
+    --ic-menu-list-option-description-text-color: var(
+      --ic-color-text-secondary
+    );
+    --ic-menu-loading-list-option-text-color: var(--ic-color-text-secondary);
+    --ic-menu-option-group-label-text-color: var(--ic-color-text-tertiary);
+    --ic-menu-last-recommended-option-border: var(--ic-border-light);
+    --ic-menu-option-bar-background-color: var(
+      --ic-atoms-option-bar-background
+    );
+    --ic-menu-option-bar-divider-color: var(--ic-atoms-option-bar-divider);
+
     /* Page header */
     --ic-page-header-text-primary: var(--ic-color-text-primary);
     --ic-page-header-background: var(--ic-color-background-primary);
@@ -1397,6 +1461,28 @@ ic-theme,
     --ic-search-bar-dropdown-items-text: var(--ic-color-text-primary);
     --ic-search-bar-dropdown-outline: var(--ic-color-border-neutral-grey-light);
     --ic-search-bar-clear-button: var(--ic-atoms-input-clear-button);
+
+    /* Select */
+    --ic-select-background-color: var(--ic-color-background-primary);
+    --ic-select-input-component-container-hover-border-color: var(
+      --ic-color-border-neutral-hover-light
+    );
+    --ic-select-input-component-container-active-border-color: var(
+      --ic-color-border-neutral-pressed-light
+    );
+    --ic-select-content-text-color: var(--ic-atoms-input-select-content-text);
+    --ic-select-mobile-dropdown-icon: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    --ic-select-list-option-text-color: var(--ic-atoms-list-option-text);
+    --ic-select-disabled-content-text-color: var(
+      --ic-atoms-input-select-content-text-disabled
+    );
+    --ic-select-expand-icon-color: var(--ic-atoms-input-select-content-icon);
+    --ic-select-disabled-expand-icon-color: var(
+      --ic-atoms-input-select-content-icon-disabled
+    );
+    --ic-select-content-divider-color: var(
+      --ic-atoms-input-select-content-divider
+    );
 
     /* Skeleton */
     --ic-skeleton-background: var(--ic-architectural-400);
@@ -2035,6 +2121,25 @@ ic-theme,
   --ic-loading-indicator-outer-color-monochrome: var(--ic-action-neutral-dark);
   --ic-loading-indicator-label-color-monochrome: var(--ic-color-text-primary);
 
+  /* Menu */
+  --ic-menu-list-option-text-color: var(--ic-atoms-list-option-text);
+  --ic-menu-list-option-background-color: var(
+    --ic-atoms-list-option-background
+  );
+  --ic-menu-border-color: var(--ic-atoms-dropdown-list-border);
+  --ic-menu-list-option-hover-background-color: var(
+    --ic-atoms-list-option-background-hover
+  );
+  --ic-menu-list-option-pressed-background-color: var(
+    --ic-atoms-list-option-background-pressed
+  );
+  --ic-menu-list-option-description-text-color: var(--ic-color-text-secondary);
+  --ic-menu-loading-list-option-text-color: var(--ic-color-text-secondary);
+  --ic-menu-option-group-label-text-color: var(--ic-color-text-tertiary);
+  --ic-menu-last-recommended-option-border: var(--ic-border-light);
+  --ic-menu-option-bar-background-color: var(--ic-atoms-option-bar-background);
+  --ic-menu-option-bar-divider-color: var(--ic-atoms-option-bar-divider);
+
   /* Page header */
   --ic-page-header-text-primary: var(--ic-color-text-primary);
   --ic-page-header-background: var(--ic-color-background-primary);
@@ -2154,6 +2259,28 @@ ic-theme,
   --ic-search-bar-dropdown-items-text: var(--ic-color-text-primary);
   --ic-search-bar-dropdown-outline: var(--ic-color-border-neutral-grey-light);
   --ic-search-bar-clear-button: var(--ic-atoms-input-clear-button);
+
+  /* Select */
+  --ic-select-background-color: var(--ic-color-background-primary);
+  --ic-select-input-component-container-hover-border-color: var(
+    --ic-color-border-neutral-hover-light
+  );
+  --ic-select-input-component-container-active-border-color: var(
+    --ic-color-border-neutral-pressed-light
+  );
+  --ic-select-content-text-color: var(--ic-atoms-input-select-content-text);
+  --ic-select-mobile-dropdown-icon: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  --ic-select-list-option-text-color: var(--ic-atoms-list-option-text);
+  --ic-select-disabled-content-text-color: var(
+    --ic-atoms-input-select-content-text-disabled
+  );
+  --ic-select-expand-icon-color: var(--ic-atoms-input-select-content-icon);
+  --ic-select-disabled-expand-icon-color: var(
+    --ic-atoms-input-select-content-icon-disabled
+  );
+  --ic-select-content-divider-color: var(
+    --ic-atoms-input-select-content-divider
+  );
 
   /* Skeleton */
   --ic-skeleton-background: var(--ic-architectural-400);

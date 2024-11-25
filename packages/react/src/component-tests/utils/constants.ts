@@ -10,6 +10,7 @@ export const HAVE_LENGTH = "have.length";
 export const HAVE_PROP = "have.prop";
 export const HAVE_TEXT = "have.text";
 export const HAVE_VALUE = "have.value";
+export const HAVE_CALL_COUNT = "have.callCount";
 
 //Contain
 export const CONTAIN_TEXT = "contain.text";
