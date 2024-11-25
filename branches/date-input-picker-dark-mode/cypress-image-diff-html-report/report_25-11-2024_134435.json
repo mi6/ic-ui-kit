@@ -1,7 +1,7 @@
 {
-  "total": 730,
+  "total": 731,
   "totalPassed": 730,
-  "totalFailed": 0,
+  "totalFailed": 1,
   "totalSuites": 39,
   "suites": [
     {
@@ -5593,6 +5593,17 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectMulti.cy.tsx-multi-select-clear-button-focused.png"
         },
         {
+          "status": "fail",
+          "name": "IcSelectMulti.cy.tsx-dark-theme-multi-select",
+          "percentage": 0.19478192934664137,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSelect/IcSelectMulti.cy.tsx",
+          "specFilename": "IcSelectMulti.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectMulti.cy.tsx-dark-theme-multi-select.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSelectMulti.cy.tsx-dark-theme-multi-select.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectMulti.cy.tsx-dark-theme-multi-select.png"
+        },
+        {
           "status": "pass",
           "name": "IcSelectMulti.cy.tsx-default-multi-select-high-contrast",
           "percentage": 0,
@@ -8269,9 +8280,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-25T13:22:42.685Z",
-  "endedAt": "2024-11-25T13:36:52.995Z",
-  "duration": 764476,
+  "startedAt": "2024-11-25T13:44:35.410Z",
+  "endedAt": "2024-11-25T13:58:53.609Z",
+  "duration": 772106,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
