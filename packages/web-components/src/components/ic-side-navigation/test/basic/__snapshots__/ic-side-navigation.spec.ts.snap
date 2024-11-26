@@ -172,7 +172,7 @@ exports[`ic-side-navigation should render with primary navigation items and coll
   </mock:shadow-root>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="Home" role="listitem" slot="primary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="Home" placement="right" target="navigation-item">
+      <ic-tooltip class="tooltip-navigation-item" label="Home" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
@@ -242,7 +242,7 @@ exports[`ic-side-navigation should render with primary navigation items: renders
   </mock:shadow-root>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" href="/" label="Home" role="listitem" slot="primary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="Home" placement="right" target="navigation-item">
+      <ic-tooltip class="tooltip-navigation-item" label="Home" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
@@ -312,7 +312,7 @@ exports[`ic-side-navigation should render with secondary navigation items: rende
   </mock:shadow-root>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="a11y" placement="right" target="navigation-item">
+      <ic-tooltip class="tooltip-navigation-item" label="a11y" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
@@ -387,7 +387,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
   </mock:shadow-root>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" role="listitem" slot="primary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="
+      <ic-tooltip class="tooltip-navigation-item" label="
               
                 
               
@@ -409,7 +409,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
   </ic-navigation-item>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="a11y" placement="right" target="navigation-item">
+      <ic-tooltip class="tooltip-navigation-item" label="a11y" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
@@ -569,7 +569,7 @@ exports[`ic-side-navigation should render with slotted navigation item: slotted-
   </mock:shadow-root>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" role="listitem" slot="primary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="
+      <ic-tooltip class="tooltip-navigation-item" label="
               
                 
               
