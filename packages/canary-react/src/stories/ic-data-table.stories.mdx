@@ -969,7 +969,6 @@ export default DataTable;
 When a user wants to fetch their data asynchronously, a `loading` prop can be set to `true`, which then renders a circular variant of the `IcLoadingIndicator`.
 The loading indicator can be customised using the `loadingOptions` prop:
 
-- `appearance` can be `light` or `dark`
 - `description` sets the aria-label of the component
 - `label` sets the visual message
 - `labelDuration` is the number of milliseconds before the label changes
@@ -1777,7 +1776,6 @@ export const UpdatingData = () => {
           showItemsPerPageControl: true,
           showGoToPageControl: true,
           rangeLabelType: "page",
-          appearance: "default"
         }}
       />
       <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
@@ -1886,7 +1884,6 @@ export const defaultPaginationBarArgs = {
   showItemsPerPageControl: true,
   showGoToPageControl: true,
   alignment: "right",
-  appearance: "default",
   itemLabel: "Item",
   pageLabel: "Page",
   hideRangeLabel: false
@@ -2092,7 +2089,6 @@ export const defaultArgs = {
   height: "",
   hideColumnHeaders: false,
   loading: false,
-  loadingAppearance: "dark",
   loadingDesc: "loading",
   loadingLabel: "Loading data...",
   loadingLabelDuration: 20, 
@@ -2111,7 +2107,6 @@ export const defaultArgs = {
   paginationShowItemsPerPageControl: true,
   paginationShowGoToPageControl: true,
   paginationAlignment: "right",
-  paginationAppearance: "default",
   paginationItemLabel: "Item",
   paginationPageLabel: "Page",
   paginationHideRangeLabel: false,
@@ -2122,7 +2117,6 @@ export const defaultArgs = {
   stickyColumnHeaders: false,
   stickyRowHeaders: false,
   updating: false,
-  updatingAppearance: "dark",
   updatingDesc: "loading",
   updatingMax: 100,
   updatingMin: 0,
@@ -2136,7 +2130,8 @@ export const defaultArgs = {
   titleBarMetadata: "128 items | 32gb | Updated: 01/02/03",
   titleBarPrimaryActionSlot: true,
   titleBarCustomActionSlot: true,
-  width: ""
+  width: "",
+  theme: "inherit",
 };
 
 <Canvas withSource="none">
@@ -2145,14 +2140,6 @@ export const defaultArgs = {
     argTypes={{
       density: {
         options: ["default", "dense", "spacious"],
-        control: { type: "inline-radio" },
-      },
-      loadingAppearance: {
-        options: ["dark", "light"],
-        control: { type: "inline-radio" },
-      },
-      paginationAppearance: {
-        options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
       paginationRangeLabelType: {
@@ -2175,10 +2162,6 @@ export const defaultArgs = {
         options: ["tooltip", "show-hide"],
         control: { type: "inline-radio" },
       },
-      updatingAppearance: {
-        options: ["dark", "light"],
-        control: { type: "inline-radio" },
-      },
       titleBarSlot: {
         mapping: {
           true: "title-bar",
@@ -2197,6 +2180,10 @@ export const defaultArgs = {
           false: "",
         }
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
+      },
     }}
     name="Playground example"
   >
@@ -2213,7 +2200,6 @@ export const defaultArgs = {
         hideColumnHeaders={args.hideColumnHeaders}
         loading={args.loading}
         loadingOptions={{
-          appearance: args.loadingAppearance,
           description: args.loadingDesc,
           label: args.loadingLabel,
           labelDuration: args.loadingLabelDuration,
@@ -2228,8 +2214,7 @@ export const defaultArgs = {
           rangeLabelType: args.paginationRangeLabelType,
           type: args.paginationType,
           showItemsPerPageControl: args.paginationShowItemsPerPageControl,
-          showGoToPageControl: args.paginationShowGoToPageControl,          
-          appearance: args.paginationAppearance,
+          showGoToPageControl: args.paginationShowGoToPageControl,
           alignment: args.paginationAlignment,
           pageLabel: args.paginationPageLabel,
           itemLabel: args.paginationItemLabel,
@@ -2247,13 +2232,13 @@ export const defaultArgs = {
         truncationPattern={args.truncationPattern}
         updating={args.updating}
         updatingOptions={{
-          appearance: args.updatingAppearance,
           description: args.updatingDesc,
           max: args.updatingMax,
           min: args.updatingMin,
           progress: args.updatingProgress
         }}
         width={args.width}
+        theme={args.theme}
       >
         <IcDataTableTitleBar
           slot={args.titleBarSlot}

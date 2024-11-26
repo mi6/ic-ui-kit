@@ -1,12 +1,14 @@
 import { IcDataTableColumnObject } from "@ukic/canary-web-components";
 import { DATA } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
+const FIRST_NAME_TITLE = "First name";
+
 export const singleColumnWidth = (
   firstNameWidth: string
 ): IcDataTableColumnObject[] => [
   {
     key: "firstName",
-    title: "First name",
+    title: FIRST_NAME_TITLE,
     dataType: "string",
     columnWidth: firstNameWidth,
   },
@@ -28,7 +30,7 @@ export const multipleColumnWidth = (
 ): IcDataTableColumnObject[] => [
   {
     key: "firstName",
-    title: "First name",
+    title: FIRST_NAME_TITLE,
     dataType: "string",
     columnWidth: firstNameWidth,
   },
@@ -50,7 +52,7 @@ export const singleMinWidthColumn = (
 ): IcDataTableColumnObject[] => [
   {
     key: "firstName",
-    title: "First name",
+    title: FIRST_NAME_TITLE,
     dataType: "string",
     columnWidth: {
       minWidth: minWidth,
@@ -73,7 +75,7 @@ export const singleColumnTruncationWidth = (
 ): IcDataTableColumnObject[] => [
   {
     key: "firstName",
-    title: "First name",
+    title: FIRST_NAME_TITLE,
     dataType: "string",
   },
   {
@@ -89,7 +91,8 @@ export const singleColumnTruncationWidth = (
   },
 ];
 
-export const newData = () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const newData = (): { [key: string]: any }[] => {
   return DATA.map((d) => ({
     firstName: d.firstName,
     lastName: d.lastName,
