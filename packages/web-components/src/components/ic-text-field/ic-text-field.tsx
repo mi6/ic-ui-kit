@@ -466,12 +466,6 @@ export class TextField {
       maxNumChars > 0 ||
       this.maxCharactersError ||
       this.minCharactersUnattained;
-    console.log(
-      emptyString,
-      valueOutsideRange,
-      charOutsideRange,
-      this.validationInline
-    );
     return (
       (!emptyString || valueOutsideRange || charOutsideRange) &&
       !(this.validationInline && this.validationStatus === "success")
