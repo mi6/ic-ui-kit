@@ -300,7 +300,6 @@ export class Button {
 
   componentDidLoad(): void {
     this.updateTheme();
-
     if (typeof MutationObserver !== "undefined") {
       if (this.describedById) {
         this.mutationObserver = new MutationObserver(this.mutationCallback);
@@ -316,6 +315,7 @@ export class Button {
       );
       this.hostMutationObserver.observe(this.el, {
         attributes: true,
+        childList: true,
       });
     }
   }
@@ -435,7 +435,10 @@ export class Button {
   // triggered when attributes of host element change
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
-    mutationList.forEach(({ attributeName }) => {
+    mutationList.forEach(({ attributeName, type }) => {
+      if (type === "childList") {
+        forceComponentUpdate = true;
+      }
       const attribute = this.el.getAttribute(attributeName);
       if (attributeName === "title") this.title = attribute;
       else if (attributeName === "aria-label") this.ariaLabel = attribute;
