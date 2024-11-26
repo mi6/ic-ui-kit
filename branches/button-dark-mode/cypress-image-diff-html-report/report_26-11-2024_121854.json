@@ -1,7 +1,7 @@
 {
   "total": 716,
-  "totalPassed": 713,
-  "totalFailed": 3,
+  "totalPassed": 714,
+  "totalFailed": 2,
   "totalSuites": 39,
   "suites": [
     {
@@ -5659,14 +5659,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectMulti.cy.tsx-multi-select-select-all-button-focused-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSelectMulti.cy.tsx-multi-select-clear-button-focused-high-contrast",
-          "percentage": 0.008,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelectMulti.cy.tsx",
           "specFilename": "IcSelectMulti.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectMulti.cy.tsx-multi-select-clear-button-focused-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSelectMulti.cy.tsx-multi-select-clear-button-focused-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectMulti.cy.tsx-multi-select-clear-button-focused-high-contrast.png"
         }
       ]
@@ -8115,9 +8115,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-26T11:49:13.826Z",
-  "endedAt": "2024-11-26T12:04:05.620Z",
-  "duration": 805446,
+  "startedAt": "2024-11-26T12:18:54.946Z",
+  "endedAt": "2024-11-26T12:33:28.815Z",
+  "duration": 787411,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
