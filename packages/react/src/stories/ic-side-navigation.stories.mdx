@@ -761,19 +761,19 @@ export const DailyTippers = () => (
   </IcSectionContainer>
 );
 
-<Canvas>
-  <Story
-    name="React Router"
-    decorators={[
-      (Story) => (
-        <MemoryRouter initialEntries={["/"]}>
-          <Story />
-        </MemoryRouter>
-      ),
-    ]}
-  >
+export const ReactRouter = () => {
+  const [expanded, setExpanded] = useState(true);
+  const toggleExpanded = () => {
+    setExpanded(!expanded);
+  };
+  return (
     <div style={{ display: "flex", height: "100%" }}>
-      <IcSideNavigation version="v0.0.0" status="BETA" appTitle="ACME">
+      <IcSideNavigation
+        appTitle="ACME"
+        version="v0.0.0"
+        status="BETA"
+        expanded={expanded}
+      >
         <NavLink to="/" slot="app-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -810,7 +810,7 @@ export const DailyTippers = () => (
           slot="primary-navigation"
           expandable="true"
         >
-          <IcNavigationItem>
+          <IcNavigationItem onClick={toggleExpanded}>
             <NavLink to="/child-item" slot="navigation-item">
               <svg
                 slot="icon"
@@ -825,7 +825,7 @@ export const DailyTippers = () => (
                   fill="currentColor"
                 />
               </svg>
-              Home
+              Home (expanded toggle)
             </NavLink>
           </IcNavigationItem>
           <IcNavigationItem>
@@ -873,6 +873,21 @@ export const DailyTippers = () => (
         </Routes>
       </main>
     </div>
+  );
+}
+
+<Canvas>
+  <Story
+    name="React Router"
+    decorators={[
+      (Story) => (
+        <MemoryRouter initialEntries={["/"]}>
+          <Story />
+        </MemoryRouter>
+      ),
+    ]}
+  >
+    <ReactRouter />
   </Story>
 </Canvas>
 
