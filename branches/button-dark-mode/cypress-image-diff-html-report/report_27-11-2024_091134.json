@@ -1,6 +1,6 @@
 {
-  "total": 717,
-  "totalPassed": 717,
+  "total": 722,
+  "totalPassed": 722,
   "totalFailed": 0,
   "totalSuites": 39,
   "suites": [
@@ -6013,6 +6013,28 @@
         },
         {
           "status": "pass",
+          "name": "IcSideNavigation.cy.tsx-controlled-expanded",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
+          "specFilename": "IcSideNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-controlled-expanded.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-controlled-expanded.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSideNavigation.cy.tsx-controlled-collapsed",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
+          "specFilename": "IcSideNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-controlled-collapsed.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-controlled-collapsed.png"
+        },
+        {
+          "status": "pass",
           "name": "IcSideNavigation.cy.tsx-basic-desktop",
           "percentage": 0,
           "failureThreshold": 0,
@@ -6076,6 +6098,28 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-slotted-nav-items-expanded-desktop.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-slotted-nav-items-expanded-desktop.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSideNavigation.cy.tsx-slotted-nav-items-controlled-expanded",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
+          "specFilename": "IcSideNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-slotted-nav-items-controlled-expanded.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-slotted-nav-items-controlled-expanded.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSideNavigation.cy.tsx-slotted-nav-items-controlled-collapsed",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
+          "specFilename": "IcSideNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-slotted-nav-items-controlled-collapsed.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-slotted-nav-items-controlled-collapsed.png"
         },
         {
           "status": "pass",
@@ -7877,6 +7921,17 @@
         },
         {
           "status": "pass",
+          "name": "IcTopNavigation.cy.tsx-mobile-theme-dark",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
+          "specFilename": "IcTopNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx-mobile-theme-dark.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-mobile-theme-dark.png"
+        },
+        {
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx-mobile-theme",
           "percentage": 0,
           "failureThreshold": 0,
@@ -8126,9 +8181,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-26T14:52:31.765Z",
-  "endedAt": "2024-11-26T15:06:37.272Z",
-  "duration": 760505,
+  "startedAt": "2024-11-27T09:11:34.617Z",
+  "endedAt": "2024-11-27T09:26:34.091Z",
+  "duration": 812663,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
