@@ -2104,11 +2104,11 @@ ic-theme,
 
     /* Top Navigation */
     --ic-top-navigation-background: var(--ic-theme-primary);
-    --ic-top-navigation-keyline: var(--ic-color-keyline-darken);
+    --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
     --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
     --ic-top-navigation-text: var(--ic-color-brand-text);
-    --ic-top-navigation-title-hover: var(--ic-action-dark-bg-hover);
-    --ic-top-navigation-title-pressed: var(--ic-action-dark-bg-pressed);
+    --ic-top-navigation-title-hover: var(--ic-action-light-bg-hover);
+    --ic-top-navigation-title-pressed: var(--ic-action-light-bg-pressed);
     --ic-top-navigation-icon-active: var(--ic-color-icon-action-default);
     --ic-top-navigation-icon-hover: var(--ic-color-icon-action-hover-dark);
     --ic-top-navigation-icon-hover-background: var(
@@ -3150,11 +3150,11 @@ ic-theme,
 
   /* Top Navigation */
   --ic-top-navigation-background: var(--ic-theme-primary);
-  --ic-top-navigation-keyline: var(--ic-color-keyline-darken);
+  --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
   --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
   --ic-top-navigation-text: var(--ic-color-brand-text);
-  --ic-top-navigation-title-hover: var(--ic-action-dark-bg-hover);
-  --ic-top-navigation-title-pressed: var(--ic-action-dark-bg-pressed);
+  --ic-top-navigation-title-hover: var(--ic-action-light-bg-hover);
+  --ic-top-navigation-title-pressed: var(--ic-action-light-bg-pressed);
   --ic-top-navigation-icon-active: var(--ic-color-icon-action-default);
   --ic-top-navigation-icon-hover: var(--ic-color-icon-action-hover-dark);
   --ic-top-navigation-icon-hover-background: var(--ic-action-default-bg-hover);
