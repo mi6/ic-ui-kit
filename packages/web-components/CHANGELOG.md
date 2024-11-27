@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.32.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.31.0...@ukic/web-components@2.32.0) (2024-11-27)
+
+### Bug Fixes
+
+- **react:** add storybook logging to demonstrate new functionality ([85c4e98](https://github.com/mi6/ic-ui-kit/commit/85c4e98c56c5be6830d5c95918499d7f54d45518))
+- **web-components:** fix conditional elements not showing in toggle button slots ([e23bf56](https://github.com/mi6/ic-ui-kit/commit/e23bf56333f6bdc1422ee239f450f0e10a3420d8)), closes [#1880](https://github.com/mi6/ic-ui-kit/issues/1880)
+- **web-components:** footer-link-group fix ([408eae5](https://github.com/mi6/ic-ui-kit/commit/408eae5f1de51928dce22ec08089d0150149f9e5))
+- **web-components:** make setting external collapsed state on side nav execute correct style changes ([c70579e](https://github.com/mi6/ic-ui-kit/commit/c70579e631d83b1ea065ff3a5447fb2196d97568))
+- **web-components:** update icpopoverclosed event to include relevant information ([fdc2a3d](https://github.com/mi6/ic-ui-kit/commit/fdc2a3d256640c8a2544f2ab0c7e5d7c05140f44)), closes [#2665](https://github.com/mi6/ic-ui-kit/issues/2665)
+
+### Features
+
+- **web-components:** fix navigation items not inheriting expanded state ([db44b23](https://github.com/mi6/ic-ui-kit/commit/db44b23828d962ae0e87b3e447a4a848ba2b0245)), closes [#2610](https://github.com/mi6/ic-ui-kit/issues/2610)
+
 # [2.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.30.0...@ukic/web-components@2.31.0) (2024-11-13)
 
 ### Bug Fixes

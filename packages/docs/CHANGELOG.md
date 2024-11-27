@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.14.1...@ukic/docs@2.14.2) (2024-11-27)
+
+### Bug Fixes
+
+- **web-components:** update icpopoverclosed event to include relevant information ([fdc2a3d](https://github.com/mi6/ic-ui-kit/commit/fdc2a3d256640c8a2544f2ab0c7e5d7c05140f44)), closes [#2665](https://github.com/mi6/ic-ui-kit/issues/2665)
+
 ## [2.14.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.14.0...@ukic/docs@2.14.1) (2024-11-13)
 
 **Note:** Version bump only for package @ukic/docs

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.32.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.31.0...@ukic/react@2.32.0) (2024-11-27)
+
+### Bug Fixes
+
+- **react:** add storybook logging to demonstrate new functionality ([85c4e98](https://github.com/mi6/ic-ui-kit/commit/85c4e98c56c5be6830d5c95918499d7f54d45518))
+- **react:** side nav Cypress test changes - add externally controlled visual tests ([9e319b2](https://github.com/mi6/ic-ui-kit/commit/9e319b217519e13a1cbec48e003c5faa2d3c1dfb))
+- **web-components:** footer-link-group fix ([408eae5](https://github.com/mi6/ic-ui-kit/commit/408eae5f1de51928dce22ec08089d0150149f9e5))
+
+### Features
+
+- **react:** add storybook example for controlling slotted navigation items ([7549907](https://github.com/mi6/ic-ui-kit/commit/7549907266ac0985e9ad66f502b67e29f8b28a5e)), closes [#2610](https://github.com/mi6/ic-ui-kit/issues/2610)
+
 # [2.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.30.0...@ukic/react@2.31.0) (2024-11-13)
 
 ### Bug Fixes

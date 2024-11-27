@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.30](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.29...@ukic/canary-web-components@2.0.0-canary.30) (2024-11-27)
+
+### Bug Fixes
+
+- **canary-web-components:** update showLoadingIndicator to check this.loadingIndicator exists ([8574c4b](https://github.com/mi6/ic-ui-kit/commit/8574c4b7519a2227241c4ac6f1fc5a77f79c0a9e)), closes [#2789](https://github.com/mi6/ic-ui-kit/issues/2789)
+
+### Features
+
+- **canary-web-components:** update searchable prop on select component ([2cb94f7](https://github.com/mi6/ic-ui-kit/commit/2cb94f78498ec9a47ba08bc58ee3bba4ac2998ca))
+
 # [2.0.0-canary.29](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.28...@ukic/canary-web-components@2.0.0-canary.29) (2024-11-13)
 
 ### Bug Fixes
