@@ -2225,7 +2225,7 @@ exports[`ic-data-table should pass through the loadingOptions to the loading ind
           </thead>
         </table>
       </div>
-      <ic-loading-indicator appearance="light" class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      <ic-loading-indicator monochrome="true" class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
