@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.29](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.28...@ukic/canary-web-components@2.0.0-canary.29) (2024-11-13)
+
+### Bug Fixes
+
+- **canary-web-components:** add check to event.key to ensure it exists in date input ([7b0bc17](https://github.com/mi6/ic-ui-kit/commit/7b0bc1748d2bc30befab866954aefcda9919549e)), closes [#1967](https://github.com/mi6/ic-ui-kit/issues/1967)
+- **canary-web-components:** fixes truncation of tree items ([19d57b0](https://github.com/mi6/ic-ui-kit/commit/19d57b0da81de0ec56ca2bab1a8fbfd72eb3087a))
+
+### Features
+
+- **canary-web-components:** implements column header truncation ([a671566](https://github.com/mi6/ic-ui-kit/commit/a671566b0841ffa2a8ebaaff71f9ba5257205456))
+
 # [2.0.0-canary.28](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.27...@ukic/canary-web-components@2.0.0-canary.28) (2024-10-30)
 
 ### Bug Fixes
