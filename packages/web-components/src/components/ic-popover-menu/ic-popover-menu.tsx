@@ -86,7 +86,7 @@ export class PopoverMenu {
   /**
    * Emitted when the popover menu is closed.
    */
-  @Event() icPopoverClosed: EventEmitter<void>;
+  @Event() icPopoverClosed: EventEmitter<HTMLIcMenuItemElement>;
 
   disconnectedCallback(): void {
     if (this.popperInstance) {
@@ -124,14 +124,9 @@ export class PopoverMenu {
   }
 
   @Listen("handleMenuItemClick")
-  handleMenuItemClick(
-    ev: CustomEvent<{
-      label: string;
-      hasSubMenu: boolean;
-    }>
-  ): void {
-    if (!ev.detail.hasSubMenu && ev.detail.label !== "Back") {
-      this.closeMenu();
+  handleMenuItemClick(ev: CustomEvent<HTMLIcMenuItemElement>): void {
+    if (!ev.detail.submenuTriggerFor && ev.detail.label !== "Back") {
+      this.closeMenu(false, ev.detail);
     }
   }
 
@@ -256,15 +251,18 @@ export class PopoverMenu {
    * @param setFocusToAnchor when true return focus to anchor element when menu is closed
    */
   @Method()
-  async closeMenu(setFocusToAnchor = false): Promise<void> {
+  async closeMenu(
+    setFocusToAnchor = false,
+    menuElement?: HTMLIcMenuItemElement
+  ): Promise<void> {
     this.open = false;
     if (this.parentPopover) {
-      this.parentPopover.closeMenu(setFocusToAnchor);
+      this.parentPopover.closeMenu(setFocusToAnchor, menuElement);
     } else {
       if (setFocusToAnchor) {
         this.anchorEl?.focus();
       }
-      this.icPopoverClosed.emit();
+      this.icPopoverClosed.emit(menuElement);
     }
   }
 

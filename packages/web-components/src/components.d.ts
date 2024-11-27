@@ -1393,7 +1393,7 @@ export namespace Components {
         /**
           * @param setFocusToAnchor when true return focus to anchor element when menu is closed
          */
-        "closeMenu": (setFocusToAnchor?: boolean) => Promise<void>;
+        "closeMenu": (setFocusToAnchor?: boolean, element?: HTMLIcMenuItemElement) => Promise<void>;
         /**
           * If `true`, the popover menu will be displayed.
          */
@@ -2850,10 +2850,7 @@ declare global {
     };
     interface HTMLIcMenuItemElementEventMap {
         "childBlur": void;
-        "handleMenuItemClick": {
-    label: string;
-    hasSubMenu: boolean;
-  };
+        "handleMenuItemClick": HTMLIcMenuItemElement;
         "icToggleChecked": {
     checked: boolean;
   };
@@ -2961,7 +2958,7 @@ declare global {
         new (): HTMLIcPaginationItemElement;
     };
     interface HTMLIcPopoverMenuElementEventMap {
-        "icPopoverClosed": void;
+        "icPopoverClosed": HTMLIcMenuItemElement;
     }
     interface HTMLIcPopoverMenuElement extends Components.IcPopoverMenu, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcPopoverMenuElementEventMap>(type: K, listener: (this: HTMLIcPopoverMenuElement, ev: IcPopoverMenuCustomEvent<HTMLIcPopoverMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4491,10 +4488,7 @@ declare namespace LocalJSX {
          */
         "label": string;
         "onChildBlur"?: (event: IcMenuItemCustomEvent<void>) => void;
-        "onHandleMenuItemClick"?: (event: IcMenuItemCustomEvent<{
-    label: string;
-    hasSubMenu: boolean;
-  }>) => void;
+        "onHandleMenuItemClick"?: (event: IcMenuItemCustomEvent<HTMLIcMenuItemElement>) => void;
         /**
           * Emitted when the user clicks a menu item that is set to the toggle variant.
          */
@@ -4740,7 +4734,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the popover menu is closed.
          */
-        "onIcPopoverClosed"?: (event: IcPopoverMenuCustomEvent<void>) => void;
+        "onIcPopoverClosed"?: (event: IcPopoverMenuCustomEvent<HTMLIcMenuItemElement>) => void;
         /**
           * If `true`, the popover menu will be displayed.
          */

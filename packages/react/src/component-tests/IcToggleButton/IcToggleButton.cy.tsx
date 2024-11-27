@@ -13,6 +13,7 @@ import {
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
+  ConditionalBadge,
   Dark,
   IconPlacementRight,
   IconPlacementTop,
@@ -93,6 +94,14 @@ describe("IcToggleButton end-to-end tests", () => {
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
     cy.clickOnButton(IC_TOGGLE_BUTTON_SELECTOR);
     cy.get(WIN_CONSOLE_SPY).should(NOT_BE_CALLED_ONCE);
+  });
+
+  it("should render elements passed into slots after initial render", () => {
+    mount(<ConditionalBadge />);
+    cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
+    cy.get("ic-badge").should("not.exist");
+    cy.get("button").click();
+    cy.get("ic-badge").should("be.visible");
   });
 });
 
