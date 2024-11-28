@@ -18,10 +18,10 @@ export const Default = () => {
       heading="Everything I brew, I brew it for you"
       subheading="This news is hot off the French press."
     >
-      <IcButton monochrome variant="primary" slot="interaction">
+      <IcButton variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton monochrome variant="secondary" slot="interaction">
+      <IcButton variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
     </IcHero>
@@ -35,10 +35,10 @@ export const SlottedHeadings = () => {
         Slotted heading
       </IcTypography>
       <IcTypography slot="subheading">Slotted subheading</IcTypography>
-      <IcButton monochrome variant="primary" slot="interaction">
+      <IcButton variant="primary" slot="interaction">
         Button
       </IcButton>
-      <IcButton monochrome variant="secondary" slot="interaction">
+      <IcButton variant="secondary" slot="interaction">
         Button
       </IcButton>
     </IcHero>
@@ -52,10 +52,10 @@ export const CenterAlignment = () => {
       heading="Everything I brew, I brew it for you"
       subheading="This news is hot off the French press."
     >
-      <IcButton monochrome variant="primary" slot="interaction">
+      <IcButton variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton monochrome variant="secondary" slot="interaction">
+      <IcButton variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
     </IcHero>
@@ -69,10 +69,10 @@ export const CenteredContent = () => {
       heading="Everything I brew, I brew it for you"
       subheading="This news is hot off the French press."
     >
-      <IcButton monochrome variant="primary" slot="interaction">
+      <IcButton variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton monochrome variant="secondary" slot="interaction">
+      <IcButton variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
     </IcHero>
@@ -86,10 +86,10 @@ export const Small = () => {
       subheading="Brand new flavours now available! Irresistible. Caramel. Decadence. Sugary."
       size="small"
     >
-      <IcButton monochrome variant="primary" slot="interaction" size="small">
+      <IcButton variant="primary" slot="interaction" size="small">
         Order now
       </IcButton>
-      <IcButton monochrome variant="secondary" slot="interaction" size="small">
+      <IcButton variant="secondary" slot="interaction" size="small">
         Submit new flavour
       </IcButton>
     </IcHero>
@@ -116,10 +116,10 @@ export const WithCard = () => {
       subheading="This news is hot off the French press."
       aligned="full-width"
     >
-      <IcButton monochrome variant="primary" slot="interaction">
+      <IcButton variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton monochrome variant="secondary" slot="interaction">
+      <IcButton variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
       <IcCardVertical
@@ -130,7 +130,6 @@ export const WithCard = () => {
         style={{
           width: "300px",
         }}
-        theme="dark"
       />
     </IcHero>
   );
@@ -143,10 +142,10 @@ export const WithImageRight = () => {
       subheading="This news is hot off the French press."
       aligned="full-width"
     >
-      <IcButton monochrome variant="primary" slot="interaction">
+      <IcButton variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton monochrome variant="secondary" slot="interaction">
+      <IcButton variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
       <SlottedSVG
@@ -182,10 +181,10 @@ export const BackgroundImage = () => {
       heading="Everything I brew, I brew it for you"
       subheading="This news is hot off the French press."
     >
-      <IcButton monochrome variant="primary" slot="interaction">
+      <IcButton variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton monochrome variant="secondary" slot="interaction">
+      <IcButton variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
     </IcHero>
@@ -199,10 +198,10 @@ export const LongHeading = () => {
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="center"
     >
-      <IcButton monochrome variant="primary" slot="interaction">
+      <IcButton variant="primary" slot="interaction">
         Button
       </IcButton>
-      <IcButton monochrome variant="secondary" slot="interaction">
+      <IcButton variant="secondary" slot="interaction">
         Button
       </IcButton>
       <IcLink
@@ -216,7 +215,6 @@ export const LongHeading = () => {
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
         slot="secondary"
-        theme="dark"
       />
     </IcHero>
   );
@@ -229,72 +227,55 @@ export const FullWidth = () => {
       heading="Everything I brew, I brew it for you"
       subheading="This news is hot off the French press."
     >
-      <IcButton monochrome variant="primary" slot="interaction">
+      <IcButton variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton monochrome variant="secondary" slot="interaction">
+      <IcButton variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
     </IcHero>
   );
 };
 
-export const Theme = () => {
-  const [color, setColour] = useState("rgb(255, 201, 60)");
-  const [theme, setTheme] = useState<IcThemeMode>("light");
-  const defaultButtonClickHandler = () => {
-    setColour("rgb(27, 60, 121)");
-    setTheme("dark");
-  };
-  const differentButtonClickHandler = () => {
-    setColour("rgb(255, 201, 60)");
-    setTheme("light");
-  };
+export const LightBrand = () => {
   return (
     <>
-      <IcTheme color={color} />
-      <IcButton variant="primary" onClick={defaultButtonClickHandler}>
-        Default theme
-      </IcButton>
-      <IcButton variant="primary" onClick={differentButtonClickHandler}>
-        Sunrise theme
-      </IcButton>
-      <IcHero
-        heading="Hero heading"
-        subheading="Hero description. This is a Hero component, it should be used as a page heading."
-        aligned="center"
-      >
-        <div slot="interaction" style={{ display: "flex" }}>
-          <IcTextField
-            placeholder="Filter display"
-            label="Filter display"
-            hide-label
-          />
-          <IcButton
-            variant="primary"
-            monochrome
-            style={{ marginLeft: "var(--ic-space-md)" }}
-          >
-            Filter
-          </IcButton>
-        </div>
-        <IcButton monochrome variant="secondary" slot="interaction">
-          See all
-        </IcButton>
-        <IcLink
-          href="https://google.com"
-          slot="interaction"
-          style={{ marginTop: "var(--ic-space-sm)" }}
+      <IcTheme color={"rgb(255, 201, 60)"}>
+        <IcHero
+          heading="Hero heading"
+          subheading="Hero description. This is a Hero component, it should be used as a page heading."
+          aligned="center"
         >
-          Help
-        </IcLink>
-        <IcCardVertical
-          heading="Latest announcement"
-          message="This is some example text that can be included in the card copy."
-          slot="secondary"
-          theme={theme}
-        />
-      </IcHero>
+          <div slot="interaction" style={{ display: "flex" }}>
+            <IcTextField
+              placeholder="Filter display"
+              label="Filter display"
+              hide-label
+            />
+            <IcButton
+              variant="primary"
+              style={{ marginLeft: "var(--ic-space-md)" }}
+            >
+              Filter
+            </IcButton>
+          </div>
+          <IcButton variant="secondary" slot="interaction">
+            See all
+          </IcButton>
+          <IcLink
+            href="https://google.com"
+            slot="interaction"
+            style={{ marginTop: "var(--ic-space-sm)" }}
+          >
+            Help
+          </IcLink>
+          <IcCardVertical
+            heading="Latest announcement"
+            message="This is some example text that can be included in the card copy."
+            slot="secondary"
+          />
+        </IcHero>
+      </IcTheme>
     </>
   );
 };

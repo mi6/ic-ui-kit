@@ -25,12 +25,8 @@ import image from "./assets/example-background.png";
       heading="Hero heading"
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
     >
-      <ic-button variant="primary" monochrome slot="interaction"
-        >Button</ic-button
-      >
-      <ic-button variant="secondary" monochrome slot="interaction"
-        >Button</ic-button
-      >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
       <ic-link
         href="https://google.com"
         slot="interaction"
@@ -53,12 +49,8 @@ import image from "./assets/example-background.png";
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="center"
     >
-      <ic-button variant="primary" monochrome slot="interaction"
-        >Button</ic-button
-      >
-      <ic-button variant="secondary" monochrome slot="interaction"
-        >Button</ic-button
-      >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
       <ic-link
         href="https://google.com"
         slot="interaction"
@@ -79,12 +71,8 @@ import image from "./assets/example-background.png";
     {html`<ic-hero>
       <ic-typography slot="heading" variant="h1">Slotted heading</ic-typography>
       <ic-typography slot="subheading">Slotted subheading</ic-typography>
-      <ic-button variant="primary" monochrome slot="interaction"
-        >Button</ic-button
-      >
-      <ic-button variant="secondary" monochrome slot="interaction"
-        >Button</ic-button
-      >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
       <ic-link
         href="https://google.com"
         slot="interaction"
@@ -107,12 +95,8 @@ import image from "./assets/example-background.png";
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="center"
     >
-      <ic-button variant="primary" monochrome slot="interaction"
-        >Button</ic-button
-      >
-      <ic-button variant="secondary" monochrome slot="interaction"
-        >Button</ic-button
-      >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
       <ic-link
         href="https://google.com"
         slot="interaction"
@@ -141,12 +125,8 @@ import image from "./assets/example-background.png";
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="full-width"
     >
-      <ic-button variant="primary" monochrome slot="interaction"
-        >Button</ic-button
-      >
-      <ic-button variant="secondary" monochrome slot="interaction"
-        >Button</ic-button
-      >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
     </ic-hero>`}
   </Story>
 </Canvas>
@@ -164,12 +144,8 @@ import image from "./assets/example-background.png";
       aligned="center"
       content-aligned="center"
     >
-      <ic-button variant="primary" monochrome slot="interaction"
-        >Button</ic-button
-      >
-      <ic-button variant="secondary" monochrome slot="interaction"
-        >Button</ic-button
-      >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
     </ic-hero>`}
   </Story>
 </Canvas>
@@ -187,12 +163,8 @@ import image from "./assets/example-background.png";
       aligned="center"
       size="small"
     >
-      <ic-button variant="primary" monochrome slot="interaction"
-        >Button</ic-button
-      >
-      <ic-button variant="secondary" monochrome slot="interaction"
-        >Button</ic-button
-      >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
     </ic-hero>`}
   </Story>
 </Canvas>
@@ -211,12 +183,8 @@ import image from "./assets/example-background.png";
       secondary-subheading="This is a secondary description."
       aligned="center"
     >
-      <ic-button variant="primary" monochrome slot="interaction"
-        >Button</ic-button
-      >
-      <ic-button variant="secondary" monochrome slot="interaction"
-        >Button</ic-button
-      >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
     </ic-hero>`}
   </Story>
 </Canvas>
@@ -254,12 +222,8 @@ import image from "./assets/example-background.png";
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="full-width"
     >
-      <ic-button variant="primary" monochrome slot="interaction"
-        >Button</ic-button
-      >
-      <ic-button variant="secondary" monochrome slot="interaction"
-        >Button</ic-button
-      >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
       <ic-card-vertical
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
@@ -282,12 +246,8 @@ import image from "./assets/example-background.png";
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="center"
     >
-      <ic-button variant="primary" monochrome slot="interaction"
-        >Button</ic-button
-      >
-      <ic-button variant="secondary" monochrome slot="interaction"
-        >Button</ic-button
-      >
+      <ic-button variant="primary" slot="interaction">Button</ic-button>
+      <ic-button variant="secondary" slot="interaction">Button</ic-button>
       <svg
         slot="secondary"
         style="width:300px;"
@@ -319,7 +279,7 @@ import image from "./assets/example-background.png";
     name="Theme"
     parameters={{ layout: "fullscreen", loki: { skip: true } }}
   >
-    {html`<ic-theme color="rgb(27, 60, 121)"></ic-theme>
+    {html`<ic-theme color="rgb(255, 201, 60)"></ic-theme>
       <ic-hero
         heading="Hero heading"
         subheading="Hero description. This is a Hero component, it should be used as a page heading."
@@ -331,19 +291,29 @@ import image from "./assets/example-background.png";
             label="Filter display"
             hide-label
           ></ic-text-field>
-          <ic-button
-            variant="primary"
-            monochrome
-            style="margin-left: var(--ic-space-md)"
+          <ic-button variant="primary" style="margin-left: var(--ic-space-md)"
             >Filter</ic-button
           >
         </div>
         <ic-card-vertical
           heading="Latest announcement"
           message="This is some example text that can be included in the card copy."
-          theme="dark"
           slot="secondary"
-        ></ic-card-vertical>
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-card-vertical>
       </ic-hero>
       <br />
       <ic-button variant="primary" id="default-btn" onClick="changeTheme()">
@@ -361,11 +331,9 @@ import image from "./assets/example-background.png";
         var card = document.querySelector("ic-card-vertical");
         function changeTheme() {
           theme.color = "rgb(27, 60, 121)";
-          card.theme = "dark";
         }
         function changeSunriseTheme() {
           theme.color = "rgb(255, 201, 60)";
-          card.theme = "light";
         }
       </script>`}
   </Story>
@@ -400,15 +368,11 @@ import image from "./assets/example-background.png";
         background-image="${image}"
       >
         <div slot="interaction">
-          <ic-button
-            monochrome
-            variant="primary"
-            style="margin-right: var(--ic-space-md)"
+          <ic-button variant="primary" style="margin-right: var(--ic-space-md)"
             >Button</ic-button
           >
           <ic-button
             variant="secondary"
-            monochrome
             style="margin-right: var(--ic-space-md)"
             >Button</ic-button
           >
@@ -462,14 +426,10 @@ import image from "./assets/example-background.png";
         disable-background-parallax
       >
         <div slot="interaction">
-          <ic-button
-            monochrome
-            variant="primary"
-            style="margin-right: var(--ic-space-md)"
+          <ic-button variant="primary" style="margin-right: var(--ic-space-md)"
             >Button</ic-button
           >
           <ic-button
-            monochrome
             variant="secondary"
             style="margin-right: var(--ic-space-md)"
             >Button</ic-button

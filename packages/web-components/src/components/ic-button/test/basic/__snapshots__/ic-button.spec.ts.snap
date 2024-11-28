@@ -265,7 +265,7 @@ exports[`button component should render with defined "a" tag props 1`] = `
 `;
 
 exports[`button component should test aria-describedby is set 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-primary ic-theme-light" exportparts="button" id="ic-button">
+<ic-button class="ic-button-size-medium ic-button-variant-primary ic-theme-light monochrome" exportparts="button" id="ic-button">
   <mock:shadow-root>
     <button aria-describedby="button-description" class="button" part="button" type="button">
       <slot></slot>
@@ -279,7 +279,7 @@ exports[`button component should test aria-describedby is set 1`] = `
 `;
 
 exports[`button component should test aria-describedby is updated 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-primary ic-theme-light" exportparts="button" id="ic-button">
+<ic-button class="ic-button-size-medium ic-button-variant-primary ic-theme-light monochrome" exportparts="button" id="ic-button">
   <mock:shadow-root>
     <button aria-describedby="button-description" class="button" part="button" type="button">
       <slot></slot>
@@ -293,7 +293,7 @@ exports[`button component should test aria-describedby is updated 1`] = `
 `;
 
 exports[`button component should test button as submit button on form 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-primary ic-theme-light" exportparts="button" form="new-form" id="ic-button" type="submit">
+<ic-button class="ic-button-size-medium ic-button-variant-primary ic-theme-light monochrome" exportparts="button" form="new-form" id="ic-button" type="submit">
   <mock:shadow-root>
     <button class="button" form="new-form" part="button" type="submit">
       <slot></slot>
@@ -304,7 +304,7 @@ exports[`button component should test button as submit button on form 1`] = `
 `;
 
 exports[`button component should test tooltip visibility changes when disable tooltip prop changes 1`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-light" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-light monochrome" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
       <button aria-label="Tooltip text" class="button" part="button" type="button">
@@ -317,7 +317,7 @@ exports[`button component should test tooltip visibility changes when disable to
 `;
 
 exports[`button component should test tooltip visibility changes when disable tooltip prop changes 2`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-light" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-light monochrome" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <button aria-label="Tooltip text" class="button" part="button" type="button">
       <slot></slot>
@@ -328,7 +328,7 @@ exports[`button component should test tooltip visibility changes when disable to
 `;
 
 exports[`button component should test tooltip visibility changes when disable tooltip prop changes 3`] = `
-<ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-light" exportparts="button" id="test-button" variant="icon">
+<ic-button class="ic-button-size-medium ic-button-variant-icon ic-theme-light monochrome" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
       <button aria-label="Tooltip text" class="button" part="button" type="button">

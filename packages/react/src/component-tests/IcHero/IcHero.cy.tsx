@@ -16,7 +16,7 @@ import {
   BackgroundImage,
   LongHeading,
   FullWidth,
-  Theme,
+  LightBrand,
 } from "./IcHeroTestData";
 import { BE_VISIBLE } from "../utils/constants";
 
@@ -181,15 +181,15 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
     });
   });
 
-  it("should render with theming", () => {
-    mount(<Theme />);
+  it("should render with light brand color", () => {
+    mount(<LightBrand />);
 
     cy.checkHydrated(IC_HERO_SELECTOR);
     cy.get("ic-theme").should("exist");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "theme",
+      name: "light-brand",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
