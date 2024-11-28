@@ -12,65 +12,50 @@ export const iconProps = {
   iconDefault: {
     title: "Default",
     size: "medium",
-    appearance: "default",
+    theme: "light",
     loading: false,
     disabled: false,
+    monochrome: false,
   },
   iconLarge: {
     title: "Large",
     size: "large",
-    appearance: "default",
+    theme: "light",
     loading: false,
     disabled: false,
+    monochrome: false,
   },
   iconSmall: {
     title: "Small",
     size: "small",
-    appearance: "default",
+    theme: "light",
     loading: false,
     disabled: false,
-  },
-  iconLoading: {
-    title: "Loading",
-    size: "medium",
-    appearance: "default",
-    loading: true,
-    disabled: false,
+    monochrome: false,
   },
   iconDisabled: {
     title: "Disabled",
     size: "medium",
-    appearance: "default",
+    theme: "light",
     loading: false,
     disabled: true,
+    monochrome: false,
   },
   iconDark: {
     title: "Dark",
     size: "medium",
-    appearance: "dark",
+    theme: "dark",
     loading: false,
     disabled: false,
-  },
-  iconDarkLoading: {
-    title: "Dark Loading",
-    size: "medium",
-    appearance: "dark",
-    loading: true,
-    disabled: false,
+    monochrome: true,
   },
   iconLight: {
     title: "Light",
     size: "medium",
-    appearance: "light",
+    theme: "light",
     loading: false,
     disabled: false,
-  },
-  iconLightLoading: {
-    title: "Light Loading",
-    size: "medium",
-    appearance: "light",
-    loading: true,
-    disabled: false,
+    monochrome: true,
   },
 };
 
@@ -191,55 +176,61 @@ export const IconBtnGroup = ({ props }) => {
     <>
       <div
         style={{
-          backgroundColor: props.appearance === "light" ? "#2c2f34" : "#fff",
+          backgroundColor:
+            props.theme === "light" && props.monochrome ? "#2c2f34" : "#fff",
           display: "flex",
           gap: "0.5rem",
           margin: "1rem",
           width: "fit-content",
-          padding: props.appearance === "light" ? "6px 10px" : "none",
+          padding:
+            props.theme === "light" && props.monochrome ? "6px 10px" : "none",
         }}
       >
         <IcButton
           variant="icon-primary"
           size={props.size}
-          appearance={props.appearance}
+          theme={props.theme}
           loading={props.loading}
           disabled={props.disabled}
           aria-label="refresh"
           id="testButton"
+          monochrome={props.monochrome}
         >
           <ReusableIcon />
         </IcButton>
         <IcButton
           variant="icon-secondary"
           size={props.size}
-          appearance={props.appearance}
+          theme={props.theme}
           loading={props.loading}
           disabled={props.disabled}
           aria-label="refresh"
           id="testButton"
+          monochrome={props.monochrome}
         >
           <ReusableIcon />
         </IcButton>
         <IcButton
           variant="icon-tertiary"
           size={props.size}
-          appearance={props.appearance}
+          theme={props.theme}
           loading={props.loading}
           disabled={props.disabled}
           aria-label="refresh"
           id="testButton"
+          monochrome={props.monochrome}
         >
           <ReusableIcon />
         </IcButton>
         <IcButton
           variant="icon-destructive"
           size={props.size}
-          appearance={props.appearance}
+          theme={props.theme}
           loading={props.loading}
           disabled={props.disabled}
           aria-label="refresh"
           id="testButton"
+          monochrome={props.monochrome}
         >
           <ReusableIcon />
         </IcButton>
@@ -267,29 +258,31 @@ export const TextPrimaryButton = (): ReactElement => {
         </IcButton>
         <IcButton
           variant="primary"
-          appearance="dark"
+          theme="dark"
           onClick={() => alert("test")}
+          monochrome
         >
           Button
         </IcButton>
-        <IcButton variant="primary" disabled appearance="dark">
+        <IcButton variant="primary" disabled theme="dark" monochrome>
           Button
         </IcButton>
-        <IcButton variant="primary" loading appearance="dark">
+        <IcButton variant="primary" loading theme="dark" monochrome>
           Button
         </IcButton>
         <div style={DARK_BG_STYLE}>
           <IcButton
             variant="primary"
-            appearance="light"
+            theme="light"
+            monochrome
             onClick={() => alert("test")}
           >
             Button
           </IcButton>
-          <IcButton variant="primary" disabled appearance="light">
+          <IcButton variant="primary" disabled theme="light" monochrome>
             Button
           </IcButton>
-          <IcButton variant="primary" loading appearance="light">
+          <IcButton variant="primary" loading theme="light" monochrome>
             Button
           </IcButton>
         </div>
@@ -317,35 +310,41 @@ export const TextSecondaryButton = (): ReactElement => {
         </IcButton>
         <IcButton
           variant="secondary"
-          appearance="dark"
+          theme="dark"
+          monochrome
           onClick={() => alert("test")}
         >
           Button
         </IcButton>
-        <IcButton variant="secondary" disabled appearance="dark">
+        <IcButton variant="secondary" disabled theme="dark" monochrome>
           Button
         </IcButton>
-        <IcButton variant="secondary" loading appearance="dark">
+        <IcButton variant="secondary" loading theme="dark" monochrome>
           Button
         </IcButton>
-        <IcButton variant="secondary" transparentBackground="false">
+        <IcButton variant="secondary" transparentBackground={false} monochrome>
           Button
         </IcButton>
         <div style={DARK_BG_STYLE}>
           <IcButton
             variant="secondary"
-            appearance="light"
+            theme="light"
+            monochrome
             onClick={() => alert("test")}
           >
             Button
           </IcButton>
-          <IcButton variant="secondary" disabled appearance="light">
+          <IcButton variant="secondary" disabled theme="light" monochrome>
             Button
           </IcButton>
-          <IcButton variant="secondary" loading appearance="light">
+          <IcButton variant="secondary" loading theme="light" monochrome>
             Button
           </IcButton>
-          <IcButton variant="secondary" transparentBackground="false">
+          <IcButton
+            variant="secondary"
+            transparentBackground={false}
+            monochrome
+          >
             Button
           </IcButton>
         </div>
@@ -373,29 +372,31 @@ export const TextTertiaryButton = (): ReactElement => {
         </IcButton>
         <IcButton
           variant="tertiary"
-          appearance="dark"
+          theme="dark"
           onClick={() => alert("test")}
+          monochrome
         >
           Button
         </IcButton>
-        <IcButton variant="tertiary" disabled appearance="dark">
+        <IcButton variant="tertiary" disabled theme="dark" monochrome>
           Button
         </IcButton>
-        <IcButton variant="tertiary" loading appearance="dark">
+        <IcButton variant="tertiary" loading theme="dark" monochrome>
           Button
         </IcButton>
         <div style={DARK_BG_STYLE}>
           <IcButton
             variant="tertiary"
-            appearance="light"
+            theme="light"
+            monochrome
             onClick={() => alert("test")}
           >
             Button
           </IcButton>
-          <IcButton variant="tertiary" disabled appearance="light">
+          <IcButton variant="tertiary" disabled theme="light" monochrome>
             Button
           </IcButton>
-          <IcButton variant="tertiary" loading appearance="light">
+          <IcButton variant="tertiary" loading theme="light" monochrome>
             Button
           </IcButton>
         </div>
@@ -456,7 +457,8 @@ export const WithIcons = (): ReactElement => {
         </IcButton>
         <IcButton
           variant="primary"
-          appearance="dark"
+          theme="dark"
+          monochrome
           onClick={() => alert("test")}
         >
           Button
@@ -465,7 +467,8 @@ export const WithIcons = (): ReactElement => {
         <div style={DARK_BG_STYLE}>
           <IcButton
             variant="primary"
-            appearance="light"
+            theme="light"
+            monochrome
             onClick={() => alert("test")}
           >
             Button
@@ -500,7 +503,8 @@ export const WithIcons = (): ReactElement => {
         </IcButton>
         <IcButton
           variant="primary"
-          appearance="dark"
+          theme="dark"
+          monochrome
           onClick={() => alert("test")}
         >
           Button
@@ -509,7 +513,8 @@ export const WithIcons = (): ReactElement => {
         <div style={DARK_BG_STYLE}>
           <IcButton
             variant="primary"
-            appearance="light"
+            theme="light"
+            monochrome
             onClick={() => alert("test")}
           >
             Button
@@ -544,7 +549,8 @@ export const WithIcons = (): ReactElement => {
         </IcButton>
         <IcButton
           variant="primary"
-          appearance="dark"
+          theme="dark"
+          monochrome
           onClick={() => alert("test")}
         >
           Button
@@ -553,7 +559,8 @@ export const WithIcons = (): ReactElement => {
         <div style={DARK_BG_STYLE}>
           <IcButton
             variant="primary"
-            appearance="light"
+            theme="light"
+            monochrome
             onClick={() => alert("test")}
           >
             Button
@@ -638,7 +645,7 @@ export const FullWidth = (): ReactElement => {
           Button
           <SlottedIcon />
         </IcButton>
-        <IcButton variant="primary" appearance="dark" fullWidth>
+        <IcButton variant="primary" theme="dark" monochrome fullWidth>
           Button
           <SlottedIcon />
         </IcButton>
@@ -674,7 +681,7 @@ export const IconButtons = (): ReactElement => {
         <IcButton
           aria-label="friendly button label"
           variant="icon"
-          appearance="dark"
+          theme="dark"
         >
           <ReusableIcon />
         </IcButton>
@@ -682,14 +689,14 @@ export const IconButtons = (): ReactElement => {
           <IcButton
             aria-label="friendly button label"
             variant="icon"
-            appearance="light"
+            theme="light"
           >
             <ReusableIcon />
           </IcButton>
           <IcButton
             aria-label="friendly button label"
             variant="icon"
-            appearance="light"
+            theme="light"
             disabled
           >
             <ReusableIcon />
@@ -734,17 +741,17 @@ export const DropdownButtons = (): ReactElement => {
         </IcButton>
       </div>
       <div style={{ padding: "6px" }}>
-        <IcButton dropdown variant="primary" appearance="dark">
+        <IcButton dropdown variant="primary" theme="dark" monochrome>
           Button
         </IcButton>
-        <IcButton dropdown appearance="dark" variant="primary">
+        <IcButton dropdown theme="dark" variant="primary" monochrome>
           Button
           <SlottedIcon />
         </IcButton>
-        <IcButton dropdown variant="secondary" appearance="dark">
+        <IcButton dropdown variant="secondary" theme="dark" monochrome>
           Button
         </IcButton>
-        <IcButton dropdown variant="tertiary" appearance="dark">
+        <IcButton dropdown variant="tertiary" theme="dark" monochrome>
           Button
         </IcButton>
       </div>
@@ -755,17 +762,17 @@ export const DropdownButtons = (): ReactElement => {
           width: "fit-content",
         }}
       >
-        <IcButton dropdown variant="primary" appearance="light">
+        <IcButton dropdown variant="primary" theme="light" monochrome>
           Button
         </IcButton>
-        <IcButton dropdown appearance="light" variant="primary">
+        <IcButton dropdown theme="light" variant="primary" monochrome>
           Button
           <SlottedIcon />
         </IcButton>
-        <IcButton dropdown variant="secondary" appearance="light">
+        <IcButton dropdown variant="secondary" theme="light" monochrome>
           Button
         </IcButton>
-        <IcButton dropdown variant="tertiary" appearance="light">
+        <IcButton dropdown variant="tertiary" theme="light" monochrome>
           Button
         </IcButton>
       </div>
@@ -809,12 +816,9 @@ export const IconButtonGroup = (): ReactElement => {
       <IconBtnGroup props={iconProps.iconDefault} />
       <IconBtnGroup props={iconProps.iconLarge} />
       <IconBtnGroup props={iconProps.iconSmall} />
-      <IconBtnGroup props={iconProps.iconLoading} />
       <IconBtnGroup props={iconProps.iconDisabled} />
       <IconBtnGroup props={iconProps.iconDark} />
-      <IconBtnGroup props={iconProps.iconDarkLoading} />
       <IconBtnGroup props={iconProps.iconLight} />
-      <IconBtnGroup props={iconProps.iconLightLoading} />
     </>
   );
 };

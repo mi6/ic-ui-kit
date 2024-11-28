@@ -25,23 +25,6 @@
 | `"left-icon"` | Content will be placed to the left of the input. |
 
 
-## CSS Custom Properties
-
-| Name                             | Description                                                                |
-| -------------------------------- | -------------------------------------------------------------------------- |
-| `--border-color`                 | Border colour of the input component container                             |
-| `--border-color-disabled`        | Border colour of the input component container when disabled               |
-| `--border-color-error`           | Border colour of the error variant for input component container           |
-| `--border-color-error-hover`     | Border colour of the error hover variant for input component container     |
-| `--border-color-error-pressed`   | Border colour of the error pressed variant for input component container   |
-| `--border-color-success`         | Border colour of the success variant for input component container         |
-| `--border-color-success-hover`   | Border colour of the success hover variant for input component container   |
-| `--border-color-success-pressed` | Border colour of the success pressed variant for input component container |
-| `--border-color-warning`         | Border colour of the warning variant for input component container         |
-| `--border-color-warning-hover`   | Border colour of the warning hover variant for input component container   |
-| `--border-color-warning-pressed` | Border colour of the warning pressed variant for input component container |
-
-
 ## Dependencies
 
 ### Used by

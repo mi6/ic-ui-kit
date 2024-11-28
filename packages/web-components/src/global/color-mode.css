@@ -112,6 +112,9 @@ ic-theme,
   --ic-atoms-input-clear-button-focus: var(
     --ic-atoms-input-clear-button-focus-light
   );
+  --ic-atoms-input-clear-button-hover: var(
+    --ic-color-background-clear-icon-hover
+  );
   --ic-atoms-input-search-button: var(--ic-atoms-input-search-button-light);
   --ic-atoms-input-search-button-focus: var(
     --ic-atoms-input-search-button-focus-light
@@ -355,6 +358,199 @@ ic-theme,
   --ic-breadcrumb-page-icon-monochrome: var(--ic-color-icon-neutral);
   --ic-breadcrumb-text: var(--ic-color-text-primary);
   --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
+
+  /* Buttons */
+  --ic-button-primary-background: var(--ic-color-background-active-light);
+  --ic-button-primary-background-hover: var(
+    --ic-color-background-active-hover-light
+  );
+  --ic-button-primary-background-pressed: var(
+    --ic-color-background-active-pressed-light
+  );
+  --ic-button-primary-background-monochrome: var(
+    --ic-color-background-primary-light
+  );
+  --ic-button-primary-background-disabled: var(
+    --ic-color-background-disabled-default
+  );
+  --ic-button-primary-background-disabled-monochrome: var(
+    --ic-color-background-disabled-light
+  );
+  --ic-button-primary-background-hover-monochrome: var(
+    --ic-color-background-hover-light
+  );
+  --ic-button-primary-background-pressed-monochrome: var(
+    --ic-color-background-pressed-light
+  );
+  --ic-button-primary-text: var(--ic-color-text-inverse-light);
+  --ic-button-primary-text-monochrome: var(--ic-color-text-primary-light);
+  --ic-button-primary-text-disabled: var(--ic-color-text-disabled-default);
+  --ic-button-primary-text-disabled-monochrome: var(
+    --ic-color-text-disabled-default
+  );
+  --ic-button-primary-icon: var(--ic-color-icon-inverted);
+  --ic-button-primary-icon-monochrome: var(--ic-color-icon-neutral);
+  --ic-button-primary-icon-dark-pressed: var(--ic-color-icon-pressed-dark);
+  --ic-button-primary-icon-disabled: var(--ic-color-icon-disabled-light);
+  --ic-button-primary-icon-disabled-monochrome: var(
+    --ic-color-icon-disabled-dark
+  );
+  --ic-button-primary-icon-action: var(--ic-color-icon-action-default-light);
+  --ic-button-primary-icon-hover: var(--ic-color-icon-action-hover);
+  --ic-button-primary-icon-pressed: var(--ic-color-icon-action-pressed);
+  --ic-button-secondary-background: var(--ic-color-background-secondary-light);
+  --ic-button-secondary-background-monochrome: var(
+    --ic-color-background-neutral-dark
+  );
+  --ic-button-secondary-background-hover-active: var(
+    --ic-action-default-bg-hover
+  );
+  --ic-button-secondary-background-pressed-active: var(
+    --ic-action-default-bg-active
+  );
+  --ic-button-secondary-background-hover-monochrome: var(
+    --ic-action-light-bg-hover
+  );
+  --ic-button-secondary-background-pressed-monochrome: var(
+    --ic-action-light-bg-pressed
+  );
+  --ic-button-secondary-text: var(--ic-color-text-action);
+  --ic-button-secondary-text-monochrome: var(--ic-color-brand-text);
+  --ic-button-secondary-text-active: var(--ic-color-text-action);
+  --ic-button-secondary-text-hover-active: var(--ic-color-text-action-hover);
+  --ic-button-secondary-text-pressed-active: var(
+    --ic-color-text-action-pressed
+  );
+  --ic-button-secondary-text-disabled: var(--ic-color-text-disabled-default);
+  --ic-button-secondary-text-disabled-monochrome: var(
+    --ic-color-text-disabled-default
+  );
+  --ic-button-secondary-text-hover-monochrome: var(--ic-action-light-hover);
+  --ic-button-secondary-text-pressed-monochrome: var(--ic-action-light-pressed);
+  --ic-button-secondary-icon-monochrome: var(--ic-color-icon-inverted);
+  --ic-button-secondary-icon-disabled: var(--ic-color-icon-disabled-light);
+  --ic-button-secondary-icon-disabled-monochrome: var(
+    --ic-color-icon-disabled-light
+  );
+  --ic-button-secondary-icon-hover-monochrome: var(--ic-color-icon-hover-light);
+  --ic-button-secondary-icon-pressed-monochrome: var(
+    --ic-color-icon-pressed-light
+  );
+  --ic-button-secondary-icon-active: var(--ic-color-icon-action-default-light);
+  --ic-button-secondary-icon-hover-active: var(--ic-color-icon-action-hover);
+  --ic-button-secondary-icon-pressed-active: var(
+    --ic-color-icon-action-pressed
+  );
+  --ic-button-secondary-border: var(--ic-color-border-action-light);
+  --ic-button-secondary-border-monochrome: var(--ic-color-border-neutral-white);
+  --ic-button-secondary-border-inverse: var(--ic-color-border-neutral-black);
+  --ic-button-secondary-border-disabled: var(
+    --ic-color-border-neutral-disabled-default
+  );
+  --ic-button-secondary-border-disabled-monochrome: var(
+    --ic-color-border-neutral-disabled-light
+  );
+  --ic-button-secondary-border-hover: var(--ic-color-border-action-hover-light);
+  --ic-button-secondary-border-pressed: var(
+    --ic-color-border-action-pressed-light
+  );
+  --ic-button-secondary-border-hover-monochrome: var(
+    --ic-color-border-neutral-hover-light
+  );
+  --ic-button-secondary-border-pressed-monochrome: var(
+    --ic-color-border-neutral-default
+  );
+  --ic-button-secondary-background-non-transparent: var(
+    --ic-color-background-solid
+  );
+  --ic-button-secondary-background-non-transparent-disabled: var(
+    --ic-color-background-solid-disabled
+  );
+  --ic-button-secondary-background-non-transparent-hover: var(
+    --ic-color-background-solid-hover
+  );
+  --ic-button-secondary-background-non-transparent-active: var(
+    --ic-color-background-solid-pressed
+  );
+  --ic-button-secondary-background-non-transparent-monochrome: var(
+    --ic-color-background-solid-mono
+  );
+  --ic-button-secondary-background-non-transparent-monochrome-disabled: var(
+    --ic-color-background-solid-mono-disabled
+  );
+  --ic-button-secondary-background-non-transparent-monochrome-hover: var(
+    --ic-color-background-solid-mono-hover
+  );
+  --ic-button-secondary-background-non-transparent-monochrome-active: var(
+    --ic-color-background-solid-mono-pressed
+  );
+  --ic-button-tertiary-text-active: var(--ic-color-text-action);
+  --ic-button-tertiary-icon-active: var(--ic-color-text-action);
+  --ic-button-tertiary-text-disabled: var(--ic-color-text-disabled-default);
+  --ic-button-tertiary-icon-disabled: var(--ic-color-icon-disabled-light);
+  --ic-button-tertiary-text-hover-active: var(--ic-color-text-action-hover);
+  --ic-button-tertiary-icon-hover-active: var(--ic-color-text-action-hover);
+  --ic-button-tertiary-background: var(--ic-color-background-primary-light);
+  --ic-button-tertiary-background-hover-active: var(
+    --ic-action-default-bg-hover
+  );
+  --ic-button-tertiary-text-pressed-active: var(--ic-color-text-action-pressed);
+  --ic-button-tertiary-icon-pressed-active: var(--ic-color-text-action-pressed);
+  --ic-button-tertiary-background-pressed-active: var(
+    --ic-action-default-bg-active
+  );
+  --ic-button-tertiary-text-monochrome: var(--ic-color-brand-text);
+  --ic-button-tertiary-icon-monochrome: var(--ic-color-icon-brand);
+  --ic-button-tertiary-text-disabled-monochrome: var(
+    --ic-color-text-disabled-dark
+  );
+  --ic-button-tertiary-icon-disabled-monochrome: var(
+    --ic-color-icon-disabled-dark
+  );
+  --ic-button-tertiary-text-hover-monochrome: var(--ic-action-light-hover);
+  --ic-button-tertiary-icon-hover-monochrome: var(--ic-color-icon-hover-light);
+  --ic-button-tertiary-background-hover-monochrome: var(
+    --ic-action-light-bg-hover
+  );
+  --ic-button-tertiary-border-hover-monochrome: var(
+    --ic-color-border-neutral-hover-light
+  );
+  --ic-button-tertiary-text-pressed-monochrome: var(--ic-action-light-pressed);
+  --ic-button-tertiary-icon-pressed-monochrome: var(
+    --ic-color-icon-pressed-light
+  );
+  --ic-button-tertiary-background-pressed-monochrome: var(
+    --ic-action-light-bg-pressed
+  );
+  --ic-button-tertiary-background-monochrome: var(
+    --ic-color-background-neutral-dark
+  );
+  --ic-button-tertiary-text-hover-light-monochrome: var(
+    --ic-action-light-hover
+  );
+  --ic-button-destructive-background: var(
+    --ic-color-background-destructive-light
+  );
+  --ic-button-destructive-background-hover: var(
+    --ic-color-background-destructive-hover-light
+  );
+  --ic-button-destructive-background-pressed: var(
+    --ic-color-background-destructive-pressed-light
+  );
+  --ic-button-destructive-background-disabled: var(
+    --ic-color-background-disabled-light
+  );
+  --ic-button-destructive-text: var(--ic-color-text-inverse-light);
+  --ic-button-destructive-icon: var(--ic-color-icon-inverted);
+  --ic-button-destructive-text-disabled: var(--ic-color-text-disabled-default);
+  --ic-button-destructive-icon-disabled: var(--ic-color-icon-disabled-light);
+  --ic-button-icon-color: var(--ic-color-icon-action-default-light);
+  --ic-button-icon-color-hover: var(--ic-color-icon-action-hover);
+  --ic-button-icon-color-active: var(--ic-color-icon-action-pressed);
+  --ic-button-icon-color-background: var(--ic-color-background-primary-light);
+  --ic-button-icon-color-background-hover: var(--ic-action-default-bg-hover);
+  --ic-button-icon-color-background-active: var(--ic-action-default-bg-active);
+  --ic-button-icon-monochrome: var(--ic-action-light);
 
   /* Checkbox */
   --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey-dark);
@@ -982,6 +1178,9 @@ ic-theme,
     --ic-atoms-input-clear-button-focus: var(
       --ic-atoms-input-clear-button-focus-dark
     );
+    --ic-atoms-input-clear-button-hover: var(
+      --ic-color-background-clear-icon-hover
+    );
     --ic-atoms-input-search-button: var(--ic-atoms-input-search-button-dark);
     --ic-atoms-input-search-button-focus: var(
       --ic-atoms-input-search-button-focus-dark
@@ -1229,6 +1428,185 @@ ic-theme,
     --ic-breadcrumb-page-icon-monochrome: var(--ic-color-icon-inverted);
     --ic-breadcrumb-text: var(--ic-color-text-primary);
     --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
+
+    /* Buttons */
+    --ic-button-primary-background: var(--ic-color-background-active-dark);
+    --ic-button-primary-background-hover: var(
+      --ic-color-background-active-hover-dark
+    );
+    --ic-button-primary-background-pressed: var(
+      --ic-color-background-active-pressed-dark
+    );
+    --ic-button-primary-background-monochrome: var(
+      --ic-color-background-neutral-dark
+    );
+    --ic-button-primary-background-disabled: var(
+      --ic-color-background-disabled-default
+    );
+    --ic-button-primary-background-disabled-monochrome: var(
+      --ic-color-background-disabled-default
+    );
+    --ic-button-primary-background-hover-monochrome: var(
+      --ic-color-background-hover-dark
+    );
+    --ic-button-primary-background-pressed-monochrome: var(
+      --ic-color-background-pressed-dark
+    );
+    --ic-button-primary-text: var(--ic-color-text-inverse-dark);
+    --ic-button-primary-text-monochrome: var(--ic-color-text-primary-dark);
+    --ic-button-primary-text-disabled: var(--ic-color-text-disabled-default);
+    --ic-button-primary-text-disabled-monochrome: var(
+      --ic-color-text-disabled-default
+    );
+    --ic-button-primary-icon: var(--ic-color-icon-inverted);
+    --ic-button-primary-icon-monochrome: var(--ic-color-icon-neutral);
+    --ic-button-primary-icon-dark-pressed: var(--ic-color-icon-pressed-dark);
+    --ic-button-primary-icon-disabled: var(--ic-color-icon-disabled-dark);
+    --ic-button-primary-icon-disabled-monochrome: var(
+      --ic-color-icon-disabled-dark
+    );
+    --ic-button-primary-icon-action: var(--ic-color-icon-action-default-dark);
+    --ic-button-primary-icon-hover: var(--ic-color-icon-action-hover);
+    --ic-button-primary-icon-pressed: var(--ic-color-icon-action-pressed);
+    --ic-button-secondary-background: var(--ic-color-background-secondary-dark);
+    --ic-button-secondary-background-monochrome: var(
+      --ic-color-background-neutral-dark
+    );
+    --ic-button-secondary-background-hover-active: var(
+      --ic-action-default-bg-hover
+    );
+    --ic-button-secondary-background-pressed-active: var(
+      --ic-action-default-bg-active
+    );
+    --ic-button-secondary-background-hover-monochrome: var(
+      --ic-action-dark-bg-hover
+    );
+    --ic-button-secondary-background-pressed-monochrome: var(
+      --ic-action-dark-bg-pressed
+    );
+    --ic-button-secondary-text: var(--ic-color-text-action-dark);
+    --ic-button-secondary-text-monochrome: var(--ic-color-text-primary-light);
+    --ic-button-secondary-text-active: var(--ic-color-text-action);
+    --ic-button-secondary-text-hover-active: var(
+      --ic-color-text-action-hover-dark
+    );
+    --ic-button-secondary-text-pressed-active: var(
+      --ic-color-text-action-pressed-dark
+    );
+    --ic-button-secondary-text-disabled: var(--ic-color-text-disabled-default);
+    --ic-button-secondary-text-disabled-monochrome: var(
+      --ic-color-text-disabled-default
+    );
+    --ic-button-secondary-text-hover-monochrome: var(--ic-action-dark-hover);
+    --ic-button-secondary-text-pressed-monochrome: var(
+      --ic-action-dark-pressed
+    );
+    --ic-button-secondary-icon-monochrome: var(--ic-color-icon-inverted);
+    --ic-button-secondary-icon-disabled: var(--ic-color-icon-disabled-dark);
+    --ic-button-secondary-icon-disabled-monochrome: var(
+      --ic-color-icon-disabled-dark
+    );
+    --ic-button-secondary-icon-hover-monochrome: var(
+      --ic-color-icon-hover-dark
+    );
+    --ic-button-secondary-icon-pressed-monochrome: var(
+      --ic-color-icon-pressed-dark
+    );
+    --ic-button-secondary-icon-active: var(--ic-color-icon-action-default-dark);
+    --ic-button-secondary-icon-hover-active: var(--ic-color-icon-action-hover);
+    --ic-button-secondary-icon-pressed-active: var(
+      --ic-color-icon-action-pressed
+    );
+    --ic-button-secondary-border: var(--ic-color-border-action-dark);
+    --ic-button-secondary-border-monochrome: var(
+      --ic-color-border-neutral-black
+    );
+    --ic-button-secondary-border-inverse: var(--ic-color-border-neutral-black);
+    --ic-button-secondary-border-disabled: var(
+      --ic-color-border-neutral-default
+    );
+    --ic-button-secondary-border-disabled-monochrome: var(
+      --ic-color-border-neutral-disabled-dark
+    );
+    --ic-button-secondary-border-hover: var(
+      --ic-color-border-action-hover-dark
+    );
+    --ic-button-secondary-border-pressed: var(
+      --ic-color-border-action-pressed-dark
+    );
+    --ic-button-secondary-border-hover-monochrome: var(
+      --ic-color-border-neutral-hover-dark
+    );
+    --ic-button-secondary-border-pressed-monochrome: var(
+      --ic-color-border-neutral-pressed-dark
+    );
+    --ic-button-tertiary-text-active: var(--ic-action-default-dark);
+    --ic-button-tertiary-icon-active: var(--ic-action-default-dark);
+    --ic-button-tertiary-text-disabled: var(--ic-color-text-disabled-dark);
+    --ic-button-tertiary-icon-disabled: var(--ic-color-icon-disabled-dark);
+    --ic-button-tertiary-text-hover-active: var(--ic-action-default-hover-dark);
+    --ic-button-tertiary-icon-hover-active: var(--ic-action-default-hover-dark);
+    --ic-button-tertiary-background: var(--ic-color-background-primary-dark);
+    --ic-button-tertiary-background-hover-active: var(
+      --ic-action-default-bg-hover
+    );
+    --ic-button-tertiary-text-pressed-active: var(
+      --ic-action-default-pressed-dark
+    );
+    --ic-button-tertiary-icon-pressed-active: var(
+      --ic-action-default-pressed-dark
+    );
+    --ic-button-tertiary-background-pressed-active: var(
+      --ic-action-default-bg-active
+    );
+    --ic-button-tertiary-text-monochrome: var(--ic-color-text-primary-light);
+    --ic-button-tertiary-icon-monochrome: var(--ic-color-text-primary-light);
+    --ic-button-tertiary-text-disabled-monochrome: var(
+      --ic-color-text-disabled-default
+    );
+    --ic-button-tertiary-icon-disabled-monochrome: var(
+      --ic-color-icon-disabled-light
+    );
+    --ic-button-tertiary-text-hover-monochrome: var(--ic-action-dark-hover);
+    --ic-button-tertiary-icon-hover-monochrome: var(--ic-color-icon-hover-dark);
+    --ic-button-tertiary-background-hover-monochrome: var(
+      --ic-action-dark-bg-hover
+    );
+    --ic-button-tertiary-border-hover-monochrome: var(
+      --ic-color-border-neutral-hover-dark
+    );
+    --ic-button-tertiary-text-pressed-monochrome: var(--ic-action-dark-pressed);
+    --ic-button-tertiary-icon-pressed-monochrome: var(
+      --ic-color-icon-pressed-dark
+    );
+    --ic-button-tertiary-background-pressed-monochrome: var(
+      --ic-action-dark-bg-pressed
+    );
+    --ic-button-tertiary-background-monochrome: var(
+      --ic-color-background-neutral-dark
+    );
+    --ic-button-tertiary-text-hover-light-monochrome: var(
+      --ic-action-dark-hover
+    );
+    --ic-button-destructive-background: var(
+      --ic-color-background-destructive-light
+    );
+    --ic-button-destructive-background-hover: var(
+      --ic-color-background-destructive-hover-light
+    );
+    --ic-button-destructive-background-pressed: var(
+      --ic-color-background-destructive-pressed-light
+    );
+    --ic-button-destructive-background-disabled: var(
+      --ic-color-background-disabled-light
+    );
+    --ic-button-destructive-text: var(--ic-color-text-inverse-light);
+    --ic-button-destructive-icon: var(--ic-color-icon-inverted);
+    --ic-button-destructive-text-disabled: var(
+      --ic-color-text-disabled-default
+    );
+    --ic-button-destructive-icon-disabled: var(--ic-color-icon-disabled-light);
+    --ic-button-icon-monochrome: var(--ic-action-dark);
 
     /* Checkbox */
     --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey-dark);
@@ -1890,6 +2268,9 @@ ic-theme,
   --ic-atoms-input-clear-button-focus: var(
     --ic-atoms-input-clear-button-focus-dark
   );
+  --ic-atoms-input-clear-button-hover: var(
+    --ic-color-background-clear-icon-hover
+  );
   --ic-atoms-input-search-button: var(--ic-atoms-input-search-button-dark);
   --ic-atoms-input-search-button-focus: var(
     --ic-atoms-input-search-button-focus-dark
@@ -2133,6 +2514,171 @@ ic-theme,
   --ic-breadcrumb-page-icon-monochrome: var(--ic-color-icon-inverted);
   --ic-breadcrumb-text: var(--ic-color-text-primary);
   --ic-breadcrumb-text-monochrome: var(--ic-color-text-primary);
+
+  /* Buttons */
+  --ic-button-primary-background: var(--ic-color-background-active-dark);
+  --ic-button-primary-background-hover: var(
+    --ic-color-background-active-hover-dark
+  );
+  --ic-button-primary-background-pressed: var(
+    --ic-color-background-active-pressed-dark
+  );
+  --ic-button-primary-background-monochrome: var(
+    --ic-color-background-neutral-dark
+  );
+  --ic-button-primary-background-disabled: var(
+    --ic-color-background-disabled-default
+  );
+  --ic-button-primary-background-disabled-monochrome: var(
+    --ic-color-background-disabled-default
+  );
+  --ic-button-primary-background-hover-monochrome: var(
+    --ic-color-background-hover-dark
+  );
+  --ic-button-primary-background-pressed-monochrome: var(
+    --ic-color-background-pressed-dark
+  );
+  --ic-button-primary-text: var(--ic-color-text-inverse-dark);
+  --ic-button-primary-text-monochrome: var(--ic-color-text-primary-dark);
+  --ic-button-primary-text-disabled: var(--ic-color-text-disabled-default);
+  --ic-button-primary-text-disabled-monochrome: var(
+    --ic-color-text-disabled-default
+  );
+  --ic-button-primary-icon: var(--ic-color-icon-inverted);
+  --ic-button-primary-icon-monochrome: var(--ic-color-icon-neutral);
+  --ic-button-primary-icon-dark-pressed: var(--ic-color-icon-pressed-dark);
+  --ic-button-primary-icon-disabled: var(--ic-color-icon-disabled-dark);
+  --ic-button-primary-icon-disabled-monochrome: var(
+    --ic-color-icon-disabled-dark
+  );
+  --ic-button-primary-icon-action: var(--ic-color-icon-action-default-dark);
+  --ic-button-primary-icon-hover: var(--ic-color-icon-action-hover);
+  --ic-button-primary-icon-pressed: var(--ic-color-icon-action-pressed);
+  --ic-button-secondary-background: var(--ic-color-background-secondary-dark);
+  --ic-button-secondary-background-monochrome: var(
+    --ic-color-background-neutral-dark
+  );
+  --ic-button-secondary-background-hover-active: var(
+    --ic-action-default-bg-hover
+  );
+  --ic-button-secondary-background-pressed-active: var(
+    --ic-action-default-bg-active
+  );
+  --ic-button-secondary-background-hover-monochrome: var(
+    --ic-action-dark-bg-hover
+  );
+  --ic-button-secondary-background-pressed-monochrome: var(
+    --ic-action-dark-bg-pressed
+  );
+  --ic-button-secondary-text: var(--ic-color-text-action-dark);
+  --ic-button-secondary-text-monochrome: var(--ic-color-text-primary-light);
+  --ic-button-secondary-text-active: var(--ic-color-text-action);
+  --ic-button-secondary-text-hover-active: var(
+    --ic-color-text-action-hover-dark
+  );
+  --ic-button-secondary-text-pressed-active: var(
+    --ic-color-text-action-pressed-dark
+  );
+  --ic-button-secondary-text-disabled: var(--ic-color-text-disabled-default);
+  --ic-button-secondary-text-disabled-monochrome: var(
+    --ic-color-text-disabled-default
+  );
+  --ic-button-secondary-text-hover-monochrome: var(--ic-action-dark-hover);
+  --ic-button-secondary-text-pressed-monochrome: var(--ic-action-dark-pressed);
+  --ic-button-secondary-icon-monochrome: var(--ic-color-icon-inverted);
+  --ic-button-secondary-icon-disabled: var(--ic-color-icon-disabled-dark);
+  --ic-button-secondary-icon-disabled-monochrome: var(
+    --ic-color-icon-disabled-dark
+  );
+  --ic-button-secondary-icon-hover-monochrome: var(--ic-color-icon-hover-dark);
+  --ic-button-secondary-icon-pressed-monochrome: var(
+    --ic-color-icon-pressed-dark
+  );
+  --ic-button-secondary-icon-active: var(--ic-color-icon-action-default-dark);
+  --ic-button-secondary-icon-hover-active: var(--ic-color-icon-action-hover);
+  --ic-button-secondary-icon-pressed-active: var(
+    --ic-color-icon-action-pressed
+  );
+  --ic-button-secondary-border: var(--ic-color-border-action-dark);
+  --ic-button-secondary-border-monochrome: var(--ic-color-border-neutral-black);
+  --ic-button-secondary-border-inverse: var(--ic-color-border-neutral-black);
+  --ic-button-secondary-border-disabled: var(--ic-color-border-neutral-default);
+  --ic-button-secondary-border-disabled-monochrome: var(
+    --ic-color-border-neutral-disabled-dark
+  );
+  --ic-button-secondary-border-hover: var(--ic-color-border-action-hover-dark);
+  --ic-button-secondary-border-pressed: var(
+    --ic-color-border-action-pressed-dark
+  );
+  --ic-button-secondary-border-hover-monochrome: var(
+    --ic-color-border-neutral-hover-dark
+  );
+  --ic-button-secondary-border-pressed-monochrome: var(
+    --ic-color-border-neutral-pressed-dark
+  );
+  --ic-button-tertiary-text-active: var(--ic-action-default-dark);
+  --ic-button-tertiary-icon-active: var(--ic-action-default-dark);
+  --ic-button-tertiary-text-disabled: var(--ic-color-text-disabled-dark);
+  --ic-button-tertiary-icon-disabled: var(--ic-color-icon-disabled-dark);
+  --ic-button-tertiary-text-hover-active: var(--ic-action-default-hover-dark);
+  --ic-button-tertiary-icon-hover-active: var(--ic-action-default-hover-dark);
+  --ic-button-tertiary-background: var(--ic-color-background-primary-dark);
+  --ic-button-tertiary-background-hover-active: var(
+    --ic-action-default-bg-hover
+  );
+  --ic-button-tertiary-text-pressed-active: var(
+    --ic-action-default-pressed-dark
+  );
+  --ic-button-tertiary-icon-pressed-active: var(
+    --ic-action-default-pressed-dark
+  );
+  --ic-button-tertiary-background-pressed-active: var(
+    --ic-action-default-bg-active
+  );
+  --ic-button-tertiary-text-monochrome: var(--ic-color-text-primary-light);
+  --ic-button-tertiary-icon-monochrome: var(--ic-color-text-primary-light);
+  --ic-button-tertiary-text-disabled-monochrome: var(
+    --ic-color-text-disabled-default
+  );
+  --ic-button-tertiary-icon-disabled-monochrome: var(
+    --ic-color-icon-disabled-light
+  );
+  --ic-button-tertiary-text-hover-monochrome: var(--ic-action-dark-hover);
+  --ic-button-tertiary-icon-hover-monochrome: var(--ic-color-icon-hover-dark);
+  --ic-button-tertiary-background-hover-monochrome: var(
+    --ic-action-dark-bg-hover
+  );
+  --ic-button-tertiary-border-hover-monochrome: var(
+    --ic-color-border-neutral-hover-dark
+  );
+  --ic-button-tertiary-text-pressed-monochrome: var(--ic-action-dark-pressed);
+  --ic-button-tertiary-icon-pressed-monochrome: var(
+    --ic-color-icon-pressed-dark
+  );
+  --ic-button-tertiary-background-pressed-monochrome: var(
+    --ic-action-dark-bg-pressed
+  );
+  --ic-button-tertiary-background-monochrome: var(
+    --ic-color-background-neutral-dark
+  );
+  --ic-button-tertiary-text-hover-light-monochrome: var(--ic-action-dark-hover);
+  --ic-button-destructive-background: var(
+    --ic-color-background-destructive-light
+  );
+  --ic-button-destructive-background-hover: var(
+    --ic-color-background-destructive-hover-light
+  );
+  --ic-button-destructive-background-pressed: var(
+    --ic-color-background-destructive-pressed-light
+  );
+  --ic-button-destructive-background-disabled: var(
+    --ic-color-background-disabled-light
+  );
+  --ic-button-destructive-text: var(--ic-color-text-inverse-light);
+  --ic-button-destructive-icon: var(--ic-color-icon-inverted);
+  --ic-button-destructive-text-disabled: var(--ic-color-text-disabled-default);
+  --ic-button-destructive-icon-disabled: var(--ic-color-icon-disabled-light);
+  --ic-button-icon-monochrome: var(--ic-action-dark);
 
   /* Checkbox */
   --ic-checkbox-border-unselected: var(--ic-color-border-neutral-grey-dark);

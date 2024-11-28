@@ -18,10 +18,10 @@ export const Default = () => {
       heading="Everything I brew, I brew it for you"
       subheading="This news is hot off the French press."
     >
-      <IcButton variant="primary" slot="interaction">
+      <IcButton monochrome variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton variant="secondary" slot="interaction">
+      <IcButton monochrome variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
     </IcHero>
@@ -35,10 +35,10 @@ export const SlottedHeadings = () => {
         Slotted heading
       </IcTypography>
       <IcTypography slot="subheading">Slotted subheading</IcTypography>
-      <IcButton variant="primary" slot="interaction">
+      <IcButton monochrome variant="primary" slot="interaction">
         Button
       </IcButton>
-      <IcButton variant="secondary" slot="interaction">
+      <IcButton monochrome variant="secondary" slot="interaction">
         Button
       </IcButton>
     </IcHero>
@@ -52,10 +52,10 @@ export const CenterAlignment = () => {
       heading="Everything I brew, I brew it for you"
       subheading="This news is hot off the French press."
     >
-      <IcButton variant="primary" slot="interaction">
+      <IcButton monochrome variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton variant="secondary" slot="interaction">
+      <IcButton monochrome variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
     </IcHero>
@@ -69,10 +69,10 @@ export const CenteredContent = () => {
       heading="Everything I brew, I brew it for you"
       subheading="This news is hot off the French press."
     >
-      <IcButton variant="primary" slot="interaction">
+      <IcButton monochrome variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton variant="secondary" slot="interaction">
+      <IcButton monochrome variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
     </IcHero>
@@ -86,10 +86,10 @@ export const Small = () => {
       subheading="Brand new flavours now available! Irresistible. Caramel. Decadence. Sugary."
       size="small"
     >
-      <IcButton variant="primary" slot="interaction" size="small">
+      <IcButton monochrome variant="primary" slot="interaction" size="small">
         Order now
       </IcButton>
-      <IcButton variant="secondary" slot="interaction" size="small">
+      <IcButton monochrome variant="secondary" slot="interaction" size="small">
         Submit new flavour
       </IcButton>
     </IcHero>
@@ -116,10 +116,10 @@ export const WithCard = () => {
       subheading="This news is hot off the French press."
       aligned="full-width"
     >
-      <IcButton variant="primary" slot="interaction">
+      <IcButton monochrome variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton variant="secondary" slot="interaction">
+      <IcButton monochrome variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
       <IcCardVertical
@@ -143,10 +143,10 @@ export const WithImageRight = () => {
       subheading="This news is hot off the French press."
       aligned="full-width"
     >
-      <IcButton variant="primary" slot="interaction">
+      <IcButton monochrome variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton variant="secondary" slot="interaction">
+      <IcButton monochrome variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
       <SlottedSVG
@@ -182,10 +182,10 @@ export const BackgroundImage = () => {
       heading="Everything I brew, I brew it for you"
       subheading="This news is hot off the French press."
     >
-      <IcButton variant="primary" slot="interaction">
+      <IcButton monochrome variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton variant="secondary" slot="interaction">
+      <IcButton monochrome variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
     </IcHero>
@@ -199,10 +199,10 @@ export const LongHeading = () => {
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="center"
     >
-      <IcButton variant="primary" appearance="light" slot="interaction">
+      <IcButton monochrome variant="primary" slot="interaction">
         Button
       </IcButton>
-      <IcButton variant="secondary" appearance="light" slot="interaction">
+      <IcButton monochrome variant="secondary" slot="interaction">
         Button
       </IcButton>
       <IcLink
@@ -229,10 +229,10 @@ export const FullWidth = () => {
       heading="Everything I brew, I brew it for you"
       subheading="This news is hot off the French press."
     >
-      <IcButton variant="primary" slot="interaction">
+      <IcButton monochrome variant="primary" slot="interaction">
         Explore
       </IcButton>
-      <IcButton variant="secondary" slot="interaction">
+      <IcButton monochrome variant="secondary" slot="interaction">
         Check out our new drinks
       </IcButton>
     </IcHero>
@@ -272,12 +272,13 @@ export const Theme = () => {
           />
           <IcButton
             variant="primary"
+            monochrome
             style={{ marginLeft: "var(--ic-space-md)" }}
           >
             Filter
           </IcButton>
         </div>
-        <IcButton variant="secondary" slot="interaction">
+        <IcButton monochrome variant="secondary" slot="interaction">
           See all
         </IcButton>
         <IcLink

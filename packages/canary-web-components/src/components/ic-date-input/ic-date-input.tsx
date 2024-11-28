@@ -14,7 +14,6 @@ import {
   IcInformationStatus,
   IcInformationStatusOrEmpty,
   IcSizes,
-  IcThemeForegroundEnum,
   IcDateFormat,
   IcDateInputMonths,
   IcDayNames,
@@ -1626,11 +1625,7 @@ export class DateInput {
                     onFocus={this.handleClearFocus}
                     onBlur={this.handleClearBlur}
                     variant="icon"
-                    appearance={
-                      this.clearButtonFocused
-                        ? IcThemeForegroundEnum.Light
-                        : IcThemeForegroundEnum.Dark
-                    }
+                    theme={this.clearButtonFocused ? "light" : "dark"}
                     size={size}
                   ></ic-button>
                 )}
@@ -1652,11 +1647,7 @@ export class DateInput {
                       size={size}
                       onFocus={this.handleCalendarFocus}
                       onBlur={this.handleCalendarBlur}
-                      appearance={
-                        this.calendarFocused
-                          ? IcThemeForegroundEnum.Light
-                          : IcThemeForegroundEnum.Default
-                      }
+                      theme={this.calendarFocused ? "light" : "dark"}
                     ></ic-button>
                   </div>
                 )}

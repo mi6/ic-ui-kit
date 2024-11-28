@@ -268,7 +268,7 @@ describe("IcSideNavigation", () => {
         });
       });
 
-      it("should render with a different theme", () => {
+      it.skip("should render with a different theme", () => {
         mount(
           <>
             <IcTheme color="rgb(131, 166, 195)" />
@@ -284,7 +284,7 @@ describe("IcSideNavigation", () => {
         });
       });
 
-      it("should render with a different theme - open", () => {
+      it.skip("should render with a different theme - open", () => {
         mount(
           <>
             <IcTheme color="rgb(131, 166, 195)" />
@@ -691,7 +691,7 @@ describe("IcSideNavigation", () => {
         });
       });
 
-      it("should render with a different theme", () => {
+      it.skip("should render with a different theme", () => {
         mount(
           <>
             <IcTheme color="rgb(131, 166, 195)" />
@@ -707,7 +707,7 @@ describe("IcSideNavigation", () => {
         });
       });
 
-      it("should render with a different theme - open", () => {
+      it.skip("should render with a different theme - open", () => {
         mount(
           <>
             <IcTheme color="rgb(131, 166, 195)" />

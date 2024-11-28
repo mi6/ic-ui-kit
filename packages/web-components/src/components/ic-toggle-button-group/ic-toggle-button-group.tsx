@@ -11,6 +11,7 @@ import {
 } from "@stencil/core";
 import {
   IcSizes,
+  IcThemeMode,
   IcThemeForeground,
   IcSelectTypes,
   IcSelectMethodTypes,
@@ -81,6 +82,11 @@ export class ToggleButtonGroup {
    * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
    */
   @Prop() size?: IcSizes = "medium";
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The variant of the toggle button.
@@ -280,6 +286,7 @@ export class ToggleButtonGroup {
         aria-disabled={this.disabled ? "true" : "false"}
         tabindex={0}
         class={{
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
           ["ic-toggle-button-group-full-width"]: this.fullWidth,
           ["ic-toggle-button-group-loading"]: this.loading,
           ["ic-toggle-button-group-disabled"]: this.disabled,

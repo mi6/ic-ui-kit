@@ -22,6 +22,7 @@ import {
   IcThemeForeground,
   IcThemeForegroundEnum,
   IcThemeForegroundNoDefault,
+  IcThemeMode,
 } from "../../utils/types";
 import { IcNavButtonModes } from "./ic-navigation-button.types";
 
@@ -87,6 +88,11 @@ export class NavigationButton {
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
   @Prop() target?: string;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   componentWillLoad(): void {
     this.inheritedAttributes = inheritAttributes(this.el, MUTABLE_ATTRIBUTES);
@@ -190,13 +196,20 @@ export class NavigationButton {
     };
 
     return (
-      <Host class={{ ["in-side-menu"]: this.mode === "menu" }}>
+      <Host
+        class={{
+          ["in-side-menu"]: this.mode === "menu",
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+        }}
+      >
         <ic-button
           class={className}
           aria-label={variant == "icon" ? this.label : null}
           ref={(el) => (this.buttonEl = el)}
           {...buttonProps}
           {...this.inheritedAttributes}
+          monochrome={this.mode !== "menu"}
+          theme={getThemeForegroundColor() == "light" ? "light" : "dark"}
         >
           {label}
           <slot slot="left-icon" name="icon"></slot>

@@ -224,6 +224,7 @@ export class Alert {
                   innerHTML={closeIcon}
                   onClick={this.dismissAction}
                   variant="icon"
+                  theme="dark"
                   title="dismiss"
                 ></ic-button>
               )}

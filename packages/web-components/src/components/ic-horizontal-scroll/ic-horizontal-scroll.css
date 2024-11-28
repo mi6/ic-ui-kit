@@ -84,10 +84,6 @@
   background-color: transparent;
 }
 
-.disabled ic-button > svg {
-  color: var(--ic-color-keyline-darken);
-}
-
 :host(.ic-horizontal-scroll-dark) .disabled ic-button > svg,
 :host(.ic-horizontal-scroll-light) .disabled ic-button > svg {
   color: var(--splitter-color) !important;
