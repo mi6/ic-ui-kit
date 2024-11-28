@@ -1,7 +1,7 @@
 {
-  "total": 735,
-  "totalPassed": 735,
-  "totalFailed": 0,
+  "total": 724,
+  "totalPassed": 720,
+  "totalFailed": 4,
   "totalSuites": 39,
   "suites": [
     {
@@ -765,14 +765,14 @@
       "path": "src/component-tests/IcButton/IcButton.cy.tsx",
       "tests": [
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcButton.cy.tsx-primary",
-          "percentage": 0,
+          "percentage": 0.12633289357883007,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-primary.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-primary.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-primary.png"
         },
         {
@@ -1027,6 +1027,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-height-width.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-height-width.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcButton.cy.tsx-dark-theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-dark-theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-dark-theme.png"
         },
         {
           "status": "pass",
@@ -6002,28 +6013,6 @@
         },
         {
           "status": "pass",
-          "name": "IcSideNavigation.cy.tsx-theme",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
-          "specFilename": "IcSideNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-theme.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-theme.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcSideNavigation.cy.tsx-theme-open",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
-          "specFilename": "IcSideNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-theme-open.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-theme-open.png"
-        },
-        {
-          "status": "pass",
           "name": "IcSideNavigation.cy.tsx-controlled-expanded",
           "percentage": 0,
           "failureThreshold": 0,
@@ -6153,28 +6142,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-slotted-app-title-open-desktop.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-slotted-app-title-open-desktop.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcSideNavigation.cy.tsx-theme-desktop",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
-          "specFilename": "IcSideNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-theme-desktop.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-theme-desktop.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcSideNavigation.cy.tsx-with-theme-open-desktop",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
-          "specFilename": "IcSideNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-with-theme-open-desktop.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-with-theme-open-desktop.png"
         },
         {
           "status": "pass",
@@ -6686,17 +6653,6 @@
         },
         {
           "status": "pass",
-          "name": "IcTabs.cy.tsx-responsive-light",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
-          "specFilename": "IcTabs.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx-responsive-light.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx-responsive-light.png"
-        },
-        {
-          "status": "pass",
           "name": "IcTabs.cy.tsx-light",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7188,17 +7144,6 @@
         },
         {
           "status": "pass",
-          "name": "IcToggleButton.cy.tsx-disabled",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
-          "specFilename": "IcToggleButton.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx-disabled.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx-disabled.png"
-        },
-        {
-          "status": "pass",
           "name": "IcToggleButton.cy.tsx-with-icon",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7243,17 +7188,6 @@
         },
         {
           "status": "pass",
-          "name": "IcToggleButton.cy.tsx-loading",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
-          "specFilename": "IcToggleButton.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx-loading.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx-loading.png"
-        },
-        {
-          "status": "pass",
           "name": "IcToggleButton.cy.tsx-icon-variant",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7286,25 +7220,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx-icon-top.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcToggleButton.cy.tsx-light-theme-monochrome",
-          "percentage": 0,
+          "percentage": 0.158025314427784,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx-light-theme-monochrome.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButton.cy.tsx-light-theme-monochrome.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx-light-theme-monochrome.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcToggleButton.cy.tsx-dark-theme-monochrome",
-          "percentage": 0,
+          "percentage": 0.23451225980745655,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx-dark-theme-monochrome.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButton.cy.tsx-dark-theme-monochrome.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx-dark-theme-monochrome.png"
         },
         {
@@ -7328,17 +7262,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx-checked-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx-checked-high-contrast.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcToggleButton.cy.tsx-disabled-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
-          "specFilename": "IcToggleButton.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx-disabled-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx-disabled-high-contrast.png"
         },
         {
           "status": "pass",
@@ -7458,17 +7381,6 @@
         },
         {
           "status": "pass",
-          "name": "IcToggleButtonGroup.cy.tsx-dark",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
-          "specFilename": "IcToggleButtonGroup.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx-dark.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx-dark.png"
-        },
-        {
-          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx-disabled",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7490,26 +7402,15 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx-loading.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcToggleButtonGroup.cy.tsx-loading-light",
-          "percentage": 0,
+          "percentage": 0.16946976131451888,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx-loading-light.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx-loading-light.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx-loading-light.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcToggleButtonGroup.cy.tsx-loading-dark",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
-          "specFilename": "IcToggleButtonGroup.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx-loading-dark.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx-loading-dark.png"
         },
         {
           "status": "pass",
@@ -7888,17 +7789,6 @@
         },
         {
           "status": "pass",
-          "name": "IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
-          "specFilename": "IcTopNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll.png"
-        },
-        {
-          "status": "pass",
           "name": "IcTopNavigation.cy.tsx-theme-dark",
           "percentage": 0,
           "failureThreshold": 0,
@@ -8108,17 +7998,6 @@
         },
         {
           "status": "pass",
-          "name": "IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
-          "specFilename": "IcTopNavigation.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-nav-group-in-horizontal-scroll-high-contrast.png"
-        },
-        {
-          "status": "pass",
           "name": "IcTopNavigation.cy.tsx-mobile-open-menu-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -8324,9 +8203,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-28T10:50:27.334Z",
-  "endedAt": "2024-11-28T11:05:08.299Z",
-  "duration": 793548,
+  "startedAt": "2024-11-28T12:49:23.800Z",
+  "endedAt": "2024-11-28T13:04:26.676Z",
+  "duration": 815751,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
