@@ -1912,7 +1912,7 @@
             "resolved": "boolean",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the button will display as monochromatic in either `light` or `dark` theme.",
@@ -2876,7 +2876,7 @@
               }
             }
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
@@ -7303,7 +7303,7 @@
             "resolved": "boolean",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the link will display as black in the light theme, and white in the dark theme.",
@@ -7431,7 +7431,7 @@
               }
             }
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
