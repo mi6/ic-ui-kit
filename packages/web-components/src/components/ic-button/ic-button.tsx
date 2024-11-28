@@ -176,7 +176,7 @@ export class Button {
   /**
    * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
    */
-  @Prop() monochrome?: boolean = false;
+  @Prop({ mutable: true }) monochrome?: boolean = false;
 
   /**
    * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
@@ -429,6 +429,7 @@ export class Button {
 
     if (foregroundColor !== IcThemeForegroundEnum.Default) {
       this.theme = foregroundColor;
+      this.monochrome = true;
     }
   }
 
