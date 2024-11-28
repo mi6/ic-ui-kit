@@ -1,7 +1,7 @@
 {
   "total": 724,
-  "totalPassed": 720,
-  "totalFailed": 4,
+  "totalPassed": 721,
+  "totalFailed": 3,
   "totalSuites": 39,
   "suites": [
     {
@@ -765,14 +765,14 @@
       "path": "src/component-tests/IcButton/IcButton.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx-primary",
-          "percentage": 0.12633289357883007,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-primary.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-primary.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-primary.png"
         },
         {
@@ -7233,7 +7233,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx-dark-theme-monochrome",
-          "percentage": 0.23451225980745655,
+          "percentage": 0.23442696090680357,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -8203,9 +8203,9 @@
       ]
     }
   ],
-  "startedAt": "2024-11-28T12:49:23.800Z",
-  "endedAt": "2024-11-28T13:04:26.676Z",
-  "duration": 815751,
+  "startedAt": "2024-11-28T13:41:33.380Z",
+  "endedAt": "2024-11-28T13:56:03.689Z",
+  "duration": 783088,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
