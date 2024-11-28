@@ -707,7 +707,7 @@
           "name": "loadingOptions",
           "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }",
           "complexType": {
-            "original": "{\r\n    description?: string;\r\n    label?: string;\r\n    labelDuration?: number;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    showBackground?: boolean;\r\n    monochrome?: boolean;\r\n  }",
+            "original": "{\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    showBackground?: boolean;\n    monochrome?: boolean;\n  }",
             "resolved": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }",
             "references": {}
           },
@@ -805,7 +805,7 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
           "docsTags": [],
-          "default": "{\r\n    itemsPerPageOptions: [\r\n      { label: \"10\", value: \"10\" },\r\n      { label: \"25\", value: \"25\" },\r\n      { label: \"50\", value: \"50\" },\r\n    ],\r\n    rangeLabelType: \"page\",\r\n    type: \"simple\",\r\n    showItemsPerPageControl: true,\r\n    showGoToPageControl: true,\r\n    alignment: \"right\",\r\n    itemLabel: \"Item\",\r\n    pageLabel: \"Page\",\r\n    hideRangeLabel: false,\r\n    hideAllFromItemsPerPage: false,\r\n    monochrome: false,\r\n  }",
+          "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n    hideAllFromItemsPerPage: false,\n    monochrome: false,\n  }",
           "values": [
             {
               "type": "IcPaginationBarOptions"
@@ -840,7 +840,7 @@
           "name": "sortOptions",
           "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }",
           "complexType": {
-            "original": "{\r\n    sortOrders: IcDataTableSortOrderOptions[];\r\n    defaultColumn?: string;\r\n  }",
+            "original": "{\n    sortOrders: IcDataTableSortOrderOptions[];\n    defaultColumn?: string;\n  }",
             "resolved": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }",
             "references": {
               "IcDataTableSortOrderOptions": {
@@ -854,7 +854,7 @@
           "reflectToAttr": false,
           "docs": "Sets the order columns will be sorted in and allows for 'default' sorts to be added.",
           "docsTags": [],
-          "default": "{\r\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\r\n    defaultColumn: \"\",\r\n  }",
+          "default": "{\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\n    defaultColumn: \"\",\n  }",
           "values": [
             {
               "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }"
@@ -1051,7 +1051,7 @@
           "name": "updatingOptions",
           "type": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
           "complexType": {
-            "original": "{\r\n    description?: string;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    monochrome?: boolean;\r\n  }",
+            "original": "{\n    description?: string;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n  }",
             "resolved": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
             "references": {}
           },
@@ -1071,7 +1071,7 @@
           "name": "variableRowHeight",
           "type": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights",
           "complexType": {
-            "original": "(params: {\r\n    [key: string]: any;\r\n    index: number;\r\n  }) => IcDataTableRowHeights | null",
+            "original": "(params: {\n    [key: string]: any;\n    index: number;\n  }) => IcDataTableRowHeights | null",
             "resolved": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights",
             "references": {
               "IcDataTableRowHeights": {
@@ -1083,7 +1083,7 @@
           },
           "mutable": true,
           "reflectToAttr": false,
-          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\r\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
+          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
           "docsTags": [],
           "values": [
             {
@@ -3055,7 +3055,7 @@
               "IcPaginationAlignmentOptions": {
                 "location": "import",
                 "path": "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types",
-                "id": ""
+                "id": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationAlignmentOptions"
               }
             }
           },
@@ -3174,7 +3174,7 @@
           "name": "itemsPerPageOptions",
           "type": "{ label: string; value: string; }[]",
           "complexType": {
-            "original": "{\r\n    label: string;\r\n    value: string;\r\n  }[]",
+            "original": "{\n    label: string;\n    value: string;\n  }[]",
             "resolved": "{ label: string; value: string; }[]",
             "references": {}
           },
@@ -3244,7 +3244,7 @@
               "IcPaginationLabelTypes": {
                 "location": "import",
                 "path": "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types",
-                "id": ""
+                "id": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationLabelTypes"
               }
             }
           },
@@ -3379,7 +3379,7 @@
               "IcPaginationTypes": {
                 "location": "import",
                 "path": "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types",
-                "id": ""
+                "id": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationTypes"
               }
             }
           },
@@ -3436,7 +3436,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when a page is navigated to via the 'go to' input.\r\nThe `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.",
+          "docs": "Emitted when a page is navigated to via the 'go to' input.\nThe `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.",
           "docsTags": []
         }
       ],
@@ -4118,6 +4118,21 @@
       "declaration": "export interface IcSortEventDetail {\n  columnName: string;\n  sorted: IcDataTableSortOrderOptions;\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationAlignmentOptions": {
+      "declaration": "export type IcPaginationAlignmentOptions = \"left\" | \"right\" | \"space-between\";",
+      "docstring": "",
+      "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
+    },
+    "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationTypes": {
+      "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",
+      "docstring": "",
+      "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
+    },
+    "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationLabelTypes": {
+      "declaration": "export type IcPaginationLabelTypes = \"page\" | \"data\";",
+      "docstring": "",
+      "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
     },
     "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail": {
       "declaration": "export interface IcPageChangeEventDetail {\n  value: number;\n  fromItemsPerPage?: boolean;\n}",
