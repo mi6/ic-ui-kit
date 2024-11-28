@@ -241,6 +241,9 @@ export const getThemeFromContext = (
     ) {
       return themeFromEvent;
     } else if (
+      blockColorParent.classList.contains(
+        `${parentTag}-${IcThemeForegroundEnum.Dark}`
+      ) ||
       blockColorParent.classList.contains(IcThemeForegroundEnum.Dark)
     ) {
       return IcThemeForegroundEnum.Dark;

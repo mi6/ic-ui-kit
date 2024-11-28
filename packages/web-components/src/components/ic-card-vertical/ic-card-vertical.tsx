@@ -47,9 +47,9 @@ export class CardVertical {
 
   @Element() el: HTMLIcCardVerticalElement;
 
-  @State() appearance?: IcThemeForeground = "default";
   @State() areaExpanded: boolean = false;
   @State() isFocussed: boolean = false;
+  @State() monochrome: boolean = false;
   @State() parentEl: HTMLElement | null = null;
   @State() parentIsAnchorTag: boolean = false;
 
@@ -116,7 +116,7 @@ export class CardVertical {
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: IcThemeMode = "inherit";
+  @Prop({ mutable: true }) theme?: IcThemeMode = "inherit";
 
   disconnectedCallback(): void {
     if (this.parentIsAnchorTag) {
@@ -188,9 +188,15 @@ export class CardVertical {
 
   private updateTheme(newTheme: IcThemeForeground = null): void {
     const foregroundColor = getThemeFromContext(this.el, newTheme);
-
-    if (foregroundColor !== IcThemeForegroundEnum.Default) {
-      this.appearance = foregroundColor;
+    if (
+      foregroundColor === IcThemeForegroundEnum.Light ||
+      foregroundColor === IcThemeForegroundEnum.Dark
+    ) {
+      this.theme =
+        foregroundColor === IcThemeForegroundEnum.Light
+          ? IcThemeForegroundEnum.Dark
+          : IcThemeForegroundEnum.Light;
+      this.monochrome = foregroundColor === IcThemeForegroundEnum.Dark;
     }
   }
 
@@ -222,7 +228,6 @@ export class CardVertical {
 
   render() {
     const {
-      appearance,
       clickable,
       disabled,
       expandable,
@@ -230,6 +235,7 @@ export class CardVertical {
       heading,
       isFocussed,
       message,
+      monochrome,
       href,
       hreflang,
       parentIsAnchorTag,
@@ -268,7 +274,7 @@ export class CardVertical {
             disabled,
             fullwidth: fullWidth,
             focussed: isFocussed,
-            dark: appearance === IcThemeForegroundEnum.Dark,
+            dark: monochrome,
           }}
           tabindex={clickable && !parentIsAnchorTag ? 0 : null}
           aria-disabled={disabled ? "true" : null}
