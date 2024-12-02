@@ -8,13 +8,13 @@ import {
   Event,
   EventEmitter,
   State,
+  Watch,
 } from "@stencil/core";
 import {
   IcSizes,
-  IcThemeMode,
-  IcThemeForeground,
   IcSelectTypes,
   IcSelectMethodTypes,
+  IcThemeMode,
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-toggle-button-group.types";
 
@@ -44,14 +44,15 @@ export class ToggleButtonGroup {
   @Prop() accessibleLabel?: string = "Toggle button group";
 
   /**
-   * The appearance of the toggle button group, e.g dark, or light.
-   */
-  @Prop() appearance: IcThemeForeground = "default";
-
-  /**
    * If `true`, the toggle button group will be set to the disabled state.
    */
   @Prop() disabled: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    this.getAllToggleButtons().forEach((el) => {
+      el.disabled = this.disabled;
+    });
+  }
 
   /**
    * If `true`, the toggle button group will fill the width of the container.
@@ -67,6 +68,17 @@ export class ToggleButtonGroup {
    * If `true`, the toggle button group will be in loading state.
    */
   @Prop() loading?: boolean = false;
+
+  /**
+   * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
+   */
+  @Prop() monochrome?: boolean = false;
+  @Watch("monochrome")
+  watchMonochromeHandler(): void {
+    this.getAllToggleButtons().forEach((el) => {
+      el.monochrome = this.monochrome;
+    });
+  }
 
   /**
    * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
@@ -87,6 +99,12 @@ export class ToggleButtonGroup {
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
   @Prop() theme?: IcThemeMode = "inherit";
+  @Watch("theme")
+  watchThemeHandler(): void {
+    this.getAllToggleButtons().forEach((el) => {
+      el.theme = this.theme;
+    });
+  }
 
   /**
    * The variant of the toggle button.
@@ -146,7 +164,8 @@ export class ToggleButtonGroup {
       el.loading = this.loading;
       el.iconPlacement = this.iconPlacement;
       el.disabled ? null : (el.disabled = this.disabled);
-      el.appearance = this.appearance;
+      el.theme = this.theme;
+      el.monochrome = this.monochrome;
       el.variant = this.variant;
       el.fullWidth = this.fullWidth;
       el.id = i.toString();
@@ -290,7 +309,8 @@ export class ToggleButtonGroup {
           ["ic-toggle-button-group-full-width"]: this.fullWidth,
           ["ic-toggle-button-group-loading"]: this.loading,
           ["ic-toggle-button-group-disabled"]: this.disabled,
-          [`ic-toggle-button-group-${this.appearance}`]: true,
+          [`ic-toggle-button-group-monochrome`]: this.monochrome,
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         onFocus={this.handleHostFocus}
       >

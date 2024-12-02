@@ -13,7 +13,7 @@ import {
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
 } from "../../utils/helpers";
-import { IcSizes, IcThemeForeground, IcThemeMode } from "../../utils/types";
+import { IcSizes, IcThemeMode } from "../../utils/types";
 
 /**
  * @slot icon - Content will be displayed alongside the toggle button label.
@@ -38,9 +38,9 @@ export class ToggleButton {
   @Prop() accessibleLabel?: string;
 
   /**
-   * The appearance of the toggle button.
+   * If `true`, the toggle button will be in a checked state.
    */
-  @Prop() appearance?: IcThemeForeground = "default";
+  @Prop({ mutable: true, reflect: true }) checked: boolean = false;
 
   /**
    * If `true`, the toggle button will be in disabled state.
@@ -68,6 +68,11 @@ export class ToggleButton {
   @Prop() loading?: boolean = false;
 
   /**
+   * If `true`, the toggle button will display as black in the light theme, and white in dark theme.
+   */
+  @Prop() monochrome?: boolean = false;
+
+  /**
    * The size of the toggle button to be displayed.
    */
   @Prop() size?: IcSizes = "medium";
@@ -76,11 +81,6 @@ export class ToggleButton {
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
   @Prop() theme?: IcThemeMode = "inherit";
-
-  /**
-   * If `true`, the toggle button will be in a checked state.
-   */
-  @Prop({ mutable: true, reflect: true }) checked: boolean = false;
 
   /**
    * The variant of the toggle button.
@@ -143,10 +143,11 @@ export class ToggleButton {
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
           ["ic-toggle-button-disabled"]: this.disabled,
           ["ic-toggle-button-checked"]: this.checked,
-          [`ic-toggle-button-${this.appearance}`]: true,
           ["ic-toggle-button-icon"]: this.variant === "icon",
           [`ic-toggle-button-${this.size}`]: true,
           ["ic-toggle-button-loading"]: this.loading,
+          ["ic-toggle-button-monochrome"]: this.monochrome,
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         onFocus={this.handleFocus}
       >
@@ -159,12 +160,6 @@ export class ToggleButton {
             this.accessibleLabel ? this.accessibleLabel : this.label
           }, ${this.checked ? "ticked" : "unticked"}`}
           disabled={this.disabled}
-          theme={
-            this.appearance == "default" || this.appearance == "light"
-              ? "light"
-              : "dark"
-          }
-          monochrome={this.appearance == "light" || this.appearance == "dark"}
           size={this.size}
           fullWidth={this.fullWidth}
           loading={this.loading}
