@@ -28,6 +28,24 @@ describe("ic-back-to-top", () => {
     expect(page.root).toMatchSnapshot("should render");
   });
 
+  it("should render with light theme", async () => {
+    const page = await newSpecPage({
+      components: [BackToTop, Button],
+      html: `<div id="topEl"><ic-back-to-top target="topEl" theme="light"></ic-back-to-top></div>`,
+    });
+
+    expect(page.root).toMatchSnapshot("should render with light theme");
+  });
+
+  it("should render with dark theme", async () => {
+    const page = await newSpecPage({
+      components: [BackToTop, Button],
+      html: `<div id="topEl"><ic-back-to-top target="topEl" theme="dark"></ic-back-to-top></div>`,
+    });
+
+    expect(page.root).toMatchSnapshot("should render with dark theme");
+  });
+
   it("should render with footer", async () => {
     const page = await newSpecPage({
       components: [BackToTop, Button, Footer],

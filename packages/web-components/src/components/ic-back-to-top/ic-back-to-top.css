@@ -13,7 +13,7 @@
 ic-button {
   height: 2.5rem;
   align-items: center;
-  background-color: var(--ic-architectural-white);
+  background-color: var(--ic-color-background-primary);
   border-radius: 5rem;
   box-shadow: var(--ic-elevation-overlay);
   visibility: hidden;
@@ -26,9 +26,12 @@ ic-button {
   z-index: var(--ic-z-index-back-to-top);
 }
 
+:host([variant="icon"]) ic-button::part(button) {
+  margin: 0;
+}
+
 ic-button::part(button) {
   border-radius: 5rem;
-  border: var(--ic-border-width) solid var(--ic-action-default);
 }
 
 ic-button.show {
