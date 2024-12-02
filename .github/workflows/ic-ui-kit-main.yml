@@ -192,9 +192,6 @@ jobs:
 
       - name: Build
         run: npm run build:all
-
-      - name: Stash changes
-        run: git stash --include-untracked
         
       # Runs git checkout for docs.json and canary-docs files to revert timestamp changes
       - name: Publish
