@@ -2386,7 +2386,7 @@ ic-theme,
       --ic-color-icon-grey-darker
     );
     --ic-toggle-button-unselected-border-disabled: var(
-      --ic-color-border-neutral-pressed
+      --ic-color-border-neutral-pressed-dark
     );
     --ic-toggle-button-selected-background: var(--ic-color-background-active);
     --ic-toggle-button-selected-background-hover: var(
@@ -3619,7 +3619,7 @@ ic-theme,
   );
   --ic-toggle-button-unselected-icon-disabled: var(--ic-color-icon-grey-darker);
   --ic-toggle-button-unselected-border-disabled: var(
-    --ic-color-border-neutral-pressed
+    --ic-color-border-neutral-pressed-dark
   );
   --ic-toggle-button-selected-background: var(--ic-color-background-active);
   --ic-toggle-button-selected-background-hover: var(

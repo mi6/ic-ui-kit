@@ -1,9 +1,10 @@
-import { Component, h, Element, Prop, State, Watch } from "@stencil/core";
+import { Component, h, Host, Element, Prop, State, Watch } from "@stencil/core";
 import ArrowUpward from "./assets/ArrowUpward.svg";
 import {
   onComponentPropUndefinedChange,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
+import { IcThemeMode } from "../../utils/types";
 import { IcBackToTopVariants } from "./ic-back-to-top.types";
 
 const backToTopLabel = "Back to top";
@@ -30,6 +31,11 @@ export class BackToTop {
    * The ID of the element to jump back to when the link is clicked.
    */
   @Prop() target!: string;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The variant of the button to render
@@ -172,26 +178,33 @@ export class BackToTop {
 
   render() {
     const { variant, bannerOffset, targetElVisible, footerVisible } = this;
-    const btnVariant = variant === "icon" ? "icon" : "tertiary";
+    const btnVariant = variant === "icon" ? "icon-secondary" : "secondary";
     const size = variant === "icon" ? "large" : "medium";
     const label = variant === "icon" ? "" : backToTopLabel;
 
     return (
-      <ic-button
-        aria-label={backToTopLabel}
-        variant={btnVariant}
-        size={size}
-        onClick={this.handleClick}
+      <Host
         class={{
-          ["offset-banner"]: bannerOffset,
-          ["show"]: !targetElVisible,
-          ["by-footer"]: footerVisible,
-          ["icon-only"]: variant === "icon",
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >
-        <span class="ic-back-to-top-icon" innerHTML={ArrowUpward} />
-        {label}
-      </ic-button>
+        <ic-button
+          aria-label={backToTopLabel}
+          variant={btnVariant}
+          size={size}
+          onClick={this.handleClick}
+          class={{
+            ["offset-banner"]: bannerOffset,
+            ["show"]: !targetElVisible,
+            ["by-footer"]: footerVisible,
+            ["icon-only"]: variant === "icon",
+          }}
+          theme={this.theme}
+        >
+          <span class="ic-back-to-top-icon" innerHTML={ArrowUpward} />
+          {label}
+        </ic-button>
+      </Host>
     );
   }
 }
