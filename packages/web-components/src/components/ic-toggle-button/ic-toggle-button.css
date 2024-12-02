@@ -150,7 +150,7 @@
 }
 
 :host(.ic-toggle-button-icon) ::part(button):active {
-  background-color: var(--ic-action-default-bg-active);
+  background-color: var(--ic-action-default-bg-pressed);
 }
 
 :host(.ic-toggle-button-icon.ic-toggle-button-dark) ::part(button):active {
