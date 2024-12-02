@@ -330,7 +330,7 @@ ic-date-input {
 }
 
 :host .day-button.selected ic-typography {
-  --ic-typography-color: var(--ic-color-white-text);
+  --ic-typography-color: var(--ic-color-text-primary-dark);
 }
 
 :host .day-button.selected:not(.hidden):hover {
