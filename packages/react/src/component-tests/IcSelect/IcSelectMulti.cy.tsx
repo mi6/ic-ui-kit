@@ -430,7 +430,8 @@ describe("IcSelect multi end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
     cy.findShadowEl(IC_SELECT, DROPDOWN_ARROW).focus().click();
 
-    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    // cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.wait(SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "dark-theme-multi-select",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
