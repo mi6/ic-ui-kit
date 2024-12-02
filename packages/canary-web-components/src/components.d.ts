@@ -308,6 +308,10 @@ export namespace Components {
           * The size of the date input to be displayed.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         "triggerIcChange": (d: Date) => Promise<void>;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
@@ -419,6 +423,10 @@ export namespace Components {
           * The first day of the week. `0` for Sunday, `1` for Monday, etc. Default is Monday.
          */
         "startOfWeek"?: IcWeekDays;
+        /**
+          * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
@@ -1022,6 +1030,10 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
+          * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -1135,6 +1147,10 @@ declare namespace LocalJSX {
           * The first day of the week. `0` for Sunday, `1` for Monday, etc. Default is Monday.
          */
         "startOfWeek"?: IcWeekDays;
+        /**
+          * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */

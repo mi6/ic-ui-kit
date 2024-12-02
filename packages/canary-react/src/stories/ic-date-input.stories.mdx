@@ -688,6 +688,7 @@ export const defaultArgs = {
   required: false,
   showClearButton: true,
   size: "medium",
+  theme: "inherit",
   validationStatus: "",
   validationText: "",
   value: "",
@@ -700,19 +701,25 @@ export const defaultArgs = {
       dateFormat: {
         options: ["DD/MM/YYYY", "MM/DD/YYYY", "YYYY/MM/DD"],
         control: {
-          type: "radio",
+          type: "inline-radio",
         },
       },
       validationStatus: {
         options: ["", "error", "success", "warning"],
         control: {
-          type: "radio",
+          type: "inline-radio",
         },
       },
       size: {
         options: ["small", "medium", "large"],
         control: {
-          type: "radio",
+          type: "inline-radio",
+        },
+      },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
         },
       },
     }}
@@ -753,6 +760,7 @@ export const defaultArgs = {
           showPickerTodayButton={args.showPickerTodayButton}
           size={args.size}
           startOfWeek={args.startOfWeek}
+          theme={args.theme}
           validationStatus={args.validationStatus}
           validationText={args.validationText}
           value={value}

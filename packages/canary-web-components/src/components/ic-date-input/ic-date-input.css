@@ -2,6 +2,22 @@
 
 :host {
   --ic-input-label-helpertext-padding: var(--ic-space-xxs);
+  --input-bg-color: var(--ic-date-input-bg);
+  --ic-input-label-text-color: var(--ic-date-input-label);
+  --ic-input-label-helper-text-color: var(--ic-date-input-subtitle);
+  --border-color: var(--ic-date-input-border);
+  --border-color-disabled: var(--ic-date-input-border-disabled);
+  --border-color-hover: var(--ic-date-input-border-default-hover);
+  --border-color-pressed: var(--ic-date-input-border-default-pressed);
+  --border-error-color: var(--ic-date-input-border-error);
+  --border-error-color-hover: var(--ic-date-input-border-error-hover);
+  --border-error-color-pressed: var(--ic-date-input-border-error-pressed);
+  --border-success-color: var(--ic-date-input-border-success);
+  --border-success-color-hover: var(--ic-date-input-border-success-hover);
+  --border-success-color-pressed: var(--ic-date-input-border-success-pressed);
+  --border-warning-color: var(--ic-date-input-border-warning);
+  --border-warning-color-hover: var(--ic-date-input-border-warning-hover);
+  --border-warning-color-pressed: var(--ic-date-input-border-warning-pressed);
 }
 
 input {
@@ -12,6 +28,8 @@ input {
   background: none;
   -moz-appearance: textfield;
   appearance: textfield;
+  color: var(--ic-date-input-text-filled);
+  caret-color: var(--ic-date-input-typing-cursor);
 }
 
 input::-webkit-outer-spin-button,
@@ -23,18 +41,21 @@ input:-webkit-autofill {
   box-shadow: 0 0 0 var(--ic-space-sm) var(--ic-architectural-white) inset;
 }
 
-ic-input-component-container {
-  cursor: text;
+input::placeholder {
+  color: var(--ic-date-input-text-placeholder);
 }
 
-ic-input-component-container,
-ic-input-component-container:hover {
-  color: var(--ic-color-text-tertiary);
+ic-input-component-container {
+  cursor: text;
 }
 
 ic-input-component-container .focus-indicator {
   padding: var(--ic-space-xxxs) var(--ic-space-xs);
   align-items: center;
+}
+
+.date-inputs {
+  color: var(--ic-date-input-text-placeholder);
 }
 
 .day-input {
@@ -99,6 +120,17 @@ ic-input-component-container .focus-indicator {
   border-radius: 0.25rem;
 }
 
+.calendar-button:focus,
+.calendar-button:active {
+  --ic-button-tertiary-text-active: var(--ic-atoms-input-clear-button-focus);
+  --ic-button-tertiary-text-hover-active: var(
+    --ic-atoms-input-clear-button-focus
+  );
+  --ic-button-tertiary-text-pressed-active: var(
+    --ic-atoms-input-clear-button-focus
+  );
+}
+
 .clear-button:focus,
 .calendar-button:focus,
 .clear-button:active *,
@@ -109,7 +141,7 @@ ic-input-component-container .focus-indicator {
 .divider {
   margin: 0 var(--ic-space-xxs);
   width: var(--ic-space-1px);
-  background-color: var(--ic-architectural-400);
+  background-color: var(--ic-atoms-input-divider);
   border-radius: var(--ic-space-1px);
 }
 
@@ -123,4 +155,11 @@ ic-input-component-container .focus-indicator {
 
 .divider.large {
   height: var(--ic-space-lg);
+}
+
+ic-input-validation {
+  --ic-input-validation-status-text-color: var(--ic-date-input-status-text);
+  --ic-input-validation-error: var(--ic-date-input-icon-error);
+  --ic-input-validation-warning-icon-color: var(--ic-date-input-icon-warning);
+  --ic-input-validation-success-icon-color: var(--ic-date-input-icon-success);
 }
