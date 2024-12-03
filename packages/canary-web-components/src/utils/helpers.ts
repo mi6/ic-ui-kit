@@ -664,15 +664,18 @@ export const addDataToPosition = (
 ): IcDataTableDataType => {
   const newData: IcDataTableDataType = {};
   const newIndexes = newKeys.map((key) => key.index);
-  let controlledIndex = 0; // When a new key is added to the data, need to increment the index to account for this new object value
 
-  Object.keys(dataObject).forEach((dataKey) => {
-    if (newIndexes.includes(controlledIndex)) {
-      newData[newKeys[newIndexes.indexOf(controlledIndex)].key] = newValue;
-      controlledIndex++;
+  const keys = Object.keys(dataObject);
+  const values = Object.values(dataObject);
+  const numberOfKeys = keys.length + newIndexes.length;
+
+  for (let i = 0, j = 0; i < numberOfKeys; i++) {
+    if (newIndexes.includes(i)) {
+      newData[newKeys[newIndexes.indexOf(i)].key] = newValue;
+      continue;
     }
-    newData[dataKey] = dataObject[dataKey];
-    controlledIndex++;
-  });
+    newData[keys[j]] = values[j];
+    j++;
+  }
   return newData;
 };
