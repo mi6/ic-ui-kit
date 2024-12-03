@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property              | Attribute | Description                                                     | Type                  | Default     |
-| --------------------- | --------- | --------------------------------------------------------------- | --------------------- | ----------- |
-| `target` _(required)_ | `target`  | The ID of the element to jump back to when the link is clicked. | `string`              | `undefined` |
-| `variant`             | `variant` | The variant of the button to render                             | `"default" \| "icon"` | `"default"` |
+| Property              | Attribute | Description                                                                                                                             | Type                             | Default     |
+| --------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------- |
+| `target` _(required)_ | `target`  | The ID of the element to jump back to when the link is clicked.                                                                         | `string`                         | `undefined` |
+| `theme`               | `theme`   | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"` | `"inherit"` |
+| `variant`             | `variant` | The variant of the button to render                                                                                                     | `"default" \| "icon"`            | `"default"` |
 
 
 ## CSS Custom Properties

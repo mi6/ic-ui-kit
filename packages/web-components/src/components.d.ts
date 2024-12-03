@@ -164,6 +164,10 @@ export namespace Components {
          */
         "target": string;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The variant of the button to render
          */
         "variant": IcBackToTopVariants;
@@ -3483,6 +3487,10 @@ declare namespace LocalJSX {
           * The ID of the element to jump back to when the link is clicked.
          */
         "target": string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The variant of the button to render
          */

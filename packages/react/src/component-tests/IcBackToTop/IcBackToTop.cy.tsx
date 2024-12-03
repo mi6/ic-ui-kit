@@ -137,6 +137,44 @@ describe("IcBackToTop visual regression and a11y tests", () => {
     });
   });
 
+  it("should render BackToTop with dark theme", () => {
+    mount(
+      <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+        <BackToTop theme="dark" />
+      </div>
+    );
+
+    cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR).wait(500);
+
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render icon only BackToTop with dark theme", () => {
+    mount(
+      <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+        <BackToTop variant="icon" theme="dark" />
+      </div>
+    );
+
+    cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR).wait(500);
+
+    // cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "icon-dark-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
   it("should render focused BackToTop", () => {
     mount(<BackToTop />);
 
