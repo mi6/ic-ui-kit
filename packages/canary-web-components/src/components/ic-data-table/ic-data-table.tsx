@@ -1514,7 +1514,12 @@ export class DataTable {
           ({ key }, index) =>
             isSlotUsed(this.el, `${key}-${rowIndex}`) && { key, index }
         )
-        .filter((col) => !!col);
+        .filter(
+          (col) =>
+            !!col &&
+            // skip the column if its already in the row
+            !Object.prototype.hasOwnProperty.call(row, col.key)
+        );
       return slottedColumns.length > 0
         ? addDataToPosition(row, slottedColumns, "")
         : row;
