@@ -225,7 +225,7 @@ export class Alert {
                   onClick={this.dismissAction}
                   variant="icon"
                   theme="dark"
-                  title="dismiss"
+                  title="Dismiss"
                 ></ic-button>
               )}
             </div>
