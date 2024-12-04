@@ -507,7 +507,7 @@
               "type": "IcDataTableDataType[]"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
