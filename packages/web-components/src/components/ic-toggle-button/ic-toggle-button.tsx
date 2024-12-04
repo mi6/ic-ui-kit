@@ -31,6 +31,7 @@ import { IcSizes, IcThemeForeground } from "../../utils/types";
 export class ToggleButton {
   private iconPosition: "left" | "right" | "top";
   private hostMutationObserver: MutationObserver = null;
+  private parentGroup?: HTMLIcToggleButtonGroupElement;
 
   @Element() el: HTMLIcToggleButtonElement;
 
@@ -94,10 +95,9 @@ export class ToggleButton {
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
 
-    const parentIconPlacement = (
-      this.el.parentElement as HTMLIcToggleButtonGroupElement
-    ).iconPlacement;
-    this.iconPosition = this.iconPlacement || parentIconPlacement;
+    this.parentGroup = this.getParentToggleGroup();
+
+    this.iconPosition = this.iconPlacement ?? this.parentGroup?.iconPlacement;
   }
 
   componentDidLoad(): void {
@@ -135,9 +135,9 @@ export class ToggleButton {
 
   @Listen("click", { capture: true })
   handleHostClick(e: Event): void {
-    if (this.disabled) {
+    if (this.disabled || this.parentGroup?.disabled) {
       e.stopImmediatePropagation();
-    } else if (!this.loading) {
+    } else if (!(this.loading || this.parentGroup?.loading)) {
       this.toggleChecked = !this.toggleChecked;
     }
   }
@@ -146,9 +146,16 @@ export class ToggleButton {
     ev.stopImmediatePropagation();
   };
 
+  private getParentToggleGroup = (): HTMLIcToggleButtonGroupElement | null => {
+    if (this.el.parentElement.nodeName === "IC-TOGGLE-BUTTON-GROUP") {
+      return this.el.parentElement as HTMLIcToggleButtonGroupElement;
+    }
+    return null;
+  };
+
   private handleClick = (): void => {
-    !this.loading &&
-      !this.disabled &&
+    !(this.loading || this.parentGroup?.loading) &&
+      !(this.disabled || this.parentGroup?.disabled) &&
       this.icToggleChecked.emit({
         checked: this.toggleChecked,
       });
@@ -158,12 +165,12 @@ export class ToggleButton {
     return (
       <Host
         class={{
-          ["disabled"]: this.disabled,
+          ["disabled"]: this.disabled || this.parentGroup?.disabled,
           ["checked"]: this.toggleChecked,
-          [`${this.appearance}`]: true,
+          [`${this.parentGroup?.appearance ?? this.appearance}`]: true,
           ["icon"]: this.variant === "icon",
-          [`${this.size}`]: true,
-          ["loading"]: this.loading,
+          [`${this.parentGroup?.size ?? this.size}`]: true,
+          ["loading"]: this.loading || this.parentGroup?.loading,
         }}
         onFocus={this.handleFocus}
       >
@@ -175,11 +182,11 @@ export class ToggleButton {
           aria-label={`${
             this.accessibleLabel ? this.accessibleLabel : this.label
           }, ${this.toggleChecked ? "ticked" : "unticked"}`}
-          disabled={this.disabled}
-          appearance={this.appearance}
-          size={this.size}
+          disabled={this.disabled || this.parentGroup?.disabled}
+          appearance={this.parentGroup?.appearance ?? this.appearance}
+          size={this.parentGroup?.size ?? this.size}
           fullWidth={this.fullWidth}
-          loading={this.loading}
+          loading={this.loading || this.parentGroup?.loading}
           aria-disabled={`${this.disabled}`}
         >
           {this.variant !== "icon" && this.label}

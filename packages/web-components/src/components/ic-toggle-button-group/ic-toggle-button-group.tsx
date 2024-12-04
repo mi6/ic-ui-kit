@@ -8,6 +8,8 @@ import {
   Event,
   EventEmitter,
   State,
+  Watch,
+  forceUpdate,
 } from "@stencil/core";
 import {
   IcSizes,
@@ -86,6 +88,24 @@ export class ToggleButtonGroup {
    * The variant of the toggle button.
    */
   @Prop({ reflect: true }) variant: "default" | "icon" = "default";
+
+  @Watch("variant")
+  watchVariantHandler(newValue: "default" | "icon"): void {
+    this.getAllToggleButtons().forEach(
+      (toggleButton) => (toggleButton.variant = newValue)
+    );
+  }
+
+  @Watch("loading")
+  @Watch("size")
+  @Watch("appearance")
+  @Watch("disabled")
+  @Watch("iconPlacement")
+  watchPropsHandler(): void {
+    this.getAllToggleButtons().forEach((toggleButton) =>
+      forceUpdate(toggleButton)
+    );
+  }
 
   /**
    * Emitted when a toggle button is selected.

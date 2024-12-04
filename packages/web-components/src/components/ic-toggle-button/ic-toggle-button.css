@@ -28,9 +28,8 @@
 
 :host(.expand-toggle-group-child) ::part(button) {
   width: 100%;
-  min-height: inherit;
+  min-height: max-content;
   white-space: inherit;
-  height: inherit;
 }
 
 :host ic-button {
