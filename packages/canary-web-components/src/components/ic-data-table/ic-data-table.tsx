@@ -157,7 +157,7 @@ export class DataTable {
   /**
    * The row content for the table.
    */
-  @Prop() data: IcDataTableDataType[];
+  @Prop() data?: IcDataTableDataType[];
 
   /**
    * Set the density of the table including font and padding.
@@ -1917,7 +1917,7 @@ export class DataTable {
                 <slot name="pagination-bar" />
               ) : (
                 <ic-pagination-bar
-                  totalItems={data.length}
+                  totalItems={data?.length ?? 0}
                   type={paginationBarOptions.type}
                   rangeLabelType={paginationBarOptions.rangeLabelType}
                   showItemsPerPageControl={
