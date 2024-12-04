@@ -542,6 +542,23 @@
   padding: var(--ic-space-xs);
 }
 
+:host(.ic-button-size-extra-small.ic-button-variant-icon) .button,
+:host(.ic-button-size-extra-small.ic-button-variant-icon-primary) .button,
+:host(.ic-button-size-extra-small.ic-button-variant-icon-secondary) .button,
+:host(.ic-button-size-extra-small.ic-button-variant-icon-tertiary) .button,
+:host(.ic-button-size-extra-small.ic-button-variant-icon-destructive) .button,
+:host(.ic-button-size-extra-small.ic-button-variant-icon-primary) ::slotted(a),
+:host(.ic-button-size-extra-small.ic-button-variant-icon-secondary)
+  ::slotted(a),
+:host(.ic-button-size-extra-small.ic-button-variant-icon-tertiary) ::slotted(a),
+:host(.ic-button-size-extra-small.ic-button-variant-icon-destructive)
+  ::slotted(a),
+:host(.ic-button-size-extra-small.ic-button-variant-icon) ::slotted(a) {
+  height: var(--height, var(--ic-space-lg));
+  width: var(--width, --ic-space-lg);
+  padding: 0.2rem;
+}
+
 /* Width */
 :host(.full-width),
 :host(.full-width) .button,

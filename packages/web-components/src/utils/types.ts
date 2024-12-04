@@ -33,6 +33,8 @@ export type IcSizes = "default" | "large" | "small";
 
 export type IcSizesNoLarge = "default" | "small";
 
+export type IcExtraSizes = "default" | "large" | "small" | "extra-small";
+
 export type IcInformationStatusOrEmpty = "warning" | "error" | "success" | "";
 
 export type IcNavType = "side" | "top" | "page-header";
