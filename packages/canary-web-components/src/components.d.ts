@@ -82,7 +82,7 @@ export namespace Components {
         /**
           * The row content for the table.
          */
-        "data": IcDataTableDataType[];
+        "data"?: IcDataTableDataType[];
         /**
           * Set the density of the table including font and padding.
          */
