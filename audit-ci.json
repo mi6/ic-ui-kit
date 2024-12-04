@@ -29,13 +29,6 @@
       }
     },
     {
-      "GHSA-2p57-rm9w-gvfp": {
-        "active": true,
-        "notes": "issue in 'ip' package <= 2.0.1 - no current fix",
-        "expiry": "4 January 2025"
-      }
-    },
-    {
       "GHSA-grv7-fg5c-xmjg": {
         "active": true,
         "notes": "braces package has a vulnerability which is fixed in v3.0.3, but cannot currrently upgrade",
