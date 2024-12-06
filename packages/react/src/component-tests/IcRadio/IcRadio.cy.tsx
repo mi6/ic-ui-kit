@@ -207,7 +207,7 @@ describe("IcRadio end-to-end tests", () => {
     cy.get(TEXT_FIELD_SELECTOR).eq(2).should("be.visible");
   });
 
-  it("should call onclick function of component in additional-field slot when slotted component is clicked", () => {
+  it("should call onclick function of component in additional-field slot when slotted component is clicked and not lose focus on arrow keydown", () => {
     mount(<ConditionalDynamic />);
     cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get(TEXT_FIELD_SELECTOR).eq(0).click();
@@ -216,6 +216,8 @@ describe("IcRadio end-to-end tests", () => {
       HAVE_BEEN_CALLED_WITH,
       "Textfield clicked"
     );
+    cy.realPress("ArrowDown");
+    cy.get(TEXT_FIELD_SELECTOR).eq(0).should(HAVE_FOCUS);
   });
 
   it("should emit icChange and icCheck events when radio option is selected", () => {
