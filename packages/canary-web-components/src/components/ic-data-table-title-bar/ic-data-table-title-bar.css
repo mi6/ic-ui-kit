@@ -17,6 +17,7 @@
   padding: var(--ic-space-sm) var(--ic-space-xs);
   border-bottom: var(--ic-space-1px) solid
     var(--ic-data-table-title-bar-keyline);
+  background-color: var(--ic-data-table-title-bar-background);
 }
 
 .full-width {
@@ -35,6 +36,9 @@ ic-typography.ic-typography-subtitle-small {
 ic-typography.ic-typography-h3,
 ::slotted([slot="header"]) {
   max-width: 50rem;
+  color: var(--ic-data-table-title-bar-title);
+
+  --ic-typography-color: var(--ic-data-table-title-bar-title);
 }
 
 ic-typography.ic-typography-body,

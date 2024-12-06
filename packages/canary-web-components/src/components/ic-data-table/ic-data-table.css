@@ -25,6 +25,8 @@ tbody {
   min-height: 1.5rem;
   overflow-y: hidden;
   height: var(--row-height);
+
+  --ic-typography-color: var(--ic-data-table-text-default-emphasis);
 }
 
 .truncation-show-hide {
@@ -293,6 +295,8 @@ td.table-density-spacious {
 }
 
 .cell-emphasis-high ic-typography {
+  --ic-typography-color: var(--ic-data-table-text-high-emphasis);
+
   font-weight: var(--ic-font-weight-bold);
 }
 
@@ -337,8 +341,8 @@ td.table-density-spacious {
 }
 
 .loading.show-background {
-  background-color: var(--ic-data-table-loading-indicator-background-color);
-  border: var(--ic-space-1px) solid var(--ic-data-table-border);
+  background-color: var(--ic-data-table-overlay-background);
+  border: var(--ic-space-1px) solid var(--ic-data-table-overlay-border);
 }
 
 .loading.show {
@@ -352,13 +356,16 @@ td.table-density-spacious {
   margin-right: var(--ic-space-xxs);
 }
 
+.column-header .icon > svg,
+.column-header ::slotted(svg) {
+  fill: var(--ic-data-table-icon);
+}
+
 .table-cell .icon > svg,
 .table-cell ::slotted(svg) {
   fill: var(--ic-data-table-icon-default-emphasis);
 }
 
-.column-header .icon > svg,
-.column-header ::slotted(svg),
 .cell-emphasis-high .icon > svg,
 .cell-emphasis-high ::slotted(svg) {
   fill: var(--ic-data-table-icon-high-emphasis);
