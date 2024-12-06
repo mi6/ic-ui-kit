@@ -79,7 +79,6 @@
 }
 
 :host(.ic-tree-item-disabled) .tree-item-content,
-:host(.ic-tree-item-disabled) .arrow-dropdown,
 :host(.ic-tree-item-disabled) ::slotted([slot="icon"]),
 :host(.ic-tree-item-disabled) ::slotted([slot="router-item"]) {
   color: var(--ic-tree-view-text-disabled) !important;
@@ -93,6 +92,10 @@
 :host .arrow-dropdown {
   color: var(--ic-tree-view-dropdown-arrow);
   margin-right: var(--ic-space-xs);
+}
+
+:host(.ic-tree-item-disabled) .arrow-dropdown {
+  color: var(--ic-tree-view-dropdown-arrow-disabled);
 }
 
 :host(.ic-tree-item-small) .arrow-dropdown {

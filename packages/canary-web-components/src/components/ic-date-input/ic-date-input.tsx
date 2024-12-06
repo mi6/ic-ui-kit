@@ -1579,7 +1579,10 @@ export class DateInput {
 
     return (
       <Host
-        class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}
+        class={{
+          [`ic-theme-${theme}`]: theme !== "inherit",
+          [`ic-date-input-disabled`]: disabled,
+        }}
         onBlur={this.handleHostBlur}
         onFocus={this.handleHostFocus}
       >
