@@ -51,7 +51,7 @@ exports[`ic-search-bar search should render aria-label when hideLabel is set: re
 exports[`ic-search-bar search should render disabled variant: renders-disabled 1`] = `
 <ic-search-bar class="ic-search-bar-disabled ic-search-bar-search" disabled="true" label="Test label" value="">
   <mock:shadow-root>
-    <ic-text-field value="">
+    <ic-text-field class="ic-text-field-disabled" value="">
       <mock:shadow-root>
         <ic-input-container disabled="">
           <ic-input-label disabled="" for="ic-search-bar-input-4" helpertext="" label="Test label"></ic-input-label>
@@ -100,7 +100,7 @@ exports[`ic-search-bar search should render disabled variant: renders-disabled 1
 exports[`ic-search-bar search should render readonly variant: renders-readonly 1`] = `
 <ic-search-bar class="ic-search-bar-search" label="Test label" readonly="true" value="">
   <mock:shadow-root>
-    <ic-text-field readonly="" value="">
+    <ic-text-field class="ic-text-field-disabled" readonly="" value="">
       <mock:shadow-root>
         <ic-input-container disabled="" readonly="">
           <ic-input-label for="ic-search-bar-input-5" helpertext="" label="Test label" readonly=""></ic-input-label>

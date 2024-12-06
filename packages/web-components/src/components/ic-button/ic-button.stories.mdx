@@ -21,6 +21,8 @@ export const defaultArgs = {
   variant: "secondary",
   fullWidth: true,
   iconPlacement: "right-icon",
+  monochrome: false,
+  dropdown: false,
 };
 
 ### Primary
@@ -1625,10 +1627,10 @@ export const defaultArgs = {
         </ic-button>
       </div>
       <div style="padding: 8px">
-        <ic-button theme="light">
+        <ic-button theme="light" monochrome="true">
           <a slot="router-item" href="/">Slotted link</a>
         </ic-button>
-        <ic-button theme="dark">
+        <ic-button theme="dark" monochrome="true">
           <a slot="router-item" href="/">Slotted link</a>
         </ic-button>
       </div>`}

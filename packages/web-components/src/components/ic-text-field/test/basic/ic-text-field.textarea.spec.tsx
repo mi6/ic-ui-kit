@@ -169,7 +169,7 @@ describe("ic-text-field", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <ic-text-field disabled="true" label="Test label" rows="6" value="test value">
+      <ic-text-field class="ic-text-field-disabled" disabled="true" label="Test label" rows="6" value="test value">
         <mock:shadow-root>
           <ic-input-container disabled="">
             <ic-input-label disabled="" for="ic-text-field-input-7" helpertext="" label="Test label"></ic-input-label>
@@ -189,7 +189,7 @@ describe("ic-text-field", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <ic-text-field label="Test label" readonly="" rows="6" value="test value">
+      <ic-text-field class="ic-text-field-disabled" label="Test label" readonly="" rows="6" value="test value">
         <mock:shadow-root>
           <ic-input-container disabled="" readonly="">
             <ic-input-label for="ic-text-field-input-8" helpertext="" label="Test label" readonly=""></ic-input-label>
