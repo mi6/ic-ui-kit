@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-status-tag component renders label should have the role of 'status' if announced is passed as true: role of status if announced is true 1`] = `
+<ic-status-tag announced="true" aria-label="Status" label="Neutral" role="status">
+  <mock:shadow-root>
+    <strong class="filled-neutral medium tag">
+      <ic-typography variant="label-uppercase">
+        <span>
+          Neutral
+        </span>
+      </ic-typography>
+    </strong>
+  </mock:shadow-root>
+</ic-status-tag>
+`;
+
+exports[`ic-status-tag component renders label should render a lowercase label when \`uppercase\` is set to false: lowercase label when uppercase is false 1`] = `
+<ic-status-tag aria-label="Status" label="Neutral" uppercase="false">
+  <mock:shadow-root>
+    <strong class="filled-neutral medium tag">
+      <ic-typography variant="label">
+        <span>
+          Neutral
+        </span>
+      </ic-typography>
+    </strong>
+  </mock:shadow-root>
+</ic-status-tag>
+`;
+
+exports[`ic-status-tag component renders label should render: renders label 1`] = `
+<ic-status-tag aria-label="Status" label="Neutral">
+  <mock:shadow-root>
+    <strong class="filled-neutral medium tag">
+      <ic-typography variant="label-uppercase">
+        <span>
+          Neutral
+        </span>
+      </ic-typography>
+    </strong>
+  </mock:shadow-root>
+</ic-status-tag>
+`;
