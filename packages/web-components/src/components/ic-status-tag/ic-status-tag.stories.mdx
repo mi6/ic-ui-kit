@@ -68,6 +68,29 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Letter case
+
+<Canvas>
+  <Story name="Letter case" parameters={{ loki: { skip: true } }}>
+    {html`
+      <ic-status-tag label="Uppercase status tag"></ic-status-tag>
+      <ic-status-tag
+        label="Uppercase status tag"
+        variant="outlined"
+      ></ic-status-tag>
+      <ic-status-tag
+        label="Sentence case status tag"
+        uppercase="false"
+      ></ic-status-tag>
+      <ic-status-tag
+        label="Sentence case status tag"
+        variant="outlined"
+        uppercase="false"
+      ></ic-status-tag>
+    `}
+  </Story>
+</Canvas>
+
 ### Size
 
 <Canvas>
@@ -139,6 +162,7 @@ export const defaultArgs = {
   status: "neutral",
   variant: "filled",
   theme: "inherit",
+  uppercase: true,
 };
 
 <Canvas>
@@ -181,6 +205,7 @@ export const defaultArgs = {
         variant=${args.variant}
         announced=${args.announced}
         theme=${args.theme}
+        uppercase=${args.uppercase}
       ></ic-status-tag>`
     }
   </Story>
