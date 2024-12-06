@@ -121,3 +121,12 @@ export const AllStatusesLarge = () => {
     </div>
   );
 };
+
+export const StatusTagsWithSentenceCase = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcStatusTag label="Neutral status tag" uppercase={false} />
+      <IcStatusTag label="neutral" variant="outlined" uppercase={false} />
+    </div>
+  );
+};
