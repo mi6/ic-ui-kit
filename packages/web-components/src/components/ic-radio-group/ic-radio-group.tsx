@@ -228,6 +228,14 @@ export class RadioGroup {
   }
 
   private handleKeyDown = (event: KeyboardEvent): void => {
+    const additionalField = this.el.querySelector(
+      '[slot="additional-field"]'
+    ) as HTMLIcTextFieldElement;
+
+    if (additionalField == document.activeElement) {
+      return;
+    }
+
     switch (event.key) {
       case "ArrowDown":
       case "ArrowRight":
