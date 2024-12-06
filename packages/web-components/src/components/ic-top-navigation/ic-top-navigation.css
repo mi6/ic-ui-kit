@@ -7,6 +7,9 @@
   position: relative;
 
   --ic-typography-color: var(--ic-top-navigation-text);
+
+  --ic-button-secondary-text-monochrome: var(--ic-theme-text);
+  --ic-button-secondary-border-monochrome: var(--ic-theme-text);
 }
 
 :host(.dark) {
@@ -19,13 +22,6 @@
   --ic-top-navigation-status-tag-text: var(--ic-color-brand-text);
   --ic-top-navigation-status-tag-secondary: var(--ic-state-layer-darken-10);
   --navigation-link-colour: var(--ic-color-text-primary-light);
-  --ic-button-secondary-text-monochrome: var(--ic-color-text-primary-light);
-  --ic-button-secondary-border-monochrome: var(--ic-color-text-primary-light);
-}
-
-:host(.ic-theme-dark) #menu-button {
-  --ic-button-secondary-text-monochrome: var(--ic-color-brand-text);
-  --ic-button-secondary-border-monochrome: var(--ic-color-brand-text);
 }
 
 :host ::slotted(ic-navigation-item) {

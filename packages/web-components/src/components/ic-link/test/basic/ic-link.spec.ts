@@ -116,12 +116,12 @@ describe("ic-link component", () => {
     page.rootInstance.themeChangeHandler({ detail: { mode: "dark" } });
     await page.waitForChanges();
 
-    expect(page.rootInstance.theme).toBe("light");
+    expect(page.rootInstance.theme).toBe("dark");
 
     page.rootInstance.themeChangeHandler({ detail: { mode: "light" } });
     await page.waitForChanges();
 
-    expect(page.rootInstance.theme).toBe("dark");
+    expect(page.rootInstance.theme).toBe("light");
   });
 
   it("should call 'setFocus' when link is focused", async () => {

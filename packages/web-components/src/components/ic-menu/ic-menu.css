@@ -147,7 +147,10 @@
 }
 
 .option:not(.disabled-option) .option-description {
-  --ic-typography-color: var(--ic-menu-list-option-description-text-color);
+  --ic-typography-color: var(
+    --menu-item-desc-text-color,
+    var(--ic-menu-list-option-description-text-color)
+  );
 }
 
 .option .option-label {

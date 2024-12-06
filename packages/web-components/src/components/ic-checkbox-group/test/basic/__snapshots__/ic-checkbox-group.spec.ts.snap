@@ -358,7 +358,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
         </div>
       </div>
     </mock:shadow-root>
-    <ic-text-field disabled="" label="Test label" placeholder="Placeholder" slot="additional-field" value="">
+    <ic-text-field class="ic-text-field-disabled" disabled="" label="Test label" placeholder="Placeholder" slot="additional-field" value="">
       <mock:shadow-root>
         <ic-input-container disabled="">
           <ic-input-label disabled="" for="ic-text-field-input-2" helpertext="" label="Test label"></ic-input-label>

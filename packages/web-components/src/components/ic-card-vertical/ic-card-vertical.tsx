@@ -188,15 +188,10 @@ export class CardVertical {
 
   private updateTheme(newTheme: IcThemeForeground = null): void {
     const foregroundColor = getThemeFromContext(this.el, newTheme);
-    if (
-      foregroundColor === IcThemeForegroundEnum.Light ||
-      foregroundColor === IcThemeForegroundEnum.Dark
-    ) {
-      this.theme =
-        foregroundColor === IcThemeForegroundEnum.Light
-          ? IcThemeForegroundEnum.Dark
-          : IcThemeForegroundEnum.Light;
-      this.monochrome = foregroundColor === IcThemeForegroundEnum.Dark;
+
+    if (foregroundColor !== IcThemeForegroundEnum.Default) {
+      this.monochrome = true;
+      this.theme = foregroundColor;
     }
   }
 
@@ -274,7 +269,7 @@ export class CardVertical {
             disabled,
             fullwidth: fullWidth,
             focussed: isFocussed,
-            dark: monochrome,
+            monochrome: monochrome,
           }}
           tabindex={clickable && !parentIsAnchorTag ? 0 : null}
           aria-disabled={disabled ? "true" : null}

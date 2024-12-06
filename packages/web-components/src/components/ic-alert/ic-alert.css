@@ -10,7 +10,8 @@
 
 .container {
   min-height: 3.5rem;
-  border-radius: var(--ic-border-radius);
+  border-radius: var(--ic-space-xxs) var(--ic-space-xxxs) var(--ic-space-xxxs)
+    var(--ic-space-xxs);
   position: relative;
   display: flex;
   align-items: center;
@@ -18,22 +19,27 @@
 
 .container-neutral {
   background-color: var(--ic-alert-background-neutral);
+  border: var(--ic-space-xxxs) solid var(--ic-alert-border-neutral);
 }
 
 .container-info {
   background-color: var(--ic-alert-background-info);
+  border: var(--ic-space-xxxs) solid var(--ic-alert-border-info);
 }
 
 .container-warning {
   background-color: var(--ic-alert-background-warning);
+  border: var(--ic-space-xxxs) solid var(--ic-alert-border-warning);
 }
 
 .container-error {
   background-color: var(--ic-alert-background-error);
+  border: var(--ic-space-xxxs) solid var(--ic-alert-border-error);
 }
 
 .container-success {
   background-color: var(--ic-alert-background-success);
+  border: var(--ic-space-xxxs) solid var(--ic-alert-border-success);
 }
 
 .alert-icon-container {

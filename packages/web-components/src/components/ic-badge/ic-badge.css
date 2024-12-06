@@ -22,15 +22,15 @@
 }
 
 :host(.ic-badge-neutral) {
-  background-color: var(--ic-badge-neutral) !important;
+  background-color: var(--ic-badge-dark) !important;
 }
 
 :host(.ic-badge-light) ic-typography {
-  --ic-typography-color: var(--ic-badge-light-text);
+  --ic-typography-color: var(--ic-badge-text-monochrome);
 }
 
 :host(.ic-badge-light) ::slotted(*) {
-  fill: var(--ic-badge-light-icon);
+  fill: var(--ic-badge-icon-monochrome);
 }
 
 :host(.ic-badge-info) {
