@@ -14531,6 +14531,28 @@
           "required": false
         },
         {
+          "name": "uppercase",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "uppercase",
+          "reflectToAttr": false,
+          "docs": "The letter case of the status tag's label.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "variant",
           "type": "\"filled\" | \"outlined\"",
           "complexType": {

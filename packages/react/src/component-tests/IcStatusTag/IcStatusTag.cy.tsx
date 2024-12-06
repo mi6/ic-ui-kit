@@ -11,13 +11,14 @@ import {
   AllStatusesSmall,
   AllStatuses,
   AllStatusesLarge,
+  StatusTagsWithSentenceCase,
 } from "./IcStatusTagTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import "cypress-axe";
 import { HAVE_ATTR, HAVE_TEXT, NOT_HAVE_ATTR } from "../utils/constants";
 
 const STATUS_TAG_SELECTOR = "ic-status-tag";
-const DEFAULT_TEST_THRESHOLD = 0.02;
+const DEFAULT_TEST_THRESHOLD = 0.021;
 
 describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
@@ -41,7 +42,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "neutral",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 
@@ -68,7 +69,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "warning",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
@@ -80,7 +81,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "danger",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
 
@@ -92,7 +93,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "small",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
@@ -104,7 +105,19 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "large",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
+
+  it("should render a status tag with sentence case", () => {
+    mount(<StatusTagsWithSentenceCase />);
+
+    cy.checkHydrated(STATUS_TAG_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "sentence-case",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
     });
   });
 });
@@ -129,7 +142,7 @@ describe("IcStatusTag visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 });
