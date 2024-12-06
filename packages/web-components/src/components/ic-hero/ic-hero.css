@@ -5,6 +5,7 @@
   background-color: var(--ic-theme-tertiary);
 
   --hero-heading-bottom-margin: var(--ic-space-md);
+  --hero-keyline: var(--ic-hero-keyline);
 }
 
 :host(.ic-hero-dark) {
@@ -13,6 +14,7 @@
   --ic-hero-heading: var(--ic-color-text-primary-light);
   --ic-hero-body: var(--ic-color-text-primary-light);
   --ic-hero-secondary-heading: var(--ic-color-text-primary-light);
+  --hero-keyline: var(--ic-color-text-primary);
 }
 
 .heading {
@@ -25,6 +27,11 @@
 
 .secondary-container {
   --ic-typography-color: var(--ic-hero-secondary-heading);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: var(--ic-space-xxxs) solid var(--hero-keyline);
 }
 
 :host(.has-background-image) {
@@ -71,13 +78,6 @@ ic-typography.heading-bottom-spacing {
   gap: var(--ic-space-md);
   margin-top: var(--ic-space-lg);
   flex-wrap: wrap;
-}
-
-.secondary-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-left: var(--ic-space-xxxs) solid var(--ic-hero-keyline);
 }
 
 .secondary-subheading {

@@ -573,7 +573,7 @@ svg {
 
 :host(.navigation-item-page-header) .link:active,
 :host(.navigation-item-page-header) ::slotted(a:active) {
-  background-color: var(--ic-action-default-bg-active) !important;
+  background-color: var(--ic-action-default-bg-pressed) !important;
 }
 
 :host(.navigation-item-page-header.navigation-item-selected) .link:focus::after,
