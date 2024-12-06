@@ -1,6 +1,6 @@
 {
-  "total": 726,
-  "totalPassed": 726,
+  "total": 723,
+  "totalPassed": 723,
   "totalFailed": 0,
   "totalSuites": 39,
   "suites": [
@@ -5583,28 +5583,6 @@
         },
         {
           "status": "pass",
-          "name": "IcSelectMulti.cy.tsx-multi-select-shift-click",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcSelect/IcSelectMulti.cy.tsx",
-          "specFilename": "IcSelectMulti.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectMulti.cy.tsx-multi-select-shift-click.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectMulti.cy.tsx-multi-select-shift-click.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcSelectMulti.cy.tsx-multi-select-shift-click-from-bottom",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcSelect/IcSelectMulti.cy.tsx",
-          "specFilename": "IcSelectMulti.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectMulti.cy.tsx-multi-select-shift-click-from-bottom.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectMulti.cy.tsx-multi-select-shift-click-from-bottom.png"
-        },
-        {
-          "status": "pass",
           "name": "IcSelectMulti.cy.tsx-multi-select-select-all-button-focused",
           "percentage": 0,
           "failureThreshold": 0,
@@ -5646,17 +5624,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectMulti.cy.tsx-default-multi-select-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectMulti.cy.tsx-default-multi-select-high-contrast.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcSelectMulti.cy.tsx-multi-select-partially-selected-high-contrast",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcSelect/IcSelectMulti.cy.tsx",
-          "specFilename": "IcSelectMulti.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectMulti.cy.tsx-multi-select-partially-selected-high-contrast.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectMulti.cy.tsx-multi-select-partially-selected-high-contrast.png"
         },
         {
           "status": "pass",
@@ -8225,9 +8192,9 @@
       ]
     }
   ],
-  "startedAt": "2024-12-06T10:43:19.990Z",
-  "endedAt": "2024-12-06T10:57:58.909Z",
-  "duration": 790857,
+  "startedAt": "2024-12-06T11:12:50.480Z",
+  "endedAt": "2024-12-06T11:31:17.362Z",
+  "duration": 1018808,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
