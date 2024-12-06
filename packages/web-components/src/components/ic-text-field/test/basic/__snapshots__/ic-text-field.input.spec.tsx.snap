@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-text-field should render disabled: renders-disabled 1`] = `
-<ic-text-field disabled="true" label="Test label" value="test value">
+<ic-text-field class="ic-text-field-disabled" disabled="true" label="Test label" value="test value">
   <mock:shadow-root>
     <ic-input-container disabled="">
       <ic-input-label disabled="" for="ic-text-field-input-7" helpertext="" label="Test label"></ic-input-label>
@@ -15,7 +15,7 @@ exports[`ic-text-field should render disabled: renders-disabled 1`] = `
 `;
 
 exports[`ic-text-field should render readonly: renders-readonly 1`] = `
-<ic-text-field label="Test label" readonly="" value="test value">
+<ic-text-field class="ic-text-field-disabled" label="Test label" readonly="" value="test value">
   <mock:shadow-root>
     <ic-input-container disabled="" readonly="">
       <ic-input-label for="ic-text-field-input-8" helpertext="" label="Test label" readonly=""></ic-input-label>

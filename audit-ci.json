@@ -69,6 +69,13 @@
         "notes": "issue in 'cross-spawn' package - unable to upgrade currently",
         "expiry": "4 January 2025"
       }
+    },
+    {
+      "GHSA-rhx6-c78j-4q9w": {
+        "active": true,
+        "notes": "issue in 'path-to-regexp' package",
+        "expiry": "4 January 2025"
+      }
     }
   ]
 }

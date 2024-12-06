@@ -647,7 +647,7 @@ describe("IcButton visual regression and a11y tests", () => {
 
   it("should render focused text-based primary button with light monochrome theme", () => {
     mount(
-      <div style={DARK_BG_STYLE}>
+      <div style={{ padding: "10px" }}>
         <IcButton variant="primary" theme="light" monochrome>
           Test
         </IcButton>
@@ -670,7 +670,7 @@ describe("IcButton visual regression and a11y tests", () => {
 
   it("should render focused text-based primary button with dark monochrome theme", () => {
     mount(
-      <div style={{ padding: "10px" }}>
+      <div style={DARK_BG_STYLE}>
         <IcButton theme="dark" monochrome>
           Test
         </IcButton>
@@ -705,7 +705,7 @@ describe("IcButton visual regression and a11y tests", () => {
 
   it("should render buttons with dark theme", () => {
     mount(
-      <>
+      <div style={DARK_BG_STYLE}>
         <IcButton theme="dark">Primary</IcButton>
         <IcButton theme="dark" variant="secondary">
           Secondary
@@ -716,12 +716,11 @@ describe("IcButton visual regression and a11y tests", () => {
         <IcButton theme="dark" variant="destructive">
           Destructive
         </IcButton>
-      </>
+      </div>
     );
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
 
-    //! UNCOMMENT ONCE COLOUR TOKENS ARE DECIDED
     // cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dark-theme",

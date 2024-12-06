@@ -124,30 +124,6 @@
   gap: var(--breadcrumb-link-gap);
 }
 
-:host(.breadcrumb-link) .link {
-  color: var(--ic-breadcrumb-page-title);
-}
-
-:host(.ic-link-monochrome.breadcrumb-link) .link {
-  color: var(--ic-breadcrumb-page-title-monochrome);
-}
-
-:host(.breadcrumb-link) .link:hover {
-  color: var(--ic-breadcrumb-page-title-hover);
-}
-
-:host(.ic-link-monochrome.breadcrumb-link) .link:hover {
-  color: var(--ic-breadcrumb-page-title-hover-monochrome);
-}
-
-:host(.breadcrumb-link) .link:active {
-  color: var(--ic-breadcrumb-page-title-pressed);
-}
-
-:host(.ic-link-monochrome.breadcrumb-link) .link:active {
-  color: var(--ic-breadcrumb-page-title-pressed-monochrome);
-}
-
 :host(.breadcrumb-link) .link ::slotted(.back-icon) {
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);

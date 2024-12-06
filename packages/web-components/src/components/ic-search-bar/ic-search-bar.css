@@ -13,9 +13,11 @@
   --text-field-placeholder-color: var(--ic-search-bar-placeholder-text);
   --text-field-disabled-text-color: var(--ic-search-bar-disabled-text);
   --text-field-text-color: var(--ic-search-bar-filled-text);
-  --menu-item-text-color: var(--ic-search-bar-dropdown-items-text);
+  --menu-item-text-color: var(--ic-search-bar-dropdown-option-text);
+  --menu-item-desc-text-color: var(--ic-search-bar-dropdown-option-description);
   --menu-bg-color: var(--ic-search-bar-dropdown-background);
   --menu-border-color: var(--ic-search-bar-dropdown-outline);
+  --text-field-typing-cursor: var(--ic-search-bar-filled-text-cursor);
 }
 
 :host(.ic-search-bar-search:hover) {

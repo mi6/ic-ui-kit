@@ -557,6 +557,7 @@ export class TextField {
         class={{
           "ic-text-field-full-width": fullWidth,
           [`ic-theme-${theme}`]: theme !== "inherit",
+          "ic-text-field-disabled": disabledMode,
         }}
       >
         <ic-input-container readonly={readonly} disabled={disabledMode}>

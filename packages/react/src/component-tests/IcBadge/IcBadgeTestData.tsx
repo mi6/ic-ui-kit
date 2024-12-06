@@ -326,7 +326,7 @@ export const ThemeDark = (): ReactElement => {
     <div style={{ backgroundColor: "black", padding: "16px" }}>
       <IcButton
         variant="secondary"
-        theme="light"
+        theme="dark"
         monochrome
         style={{ marginRight: "16px" }}
       >
@@ -335,7 +335,7 @@ export const ThemeDark = (): ReactElement => {
       </IcButton>
       <IcButton
         variant="secondary"
-        theme="light"
+        theme="dark"
         monochrome
         style={{ marginRight: "16px" }}
       >
@@ -344,7 +344,7 @@ export const ThemeDark = (): ReactElement => {
       </IcButton>
       <IcButton
         variant="secondary"
-        theme="light"
+        theme="dark"
         monochrome
         style={{ marginRight: "16px" }}
       >
@@ -353,7 +353,7 @@ export const ThemeDark = (): ReactElement => {
       </IcButton>
       <IcButton
         variant="secondary"
-        theme="light"
+        theme="dark"
         monochrome
         style={{ marginRight: "16px" }}
       >
@@ -362,7 +362,7 @@ export const ThemeDark = (): ReactElement => {
       </IcButton>
       <IcButton
         variant="secondary"
-        theme="light"
+        theme="dark"
         monochrome
         style={{ marginRight: "16px" }}
       >
@@ -371,7 +371,7 @@ export const ThemeDark = (): ReactElement => {
       </IcButton>
       <IcButton
         variant="secondary"
-        theme="light"
+        theme="dark"
         monochrome
         style={{ marginRight: "16px" }}
       >

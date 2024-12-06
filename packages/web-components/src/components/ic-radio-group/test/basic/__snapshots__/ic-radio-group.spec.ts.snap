@@ -247,7 +247,7 @@ exports[`ic-radio-group should render with unselected static additional field: r
     <div class="dynamic-container">
       <div>
         <div class="additional-field-wrapper">
-          <ic-text-field disabled="" label="Test label" placeholder="Placeholder" slot="additional-field" value="">
+          <ic-text-field class="ic-text-field-disabled" disabled="" label="Test label" placeholder="Placeholder" slot="additional-field" value="">
             <mock:shadow-root>
               <ic-input-container disabled="">
                 <ic-input-label disabled="" for="ic-text-field-input-0" helpertext="" label="Test label"></ic-input-label>
