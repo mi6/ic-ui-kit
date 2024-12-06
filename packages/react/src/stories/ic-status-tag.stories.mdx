@@ -49,6 +49,17 @@ import readme from "../../../web-components/src/components/ic-status-tag/readme.
   </Story>
 </Canvas>
 
+### Letter case
+
+<Canvas>
+  <Story name="Letter case">
+    <IcStatusTag label="Uppercase status tag"></IcStatusTag>
+    <IcStatusTag label="Uppercase status tag" variant="outlined"></IcStatusTag>
+    <IcStatusTag label="Sentence case status tag" uppercase="false"></IcStatusTag>
+    <IcStatusTag label="Sentence case status tag" variant="outlined" uppercase="false"></IcStatusTag>
+  </Story>
+</Canvas>
+
 ### Size
 
 <Canvas>
@@ -71,6 +82,7 @@ export const defaultArgs = {
   status: "neutral",
   variant: "filled",
   theme: "inherit",
+  uppercase: true,
 };
 
 <Canvas>
@@ -121,6 +133,7 @@ export const defaultArgs = {
         variant={args.variant}
         announced={args.announced}
         theme={args.theme}
+        uppercase={args.uppercase}
       ></IcStatusTag>
     )}
   </Story>
