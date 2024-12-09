@@ -277,6 +277,10 @@ select:not([disabled]) {
   margin-bottom: 0.75rem;
 }
 
+.no-results-wrapper {
+  cursor: not-allowed;
+}
+
 @media (forced-colors: active) {
   .has-value ::slotted([slot="icon"]) {
     fill: currentcolor;

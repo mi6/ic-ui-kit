@@ -251,8 +251,8 @@
   ) !important;
 }
 
-:host(.no-results) li {
-  cursor: no-drop;
+:host(.no-pointer-events) li {
+  pointer-events: none;
 }
 
 :host(.no-results) li:hover {
