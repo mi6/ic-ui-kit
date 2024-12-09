@@ -377,6 +377,7 @@
   background-color: var(
     --ic-button-secondary-background-non-transparent-monochrome
   );
+  color: var(--ic-button-primary-text);
 }
 
 :host(.ic-button-variant-secondary.background.monochrome) ::slotted(a),
@@ -395,6 +396,7 @@
   background-color: var(
     --ic-button-secondary-background-non-transparent-monochrome-disabled
   );
+  color: var(--ic-button-secondary-text-disabled-monochrome);
 }
 
 :host(.ic-button-variant-secondary.background.monochrome.ic-button-disabled)
