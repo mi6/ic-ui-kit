@@ -16,6 +16,7 @@
 | `inline`                 | `inline`                   | If `true`, the flyout navigation menu on small devices will be contained by the parent element.                                                                | `boolean`                            | `false`          |
 | `shortAppTitle`          | `short-app-title`          | The short title of the app to be displayed at small screen sizes in place of the app title.                                                                    | `string`                             | `""`             |
 | `status`                 | `status`                   | The status info to be displayed.                                                                                                                               | `string`                             | `""`             |
+| `theme`                  | `theme`                    | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.                        | `"dark" \| "inherit" \| "light"`     | `"inherit"`      |
 | `version`                | `version`                  | The version info to be displayed.                                                                                                                              | `string`                             | `""`             |
 
 

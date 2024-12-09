@@ -14,11 +14,11 @@ import {
   IcInformationStatus,
   IcInformationStatusOrEmpty,
   IcSizes,
-  IcThemeForegroundEnum,
   IcDateFormat,
   IcDateInputMonths,
   IcDayNames,
   IcWeekDays,
+  IcThemeMode,
 } from "../../utils/types";
 import {
   convertToDoubleDigits,
@@ -266,6 +266,11 @@ export class DateInput {
    * The size of the date input to be displayed.
    */
   @Prop() size?: IcSizes = "medium";
+
+  /**
+   * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
@@ -1549,6 +1554,7 @@ export class DateInput {
       showClearButton,
       showCalendarButton,
       size,
+      theme,
     } = this;
 
     const hasCustomValidation =
@@ -1572,7 +1578,14 @@ export class DateInput {
     );
 
     return (
-      <Host onBlur={this.handleHostBlur} onFocus={this.handleHostFocus}>
+      <Host
+        class={{
+          [`ic-theme-${theme}`]: theme !== "inherit",
+          [`ic-date-input-disabled`]: disabled,
+        }}
+        onBlur={this.handleHostBlur}
+        onFocus={this.handleHostFocus}
+      >
         <ic-input-container disabled={disabled}>
           {!(hideLabel && hideHelperText) && (
             <ic-input-label
@@ -1602,6 +1615,7 @@ export class DateInput {
             validationStatus={validationStatus}
             size={size}
             role="group"
+            class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}
           >
             <div class="input-container">
               <div class="date-inputs">
@@ -1625,12 +1639,8 @@ export class DateInput {
                     onClick={this.handleClear}
                     onFocus={this.handleClearFocus}
                     onBlur={this.handleClearBlur}
-                    variant="icon"
-                    appearance={
-                      this.clearButtonFocused
-                        ? IcThemeForegroundEnum.Light
-                        : IcThemeForegroundEnum.Dark
-                    }
+                    variant="icon-tertiary"
+                    theme={this.clearButtonFocused ? "light" : "dark"}
                     size={size}
                   ></ic-button>
                 )}
@@ -1648,15 +1658,11 @@ export class DateInput {
                       disabled={this.disabled}
                       innerHTML={Calendar}
                       onClick={this.handleCalendarOpen}
-                      variant="icon"
+                      variant="icon-tertiary"
                       size={size}
                       onFocus={this.handleCalendarFocus}
                       onBlur={this.handleCalendarBlur}
-                      appearance={
-                        this.calendarFocused
-                          ? IcThemeForegroundEnum.Light
-                          : IcThemeForegroundEnum.Default
-                      }
+                      theme={this.calendarFocused ? "light" : "dark"}
                     ></ic-button>
                   </div>
                 )}

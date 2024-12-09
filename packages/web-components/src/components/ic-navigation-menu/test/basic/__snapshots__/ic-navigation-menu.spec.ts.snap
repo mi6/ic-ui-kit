@@ -12,7 +12,7 @@ exports[`ic-navigation-menu should render with version and status: renders-with-
         <div class="menu-close-button-container">
           <ic-button aria-label="Close app menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
           </ic-button>
         </div>
@@ -53,7 +53,7 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
               </ic-tooltip>
             </mock:shadow-root>
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
           </ic-button>
         </div>
@@ -77,7 +77,7 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
   </mock:shadow-root>
   <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
     <mock:shadow-root>
-      <ic-button class="ic-button-light ic-button-size-large ic-button-variant-icon" exportparts="button">
+      <ic-button appearance="light" class="ic-button-size-large ic-button-variant-icon ic-theme-light monochrome" exportparts="button">
         <mock:shadow-root>
           <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-2">
             <button aria-label="button1" class="button" part="button" type="button">
@@ -111,7 +111,7 @@ exports[`ic-navigation-menu should test slotted link: renders-with-slotted-link 
         <div class="menu-close-button-container">
           <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
           </ic-button>
         </div>
@@ -154,7 +154,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
               </ic-tooltip>
             </mock:shadow-root>
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
           </ic-button>
         </div>
@@ -179,7 +179,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
   </mock:shadow-root>
   <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
     <mock:shadow-root>
-      <ic-button class="ic-button-light ic-button-size-large ic-button-variant-icon" exportparts="button">
+      <ic-button appearance="light" class="ic-button-size-large ic-button-variant-icon ic-theme-light monochrome" exportparts="button">
         <mock:shadow-root>
           <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-6">
             <button aria-label="button1" class="button" part="button" type="button">
@@ -225,7 +225,7 @@ exports[`ic-navigation-menu should test slotted navigation group: renders-with-s
         <div class="menu-close-button-container nav-group-first">
           <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
           </ic-button>
         </div>
@@ -272,7 +272,7 @@ exports[`ic-navigation-menu should test slotted navigation item: renders-with-sl
         <div class="menu-close-button-container">
           <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
           </ic-button>
         </div>

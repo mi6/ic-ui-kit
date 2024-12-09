@@ -8,7 +8,7 @@ import {
   EventEmitter,
   Listen,
 } from "@stencil/core";
-
+import { IcThemeMode } from "../../utils/types";
 import { getSlot, getSlotContent, isSlotUsed } from "../../utils/helpers";
 
 /**
@@ -35,6 +35,11 @@ export class NavigationMenu {
    * The status info to display.
    */
   @Prop() status: string = "";
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
 
   /**
    * The version info to display.
@@ -142,7 +147,7 @@ export class NavigationMenu {
 
   render() {
     return (
-      <Host>
+      <Host class={{ [`ic-theme-${this.theme}`]: this.theme !== "inherit" }}>
         <div class="popout-modal" onClick={this.closeMenu}></div>
         <div
           class="popout-menu"
@@ -185,10 +190,7 @@ export class NavigationMenu {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
-                    fill="#1759BC"
-                  />
+                  <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" />
                 </svg>
               </ic-button>
             </div>

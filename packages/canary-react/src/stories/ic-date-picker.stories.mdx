@@ -537,6 +537,7 @@ export const defaultArgs = {
   showPickerTodayButton: true,
   size: "medium",
   startOfWeek: 1,
+  theme: "inherit",
   validationStatus: "",
   validationText: "",
   value: "",
@@ -549,19 +550,19 @@ export const defaultArgs = {
       dateFormat: {
         options: ["DD/MM/YYYY", "MM/DD/YYYY", "YYYY/MM/DD"],
         control: {
-          type: "radio",
+          type: "inline-radio",
         },
       },
       validationStatus: {
         options: ["", "error", "success", "warning"],
         control: {
-          type: "radio",
+          type: "inline-radio",
         },
       },
       size: {
         options: ["small", "medium", "large"],
         control: {
-          type: "radio",
+          type: "inline-radio",
         },
       },
       startOfWeek: {
@@ -573,6 +574,12 @@ export const defaultArgs = {
       openAtDate: {
         control: {
           type: "text",
+        },
+      },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
         },
       },
     }}
@@ -612,6 +619,7 @@ export const defaultArgs = {
           showPickerTodayButton={args.showPickerTodayButton}
           size={args.size}
           startOfWeek={args.startOfWeek}
+          theme={args.theme}
           validationStatus={args.validationStatus}
           validationText={args.validationText}
           value={value}

@@ -164,6 +164,10 @@ export namespace Components {
          */
         "target": string;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The variant of the button to render
          */
         "variant": IcBackToTopVariants;
@@ -254,10 +258,6 @@ export namespace Components {
           * If `fileUpload` is set to `true`, this is the accepted list of file types.
          */
         "accept"?: string;
-        /**
-          * The appearance of the button, e.g. dark, light, or the default.
-         */
-        "appearance"?: IcThemeForeground;
         "ariaControlsId": string | boolean;
         "ariaOwnsId": string | boolean;
         /**
@@ -329,6 +329,10 @@ export namespace Components {
          */
         "loading"?: boolean;
         /**
+          * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
          */
         "multiple"?: boolean;
@@ -356,6 +360,10 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The position of the tooltip in relation to the button.
          */
@@ -843,13 +851,11 @@ export namespace Components {
          */
         "appearance"?: IcThemeForeground;
         "focusTrigger"?: string;
+        "monochrome"?: boolean;
         "scrollItemIntoView": (itemPosition: number) => Promise<void>;
+        "theme"?: IcThemeMode;
     }
     interface IcInputComponentContainer {
-        /**
-          * The appearance of the input component container.
-         */
-        "appearance"?: "dark" | "default";
         /**
           * If `true`, the disabled state will be set.
          */
@@ -890,10 +896,6 @@ export namespace Components {
         "readonly"?: boolean;
     }
     interface IcInputLabel {
-        /**
-          * The appearance of the input label.
-         */
-        "appearance"?: "dark" | "default";
         /**
           * If `true`, the disabled state will be set.
          */
@@ -1112,6 +1114,10 @@ export namespace Components {
     }
     interface IcMenuItem {
         /**
+          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+         */
+        "checked": boolean;
+        /**
           * The description displayed in the menu item, below the label.
          */
         "description"?: string;
@@ -1189,6 +1195,10 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcNavigationGroup {
         /**
@@ -1203,6 +1213,10 @@ export namespace Components {
           * Sets focus on the nav item.
          */
         "setFocus": () => Promise<void>;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcNavigationItem {
         "collapsedIconLabel": boolean;
@@ -1244,12 +1258,20 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcNavigationMenu {
         /**
           * The status info to display.
          */
         "status": string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The version info to display.
          */
@@ -1288,6 +1310,10 @@ export namespace Components {
           * The subtitle to render on the page header.
          */
         "subheading"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcPagination {
         /**
@@ -1382,7 +1408,7 @@ export namespace Components {
         /**
           * @param setFocusToAnchor when true return focus to anchor element when menu is closed
          */
-        "closeMenu": (setFocusToAnchor?: boolean) => Promise<void>;
+        "closeMenu": (setFocusToAnchor?: boolean, menuElement?: HTMLIcMenuItemElement) => Promise<void>;
         /**
           * If `true`, the popover menu will be displayed.
          */
@@ -1720,7 +1746,7 @@ export namespace Components {
          */
         "searchMatchPosition"?: IcSearchMatchPositions;
         /**
-          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
+          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
          */
         "searchable"?: boolean;
         /**
@@ -1739,6 +1765,10 @@ export namespace Components {
           * The size of the select.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
@@ -1830,6 +1860,10 @@ export namespace Components {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: "dark" | "light" | "inherit";
+        /**
+          * The letter case of the status tag's label.
+         */
+        "uppercase"?: boolean;
         /**
           * The emphasis of the status tag.
          */
@@ -2099,6 +2133,10 @@ export namespace Components {
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
         "spellcheck": boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
         "truncateValue"?: boolean;
         /**
           * The type of control to display. The default type is text.
@@ -2178,10 +2216,6 @@ export namespace Components {
          */
         "accessibleLabel"?: string;
         /**
-          * The appearance of the toggle button.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * If `true`, the toggle button will be in a checked state.
          */
         "checked": boolean;
@@ -2206,9 +2240,17 @@ export namespace Components {
          */
         "loading"?: boolean;
         /**
+          * If `true`, the toggle button will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * The size of the toggle button to be displayed.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The variant of the toggle button.
          */
@@ -2219,10 +2261,6 @@ export namespace Components {
           * The accessible label of the toggle button group component to provide context for screen reader users.
          */
         "accessibleLabel"?: string;
-        /**
-          * The appearance of the toggle button group, e.g dark, or light.
-         */
-        "appearance": IcThemeForeground;
         /**
           * If `true`, the toggle button group will be set to the disabled state.
          */
@@ -2240,6 +2278,10 @@ export namespace Components {
          */
         "loading"?: boolean;
         /**
+          * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
          */
         "selectMethod"?: IcSelectMethodTypes;
@@ -2251,6 +2293,10 @@ export namespace Components {
           * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The variant of the toggle button.
          */
@@ -2324,6 +2370,10 @@ export namespace Components {
           * The status info to be displayed.
          */
         "status": string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The version info to be displayed.
          */
@@ -2794,9 +2844,9 @@ declare global {
     };
     interface HTMLIcMenuItemElementEventMap {
         "childBlur": void;
-        "handleMenuItemClick": {
-    label: string;
-    hasSubMenu: boolean;
+        "handleMenuItemClick": HTMLIcMenuItemElement;
+        "icToggleChecked": {
+    checked: boolean;
   };
         "triggerPopoverMenuInstance": void;
     }
@@ -2902,7 +2952,7 @@ declare global {
         new (): HTMLIcPaginationItemElement;
     };
     interface HTMLIcPopoverMenuElementEventMap {
-        "icPopoverClosed": void;
+        "icPopoverClosed": HTMLIcMenuItemElement;
     }
     interface HTMLIcPopoverMenuElement extends Components.IcPopoverMenu, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcPopoverMenuElementEventMap>(type: K, listener: (this: HTMLIcPopoverMenuElement, ev: IcPopoverMenuCustomEvent<HTMLIcPopoverMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3442,6 +3492,10 @@ declare namespace LocalJSX {
          */
         "target": string;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The variant of the button to render
          */
         "variant"?: IcBackToTopVariants;
@@ -3528,10 +3582,6 @@ declare namespace LocalJSX {
           * If `fileUpload` is set to `true`, this is the accepted list of file types.
          */
         "accept"?: string;
-        /**
-          * The appearance of the button, e.g. dark, light, or the default.
-         */
-        "appearance"?: IcThemeForeground;
         "ariaControlsId"?: string | boolean;
         "ariaOwnsId"?: string | boolean;
         /**
@@ -3603,6 +3653,10 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
+          * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
          */
         "multiple"?: boolean;
@@ -3638,6 +3692,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The position of the tooltip in relation to the button.
          */
@@ -4134,12 +4192,10 @@ declare namespace LocalJSX {
          */
         "appearance"?: IcThemeForeground;
         "focusTrigger"?: string;
+        "monochrome"?: boolean;
+        "theme"?: IcThemeMode;
     }
     interface IcInputComponentContainer {
-        /**
-          * The appearance of the input component container.
-         */
-        "appearance"?: "dark" | "default";
         /**
           * If `true`, the disabled state will be set.
          */
@@ -4180,10 +4236,6 @@ declare namespace LocalJSX {
         "readonly"?: boolean;
     }
     interface IcInputLabel {
-        /**
-          * The appearance of the input label.
-         */
-        "appearance"?: "dark" | "default";
         /**
           * If `true`, the disabled state will be set.
          */
@@ -4398,6 +4450,10 @@ declare namespace LocalJSX {
     }
     interface IcMenuItem {
         /**
+          * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
+         */
+        "checked"?: boolean;
+        /**
           * The description displayed in the menu item, below the label.
          */
         "description"?: string;
@@ -4422,9 +4478,12 @@ declare namespace LocalJSX {
          */
         "label": string;
         "onChildBlur"?: (event: IcMenuItemCustomEvent<void>) => void;
-        "onHandleMenuItemClick"?: (event: IcMenuItemCustomEvent<{
-    label: string;
-    hasSubMenu: boolean;
+        "onHandleMenuItemClick"?: (event: IcMenuItemCustomEvent<HTMLIcMenuItemElement>) => void;
+        /**
+          * Emitted when the user clicks a menu item that is set to the toggle variant.
+         */
+        "onIcToggleChecked"?: (event: IcMenuItemCustomEvent<{
+    checked: boolean;
   }>) => void;
         "onTriggerPopoverMenuInstance"?: (event: IcMenuItemCustomEvent<void>) => void;
         /**
@@ -4477,6 +4536,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcNavigationGroup {
         /**
@@ -4487,6 +4550,10 @@ declare namespace LocalJSX {
           * The label to display on the group.
          */
         "label"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcNavigationItem {
         "collapsedIconLabel"?: boolean;
@@ -4526,6 +4593,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcNavigationMenu {
         "onIcNavigationMenuClose"?: (event: IcNavigationMenuCustomEvent<void>) => void;
@@ -4533,6 +4604,10 @@ declare namespace LocalJSX {
           * The status info to display.
          */
         "status"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The version info to display.
          */
@@ -4571,6 +4646,10 @@ declare namespace LocalJSX {
           * The subtitle to render on the page header.
          */
         "subheading"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcPagination {
         /**
@@ -4665,7 +4744,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the popover menu is closed.
          */
-        "onIcPopoverClosed"?: (event: IcPopoverMenuCustomEvent<void>) => void;
+        "onIcPopoverClosed"?: (event: IcPopoverMenuCustomEvent<HTMLIcMenuItemElement>) => void;
         /**
           * If `true`, the popover menu will be displayed.
          */
@@ -5082,7 +5161,7 @@ declare namespace LocalJSX {
          */
         "searchMatchPosition"?: IcSearchMatchPositions;
         /**
-          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
+          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
          */
         "searchable"?: boolean;
         /**
@@ -5097,6 +5176,10 @@ declare namespace LocalJSX {
           * The size of the select.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
@@ -5192,6 +5275,10 @@ declare namespace LocalJSX {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: "dark" | "light" | "inherit";
+        /**
+          * The letter case of the status tag's label.
+         */
+        "uppercase"?: boolean;
         /**
           * The emphasis of the status tag.
          */
@@ -5492,6 +5579,10 @@ declare namespace LocalJSX {
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
         "spellcheck"?: boolean;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         "truncateValue"?: boolean;
         /**
           * The type of control to display. The default type is text.
@@ -5572,10 +5663,6 @@ declare namespace LocalJSX {
          */
         "accessibleLabel"?: string;
         /**
-          * The appearance of the toggle button.
-         */
-        "appearance"?: IcThemeForeground;
-        /**
           * If `true`, the toggle button will be in a checked state.
          */
         "checked"?: boolean;
@@ -5600,6 +5687,10 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
+          * If `true`, the toggle button will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * Emitted when the user clicks a toggle button.
          */
         "onIcToggleChecked"?: (event: IcToggleButtonCustomEvent<{
@@ -5610,6 +5701,10 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The variant of the toggle button.
          */
         "variant"?: "default" | "icon";
@@ -5619,10 +5714,6 @@ declare namespace LocalJSX {
           * The accessible label of the toggle button group component to provide context for screen reader users.
          */
         "accessibleLabel"?: string;
-        /**
-          * The appearance of the toggle button group, e.g dark, or light.
-         */
-        "appearance"?: IcThemeForeground;
         /**
           * If `true`, the toggle button group will be set to the disabled state.
          */
@@ -5640,6 +5731,10 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
+          * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
           * Emitted when a toggle button is selected.
          */
         "onIcChange"?: (event: IcToggleButtonGroupCustomEvent<IcChangeEventDetail3>) => void;
@@ -5655,6 +5750,10 @@ declare namespace LocalJSX {
           * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The variant of the toggle button.
          */
@@ -5723,6 +5822,10 @@ declare namespace LocalJSX {
           * The status info to be displayed.
          */
         "status"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         /**
           * The version info to be displayed.
          */

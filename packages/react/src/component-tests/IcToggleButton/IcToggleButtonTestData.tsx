@@ -73,30 +73,49 @@ export const Dark = (): ReactElement => {
         gap: "var(--ic-space-xs)",
       }}
     >
-      <IcToggleButton label="Test" appearance="dark" />
-      <IcToggleButton label="Test" appearance="dark" checked />
-      <IcToggleButton label="Test" appearance="dark" loading />
-      <IcToggleButton label="Test" appearance="dark" loading checked />
-      <IcToggleButton label="Test" appearance="dark" disabled />
-      <IcToggleButton label="Test" appearance="dark" checked disabled />
-      <IcToggleButton label="Test" appearance="dark" loading disabled />
-      <IcToggleButton label="Test" appearance="dark" loading checked disabled />
-      <IcToggleButton label="Test" appearance="dark">
+      <IcToggleButton label="Test" theme="light" monochrome />
+      <IcToggleButton label="Test" theme="light" monochrome checked />
+      <IcToggleButton label="Test" theme="light" monochrome loading />
+      <IcToggleButton label="Test" theme="light" monochrome loading checked />
+      <IcToggleButton label="Test" theme="light" monochrome disabled />
+      <IcToggleButton label="Test" theme="light" monochrome checked disabled />
+      <IcToggleButton label="Test" theme="light" monochrome loading disabled />
+      <IcToggleButton
+        label="Test"
+        theme="light"
+        monochrome
+        loading
+        checked
+        disabled
+      />
+      <IcToggleButton label="Test" theme="light" monochrome>
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="dark" variant="icon">
+      <IcToggleButton label="Test" theme="light" monochrome variant="icon">
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="dark" checked>
+      <IcToggleButton label="Test" theme="light" monochrome checked>
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="dark" variant="icon" checked>
+      <IcToggleButton
+        label="Test"
+        theme="light"
+        monochrome
+        variant="icon"
+        checked
+      >
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="dark" disabled>
+      <IcToggleButton label="Test" theme="light" monochrome disabled>
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="dark" variant="icon" disabled>
+      <IcToggleButton
+        label="Test"
+        theme="light"
+        monochrome
+        variant="icon"
+        disabled
+      >
         <ReusableSlottedIcon />
       </IcToggleButton>
     </div>
@@ -114,36 +133,49 @@ export const Light = (): ReactElement => {
         gap: "var(--ic-space-xs)",
       }}
     >
-      <IcToggleButton label="Test" appearance="light" />
-      <IcToggleButton label="Test" appearance="light" checked />
-      <IcToggleButton label="Test" appearance="light" loading />
-      <IcToggleButton label="Test" appearance="light" loading checked />
-      <IcToggleButton label="Test" appearance="light" disabled />
-      <IcToggleButton label="Test" appearance="light" checked disabled />
-      <IcToggleButton label="Test" appearance="light" loading disabled />
+      <IcToggleButton label="Test" theme="dark" monochrome />
+      <IcToggleButton label="Test" theme="dark" monochrome checked />
+      <IcToggleButton label="Test" theme="dark" monochrome loading />
+      <IcToggleButton label="Test" theme="dark" monochrome loading checked />
+      <IcToggleButton label="Test" theme="dark" monochrome disabled />
+      <IcToggleButton label="Test" theme="dark" monochrome checked disabled />
+      <IcToggleButton label="Test" theme="dark" monochrome loading disabled />
       <IcToggleButton
         label="Test"
-        appearance="light"
+        theme="dark"
+        monochrome
         loading
         checked
         disabled
       />
-      <IcToggleButton label="Test" appearance="light">
+      <IcToggleButton label="Test" theme="dark" monochrome>
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="light" variant="icon">
+      <IcToggleButton label="Test" theme="dark" monochrome variant="icon">
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="light" checked>
+      <IcToggleButton label="Test" theme="dark" monochrome checked>
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="light" variant="icon" checked>
+      <IcToggleButton
+        label="Test"
+        theme="dark"
+        monochrome
+        variant="icon"
+        checked
+      >
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="light" disabled>
+      <IcToggleButton label="Test" theme="dark" monochrome disabled>
         <ReusableSlottedIcon />
       </IcToggleButton>
-      <IcToggleButton label="Test" appearance="light" variant="icon" disabled>
+      <IcToggleButton
+        label="Test"
+        theme="dark"
+        monochrome
+        variant="icon"
+        disabled
+      >
         <ReusableSlottedIcon />
       </IcToggleButton>
     </div>

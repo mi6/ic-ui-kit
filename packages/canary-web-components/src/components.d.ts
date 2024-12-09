@@ -8,19 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
-import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-import { IcThemeMode as IcThemeMode1 } from "@ukic/web-components/dist/types/interface";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
-import { IcThemeMode as IcThemeMode2 } from "@ukic/web-components";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
-export { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-export { IcThemeMode as IcThemeMode1 } from "@ukic/web-components/dist/types/interface";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
-export { IcThemeMode as IcThemeMode2 } from "@ukic/web-components";
 export namespace Components {
     interface IcCardHorizontal {
         /**
@@ -88,7 +82,7 @@ export namespace Components {
         /**
           * The row content for the table.
          */
-        "data": IcDataTableDataType[];
+        "data"?: IcDataTableDataType[];
         /**
           * Set the density of the table including font and padding.
          */
@@ -117,7 +111,6 @@ export namespace Components {
           * Sets the props for the circular loading indicator used in the loading state.
          */
         "loadingOptions"?: {
-    appearance?: IcThemeForegroundNoDefault;
     description?: string;
     label?: string;
     labelDuration?: number;
@@ -175,6 +168,10 @@ export namespace Components {
          */
         "tableLayout"?: "fixed" | "auto";
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
          */
         "truncationPattern"?: IcDataTableTruncationTypes;
@@ -186,7 +183,6 @@ export namespace Components {
           * Sets the props for the linear loading indicator used in the updating state.
          */
         "updatingOptions"?: {
-    appearance?: IcThemeForegroundNoDefault;
     description?: string;
     max?: number;
     min?: number;
@@ -312,6 +308,10 @@ export namespace Components {
           * The size of the date input to be displayed.
          */
         "size"?: IcSizes;
+        /**
+          * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
         "triggerIcChange": (d: Date) => Promise<void>;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
@@ -424,6 +424,10 @@ export namespace Components {
          */
         "startOfWeek"?: IcWeekDays;
         /**
+          * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -487,7 +491,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -545,7 +549,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode2;
+        "theme"?: IcThemeMode;
         "updateAriaLabel": () => Promise<void>;
     }
     interface IcTreeView {
@@ -564,7 +568,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode2;
+        "theme"?: IcThemeMode;
     }
 }
 export interface IcDataTableCustomEvent<T> extends CustomEvent<T> {
@@ -814,7 +818,6 @@ declare namespace LocalJSX {
           * Sets the props for the circular loading indicator used in the loading state.
          */
         "loadingOptions"?: {
-    appearance?: IcThemeForegroundNoDefault;
     description?: string;
     label?: string;
     labelDuration?: number;
@@ -876,6 +879,10 @@ declare namespace LocalJSX {
          */
         "tableLayout"?: "fixed" | "auto";
         /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
          */
         "truncationPattern"?: IcDataTableTruncationTypes;
@@ -887,7 +894,6 @@ declare namespace LocalJSX {
           * Sets the props for the linear loading indicator used in the updating state.
          */
         "updatingOptions"?: {
-    appearance?: IcThemeForegroundNoDefault;
     description?: string;
     max?: number;
     min?: number;
@@ -1024,6 +1030,10 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
+          * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -1138,6 +1148,10 @@ declare namespace LocalJSX {
          */
         "startOfWeek"?: IcWeekDays;
         /**
+          * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
@@ -1209,7 +1223,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode1;
+        "theme"?: IcThemeMode;
         /**
           * Total number of items to be displayed across all pages.
          */
@@ -1267,7 +1281,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode2;
+        "theme"?: IcThemeMode;
     }
     interface IcTreeView {
         /**
@@ -1285,7 +1299,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode2;
+        "theme"?: IcThemeMode;
     }
     interface IntrinsicElements {
         "ic-card-horizontal": IcCardHorizontal;

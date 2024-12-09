@@ -14,6 +14,7 @@
 | `size`               | `size`      | The size of the status tag component.                                                                                                                                        | `"large" \| "medium" \| "small"`                  | `"medium"`  |
 | `status`             | `status`    | The colour of the status tag.                                                                                                                                                | `"danger" \| "neutral" \| "success" \| "warning"` | `"neutral"` |
 | `theme`              | `theme`     | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.                                      | `"dark" \| "inherit" \| "light"`                  | `"inherit"` |
+| `uppercase`          | `uppercase` | The letter case of the status tag's label.                                                                                                                                   | `boolean`                                         | `true`      |
 | `variant`            | `variant`   | The emphasis of the status tag.                                                                                                                                              | `"filled" \| "outlined"`                          | `"filled"`  |
 
 

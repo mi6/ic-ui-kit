@@ -6,7 +6,11 @@
 
 a {
   text-decoration: none !important;
-  color: var(--ic-card-text) !important;
+  color: var(--ic-card-text-primary) !important;
+}
+
+a:visited {
+  color: var(--ic-card-link-action-dark) !important;
 }
 
 button {
@@ -18,12 +22,12 @@ button {
 .card {
   display: flex;
   flex-direction: column;
-  border: var(--ic-border-default);
+  border: var(--ic-space-1px) solid var(--ic-card-border-primary);
   border-radius: var(--ic-border-radius);
   box-sizing: border-box;
   padding: var(--ic-space-md);
   text-align: left;
-  color: var(--ic-card-text);
+  color: var(--ic-card-text-primary);
   transition: var(--ic-easing-transition-fast);
   position: relative;
   width: inherit;
@@ -32,30 +36,29 @@ button {
   min-height: 100%;
 
   ::slotted(svg) {
-    fill: var(--ic-card-text);
+    fill: var(--ic-card-icon);
   }
-  &.dark {
-    border: var(--ic-border-width) solid
-      var(--ic-color-border-neutral-pressed-dark);
+  &.monochrome {
+    border: var(--ic-border-width) solid var(--ic-card-border-monochrome);
   }
   &.fullwidth {
     width: 100%;
   }
   &.clickable {
     &:hover {
-      background-color: var(--ic-card-clickable-focus-hover-bg);
-      border: var(--ic-border-hover);
+      background-color: var(--ic-card-background-hover);
+      border: var(--ic-space-1px) solid var(--ic-card-hover-border-color);
       cursor: pointer;
     }
     &.focussed,
     &:focus {
-      background-color: var(--ic-card-clickable-focus-hover-bg);
+      background-color: var(--ic-card-background-hover);
       box-shadow: var(--ic-border-focus);
       outline: var(--ic-hc-focus-outline);
-      border: var(--ic-border-pressed-default);
+      border: var(--ic-space-1px) solid var(--ic-card-pressed-border-color);
     }
     &:active {
-      background-color: var(--ic-card-clickable-active-bg);
+      background-color: var(--ic-card-background-pressed);
       box-shadow: var(--ic-border-focus);
 
       .card-title {
@@ -71,7 +74,7 @@ button {
     }
   }
   &.disabled {
-    border: var(--ic-border-disabled);
+    border: var(--ic-space-1px) dashed var(--ic-card-disabled-border-color);
 
     .card-message,
     .subheading,
@@ -167,7 +170,6 @@ button {
 }
 
 .toggle-button {
-  color: var(--ic-card-toggle-button);
   width: 2.5rem;
   height: 2.5rem;
   padding: var(--ic-space-xs);
@@ -187,15 +189,13 @@ button {
   vertical-align: middle;
 
   &:hover {
-    background-color: var(--ic-card-clickable-focus-hover-bg);
-    color: var(--ic-card-toggle-button-focus-hover);
+    background-color: var(--ic-card-background-hover);
   }
   &:focus {
     box-shadow: var(--ic-border-focus);
   }
   &:active:not(:focus) {
-    background-color: var(--ic-card-clickable-active-bg);
-    color: var(--ic-card-toggle-button-active);
+    background-color: var(--ic-card-background-pressed);
   }
 
   svg {

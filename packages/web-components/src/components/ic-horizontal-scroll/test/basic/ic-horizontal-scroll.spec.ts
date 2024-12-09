@@ -13,11 +13,40 @@ const testHorizontalScroll = `<ic-horizontal-scroll>
   </div>
   </ic-horizontal-scroll>`;
 
+const testTheme = (theme: string) => {
+  return `<ic-horizontal-scroll theme="${theme}">
+  <div>
+    <ic-navigation-item label="Test nav item 1"></ic-navigation-item>
+    <ic-navigation-item label="Test nav item 2"></ic-navigation-item>
+    <ic-navigation-item label="Test nav item 3"></ic-navigation-item>
+    <ic-navigation-item label="Test nav item 4"></ic-navigation-item>
+    <ic-navigation-item label="Test nav item 5"></ic-navigation-item>
+    <ic-navigation-item label="Test nav item 6"></ic-navigation-item>
+  </div>
+  </ic-horizontal-scroll>`;
+};
+
 describe("ic-horizontal-scroll", () => {
   it("should render", async () => {
     const page = await newSpecPage({
       components: [HorizontalScroll, NavigationItem],
       html: testHorizontalScroll,
+    });
+
+    expect(page.root).toMatchSnapshot("renders");
+  });
+  it("should render light", async () => {
+    const page = await newSpecPage({
+      components: [HorizontalScroll, NavigationItem],
+      html: testTheme("light"),
+    });
+
+    expect(page.root).toMatchSnapshot("renders");
+  });
+  it("should render dark", async () => {
+    const page = await newSpecPage({
+      components: [HorizontalScroll, NavigationItem],
+      html: testTheme("dark"),
     });
 
     expect(page.root).toMatchSnapshot("renders");
@@ -226,5 +255,24 @@ describe("ic-horizontal-scroll", () => {
     page.waitForChanges();
 
     expect(page.rootInstance.itemOverflow).toBe(true);
+  });
+
+  // Code Coverage
+  it("should call the runResizeObserver function", async () => {
+    const page = await newSpecPage({
+      components: [HorizontalScroll, NavigationItem],
+      html: `<ic-horizontal-scroll appearance="dark">
+        <div>
+        <ic-navigation-item label="Test nav item 1"></ic-navigation-item>
+        <ic-navigation-item label="Test nav item 2"></ic-navigation-item>
+        <ic-navigation-item label="Test nav item 3"></ic-navigation-item>
+        <ic-navigation-item label="Test nav item 4"></ic-navigation-item>
+        <ic-navigation-item label="Test nav item 5"></ic-navigation-item>
+        <ic-navigation-item label="Test nav item 6"></ic-navigation-item>
+        </div>
+      </ic-horizontal-scroll>`,
+    });
+
+    page.rootInstance.runResizeObserver();
   });
 });

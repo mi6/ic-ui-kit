@@ -13,14 +13,17 @@
 :host {
   max-height: 0;
   width: var(--menu-width, var(--input-width, 20rem));
-  color: var(--menu-item-text-color, var(--ic-color-text-primary));
+  color: var(--menu-item-text-color, var(--ic-menu-list-option-text-color));
 
   --ic-typography-color: var(
     --menu-item-text-color,
-    var(--ic-color-text-primary)
+    var(--ic-menu-list-option-text-color)
   );
 
-  background-color: var(--menu-bg-color, var(--ic-architectural-white));
+  background-color: var(
+    --menu-bg-color,
+    var(--ic-menu-list-option-background-color)
+  );
   position: relative;
   z-index: var(--ic-z-index-menu);
   box-sizing: border-box;
@@ -53,7 +56,10 @@
   text-decoration: none;
   list-style-type: none;
   border-radius: 1px;
-  background-color: var(--menu-bg-color, var(--ic-architectural-white));
+  background-color: var(
+    --menu-bg-color,
+    var(--ic-menu-list-option-background-color)
+  );
   visibility: hidden;
   max-height: 0;
   overflow-y: hidden;
@@ -76,7 +82,7 @@
   display: flex;
   flex-direction: column-reverse;
   border: var(--ic-border-width) solid
-    var(--menu-border-color, var(--ic-architectural-400));
+    var(--menu-border-color, var(--ic-menu-border-color));
   transition: box-shadow var(--ic-easing-transition-fast);
 }
 
@@ -129,11 +135,11 @@
 }
 
 .option:not(.disabled-option):hover {
-  background-color: var(--ic-action-dark-bg-hover);
+  background-color: var(--ic-menu-list-option-hover-background-color);
 }
 
 .option:not(.disabled-option):active {
-  background-color: var(--ic-action-dark-bg-pressed);
+  background-color: var(--ic-menu-list-option-pressed-background-color);
 }
 
 .option:focus-visible {
@@ -141,7 +147,10 @@
 }
 
 .option:not(.disabled-option) .option-description {
-  --ic-typography-color: var(--ic-color-text-secondary);
+  --ic-typography-color: var(
+    --menu-item-desc-text-color,
+    var(--ic-menu-list-option-description-text-color)
+  );
 }
 
 .option .option-label {
@@ -177,15 +186,15 @@
 
 .option.loading-option .option-text-container {
   margin-left: calc(var(--ic-space-xs) + var(--ic-space-xxxs));
-  color: var(--ic-color-text-secondary);
+  color: var(--ic-menu-loading-list-option-text-color);
 
-  --ic-typography-color: var(--ic-color-text-secondary);
+  --ic-typography-color: var(--ic-menu-loading-list-option-text-color);
 }
 
 .error-icon-svg {
   height: var(--ic-space-md);
   width: var(--ic-space-md);
-  fill: var(--ic-status-error-default);
+  fill: var(--ic-atoms-status-icon-error);
   align-self: center;
   display: flex;
   margin-right: calc(var(--ic-space-xxs) * 1.2);
@@ -211,7 +220,7 @@
   padding: var(--ic-space-lg) calc(var(--ic-space-xs) - var(--ic-space-1px))
     var(--ic-space-xs);
 
-  --ic-typography-color: var(--ic-color-text-tertiary);
+  --ic-typography-color: var(--ic-menu-option-group-label-text-color);
 }
 
 :host(.ic-menu-small) .option-group-title {
@@ -220,13 +229,13 @@
 }
 
 .last-recommended-option {
-  border-bottom: var(--ic-border-default);
+  border-bottom: var(--ic-menu-last-recommended-option-border);
 }
 
 .disabled-option {
-  color: var(--ic-architectural-200);
+  color: var(--ic-atoms-list-option-text-disabled-light);
 
-  --ic-typography-color: var(--ic-architectural-200);
+  --ic-typography-color: var(--ic-atoms-list-option-text-disabled-light);
 
   cursor: default;
   pointer-events: none;
@@ -235,9 +244,11 @@
 .focused-option,
 .focused-option .option-description {
   background-color: var(--ic-color-focus-inner) !important;
-  color: var(--ic-architectural-white) !important;
+  color: var(--ic-atoms-list-option-text-focused-light) !important;
 
-  --ic-typography-color: var(--ic-architectural-white) !important;
+  --ic-typography-color: var(
+    --ic-atoms-list-option-text-focused-light
+  ) !important;
 }
 
 :host(.no-results) li {
@@ -253,9 +264,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--ic-architectural-40);
+  background-color: var(--ic-menu-option-bar-background-color);
   visibility: hidden;
-  border-bottom: var(--ic-border-width) solid var(--ic-architectural-400);
+  border-bottom: var(--ic-border-width) solid
+    var(--ic-menu-option-bar-divider-color);
   border-radius: 1px 1px 0 0;
 }
 

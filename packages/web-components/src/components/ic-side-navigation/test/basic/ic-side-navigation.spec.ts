@@ -163,7 +163,7 @@ describe("ic-side-navigation", () => {
     );
 
     expect(page.rootInstance.menuExpanded).toBe(false);
-    await page.rootInstance.toggleMenuExpanded();
+    await page.rootInstance.toggleMenuExpanded(true);
     await page.waitForChanges();
     await new Promise((r) => setTimeout(r, 2000));
     expect(page.rootInstance.menuExpanded).toBe(true);
@@ -203,7 +203,7 @@ describe("ic-side-navigation", () => {
     });
 
     expect(page.rootInstance.menuExpanded).toBe(false);
-    await page.rootInstance.toggleMenuExpanded();
+    await page.rootInstance.toggleMenuExpanded(true);
     await page.waitForChanges();
     await new Promise((r) => setTimeout(r, 2000));
     expect(page.rootInstance.menuExpanded).toBe(true);
@@ -422,7 +422,7 @@ describe("ic-side-navigation", () => {
     });
 
     expect(page.rootInstance.menuExpanded).toBe(false);
-    await page.rootInstance.toggleMenuExpanded();
+    await page.rootInstance.toggleMenuExpanded(true);
     await new Promise((r) => setTimeout(r, 2000));
 
     page.root.dispatchEvent(

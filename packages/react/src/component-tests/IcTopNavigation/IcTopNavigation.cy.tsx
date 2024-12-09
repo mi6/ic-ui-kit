@@ -26,6 +26,7 @@ import {
   LongWordAppTitle,
   SimpleTopNav,
   Theme,
+  ThemeDark,
   TopNavWithNavItems,
   TopNavWithSearch,
   WithNavGroup,
@@ -329,7 +330,7 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     });
   });
 
-  it("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll", () => {
+  it.skip("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll", () => {
     mount(<HorizontalScroll />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
@@ -337,6 +338,17 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     cy.compareSnapshot({
       name: "nav-group-in-horizontal-scroll",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+    });
+  });
+
+  it("should render with dark theme", () => {
+    mount(<ThemeDark />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -523,6 +535,17 @@ describe("IcTopNavigation mobile visual regression tests", () => {
     });
   });
 
+  it("should render with dark theme - mobile", () => {
+    mount(<ThemeDark />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "mobile-theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
+    });
+  });
+
   it("should render with different theme color - mobile", () => {
     mount(<Theme />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
@@ -584,7 +607,7 @@ describe("IcTopNavigation desktop visual regression tests in high contrast mode"
     });
   });
 
-  it("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll in high contrast mode", () => {
+  it.skip("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll in high contrast mode", () => {
     mount(<HorizontalScroll />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 

@@ -184,7 +184,7 @@ export class Card {
     const foregroundColor = getThemeFromContext(this.el, newTheme);
 
     if (foregroundColor !== IcThemeForegroundEnum.Default) {
-      this.appearance = foregroundColor;
+      this.theme = foregroundColor;
     }
   }
 

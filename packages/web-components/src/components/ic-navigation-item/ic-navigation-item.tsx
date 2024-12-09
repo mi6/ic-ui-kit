@@ -14,6 +14,7 @@ import {
 
 import {
   DEVICE_SIZES,
+  getCssProperty,
   getCurrentDeviceSize,
   getThemeForegroundColor,
   getNavItemParentDetails,
@@ -24,6 +25,7 @@ import {
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundNoDefault,
+  IcThemeMode,
 } from "../../utils/types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
@@ -49,6 +51,8 @@ export class NavigationItem {
   private isInitialRender: boolean = true;
   private itemEl: HTMLElement;
   private hostMutationObserver: MutationObserver = null;
+  private ANIMATION_DURATION =
+    parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
   private ARIA_LABEL_STRING = "aria-label";
 
   @Element() el: HTMLIcNavigationItemElement;
@@ -120,6 +124,11 @@ export class NavigationItem {
   @Prop() target?: string;
 
   /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop() theme?: IcThemeMode = "inherit";
+
+  /**
    * @internal - Emitted when item loses focus.
    */
   @Event() childBlur: EventEmitter<void>;
@@ -149,6 +158,10 @@ export class NavigationItem {
     this.navigationType = navType;
     this.parentEl = parent;
     this.deviceSize = getCurrentDeviceSize();
+
+    this.sideNavExpanded =
+      this.parentEl?.classList.contains("sm-expanded") ||
+      this.parentEl?.classList.contains("xs-menu-open");
 
     if (this.navigationType === "side") {
       this.parentEl.addEventListener(
@@ -277,6 +290,7 @@ export class NavigationItem {
     const { sideNavExpanded, sideNavMobile } = detail;
     this.sideNavExpanded = sideNavExpanded;
     this.isSideNavMobile = sideNavMobile;
+    this.sideNavToggleTooltip(!(sideNavExpanded || sideNavMobile));
   };
 
   private handleBlur = ({ relatedTarget }: FocusEvent) => {
@@ -341,6 +355,25 @@ export class NavigationItem {
     return <slot></slot>;
   };
 
+  // Displays tooltip only once the collapsing animation is finished
+  private sideNavToggleTooltip = (showTooltip: boolean) => {
+    const tooltip = this.el.shadowRoot.querySelector("ic-tooltip");
+    const collapsedClass = "tooltip-navigation-item-side-nav-collapsed";
+    let timer;
+
+    if (tooltip) {
+      if (showTooltip) {
+        tooltip.displayTooltip(false); // Hides tooltip for when mouse is hovering over icon
+        timer = setTimeout(() => {
+          tooltip.classList.add(collapsedClass);
+        }, this.ANIMATION_DURATION);
+      } else {
+        clearTimeout(timer);
+        tooltip.classList.remove(collapsedClass);
+      }
+    }
+  };
+
   render() {
     const { inTopNavSideMenu, isTopNavChild, selected } = this;
 
@@ -372,6 +405,7 @@ export class NavigationItem {
             this.collapsedIconLabel &&
             !this.isSideNavMobile,
           ["expandable"]: this.expandable,
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         onBlur={isTopNavChild && !inTopNavSideMenu ? this.handleBlur : null}
         onClick={this.handleClick}
@@ -386,8 +420,7 @@ export class NavigationItem {
           class={{
             ["tooltip-navigation-item"]: true,
             ["tooltip-navigation-item-side-nav-collapsed"]:
-              (!this.sideNavExpanded || this.displayNavigationTooltip) &&
-              this.navigationType === "side",
+              this.displayNavigationTooltip && this.navigationType === "side",
             ["tooltip-long-label-navigation-item-side-nav-expanded"]:
               this.el.hasAttribute("[display-navigation-tooltip = 'true']"),
           }}

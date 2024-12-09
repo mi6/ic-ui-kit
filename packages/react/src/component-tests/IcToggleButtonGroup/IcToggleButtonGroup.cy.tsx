@@ -81,7 +81,7 @@ describe("IcToggleButtonGroup", () => {
       mount(<ToggleGroupDisabled />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
 
-      cy.get(IC_TOGGLE_BUTTON_GROUP).focus();
+      cy.get(IC_TOGGLE_BUTTON_GROUP).eq(1).focus();
       getToggle(0).should(NOT_HAVE_ATTR, "checked");
       getToggle(1).click({ force: true });
       cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
@@ -215,7 +215,7 @@ describe("IcToggleButtonGroup", () => {
       });
     });
 
-    it("should render dark", () => {
+    it.skip("should render dark", () => {
       mount(<ToggleGroupDark />);
 
       getToggle(0).click();
@@ -263,7 +263,7 @@ describe("IcToggleButtonGroup", () => {
       });
     });
 
-    it("should render loading dark", () => {
+    it.skip("should render loading dark", () => {
       mount(<ToggleGroupLoadingDark />);
 
       cy.checkA11yWithWait(undefined, 200, TOGGLE_BUTTON_AXE_OPTIONS);

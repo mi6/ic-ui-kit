@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { IcBreadcrumb, IcBreadcrumbGroup } from "../../components";
+import { IcBreadcrumb, IcBreadcrumbGroup, IcButton } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const ReusableSlottedIcon = (): ReactElement => (
@@ -35,6 +35,22 @@ export const BackBreadcrumb = (): ReactElement => {
       <IcBreadcrumb pageTitle="Beverages" href="#" />
       <IcBreadcrumb current pageTitle="Coffee" href="#" />
     </IcBreadcrumbGroup>
+  );
+};
+
+export const ToggleBackBreadcrumb = (): ReactElement => {
+  const [backBreadcrumbOnly, setBackBreadcrumbOnly] = React.useState(false);
+  const switchBackBreadCrumbOnly = () =>
+    setBackBreadcrumbOnly((value) => !value);
+  return (
+    <div>
+      <IcBreadcrumbGroup backBreadcrumbOnly={backBreadcrumbOnly}>
+        <IcBreadcrumb pageTitle="Home" href="#" />
+        <IcBreadcrumb pageTitle="Beverages" href="#" />
+        <IcBreadcrumb current pageTitle="Coffee" href="#" />
+      </IcBreadcrumbGroup>
+      <IcButton onClick={switchBackBreadCrumbOnly}>Toggle</IcButton>
+    </div>
   );
 };
 
@@ -95,6 +111,21 @@ export const Collapsed = (): ReactElement => {
       <IcBreadcrumb pageTitle="Beverages" href="#" />
       <IcBreadcrumb pageTitle="Coffee" current href="#" />
     </IcBreadcrumbGroup>
+  );
+};
+
+export const ToggleCollapsed = (): ReactElement => {
+  const [collapsed, setCollapsed] = React.useState(false);
+  const switchCollapsed = () => setCollapsed((value) => !value);
+  return (
+    <div>
+      <IcBreadcrumbGroup collapsed={collapsed} style={{ margin: "16px" }}>
+        <IcBreadcrumb pageTitle="Home" href="#" />
+        <IcBreadcrumb pageTitle="Beverages" href="#" />
+        <IcBreadcrumb pageTitle="Coffee" current href="#" />
+      </IcBreadcrumbGroup>
+      <IcButton onClick={switchCollapsed}>Toggle</IcButton>
+    </div>
   );
 };
 

@@ -16,6 +16,225 @@ import readme from "./readme.md";
 
 <Description markdown={readme} />
 
+### Playground
+
+export const defaultArgs = {
+  aligned: "left",
+  border: true,
+  heading: "Latte recipe",
+  ["reverse-order"]: false,
+  size: "medium",
+  sticky: false,
+  ["sticky-desktop-only"]: false,
+  subheading:
+    "A Latte is a popular Italian coffee, made with espresso, steamed milk and a thin layer of foam.",
+  theme: "inherit",
+  ["--ic-page-header-text-primary"]: "",
+  ["--ic-page-header-background"]: "",
+  ["--ic-page-header-border"]: "",
+  ["--ic-page-header-text-tertiary"]: "",
+  ["--ic-page-header-placeholder-text-field"]: "",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    name="Playground"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+    argTypes={{
+      aligned: {
+        options: ["center", "full-width", "left"],
+        control: { type: "inline-radio" },
+      },
+      size: {
+        options: ["medium", "small"],
+        control: { type: "inline-radio" },
+      },
+      theme: {
+        options: ["inherit", "dark", "light"],
+        control: {
+          type: "radio",
+        },
+      },
+      "--ic-page-header-text-primary": {
+        control: {
+          type: "color",
+        },
+      },
+      "--ic-page-header-background": {
+        control: {
+          type: "color",
+        },
+      },
+      "--ic-page-header-border": {
+        control: {
+          type: "color",
+        },
+      },
+      "--ic-page-header-text-tertiary": {
+        control: {
+          type: "color",
+        },
+      },
+      "--ic-page-header-placeholder-text-field": {
+        control: {
+          type: "color",
+        },
+      },
+    }}
+  >
+    {(args) =>
+      html`<ic-page-header
+          aligned=${args.aligned}
+          border=${args.border}
+          heading=${args.heading}
+          reverse-order=${args["reverse-order"]}
+          size=${args.size}
+          sticky=${args.sticky}
+          sticky-desktop-only=${args["sticky-desktop-only"]}
+          subheading=${args.subheading}
+          theme=${args.theme}
+          style="
+      ${args["--ic-page-header-text-primary"] !== ""
+            ? `--ic-page-header-text-primary: ${args["--ic-page-header-text-primary"]};`
+            : ""}
+      ${args["--ic-page-header-background"] !== ""
+            ? `--ic-page-header-background: ${args["--ic-page-header-background"]};`
+            : ""}
+      ${args["--ic-page-header-border"] !== ""
+            ? `--ic-page-header-border: ${args["--ic-page-header-border"]};`
+            : ""}
+      ${args["--ic-page-header-text-tertiary"] !== ""
+            ? `--ic-page-header-text-tertiary: ${args["--ic-page-header-text-tertiary"]};`
+            : ""}
+      ${args["--ic-page-header-placeholder-text-field"] !== ""
+            ? `--ic-page-header-placeholder-text-field: ${args["--ic-page-header-placeholder-text-field"]};`
+            : ""}"
+        >
+          <ic-breadcrumb-group slot="breadcrumbs">
+            <ic-breadcrumb
+              current="true"
+              page-title="Drinks"
+              href="#"
+            ></ic-breadcrumb>
+            <ic-breadcrumb page-title="Coffees" href="#"> </ic-breadcrumb>
+            <ic-breadcrumb page-title="Latte" href="#"></ic-breadcrumb>
+          </ic-breadcrumb-group>
+          <ic-chip slot="heading-adornment" label="Beta" size="large"></ic-chip>
+          <ic-button slot="actions" variant="primary"
+            >Create coffee
+            <svg
+              slot="left-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                fill="currentColor"
+              />
+            </svg>
+          </ic-button>
+          <ic-button slot="actions" variant="tertiary">Filter coffee</ic-button>
+          <ic-stepper slot="stepper">
+            <ic-step heading="Warm kettle" type="completed"></ic-step>
+            <ic-step
+              heading="Warm milk"
+              subheading="Optional"
+              type="completed"
+            ></ic-step>
+            <ic-step heading="Pour milk" type="current" current></ic-step>
+          </ic-stepper>
+        </ic-page-header>
+        <ic-section-container aligned=${args.aligned}>
+          <ic-typography
+            >Example page content to test out the sticky prop.</ic-typography
+          >
+          <ic-typography
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
+            nec, ultricies sed, dolor.</ic-typography
+          >
+          <ic-typography
+            >Cras elementum ultrices diam. Maecenas ligula massa, varius a,
+            semper congue, euismod non, mi. Proin porttitor, orci nec nonummy
+            molestie, enim est eleifend mi, non fermentum diam nisl sit amet
+            erat.</ic-typography
+          >
+          <ic-typography
+            >Duis semper. Duis arcu massa, scelerisque vitae, consequat in,
+            pretium a, enim. Pellentesque congue. Ut in risus volutpat libero
+            pharetra tempor. Cras vestibulum bibendum augue.</ic-typography
+          >
+          <ic-typography
+            >Praesent egestas leo in pede. Praesent blandit odio eu enim.
+            Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum
+            primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+            Aliquam nibh.</ic-typography
+          >
+          <ic-typography
+            >Mauris ac mauris sed pede pellentesque fermentum. Maecenas
+            adipiscing ante non diam sodales hendrerit.</ic-typography
+          >
+          <ic-typography
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
+            nec, ultricies sed, dolor.</ic-typography
+          >
+          <ic-typography
+            >Cras elementum ultrices diam. Maecenas ligula massa, varius a,
+            semper congue, euismod non, mi. Proin porttitor, orci nec nonummy
+            molestie, enim est eleifend mi, non fermentum diam nisl sit amet
+            erat.</ic-typography
+          >
+          <ic-typography
+            >Duis semper. Duis arcu massa, scelerisque vitae, consequat in,
+            pretium a, enim. Pellentesque congue. Ut in risus volutpat libero
+            pharetra tempor. Cras vestibulum bibendum augue.</ic-typography
+          >
+          <ic-typography
+            >Praesent egestas leo in pede. Praesent blandit odio eu enim.
+            Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum
+            primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+            Aliquam nibh.</ic-typography
+          >
+          <ic-typography
+            >Mauris ac mauris sed pede pellentesque fermentum. Maecenas
+            adipiscing ante non diam sodales hendrerit.</ic-typography
+          >
+          <ic-typography
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
+            nec, ultricies sed, dolor.</ic-typography
+          >
+          <ic-typography
+            >Cras elementum ultrices diam. Maecenas ligula massa, varius a,
+            semper congue, euismod non, mi. Proin porttitor, orci nec nonummy
+            molestie, enim est eleifend mi, non fermentum diam nisl sit amet
+            erat.</ic-typography
+          >
+          <ic-typography
+            >Duis semper. Duis arcu massa, scelerisque vitae, consequat in,
+            pretium a, enim. Pellentesque congue. Ut in risus volutpat libero
+            pharetra tempor. Cras vestibulum bibendum augue.</ic-typography
+          >
+          <ic-typography
+            >Praesent egestas leo in pede. Praesent blandit odio eu enim.
+            Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum
+            primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+            Aliquam nibh.</ic-typography
+          >
+          <ic-typography
+            >Mauris ac mauris sed pede pellentesque fermentum. Maecenas
+            adipiscing ante non diam sodales hendrerit.</ic-typography
+          >
+        </ic-section-container>`
+    }
+  </Story>
+</Canvas>
+
 ### Heading with adornment
 
 <Canvas>
@@ -568,6 +787,61 @@ If a slot is provided, instead an attribute, the slot will supersede for the fol
           ></ic-breadcrumb>
         </ic-breadcrumb-group>
         <ic-status-tag slot="heading-adornment" label="Beta"></ic-status-tag>
+        <ic-button slot="actions" variant="primary"
+          >Create coffee
+          <svg
+            slot="left-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+              fill="currentColor"
+            />
+          </svg>
+        </ic-button>
+        <ic-button slot="actions" variant="tertiary">Filter coffee</ic-button>
+        <ic-stepper slot="stepper">
+          <ic-step heading="Warm kettle" type="completed"></ic-step>
+          <ic-step
+            heading="Warm milk"
+            subheading="Optional"
+            type="completed"
+          ></ic-step>
+          <ic-step heading="Pour milk" type="current" current></ic-step>
+        </ic-stepper>
+        <ic-text-field slot="input" placeholder="Enter your input" hide-label />
+      </ic-page-header>
+    `}
+  </Story>
+</Canvas>
+
+### Dark theme
+
+<Canvas>
+  <Story name="Dark theme" parameters={{ loki: { skip: true } }}>
+    {html`
+      <ic-page-header
+        heading="Coffee recipes"
+        subheading="This is a page header component that has breadcrumbs, an input area, actions & stepper."
+        reverse-order="true"
+        theme="dark"
+      >
+        <ic-breadcrumb-group slot="breadcrumbs">
+          <ic-breadcrumb
+            page-title="Breadcrumb 1"
+            href="/breadcrumb-1"
+          ></ic-breadcrumb>
+          <ic-breadcrumb
+            current="true"
+            page-title="Breadcrumb 2"
+            href="/breadcrumb-2"
+          ></ic-breadcrumb>
+        </ic-breadcrumb-group>
+        <ic-chip slot="heading-adornment" label="Beta" size="large"></ic-chip>
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg

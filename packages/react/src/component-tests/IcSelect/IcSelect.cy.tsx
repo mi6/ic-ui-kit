@@ -42,9 +42,16 @@ import {
   TYPE_DOWN_ARROW,
   TYPE_ENTER,
   IC_SELECT,
+  OPTION_SELECT_STUB,
+  OPTION_GROUP_TITLE,
 } from "./IcSelectConstants";
 import {
   ControlledSelect,
+  DarkTheme,
+  DarkThemeGroupDescription,
+  DarkThemeLoading,
+  DarkThemeReadonlyDisabled,
+  DarkThemeValidation,
   LoadingSelect,
   LoadingSelectNoTimeout,
   UncontrolledSelect,
@@ -634,27 +641,27 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(IC_SELECT, SC_IC_MENU_TYPOGRAPHY).should(HAVE_LENGTH, "6");
     cy.findShadowEl(IC_SELECT, SC_IC_MENU_TYPOGRAPHY)
       .eq(0)
-      .should(HAVE_CLASS, "option-group-title")
+      .should(HAVE_CLASS, OPTION_GROUP_TITLE)
       .contains("Fancy");
     cy.findShadowEl(IC_SELECT, SC_IC_MENU_TYPOGRAPHY)
       .eq(1)
-      .should(NOT_HAVE_CLASS, "option-group-title")
+      .should(NOT_HAVE_CLASS, OPTION_GROUP_TITLE)
       .contains("Cappuccino");
     cy.findShadowEl(IC_SELECT, SC_IC_MENU_TYPOGRAPHY)
       .eq(2)
-      .should(NOT_HAVE_CLASS, "option-group-title")
+      .should(NOT_HAVE_CLASS, OPTION_GROUP_TITLE)
       .contains("Flat white");
     cy.findShadowEl(IC_SELECT, SC_IC_MENU_TYPOGRAPHY)
       .eq(3)
-      .should(HAVE_CLASS, "option-group-title")
+      .should(HAVE_CLASS, OPTION_GROUP_TITLE)
       .contains("Boring");
     cy.findShadowEl(IC_SELECT, SC_IC_MENU_TYPOGRAPHY)
       .eq(4)
-      .should(NOT_HAVE_CLASS, "option-group-title")
+      .should(NOT_HAVE_CLASS, OPTION_GROUP_TITLE)
       .contains("Filter");
     cy.findShadowEl(IC_SELECT, SC_IC_MENU_TYPOGRAPHY)
       .eq(5)
-      .should(NOT_HAVE_CLASS, "option-group-title")
+      .should(NOT_HAVE_CLASS, OPTION_GROUP_TITLE)
       .contains("Latte");
 
     cy.checkA11yWithWait();
@@ -819,7 +826,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
       .eq(0)
       .should(HAVE_ATTR, ARIA_SELECTED, "true");
     cy.get("@icChange").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get("@icOptionSelect").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get(OPTION_SELECT_STUB).should(HAVE_BEEN_CALLED_ONCE);
   });
 
   it("should call icOptionSelect on Enter when selectOnEnter prop is set to true", () => {
@@ -840,13 +847,13 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
 
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER).wait(250);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).realPress("ArrowDown");
-    cy.get("@icOptionSelect").should(NOT_HAVE_BEEN_CALLED);
+    cy.get(OPTION_SELECT_STUB).should(NOT_HAVE_BEEN_CALLED);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER).wait(250);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).realPress("Enter");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI)
       .eq(0)
       .should(HAVE_ATTR, ARIA_SELECTED, "true");
-    cy.get("@icOptionSelect").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get(OPTION_SELECT_STUB).should(HAVE_BEEN_CALLED_ONCE);
   });
 
   it("should apply focus on menu and display expanded icon when opened, and set option as value when clicked", () => {
@@ -1572,6 +1579,69 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.spy(window.console, "log").as("spyWinConsoleLog");
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, "espresso");
+  });
+
+  it("should render with dark theme", () => {
+    mount(<DarkTheme />);
+    cy.checkHydrated(IC_SELECT);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme-menu-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER)
+      .type(TYPE_DOWN_ARROW)
+      .type(TYPE_DOWN_ARROW)
+      .type(TYPE_ENTER);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme-with-value",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
+
+  it("should render groups and descriptions with dark theme", () => {
+    mount(<DarkThemeGroupDescription />);
+
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme-groups-descriptions",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
+
+  it("should render readonly and disabled with dark theme", () => {
+    mount(<DarkThemeReadonlyDisabled />);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme-readonly-disabled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
+
+  it("should render validation with dark theme", () => {
+    mount(<DarkThemeValidation />);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-theme-validation",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
   });
 });
 

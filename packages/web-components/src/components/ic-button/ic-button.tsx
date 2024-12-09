@@ -31,6 +31,7 @@ import {
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
+  IcThemeMode,
 } from "../../utils/types";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
 
@@ -72,11 +73,6 @@ export class Button {
    * If `fileUpload` is set to `true`, this is the accepted list of file types.
    */
   @Prop() accept?: string = "*";
-
-  /**
-   * The appearance of the button, e.g. dark, light, or the default.
-   */
-  @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
 
   /**
    * @internal Used to identify any related child component
@@ -178,6 +174,11 @@ export class Button {
   @Prop() loading?: boolean = false;
 
   /**
+   * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
+   */
+  @Prop({ mutable: true }) monochrome?: boolean = false;
+
+  /**
    * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
    */
   @Prop() multiple?: boolean = false;
@@ -206,6 +207,11 @@ export class Button {
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
   @Prop() target?: string;
+
+  /**
+   * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+   */
+  @Prop({ mutable: true }) theme?: IcThemeMode = "inherit";
 
   /**
    * The position of the tooltip in relation to the button.
@@ -420,9 +426,9 @@ export class Button {
 
   private updateTheme(newTheme: IcThemeForeground = null): void {
     const foregroundColor = getThemeFromContext(this.el, newTheme);
-
     if (foregroundColor !== IcThemeForegroundEnum.Default) {
-      this.appearance = foregroundColor;
+      this.theme = foregroundColor;
+      this.monochrome = true;
     }
   }
 
@@ -498,11 +504,6 @@ export class Button {
     }
 
     const ButtonContent = () => {
-      const darkAppearance =
-        this.variant.includes("primary") ||
-        this.variant.includes("destructive") ||
-        this.appearance === IcThemeForegroundEnum.Dark ||
-        this.appearance === IcThemeForegroundEnum.Light;
       return (
         <TagType
           class="button"
@@ -534,8 +535,8 @@ export class Button {
             <div class="loading-container">
               <ic-loading-indicator
                 type="linear"
-                monochrome={darkAppearance}
-                theme={darkAppearance ? "dark" : "light"}
+                monochrome={this.monochrome}
+                theme={this.theme}
               ></ic-loading-indicator>
             </div>
           ) : (
@@ -565,12 +566,12 @@ export class Button {
     return (
       <Host
         class={{
+          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+          [`monochrome`]: this.monochrome,
           ["ic-button-disabled"]: this.disabled && !this.loading,
           [`ic-button-variant-${this.variant}`]: true,
           [`ic-button-size-${this.size}`]: true,
           ["ic-button-loading"]: this.loading,
-          ["ic-button-dark"]: this.appearance === IcThemeForegroundEnum.Dark,
-          ["ic-button-light"]: this.appearance === IcThemeForegroundEnum.Light,
           ["ic-button-full-width"]: this.fullWidth,
           ["with-badge"]: isSlotUsed(this.el, "badge"),
           ["dropdown-no-icon"]:
@@ -578,10 +579,10 @@ export class Button {
             !isSlotUsed(this.el, "icon") &&
             !isSlotUsed(this.el, "left-icon"),
           ["top-icon"]: isSlotUsed(this.el, "top-icon"),
-          ["white-background"]:
+          ["background"]:
             this.variant === "secondary" &&
             !this.transparentBackground &&
-            this.appearance !== "light",
+            this.theme === "light",
         }}
         onClick={this.handleClick}
         onKeyDown={this.handleKeyDown}

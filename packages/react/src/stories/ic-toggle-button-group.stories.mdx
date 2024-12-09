@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, Description } from "@storybook/addon-docs";
-import { IcToggleButton, IcToggleButtonGroup } from "../components";
+import { IcToggleButton, IcToggleButtonGroup, IcTypography } from "../components";
 import readme from "../../../web-components/src/components/ic-toggle-button/readme.md";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
@@ -12,7 +12,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
 <Canvas>
   <Story name="Default">
     <>
-      <span>Single and manual</span>
+      <IcTypography>Single and manual</IcTypography>
       <IcToggleButtonGroup
         selectType="single"
         accessibleLabel="Single and manual select toggle group"
@@ -22,7 +22,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
-      <span>Single and auto</span>
+      <IcTypography>Single and auto</IcTypography>
       <IcToggleButtonGroup
         selectType="single"
         selectMethod="auto"
@@ -33,7 +33,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
-      <span>Multi and manual</span>
+      <IcTypography>Multi and manual</IcTypography>
       <IcToggleButtonGroup
         selectType="multi"
         accessibleLabel="Multi and manual select toggle group"
@@ -52,14 +52,14 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
 <Canvas>
   <Story name="Sizes">
     <>
-      <span>Default</span>
+      <IcTypography>Default</IcTypography>
       <IcToggleButtonGroup accessibleLabel="Single and manual select toggle group">
         <IcToggleButton label="First toggle"></IcToggleButton>
         <IcToggleButton label="Second toggle"></IcToggleButton>
         <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
-      <span>Small</span>
+      <IcTypography>Small</IcTypography>
       <IcToggleButtonGroup
         size="small"
         accessibleLabel="Single and manual select toggle group"
@@ -69,7 +69,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
-      <span>Large</span>
+      <IcTypography>Large</IcTypography>
       <IcToggleButtonGroup
         size="large"
         accessibleLabel="Single and manual select toggle group"
@@ -79,7 +79,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
-      <span>Full width</span>
+      <IcTypography>Full width</IcTypography>
       <IcToggleButtonGroup
         fullWidth
         accessibleLabel="Single and manual select toggle group"
@@ -89,7 +89,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
-      <span>Custom width</span>
+      <IcTypography>Custom width</IcTypography>
       <IcToggleButtonGroup
         style={{ width: "50%" }}
         accessibleLabel="Single and manual select toggle group"
@@ -99,7 +99,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
-      <span>Large label</span>
+      <IcTypography>Large label</IcTypography>
       <IcToggleButtonGroup
         style={{ width: "50%" }}
         accessibleLabel="Single and manual select toggle group"
@@ -112,52 +112,20 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
   </Story>
 </Canvas>
 
-### Appearance
+### Monochrome
 
 <Canvas>
-  <Story name="Appearance">
-    <>
-      <span>Light</span>
-      <div
-        style={{
-          backgroundColor: "#2c2f34",
-          padding: "6px 10px",
-          width: "fit-content",
-        }}
-      >
-        <IcToggleButtonGroup
-          appearance="light"
-          accessibleLabel="Single and manual select toggle group"
-        >
-          <IcToggleButton
-            label="First toggle"
-            appearance="light"
-          ></IcToggleButton>
-          <IcToggleButton
-            label="Second toggle"
-            appearance="light"
-          ></IcToggleButton>
-          <IcToggleButton
-            label="Third toggle"
-            appearance="light"
-          ></IcToggleButton>
-        </IcToggleButtonGroup>
-      </div>
-      <br />
-      <span>Dark</span>
+  <Story name="Monochrome">
       <IcToggleButtonGroup
-        appearance="dark"
+        monochrome
         accessibleLabel="Single and manual select toggle group"
       >
-        <IcToggleButton label="First toggle" appearance="dark"></IcToggleButton>
+        <IcToggleButton label="First toggle"></IcToggleButton>
         <IcToggleButton
           label="Second toggle"
-          appearance="dark"
         ></IcToggleButton>
-        <IcToggleButton label="Third toggle" appearance="dark"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
-      <br />
-    </>
   </Story>
 </Canvas>
 
@@ -166,7 +134,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
 <Canvas>
   <Story name="Disabled">
     <>
-      <span>Disabled</span>
+      <IcTypography>Disabled</IcTypography>
       <IcToggleButtonGroup
         disabled
         accessibleLabel="Single and manual select toggle group"
@@ -184,7 +152,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
 <Canvas>
   <Story name="Loading">
     <>
-      <span>Loading</span>
+      <IcTypography>Loading</IcTypography>
       <IcToggleButtonGroup
         loading
         accessibleLabel="Single and manual select toggle group"
@@ -202,7 +170,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
 <Canvas>
   <Story name="With icons">
     <>
-      <span>Icon only</span>
+      <IcTypography>Icon only</IcTypography>
       <IcToggleButtonGroup
         variant="icon"
         accessibleLabel="Single and manual select toggle group"
@@ -233,7 +201,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         </IcToggleButton>
       </IcToggleButtonGroup>
       <br />
-      <span>Icon right</span>
+      <IcTypography>Icon right</IcTypography>
       <IcToggleButtonGroup
         iconPlacement="right"
         accessibleLabel="Single and manual select toggle group"
@@ -266,7 +234,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         </IcToggleButton>
       </IcToggleButtonGroup>
       <br />
-      <span>Icon left</span>
+      <IcTypography>Icon left</IcTypography>
       <IcToggleButtonGroup
         iconPlacement="left"
         accessibleLabel="Single and manual select toggle group"
@@ -299,7 +267,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         </IcToggleButton>
       </IcToggleButtonGroup>
       <br />
-      <span>Icon top</span>
+      <IcTypography>Icon top</IcTypography>
       <IcToggleButtonGroup
         iconPlacement="top"
         accessibleLabel="Single and manual select toggle group"
@@ -339,23 +307,25 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 export const defaultArgs = {
   accessibleLabel: "",
-  appearance: "default",
   disabled: false,
   fullWidth: false,
   iconPlacement: "left",
   loading: false,
+  monochrome: false,
   selectMethod: "manual",
   selectType: "single",
   size: "medium",
+  theme: "inherit",
   variant: "default",
   toggleAccessibleLabel: "",
-  toggleAppearance: "default",
   toggleDisabled: false,
   toggleFullWidth: false,
   toggleIconPlacement: "left",
   label: "Toggle",
   toggleLoading: false,
+  toggleMonochrome: false,
   toggleSize: "default",
+  toggleTheme: "inherit",
   checked: false,
   toggleVariant: "default",
 };
@@ -365,14 +335,6 @@ export const defaultArgs = {
     args={defaultArgs}
     parameters={{ loki: { skip: true } }}
     argTypes={{
-      appearance: {
-        options: [
-          "default", "dark", "light"
-        ],
-        control: {
-          type: "radio",
-        },
-      },
       iconPlacement: {
         options: [
           "left", "right", "top"
@@ -413,14 +375,6 @@ export const defaultArgs = {
           type: "inline-radio",
         },
       },
-      toggleAppearance: {
-        options: [
-          "default", "dark", "light"
-        ],
-        control: {
-          type: "radio",
-        },
-      },
       toggleIconPlacement: {
         options: [
           "left", "right", "top"
@@ -445,31 +399,49 @@ export const defaultArgs = {
           type: "inline-radio",
         },
       },
+      theme: {
+        options: [
+          "inherit", "light", "dark"
+        ],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      toggleTheme: {
+        options: [
+          "inherit", "light", "dark"
+        ],
+        control: {
+          type: "inline-radio",
+        },
+      },
     }}
     name="Playground"
   >
     {(args) => (
       <IcToggleButtonGroup
         accessibleLabel={args.accessibleLabel}
-        appearance={args.appearance}
         disabled={args.disabled}
         fullWidth={args.fullWidth}
         iconPlacement={args.iconPlacement}
         loading={args.loading}
+        monochrome={args.monochrome}
         selectMethod={args.selectMethod}
         selectType={args.selectType}
         size={args.size}
+        theme={args.theme}
         variant={args.variant}
       >
         <IcToggleButton
           accessibleLabel={args.toggleAccessibleLabel}
-          appearance={args.toggleAppearance}
           disabled={args.toggleDisabled}
           fullWidth={args.toggleFullWidth}
           iconPlacement={args.toggleIconPlacement}
           loading={args.toggleLoading}
+          monochrome={args.toggleMonochrome}
           size={args.toggleSize}
           checked={args.checked}
+          theme={args.toggleTheme}
           variant={args.toggleVariant}
           label={args.label}
         >

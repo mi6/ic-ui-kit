@@ -12,26 +12,45 @@
 
   --ic-input-label-helpertext-padding: var(--ic-space-xxs);
   --menu-max-height: 100px;
+  --border-color: var(--ic-select-field-border);
+  --border-color-hover: var(--ic-select-field-border-hover);
+  --border-color-pressed: var(--ic-select-field-border-pressed);
+  --border-color-disabled: var(--ic-select-field-border-disabled);
+  --border-color-error: var(--ic-select-field-border-error);
+  --border-color-error-hover: var(--ic-select-field-border-error-hover);
+  --border-color-error-pressed: var(--ic-select-field-border-error-pressed);
+  --border-color-success: var(--ic-select-field-border-success);
+  --border-color-success-hover: var(--ic-select-field-border-success-hover);
+  --border-color-success-pressed: var(--ic-select-field-border-success-pressed);
+  --border-color-warning: var(--ic-select-field-border-warning);
+  --border-color-warning-hover: var(--ic-select-field-border-warning-hover);
+  --border-color-warning-pressed: var(--ic-select-field-border-warning-pressed);
+  --ic-input-label-text-color: var(--ic-select-field-labe);
+  --ic-input-label-helper-text-color: var(
+    --ic-select-input-field-label-subtitle
+  );
+  --ic-input-validation-status-text-color: var(--ic-select-state-text);
+  --ic-input-validation-error: var(--ic-select-state-icon-error);
+  --ic-input-validation-warning-icon-color: var(--ic-select-state-icon-warning);
+  --ic-input-validation-success-icon-color: var(--ic-select-state-icon-success);
+  --menu-item-text-color: var(--ic-select-list-option-text);
+  --menu-bg-color: var(--ic-select-list-option-background);
+  --menu-border-color: var(--ic-select-dropdown-list-border);
+}
+
+:host(.ic-select-disabled) {
+  --ic-input-label-text-color: var(--ic-select-field-label-disabled);
+  --ic-input-label-helper-text-color: var(
+    --ic-select-input-field-label-subtitle-disabled
+  );
 }
 
 :host(.ic-select-full-width) {
   width: 100%;
 }
 
-ic-input-component-container:hover {
-  --border-color: var(--ic-action-dark-hover);
-}
-
-ic-input-component-container:active {
-  --border-color: var(--ic-action-dark-pressed);
-
-  color: var(--ic-action-dark-pressed);
-}
-
 ic-input-component-container.menu-open {
-  --border-color: var(--ic-architectural-400);
-
-  color: var(--ic-action-dark);
+  --border-color: var(--ic-select-field-border-pressed);
 }
 
 ic-input-validation .status-icon,
@@ -52,8 +71,8 @@ ic-input-label {
 select {
   border: 0;
   border-radius: var(--ic-border-radius);
-  background-color: var(--ic-architectural-white);
-  color: var(--ic-color-text-primary);
+  background-color: var(--ic-select-field-background);
+  color: var(--ic-select-content-text);
   line-height: 1.5rem;
   letter-spacing: 0.005rem;
   width: 100%;
@@ -62,17 +81,18 @@ select {
   appearance: none;
   background-repeat: no-repeat;
   background-position: right 0.375rem center;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-image: var(--ic-select-mobile-dropdown-icon);
+  caret-color: var(--ic-select-input-field-text-cursor);
 }
 
 select option,
 .select-option-selected {
-  color: var(--ic-color-text-primary);
+  color: var(--ic-select-list-option-text);
 }
 
 select:disabled {
-  color: var(--ic-architectural-200);
-  background-image: url("data:image/svg+xml;utf8,<svg fill='grey' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  color: var(--ic-select-content-text-disabled);
+  background-image: var(--ic-select-mobile-dropdown-icon-disabled);
 }
 
 select:focus {
@@ -101,16 +121,12 @@ select:not([disabled]) {
   justify-content: space-between;
   background: none;
   border: none;
+  background-color: var(--ic-select-field-background);
+  color: var(--ic-select-content-text);
 }
 
 .select-input:focus {
   outline: var(--ic-hc-focus-outline);
-}
-
-:host(:not(.ic-select-disabled))
-  ic-input-component-container:hover
-  .select-input {
-  background-color: var(--ic-architectural-white);
 }
 
 .select-input[disabled] {
@@ -148,7 +164,7 @@ select:not([disabled]) {
 .expand-icon {
   height: var(--ic-space-lg);
   padding-left: var(--ic-space-xxs);
-  color: var(--ic-action-dark);
+  color: var(--ic-select-expand-icon-color);
 }
 
 .expand-icon > svg {
@@ -159,7 +175,7 @@ select:not([disabled]) {
 
 :host(.ic-select-disabled) .expand-icon,
 :host(.ic-select-disabled) .expand-icon > svg > path {
-  color: var(--ic-architectural-200);
+  color: var(--ic-select-disabled-expand-icon-color);
 }
 
 :host(.ic-select-searchable) .expand-icon {
@@ -178,7 +194,7 @@ select:not([disabled]) {
 }
 
 .expand-icon-open {
-  color: var(--ic-action-dark);
+  color: var(--ic-select-expand-icon-color);
 }
 
 .expand-icon-open,
@@ -188,7 +204,7 @@ select:not([disabled]) {
 
 :host(.ic-select-disabled) .value-text,
 .placeholder {
-  color: var(--ic-color-text-tertiary);
+  color: var(--ic-select-content-placeholder-text);
 }
 
 .select-input-end {
@@ -203,7 +219,7 @@ select:not([disabled]) {
 
 .divider {
   width: var(--ic-space-1px);
-  background-color: var(--ic-architectural-400);
+  background-color: var(--ic-select-content-divider);
   margin: var(--ic-space-xxs) 0;
   border-radius: var(--ic-space-1px);
   height: var(--ic-space-lg);
@@ -218,6 +234,7 @@ select:not([disabled]) {
 }
 
 .clear-button {
+  color: var(--ic-select-clear-button);
   position: absolute;
   right: calc(var(--ic-space-xl) + var(--ic-space-xxs) - var(--ic-space-1px));
   border-radius: var(--ic-border-radius);
@@ -229,10 +246,6 @@ select:not([disabled]) {
   background-color: var(--ic-color-focus-inner);
   box-shadow: inset 0 0 0 0.125rem var(--ic-color-focus-outer);
   border-radius: 0.25rem;
-}
-
-.clear-button:focus * {
-  fill: white;
 }
 
 .clear-button.searchable {
@@ -252,11 +265,11 @@ select:not([disabled]) {
 }
 
 ::slotted([slot="icon"]) {
-  fill: var(--ic-color-text-tertiary);
+  fill: var(--ic-select-content-placeholder-text);
 }
 
 .has-value ::slotted([slot="icon"]) {
-  fill: var(--ic-color-text-primary);
+  fill: var(--ic-select-content-text);
 }
 
 .readonly ::slotted([slot="icon"]) {

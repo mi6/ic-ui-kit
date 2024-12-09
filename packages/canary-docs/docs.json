@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
-      "readme": "# ic-horizontal-card\r\n\r\n\r\n\r",
+      "readme": "# ic-horizontal-card\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -426,7 +426,7 @@
       "filePath": "src/components/ic-data-table/ic-data-table.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table",
-      "readme": "# ic-data-table\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -544,7 +544,7 @@
               "type": "IcDataTableDataType[]"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -705,17 +705,11 @@
         },
         {
           "name": "loadingOptions",
-          "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }",
+          "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }",
           "complexType": {
-            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    showBackground?: boolean;\n    monochrome?: boolean;\n  }",
-            "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }",
-            "references": {
-              "IcThemeForegroundNoDefault": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/utils/types",
-                "id": "../web-components/dist/types/utils/types.d.ts::IcThemeForegroundNoDefault"
-              }
-            }
+            "original": "{\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    showBackground?: boolean;\n    monochrome?: boolean;\n  }",
+            "resolved": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }",
+            "references": {}
           },
           "mutable": false,
           "reflectToAttr": false,
@@ -723,7 +717,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }"
+              "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; }"
             }
           ],
           "optional": true,
@@ -811,7 +805,7 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
           "docsTags": [],
-          "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n    hideAllFromItemsPerPage: false,\n    theme: \"inherit\",\n    monochrome: false,\n  }",
+          "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n    hideAllFromItemsPerPage: false,\n    monochrome: false,\n  }",
           "values": [
             {
               "type": "IcPaginationBarOptions"
@@ -963,6 +957,43 @@
           "required": false
         },
         {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "truncationPattern",
           "type": "\"show-hide\" | \"tooltip\"",
           "complexType": {
@@ -1018,17 +1049,11 @@
         },
         {
           "name": "updatingOptions",
-          "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
+          "type": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
           "complexType": {
-            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n  }",
-            "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
-            "references": {
-              "IcThemeForegroundNoDefault": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/utils/types",
-                "id": "../web-components/dist/types/utils/types.d.ts::IcThemeForegroundNoDefault"
-              }
-            }
+            "original": "{\n    description?: string;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n  }",
+            "resolved": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
+            "references": {}
           },
           "mutable": false,
           "reflectToAttr": false,
@@ -1036,7 +1061,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }"
+              "type": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }"
             }
           ],
           "optional": true,
@@ -1295,7 +1320,7 @@
       "filePath": "src/components/ic-data-table-title-bar/ic-data-table-title-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table-title-bar",
-      "readme": "# ic-data-table-title-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table-title-bar\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1494,7 +1519,7 @@
       "filePath": "src/components/ic-date-input/ic-date-input.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-input",
-      "readme": "# ic-date-input\r\n\r\n\r\n\r",
+      "readme": "# ic-date-input\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1989,6 +2014,43 @@
           "required": false
         },
         {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the date picker to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
@@ -2220,7 +2282,7 @@
       "filePath": "src/components/ic-date-picker/ic-date-picker.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-picker",
-      "readme": "# ic-date-picker\r\n\r\n\r\n\r",
+      "readme": "# ic-date-picker\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2833,6 +2895,43 @@
           "required": false
         },
         {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the date picker to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
@@ -3015,7 +3114,7 @@
       "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-bar",
-      "readme": "# ic-pagination-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination-bar\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3295,8 +3394,8 @@
             "references": {
               "IcThemeMode": {
                 "location": "import",
-                "path": "@ukic/web-components/dist/types/interface",
-                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
               }
             }
           },
@@ -3498,7 +3597,7 @@
       "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-item",
-      "readme": "# ic-tree-item\r\n\r\n\r\n\r",
+      "readme": "# ic-tree-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -3756,8 +3855,8 @@
             "references": {
               "IcThemeMode": {
                 "location": "import",
-                "path": "@ukic/web-components",
-                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
               }
             }
           },
@@ -3867,7 +3966,7 @@
       "filePath": "src/components/ic-tree-view/ic-tree-view.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-view",
-      "readme": "# ic-tree-view\r\n\r\n\r\n\r",
+      "readme": "# ic-tree-view\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -3971,8 +4070,8 @@
             "references": {
               "IcThemeMode": {
                 "location": "import",
-                "path": "@ukic/web-components",
-                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
               }
             }
           },
@@ -4074,11 +4173,6 @@
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
-    "../web-components/dist/types/utils/types.d.ts::IcThemeForegroundNoDefault": {
-      "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
-      "docstring": "",
-      "path": "../web-components/dist/types/utils/types.d.ts"
-    },
     "src/utils/types.ts::IcPaginationBarOptions": {
       "declaration": "export interface IcPaginationBarOptions {\n  itemsPerPageOptions?: { label: string; value: string }[];\n  rangeLabelType?: IcPaginationLabelTypes;\n  type?: IcPaginationTypes;\n  showItemsPerPageControl?: boolean;\n  showGoToPageControl?: boolean;\n  alignment?: IcPaginationAlignmentOptions;\n  itemLabel?: string;\n  pageLabel?: string;\n  hideRangeLabel?: boolean;\n  hideAllFromItemsPerPage?: boolean;\n  theme?: IcThemeMode;\n  monochrome?: boolean;\n}",
       "docstring": "",
@@ -4103,11 +4197,6 @@
       "declaration": "export type IcPaginationAlignmentOptions = \"left\" | \"right\" | \"space-between\";",
       "docstring": "",
       "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
-    },
-    "../web-components/dist/types/interface.d.ts::IcThemeMode": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "../web-components/dist/types/interface.d.ts"
     },
     "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationTypes": {
       "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",
@@ -4148,11 +4237,6 @@
       "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
       "docstring": "",
       "path": "src/utils/types.ts"
-    },
-    "../web-components/dist/types/interface.d.ts::IcThemeMode": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "../web-components/dist/types/interface.d.ts"
     }
   }
 }

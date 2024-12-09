@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property  | Attribute | Description                  | Type     | Default |
-| --------- | --------- | ---------------------------- | -------- | ------- |
-| `status`  | `status`  | The status info to display.  | `string` | `""`    |
-| `version` | `version` | The version info to display. | `string` | `""`    |
+| Property  | Attribute | Description                                                                                                                             | Type                             | Default     |
+| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------- |
+| `status`  | `status`  | The status info to display.                                                                                                             | `string`                         | `""`        |
+| `theme`   | `theme`   | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"` | `"inherit"` |
+| `version` | `version` | The version info to display.                                                                                                            | `string`                         | `""`        |
 
 
 ## Slots

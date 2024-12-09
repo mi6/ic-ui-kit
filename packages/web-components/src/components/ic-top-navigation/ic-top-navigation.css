@@ -2,15 +2,42 @@
 
 :host {
   display: block;
-  color: var(--ic-theme-text);
+  color: var(--ic-top-navigation-text);
   width: 100%;
   position: relative;
 
-  --ic-typography-color: currentcolor;
+  --ic-typography-color: var(--ic-top-navigation-text);
+
+  --ic-button-secondary-text-monochrome: var(--ic-theme-text);
+  --ic-button-secondary-border-monochrome: var(--ic-theme-text);
+}
+
+:host(.dark) {
+  color: var(--ic-color-text-primary-light);
+  --ic-typography-color: var(--ic-color-text-primary-light);
+  --ic-top-navigation-logo: var(--ic-color-icon-neutral);
+  --ic-top-navigation-icon: var(--ic-color-icon-neutral);
+  --ic-top-navigation-theme: var(--ic-color-icon-neutral);
+  --ic-top-navigation-status-tag: var(--ic-color-background-primary-dark);
+  --ic-top-navigation-status-tag-text: var(--ic-color-brand-text);
+  --ic-top-navigation-status-tag-secondary: var(--ic-state-layer-darken-10);
+  --navigation-link-colour: var(--ic-color-text-primary-light);
+}
+
+:host ::slotted(ic-navigation-item) {
+  --navigation-link-colour: var(--ic-top-navigation-text);
+}
+
+:host(.dark) ::slotted(ic-navigation-button) {
+  --ic-button-icon-monochrome: var(--ic-color-text-primary-light);
+}
+
+::slotted(ic-navigation-button) {
+  --ic-button-icon-monochrome: white;
 }
 
 :host .top-navigation {
-  background-color: var(--ic-theme-primary);
+  background-color: var(--ic-top-navigation-background);
   height: max-content;
 }
 
@@ -32,17 +59,17 @@
 :host .title-link ::slotted(a),
 :host .title-link:visited ::slotted(a),
 :host .title-link:active ::slotted(a) {
-  color: var(--ic-theme-text);
+  color: var(--ic-top-navigation-icon-and-label);
   text-decoration: none;
   outline: none;
 }
 
 :host .title-link:hover:not(:focus) {
-  background-color: var(--ic-theme-hover);
+  background-color: var(--ic-top-navigation-title-hover);
 }
 
 :host .title-link:active:not(:focus) {
-  background-color: var(--ic-theme-active);
+  background-color: var(--ic-top-navigation-title-pressed);
 }
 
 :host .title-link:hover {
@@ -61,7 +88,7 @@
 }
 
 :host .nav-panel-container {
-  border-top: var(--ic-border-keyline-lighten);
+  border-top: var(--ic-space-1px) solid var(--ic-top-navigation-keyline);
   padding: 0 var(--ic-space-lg);
   margin-left: calc(-1 * var(--section-container-margin));
   margin-right: calc(-1 * var(--section-container-margin));
@@ -113,22 +140,19 @@
 
 :host .app-status {
   border-radius: var(--ic-space-md);
-  background-color: var(--ic-architectural-white);
-  color: var(--ic-color-text-primary-light);
+  background-color: var(--ic-top-navigation-status-tag);
+  color: var(--ic-top-navigation-status-tag-text);
+  --ic-typography-color: var(--ic-top-navigation-status-tag-text);
   padding: var(--ic-space-xxs) var(--ic-space-lg);
   margin-left: var(--ic-space-md);
   flex: 1 1 0;
   max-width: fit-content;
 }
 
-:host(.dark) .app-status {
-  background-color: var(--ic-theme-text);
-  color: var(--ic-architectural-white);
-}
-
 :host .app-version {
   border-radius: var(--ic-space-md);
-  background-color: var(--ic-theme-active);
+  background-color: var(--ic-top-navigation-status-tag-secondary);
+  color: var(--ic-top-navigation-status-tag);
   padding: var(--ic-space-xxs) var(--ic-space-sm);
   margin-left: var(--ic-space-xs);
   flex: 1 1 0;
@@ -136,13 +160,13 @@
 }
 
 slot[name="app-icon"]::slotted(*) {
-  fill: var(--ic-theme-text);
+  fill: var(--ic-top-navigation-logo);
   width: 2em;
   height: 2em;
 }
 
 slot[name="toggle-icon"] svg {
-  fill: var(--ic-theme-text);
+  fill: var(--ic-top-navigation-icon);
 }
 
 .search-menu-container {

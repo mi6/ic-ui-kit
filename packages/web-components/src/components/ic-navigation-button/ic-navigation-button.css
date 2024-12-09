@@ -14,3 +14,17 @@
   height: 100%;
   min-height: 2.5rem;
 }
+
+:host(.in-side-menu) ::part(button) {
+  color: var(--ic-top-navigation-icon-active);
+}
+
+:host(.in-side-menu) ::part(button):hover {
+  color: var(--ic-top-navigation-icon-hover);
+  background-color: var(--ic-top-navigation-icon-hover-background);
+}
+
+:host(.in-side-menu) ::part(button):active {
+  color: var(--ic-top-navigation-icon-pressed);
+  background-color: var(--ic-top-navigation-icon-pressed-background);
+}

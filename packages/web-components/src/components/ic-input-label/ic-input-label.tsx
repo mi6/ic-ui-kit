@@ -11,11 +11,6 @@ import {
 })
 export class InputLabel {
   /**
-   * The appearance of the input label.
-   */
-  @Prop() appearance?: "dark" | "default" = "default";
-
-  /**
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
@@ -76,37 +71,31 @@ export class InputLabel {
       helperText,
       status,
       hideLabel,
-      appearance,
       useLabelTag,
     } = this;
     const labelText = required ? label + " *" : label;
-    const labelContent =
-      readonly || !useLabelTag ? (
-        `${labelText}`
-      ) : (
-        <label htmlFor={this.for}>{labelText}</label>
-      );
-
-    const id = getInputHelperTextID(this.for);
 
     return (
       <Host
         class={{
-          ["ic-input-label-disabled"]: disabled,
-          ["ic-input-label-readonly"]: readonly,
-          ["with-helper"]: helperText !== "",
+          "ic-input-label-disabled": disabled,
+          "ic-input-label-readonly": readonly,
+          "with-helper": helperText !== "",
         }}
       >
         {!hideLabel && (
           <ic-typography
             variant="label"
             class={{
-              ["readonly-label"]: readonly,
-              ["error-label"]: status === "error" && !(readonly || disabled),
-              ["dark"]: appearance === "dark",
+              "readonly-label": readonly,
+              "error-label": status === "error" && !(readonly || disabled),
             }}
           >
-            {labelContent}
+            {readonly || !useLabelTag ? (
+              `${labelText}`
+            ) : (
+              <label htmlFor={this.for}>{labelText}</label>
+            )}
           </ic-typography>
         )}
 
@@ -114,12 +103,12 @@ export class InputLabel {
           <ic-typography
             variant="caption"
             class={{
-              ["helpertext"]: true,
-              ["helpertext-normal"]: !disabled && !readonly,
-              ["helpertext-readonly"]: readonly,
+              helpertext: true,
+              "helpertext-normal": !disabled && !readonly,
+              "helpertext-readonly": readonly,
             }}
           >
-            <span id={id}>{helperText}</span>
+            <span id={getInputHelperTextID(this.for)}>{helperText}</span>
           </ic-typography>
         )}
       </Host>

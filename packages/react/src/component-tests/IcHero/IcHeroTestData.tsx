@@ -130,7 +130,6 @@ export const WithCard = () => {
         style={{
           width: "300px",
         }}
-        theme="dark"
       />
     </IcHero>
   );
@@ -199,10 +198,10 @@ export const LongHeading = () => {
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="center"
     >
-      <IcButton variant="primary" appearance="light" slot="interaction">
+      <IcButton variant="primary" slot="interaction">
         Button
       </IcButton>
-      <IcButton variant="secondary" appearance="light" slot="interaction">
+      <IcButton variant="secondary" slot="interaction">
         Button
       </IcButton>
       <IcLink
@@ -216,7 +215,6 @@ export const LongHeading = () => {
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
         slot="secondary"
-        theme="dark"
       />
     </IcHero>
   );
@@ -239,61 +237,45 @@ export const FullWidth = () => {
   );
 };
 
-export const Theme = () => {
-  const [color, setColour] = useState("rgb(255, 201, 60)");
-  const [theme, setTheme] = useState<IcThemeMode>("light");
-  const defaultButtonClickHandler = () => {
-    setColour("rgb(27, 60, 121)");
-    setTheme("dark");
-  };
-  const differentButtonClickHandler = () => {
-    setColour("rgb(255, 201, 60)");
-    setTheme("light");
-  };
+export const LightBrand = () => {
   return (
     <>
-      <IcTheme color={color} />
-      <IcButton variant="primary" onClick={defaultButtonClickHandler}>
-        Default theme
-      </IcButton>
-      <IcButton variant="primary" onClick={differentButtonClickHandler}>
-        Sunrise theme
-      </IcButton>
-      <IcHero
-        heading="Hero heading"
-        subheading="Hero description. This is a Hero component, it should be used as a page heading."
-        aligned="center"
-      >
-        <div slot="interaction" style={{ display: "flex" }}>
-          <IcTextField
-            placeholder="Filter display"
-            label="Filter display"
-            hide-label
-          />
-          <IcButton
-            variant="primary"
-            style={{ marginLeft: "var(--ic-space-md)" }}
-          >
-            Filter
-          </IcButton>
-        </div>
-        <IcButton variant="secondary" slot="interaction">
-          See all
-        </IcButton>
-        <IcLink
-          href="https://google.com"
-          slot="interaction"
-          style={{ marginTop: "var(--ic-space-sm)" }}
+      <IcTheme color={"rgb(255, 201, 60)"}>
+        <IcHero
+          heading="Hero heading"
+          subheading="Hero description. This is a Hero component, it should be used as a page heading."
+          aligned="center"
         >
-          Help
-        </IcLink>
-        <IcCardVertical
-          heading="Latest announcement"
-          message="This is some example text that can be included in the card copy."
-          slot="secondary"
-          theme={theme}
-        />
-      </IcHero>
+          <div slot="interaction" style={{ display: "flex" }}>
+            <IcTextField
+              placeholder="Filter display"
+              label="Filter display"
+              hide-label
+            />
+            <IcButton
+              variant="primary"
+              style={{ marginLeft: "var(--ic-space-md)" }}
+            >
+              Filter
+            </IcButton>
+          </div>
+          <IcButton variant="secondary" slot="interaction">
+            See all
+          </IcButton>
+          <IcLink
+            href="https://google.com"
+            slot="interaction"
+            style={{ marginTop: "var(--ic-space-sm)" }}
+          >
+            Help
+          </IcLink>
+          <IcCardVertical
+            heading="Latest announcement"
+            message="This is some example text that can be included in the card copy."
+            slot="secondary"
+          />
+        </IcHero>
+      </IcTheme>
     </>
   );
 };

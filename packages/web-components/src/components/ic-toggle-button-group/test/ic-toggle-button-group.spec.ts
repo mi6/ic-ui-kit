@@ -200,4 +200,27 @@ describe("ic-toggle-button-group component unit tests", () => {
 
     await page.rootInstance.disconnectedCallback();
   });
+  it("should test that setting the theme prop on toggle-button-group sets the theme on all toggle buttons", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButtonGroup, ToggleButton, Button],
+      html: `<ic-toggle-button-group theme="dark">
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+            </ic-toggle-button-group>`,
+    });
+
+    const toggleGroup = (await document.querySelector(
+      "ic-toggle-button-group"
+    )) as HTMLIcToggleButtonGroupElement;
+    const buttons = await Array.from(
+      toggleGroup.querySelectorAll("ic-toggle-button")
+    );
+    await page.rootInstance.watchThemeHandler("dark");
+    await page.waitForChanges();
+
+    expect(buttons[0].theme).toBe("dark");
+    expect(buttons[1].theme).toBe("dark");
+    expect(buttons[2].theme).toBe("dark");
+  });
 });

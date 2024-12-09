@@ -13,6 +13,7 @@ import {
   WithNavItemsSideNav,
   AllNavTypesTopNav,
   AllNavTypesSideNav,
+  ThemeDarkTopNav,
 } from "./IcNavigationMenuTestData";
 import {
   HAVE_BEEN_CALLED_ONCE,
@@ -368,6 +369,19 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.compareSnapshot({
         name: "nav-button-focused-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
+      });
+    });
+
+    it("should render with dark theme", () => {
+      mount(<ThemeDarkTopNav />);
+
+      cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
+      cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
+
+      // cy.checkA11yWithWait(undefined, 250); a11y error with unique landmarks
+      cy.compareSnapshot({
+        name: "theme-dark-top-nav",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
       });
     });
   });

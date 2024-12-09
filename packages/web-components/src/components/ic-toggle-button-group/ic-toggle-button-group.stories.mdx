@@ -21,7 +21,7 @@ import readme from "./readme.md";
   <Story name="Select type" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`
-        <span>Single and manual</span>
+        <ic-typography>Single and manual</ic-typography>
         <ic-toggle-button-group
           select-type="single"
           accessible-label="Single and manual select toggle group"
@@ -31,7 +31,7 @@ import readme from "./readme.md";
           <ic-toggle-button label="Third toggle"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Single and auto</span>
+        <ic-typography>Single and auto</ic-typography>
         <ic-toggle-button-group
           select-method="auto"
           accessible-label="Single and auto select toggle group"
@@ -41,7 +41,7 @@ import readme from "./readme.md";
           <ic-toggle-button label="Third toggle"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Multi and manual</span>
+        <ic-typography>Multi and manual</ic-typography>
         <ic-toggle-button-group
           select-type="multi"
           accessible-label="Multi and manual select toggle group"
@@ -61,14 +61,14 @@ import readme from "./readme.md";
   <Story name="Sizes" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`
-        <span>Default</span>
+        <ic-typography>Default</ic-typography>
         <ic-toggle-button-group label="Label for single and manual" accessible-label="Single and manual select toggle group">
         <ic-toggle-button label="First toggle"></ic-toggle-button>
         <ic-toggle-button label="Second toggle"></ic-toggle-button>
         <ic-toggle-button label="Third toggle"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Small</span>
+        <ic-typography>Small</ic-typography>
         <ic-toggle-button-group size="small" accessible-label="Single and manual select toggle group"
         >
         <ic-toggle-button label="First toggle" size="small"></ic-toggle-button>
@@ -76,7 +76,7 @@ import readme from "./readme.md";
         <ic-toggle-button label="Third toggle" size="small"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Large</span>
+        <ic-typography>Large</ic-typography>
         <ic-toggle-button-group size="large" accessible-label="Single and manual select toggle group"
         >
         <ic-toggle-button label="First toggle" size="large"></ic-toggle-button>
@@ -84,7 +84,7 @@ import readme from "./readme.md";
         <ic-toggle-button label="Third toggle" size="large"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Full width</span>
+        <ic-typography>Full width</ic-typography>
         <ic-toggle-button-group
           full-width="true" accessible-label="Single and manual select toggle group"
         >
@@ -93,7 +93,7 @@ import readme from "./readme.md";
         <ic-toggle-button label="Third toggle" full-width="true"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Custom width</span>
+        <ic-typography>Custom width</ic-typography>
         <ic-toggle-button-group
          style="width: 75%;" label="Label for single and manual" accessible-label="Single and manual select toggle group"
         >
@@ -102,7 +102,7 @@ import readme from "./readme.md";
         <ic-toggle-button label="Third toggle"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Large label</span>
+        <ic-typography>Large label</ic-typography>
         <ic-toggle-button-group style="width: 40%;" accessible-label="Single and manual select toggle group"
         >
           <ic-toggle-button label="Toggle"></ic-toggle-button>
@@ -114,52 +114,28 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### Appearance
+### Monochrome
 
 <Canvas>
-  <Story name="Appearance" parameters={{ loki: { skip: true } }}>
+  <Story name="Monochrome" parameters={{ loki: { skip: true } }}>
     {(args) =>
-      html`<span>Light</span>
-        <div
-          style="background-color:#2c2f34; padding:6px 10px; width:fit-content"
-        >
-          <ic-toggle-button-group
-            appearance="light"
-            accessible-label="Single and manual select toggle group"
-          >
-            <ic-toggle-button
-              label="First toggle"
-              appearance="light"
-            ></ic-toggle-button>
-            <ic-toggle-button
-              label="Second toggle"
-              appearance="light"
-            ></ic-toggle-button>
-            <ic-toggle-button
-              label="Third toggle"
-              appearance="light"
-            ></ic-toggle-button>
-          </ic-toggle-button-group>
-        </div>
-        <br />
-        <span>Dark</span>
-        <ic-toggle-button-group
-          appearance="dark"
-          accessible-label="Single and manual select toggle group"
-        >
-          <ic-toggle-button
-            label="First toggle"
-            appearance="dark"
-          ></ic-toggle-button>
-          <ic-toggle-button
-            label="Second toggle"
-            appearance="dark"
-          ></ic-toggle-button>
-          <ic-toggle-button
-            label="Third toggle"
-            appearance="dark"
-          ></ic-toggle-button>
-        </ic-toggle-button-group> `
+      html`<ic-toggle-button-group
+        monochrome="true"
+        accessible-label="Single and manual select toggle group"
+      >
+        <ic-toggle-button
+          label="First toggle"
+          monochrome="true"
+        ></ic-toggle-button>
+        <ic-toggle-button
+          label="Second toggle"
+          monochrome="true"
+        ></ic-toggle-button>
+        <ic-toggle-button
+          label="Third toggle"
+          monochrome="true"
+        ></ic-toggle-button>
+      </ic-toggle-button-group>`
     }
   </Story>
 </Canvas>
@@ -169,7 +145,7 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Disabled" parameters={{ loki: { skip: true } }}>
     {(args) =>
-      html`<span>Disabled</span>
+      html`<ic-typography>Disabled</ic-typography>
         <ic-toggle-button-group
           disabled="true"
           accessible-label="Single and manual select toggle group"
@@ -196,8 +172,7 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Loading" parameters={{ loki: { skip: true } }}>
     {(args) =>
-      html`<span>Loading default</span>
-        <ic-toggle-button-group
+      html`<ic-toggle-button-group
           loading="true"
           accessible-label="Single and manual select toggle group"
         >
@@ -215,53 +190,25 @@ import readme from "./readme.md";
           ></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Loading light</span>
-        <div
-          style="background-color:#2c2f34; padding:6px 10px; width:fit-content"
-        >
-          <ic-toggle-button-group
-            loading="true"
-            appearance="light"
-            accessible-label="Single and manual select toggle group"
-          >
-            <ic-toggle-button
-              label="First toggle"
-              loading="true"
-              appearance="light"
-            ></ic-toggle-button>
-            <ic-toggle-button
-              label="Second toggle"
-              loading="true"
-              appearance="light"
-            ></ic-toggle-button>
-            <ic-toggle-button
-              label="Third toggle"
-              loading="true"
-              appearance="light"
-            ></ic-toggle-button>
-          </ic-toggle-button-group>
-        </div>
-        <br />
-        <span>Loading dark</span>
         <ic-toggle-button-group
           loading="true"
-          appearance="dark"
+          monochrome="true"
           accessible-label="Single and manual select toggle group"
         >
           <ic-toggle-button
             label="First toggle"
             loading="true"
-            appearance="dark"
+            monochrome="true"
           ></ic-toggle-button>
           <ic-toggle-button
             label="Second toggle"
             loading="true"
-            appearance="dark"
+            monochrome="true"
           ></ic-toggle-button>
           <ic-toggle-button
             label="Third toggle"
             loading="true"
-            appearance="dark"
+            monochrome="true"
           ></ic-toggle-button>
         </ic-toggle-button-group> `
     }
@@ -273,7 +220,7 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="With icons" parameters={{ loki: { skip: true } }}>
     {(args) =>
-      html`<span>Icon only</span>
+      html`<ic-typography>Icon only</ic-typography>
         <ic-toggle-button-group
           variant="icon"
           accessible-label="A group of buttons"
@@ -308,7 +255,7 @@ import readme from "./readme.md";
           </ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Icon right</span>
+        <ic-typography>Icon right</ic-typography>
         <ic-toggle-button-group
           icon-placement="right"
           accessible-label="Single and manual select toggle group"
@@ -345,7 +292,7 @@ import readme from "./readme.md";
           </ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Icon top</span>
+        <ic-typography>Icon top</ic-typography>
         <ic-toggle-button-group
           icon-placement="top"
           accessible-label="Single and manual select toggle group"
@@ -382,7 +329,7 @@ import readme from "./readme.md";
           </ic-toggle-button>
         </ic-toggle-button-group>
         <br />
-        <span>Icon left</span>
+        <ic-typography>Icon left</ic-typography>
         <ic-toggle-button-group
           icon-placement="left"
           accessible-label="Single and manual select toggle group"
@@ -426,24 +373,26 @@ import readme from "./readme.md";
 
 export const defaultArgs = {
   accessibleLabel: "",
-  appearance: "default",
   disabled: false,
   fullWidth: false,
   iconPlacement: "left",
   loading: false,
+  monochrome: false,
   selectMethod: "manual",
   selectType: "single",
   size: "medium",
+  theme: "inherit",
   variant: "default",
   toggleAccessibleLabel: "",
-  toggleAppearance: "default",
   toggleDisabled: false,
   toggleFullWidth: false,
   toggleIconPlacement: "left",
   label: "Toggle",
   toggleLoading: false,
+  toggleMonochrome: false,
   toggleSize: "default",
-  toggleChecked: false,
+  toggleTheme: "inherit",
+  checked: false,
   toggleVariant: "default",
 };
 
@@ -452,12 +401,6 @@ export const defaultArgs = {
     args={defaultArgs}
     parameters={{ loki: { skip: true } }}
     argTypes={{
-      appearance: {
-        options: ["default", "dark", "light"],
-        control: {
-          type: "radio",
-        },
-      },
       iconPlacement: {
         options: ["left", "right", "top"],
         control: {
@@ -488,12 +431,6 @@ export const defaultArgs = {
           type: "inline-radio",
         },
       },
-      toggleAppearance: {
-        options: ["default", "dark", "light"],
-        control: {
-          type: "radio",
-        },
-      },
       toggleIconPlacement: {
         options: ["left", "right", "top"],
         control: {
@@ -512,32 +449,46 @@ export const defaultArgs = {
           type: "inline-radio",
         },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      toggleTheme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
     }}
     name="Playground"
   >
     {(args) =>
       html`<ic-toggle-button-group
         accessible-label=${args.accessibleLabel}
-        appearance=${args.appearance}
         disabled=${args.disabled}
         full-width=${args.fullWidth}
         icon-placement=${args.iconPlacement}
         loading=${args.loading}
+        monochrome=${args.monochrome}
         select-method=${args.selectMethod}
         select-type=${args.selectType}
         size=${args.size}
+        theme=${args.theme}
         variant=${args.variant}
       >
         <ic-toggle-button
           accessible-label=${args.toggleAccessibleLabel}
-          appearance=${args.toggleAppearance}
           disabled=${args.toggleDisabled}
           full-width=${args.toggleFullWidth}
           icon-placement=${args.toggleIconPlacement}
           loading=${args.toggleLoading}
+          monochrome=${args.toggleMonochrome}
           size=${args.toggleSize}
-          checked=${args.toggleChecked}
+          checked=${args.checked}
           variant=${args.toggleVariant}
+          theme=${args.toggleTheme}
           label=${args.label}
         >
           <svg

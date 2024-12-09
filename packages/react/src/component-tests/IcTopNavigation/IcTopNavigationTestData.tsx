@@ -107,7 +107,7 @@ export const IconButtons = (): ReactElement => {
       <IcSearchBar slot="search" label="Search" placeholder="Search" />
       <IcNavigationButton label="Button One" slot="buttons">
         <ReusableIcon />
-        <IcBadge textLabel="1" slot="badge" position="near" variant="light" />
+        <IcBadge label="1" slot="badge" position="near" variant="light" />
       </IcNavigationButton>
       <IcNavigationButton label="Button Two" slot="buttons">
         <SlottedSVG
@@ -324,5 +324,35 @@ export const Theme = (): ReactElement => {
         <IcNavigationItem slot="navigation" label="Three" href="/" selected />
       </IcTopNavigation>
     </div>
+  );
+};
+
+export const ThemeDark = (): ReactElement => {
+  return (
+    <IcTopNavigation
+      appTitle="ApplicationName"
+      status="alpha"
+      version="v0.0.7"
+      theme="dark"
+    >
+      <ReusableAppIcon />
+      <IcSearchBar
+        slot="search"
+        label="Search"
+        placeholder="Search"
+        theme="light"
+      />
+      <IcNavigationButton label="Button One" slot="buttons">
+        <ReusableIcon />
+      </IcNavigationButton>
+      <IcNavigationItem slot="navigation" label="One" href="/" />
+      <IcNavigationItem
+        slot="navigation"
+        label="Two"
+        href="/"
+        target="_blank"
+      />
+      <IcNavigationItem slot="navigation" label="Three" href="/" selected />
+    </IcTopNavigation>
   );
 };

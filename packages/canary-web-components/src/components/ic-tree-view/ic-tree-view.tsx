@@ -9,13 +9,12 @@ import {
   Listen,
   forceUpdate,
 } from "@stencil/core";
-import { IcSizes } from "../../utils/types";
+import { IcSizes, IcThemeMode } from "../../utils/types";
 import {
   isPropDefined,
   isSlotUsed,
   checkSlotInChildMutations,
 } from "../../utils/helpers";
-import { IcThemeMode } from "@ukic/web-components";
 
 let treeViewIds = 0;
 
@@ -43,7 +42,7 @@ export class TreeView {
    */
   @Prop() focusInset?: boolean = false;
   @Watch("focusInset")
-  watchFocusInsetHandler() {
+  watchFocusInsetHandler(): void {
     this.treeItems.forEach((treeItem) => {
       treeItem.focusInset = this.focusInset;
     });
@@ -59,7 +58,7 @@ export class TreeView {
    */
   @Prop() size?: IcSizes = "medium";
   @Watch("size")
-  watchSizeHandler() {
+  watchSizeHandler(): void {
     this.treeItems.forEach((treeItem) => {
       treeItem.size = this.size;
     });
@@ -70,7 +69,7 @@ export class TreeView {
    */
   @Prop() theme?: IcThemeMode = "inherit";
   @Watch("theme")
-  watchThemeHandler() {
+  watchThemeHandler(): void {
     this.treeItems.forEach((treeItem) => {
       treeItem.theme = this.theme;
     });

@@ -15,7 +15,6 @@ import {
 import {
   IcAutocompleteTypes,
   IcAutocorrectStates,
-  IcThemeForegroundEnum,
   IcMenuOption,
   IcSizesNoLarge,
   IcThemeMode,
@@ -891,9 +890,7 @@ export class SearchBar {
               onKeyDown={this.handleClear}
               type="submit"
               variant="icon"
-              appearance={
-                this.clearButtonFocused && IcThemeForegroundEnum.Light
-              }
+              theme={this.clearButtonFocused ? "light" : "dark"}
             ></ic-button>
             <div class="divider"></div>
           </div>
@@ -924,9 +921,7 @@ export class SearchBar {
               onKeyDown={this.handleSubmitSearchKeyDown}
               type="submit"
               variant="icon"
-              appearance={
-                this.searchSubmitFocused && IcThemeForegroundEnum.Light
-              }
+              theme={this.searchSubmitFocused ? "light" : "dark"}
             ></ic-button>
           </div>
           <div

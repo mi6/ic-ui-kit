@@ -16,12 +16,9 @@
   height: var(--ic-space-lg);
 }
 
-:host .chevron svg {
-  color: var(--ic-breadcrumb-icon-chevron);
-}
-
+:host .chevron svg,
 :host(.ic-breadcrumb-monochrome) .chevron svg {
-  color: var(--ic-breadcrumb-icon-chevron-monochrome);
+  color: var(--ic-breadcrumb-icon-chevron);
 }
 
 :host(:first-child) .chevron {
@@ -29,11 +26,11 @@
 }
 
 .back-icon svg {
-  color: var(--ic-breadcrumb-page-icon);
+  color: var(--ic-breadcrumb-icon);
 }
 
 :host(.ic-breadcrumb-monochrome) .back-icon svg {
-  color: var(--ic-breadcrumb-page-icon-monochrome);
+  color: var(--ic-breadcrumb-icon-monochrome);
 }
 
 :host(.ic-breadcrumb-back) {

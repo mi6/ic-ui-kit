@@ -134,11 +134,11 @@ describe("button component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should render correct HTML when loading - appearance light", async () => {
+  it("should render correct HTML when loading - theme light", async () => {
     const page = await newSpecPage({
       components: [Button],
       html: `
-      <ic-button loading appearance="light">Button</ic-button>
+      <ic-button loading theme="light">Button</ic-button>
       `,
     });
     expect(page.root).toMatchSnapshot();
@@ -326,7 +326,7 @@ describe("button component", () => {
     });
     await page.waitForChanges();
 
-    expect(page.rootInstance.appearance).toEqual("light");
+    expect(page.rootInstance.theme).toEqual("light");
   });
 
   it("should test button as submit button on form", async () => {

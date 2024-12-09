@@ -36,6 +36,11 @@ export class StatusTag {
   @Prop() theme?: "dark" | "light" | "inherit" = "inherit";
 
   /**
+   * The letter case of the status tag's label.
+   */
+  @Prop() uppercase?: boolean = true;
+
+  /**
    * The emphasis of the status tag.
    */
   @Prop() variant?: IcEmphasisType = "filled";
@@ -48,7 +53,7 @@ export class StatusTag {
   }
 
   render() {
-    const { label, status, variant, size, announced, theme } = this;
+    const { label, status, variant, size, announced, theme, uppercase } = this;
     return (
       <Host
         class={{ [`ic-theme-${theme}`]: theme !== "inherit" }}
@@ -64,7 +69,7 @@ export class StatusTag {
           }}
         >
           <ic-typography
-            variant="label-uppercase"
+            variant={uppercase ? "label-uppercase" : "label"}
             apply-vertical-margins={false}
           >
             <span>{label}</span>

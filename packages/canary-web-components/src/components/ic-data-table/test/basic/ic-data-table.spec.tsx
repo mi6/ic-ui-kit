@@ -694,7 +694,7 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           loadingOptions={{
-            appearance: "light",
+            monochrome: true,
           }}
           loading={true}
         ></ic-data-table>

@@ -179,6 +179,7 @@ Please switch to the Canvas and then choose to open the canvas in a new tab to s
 
 export const defaultArgs = {
   target: "topEl",
+  theme: "inherit",
   variant: "default",
 };
 
@@ -188,6 +189,10 @@ export const defaultArgs = {
     argTypes={{
       target: {
         table: { disable: true }
+      },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: { type: "inline-radio" },
       },
       variant: {
         options: ["default", "icon"],
@@ -316,7 +321,7 @@ export const defaultArgs = {
       <br />
       <IcTypography variant="h3">The end</IcTypography>
       <br />
-      <IcBackToTop target={args.target} variant={args.variant} />
+      <IcBackToTop target={args.target} variant={args.variant} theme={args.theme} />
       <footer style={{ marginBottom: "24px" }}>
         <div
           id="footer"

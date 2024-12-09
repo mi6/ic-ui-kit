@@ -63,28 +63,31 @@ export class InputValidation {
   }
 
   render() {
-    const displayIcon = this.status !== "" ? icon[this.status] : "";
-    const id = getInputValidationTextID(this.for);
+    const { ariaLiveMode, fullWidth, status, message } = this;
+    const displayIcon = status !== "" ? icon[status] : "";
     return (
       <Host
         class={{
-          [`ic-input-validation-${this.status}`]: this.status !== "",
-          ["ic-input-validation-full-width"]: this.fullWidth,
+          [`ic-input-validation-${status}`]: status !== "",
+          "ic-input-validation-full-width": fullWidth,
         }}
       >
         {displayIcon !== "" && (
           <span
             class={{
-              ["status-icon"]: true,
-              [`icon-${this.status}`]: true,
+              "status-icon": true,
+              [`icon-${status}`]: true,
             }}
             innerHTML={displayIcon}
           />
         )}
 
         <ic-typography variant="caption" class="statustext">
-          <span aria-live={this.ariaLiveMode} id={id}>
-            {this.message}
+          <span
+            aria-live={ariaLiveMode}
+            id={getInputValidationTextID(this.for)}
+          >
+            {message}
           </span>
         </ic-typography>
 

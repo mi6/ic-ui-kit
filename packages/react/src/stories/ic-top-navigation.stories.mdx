@@ -733,6 +733,7 @@ export const defaultArgs = {
   appIconSlot: "app-icon",
   searchSlot: "search",
   buttonsSlot: "buttons",
+  theme: "inherit",
 };
 
 <Canvas>
@@ -776,6 +777,10 @@ export const defaultArgs = {
           "buttons",
           ""
         ],
+        control: { type: "select" },
+      },
+      theme: {
+        options: ["inherit", "light", "dark"],
         control: { type: "select" },
       }
     }}

@@ -55,7 +55,7 @@ export class Link {
   /**
    * If `true`, the link will display as black in the light theme, and white in the dark theme.
    */
-  @Prop() monochrome?: boolean = false;
+  @Prop({ mutable: true }) monochrome?: boolean = false;
 
   /**
    * How much of the referrer to send when following the link.
@@ -75,7 +75,7 @@ export class Link {
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: IcThemeMode = "inherit";
+  @Prop({ mutable: true }) theme?: IcThemeMode = "inherit";
 
   componentWillLoad(): void {
     this.inheritedAttributes = inheritAttributes(this.el, IC_INHERITED_ARIA);
@@ -112,11 +112,7 @@ export class Link {
 
     if (theme !== IcThemeForegroundEnum.Default) {
       this.monochrome = true;
-      if (theme === IcThemeForegroundEnum.Light) {
-        this.theme = "dark";
-      } else {
-        this.theme = "light";
-      }
+      this.theme = theme;
     }
   }
 

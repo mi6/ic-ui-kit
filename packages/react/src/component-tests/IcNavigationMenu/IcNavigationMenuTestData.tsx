@@ -338,3 +338,72 @@ export const AllNavTypesSideNav = (): ReactElement => {
     </IcSideNavigation>
   );
 };
+
+export const ThemeDarkTopNav = (): ReactElement => {
+  return (
+    <IcTopNavigation status="Beta" version="v1.0.0" theme="dark">
+      <IcNavigationGroup
+        slot="navigation"
+        label="Navigation group 1"
+        expandable={true}
+      >
+        <IcNavigationItem label="Navigation 1" href="/" />
+        <IcNavigationItem label="Navigation 2" href="/" />
+      </IcNavigationGroup>
+      <IcNavigationGroup
+        slot="navigation"
+        label="Navigation group 2"
+        expandable={true}
+      >
+        <IcNavigationItem label="Navigation 3" href="/" />
+        <IcNavigationItem label="Navigation 4" href="/" />
+      </IcNavigationGroup>
+      <IcNavigationGroup slot="navigation" label="Navigation group 3">
+        <IcNavigationItem label="Navigation 5" href="/" />
+        <IcNavigationItem label="Navigation 6" href="/" />
+      </IcNavigationGroup>
+      <IcNavigationGroup slot="navigation" label="Navigation group 4">
+        <IcNavigationItem label="Navigation 7" href="/" />
+        <IcNavigationItem label="Navigation 8" href="/" />
+      </IcNavigationGroup>
+      <IcNavigationItem slot="navigation" label="Navigation 9" href="/">
+        <ReusableIcon />
+        <IcBadge slot="badge" label="1" position="near" />
+      </IcNavigationItem>
+      <IcNavigationItem
+        slot="navigation"
+        label="Navigation 10"
+        href="/"
+        selected={true}
+      >
+        <ReusableIcon />
+      </IcNavigationItem>
+      <IcNavigationButton label="Button One" slot="buttons">
+        <SlottedSVG
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none"></path>
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
+        </SlottedSVG>
+      </IcNavigationButton>
+      <IcNavigationButton label="Button Two" slot="buttons">
+        <SlottedSVG
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z" />
+        </SlottedSVG>
+      </IcNavigationButton>
+    </IcTopNavigation>
+  );
+};

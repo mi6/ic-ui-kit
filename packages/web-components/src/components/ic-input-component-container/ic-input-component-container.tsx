@@ -20,11 +20,6 @@ export class InputComponentContainer {
   @Element() el: HTMLIcInputComponentContainerElement;
 
   /**
-   * The appearance of the input component container.
-   */
-  @Prop() appearance?: "dark" | "default" = "default";
-
-  /**
    *  If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
@@ -84,40 +79,25 @@ export class InputComponentContainer {
       readonly,
       multiLine,
       fullWidth,
-      appearance,
       validationInline,
     } = this;
-    const hasValidationStatus =
-      this.validationStatus !== "" && !this.disabled && !this.readonly
-        ? true
-        : false;
 
     return (
       <Host
         class={{
           [`ic-input-component-container-${size}`]: true,
           [`ic-input-component-container-${validationStatus}`]:
-            hasValidationStatus,
-          [`ic-input-component-container-disabled`]: disabled,
-          [`ic-input-component-container-readonly`]: readonly,
-          ["ic-input-component-container-multiline"]: multiLine,
-          ["ic-input-component-container-full-width"]: fullWidth,
-          ["ic-input-component-container-dark"]: appearance === "dark",
+            validationStatus !== "" && !disabled && !readonly,
+          "ic-input-component-container-disabled": disabled,
+          "ic-input-component-container-readonly": readonly,
+          "ic-input-component-container-multiline": multiLine,
+          "ic-input-component-container-full-width": fullWidth,
         }}
         aria-disabled={disabled && `${disabled}`}
       >
-        <div
-          class={{
-            "focus-indicator": true,
-            dark: appearance === "dark",
-          }}
-        >
+        <div class="focus-indicator">
           {slotHasContent(this.el, "left-icon") && (
-            <div
-              class={{
-                ["icon-container"]: true,
-              }}
-            >
+            <div class="icon-container">
               <slot name="left-icon" />
             </div>
           )}
@@ -125,12 +105,7 @@ export class InputComponentContainer {
 
           {validationInline &&
             validationStatus === IcInformationStatus.Success && (
-              <span
-                class={{
-                  ["inline-success"]: true,
-                }}
-                innerHTML={successIcon}
-              />
+              <span class="inline-success" innerHTML={successIcon} />
             )}
         </div>
       </Host>
