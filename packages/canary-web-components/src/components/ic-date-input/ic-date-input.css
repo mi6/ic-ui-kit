@@ -20,6 +20,11 @@
   --border-warning-color-pressed: var(--ic-date-input-border-warning-pressed);
 }
 
+:host(.ic-date-input-disabled) {
+  --ic-input-label-text-color: var(--ic-date-input-label-disabled);
+  --ic-input-label-helper-text-color: var(--ic-date-input-subtitle-disabled);
+}
+
 input {
   border: 0;
   height: 100%;
@@ -136,6 +141,10 @@ ic-input-component-container .focus-indicator {
 .clear-button:active *,
 .calendar-button:active * {
   fill: var(--ic-architectural-white);
+}
+
+.clear-button svg {
+  color: var(--ic-date-input-clear-icon);
 }
 
 .divider {

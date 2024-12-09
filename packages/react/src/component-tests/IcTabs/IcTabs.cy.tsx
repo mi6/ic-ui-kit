@@ -464,7 +464,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it.skip("should render responsive tabs with light text", () => {
+  it("should render responsive tabs with light text", () => {
     mount(
       <div style={{ backgroundColor: "black" }}>
         <ResponsiveLightTextTabs />

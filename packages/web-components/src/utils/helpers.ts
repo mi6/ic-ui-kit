@@ -246,10 +246,10 @@ export const getThemeFromContext = (
       ) ||
       blockColorParent.classList.contains(IcThemeForegroundEnum.Dark)
     ) {
-      return IcThemeForegroundEnum.Dark;
+      return IcThemeForegroundEnum.Light;
     }
 
-    return IcThemeForegroundEnum.Light;
+    return IcThemeForegroundEnum.Dark;
   }
 
   return IcThemeForegroundEnum.Default;

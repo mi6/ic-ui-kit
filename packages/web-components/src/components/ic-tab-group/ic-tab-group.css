@@ -22,3 +22,11 @@
 .tabs-container::-webkit-scrollbar {
   display: none;
 }
+
+:host ic-horizontal-scroll {
+  --splitter-color: var(--ic-tab-divider);
+}
+
+:host(.ic-tab-group-monochrome) ic-horizontal-scroll {
+  --splitter-color: var(--ic-tab-divider-monochrome);
+}

@@ -2,6 +2,9 @@
 
 :host {
   display: inline-block;
+
+  --ic-input-label-text-color: var(--ic-switch-label);
+  --ic-input-label-helper-text-color: var(--ic-switch-help-text);
 }
 
 input {
