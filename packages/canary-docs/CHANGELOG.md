@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.4...@ukic/canary-docs@3.0.0-canary.5) (2024-12-09)
+
+### Documentation
+
+- **canary-docs:** changes to canary-docs ([2ec62c9](https://github.com/mi6/ic-ui-kit/commit/2ec62c949fcbb052cb1d0f90c9376003f88a02a6))
+
+### BREAKING CHANGES
+
+- **canary-docs:** dark mode
+
 # [3.0.0-canary.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.3...@ukic/canary-docs@3.0.0-canary.4) (2024-11-14)
 
 **Note:** Version bump only for package @ukic/canary-docs

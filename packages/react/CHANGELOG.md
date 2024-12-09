@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.4...@ukic/react@3.0.0-alpha.5) (2024-12-09)
+
+### Bug Fixes
+
+- **react:** add storybook logging to demonstrate new functionality ([69b9272](https://github.com/mi6/ic-ui-kit/commit/69b927283baac8221d9f0a64ab305ed8c6fc84d6))
+- **react:** fixes hero display issues ([f6033ed](https://github.com/mi6/ic-ui-kit/commit/f6033edaec20ca23bdbed65311cbeec90be2be74))
+- **react:** side nav Cypress test changes - add externally controlled visual tests ([2070042](https://github.com/mi6/ic-ui-kit/commit/2070042406e4b2694e3fe41fa11674e9b738bbc0))
+- **react:** update Cypress tests after colour/colour token update ([58bf555](https://github.com/mi6/ic-ui-kit/commit/58bf555bac04f4cf8ddb6842e030396ce111d990))
+- **react:** updating cypress tests ([83ec801](https://github.com/mi6/ic-ui-kit/commit/83ec80173c94d1e4dbeaa44843b7041162e66b0c))
+
+### Features
+
+- **canary-react:** adds tests & storybook playground for theme prop ([a977327](https://github.com/mi6/ic-ui-kit/commit/a977327a4e280e36f2b0e58556bae5a19e330608))
+- **cherry-pick:** cherry-pick ticket 2208 ([c72f7b0](https://github.com/mi6/ic-ui-kit/commit/c72f7b004c8da4119372ab2ed6b700d4592426f0))
+- **react:** add `uppercase` prop to IcStatusTag ([01c3e8a](https://github.com/mi6/ic-ui-kit/commit/01c3e8a2f88b5a2cce295488e19d66147b3ef14b))
+- **react:** add dark mode page header story and Cypress test ([bb17dfe](https://github.com/mi6/ic-ui-kit/commit/bb17dfee2ea3ad0ced16a6fc172809b8465d2026)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **react:** add storybook example for controlling slotted navigation items ([b8670db](https://github.com/mi6/ic-ui-kit/commit/b8670db3c7a77dd43e8823937cb67b08ca9b1967)), closes [#2610](https://github.com/mi6/ic-ui-kit/issues/2610)
+- **react:** add test for new onIcToggleChecked event in IcMenuItem ([141adcf](https://github.com/mi6/ic-ui-kit/commit/141adcf49b6c33b7c0a547231af9c8070307119f))
+- **react:** added theme prop to IcSelect ([f3db49a](https://github.com/mi6/ic-ui-kit/commit/f3db49a4a8e7a4b18da708636d1709ffbe9c9cb1))
+- **react:** adds tests & playground for theme prop ([da067a4](https://github.com/mi6/ic-ui-kit/commit/da067a44b17410187e240cc4ab646bcdc7c67445))
+- **react:** implement theme prop on top navigation ([2bcf8d6](https://github.com/mi6/ic-ui-kit/commit/2bcf8d6a780bcdce5d542cb4b33ed4b28c3b042b))
+- **react:** update toggle button and toggle button group to have theme prop ([6b9b8be](https://github.com/mi6/ic-ui-kit/commit/6b9b8be2da8279a2f96985b93a39569ecdf7166e))
+- **web-components:** dark mode work ([580ab3a](https://github.com/mi6/ic-ui-kit/commit/580ab3acf60889fd17c096ba340e9cb7b9207139))
+
+### Tests
+
+- **react:** tests altered for dark mode ([0d0f783](https://github.com/mi6/ic-ui-kit/commit/0d0f7836b3b69adaa138b99a931f1b78b844cfd4))
+- **react:** visual regression image change ([6dad47e](https://github.com/mi6/ic-ui-kit/commit/6dad47e185a692e4796a0af5568e28efc38240a1))
+
+### BREAKING CHANGES
+
+- **react:** adds theme prop
+- **canary-react:** new theme prop and colour switching
+- **react:** For toggle button/toggle button group, the appearance prop has been replaced with
+  theme and monochrome
+- **react:** dark mode
+- **web-components:** dark mode
+- **react:** dark mode
+- **react:** new colour switching
+
 # [3.0.0-alpha.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.3...@ukic/react@3.0.0-alpha.4) (2024-11-14)
 
 ### Bug Fixes

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.6.4 (2024-12-09)
+
+**Note:** Version bump only for package @ukic/fonts
+
 ## 2.6.3 (2024-10-04)
 
 **Note:** Version bump only for package @ukic/fonts

@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.4...@ukic/web-components@3.0.0-alpha.5) (2024-12-09)
+
+### Bug Fixes
+
+- **react:** add storybook logging to demonstrate new functionality ([69b9272](https://github.com/mi6/ic-ui-kit/commit/69b927283baac8221d9f0a64ab305ed8c6fc84d6))
+- **web-components:** center side-nav icons ([fcd8cc0](https://github.com/mi6/ic-ui-kit/commit/fcd8cc09133f26c0d311277d54df3255474b74d9))
+- **web-components:** fix breadcrumb group collapsed prop not toggling correctly ([185557a](https://github.com/mi6/ic-ui-kit/commit/185557a434441961c9b27e8a482da917dbab3263)), closes [#2028](https://github.com/mi6/ic-ui-kit/issues/2028) [#1998](https://github.com/mi6/ic-ui-kit/issues/1998)
+- **web-components:** fix navigation items not inheriting expanded state ([70dc3ee](https://github.com/mi6/ic-ui-kit/commit/70dc3ee2507fb89818d397b4db6760ac2c269824)), closes [#2610](https://github.com/mi6/ic-ui-kit/issues/2610)
+- **web-components:** fixes displays issues with hero ([7fde721](https://github.com/mi6/ic-ui-kit/commit/7fde721f8795f9696b89d92457e8a266cd1bc7d7))
+- **web-components:** make setting external collapsed state on side nav execute correct style changes ([9f3a21e](https://github.com/mi6/ic-ui-kit/commit/9f3a21ea60a704758fb23961ce0ab376384ef529))
+- **web-components:** update colours and colour tokens to match v3 dark mode Figma file ([afcb96a](https://github.com/mi6/ic-ui-kit/commit/afcb96ac5d025c242e7b413e3ad8440aa032235c))
+- **web-components:** update icpopoverclosed event to include relevant information ([c134f2b](https://github.com/mi6/ic-ui-kit/commit/c134f2b53c7581f73a8a30c3e615c01299cf1090)), closes [#2665](https://github.com/mi6/ic-ui-kit/issues/2665)
+- **web-components:** update top nav tokens to be the same in light and dark mode ([168a7ad](https://github.com/mi6/ic-ui-kit/commit/168a7ad9a3b1b94895abff7ac6132a2ae5f7fc50))
+- **web-components:** updated ic-card border color to correct dark mode patterns ([dac04e3](https://github.com/mi6/ic-ui-kit/commit/dac04e3036fe00cab9fb6c1b20a5870237f22a7b))
+
+### Code Refactoring
+
+- **web-components:** rename toggleChecked prop to checked in ic-menu-item ([e89e905](https://github.com/mi6/ic-ui-kit/commit/e89e9056b5a2f389794ec83fa00d494be541a169))
+
+### Features
+
+- **cherry-pick:** cherry-pick ticket 2208 ([c72f7b0](https://github.com/mi6/ic-ui-kit/commit/c72f7b004c8da4119372ab2ed6b700d4592426f0))
+- **web-components:** add `uppercase` prop to ic-status-tag ([e6dd097](https://github.com/mi6/ic-ui-kit/commit/e6dd0977f88c23b36d785028912727d82823d173))
+- **web-components:** add dark mode tokens for page header and add dark mode page header story ([541ce78](https://github.com/mi6/ic-ui-kit/commit/541ce7894c0917cf12689939fc431bbea562818d)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** add icToggleChecked event to ic-menu-item ([2e51d36](https://github.com/mi6/ic-ui-kit/commit/2e51d36512a15e9a997a56b378950b304b713872))
+- **web-components:** added ic-data-table color tokens to color-mode.css ([33ab425](https://github.com/mi6/ic-ui-kit/commit/33ab425445c260ae8e950e686f3756a2f37a0aae))
+- **web-components:** added theme prop for ic-text-field ([75f2c54](https://github.com/mi6/ic-ui-kit/commit/75f2c5494bdad65163b9f6f5c84c7e021ebe931c))
+- **web-components:** added theme prop to ic-select ([4d40822](https://github.com/mi6/ic-ui-kit/commit/4d4082296fb45cf3e0fdc9d936e046981290f729))
+- **web-components:** adds css tokens for date components ([a0b86f0](https://github.com/mi6/ic-ui-kit/commit/a0b86f0a4ba9c61f77fff85d79eee1d251774ba0))
+- **web-components:** adds theme prop and dark mode for back-to-top ([b841206](https://github.com/mi6/ic-ui-kit/commit/b84120635f5477e017cdb6a01edeb7e421ebfecc))
+- **web-components:** dark mode work ([580ab3a](https://github.com/mi6/ic-ui-kit/commit/580ab3acf60889fd17c096ba340e9cb7b9207139))
+- **web-components:** design tokens added for ic-side-navigation ([78f9331](https://github.com/mi6/ic-ui-kit/commit/78f93311ad0e5a54aa43919b9ff72e08be56c29d))
+- **web-components:** implement theme prop on top navigation ([880b1a9](https://github.com/mi6/ic-ui-kit/commit/880b1a9700a3ed66045f692f0f3024c52ac21a7f))
+- **web-components:** update searchable prop on select component ([0408d46](https://github.com/mi6/ic-ui-kit/commit/0408d46ce250b645cda693e6ae49506c8e90acfc))
+- **web-components:** update toggle button and toggle button group to have theme prop ([48d9e01](https://github.com/mi6/ic-ui-kit/commit/48d9e0183c86c6698fd08fdecc4e077f9cdfb252))
+
+### BREAKING CHANGES
+
+- **web-components:** Theme prop added
+- **web-components:** For toggle button/toggle button group, the appearance prop has been replaced by
+  theme and monochrome
+- **web-components:** dark mode
+- **web-components:** dark mode
+- **web-components:** new theme prop and colour switching
+- **web-components:** Rename toggleChecked prop to checked in ic-menu-item
+- **web-components:** added new theme prop and removed appearance prop
+
 # [3.0.0-alpha.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.3...@ukic/web-components@3.0.0-alpha.4) (2024-11-14)
 
 ### Bug Fixes

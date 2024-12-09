@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.4...@ukic/canary-react@3.0.0-canary.5) (2024-12-09)
+
+### Bug Fixes
+
+- **canary-react:** update cypress images after colour/token update ([2db79d5](https://github.com/mi6/ic-ui-kit/commit/2db79d590395084d3a2f63b957c0b4cc30445e64))
+
+### Features
+
+- **canary-react:** added dark mode features, stories & tests to data-table ([34f4a66](https://github.com/mi6/ic-ui-kit/commit/34f4a6694e7bb35c9554ff72d118a22eb94275bc))
+- **canary-react:** adds tests & storybook playground for theme prop ([a977327](https://github.com/mi6/ic-ui-kit/commit/a977327a4e280e36f2b0e58556bae5a19e330608))
+- **canary-react:** dark mode ([2e6013e](https://github.com/mi6/ic-ui-kit/commit/2e6013e31604fa11b53a4395183b633aa926b987))
+
+### BREAKING CHANGES
+
+- **canary-react:** new theme prop and colour switching
+- **canary-react:** dark mode
+- **canary-react:** removed appearance option from updatingOptions, loadingOptions & paginationOptions
+
 # [3.0.0-canary.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.3...@ukic/canary-react@3.0.0-canary.4) (2024-11-14)
 
 ### Bug Fixes

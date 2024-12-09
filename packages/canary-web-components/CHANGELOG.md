@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.4...@ukic/canary-web-components@3.0.0-canary.5) (2024-12-09)
+
+### Bug Fixes
+
+- **canary-web-components:** [#2848](https://github.com/mi6/ic-ui-kit/issues/2848) Default ic-pagination-bar totalItems prop to zero if data is null ([da9477c](https://github.com/mi6/ic-ui-kit/commit/da9477ce8c139fa2c6bc21c63a8674f3c035a3a4))
+- **canary-web-components:** add slotted columns to correct positions, skip the column if present in data ([8db7cb9](https://github.com/mi6/ic-ui-kit/commit/8db7cb9ca43b162868b1af2a12564f2b7803be9d)), closes [#2743](https://github.com/mi6/ic-ui-kit/issues/2743)
+- **canary-web-components:** update canary css files based on colour/token updates ([5645647](https://github.com/mi6/ic-ui-kit/commit/5645647aeb50feaf802d1156934fb19a322b5dc2))
+- **canary-web-components:** update showLoadingIndicator to check this.loadingIndicator exists ([16778a6](https://github.com/mi6/ic-ui-kit/commit/16778a694aecbd84925cd67b5830715f5652a840)), closes [#2789](https://github.com/mi6/ic-ui-kit/issues/2789)
+- **canary-web-components:** updated card horizontal border colours to align with dark-mode ([6fc7b92](https://github.com/mi6/ic-ui-kit/commit/6fc7b92ba81f6f0222a06185f20bde665e4ce7a2))
+
+### Features
+
+- **canary-web-components:** added theme prop to ic-data-table ([1c7df06](https://github.com/mi6/ic-ui-kit/commit/1c7df06547c1b26d1b2aa554dcc3f659eb1d23c0))
+- **canary-web-components:** adds dark mode theme prop for date components ([a4588fd](https://github.com/mi6/ic-ui-kit/commit/a4588fd435b2649705fcd7ce4c4346fac2135718))
+- **canary-web-components:** dark mode ([1ff7629](https://github.com/mi6/ic-ui-kit/commit/1ff76297de3e96bb7a4745cd1124b7c57b3a6448))
+- **react:** add dark mode page header story and Cypress test ([bb17dfe](https://github.com/mi6/ic-ui-kit/commit/bb17dfee2ea3ad0ced16a6fc172809b8465d2026)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** add dark mode tokens for page header and add dark mode page header story ([541ce78](https://github.com/mi6/ic-ui-kit/commit/541ce7894c0917cf12689939fc431bbea562818d)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+
+### BREAKING CHANGES
+
+- **canary-web-components:** new theme prop and colour switching
+- **canary-web-components:** dark mode
+- **canary-web-components:** removed appearance option from loadingOptions and updatingOptions
+
 # [3.0.0-canary.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.3...@ukic/canary-web-components@3.0.0-canary.4) (2024-11-14)
 
 ### Bug Fixes

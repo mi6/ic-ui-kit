@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.4...@ukic/docs@3.0.0-alpha.5) (2024-12-09)
+
+### Bug Fixes
+
+- **web-components:** update icpopoverclosed event to include relevant information ([c134f2b](https://github.com/mi6/ic-ui-kit/commit/c134f2b53c7581f73a8a30c3e615c01299cf1090)), closes [#2665](https://github.com/mi6/ic-ui-kit/issues/2665)
+
+### Documentation
+
+- **docs:** update docs after rename of toggleChecked prop to checked in ic-menu-item ([2ce2939](https://github.com/mi6/ic-ui-kit/commit/2ce29394467e5f1ce0e27043fa23c4cce15aa107))
+
+### Features
+
+- **docs:** dark mode work ([de9a7fc](https://github.com/mi6/ic-ui-kit/commit/de9a7fc825c913e871399360888f9d1ff1fffabc))
+
+### BREAKING CHANGES
+
+- **docs:** dark mode
+- **docs:** Rename toggleChecked prop to checked in ic-menu-item
+
 # [3.0.0-alpha.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.3...@ukic/docs@3.0.0-alpha.4) (2024-11-14)
 
 **Note:** Version bump only for package @ukic/docs
