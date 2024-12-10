@@ -228,6 +228,20 @@ export class RadioGroup {
   }
 
   private handleKeyDown = (event: KeyboardEvent): void => {
+    const additionalFields = Array.from(
+      this.el.querySelectorAll('[slot="additional-field"]')
+    ) as HTMLIcTextFieldElement[];
+    const activeEl = document.activeElement;
+    if (
+      additionalFields.length > 0 &&
+      this.radioOptions.map((el) =>
+        slotHasContent(el, this.ADDITIONAL_FIELD)
+      ) &&
+      additionalFields.map((el) => el == activeEl)
+    ) {
+      return;
+    }
+
     switch (event.key) {
       case "ArrowDown":
       case "ArrowRight":
