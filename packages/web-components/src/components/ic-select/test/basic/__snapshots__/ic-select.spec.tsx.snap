@@ -22,37 +22,39 @@ exports[`ic-select multi should not render a native select on a mobile / tablet 
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium ic-menu-multiple no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-70-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="Test label 1" aria-selected="false" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-70-menu-Test value 1" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 1
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium ic-menu-multiple no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-70-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="Test label 1" aria-selected="false" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-70-menu-Test value 1" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 1
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-          <li aria-disabled="false" aria-label="Test label 2" aria-selected="false" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-70-menu-Test value 2" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 2
-                </ic-typography>
+            </li>
+            <li aria-disabled="false" aria-label="Test label 2" aria-selected="false" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-70-menu-Test value 2" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 2
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-          <li aria-disabled="false" aria-label="Test label 3" aria-selected="false" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-70-menu-Test value 3" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 3
-                </ic-typography>
+            </li>
+            <li aria-disabled="false" aria-label="Test label 3" aria-selected="false" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-70-menu-Test value 3" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 3
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
       <div aria-live="polite" class="multi-select-selected-count" role="status"></div>
     </ic-input-container>
   </mock:shadow-root>
@@ -82,40 +84,42 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium ic-menu-multiple ic-menu-open no-results" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
-        <ul aria-activedescendant="ic-select-input-73-menu-Test value 1" aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-73-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="Test label 1" aria-selected="true" class="focused-option option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-73-menu-Test value 1" role="option" tabindex="0">
-            <div class="option-text-container show-check-icon">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 1
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium ic-menu-multiple ic-menu-open no-pointer-events no-results" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
+          <ul aria-activedescendant="ic-select-input-73-menu-Test value 1" aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-73-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="Test label 1" aria-selected="true" class="focused-option option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-73-menu-Test value 1" role="option" tabindex="0">
+              <div class="option-text-container show-check-icon">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 1
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-            <span class="check-icon">
-              svg
-            </span>
-          </li>
-          <li aria-disabled="false" aria-label="Test label 2" aria-selected="false" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-73-menu-Test value 2" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 2
-                </ic-typography>
+              <span class="check-icon">
+                svg
+              </span>
+            </li>
+            <li aria-disabled="false" aria-label="Test label 2" aria-selected="false" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-73-menu-Test value 2" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 2
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-          <li aria-disabled="false" aria-label="Test label 3" aria-selected="false" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-73-menu-Test value 3" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 3
-                </ic-typography>
+            </li>
+            <li aria-disabled="false" aria-label="Test label 3" aria-selected="false" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-73-menu-Test value 3" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 3
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
       <div aria-live="polite" class="multi-select-selected-count" role="status">
         1 of 3 selected
       </div>
@@ -147,43 +151,45 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium ic-menu-multiple ic-menu-open no-results" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
-        <ul aria-activedescendant="ic-select-input-73-menu-Test value 2" aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-73-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="Test label 1" aria-selected="true" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-73-menu-Test value 1" role="option" tabindex="0">
-            <div class="option-text-container show-check-icon">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 1
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium ic-menu-multiple ic-menu-open no-pointer-events no-results" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
+          <ul aria-activedescendant="ic-select-input-73-menu-Test value 2" aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-73-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="Test label 1" aria-selected="true" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-73-menu-Test value 1" role="option" tabindex="0">
+              <div class="option-text-container show-check-icon">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 1
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-            <span class="check-icon">
-              svg
-            </span>
-          </li>
-          <li aria-disabled="false" aria-label="Test label 2" aria-selected="true" class="focused-option option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-73-menu-Test value 2" role="option" tabindex="0">
-            <div class="option-text-container show-check-icon">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 2
-                </ic-typography>
+              <span class="check-icon">
+                svg
+              </span>
+            </li>
+            <li aria-disabled="false" aria-label="Test label 2" aria-selected="true" class="focused-option option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-73-menu-Test value 2" role="option" tabindex="0">
+              <div class="option-text-container show-check-icon">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 2
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-            <span class="check-icon">
-              svg
-            </span>
-          </li>
-          <li aria-disabled="false" aria-label="Test label 3" aria-selected="false" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-73-menu-Test value 3" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 3
-                </ic-typography>
+              <span class="check-icon">
+                svg
+              </span>
+            </li>
+            <li aria-disabled="false" aria-label="Test label 3" aria-selected="false" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-73-menu-Test value 3" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 3
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
       <div aria-live="polite" class="multi-select-selected-count" role="status">
         2 of 3 selected
       </div>
@@ -271,19 +277,21 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-29-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-29-menu-" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  No results found
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-29-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-29-menu-" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    No results found
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-29" type="hidden" value="">
@@ -312,19 +320,21 @@ exports[`ic-select should have correct validation status: with-validation-status
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-4-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-4-menu-" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  No results found
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-4-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-4-menu-" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    No results found
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
       <ic-input-validation arialivemode="polite" for="ic-select-input-4" message="" status="error"></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
@@ -354,19 +364,21 @@ exports[`ic-select should not have a validation status if disabled: no-validatio
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-5-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-5-menu-" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  No results found
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-5-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-5-menu-" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    No results found
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" disabled="" name="ic-select-input-5" type="hidden" value="">
@@ -394,19 +406,21 @@ exports[`ic-select should not render a label when the 'hide-label' prop is suppl
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-0-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-0-menu-" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  No results found
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-0-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-0-menu-" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    No results found
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-0" type="hidden" value="">
@@ -435,19 +449,21 @@ exports[`ic-select should not render validation text if no validation status has
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-7-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-7-menu-" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  No results found
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-7-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-7-menu-" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    No results found
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-7" type="hidden" value="">
@@ -476,19 +492,21 @@ exports[`ic-select should render correct validation text: with-validation-text 1
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-6-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-6-menu-" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  No results found
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-6-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-6-menu-" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    No results found
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
       <ic-input-validation arialivemode="polite" for="ic-select-input-6" message="Test validation text" status="error"></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
@@ -509,19 +527,21 @@ exports[`ic-select should render readonly: readonly 1`] = `
           </ic-typography>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-2-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-2-menu-" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  No results found
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-2-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-2-menu-" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    No results found
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-2" type="hidden" value="">
@@ -555,19 +575,21 @@ exports[`ic-select should render with an icon: with-icon 1`] = `
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-3-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-3-menu-" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  No results found
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-3-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-3-menu-" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    No results found
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
     </ic-input-container>
   </mock:shadow-root>
   <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
@@ -600,19 +622,21 @@ exports[`ic-select should test select as submit on form 1`] = `
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-1-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-1-menu-" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  No results found
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-1-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-1-menu-" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    No results found
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-1" type="hidden" value="test-value">
@@ -652,37 +676,39 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu class="ic-menu-medium no-results">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-8-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="Test label 1" aria-selected="false" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-8-menu-Test value 1" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 1
-                </ic-typography>
+      <span class="no-results-wrapper">
+        <ic-menu class="ic-menu-medium no-pointer-events no-results">
+          <ul aria-label="IC Select Test pop-up" aria-multiselectable="false" class="menu" id="ic-select-input-8-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="Test label 1" aria-selected="false" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-8-menu-Test value 1" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 1
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-          <li aria-disabled="false" aria-label="Test label 2" aria-selected="false" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-8-menu-Test value 2" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 2
-                </ic-typography>
+            </li>
+            <li aria-disabled="false" aria-label="Test label 2" aria-selected="false" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-8-menu-Test value 2" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 2
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-          <li aria-disabled="false" aria-label="Test label 3" aria-selected="false" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-8-menu-Test value 3" role="option" tabindex="-1">
-            <div class="option-text-container">
-              <div class="option-label">
-                <ic-typography aria-hidden="true" variant="body">
-                  Test label 3
-                </ic-typography>
+            </li>
+            <li aria-disabled="false" aria-label="Test label 3" aria-selected="false" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-8-menu-Test value 3" role="option" tabindex="-1">
+              <div class="option-text-container">
+                <div class="option-label">
+                  <ic-typography aria-hidden="true" variant="body">
+                    Test label 3
+                  </ic-typography>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      </ic-menu>
+            </li>
+          </ul>
+        </ic-menu>
+      </span>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-8" type="hidden" value="test-value">

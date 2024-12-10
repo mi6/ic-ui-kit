@@ -1398,45 +1398,60 @@ export class Select {
             )}
           </ic-input-component-container>
           {(!isMobileOrTablet() || multiple) && (
-            <ic-menu
-              class={{
-                "no-results":
-                  this.loading ||
-                  this.hasTimedOut ||
-                  (this.noOptions !== null &&
+            <span
+              class={
+                this.noOptions !== null &&
+                this.noOptions[0] &&
+                this.noOptions[0].label === this.emptyOptionListText &&
+                "no-results-wrapper"
+              }
+            >
+              <ic-menu
+                class={{
+                  "no-results":
+                    this.loading ||
+                    this.hasTimedOut ||
+                    (this.noOptions !== null &&
+                      this.noOptions[0] &&
+                      this.noOptions[0].label === this.emptyOptionListText),
+                  "no-pointer-events":
+                    this.noOptions !== null &&
                     this.noOptions[0] &&
-                    this.noOptions[0].label === this.emptyOptionListText),
-              }}
-              ref={(el: HTMLIcMenuElement) => (this.menu = el)}
-              inputEl={
-                searchable
-                  ? this.searchableSelectElement
-                  : this.customSelectElement
-              }
-              inputLabel={label}
-              anchorEl={this.anchorEl}
-              size={size}
-              menuId={menuId}
-              open={this.open}
-              options={searchable ? this.filteredOptions : this.uniqueOptions}
-              value={multiple ? (currValue as string[]) : (currValue as string)}
-              fullWidth={fullWidth}
-              selectOnEnter={this.selectOnEnter}
-              onMenuStateChange={this.handleMenuChange}
-              onMenuOptionSelect={this.handleCustomSelectChange}
-              onMenuOptionSelectAll={this.handleSelectAllChange}
-              onMenuKeyPress={this.handleMenuKeyPress}
-              onUngroupedOptionsSet={this.setUngroupedOptions}
-              onRetryButtonClicked={this.handleRetry}
-              parentEl={this.el}
-              onTimeoutBlur={this.onTimeoutBlur}
-              activationType={
-                this.searchable || multiple || this.selectOnEnter
-                  ? "manual"
-                  : "automatic"
-              }
-              closeOnSelect={!multiple}
-            ></ic-menu>
+                    this.noOptions[0].label === this.emptyOptionListText,
+                }}
+                ref={(el: HTMLIcMenuElement) => (this.menu = el)}
+                inputEl={
+                  searchable
+                    ? this.searchableSelectElement
+                    : this.customSelectElement
+                }
+                inputLabel={label}
+                anchorEl={this.anchorEl}
+                size={size}
+                menuId={menuId}
+                open={this.open}
+                options={searchable ? this.filteredOptions : this.uniqueOptions}
+                value={
+                  multiple ? (currValue as string[]) : (currValue as string)
+                }
+                fullWidth={fullWidth}
+                selectOnEnter={this.selectOnEnter}
+                onMenuStateChange={this.handleMenuChange}
+                onMenuOptionSelect={this.handleCustomSelectChange}
+                onMenuOptionSelectAll={this.handleSelectAllChange}
+                onMenuKeyPress={this.handleMenuKeyPress}
+                onUngroupedOptionsSet={this.setUngroupedOptions}
+                onRetryButtonClicked={this.handleRetry}
+                parentEl={this.el}
+                onTimeoutBlur={this.onTimeoutBlur}
+                activationType={
+                  this.searchable || multiple || this.selectOnEnter
+                    ? "manual"
+                    : "automatic"
+                }
+                closeOnSelect={!multiple}
+              ></ic-menu>
+            </span>
           )}
           {this.multiple && (
             <div
