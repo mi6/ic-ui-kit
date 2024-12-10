@@ -465,6 +465,14 @@ describe("IcButton visual regression and a11y tests", () => {
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
 
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "ic-loading-indicator").then(
+      (loadingIndicators) => {
+        for (let i = 0; i < loadingIndicators.length; i++) {
+          cy.wrap(loadingIndicators[i]).invoke("attr", "progress", 50);
+        }
+      }
+    );
+
     cy.checkA11yWithWait();
     cy.wait(500).compareSnapshot({
       name: "icon-variants-button-group",
