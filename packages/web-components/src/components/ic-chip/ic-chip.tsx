@@ -89,6 +89,11 @@ export class Chip {
   @Prop() variant?: IcEmphasisType = "filled";
 
   /**
+   * The text in the dismiss button tooltip and aria label.
+   */
+  @Prop() dismissLabel?: string = "Dismiss";
+
+  /**
    * @deprecated This event should not be used anymore. Use icDismiss instead.
    */
   @Event() dismiss: EventEmitter<void>;
@@ -172,6 +177,7 @@ export class Chip {
       visible,
       disabled,
       hovered,
+      dismissLabel,
     } = this;
 
     return (
@@ -203,14 +209,16 @@ export class Chip {
           </ic-typography>
           {dismissible && (
             <ic-tooltip
-              label="Dismiss"
+              label={dismissLabel ? dismissLabel : "Dismiss"}
               target="dismiss-icon"
               class={{ "tooltip-disabled": disabled }}
             >
               <button
                 id="dismiss-icon"
                 class="dismiss-icon"
-                aria-label={`Dismiss ${label} chip`}
+                aria-label={`${
+                  dismissLabel ? dismissLabel : "Dismiss"
+                } ${label} chip`}
                 disabled={disabled}
                 tabindex={disabled ? -1 : 0}
                 onClick={this.dismissAction}
