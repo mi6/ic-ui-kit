@@ -67,6 +67,7 @@
     "@open-wc/testing-helpers": "^2.0.2",
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.5.3",
+    "@stencil/vue-output-target": "^0.9.0",
     "@storybook/addon-a11y": "^7.6.7",
     "@storybook/addon-actions": "^7.6.7",
     "@storybook/addon-essentials": "^7.6.7",

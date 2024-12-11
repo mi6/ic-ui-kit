@@ -1,0 +1,45 @@
+{
+  "name": "@ukic/vue",
+  "version": "1.0.0",
+  "description": "Vue-wrapped web components compiled using StencilJS",
+  "author": "mi6",
+  "bugs": {
+    "url": "https://github.com/mi6/ic-ui-kit",
+    "email": "icds@gchq.gov.uk"
+  },
+  "repository": {
+    "url": "https://github.com/mi6/ic-ui-kit",
+    "directory": "packages/vue"
+  },
+  "license": "MIT",
+  "main": "dist/vue.js",
+  "types": "dist/vue.d.ts",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
+    "clean": "rimraf dist",
+    "compile": "npm run tsc",
+    "tsc": "tsc -p .",
+    "copy:core-css": "echo 'Copy core.css from: @ukic/web-components' && mkdirp -p ./dist/core && ncp ../web-components/dist/core/core.css ./dist/core/core.css",
+    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css"
+  },
+  "dependencies": {
+    "@ukic/web-components": "^2.31.0"
+  },
+  "devDependencies": {
+    "@stencil/vue-output-target": "^0.9.0",
+    "@types/node": "^22.10.2",
+    "mkdirp": "^3.0.1",
+    "typescript": "^5.7.2",
+    "vue": "^3.5.13"
+  },
+  "peerDependencies": {
+    "@ukic/fonts": "^2.6.0"
+  }
+}
