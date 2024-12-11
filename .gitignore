@@ -44,6 +44,7 @@ log.txt
 node_modules/
 .vscode/
 .idea/
+.DS_Store
 
 logs
 npm-debug.log*
