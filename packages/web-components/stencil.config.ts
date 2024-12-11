@@ -4,6 +4,7 @@ import autoprefixer from "autoprefixer";
 import { inlineSvg } from "stencil-inline-svg";
 import { postcss } from "@stencil/postcss";
 import { reactOutputTarget } from "@stencil/react-output-target";
+import { vueOutputTarget } from '@stencil/vue-output-target';
 
 // If timestamp is undefined, it deletes timestamp from the json doc instead of empty string
 interface StencilOverride extends Omit<JsonDocs, "timestamp"> {
@@ -17,6 +18,11 @@ export const config: Config = {
     reactOutputTarget({
       componentCorePackage: "@ukic/web-components",
       proxiesFile: "../react/src/components.ts",
+      includeDefineCustomElements: true,
+    }),
+    vueOutputTarget({
+      componentCorePackage: "@ukic/web-components",
+      proxiesFile: '../vue/src/components.ts',
       includeDefineCustomElements: true,
     }),
     {
