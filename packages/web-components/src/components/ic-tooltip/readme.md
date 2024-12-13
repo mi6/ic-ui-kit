@@ -37,13 +37,6 @@ Type: `Promise<void>`
 
 
 
-## CSS Custom Properties
-
-| Name                   | Description        |
-| ---------------------- | ------------------ |
-| `--ic-z-index-tooltip` | z-index of tooltip |
-
-
 ## Dependencies
 
 ### Used by

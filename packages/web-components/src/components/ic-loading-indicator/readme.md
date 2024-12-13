@@ -29,13 +29,6 @@
 | `"ic-loading-container"` |             |
 
 
-## CSS Custom Properties
-
-| Name                  | Description                        |
-| --------------------- | ---------------------------------- |
-| `--circular-diameter` | Diameter of the circular-indicator |
-
-
 ## Dependencies
 
 ### Used by

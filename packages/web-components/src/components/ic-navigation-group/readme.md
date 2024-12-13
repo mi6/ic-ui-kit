@@ -27,13 +27,6 @@ Type: `Promise<void>`
 
 
 
-## CSS Custom Properties
-
-| Name                           | Description                      |
-| ------------------------------ | -------------------------------- |
-| `--ic-z-index-navigation-item` | z-index of navigation group item |
-
-
 ## Dependencies
 
 ### Depends on
