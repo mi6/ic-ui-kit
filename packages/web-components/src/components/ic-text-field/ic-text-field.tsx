@@ -381,9 +381,9 @@ export class TextField {
     }
   }
 
-  private doCheck = () => {
-    const el = this.el.shadowRoot.querySelector("ic-typography");
-    if (el.classList.contains("hydrated")) {
+  private checkChildHydration = () => {
+    const el = this.el.shadowRoot?.querySelector("ic-typography");
+    if (el && el.classList.contains("hydrated")) {
       this.setFocus();
       clearInterval(this.interval);
     }
