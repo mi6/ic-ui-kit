@@ -16,13 +16,6 @@
 | `upTo`                | `up-to`                | If `true`, "Up to" will be displayed before the classification and country.                            | `boolean`                                                                     | `false`     |
 
 
-## CSS Custom Properties
-
-| Name                                 | Description                      |
-| ------------------------------------ | -------------------------------- |
-| `--ic-z-index-classification-banner` | z-index of classification banner |
-
-
 ## Dependencies
 
 ### Depends on
