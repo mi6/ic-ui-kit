@@ -2747,6 +2747,222 @@ exports[`ic-data-table should render a slotted icon instead of an icon defined i
 </ic-data-table>
 `;
 
+exports[`ic-data-table should render an action element if present in the data set 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <th class="row-header" scope="row">
+                1
+              </th>
+              <td class="table-cell">
+                <div class="cell-grid-wrapper" style="grid-template-columns: auto calc(0px + var(--ic-space-xs));">
+                  <div class="cell-container data-type-number">
+                    <ic-typography variant="body">
+                      John Smith
+                    </ic-typography>
+                  </div>
+                  <span class="action-element">
+                    <ic-button aria-label="you can disable tooltips on icon buttons" disable-tooltip="true" size="small" variant="icon">
+                      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0V0z" fill="none"></path>
+                        <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>
+                      </svg>
+                    </ic-button>
+                  </span>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <th class="row-header" scope="row">
+                2
+              </th>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <th class="row-header" scope="row">
+                3
+              </th>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <th class="row-header" scope="row">
+                4
+              </th>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <th class="row-header" scope="row">
+                5
+              </th>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <th class="row-header" scope="row">
+                6
+              </th>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
 exports[`ic-data-table should render column icon on all column cells if onAllCells is true, except ones that already have a custom icon 1`] = `
 <ic-data-table>
   <mock:shadow-root>

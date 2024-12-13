@@ -414,6 +414,16 @@ td.table-density-spacious {
   width: 100%;
 }
 
+.action-element {
+  display: flex;
+  justify-content: right;
+}
+
+.cell-grid-wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
 @media screen and (min-width: 577px) {
   .column-header-inner-container {
     display: flex;
