@@ -48,7 +48,6 @@ ic-loading-indicator {
 .table-row-container {
   position: relative;
   height: 100%;
-  overflow: auto;
   transition: var(--ic-easing-transition-fast);
   overflow-anchor: none;
 }
