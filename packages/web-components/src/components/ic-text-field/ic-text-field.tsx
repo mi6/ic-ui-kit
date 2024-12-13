@@ -376,12 +376,14 @@ export class TextField {
       childList: true,
     });
 
-    if (this.autofocus) this.interval = setInterval(this.doCheck, 50);
+    if (this.autofocus) {
+      this.interval = setInterval(this.checkChildHydration, 50);
+    }
   }
 
-  private doCheck = () => {
-    const el = this.el.shadowRoot.querySelector("ic-typography");
-    if (el.classList.contains("hydrated")) {
+  private checkChildHydration = () => {
+    const el = this.el.shadowRoot?.querySelector("ic-typography");
+    if (el && el.classList.contains("hydrated")) {
       this.setFocus();
       clearInterval(this.interval);
     }
