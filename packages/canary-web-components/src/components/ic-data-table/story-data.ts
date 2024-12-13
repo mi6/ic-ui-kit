@@ -960,6 +960,56 @@ export const DATA_REACT_ELEMENTS_WITH_ICONS = [
   },
 ];
 
+export const ACTION_DATA_ELEMENTS = [
+  {
+    firstName: {
+      data: "Joe",
+      actionElement: `<ic-button variant="icon" size="small  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="refresh button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000000"> <path d="M0 0h24v24H0V0z" fill="none"></path> <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path> </svg></ic-button>`,
+    },
+    lastName: "Bloggs",
+    age: 31,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  {
+    firstName: "Sarah",
+    lastName: "Jane",
+    age: 28,
+    jobTitle: {
+      data: "Senior Software Developer, Site Reliability Engineering",
+      actionElement: `<ic-status-tag role="status" label="Success" status="success"></ic-status-tag>`,
+    },
+    address: "2 Main Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Mark",
+    lastName: "Smith",
+    age: {
+      data: 45,
+      actionElement: `<ic-button variant="icon" id="small-button" size="small aria-label="you can disable tooltips on icon buttons"> <svg aria-label="refresh button" xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
+    },
+    jobTitle: "Team Lead",
+    address: "12 Key Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Naomi",
+    lastName: "Kens",
+    age: 32,
+    jobTitle: "Analyst",
+    address: "8 Side Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Luke",
+    lastName: "Sky",
+    age: 18,
+    jobTitle: "Junior Developer",
+    address: {
+      data: "5 New Street, Town, Country, Postcode",
+      actionElement: `<ic-status-tag role="status" label="Error" status="danger"></ic-status-tag>`,
+    },
+  },
+];
+
 export const createDataTableElement = (
   caption: string,
   columns: IcDataTableColumnObject[] = COLS,
@@ -1416,6 +1466,9 @@ export const SlottedPagination = (): HTMLIcDataTableElement => {
   dataTable.appendChild(paginationBar);
   return dataTable;
 };
+
+export const ActionElement = (): HTMLElement =>
+  createDataTableElement("Action Element", COLS, ACTION_DATA_ELEMENTS);
 
 export const DevArea = (): HTMLElement => {
   const dataTable = createDataTableElement(
