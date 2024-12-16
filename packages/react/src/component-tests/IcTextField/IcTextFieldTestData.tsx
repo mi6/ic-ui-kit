@@ -305,6 +305,16 @@ export const TextFieldWithInlineValidation = (): ReactElement => (
   </div>
 );
 
+export const TextFieldWithEmptyValidation = (): ReactElement => (
+  <div style={style}>
+    <IcTextField
+      label="What is your favourite coffee?"
+      validationStatus=""
+      validationText=""
+    ></IcTextField>
+  </div>
+);
+
 export const ReadonlyTextField = (): ReactElement => (
   <div style={style}>
     <IcTextField
