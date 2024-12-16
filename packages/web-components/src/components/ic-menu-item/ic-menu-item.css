@@ -5,17 +5,62 @@ li {
   padding: 0;
 }
 
-:host ::part(button) {
+/* Button and list item styling */
+:host ::part(button),
+:host([variant="toggle"]) li {
   color: var(--ic-popover-menu-item-check);
-  padding: calc(var(--ic-space-xxxs) / 2);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  padding: calc(var(--ic-space-xxxs) / 2);
   gap: var(--ic-space-xs);
   border-radius: 0;
   min-height: 2.5rem;
   height: auto;
 }
 
+:host(.ic-menu-item-disabled) ::part(button),
+:host(.ic-menu-item-disabled[variant="toggle"]) li {
+  pointer-events: none;
+}
+
+:host ::part(button):hover,
+:host([variant="toggle"]) li:hover {
+  background-color: var(--ic-popover-background-hover);
+}
+
+:host ::part(button):focus,
+:host ::part(button):focus-visible,
+:host([variant="toggle"]) li:focus,
+:host([variant="toggle"]) li:focus-visible {
+  background-color: var(--ic-popover-background-focus);
+  box-shadow: none;
+  outline: none;
+}
+
+:host(.ic-menu-item-disabled) ::part(button):focus,
+:host(.ic-menu-item-disabled) ::part(button):focus-visible,
+:host(.ic-menu-item-disabled[variant="toggle"]) li:focus,
+:host(.ic-menu-item-disabled[variant="toggle"]) li:focus-visible {
+  color: var(--ic-popover-menu-item-icon-disabled) !important;
+}
+
+:host([variant="destructive"]) ::part(button):focus {
+  background-color: var(--ic-popover-destructive-background-focus);
+}
+
+:host ::part(button):active,
+:host([variant="toggle"]) li:active {
+  background-color: var(--ic-popover-background-pressed);
+  color: var(--ic-popover-menu-item-label) !important;
+
+  --ic-typography-color: var(--ic-popover-menu-item-label) !important;
+}
+
+:host([variant="destructive"]) ::part(button):active {
+  background-color: var(--ic-popover-background-pressed);
+}
+
+/* Focus border */
 .focus-border {
   display: flex;
   align-items: flex-start;
@@ -28,84 +73,16 @@ li {
   --icon-height: auto;
 }
 
-:host(.ic-menu-item-disabled) ::part(button) {
-  color: var(--ic-popover-menu-item-check-disabled) !important;
-
-  --ic-typography-color: var(--ic-popover-menu-item-check-disabled) !important;
-
-  pointer-events: none;
+:host([variant="toggle"]) li .focus-border {
+  width: 100%;
 }
 
-:host(.ic-menu-item-disabled) .menu-item-label,
-:host(.ic-menu-item-disabled) .shortcut,
-:host(.ic-menu-item-disabled) .menu-item-description {
-  --ic-typography-color: var(--ic-popover-menu-item-label-disabled) !important;
-}
-
-:host([variant="destructive"]) ::part(button) {
-  color: var(--ic-popover-menu-destructive-item-icon);
-
-  --ic-typography-color: var(--ic-popover-menu-destructive-item-label);
-}
-
-:host ::part(button):hover {
-  background-color: var(--ic-popover-background-hover);
-}
-
-:host ::part(button):focus-visible,
-:host ::part(button):focus {
-  color: var(--ic-popover-menu-item-icon-focused);
-
-  --ic-typography-color: purple;
-
-  background-color: var(--ic-popover-background-focus);
-  box-shadow: none;
-}
-
-:host(.ic-menu-item-disabled) ::part(button):focus-visible,
-:host(.ic-menu-item-disabled) ::part(button):focus {
-  color: var(--ic-popover-menu-item-icon-disabled) !important;
-
-  --ic-typography-color: orange !important;
-}
-
-:host([variant="destructive"]) ::part(button):focus-visible,
-:host([variant="destructive"]) ::part(button):focus {
-  background-color: var(--ic-popover-destructive-background-focus);
-}
-
-ic-button:focus-within .menu-item-label,
-ic-button:focus-within .shortcut,
-ic-button:focus-within .menu-item-description {
-  --ic-typography-color: var(--ic-popover-menu-item-label-focused);
-}
-
-:host(.ic-menu-item-disabled) ic-button:focus-within .focus-border {
+:host(.ic-menu-item-disabled) ic-button:focus-within .focus-border,
+:host(.ic-menu-item-disabled[variant="toggle"]) li:focus-within .focus-border {
   border-color: var(--ic-popover-menu-border);
 }
 
-:host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-label,
-:host(.ic-menu-item-disabled) ic-button:focus-within .shortcut,
-:host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-description {
-  --ic-typography-color: var(--ic-popover-menu-item-label-disabled) !important;
-}
-
-:host ::part(button):active {
-  background-color: var(--ic-popover-background-pressed);
-  color: var(--ic-popover-menu-item-label) !important;
-
-  --ic-typography-color: var(--ic-popover-menu-item-label) !important;
-}
-
-:host([variant="destructive"]) ::part(button):active {
-  background-color: var(--ic-popover-background-pressed);
-  color: var(--ic-popover-menu-destructive-item-label) !important;
-
-  --ic-typography-color: var(
-    --ic-popover-menu-destructive-item-label
-  ) !important;
-}
-
+/* Menu item information */
 .menu-item-info {
   display: flex;
   flex-direction: column;
@@ -119,6 +96,10 @@ ic-button:focus-within .menu-item-description {
   display: flex;
   align-items: baseline;
   gap: var(--ic-space-xs);
+}
+
+.menu-item-label {
+  --ic-typography-color: var(--ic-popover-menu-item-label);
 }
 
 .menu-item-description {
@@ -136,34 +117,103 @@ ic-button:focus-within .menu-item-description {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.025em;
+
+  --ic-typography-color: var(--ic-popover-menu-item-label-destructive);
 }
 
-ic-button:active .menu-item-label {
+ic-button:focus-within .menu-item-label,
+:host([variant="destructive"]) ic-button:focus-within .menu-item-label,
+:host([variant="toggle"]) li:focus .menu-item-label {
+  --ic-typography-color: var(--ic-popover-menu-item-label-focused);
+}
+
+ic-button:focus-within .menu-item-description,
+:host([variant="toggle"]) li:focus .menu-item-description {
+  --ic-typography-color: var(--ic-popover-menu-item-description-focused);
+}
+
+ic-button:focus-within .shortcut,
+:host([variant="toggle"]) li:focus .shortcut {
+  --ic-typography-color: var(--ic-popover-menu-item-shortcut-focused);
+}
+
+:host(.ic-menu-item-disabled) .menu-item-label,
+:host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-label,
+:host(.ic-menu-item-disabled[variant="toggle"]) li:focus .menu-item-label,
+n {
+  --ic-typography-color: var(--ic-popover-menu-item-label-disabled) !important;
+}
+
+:host(.ic-menu-item-disabled) .menu-item-description,
+:host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-description,
+:host(.ic-menu-item-disabled[variant="toggle"])
+  li:focus
+  .menu-item-description {
+  --ic-typography-color: var(
+    --ic-popover-menu-item-description-disabled
+  ) !important;
+}
+
+:host(.ic-menu-item-disabled) .shortcut,
+:host(.ic-menu-item-disabled) ic-button:focus-within .shortcut,
+:host(.ic-menu-item-disabled[variant="toggle"]) li:focus .shortcut {
+  --ic-typography-color: var(
+    --ic-popover-menu-item-shortcut-disabled
+  ) !important;
+}
+
+:host ::part(button) .menu-item-label,
+:host([variant="toggle"]) li:active .menu-item-label {
   --ic-typography-color: var(--ic-popover-menu-item-label);
 }
 
-ic-button:active .menu-item-description {
+:host ::part(button) .menu-item-description,
+:host([variant="toggle"]) li:active .menu-item-description {
   --ic-typography-color: var(--ic-popover-menu-item-description);
 }
 
-ic-button:active .shortcut {
+:host ::part(button) .shortcut,
+:host([variant="toggle"]) li:active .shortcut {
   --ic-typography-color: var(--ic-popover-menu-item-shortcut);
 }
 
 :host([variant="destructive"]) ic-button:active .menu-item-label {
   --ic-typography-color: var(
-    --ic-popover-menu-destructive-item-label
+    --ic-popover-menu-item-label-destructive
   ) !important;
 }
 
+/* Icon styling */
 .icon,
 .check-icon,
-.submenu-icon,
-.icon ::slotted(svg),
-.check-icon svg,
-.submenu-icon svg {
+.submenu-icon {
   width: var(--ic-space-lg);
   height: var(--ic-space-lg);
+  color: var(--ic-popover-menu-item-icon);
+  fill: currentcolor;
+}
+
+:host([variant="destructive"]) .icon {
+  color: var(--ic-popover-menu-item-icon-destructive);
+}
+
+:host(.ic-menu-item-disabled) .icon,
+:host(.ic-menu-item-disabled) .submenu-icon,
+:host(.ic-menu-item-disabled) .check-icon {
+  color: var(--ic-popover-menu-item-icon-disabled);
+}
+
+:host(:focus-within) .icon,
+:host(:focus-within) .submenu-icon,
+:host(:focus-within) .check-icon {
+  color: var(--ic-popover-menu-item-icon-focused);
+}
+
+:host ::part(button):active .icon,
+:host ::part(button):active .submenu-icon,
+:host([variant="toggle"]) li:active .check-icon,
+:host([variant="toggle"]) li:active .icon {
+  color: var(--ic-popover-menu-item-icon) !important;
 }
 
 .check-icon.hide {
@@ -184,7 +234,8 @@ ic-button:active .shortcut {
     border-color: canvas;
   }
 
-  :host(.ic-menu-item-disabled) ic-button:focus-within .focus-border {
+  :host(.ic-menu-item-disabled) ic-button:focus-within .focus-border,
+  :host(.ic-menu-item-disabled[variant="toggle"]) li:focus .focus-border {
     border-color: GrayText;
   }
 
@@ -199,8 +250,10 @@ ic-button:active .shortcut {
     --ic-typography-color: GrayText !important;
   }
 
+  :host(.ic-menu-item-disabled) ::part(button):focus,
   :host(.ic-menu-item-disabled) ::part(button):focus-visible,
-  :host(.ic-menu-item-disabled) ::part(button):focus {
+  :host(.ic-menu-item-disabled[variant="toggle"]) li:focus,
+  :host(.ic-menu-item-disabled[variant="toggle"]) li:focus-visible {
     outline-color: GrayText !important;
   }
 }
