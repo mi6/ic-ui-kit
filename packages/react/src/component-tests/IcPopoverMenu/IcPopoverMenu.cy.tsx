@@ -43,7 +43,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(POPOVER_SELECTOR);
     cy.get(BUTTON_SELECTOR).click().wait(500);
 
-    //cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default-after-click-button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.17),
@@ -96,7 +96,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(POPOVER_SELECTOR);
     cy.get(BUTTON_SELECTOR).click().wait(500);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "description",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
@@ -128,7 +128,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.get("@handleMenuItemClick").should(NOT_HAVE_BEEN_CALLED);
     cy.get("@triggerPopoverMenuInstance").should(NOT_BE_CALLED_ONCE);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
@@ -143,7 +143,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.get(BUTTON_SELECTOR).click();
     cy.realPress("ArrowDown").wait(250);
 
-    //cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled-focused",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
@@ -156,7 +156,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(POPOVER_SELECTOR);
     cy.get(BUTTON_SELECTOR).click().wait(500);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "variants",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
@@ -182,7 +182,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(POPOVER_SELECTOR);
     cy.get(BUTTON_SELECTOR).click().wait(500);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "max-height",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
@@ -208,7 +208,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PopoverDropdown />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
 
     cy.get(POPOVER_SELECTOR).invoke(
       "on",
@@ -226,7 +226,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PopoverDropdown />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
 
     cy.get(POPOVER_SELECTOR).invoke(
       "on",
@@ -323,7 +323,7 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
     mount(<PopoverMenuDescription />);
 
     cy.checkHydrated(POPOVER_SELECTOR);
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
 
     cy.get(POPOVER_SELECTOR).invoke(
       "on",
