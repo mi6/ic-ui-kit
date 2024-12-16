@@ -18,6 +18,7 @@
     "build:all": "npm run build && npm run build:canary",
     "release-check": "lerna version --no-push --no-git-tag-version",
     "storybook": "lerna run storybook --stream --parallel",
+    "storybook:core": "lerna run storybook --scope @ukic/web-components --scope @ukic/react --stream --parallel",
     "storybook:canary": "lerna run storybook --scope=@ukic/canary-* --stream --parallel",
     "build-storybook:web-components": "lerna run build-storybook --scope @ukic/web-components",
     "build-storybook:react": "lerna run build-storybook --scope @ukic/react",
