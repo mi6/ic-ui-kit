@@ -117,6 +117,11 @@ export class TreeItem {
   @Prop() target?: string;
 
   /**
+   * If `true`, the tree item label will be truncated instead of text wrapping.
+   */
+  @Prop() truncateTreeItem?: boolean;
+
+  /**
    * Emitted when tree item is selected.
    */
   @Event() icTreeItemSelected: EventEmitter<{ id: string }>;
@@ -139,7 +144,7 @@ export class TreeItem {
     this.updateAriaLabel();
 
     setTimeout(() => {
-      this.truncateTreeItemLabel(this.el);
+      this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
     }, 100);
 
     !isSlotUsed(this.el, "label") &&
@@ -156,8 +161,8 @@ export class TreeItem {
 
   componentDidUpdate(): void {
     if (this.hasParentExpanded) {
-      this.childTreeItems.forEach((child) => {
-        this.truncateTreeItemLabel(child);
+      this.childTreeItems.forEach((child: HTMLIcTreeItemElement) => {
+        child.truncateTreeItem && this.truncateTreeItemLabel(child);
       });
       this.hasParentExpanded = false;
     }
@@ -365,6 +370,7 @@ export class TreeItem {
           "ic-tree-item-disabled": disabled,
           "ic-tree-item-selected": !disabled && selected,
           [`ic-tree-item-${size}`]: size !== "default",
+          "ic-tree-item-truncate": this.truncateTreeItem,
         }}
         id={this.treeItemId}
       >
