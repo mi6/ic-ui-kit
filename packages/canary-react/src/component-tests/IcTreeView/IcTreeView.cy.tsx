@@ -199,7 +199,7 @@ describe("IcTreeView", () => {
     });
   });
 
-  it("should render with truncated text", () => {
+  it("should render with text wrapping", () => {
     mount(
       <div
         style={{
@@ -208,6 +208,40 @@ describe("IcTreeView", () => {
         }}
       >
         <IcTreeView heading="Limited edition menu with extras">
+          <IcTreeItem label="Coffee with lots of extra milk" />
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey with milk on the side" />
+            <IcTreeItem label="Chai" />
+          </IcTreeItem>
+          <IcTreeItem label="Hot Chocolate" />
+        </IcTreeView>
+      </div>
+    );
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).click();
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(2).click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "text-wrapping",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+    });
+  });
+
+  it("should render with truncated text", () => {
+    mount(
+      <div
+        style={{
+          width: "200px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView
+          heading="Limited edition menu with extras"
+          truncateTreeItems
+          truncateHeading
+        >
           <IcTreeItem label="Coffee with lots of extra milk" />
           <IcTreeItem label="Tea">
             <IcTreeItem label="Earl Grey with milk on the side" />
