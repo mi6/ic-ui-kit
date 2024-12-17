@@ -1161,7 +1161,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-dark-mode-title-bar",
-          "percentage": 0.09706854406085295,
+          "percentage": 0.09803312694117526,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -1966,7 +1966,7 @@
         {
           "status": "fail",
           "name": "IcPaginationBar.cy.tsx-go-to-page-valid",
-          "percentage": 0.06639667516756613,
+          "percentage": 0.06659745756533553,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
           "specFilename": "IcPaginationBar.cy.tsx",
@@ -1977,7 +1977,7 @@
         {
           "status": "fail",
           "name": "IcPaginationBar.cy.tsx-go-to-page-invalid-tooltip",
-          "percentage": 0.10985062137706406,
+          "percentage": 0.10992005188312814,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPaginationBar/IcPaginationBar.cy.tsx",
           "specFilename": "IcPaginationBar.cy.tsx",
@@ -2214,9 +2214,9 @@
       ]
     }
   ],
-  "startedAt": "2024-12-06T13:10:38.629Z",
-  "endedAt": "2024-12-06T13:23:21.236Z",
-  "duration": 747247,
+  "startedAt": "2024-12-17T17:15:07.187Z",
+  "endedAt": "2024-12-17T17:28:06.465Z",
+  "duration": 763413,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
