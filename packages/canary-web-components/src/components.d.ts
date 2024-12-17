@@ -550,6 +550,10 @@ export namespace Components {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
+        /**
+          * If `true`, the tree item label will be truncated instead of text wrapping.
+         */
+        "truncateTreeItem"?: boolean;
         "updateAriaLabel": () => Promise<void>;
     }
     interface IcTreeView {
@@ -569,6 +573,14 @@ export namespace Components {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
+        /**
+          * If `true`, the tree view heading will be truncated instead of text wrapping.
+         */
+        "truncateHeading"?: boolean;
+        /**
+          * If `true`, tree items will be truncated, unless they are individually overridden.
+         */
+        "truncateTreeItems"?: boolean;
     }
 }
 export interface IcDataTableCustomEvent<T> extends CustomEvent<T> {
@@ -1282,6 +1294,10 @@ declare namespace LocalJSX {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
+        /**
+          * If `true`, the tree item label will be truncated instead of text wrapping.
+         */
+        "truncateTreeItem"?: boolean;
     }
     interface IcTreeView {
         /**
@@ -1300,6 +1316,14 @@ declare namespace LocalJSX {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode;
+        /**
+          * If `true`, the tree view heading will be truncated instead of text wrapping.
+         */
+        "truncateHeading"?: boolean;
+        /**
+          * If `true`, tree items will be truncated, unless they are individually overridden.
+         */
+        "truncateTreeItems"?: boolean;
     }
     interface IntrinsicElements {
         "ic-card-horizontal": IcCardHorizontal;

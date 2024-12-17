@@ -75,6 +75,24 @@ export class TreeView {
     });
   }
 
+  /**
+   * If `true`, the tree view heading will be truncated instead of text wrapping.
+   */
+  @Prop() truncateHeading?: boolean = false;
+
+  /**
+   * If `true`, tree items will be truncated, unless they are individually overridden.
+   */
+  @Prop() truncateTreeItems?: boolean = false;
+  @Watch("truncateTreeItems")
+  watchTruncateTreeItemsHandler() {
+    this.treeItems.forEach((treeItem) => {
+      if (treeItem.truncateTreeItem === undefined) {
+        treeItem.truncateTreeItem = this.truncateTreeItems;
+      }
+    });
+  }
+
   disconnectedCallback(): void {
     this.el?.removeEventListener("slotchange", this.setTreeItems);
 
@@ -87,9 +105,10 @@ export class TreeView {
     this.watchSizeHandler();
     this.watchFocusInsetHandler();
     this.watchThemeHandler();
+    this.watchTruncateTreeItemsHandler();
 
     setTimeout(() => {
-      this.truncateTreeViewHeading();
+      this.truncateHeading && this.truncateTreeViewHeading();
     }, 100);
 
     this.addSlotChangeListener();
@@ -294,6 +313,7 @@ export class TreeView {
         class={{
           [`ic-tree-view-${size}`]: size !== "medium",
           [`ic-theme-${theme}`]: theme !== "inherit",
+          "ic-tree-view-truncate": this.truncateHeading,
         }}
         onKeyDown={this.handleKeyDown}
         aria-label={this.isHeadingDefined() ? heading : null}

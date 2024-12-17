@@ -12,17 +12,31 @@
   border-bottom: var(--ic-space-1px) solid var(--ic-tree-view-divider);
   display: flex;
   align-items: center;
-  height: calc(var(--ic-space-xl) + var(--ic-space-xs) - var(--ic-space-1px));
+  min-height: calc(
+    var(--ic-space-xl) + var(--ic-space-xs) - var(--ic-space-1px)
+  );
   padding: 0 var(--ic-space-xs);
 
   --ic-typography-color: var(--ic-tree-view-text);
 }
 
 :host(.ic-tree-view-small) .heading-area-container {
-  height: calc(var(--ic-space-xl) - var(--ic-space-1px));
+  min-height: calc(var(--ic-space-xl) - var(--ic-space-1px));
 }
 
 :host(.ic-tree-view-large) .heading-area-container {
+  min-height: calc(var(--ic-space-xxl) - var(--ic-space-1px));
+}
+
+:host(.ic-tree-view-truncate) .heading-area-container {
+  height: calc(var(--ic-space-xl) + var(--ic-space-xs) - var(--ic-space-1px));
+}
+
+:host(.ic-tree-view-truncate.ic-tree-view-small) .heading-area-container {
+  height: calc(var(--ic-space-xl) - var(--ic-space-1px));
+}
+
+:host(.ic-tree-view-truncate.ic-tree-view-large) .heading-area-container {
   height: calc(var(--ic-space-xxl) - var(--ic-space-1px));
 }
 
