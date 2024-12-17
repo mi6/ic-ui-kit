@@ -43,7 +43,8 @@ input::-webkit-inner-spin-button {
 }
 
 input:-webkit-autofill {
-  box-shadow: 0 0 0 var(--ic-space-sm) var(--ic-architectural-white) inset;
+  box-shadow: 0 0 0 var(--ic-space-sm) var(--ic-color-background-primary) inset;
+  -webkit-text-fill-color: var(--ic-date-input-text-filled) !important;
 }
 
 input::placeholder {
