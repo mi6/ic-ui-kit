@@ -7,11 +7,13 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                                           | Type                              | Default     |
-| ------------ | ------------ | ----------------------------------------------------- | --------------------------------- | ----------- |
-| `appearance` | `appearance` | The appearance of the tree view, e.g. dark, or light. | `"dark" \| "light"`               | `"dark"`    |
-| `heading`    | `heading`    | The heading of the tree view.                         | `string`                          | `""`        |
-| `size`       | `size`       | The size of the tree view.                            | `"default" \| "large" \| "small"` | `"default"` |
+| Property            | Attribute             | Description                                                                       | Type                              | Default     |
+| ------------------- | --------------------- | --------------------------------------------------------------------------------- | --------------------------------- | ----------- |
+| `appearance`        | `appearance`          | The appearance of the tree view, e.g. dark, or light.                             | `"dark" \| "light"`               | `"dark"`    |
+| `heading`           | `heading`             | The heading of the tree view.                                                     | `string`                          | `""`        |
+| `size`              | `size`                | The size of the tree view.                                                        | `"default" \| "large" \| "small"` | `"default"` |
+| `truncateHeading`   | `truncate-heading`    | If `true`, the tree view heading will be truncated instead of text wrapping.      | `boolean`                         | `false`     |
+| `truncateTreeItems` | `truncate-tree-items` | If `true`, tree items will be truncated, unless they are individually overridden. | `boolean`                         | `false`     |
 
 
 ## Slots

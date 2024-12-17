@@ -594,7 +594,7 @@ An example with slotted content for tree view heading and slotted content for tr
 
 ### Max content
 
-An example with max content. When the heading/label exceeds the width of the container, it will be truncated with an ellipsis.
+An example with max content. When the heading/label exceeds the width of the container, it will text wrap unless truncate-tree-item is set.
 
 <Canvas withSource="none">
   <Story name="Max content" parameters={{ loki: { skip: true } }}>
@@ -658,6 +658,94 @@ An example with max content. When the heading/label exceeds the width of the con
   </ic-tree-item>
   <ic-tree-item label="Tea">
     <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item label="Chai"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Hot chocolate with marshmallows"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Truncation behaviour
+
+An example with truncated tree items. When the heading/label exceeds the width of the container, it will be truncated with an ellipsis.
+
+<Canvas withSource="none">
+  <Story name="Truncation behaviour" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view
+          heading="Menu with nested options"
+          truncate-tree-items="true"
+          truncate-heading="true"
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </svg>
+          <ic-tree-item label="Coffee">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </svg>
+            <ic-tree-item label="Americano"></ic-tree-item>
+            <ic-tree-item
+              label="Latte with extra milk and sugar"
+            ></ic-tree-item>
+            <ic-tree-item label="Espresso"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Tea">
+            <ic-tree-item label="Earl Grey"></ic-tree-item>
+            <ic-tree-item
+              label="Earl Grey with truncation false"
+              truncate-tree-item="false"
+            ></ic-tree-item>
+            <ic-tree-item label="Chai"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Hot chocolate with marshmallows"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Truncation behaviour code example
+
+```html
+<ic-tree-view
+  heading="Menu with nested options"
+  truncate-tree-items="true"
+  truncate-heading="true"
+  >>
+  <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </svg>
+  <ic-tree-item label="Coffee">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </svg>
+    <ic-tree-item label="Americano"></ic-tree-item>
+    <ic-tree-item label="Latte with extra milk and sugar"></ic-tree-item>
+    <ic-tree-item label="Espresso"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Tea">
+    <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item
+      label="Earl Grey with truncation false"
+      truncate-tree-item="false"
+    ></ic-tree-item>
     <ic-tree-item label="Chai"></ic-tree-item>
   </ic-tree-item>
   <ic-tree-item label="Hot chocolate with marshmallows"></ic-tree-item>
