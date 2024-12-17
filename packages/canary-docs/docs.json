@@ -3882,6 +3882,27 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "truncateTreeItem",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "truncate-tree-item",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tree item label will be truncated instead of text wrapping.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [
@@ -4093,6 +4114,50 @@
             {
               "value": "light",
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "truncateHeading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "truncate-heading",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tree view heading will be truncated instead of text wrapping.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "truncateTreeItems",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "truncate-tree-items",
+          "reflectToAttr": false,
+          "docs": "If `true`, tree items will be truncated, unless they are individually overridden.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,
