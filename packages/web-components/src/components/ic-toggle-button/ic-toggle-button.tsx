@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Listen,
   h,
+  Watch,
 } from "@stencil/core";
 import {
   isSlotUsed,
@@ -46,6 +47,10 @@ export class ToggleButton {
    * If `true`, the toggle button will be in disabled state.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * If `true`, the toggle button will fill the width of the container.

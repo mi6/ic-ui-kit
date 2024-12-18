@@ -70,6 +70,24 @@ describe("ic-tab component", () => {
     </mock:shadow-root>
     IC Tab Test
   </ic-tab>`);
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root)
+      .toEqualHtml(`<ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tabindex="-1" tab-position="1">
+<mock:shadow-root>
+  <ic-typography class="ic-tab-label ic-typography-label">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    <span>
+      <slot></slot>
+    </span>
+  </ic-typography>
+</mock:shadow-root>
+IC Tab Test
+</ic-tab>`);
   });
 
   it("should display an icon", async () => {
