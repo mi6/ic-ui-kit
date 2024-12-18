@@ -36,6 +36,7 @@ import {
   UpdatingData,
   SlottedPagination,
   LargeDataSet,
+  ActionElement,
   DevArea,
 } from "./story-data";
 import readme from "./readme.md";
@@ -1642,6 +1643,16 @@ To set the min and max width of a table cell, set the `table-layout` attribute t
   dataTable.data = data;
 </script>
 ```
+
+### Action Element
+
+The example below demonstrates action elements appearing in table cells after being passed in via the data.
+
+<Canvas withSource="none">
+  <Story name="Action Element" parameters={{ loki: { skip: true } }}>
+    {ActionElement()}
+  </Story>
+</Canvas>
 
 #### Development Area
 
