@@ -34,6 +34,7 @@ import {
   isEmptyString,
   isNumeric,
   onComponentRequiredPropUndefined,
+  removeDisabledFalse,
   removeFormResetListener,
   renderHiddenInput,
   stringEnumToArray,
@@ -119,6 +120,10 @@ export class DateInput {
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * The days of the week to disable.
@@ -332,6 +337,7 @@ export class DateInput {
     this.selectedDateInfoId = `${this.inputId}-selected-date-info`;
 
     addFormResetListener(this.el, this.handleFormReset);
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
