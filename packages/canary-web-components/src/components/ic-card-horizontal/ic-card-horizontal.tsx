@@ -184,7 +184,10 @@ export class Card {
     const foregroundColor = getThemeFromContext(this.el, newTheme);
 
     if (foregroundColor !== IcThemeForegroundEnum.Default) {
-      this.theme = foregroundColor;
+      this.theme =
+        foregroundColor === IcThemeForegroundEnum.Light
+          ? IcThemeForegroundEnum.Dark
+          : IcThemeForegroundEnum.Light;
     }
   }
 
