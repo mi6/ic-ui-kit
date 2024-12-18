@@ -3863,6 +3863,28 @@
           "required": false
         },
         {
+          "name": "dismissLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dismiss-label",
+          "reflectToAttr": false,
+          "docs": "The text in the dismiss button tooltip and aria label.",
+          "docsTags": [],
+          "default": "\"Dismiss\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "dismissible",
           "type": "boolean",
           "complexType": {
