@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
   Listen,
+  Watch,
 } from "@stencil/core";
 import {
   isSlotUsed,
@@ -41,6 +42,10 @@ export class MenuItem {
    * If `true`, the menu item will be in disabled state.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * The URL that the link points to. This will render the menu item as an "a" tag.
