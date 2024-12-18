@@ -1,7 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Menu } from "../../ic-menu";
 import { IcInputComponentContainer } from "@ukic/web-components/dist/components/ic-input-component-container";
-import { testKeyboardEvent as keyboardEvent } from "@ukic/web-components/dist/types/testspec.setup";
+import { testKeyboardEvent as keyboardEvent } from "../../../../testspec.setup";
 import { h } from "@stencil/core";
 import * as helpers from "@ukic/web-components/dist/types/utils/helpers";
 

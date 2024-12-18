@@ -158,7 +158,7 @@ export class DataTable {
   /**
    * The row content for the table.
    */
-  @Prop() data: IcDataTableDataType[];
+  @Prop() data?: IcDataTableDataType[];
 
   /**
    * Set the density of the table including font and padding.
@@ -393,6 +393,7 @@ export class DataTable {
 
   componentDidRender(): void {
     this.fixCellTooltips();
+    this.adjustWidthForActionElement();
   }
 
   private runHeaderResizeObserver = () => {
@@ -1228,6 +1229,126 @@ export class DataTable {
     return {};
   };
 
+  private adjustWidthForActionElement = () => {
+    const elements = this.el.shadowRoot.querySelectorAll(".action-element");
+    elements.forEach((element) => {
+      const width = (element.firstChild as HTMLElement).getBoundingClientRect()
+        .width;
+      const gridWrapper: HTMLElement = element.closest(".cell-grid-wrapper");
+      gridWrapper.style.gridTemplateColumns = `auto calc(${width}px + var(--ic-space-xs))`;
+    });
+  };
+
+  private createCellContent = (
+    columnProps: IcDataTableColumnObject,
+    cell: any,
+    cellSlotName: string,
+    rowOptions: any,
+    rowAlignment: string,
+    hasIcon: boolean,
+    currentRowHeight: number,
+    cellValue: (key: string) => any,
+    rowEmphasis: string
+  ) => (
+    <div
+      innerHTML={
+        columnProps?.dataType === "element" &&
+        !isSlotUsed(this.el, cellSlotName)
+          ? (cell as string)
+          : null
+      }
+      class={{
+        "cell-container": columnProps?.dataType !== "element",
+        [`cell-alignment-${
+          columnProps?.columnAlignment?.vertical ||
+          rowOptions?.rowAlignment?.vertical ||
+          rowAlignment ||
+          this.getCellAlignment(cell, "vertical")
+        }`]:
+          !!columnProps?.columnAlignment?.vertical ||
+          !!rowOptions?.rowAlignment?.vertical ||
+          !!rowAlignment ||
+          !!this.getCellAlignment(cell, "vertical"),
+        [`cell-alignment-${
+          columnProps?.columnAlignment?.horizontal ||
+          rowOptions?.rowAlignment?.horizontal ||
+          this.getCellAlignment(cell, "horizontal")
+        }`]:
+          !!columnProps?.columnAlignment?.horizontal ||
+          !!rowOptions?.rowAlignment?.horizontal ||
+          !!this.getCellAlignment(cell, "horizontal"),
+        [`data-type-${columnProps?.dataType}`]: true,
+        [this.TEXT_WRAP_STRING]:
+          columnProps?.textWrap ||
+          rowOptions?.textWrap ||
+          !!this.getCellOptions(cell, "textWrap"),
+        ["cell-icon"]: hasIcon || !!columnProps?.icon?.icon,
+        ...this.setTruncationClass(),
+      }}
+      style={{
+        ...this.getRowHeight(
+          currentRowHeight,
+          columnProps,
+          rowOptions?.textWrap,
+          cell
+        ),
+        ...this.getColumnWidth(columnProps?.columnWidth),
+      }}
+      data-row-height={
+        this.truncationPattern || currentRowHeight
+          ? this.setRowHeight(currentRowHeight)
+          : null
+      }
+    >
+      {isSlotUsed(this.el, cellSlotName) ? (
+        <slot name={cellSlotName} />
+      ) : (
+        <Fragment>
+          {isSlotUsed(this.el, `${cellSlotName}-icon`) ? (
+            <slot name={`${cellSlotName}-icon`} />
+          ) : (
+            (hasIcon || columnProps?.icon?.onAllCells) &&
+            (cellValue("icon") || columnProps?.icon?.icon) && (
+              <span
+                class="icon"
+                innerHTML={cellValue("icon") || columnProps?.icon?.icon}
+              ></span>
+            )
+          )}
+          {columnProps?.dataType !== "element" &&
+            !isSlotUsed(this.el, cellSlotName) && (
+              <ic-typography
+                variant="body"
+                class={{
+                  [`cell-emphasis-${
+                    (this.isObject(cell) && cellValue("emphasis")) ||
+                    columnProps?.emphasis ||
+                    rowEmphasis
+                  }`]:
+                    (this.isObject(cell) && !!cellValue("emphasis")) ||
+                    !!columnProps?.emphasis ||
+                    !!rowEmphasis,
+                  [`text-${this.density}`]: this.notDefaultDensity(),
+                }}
+              >
+                {this.isObject(cell) && columnProps?.dataType !== "date" ? (
+                  Object.keys(cell).includes("href") ? (
+                    <ic-link href={cellValue("href")}>
+                      {cellValue("data")}
+                    </ic-link>
+                  ) : (
+                    cellValue("data")
+                  )
+                ) : (
+                  this.getCellContent(cell, columnProps?.dataType)
+                )}
+              </ic-typography>
+            )}
+        </Fragment>
+      )}
+    </div>
+  );
+
   private createCells = (row: IcDataTableDataType, rowIndex: number) => {
     const rowValues = Object.values(row);
     const rowKeys = Object.keys(row);
@@ -1286,104 +1407,37 @@ export class DataTable {
             }}
             style={{ ...this.getColumnWidth(columnProps.columnWidth) }}
           >
-            <div
-              innerHTML={
-                columnProps?.dataType === "element" &&
-                !isSlotUsed(this.el, cellSlotName)
-                  ? (cell as string)
-                  : null
-              }
-              class={{
-                "cell-container": columnProps?.dataType !== "element",
-                [`cell-alignment-${
-                  columnProps?.columnAlignment?.vertical ||
-                  rowOptions?.rowAlignment?.vertical ||
-                  rowAlignment ||
-                  this.getCellAlignment(cell, "vertical")
-                }`]:
-                  !!columnProps?.columnAlignment?.vertical ||
-                  !!rowOptions?.rowAlignment?.vertical ||
-                  !!rowAlignment ||
-                  !!this.getCellAlignment(cell, "vertical"),
-                [`cell-alignment-${
-                  columnProps?.columnAlignment?.horizontal ||
-                  rowOptions?.rowAlignment?.horizontal ||
-                  this.getCellAlignment(cell, "horizontal")
-                }`]:
-                  !!columnProps?.columnAlignment?.horizontal ||
-                  !!rowOptions?.rowAlignment?.horizontal ||
-                  !!this.getCellAlignment(cell, "horizontal"),
-                [`data-type-${columnProps?.dataType}`]: true,
-                [this.TEXT_WRAP_STRING]:
-                  columnProps?.textWrap ||
-                  rowOptions?.textWrap ||
-                  !!this.getCellOptions(cell, "textWrap"),
-                ["cell-icon"]: hasIcon || !!columnProps?.icon?.icon,
-                ...this.setTruncationClass(),
-              }}
-              style={{
-                ...this.getRowHeight(
-                  currentRowHeight,
+            {Object.keys(cell).includes("actionElement") ? (
+              <div class="cell-grid-wrapper">
+                {this.createCellContent(
                   columnProps,
-                  rowOptions?.textWrap,
-                  cell
-                ),
-                ...this.getColumnWidth(columnProps?.columnWidth),
-              }}
-              data-row-height={
-                this.truncationPattern || currentRowHeight
-                  ? this.setRowHeight(currentRowHeight)
-                  : null
-              }
-            >
-              {isSlotUsed(this.el, cellSlotName) ? (
-                <slot name={cellSlotName} />
-              ) : (
-                <Fragment>
-                  {isSlotUsed(this.el, `${cellSlotName}-icon`) ? (
-                    <slot name={`${cellSlotName}-icon`} />
-                  ) : (
-                    (hasIcon || columnProps?.icon?.onAllCells) &&
-                    (cellValue("icon") || columnProps?.icon?.icon) && (
-                      <span
-                        class="icon"
-                        innerHTML={cellValue("icon") || columnProps?.icon?.icon}
-                      ></span>
-                    )
-                  )}
-                  {columnProps?.dataType !== "element" &&
-                    !isSlotUsed(this.el, cellSlotName) && (
-                      <ic-typography
-                        variant="body"
-                        class={{
-                          [`cell-emphasis-${
-                            (this.isObject(cell) && cellValue("emphasis")) ||
-                            columnProps?.emphasis ||
-                            rowEmphasis
-                          }`]:
-                            (this.isObject(cell) && !!cellValue("emphasis")) ||
-                            !!columnProps?.emphasis ||
-                            !!rowEmphasis,
-                          [`text-${this.density}`]: this.notDefaultDensity(),
-                        }}
-                      >
-                        {this.isObject(cell) &&
-                        columnProps?.dataType !== "date" ? (
-                          Object.keys(cell).includes("href") ? (
-                            <ic-link href={cellValue("href")}>
-                              {cellValue("data")}
-                            </ic-link>
-                          ) : (
-                            cellValue("data")
-                          )
-                        ) : (
-                          this.getCellContent(cell, columnProps?.dataType)
-                        )}
-                      </ic-typography>
-                    )}
-                </Fragment>
-              )}
-            </div>
+                  cell,
+                  cellSlotName,
+                  rowOptions,
+                  rowAlignment,
+                  hasIcon,
+                  currentRowHeight,
+                  cellValue,
+                  rowEmphasis
+                )}
+                <span
+                  class="action-element"
+                  innerHTML={cellValue("actionElement")}
+                ></span>
+              </div>
+            ) : (
+              this.createCellContent(
+                columnProps,
+                cell,
+                cellSlotName,
+                rowOptions,
+                rowAlignment,
+                hasIcon,
+                currentRowHeight,
+                cellValue,
+                rowEmphasis
+              )
+            )}
           </td>
         );
       }
@@ -1505,7 +1559,12 @@ export class DataTable {
           ({ key }, index) =>
             isSlotUsed(this.el, `${key}-${rowIndex}`) && { key, index }
         )
-        .filter((col) => !!col);
+        .filter(
+          (col) =>
+            !!col &&
+            // skip the column if its already in the row
+            !Object.prototype.hasOwnProperty.call(row, col.key)
+        );
       return slottedColumns.length > 0
         ? addDataToPosition(row, slottedColumns, "")
         : row;
@@ -1899,7 +1958,7 @@ export class DataTable {
                 <slot name="pagination-bar" />
               ) : (
                 <ic-pagination-bar
-                  totalItems={data.length}
+                  totalItems={data?.length ?? 0}
                   type={paginationBarOptions.type}
                   rangeLabelType={paginationBarOptions.rangeLabelType}
                   showItemsPerPageControl={

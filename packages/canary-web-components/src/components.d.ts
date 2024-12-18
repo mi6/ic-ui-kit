@@ -84,7 +84,7 @@ export namespace Components {
         /**
           * The row content for the table.
          */
-        "data": IcDataTableDataType[];
+        "data"?: IcDataTableDataType[];
         /**
           * Set the density of the table including font and padding.
          */
@@ -755,6 +755,10 @@ export namespace Components {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * If `true`, the tree item label will be truncated instead of text wrapping.
+         */
+        "truncateTreeItem"?: boolean;
         "updateAriaLabel": () => Promise<void>;
     }
     interface IcTreeView {
@@ -770,6 +774,14 @@ export namespace Components {
           * The size of the tree view.
          */
         "size"?: IcSizes;
+        /**
+          * If `true`, the tree view heading will be truncated instead of text wrapping.
+         */
+        "truncateHeading"?: boolean;
+        /**
+          * If `true`, tree items will be truncated, unless they are individually overridden.
+         */
+        "truncateTreeItems"?: boolean;
     }
 }
 export interface IcDataTableCustomEvent<T> extends CustomEvent<T> {
@@ -1768,6 +1780,10 @@ declare namespace LocalJSX {
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
+        /**
+          * If `true`, the tree item label will be truncated instead of text wrapping.
+         */
+        "truncateTreeItem"?: boolean;
     }
     interface IcTreeView {
         /**
@@ -1782,6 +1798,14 @@ declare namespace LocalJSX {
           * The size of the tree view.
          */
         "size"?: IcSizes;
+        /**
+          * If `true`, the tree view heading will be truncated instead of text wrapping.
+         */
+        "truncateHeading"?: boolean;
+        /**
+          * If `true`, tree items will be truncated, unless they are individually overridden.
+         */
+        "truncateTreeItems"?: boolean;
     }
     interface IntrinsicElements {
         "ic-card-horizontal": IcCardHorizontal;
