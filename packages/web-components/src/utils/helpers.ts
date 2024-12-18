@@ -602,6 +602,10 @@ export const removeFormResetListener = (
 export const pxToRem = (px: string, base = 16): string =>
   `${(1 / base) * parseInt(px)}rem`;
 
+/**
+ * Removes the disabled attribute from the provided element when its value is set to false.
+ * This effectively makes it null, to not confuse screen readers that cannot interpret the false value
+ */
 export const removeDisabledFalse = (
   disabled: boolean,
   element: HTMLElement

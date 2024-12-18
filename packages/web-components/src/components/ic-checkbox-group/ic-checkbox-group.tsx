@@ -31,6 +31,10 @@ export class CheckboxGroup {
    * If `true`, the checkbox group will be set to the disabled state.
    */
   @Prop() disabled: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * The helper text that will be displayed for additional field guidance.

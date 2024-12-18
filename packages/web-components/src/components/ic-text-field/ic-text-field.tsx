@@ -117,6 +117,10 @@ export class TextField {
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * Specify whether the text field fills the full width of the container.
