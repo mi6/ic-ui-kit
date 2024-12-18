@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.31](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.30...@ukic/canary-react@2.0.0-canary.31) (2024-12-18)
+
+### Features
+
+- **canary-react:** add action-element tests and story ([869d434](https://github.com/mi6/ic-ui-kit/commit/869d434ed5efd0b6b2347dc18abdd5ef7a15348d))
+- **canary-react:** update tree view/tree item to text wrap by default ([7ce897b](https://github.com/mi6/ic-ui-kit/commit/7ce897b31b5c2dcfacb89ab6a9faabab4ee1a35a))
+
 # [2.0.0-canary.30](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.29...@ukic/canary-react@2.0.0-canary.30) (2024-11-27)
 
 **Note:** Version bump only for package @ukic/canary-react

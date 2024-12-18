@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.31](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.30...@ukic/canary-web-components@2.0.0-canary.31) (2024-12-18)
+
+### Bug Fixes
+
+- **canary-web-components:** [#2848](https://github.com/mi6/ic-ui-kit/issues/2848) Default ic-pagination-bar totalItems prop to zero if data is null ([2edfbe3](https://github.com/mi6/ic-ui-kit/commit/2edfbe3f7536429e7a9b4d909d65158fa6e72d00))
+- **canary-web-components:** add slotted columns to correct positions, skip the column if present in data ([0041aa9](https://github.com/mi6/ic-ui-kit/commit/0041aa941f098dc9359ea35cd7a1f015b50e3a1a)), closes [#2743](https://github.com/mi6/ic-ui-kit/issues/2743)
+- **canary-web-components:** set horizontal card image size directly on image to fix Safari issue ([3b65fd8](https://github.com/mi6/ic-ui-kit/commit/3b65fd8ed752b92c74564c366abe0be25cecf5f9))
+
+### Features
+
+- **canary-web-components:** added action-element, tests and stories ([3abb463](https://github.com/mi6/ic-ui-kit/commit/3abb463a2a52e4481817bacaf50df334de6918c9))
+- **canary-web-components:** update tree view/tree item to text wrap by default ([546dac3](https://github.com/mi6/ic-ui-kit/commit/546dac3947c784b6bda10eedd09ca955a9347c8a)), closes [#2895](https://github.com/mi6/ic-ui-kit/issues/2895)
+
+### BREAKING CHANGES
+
+- **canary-web-components:** Default behaviour for tree view changed from truncation to text wrap
+
 # [2.0.0-canary.30](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.29...@ukic/canary-web-components@2.0.0-canary.30) (2024-11-27)
 
 ### Bug Fixes
