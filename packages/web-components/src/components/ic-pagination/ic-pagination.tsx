@@ -72,6 +72,10 @@ export class Pagination {
    * If `true`, the pagination will not allow interaction.
    */
   @Prop() disabled: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * If `true`, the current page of the simple pagination will not be displayed.

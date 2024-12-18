@@ -11,6 +11,28 @@ exports[`ic-toggle-button component should render 1`] = `
 </ic-toggle-button>
 `;
 
+exports[`ic-toggle-button component should render disabled 1`] = `
+<ic-toggle-button class="default disabled" disabled="" label="Toggle" variant="default">
+  <mock:shadow-root>
+    <ic-button appearance="default" aria-disabled="true" aria-label="Toggle, unticked" aria-pressed="false" disabled="" size="default" variant="secondary">
+      Toggle
+      <slot></slot>
+    </ic-button>
+  </mock:shadow-root>
+</ic-toggle-button>
+`;
+
+exports[`ic-toggle-button component should render disabled: disabled-removed 1`] = `
+<ic-toggle-button class="default" label="Toggle" variant="default">
+  <mock:shadow-root>
+    <ic-button appearance="default" aria-disabled="false" aria-label="Toggle, unticked" aria-pressed="false" size="default" variant="secondary">
+      Toggle
+      <slot></slot>
+    </ic-button>
+  </mock:shadow-root>
+</ic-toggle-button>
+`;
+
 exports[`ic-toggle-button component should render icon variant 1`] = `
 <ic-toggle-button accessible-label="Refresh the page" class="default icon" variant="icon">
   <mock:shadow-root>

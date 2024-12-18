@@ -54,6 +54,10 @@ export class Checkbox {
    * If `true`, the checkbox will be set to the disabled state.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * The text to be displayed when dynamic.

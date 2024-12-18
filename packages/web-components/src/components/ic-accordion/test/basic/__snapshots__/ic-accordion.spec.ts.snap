@@ -144,6 +144,29 @@ exports[`ic-accordion snapshots should render in a disabled state: disabled 1`] 
 </ic-accordion>
 `;
 
+exports[`ic-accordion snapshots should render in a disabled state: disabled-removed 1`] = `
+<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-7">
+  <mock:shadow-root>
+    <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" id="ic-accordion-7-button" tabindex="0">
+      <ic-typography class="section-header" variant="subtitle-large">
+        Accordion 1
+      </ic-typography>
+      <span aria-hidden="true" class="expand-chevron">
+        svg
+      </span>
+    </button>
+    <div aria-hidden="true" aria-labelledby="ic-accordion-7-button" class="expanded-content" id="expanded-content-area" role="region">
+      <div class="expanded-content-inner">
+        <slot></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography variant="body">
+    This is an example of the main body text.
+  </ic-typography>
+</ic-accordion>
+`;
+
 exports[`ic-accordion snapshots should render with a heading slot when supplied: renders with heading slot 1`] = `
 <ic-accordion aria-disabled="false" class="default" id="ic-accordion-6">
   <mock:shadow-root>
