@@ -17,6 +17,7 @@ import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
   checkSlotInChildMutations,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
 
@@ -53,6 +54,10 @@ export class TreeItem {
    * If `true`, the tree item appears in the disabled state.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * If `true`, the tree item appears in the expanded state.
@@ -128,6 +133,10 @@ export class TreeItem {
 
   disconnectedCallback(): void {
     this.hostMutationObserver?.disconnect();
+  }
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
