@@ -81,6 +81,60 @@ exports[`ic-card-horizontal should render as a link 1`] = `
 </ic-card-horizontal>
 `;
 
+exports[`ic-card-horizontal should render disabled 1`] = `
+<ic-card-horizontal clickable="" disabled="" heading="Card" message="This is a static card">
+  <mock:shadow-root>
+    <button aria-disabled="true" class="card disabled medium" disabled="" tabindex="0">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a static card
+          </ic-typography>
+        </div>
+      </div>
+    </button>
+  </mock:shadow-root>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render disabled: disabled-removed 1`] = `
+<ic-card-horizontal clickable="" heading="Card" message="This is a static card">
+  <mock:shadow-root>
+    <button class="card clickable medium" tabindex="0">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a static card
+          </ic-typography>
+        </div>
+      </div>
+    </button>
+  </mock:shadow-root>
+</ic-card-horizontal>
+`;
+
 exports[`ic-card-horizontal should render extra large 1`] = `
 <ic-card-horizontal heading="Card" message="This is a static card" size="extra large">
   <mock:shadow-root>

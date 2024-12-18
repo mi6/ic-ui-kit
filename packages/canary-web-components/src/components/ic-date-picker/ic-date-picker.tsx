@@ -24,6 +24,7 @@ import {
 import {
   stringEnumToArray,
   onComponentRequiredPropUndefined,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import {
   IcWeekDays,
@@ -138,6 +139,10 @@ export class DatePicker {
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * The days of the week to disable.
@@ -425,6 +430,7 @@ export class DatePicker {
     this.watchStartOfWeekHandler();
     this.watchMaxHandler();
     this.watchMinHandler();
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentWillRender(): void {
