@@ -191,7 +191,10 @@ export class CardVertical {
 
     if (foregroundColor !== IcThemeForegroundEnum.Default) {
       this.monochrome = true;
-      this.theme = foregroundColor;
+      this.theme =
+        foregroundColor === IcThemeForegroundEnum.Light
+          ? IcThemeForegroundEnum.Dark
+          : IcThemeForegroundEnum.Light;
     }
   }
 
