@@ -1074,6 +1074,44 @@ slot[name="router-item"]::slotted(a) {
   vertical-align: middle !important;
 }
 
+/** menu button on top navigation\side navigation 
+  * uses secondary monochrome tokens which are duplicated here to avoid multiple copies in each component
+  */
+
+:host(#menu-button.ic-theme-light) {
+  --ic-button-secondary-background-hover-monochrome: var(
+    --ic-action-dark-bg-hover
+  );
+  --ic-button-secondary-background-pressed-monochrome: var(
+    --ic-action-dark-bg-pressed
+  );
+  --ic-button-secondary-text-hover-monochrome: var(--ic-action-dark-hover);
+  --ic-button-secondary-text-pressed-monochrome: var(--ic-action-dark-pressed);
+  --ic-button-secondary-border-hover-monochrome: var(
+    --ic-color-border-neutral-hover-dark
+  );
+  --ic-button-secondary-border-pressed-monochrome: var(
+    --ic-color-border-neutral-pressed-dark
+  );
+}
+
+:host(#menu-button.ic-theme-dark) {
+  --ic-button-secondary-background-hover-monochrome: var(
+    --ic-action-light-bg-hover
+  );
+  --ic-button-secondary-background-pressed-monochrome: var(
+    --ic-action-light-bg-pressed
+  );
+  --ic-button-secondary-text-hover-monochrome: var(--ic-action-light-hover);
+  --ic-button-secondary-text-pressed-monochrome: var(--ic-action-light-pressed);
+  --ic-button-secondary-border-hover-monochrome: var(
+    --ic-color-border-neutral-hover-light
+  );
+  --ic-button-secondary-border-pressed-monochrome: var(
+    --ic-color-border-neutral-default
+  );
+}
+
 /** High Contrast **/
 @media (forced-colors: active) {
   .button,
