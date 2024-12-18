@@ -14,7 +14,7 @@
   --ic-hero-heading: var(--ic-color-text-primary-light);
   --ic-hero-body: var(--ic-color-text-primary-light);
   --ic-hero-secondary-heading: var(--ic-color-text-primary-light);
-  --hero-keyline: var(--ic-color-text-primary);
+  --hero-keyline: var(--ic-theme-text);
 }
 
 .heading {
