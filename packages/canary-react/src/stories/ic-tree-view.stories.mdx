@@ -565,7 +565,7 @@ export default TreeView;
 
 ### Max content
 
-An example with max content. When the heading/label exceeds the width of the container, it will be truncated with an ellipsis.
+An example with max content. When the heading/label exceeds the width of the container, it will text wrap unless truncate-tree-item is set.
 
 <Canvas withSource="none">
   <Story name="Max content">
@@ -601,6 +601,83 @@ An example with max content. When the heading/label exceeds the width of the con
 </Canvas>
 
 #### Max content code example
+
+```jsx
+import * as React from "react";
+import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
+import { SlottedSVG } from "@ukic/react";
+
+const TreeView = () => (
+<IcTreeView heading="Menu with nested options">
+  <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </SlottedSVG>
+  <IcTreeItem label="Coffee">
+    <SlottedSVG
+      slot="icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </SlottedSVG>
+    <IcTreeItem label="Americano" />
+    <IcTreeItem label="Latte with extra milk and sugar" />
+    <IcTreeItem label="Espresso" />
+  </IcTreeItem>
+  <IcTreeItem label="Tea">
+    <IcTreeItem label="Earl Grey" />
+    <IcTreeItem label="Chai" />
+  </IcTreeItem>
+  <IcTreeItem label="Hot chocolate with marshmallows" />
+</IcTreeView>
+)
+
+export default TreeView;
+```
+
+### Truncation behaviour
+
+An example with truncated tree items. When the heading/label exceeds the width of the container, it will be truncated with an ellipsis.
+
+<Canvas withSource="none">
+  <Story name="Truncation behaviour">
+    <div style={{ width: "250px" }}>
+        <IcTreeView heading="Menu with nested options" truncateHeading truncateTreeItems>
+          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </SlottedSVG>
+          <IcTreeItem label="Coffee">
+            <SlottedSVG
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </SlottedSVG>
+            <IcTreeItem label="Americano" />
+            <IcTreeItem label="Latte with extra milk and sugar" />
+            <IcTreeItem label="Espresso" />
+          </IcTreeItem>
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey" />
+            <IcTreeItem label="Earl Grey with truncation false" truncateTreeItem={false} />
+            <IcTreeItem label="Chai" />
+          </IcTreeItem>
+          <IcTreeItem label="Hot chocolate with marshmallows" />
+        </IcTreeView>
+      </div>
+  </Story>
+</Canvas>
+
+#### Truncation behaviour code example
 
 ```jsx
 import * as React from "react";
@@ -856,6 +933,8 @@ export const defaultArgs = {
   heading: "Menu",
   size: "medium",
   showIcon: false,
+  truncateHeading: false,
+  truncateTreeItems: false,
   treeItemDisabled: false,
   treeItemHref: "",
   treeItemLabel: "Coffee",
@@ -886,6 +965,8 @@ export const defaultArgs = {
         size={args.size}
         focusInset={args.focusInset}
         theme={args.theme}
+        truncateHeading={args.truncateHeading}
+        truncateTreeItems={args.truncateTreeItems}
       >
         {args.showIcon && (
           <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
