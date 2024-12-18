@@ -1885,6 +1885,20 @@ describe("ic-select searchable", () => {
     await page.waitForChanges();
     expect(page.rootInstance.searchableSelectInputValue).toBeUndefined;
   });
+
+  it("should render disabled", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true" disabled="true"></ic-select>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-disabled");
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
+  });
 });
 
 describe("ic-select multi", () => {

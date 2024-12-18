@@ -17,6 +17,7 @@ import {
   IcThemeMode,
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-toggle-button-group.types";
+import { removeDisabledFalse } from "../../utils/helpers";
 
 interface lastKey {
   key: string | null;
@@ -52,6 +53,7 @@ export class ToggleButtonGroup {
     this.getAllToggleButtons().forEach((el) => {
       el.disabled = this.disabled;
     });
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   /**
@@ -155,6 +157,7 @@ export class ToggleButtonGroup {
     this.selectType === "multi" && (this.selectMethod = "manual");
     this.selectMethod === "auto" && this.selectType === "single";
     document.addEventListener("keydown", this.keyListener);
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {

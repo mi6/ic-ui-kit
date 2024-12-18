@@ -116,6 +116,11 @@ describe("ic-accordion snapshots", () => {
       </ic-accordion>`,
     });
     expect(page.root).toMatchSnapshot("disabled");
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
   describe("ic-accordion component", () => {

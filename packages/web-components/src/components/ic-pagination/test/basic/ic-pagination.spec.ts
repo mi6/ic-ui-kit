@@ -146,6 +146,19 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(pageEl.page).toBe(1);
   });
+  it("should render disabled", async () => {
+    const page = await newSpecPage({
+      components: [Pagination],
+      html: `<ic-pagination pages=10 disabled></ic-pagination>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
+  });
 });
 describe("ic-pagination complex type", () => {
   it("should render as complex type", async () => {

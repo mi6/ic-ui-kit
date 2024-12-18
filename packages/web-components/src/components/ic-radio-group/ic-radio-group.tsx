@@ -56,6 +56,7 @@ export class RadioGroup {
     this.radioOptions.forEach(
       (radioOption) => (radioOption.disabled = newValue)
     );
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   /**

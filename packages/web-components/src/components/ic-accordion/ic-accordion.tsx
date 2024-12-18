@@ -9,7 +9,7 @@ import {
   Watch,
   Method,
 } from "@stencil/core";
-import { isSlotUsed } from "../../utils/helpers";
+import { isSlotUsed, removeDisabledFalse } from "../../utils/helpers";
 import chevronIcon from "../../assets/chevron-icon.svg";
 import { IcSizes, IcThemeMode } from "../../utils/types";
 
@@ -37,6 +37,10 @@ export class Accordion {
    * If `true`, the accordion will be disabled.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * If `true`, the accordion appears expanded.
@@ -82,6 +86,10 @@ export class Accordion {
     if (this.accordionBtnHeading) {
       this.accordionBtnHeading.focus();
     }
+  }
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   disconnectedCallback(): void {

@@ -75,6 +75,11 @@ describe("ic-search-bar search", () => {
     });
 
     expect(page.root).toMatchSnapshot("renders-disabled");
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
   it("should render readonly variant", async () => {

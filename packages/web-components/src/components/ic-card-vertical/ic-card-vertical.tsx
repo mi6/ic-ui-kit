@@ -8,6 +8,7 @@ import {
   Method,
   forceUpdate,
   Host,
+  Watch,
 } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
@@ -62,6 +63,10 @@ export class CardVertical {
    * If `true`, the card will be disabled if it is clickable.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    *  If `true`, the card will have an expandable area and expansion toggle button.

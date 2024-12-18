@@ -87,6 +87,11 @@ describe("ic-text-field", () => {
     });
 
     expect(page.root).toMatchSnapshot("renders-disabled");
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
   it("should render readonly", async () => {
