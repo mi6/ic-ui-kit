@@ -51,11 +51,9 @@ describe("menu item variants", () => {
     expect(page.rootInstance.variant).toMatch("toggle");
     expect(page.rootInstance.checked).toBeFalsy();
 
-    const button = page.root.shadowRoot
-      .querySelector("li > ic-button")
-      .shadowRoot.querySelector("button");
+    const listItem = page.root.shadowRoot.querySelector("li");
 
-    button.click();
+    listItem.click();
     await page.waitForChanges;
   });
 
