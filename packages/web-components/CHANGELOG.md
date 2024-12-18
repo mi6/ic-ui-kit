@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.32.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.32.0...@ukic/web-components@2.32.1) (2024-12-18)
+
+### Bug Fixes
+
+- **web-components:** add null handling if there is no icon for navigation item ([03933cf](https://github.com/mi6/ic-ui-kit/commit/03933cfc4b9d00d0c3dfafcc4c3ab12d12ca0e64)), closes [#2795](https://github.com/mi6/ic-ui-kit/issues/2795)
+- **web-components:** fix ic-validation when validation status is empty ([7c7d224](https://github.com/mi6/ic-ui-kit/commit/7c7d224b3b2dce0f35c02466c3e7c5e82583bbbd)), closes [#2140](https://github.com/mi6/ic-ui-kit/issues/2140)
+
 # [2.32.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.31.0...@ukic/web-components@2.32.0) (2024-11-27)
 
 ### Bug Fixes
