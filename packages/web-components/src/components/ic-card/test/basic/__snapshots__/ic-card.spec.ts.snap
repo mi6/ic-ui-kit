@@ -1,5 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-card should correctly remove disabled attribute when setting disabled to false: disabled 1`] = `
+<ic-card clickable="true" disabled="" heading="Card" message="This is a full width card">
+  <mock:shadow-root>
+    <button aria-disabled="true" class="card disabled" disabled="" tabindex="0">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a full width card
+        </ic-typography>
+      </div>
+    </button>
+  </mock:shadow-root>
+</ic-card>
+`;
+
+exports[`ic-card should correctly remove disabled attribute when setting disabled to false: disabled-removed 1`] = `
+<ic-card clickable="true" heading="Card" message="This is a full width card">
+  <mock:shadow-root>
+    <button class="card clickable" tabindex="0">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <ic-typography variant="body">
+          This is a full width card
+        </ic-typography>
+      </div>
+    </button>
+  </mock:shadow-root>
+</ic-card>
+`;
+
 exports[`ic-card should render 1`] = `
 <ic-card heading="Card" message="This is a static card">
   <mock:shadow-root>

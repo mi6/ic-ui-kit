@@ -54,6 +54,11 @@ describe("ic-pagination-item", () => {
     });
 
     expect(page.root).toMatchSnapshot("render disabled");
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
   it("should render as ellipsis type", async () => {

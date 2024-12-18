@@ -90,6 +90,20 @@ describe("ic-toggle-button component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render disabled", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButton],
+      html: `<ic-toggle-button label="Toggle" disabled></ic-toggle-button>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
+  });
+
   it("should update toggleChecked value on click", async () => {
     const page = await newSpecPage({
       components: [ToggleButton],
