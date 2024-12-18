@@ -1573,6 +1573,19 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
       .should(HAVE_LENGTH, "12");
   });
 
+  it("should bring focus back to the input when 'no results' is selected", () => {
+    mount(<IcSelect label="What is your favourite coffee?" options={[]} />);
+
+    cy.checkHydrated(IC_SELECT);
+    cy.get(IC_SELECT).should(HAVE_CLASS, "hydrated");
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(BE_VISIBLE);
+    cy.realPress("{enter}");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(NOT_BE_VISIBLE);
+    cy.get(IC_SELECT).should(HAVE_FOCUS);
+    cy.get(".ic-input").should(HAVE_VALUE, "");
+  });
+
   it("should render as an uncontrolled component", () => {
     mount(<UncontrolledSelect />);
 
