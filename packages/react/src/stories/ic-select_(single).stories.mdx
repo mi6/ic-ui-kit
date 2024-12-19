@@ -629,11 +629,15 @@ export const Uncontrolled = () => {
         options: ["inherit", "light", "dark"],
         control: { type: "inline-radio" },
       },
+      options: {
+        defaultValue: true,
+        control: { type: "boolean" },
+      }
     }}
   >
     {(args) => (
       <IcSelect
-        options={playgroundOptions}
+        options={args.options ? playgroundOptions : []}
         disabled={args.disabled}
         fullWidth={args.fullWidth}
         helperText={args.helperText}
