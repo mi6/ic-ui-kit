@@ -625,8 +625,10 @@ export class Select {
   private handleCustomSelectChange = (event: CustomEvent): void => {
     const value = event.detail.value;
 
-    if (this.searchable && event.detail.label === this.emptyOptionListText) {
-      this.searchableSelectElement.focus();
+    if (event.detail.label === this.emptyOptionListText) {
+      if (this.searchable) {
+        this.searchableSelectElement.focus();
+      }
       return;
     }
 
