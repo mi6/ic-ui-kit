@@ -359,8 +359,15 @@ export class PaginationBar {
   };
 
   private setPaginationBarContent = (): void => {
+    const clonedItemsPerPageOptions: {
+      label: string;
+      value: string;
+    }[] = this.itemsPerPageOptions
+      ? JSON.parse(JSON.stringify(this.itemsPerPageOptions))
+      : null;
+
     const displayedItemsPerPageOptions =
-      this.itemsPerPageOptions ||
+      clonedItemsPerPageOptions ||
       (this.totalItems <= 100
         ? [
             { label: "10", value: "10" },
