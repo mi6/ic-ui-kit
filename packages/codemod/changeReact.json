@@ -1,0 +1,176 @@
+[
+    {
+      "v2Name": "small=true",
+      "v3Name": "size={small}",
+      "componentsAffected": "IcSelect",
+      "type": "prop"
+    },
+    {
+      "v2Name": "small",
+      "v3Name": "size={small}",
+      "componentsAffected": "IcSelect",
+      "type": "absolute"
+    },
+    {
+      "v2Name": "small={true}",
+      "v3Name": "size={small}",
+      "componentsAffected": "IcSelect",
+      "type": "prop"
+    },
+    {
+      "v2Name": "size={default}",
+      "v3Name": "size={medium}",
+      "componentsAffected": "IcStatusTag",
+      "type": "prop"
+    },
+    {
+      "v2Name": "size={default}",
+      "v3Name": "size={medium}",
+      "componentsAffected": "IcSwitch",
+      "type": "prop"
+    },
+    {
+      "v2Name": "groupTitle",
+      "v3Name": "label",
+      "componentsAffected": "IcAccordionGroup",
+      "type": "prop"
+    },
+    {
+      "v2Name": "groupTitle",
+      "v3Name": "label",
+      "componentsAffected": "IcFooterLinkGroup",
+      "type": "prop"
+    },
+    {
+      "v2Name": "textLabel",
+      "v3Name": "label",
+      "componentsAffected": "IcBadge",
+      "type": "prop"
+    },
+    {
+      "v2Name": "bodyMaxLines",
+      "v3Name": "maxLines",
+      "componentsAffected": "IcEmptyState",
+      "type": "prop"
+    },
+    {
+      "v2Name": "color",
+      "v3Name": "brandColor",
+      "componentsAffected": "IcTheme",
+      "type": "prop"
+    },
+    {
+      "v2Name": "stepType",
+      "v3Name": "type",
+      "componentsAffected": "IcStep",
+      "type": "prop"
+    },
+    {
+      "v2Name": "stepTitle",
+      "v3Name": "heading",
+      "componentsAffected": "IcStep",
+      "type": "prop"
+    },
+    {
+      "v2Name": "stepSubtitle",
+      "v3Name": "subheading",
+      "componentsAffected": "IcStep",
+      "type": "prop"
+    },
+    {
+      "v2Name": "stepStatus",
+      "v3Name": "status",
+      "componentsAffected": "IcStep",
+      "type": "prop"
+    },
+    {
+      "v2Name": "adjacentCount",
+      "v3Name": "adjacentPageCount",
+      "componentsAffected": "IcPagination",
+      "type": "prop"
+    },
+    {
+      "v2Name": "boundaryCount",
+      "v3Name": "boundaryPageCount",
+      "componentsAffected": "IcPagination",
+      "type": "prop"
+    },
+    {
+      "v2Name": "keyboardShortcut",
+      "v3Name": "keyboardShortcutLabel",
+      "componentsAffected": "IcMenuItem",
+      "type": "prop"
+    },
+    {
+      "v2Name": "disableFilter",
+      "v3Name": "disableAutoFiltering",
+      "componentsAffected": "IcSearchBar",
+      "type": "prop"
+    },
+    {
+      "v2Name": "disableFilter",
+      "v3Name": "disableAutoFiltering",
+      "componentsAffected": "IcSelect",
+      "type": "prop"
+    },
+    {
+      "v2Name": "maxLength",
+      "v3Name": "maxCharacters",
+      "componentsAffected": "IcTextField",
+      "type": "prop"
+    },
+    {
+      "v2Name": "toggleChecked",
+      "v3Name": "checked",
+      "componentsAffected": "IcMenuItem",
+      "type": "prop"
+    },
+    {
+      "v2Name": "toggleChecked",
+      "v3Name": "checked",
+      "componentsAffected": "IcToggleButton",
+      "type": "prop"
+    },
+    {
+      "v2Name": "hintText",
+      "v3Name": "assistiveHintText",
+      "componentsAffected": "IcSearchBar",
+      "type": "prop"
+    },
+    {
+      "v2Name": "sideNavExpanded",
+      "v3Name": "icSideNavExpanded",
+      "componentsAffected": "IcSideNavigation",
+      "type": "prop"
+    },
+    {
+      "v2Name": "onSideNavExpanded",
+      "v3Name": "onIcSideNavExpanded",
+      "componentsAffected": "IcSideNavigation",
+      "type": "prop"
+    },
+    {
+      "v2Name": "topNavResized",
+      "v3Name": "icTopNavResized",
+      "componentsAffected": "IcTopNavigation",
+      "type": "prop"
+    },
+    {
+      "v2Name": "onTopNavResized",
+      "v3Name": "onIcTopNavResized",
+      "componentsAffected": "IcTopNavigation",
+      "type": "prop"
+    },
+    {
+      "v2Name": "IcDataEntity",
+      "v3Name": "IcDataList",
+      "componentsAffected": "IcDataEntity",
+      "type": "component"
+    },
+    {
+      "v2Name": "IcCard",
+      "v3Name": "IcVerticalCard",
+      "componentsAffected": "IcCard",
+      "type": "component"
+    }
+]
