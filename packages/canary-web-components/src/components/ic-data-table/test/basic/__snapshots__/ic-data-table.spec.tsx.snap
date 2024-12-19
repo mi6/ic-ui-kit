@@ -966,7 +966,7 @@ exports[`ic-data-table should be able to slot a custom empty state into the data
       </div>
     </div>
   </mock:shadow-root>
-  <ic-empty-state class="left" slot="empty-state">
+  <ic-empty-state class="ic-empty-state-left" slot="empty-state">
     <mock:shadow-root>
       <div>
         <slot name="heading">
@@ -987,7 +987,7 @@ exports[`ic-data-table should be able to slot a custom empty state into the data
         <slot name="actions"></slot>
       </div>
     </mock:shadow-root>
-    <ic-button class="button-size-medium ic-button-variant-primary" exportparts="button" slot="actions">
+    <ic-button class="ic-button-size-medium ic-button-variant-primary" exportparts="button" slot="actions">
       <mock:shadow-root>
         <button class="button" part="button" type="button">
           <slot></slot>
@@ -1935,7 +1935,6 @@ exports[`ic-data-table should pass the caption down to any slotted ic-data-table
     <div class="table-container">
       <slot name="title-bar"></slot>
       <div class="table-row-container">
-        <slot name="title-bar"></slot>
         <table style="--table-layout: fixed;">
           <caption class="table-caption">
             Table
@@ -2173,7 +2172,7 @@ exports[`ic-data-table should pass the caption down to any slotted ic-data-table
         <div class="description-actions">
           <slot name="description"></slot>
           <div class="action-area">
-            <ic-select class="density-input" hidelabel="" label="Change density" small="" value="default"></ic-select>
+            <ic-select class="density-input" hidelabel="" label="Change density" size="small" value="default"></ic-select>
           </div>
         </div>
       </div>
@@ -2225,7 +2224,7 @@ exports[`ic-data-table should pass through the loadingOptions to the loading ind
           </thead>
         </table>
       </div>
-      <ic-loading-indicator monochrome="true" class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." monochrome="" theme="inherit"></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -2273,7 +2272,7 @@ exports[`ic-data-table should pass through the updatingOptions to the linear loa
             </tr>
           </thead>
           <th class="updating-state" colspan="4">
-            <ic-loading-indicator description="Updating table data" fullwidth="" progress="30" size="small" type="linear"></ic-loading-indicator>
+            <ic-loading-indicator description="Updating table data" fullwidth="" progress="30" size="small" theme="inherit" type="linear"></ic-loading-indicator>
           </th>
         </table>
         <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
@@ -3874,7 +3873,7 @@ exports[`ic-data-table should render the loading state when the \`loading\` prop
           </thead>
         </table>
       </div>
-      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -3922,7 +3921,7 @@ exports[`ic-data-table should render the updating state when the \`updating\` pr
             </tr>
           </thead>
           <th class="updating-state" colspan="4">
-            <ic-loading-indicator description="Updating table data" fullwidth="" size="small" type="linear"></ic-loading-indicator>
+            <ic-loading-indicator description="Updating table data" fullwidth="" size="small" theme="inherit" type="linear"></ic-loading-indicator>
           </th>
         </table>
         <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
@@ -3938,7 +3937,6 @@ exports[`ic-data-table should render with a slotted ic-data-table-title-bar 1`] 
     <div class="table-container">
       <slot name="title-bar"></slot>
       <div class="table-row-container">
-        <slot name="title-bar"></slot>
         <table style="--table-layout: fixed;">
           <caption class="table-caption">
             test table
@@ -4209,8 +4207,8 @@ exports[`ic-data-table should render with cell overrides 1`] = `
           <tbody>
             <tr class="table-row">
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     John Smith
                   </ic-typography>
                 </div>
@@ -4239,8 +4237,8 @@ exports[`ic-data-table should render with cell overrides 1`] = `
             </tr>
             <tr class="table-row">
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-container cell-emphasis-low data-type-string">
+                  <ic-typography variant="body">
                     Sally Jones
                   </ic-typography>
                 </div>
@@ -4269,8 +4267,8 @@ exports[`ic-data-table should render with cell overrides 1`] = `
             </tr>
             <tr class="table-row">
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Tim Rayes
                   </ic-typography>
                 </div>
@@ -4299,8 +4297,8 @@ exports[`ic-data-table should render with cell overrides 1`] = `
             </tr>
             <tr class="table-row">
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-container cell-emphasis-low data-type-string">
+                  <ic-typography variant="body">
                     Luke Fisher
                   </ic-typography>
                 </div>
@@ -4329,8 +4327,8 @@ exports[`ic-data-table should render with cell overrides 1`] = `
             </tr>
             <tr class="table-row">
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Jane Lock
                   </ic-typography>
                 </div>
@@ -4359,8 +4357,8 @@ exports[`ic-data-table should render with cell overrides 1`] = `
             </tr>
             <tr class="table-row">
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Margaret Hale
                   </ic-typography>
                 </div>
@@ -4391,7 +4389,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
         </table>
       </div>
       <div class="pagination-container">
-        <ic-pagination-bar alignment="right" appearance="default" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6" type="simple"></ic-pagination-bar>
+        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
     </div>
   </mock:shadow-root>
@@ -5134,15 +5132,15 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Accounts
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-container cell-emphasis-low data-type-number">
+                  <ic-typography variant="body">
                     1
                   </ic-typography>
                 </div>
@@ -5164,15 +5162,15 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Engineering
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-container cell-emphasis-low data-type-number">
+                  <ic-typography variant="body">
                     2
                   </ic-typography>
                 </div>
@@ -5194,15 +5192,15 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Sales
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-container cell-emphasis-low data-type-number">
+                  <ic-typography variant="body">
                     3
                   </ic-typography>
                 </div>
@@ -5224,15 +5222,15 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Engineering
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-container cell-emphasis-low data-type-number">
+                  <ic-typography variant="body">
                     4
                   </ic-typography>
                 </div>
@@ -5254,15 +5252,15 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Engineering
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-container cell-emphasis-low data-type-number">
+                  <ic-typography variant="body">
                     5
                   </ic-typography>
                 </div>
@@ -5284,15 +5282,15 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     HR
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-container cell-emphasis-low data-type-number">
+                  <ic-typography variant="body">
                     6
                   </ic-typography>
                 </div>
@@ -5302,7 +5300,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
         </table>
       </div>
       <div class="pagination-container">
-        <ic-pagination-bar alignment="right" appearance="default" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6" type="simple"></ic-pagination-bar>
+        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
     </div>
   </mock:shadow-root>
@@ -5655,7 +5653,7 @@ exports[`ic-data-table should render with pagination 1`] = `
         </table>
       </div>
       <div class="pagination-container">
-        <ic-pagination-bar alignment="right" appearance="default" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="20" type="simple"></ic-pagination-bar>
+        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="20" type="simple"></ic-pagination-bar>
       </div>
     </div>
   </mock:shadow-root>
@@ -5915,22 +5913,22 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 1
               </th>
               <td class="table-cell">
-                <div class="cell-alignment-middle cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-alignment-middle cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     John Smith
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-middle cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-alignment-middle cell-container cell-emphasis-high data-type-number">
+                  <ic-typography variant="body">
                     36
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-middle cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-alignment-middle cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Accounts
                   </ic-typography>
                 </div>
@@ -5941,22 +5939,22 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 2
               </th>
               <td class="table-cell">
-                <div class="cell-alignment-top cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-alignment-top cell-container cell-emphasis-low data-type-string">
+                  <ic-typography variant="body">
                     Sally Jones
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-top cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-alignment-top cell-container cell-emphasis-low data-type-number">
+                  <ic-typography variant="body">
                     32
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-top cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-alignment-top cell-container cell-emphasis-low data-type-string">
+                  <ic-typography variant="body">
                     Engineering
                   </ic-typography>
                 </div>
@@ -5967,22 +5965,22 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 3
               </th>
               <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-alignment-bottom cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Tim Rayes
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-alignment-bottom cell-container cell-emphasis-high data-type-number">
+                  <ic-typography variant="body">
                     41
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-alignment-bottom cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Sales
                   </ic-typography>
                 </div>
@@ -5993,22 +5991,22 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 4
               </th>
               <td class="table-cell">
-                <div class="cell-alignment-middle cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-alignment-middle cell-container cell-emphasis-low data-type-string">
+                  <ic-typography variant="body">
                     Luke Fisher
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-middle cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-alignment-middle cell-container cell-emphasis-low data-type-number">
+                  <ic-typography variant="body">
                     23
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-middle cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-alignment-middle cell-container cell-emphasis-low data-type-string">
+                  <ic-typography variant="body">
                     Engineering
                   </ic-typography>
                 </div>
@@ -6019,22 +6017,22 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 5
               </th>
               <td class="table-cell">
-                <div class="cell-alignment-top cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-alignment-top cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Jane Lock
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-top cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-alignment-top cell-container cell-emphasis-high data-type-number">
+                  <ic-typography variant="body">
                     34
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-top cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-high" variant="body">
+                <div class="cell-alignment-top cell-container cell-emphasis-high data-type-string">
+                  <ic-typography variant="body">
                     Engineering
                   </ic-typography>
                 </div>
@@ -6045,22 +6043,22 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 6
               </th>
               <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-alignment-bottom cell-container cell-emphasis-low data-type-string">
+                  <ic-typography variant="body">
                     Margaret Hale
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container data-type-number">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-alignment-bottom cell-container cell-emphasis-low data-type-number">
+                  <ic-typography variant="body">
                     45
                   </ic-typography>
                 </div>
               </td>
               <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container data-type-string">
-                  <ic-typography class="cell-emphasis-low" variant="body">
+                <div class="cell-alignment-bottom cell-container cell-emphasis-low data-type-string">
+                  <ic-typography variant="body">
                     HR
                   </ic-typography>
                 </div>
@@ -6070,7 +6068,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
         </table>
       </div>
       <div class="pagination-container">
-        <ic-pagination-bar alignment="right" appearance="default" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6" type="simple"></ic-pagination-bar>
+        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
     </div>
   </mock:shadow-root>
@@ -6615,6 +6613,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   </ic-typography>
                 </div>
               </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-0"></slot>
+                </div>
+              </td>
             </tr>
             <tr class="table-row">
               <td class="table-cell">
@@ -6643,6 +6646,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   <ic-typography variant="body">
                     2
                   </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-1"></slot>
                 </div>
               </td>
             </tr>
@@ -6675,6 +6683,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   </ic-typography>
                 </div>
               </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-2"></slot>
+                </div>
+              </td>
             </tr>
             <tr class="table-row">
               <td class="table-cell">
@@ -6703,6 +6716,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   <ic-typography variant="body">
                     4
                   </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-3"></slot>
                 </div>
               </td>
             </tr>
@@ -6735,6 +6753,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   </ic-typography>
                 </div>
               </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-4"></slot>
+                </div>
+              </td>
             </tr>
             <tr class="table-row">
               <td class="table-cell">
@@ -6763,6 +6786,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   <ic-typography variant="body">
                     6
                   </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-5"></slot>
                 </div>
               </td>
             </tr>
@@ -6808,7 +6836,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6825,7 +6853,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6842,7 +6870,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6859,7 +6887,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7081,7 +7109,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Sort descending" class="button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7098,7 +7126,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7115,7 +7143,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7132,7 +7160,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7354,7 +7382,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Remove sort" class="button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Remove sort" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7371,7 +7399,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7388,7 +7416,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7405,7 +7433,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7627,7 +7655,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Sort ascending" class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Sort ascending" class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7644,7 +7672,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button aria-label="Sort descending" class="button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-age">
+                  <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-age">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7661,7 +7689,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7678,7 +7706,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -7927,7 +7955,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
           </thead>
         </table>
       </div>
-      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -7976,7 +8004,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
           </thead>
         </table>
       </div>
-      <ic-loading-indicator class="loading loading-empty show show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      <ic-loading-indicator class="loading loading-empty show show-background" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -8255,7 +8283,7 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
           </thead>
         </table>
       </div>
-      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
