@@ -1693,7 +1693,7 @@ ic-theme,
 
     /* Badge */
     --ic-badge-text: var(--ic-color-text-inverse);
-    --ic-badge-icon: var(--ic-color-icon-inverted);
+    --ic-badge-icon: var(--ic-color-icon-neutral);
     --ic-badge-warning-text: var(--ic-color-text-inverse);
     --ic-badge-warning-icon: var(--ic-color-icon-neutral);
     --ic-badge-text-monochrome: var(--ic-color-text-primary);
@@ -3073,7 +3073,7 @@ ic-theme,
 
   /* Badge */
   --ic-badge-text: var(--ic-color-text-inverse);
-  --ic-badge-icon: var(--ic-color-icon-inverted);
+  --ic-badge-icon: var(--ic-color-icon-neutral);
   --ic-badge-warning-text: var(--ic-color-text-inverse);
   --ic-badge-warning-icon: var(--ic-color-icon-neutral);
   --ic-badge-text-monochrome: var(--ic-color-text-primary);
