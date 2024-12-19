@@ -307,6 +307,7 @@
   --ic-color-text-tertiary-dark: var(--ic-architectural-200);
   --ic-color-text-inverse-light: var(--ic-color-text-primary-dark);
   --ic-color-text-inverse-dark: var(--ic-color-text-primary-light);
+  --ic-color-white-text: var(--ic-architectural-white); /* to be removed */
   --ic-color-text-inverted: var(--ic-architectural-white);
   --ic-color-text-disabled-default: var(--ic-architectural-300);
   --ic-color-text-disabled-light: var(--ic-architectural-200);
@@ -427,7 +428,7 @@
   --ic-action-default-pressed-dark: var(--ic-blue-100);
   --ic-action-default-selected-light: var(--ic-blue-800-state-layer-10);
   --ic-action-default-selected-dark: var(--ic-blue-900);
-  --ic-action-default-disabled: var(--ic-blue-50);
+  --ic-action-default-disabled: var(--ic-blue-50); /* think this is wrong */
   --ic-action-default-active-alpha: var(--ic-blue-800-state-layer-50);
   --ic-action-default-bg-hover: var(--ic-blue-800-state-layer-10);
   --ic-action-default-bg-hover-24: var(--ic-blue-800-state-layer-24);
