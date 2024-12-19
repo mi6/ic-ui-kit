@@ -1105,6 +1105,14 @@ it("should render an element in the table cell if the data prop contains the act
     .should(HAVE_CLASS, "action-element")
     .find("ic-button")
     .should("be.visible");
+
+  cy.compareSnapshot({
+    name: "action-elements",
+    testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.129),
+    cypressScreenshotOptions: {
+      capture: "viewport",
+    },
+  });
 });
 
 it("should not render an element in the table cell if the data prop does not contain the actionElement key", () => {
