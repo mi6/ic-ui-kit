@@ -20,7 +20,18 @@ import readme from "./readme.md";
       html`<ic-text-field label="What is your favourite coffee?">
         </ic-text-field>
         <ic-text-field rows="6" label="What is your favourite coffee?">
-        </ic-text-field> `
+        </ic-text-field>`
+    }
+  </Story>
+</Canvas>
+
+### Autofocus
+
+<Canvas>
+  <Story name="Autofocus" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-text-field autofocus label="What is your favourite coffee?">
+      </ic-text-field>`
     }
   </Story>
 </Canvas>

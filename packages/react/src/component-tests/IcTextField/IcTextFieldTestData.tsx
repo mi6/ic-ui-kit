@@ -113,6 +113,20 @@ export const HiddenLabelTextField = (): ReactElement => (
   </div>
 );
 
+export const AutofocusTextField = (): ReactElement => (
+  <div style={style}>
+    <IcTextField
+      maxCharacters={25}
+      label="What is your favourite coffee?"
+      placeholder="Please enter…"
+      helperText="Such as Arabica, Robusta or Liberica"
+      autofocus
+    >
+      <ReusableSlottedIcon />
+    </IcTextField>
+  </div>
+);
+
 export const TextFieldWithMinMaxCharacters = (): ReactElement => (
   <>
     <div style={style}>
