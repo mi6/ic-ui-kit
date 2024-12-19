@@ -56,6 +56,7 @@ export class TextField {
   private inheritedAttributes: { [k: string]: string } = {};
   private inputEl: HTMLInputElement | HTMLTextAreaElement;
   private hostMutationObserver: MutationObserver = null;
+  private interval: ReturnType<typeof setInterval>;
 
   @Element() el: HTMLIcTextFieldElement;
 
@@ -111,7 +112,7 @@ export class TextField {
   /**
    * If `true`, the form control will have input focus when the page loads.
    */
-  @Prop() autoFocus = false;
+  @Prop() autofocus = false;
 
   /**
    * If `true`, the disabled state will be set.
@@ -374,7 +375,19 @@ export class TextField {
       attributes: true,
       childList: true,
     });
+
+    if (this.autofocus) {
+      this.interval = setInterval(this.checkChildHydration, 50);
+    }
   }
+
+  private checkChildHydration = () => {
+    const el = this.el.shadowRoot?.querySelector("ic-typography");
+    if (el && el.classList.contains("hydrated")) {
+      this.setFocus();
+      clearInterval(this.interval);
+    }
+  };
 
   @Listen("keydown", {})
   handleKeyDown(ev: KeyboardEvent): void {
@@ -388,7 +401,7 @@ export class TextField {
 
   @Method()
   async setFocus(): Promise<void> {
-    this.inputEl?.focus();
+    await this.inputEl?.focus();
   }
 
   private getMaxValueExceeded = (value: string) => {
@@ -596,7 +609,7 @@ export class TextField {
             {!multiline ? (
               <input
                 id={inputId}
-                name={name}
+                name={this.name}
                 ref={(el) => (this.inputEl = el as HTMLInputElement)}
                 type={this.type}
                 min={min}
@@ -622,7 +635,6 @@ export class TextField {
                 aria-owns={this.ariaOwns}
                 autocomplete={this.autocomplete}
                 autocapitalize={this.autocapitalize}
-                autoFocus={this.autoFocus}
                 spellcheck={spellcheck}
                 inputmode={inputmode}
                 role={this.role}
@@ -638,7 +650,7 @@ export class TextField {
                   "no-left-pad": !showLeftIcon && readonly,
                   readonly,
                 }}
-                name={name}
+                name={this.name}
                 ref={(el) => (this.inputEl = el as HTMLTextAreaElement)}
                 value={value}
                 rows={rows}
@@ -653,7 +665,6 @@ export class TextField {
                 aria-describedby={describedBy}
                 aria-invalid={invalid}
                 autocapitalize={this.autocapitalize}
-                autoFocus={this.autoFocus}
                 spellcheck={spellcheck}
                 inputmode={inputmode}
                 maxlength={maxCharactersReached ? maxCharacters : null}
