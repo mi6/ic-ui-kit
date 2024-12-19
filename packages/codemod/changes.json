@@ -1,0 +1,152 @@
+[
+  {
+    "v2Name": "small=true",
+    "v3Name": "size=small",
+    "componentsAffected": "ic-select",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "small",
+    "v3Name": "size=small",
+    "componentsAffected": "ic-select",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "small=true",
+    "v3Name": "size=small",
+    "componentsAffected": "ic-select",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "size=default",
+    "v3Name": "size=medium",
+    "componentsAffected": "ic-status-tag",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "size=default",
+    "v3Name": "size=medium",
+    "componentsAffected": "ic-switch",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "group-title",
+    "v3Name": "label",
+    "componentsAffected": "ic-accordion-group",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "group-title",
+    "v3Name": "label",
+    "componentsAffected": "ic-footer-link-group",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "text-label",
+    "v3Name": "label",
+    "componentsAffected": "ic-badge",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "body-max-lines",
+    "v3Name": "max-lines",
+    "componentsAffected": "ic-empty-state",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "theme",
+    "v3Name": "brand",
+    "componentsAffected": "ic-theme",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "step-type",
+    "v3Name": "type",
+    "componentsAffected": "ic-step",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "step-title",
+    "v3Name": "heading",
+    "componentsAffected": "ic-step",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "step-subtitle",
+    "v3Name": "subheading",
+    "componentsAffected": "ic-step",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "step-status",
+    "v3Name": "status",
+    "componentsAffected": "ic-step",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "adjacent-count",
+    "v3Name": "adjacent-page-count",
+    "componentsAffected": "ic-pagination",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "boundary-count",
+    "v3Name": "boundary-page-count",
+    "componentsAffected": "ic-pagination",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "keyboard-shortcut",
+    "v3Name": "keyboard-shortcut-label",
+    "componentsAffected": "ic-menu-item",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "disable-filter",
+    "v3Name": "disable-auto-filtering",
+    "componentsAffected": "ic-search-bar",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "disable-filter",
+    "v3Name": "disable-auto-filtering",
+    "componentsAffected": "ic-select",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "max-length",
+    "v3Name": "max-characters",
+    "componentsAffected": "ic-text-field",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "toggle-checked",
+    "v3Name": "checked",
+    "componentsAffected": "ic-menu-item",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "toggle-checked",
+    "v3Name": "checked",
+    "componentsAffected": "ic-toggle-button",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "hint-text",
+    "v3Name": "assistive-hint-text",
+    "componentsAffected": "ic-search-bar",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "sideNavExpanded",
+    "v3Name": "icSideNavExpanded",
+    "componentsAffected": "ic-side-navigation",
+    "ignorePatterns": []
+  },
+  {
+    "v2Name": "topNavResized",
+    "v3Name": "icTopNavResized",
+    "componentsAffected": "ic-top-navigation",
+    "ignorePatterns": []
+  }
+]
