@@ -112,7 +112,10 @@ export class Link {
 
     if (theme !== IcThemeForegroundEnum.Default) {
       this.monochrome = true;
-      this.theme = theme;
+      this.theme =
+        theme === IcThemeForegroundEnum.Light
+          ? IcThemeForegroundEnum.Dark
+          : IcThemeForegroundEnum.Light;
     }
   }
 

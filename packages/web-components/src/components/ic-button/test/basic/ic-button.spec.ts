@@ -326,7 +326,7 @@ describe("button component", () => {
     });
     await page.waitForChanges();
 
-    expect(page.rootInstance.theme).toEqual("light");
+    expect(page.rootInstance.theme).toEqual("dark");
   });
 
   it("should test button as submit button on form", async () => {

@@ -21,14 +21,11 @@ import image from "./assets/example-background.png";
 
 export const Controlled = () => {
   const [color, setColour] = useState("rgb(255, 201, 60)");
-  const [theme, setTheme] = useState("light");
   const defaultButtonClickHandler = () => {
     setColour("rgb(27, 60, 121)");
-    setTheme("dark");
   };
   const differentButtonClickHandler = () => {
     setColour("rgb(255, 201, 60)");
-    setTheme("light");
   };
   return (
     <>
@@ -65,7 +62,6 @@ export const Controlled = () => {
           heading="Latest announcement"
           message="This is some example text that can be included in the card copy."
           slot="secondary"
-          theme={theme}
         />
       </IcHero>
       <IcButton variant="primary" onClick={defaultButtonClickHandler}>
@@ -150,7 +146,6 @@ export const defaultArgs = {
             <IcCardVertical
               heading="Latest announcement"
               message="This is some example text that can be included in the card copy."
-              theme="dark"
               slot="secondary"
             />
           )}
@@ -325,7 +320,6 @@ export const defaultArgs = {
       <IcCardVertical
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
-        theme="dark"
         slot="secondary"
       />
     </IcHero>
