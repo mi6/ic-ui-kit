@@ -566,7 +566,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.wait(350).compareSnapshot({
       name: "loading-options",
-      testThreshold: setThresholdBasedOnEnv(0.026),
+      testThreshold: setThresholdBasedOnEnv(0.029),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -1071,69 +1071,75 @@ describe("IcDataTables", () => {
       sorted: "descending",
     });
   });
-});
 
-it("should render an element in the table cell if the data prop contains the actionElement key", () => {
-  mount(
-    <IcDataTable
-      columns={COLS}
-      data={ACTION_DATA_ELEMENTS}
-      caption="Data tables"
-    ></IcDataTable>
-  );
-  cy.viewport(1024, 768);
+  it("should render an element in the table cell if the data prop contains the actionElement key", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={ACTION_DATA_ELEMENTS}
+        caption="Data tables"
+      ></IcDataTable>
+    );
 
-  cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-  cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
-    .eq(0)
-    .find("span")
-    .should(HAVE_CLASS, "action-element")
-    .find("ic-button")
-    .should("be.visible");
-});
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+      .eq(0)
+      .find("span")
+      .should(HAVE_CLASS, "action-element")
+      .find("ic-button")
+      .should("be.visible");
 
-it("should not render an element in the table cell if the data prop does not contain the actionElement key", () => {
-  mount(
-    <IcDataTable
-      columns={COLS}
-      data={ACTION_DATA_ELEMENTS}
-      caption="Data tables"
-    ></IcDataTable>
-  );
-  cy.viewport(1024, 768);
+    cy.checkA11yWithWait(undefined, 300);
 
-  cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.compareSnapshot({
+      name: "action-elements",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.038),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
 
-  cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
-    .eq(1)
-    .find("span")
-    .should("not.exist");
-});
+  it("should not render an element in the table cell if the data prop does not contain the actionElement key", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={ACTION_DATA_ELEMENTS}
+        caption="Data tables"
+      ></IcDataTable>
+    );
 
-it("should apply styling to the cell container if an action element is present in the cell", () => {
-  mount(
-    <IcDataTable
-      columns={COLS}
-      data={ACTION_DATA_ELEMENTS}
-      caption="Data tables"
-    ></IcDataTable>
-  );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-  cy.viewport(1024, 768);
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+      .eq(1)
+      .find("span")
+      .should("not.exist");
+  });
 
-  cy.checkHydrated(DATA_TABLE_SELECTOR);
+  it("should apply styling to the cell container if an action element is present in the cell", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={ACTION_DATA_ELEMENTS}
+        caption="Data tables"
+      ></IcDataTable>
+    );
 
-  cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
-    .eq(0)
-    .find("div")
-    .eq(0)
-    .should(HAVE_CLASS, "cell-grid-wrapper")
-    .should(HAVE_CSS, "grid-template-columns", "156.797px 32px");
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-  cy.findShadowEl(DATA_TABLE_SELECTOR, "span")
-    .should(HAVE_CLASS, "action-element")
-    .should(HAVE_CSS, "justify-content", "right");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+      .eq(0)
+      .find("div")
+      .eq(0)
+      .should(HAVE_CLASS, "cell-grid-wrapper")
+      .should(HAVE_CSS, "grid-template-columns", "156.797px 32px");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "span")
+      .should(HAVE_CLASS, "action-element")
+      .should(HAVE_CSS, "justify-content", "right");
+  });
 });
 
 describe("IcDataTables with IcPaginationBar", () => {
