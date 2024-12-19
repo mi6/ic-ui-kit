@@ -659,13 +659,13 @@ ic-theme,
   --ic-data-table-cell-background-stripe: var(--ic-color-background-secondary);
   --ic-data-table-cell-keyline: var(--ic-color-keyline-light);
   --ic-data-table-text-low-emphasis: var(--ic-color-text-secondary);
-  --ic-data-table-text-default-emphasis: var(--ic-color-text-primary);
-  --ic-data-table-text-high-emphasis: var(--ic-color-text-primary);
   --ic-data-table-pagination-bar-background-color: var(
     --ic-color-background-secondary-40
   );
   --ic-data-table-pagination-bar-keyline: var(--ic-color-keyline);
-  --ic-data-table-icon: var(--ic-color-icon-neutral);
+  --ic-data-table-loading-indicator-background-color: var(
+    --ic-color-background-primary
+  );
   --ic-data-table-icon-default-emphasis: var(--ic-color-icon-grey-darker);
   --ic-data-table-icon-high-emphasis: var(--ic-color-icon-neutral);
   --ic-data-table-icon-low-emphasis: var(--ic-color-icon-grey-dark);
@@ -674,88 +674,11 @@ ic-theme,
     --ic-action-default-bg-pressed-hover-34
   );
   --ic-data-table-header-text: var(--ic-color-text-primary);
-  --ic-data-table-overlay-background: var(--ic-color-background-primary);
-  --ic-data-table-overlay-border: var(--ic-color-border-neutral-grey-dark);
 
   /* Data table title bar */
-  --ic-data-table-title-bar-title: var(--ic-color-text-primary);
-  --ic-data-table-title-bar-background: var(--ic-color-background-primary);
   --ic-data-table-title-bar-keyline: var(--ic-color-border-neutral-default);
   --ic-data-table-title-bar-information: var(--ic-color-text-tertiary);
   --ic-data-table-title-bar-description: var(--ic-color-text-secondary);
-
-  /* Date input */
-  --ic-date-input-bg: var(--ic-atoms-input-field-background);
-  --ic-date-input-border: var(--ic-color-border-neutral-grey-dark);
-  --ic-date-input-border-default-hover: var(
-    --ic-color-border-neutral-hover-dark
-  );
-  --ic-date-input-border-default-pressed: var(
-    --ic-color-border-neutral-pressed-dark
-  );
-  --ic-date-input-border-disabled: var(
-    --ic-color-border-neutral-disabled-light
-  );
-  --ic-date-input-border-error: var(--ic-color-border-error-default);
-  --ic-date-input-border-error-hover: var(--ic-color-border-error-hover-light);
-  --ic-date-input-border-error-pressed: var(
-    --ic-color-border-error-pressed-light
-  );
-  --ic-date-input-border-warning: var(--ic-color-border-warning-default);
-  --ic-date-input-border-warning-hover: var(
-    --ic-color-border-warning-hover-light
-  );
-  --ic-date-input-border-warning-pressed: var(
-    --ic-color-border-warning-pressed-light
-  );
-  --ic-date-input-border-success: var(--ic-color-border-success-default);
-  --ic-date-input-border-success-hover: var(
-    --ic-color-border-success-hover-light
-  );
-  --ic-date-input-border-success-pressed: var(
-    --ic-color-border-success-pressed-light
-  );
-  --ic-date-input-content-divider: var(--ic-atoms-input-divider);
-  --ic-date-input-icon-error: var(--ic-atoms-input-state-icon-error);
-  --ic-date-input-icon-warning: var(--ic-atoms-input-state-icon-warning);
-  --ic-date-input-icon-success: var(--ic-atoms-input-state-icon-success);
-  --ic-date-input-label: var(--ic-atoms-input-field-label);
-  --ic-date-input-label-disabled: var(--ic-atoms-input-field-label-disabled);
-  --ic-date-input-status-text: var(--ic-atoms-input-state-text);
-  --ic-date-input-subtitle: var(--ic-atoms-input-field-label-subtitle);
-  --ic-date-input-subtitle-disabled: var(
-    --ic-atoms-input-field-label-subtitle-disabled
-  );
-  --ic-date-input-text-filled: var(--ic-color-text-primary);
-  --ic-date-input-text-placeholder: var(
-    --ic-atoms-input-text-field-content-placeholder
-  );
-  --ic-date-input-typing-cursor: var(
-    --ic-atoms-input-select-content-text-cursor
-  );
-  --ic-date-input-clear-icon: var(--ic-atoms-input-clear-button);
-
-  /* Date picker */
-  --ic-date-picker-calendar-bg: var(--ic-color-background-primary);
-  --ic-date-picker-calendar-border: var(--ic-color-border-neutral-grey-dark);
-  --ic-date-picker-calendar-elevation: var(--ic-elevation-overlay);
-  --ic-date-picker-calendar-label: var(--ic-color-text-tertiary);
-  --ic-date-picker-date-active-bg-default: var(--ic-color-background-active);
-  --ic-date-picker-date-active-bg-hover: var(
-    --ic-color-background-hover-default
-  );
-  --ic-date-picker-date-active-bg-pressed: var(
-    --ic-color-background-pressed-default
-  );
-  --ic-date-picker-date-default-bg-hover: var(--ic-action-dark-bg-hover);
-  --ic-date-picker-date-default-bg-pressed: var(--ic-action-dark-bg-pressed);
-  --ic-date-picker-date-label-default: var(--ic-atoms-input-field-label);
-  --ic-date-picker-date-label-disabled: var(
-    --ic-atoms-input-field-label-disabled
-  );
-  --ic-date-picker-date-label-selected: var(--ic-color-text-inverted);
-  --ic-date-picker-default-underline: var(--ic-action-default);
-  --ic-date-picker-selected-underline: var(--ic-action-light);
 
   /* Dialog */
   --ic-dialog-background: var(--ic-color-background-primary);
@@ -1983,7 +1906,7 @@ ic-theme,
     /* Data table */
     --ic-data-table-border: var(--ic-color-border-neutral-default);
     --ic-data-table-cell-background-selected: var(
-      --ic-action-light-bg-hover-24
+      --ic-architectural-white-state-layer-24
     );
     --ic-data-table-icon-button-background-hover: var(
       --ic-action-light-bg-hover
@@ -2003,103 +1926,26 @@ ic-theme,
     );
     --ic-data-table-cell-keyline: var(--ic-color-keyline-light);
     --ic-data-table-text-low-emphasis: var(--ic-color-text-secondary);
-    --ic-data-table-text-default-emphasis: var(--ic-color-text-primary);
-    --ic-data-table-text-high-emphasis: var(--ic-color-text-primary);
     --ic-data-table-pagination-bar-background-color: var(
       --ic-color-background-secondary-dark
     );
     --ic-data-table-pagination-bar-keyline: var(--ic-color-keyline);
-    --ic-data-table-icon: var(--ic-color-icon-inverted);
+    --ic-data-table-loading-indicator-background-color: var(
+      --ic-color-background-primary
+    );
     --ic-data-table-icon-default-emphasis: var(--ic-color-icon-grey-lighter);
     --ic-data-table-icon-high-emphasis: var(--ic-color-icon-inverted);
     --ic-data-table-icon-low-emphasis: var(--ic-color-icon-grey-light);
     --ic-data-table-cell-background-hover: var(--ic-action-light-bg-hover);
     --ic-data-table-cell-background-selected-hover: var(
-      --ic-action-light-bg-pressed-34
+      --ic-architectural-white-state-layer-34
     );
     --ic-data-table-header-text: var(--ic-color-text-primary);
-    --ic-data-table-overlay-background: var(--ic-color-background-primary);
-    --ic-data-table-overlay-border: var(--ic-color-border-neutral-grey-light);
 
     /* Data table title bar */
-    --ic-data-table-title-bar-title: var(--ic-color-text-primary);
-    --ic-data-table-title-bar-background: var(--ic-color-background-primary);
     --ic-data-table-title-bar-keyline: var(--ic-color-border-neutral-default);
     --ic-data-table-title-bar-information: var(--ic-color-text-tertiary);
     --ic-data-table-title-bar-description: var(--ic-color-text-secondary);
-
-    /* Date input */
-    --ic-date-input-bg: var(--ic-atoms-input-field-background);
-    --ic-date-input-border: var(--ic-color-border-neutral-grey-dark);
-    --ic-date-input-border-default-hover: var(
-      --ic-color-border-neutral-hover-light
-    );
-    --ic-date-input-border-default-pressed: var(
-      --ic-color-border-neutral-pressed-light
-    );
-    --ic-date-input-border-disabled: var(
-      --ic-color-border-neutral-disabled-dark
-    );
-    --ic-date-input-border-error: var(--ic-color-border-error-default-dark);
-    --ic-date-input-border-error-hover: var(--ic-color-border-error-hover-dark);
-    --ic-date-input-border-error-pressed: var(
-      --ic-color-border-error-pressed-dark
-    );
-    --ic-date-input-border-warning: var(--ic-color-border-warning-default-dark);
-    --ic-date-input-border-warning-hover: var(
-      --ic-color-border-warning-hover-dark
-    );
-    --ic-date-input-border-warning-pressed: var(
-      --ic-color-border-warning-pressed-dark
-    );
-    --ic-date-input-border-success: var(--ic-color-border-success-default-dark);
-    --ic-date-input-border-success-hover: var(
-      --ic-color-border-success-hover-dark
-    );
-    --ic-date-input-border-success-pressed: var(
-      --ic-color-border-success-pressed-dark
-    );
-    --ic-date-input-content-divider: var(--ic-atoms-input-divider);
-    --ic-date-input-icon-error: var(--ic-atoms-input-state-icon-error);
-    --ic-date-input-icon-warning: var(--ic-atoms-input-state-icon-warning);
-    --ic-date-input-icon-success: var(--ic-atoms-input-state-icon-success);
-    --ic-date-input-label: var(--ic-atoms-input-field-label);
-    --ic-date-input-label-disabled: var(--ic-atoms-input-field-label-disabled);
-    --ic-date-input-status-text: var(--ic-atoms-input-state-text);
-    --ic-date-input-subtitle: var(--ic-atoms-input-field-label-subtitle);
-    --ic-date-input-subtitle-disabled: var(
-      --ic-atoms-input-field-label-subtitle-disabled
-    );
-    --ic-date-input-text-filled: var(--ic-color-text-primary);
-    --ic-date-input-text-placeholder: var(
-      --ic-atoms-input-text-field-content-placeholder
-    );
-    --ic-date-input-typing-cursor: var(
-      --ic-atoms-input-select-content-text-cursor
-    );
-    --ic-date-input-clear-icon: var(--ic-atoms-input-clear-button);
-
-    /* Date picker */
-    --ic-date-picker-calendar-bg: var(--ic-color-background-primary);
-    --ic-date-picker-calendar-border: var(--ic-color-border-neutral-grey-dark);
-    --ic-date-picker-calendar-elevation: var(--ic-elevation-overlay-inverted);
-    --ic-date-picker-calendar-label: var(--ic-color-text-tertiary);
-    --ic-date-picker-date-active-bg-default: var(--ic-color-background-active);
-    --ic-date-picker-date-active-bg-hover: var(
-      --ic-color-background-active-hover-dark
-    );
-    --ic-date-picker-date-active-bg-pressed: var(
-      --ic-color-background-active-pressed-dark
-    );
-    --ic-date-picker-date-default-bg-hover: var(--ic-action-light-bg-hover);
-    --ic-date-picker-date-default-bg-pressed: var(--ic-action-light-bg-pressed);
-    --ic-date-picker-date-label-default: var(--ic-atoms-input-field-label);
-    --ic-date-picker-date-label-disabled: var(
-      --ic-atoms-input-field-label-disabled
-    );
-    --ic-date-picker-date-label-selected: var(--ic-color-text-inverted-light);
-    --ic-date-picker-default-underline: var(--ic-action-default);
-    --ic-date-picker-selected-underline: var(--ic-action-light);
 
     /* Dialog */
     --ic-dialog-background: var(--ic-color-background-primary);
@@ -3340,7 +3186,9 @@ ic-theme,
 
   /* Data table */
   --ic-data-table-border: var(--ic-color-border-neutral-default);
-  --ic-data-table-cell-background-selected: var(--ic-action-light-bg-hover-24);
+  --ic-data-table-cell-background-selected: var(
+    --ic-architectural-white-state-layer-24
+  );
   --ic-data-table-icon-button-background-hover: var(--ic-action-light-bg-hover);
   --ic-data-table-icon-button-background-pressed: var(
     --ic-action-light-bg-pressed
@@ -3353,8 +3201,6 @@ ic-theme,
   --ic-data-table-cell-background-stripe: var(--ic-color-background-secondary);
   --ic-data-table-cell-keyline: var(--ic-color-keyline-light);
   --ic-data-table-text-low-emphasis: var(--ic-color-text-secondary);
-  --ic-data-table-text-default-emphasis: var(--ic-color-text-primary);
-  --ic-data-table-text-high-emphasis: var(--ic-color-text-primary);
   --ic-data-table-pagination-bar-background-color: var(
     --ic-color-background-secondary-dark
   );
@@ -3362,95 +3208,19 @@ ic-theme,
   --ic-data-table-loading-indicator-background-color: var(
     --ic-color-background-primary
   );
-  --ic-data-table-icon: var(--ic-color-icon-inverted);
   --ic-data-table-icon-default-emphasis: var(--ic-color-icon-grey-lighter);
   --ic-data-table-icon-high-emphasis: var(--ic-color-icon-inverted);
   --ic-data-table-icon-low-emphasis: var(--ic-color-icon-grey-light);
   --ic-data-table-cell-background-hover: var(--ic-action-light-bg-hover);
   --ic-data-table-cell-background-selected-hover: var(
-    --ic-action-light-bg-pressed-34
+    --ic-architectural-white-state-layer-34
   );
   --ic-data-table-header-text: var(--ic-color-text-primary);
-  --ic-data-table-overlay-background: var(--ic-color-background-primary);
-  --ic-data-table-overlay-border: var(--ic-color-border-neutral-grey-light);
 
   /* Data table title bar */
-  --ic-data-table-title-bar-title: var(--ic-color-text-primary);
-  --ic-data-table-title-bar-background: var(--ic-color-background-primary);
   --ic-data-table-title-bar-keyline: var(--ic-color-border-neutral-default);
   --ic-data-table-title-bar-information: var(--ic-color-text-tertiary);
   --ic-data-table-title-bar-description: var(--ic-color-text-secondary);
-
-  /* Date input */
-  --ic-date-input-bg: var(--ic-atoms-input-field-background);
-  --ic-date-input-border: var(--ic-color-border-neutral-grey-dark);
-  --ic-date-input-border-default-hover: var(
-    --ic-color-border-neutral-hover-light
-  );
-  --ic-date-input-border-default-pressed: var(
-    --ic-color-border-neutral-pressed-light
-  );
-  --ic-date-input-border-disabled: var(--ic-color-border-neutral-disabled-dark);
-  --ic-date-input-border-error: var(--ic-color-border-error-default-dark);
-  --ic-date-input-border-error-hover: var(--ic-color-border-error-hover-dark);
-  --ic-date-input-border-error-pressed: var(
-    --ic-color-border-error-pressed-dark
-  );
-  --ic-date-input-border-warning: var(--ic-color-border-warning-default-dark);
-  --ic-date-input-border-warning-hover: var(
-    --ic-color-border-warning-hover-dark
-  );
-  --ic-date-input-border-warning-pressed: var(
-    --ic-color-border-warning-pressed-dark
-  );
-  --ic-date-input-border-success: var(--ic-color-border-success-default-dark);
-  --ic-date-input-border-success-hover: var(
-    --ic-color-border-success-hover-dark
-  );
-  --ic-date-input-border-success-pressed: var(
-    --ic-color-border-success-pressed-dark
-  );
-  --ic-date-input-content-divider: var(--ic-atoms-input-divider);
-  --ic-date-input-icon-error: var(--ic-atoms-input-state-icon-error);
-  --ic-date-input-icon-warning: var(--ic-atoms-input-state-icon-warning);
-  --ic-date-input-icon-success: var(--ic-atoms-input-state-icon-success);
-  --ic-date-input-label: var(--ic-atoms-input-field-label);
-  --ic-date-input-label-disabled: var(--ic-atoms-input-field-label-disabled);
-  --ic-date-input-status-text: var(--ic-atoms-input-state-text);
-  --ic-date-input-subtitle: var(--ic-atoms-input-field-label-subtitle);
-  --ic-date-input-subtitle-disabled: var(
-    --ic-atoms-input-field-label-subtitle-disabled
-  );
-  --ic-date-input-text-filled: var(--ic-color-text-primary);
-  --ic-date-input-text-placeholder: var(
-    --ic-atoms-input-text-field-content-placeholder
-  );
-  --ic-date-input-typing-cursor: var(
-    --ic-atoms-input-select-content-text-cursor
-  );
-  --ic-date-input-clear-icon: var(--ic-atoms-input-clear-button);
-
-  /* Date picker */
-  --ic-date-picker-calendar-bg: var(--ic-color-background-primary);
-  --ic-date-picker-calendar-border: var(--ic-color-border-neutral-grey-dark);
-  --ic-date-picker-calendar-elevation: var(--ic-elevation-overlay-inverted);
-  --ic-date-picker-calendar-label: var(--ic-color-text-tertiary);
-  --ic-date-picker-date-active-bg-default: var(--ic-color-background-active);
-  --ic-date-picker-date-active-bg-hover: var(
-    --ic-color-background-active-hover-dark
-  );
-  --ic-date-picker-date-active-bg-pressed: var(
-    --ic-color-background-active-pressed-dark
-  );
-  --ic-date-picker-date-default-bg-hover: var(--ic-action-light-bg-hover);
-  --ic-date-picker-date-default-bg-pressed: var(--ic-action-light-bg-pressed);
-  --ic-date-picker-date-label-default: var(--ic-atoms-input-field-label);
-  --ic-date-picker-date-label-disabled: var(
-    --ic-atoms-input-field-label-disabled
-  );
-  --ic-date-picker-date-label-selected: var(--ic-color-text-inverted-light);
-  --ic-date-picker-default-underline: var(--ic-action-default);
-  --ic-date-picker-selected-underline: var(--ic-action-light);
 
   /* Dialog */
   --ic-dialog-background: var(--ic-color-background-primary);
