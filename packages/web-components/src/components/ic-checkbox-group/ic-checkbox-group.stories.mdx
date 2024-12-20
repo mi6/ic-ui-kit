@@ -17,7 +17,7 @@ import { useEffect } from "react";
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {(args) =>
       html`
         <ic-checkbox-group label="This is a label" name="group1">
@@ -44,7 +44,7 @@ import { useEffect } from "react";
 ### Required
 
 <Canvas>
-  <Story name="Required" parameters={{ loki: { skip: true } }}>
+  <Story name="Required">
     {(args) =>
       html`
         <ic-checkbox-group label="This is a label" required name="group1">
@@ -71,7 +71,7 @@ import { useEffect } from "react";
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {(args) =>
       html`
         <ic-checkbox-group label="This is a label" name="group1" Disabled>
@@ -105,7 +105,7 @@ import { useEffect } from "react";
 ### Sizes
 
 <Canvas>
-  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+  <Story name="Sizes">
     {(args) =>
       html`
         <ic-checkbox-group
@@ -199,7 +199,7 @@ import { useEffect } from "react";
 ### Hidden group label
 
 <Canvas>
-  <Story name="Hidden group label" parameters={{ loki: { skip: true } }}>
+  <Story name="Hidden group label">
     {(args) =>
       html`
         <ic-checkbox-group label="This is a label" hide-label name="group1">
@@ -226,7 +226,7 @@ import { useEffect } from "react";
 ### Hidden checkbox label
 
 <Canvas>
-  <Story name="Hidden checkbox label" parameters={{ loki: { skip: true } }}>
+  <Story name="Hidden checkbox label">
     {(args) =>
       html`
         <ic-checkbox-group label="This is a label" name="group1">
@@ -256,7 +256,7 @@ import { useEffect } from "react";
 ### Conditional dynamic
 
 <Canvas>
-  <Story name="Conditional dynamic" parameters={{ loki: { skip: true } }}>
+  <Story name="Conditional dynamic">
     {(args) =>
       html`
         <script>
@@ -316,7 +316,7 @@ import { useEffect } from "react";
 ### Conditional static
 
 <Canvas>
-  <Story name="Conditional static" parameters={{ loki: { skip: true } }}>
+  <Story name="Conditional static">
     {(args) =>
       html`
         <ic-checkbox-group label="This is a label" name="group1">
@@ -336,7 +336,7 @@ import { useEffect } from "react";
 ### Helper text
 
 <Canvas>
-  <Story name="Helper text" parameters={{ loki: { skip: true } }}>
+  <Story name="Helper text">
     {(args) =>
       html`
         <ic-checkbox-group
@@ -367,7 +367,7 @@ import { useEffect } from "react";
 ### Validation
 
 <Canvas>
-  <Story name="Validation" parameters={{ loki: { skip: true } }}>
+  <Story name="Validation">
     {(args) =>
       html`
         <ic-checkbox-group
@@ -399,7 +399,7 @@ import { useEffect } from "react";
 ### Form - This shows how the checkbox button works within a form and is where the value of the checkbox button selected will appear in the console.log
 
 <Canvas>
-  <Story name="Form" parameters={{ loki: { skip: true } }}>
+  <Story name="Form">
     {(args) =>
       html`
         <form>
@@ -447,7 +447,7 @@ import { useEffect } from "react";
 ### Indeterminate
 
 <Canvas>
-  <Story name="Indeterminate" parameters={{ loki: { skip: true } }}>
+  <Story name="Indeterminate">
     {(args) =>
       html`
         <script>
@@ -562,10 +562,7 @@ import { useEffect } from "react";
 ### Indeterminate with children
 
 <Canvas>
-  <Story
-    name="Indeterminate with children"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Indeterminate with children">
     {(args) =>
       html`
         <script>
@@ -637,7 +634,7 @@ import { useEffect } from "react";
 ### TextField value change
 
 <Canvas>
-  <Story name="TextField value change" parameters={{ loki: { skip: true } }}>
+  <Story name="TextField value change">
     {(args) =>
       html`
         <script>
@@ -717,7 +714,7 @@ export const defaultArgs = {
       },
     }}
     name="Playground"
-    parameters={{ loki: { skip: true } }}
+   
   >
     {(args) => {
       const [{ checked }, updateArgs] = useArgs();

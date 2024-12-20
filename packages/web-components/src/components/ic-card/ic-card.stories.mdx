@@ -18,7 +18,7 @@ import Button from "../ic-button/readme.md";
 ### Heading
 
 <Canvas>
-  <Story name="Heading" parameters={{ loki: { skip: true } }}>
+  <Story name="Heading">
     {html`<ic-card heading="This is the card heading"></ic-card>`}
   </Story>
 </Canvas>
@@ -26,7 +26,7 @@ import Button from "../ic-button/readme.md";
 ### Icon
 
 <Canvas>
-  <Story name="Icon" parameters={{ loki: { skip: true } }}>
+  <Story name="Icon">
     {html`<ic-card heading="This is the card heading">
       <svg
         slot="icon"
@@ -48,7 +48,7 @@ import Button from "../ic-button/readme.md";
 ### Message
 
 <Canvas>
-  <Story name="Message" parameters={{ loki: { skip: true } }}>
+  <Story name="Message">
     {html`<ic-card
       heading="This is the card heading"
       message="This is an example of a new card component with text included."
@@ -73,7 +73,7 @@ import Button from "../ic-button/readme.md";
 ### With subheading
 
 <Canvas>
-  <Story name="With subheading" parameters={{ loki: { skip: true } }}>
+  <Story name="With subheading">
     {html`<ic-card
       heading="This is the card heading"
       message="This is an example of a new card component with text included."
@@ -97,10 +97,7 @@ import Button from "../ic-button/readme.md";
 ### Slotted heading, message, and subheading
 
 <Canvas>
-  <Story
-    name="Slotted heading, message, and subheading"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Slotted heading, message, and subheading">
     {html`<ic-card>
       <ic-typography variant="h4" slot="heading"
         >This is the slotted card heading</ic-typography
@@ -131,7 +128,7 @@ import Button from "../ic-button/readme.md";
 ### With badge
 
 <Canvas>
-  <Story name="With badge" parameters={{ loki: { skip: true } }}>
+  <Story name="With badge">
     {html`<ic-card
         heading="This is the card heading"
         clickable="true"
@@ -153,7 +150,7 @@ import Button from "../ic-button/readme.md";
 ### With interaction button
 
 <Canvas>
-  <Story name="With interaction button" parameters={{ loki: { skip: true } }}>
+  <Story name="With interaction button">
     {html`<ic-card
       heading="This is the card heading"
       subheading="This is the subheading"
@@ -197,7 +194,7 @@ import Button from "../ic-button/readme.md";
 ### Adornment
 
 <Canvas>
-  <Story name="Adornment" parameters={{ loki: { skip: true } }}>
+  <Story name="Adornment">
     {html`<ic-card
       heading="This is the card heading"
       subheading="This is the subheading"
@@ -246,7 +243,7 @@ import Button from "../ic-button/readme.md";
 ### Top image
 
 <Canvas>
-  <Story name="Top image" parameters={{ loki: { skip: true } }}>
+  <Story name="Top image">
     {html`<ic-card
       heading="This is the card heading"
       subheading="This is the subheading"
@@ -316,7 +313,7 @@ import Button from "../ic-button/readme.md";
 ### Middle image
 
 <Canvas>
-  <Story name="Middle image" parameters={{ loki: { skip: true } }}>
+  <Story name="Middle image">
     {html`<ic-card
       heading="This is the card heading"
       subheading="This is the subheading"
@@ -386,7 +383,7 @@ import Button from "../ic-button/readme.md";
 ### Interaction controls
 
 <Canvas>
-  <Story name="Interaction controls" parameters={{ loki: { skip: true } }}>
+  <Story name="Interaction controls">
     {html`<ic-card
       heading="This is the card heading"
       subheading="This is the subheading"
@@ -462,7 +459,7 @@ import Button from "../ic-button/readme.md";
 ### Custom width
 
 <Canvas>
-  <Story name="Custom width" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom width">
     {html`<div style="display: flex; gap: 16px; flex-direction: column;">
       <ic-card
         heading="This is the card heading"
@@ -635,7 +632,7 @@ import Button from "../ic-button/readme.md";
 ### Additional height
 
 <Canvas>
-  <Story name="Additional height" parameters={{ loki: { skip: true } }}>
+  <Story name="Additional height">
     {html`<ic-card
       heading="This is the card heading"
       subheading="This is the subheading"
@@ -711,7 +708,7 @@ import Button from "../ic-button/readme.md";
 ### Expandable
 
 <Canvas>
-  <Story name="Expandable" parameters={{ loki: { skip: true } }}>
+  <Story name="Expandable">
     {html`<ic-card
       heading="This is the card heading"
       subheading="This is the subheading"
@@ -792,7 +789,7 @@ import Button from "../ic-button/readme.md";
 ### Clickable link
 
 <Canvas>
-  <Story name="Clickable link" parameters={{ loki: { skip: true } }}>
+  <Story name="Clickable link">
     {html`<ic-card
       heading="This is the card heading"
       subheading="This is the subheading"
@@ -818,7 +815,7 @@ import Button from "../ic-button/readme.md";
 ### Clickable button
 
 <Canvas>
-  <Story name="Clickable button" parameters={{ loki: { skip: true } }}>
+  <Story name="Clickable button">
     {html`<ic-card
       heading="This is the card heading"
       subheading="This is the subheading"
@@ -844,7 +841,7 @@ import Button from "../ic-button/readme.md";
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {html`<ic-card
       heading="This is the card heading"
       subheading="This is the subheading"
@@ -871,7 +868,7 @@ import Button from "../ic-button/readme.md";
 ### Full width
 
 <Canvas>
-  <Story name="Full width" parameters={{ loki: { skip: true } }}>
+  <Story name="Full width">
     {html`
       <ic-card
         heading="This is the card heading"
@@ -900,7 +897,7 @@ import Button from "../ic-button/readme.md";
 ### Wrapped by link
 
 <Canvas>
-  <Story name="Wrapped by link" parameters={{ loki: { skip: true } }}>
+  <Story name="Wrapped by link">
     {html`<a href="/"
       ><ic-card
         heading="This is the card heading"
@@ -944,11 +941,7 @@ export const defaultArgs = {
 };
 
 <Canvas>
-  <Story
-    args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
-    name="Playground"
-  >
+  <Story args={defaultArgs} name="Playground">
     {(args) =>
       html`<ic-card
         clickable=${args.clickable}

@@ -26,7 +26,7 @@ To use the tree view component, import `@ukic/canary-web-components` into your a
 A basic example with one level of tree items.
 
 <Canvas withSource="none">
-  <Story name="Basic" parameters={{ loki: { skip: true } }}>
+  <Story name="Basic">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu">
@@ -54,7 +54,7 @@ A basic example with one level of tree items.
 An example with nested tree items.
 
 <Canvas withSource="none">
-  <Story name="Nested" parameters={{ loki: { skip: true } }}>
+  <Story name="Nested">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu">
@@ -98,7 +98,7 @@ An example with nested tree items.
 An example with icons.
 
 <Canvas withSource="none">
-  <Story name="With icons" parameters={{ loki: { skip: true } }}>
+  <Story name="With icons">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu">
@@ -184,7 +184,7 @@ An example with icons.
 An example with small styling passed down from tree view to tree items and nested tree items.
 
 <Canvas withSource="none">
-  <Story name="Small" parameters={{ loki: { skip: true } }}>
+  <Story name="Small">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu" size="small">
@@ -270,7 +270,7 @@ An example with small styling passed down from tree view to tree items and neste
 An example with large styling passed down from tree view to tree items and nested tree items.
 
 <Canvas withSource="none">
-  <Story name="Large" parameters={{ loki: { skip: true } }}>
+  <Story name="Large">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu" size="large">
@@ -356,10 +356,7 @@ An example with large styling passed down from tree view to tree items and neste
 An example with a light appearance.
 
 <Canvas withSource="none">
-  <Story
-    name="Light"
-    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
-  >
+  <Story name="Light" parameters={{ backgrounds: { default: "dark" } }}>
     {html`
       <div style="width:250px;">
         <ic-tree-view heading="Menu" appearance="light">
@@ -445,7 +442,7 @@ An example with a light appearance.
 An example with disabled tree items.
 
 <Canvas withSource="none">
-  <Story name="Disabled tree items" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled tree items">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu">
@@ -531,7 +528,7 @@ An example with disabled tree items.
 An example with a tree item that is replaced by a router item.
 
 <Canvas withSource="none">
-  <Story name="Router item" parameters={{ loki: { skip: true } }}>
+  <Story name="Router item">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu">
@@ -563,7 +560,7 @@ An example with a tree item that is replaced by a router item.
 An example with slotted content for tree view heading and slotted content for tree item label.
 
 <Canvas withSource="none">
-  <Story name="Slotted content" parameters={{ loki: { skip: true } }}>
+  <Story name="Slotted content">
     {html`
       <div style="width:250px">
         <ic-tree-view>
@@ -597,7 +594,7 @@ An example with slotted content for tree view heading and slotted content for tr
 An example with max content. When the heading/label exceeds the width of the container, it will text wrap unless truncate-tree-item is set.
 
 <Canvas withSource="none">
-  <Story name="Max content" parameters={{ loki: { skip: true } }}>
+  <Story name="Max content">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu with nested options">
@@ -669,7 +666,7 @@ An example with max content. When the heading/label exceeds the width of the con
 An example with truncated tree items. When the heading/label exceeds the width of the container, it will be truncated with an ellipsis.
 
 <Canvas withSource="none">
-  <Story name="Truncation behaviour" parameters={{ loki: { skip: true } }}>
+  <Story name="Truncation behaviour">
     {html`
       <div style="width:250px">
         <ic-tree-view
@@ -757,7 +754,7 @@ An example with truncated tree items. When the heading/label exceeds the width o
 An example where the tree item with `selected="true"` is selected on initial render.
 
 <Canvas withSource="none">
-  <Story name="Selected tree item" parameters={{ loki: { skip: true } }}>
+  <Story name="Selected tree item">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu">
@@ -785,7 +782,7 @@ An example where the tree item with `selected="true"` is selected on initial ren
 An example where the tree item is rendered as a link.
 
 <Canvas withSource="none">
-  <Story name="Link" parameters={{ loki: { skip: true } }}>
+  <Story name="Link">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu">
@@ -817,7 +814,7 @@ An example where the tree item is rendered as a link.
 An example with the `expanded` prop set to `true` on a parent tree item.
 
 <Canvas withSource="none">
-  <Story name="Expanded" parameters={{ loki: { skip: true } }}>
+  <Story name="Expanded">
     {html`
       <div style="width:250px">
         <ic-tree-view heading="Menu">

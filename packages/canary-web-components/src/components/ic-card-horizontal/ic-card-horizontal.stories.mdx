@@ -35,7 +35,7 @@ To use the horizontal card component, import `@ukic/canary-web-components` into 
 The default horizontal card, which only has a heading.
 
 <Canvas withSource="none">
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {html`<ic-card-horizontal heading="Card heading"></ic-card-horizontal>`}
   </Story>
 </Canvas>
@@ -51,7 +51,7 @@ The default horizontal card, which only has a heading.
 Add more information to the horizontal card by including a message.
 
 <Canvas withSource="none">
-  <Story name="Message" parameters={{ loki: { skip: true } }}>
+  <Story name="Message">
     {html`<ic-card-horizontal
       heading="Card heading"
       message="Card message"
@@ -73,7 +73,7 @@ Add more information to the horizontal card by including a message.
 Add an icon to the horizontal card.
 
 <Canvas withSource="none">
-  <Story name="Icon" parameters={{ loki: { skip: true } }}>
+  <Story name="Icon">
     {html`<ic-card-horizontal heading="Card heading" message="Card message">
       <svg
         slot="icon"
@@ -117,7 +117,7 @@ Add an icon to the horizontal card.
 Direct users to another page by making the horizontal card clickable.
 
 <Canvas withSource="none">
-  <Story name="Clickable" parameters={{ loki: { skip: true } }}>
+  <Story name="Clickable">
     {html`<ic-card-horizontal
       heading="Card heading"
       message="Card message"
@@ -169,7 +169,7 @@ Direct users to another page by making the horizontal card clickable.
 Direct users to another page by making the horizontal card clickable with an href.
 
 <Canvas withSource="none">
-  <Story name="Clickable - href" parameters={{ loki: { skip: true } }}>
+  <Story name="Clickable - href">
     {html`<ic-card-horizontal
       heading="Card heading"
       message="Card message"
@@ -223,7 +223,7 @@ Direct users to another page by making the horizontal card clickable with an hre
 Another method of making horizontal card clickable is wrapping it in a link.
 
 <Canvas withSource="none">
-  <Story name="Wrapped by link" parameters={{ loki: { skip: true } }}>
+  <Story name="Wrapped by link">
     {html`<a href="/">
       <ic-card-horizontal heading="Card heading" message="Card message">
         <svg
@@ -270,7 +270,7 @@ Another method of making horizontal card clickable is wrapping it in a link.
 Add an image to the horizontal card.
 
 <Canvas withSource="none">
-  <Story name="Image" parameters={{ loki: { skip: true } }}>
+  <Story name="Image">
     {html`<ic-card-horizontal heading="Card heading" message="Card message">
       <svg
         slot="icon"
@@ -353,7 +353,7 @@ Add an image to the horizontal card.
 The horizontal card can be displayed in different sizes.
 
 <Canvas withSource="none">
-  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+  <Story name="Sizes">
     {html`<div>
       <ic-card-horizontal
         heading="Card heading"
@@ -665,7 +665,7 @@ The horizontal card can be displayed in different sizes.
 When there is too much text content for the horizontal card, the heading and message with truncate.
 
 <Canvas withSource="none">
-  <Story name="Truncation" parameters={{ loki: { skip: true } }}>
+  <Story name="Truncation">
     {html`<div>
       <ic-card-horizontal
         heading="Really long card heading to show truncation"
@@ -977,7 +977,7 @@ When there is too much text content for the horizontal card, the heading and mes
 Disable the horizontal card to prevent users from interacting with it.
 
 <Canvas withSource="none">
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {html`<ic-card-horizontal
       heading="Card heading"
       message="Card message"
@@ -1065,10 +1065,7 @@ Disable the horizontal card to prevent users from interacting with it.
 Add an icon to the horizontal card.
 
 <Canvas withSource="none">
-  <Story
-    name="Slotted heading and message"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Slotted heading and message">
     {html`<ic-card-horizontal>
       <h4 slot="heading">Card heading</h4>
       <p slot="message">Card message</p>
@@ -1116,7 +1113,7 @@ Add an icon to the horizontal card.
 Set the width of the horizontal card by using the `--card-horizontal-width` CSS custom property. The horizontal card will grow, but not exceed its maximum supported width.
 
 <Canvas withSource="none">
-  <Story name="Custom width" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom width">
     {html`<ic-card-horizontal
       heading="Card heading"
       message="Card message"

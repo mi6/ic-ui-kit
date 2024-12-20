@@ -19,7 +19,7 @@ import menuGroupReadme from "../ic-menu-group/readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {(args) =>
       html`
         <ic-button id="button-1" onclick="buttonClick()"
@@ -101,7 +101,7 @@ import menuGroupReadme from "../ic-menu-group/readme.md";
 ### Max height
 
 <Canvas>
-  <Story name="Max height" parameters={{ loki: { skip: true } }}>
+  <Story name="Max height">
     {(args) =>
       html`
         <style>
@@ -178,7 +178,7 @@ import menuGroupReadme from "../ic-menu-group/readme.md";
 ### Left placement
 
 <Canvas>
-  <Story name="Left placement" parameters={{ loki: { skip: true } }}>
+  <Story name="Left placement">
     {(args) =>
       html`
         <div style="margin-left: 1000px">
@@ -252,7 +252,7 @@ import menuGroupReadme from "../ic-menu-group/readme.md";
 ### Top placement
 
 <Canvas>
-  <Story name="Top placement" parameters={{ loki: { skip: true } }}>
+  <Story name="Top placement">
     {(args) =>
       html`
         <div style="margin-top: 540px">
@@ -326,7 +326,7 @@ import menuGroupReadme from "../ic-menu-group/readme.md";
 ### Multiple popovers on page
 
 <Canvas>
-  <Story name="Multiple popovers on page" parameters={{ loki: { skip: true } }}>
+  <Story name="Multiple popovers on page">
     {(args) =>
       html` <ic-link href="/">Link1</ic-link>
         <ic-button id="button-1" onclick="buttonClick(1)"
@@ -472,7 +472,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       variant: {
         options: ["default", "toggle", "destructive"],

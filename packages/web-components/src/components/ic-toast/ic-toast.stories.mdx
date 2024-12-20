@@ -9,7 +9,7 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {(args) => html`<button onclick="func()">Display toast</button>
       <script>
         var toastRegion = document.querySelector("ic-toast-region");
@@ -27,7 +27,7 @@ import readme from "./readme.md";
 ### With variant
 
 <Canvas>
-  <Story name="With variant" parameters={{ loki: { skip: true } }}>
+  <Story name="With variant">
     {(args) => html`<button onclick="func()">Display toast</button>
       <script>
         var toastRegion = document.querySelector("ic-toast-region");
@@ -50,7 +50,7 @@ import readme from "./readme.md";
 ### Multiline message
 
 <Canvas>
-  <Story name="Multiline message" parameters={{ loki: { skip: true } }}>
+  <Story name="Multiline message">
     {(args) =>
       html`<button onclick="func()">Display toast</button>
         <script>
@@ -74,7 +74,7 @@ import readme from "./readme.md";
 ### Slotted action elements
 
 <Canvas>
-  <Story name="Slotted action elements" parameters={{ loki: { skip: true } }}>
+  <Story name="Slotted action elements">
     {(args) =>
       html`<button onclick="func()">Display toast 1</button>
         <button onclick="func2()">Display toast 2</button>
@@ -116,7 +116,7 @@ import readme from "./readme.md";
 ### Auto dismiss
 
 <Canvas>
-  <Story name="Auto dismiss" parameters={{ loki: { skip: true } }}>
+  <Story name="Auto dismiss">
     {(args) =>
       html`<button onclick="func()">Display toast 1</button>
         <button onclick="func2()">Display toast 2</button>
@@ -156,10 +156,7 @@ import readme from "./readme.md";
 ### Custom neutral icon and dismiss aria-label
 
 <Canvas>
-  <Story
-    name="Custom neutral icon and dismiss aria-label"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Custom neutral icon and dismiss aria-label">
     {(args) => html`<button onclick="func()">Display toast</button>
       <script>
         var toastRegion = document.querySelector("ic-toast-region");
@@ -196,7 +193,7 @@ import readme from "./readme.md";
 ### Example on page
 
 <Canvas>
-  <Story name="Example on page" parameters={{ loki: { skip: true } }}>
+  <Story name="Example on page">
     {(args) => html` <script>
         var toastRegion = document.querySelector("ic-toast-region");
         function func() {
@@ -327,7 +324,7 @@ import readme from "./readme.md";
 ### Deprecated - setVisible
 
 <Canvas>
-  <Story name="Deprecated - setVisible" parameters={{ loki: { skip: true } }}>
+  <Story name="Deprecated - setVisible">
     {(args) => html`<button onclick="func()">Display toast</button>
       <script>
         var toastRegion = document.querySelector("ic-toast-region");
@@ -359,7 +356,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       dismissMode: {
         options: ["manual", "automatic"],

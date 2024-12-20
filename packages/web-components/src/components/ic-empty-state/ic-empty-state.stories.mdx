@@ -15,10 +15,7 @@ import readme from "./readme.md";
 ### With subheading and body text
 
 <Canvas>
-  <Story
-    name="With subheading and body text"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="With subheading and body text">
     {html`<ic-empty-state
       heading="Empty state title"
       subheading="Empty state subtitle"
@@ -30,7 +27,7 @@ import readme from "./readme.md";
 ### With actions
 
 <Canvas>
-  <Story name="With actions" parameters={{ loki: { skip: true } }}>
+  <Story name="With actions">
     {html`<ic-empty-state
       heading="Empty state title"
       subheading="Empty state subtitle"
@@ -45,7 +42,7 @@ import readme from "./readme.md";
 ### With image
 
 <Canvas>
-  <Story name="With image" parameters={{ loki: { skip: true } }}>
+  <Story name="With image">
     {html`<ic-empty-state
       heading="Empty state title"
       subheading="Empty state subtitle"
@@ -77,7 +74,7 @@ import readme from "./readme.md";
 ### With small image
 
 <Canvas>
-  <Story name="With small image" parameters={{ loki: { skip: true } }}>
+  <Story name="With small image">
     {html`<ic-empty-state
       heading="Empty state title"
       subheading="Empty state subtitle"
@@ -110,7 +107,7 @@ import readme from "./readme.md";
 ### With large image
 
 <Canvas>
-  <Story name="With large image" parameters={{ loki: { skip: true } }}>
+  <Story name="With large image">
     {html`<ic-empty-state
       heading="Empty state title"
       subheading="Empty state subtitle"
@@ -143,7 +140,7 @@ import readme from "./readme.md";
 ### With icon
 
 <Canvas>
-  <Story name="With icon" parameters={{ loki: { skip: true } }}>
+  <Story name="With icon">
     {html`<ic-empty-state
       heading="Empty state title"
       subheading="Empty state subtitle"
@@ -167,7 +164,7 @@ import readme from "./readme.md";
 ### Centre aligned
 
 <Canvas>
-  <Story name="Centre aligned" parameters={{ loki: { skip: true } }}>
+  <Story name="Centre aligned">
     {html`<ic-empty-state
       heading="Empty state title"
       subheading="Empty state subtitle"
@@ -202,7 +199,7 @@ import readme from "./readme.md";
 ### Right aligned
 
 <Canvas>
-  <Story name="Right aligned" parameters={{ loki: { skip: true } }}>
+  <Story name="Right aligned">
     {html`<ic-empty-state
       heading="Empty state title"
       subheading="Empty state subtitle"
@@ -237,7 +234,7 @@ import readme from "./readme.md";
 ### Max lines
 
 <Canvas>
-  <Story name="Max lines" parameters={{ loki: { skip: true } }}>
+  <Story name="Max lines">
     {html`<ic-empty-state
       heading="Empty state title"
       subheading="Empty state subtitle"
@@ -273,7 +270,7 @@ Dripper caramelization java saucer grounds galão, mocha, and robusta kopi-luwak
 ### Slotted content
 
 <Canvas>
-  <Story name="Slotted content" parameters={{ loki: { skip: true } }}>
+  <Story name="Slotted content">
     {html`<ic-empty-state>
       <ic-typography slot="heading" variant="h4">
         Empty state title
@@ -310,7 +307,7 @@ Dripper caramelization java saucer grounds galão, mocha, and robusta kopi-luwak
 ### Within div
 
 <Canvas>
-  <Story name="Within div" parameters={{ loki: { skip: true } }}>
+  <Story name="Within div">
     {html`<div style="width:357px;border:1px solid black;background:#D3D3D3;">
       <ic-empty-state
         heading="Empty state title"
@@ -361,7 +358,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       aligned: {
         options: ["left", "center", "right"],

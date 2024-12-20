@@ -9,7 +9,7 @@ import { html } from "lit-html";
 ### Simple
 
 <Canvas>
-  <Story name="Simple" parameters={{ loki: { skip: true } }}>
+  <Story name="Simple">
     {(args) =>
       html`
         <p>Default/Dark/Light appearance</p>
@@ -48,7 +48,7 @@ import { html } from "lit-html";
 ### Complex
 
 <Canvas>
-  <Story name="Complex" parameters={{ loki: { skip: true } }}>
+  <Story name="Complex">
     {(args) =>
       html`
         <p>Default/Dark/Light appearance</p>
@@ -94,10 +94,7 @@ import { html } from "lit-html";
 ### Complex - Adjacent & Boundary Items Set
 
 <Canvas>
-  <Story
-    name="Complex - Adjacent & Boundary Items Set"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Complex - Adjacent & Boundary Items Set">
     {(args) =>
       html`
   <p style={{ padding: 10 }}>Adjacent: 0, Boundary: 0</p>

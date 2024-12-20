@@ -19,7 +19,7 @@ import readme from "./readme.md";
 ### Heading with adornment
 
 <Canvas>
-  <Story name="Heading with adornment" parameters={{ loki: { skip: true } }}>
+  <Story name="Heading with adornment">
     {html`
       <ic-page-header heading="Page header">
         <ic-status-tag slot="heading-adornment" label="Beta"></ic-status-tag>
@@ -31,7 +31,7 @@ import readme from "./readme.md";
 ### Left aligned
 
 <Canvas>
-  <Story name="Left aligned" parameters={{ loki: { skip: true } }}>
+  <Story name="Left aligned">
     {html`
       <ic-page-header
         aligned="left"
@@ -47,7 +47,7 @@ import readme from "./readme.md";
 ### Small
 
 <Canvas>
-  <Story name="Small" parameters={{ loki: { skip: true } }}>
+  <Story name="Small">
     {html`
       <ic-page-header
         aligned="left"
@@ -68,7 +68,7 @@ import readme from "./readme.md";
 ### Deprecated - small
 
 <Canvas>
-  <Story name="Deprecated - small" parameters={{ loki: { skip: true } }}>
+  <Story name="Deprecated - small">
     {html`
       <ic-page-header
         aligned="left"
@@ -89,7 +89,7 @@ import readme from "./readme.md";
 ### Without border
 
 <Canvas>
-  <Story name="Without border" parameters={{ loki: { skip: true } }}>
+  <Story name="Without border">
     {html`
       <ic-page-header heading="Page header" border="false">
         <ic-status-tag slot="heading-adornment" label="Beta"></ic-status-tag>
@@ -101,7 +101,7 @@ import readme from "./readme.md";
 ### Center aligned
 
 <Canvas>
-  <Story name="Center aligned" parameters={{ loki: { skip: true } }}>
+  <Story name="Center aligned">
     {html`
       <ic-page-header
         aligned="center"
@@ -117,7 +117,7 @@ import readme from "./readme.md";
 ### Full width
 
 <Canvas>
-  <Story name="Full width" parameters={{ loki: { skip: true } }}>
+  <Story name="Full width">
     {html`
       <ic-page-header
         aligned="full-width"
@@ -133,7 +133,7 @@ import readme from "./readme.md";
 ### Sticky
 
 <Canvas>
-  <Story name="Sticky" parameters={{ loki: { skip: true } }}>
+  <Story name="Sticky">
     {html`
       <ic-page-header
         sticky
@@ -149,10 +149,7 @@ import readme from "./readme.md";
 ### Sticky with content and footer
 
 <Canvas>
-  <Story
-    name="Sticky with content and footer"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Sticky with content and footer">
     {html`
       <ic-top-navigation app-title="ApplicationName">
         <svg
@@ -206,10 +203,7 @@ import readme from "./readme.md";
 ### Sticky for large and extra-large breakpoints only
 
 <Canvas>
-  <Story
-    name="Sticky for large and extra-large breakpoints only"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Sticky for large and extra-large breakpoints only">
     {html`
       <ic-top-navigation app-title="ApplicationName">
         <svg
@@ -263,7 +257,7 @@ import readme from "./readme.md";
 ### With breadcrumbs
 
 <Canvas>
-  <Story name="With breadcrumbs" parameters={{ loki: { skip: true } }}>
+  <Story name="With breadcrumbs">
     {html`
       <ic-page-header
         heading="Page header"
@@ -289,7 +283,7 @@ import readme from "./readme.md";
 ### With actions
 
 <Canvas>
-  <Story name="With actions" parameters={{ loki: { skip: true } }}>
+  <Story name="With actions">
     {html`
       <ic-page-header
         heading="Page header"
@@ -321,7 +315,7 @@ import readme from "./readme.md";
 ### With input
 
 <Canvas>
-  <Story name="With input" parameters={{ loki: { skip: true } }}>
+  <Story name="With input">
     {html`
       <ic-page-header
         heading="Page header"
@@ -337,7 +331,7 @@ import readme from "./readme.md";
 ### With stepper
 
 <Canvas>
-  <Story name="With stepper" parameters={{ loki: { skip: true } }}>
+  <Story name="With stepper">
     {html`
       <ic-page-header
         heading="Create a coffee"
@@ -360,7 +354,7 @@ import readme from "./readme.md";
 ### With tabs
 
 <Canvas>
-  <Story name="With tabs" parameters={{ loki: { skip: true } }}>
+  <Story name="With tabs">
     {html`
       <ic-page-header
         heading="Coffee recipes"
@@ -429,10 +423,7 @@ import readme from "./readme.md";
 ### With breadcrumbs, input, actions and tabs
 
 <Canvas>
-  <Story
-    name="With breadcrumbs, input, actions and tabs"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="With breadcrumbs, input, actions and tabs">
     {html`
       <ic-page-header
         heading="Coffee recipes"
@@ -488,10 +479,7 @@ import readme from "./readme.md";
 ### With breadcrumbs, input, actions and stepper
 
 <Canvas>
-  <Story
-    name="With breadcrumbs, input, actions and stepper"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="With breadcrumbs, input, actions and stepper">
     {html`
       <ic-page-header
         heading="Coffee recipes"
@@ -550,7 +538,7 @@ If a slot is provided, instead an attribute, the slot will supersede for the fol
 - subheading
 
 <Canvas>
-  <Story name="Component overrides" parameters={{ loki: { skip: true } }}>
+  <Story name="Component overrides">
     {html`
       <ic-page-header>
         <ic-typography slot="heading" variant="h4">
@@ -567,10 +555,7 @@ If a slot is provided, instead an attribute, the slot will supersede for the fol
 ### With breadcrumbs, input, actions and stepper and long title
 
 <Canvas>
-  <Story
-    name="With breadcrumbs, input, actions and stepper and long title"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="With breadcrumbs, input, actions and stepper and long title">
     {html`
       <ic-page-header
         heading="Coffee recipes with a very very long title"
