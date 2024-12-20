@@ -465,7 +465,7 @@ export const showScrollableDialog = () => {
 };
 
 <Canvas>
-  <Story name="Scrollable" parameters={{ loki: { skip: true } }}>
+  <Story name="Scrollable">
     <IcButton variant="primary" onclick={showScrollableDialog}>
       Launch scrollable dialog
     </IcButton>
@@ -537,7 +537,7 @@ export const dropdownItems = () => {
 };
 
 <Canvas>
-  <Story name="Popover" parameters={{ loki: { skip: true } }}>
+  <Story name="Popover">
     <IcButton variant="primary" onclick={showSelectDialog}>
       Launch Select dialog
     </IcButton>
@@ -747,7 +747,7 @@ export const showHiddenCloseButtonDialog = () => {
 };
 
 <Canvas>
-  <Story name="Hidden close button" parameters={{ loki: { skip: true } }}>
+  <Story name="Hidden close button">
     <IcButton variant="primary" onClick={showHiddenCloseButtonDialog}>
       Launch dialog with hidden close button
     </IcButton>
@@ -773,7 +773,7 @@ export const showAutoOpenCloseButtonDialog = () => {
 };
 
 <Canvas>
-  <Story name="Auto Opening" parameters={{ loki: { skip: true } }}>
+  <Story name="Auto Opening">
     <IcButton variant="primary" onClick={showAutoOpenCloseButtonDialog}>
       Launch auto opening dialog
     </IcButton>
@@ -810,7 +810,7 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
+   
     argTypes={{
       size: {
         options: ["small", "medium", "large"],
