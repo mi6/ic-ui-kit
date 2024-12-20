@@ -3,14 +3,10 @@ dist-perf/
 build/
 www/
 
-packages/web-components/.loki/current
-packages/web-components/.loki/difference
 packages/web-components/docs.d.ts
 packages/react/css/
 packages/docs/docs.d.ts
 
-packages/canary-web-components/.loki/current
-packages/canary-web-components/.loki/difference
 packages/canary-react/css/
 
 packages/web-components/storybook-static
