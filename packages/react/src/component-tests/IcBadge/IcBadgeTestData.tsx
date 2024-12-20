@@ -381,3 +381,76 @@ export const ThemeDark = (): ReactElement => {
     </div>
   );
 };
+
+export const ThemeDarkIcon = (): ReactElement => {
+  return (
+    <div style={{ backgroundColor: "black", padding: "16px" }}>
+      <IcButton
+        variant="secondary"
+        theme="dark"
+        monochrome
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge type="icon" slot="badge" theme="dark">
+          <ReusableSlottedIcon />
+        </IcBadge>
+        Neutral
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        theme="dark"
+        monochrome
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge type="icon" slot="badge" theme="dark" variant="light">
+          <ReusableSlottedIcon />
+        </IcBadge>
+        Light
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        theme="dark"
+        monochrome
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge type="icon" slot="badge" theme="dark" variant="error">
+          <ReusableSlottedIcon />
+        </IcBadge>
+        Error
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        theme="dark"
+        monochrome
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge type="icon" slot="badge" theme="dark" variant="success">
+          <ReusableSlottedIcon />
+        </IcBadge>
+        Success
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        theme="dark"
+        monochrome
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge type="icon" slot="badge" theme="dark" variant="warning">
+          <ReusableSlottedIcon />
+        </IcBadge>
+        Warning
+      </IcButton>
+      <IcButton
+        variant="secondary"
+        theme="dark"
+        monochrome
+        style={{ marginRight: "16px" }}
+      >
+        <IcBadge type="icon" slot="badge" theme="dark" variant="info">
+          <ReusableSlottedIcon />
+        </IcBadge>
+        Info
+      </IcButton>
+    </div>
+  );
+};
