@@ -46,3 +46,7 @@ ic-button.first-last {
   position: absolute;
   left: -9999px;
 }
+
+.sr-only:dir(rtl) {
+  right: -9999px;
+}
