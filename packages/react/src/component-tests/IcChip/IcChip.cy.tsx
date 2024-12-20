@@ -18,6 +18,7 @@ import {
   SingleDismissible,
   DismissibleWithIcon,
   Transparency,
+  CustomDismissLabel,
 } from "./IcChipTestData";
 import {
   HAVE_BEEN_CALLED_ONCE,
@@ -118,6 +119,20 @@ describe("IcChip visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "dismissible-with-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+    });
+  });
+
+  it("should render dismissible chip with custom tooltip label", () => {
+    mount(<CustomDismissLabel />);
+
+    cy.checkHydrated("ic-chip#default-chip");
+
+    cy.findShadowEl("ic-chip#default-chip", "button").eq(0).focus();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "custom-dismiss-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
