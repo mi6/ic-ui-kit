@@ -1,7 +1,7 @@
 {
-  "total": 200,
+  "total": 199,
   "totalPassed": 199,
-  "totalFailed": 1,
+  "totalFailed": 0,
   "totalSuites": 7,
   "suites": [
     {
@@ -223,17 +223,6 @@
       "name": "IcDataTable.cy.tsx",
       "path": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
       "tests": [
-        {
-          "status": "fail",
-          "name": "IcDataTable.cy.tsx-action-elements",
-          "percentage": 0.00318943976924893,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
-          "specFilename": "IcDataTable.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-action-elements.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-action-elements.png",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-action-elements.png"
-        },
         {
           "status": "pass",
           "name": "IcDataTable.cy.tsx-default",
@@ -2247,9 +2236,9 @@
       ]
     }
   ],
-  "startedAt": "2024-12-19T15:16:03.284Z",
-  "endedAt": "2024-12-19T15:21:24.529Z",
-  "duration": 306103,
+  "startedAt": "2024-12-20T07:36:11.533Z",
+  "endedAt": "2024-12-20T07:41:29.241Z",
+  "duration": 302318,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
