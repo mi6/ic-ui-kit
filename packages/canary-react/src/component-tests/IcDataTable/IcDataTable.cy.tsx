@@ -3910,7 +3910,7 @@ describe("IcDataTable table sizing and column width", () => {
 
 // This test needs to be last as it seems to affect other tests.
 // For example, it will remove the last column for the remaining tests if placed higher.
-describe.skip("IcDataTable row deletion", () => {
+describe("IcDataTable row deletion", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 768);
@@ -4063,7 +4063,7 @@ describe.skip("IcDataTable row deletion", () => {
   });
 });
 
-describe.skip("IcDataTable visual regression tests in high contrast mode", () => {
+describe("IcDataTable visual regression tests in high contrast mode", () => {
   beforeEach(() => {
     cy.enableForcedColors();
     cy.wait(500);
