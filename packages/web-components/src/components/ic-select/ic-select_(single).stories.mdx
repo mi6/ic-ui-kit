@@ -32,7 +32,7 @@ export const defaultArgs = {
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {(args) =>
       html`<ic-select
           id="select-default"
@@ -65,7 +65,7 @@ export const defaultArgs = {
 ### Async default
 
 <Canvas>
-  <Story name="Async default" parameters={{ loki: { skip: true } }}>
+  <Story name="Async default">
     {(args) =>
       html`<ic-select
           label="What is your favourite coffee?"
@@ -97,7 +97,7 @@ export const defaultArgs = {
 ### Default value
 
 <Canvas>
-  <Story name="Default value" parameters={{ loki: { skip: true } }}>
+  <Story name="Default value">
     {(args) =>
       html`<ic-select
           id="select-default-value"
@@ -122,7 +122,7 @@ export const defaultArgs = {
 ### With clear button
 
 <Canvas>
-  <Story name="With clear button" parameters={{ loki: { skip: true } }}>
+  <Story name="With clear button">
     {(args) =>
       html`<ic-select
           id="select-clear"
@@ -147,7 +147,7 @@ export const defaultArgs = {
 ### With descriptions
 
 <Canvas>
-  <Story name="With descriptions" parameters={{ loki: { skip: true } }}>
+  <Story name="With descriptions">
     {(args) =>
       html`<ic-select
           id="select-descriptions"
@@ -183,7 +183,7 @@ export const defaultArgs = {
 ### Helper text
 
 <Canvas>
-  <Story name="Helper text" parameters={{ loki: { skip: true } }}>
+  <Story name="Helper text">
     {(args) =>
       html`<ic-select
           id="select-helper"
@@ -208,7 +208,7 @@ export const defaultArgs = {
 ### Custom placeholder
 
 <Canvas>
-  <Story name="Custom placeholder" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom placeholder">
     {(args) =>
       html`<ic-select
           id="select-7"
@@ -233,7 +233,7 @@ export const defaultArgs = {
 ### Custom components
 
 <Canvas>
-  <Story name="Custom components" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom components">
     {(args) =>
       html`<ic-select
           id="select-1"
@@ -274,7 +274,7 @@ export const defaultArgs = {
 ### Sizes
 
 <Canvas>
-  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+  <Story name="Sizes">
     {(args) =>
       html`<div style="display: flex; flex-direction: column; gap: 16px;">
         <ic-select
@@ -344,7 +344,7 @@ export const defaultArgs = {
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {(args) =>
       html`<ic-select
           id="select-disabled"
@@ -369,7 +369,7 @@ export const defaultArgs = {
 ### Disabled options
 
 <Canvas>
-  <Story name="Disabled options" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled options">
     {(args) =>
       html`<ic-select
           id="select-disabled-options"
@@ -393,7 +393,7 @@ export const defaultArgs = {
 ### Full width
 
 <Canvas>
-  <Story name="Full width" parameters={{ loki: { skip: true } }}>
+  <Story name="Full width">
     {(args) =>
       html`<ic-select
           id="select-full-width"
@@ -418,7 +418,7 @@ export const defaultArgs = {
 ### Hidden label
 
 <Canvas>
-  <Story name="Hidden label" parameters={{ loki: { skip: true } }}>
+  <Story name="Hidden label">
     {(args) =>
       html`<ic-select
           id="select-hidden-label"
@@ -443,7 +443,7 @@ export const defaultArgs = {
 ### Required
 
 <Canvas>
-  <Story name="Required" parameters={{ loki: { skip: true } }}>
+  <Story name="Required">
     {(args) =>
       html`<ic-select
           id="select-required"
@@ -468,7 +468,7 @@ export const defaultArgs = {
 ### Read-only
 
 <Canvas>
-  <Story name="Read-only" parameters={{ loki: { skip: true } }}>
+  <Story name="Read-only">
     {() =>
       html`<ic-select
           id="select-read-only"
@@ -494,7 +494,7 @@ export const defaultArgs = {
 ### Groups
 
 <Canvas>
-  <Story name="Groups" parameters={{ loki: { skip: true } }}>
+  <Story name="Groups">
     {(args) =>
       html`<ic-select
           id="select-groups"
@@ -530,7 +530,7 @@ export const defaultArgs = {
 ### Recommended
 
 <Canvas>
-  <Story name="Recommended" parameters={{ loki: { skip: true } }}>
+  <Story name="Recommended">
     {(args) =>
       html`<ic-select
           id="select-recommended"
@@ -556,7 +556,7 @@ export const defaultArgs = {
 ### Validation
 
 <Canvas>
-  <Story name="Validation" parameters={{ loki: { skip: true } }}>
+  <Story name="Validation">
     {(args) =>
       html`<ic-select
           id="select-success"
@@ -619,7 +619,7 @@ export const defaultArgs = {
 ### Scroll behaviour
 
 <Canvas>
-  <Story name="Scroll behaviour" parameters={{ loki: { skip: true } }}>
+  <Story name="Scroll behaviour">
     {(args) =>
       html`<ic-select
           id="select-scroll"
@@ -652,7 +652,7 @@ export const defaultArgs = {
 ### Loading with error
 
 <Canvas>
-  <Story name="Loading with error" parameters={{ loki: { skip: true } }}>
+  <Story name="Loading with error">
     {(args) =>
       html`<ic-select
           id="select-loading"
@@ -678,7 +678,7 @@ export const defaultArgs = {
 This shows how the single select works within a form. The value will appear in the console on submit.
 
 <Canvas>
-  <Story name="In form" parameters={{ loki: { skip: true } }}>
+  <Story name="In form">
     {(args) =>
       html`
         <form>
@@ -714,10 +714,7 @@ This shows how the single select works within a form. The value will appear in t
 ### Emitting icOptionSelect on enter
 
 <Canvas>
-  <Story
-    name="Emitting icOptionSelect on enter"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Emitting icOptionSelect on enter">
     {(args) =>
       html`<ic-select
           id="select-icoptionselect"
@@ -744,7 +741,6 @@ This shows how the single select works within a form. The value will appear in t
 <Canvas>
   <Story
     name="Playground"
-    parameters={{ loki: { skip: true } }}
     args={defaultArgs}
     argTypes={{
       ["validation-status"]: {

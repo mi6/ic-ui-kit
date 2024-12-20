@@ -16,7 +16,7 @@ import IcTypography from "../ic-typography/readme.md";
 ### Rectangle
 
 <Canvas>
-  <Story name="Rectangle" parameters={{ loki: { skip: true } }}>
+  <Story name="Rectangle">
     {html` <ic-typography variant="h4">Default</ic-typography>
       <ic-skeleton></ic-skeleton>
       <ic-typography variant="h4">Inherited from child</ic-typography>
@@ -37,15 +37,13 @@ import IcTypography from "../ic-typography/readme.md";
 ### Circle
 
 <Canvas>
-  <Story name="Circle" parameters={{ loki: { skip: true } }}>
-    {html`<ic-skeleton variant="circle" />`}
-  </Story>
+  <Story name="Circle">{html`<ic-skeleton variant="circle" />`}</Story>
 </Canvas>
 
 ### Text
 
 <Canvas>
-  <Story name="Text" parameters={{ loki: { skip: true } }}>
+  <Story name="Text">
     {html` <ic-typography variant="h1">h1</ic-typography>
       <ic-typography variant="h1"><ic-skeleton variant="text" /></ic-typography>
       <ic-typography variant="h2">h2</ic-typography>
@@ -90,7 +88,7 @@ import IcTypography from "../ic-typography/readme.md";
 ### Example
 
 <Canvas>
-  <Story name="Example" parameters={{ loki: { skip: true } }}>
+  <Story name="Example">
     {html` <ic-skeleton variant="circle" height="20"></ic-skeleton>
       <div style="height:8px"></div>
       <ic-typography variant="caption"
@@ -104,7 +102,7 @@ import IcTypography from "../ic-typography/readme.md";
 ### Light
 
 <Canvas>
-  <Story name="Light" parameters={{ loki: { skip: true } }}>
+  <Story name="Light">
     {html` <ic-skeleton variant="circle" height="20" light="true"></ic-skeleton>
       <div style="height:8px"></div>
       <ic-typography variant="caption"
@@ -125,7 +123,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       appearance: {
         options: ["default", "light"],
