@@ -21,6 +21,7 @@ import {
 } from "../utils/constants";
 import {
   CustomSizeTextField,
+  AutofocusTextField,
   DisabledTextField,
   FullWidthTextField,
   HiddenLabelTextField,
@@ -332,6 +333,14 @@ describe("IcTextField end-to-end tests", () => {
     cy.get(IC_TEXTFIELD).invoke("attr", "title", "new-input-title");
 
     input.should(HAVE_ATTR, "title", "new-input-title");
+  });
+
+  it("should autofocus when autofocus attribute is set", () => {
+    mount(<AutofocusTextField />);
+
+    const input = cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT);
+
+    input.should(HAVE_FOCUS);
   });
 });
 

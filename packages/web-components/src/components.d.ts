@@ -1050,7 +1050,7 @@ export namespace Components {
           * The reference to an anchor element the menu will position itself from when rendered.
          */
         "anchorEl": HTMLElement;
-        "autoFocusOnSelected": boolean;
+        "autofocusOnSelected": boolean;
         /**
           * If `true`, the menu will close when an option is selected.
          */
@@ -2032,10 +2032,6 @@ export namespace Components {
         "ariaExpanded": string;
         "ariaOwns": string;
         /**
-          * If `true`, the form control will have input focus when the page loads.
-         */
-        "autoFocus": boolean;
-        /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize": string;
@@ -2047,6 +2043,10 @@ export namespace Components {
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
         "autocorrect": IcAutocorrectStates;
+        /**
+          * If `true`, the form control will have input focus when the page loads.
+         */
+        "autofocus": boolean;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -4390,7 +4390,7 @@ declare namespace LocalJSX {
           * The reference to an anchor element the menu will position itself from when rendered.
          */
         "anchorEl": HTMLElement;
-        "autoFocusOnSelected"?: boolean;
+        "autofocusOnSelected"?: boolean;
         /**
           * If `true`, the menu will close when an option is selected.
          */
@@ -5465,10 +5465,6 @@ declare namespace LocalJSX {
         "ariaExpanded"?: string;
         "ariaOwns"?: string;
         /**
-          * If `true`, the form control will have input focus when the page loads.
-         */
-        "autoFocus"?: boolean;
-        /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize"?: string;
@@ -5480,6 +5476,10 @@ declare namespace LocalJSX {
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
         "autocorrect"?: IcAutocorrectStates;
+        /**
+          * If `true`, the form control will have input focus when the page loads.
+         */
+        "autofocus"?: boolean;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
