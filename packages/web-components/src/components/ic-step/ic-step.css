@@ -29,11 +29,15 @@
 
 .visually-hidden {
   position: absolute;
-  left: -625rem;
+  left: -9999px;
   top: auto;
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.visually-hidden:dir(rtl) {
+  right: -9999px;
 }
 
 /* COMPACT STEP STYLING */

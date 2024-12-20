@@ -182,6 +182,10 @@
   left: -9999px;
 }
 
+.sr-only:dir(rtl) {
+  right: -9999px;
+}
+
 @keyframes expand {
   from {
     opacity: 0;

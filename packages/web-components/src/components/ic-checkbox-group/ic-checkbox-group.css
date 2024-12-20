@@ -54,3 +54,7 @@ ic-input-validation {
   color: #000;
   text-transform: none;
 }
+
+.screen-reader-only-text:dir(rtl) {
+  right: -9999px;
+}
