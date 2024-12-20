@@ -103,7 +103,7 @@ import { useState, useEffect, useRef } from "react";
 ### Conditional dynamic
 
 <Canvas>
-  <Story name="Conditional dynamic" parameters={{ loki: { skip: true } }}>
+  <Story name="Conditional dynamic">
     <IcRadioGroup
       label="Conditional dynamic"
       name="1"
@@ -152,7 +152,7 @@ import { useState, useEffect, useRef } from "react";
 ### Conditional static
 
 <Canvas>
-  <Story name="Conditional static" parameters={{ loki: { skip: true } }}>
+  <Story name="Conditional static">
     <IcRadioGroup label="Conditional dynamic" name="1">
       <IcRadioOption value="valueName1" label="option1">
         <IcTextField
@@ -246,7 +246,7 @@ export const Form = () => {
 };
 
 <Canvas>
-  <Story name="Form" parameters={{ loki: { skip: true } }}>
+  <Story name="Form">
     <Form />
   </Story>
 </Canvas>
@@ -443,7 +443,7 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
+   
     argTypes={{
       orientation: {
         options: [
