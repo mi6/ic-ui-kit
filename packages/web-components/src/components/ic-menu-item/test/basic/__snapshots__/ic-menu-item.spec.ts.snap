@@ -66,26 +66,19 @@ exports[`menu item variants should render the destructive variant 1`] = `
 exports[`menu item variants should render the toggle variant 1`] = `
 <ic-menu-item id="test-menu-item" label="Toggle variant" variant="toggle">
   <mock:shadow-root>
-    <li aria-checked="false" aria-disabled="false" role="menuitemcheckbox">
-      <ic-button class="ic-button-full-width ic-button-size-medium ic-button-variant-tertiary" exportparts="button">
-        <mock:shadow-root>
-          <button aria-disabled="false" aria-label="Toggle variant" class="button" part="button" type="button">
-            <slot></slot>
-          </button>
-        </mock:shadow-root>
-        <div class="focus-border">
-          <div class="menu-item-info">
-            <div class="menu-labels">
-              <ic-typography class="menu-item-label">
-                Toggle variant
-              </ic-typography>
-            </div>
+    <li aria-checked="false" aria-disabled="false" role="menuitemcheckbox" tabindex="-1">
+      <div class="focus-border">
+        <div class="menu-item-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-item-label">
+              Toggle variant
+            </ic-typography>
           </div>
-          <span aria-hidden="true" class="check-icon hide">
-            svg
-          </span>
         </div>
-      </ic-button>
+        <span aria-hidden="true" class="check-icon hide">
+          svg
+        </span>
+      </div>
     </li>
   </mock:shadow-root>
 </ic-menu-item>

@@ -187,21 +187,23 @@ export class MenuItem {
   };
 
   render() {
+    const { label, description, keyboardShortcutLabel, variant, disabled } =
+      this;
     // A sub-component to layout the menu information correctly in ic-button
     const MenuItemInformation = () => {
       return (
         <div class="menu-item-info">
           <div class="menu-labels">
-            <ic-typography class="menu-item-label">{this.label}</ic-typography>
-            {this.keyboardShortcutLabel && (
+            <ic-typography class="menu-item-label">{label}</ic-typography>
+            {keyboardShortcutLabel && (
               <ic-typography variant="caption" class="shortcut">
-                {this.keyboardShortcutLabel}
+                {keyboardShortcutLabel}
               </ic-typography>
             )}
           </div>
-          {this.description && (
+          {description && (
             <ic-typography class="menu-item-description" variant="caption">
-              {this.description}
+              {description}
             </ic-typography>
           )}
         </div>
@@ -211,40 +213,21 @@ export class MenuItem {
     return (
       <Host
         class={{
-          ["ic-menu-item-disabled"]: this.disabled,
+          ["ic-menu-item-disabled"]: disabled,
         }}
       >
         <li
-          role={this.variant === "toggle" ? "menuitemcheckbox" : "menuitem"}
-          aria-disabled={`${this.disabled}`}
+          role={variant === "toggle" ? "menuitemcheckbox" : "menuitem"}
+          aria-disabled={`${disabled}`}
           aria-checked={
-            this.variant === "toggle"
-              ? this.checked
-                ? "true"
-                : "false"
-              : undefined
+            variant === "toggle" ? (this.checked ? "true" : "false") : undefined
           }
+          {...(variant === "toggle" && {
+            onClick: this.handleClick,
+            tabIndex: -1,
+          })}
         >
-          <ic-button
-            fullWidth
-            variant="tertiary"
-            onClick={this.handleClick}
-            href={isPropDefined(this.href)}
-            hreflang={isPropDefined(this.hreflang)}
-            target={isPropDefined(this.target)}
-            rel={isPropDefined(this.rel)}
-            referrerpolicy={
-              this.referrerpolicy !== undefined ? this.referrerpolicy : null
-            }
-            aria-disabled={`${this.disabled}`}
-            aria-label={this.getMenuItemAriaLabel()}
-            aria-haspopup={
-              isPropDefined(this.submenuTriggerFor) ||
-              this.el.classList.contains("ic-popover-submenu-back-button")
-                ? "menu"
-                : false
-            }
-          >
+          {this.variant === "toggle" && (
             <div class="focus-border">
               {isSlotUsed(this.el, "icon") && (
                 <span class="icon">
@@ -252,25 +235,54 @@ export class MenuItem {
                 </span>
               )}
               <MenuItemInformation />
-              {this.variant === "toggle" && (
-                <span
-                  class={{
-                    ["check-icon"]: true,
-                    ["hide"]: !this.checked,
-                  }}
-                  aria-hidden="true"
-                  innerHTML={Check}
-                />
-              )}
-              {isPropDefined(this.submenuTriggerFor) && (
-                <span
-                  class={{ ["submenu-icon"]: true }}
-                  aria-hidden="true"
-                  innerHTML={Chevron}
-                />
-              )}
+              <span
+                class={{
+                  ["check-icon"]: true,
+                  ["hide"]: !this.checked,
+                }}
+                aria-hidden="true"
+                innerHTML={Check}
+              />
             </div>
-          </ic-button>
+          )}
+          {variant !== "toggle" && (
+            <ic-button
+              fullWidth
+              variant="tertiary"
+              onClick={this.handleClick}
+              href={isPropDefined(this.href)}
+              hreflang={isPropDefined(this.hreflang)}
+              target={isPropDefined(this.target)}
+              rel={isPropDefined(this.rel)}
+              referrerpolicy={
+                this.referrerpolicy !== undefined ? this.referrerpolicy : null
+              }
+              aria-disabled={`${this.disabled}`}
+              aria-label={this.getMenuItemAriaLabel()}
+              aria-haspopup={
+                isPropDefined(this.submenuTriggerFor) ||
+                this.el.classList.contains("ic-popover-submenu-back-button")
+                  ? "menu"
+                  : false
+              }
+            >
+              <div class="focus-border">
+                {isSlotUsed(this.el, "icon") && (
+                  <span class="icon">
+                    <slot name="icon"></slot>
+                  </span>
+                )}
+                <MenuItemInformation />
+                {isPropDefined(this.submenuTriggerFor) && (
+                  <span
+                    class={{ ["submenu-icon"]: true }}
+                    aria-hidden="true"
+                    innerHTML={Chevron}
+                  />
+                )}
+              </div>
+            </ic-button>
+          )}
         </li>
       </Host>
     );
