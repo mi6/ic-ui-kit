@@ -56,6 +56,10 @@
   text-transform: none;
 }
 
+.offscreen:dir(rtl) {
+  right: -9999px;
+}
+
 @media (forced-colors: active) {
   .classification-banner {
     border: var(--ic-hc-border);
