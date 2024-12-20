@@ -15,10 +15,7 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story
-    name="Default"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Default" parameters={{ layout: "fullscreen" }}>
     {html`<div>
       <ic-link href="/">This is a link</ic-link>
       <br />
@@ -35,10 +32,7 @@ import readme from "./readme.md";
 ### With icon
 
 <Canvas>
-  <Story
-    name="With icon"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="With icon" parameters={{ layout: "fullscreen" }}>
     {html`<ic-link href="/" show-icon>This is a link</ic-link>`}
   </Story>
 </Canvas>
@@ -46,10 +40,7 @@ import readme from "./readme.md";
 ### With download
 
 <Canvas>
-  <Story
-    name="Download link"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Download link" parameters={{ layout: "fullscreen" }}>
     {html`<ic-link href="/" download>Download File</ic-link>`}
   </Story>
 </Canvas>
@@ -57,10 +48,7 @@ import readme from "./readme.md";
 ### Dark
 
 <Canvas>
-  <Story
-    name="Dark"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Dark" parameters={{ layout: "fullscreen" }}>
     {html`<ic-link href="/" appearance="dark" target="_blank"
       >This is a link</ic-link
     >`}
@@ -70,10 +58,7 @@ import readme from "./readme.md";
 ### Light
 
 <Canvas>
-  <Story
-    name="Light"
-    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
-  >
+  <Story name="Light" parameters={{ backgrounds: { default: "dark" } }}>
     {html` <ic-link href="/" appearance="light" show-icon
       >This is a link</ic-link
     >`}
@@ -91,7 +76,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       appearance: {
         options: ["default", "light", "dark"],
