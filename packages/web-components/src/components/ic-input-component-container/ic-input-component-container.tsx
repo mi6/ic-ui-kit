@@ -1,4 +1,12 @@
-import { Component, Element, Host, Prop, forceUpdate, h } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Host,
+  Prop,
+  Watch,
+  forceUpdate,
+  h,
+} from "@stencil/core";
 
 import {
   IcInformationStatus,
@@ -6,7 +14,11 @@ import {
   IcSizes,
 } from "../../utils/types";
 import successIcon from "../../assets/success-icon.svg";
-import { checkSlotInChildMutations, slotHasContent } from "../../utils/helpers";
+import {
+  checkSlotInChildMutations,
+  removeDisabledFalse,
+  slotHasContent,
+} from "../../utils/helpers";
 
 /**
  * @slot left-icon - Content will be placed to the left of the input.
@@ -33,6 +45,10 @@ export class InputComponentContainer {
    *  If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    *  If `true`, the input component container will fill the width of the container it is in.
@@ -68,6 +84,10 @@ export class InputComponentContainer {
    * The validation status of the input component container - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus: IcInformationStatusOrEmpty = "";
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   componentDidLoad(): void {
     this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
@@ -116,7 +136,7 @@ export class InputComponentContainer {
           ["fullwidth"]: fullWidth,
           ["dark"]: dark || appearance === "dark",
         }}
-        aria-disabled={disabled && `${disabled}`}
+        aria-disabled={disabled ? "true" : null}
       >
         <div
           class={{

@@ -8,6 +8,7 @@ import {
   Event,
   EventEmitter,
   State,
+  Watch,
 } from "@stencil/core";
 import {
   IcSizes,
@@ -16,6 +17,7 @@ import {
   IcSelectMethodTypes,
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-toggle-button-group.types";
+import { removeDisabledFalse } from "../../utils/helpers";
 
 interface lastKey {
   key: string | null;
@@ -51,6 +53,10 @@ export class ToggleButtonGroup {
    * If `true`, the toggle button group will be set to the disabled state.
    */
   @Prop() disabled: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * If `true`, the toggle button group will fill the width of the container.
@@ -131,6 +137,7 @@ export class ToggleButtonGroup {
     this.selectType === "multi" && (this.selectMethod = "manual");
     this.selectMethod === "auto" && this.selectType === "single";
     document.addEventListener("keydown", this.keyListener);
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
