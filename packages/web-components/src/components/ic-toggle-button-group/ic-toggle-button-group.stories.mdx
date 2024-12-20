@@ -18,7 +18,7 @@ import readme from "./readme.md";
 ### Select type
 
 <Canvas>
-  <Story name="Select type" parameters={{ loki: { skip: true } }}>
+  <Story name="Select type">
     {(args) =>
       html`
         <span>Single and manual</span>
@@ -58,7 +58,7 @@ import readme from "./readme.md";
 ### Sizes
 
 <Canvas>
-  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+  <Story name="Sizes">
     {(args) =>
       html`
         <span>Default</span>
@@ -117,7 +117,7 @@ import readme from "./readme.md";
 ### Appearance
 
 <Canvas>
-  <Story name="Appearance" parameters={{ loki: { skip: true } }}>
+  <Story name="Appearance">
     {(args) =>
       html`<span>Light</span>
         <div
@@ -167,7 +167,7 @@ import readme from "./readme.md";
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {(args) =>
       html`<span>Disabled</span>
         <ic-toggle-button-group
@@ -194,7 +194,7 @@ import readme from "./readme.md";
 ### Loading
 
 <Canvas>
-  <Story name="Loading" parameters={{ loki: { skip: true } }}>
+  <Story name="Loading">
     {(args) =>
       html`<span>Loading default</span>
         <ic-toggle-button-group
@@ -271,7 +271,7 @@ import readme from "./readme.md";
 ### With icons
 
 <Canvas>
-  <Story name="With icons" parameters={{ loki: { skip: true } }}>
+  <Story name="With icons">
     {(args) =>
       html`<span>Icon only</span>
         <ic-toggle-button-group
@@ -450,7 +450,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       appearance: {
         options: ["default", "dark", "light"],
