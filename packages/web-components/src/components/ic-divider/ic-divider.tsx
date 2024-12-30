@@ -9,14 +9,15 @@ import {
 } from "@stencil/core";
 
 import {
-  getThemeForegroundColor,
+  getBrandForegroundAppearance,
   isPropDefined,
   slotHasContent,
 } from "../../utils/helpers";
 
 import {
+  IcBrand,
   IcOrientation,
-  IcThemeForeground,
+  IcBrandForeground,
   IcThemeMode,
 } from "../../utils/types";
 
@@ -34,7 +35,7 @@ import {
 export class Divider {
   @Element() el: HTMLIcDividerElement;
 
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  @State() foregroundColor: IcBrandForeground = getBrandForegroundAppearance();
 
   /**
    * The line style of the divider.
@@ -62,15 +63,15 @@ export class Divider {
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop({ mutable: true }) theme?: IcThemeMode | IcThemeForeground = "inherit";
+  @Prop({ mutable: true }) theme?: IcThemeMode | IcBrandForeground = "inherit";
 
   /**
    * The thickness of the divider.
    */
   @Prop() weight: IcDividerWeights = "thin";
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler(ev: CustomEvent<IcBrand>): void {
     this.foregroundColor = ev.detail.mode;
   }
 

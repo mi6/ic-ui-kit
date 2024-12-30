@@ -28,7 +28,7 @@ import classificationBanner from "../ic-classification-banner/readme.md";
         <div
           slot="logo"
           style="width:100px;height:100px;display:flex;align-items:center;justify-content:center;
-          background-color:var(--ic-theme-primary);color:var(--ic-theme-text);"
+          background-color:var(--ic-brand-color-primary);color:var(--ic-brand-text-color);"
         >
           Logo
         </div>
@@ -75,7 +75,7 @@ import classificationBanner from "../ic-classification-banner/readme.md";
         <div
           slot="logo"
           style="width:100px;height:100px;display:flex;align-items:center;justify-content:center;
-          background-color:var(--ic-theme-primary);color:var(--ic-theme-text);"
+          background-color:var(--ic-brand-color-primary);color:var(--ic-brand-text-color);"
         >
           Logo
         </div>
@@ -110,21 +110,21 @@ import classificationBanner from "../ic-classification-banner/readme.md";
         <div
           slot="logo"
           style="width:100px;height:100px;display:flex;align-items:center;justify-content:center;
-          background-color:var(--ic-theme-primary);color:var(--ic-theme-text);"
+          background-color:var(--ic-brand-color-primary);color:var(--ic-brand-text-color);"
         >
           Logo
         </div>
         <div
           slot="logo"
           style="width:100px;height:100px;display:flex;align-items:center;justify-content:center;
-          background-color:var(--ic-theme-primary);color:var(--ic-theme-texy);"
+          background-color:var(--ic-brand-color-primary);color:var(--ic-brand-text-color);"
         >
           Logo
         </div>
         <div
           slot="logo"
           style="width:100px;height:100px;display:flex;align-items:center;justify-content:center;
-          background-color:var(--ic-theme-primary);color:var(--ic-theme-text);"
+          background-color:var(--ic-brand-color-primary);color:var(--ic-brand-text-color);"
         >
           Logo
         </div>
@@ -132,24 +132,24 @@ import classificationBanner from "../ic-classification-banner/readme.md";
   </Story>
 </Canvas>
 
-### Theming
+### Brand
 
 <Canvas>
-  <Story name="Theming" parameters={{ loki: { skip: true } }}>
-    {html` <ic-theme color="rgb(27, 60, 121)"></ic-theme>
+  <Story name="Brand" parameters={{ loki: { skip: true } }}>
+    {html` <ic-theme brand-color="rgb(27, 60, 121)" id="brand-story-ic-theme">
       <ic-button
         variant="primary"
         id="default-btn"
-        onClick="document.querySelector('ic-theme').color='rgb(27, 60, 121)'"
+        onClick="document.querySelector('#brand-story-ic-theme').brandColor='rgb(27, 60, 121)'"
       >
-        Default theme
+        Default brand
       </ic-button>
       <ic-button
         variant="primary"
         id="custom-btn"
-        onClick="document.querySelector('ic-theme').color='rgb(255, 201, 60)'"
+        onClick="document.querySelector('#brand-story-ic-theme').brandColor='rgb(255, 201, 60)'"
       >
-        Sunrise theme
+        Sunrise brand
       </ic-button>
       <ic-footer
         group-links
@@ -186,25 +186,26 @@ import classificationBanner from "../ic-classification-banner/readme.md";
         <div
           slot="logo"
           style="width:100px;height:100px;display:flex;align-items:center;justify-content:center;
-            background-color:var(--ic-theme-primary);color:var(--ic-theme-text);"
+            background-color:var(--ic-brand-color-primary);color:var(--ic-brand-text-color);"
         >
           Logo
         </div>
         <div
           slot="logo"
           style="width:100px;height:100px;display:flex;align-items:center;justify-content:center;
-            background-color:var(--ic-theme-primary);color:var(--ic-theme-texy);"
+            background-color:var(--ic-brand-color-primary);color:var(--ic-brand-text-color);"
         >
           Logo
         </div>
         <div
           slot="logo"
           style="width:100px;height:100px;display:flex;align-items:center;justify-content:center;
-            background-color:var(--ic-theme-primary);color:var(--ic-theme-text);"
+            background-color:var(--ic-brand-color-primary);color:var(--ic-brand-text-color);"
         >
           Logo
         </div>
-      </ic-footer>`}
+      </ic-footer>
+    </ic-theme>`}
   </Story>
 </Canvas>
 

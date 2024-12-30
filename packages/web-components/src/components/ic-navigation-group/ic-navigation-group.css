@@ -19,7 +19,7 @@
 :host .navigation-group {
   height: 100%;
   width: fit-content;
-  color: var(--ic-theme-text);
+  color: var(--ic-brand-text-color);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,8 +1,8 @@
-import { IcThemeForeground } from "../../utils/types";
+import { IcBrandForeground } from "../../utils/types";
 
 export interface IcTopBar {
   isSDevice: boolean;
-  foregroundColor: IcThemeForeground;
+  foregroundColor: IcBrandForeground;
   menuOpen: boolean;
   href: string;
   isAppNameSubtitleVariant: boolean;

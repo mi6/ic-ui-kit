@@ -19,7 +19,7 @@ import {
   DEVICE_SIZES,
   checkResizeObserver,
   isSlotUsed,
-  getThemeForegroundColor,
+  getBrandForegroundAppearance,
   getCssProperty,
   hasClassificationBanner,
   onComponentRequiredPropUndefined,
@@ -27,9 +27,9 @@ import {
   isPropDefined,
 } from "../../utils/helpers";
 import {
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
 } from "../../utils/types";
 import { IcTopBar, IcExpandedDetail } from "./ic-side-navigation.types";
 
@@ -58,7 +58,7 @@ export class SideNavigation {
 
   @State() deviceSize: number = getCurrentDeviceSize();
   @State() deviceSizeAppTitle: number = DEVICE_SIZES.S;
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  @State() foregroundColor: IcBrandForeground = getBrandForegroundAppearance();
   @State() hasSecondaryNavigation: boolean = false;
   @State() menuExpanded: boolean = false;
   @State() menuOpen: boolean = false;
@@ -167,9 +167,9 @@ export class SideNavigation {
     this.el?.removeEventListener("transitionend", this.transitionEndHandler);
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler({ detail }: CustomEvent): void {
-    this.foregroundColor = (detail as IcTheme).mode;
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler({ detail }: CustomEvent<IcBrand>): void {
+    this.foregroundColor = detail.mode;
   }
 
   private emitSideNavigationExpanded = (objDetails: {
@@ -728,8 +728,8 @@ export class SideNavigation {
           "sm-expanded": !isSDevice && menuExpanded,
           "side-display":
             this.deviceSize > DEVICE_SIZES.S || this.disableTopBarBehaviour,
-          [`ic-side-navigation-${IcThemeForegroundEnum.Dark}`]:
-            foregroundColor === IcThemeForegroundEnum.Dark,
+          [`ic-side-navigation-${IcBrandForegroundEnum.Dark}`]:
+            foregroundColor === IcBrandForegroundEnum.Dark,
           ["collapsed-labels"]:
             !isSDevice && !menuExpanded && collapsedIconLabels,
           ["ic-side-navigation-inline"]: inline,

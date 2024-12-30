@@ -11,13 +11,13 @@ import {
 import {
   IcAlignment,
   IcSizesNoLarge,
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
 } from "../../utils/types";
 import {
   slotHasContent,
-  getThemeForegroundColor,
+  getBrandForegroundAppearance,
   onComponentRequiredPropUndefined,
   isPropDefined,
   isSlotUsed,
@@ -42,7 +42,7 @@ export class Hero {
 
   @Element() el: HTMLIcHeroElement;
 
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  @State() foregroundColor: IcBrandForeground = getBrandForegroundAppearance();
   @State() rightContent: boolean = false;
   // set by above state
   @State() leftContentFullWidth: boolean =
@@ -119,10 +119,9 @@ export class Hero {
     this.rightContent = slotHasContent(this.el, "secondary");
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.foregroundColor = theme.mode;
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler(ev: CustomEvent<IcBrand>): void {
+    this.foregroundColor = ev.detail.mode;
   }
 
   @Listen("scroll", { target: "document" })
@@ -174,8 +173,8 @@ export class Hero {
     return (
       <Host
         class={{
-          [`ic-hero-${IcThemeForegroundEnum.Dark}`]:
-            foregroundColor === IcThemeForegroundEnum.Dark,
+          [`ic-hero-${IcBrandForegroundEnum.Dark}`]:
+            foregroundColor === IcBrandForegroundEnum.Dark,
           ["has-background-image"]: backgroundImage !== undefined,
           ["ic-hero-small"]: size === "small",
           ["secondary-heading"]: !!secondaryHeading,

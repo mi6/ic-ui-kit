@@ -9,13 +9,13 @@ import {
 } from "@stencil/core";
 import {
   DEVICE_SIZES,
-  getThemeForegroundColor,
+  getBrandForegroundAppearance,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
 import {
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundNoDefault,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundNoDefault,
 } from "../../utils/types";
 
 @Component({
@@ -30,8 +30,8 @@ export class FooterLinkGroup {
 
   @State() expanded: boolean = false;
   @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() dropdownIconStyle: IcThemeForegroundNoDefault | IcThemeForeground =
-    getThemeForegroundColor();
+  @State() dropdownIconStyle: IcBrandForegroundNoDefault | IcBrandForeground =
+    getBrandForegroundAppearance();
   @State() small: boolean = false;
 
   /**
@@ -55,10 +55,9 @@ export class FooterLinkGroup {
     this.small = this.isSmall(this.el);
   }
 
-  @Listen("themeChange", { target: "document" })
-  footerThemeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.dropdownIconStyle = theme.mode;
+  @Listen("brandChange", { target: "document" })
+  footerBrandChangeHandler(ev: CustomEvent<IcBrand>): void {
+    this.dropdownIconStyle = ev.detail.mode;
   }
 
   private isSmall(e: HTMLElement): boolean {

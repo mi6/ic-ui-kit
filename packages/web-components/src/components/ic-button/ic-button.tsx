@@ -14,7 +14,7 @@ import {
 } from "@stencil/core";
 
 import {
-  getThemeFromContext,
+  getBrandFromContext,
   inheritAttributes,
   isSlotUsed,
   removeDisabledFalse,
@@ -28,9 +28,9 @@ import {
 } from "./ic-button.types";
 import {
   IcSizes,
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
   IcThemeMode,
 } from "../../utils/types";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
@@ -357,8 +357,8 @@ export class Button {
     }
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler({ detail }: CustomEvent<IcTheme>): void {
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler({ detail }: CustomEvent<IcBrand>): void {
     this.updateTheme(detail.mode);
   }
 
@@ -424,13 +424,13 @@ export class Button {
     this.icBlur.emit();
   };
 
-  private updateTheme(newTheme: IcThemeForeground = null): void {
-    const foregroundColor = getThemeFromContext(this.el, newTheme);
-    if (foregroundColor !== IcThemeForegroundEnum.Default) {
+  private updateTheme(mode: IcBrandForeground = null): void {
+    const foregroundColor = getBrandFromContext(this.el, mode);
+    if (foregroundColor !== IcBrandForegroundEnum.Default) {
       this.theme =
-        foregroundColor === IcThemeForegroundEnum.Light
-          ? IcThemeForegroundEnum.Dark
-          : IcThemeForegroundEnum.Light;
+        foregroundColor === IcBrandForegroundEnum.Light
+          ? IcBrandForegroundEnum.Dark
+          : IcBrandForegroundEnum.Light;
       this.monochrome = true;
     }
   }
