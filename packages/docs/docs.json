@@ -2426,7 +2426,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -2969,7 +2969,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -5229,7 +5229,7 @@
           "name": "theme",
           "type": "\"dark\" | \"default\" | \"inherit\" | \"light\"",
           "complexType": {
-            "original": "IcThemeMode | IcThemeForeground",
+            "original": "IcThemeMode | IcBrandForeground",
             "resolved": "\"dark\" | \"default\" | \"inherit\" | \"light\"",
             "references": {
               "IcThemeMode": {
@@ -5237,10 +5237,10 @@
                 "path": "../../utils/types",
                 "id": "src/utils/types.ts::IcThemeMode"
               },
-              "IcThemeForeground": {
+              "IcBrandForeground": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForeground"
+                "id": "src/utils/types.ts::IcBrandForeground"
               }
             }
           },
@@ -5317,7 +5317,7 @@
       "events": [],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -5802,7 +5802,7 @@
       "events": [],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -6028,7 +6028,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -6088,7 +6088,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -6370,7 +6370,7 @@
       "events": [],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -6427,13 +6427,13 @@
           "name": "appearance",
           "type": "\"dark\" | \"default\" | \"light\"",
           "complexType": {
-            "original": "IcThemeForeground",
+            "original": "IcBrandForeground",
             "resolved": "\"dark\" | \"default\" | \"light\"",
             "references": {
-              "IcThemeForeground": {
+              "IcBrandForeground": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForeground"
+                "id": "src/utils/types.ts::IcBrandForeground"
               }
             }
           },
@@ -7551,7 +7551,7 @@
       "events": [],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -9085,7 +9085,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -9250,7 +9250,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -9573,7 +9573,7 @@
       "events": [],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -14238,7 +14238,7 @@
       ],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -16909,7 +16909,7 @@
       "usage": {},
       "props": [
         {
-          "name": "color",
+          "name": "brandColor",
           "type": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
           "complexType": {
             "original": "IcColor",
@@ -16923,9 +16923,9 @@
             }
           },
           "mutable": false,
-          "attr": "color",
+          "attr": "brand-color",
           "reflectToAttr": false,
-          "docs": "The theme colour. Can be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
+          "docs": "The brand colour. Can be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
           "docsTags": [],
           "default": "null",
           "values": [
@@ -18653,7 +18653,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -19313,8 +19313,8 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
-    "src/utils/types.ts::IcThemeForeground": {
-      "declaration": "export type IcThemeForeground = \"default\" | \"dark\" | \"light\";",
+    "src/utils/types.ts::IcBrandForeground": {
+      "declaration": "export type IcBrandForeground = \"default\" | \"dark\" | \"light\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -19473,8 +19473,8 @@
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },
-    "src/utils/types.ts::IcTheme": {
-      "declaration": "{\n  mode: IcThemeForeground;\n  color: IcColorRGB;\n}",
+    "src/utils/types.ts::IcBrand": {
+      "declaration": "{\n  mode: IcBrandForeground;\n  color: IcColorRGB;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
