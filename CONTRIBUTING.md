@@ -293,11 +293,11 @@ export class Component {
 
     @Prop() status?: string;
 
-    @Event() icComponentThemeChange!: EventEmitter<{ mode: string }>;
+    @Event() icComponentBrandChange!: EventEmitter<{ mode: string }>;
         
-    @Listen("themeChange", { target: "document" })
-    themeChangeHandler(ev: CustomEvent): void {
-        this.theme = ev.detail.mode;
+    @Listen("brandChange", { target: "document" })
+    brandChangeHandler(ev: CustomEvent): void {
+        this.brand = ev.detail.mode;
     }
 
     @Method()
@@ -305,14 +305,14 @@ export class Component {
         this.label = label;
     }
 
-    private theme: IcTheme;
+    private brand: IcBrand;
 
     private updateStatus(status: string) {
         this.status = status;
     }
 
     private clickHandler() {
-        this.icComponentThemeChange.emit({
+        this.icComponentBrandChange.emit({
             mode: "dark"
         });
     }
@@ -370,9 +370,9 @@ it('tests receiving custom events', async () => {
       html: `<ic-component label="foo"></ic-alert>`
     });
 
-    await page.rootInstance.themeChangeHandler({ detail: { mode: "bar" } });
+    await page.rootInstance.brandChangeHandler({ detail: { mode: "bar" } });
     await page.waitForChanges();
-    expect(page.rootInstance.theme).toBe("bar");
+    expect(page.rootInstance.brand).toBe("bar");
 });
 
 // Testing events emitted from the component
@@ -383,9 +383,9 @@ it('tests emitted events', async () => {
     });
 
     const callbackFn = jest.fn();
-    page.win.addEventListener('icComponentThemeChange', callbackFn);
+    page.win.addEventListener('icComponentBrandChange', callbackFn);
 
-    // clickHandler emits the icComponentThemeChange event
+    // clickHandler emits the icComponentBrandChange event
     await page.rootInstance.clickHandler();
     await page.waitForChanges();
     expect(callbackFn).toHaveBeenCalled();
