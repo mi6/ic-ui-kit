@@ -400,8 +400,8 @@ export const WithClassificationBanner = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "var(--ic-theme-primary)",
-            color: "var(--ic-theme-text)",
+            backgroundColor: "var(--ic-brand-color-primary)",
+            color: "var(--ic-brand-text-color)",
           }}
         >
           Logo
@@ -414,8 +414,8 @@ export const WithClassificationBanner = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "var(--ic-theme-primary)",
-            color: "var(--ic-theme-text)",
+            backgroundColor: "var(--ic-brand-color-primary)",
+            color: "var(--ic-brand-text-color)",
           }}
         >
           Logo
@@ -428,8 +428,8 @@ export const WithClassificationBanner = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "var(--ic-theme-primary)",
-            color: "var(--ic-theme-text)",
+            backgroundColor: "var(--ic-brand-color-primary)",
+            color: "var(--ic-brand-text-color)",
           }}
         >
           Logo
@@ -449,18 +449,18 @@ export const Controlled = () => {
   };
   return (
     <>
-      <IcTheme color={color} />
+      <IcTheme brandColor={color} />
       <IcButton variant="primary" onClick={defaultButtonClickHandler}>
-        Default theme
+        Default brand
       </IcButton>
       <IcButton variant="primary" onClick={differentButtonClickHandler}>
-        Sunrise theme
+        Sunrise brand
       </IcButton>
     </>
   );
 };
 
-export const Theme = () => {
+export const Brand = () => {
   return (
     <>
       <Controlled />
@@ -504,8 +504,8 @@ export const Theme = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "var(--ic-theme-primary)",
-            color: "var(--ic-theme-text)",
+            backgroundColor: "var(--ic-brand-color-primary)",
+            color: "var(--ic-brand-text-color)",
           }}
         >
           Logo
@@ -518,8 +518,8 @@ export const Theme = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "var(--ic-theme-primary)",
-            color: "var(--ic-theme-text)",
+            backgroundColor: "var(--ic-brand-color-primary)",
+            color: "var(--ic-brand-text-color)",
           }}
         >
           Logo
@@ -532,8 +532,8 @@ export const Theme = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "var(--ic-theme-primary)",
-            color: "var(--ic-theme-text)",
+            backgroundColor: "var(--ic-brand-color-primary)",
+            color: "var(--ic-brand-text-color)",
           }}
         >
           Logo

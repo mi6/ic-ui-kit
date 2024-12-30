@@ -271,7 +271,7 @@ describe("IcSideNavigation", () => {
       it.skip("should render with a different theme", () => {
         mount(
           <>
-            <IcTheme color="rgb(131, 166, 195)" />
+            <IcTheme brandColor="rgb(131, 166, 195)" />
             <BasicSideNav />
           </>
         );
@@ -287,7 +287,7 @@ describe("IcSideNavigation", () => {
       it.skip("should render with a different theme - open", () => {
         mount(
           <>
-            <IcTheme color="rgb(131, 166, 195)" />
+            <IcTheme brandColor="rgb(131, 166, 195)" />
             <BasicSideNav />
           </>
         );
@@ -311,7 +311,7 @@ describe("IcSideNavigation", () => {
     it("should render collapsed initially", () => {
       mount(
         <>
-          <IcTheme color="rgb(27, 60, 121)" />
+          <IcTheme brandColor="rgb(27, 60, 121)" />
           <BasicSideNav />
         </>
       );
@@ -531,7 +531,7 @@ describe("IcSideNavigation", () => {
     it("should render ic-side-navigation with theme colours", () => {
       mount(
         <>
-          <IcTheme color="rgb(131, 166, 195)" />
+          <IcTheme brandColor="rgb(131, 166, 195)" />
           <BasicSideNav />
         </>
       );
@@ -561,7 +561,7 @@ describe("IcSideNavigation", () => {
       it("should render a default IcSideNavigation", () => {
         mount(
           <>
-            <IcTheme color="rgb(27, 60, 121)" />
+            <IcTheme brandColor="rgb(27, 60, 121)" />
             <BasicSideNav />
           </>
         );
@@ -577,7 +577,7 @@ describe("IcSideNavigation", () => {
       it("should render a default IcSideNavigation - open", () => {
         mount(
           <>
-            <IcTheme color="rgb(27, 60, 121)" />
+            <IcTheme brandColor="rgb(27, 60, 121)" />
             <BasicSideNav />
           </>
         );
@@ -694,7 +694,7 @@ describe("IcSideNavigation", () => {
       it.skip("should render with a different theme", () => {
         mount(
           <>
-            <IcTheme color="rgb(131, 166, 195)" />
+            <IcTheme brandColor="rgb(131, 166, 195)" />
             <BasicSideNav />
           </>
         );
@@ -710,7 +710,7 @@ describe("IcSideNavigation", () => {
       it.skip("should render with a different theme - open", () => {
         mount(
           <>
-            <IcTheme color="rgb(131, 166, 195)" />
+            <IcTheme brandColor="rgb(131, 166, 195)" />
             <BasicSideNav />
           </>
         );
@@ -747,7 +747,7 @@ describe("Mobile visual regression tests in high contrast mode", () => {
   it("should render a default IcSideNavigation in high contrast mode", () => {
     mount(
       <>
-        <IcTheme color="rgb(27, 60, 121)" />
+        <IcTheme brandColor="rgb(27, 60, 121)" />
         <BasicSideNav />
       </>
     );
