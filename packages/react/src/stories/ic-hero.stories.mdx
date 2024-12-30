@@ -29,7 +29,7 @@ export const Controlled = () => {
   };
   return (
     <>
-      <IcTheme color={color} />
+      <IcTheme brandColor={color} />
       <IcHero
         heading="Hero heading"
         subheading="Hero description. This is a Hero component, it should be used as a page heading."
@@ -65,10 +65,10 @@ export const Controlled = () => {
         />
       </IcHero>
       <IcButton variant="primary" onClick={defaultButtonClickHandler}>
-        Default theme
+        Default brand
       </IcButton>
       <IcButton variant="primary" onClick={differentButtonClickHandler}>
-        Sunrise theme
+        Sunrise brand
       </IcButton>
     </>
   );
@@ -81,7 +81,7 @@ export const ControlledReset = () => {
   };
   return (
     <>
-      <IcTheme color={color} />
+      <IcTheme brandColor={color} />
       <IcButton variant="primary" onClick={defaultButtonClickHandler}>
         Reset theme
       </IcButton>
@@ -365,10 +365,10 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
-### Theming
+### Brand
 
 <Canvas>
-  <Story name="Theming" parameters={{ layout: "fullscreen" }}>
+  <Story name="Brand" parameters={{ layout: "fullscreen" }}>
     <Controlled />
   </Story>
 </Canvas>

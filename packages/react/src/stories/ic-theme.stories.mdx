@@ -34,21 +34,21 @@ export const Controlled = () => {
   };
   return (
     <>
-      <IcTheme color={color} />
+      <IcTheme brandColor={color} />
       <IcButton variant="primary" onClick={defaultButtonClickHandler}>
-        Default theme
+        Default brand
       </IcButton>
       <IcButton variant="primary" onClick={differentButtonClickHandler}>
-        Sunset theme
+        Sunset brand
       </IcButton>
     </>
   );
 };
 
-### Switch theme
+### Switch brand
 
 <Canvas>
-  <Story name="Switch theme" parameters={{ layout: "fullscreen" }}>
+  <Story name="Switch brand" parameters={{ layout: "fullscreen" }}>
     <Controlled />
     <div>
       <br />
@@ -194,7 +194,7 @@ export const Controlled = () => {
 ### Playground
 
 export const defaultArgs = {
-  color: "rgba(27, 60, 121, 1)",
+  brandColor: "rgba(27, 60, 121, 1)",
   theme: "light",
 };
 
@@ -215,7 +215,7 @@ export const defaultArgs = {
     {(args) => {
       return (
       <>
-      <IcTheme color={args.color} theme={args.theme}>
+      <IcTheme brandColor={args.brandColor} theme={args.theme}>
         <IcTopNavigation
         appTitle="ApplicationName"
         status="alpha"
