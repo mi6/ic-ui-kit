@@ -14,8 +14,8 @@ import { getSlotElements } from "../../utils/helpers";
 
 import { checkResizeObserver, elementOverflowsX } from "../../utils/helpers";
 import {
-  IcThemeForeground,
-  IcThemeForegroundEnum,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
   IcThemeMode,
 } from "../../utils/types";
 
@@ -44,7 +44,7 @@ export class HorizontalScroll {
   /**
    * The appearance of the horizontal scroll, e.g. dark, light or the default.
    */
-  @Prop() appearance?: IcThemeForeground = "default";
+  @Prop() appearance?: IcBrandForeground = "default";
 
   /** @internal Determines whether black variant of the tabs should be displayed. */
   @Prop() monochrome?: boolean = false;
@@ -229,9 +229,9 @@ export class HorizontalScroll {
         class={{
           ["ic-horizontal-scroll-visible"]: itemOverflow,
           ["ic-horizontal-scroll-dark"]:
-            this.appearance === IcThemeForegroundEnum.Dark,
+            this.appearance === IcBrandForegroundEnum.Dark,
           ["ic-horizontal-scroll-light"]:
-            this.appearance === IcThemeForegroundEnum.Light,
+            this.appearance === IcBrandForegroundEnum.Light,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >

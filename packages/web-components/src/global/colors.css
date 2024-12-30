@@ -174,18 +174,6 @@
   --ic-classification-secret: var(--ic-color-classification-yellow);
   --ic-classification-top-secret: var(--ic-color-classification-red);
 
-  /* BRAND */
-
-  /* brand blue */
-  --ic-brand-blue-primary: #1b3c79;
-
-  /* brand state layers */
-  --ic-brand-darken-20: var(--ic-architectural-black-state-layer-20);
-  --ic-brand-darken-30: var(--ic-architectural-black-state-layer-30);
-  --ic-brand-darken-40: var(--ic-architectural-black-state-layer-40);
-  --ic-brand-lighten-20: var(--ic-architectural-white-state-layer-20);
-  --ic-brand-lighten-40: var(--ic-architectural-white-state-layer-40);
-
   /* HYPERLINKS */
   --ic-color-link-default: #1759bc;
   --ic-color-link-hover: #7c2855;
@@ -471,46 +459,68 @@
   --ic-action-neutral-light: var(--ic-architectural-100);
   --ic-action-neutral-dark: var(--ic-architectural-800);
 
-  /* theme */
-  --ic-theme-blue-primary-r: 27;
-  --ic-theme-blue-primary-g: 60;
-  --ic-theme-blue-primary-b: 121;
-  --ic-theme-blue-primary-a: 1;
-  --ic-theme-lighten-20: rgb(255 255 255 / 20%);
-  --ic-theme-lighten-40: rgb(255 255 255 / 40%);
-  --ic-theme-primary-r: var(--ic-theme-blue-primary-r);
-  --ic-theme-primary-g: var(--ic-theme-blue-primary-g);
-  --ic-theme-primary-b: var(--ic-theme-blue-primary-b);
-  --ic-theme-primary-a: var(--ic-theme-blue-primary-a);
-  --ic-theme-primary: rgb(
-    var(--ic-theme-primary-r) var(--ic-theme-primary-g)
-      var(--ic-theme-primary-b) / var(--ic-theme-primary-a)
+  /* BRAND */
+
+  /* brand blue */
+  --ic-brand-blue-primary: #1b3c79;
+  --ic-brand-blue-primary-r: 27;
+  --ic-brand-blue-primary-g: 60;
+  --ic-brand-blue-primary-b: 121;
+  --ic-brand-blue-primary-a: 1;
+
+  /* brand state layers */
+  --ic-brand-darken-20: var(--ic-architectural-black-state-layer-20);
+  --ic-brand-darken-30: var(--ic-architectural-black-state-layer-30);
+  --ic-brand-darken-40: var(--ic-architectural-black-state-layer-40);
+  --ic-brand-lighten-20: var(--ic-architectural-white-state-layer-20);
+  --ic-brand-lighten-40: var(--ic-architectural-white-state-layer-40);
+  --ic-brand-color-primary-r: var(--ic-brand-blue-primary-r);
+  --ic-brand-color-primary-g: var(--ic-brand-blue-primary-g);
+  --ic-brand-color-primary-b: var(--ic-brand-blue-primary-b);
+  --ic-brand-color-primary-a: var(--ic-brand-blue-primary-a);
+  --ic-brand-color-primary: rgb(
+    var(--ic-brand-color-primary-r) var(--ic-brand-color-primary-g)
+      var(--ic-brand-color-primary-b) / var(--ic-brand-color-primary-a)
   );
-  --ic-theme-secondary: rgb(
-    calc(var(--ic-theme-primary-r) * 0.8) calc(var(--ic-theme-primary-g) * 0.8)
-      calc(var(--ic-theme-primary-b) * 0.8) / var(--ic-theme-primary-a)
+  --ic-brand-color-secondary: rgb(
+    calc(var(--ic-brand-color-primary-r) * 0.8)
+      calc(var(--ic-brand-color-primary-g) * 0.8)
+      calc(var(--ic-brand-color-primary-b) * 0.8) /
+      var(--ic-brand-color-primary-a)
   );
-  --ic-theme-tertiary: rgb(
-    calc(var(--ic-theme-primary-r) * 0.6) calc(var(--ic-theme-primary-g) * 0.6)
-      calc(var(--ic-theme-primary-b) * 0.6) / var(--ic-theme-primary-a)
+  --ic-brand-color-tertiary: rgb(
+    calc(var(--ic-brand-color-primary-r) * 0.6)
+      calc(var(--ic-brand-color-primary-g) * 0.6)
+      calc(var(--ic-brand-color-primary-b) * 0.6) /
+      var(--ic-brand-color-primary-a)
   );
-  --ic-theme-secondary-light: rgb(
-    calc(var(--ic-theme-primary-r) + ((255 - var(--ic-theme-primary-r)) * 0.2))
-      calc(
-        var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.2)
+  --ic-brand-color-secondary-light: rgb(
+    calc(
+        var(--ic-brand-color-primary-r) +
+          ((255 - var(--ic-brand-color-primary-r)) * 0.2)
       )
       calc(
-        var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.2)
-      ) / var(--ic-theme-primary-a)
-  );
-  --ic-theme-tertiary-light: rgb(
-    calc(var(--ic-theme-primary-r) + ((255 - var(--ic-theme-primary-r)) * 0.4))
-      calc(
-        var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.4)
+        var(--ic-brand-color-primary-g) +
+          ((255 - var(--ic-brand-color-primary-g)) * 0.2)
       )
       calc(
-        var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.4)
-      ) / var(--ic-theme-primary-a)
+        var(--ic-brand-color-primary-b) +
+          ((255 - var(--ic-brand-color-primary-b)) * 0.2)
+      ) / var(--ic-brand-color-primary-a)
+  );
+  --ic-brand-color-tertiary-light: rgb(
+    calc(
+        var(--ic-brand-color-primary-r) +
+          ((255 - var(--ic-brand-color-primary-r)) * 0.4)
+      )
+      calc(
+        var(--ic-brand-color-primary-g) +
+          ((255 - var(--ic-brand-color-primary-g)) * 0.4)
+      )
+      calc(
+        var(--ic-brand-color-primary-b) +
+          ((255 - var(--ic-brand-color-primary-b)) * 0.4)
+      ) / var(--ic-brand-color-primary-a)
   );
 
   /* ic-theme-calc and ic-theme-text returns if black or white font colors should be used for color contrast reasons by:
@@ -527,36 +537,42 @@
     - The min() CSS function is then used to ensure that none of the values exceeds 255
     - This is due to an issue found in Chromium v117 (sept 2023), where very large values would result the alpha value being ignored and everything appearing white
     - The result then returns the RGB values for the ICDS white or black font color, dependent on which is the most color contrast compliant
-    This is a similar calculation to it's JS counterpart: "getThemeFontColor"
+    This is a similar calculation to it's JS counterpart: "getBrandColorBrightness"
   */
-  --ic-theme-dark-mode-threshold: 133.3505;
-  --ic-theme-primary-r-calc: calc(var(--ic-theme-primary-r) * 299);
-  --ic-theme-primary-g-calc: calc(var(--ic-theme-primary-g) * 587);
-  --ic-theme-primary-b-calc: calc(var(--ic-theme-primary-b) * 114);
-  --ic-theme-primary-sum-calc: calc(
-    var(--ic-theme-primary-r-calc) + var(--ic-theme-primary-g-calc) +
-      var(--ic-theme-primary-b-calc)
+  --ic-brand-dark-mode-threshold: 133.3505;
+  --ic-brand-color-primary-r-calc: calc(var(--ic-brand-color-primary-r) * 299);
+  --ic-brand-color-primary-g-calc: calc(var(--ic-brand-color-primary-g) * 587);
+  --ic-brand-color-primary-b-calc: calc(var(--ic-brand-color-primary-b) * 114);
+  --ic-brand-color-primary-sum-calc: calc(
+    var(--ic-brand-color-primary-r-calc) + var(--ic-brand-color-primary-g-calc) +
+      var(--ic-brand-color-primary-b-calc)
   );
-  --ic-theme-primary-divide-calc: calc(var(--ic-theme-primary-sum-calc) / 1000);
-  --ic-theme-primary-subtract-calc: calc(
-    var(--ic-theme-primary-divide-calc) - var(--ic-theme-dark-mode-threshold)
+  --ic-brand-color-primary-divide-calc: calc(
+    var(--ic-brand-color-primary-sum-calc) / 1000
   );
-  --ic-theme-primary-calc: calc(var(--ic-theme-primary-subtract-calc) * -10000);
-  --ic-theme-calc: max(0, var(--ic-theme-primary-calc));
-  --ic-theme-text: rgb(
-    min(255, calc(var(--ic-theme-calc) + 11))
-      min(255, calc(var(--ic-theme-calc) + 12))
-      min(255, calc(var(--ic-theme-calc) + 12)) / var(--ic-theme-primary-a)
+  --ic-brand-color-primary-subtract-calc: calc(
+    var(--ic-brand-color-primary-divide-calc) -
+      var(--ic-brand-dark-mode-threshold)
   );
-  --ic-theme-hover: rgb(
-    min(255, calc(var(--ic-theme-calc) + 65))
-      min(255, calc(var(--ic-theme-calc) + 70))
-      min(255, calc(var(--ic-theme-calc) + 77)) / 10%
+  --ic-brand-color-primary-calc: calc(
+    var(--ic-brand-color-primary-subtract-calc) * -10000
   );
-  --ic-theme-active: rgb(
-    min(255, calc(var(--ic-theme-calc) + 65))
-      min(255, calc(var(--ic-theme-calc) + 70))
-      min(255, calc(var(--ic-theme-calc) + 77)) / 20%
+  --ic-brand-calc: max(0, var(--ic-brand-color-primary-calc));
+  --ic-brand-text-color: rgb(
+    min(255, calc(var(--ic-brand-calc) + 11))
+      min(255, calc(var(--ic-brand-calc) + 12))
+      min(255, calc(var(--ic-brand-calc) + 12)) /
+      var(--ic-brand-color-primary-a)
+  );
+  --ic-brand-hover: rgb(
+    min(255, calc(var(--ic-brand-calc) + 65))
+      min(255, calc(var(--ic-brand-calc) + 70))
+      min(255, calc(var(--ic-brand-calc) + 77)) / 10%
+  );
+  --ic-brand-active: rgb(
+    min(255, calc(var(--ic-brand-calc) + 65))
+      min(255, calc(var(--ic-brand-calc) + 70))
+      min(255, calc(var(--ic-brand-calc) + 77)) / 20%
   );
 
   /* data tables */
@@ -628,26 +644,26 @@
   --ic-classification-banner-top-secret: var(--ic-classification-top-secret);
 
   /* FOOTER */
-  --ic-footer-background: var(--ic-theme-secondary);
+  --ic-footer-background: var(--ic-brand-color-secondary);
   --ic-footer-text: var(--ic-color-brand-text);
   --ic-footer-link: var(--ic-color-hyperlink-brand);
   --ic-footer-icon: var(--ic-color-icon-brand);
   --ic-footer-chevron-icon: var(--ic-color-icon-brand);
   --ic-footer-logo: var(--ic-color-icon-brand);
-  --ic-footer-bottom-background: var(--ic-theme-tertiary);
+  --ic-footer-bottom-background: var(--ic-brand-color-tertiary);
   --ic-footer-keyline: var(--ic-color-keyline-lighten);
   --ic-footer-hover: var(--ic-action-light-bg-hover);
   --ic-footer-pressed: var(--ic-action-light-bg-pressed);
 
   /* HERO */
-  --ic-hero-background: var(--ic-theme-tertiary);
+  --ic-hero-background: var(--ic-brand-color-tertiary);
   --ic-hero-heading: var(--ic-color-brand-text);
   --ic-hero-secondary-heading: var(--ic-color-brand-text);
   --ic-hero-body: var(--ic-color-brand-text);
   --ic-hero-keyline: var(--ic-color-keyline-lighten);
 
   /* SIDE NAVIGATION */
-  --ic-side-navigation-background: var(--ic-theme-primary);
+  --ic-side-navigation-background: var(--ic-brand-color-primary);
   --ic-side-navigation-icon: var(--ic-color-icon-brand);
   --ic-side-navigation-icon-disabled: var(--ic-color-icon-grey-light);
   --ic-side-navigation-status-tag-text: var(--ic-color-text-primary-light);
@@ -655,10 +671,10 @@
   --ic-side-navigation-keyline: var(--ic-state-layer-lighten-20);
   --ic-side-navigation-icon-and-label: var(--ic-color-brand-text);
   --ic-side-navigation-theme: var(--ic-color-background-primary-light);
-  --ic-side-navigation-hover: var(--ic-theme-hover);
-  --ic-side-navigation-pressed: var(--ic-theme-active);
+  --ic-side-navigation-hover: var(--ic-brand-hover);
+  --ic-side-navigation-pressed: var(--ic-brand-active);
   --ic-side-navigation-icon-label: var(--ic-color-icon-brand);
-  --ic-side-navigation-text: var(--ic-theme-text);
+  --ic-side-navigation-text: var(--ic-brand-text-color);
   --ic-side-navigation-status-tag: var(--ic-color-background-primary-light);
   --ic-side-navigation-focussed: var(--ic-color-background-primary-light);
   --ic-side-navigation-focussed-text: var(--ic-color-text-primary-light);

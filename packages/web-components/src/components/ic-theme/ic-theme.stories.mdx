@@ -12,27 +12,27 @@ import readme from "./readme.md";
 
 <Description markdown={readme} />
 
-### Switch theme
+### Switch brand
 
 <Canvas>
   <Story
-    name="Switch theme"
+    name="Switch brand"
     parameters={{ loki: { skip: true }, layout: "fullscreen" }}
   >
-    {html` <ic-theme color="rgba(27, 60, 121, 1)"></ic-theme>
+    {html` <ic-theme brand-color="rgba(27, 60, 121, 1)">
       <ic-button
         variant="primary"
         id="default-btn"
-        onClick="document.querySelector('ic-theme').color='rgb(27, 60, 121)'"
+        onClick="document.querySelector('ic-theme').brandColor='rgb(27, 60, 121)'"
       >
-        Default theme
+        Default brand
       </ic-button>
       <ic-button
         variant="primary"
         id="custom-btn"
-        onClick="document.querySelector('ic-theme').color='rgba(255, 201, 60, 1)'"
+        onClick="document.querySelector('ic-theme').brandColor='rgba(255, 201, 60, 1)'"
       >
-        Sunrise theme
+        Sunrise brand
       </ic-button>
       <div style="padding-top:10px">
         <ic-top-navigation
@@ -173,14 +173,15 @@ import readme from "./readme.md";
             </ic-footer-link>
           </div>
         </ic-footer>
-      </div>`}
+      </div>
+    </ic-theme>`}
   </Story>
 </Canvas>
 
 ### Playground
 
 export const defaultArgs = {
-  color: "rgba(27, 60, 121, 1)",
+  brandColor: "rgba(27, 60, 121, 1)",
   theme: "light",
 };
 
@@ -199,7 +200,7 @@ export const defaultArgs = {
     }}
   >
     {(args) =>
-      html` <ic-theme color=${args.color} theme=${args.theme}>
+      html` <ic-theme brand-color=${args.brandColor} theme=${args.theme}>
         <div style="padding-top:10px">
           <ic-top-navigation
             app-title="ApplicationName"

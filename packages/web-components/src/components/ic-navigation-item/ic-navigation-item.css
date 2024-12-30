@@ -7,7 +7,7 @@
 :host {
   display: block;
 
-  --navigation-link-colour: var(--ic-theme-text);
+  --navigation-link-colour: var(--ic-brand-text-color);
 }
 
 :host(:focus-within) {
@@ -17,7 +17,7 @@
 /* chevron */
 svg {
   width: var(--ic-space-xl);
-  fill: var(--ic-theme-text);
+  fill: var(--ic-brand-text-color);
 }
 
 .svg {
@@ -87,7 +87,7 @@ svg {
 }
 
 :host(.navigation-item) .link:hover:not(:focus) {
-  background-color: var(--ic-theme-hover);
+  background-color: var(--ic-brand-hover);
   cursor: pointer;
 }
 
@@ -98,7 +98,7 @@ svg {
       )
   )
   ::slotted(a:hover:not(:focus)) {
-  background-color: var(--ic-theme-hover) !important;
+  background-color: var(--ic-brand-hover) !important;
 }
 
 :host(
@@ -137,7 +137,7 @@ svg {
 
 :host(.navigation-item) .link:active:not(:focus),
 :host(.navigation-item) ::slotted(a:active:not(:focus)) {
-  background-color: var(--ic-theme-active);
+  background-color: var(--ic-brand-active);
 }
 
 :host(.navigation-item-side-menu) .link,
@@ -380,7 +380,7 @@ svg {
 }
 
 ::slotted(svg) {
-  fill: var(--ic-theme-text);
+  fill: var(--ic-brand-text-color);
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
   margin-left: var(--ic-space-md);
@@ -466,7 +466,7 @@ svg {
 
 :host(.navigation-item-side-nav.navigation-item-selected) .link,
 :host(.navigation-item-side-nav.navigation-item) ::slotted(a.active) {
-  box-shadow: inset 0.313rem 0 0 var(--ic-theme-text);
+  box-shadow: inset 0.313rem 0 0 var(--ic-brand-text-color);
 }
 
 :host(.navigation-item-side-nav.navigation-item-selected) .link::before,
@@ -530,12 +530,12 @@ svg {
 :host(.navigation-item-side-nav.navigation-item-selected) .link:focus,
 :host(.navigation-item-side-nav) ::slotted(a.active:focus) {
   margin: 0 auto;
-  box-shadow: inset 0.313rem 0 0 var(--ic-theme-text);
+  box-shadow: inset 0.313rem 0 0 var(--ic-brand-text-color);
   border-radius: 0;
 }
 
 :host(.navigation-item-side-nav.navigation-item) .link:hover:not(:focus) {
-  background-color: var(--ic-theme-hover) !important;
+  background-color: var(--ic-brand-hover) !important;
 }
 
 :host(.navigation-item-page-header).link,

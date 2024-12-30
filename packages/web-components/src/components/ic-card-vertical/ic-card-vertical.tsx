@@ -12,14 +12,14 @@ import {
 import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
-  getThemeFromContext,
+  getBrandFromContext,
   removeDisabledFalse,
   checkSlotInChildMutations,
 } from "../../utils/helpers";
 import {
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
   IcThemeMode,
 } from "../../utils/types";
 import chevronIcon from "../../assets/chevron-icon.svg";
@@ -161,8 +161,8 @@ export class CardVertical {
     }
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent<IcTheme>): void {
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler(ev: CustomEvent<IcBrand>): void {
     this.updateTheme(ev.detail.mode);
   }
 
@@ -186,15 +186,15 @@ export class CardVertical {
     this.isFocussed = false;
   };
 
-  private updateTheme(newTheme: IcThemeForeground = null): void {
-    const foregroundColor = getThemeFromContext(this.el, newTheme);
+  private updateTheme(mode: IcBrandForeground = null): void {
+    const foregroundColor = getBrandFromContext(this.el, mode);
 
-    if (foregroundColor !== IcThemeForegroundEnum.Default) {
+    if (foregroundColor !== IcBrandForegroundEnum.Default) {
       this.monochrome = true;
       this.theme =
-        foregroundColor === IcThemeForegroundEnum.Light
-          ? IcThemeForegroundEnum.Dark
-          : IcThemeForegroundEnum.Light;
+        foregroundColor === IcBrandForegroundEnum.Light
+          ? IcBrandForegroundEnum.Dark
+          : IcBrandForegroundEnum.Light;
     }
   }
 
