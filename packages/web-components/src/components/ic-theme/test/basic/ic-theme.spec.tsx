@@ -6,14 +6,14 @@ import {
   WHITE_MAX_COLOR_BRIGHTNESS,
 } from "../../../../utils/constants";
 
-//mocked as getThemeColorBrightness is NaN when run in test context
+//mocked as getBrandColorBrightness is NaN when run in test context
 //instead we return a value which will trigger the console warning about theme color contrast
 const mockThemeColorContrastFail = () => {
   const func = jest.fn(() => {
     return (BLACK_MIN_COLOR_BRIGHTNESS + WHITE_MAX_COLOR_BRIGHTNESS) / 2;
   });
 
-  Object.defineProperty(helpers, "getThemeColorBrightness", {
+  Object.defineProperty(helpers, "getBrandColorBrightness", {
     value: func,
   });
 };
@@ -25,13 +25,13 @@ const expectRGBToBe = (
   expectB: string
 ) => {
   const r = page.doc.documentElement.style.getPropertyValue(
-    "--ic-theme-primary-r"
+    "--ic-brand-color-primary-r"
   );
   const g = page.doc.documentElement.style.getPropertyValue(
-    "--ic-theme-primary-g"
+    "--ic-brand-color-primary-g"
   );
   const b = page.doc.documentElement.style.getPropertyValue(
-    "--ic-theme-primary-b"
+    "--ic-brand-color-primary-b"
   );
 
   expect(r).toBe(expectR);
@@ -47,7 +47,7 @@ describe("ic-theme", () => {
   it("should set theme colour with hex", async () => {
     const page = await newSpecPage({
       components: [Theme],
-      html: `<ic-theme color="#FFC0CB"></ic-theme>`,
+      html: `<ic-theme brand-color="#FFC0CB"></ic-theme>`,
     });
 
     expectRGBToBe(page, "255", "192", "203");
@@ -56,7 +56,7 @@ describe("ic-theme", () => {
   it("should set theme colour with 3 character hex", async () => {
     const page = await newSpecPage({
       components: [Theme],
-      html: `<ic-theme color="#FFF"></ic-theme>`,
+      html: `<ic-theme brand-color="#FFF"></ic-theme>`,
     });
 
     expectRGBToBe(page, "255", "255", "255");
@@ -65,7 +65,7 @@ describe("ic-theme", () => {
   it("should set theme colour with rgb", async () => {
     const page = await newSpecPage({
       components: [Theme],
-      html: `<ic-theme color="rgb(159, 43, 104)"></ic-theme>`,
+      html: `<ic-theme brand-color="rgb(159, 43, 104)"></ic-theme>`,
     });
 
     expectRGBToBe(page, "159", "43", "104");
@@ -74,7 +74,7 @@ describe("ic-theme", () => {
   it("should set theme colour with rgba", async () => {
     const page = await newSpecPage({
       components: [Theme],
-      html: `<ic-theme color="rgba(159, 43, 104, 1)"></ic-theme>`,
+      html: `<ic-theme brand-color="rgba(159, 43, 104, 1)"></ic-theme>`,
     });
     expectRGBToBe(page, "159", "43", "104");
   });
@@ -84,10 +84,10 @@ describe("ic-theme", () => {
 
     const page = await newSpecPage({
       components: [Theme],
-      html: `<ic-theme color="rgba(159, 43, 104)"></ic-theme>`,
+      html: `<ic-theme brand-color="rgba(159, 43, 104)"></ic-theme>`,
     });
 
-    page.root.color = "rgba(133, 133, 133, 1)";
+    page.root.brandColor = "rgba(133, 133, 133, 1)";
     await page.waitForChanges();
 
     expectRGBToBe(page, "133", "133", "133");

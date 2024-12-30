@@ -78,7 +78,7 @@ describe("ic-divider", () => {
     );
   });
 
-  it("correctly sets foregroundColor on theme change", async () => {
+  it("correctly sets foregroundColor on brand change", async () => {
     const page = await newSpecPage({
       components: [Divider],
       html: `<ic-side-navigation version="v0.0.0" status="BETA" app-title="ACME">
@@ -119,9 +119,9 @@ describe("ic-divider", () => {
     expect(page.rootInstance.foregroundColor).toEqual("light");
     expect(page.rootInstance.theme).toEqual("dark");
 
-    expect(page.root).toMatchSnapshot("theme-change-light");
+    expect(page.root).toMatchSnapshot("brand-change-light");
 
-    await page.rootInstance.themeChangeHandler({
+    await page.rootInstance.brandChangeHandler({
       detail: { mode: "dark" },
     });
 
@@ -131,6 +131,6 @@ describe("ic-divider", () => {
     expect(page.rootInstance.foregroundColor).toEqual("dark");
     expect(page.rootInstance.theme).toEqual("light");
 
-    expect(page.root).toMatchSnapshot("theme-change-dark");
+    expect(page.root).toMatchSnapshot("brand-change-dark");
   });
 });

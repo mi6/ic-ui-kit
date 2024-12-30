@@ -8,8 +8,8 @@
 
   --ic-typography-color: var(--ic-top-navigation-text);
 
-  --ic-button-secondary-text-monochrome: var(--ic-theme-text);
-  --ic-button-secondary-border-monochrome: var(--ic-theme-text);
+  --ic-button-secondary-text-monochrome: var(--ic-brand-text-color);
+  --ic-button-secondary-border-monochrome: var(--ic-brand-text-color);
 }
 
 :host(.dark) {

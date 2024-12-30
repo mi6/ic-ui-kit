@@ -1290,7 +1290,7 @@ ic-theme,
   );
 
   /* Top Navigation */
-  --ic-top-navigation-background: var(--ic-theme-primary);
+  --ic-top-navigation-background: var(--ic-brand-color-primary);
   --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
   --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
   --ic-top-navigation-text: var(--ic-color-brand-text);
@@ -2674,7 +2674,7 @@ ic-theme,
     );
 
     /* Top Navigation */
-    --ic-top-navigation-background: var(--ic-theme-primary);
+    --ic-top-navigation-background: var(--ic-brand-color-primary);
     --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
     --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
     --ic-top-navigation-text: var(--ic-color-brand-text);
@@ -3991,7 +3991,7 @@ ic-theme,
   );
 
   /* Top Navigation */
-  --ic-top-navigation-background: var(--ic-theme-primary);
+  --ic-top-navigation-background: var(--ic-brand-color-primary);
   --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
   --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
   --ic-top-navigation-text: var(--ic-color-brand-text);

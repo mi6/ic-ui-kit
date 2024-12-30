@@ -30,7 +30,7 @@ describe("ic-footer-link", () => {
       </ic-footer-link>`,
     });
 
-    await page.rootInstance.footerThemeChangeHandler({
+    await page.rootInstance.footerBrandChangeHandler({
       detail: { mode: "light" },
     });
     await page.waitForChanges();

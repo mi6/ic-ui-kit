@@ -340,7 +340,7 @@ describe("ic-top-navigation", () => {
     expect(page.rootInstance.searchValue).toBe("hi again!");
   });
 
-  it("should test theme change", async () => {
+  it("should test brand change", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation
@@ -351,11 +351,11 @@ describe("ic-top-navigation", () => {
     </ic-top-navigation>`,
     });
 
-    await page.rootInstance.themeChangeHandler({ detail: { mode: "dark" } });
+    await page.rootInstance.brandChangeHandler({ detail: { mode: "dark" } });
     await page.waitForChanges();
     expect(page.rootInstance.foregroundColor).toBe("dark");
 
-    await page.rootInstance.themeChangeHandler({ detail: { mode: "light" } });
+    await page.rootInstance.brandChangeHandler({ detail: { mode: "light" } });
     await page.waitForChanges();
     expect(page.rootInstance.foregroundColor).toBe("light");
 

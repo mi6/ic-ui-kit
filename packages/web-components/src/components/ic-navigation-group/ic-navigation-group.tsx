@@ -12,14 +12,14 @@ import {
 import {
   DEVICE_SIZES,
   getCurrentDeviceSize,
-  getThemeForegroundColor,
+  getBrandForegroundAppearance,
   getNavItemParentDetails,
 } from "../../utils/helpers";
 import {
   IcNavType,
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundNoDefault,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundNoDefault,
   IcThemeMode,
 } from "../../utils/types";
 
@@ -49,8 +49,8 @@ export class NavigationGroup {
   @State() deviceSize: number = DEVICE_SIZES.XL;
   @State() dropdownOpen: boolean = false;
   @State() expanded: boolean = true;
-  @State() focusStyle: IcThemeForegroundNoDefault | IcThemeForeground =
-    getThemeForegroundColor();
+  @State() focusStyle: IcBrandForegroundNoDefault | IcBrandForeground =
+    getBrandForegroundAppearance();
   @State() inTopNavSideMenu: boolean = false;
   @State() navigationType: IcNavType | "";
   @State() parentEl: HTMLElement;
@@ -133,10 +133,9 @@ export class NavigationGroup {
     this.hideDropdown();
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.focusStyle = theme.mode;
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler(ev: CustomEvent<IcBrand>): void {
+    this.focusStyle = ev.detail.mode;
   }
 
   /**

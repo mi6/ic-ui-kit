@@ -2,19 +2,19 @@
 
 :host {
   display: block;
-  background-color: var(--ic-theme-tertiary);
+  background-color: var(--ic-brand-color-tertiary);
 
   --hero-heading-bottom-margin: var(--ic-space-md);
   --hero-keyline: var(--ic-hero-keyline);
 }
 
 :host(.ic-hero-dark) {
-  background-color: var(--ic-theme-secondary);
+  background-color: var(--ic-brand-color-secondary);
 
   --ic-hero-heading: var(--ic-color-text-primary-light);
   --ic-hero-body: var(--ic-color-text-primary-light);
   --ic-hero-secondary-heading: var(--ic-color-text-primary-light);
-  --hero-keyline: var(--ic-theme-text);
+  --hero-keyline: var(--ic-brand-text-color);
 }
 
 .heading {
