@@ -117,7 +117,7 @@ describe("IcDivider visual and a11y testing", () => {
   it("should render with different theme colors", () => {
     mount(
       <>
-        <IcTheme color="#00703C" />
+        <IcTheme brandColor="#00703C" />
         <div
           style={{
             display: "flex",

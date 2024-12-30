@@ -19,7 +19,7 @@ import {
   NoDescription,
   NoLinks,
   SlottedContent,
-  Theme,
+  Brand,
   ToggleGroupLinks,
   WithClassificationBanner,
 } from "./IcFooterTestData";
@@ -285,13 +285,13 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
   });
 
   it("should render with theming", () => {
-    mount(<Theme />);
+    mount(<Brand />);
 
     cy.checkHydrated(FOOTER_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "theme",
+      name: "brand",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });

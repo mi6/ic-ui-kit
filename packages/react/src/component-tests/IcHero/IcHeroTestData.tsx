@@ -248,7 +248,7 @@ export const BrandChange = () => {
 
   return (
     <>
-      <IcTheme color={color}>
+      <IcTheme brandColor={color}>
         <IcHero
           heading="Hero heading"
           subheading="Hero description. This is a Hero component, it should be used as a page heading."
