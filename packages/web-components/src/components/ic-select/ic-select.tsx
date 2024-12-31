@@ -387,6 +387,8 @@ export class Select {
       this.setDefaultValue();
       this.uniqueOptions = this.deduplicateOptions(this.options);
     }
+
+    this.hiddenInputValue = this.searchable && (this.currValue as string);
   }
 
   componentDidLoad(): void {
@@ -398,8 +400,6 @@ export class Select {
     if (this.loading) {
       this.triggerLoading();
     }
-
-    this.hiddenInputValue = this.searchable && (this.currValue as string);
 
     this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
     this.hostMutationObserver.observe(this.el, {
