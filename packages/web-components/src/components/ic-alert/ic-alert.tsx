@@ -13,7 +13,7 @@ import {
 import closeIcon from "../../assets/close-icon.svg";
 import { isSlotUsed, checkSlotInChildMutations } from "../../utils/helpers";
 import {
-  IcThemeForegroundEnum,
+  IcBrandForegroundEnum,
   IcStatusVariants,
   IcThemeMode,
 } from "../../utils/types";
@@ -140,7 +140,7 @@ export class Alert {
         <Host
           role={announced ? "alert" : null}
           class={{
-            [IcThemeForegroundEnum.Dark]: true,
+            [IcBrandForegroundEnum.Dark]: true,
             [`ic-theme-${theme}`]: theme !== "inherit",
           }}
         >

@@ -10,12 +10,12 @@ import {
 } from "@stencil/core";
 
 import OpenInNew from "../../assets/OpenInNew.svg";
-import { getThemeFromContext, inheritAttributes } from "../../utils/helpers";
+import { getBrandFromContext, inheritAttributes } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
   IcThemeMode,
 } from "../../utils/types";
 
@@ -94,8 +94,8 @@ export class Link {
     this.hostMutationObserver?.disconnect();
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler({ detail }: CustomEvent<IcTheme>): void {
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler({ detail }: CustomEvent<IcBrand>): void {
     this.updateTheme(detail.mode);
   }
 
@@ -107,15 +107,15 @@ export class Link {
     this.el.shadowRoot.querySelector("a")?.focus();
   }
 
-  private updateTheme(newTheme: IcThemeForeground = null): void {
-    const theme = getThemeFromContext(this.el, newTheme);
+  private updateTheme(mode: IcBrandForeground = null): void {
+    const theme = getBrandFromContext(this.el, mode);
 
-    if (theme !== IcThemeForegroundEnum.Default) {
+    if (theme !== IcBrandForegroundEnum.Default) {
       this.monochrome = true;
       this.theme =
-        theme === IcThemeForegroundEnum.Light
-          ? IcThemeForegroundEnum.Dark
-          : IcThemeForegroundEnum.Light;
+        theme === IcBrandForegroundEnum.Light
+          ? IcBrandForegroundEnum.Dark
+          : IcBrandForegroundEnum.Light;
     }
   }
 

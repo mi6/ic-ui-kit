@@ -436,18 +436,18 @@ describe("ic-side-navigation", () => {
     expect(page.rootInstance.menuExpanded).toBe(true);
   });
 
-  it("should test theme change", async () => {
+  it("should test brand change", async () => {
     const page = await newSpecPage({
       components: [SideNavigation],
       html: `<ic-side-navigation version="v0.0.0" status="BETA" app-title="ACME">
     </ic-side-navigation>`,
     });
 
-    await page.rootInstance.themeChangeHandler({ detail: { mode: "dark" } });
+    await page.rootInstance.brandChangeHandler({ detail: { mode: "dark" } });
     await page.waitForChanges();
     expect(page.rootInstance.foregroundColor).toBe("dark");
 
-    await page.rootInstance.themeChangeHandler({ detail: { mode: "light" } });
+    await page.rootInstance.brandChangeHandler({ detail: { mode: "light" } });
     await page.waitForChanges();
     expect(page.rootInstance.foregroundColor).toBe("light");
 

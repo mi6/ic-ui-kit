@@ -67,7 +67,7 @@ describe("ic-footer-link-group", () => {
       html: `<ic-footer-link-group label="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group>`,
     });
 
-    await page.rootInstance.footerThemeChangeHandler({
+    await page.rootInstance.footerBrandChangeHandler({
       detail: { mode: "dark" },
     });
 

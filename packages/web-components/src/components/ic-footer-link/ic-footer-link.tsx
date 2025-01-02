@@ -7,8 +7,11 @@ import {
   h,
   State,
 } from "@stencil/core";
-import { DEVICE_SIZES, getThemeForegroundColor } from "../../utils/helpers";
-import { IcTheme, IcThemeForeground } from "../../utils/types";
+import {
+  DEVICE_SIZES,
+  getBrandForegroundAppearance,
+} from "../../utils/helpers";
+import { IcBrand, IcBrandForeground } from "../../utils/types";
 
 type FooterConfig = { small: boolean; grouped: boolean };
 
@@ -24,7 +27,7 @@ export class FooterLink {
 
   @State() deviceSize: number = DEVICE_SIZES.XL;
   @State() footerConfig: FooterConfig = { small: false, grouped: false };
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  @State() foregroundColor: IcBrandForeground = getBrandForegroundAppearance();
 
   /**
    * If `true`, the user can save the linked URL instead of navigating to it.
@@ -65,10 +68,9 @@ export class FooterLink {
     this.footerConfig = this.inferConfig(this.el);
   }
 
-  @Listen("themeChange", { target: "document" })
-  footerThemeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.foregroundColor = theme.mode;
+  @Listen("brandChange", { target: "document" })
+  footerBrandChangeHandler(ev: CustomEvent<IcBrand>): void {
+    this.foregroundColor = ev.detail.mode;
   }
 
   private inferConfig(e: HTMLElement): FooterConfig {

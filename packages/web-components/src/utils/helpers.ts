@@ -8,13 +8,13 @@ import {
   IcColorRGBA,
   IcDeviceSizes,
   IcColor,
-  IcThemeForegroundNoDefault,
+  IcBrandForegroundNoDefault,
 } from "./types";
 
 import {
   IcMenuOption,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
 } from "../utils/types";
 import {
   IC_BLOCK_COLOR_COMPONENTS,
@@ -216,12 +216,12 @@ export const getInputDescribedByText = (
  * are part of an IC component.
  *
  * ""
- * @returns IcThemeForeground depending on the context
+ * @returns IcBrandForeground depending on the context
  */
-export const getThemeFromContext = (
+export const getBrandFromContext = (
   el: Element,
-  themeFromEvent: IcThemeForeground = null
-): IcThemeForeground => {
+  brandFromEvent: IcBrandForeground = null
+): IcBrandForeground => {
   const parentElement =
     el.parentElement || (<ShadowRoot>el.getRootNode()).host.parentElement;
   const blockColorParent = parentElement.closest(
@@ -234,25 +234,25 @@ export const getThemeFromContext = (
     const currentTag = el.tagName.toLowerCase();
 
     if (IC_BLOCK_COLOR_EXCEPTIONS[parentTag]?.includes(currentTag)) {
-      return IcThemeForegroundEnum.Default;
+      return IcBrandForegroundEnum.Default;
     } else if (
-      themeFromEvent !== null &&
+      brandFromEvent !== null &&
       !IC_FIXED_COLOR_COMPONENTS.includes(parentTag)
     ) {
-      return themeFromEvent;
+      return brandFromEvent;
     } else if (
       blockColorParent.classList.contains(
-        `${parentTag}-${IcThemeForegroundEnum.Dark}`
+        `${parentTag}-${IcBrandForegroundEnum.Dark}`
       ) ||
-      blockColorParent.classList.contains(IcThemeForegroundEnum.Dark)
+      blockColorParent.classList.contains(IcBrandForegroundEnum.Dark)
     ) {
-      return IcThemeForegroundEnum.Dark;
+      return IcBrandForegroundEnum.Dark;
     }
 
-    return IcThemeForegroundEnum.Light;
+    return IcBrandForegroundEnum.Light;
   }
 
-  return IcThemeForegroundEnum.Default;
+  return IcBrandForegroundEnum.Default;
 };
 
 /**
@@ -410,13 +410,13 @@ export const getCssProperty = (cssVar: string): string =>
  * Returns the brightness of the theme colour, calculated by using the theme RGB CSS values by:
  * - Multiplying each RGB value by a set number: https://www.w3.org/TR/AERT/#color-contrast
  * - Adding them together and dividing by 1000
- * This is a similar calculation to its CSS counterpart: "--ic-theme-text"
+ * This is a similar calculation to its CSS counterpart: "--ic-brand-text-color"
  * @returns number representing the brightness of the theme colour
  */
-export const getThemeColorBrightness = (): number => {
-  const themeRed = getCssProperty("--ic-theme-primary-r");
-  const themeGreen = getCssProperty("--ic-theme-primary-g");
-  const themeBlue = getCssProperty("--ic-theme-primary-b");
+export const getBrandColorBrightness = (): number => {
+  const themeRed = getCssProperty("--ic-brand-color-primary-r");
+  const themeGreen = getCssProperty("--ic-brand-color-primary-g");
+  const themeBlue = getCssProperty("--ic-brand-color-primary-b");
   return (
     (parseInt(themeRed) * 299 +
       parseInt(themeGreen) * 587 +
@@ -428,14 +428,14 @@ export const getThemeColorBrightness = (): number => {
 /**
  * Returns if dark or light foreground colors should be used for color contrast reasons
  * @returns "dark" or "light"
- * @param brightness - Optional custom brightness value. Defaults to `getThemeColorBrightness`
+ * @param brightness - Optional custom brightness value. Defaults to `getBrandColorBrightness`
  */
-export const getThemeForegroundColor = (
-  brightness = getThemeColorBrightness()
-): IcThemeForegroundNoDefault =>
+export const getBrandForegroundAppearance = (
+  brightness = getBrandColorBrightness()
+): IcBrandForegroundNoDefault =>
   brightness > DARK_MODE_THRESHOLD
-    ? IcThemeForegroundEnum.Dark
-    : IcThemeForegroundEnum.Light;
+    ? IcBrandForegroundEnum.Dark
+    : IcBrandForegroundEnum.Light;
 
 export const getSlot = (element: HTMLElement, name: string): Element | null => {
   if (element && element.querySelector) {

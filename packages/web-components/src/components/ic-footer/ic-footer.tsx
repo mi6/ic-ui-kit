@@ -12,16 +12,16 @@ import {
 import { IC_DEVICE_SIZES } from "../../utils/constants";
 import {
   getCurrentDeviceSize,
-  getThemeForegroundColor,
+  getBrandForegroundAppearance,
   checkResizeObserver,
   hasClassificationBanner,
   isSlotUsed,
 } from "../../utils/helpers";
 import {
   IcAlignment,
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
 } from "../../utils/types";
 import { IcFooterBreakpoints } from "./ic-footer.types";
 
@@ -44,7 +44,7 @@ export class Footer {
   @Element() el: HTMLIcFooterElement;
 
   @State() deviceSize: number = IC_DEVICE_SIZES.XL;
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  @State() foregroundColor: IcBrandForeground = getBrandForegroundAppearance();
 
   /**
    * The alignment of the section containers used within the footer.
@@ -95,10 +95,9 @@ export class Footer {
     checkResizeObserver(this.runResizeObserver);
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.foregroundColor = theme.mode;
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler(ev: CustomEvent<IcBrand>): void {
+    this.foregroundColor = ev.detail.mode;
   }
 
   private isSmall() {
@@ -152,10 +151,10 @@ export class Footer {
           [`ic-footer-${groupLinks ? "grouped" : "ungrouped"}`]: true,
           [`ic-footer-foreground-${foregroundColor}`]: true,
           // Slots will be able to infer their own color
-          [`ic-footer-${IcThemeForegroundEnum.Dark}`]:
-            foregroundColor === IcThemeForegroundEnum.Dark,
-          [`ic-footer-${IcThemeForegroundEnum.Light}`]:
-            foregroundColor === IcThemeForegroundEnum.Light,
+          [`ic-footer-${IcBrandForegroundEnum.Dark}`]:
+            foregroundColor === IcBrandForegroundEnum.Dark,
+          [`ic-footer-${IcBrandForegroundEnum.Light}`]:
+            foregroundColor === IcBrandForegroundEnum.Light,
         }}
       >
         <footer ref={(footerEl) => (this.footerEl = footerEl)}>

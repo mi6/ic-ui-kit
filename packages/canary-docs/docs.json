@@ -376,7 +376,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false

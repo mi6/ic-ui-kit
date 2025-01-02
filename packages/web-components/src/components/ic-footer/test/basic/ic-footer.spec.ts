@@ -86,13 +86,13 @@ describe("ic-footer", () => {
     expect(page.root).toMatchSnapshot("footer-classification-banner");
   });
 
-  it("should update foreground colour when the theme is updated", async () => {
+  it("should update foreground colour when the brand is updated", async () => {
     const page = await newSpecPage({
       components: [Footer],
       html: "<div><ic-footer id='ic-footer'></ic-footer></div>",
     });
 
-    await page.rootInstance.themeChangeHandler({ detail: { mode: "light" } });
+    await page.rootInstance.brandChangeHandler({ detail: { mode: "light" } });
 
     expect(page.rootInstance.foregroundColor).toBe("light");
   });

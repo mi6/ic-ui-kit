@@ -270,14 +270,17 @@ import image from "./assets/example-background.png";
   </Story>
 </Canvas>
 
-### Theme
+### Brand
 
 <Canvas>
   <Story
-    name="Theme"
+    name="Brand"
     parameters={{ layout: "fullscreen", loki: { skip: true } }}
   >
-    {html`<ic-theme color="rgb(255, 201, 60)"></ic-theme>
+    {html`<ic-theme
+        brand-color="rgb(255, 201, 60)"
+        id="brand-story-ic-theme"
+      ></ic-theme>
       <ic-hero
         heading="Hero heading"
         subheading="Hero description. This is a Hero component, it should be used as a page heading."
@@ -314,24 +317,23 @@ import image from "./assets/example-background.png";
         </ic-card-vertical>
       </ic-hero>
       <br />
-      <ic-button variant="primary" id="default-btn" onClick="changeTheme()">
-        Default theme
+      <ic-button variant="primary" id="default-btn" onClick="changeBrand()">
+        Default brand
       </ic-button>
       <ic-button
         variant="primary"
         id="custom-btn"
-        onClick="changeSunriseTheme()"
+        onClick="changeSunriseBrand()"
       >
-        Sunrise theme
+        Sunrise brand
       </ic-button>
       <script>
-        var theme = document.querySelector("ic-theme");
-        var card = document.querySelector("ic-card-vertical");
-        function changeTheme() {
-          theme.color = "rgb(27, 60, 121)";
+        var theme = document.querySelector("#brand-story-ic-theme");
+        function changeBrand() {
+          theme.brandColor = "rgb(27, 60, 121)";
         }
-        function changeSunriseTheme() {
-          theme.color = "rgb(255, 201, 60)";
+        function changeSunriseBrand() {
+          theme.brandColor = "rgb(255, 201, 60)";
         }
       </script>`}
   </Story>
@@ -344,7 +346,7 @@ import image from "./assets/example-background.png";
     name="With background image (parallax effect)"
     parameters={{ layout: "fullscreen", loki: { skip: true } }}
   >
-    {html`<ic-theme color="rgb(27, 60, 121)"></ic-theme>
+    {html`<ic-theme brand-color="rgb(27, 60, 121)"></ic-theme>
       <ic-top-navigation app-title="Application Name">
         <svg
           slot="app-icon"
@@ -386,7 +388,7 @@ import image from "./assets/example-background.png";
       <ic-button
         variant="primary"
         id="default-btn"
-        onClick="document.querySelector('ic-theme').color='rgb(27, 60, 121)'"
+        onClick="document.querySelector('ic-theme').brandColor='rgb(27, 60, 121)'"
         style="margin-bottom:1300px"
       >
         Reset theme
@@ -401,7 +403,7 @@ import image from "./assets/example-background.png";
     name="With background image (no parallax effect)"
     parameters={{ layout: "fullscreen", loki: { skip: true } }}
   >
-    {html`<ic-theme color="rgb(27, 60, 121)"></ic-theme>
+    {html`<ic-theme brand-color="rgb(27, 60, 121)"></ic-theme>
       <ic-top-navigation app-title="Application Name">
         <svg
           slot="app-icon"
@@ -444,7 +446,7 @@ import image from "./assets/example-background.png";
       <ic-button
         variant="primary"
         id="default-btn"
-        onClick="document.querySelector('ic-theme').color='rgb(27, 60, 121)'"
+        onClick="document.querySelector('ic-theme').brandColor='rgb(27, 60, 121)'"
         style="margin-bottom:1300px"
       >
         Reset theme

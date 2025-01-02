@@ -11,17 +11,17 @@ import {
 } from "@stencil/core";
 
 import {
-  getThemeForegroundColor,
+  getBrandForegroundAppearance,
   inheritAttributes,
   onComponentRequiredPropUndefined,
   isSlotUsed,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
-  IcThemeForegroundNoDefault,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
+  IcBrandForegroundNoDefault,
   IcThemeMode,
 } from "../../utils/types";
 import { IcNavButtonModes } from "./ic-navigation-button.types";
@@ -47,8 +47,8 @@ export class NavigationButton {
 
   @Element() el: HTMLIcNavigationButtonElement;
 
-  @State() initialAppearance: IcThemeForegroundNoDefault | IcThemeForeground =
-    getThemeForegroundColor();
+  @State() initialAppearance: IcBrandForegroundNoDefault | IcBrandForeground =
+    getBrandForegroundAppearance();
   /**
    * The display mode.
    */
@@ -129,10 +129,9 @@ export class NavigationButton {
     this.mode = "navbar";
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.initialAppearance = theme.mode;
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler(ev: CustomEvent<IcBrand>): void {
+    this.initialAppearance = ev.detail.mode;
   }
 
   /**
@@ -166,7 +165,7 @@ export class NavigationButton {
     let label = "";
     let className = "";
     let variant: "icon" | "tertiary" = "icon";
-    let appearance: IcThemeForeground | IcThemeForegroundEnum.Default =
+    let appearance: IcBrandForeground | IcBrandForegroundEnum.Default =
       this.initialAppearance;
     let size: "medium" | "large" = "large";
     let fullWidth = false;
@@ -175,7 +174,7 @@ export class NavigationButton {
     if (this.mode === "menu") {
       label = this.label;
       variant = "tertiary";
-      appearance = IcThemeForegroundEnum.Default;
+      appearance = IcBrandForegroundEnum.Default;
       size = "medium";
       fullWidth = true;
       className = "popout-menu-button";
@@ -209,7 +208,7 @@ export class NavigationButton {
           {...buttonProps}
           {...this.inheritedAttributes}
           monochrome={this.mode !== "menu"}
-          theme={getThemeForegroundColor() == "light" ? "light" : "dark"}
+          theme={getBrandForegroundAppearance() == "light" ? "light" : "dark"}
         >
           {label}
           <slot slot="left-icon" name="icon"></slot>

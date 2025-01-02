@@ -19,8 +19,8 @@
 }
 
 :host(.ic-footer-foreground-dark) {
-  --ic-footer-background: var(--ic-theme-secondary-light);
-  --ic-footer-bottom-background: var(--ic-theme-tertiary-light);
+  --ic-footer-background: var(--ic-brand-color-secondary-light);
+  --ic-footer-bottom-background: var(--ic-brand-color-tertiary-light);
   --ic-footer-keyline: var(--ic-state-layer-darken-20);
   --ic-footer-text: var(--ic-color-text-primary-light);
   --ic-footer-link: var(--ic-color-text-primary-light);
