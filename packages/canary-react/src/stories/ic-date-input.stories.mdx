@@ -102,7 +102,7 @@ export default DateInput;
 To set a value to the date input, pass the date value in the relevant date format.
 
 <Canvas withSource='none'>
-  <Story name="With value" parameters={{ loki: { skip: true } }}>
+  <Story name="With value">
     <IcDateInput
       id="date-input-default-date-with-value"
       label="When would you like to collect your coffee?"
@@ -237,7 +237,7 @@ export default DateInput;
 To hide the label, set the `hideLabel` prop to `true`. The required `label` will still be read out by screen readers. 
 
 <Canvas withSource="none">
-  <Story name="Hide label" parameters={{ loki: { skip: true } }}>
+  <Story name="Hide label">
     <IcDateInput
       label="When would you like to collect your coffee?"
       hideLabel
@@ -622,7 +622,7 @@ export default Form;
 ```
 
 <Canvas withSource='none'>
-  <Story name="Form" parameters={{ loki: { skip: true } }}>
+  <Story name="Form">
     <Form />
   </Story>
 </Canvas>
@@ -660,7 +660,7 @@ The date input can be cleared by setting the the value attribute to one of the f
 - `undefined`
 
 <Canvas withSource='none'>
-  <Story name="With clearing value" parameters={{ loki: { skip: true } }}>
+  <Story name="With clearing value">
     <ClearDateInput />
   </Story>
 </Canvas>
