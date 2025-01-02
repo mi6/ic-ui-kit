@@ -134,6 +134,45 @@ const data = [
   { name: name5, age: 45, department: "HR", employeeNumber: 6 },
 ];
 
+const dataWithElements = [
+  {
+    name: name1,
+    age: 36,
+    department: "Accounts",
+    employeeNumber: 1,
+    actions: "",
+  },
+  {
+    name: name2,
+    age: 32,
+    department: "Engineering",
+    employeeNumber: 2,
+    actions: "",
+  },
+  {
+    name: "Tim Rayes",
+    age: 41,
+    department: "Sales",
+    employeeNumber: 3,
+    actions: "",
+  },
+  {
+    name: name3,
+    age: "23",
+    department: "Engineering",
+    employeeNumber: 4,
+    actions: "",
+  },
+  {
+    name: name4,
+    age: 34,
+    department: "Engineering",
+    employeeNumber: 5,
+    actions: "",
+  },
+  { name: name5, age: 45, department: "HR", employeeNumber: 6, actions: "" },
+];
+
 const dataWithRowHeaders = [
   { header: { title: 1 }, name: name1, age: 36, department: "Accounts" },
   {
@@ -1342,9 +1381,9 @@ describe(icDataTable, () => {
         <ic-data-table
           caption="Table"
           columns={columnsWithElements}
-          data={data}
+          data={dataWithElements}
         >
-          {data.map((_, index) => (
+          {dataWithElements.map((_, index) => (
             <ic-button key={index} slot={`actions-${index}`}>
               Delete
             </ic-button>
