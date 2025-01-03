@@ -318,6 +318,7 @@ td.table-density-spacious {
   left: calc(50% - 5.9741rem);
   opacity: 0;
   transition: opacity var(--ic-transition-duration-slow);
+  z-index: calc(var(--ic-z-index-dialog) - 1);
 }
 
 .loading.show-background {
@@ -382,6 +383,35 @@ td.table-density-spacious {
 .cell-grid-wrapper {
   display: grid;
   grid-template-columns: auto auto;
+}
+
+.loading-overlay {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--ic-architectural-black);
+  z-index: calc(var(--ic-z-index-dialog) - 2);
+  opacity: 0;
+  transition: opacity var(--ic-transition-duration-slow);
+}
+
+.loading-overlay.show {
+  visibility: visible;
+  opacity: 0.6;
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-overlay {
+    transition: none;
+  }
 }
 
 @media screen and (min-width: 577px) {
