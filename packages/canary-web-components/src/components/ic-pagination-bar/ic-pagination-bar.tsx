@@ -338,11 +338,20 @@ export class PaginationBar {
     if (focus) el.setFocus();
   };
 
+  private setToFirstPage = () => {
+    const firstPage = 1;
+    this.changePage(firstPage);
+    this.paginationEl?.setCurrentPage(firstPage);
+    this.activePage = firstPage;
+    this.icPageChange.emit({ value: firstPage });
+  };
+
   private setItemsPerPage = (newValue: number) => {
     if (this.itemsPerPage !== newValue) {
       this.itemsPerPage = newValue;
       this.itemsPerPageString = newValue.toString();
       this.icItemsPerPageChange.emit({ value: this.itemsPerPage });
+      this.setToFirstPage();
     }
 
     this.totalPages =
