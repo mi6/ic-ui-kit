@@ -1105,7 +1105,8 @@ export class DataTable {
     }, this.minimumLoadingDisplayDuration);
   };
 
-  private isObject = (value: any) => typeof value === "object";
+  private isObject = (value: any) =>
+    value !== undefined && value !== null && typeof value === "object";
 
   private notDefaultDensity = () => this.density !== "default";
 
@@ -1418,7 +1419,8 @@ export class DataTable {
             }}
             style={{ ...this.getColumnWidth(columnProps.columnWidth) }}
           >
-            {Object.keys(cell).includes("actionElement") ? (
+            {this.isObject(cell) &&
+            Object.keys(cell).includes("actionElement") ? (
               <div class="cell-grid-wrapper">
                 {this.createCellContent(
                   columnProps,
@@ -1455,8 +1457,8 @@ export class DataTable {
     });
   };
 
-  private createColumnHeaders = () => {
-    return this.columns.map(
+  private createColumnHeaders = () =>
+    this.columns.map(
       ({ cellAlignment, colspan, icon, key, title, columnWidth }, index) => (
         <th
           scope="col"
@@ -1546,7 +1548,6 @@ export class DataTable {
         </th>
       )
     );
-  };
 
   private onRowClick = (row: object) => {
     this.selectedRow =
