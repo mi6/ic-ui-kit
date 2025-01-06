@@ -28,7 +28,8 @@ import {
   COLUMNS_TEXT_WRAP,
   TEXT_WRAP_LONG_DATA,
   COLS_WIDTH,
-  ACTION_DATA_ELEMENTS
+  ACTION_DATA_ELEMENTS,
+  DATA_WITH_EMPTY_VALUES
 } from "../../../canary-web-components/src/components/ic-data-table/story-data";
 
 import { mdiAccountGroup, mdiImage, mdiDelete } from "@mdi/js";
@@ -2122,6 +2123,64 @@ const DATA = [
 
 const DataTable = () => (
   <IcDataTable caption="Action Element" columns={COLS} data={DATA} />
+);
+
+export default DataTable;
+```
+
+### Missing cell data
+
+An example showing the table being able to handle empty cell values (null, undefined or empty string).
+
+<Canvas withSource="none">
+  <Story name="Missing cell data">
+    <IcDataTable caption="Missing cell data" columns={COLS} data={DATA_WITH_EMPTY_VALUES} />
+  </Story>
+</Canvas>
+
+#### Missing cell data code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+// Copy columns array for 'basic' example
+const COLUMNS: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+const DATA = [
+  {
+    firstName: "Nigel",
+    lastName: null,
+    age: 62,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  {
+    firstName: "Sarah",
+    lastName: "Smith",
+    age: 28,
+    jobTitle: undefined,
+    address: "2 Main Street, Town, County, Postcode",
+  },
+  {
+    firstName: "Mark",
+    lastName: "Owens",
+    age: 45,
+    jobTitle: "Team Lead",
+    address: "",
+  },
+];
+
+const DataTable = () => (
+  <IcDataTable caption="Missing cell data" columns={COLUMNS} data={DATA} />
 );
 
 export default DataTable;
