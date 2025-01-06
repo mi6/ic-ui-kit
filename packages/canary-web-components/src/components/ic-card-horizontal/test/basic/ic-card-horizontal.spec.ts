@@ -66,6 +66,20 @@ describe("ic-card-horizontal", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render disabled", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card-horizontal heading="Card" message="This is a static card" disabled clickable></ic-card-horizontal>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
+  });
+
   it("should apply 'focussed' style when parent is focussed", async () => {
     const page = await newSpecPage({
       components: [Card],

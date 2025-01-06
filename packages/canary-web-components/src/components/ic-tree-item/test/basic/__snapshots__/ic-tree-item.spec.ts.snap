@@ -13,9 +13,21 @@ exports[`ic-tree-item component should render 1`] = `
 `;
 
 exports[`ic-tree-item component should render disabled 1`] = `
-<ic-tree-item aria-disabled="true" class="ic-tree-item-dark ic-tree-item-disabled" disabled="true" id="ic-tree-item-6" label="Item 1">
+<ic-tree-item class="ic-tree-item-dark ic-tree-item-disabled" disabled="true" id="ic-tree-item-0" label="Item 1">
   <mock:shadow-root>
-    <div class="ic-tree-item-single tree-item-content" tabindex="-1">
+    <div aria-disabled="true" aria-live="polite" class="tree-item-content" tabindex="-1">
+      <ic-typography class="tree-item-label">
+        Item 1
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-tree-item>
+`;
+
+exports[`ic-tree-item component should render disabled: disabled-removed 1`] = `
+<ic-tree-item class="ic-tree-item-dark" id="ic-tree-item-0" label="Item 1">
+  <mock:shadow-root>
+    <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
       <ic-typography class="tree-item-label">
         Item 1
       </ic-typography>

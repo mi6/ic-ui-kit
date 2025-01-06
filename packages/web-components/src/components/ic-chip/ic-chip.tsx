@@ -62,6 +62,10 @@ export class Chip {
    * If `true`, the chip will appear disabled.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * If `true`, the chip will have a close button at the end to dismiss it.

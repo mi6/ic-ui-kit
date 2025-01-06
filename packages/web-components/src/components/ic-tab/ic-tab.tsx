@@ -43,6 +43,10 @@ export class Tab {
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /** @internal If `true`, the tab will display with a selected indicator and tabIndex will be set. */
   @Prop({ reflect: true }) selected?: boolean = false;
