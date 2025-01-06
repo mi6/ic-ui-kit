@@ -393,6 +393,49 @@ describe("IcPaginationBar end-to-end tests", () => {
       .should(HAVE_LENGTH, 1);
   });
 
+  it("should reset to the first page when the items per page is changed", () => {
+    mount(<PaginationBarItemsPerPage rangeLabelType="data" />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+      .shadow()
+      .find("#next-page-button")
+      .click();
+
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      "ic-typography.item-pagination-label"
+    ).should(HAVE_TEXT, "11 - 20 of 100 items");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+      .shadow()
+      .find("ic-pagination-item")
+      .shadow()
+      .find("ic-typography")
+      .should(HAVE_TEXT, "Page 2");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find("li[role='option']")
+      .eq(1)
+      .click();
+
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      "ic-typography.item-pagination-label"
+    ).should(HAVE_TEXT, "1 - 20 of 100 items");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+      .shadow()
+      .find("ic-pagination-item")
+      .shadow()
+      .find("ic-typography")
+      .should(HAVE_TEXT, "Page 1");
+  });
+
   it('should render the number of items instead of the page number when rangeLabelType is "data"', () => {
     mount(<PaginationBarItemsPerPage rangeLabelType="data" />);
 
