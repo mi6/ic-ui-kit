@@ -1,5 +1,236 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-data-table should add description text or sub-icon to cells of table 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            Table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Actions
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-grid-wrapper" style="grid-template-columns: auto calc(0px + var(--ic-space-xs));">
+                  <div class="cell-container data-type-string description-cell-container">
+                    <ic-typography variant="body">
+                      Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe
+                    </ic-typography>
+                    <div class="data-type-string description-cell">
+                      <span class="description-cell-icon">
+                        <svg height="20" viewBox="0 -960 960 960" width="20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"></path>
+                        </svg>
+                      </span>
+                      <ic-typography class="description-cell-text" variant="caption">
+                        First name: A given name or the name that occurs first in a given name
+                      </ic-typography>
+                    </div>
+                  </div>
+                  <span class="action-element">
+                    <svg height="24" viewBox="0 -960 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"></path>
+                    </svg>
+                  </span>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Bloggs
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    30
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  N/A
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-grid-wrapper" style="grid-template-columns: auto calc(0px + var(--ic-space-xs));">
+                  <div class="cell-container data-type-string">
+                    <ic-typography variant="body">
+                      Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe
+                    </ic-typography>
+                  </div>
+                  <span class="action-element">
+                    <svg height="24" viewBox="0 -960 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"></path>
+                    </svg>
+                  </span>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Bloggs
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    30
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  N/A
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string description-cell-container">
+                  <ic-typography variant="body">
+                    Joey
+                  </ic-typography>
+                  <div class="data-type-string description-cell">
+                    <span class="description-cell-icon">
+                      <svg height="20" viewBox="0 -960 960 960" width="20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"></path>
+                      </svg>
+                    </span>
+                    <ic-typography class="description-cell-text" variant="caption">
+                      Given name
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Bloggy
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    31
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Developer
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  N/A
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Jojo
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Bloggo
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    Repoleved
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  N/A
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
 exports[`ic-data-table should apply a specified row height to all rows when globalRowHeight is set 1`] = `
 <ic-data-table>
   <mock:shadow-root>
@@ -6615,6 +6846,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   </ic-typography>
                 </div>
               </td>
+                <td class="table-cell with-overflow">
+                  <div class="data-type-element">
+                    <slot name="actions-0"></slot>
+                  </div>
+              </td>
             </tr>
             <tr class="table-row">
               <td class="table-cell">
@@ -6643,6 +6879,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   <ic-typography variant="body">
                     2
                   </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-1"></slot>
                 </div>
               </td>
             </tr>
@@ -6675,6 +6916,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   </ic-typography>
                 </div>
               </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-2"></slot>
+                </div>
+              </td>
             </tr>
             <tr class="table-row">
               <td class="table-cell">
@@ -6703,6 +6949,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   <ic-typography variant="body">
                     4
                   </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-3"></slot>
                 </div>
               </td>
             </tr>
@@ -6735,6 +6986,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   </ic-typography>
                 </div>
               </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-4"></slot>
+                </div>
+              </td>
             </tr>
             <tr class="table-row">
               <td class="table-cell">
@@ -6763,6 +7019,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   <ic-typography variant="body">
                     6
                   </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-5"></slot>
                 </div>
               </td>
             </tr>

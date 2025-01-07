@@ -39,6 +39,8 @@ import {
   ActionElement,
   MissingCellData,
   DevArea,
+  CellDescriptions,
+  LongCellDescriptions,
 } from "./story-data";
 import readme from "./readme.md";
 
@@ -1588,7 +1590,104 @@ To set the min and max width of a table cell, set the `table-layout` attribute t
 The example below demonstrates action elements appearing in table cells after being passed in via the data.
 
 <Canvas withSource="none">
-  <Story name="Action Element">{ActionElement()}</Story>
+<Story name="Action Element" parameters={{ loki: { skip: true } }}>
+    {ActionElement()}
+  </Story>
+</Canvas>
+
+### Description and icons within cells
+
+Descriptions and icons can be included in the cells by proving a `description` field in the data. This will populate the cell with an icon (if provided) and a text string underneath the cell data, this can be applied to any cell.
+
+You can provide a `description` object with or without an icon:
+
+With an icon
+
+```json
+  firstName: {
+    data: "Joe",
+    description: {
+      data: "The name of Joe",
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>',
+    },
+```
+
+Without an icon
+
+```json
+  firstName: {
+    data: "Joe",
+    description: {
+      data: "The name of Joe",
+    },
+```
+
+<Canvas withSource="none">
+  <Story name="Cells with descriptions" parameters={{ loki: { skip: true } }}>
+    {CellDescriptions()}
+  </Story>
+</Canvas>
+
+#### Table with descriptions in cells code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Cells with descriptions"
+  width="800px"
+  table-layout="auto"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  const columns = [
+    { key: "firstName", title: "First name", dataType: "string", columnWidth: "15%" },
+    { key: "lastName", title: "Last name", dataType: "string", columnWidth: "300px" },
+    {
+      key: "age",
+      title: "Age",
+      dataType: "number",
+      columnWidth: {
+        maxWidth: "100px",
+      },
+    },
+    { key: "jobTitle", title: "Job title", dataType: "string" },
+    { key: "address", title: "Address", dataType: "address" },
+  ]
+  const data = [
+    {
+      firstName: {
+        data: "Joe",
+        description: {
+          data: "The first name of joe",
+          icon: "<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>"
+        }
+      },
+      lastName: "Bartholomew Christoper Augustine Zacchaeus Ashford", // cspell:disable-line
+      age: 30,
+      jobTitle: {
+        data: "Developer",
+        description: {
+          data: "The job title of Joe"
+        }
+      },
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Description and icons within cells with long text
+
+<Canvas withSource="none">
+  <Story
+    name="Long cells with descriptions"
+    parameters={{ loki: { skip: true } }}
+  >
+    {LongCellDescriptions()}
+  </Story>
 </Canvas>
 
 #### Action Element code example
@@ -1694,5 +1793,7 @@ export default DataTable;
 #### Development Area
 
 <Canvas withSource="none">
-  <Story name="Dev Area">{DevArea()}</Story>
+  <Story parameters={{ loki: { skip: true } }} name="Dev Area">
+    {DevArea()}
+  </Story>
 </Canvas>

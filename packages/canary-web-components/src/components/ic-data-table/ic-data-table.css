@@ -384,6 +384,24 @@ td.table-density-spacious {
   grid-template-columns: auto auto;
 }
 
+.description-cell-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.description-cell {
+  display: flex;
+  flex-direction: row;
+}
+
+.description-cell-text {
+  color: var(--ic-color-secondary-text);
+}
+
+.description-cell-icon {
+  padding-right: var(--ic-space-xs);
+}
+
 @media screen and (min-width: 577px) {
   .column-header-inner-container {
     display: flex;

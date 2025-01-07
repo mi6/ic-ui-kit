@@ -257,9 +257,9 @@ export class DataTable {
     sortOrders: IcDataTableSortOrderOptions[];
     defaultColumn?: string;
   } = {
-    sortOrders: ["unsorted", "ascending", "descending"],
-    defaultColumn: "",
-  };
+      sortOrders: ["unsorted", "ascending", "descending"],
+      defaultColumn: "",
+    };
 
   /**
    * If `true`, column headers will remain at the top of the table when scrolling vertically.
@@ -388,11 +388,13 @@ export class DataTable {
       this.truncationPattern === this.TOOLTIP_STRING
     ) {
       this.truncateUpdatedData();
+      this.updateCellHeightsWithDescriptions();
     }
   }
 
   componentDidRender(): void {
     this.fixCellTooltips();
+    this.updateCellHeightsWithDescriptions();
     this.adjustWidthForActionElement();
   }
 
@@ -514,6 +516,7 @@ export class DataTable {
           // If the set row height is bigger than the cell container even
           // with textWrap, set the row height
           if (
+            !cellContainer.classList.contains("description-cell-container") &&
             !cellContainer?.style?.height &&
             rowHeight > cellContainer.clientHeight &&
             !cellContainer.classList.contains(this.TEXT_WRAP_STRING)
@@ -540,7 +543,6 @@ export class DataTable {
                 return;
               }
             }
-
             this.truncate(typographyEl, cellContainer, tooltipEl);
           } else {
             this.updateSetRowHeight(typographyEl);
@@ -676,13 +678,31 @@ export class DataTable {
 
   private createShowHideTruncation(
     typographyEl: HTMLIcTypographyElement,
-    cellContainer: HTMLElement
+    cellContainer: HTMLElement,
+    descriptionHeight?: number
   ) {
     typographyEl.checkMaxLines(typographyEl.scrollHeight);
     typographyEl.setAttribute(
       "max-lines",
       `${Math.floor(cellContainer?.clientHeight / this.DEFAULT_LINE_HEIGHT)}`
     );
+    if (
+      cellContainer.classList.contains("description-cell-container") &&
+      descriptionHeight
+    ) {
+      typographyEl.setAttribute(
+        "max-lines",
+        `${Math.floor(
+          (cellContainer?.clientHeight - descriptionHeight) /
+          this.DEFAULT_LINE_HEIGHT
+        )}`
+      );
+    } else {
+      typographyEl.setAttribute(
+        "max-lines",
+        `${Math.floor(cellContainer?.clientHeight / this.DEFAULT_LINE_HEIGHT)}`
+      );
+    }
     typographyEl.setShowHideExpanded(false);
 
     cellContainer.style.setProperty(this.ROW_HEIGHT_CSS_VARIABLE, null);
@@ -741,7 +761,7 @@ export class DataTable {
       if (this.truncationPattern === this.TOOLTIP_STRING && tooltip) {
         typographyEl.setAttribute("style", `--ic-line-clamp: 0`);
 
-        cellContainer.appendChild(typographyEl);
+        cellContainer.prepend(typographyEl);
         tooltip.remove();
       }
 
@@ -811,7 +831,7 @@ export class DataTable {
       if (
         truncWrapper &&
         cellContainer.clientHeight - this.DEFAULT_LINE_HEIGHT >
-          truncWrapper.scrollHeight
+        truncWrapper.scrollHeight
       ) {
         this.resetShowHideTruncation(typographyEl);
         return;
@@ -978,10 +998,10 @@ export class DataTable {
     if (this.loading) {
       !this.hasLoadedForOneSecond
         ? setTimeout(
-            () => (this.loading = false),
-            this.minimumLoadingDisplayDuration -
-              (Date.now() - this.timerStarted)
-          )
+          () => (this.loading = false),
+          this.minimumLoadingDisplayDuration -
+          (Date.now() - this.timerStarted)
+        )
         : (this.loading = false);
     }
     if (this.updating) this.updating = false;
@@ -1026,7 +1046,7 @@ export class DataTable {
         truncWrapper?.scrollHeight > cellContainer?.clientHeight &&
         !isEmptyString(typographyEl.getAttribute("max-lines")) &&
         Math.floor(cellContainer?.clientHeight / this.DEFAULT_LINE_HEIGHT) !==
-          +typographyEl.getAttribute("max-lines")
+        +typographyEl.getAttribute("max-lines")
       ) {
         typographyEl.checkMaxLines(truncWrapper.scrollHeight);
         typographyEl.setAttribute(
@@ -1038,7 +1058,9 @@ export class DataTable {
         typographyEl.setShowHideExpanded(false);
 
         cellContainer.style.setProperty(this.ROW_HEIGHT_CSS_VARIABLE, null);
-      } else {
+      } else if (
+        !cellContainer.classList.contains("description-cell-container")
+      ) {
         typographyEl.resetTruncation().then(() => {
           if (!typographyEl.closest(this.TEXT_WRAP_CLASS)) {
             cellContainer.style.setProperty(
@@ -1160,9 +1182,8 @@ export class DataTable {
 
   private setRowHeight = (height: number) => {
     return pxToRem(
-      `${
-        height * this.DENSITY_HEIGHT_MULTIPLIER[this.density] -
-        this.DENSITY_PADDING_HEIGHT_DIFF[this.density]
+      `${height * this.DENSITY_HEIGHT_MULTIPLIER[this.density] -
+      this.DENSITY_PADDING_HEIGHT_DIFF[this.density]
       }px`
     );
   };
@@ -1254,27 +1275,25 @@ export class DataTable {
     <div
       innerHTML={
         columnProps?.dataType === "element" &&
-        !isSlotUsed(this.el, cellSlotName)
+          !isSlotUsed(this.el, cellSlotName)
           ? (cell as string)
           : null
       }
       class={{
         "cell-container": columnProps?.dataType !== "element",
-        [`cell-alignment-${
-          columnProps?.columnAlignment?.vertical ||
+        [`cell-alignment-${columnProps?.columnAlignment?.vertical ||
           rowOptions?.rowAlignment?.vertical ||
           rowAlignment ||
           this.getCellAlignment(cell, "vertical")
-        }`]:
+          }`]:
           !!columnProps?.columnAlignment?.vertical ||
           !!rowOptions?.rowAlignment?.vertical ||
           !!rowAlignment ||
           !!this.getCellAlignment(cell, "vertical"),
-        [`cell-alignment-${
-          columnProps?.columnAlignment?.horizontal ||
+        [`cell-alignment-${columnProps?.columnAlignment?.horizontal ||
           rowOptions?.rowAlignment?.horizontal ||
           this.getCellAlignment(cell, "horizontal")
-        }`]:
+          }`]:
           !!columnProps?.columnAlignment?.horizontal ||
           !!rowOptions?.rowAlignment?.horizontal ||
           !!this.getCellAlignment(cell, "horizontal"),
@@ -1285,6 +1304,8 @@ export class DataTable {
           !!this.getCellOptions(cell, "textWrap"),
         ["cell-icon"]: hasIcon || !!columnProps?.icon?.icon,
         ...this.setTruncationClass(),
+        ["description-cell-container"]:
+          this.isObject(cell) && Object.keys(cell).includes("description"),
       }}
       style={{
         ...this.getRowHeight(
@@ -1318,36 +1339,59 @@ export class DataTable {
           )}
           {columnProps?.dataType !== "element" &&
             !isSlotUsed(this.el, cellSlotName) && (
-              <ic-typography
-                variant="body"
-                class={{
-                  [`cell-emphasis-${
-                    (this.isObject(cell) && cellValue("emphasis")) ||
-                    columnProps?.emphasis ||
-                    rowEmphasis
-                  }`]:
-                    (this.isObject(cell) && !!cellValue("emphasis")) ||
-                    !!columnProps?.emphasis ||
-                    !!rowEmphasis,
-                  [`text-${this.density}`]: this.notDefaultDensity(),
-                }}
-              >
-                {this.isObject(cell) && columnProps?.dataType !== "date" ? (
-                  Object.keys(cell).includes("href") ? (
-                    <ic-link
-                      href={cellValue("href")}
-                      target={cellValue("target") || undefined}
-                      rel={cellValue("rel") || undefined}
-                    >
-                      {cellValue("data")}
-                    </ic-link>
+              <Fragment>
+                <ic-typography
+                  variant="body"
+                  class={{
+                    [`cell-emphasis-${(this.isObject(cell) && cellValue("emphasis")) ||
+                      columnProps?.emphasis ||
+                      rowEmphasis
+                      }`]:
+                      (this.isObject(cell) && !!cellValue("emphasis")) ||
+                      !!columnProps?.emphasis ||
+                      !!rowEmphasis,
+                    [`text-${this.density}`]: this.notDefaultDensity(),
+                  }}
+                >
+                  {this.isObject(cell) && columnProps?.dataType !== "date" ? (
+                    Object.keys(cell).includes("href") ? (
+                      <ic-link
+                        href={cellValue("href")}
+                        target={cellValue("target") || undefined}
+                        rel={cellValue("rel") || undefined}
+                      >
+                        {cellValue("data")}
+                      </ic-link>
+                    ) : (
+                      cellValue("data")
+                    )
                   ) : (
-                    cellValue("data")
-                  )
-                ) : (
-                  this.getCellContent(cell, columnProps?.dataType)
-                )}
-              </ic-typography>
+                    this.getCellContent(cell, columnProps?.dataType)
+                  )}
+                </ic-typography>
+                {this.isObject(cell) &&
+                  Object.keys(cell).includes("description") && (
+                    <div
+                      class={{
+                        ["description-cell"]: true,
+                        [`data-type-${columnProps?.dataType}`]: true,
+                      }}
+                    >
+                      {cellValue("description")?.icon && (
+                        <span
+                          class="description-cell-icon"
+                          innerHTML={cellValue("description").icon}
+                        ></span>
+                      )}
+                      <ic-typography
+                        variant="caption"
+                        class="description-cell-text"
+                      >
+                        {cellValue("description")?.data}
+                      </ic-typography>
+                    </div>
+                  )}
+              </Fragment>
             )}
         </Fragment>
       )}
@@ -1413,7 +1457,7 @@ export class DataTable {
             style={{ ...this.getColumnWidth(columnProps.columnWidth) }}
           >
             {this.isObject(cell) &&
-            Object.keys(cell).includes("actionElement") ? (
+              Object.keys(cell).includes("actionElement") ? (
               <div class="cell-grid-wrapper">
                 {this.createCellContent(
                   columnProps,
@@ -1511,9 +1555,9 @@ export class DataTable {
                 onClick={() => this.sortRows(key)}
                 innerHTML={
                   this.SORT_ICONS[
-                    this.sortedColumn === key
-                      ? this.sortedColumnOrder
-                      : "unsorted"
+                  this.sortedColumn === key
+                    ? this.sortedColumnOrder
+                    : "unsorted"
                   ]
                 }
                 class={{
@@ -1620,20 +1664,20 @@ export class DataTable {
     return this.columns.find((col) => col.key === this.sortedColumn)
       .dataType === "date"
       ? new Date(targetRowValue).valueOf() -
-          new Date(comparisonRowValue).valueOf()
+      new Date(comparisonRowValue).valueOf()
       : String(
-          this.isObject(targetRowValue)
-            ? Object.values(targetRowValue)[0]
-            : targetRowValue
-        ).localeCompare(
-          String(
-            this.isObject(comparisonRowValue)
-              ? Object.values(comparisonRowValue)[0]
-              : comparisonRowValue
-          ),
-          undefined,
-          { numeric: true, sensitivity: "base" }
-        );
+        this.isObject(targetRowValue)
+          ? Object.values(targetRowValue)[0]
+          : targetRowValue
+      ).localeCompare(
+        String(
+          this.isObject(comparisonRowValue)
+            ? Object.values(comparisonRowValue)[0]
+            : comparisonRowValue
+        ),
+        undefined,
+        { numeric: true, sensitivity: "base" }
+      );
   };
 
   private getSortFunction = () => {
@@ -1687,9 +1731,10 @@ export class DataTable {
   };
 
   private getTypographyElements = (): HTMLIcTypographyElement[] => {
+    // Filter out column headers and cell descriptions
     return Array.from(
       this.el.shadowRoot.querySelectorAll(
-        "ic-typography:not(.column-header-text)"
+        "ic-typography:not(.column-header-text,.description-cell-text)"
       )
     );
   };
@@ -1726,6 +1771,61 @@ export class DataTable {
     this.scrollOffset = this.el.shadowRoot.querySelector(
       ".table-row-container"
     ).scrollTop;
+  };
+
+  private updateRowHeightForDescriptions = (
+    rowHeight: number,
+    cellContainer: Element
+  ) => {
+    cellContainer.setAttribute("data-row-height", rowHeight.toString());
+    cellContainer.setAttribute("style", `--row-height: ${rowHeight}px`);
+  };
+
+  // Method to update the row heights on cells with descriptions and tooltip truncation
+  private updateCellHeightsWithDescriptions = () => {
+    if (
+      this.truncationPattern === this.TOOLTIP_STRING ||
+      this.truncationPattern === this.SHOW_HIDE_STRING
+    ) {
+      const descriptions =
+        this.el.shadowRoot.querySelectorAll(".description-cell");
+      descriptions.forEach((description) => {
+        const cellContainer = description.closest(
+          ".description-cell-container"
+        );
+        const typography = cellContainer.firstChild as HTMLIcTypographyElement;
+        const descriptionHeight = description.clientHeight;
+        if (this.globalRowHeight && this.globalRowHeight !== "auto") {
+          if (
+            this.truncationPattern === this.TOOLTIP_STRING &&
+            descriptionHeight + this.DEFAULT_LINE_HEIGHT > this.globalRowHeight
+          ) {
+            this.updateRowHeightForDescriptions(
+              descriptionHeight + this.DEFAULT_LINE_HEIGHT,
+              cellContainer
+            );
+            // Additional case for show/hide truncation for when a description is present, but the text
+            // isn't overflowing the cell to trigger the show more button to appear.
+          } else if (
+            this.truncationPattern === this.SHOW_HIDE_STRING &&
+            descriptionHeight + this.DEFAULT_LINE_HEIGHT > this.globalRowHeight
+          ) {
+            this.updateRowHeightForDescriptions(
+              descriptionHeight + this.DEFAULT_LINE_HEIGHT,
+              cellContainer
+            );
+
+            if (descriptionHeight) {
+              this.createShowHideTruncation(
+                typography,
+                cellContainer as HTMLElement,
+                descriptionHeight
+              );
+            }
+          }
+        }
+      });
+    }
   };
 
   private getRowOptions(rowKeys: string[], rowValues: any[]) {
@@ -1812,7 +1912,7 @@ export class DataTable {
     typographyEl: HTMLIcTypographyElement,
     tooltip: HTMLIcTooltipElement
   ) {
-    cellContainer.appendChild(typographyEl);
+    cellContainer.prepend(typographyEl);
     if (tooltip) {
       tooltip.remove();
     }
@@ -1822,10 +1922,25 @@ export class DataTable {
     typographyEl: HTMLIcTypographyElement,
     cellContainer: HTMLElement
   ) {
-    typographyEl.setAttribute(
-      "style",
-      `--ic-line-clamp: ${this.getLines(cellContainer?.clientHeight)}`
-    );
+    const descriptionCellHeight =
+      cellContainer.querySelector(".description-cell")?.clientHeight;
+    if (
+      cellContainer.classList.contains("description-cell-container") &&
+      cellContainer?.clientHeight > descriptionCellHeight
+    ) {
+      const height =
+        cellContainer?.clientHeight -
+        cellContainer.querySelector(".description-cell")?.clientHeight;
+      typographyEl.setAttribute(
+        "style",
+        `--ic-line-clamp: ${this.getLines(height || 0)}`
+      );
+    } else {
+      typographyEl.setAttribute(
+        "style",
+        `--ic-line-clamp: ${this.getLines(cellContainer?.clientHeight)}`
+      );
+    }
   }
 
   private createTruncationTooltip(
@@ -1842,8 +1957,8 @@ export class DataTable {
       // This might need reverting back to absolute if the tooltip doesn't dynamically position itself correctly
       strategy: "fixed",
     });
-    cellContainer.appendChild(tooltipEl);
-    tooltipEl.appendChild(typographyEl);
+    cellContainer.prepend(tooltipEl);
+    tooltipEl.prepend(typographyEl);
   }
 
   private fixCellTooltips = () => {

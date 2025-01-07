@@ -1044,6 +1044,129 @@ export const DATA_WITH_EMPTY_VALUES = [
   },
 ];
 
+export const LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS = [
+  {
+    firstName: {
+      data: "Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe",
+      description: {
+        data: "First name: A given name or the name that occurs first in a given name",
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>',
+      },
+      actionElement: `<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z" /></svg>`,
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle:
+      "Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer",
+    address: "N/A",
+  },
+  {
+    firstName: {
+      data: "Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe",
+      actionElement: `<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z" /></svg>`,
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle:
+      "Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer Developer",
+    address: "N/A",
+  },
+  {
+    firstName: {
+      data: "Joey",
+      description: {
+        data: "Given name",
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>',
+      },
+    },
+    lastName: "Bloggy",
+    age: 31,
+    jobTitle: "Developer",
+    address: "N/A",
+  },
+  {
+    firstName: "Josephine",
+    lastName: "Blogger",
+    age: 32,
+    jobTitle: "Writer",
+    address: "N/A",
+  },
+];
+
+export const DATA_ELEMENTS_WITH_DESCRIPTIONS = [
+  {
+    firstName: {
+      data: "Joe",
+      description: {
+        data: "The name of Joe",
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>',
+      },
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  {
+    firstName: {
+      data: "Sarah",
+      description: {
+        data: "The name of Sarah",
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>',
+      },
+    },
+    lastName: "Smith",
+    age: 28,
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
+    address: "2 Main Street, Town, Country, Postcode",
+  },
+  {
+    firstName: {
+      data: "Mark",
+      description: {
+        data: "The name of Mark",
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>',
+      },
+    },
+    lastName: "Owens",
+    age: 45,
+    jobTitle: "Team Lead",
+    address: "12 Key Street, Town, Country, Postcode",
+  },
+  {
+    firstName: {
+      data: "Naomi",
+      description: {
+        data: "The name of Joe",
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>',
+      },
+    },
+    lastName: "Thomas",
+    age: 32,
+    jobTitle: "Analyst",
+    address: "8 Side Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Luke",
+    lastName: "Ashford",
+    age: {
+      data: 18,
+      description: {
+        data: "The age of Luke",
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>',
+      },
+    },
+    jobTitle: {
+      data: "Junior Developer",
+      description: {
+        data: "The job title of Luke",
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>',
+      },
+    },
+    address: "5 New Street, Town, Country, Postcode",
+  },
+];
+
 export const createDataTableElement = (
   caption: string,
   columns: IcDataTableColumnObject[] = COLS,
@@ -1586,6 +1709,76 @@ export const DevArea = (): HTMLElement => {
 
   const wrapper = document.createElement("div");
   wrapper.insertAdjacentElement("beforeend", description);
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  wrapper.insertAdjacentElement("beforeend", dataTable);
+  return wrapper;
+};
+
+export const CellDescriptions = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement(
+    "Cell descriptions data table",
+    COLS,
+    DATA_ELEMENTS_WITH_DESCRIPTIONS
+  );
+  dataTable.setAttribute("sortable", "true");
+  return dataTable;
+};
+
+export const LongCellDescriptions = (): HTMLElement => {
+  const dataTable = createDataTableElement(
+    "Cell descriptions data table auto with tooltip",
+    COLS,
+    LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS
+  );
+
+  const tooltipTruncationBtn = document.createElement("ic-button");
+  tooltipTruncationBtn.textContent = "truncationPattern: tooltip";
+  tooltipTruncationBtn.addEventListener("click", () => {
+    dataTable.truncationPattern = "tooltip";
+  });
+
+  const showHideTruncationBtn = document.createElement("ic-button");
+  showHideTruncationBtn.textContent = "truncationPattern: show-hide";
+  showHideTruncationBtn.addEventListener("click", () => {
+    dataTable.truncationPattern = "show-hide";
+  });
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.className = "wrapper";
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["flexWrap"] = "wrap";
+  buttonWrapper.style["paddingBlock"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights());
+  resetButton.innerHTML = "Reset row height: auto";
+
+  const rowHeight40Btn = document.createElement("ic-button");
+  rowHeight40Btn.addEventListener("click", () => {
+    dataTable.globalRowHeight = 40;
+  });
+  rowHeight40Btn.innerHTML = "Set global row height: 40";
+
+  const rowHeight80Btn = document.createElement("ic-button");
+  rowHeight80Btn.addEventListener("click", () => {
+    dataTable.globalRowHeight = 80;
+  });
+  rowHeight80Btn.innerHTML = "Set global row height: 80";
+
+  const rowHeight150Btn = document.createElement("ic-button");
+  rowHeight150Btn.addEventListener("click", () => {
+    dataTable.globalRowHeight = 150;
+  });
+  rowHeight150Btn.innerHTML = "Set global row height: 150";
+
+  buttonWrapper.insertAdjacentElement("beforeend", tooltipTruncationBtn);
+  buttonWrapper.insertAdjacentElement("beforeend", showHideTruncationBtn);
+  buttonWrapper.insertAdjacentElement("beforeend", rowHeight40Btn);
+  buttonWrapper.insertAdjacentElement("beforeend", rowHeight80Btn);
+  buttonWrapper.insertAdjacentElement("beforeend", rowHeight150Btn);
+  buttonWrapper.insertAdjacentElement("beforeend", resetButton);
+
+  const wrapper = document.createElement("div");
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
   wrapper.insertAdjacentElement("beforeend", dataTable);
   return wrapper;
