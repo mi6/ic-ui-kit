@@ -30,7 +30,6 @@ tbody {
 }
 
 .truncation-show-hide {
-  overflow: visible;
   display: block;
 }
 
@@ -387,8 +386,11 @@ td.table-density-spacious {
 }
 
 .column-header-alignment-center > ic-typography,
+.column-header-alignment-center > .cell-text-wrapper,
 .row-header-alignment-right > ic-typography,
-.cell-alignment-center > ic-typography {
+.row-header-alignment-right > .cell-text-wrapper,
+.cell-alignment-center > ic-typography,
+.cell-alignment-center > .cell-text-wrapper {
   flex: 1;
 }
 
@@ -454,9 +456,57 @@ td.table-density-spacious {
   }
 }
 
+.cell-text-wrapper {
+  overflow: hidden;
+}
+
+.cell-text-wrapper > ic-typography {
+  margin-left: 2px;
+}
+
+.cell-text-no-wrap {
+  word-wrap: initial;
+}
+
+.cell-container-with-description {
+  display: flex;
+  flex-direction: row;
+}
+
+.cell-description {
+  display: flex;
+  flex-direction: row;
+  margin-top: var(--ic-space-xxs);
+  word-break: break-all;
+}
+
+.cell-description-text {
+  color: var(--ic-color-secondary-text);
+}
+
+.cell-description-icon {
+  padding-right: var(--ic-space-xs);
+}
+
+.cell-description-icon > svg {
+  height: calc(var(--ic-space-lg) - var(--ic-space-xxs));
+  width: calc(var(--ic-space-lg) - var(--ic-space-xxs));
+  display: flex;
+}
+
 @media screen and (min-width: 577px) {
   .column-header-inner-container {
     display: flex;
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 577px) {
+  .cell-icon {
+    flex-wrap: wrap;
+  }
+
+  .cell-description-icon {
+    padding-right: 0;
   }
 }
