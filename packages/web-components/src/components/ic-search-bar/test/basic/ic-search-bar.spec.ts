@@ -238,7 +238,7 @@ describe("ic-search-bar search", () => {
     page.win.addEventListener("menuOptionId", eventSpy);
 
     const menu = page.root.shadowRoot.querySelector("ic-menu");
-    menu.autoFocusOnSelected = true;
+    menu.autofocusOnSelected = true;
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({

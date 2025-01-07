@@ -1,4 +1,7 @@
 import { TextField } from "../../ic-text-field";
+import { InputContainer } from "../../../ic-input-container/ic-input-container";
+import { InputLabel } from "../../../ic-input-label/ic-input-label";
+import { Typography } from "../../../ic-typography/ic-typography";
 import { newSpecPage } from "@stencil/core/testing";
 import { waitForTimeout } from "../../../../testspec.setup";
 
@@ -42,7 +45,7 @@ describe("ic-text-field", () => {
   it("should render with autoprops", async () => {
     const page = await newSpecPage({
       components: [TextField],
-      html: `<ic-text-field label="Test label" value="test value" autofocus=true autocapitalize="on" autocomplete="on" autocorrect="on"></ic-text-field>`,
+      html: `<ic-text-field label="Test label" value="test value" autocapitalize="on" autocomplete="on" autocorrect="on"></ic-text-field>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-with-autoprops");
@@ -191,19 +194,6 @@ describe("ic-text-field", () => {
     });
 
     expect(page.root).toMatchSnapshot("renders-with-inline-success-validation");
-  });
-
-  it("should focus", async () => {
-    const page = await newSpecPage({
-      components: [TextField],
-      html: `<ic-text-field label="Test label" rows=1></ic-text-field>`,
-    });
-
-    const callbackFn = jest.fn();
-    page.doc.addEventListener("icFocus", callbackFn);
-    const input = page.root.shadowRoot.querySelector("input");
-    await input.focus();
-    expect(callbackFn).toHaveBeenCalled();
   });
 
   it("should blur", async () => {
@@ -375,4 +365,30 @@ it("should update any attributes that are inherited from the root element", asyn
   expect(
     page.root.shadowRoot.querySelector("input").getAttribute("title")
   ).toBe("new-label");
+});
+
+it("should autofocus", async () => {
+  jest.useFakeTimers();
+  const page = await newSpecPage({
+    components: [TextField, InputContainer, InputLabel, Typography],
+    html: `<ic-text-field label="Test label" autofocus>
+        <ic-typography>Helper text</ic-typography>
+      </ic-text-field>`,
+  });
+
+  await page.waitForChanges();
+  const textField = page.rootInstance;
+
+  expect(textField.autofocus).toBe(true);
+
+  const typo = page.root.shadowRoot.querySelector("ic-typography");
+  typo.classList.add("hydrated");
+
+  const callbackFn = jest.fn();
+  page.doc.addEventListener("icFocus", callbackFn);
+
+  jest.advanceTimersByTime(100);
+  await page.waitForChanges();
+
+  expect(callbackFn).toHaveBeenCalled();
 });
