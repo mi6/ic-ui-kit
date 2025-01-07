@@ -9,6 +9,7 @@ import { IcDataTableColumnObject } from "../../ic-data-table.types";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { IcEmptyState } from "@ukic/web-components/dist/components/ic-empty-state";
 import { DataTableTitleBar } from "../../../ic-data-table-title-bar/ic-data-table-title-bar";
+import { LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS } from "../../story-data";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -132,6 +133,45 @@ const data = [
   },
   { name: name4, age: 34, department: "Engineering", employeeNumber: 5 },
   { name: name5, age: 45, department: "HR", employeeNumber: 6 },
+];
+
+const dataWithElements = [
+  {
+    name: name1,
+    age: 36,
+    department: "Accounts",
+    employeeNumber: 1,
+    actions: "",
+  },
+  {
+    name: name2,
+    age: 32,
+    department: "Engineering",
+    employeeNumber: 2,
+    actions: "",
+  },
+  {
+    name: "Tim Rayes",
+    age: 41,
+    department: "Sales",
+    employeeNumber: 3,
+    actions: "",
+  },
+  {
+    name: name3,
+    age: "23",
+    department: "Engineering",
+    employeeNumber: 4,
+    actions: "",
+  },
+  {
+    name: name4,
+    age: 34,
+    department: "Engineering",
+    employeeNumber: 5,
+    actions: "",
+  },
+  { name: name5, age: 45, department: "HR", employeeNumber: 6, actions: "" },
 ];
 
 const dataWithRowHeaders = [
@@ -1343,9 +1383,9 @@ describe(icDataTable, () => {
         <ic-data-table
           caption="Table"
           columns={columnsWithElements}
-          data={data}
+          data={dataWithElements}
         >
-          {data.map((_, index) => (
+          {dataWithElements.map((_, index) => (
             <ic-button key={index} slot={`actions-${index}`}>
               Delete
             </ic-button>
@@ -1365,6 +1405,21 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={dataWithActionElement}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should add description text or sub-icon to cells of table", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="Table"
+          columns={columnsWithElements}
+          data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
         ></ic-data-table>
       ),
     });
