@@ -1583,9 +1583,9 @@ To set the min and max width of a table cell, set the `table-layout` attribute t
 </script>
 ```
 
-### Action Element
+### Action Element and Action OnClick
 
-The example below demonstrates action elements appearing in table cells after being passed in via the data.
+The example below demonstrates action elements and Action OnClicks appearing in table cells after being passed in via the data. When dealing with Large sets of data, its easier to pass in the Elements and Onclick function and keeping the accessibility intact.
 
 <Canvas withSource="none">
   <Story name="Action Element">{ActionElement()}</Story>
@@ -1694,5 +1694,7 @@ export default DataTable;
 #### Development Area
 
 <Canvas withSource="none">
-  <Story name="Dev Area">{DevArea()}</Story>
+  <Story parameters={{ loki: { skip: true } }} name="Dev Area">
+    {DevArea()}
+  </Story>
 </Canvas>

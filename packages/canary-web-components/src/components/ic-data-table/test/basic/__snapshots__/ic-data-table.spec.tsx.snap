@@ -6615,6 +6615,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   </ic-typography>
                 </div>
               </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-0"></slot>
+                </div>
+              </td>
             </tr>
             <tr class="table-row">
               <td class="table-cell">
@@ -6643,6 +6648,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   <ic-typography variant="body">
                     2
                   </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-1"></slot>
                 </div>
               </td>
             </tr>
@@ -6675,6 +6685,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   </ic-typography>
                 </div>
               </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-2"></slot>
+                </div>
+              </td>
             </tr>
             <tr class="table-row">
               <td class="table-cell">
@@ -6703,6 +6718,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   <ic-typography variant="body">
                     4
                   </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-3"></slot>
                 </div>
               </td>
             </tr>
@@ -6735,6 +6755,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   </ic-typography>
                 </div>
               </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-4"></slot>
+                </div>
+              </td>
             </tr>
             <tr class="table-row">
               <td class="table-cell">
@@ -6763,6 +6788,11 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                   <ic-typography variant="body">
                     6
                   </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell with-overflow">
+                <div class="data-type-element">
+                  <slot name="actions-5"></slot>
                 </div>
               </td>
             </tr>
