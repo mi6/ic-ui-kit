@@ -8,6 +8,7 @@ import {
   Method,
   forceUpdate,
   Host,
+  Watch,
 } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
@@ -55,6 +56,10 @@ export class Card {
    * If `true`, the horizontal card will be disabled if it is clickable.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * The heading for the horizontal card. This is required, unless a slotted heading is used.

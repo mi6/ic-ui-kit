@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-text-field should render disabled: disabled-removed 1`] = `
+<ic-text-field label="Test label" value="test value">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-7" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-7" inputmode="text" name="ic-text-field-input-7" placeholder="" type="text" value="test value">
+      </ic-input-component-container>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-text-field-input-7" type="hidden" value="test value">
+</ic-text-field>
+`;
+
 exports[`ic-text-field should render disabled: renders-disabled 1`] = `
 <ic-text-field class="ic-text-field-disabled" disabled="true" label="Test label" value="test value">
   <mock:shadow-root>

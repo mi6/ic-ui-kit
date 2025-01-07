@@ -40,6 +40,11 @@ describe("ic-chip component renders label", () => {
     });
 
     expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
   it("should render small", async () => {

@@ -14,6 +14,23 @@ describe("menu item variants", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render the disabled variant", async () => {
+    const page = await newSpecPage({
+      components: [MenuItem],
+      html: `<ic-menu-item
+            label="Default variant"
+            disabled
+          />`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
+  });
+
   it("should render a menu item with a description", async () => {
     const page = await newSpecPage({
       components: [MenuItem],
