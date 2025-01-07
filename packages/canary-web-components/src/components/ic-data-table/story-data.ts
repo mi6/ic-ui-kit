@@ -1064,6 +1064,30 @@ export const ACTION_DATA_ELEMENTS = [
   },
 ];
 
+export const DATA_WITH_EMPTY_VALUES = [
+  {
+    firstName: "Nigel",
+    lastName: null,
+    age: 62,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  {
+    firstName: "Sarah",
+    lastName: "Smith",
+    age: 28,
+    jobTitle: undefined,
+    address: "2 Main Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Mark",
+    lastName: "Owens",
+    age: 45,
+    jobTitle: "Team Lead",
+    address: "",
+  },
+];
+
 export const createDataTableElement = (
   caption: string,
   columns: IcDataTableColumnObject[] = COLS,
@@ -1523,6 +1547,9 @@ export const SlottedPagination = (): HTMLIcDataTableElement => {
 
 export const ActionElement = (): HTMLElement =>
   createDataTableElement("Action Element", COLS, ACTION_DATA_ELEMENTS);
+
+export const MissingCellData = (): HTMLElement =>
+  createDataTableElement("Missing Cell Data", COLS, DATA_WITH_EMPTY_VALUES);
 
 export const DevArea = (): HTMLElement => {
   const dataTable = createDataTableElement(
