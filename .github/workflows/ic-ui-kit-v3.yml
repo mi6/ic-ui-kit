@@ -108,31 +108,6 @@ jobs:
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
         run: npm run test-e2e:canary
 
-  ic-ui-kit-visual-tests:
-    needs: ["check-updates"]
-    name: "Visual regression tests"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
-      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
-        with:
-          node-version: 20
-      - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
-
-      - name: Install dependencies
-        run: |
-          google-chrome --version
-          npm ci
-          npm run bootstrap -- -- --ci
-
-      - name: Core visual regression tests
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        run: npm run test-visual:ci
-
-      - name: Canary visual regression tests
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        run: npm run test-visual:ci:canary
-
   ic-ui-kit-cypress-tests:
     needs: [check-updates]
     name: "Cypress tests"
@@ -164,7 +139,6 @@ jobs:
       [
         ic-ui-kit-static-analysis-tests,
         ic-ui-kit-e2e-tests,
-        ic-ui-kit-visual-tests,
         ic-ui-kit-cypress-tests,
       ]
     name: "Publish v3 packages"

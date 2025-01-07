@@ -30,7 +30,7 @@ A basic example using the `total-items`.
 
 <Canvas withSource="none">
   {/* prettier-ignore */}
-  <Story name="Basic" parameters={{ loki: { skip: true } }}>{html`<div style="height: 120px;"><ic-pagination-bar total-items="100"></ic-pagination-bar></div>`}</Story>
+  <Story name="Basic">{html`<div style="height: 120px;"><ic-pagination-bar total-items="100"></ic-pagination-bar></div>`}</Story>
 </Canvas>
 
 #### Basic code example
@@ -48,7 +48,7 @@ By default, the items per page is set to 10. If the total items is greater than 
 To display the items per page control, set the `show-items-per-page-control` attribute to `true`.
 
 <Canvas withSource="none">
-  <Story name="Items per page control" parameters={{ loki: { skip: true } }}>
+  <Story name="Items per page control">
     {html`<div style="height: 150px;">
       <ic-pagination-bar
         total-items="100"
@@ -92,7 +92,7 @@ The items per page control will display a dropdown with options to select the nu
 To display the go to page control, set the `show-go-to-page-control` attribute to `true`. 'Go to page' allows the user to jump to a specific page. If the page number is invalid, the input will be styled in the `ic-status-error` colour with a tooltip detailing the error.
 
 <Canvas withSource="none">
-  <Story name="Go to page control" parameters={{ loki: { skip: true } }}>
+  <Story name="Go to page control">
     {html`<div style="height: 120px;">
       <ic-pagination-bar
         total-items="100"
@@ -121,10 +121,7 @@ The pagination range label type can be set to two types:
 The example below uses the `data` pagination range label type. The range is updated when the page is changed.
 
 <Canvas withSource="none">
-  <Story
-    name="Pagination range label type"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Pagination range label type">
     {html`<div style="height: 150px;">
       <ic-pagination-bar
         total-items="100"
@@ -152,7 +149,7 @@ The example below uses the `data` pagination range label type. The range is upda
 'Item' can be changed to a custom label by setting the `item-label` attribute. Any occurrences of 'Item' in the pagination bar will be replaced with the custom label.
 
 <Canvas withSource="none">
-  <Story name="Pagination item label" parameters={{ loki: { skip: true } }}>
+  <Story name="Pagination item label">
     {html`<div style="height: 150px;">
       <ic-pagination-bar
         total-items="100"
@@ -187,7 +184,7 @@ The pagination type can be set to two types:
 The `complex` pagination type is useful when there are many pages to navigate through.
 
 <Canvas withSource="none">
-  <Story name="Pagination type" parameters={{ loki: { skip: true } }}>
+  <Story name="Pagination type">
     {html`<div style="height: 150px;">
       <ic-pagination-bar
         total-items="100"
@@ -215,7 +212,7 @@ The pagination elements can be aligned to the `right` (default), `left` or `spac
 #### Alignment left
 
 <Canvas withSource="none">
-  <Story name="Alignment left" parameters={{ loki: { skip: true } }}>
+  <Story name="Alignment left">
     {html`<div style="height: 150px;">
       <ic-pagination-bar
         total-items="100"
@@ -241,7 +238,7 @@ The pagination elements can be aligned to the `right` (default), `left` or `spac
 #### Alignment space between
 
 <Canvas withSource="none">
-  <Story name="Alignment space between" parameters={{ loki: { skip: true } }}>
+  <Story name="Alignment space between">
     {html`<div style="height: 150px;">
       <ic-pagination-bar
         total-items="100"
@@ -269,7 +266,7 @@ The pagination elements can be aligned to the `right` (default), `left` or `spac
 The background colour of the pagination bar can be customized by adding a background colour to the parent element. The `appearance` attribute can be set to `light` or `dark` to change the appearance of the pagination bar labels.
 
 <Canvas withSource="none">
-  <Story name="Appearance" parameters={{ loki: { skip: true } }}>
+  <Story name="Appearance">
     {html`<div
       style="display: flex; flex-direction: column; gap: 8px; height: 220px"
     >
@@ -320,7 +317,7 @@ The background colour of the pagination bar can be customized by adding a backgr
 If the pagination bar becomes cluttered due to the number of pagination elements displayed, the range label can be hidden by setting the `hide-range-label` attribute to `true`.
 
 <Canvas withSource="none">
-  <Story name="Hide range label" parameters={{ loki: { skip: true } }}>
+  <Story name="Hide range label">
     {html`<div style="height:150px">
       <div style="background-color: var(--ic-architectural-100)">
         <ic-pagination-bar
@@ -354,10 +351,7 @@ If the pagination bar becomes cluttered due to the number of pagination elements
 If you have a predefined list of items you want in the itemsPerPage select, the 'All' option can be hidden by setting `hide-all-from-items-per-page` to `true`.
 
 <Canvas withSource="none">
-  <Story
-    name="Hide all from items per page"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Hide all from items per page">
     {html`<div style="height:150px">
       <ic-pagination-bar
         total-items="100"

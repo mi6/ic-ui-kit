@@ -557,6 +557,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * The text in the dismiss button tooltip and aria label.
+         */
+        "dismissLabel"?: string;
+        /**
           * If `true`, the chip will have a close button at the end to dismiss it.
          */
         "dismissible"?: boolean;
@@ -1393,7 +1397,7 @@ export namespace Components {
         /**
           * @param setFocusToAnchor when true return focus to anchor element when menu is closed
          */
-        "closeMenu": (setFocusToAnchor?: boolean, element?: HTMLIcMenuItemElement) => Promise<void>;
+        "closeMenu": (setFocusToAnchor?: boolean, menuElement?: HTMLIcMenuItemElement) => Promise<void>;
         /**
           * If `true`, the popover menu will be displayed.
          */
@@ -3897,6 +3901,10 @@ declare namespace LocalJSX {
           * If `true`, the chip will appear disabled.
          */
         "disabled"?: boolean;
+        /**
+          * The text in the dismiss button tooltip and aria label.
+         */
+        "dismissLabel"?: string;
         /**
           * If `true`, the chip will have a close button at the end to dismiss it.
          */

@@ -81,6 +81,11 @@ describe("ic-radio-group", () => {
     });
 
     expect(page.root).toMatchSnapshot("renders-disabled");
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
   it("should render radio option disabled", async () => {
@@ -92,6 +97,11 @@ describe("ic-radio-group", () => {
     });
 
     expect(page.root).toMatchSnapshot("renders-option-disabled");
+
+    document.querySelector("ic-radio-option").disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
   it("should render with unselected static additional field", async () => {

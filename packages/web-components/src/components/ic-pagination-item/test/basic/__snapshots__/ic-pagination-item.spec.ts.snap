@@ -54,6 +54,20 @@ exports[`ic-pagination-item should render disabled ellipsis type: render disable
 </ic-pagination-item>
 `;
 
+exports[`ic-pagination-item should render disabled: disabled-removed 1`] = `
+<ic-pagination-item page="1" type="page">
+  <mock:shadow-root>
+    <a>
+      <button aria-label="Go to Page 1" class="default item-container page" role="button" tabindex="0">
+        <ic-typography class="default" variant="label">
+          1
+        </ic-typography>
+      </button>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
 exports[`ic-pagination-item should render disabled: render disabled 1`] = `
 <ic-pagination-item disabled="" page="1" type="page">
   <mock:shadow-root>

@@ -97,6 +97,78 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
 </ic-select>
 `;
 
+exports[`ic-select searchable should render disabled: disabled-removed 1`] = `
+<ic-select class="searchable" label="IC Select Test" searchable="true">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label for="ic-select-input-70" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-component-container class="default">
+        <!---->
+        <div class="focus-indicator">
+          <div class="searchable-select-container">
+            <input aria-autocomplete="list" aria-controls="ic-select-input-70-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="false" autocomplete="off" class="select-input" id="ic-select-input-70" placeholder="Select an option" role="combobox">
+            <span aria-hidden="true" class="expand-icon">
+              svg
+            </span>
+            <div aria-live="polite" class="searchable-select-results-status" role="status"></div>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <ic-menu class="default no-focus no-results">
+        <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-70-menu" role="listbox" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-70-menu-" role="option" tabindex="-1">
+            <div class="option-text-container">
+              <div class="option-label">
+                <ic-typography aria-hidden="true" variant="body">
+                  No results found
+                </ic-typography>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </ic-menu>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-select-input-70" type="hidden" value="">
+</ic-select>
+`;
+
+exports[`ic-select searchable should render disabled: renders-disabled 1`] = `
+<ic-select class="disabled searchable" disabled="" label="IC Select Test" searchable="true">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label disabled="" for="ic-select-input-70" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-component-container aria-disabled="true" class="default disabled">
+        <!---->
+        <div class="focus-indicator">
+          <div class="searchable-select-container">
+            <input aria-autocomplete="list" aria-controls="ic-select-input-70-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="false" autocomplete="off" class="select-input" disabled="" id="ic-select-input-70" placeholder="Select an option" role="combobox">
+            <span aria-hidden="true" class="expand-icon">
+              svg
+            </span>
+            <div aria-live="polite" class="searchable-select-results-status" role="status"></div>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <ic-menu class="default no-results">
+        <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-70-menu" role="listbox" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-70-menu-" role="option" tabindex="-1">
+            <div class="option-text-container">
+              <div class="option-label">
+                <ic-typography aria-hidden="true" variant="body">
+                  No results found
+                </ic-typography>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </ic-menu>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" disabled="" name="ic-select-input-70" type="hidden" value="">
+</ic-select>
+`;
+
 exports[`ic-select should have correct validation status: with-validation-status-error 1`] = `
 <ic-select label="IC Select Test" validation-status="error">
   <mock:shadow-root>

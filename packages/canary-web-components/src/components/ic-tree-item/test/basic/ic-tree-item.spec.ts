@@ -65,6 +65,11 @@ describe("ic-tree-item component", () => {
     });
 
     expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
   it("should render selected", async () => {

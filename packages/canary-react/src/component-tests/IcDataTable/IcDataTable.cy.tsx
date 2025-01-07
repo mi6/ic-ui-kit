@@ -1083,6 +1083,7 @@ describe("IcDataTables", () => {
         caption="Data tables"
       ></IcDataTable>
     );
+
     cy.spy(window.console, "log").as("spyWinConsoleLog");
 
     cy.viewport(1024, 768);
@@ -1107,11 +1108,13 @@ describe("IcDataTables", () => {
         caption="Data tables"
       ></IcDataTable>
     );
+
     cy.viewport(1024, 768);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+
       .eq(0)
       .find("span")
       .should(HAVE_CLASS, ACTION_ELEMENT)

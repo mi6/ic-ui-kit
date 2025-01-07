@@ -62,6 +62,10 @@ export class Chip {
    * If `true`, the chip will appear disabled.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * If `true`, the chip will have a close button at the end to dismiss it.
@@ -87,6 +91,11 @@ export class Chip {
    * The emphasis of the chip.
    */
   @Prop() variant?: IcEmphasisType = "filled";
+
+  /**
+   * The text in the dismiss button tooltip and aria label.
+   */
+  @Prop() dismissLabel?: string = "Dismiss";
 
   /**
    * @deprecated This event should not be used anymore. Use icDismiss instead.
@@ -172,6 +181,7 @@ export class Chip {
       visible,
       disabled,
       hovered,
+      dismissLabel,
     } = this;
 
     return (
@@ -203,14 +213,14 @@ export class Chip {
           </ic-typography>
           {dismissible && (
             <ic-tooltip
-              label="Dismiss"
+              label={dismissLabel}
               target="dismiss-icon"
               class={{ "tooltip-disabled": disabled }}
             >
               <button
                 id="dismiss-icon"
                 class="dismiss-icon"
-                aria-label={`Dismiss ${label} chip`}
+                aria-label={`${dismissLabel} ${label} chip`}
                 disabled={disabled}
                 tabindex={disabled ? -1 : 0}
                 onClick={this.dismissAction}

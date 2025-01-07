@@ -99,6 +99,11 @@ describe("ic-checkbox-group", () => {
     });
 
     expect(page.root).toMatchSnapshot("renders-disabled");
+
+    document.querySelector("ic-checkbox").disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
   it("should render with validation status", async () => {

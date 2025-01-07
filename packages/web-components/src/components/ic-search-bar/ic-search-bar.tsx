@@ -109,6 +109,10 @@ export class SearchBar {
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.
