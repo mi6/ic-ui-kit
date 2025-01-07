@@ -9,6 +9,7 @@ import { IcDataTableColumnObject } from "../../ic-data-table.types";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { IcEmptyState } from "@ukic/web-components/dist/components/ic-empty-state";
 import { DataTableTitleBar } from "../../../ic-data-table-title-bar/ic-data-table-title-bar";
+import { LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS } from "../../story-data";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -1404,6 +1405,21 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={dataWithActionElement}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should add description text or sub-icon to cells of table", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="Table"
+          columns={columnsWithElements}
+          data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
         ></ic-data-table>
       ),
     });
