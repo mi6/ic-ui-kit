@@ -110,10 +110,9 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
 
-    cy.findShadowEl("ic-search-bar", "ic-text-field")
-      .shadow()
-      .find("ic-input-component-container")
-      .type("Search text");
+    cy.findShadowEl("ic-search-bar", "ic-input-component-container").type(
+      "Search text"
+    );
   });
 
   it("should render card on right", () => {
