@@ -15,7 +15,7 @@ import readme from "./readme.md";
 ### Success
 
 <Canvas>
-  <Story name="Success" parameters={{ loki: { skip: true } }}>
+  <Story name="Success">
     {html`<div style="padding:16px;">
         <ic-button variant="secondary" style="margin-right:16px"
           ><ic-badge
@@ -120,7 +120,7 @@ import readme from "./readme.md";
 ### Error
 
 <Canvas>
-  <Story name="Error" parameters={{ loki: { skip: true } }}>
+  <Story name="Error">
     {html`<div style="padding:16px;">
         <ic-button variant="secondary" style="margin-right:16px"
           ><ic-badge
@@ -227,7 +227,7 @@ import readme from "./readme.md";
 ### Warning
 
 <Canvas>
-  <Story name="Warning" parameters={{ loki: { skip: true } }}>
+  <Story name="Warning">
     {html`<div style="padding:16px;">
         <ic-button variant="secondary" style="margin-right:16px"
           ><ic-badge
@@ -334,7 +334,7 @@ import readme from "./readme.md";
 ### Neutral
 
 <Canvas>
-  <Story name="Neutral" parameters={{ loki: { skip: true } }}>
+  <Story name="Neutral">
     {html`<div style="padding:16px;">
         <ic-button variant="secondary" style="margin-right:16px"
           ><ic-badge
@@ -441,7 +441,7 @@ import readme from "./readme.md";
 ### Light
 
 <Canvas>
-  <Story name="Light" parameters={{ loki: { skip: true } }}>
+  <Story name="Light">
     {html`<div style="padding:16px;">
         <ic-button variant="secondary" style="margin-right:16px"
           ><ic-badge
@@ -548,7 +548,7 @@ import readme from "./readme.md";
 ### Info
 
 <Canvas>
-  <Story name="Info" parameters={{ loki: { skip: true } }}>
+  <Story name="Info">
     {html`<div style="padding:16px;">
         <ic-button variant="secondary" style="margin-right:16px"
           ><ic-badge
@@ -655,7 +655,7 @@ import readme from "./readme.md";
 ### Custom
 
 <Canvas>
-  <Story name="Custom" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom">
     {html`<div style="padding:16px;">
         <ic-button variant="secondary" style="margin-right:16px"
           ><ic-badge
@@ -793,7 +793,7 @@ import readme from "./readme.md";
 ### Max number
 
 <Canvas>
-  <Story name="Max number" parameters={{ loki: { skip: true } }}>
+  <Story name="Max number">
     {html`<div style="padding:16px;">
         <ic-button variant="secondary" style="margin-right:16px"
           ><ic-badge
@@ -848,7 +848,7 @@ import readme from "./readme.md";
 ### Position near
 
 <Canvas>
-  <Story name="Position near" parameters={{ loki: { skip: true } }}>
+  <Story name="Position near">
     {html`<div style="padding:16px;">
         <ic-chip label="Small" style="margin-right:16px;"
           ><ic-badge
@@ -897,7 +897,7 @@ import readme from "./readme.md";
 ### Position inline
 
 <Canvas>
-  <Story name="Position inline" parameters={{ loki: { skip: true } }}>
+  <Story name="Position inline">
     {html`<ic-tab-context>
       <ic-tab-group label="Example tab group">
         <ic-tab
@@ -959,7 +959,7 @@ import readme from "./readme.md";
 ### Hide badge
 
 <Canvas>
-  <Story name="Hide badge" parameters={{ loki: { skip: true } }}>
+  <Story name="Hide badge">
     {html`<script>
         function showHideBadge() {
           badge = document.querySelector("ic-badge");
@@ -982,7 +982,7 @@ import readme from "./readme.md";
 ### Accessible label
 
 <Canvas>
-  <Story name="Accessible label" parameters={{ loki: { skip: true } }}>
+  <Story name="Accessible label">
     {html`<div style="padding:16px;">
       <ic-button variant="secondary" style="margin-right:16px"
         ><ic-badge
@@ -1021,7 +1021,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       customColor: {
         control: { type: "text" },

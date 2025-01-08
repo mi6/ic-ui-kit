@@ -146,6 +146,19 @@ export const Dismissible = () => {
   );
 };
 
+export const CustomDismissLabel = () => {
+  return (
+    <div style={{ padding: "8px" }}>
+      <IcChip
+        id="default-chip"
+        label="Default"
+        dismissible
+        dismissLabel="Custom dismiss"
+      />
+    </div>
+  );
+};
+
 export const WithIcon = () => {
   return (
     <div style={{ padding: "8px" }}>

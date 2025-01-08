@@ -508,6 +508,7 @@ export const defaultArgs = {
   customColor: null,
   disabled: false,
   dismissible: false,
+  dismissLabel: "Dismiss",
   label: "Default",
   size: "default",
   transparentBackground: true,
@@ -518,7 +519,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       customColor: {
         control: { type: "text" },
@@ -555,6 +555,7 @@ export const defaultArgs = {
         label={args.label}
         customColor={args.customColor}
         dismissible={args.dismissible}
+        dismissLabel={args.dismissLabel}
         disabled={args.disabled}
         size={args.size}
         variant={args.variant}

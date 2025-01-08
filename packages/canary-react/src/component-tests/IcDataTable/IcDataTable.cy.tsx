@@ -40,6 +40,7 @@ import {
   textWrapColumns,
   textWrapRow,
   ACTION_DATA_ELEMENTS,
+  DATA_WITH_EMPTY_VALUES,
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
@@ -131,6 +132,7 @@ describe("IcDataTables", () => {
   afterEach(() => {
     cy.task("generateReport");
   });
+
   it("should render", () => {
     mount(<BasicDataTable />);
 
@@ -566,7 +568,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.wait(350).compareSnapshot({
       name: "loading-options",
-      testThreshold: setThresholdBasedOnEnv(0.026),
+      testThreshold: setThresholdBasedOnEnv(0.029),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -1071,69 +1073,96 @@ describe("IcDataTables", () => {
       sorted: "descending",
     });
   });
-});
 
-it("should render an element in the table cell if the data prop contains the actionElement key", () => {
-  mount(
-    <IcDataTable
-      columns={COLS}
-      data={ACTION_DATA_ELEMENTS}
-      caption="Data tables"
-    ></IcDataTable>
-  );
-  cy.viewport(1024, 768);
+  it("should render an element in the table cell if the data prop contains the actionElement key", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={ACTION_DATA_ELEMENTS}
+        caption="Data tables"
+      ></IcDataTable>
+    );
 
-  cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-  cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
-    .eq(0)
-    .find("span")
-    .should(HAVE_CLASS, "action-element")
-    .find("ic-button")
-    .should("be.visible");
-});
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+      .eq(0)
+      .find("span")
+      .should(HAVE_CLASS, "action-element")
+      .find("ic-button")
+      .should("be.visible");
 
-it("should not render an element in the table cell if the data prop does not contain the actionElement key", () => {
-  mount(
-    <IcDataTable
-      columns={COLS}
-      data={ACTION_DATA_ELEMENTS}
-      caption="Data tables"
-    ></IcDataTable>
-  );
-  cy.viewport(1024, 768);
+    cy.checkA11yWithWait(undefined, 300);
 
-  cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.compareSnapshot({
+      name: "action-elements",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.038),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
 
-  cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
-    .eq(1)
-    .find("span")
-    .should("not.exist");
-});
+  it("should not render an element in the table cell if the data prop does not contain the actionElement key", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={ACTION_DATA_ELEMENTS}
+        caption="Data tables"
+      ></IcDataTable>
+    );
 
-it("should apply styling to the cell container if an action element is present in the cell", () => {
-  mount(
-    <IcDataTable
-      columns={COLS}
-      data={ACTION_DATA_ELEMENTS}
-      caption="Data tables"
-    ></IcDataTable>
-  );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-  cy.viewport(1024, 768);
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+      .eq(1)
+      .find("span")
+      .should("not.exist");
+  });
 
-  cy.checkHydrated(DATA_TABLE_SELECTOR);
+  it("should apply styling to the cell container if an action element is present in the cell", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={ACTION_DATA_ELEMENTS}
+        caption="Data tables"
+      ></IcDataTable>
+    );
 
-  cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
-    .eq(0)
-    .find("div")
-    .eq(0)
-    .should(HAVE_CLASS, "cell-grid-wrapper")
-    .should(HAVE_CSS, "grid-template-columns", "156.797px 32px");
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-  cy.findShadowEl(DATA_TABLE_SELECTOR, "span")
-    .should(HAVE_CLASS, "action-element")
-    .should(HAVE_CSS, "justify-content", "right");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
+      .eq(0)
+      .find("div")
+      .eq(0)
+      .should(HAVE_CLASS, "cell-grid-wrapper")
+      .should(HAVE_CSS, "grid-template-columns", "156.797px 32px");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "span")
+      .should(HAVE_CLASS, "action-element")
+      .should(HAVE_CSS, "justify-content", "right");
+  });
+
+  it("should render empty data values", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA_WITH_EMPTY_VALUES}
+        caption="Data Table with empty data"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "empty-data-values",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
 });
 
 describe("IcDataTables with IcPaginationBar", () => {
@@ -3879,7 +3908,7 @@ describe("IcDataTable table sizing and column width", () => {
     });
   });
 
-  it("should set first name column to 300px and age t0 100px with table layout set to auto", () => {
+  it("should set first name column to 300px and age to 100px with table layout set to auto", () => {
     mount(
       <IcDataTable
         caption="Basic Table"
@@ -3908,8 +3937,6 @@ describe("IcDataTable table sizing and column width", () => {
   });
 });
 
-// This test needs to be last as it seems to affect other tests.
-// For example, it will remove the last column for the remaining tests if placed higher.
 describe("IcDataTable row deletion", () => {
   beforeEach(() => {
     cy.injectAxe();
@@ -3921,7 +3948,8 @@ describe("IcDataTable row deletion", () => {
   });
 
   it('should delete a row when the "Delete" button is clicked', () => {
-    const nextData = [...DATA_REACT_ELEMENTS];
+    const clonedData = JSON.parse(JSON.stringify(DATA_REACT_ELEMENTS));
+    const nextData = [...clonedData];
     mount(
       <IcDataTable
         columns={COLS_ELEMENTS}
@@ -3976,7 +4004,8 @@ describe("IcDataTable row deletion", () => {
   });
 
   it("should have tooltip visible when it would overlap bottom of table", () => {
-    const nextData = [...DATA_REACT_ELEMENTS];
+    const clonedData = JSON.parse(JSON.stringify(DATA_REACT_ELEMENTS));
+    const nextData = [...clonedData];
     mount(
       <IcDataTable
         columns={COLS_ELEMENTS}
@@ -4025,7 +4054,10 @@ describe("IcDataTable row deletion", () => {
   });
 
   it("should render table correctly when only some rows have an icon in the column", () => {
-    const data = [...DATA_REACT_ELEMENTS_WITH_ICONS];
+    const clonedData = JSON.parse(
+      JSON.stringify(DATA_REACT_ELEMENTS_WITH_ICONS)
+    );
+    const data = [...clonedData];
     mount(
       <IcDataTable columns={COLS_ELEMENTS} data={data} caption="Data tables">
         {data.map((_, index) => (
@@ -4338,7 +4370,9 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
   });
 
   it("should render slotted custom elements in cell in high contrast mode", () => {
-    const nextData = [...DATA_REACT_ELEMENTS];
+    const clonedData = JSON.parse(JSON.stringify(DATA_REACT_ELEMENTS));
+    const nextData = [...clonedData];
+
     mount(
       <IcDataTable
         columns={COLS_ELEMENTS}

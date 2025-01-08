@@ -18,6 +18,7 @@ Welcome and thank you for contributing to the Intelligence Community UI Kit. Thi
     - [Git user configuration](#git-user-configuration)
     - [Git commit](#git-commit)
     - [Amending a commit](#amending-a-commit)
+    - [Rebasing your branch](#rebasing-your-branch)
     - [Interfaces and types](#interfaces-and-types)
     - [When to use props, slots or methods](#when-to-use-props-slots-or-methods)
     - [Styling](#styling)
@@ -65,7 +66,7 @@ If you would like to contribute code, please complete the following steps:
 git remote add upstream git@github.com:mi6/ic-ui-kit.git
 ```
 
-4. Create a new branch in your forked repo, named after the issue number of your contribution (e.g. feature/123-new-feature).
+4. Create a new branch in your forked repo, based off the `develop` branch and named after the issue number of your contribution (e.g. feature/123-new-feature).
 5. Run the following:
 
 **NPM**
@@ -168,7 +169,7 @@ Please ensure that your commits are [signed](https://docs.github.com/en/authenti
 
 Follow these steps when making a commit:
 
-1. Ensure your commit only contains changes for one of the scopes: root changes like storybook and lerna config, core web components or React components. If your change affects more than one scope then make multiple commits, i.e. one for each scope.
+1. Ensure your commit only contains changes for one of the scopes: root changes like storybook and lerna config, core web components or React components. If your change affects more than one scope then make multiple commits, but there should only be one commit for each scope.
 2. Once your changes are staged, run `git commit`. This will trigger the [Commitizen](https://github.com/commitizen/cz-cli) command line utility.
 3. Select the commit type, read each of the options and select the appropriate one.
 4. When asked for scope, enter either:
@@ -197,7 +198,7 @@ If you need to make changes to a commit (for example, after receiving comments o
    - Stage your changes using `git add` and include the files you want to update.
    - Run `git commit --amend --no-edit` to amend the most recent commit without changing the commit message.
    - The Commitizen prompt will still appear as if you are making a new commit. Exit the prompt (usually by pressing Ctrl+C).
-   - Push the changes to the remote repository using: `git push --force`.
+   - Push the changes to the remote repository using: `git push --force-with-lease`.
 
 2. **If you're amending an older commit:**
    - Use `git rebase` to modify an older commit. For example, to modify commit `a1312407`, run:
@@ -223,8 +224,50 @@ If you need to make changes to a commit (for example, after receiving comments o
 
    - Push the changes to the remote repository using:
      ```sh
-     git push --force
+     git push --force-with-lease
      ```
+
+### Rebasing your branch
+
+Often, when changes are merged into the original repository's `develop` branch, your forked repo may become out of date and you will need to rebase your feature branch. 
+
+1. If not configured already, make sure to add the `mi6/ic-ui-kit` repo as your upstream remote branch, by running:
+
+```sh
+git remote add upstream git@github.com:mi6/ic-ui-kit.git
+```
+
+2. Fetch the latest upstream by running:
+```sh
+git fetch upstream
+```
+
+3. Checkout the local `develop` branch by running:
+```sh
+git checkout develop
+```
+
+4. Rebase your local `develop` branch off the upstream `develop` branch:
+```sh
+git rebase upstream/develop
+```
+
+5. Checkout your feature branch:
+```sh
+git checkout feature/123-new-feature
+```
+
+6. Rebase your feature branch off the local `develop` branch:
+```sh
+git rebase develop
+```
+
+7. Push the updated branch:
+```sh
+git push --force-with-lease
+```
+
+This should then show as updated in your raised pull request.
 
 ### Interfaces and types
 
