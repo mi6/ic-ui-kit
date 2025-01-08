@@ -91,6 +91,10 @@ export class Select {
    * If `true`, the disabled state will be set.
    */
   @Prop({ reflect: true }) disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
@@ -625,8 +629,10 @@ export class Select {
   private handleCustomSelectChange = (event: CustomEvent): void => {
     const value = event.detail.value;
 
-    if (this.searchable && event.detail.label === this.emptyOptionListText) {
-      this.searchableSelectElement.focus();
+    if (event.detail.label === this.emptyOptionListText) {
+      if (this.searchable) {
+        this.searchableSelectElement.focus();
+      }
       return;
     }
 

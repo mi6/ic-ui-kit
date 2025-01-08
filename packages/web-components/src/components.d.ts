@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 import { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -34,7 +34,7 @@ import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 import { Options } from "@popperjs/core";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -553,6 +553,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * The text in the dismiss button tooltip and aria label.
+         */
+        "dismissLabel"?: string;
+        /**
           * If `true`, the chip will have a close button at the end to dismiss it.
          */
         "dismissible"?: boolean;
@@ -717,7 +721,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode | IcThemeForeground;
+        "theme"?: IcThemeMode | IcBrandForeground;
         /**
           * The thickness of the divider.
          */
@@ -849,7 +853,7 @@ export namespace Components {
         /**
           * The appearance of the horizontal scroll, e.g. dark, light or the default.
          */
-        "appearance"?: IcThemeForeground;
+        "appearance"?: IcBrandForeground;
         "focusTrigger"?: string;
         "monochrome"?: boolean;
         "scrollItemIntoView": (itemPosition: number) => Promise<void>;
@@ -1046,7 +1050,7 @@ export namespace Components {
           * The reference to an anchor element the menu will position itself from when rendered.
          */
         "anchorEl": HTMLElement;
-        "autoFocusOnSelected": boolean;
+        "autofocusOnSelected": boolean;
         /**
           * If `true`, the menu will close when an option is selected.
          */
@@ -2028,10 +2032,6 @@ export namespace Components {
         "ariaExpanded": string;
         "ariaOwns": string;
         /**
-          * If `true`, the form control will have input focus when the page loads.
-         */
-        "autoFocus": boolean;
-        /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize": string;
@@ -2043,6 +2043,10 @@ export namespace Components {
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
         "autocorrect": IcAutocorrectStates;
+        /**
+          * If `true`, the form control will have input focus when the page loads.
+         */
+        "autofocus": boolean;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -2162,9 +2166,9 @@ export namespace Components {
     }
     interface IcTheme {
         /**
-          * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
+          * The brand colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
-        "color"?: IcColor;
+        "brandColor"?: IcColor;
         /**
           * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
          */
@@ -3207,7 +3211,7 @@ declare global {
         new (): HTMLIcTextFieldElement;
     };
     interface HTMLIcThemeElementEventMap {
-        "themeChange": IcTheme;
+        "brandChange": IcBrand;
     }
     interface HTMLIcThemeElement extends Components.IcTheme, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcThemeElementEventMap>(type: K, listener: (this: HTMLIcThemeElement, ev: IcThemeCustomEvent<HTMLIcThemeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3885,6 +3889,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * The text in the dismiss button tooltip and aria label.
+         */
+        "dismissLabel"?: string;
+        /**
           * If `true`, the chip will have a close button at the end to dismiss it.
          */
         "dismissible"?: boolean;
@@ -4057,7 +4065,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode | IcThemeForeground;
+        "theme"?: IcThemeMode | IcBrandForeground;
         /**
           * The thickness of the divider.
          */
@@ -4190,7 +4198,7 @@ declare namespace LocalJSX {
         /**
           * The appearance of the horizontal scroll, e.g. dark, light or the default.
          */
-        "appearance"?: IcThemeForeground;
+        "appearance"?: IcBrandForeground;
         "focusTrigger"?: string;
         "monochrome"?: boolean;
         "theme"?: IcThemeMode;
@@ -4382,7 +4390,7 @@ declare namespace LocalJSX {
           * The reference to an anchor element the menu will position itself from when rendered.
          */
         "anchorEl": HTMLElement;
-        "autoFocusOnSelected"?: boolean;
+        "autofocusOnSelected"?: boolean;
         /**
           * If `true`, the menu will close when an option is selected.
          */
@@ -5457,10 +5465,6 @@ declare namespace LocalJSX {
         "ariaExpanded"?: string;
         "ariaOwns"?: string;
         /**
-          * If `true`, the form control will have input focus when the page loads.
-         */
-        "autoFocus"?: boolean;
-        /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize"?: string;
@@ -5472,6 +5476,10 @@ declare namespace LocalJSX {
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
         "autocorrect"?: IcAutocorrectStates;
+        /**
+          * If `true`, the form control will have input focus when the page loads.
+         */
+        "autofocus"?: boolean;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -5608,10 +5616,10 @@ declare namespace LocalJSX {
     }
     interface IcTheme {
         /**
-          * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
+          * The brand colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
-        "color"?: IcColor;
-        "onThemeChange"?: (event: IcThemeCustomEvent<IcTheme>) => void;
+        "brandColor"?: IcColor;
+        "onBrandChange"?: (event: IcThemeCustomEvent<IcBrand>) => void;
         /**
           * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
          */

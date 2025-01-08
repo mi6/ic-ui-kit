@@ -8,13 +8,13 @@ beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
 });
 
-//mocked as getThemeFromContext is always default when run in test context
-const mockGetThemeFromContext = () => {
+//mocked as getBrandFromContext is always default when run in test context
+const mockGetBrandFromContext = () => {
   const func = jest.fn(() => {
     return "light";
   });
 
-  Object.defineProperty(helpers, "getThemeFromContext", {
+  Object.defineProperty(helpers, "getBrandFromContext", {
     value: func,
   });
 };
@@ -313,20 +313,20 @@ describe("button component", () => {
     await page.rootInstance.setFocus().toHaveBeenCalled;
   });
 
-  it("should test theme change", async () => {
-    mockGetThemeFromContext();
+  it("should test brand change", async () => {
+    mockGetBrandFromContext();
 
     const page = await newSpecPage({
       components: [Button],
       html: `<ic-button id='ic-button'>Button</ic-button>`,
     });
 
-    await page.rootInstance.themeChangeHandler({
+    await page.rootInstance.brandChangeHandler({
       detail: { mode: "light" },
     });
     await page.waitForChanges();
 
-    expect(page.rootInstance.theme).toEqual("light");
+    expect(page.rootInstance.theme).toEqual("dark");
   });
 
   it("should test button as submit button on form", async () => {

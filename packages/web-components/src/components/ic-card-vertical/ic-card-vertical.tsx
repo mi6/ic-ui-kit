@@ -8,18 +8,19 @@ import {
   Method,
   forceUpdate,
   Host,
+  Watch,
 } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
-  getThemeFromContext,
+  getBrandFromContext,
   removeDisabledFalse,
   checkSlotInChildMutations,
 } from "../../utils/helpers";
 import {
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
   IcThemeMode,
 } from "../../utils/types";
 import chevronIcon from "../../assets/chevron-icon.svg";
@@ -62,6 +63,10 @@ export class CardVertical {
    * If `true`, the card will be disabled if it is clickable.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    *  If `true`, the card will have an expandable area and expansion toggle button.
@@ -161,8 +166,8 @@ export class CardVertical {
     }
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent<IcTheme>): void {
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler(ev: CustomEvent<IcBrand>): void {
     this.updateTheme(ev.detail.mode);
   }
 
@@ -186,12 +191,15 @@ export class CardVertical {
     this.isFocussed = false;
   };
 
-  private updateTheme(newTheme: IcThemeForeground = null): void {
-    const foregroundColor = getThemeFromContext(this.el, newTheme);
+  private updateTheme(mode: IcBrandForeground = null): void {
+    const foregroundColor = getBrandFromContext(this.el, mode);
 
-    if (foregroundColor !== IcThemeForegroundEnum.Default) {
+    if (foregroundColor !== IcBrandForegroundEnum.Default) {
       this.monochrome = true;
-      this.theme = foregroundColor;
+      this.theme =
+        foregroundColor === IcBrandForegroundEnum.Light
+          ? IcBrandForegroundEnum.Dark
+          : IcBrandForegroundEnum.Light;
     }
   }
 

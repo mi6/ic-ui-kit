@@ -2426,7 +2426,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -2969,7 +2969,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -3860,6 +3860,28 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "dismissLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dismiss-label",
+          "reflectToAttr": false,
+          "docs": "The text in the dismiss button tooltip and aria label.",
+          "docsTags": [],
+          "default": "\"Dismiss\"",
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": true,
@@ -5207,7 +5229,7 @@
           "name": "theme",
           "type": "\"dark\" | \"default\" | \"inherit\" | \"light\"",
           "complexType": {
-            "original": "IcThemeMode | IcThemeForeground",
+            "original": "IcThemeMode | IcBrandForeground",
             "resolved": "\"dark\" | \"default\" | \"inherit\" | \"light\"",
             "references": {
               "IcThemeMode": {
@@ -5215,10 +5237,10 @@
                 "path": "../../utils/types",
                 "id": "src/utils/types.ts::IcThemeMode"
               },
-              "IcThemeForeground": {
+              "IcBrandForeground": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForeground"
+                "id": "src/utils/types.ts::IcBrandForeground"
               }
             }
           },
@@ -5295,7 +5317,7 @@
       "events": [],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -5780,7 +5802,7 @@
       "events": [],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -6006,7 +6028,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -6066,7 +6088,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -6348,7 +6370,7 @@
       "events": [],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -6405,13 +6427,13 @@
           "name": "appearance",
           "type": "\"dark\" | \"default\" | \"light\"",
           "complexType": {
-            "original": "IcThemeForeground",
+            "original": "IcBrandForeground",
             "resolved": "\"dark\" | \"default\" | \"light\"",
             "references": {
-              "IcThemeForeground": {
+              "IcBrandForeground": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeForeground"
+                "id": "src/utils/types.ts::IcBrandForeground"
               }
             }
           },
@@ -7529,7 +7551,7 @@
       "events": [],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -9063,7 +9085,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -9228,7 +9250,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -9551,7 +9573,7 @@
       "events": [],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -14216,7 +14238,7 @@
       ],
       "listeners": [
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -15675,28 +15697,6 @@
       "usage": {},
       "props": [
         {
-          "name": "autoFocus",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "auto-focus",
-          "reflectToAttr": false,
-          "docs": "If `true`, the form control will have input focus when the page loads.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "autocapitalize",
           "type": "string",
           "complexType": {
@@ -15987,6 +15987,28 @@
             {
               "value": "on",
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "autofocus",
+          "reflectToAttr": false,
+          "docs": "If `true`, the form control will have input focus when the page loads.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
@@ -16887,7 +16909,7 @@
       "usage": {},
       "props": [
         {
-          "name": "color",
+          "name": "brandColor",
           "type": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
           "complexType": {
             "original": "IcColor",
@@ -16901,9 +16923,9 @@
             }
           },
           "mutable": false,
-          "attr": "color",
+          "attr": "brand-color",
           "reflectToAttr": false,
-          "docs": "The theme colour. Can be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
+          "docs": "The brand colour. Can be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
           "docsTags": [],
           "default": "null",
           "values": [
@@ -18631,7 +18653,7 @@
           "passive": false
         },
         {
-          "event": "themeChange",
+          "event": "brandChange",
           "target": "document",
           "capture": false,
           "passive": false
@@ -19291,8 +19313,8 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
-    "src/utils/types.ts::IcThemeForeground": {
-      "declaration": "export type IcThemeForeground = \"default\" | \"dark\" | \"light\";",
+    "src/utils/types.ts::IcBrandForeground": {
+      "declaration": "export type IcBrandForeground = \"default\" | \"dark\" | \"light\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -19451,8 +19473,8 @@
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },
-    "src/utils/types.ts::IcTheme": {
-      "declaration": "{\n  mode: IcThemeForeground;\n  color: IcColorRGB;\n}",
+    "src/utils/types.ts::IcBrand": {
+      "declaration": "{\n  mode: IcBrandForeground;\n  color: IcColorRGB;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },

@@ -7,7 +7,7 @@
 :host .tree-item-content {
   display: flex;
   align-items: center;
-  height: calc(var(--ic-space-xl) + var(--ic-space-xs));
+  min-height: calc(var(--ic-space-xl) + var(--ic-space-xs));
   padding: 0 var(--ic-space-xs);
   text-decoration: none;
   color: var(--ic-tree-view-text);
@@ -18,11 +18,16 @@
 ::slotted([slot="router-item"]) {
   display: flex;
   align-items: center;
-  height: calc(var(--ic-space-xl) + var(--ic-space-xs));
+  min-height: calc(var(--ic-space-xl) + var(--ic-space-xs));
   text-decoration: none;
   font-family: var(--ic-font-body-family);
   color: var(--ic-tree-view-text);
   padding: 0 var(--ic-space-xs) !important;
+}
+
+:host(.ic-tree-item-truncate) .tree-item-content,
+:host(.ic-tree-item-truncate) ::slotted([slot="router-item"]) {
+  height: calc(var(--ic-space-xl) + var(--ic-space-xs));
 }
 
 ::slotted([slot="router-item"].ic-tree-item-single) {
@@ -66,11 +71,23 @@
 
 :host(.ic-tree-item-small) .tree-item-content,
 :host(.ic-tree-item-small) ::slotted([slot="router-item"]) {
-  height: var(--ic-space-xl);
+  min-height: var(--ic-space-xl);
 }
 
 :host(.ic-tree-item-large) .tree-item-content,
 :host(.ic-tree-item-large) ::slotted([slot="router-item"]) {
+  min-height: var(--ic-space-xxl);
+}
+
+:host(.ic-tree-item-truncate.ic-tree-item-small) .tree-item-content,
+:host(.ic-tree-item-truncate.ic-tree-item-small)
+  ::slotted([slot="router-item"]) {
+  height: var(--ic-space-xl);
+}
+
+:host(.ic-tree-item-truncate.ic-tree-item-large) .tree-item-content,
+:host(.ic-tree-item-truncate.ic-tree-item-large)
+  ::slotted([slot="router-item"]) {
   height: var(--ic-space-xxl);
 }
 

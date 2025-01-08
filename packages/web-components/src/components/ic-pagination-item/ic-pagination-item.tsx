@@ -26,6 +26,10 @@ export class PaginationItem {
    * If `true`, the pagination item will be disabled.
    */
   @Prop() disabled: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * The label for the pagination item (applicable when simple pagination is being used).

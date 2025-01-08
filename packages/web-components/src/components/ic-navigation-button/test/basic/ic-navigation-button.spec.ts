@@ -72,14 +72,14 @@ describe("ic-navigation-button", () => {
     expect(page.rootInstance.mode).toEqual("navbar");
   });
 
-  it("should correctly set appearance on theme change", async () => {
+  it("should correctly set appearance on brand change", async () => {
     const page = await newSpecPage({
       components: [NavigationButton],
       html: `<ic-navigation-button label="button1" onclick="alert('test')">
       </ic-navigation-button>`,
     });
 
-    await page.rootInstance.themeChangeHandler({ detail: { mode: "dark" } });
+    await page.rootInstance.brandChangeHandler({ detail: { mode: "dark" } });
     await page.waitForChanges();
 
     expect(page.rootInstance.initialAppearance).toBe("dark");

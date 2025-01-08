@@ -86,13 +86,13 @@ describe("ic-hero component", () => {
     expect(page.root).toMatchSnapshot("renders-small-variant");
   });
 
-  it("should correctly set foregroundColor on theme change", async () => {
+  it("should correctly set foregroundColor on brand change", async () => {
     const page = await newSpecPage({
       components: [Hero],
       html: `<ic-hero heading="Test title" subheading="Test text"></ic-hero>`,
     });
 
-    await page.rootInstance.themeChangeHandler({ detail: { mode: "dark" } });
+    await page.rootInstance.brandChangeHandler({ detail: { mode: "dark" } });
     await page.waitForChanges();
 
     expect(page.rootInstance.foregroundColor).toBe("dark");

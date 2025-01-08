@@ -327,12 +327,12 @@ export const Controlled = () => {
   };
   return (
     <>
-      <IcTheme color={color} />
+      <IcTheme brandColor={color} />
       <IcButton variant="primary" onClick={defaultButtonClickHandler}>
-        Default theme
+        Default brand
       </IcButton>
       <IcButton variant="primary" onClick={differentButtonClickHandler}>
-        Sunrise theme
+        Sunrise brand
       </IcButton>
     </>
   );
@@ -361,10 +361,10 @@ export const Controlled = () => {
   </Story>
 </Canvas>
 
-### Theming
+### Brand
 
 <Canvas>
-  <Story name="Theming" parameters={{ layout: "fullscreen" }}>
+  <Story name="Brand" parameters={{ layout: "fullscreen" }}>
     <Controlled />
     <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
       <svg

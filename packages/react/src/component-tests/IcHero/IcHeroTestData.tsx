@@ -237,10 +237,18 @@ export const FullWidth = () => {
   );
 };
 
-export const LightBrand = () => {
+export const BrandChange = () => {
+  const [color, setColour] = useState("rgb(255, 201, 60)");
+  const defaultButtonClickHandler = () => {
+    setColour("rgb(27, 60, 121)");
+  };
+  const differentButtonClickHandler = () => {
+    setColour("rgb(255, 201, 60)");
+  };
+
   return (
     <>
-      <IcTheme color={"rgb(255, 201, 60)"}>
+      <IcTheme brandColor={color}>
         <IcHero
           heading="Hero heading"
           subheading="Hero description. This is a Hero component, it should be used as a page heading."
@@ -276,6 +284,20 @@ export const LightBrand = () => {
           />
         </IcHero>
       </IcTheme>
+      <IcButton
+        id="default-btn"
+        variant="primary"
+        onClick={defaultButtonClickHandler}
+      >
+        Default brand
+      </IcButton>
+      <IcButton
+        id="sunrise-btn"
+        variant="primary"
+        onClick={differentButtonClickHandler}
+      >
+        Sunrise brand
+      </IcButton>
     </>
   );
 };

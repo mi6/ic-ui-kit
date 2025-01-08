@@ -293,7 +293,7 @@ export const ExpansionControl = () => {
   </Story>
 </Canvas>
 
-### Theming
+### Brand
 
 export const Controlled = () => {
   const [color, setColour] = useState("rgb(255, 201, 60)");
@@ -306,19 +306,19 @@ export const Controlled = () => {
   console.log(color);
   return (
     <>
-      <IcTheme color={color} />
+      <IcTheme brandColor={color} />
       <IcButton variant="primary" onClick={defaultButtonClickHandler}>
-        Default theme
+        Default brand
       </IcButton>
       <IcButton variant="primary" onClick={differentButtonClickHandler}>
-        Sunrise theme
+        Sunrise brand
       </IcButton>
     </>
   );
 };
 
 <Canvas>
-  <Story name="Theming">
+  <Story name="Brand">
     <div style={{ display: "flex", height: "100%" }}>
       <IcSideNavigation appTitle="ACME" version="v0.0.0" status="BETA">
         <svg

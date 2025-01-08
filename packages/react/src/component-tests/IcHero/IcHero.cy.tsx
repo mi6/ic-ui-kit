@@ -16,7 +16,7 @@ import {
   BackgroundImage,
   LongHeading,
   FullWidth,
-  LightBrand,
+  BrandChange,
 } from "./IcHeroTestData";
 import { BE_VISIBLE } from "../utils/constants";
 
@@ -182,7 +182,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
   });
 
   it("should render with light brand color", () => {
-    mount(<LightBrand />);
+    mount(<BrandChange />);
 
     cy.checkHydrated(IC_HERO_SELECTOR);
     cy.get("ic-theme").should("exist");
@@ -190,7 +190,21 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "light-brand",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
+
+    cy.get("#default-btn").click();
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-brand",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+    });
+
+    cy.get("#sunrise-btn").click();
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "light-brand-again",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 });

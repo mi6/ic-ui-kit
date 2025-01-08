@@ -1290,7 +1290,7 @@ ic-theme,
   );
 
   /* Top Navigation */
-  --ic-top-navigation-background: var(--ic-theme-primary);
+  --ic-top-navigation-background: var(--ic-brand-color-primary);
   --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
   --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
   --ic-top-navigation-text: var(--ic-color-brand-text);
@@ -1693,7 +1693,7 @@ ic-theme,
 
     /* Badge */
     --ic-badge-text: var(--ic-color-text-inverse);
-    --ic-badge-icon: var(--ic-color-icon-inverted);
+    --ic-badge-icon: var(--ic-color-icon-neutral);
     --ic-badge-warning-text: var(--ic-color-text-inverse);
     --ic-badge-warning-icon: var(--ic-color-icon-neutral);
     --ic-badge-text-monochrome: var(--ic-color-text-primary);
@@ -2674,7 +2674,7 @@ ic-theme,
     );
 
     /* Top Navigation */
-    --ic-top-navigation-background: var(--ic-theme-primary);
+    --ic-top-navigation-background: var(--ic-brand-color-primary);
     --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
     --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
     --ic-top-navigation-text: var(--ic-color-brand-text);
@@ -3073,7 +3073,7 @@ ic-theme,
 
   /* Badge */
   --ic-badge-text: var(--ic-color-text-inverse);
-  --ic-badge-icon: var(--ic-color-icon-inverted);
+  --ic-badge-icon: var(--ic-color-icon-neutral);
   --ic-badge-warning-text: var(--ic-color-text-inverse);
   --ic-badge-warning-icon: var(--ic-color-icon-neutral);
   --ic-badge-text-monochrome: var(--ic-color-text-primary);
@@ -3991,7 +3991,7 @@ ic-theme,
   );
 
   /* Top Navigation */
-  --ic-top-navigation-background: var(--ic-theme-primary);
+  --ic-top-navigation-background: var(--ic-brand-color-primary);
   --ic-top-navigation-keyline: var(--ic-color-keyline-lighten);
   --ic-top-navigation-icon-and-label: var(--ic-color-brand-text);
   --ic-top-navigation-text: var(--ic-color-brand-text);

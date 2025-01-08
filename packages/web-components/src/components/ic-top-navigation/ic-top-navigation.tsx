@@ -14,9 +14,9 @@ import {
 import {
   IcTypographyVariants,
   IcAlignment,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
-  IcTheme,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
+  IcBrand,
   IcDeviceSizes,
   IcValueEventDetail,
   IcThemeMode,
@@ -25,7 +25,7 @@ import {
   checkResizeObserver,
   DEVICE_SIZES,
   getCurrentDeviceSize,
-  getThemeForegroundColor,
+  getBrandForegroundAppearance,
   getSlot,
   onComponentPropUndefinedChange,
   onComponentRequiredPropUndefined,
@@ -61,7 +61,7 @@ export class TopNavigation {
   @Element() el: HTMLIcTopNavigationElement;
 
   @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  @State() foregroundColor: IcBrandForeground = getBrandForegroundAppearance();
   @State() hasFullWidthSearchBar: boolean = false;
   @State() mobileSearchBarVisible: boolean = false;
   @State() mobileSearchHiddenOnBlur: boolean = false;
@@ -186,8 +186,8 @@ export class TopNavigation {
     this.searchValue = detail.value as string;
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler({ detail }: CustomEvent<IcTheme>): void {
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler({ detail }: CustomEvent<IcBrand>): void {
     this.foregroundColor = detail.mode;
   }
 
@@ -340,8 +340,8 @@ export class TopNavigation {
         class={{
           "fullwidth-searchbar": hasFullWidthSearchBar,
           "mobile-mode": overMobileBreakpoint,
-          [IcThemeForegroundEnum.Dark]:
-            foregroundColor === IcThemeForegroundEnum.Dark,
+          [IcBrandForegroundEnum.Dark]:
+            foregroundColor === IcBrandForegroundEnum.Dark,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
@@ -425,7 +425,11 @@ export class TopNavigation {
                           monochrome
                           size={searchButtonSize}
                           aria-label={mobileSearchButtonTitle}
-                          theme={foregroundColor == "light" ? "dark" : "light"}
+                          theme={
+                            foregroundColor == IcBrandForegroundEnum.Light
+                              ? IcBrandForegroundEnum.Dark
+                              : IcBrandForegroundEnum.Light
+                          }
                           onClick={searchButtonClickHandler}
                         >
                           <slot name="toggle-icon">
@@ -462,7 +466,9 @@ export class TopNavigation {
                             <ic-button
                               id="menu-button"
                               theme={
-                                foregroundColor == "light" ? "light" : "dark"
+                                foregroundColor == IcBrandForegroundEnum.Light
+                                  ? IcBrandForegroundEnum.Dark
+                                  : IcBrandForegroundEnum.Light
                               }
                               variant="secondary"
                               monochrome

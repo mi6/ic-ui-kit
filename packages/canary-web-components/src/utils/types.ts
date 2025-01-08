@@ -102,18 +102,18 @@ export type IcAutocompleteTypes =
 
 export type IcAlignment = "left" | "center" | "full-width";
 
-export enum IcThemeForegroundEnum {
+export enum IcBrandForegroundEnum {
   Default = "default",
   Dark = "dark",
   Light = "light",
 }
 
-export type IcThemeForeground = "default" | "dark" | "light";
+export type IcBrandForeground = "default" | "dark" | "light";
 
-export type IcThemeForegroundNoDefault = "dark" | "light";
+export type IcBrandForegroundNoDefault = "dark" | "light";
 
-export type IcTheme = {
-  mode: IcThemeForeground;
+export type IcBrand = {
+  mode: IcBrandForeground;
   color: IcColorRGB;
 };
 

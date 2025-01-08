@@ -9,15 +9,15 @@ describe("ic-theme", () => {
     expect(element).toHaveClass("hydrated");
   });
 
-  it("should emit themeChange when setThemeRGB method called", async () => {
+  it("should emit brandChange event when brandColor is changed", async () => {
     const page = await newE2EPage();
 
     await page.setContent(`<ic-theme></ic-theme>`);
 
-    const spy = await page.spyOnEvent("themeChange");
+    const spy = await page.spyOnEvent("brandChange");
 
     await page.$eval("ic-theme", (elm: HTMLIcThemeElement) => {
-      elm.color = "rgb(255, 201, 60)";
+      elm.brandColor = "rgb(255, 201, 60)";
     });
 
     await page.waitForChanges();
@@ -33,7 +33,7 @@ describe("ic-theme", () => {
     });
 
     await page.$eval("ic-theme", (elm: HTMLIcThemeElement) => {
-      elm.color = "rgb(35, 81, 142)";
+      elm.brandColor = "rgb(35, 81, 142)";
     });
 
     await page.waitForChanges();
@@ -53,10 +53,10 @@ describe("ic-theme", () => {
     const page = await newE2EPage();
     await page.setContent("<ic-theme></ic-theme>");
 
-    const spy = await page.spyOnEvent("themeChange");
+    const spy = await page.spyOnEvent("brandChange");
 
     await page.$eval("ic-theme", (elm: HTMLIcThemeElement) => {
-      elm.color = "rgb(1000, 1000, 1000)";
+      elm.brandColor = "rgb(1000, 1000, 1000)";
     });
 
     await page.waitForChanges();
@@ -72,7 +72,7 @@ describe("ic-theme", () => {
     });
 
     await page.$eval("ic-theme", (elm: HTMLIcThemeElement) => {
-      elm.color = "rgb(-1, -1, -1)";
+      elm.brandColor = "rgb(-1, -1, -1)";
     });
 
     await page.waitForChanges();

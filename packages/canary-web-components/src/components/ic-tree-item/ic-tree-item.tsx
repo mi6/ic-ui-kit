@@ -17,6 +17,7 @@ import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
   checkSlotInChildMutations,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
 
@@ -48,6 +49,10 @@ export class TreeItem {
    * If `true`, the tree item appears in the disabled state.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * If `true`, the tree item appears in the expanded state.
@@ -122,12 +127,21 @@ export class TreeItem {
   @Prop() theme?: IcThemeMode = "inherit";
 
   /**
+   * If `true`, the tree item label will be truncated instead of text wrapping.
+   */
+  @Prop() truncateTreeItem?: boolean;
+
+  /**
    * Emitted when tree item is selected.
    */
   @Event() icTreeItemSelected: EventEmitter<{ id: string }>;
 
   disconnectedCallback(): void {
     this.hostMutationObserver?.disconnect();
+  }
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
@@ -144,7 +158,7 @@ export class TreeItem {
     this.updateAriaLabel();
 
     setTimeout(() => {
-      this.truncateTreeItemLabel(this.el);
+      this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
     }, 100);
 
     !isSlotUsed(this.el, "label") &&
@@ -161,8 +175,8 @@ export class TreeItem {
 
   componentDidUpdate(): void {
     if (this.hasParentExpanded) {
-      this.childTreeItems.forEach((child) => {
-        this.truncateTreeItemLabel(child);
+      this.childTreeItems.forEach((child: HTMLIcTreeItemElement) => {
+        child.truncateTreeItem && this.truncateTreeItemLabel(child);
       });
       this.hasParentExpanded = false;
     }
@@ -372,6 +386,7 @@ export class TreeItem {
           [`ic-tree-item-${size}`]: size !== "medium",
           [`ic-tree-item-focus-inset`]: focusInset,
           [`ic-theme-${theme}`]: theme !== "inherit",
+          "ic-tree-item-truncate": this.truncateTreeItem,
         }}
         id={this.treeItemId}
       >

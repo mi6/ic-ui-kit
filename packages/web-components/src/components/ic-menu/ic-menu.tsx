@@ -81,7 +81,7 @@ export class Menu {
   /**
    * @internal If `true`, autofocus will be applied on selected item when menu is open.
    */
-  @Prop() autoFocusOnSelected: boolean = true;
+  @Prop() autofocusOnSelected: boolean = true;
 
   /**
    *  If `true`, the menu will close when an option is selected.
@@ -267,7 +267,7 @@ export class Menu {
         this.value &&
         this.keyboardNav &&
         inputValueInOptions &&
-        this.autoFocusOnSelected &&
+        this.autofocusOnSelected &&
         !this.isSearchableSelect
       ) {
         this.scrollToSelected(this.menu);

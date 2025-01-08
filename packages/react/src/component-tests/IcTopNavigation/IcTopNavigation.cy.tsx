@@ -25,7 +25,7 @@ import {
   LongText,
   LongWordAppTitle,
   SimpleTopNav,
-  Theme,
+  Brand,
   ThemeDark,
   TopNavWithNavItems,
   TopNavWithSearch,
@@ -352,13 +352,13 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     });
   });
 
-  it("should render with different theme color", () => {
-    mount(<Theme />);
+  it("should render with different brand color", () => {
+    mount(<Brand />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "theme",
+      name: "brand",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
@@ -377,7 +377,7 @@ describe("IcTopNavigation mobile visual regression tests", () => {
   it("should render app icon and title", () => {
     mount(
       <div>
-        <IcTheme color="rgb(27, 60, 121)" />
+        <IcTheme brandColor="rgb(27, 60, 121)" />
         <IconAndTitle />
       </div>
     );
@@ -546,13 +546,13 @@ describe("IcTopNavigation mobile visual regression tests", () => {
     });
   });
 
-  it("should render with different theme color - mobile", () => {
-    mount(<Theme />);
+  it("should render with different brand color - mobile", () => {
+    mount(<Brand />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "mobile-theme",
+      name: "mobile-brand",
       testThreshold: setThresholdBasedOnEnv(
         DEFAULT_TEST_THRESHOLD_MOBILE + 0.012
       ),

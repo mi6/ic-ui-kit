@@ -47,6 +47,20 @@ describe("ic-card-vertical", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should correctly remove disabled attribute when setting disabled to false", async () => {
+    const page = await newSpecPage({
+      components: [CardVertical],
+      html: `<ic-card-vertical heading="Card" disabled message="This is a full width card" clickable=true></ic-card-vertical>`,
+    });
+
+    expect(page.root).toMatchSnapshot("disabled");
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
+  });
+
   it("should apply 'focussed' style when parent is focussed", async () => {
     const page = await newSpecPage({
       components: [CardVertical],

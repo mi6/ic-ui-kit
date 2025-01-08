@@ -37,6 +37,10 @@ export class Tab {
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /** @internal Determines whether black variant of the tabs should be displayed. */
   @Prop() monochrome?: boolean = false;

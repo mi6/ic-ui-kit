@@ -109,6 +109,10 @@ export class SearchBar {
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.
@@ -861,7 +865,7 @@ export class SearchBar {
           role={options.length > 0 ? "combobox" : undefined}
           autocomplete={autocomplete}
           autocapitalize={autocapitalize}
-          autoFocus={autofocus}
+          autofocus={autofocus}
           spellcheck={spellcheck}
           inputmode="search"
           debounce={this.debounce}
@@ -944,7 +948,7 @@ export class SearchBar {
                 }}
                 activationType="manual"
                 anchorEl={this.anchorEl}
-                autoFocusOnSelected={false}
+                autofocusOnSelected={false}
                 searchMode={this.searchMode}
                 inputEl={this.inputEl}
                 inputLabel={label}

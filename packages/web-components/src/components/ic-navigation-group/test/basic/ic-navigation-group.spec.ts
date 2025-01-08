@@ -223,17 +223,17 @@ describe("ic-navigation-group", () => {
     expect(page.rootInstance.dropdownOpen).toBe(true);
   });
 
-  it("should test theme change", async () => {
+  it("should test brand change", async () => {
     const page = await newSpecPage({
       components: [NavigationGroup],
       html: `<ic-navigation-group label="Group label"></ic-navigation-group>`,
     });
     await waitForNavGroupLoad();
-    await page.rootInstance.themeChangeHandler({ detail: { mode: "dark" } });
+    await page.rootInstance.brandChangeHandler({ detail: { mode: "dark" } });
     await page.waitForChanges();
     expect(page.rootInstance.focusStyle).toBe("dark");
 
-    await page.rootInstance.themeChangeHandler({ detail: { mode: "light" } });
+    await page.rootInstance.brandChangeHandler({ detail: { mode: "light" } });
     await page.waitForChanges();
     expect(page.rootInstance.focusStyle).toBe("light");
   });

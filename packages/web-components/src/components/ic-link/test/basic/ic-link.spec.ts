@@ -104,7 +104,7 @@ describe("ic-link component", () => {
     expect(page.root).toMatchSnapshot("alert-theme-context");
   });
 
-  it("should correctly set variant on theme change", async () => {
+  it("should correctly set variant on brand change", async () => {
     const page = await newSpecPage({
       components: [Link],
       html: `<ic-hero heading="Hero heading" subheading="Hero description">
@@ -113,15 +113,15 @@ describe("ic-link component", () => {
 `,
     });
 
-    page.rootInstance.themeChangeHandler({ detail: { mode: "dark" } });
-    await page.waitForChanges();
-
-    expect(page.rootInstance.theme).toBe("dark");
-
-    page.rootInstance.themeChangeHandler({ detail: { mode: "light" } });
+    page.rootInstance.brandChangeHandler({ detail: { mode: "dark" } });
     await page.waitForChanges();
 
     expect(page.rootInstance.theme).toBe("light");
+
+    page.rootInstance.brandChangeHandler({ detail: { mode: "light" } });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.theme).toBe("dark");
   });
 
   it("should call 'setFocus' when link is focused", async () => {

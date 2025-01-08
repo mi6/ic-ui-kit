@@ -56,6 +56,7 @@ export class TextField {
   private inheritedAttributes: { [k: string]: string } = {};
   private inputEl: HTMLInputElement | HTMLTextAreaElement;
   private hostMutationObserver: MutationObserver = null;
+  private interval: ReturnType<typeof setInterval>;
 
   @Element() el: HTMLIcTextFieldElement;
 
@@ -111,12 +112,16 @@ export class TextField {
   /**
    * If `true`, the form control will have input focus when the page loads.
    */
-  @Prop() autoFocus = false;
+  @Prop() autofocus = false;
 
   /**
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * Specify whether the text field fills the full width of the container.
@@ -374,7 +379,19 @@ export class TextField {
       attributes: true,
       childList: true,
     });
+
+    if (this.autofocus && !this.disabled && !this.readonly) {
+      this.interval = setInterval(this.checkChildHydration, 50);
+    }
   }
+
+  private checkChildHydration = () => {
+    const el = this.el.shadowRoot?.querySelector("ic-typography");
+    if (el && el.classList.contains("hydrated")) {
+      this.setFocus();
+      clearInterval(this.interval);
+    }
+  };
 
   @Listen("keydown", {})
   handleKeyDown(ev: KeyboardEvent): void {
@@ -387,7 +404,7 @@ export class TextField {
    */
 
   @Method()
-  async setFocus(): Promise<void> {
+  setFocus() {
     this.inputEl?.focus();
   }
 
@@ -622,7 +639,6 @@ export class TextField {
                 aria-owns={this.ariaOwns}
                 autocomplete={this.autocomplete}
                 autocapitalize={this.autocapitalize}
-                autoFocus={this.autoFocus}
                 spellcheck={spellcheck}
                 inputmode={inputmode}
                 role={this.role}
@@ -653,7 +669,6 @@ export class TextField {
                 aria-describedby={describedBy}
                 aria-invalid={invalid}
                 autocapitalize={this.autocapitalize}
-                autoFocus={this.autoFocus}
                 spellcheck={spellcheck}
                 inputmode={inputmode}
                 maxlength={maxCharactersReached ? maxCharacters : null}

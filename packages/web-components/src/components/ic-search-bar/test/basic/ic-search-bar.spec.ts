@@ -75,6 +75,11 @@ describe("ic-search-bar search", () => {
     });
 
     expect(page.root).toMatchSnapshot("renders-disabled");
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("disabled-removed");
   });
 
   it("should render readonly variant", async () => {
@@ -233,7 +238,7 @@ describe("ic-search-bar search", () => {
     page.win.addEventListener("menuOptionId", eventSpy);
 
     const menu = page.root.shadowRoot.querySelector("ic-menu");
-    menu.autoFocusOnSelected = true;
+    menu.autofocusOnSelected = true;
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({

@@ -701,15 +701,15 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
   </Story>
 </Canvas>
 
-### Theming
+### Brand
 
 <Canvas>
   <Story
-    name="Theming"
+    name="Brand"
     parameters={{ loki: { skip: true }, layout: "fullscreen" }}
   >
     {(args) =>
-      html`<ic-theme color="rgb(27, 60, 121)"></ic-theme>
+      html`<ic-theme brand-color="rgb(27, 60, 121)" id="brand-story-ic-theme">
         <ic-top-navigation
           app-title="Application Name"
           status="alpha"
@@ -813,17 +813,18 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
         <ic-button
           variant="primary"
           id="default-btn"
-          onClick="document.querySelector('ic-theme').color='rgb(27, 60, 121)'"
+          onClick="document.querySelector('#brand-story-ic-theme').brandColor='rgb(27, 60, 121)'"
         >
-          Default theme
+          Default brand
         </ic-button>
         <ic-button
           variant="primary"
           id="custom-btn"
-          onClick="document.querySelector('ic-theme').color='rgb(255, 201, 60)'"
+          onClick="document.querySelector('#brand-story-ic-theme').brandColor='rgb(255, 201, 60)'"
         >
-          Sunrise theme
-        </ic-button> `
+          Sunrise brand
+        </ic-button>
+      </ic-theme>`
     }
   </Story>
 </Canvas>

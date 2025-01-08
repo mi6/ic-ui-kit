@@ -300,10 +300,10 @@ export const HorizontalScroll = (): ReactElement => {
   );
 };
 
-export const Theme = (): ReactElement => {
+export const Brand = (): ReactElement => {
   return (
     <div>
-      <IcTheme color="rgb(255, 201, 60)" />
+      <IcTheme brandColor="rgb(255, 201, 60)" />
       <IcTopNavigation
         appTitle="ApplicationName"
         status="alpha"
@@ -336,12 +336,7 @@ export const ThemeDark = (): ReactElement => {
       theme="dark"
     >
       <ReusableAppIcon />
-      <IcSearchBar
-        slot="search"
-        label="Search"
-        placeholder="Search"
-        theme="light"
-      />
+      <IcSearchBar slot="search" label="Search" placeholder="Search" />
       <IcNavigationButton label="Button One" slot="buttons">
         <ReusableIcon />
       </IcNavigationButton>

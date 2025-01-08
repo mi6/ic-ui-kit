@@ -6,13 +6,13 @@ import {
 } from "./ic-badge.types";
 import {
   IcSizes,
-  IcThemeForeground,
+  IcBrandForeground,
   IcColor,
   IcThemeMode,
 } from "../../utils/types";
 import {
   convertToRGBA,
-  getThemeForegroundColor,
+  getBrandForegroundAppearance,
   isPropDefined,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
@@ -29,7 +29,7 @@ import {
 })
 export class Badge {
   private ariaLabel: string = null;
-  private foregroundColour: IcThemeForeground;
+  private foregroundColour: IcBrandForeground;
   private parentAriaLabel: string;
 
   @Element() el: HTMLIcBadgeElement;
@@ -130,7 +130,7 @@ export class Badge {
     if (colorRGBA) {
       const { r, g, b, a } = colorRGBA;
       this.el.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
-      this.foregroundColour = getThemeForegroundColor(
+      this.foregroundColour = getBrandForegroundAppearance(
         (r * 299 + g * 587 + b * 114) / 1000
       );
     }

@@ -108,6 +108,17 @@ describe("ic-input-component-container", () => {
       </div>
     </ic-input-component-container>
     `);
+
+    page.rootInstance.disabled = false;
+
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+      <ic-input-component-container class="ic-input-component-container-medium ic-input-component-container-success" validation-status="success">
+        <div class="focus-indicator">
+          content
+        </div>
+      </ic-input-component-container>
+      `);
   });
 
   it("should render readonly", async () => {

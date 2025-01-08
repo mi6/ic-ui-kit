@@ -16,15 +16,15 @@ import {
   DEVICE_SIZES,
   getCssProperty,
   getCurrentDeviceSize,
-  getThemeForegroundColor,
+  getBrandForegroundAppearance,
   getNavItemParentDetails,
   isSlotUsed,
 } from "../../utils/helpers";
 import {
   IcNavType,
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundNoDefault,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundNoDefault,
   IcThemeMode,
 } from "../../utils/types";
 
@@ -58,8 +58,8 @@ export class NavigationItem {
   @Element() el: HTMLIcNavigationItemElement;
 
   @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() focusStyle: IcThemeForegroundNoDefault | IcThemeForeground =
-    getThemeForegroundColor();
+  @State() focusStyle: IcBrandForegroundNoDefault | IcBrandForeground =
+    getBrandForegroundAppearance();
   @State() inTopNavSideMenu: boolean = false;
   @State() isSideNavMobile: boolean = false;
   @State() isTopNavChild: boolean = false;
@@ -203,8 +203,8 @@ export class NavigationItem {
     this.isInitialRender = false;
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler({ detail }: CustomEvent<IcTheme>): void {
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler({ detail }: CustomEvent<IcBrand>): void {
     this.focusStyle = detail.mode;
   }
 

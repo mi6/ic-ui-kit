@@ -8,18 +8,19 @@ import {
   Method,
   forceUpdate,
   Host,
+  Watch,
 } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
-  getThemeFromContext,
+  getBrandFromContext,
   removeDisabledFalse,
   checkSlotInChildMutations,
 } from "../../utils/helpers";
 import {
-  IcTheme,
-  IcThemeForeground,
-  IcThemeForegroundEnum,
+  IcBrand,
+  IcBrandForeground,
+  IcBrandForegroundEnum,
   IcThemeMode,
 } from "../../utils/types";
 import { IcCardSizes } from "./ic-card-horizontal.types";
@@ -41,7 +42,7 @@ export class Card {
 
   @Element() el: HTMLIcCardHorizontalElement;
 
-  @State() appearance?: IcThemeForeground = "default";
+  @State() appearance?: IcBrandForeground = "default";
   @State() isFocussed: boolean = false;
   @State() parentEl: HTMLElement | null = null;
   @State() parentIsAnchorTag: boolean = false;
@@ -55,6 +56,10 @@ export class Card {
    * If `true`, the horizontal card will be disabled if it is clickable.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * The heading for the horizontal card. This is required, unless a slotted heading is used.
@@ -143,8 +148,8 @@ export class Card {
     }
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent<IcTheme>): void {
+  @Listen("brandChange", { target: "document" })
+  brandChangeHandler(ev: CustomEvent<IcBrand>): void {
     this.updateTheme(ev.detail.mode);
   }
 
@@ -180,11 +185,14 @@ export class Card {
     this.isFocussed = false;
   };
 
-  private updateTheme(newTheme: IcThemeForeground = null): void {
-    const foregroundColor = getThemeFromContext(this.el, newTheme);
+  private updateTheme(mode: IcBrandForeground = null): void {
+    const foregroundColor = getBrandFromContext(this.el, mode);
 
-    if (foregroundColor !== IcThemeForegroundEnum.Default) {
-      this.theme = foregroundColor;
+    if (foregroundColor !== IcBrandForegroundEnum.Default) {
+      this.theme =
+        foregroundColor === IcBrandForegroundEnum.Light
+          ? IcBrandForegroundEnum.Dark
+          : IcBrandForegroundEnum.Light;
     }
   }
 
@@ -229,7 +237,7 @@ export class Card {
             clickable: clickable && !disabled,
             disabled,
             focussed: isFocussed,
-            dark: appearance === IcThemeForegroundEnum.Dark,
+            dark: appearance === IcBrandForegroundEnum.Dark,
             [`${size}`]: true,
             "with-icon": isSlotUsed(this.el, "icon"),
             "with-image": isSlotUsed(this.el, "image"),
