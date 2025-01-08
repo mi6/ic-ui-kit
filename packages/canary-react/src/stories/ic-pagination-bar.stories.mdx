@@ -490,6 +490,7 @@ export const defaultArgs = {
   alignment: "right",
   appearance: "default",
   currentPage: 1,
+  hideAllFromItemsPerPage: false,
   hideRangeLabel: false,
   itemLabel: "Item",
   itemsPerPageOptions: [
@@ -502,7 +503,7 @@ export const defaultArgs = {
   showItemsPerPageControl: false,
   showGoToPageControl: false,
   totalItems: 100,
-  type: "simple",
+  type: "simple" 
 };
 
 <Canvas withSource="none">
@@ -539,6 +540,7 @@ export const defaultArgs = {
           alignment={args.alignment}
           appearance={args.appearance}
           currentPage={args.currentPage}
+          hideAllFromItemsPerPage={args.hideAllFromItemsPerPage}
           hideRangeLabel={args.hideRangeLabel}
           itemLabel={args.itemLabel}
           itemsPerPageOptions={args.itemsPerPageOptions}
