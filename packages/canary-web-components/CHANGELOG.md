@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.32](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.31...@ukic/canary-web-components@2.0.0-canary.32) (2025-01-08)
+
+### Bug Fixes
+
+- **canary-web-components:** Allow the IcDataTable to handle empty cell data values ([be13323](https://github.com/mi6/ic-ui-kit/commit/be13323627be84ad89d080059c44786877b62387))
+- **canary-web-components:** prevent mutation of ic-pagination-bar items per page options prop ([61e8231](https://github.com/mi6/ic-ui-kit/commit/61e8231a1eadfd17683bf4267b3f348259c21837))
+- **canary-web-components:** removed disabled attribute from components ([a7a013c](https://github.com/mi6/ic-ui-kit/commit/a7a013cb957a6e7c05993f796911bd88b7757732))
+
+### Features
+
+- **canary-web-components:** allow specifying target for anchor in ic-data-table cell ([6ecc0d3](https://github.com/mi6/ic-ui-kit/commit/6ecc0d3264639681e2c9258b521f7b9dd4d5312e)), closes [#2751](https://github.com/mi6/ic-ui-kit/issues/2751)
+
 # [2.0.0-canary.31](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.30...@ukic/canary-web-components@2.0.0-canary.31) (2024-12-18)
 
 ### Bug Fixes

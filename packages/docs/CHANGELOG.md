@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.14.3...@ukic/docs@2.15.0) (2025-01-08)
+
+### Features
+
+- **web-components:** add prop to customise tooltip text ([1a9b259](https://github.com/mi6/ic-ui-kit/commit/1a9b25940a82dbc4ec11b1a39c94f7675ad58345)), closes [#2839](https://github.com/mi6/ic-ui-kit/issues/2839)
+
 ## [2.14.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.14.2...@ukic/docs@2.14.3) (2024-12-18)
 
 **Note:** Version bump only for package @ukic/docs

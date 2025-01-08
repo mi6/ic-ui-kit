@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.33.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.32.1...@ukic/web-components@2.33.0) (2025-01-08)
+
+### Bug Fixes
+
+- **web-components:** add dependencies on react types to fix a build problem ([1eee1a4](https://github.com/mi6/ic-ui-kit/commit/1eee1a4f44a39aea396cb6ce441ff4d373135465))
+- **web-components:** removed disabled attribute from components when set to false ([e588e62](https://github.com/mi6/ic-ui-kit/commit/e588e620515347fcb031d711d6916eaf5168c17d))
+
+### Features
+
+- **web-components:** add prop to customise tooltip text ([1a9b259](https://github.com/mi6/ic-ui-kit/commit/1a9b25940a82dbc4ec11b1a39c94f7675ad58345)), closes [#2839](https://github.com/mi6/ic-ui-kit/issues/2839)
+
 ## [2.32.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.32.0...@ukic/web-components@2.32.1) (2024-12-18)
 
 ### Bug Fixes

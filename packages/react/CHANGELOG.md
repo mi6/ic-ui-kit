@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.33.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.32.1...@ukic/react@2.33.0) (2025-01-08)
+
+### Features
+
+- **react:** add prop to customise tooltip label for chip ([9acae4f](https://github.com/mi6/ic-ui-kit/commit/9acae4f03eca958d7c83ff9826698d733c5a1d71)), closes [#2839](https://github.com/mi6/ic-ui-kit/issues/2839)
+
 ## [2.32.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.32.0...@ukic/react@2.32.1) (2024-12-18)
 
 **Note:** Version bump only for package @ukic/react

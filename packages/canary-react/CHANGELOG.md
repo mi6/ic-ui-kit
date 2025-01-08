@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.32](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.31...@ukic/canary-react@2.0.0-canary.32) (2025-01-08)
+
+### Bug Fixes
+
+- **canary-react:** Allow the IcDataTable to handle empty cell data values ([3a5871a](https://github.com/mi6/ic-ui-kit/commit/3a5871ab555dc6b2ac7b9896d34f6c7766ad8693))
+
+### Features
+
+- **canary-react:** update storybook example for links in IcDataTable to include new target key ([abb9d27](https://github.com/mi6/ic-ui-kit/commit/abb9d2729830a0d80df9f42130de43e7946aa958)), closes [#2751](https://github.com/mi6/ic-ui-kit/issues/2751)
+
 # [2.0.0-canary.31](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.30...@ukic/canary-react@2.0.0-canary.31) (2024-12-18)
 
 ### Features
