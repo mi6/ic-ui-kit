@@ -1666,7 +1666,7 @@ export namespace Components {
     }
     interface IcSelect {
         /**
-          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+          * The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.
          */
         "debounce"?: number;
         /**
@@ -5045,7 +5045,7 @@ declare namespace LocalJSX {
     }
     interface IcSelect {
         /**
-          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+          * The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.
          */
         "debounce"?: number;
         /**
