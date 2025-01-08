@@ -6780,11 +6780,15 @@
       ],
       "parts": [],
       "dependents": [
+        "ic-search-bar",
         "ic-select",
         "ic-text-field"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ic-search-bar": [
+          "ic-input-component-container"
+        ],
         "ic-select": [
           "ic-input-component-container"
         ],
@@ -6854,11 +6858,15 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "ic-search-bar",
         "ic-select",
         "ic-text-field"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ic-search-bar": [
+          "ic-input-container"
+        ],
         "ic-select": [
           "ic-input-container"
         ],
@@ -7064,6 +7072,7 @@
       "dependents": [
         "ic-checkbox-group",
         "ic-radio-group",
+        "ic-search-bar",
         "ic-select",
         "ic-switch",
         "ic-text-field"
@@ -7079,6 +7088,9 @@
           "ic-input-label"
         ],
         "ic-radio-group": [
+          "ic-input-label"
+        ],
+        "ic-search-bar": [
           "ic-input-label"
         ],
         "ic-select": [
@@ -12698,6 +12710,25 @@
           "docsTags": []
         },
         {
+          "event": "icKeydown",
+          "detail": "{ event: KeyboardEvent; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ event: KeyboardEvent }",
+            "resolved": "{ event: KeyboardEvent; }",
+            "references": {
+              "KeyboardEvent": {
+                "location": "global",
+                "id": "global::KeyboardEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a keydown event occurred.",
+          "docsTags": []
+        },
+        {
           "event": "icMenuChange",
           "detail": "IcMenuChangeEventDetail",
           "bubbles": true,
@@ -12820,7 +12851,7 @@
       ],
       "listeners": [
         {
-          "event": "icKeydown",
+          "event": "keydown",
           "capture": false,
           "passive": false
         },
@@ -12841,27 +12872,21 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "ic-text-field",
+        "ic-input-container",
+        "ic-input-label",
+        "ic-input-component-container",
         "ic-button",
         "ic-menu"
       ],
       "dependencyGraph": {
         "ic-search-bar": [
-          "ic-text-field",
-          "ic-button",
-          "ic-menu"
-        ],
-        "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
           "ic-input-component-container",
-          "ic-input-validation",
-          "ic-typography"
+          "ic-button",
+          "ic-menu"
         ],
         "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
           "ic-typography"
         ],
         "ic-button": [
@@ -16885,9 +16910,7 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-search-bar"
-      ],
+      "dependents": [],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -16908,9 +16931,6 @@
         ],
         "ic-input-validation": [
           "ic-typography"
-        ],
-        "ic-search-bar": [
-          "ic-text-field"
         ]
       }
     },
