@@ -12992,7 +12992,7 @@
           "mutable": false,
           "attr": "debounce",
           "reflectToAttr": false,
-          "docs": "The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.",
+          "docs": "The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -16734,12 +16734,7 @@
           "complexType": {
             "signature": "() => Promise<void>",
             "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
+            "references": {},
             "return": "Promise<void>"
           },
           "signature": "setFocus() => Promise<void>",
