@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.5...@ukic/docs@3.0.0-alpha.6) (2025-01-08)
+
+### Bug Fixes
+
+- **web-components:** ic-text-field bug ([6ac9480](https://github.com/mi6/ic-ui-kit/commit/6ac9480c28ac4ecf7012df09b647f539a1fbfa02))
+
+### Documentation
+
+- **docs:** docs update ([aa0f1d7](https://github.com/mi6/ic-ui-kit/commit/aa0f1d7620d3806ae9725fc488c97aac9e044d97))
+
+### BREAKING CHANGES
+
+- **docs:** prop rename to more closely align with native html attribute
+- **web-components:** prop rename from auto-focus to autofocus, more closely aligning with native html attribute
+
 # [3.0.0-alpha.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.4...@ukic/docs@3.0.0-alpha.5) (2024-12-09)
 
 ### Bug Fixes

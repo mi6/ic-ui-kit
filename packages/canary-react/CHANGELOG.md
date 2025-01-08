@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.5...@ukic/canary-react@3.0.0-canary.6) (2025-01-08)
+
+### Bug Fixes
+
+- **canary-react:** Allow the IcDataTable to handle empty cell data values ([099fc98](https://github.com/mi6/ic-ui-kit/commit/099fc98384c91eeee55991e5831c38687daad2fb))
+
+### Features
+
+- **canary-react:** add action-element tests and story ([35e0fc5](https://github.com/mi6/ic-ui-kit/commit/35e0fc5a3ede5ed6e547fd4c4a15cac801bc7094))
+- **canary-react:** update storybook example for links in IcDataTable to include new target key ([dd74fc5](https://github.com/mi6/ic-ui-kit/commit/dd74fc55e697b305f3a170b1963cf433a76715c8)), closes [#2751](https://github.com/mi6/ic-ui-kit/issues/2751)
+- **canary-react:** update tree view/tree item to text wrap by default ([0220f96](https://github.com/mi6/ic-ui-kit/commit/0220f96c70ef9de0fb138738d16723bd9c615640))
+
 # [3.0.0-canary.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.4...@ukic/canary-react@3.0.0-canary.5) (2024-12-09)
 
 ### Bug Fixes

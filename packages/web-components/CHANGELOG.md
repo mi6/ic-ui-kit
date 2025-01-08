@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.5...@ukic/web-components@3.0.0-alpha.6) (2025-01-08)
+
+### Bug Fixes
+
+- **web-components:** add dependencies on react types to fix a build problem ([be4d353](https://github.com/mi6/ic-ui-kit/commit/be4d353a5b99b93402f2cc117ee63294834d1d63))
+- **web-components:** additional field fix ([d41761e](https://github.com/mi6/ic-ui-kit/commit/d41761ed6acddad90a7c2ca0b5ca1410c2812136))
+- **web-components:** fix for items displayed on brand color background ([a7bff90](https://github.com/mi6/ic-ui-kit/commit/a7bff90357fc8bd5cd1f2c700281b84a073659b4))
+- **web-components:** fix monochrome button css issue, and update stories to have dark background ([8931cf7](https://github.com/mi6/ic-ui-kit/commit/8931cf7f52285e0cc72d74a09df9d151268fc85e))
+- **web-components:** ic-text-field bug ([6ac9480](https://github.com/mi6/ic-ui-kit/commit/6ac9480c28ac4ecf7012df09b647f539a1fbfa02))
+- **web-components:** removed disabled attribute from components when set to false ([e37af84](https://github.com/mi6/ic-ui-kit/commit/e37af84bd6ec5739b69860c180dc0017de702368))
+- **web-components:** update icon colours for dark mode badge ([2ca3b77](https://github.com/mi6/ic-ui-kit/commit/2ca3b775c977f197f953f4c7e806b5572af68ca9)), closes [#2910](https://github.com/mi6/ic-ui-kit/issues/2910)
+
+### Documentation
+
+- **docs:** docs update ([aa0f1d7](https://github.com/mi6/ic-ui-kit/commit/aa0f1d7620d3806ae9725fc488c97aac9e044d97))
+
+### Features
+
+- **web-components:** changes to ic-theme ([e8149bb](https://github.com/mi6/ic-ui-kit/commit/e8149bb48692538632e886f0ffd4b00308ac0b33))
+- **web-components:** dismiss label ([42618b2](https://github.com/mi6/ic-ui-kit/commit/42618b2f651b9dfa7257ebed5521492bdfb07ca7))
+- **web-components:** Fix/able to select no options when select has empty options array ([cccf3fe](https://github.com/mi6/ic-ui-kit/commit/cccf3febc0edfa65474bda6ce08b2e8f8c895a6d))
+
+### BREAKING CHANGES
+
+- **docs:** prop rename to more closely align with native html attribute
+- **web-components:** prop rename from auto-focus to autofocus, more closely aligning with native html attribute
+- **web-components:** color prop renamed to brandColor
+  icThemeChange event renamed to icBrandChange
+  changes to types:
+  IcThemeForegroundEnum now IcBrandForegroundEnum
+  IcThemeForeground now IcBrandForeground
+  IcThemeForegroundNoDefault now IcBrandForegroundNoDefault
+  IcTheme now IcBrand
+
 # [3.0.0-alpha.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.4...@ukic/web-components@3.0.0-alpha.5) (2024-12-09)
 
 ### Bug Fixes

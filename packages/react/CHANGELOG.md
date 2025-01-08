@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.5...@ukic/react@3.0.0-alpha.6) (2025-01-08)
+
+### Bug Fixes
+
+- **react:** fix for items displayed on brand color background ([bfdc38c](https://github.com/mi6/ic-ui-kit/commit/bfdc38ced77380feb7c8b0324e71bdde3b16c2f3))
+- **react:** update icon colours for dark mode badge ([ede2a04](https://github.com/mi6/ic-ui-kit/commit/ede2a04ffa9f6295f391283af1180e75a7c5a6e4))
+
+### Features
+
+- **react:** ic-theme component changes ([c2484c8](https://github.com/mi6/ic-ui-kit/commit/c2484c839655252de25d2654eec00faa64f7b325))
+- **web-components:** Fix/able to select no options when select has empty options array ([cccf3fe](https://github.com/mi6/ic-ui-kit/commit/cccf3febc0edfa65474bda6ce08b2e8f8c895a6d))
+
+### BREAKING CHANGES
+
+- **react:** BREAKING CHANGE: color prop renamed to brandColor
+  icThemeChange event renamed to icBrandChange
+  changes to types:
+  IcThemeForegroundEnum now IcBrandForegroundEnum
+  IcThemeForeground now IcBrandForeground
+  IcThemeForegroundNoDefault now IcBrandForegroundNoDefault
+  IcTheme now IcBrand
+
 # [3.0.0-alpha.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.4...@ukic/react@3.0.0-alpha.5) (2024-12-09)
 
 ### Bug Fixes

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.5...@ukic/canary-web-components@3.0.0-canary.6) (2025-01-08)
+
+### Bug Fixes
+
+- **canary-web-components:** Allow the IcDataTable to handle empty cell data values ([e35433f](https://github.com/mi6/ic-ui-kit/commit/e35433f03721b39d8fbafa6ee0ed1867bcce7ef6))
+- **canary-web-components:** fix for items displayed on brand color background ([81dbda4](https://github.com/mi6/ic-ui-kit/commit/81dbda4b894b9caf4adbd5f2578b79c595410ae9))
+- **canary-web-components:** prevent mutation of ic-pagination-bar items per page options prop ([e28c005](https://github.com/mi6/ic-ui-kit/commit/e28c005fb53e18e428e5d9a822af60697bde3747))
+- **canary-web-components:** removed disabled attribute from components ([786c21d](https://github.com/mi6/ic-ui-kit/commit/786c21d893508044bc3527b71eb00dede545e724))
+- **canary-web-components:** set horizontal card image size directly on image to fix Safari issue ([d0c344f](https://github.com/mi6/ic-ui-kit/commit/d0c344f7dee7d18606b986ab78b98a6e72f5cc7b))
+- **canary-web-components:** update webkit autofill colours for date input dark mode ([2800ef2](https://github.com/mi6/ic-ui-kit/commit/2800ef20a4daadb2fcff019e4218fc03f107e114)), closes [#2915](https://github.com/mi6/ic-ui-kit/issues/2915)
+
+### Features
+
+- **canary-web-components:** added action-element, tests and stories ([7538788](https://github.com/mi6/ic-ui-kit/commit/75387882a0cbd629c62972b5d7184782a6dfc015))
+- **canary-web-components:** allow specifying target for anchor in ic-data-table cell ([69fd1b6](https://github.com/mi6/ic-ui-kit/commit/69fd1b6fe3273d3222776e2905c3ef89e2d77e34)), closes [#2751](https://github.com/mi6/ic-ui-kit/issues/2751)
+- **canary-web-components:** update tree view/tree item to text wrap by default ([e156511](https://github.com/mi6/ic-ui-kit/commit/e15651173bf550b41901dcebb3e90417d00217e1)), closes [#2895](https://github.com/mi6/ic-ui-kit/issues/2895)
+- **canary-web-components:** updates due to ic-theme components changes ([6b5afe3](https://github.com/mi6/ic-ui-kit/commit/6b5afe37727bca895a897b89f50fe7db7e557eaa))
+
+### BREAKING CHANGES
+
+- **canary-web-components:** change to IcTheme types, now IcBrand
+- **canary-web-components:** Default behaviour for tree view changed from truncation to text wrap
+
 # [3.0.0-canary.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.4...@ukic/canary-web-components@3.0.0-canary.5) (2024-12-09)
 
 ### Bug Fixes
