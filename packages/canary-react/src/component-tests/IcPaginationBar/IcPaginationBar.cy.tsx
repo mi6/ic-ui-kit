@@ -590,6 +590,36 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
+
+  it("should render with 'All' visible from items per page dropdown when there are fewer items than the available options", () => {
+    mount(<PaginationBarItemsPerPage totalItems={5} hideAllFromItemsPerPage />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, ".items-per-page-input").click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "hide-all-option-still-visible",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render with 'All' visible in the items per page dropdown when the number of items matches the upper bound of the lowest available option", () => {
+    mount(
+      <PaginationBarItemsPerPage totalItems={20} hideAllFromItemsPerPage />
+    );
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, ".items-per-page-input").click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "hide-all-option-still-visible-due-to-matching-item-upper-bound",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
 });
 
 describe("IcPaginationBar visual regression tests in high contrast mode", () => {

@@ -2213,20 +2213,21 @@ export const defaultArgs = {
   loadingProgress: 50, 
   loadingShowBackground: false,
   minimumLoadingDisplayDuration: 1000,
-  paginationItemsPerPageOptions: [
-    { label: "5", value: "5" },
-    { label: "10", value: "10" },
-    { label: "15", value: "15" },
-  ],
-  paginationRangeLabelType: "page",
-  paginationType: "simple",
-  paginationShowItemsPerPageControl: true,
-  paginationShowGoToPageControl: true,
   paginationAlignment: "right",
   paginationAppearance: "default",
-  paginationItemLabel: "Item",
-  paginationPageLabel: "Page",
+  paginationHideAllFromItemsPerPage: false,
   paginationHideRangeLabel: false,
+  paginationItemLabel: "Item",
+  paginationItemsPerPageOptions: [
+    { label: "5", value: "5" },
+     { label: "10", value: "10" },
+     { label: "15", value: "15" },
+  ],
+  paginationPageLabel: "Page",
+  paginationRangeLabelType: "page",
+  paginationShowGoToPageControl: true,
+  paginationShowItemsPerPageControl: true,
+  paginationType: "simple",
   showPagination: true,
   sortable: false,
   sortOrders: ["unsorted", "ascending", "descending"],
@@ -2336,16 +2337,17 @@ export const defaultArgs = {
         }}
         minimumLoadingDisplayDuration={args.minimumLoadingDisplayDuration}
         paginationBarOptions={{
-          itemsPerPageOptions: args.paginationItemsPerPageOptions,
-          rangeLabelType: args.paginationRangeLabelType,
-          type: args.paginationType,
-          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
-          showGoToPageControl: args.paginationShowGoToPageControl,          
-          appearance: args.paginationAppearance,
           alignment: args.paginationAlignment,
-          pageLabel: args.paginationPageLabel,
+          appearance: args.paginationAppearance,
+          hideAllFromItemsPerPage: args.paginationHideAllFromItemsPerPage,
+          hideRangeLabel: args.paginationHideRangeLabel,
           itemLabel: args.paginationItemLabel,
-          hideRangeLabel: args.paginationHideRangeLabel
+          itemsPerPageOptions: args.paginationItemsPerPageOptions,
+          pageLabel: args.paginationPageLabel,
+          rangeLabelType: args.paginationRangeLabelType,
+          showGoToPageControl: args.paginationShowGoToPageControl,
+          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
+          type: args.paginationType
         }}
         showPagination={args.showPagination}
         sortable={args.sortable}

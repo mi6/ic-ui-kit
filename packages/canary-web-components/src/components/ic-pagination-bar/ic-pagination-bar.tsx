@@ -91,6 +91,10 @@ export class PaginationBar {
    * If `true`, the 'All' option will be hidden from the 'items per page' select input.
    */
   @Prop() hideAllFromItemsPerPage?: boolean = false;
+  @Watch("hideAllFromItemsPerPage")
+  watchHideAllFromItemsPerPageHandler(): void {
+    this.setPaginationBarContent();
+  }
 
   /**
    * The text which will be used in place of 'Item' on the pagination bar.
@@ -358,7 +362,7 @@ export class PaginationBar {
     this.icPageChange.emit({ value: this.activePage, fromItemsPerPage: true });
   };
 
-  private setPaginationBarContent = (): void => {
+  private setItemsPerPageOptions = () => {
     const clonedItemsPerPageOptions: {
       label: string;
       value: string;
@@ -379,15 +383,38 @@ export class PaginationBar {
             { label: "100", value: "100" },
             { label: "1000", value: "1000" },
           ]);
-    !this.hideAllFromItemsPerPage &&
-      displayedItemsPerPageOptions.push({
-        label: "All",
-        value: String(this.totalItems),
-      });
 
     this.displayedItemsPerPageOptions = displayedItemsPerPageOptions.filter(
       ({ value }) => this.totalItems >= Number(value)
     );
+
+    const currentItemsLength = this.displayedItemsPerPageOptions.length;
+
+    const addAllOption = () =>
+      this.displayedItemsPerPageOptions.push({
+        label: "All",
+        value: String(this.totalItems),
+      });
+
+    const lastItemsPerPageEqualsTotalItems = () =>
+      Number(
+        this.displayedItemsPerPageOptions[currentItemsLength - 1].value
+      ) === this.totalItems;
+
+    const relabelLastOptionToAll = () =>
+      (this.displayedItemsPerPageOptions[currentItemsLength - 1].label = "All");
+
+    if (currentItemsLength === 0) {
+      addAllOption();
+    } else if (lastItemsPerPageEqualsTotalItems()) {
+      relabelLastOptionToAll();
+    } else if (!this.hideAllFromItemsPerPage) {
+      addAllOption();
+    }
+  };
+
+  private setPaginationBarContent = (): void => {
+    this.setItemsPerPageOptions();
 
     let lastOptionValue = 0;
     const updated = this.displayedItemsPerPageOptions.some(({ value }) => {
