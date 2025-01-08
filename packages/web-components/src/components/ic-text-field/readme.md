@@ -82,10 +82,6 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
- - [ic-search-bar](../ic-search-bar)
-
 ### Depends on
 
 - [ic-input-container](../ic-input-container)
@@ -104,7 +100,6 @@ graph TD;
   ic-text-field --> ic-typography
   ic-input-label --> ic-typography
   ic-input-validation --> ic-typography
-  ic-search-bar --> ic-text-field
   style ic-text-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

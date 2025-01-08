@@ -27,6 +27,7 @@ import {
   onComponentRequiredPropUndefined,
   getFilteredMenuOptions,
   removeDisabledFalse,
+  debounceEvent,
 } from "../../utils/helpers";
 import {
   IcSearchBarBlurEventDetail,
@@ -56,7 +57,7 @@ export class SearchBar {
   private assistiveHintEl: HTMLSpanElement = null;
   private debounceAriaLive: number;
   private hasTimedOut = false;
-  private inputEl: HTMLIcTextFieldElement;
+  private inputEl: HTMLInputElement;
   private inputId = `ic-search-bar-input-${inputIds++}`;
   private menu: HTMLIcMenuElement;
   private menuCloseFromMenuChangeEvent: boolean = false;
@@ -124,6 +125,11 @@ export class SearchBar {
    * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
    */
   @Prop() debounce?: number = 0;
+
+  @Watch("debounce")
+  private debounceChanged() {
+    this.icChange = debounceEvent(this.icChange, this.debounce);
+  }
 
   /**
    * The text displayed when there are no options in the option list.
@@ -303,10 +309,10 @@ export class SearchBar {
     } else if (this.inputEl && this.inputEl.value !== newValue) {
       this.inputEl.value = newValue;
     }
+    this.icChange.emit({ value: newValue });
   }
 
   // The icChange event is defined here so that it appears as an event for search bar
-  // The actual event is emitted from the child ic-text-field
   /**
    * Emitted when the value has changed.
    */
@@ -340,13 +346,13 @@ export class SearchBar {
   };
 
   // The icInput event is defined here so that it appears as an event for search bar
-  // The actual event is emitted from the child ic-text-field
   /**
    * Emitted when a keyboard input occurred.
    */
   @Event() icInput: EventEmitter<IcValueEventDetail>;
   private onInput = (ev: Event) => {
     this.value = (ev.target as HTMLInputElement).value;
+    this.icInput.emit({ value: this.value });
 
     const noOptions = [
       { [this.labelField]: this.emptyOptionListText, [this.valueField]: "" },
@@ -445,6 +451,15 @@ export class SearchBar {
    */
   @Event() icSearchBarFocus: EventEmitter<IcValueEventDetail>;
 
+  /**
+   * Emitted when a keydown event occurred.
+   */
+  @Event() icKeydown: EventEmitter<{ event: KeyboardEvent }>;
+
+  connectedCallback(): void {
+    this.debounceChanged();
+  }
+
   disconnectedCallback(): void {
     if (this.assistiveHintEl) {
       this.assistiveHintEl.remove();
@@ -473,23 +488,17 @@ export class SearchBar {
       [{ prop: this.label, propName: "label" }],
       "Search Bar"
     );
-
-    if (this.inputEl !== undefined) {
-      this.anchorEl = this.inputEl.shadowRoot.querySelector(
-        "ic-input-component-container"
-      );
-    }
   }
 
   componentWillRender(): void {
     this.highlightFirstOptionAfterNoResults();
   }
 
-  @Listen("icKeydown", {})
-  handleKeyDown(ev: CustomEvent): void {
-    const keyEv: KeyboardEvent = ev.detail.event;
+  @Listen("keydown", {})
+  handleKeyDown(event: KeyboardEvent): void {
+    this.icKeydown.emit({ event });
     if (this.menu && this.open) {
-      this.menu.handleKeyboardOpen(keyEv);
+      this.menu.handleKeyboardOpen(event);
     }
   }
 
@@ -520,9 +529,7 @@ export class SearchBar {
   async setFocus(): Promise<void> {
     this.retryViaKeyPress = false;
     this.retryButtonClick = false;
-    if (this.inputEl) {
-      this.inputEl.setFocus();
-    }
+    this.inputEl?.focus();
   }
 
   private handleMouseDown = (ev: Event) => {
@@ -613,10 +620,7 @@ export class SearchBar {
   private handleMenuChange = (ev: CustomEvent<IcMenuChangeEventDetail>) => {
     this.setMenuChange(ev.detail.open);
     if (!ev.detail.open) {
-      this.handleMenuCloseFromMenuChange(true);
-      if (ev.detail.focusInput === undefined || ev.detail.focusInput) {
-        this.el.setFocus();
-      }
+      this.menuCloseFromMenuChangeEvent = true;
     }
   };
 
@@ -649,11 +653,11 @@ export class SearchBar {
     }
 
     if (this.retryButtonClick || this.retryViaKeyPress) {
-      this.inputEl.setFocus();
+      this.inputEl?.focus();
     }
 
     this.handleShowClearButton(false);
-    this.handleMenuCloseFromMenuChange(false);
+    this.menuCloseFromMenuChangeEvent = false;
     this.handleTruncateValue(true);
     this.icSearchBarBlur.emit({ relatedTarget: nextFocus, value: this.value });
     this.retryViaKeyPress = false;
@@ -668,18 +672,12 @@ export class SearchBar {
     this.clearButtonFocused = true;
   };
 
-  private handleMenuCloseFromMenuChange = (fromEvent: boolean): void => {
-    this.menuCloseFromMenuChangeEvent = fromEvent;
-  };
-
   private handleTruncateValue = (truncate: boolean): void => {
     this.truncateValue = truncate;
   };
 
   private renderAssistiveHintEl = (): void => {
-    const input = this.el.shadowRoot
-      .querySelector("ic-text-field")
-      ?.shadowRoot?.querySelector(`#${this.inputId}`);
+    const input = this.el.shadowRoot?.querySelector(`#${this.inputId}`);
 
     if (
       input &&
@@ -836,104 +834,120 @@ export class SearchBar {
         onFocus={this.handleHostFocus}
         onBlur={this.handleHostBlur}
       >
-        <ic-text-field
-          ref={(el) => (this.inputEl = el)}
-          inputId={inputId}
-          label={label}
-          helperText={helperText}
-          required={required}
-          disabled={disabledMode && !readonly}
-          readonly={readonly}
-          size={size}
-          hideLabel={hideLabel}
-          fullWidth={fullWidth}
-          name={name}
-          truncateValue={truncateValue}
-          value={options && !!labelValue ? labelValue : value}
-          placeholder={placeholder}
-          onInput={this.onInput}
-          onBlur={this.onInputBlur}
-          onFocus={this.onInputFocus}
-          aria-label={hideLabel ? label : ""}
-          aria-describedby={describedById}
-          aria-owns={menuRendered ? menuId : undefined}
-          aria-controls={menuRendered ? menuId : undefined}
-          aria-haspopup={options.length > 0 ? "listbox" : undefined}
-          ariaExpanded={options.length > 0 ? `${menuOpen}` : undefined}
-          ariaActiveDescendant={ariaActiveDescendant}
-          aria-autocomplete={hasSuggestedSearch ? "list" : undefined}
-          role={options.length > 0 ? "combobox" : undefined}
-          autocomplete={autocomplete}
-          autocapitalize={autocapitalize}
-          autofocus={autofocus}
-          spellcheck={spellcheck}
-          inputmode="search"
-          debounce={this.debounce}
-        >
-          <div
-            class={{
-              "clear-button-container": true,
-              "clear-button-visible":
-                value && !disabledMode && this.showClearButton,
-            }}
-            slot="clear-button"
+        <ic-input-container readonly={readonly} disabled={disabledMode}>
+          {!hideLabel && (
+            <ic-input-label
+              for={inputId}
+              label={label}
+              helperText={helperText}
+              required={required}
+              disabled={disabledMode && !readonly}
+              readonly={readonly}
+            ></ic-input-label>
+          )}
+          <ic-input-component-container
+            ref={(el) => (this.anchorEl = el)}
+            size={size}
+            disabled={disabledMode}
+            readonly={readonly}
+            fullWidth={fullWidth}
           >
-            <ic-button
-              id="clear-button"
+            <input
+              id={inputId}
+              name={name}
+              ref={(el) => (this.inputEl = el)}
+              value={options && !!labelValue ? labelValue : value}
               class={{
-                "clear-button": true,
-                "clear-button-unfocused": !this.clearButtonFocused,
+                "no-left-pad": readonly,
+                readonly,
+                "truncate-value": truncateValue,
               }}
-              aria-label="Clear"
-              innerHTML={clearIcon}
-              onClick={this.handleClear}
-              onMouseDown={this.handleMouseDown}
-              size={size}
-              onFocus={this.handleFocusClearButton}
-              onBlur={this.handleClearBlur}
-              onKeyDown={this.handleClear}
-              type="submit"
-              variant="icon"
-              theme={this.clearButtonFocused ? "light" : "dark"}
-            ></ic-button>
-            <div class="divider"></div>
-          </div>
-          <div
-            class={{
-              "search-submit-button-container": true,
-              "search-submit-button-disabled": this.isSubmitDisabled(),
-            }}
-            slot="search-submit-button"
-          >
-            <ic-button
-              id="search-submit-button"
-              aria-label="Search"
-              ref={(el) => (this.searchSubmitButton = el)}
+              placeholder={placeholder}
+              required={required}
+              disabled={disabledMode}
+              readonly={readonly}
+              onInput={this.onInput}
+              onBlur={this.onInputBlur}
+              onFocus={this.onInputFocus}
+              aria-label={label}
+              aria-activedescendant={ariaActiveDescendant}
+              aria-expanded={
+                options.length > 0 && menuRendered ? `${menuOpen}` : undefined
+              }
+              aria-owns={menuRendered ? menuId : undefined}
+              aria-describedby={describedById}
+              aria-controls={menuRendered ? menuId : undefined}
+              aria-haspopup={options.length > 0 ? "listbox" : undefined}
+              aria-autocomplete={hasSuggestedSearch ? "list" : undefined}
+              role={options.length > 0 && menuRendered ? "combobox" : undefined}
+              autocomplete={autocomplete}
+              autocapitalize={autocapitalize}
+              autoFocus={autofocus}
+              spellcheck={spellcheck}
+              inputmode="search"
+            ></input>
+            <div
               class={{
-                ["search-submit-button"]: true,
-                ["search-submit-button-small"]: size === "small",
-                ["search-submit-button-unfocused"]: !this.searchSubmitFocused,
-                ["search-submit-button-disabled"]: this.isSubmitDisabled(),
+                "clear-button-container": true,
+                "clear-button-visible":
+                  value && !disabledMode && this.showClearButton,
               }}
-              disabled={this.isSubmitDisabled()}
-              innerHTML={searchIcon}
-              size={size}
-              onClick={this.handleSubmitSearch}
-              onMouseDown={this.handleMouseDown}
-              onBlur={this.handleSubmitSearchBlur}
-              onFocus={this.handleSubmitSearchFocus}
-              onKeyDown={this.handleSubmitSearchKeyDown}
-              type="submit"
-              variant="icon"
-              theme={this.searchSubmitFocused ? "light" : "dark"}
-            ></ic-button>
-          </div>
+            >
+              <ic-button
+                id="clear-button"
+                class={{
+                  "clear-button": true,
+                  "clear-button-unfocused": !this.clearButtonFocused,
+                }}
+                aria-label="Clear"
+                innerHTML={clearIcon}
+                onClick={this.handleClear}
+                onMouseDown={this.handleMouseDown}
+                size={size}
+                onFocus={this.handleFocusClearButton}
+                onBlur={this.handleClearBlur}
+                onKeyDown={this.handleClear}
+                type="submit"
+                variant="icon"
+                theme={this.clearButtonFocused ? "light" : "dark"}
+              ></ic-button>
+              <div class="divider"></div>
+            </div>
+            <div
+              class={{
+                "search-submit-button-container": true,
+                "search-submit-button-disabled": this.isSubmitDisabled(),
+              }}
+            >
+              <ic-button
+                id="search-submit-button"
+                aria-label="Search"
+                ref={(el) => (this.searchSubmitButton = el)}
+                class={{
+                  ["search-submit-button"]: true,
+                  ["search-submit-button-small"]: size === "small",
+                  ["search-submit-button-unfocused"]: !this.searchSubmitFocused,
+                  ["search-submit-button-disabled"]: this.isSubmitDisabled(),
+                }}
+                disabled={this.isSubmitDisabled()}
+                innerHTML={searchIcon}
+                size={size}
+                onClick={this.handleSubmitSearch}
+                onMouseDown={this.handleMouseDown}
+                onBlur={this.handleSubmitSearchBlur}
+                onFocus={this.handleSubmitSearchFocus}
+                onKeyDown={this.handleSubmitSearchKeyDown}
+                type="submit"
+                variant="icon"
+                theme={this.searchSubmitFocused ? "light" : "dark"}
+              ></ic-button>
+            </div>
+          </ic-input-component-container>
           <div
             class={{
               "menu-container": true,
               fullwidth: fullWidth,
             }}
-            slot="menu"
           >
             {menuRendered && (
               <ic-menu
@@ -968,7 +982,7 @@ export class SearchBar {
               ></ic-menu>
             )}
           </div>
-        </ic-text-field>
+        </ic-input-container>
         <div
           aria-live="polite"
           role="status"
