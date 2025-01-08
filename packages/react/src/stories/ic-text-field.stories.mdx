@@ -149,6 +149,58 @@ export const ControlledExample = () => {
   </Story>
 </Canvas>
 
+### With null value
+
+<Canvas>
+  <Story name="With null value">
+    <IcTextField
+      value={null}
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+    >
+      <SlottedIcon />
+    </IcTextField>
+    <IcTextField
+      rows="6"
+      value={null}
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+    >
+      <SlottedIcon />
+    </IcTextField>
+  </Story>
+</Canvas>
+
+### With undefined value
+
+<Canvas>
+  <Story name="With undefined value">
+    <IcTextField
+      value={undefined}
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+    >
+      <SlottedIcon />
+    </IcTextField>
+    <IcTextField
+      rows="6"
+      value={undefined}
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+    >
+      <SlottedIcon />
+    </IcTextField>
+  </Story>
+</Canvas>
+
 ### Full width
 
 <Canvas>
