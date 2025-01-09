@@ -1041,6 +1041,10 @@ Returning `null` from this function means that the row will use the `globalRowHe
 
 E.G: If `globalRowHeight` = 100, a dense table will set the height to be **_80_**.
 
+**_NOTE:_** If a cell has a description (see "Description and icons within cells"), then the row height for that individual row will be increased by the description height in order to fully display it.
+
+E.G: If `globalRowHeight` = 100 and a cell has a description with a height of 20, then the row height for that cell's row will be set to **_120_**.
+
 To quickly reset all row heights to the default, you can run the `resetRowHeights` method.
 
 If you'd rather let the row calculate its own height based on its content, either set `globalRowHeight` to `auto`, or return `auto` from `variableRowHeight`.
