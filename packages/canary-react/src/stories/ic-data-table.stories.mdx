@@ -1386,6 +1386,8 @@ By default, `globalRowHeight` is set to `auto`. If the `truncationPattern` attri
 
 To see the data truncated, the `globalRowHeight` or `variableRowHeight` needs to be explicitly set to a height which is shorter than data which has the most lines.
 
+**_NOTE:_** `truncation-pattern` only applies to a cell's main data value. If a cell has a description (see "Description and icons within cells") then this will not be truncated and will still be visible beyond the truncation.
+
 #### Data truncation tooltip
 
 export const TruncationTooltip = () => {
