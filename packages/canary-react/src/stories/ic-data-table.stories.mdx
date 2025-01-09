@@ -1885,23 +1885,6 @@ const DataTable = () => {
 export default DataTable;
 ```
 
-export const defaultPaginationBarArgs = {
-  itemsPerPageOptions: [
-    { label: "5", value: "5" },
-    { label: "10", value: "10" },
-    { label: "15", value: "15" },
-  ],
-  rangeLabelType: "page",
-  type: "simple",
-  showItemsPerPageControl: true,
-  showGoToPageControl: true,
-  alignment: "right",
-  appearance: "default",
-  itemLabel: "Item",
-  pageLabel: "Page",
-  hideRangeLabel: false
-};
-
 ### Slotted pagination bar
 
 There may be scenarios when using `IcDataTable` when pagination and data fetching is done using a backend API.
@@ -2363,20 +2346,22 @@ export const defaultArgs = {
   loadingProgress: 50, 
   loadingShowBackground: false,
   minimumLoadingDisplayDuration: 1000,
+  paginationAlignment: "right",
+  paginationAppearance: "default",
+  paginationHideAllFromItemsPerPage: false,
+  paginationHideRangeLabel: false,
+  paginationItemLabel: "Item",
   paginationItemsPerPageOptions: [
     { label: "5", value: "5" },
     { label: "10", value: "10" },
     { label: "15", value: "15" },
   ],
-  paginationRangeLabelType: "page",
-  paginationType: "simple",
-  paginationShowItemsPerPageControl: true,
-  paginationShowGoToPageControl: true,
-  paginationAlignment: "right",
-  paginationAppearance: "default",
-  paginationItemLabel: "Item",
   paginationPageLabel: "Page",
-  paginationHideRangeLabel: false,
+  paginationRangeLabelType: "page",
+  paginationSetToFirstPageOnPaginationChange: false,
+  paginationShowGoToPageControl: true,
+  paginationShowItemsPerPageControl: true,
+  paginationType: "simple",
   showPagination: true,
   sortable: false,
   sortOrders: ["unsorted", "ascending", "descending"],
@@ -2486,16 +2471,18 @@ export const defaultArgs = {
         }}
         minimumLoadingDisplayDuration={args.minimumLoadingDisplayDuration}
         paginationBarOptions={{
-          itemsPerPageOptions: args.paginationItemsPerPageOptions,
-          rangeLabelType: args.paginationRangeLabelType,
-          type: args.paginationType,
-          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
-          showGoToPageControl: args.paginationShowGoToPageControl,          
-          appearance: args.paginationAppearance,
           alignment: args.paginationAlignment,
-          pageLabel: args.paginationPageLabel,
+          appearance: args.paginationAppearance,
+          hideAllFromItemsPerPage: args.paginationHideAllFromItemsPerPage,
+          hideRangeLabel: args.paginationHideRangeLabel,
           itemLabel: args.paginationItemLabel,
-          hideRangeLabel: args.paginationHideRangeLabel
+          itemsPerPageOptions: args.paginationItemsPerPageOptions,
+          pageLabel: args.paginationPageLabel,
+          rangeLabelType: args.paginationRangeLabelType,
+          setToFirstPageOnPaginationChange: args.paginationSetToFirstPageOnPaginationChange,
+          showGoToPageControl: args.paginationShowGoToPageControl,
+          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
+          type: args.paginationType
         }}
         showPagination={args.showPagination}
         sortable={args.sortable}

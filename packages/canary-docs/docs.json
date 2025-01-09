@@ -3698,6 +3698,28 @@
           "required": false
         },
         {
+          "name": "setToFirstPageOnPaginationChange",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "set-to-first-page-on-pagination-change",
+          "reflectToAttr": false,
+          "docs": "If `true`, the pagination bar is set to the first page when the 'items per page' changes",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "showGoToPageControl",
           "type": "boolean",
           "complexType": {
