@@ -1,7 +1,21 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Hero } from "../../ic-hero";
+import {
+  mockHasDynamicChildSlots,
+  mockMutationObserverImplementation,
+  MockMutationRecord,
+  mockRenderDynamicChildSlots,
+} from "../../../../testspec.setup";
 
 describe("ic-hero component", () => {
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render", async () => {
     const page = await newSpecPage({
       components: [Hero],
@@ -104,15 +118,40 @@ describe("ic-hero component", () => {
       html: `<ic-hero heading="Test title" subheading="Test text"></ic-hero>`,
     });
 
+    const component = page.rootInstance;
+    const host = page.root;
+
+    const observerInstance =
+      mockMutationObserverImplementation.mock.results[0].value;
+
     const icon = document.createElement("svg");
     icon.setAttribute("slot", "secondary");
 
-    page.rootInstance.hostMutationCallback([
+    observerInstance.observe(host, { childList: true });
+
+    host.appendChild(icon);
+
+    const mockMutationRecord: MockMutationRecord[] = [
       {
-        type: "childList",
         addedNodes: [icon],
         removedNodes: [],
+        target: host,
       },
-    ]);
+    ];
+
+    observerInstance.trigger(mockMutationRecord);
+
+    await page.waitForChanges();
+
+    expect(mockRenderDynamicChildSlots).toHaveBeenCalledTimes(1);
+    expect(mockRenderDynamicChildSlots).toHaveBeenCalledWith(
+      mockMutationRecord,
+      "secondary",
+      component
+    );
+
+    expect(mockHasDynamicChildSlots).toHaveBeenCalledTimes(1);
+
+    expect(page.root).toMatchSnapshot();
   });
 });

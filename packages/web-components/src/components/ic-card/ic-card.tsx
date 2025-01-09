@@ -6,7 +6,6 @@ import {
   State,
   h,
   Method,
-  forceUpdate,
   Watch,
 } from "@stencil/core";
 import {
@@ -14,7 +13,7 @@ import {
   isSlotUsed,
   getThemeFromContext,
   removeDisabledFalse,
-  checkSlotInChildMutations,
+  renderDynamicChildSlots,
 } from "../../utils/helpers";
 import {
   IcTheme,
@@ -146,7 +145,23 @@ export class Card {
       );
     this.updateTheme();
 
-    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(
+        mutationList,
+        [
+          "message",
+          "adornment",
+          "expanded-content",
+          "image-top",
+          "image-mid",
+          "icon",
+          "interaction-button",
+          "badge",
+          "interaction-controls",
+        ],
+        this
+      )
+    );
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
@@ -195,28 +210,6 @@ export class Card {
 
   private toggleExpanded = (): void => {
     this.areaExpanded = !this.areaExpanded;
-  };
-
-  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
-    if (
-      mutationList.some(({ type, addedNodes, removedNodes }) =>
-        type === "childList"
-          ? checkSlotInChildMutations(addedNodes, removedNodes, [
-              "message",
-              "adornment",
-              "expanded-content",
-              "image-top",
-              "image-mid",
-              "icon",
-              "interaction-button",
-              "badge",
-              "interaction-controls",
-            ])
-          : false
-      )
-    ) {
-      forceUpdate(this);
-    }
   };
 
   render() {
