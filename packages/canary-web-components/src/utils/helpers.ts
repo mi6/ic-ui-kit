@@ -25,6 +25,8 @@ import { EventEmitter } from "@stencil/core";
 import { IcDataTableDataType } from "../interface";
 
 const DARK_MODE_THRESHOLD = 133.3505;
+const linkIcInput = "input.ic-input";
+const icInput = "ic-input";
 
 /**
  * converts an enum of strings into an array of strings
@@ -675,4 +677,51 @@ export const addDataToPosition = (
     controlledIndex++;
   });
   return newData;
+};
+
+
+/**
+ * This method is used to add a hidden file input to a host element that contains
+ * a Shadow DOM. It does not add the input inside of the Shadow root which
+ * allows it to be picked up inside of forms. It should contain the same
+ * values as the host element.
+ *
+ * @param event: The event that is emitted once a file is selected.
+ * @param container The element where the input will be added
+ * @param multiple If true, multiple files can be selected
+ * @param name The name of the input
+ * @param value The value of the input
+ * @param disabled If true, the input is disabled
+ * @param accept A string of the accepted files
+ */
+export const renderFileHiddenInput = (
+  event: EventEmitter,
+  container: HTMLElement,
+  multiple: boolean,
+  name: string,
+  disabled: boolean,
+  accept: string
+): void => {
+  if (name !== undefined && hasShadowDom(container)) {
+    const inputs = container.querySelectorAll(linkIcInput);
+    const inputEls = Array.from(inputs);
+    const filtered = inputEls.filter((el) => container === el.parentElement);
+
+    let input = filtered[0] as HTMLInputElement;
+    if (input === null || input === undefined) {
+      input = container.ownerDocument.createElement("input");
+      input.classList.add(icInput);
+      container.appendChild(input);
+    }
+    input.type = "file";
+    input.hidden = false;
+    input.multiple = multiple;
+    input.name = name;
+    input.disabled = disabled;
+    input.accept = accept;
+    input.id = "test-file-upload";
+    input.onchange = () => {
+      event.emit(input.files);
+    };
+  }
 };

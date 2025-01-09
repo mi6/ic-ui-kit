@@ -1,0 +1,43 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta
+  title="Web Components/File Upload"
+  component="File Upload"
+  parameters={{
+    componentAPI: {
+      data: readme,
+    },
+  }}
+/>
+
+<Canvas withSource="none">
+  <Story name="Default" parameters={{ loki: { skip: true } }}>
+    {html`<ic-file-upload></ic-file-upload>`}
+  </Story>
+</Canvas>
+
+<Canvas withSource="none">
+  <Story name="Custom text" parameters={{ loki: { skip: true } }}>
+    {html`
+      <ic-file-upload upload-text='Custom text message'></ic-file-upload>
+    `}
+  </Story>
+</Canvas>
+
+<Canvas withSource="none">
+  <Story name="Fit container" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="height: 400px; width: 200px;">
+        <ic-file-upload fitContainer></ic-file-upload>
+      </div>
+    `}
+  </Story>
+</Canvas>

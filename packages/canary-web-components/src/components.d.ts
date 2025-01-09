@@ -418,6 +418,28 @@ export namespace Components {
          */
         "value"?: string | Date | null | undefined;
     }
+    interface IcFileUpload {
+        /**
+          * This is the accepted list of file types.
+         */
+        "accept"?: string;
+        /**
+          * The name of the control for the file input, which is submitted with the form data.
+         */
+        "fileInputName": string;
+        /**
+          * If `true`, the file upload component will fit the size of the container.
+         */
+        "fitContainer"?: boolean;
+        /**
+          * This boolean determines whether multiple files are accepted.
+         */
+        "multiple"?: boolean;
+        /**
+          * The text displayed between the browse button and the upload icon.
+         */
+        "uploadText"?: string;
+    }
     interface IcMenuWithMulti {
         /**
           * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
@@ -769,6 +791,10 @@ export interface IcDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcDatePickerElement;
 }
+export interface IcFileUploadCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcFileUploadElement;
+}
 export interface IcMenuWithMultiCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcMenuWithMultiElement;
@@ -863,6 +889,23 @@ declare global {
     var HTMLIcDatePickerElement: {
         prototype: HTMLIcDatePickerElement;
         new (): HTMLIcDatePickerElement;
+    };
+    interface HTMLIcFileUploadElementEventMap {
+        "onUpload": File[];
+    }
+    interface HTMLIcFileUploadElement extends Components.IcFileUpload, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcFileUploadElementEventMap>(type: K, listener: (this: HTMLIcFileUploadElement, ev: IcFileUploadCustomEvent<HTMLIcFileUploadElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcFileUploadElementEventMap>(type: K, listener: (this: HTMLIcFileUploadElement, ev: IcFileUploadCustomEvent<HTMLIcFileUploadElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcFileUploadElement: {
+        prototype: HTMLIcFileUploadElement;
+        new (): HTMLIcFileUploadElement;
     };
     interface HTMLIcMenuWithMultiElementEventMap {
         "menuKeyPress": { isNavKey: boolean; key: string };
@@ -959,6 +1002,7 @@ declare global {
         "ic-data-table-title-bar": HTMLIcDataTableTitleBarElement;
         "ic-date-input": HTMLIcDateInputElement;
         "ic-date-picker": HTMLIcDatePickerElement;
+        "ic-file-upload": HTMLIcFileUploadElement;
         "ic-menu-with-multi": HTMLIcMenuWithMultiElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
         "ic-select-with-multi": HTMLIcSelectWithMultiElement;
@@ -1376,6 +1420,29 @@ declare namespace LocalJSX {
          */
         "value"?: string | Date | null | undefined;
     }
+    interface IcFileUpload {
+        /**
+          * This is the accepted list of file types.
+         */
+        "accept"?: string;
+        /**
+          * The name of the control for the file input, which is submitted with the form data.
+         */
+        "fileInputName"?: string;
+        /**
+          * If `true`, the file upload component will fit the size of the container.
+         */
+        "fitContainer"?: boolean;
+        /**
+          * This boolean determines whether multiple files are accepted.
+         */
+        "multiple"?: boolean;
+        "onOnUpload"?: (event: IcFileUploadCustomEvent<File[]>) => void;
+        /**
+          * The text displayed between the browse button and the upload icon.
+         */
+        "uploadText"?: string;
+    }
     interface IcMenuWithMulti {
         /**
           * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
@@ -1751,6 +1818,7 @@ declare namespace LocalJSX {
         "ic-data-table-title-bar": IcDataTableTitleBar;
         "ic-date-input": IcDateInput;
         "ic-date-picker": IcDatePicker;
+        "ic-file-upload": IcFileUpload;
         "ic-menu-with-multi": IcMenuWithMulti;
         "ic-pagination-bar": IcPaginationBar;
         "ic-select-with-multi": IcSelectWithMulti;
@@ -1767,6 +1835,7 @@ declare module "@stencil/core" {
             "ic-data-table-title-bar": LocalJSX.IcDataTableTitleBar & JSXBase.HTMLAttributes<HTMLIcDataTableTitleBarElement>;
             "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
             "ic-date-picker": LocalJSX.IcDatePicker & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
+            "ic-file-upload": LocalJSX.IcFileUpload & JSXBase.HTMLAttributes<HTMLIcFileUploadElement>;
             "ic-menu-with-multi": LocalJSX.IcMenuWithMulti & JSXBase.HTMLAttributes<HTMLIcMenuWithMultiElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
             "ic-select-with-multi": LocalJSX.IcSelectWithMulti & JSXBase.HTMLAttributes<HTMLIcSelectWithMultiElement>;

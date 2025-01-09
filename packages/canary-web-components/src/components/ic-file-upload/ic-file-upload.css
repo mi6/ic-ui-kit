@@ -1,0 +1,67 @@
+.file-upload-default {
+    display: flex;
+    width: 300px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--ic-action-default);
+    border-radius: var(--ic-border-radius);
+}
+
+.full-size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--ic-action-default);
+    border-radius: var(--ic-border-radius);
+    width: 100%;
+    height: 100%;
+}
+
+.file-upload-internal-dragging {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--ic-space-md);
+    margin: var(--ic-space-md);
+    pointer-events: none;
+}
+
+.file-upload-internal {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--ic-space-md);
+    margin: var(--ic-space-md);
+}
+
+.upload-icon-container {
+    display: inline-block;
+    width: var(--ic-space-xxl);
+    height: 2.5rem;
+    pointer-events: none;
+}
+
+.dragging {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--ic-action-default);
+    border-radius: var(--ic-border-radius);
+    background-color: var(--ic-architectural-60);
+}
+
+.full-size-dragging {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--ic-action-default);
+    border-radius: var(--ic-border-radius);
+    background-color: var(--ic-architectural-60);
+    width: 100%;
+    height: 100%;
+}
