@@ -4923,7 +4923,7 @@
         {
           "status": "fail",
           "name": "IcSearchBar.cy.tsx-theme-dark",
-          "percentage": 0.275056357861439,
+          "percentage": 0.013856406460551019,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
@@ -8363,9 +8363,9 @@
       ]
     }
   ],
-  "startedAt": "2025-01-09T14:16:18.894Z",
-  "endedAt": "2025-01-09T14:31:59.111Z",
-  "duration": 849493,
+  "startedAt": "2025-01-09T15:52:13.418Z",
+  "endedAt": "2025-01-09T16:07:29.849Z",
+  "duration": 827152,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
