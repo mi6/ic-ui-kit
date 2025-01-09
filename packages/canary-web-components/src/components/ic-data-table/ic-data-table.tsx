@@ -240,6 +240,7 @@ export class DataTable {
     hideRangeLabel: false,
     hideAllFromItemsPerPage: false,
     monochrome: false,
+    setToFirstPageOnPaginationChange: false,
   };
 
   /**
@@ -2054,6 +2055,9 @@ export class DataTable {
                   hideRangeLabel={paginationBarOptions.hideRangeLabel}
                   hideAllFromItemsPerPage={
                     paginationBarOptions.hideAllFromItemsPerPage
+                  }
+                  setToFirstPageOnPaginationChange={
+                    paginationBarOptions.setToFirstPageOnPaginationChange
                   }
                 ></ic-pagination-bar>
               )}

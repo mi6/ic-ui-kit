@@ -193,6 +193,7 @@ export interface IcPaginationBarOptions {
   hideAllFromItemsPerPage?: boolean;
   theme?: IcThemeMode;
   monochrome?: boolean;
+  setToFirstPageOnPaginationChange?: boolean;
 }
 
 export type IcCallbackFunctionNoReturn = (...args: unknown[]) => void;
