@@ -238,6 +238,7 @@ export class DataTable {
     pageLabel: "Page",
     hideRangeLabel: false,
     hideAllFromItemsPerPage: false,
+    setToFirstPageOnPaginationChange: false,
   };
 
   /**
@@ -1978,6 +1979,9 @@ export class DataTable {
                   hideRangeLabel={paginationBarOptions.hideRangeLabel}
                   hideAllFromItemsPerPage={
                     paginationBarOptions.hideAllFromItemsPerPage
+                  }
+                  setToFirstPageOnPaginationChange={
+                    paginationBarOptions.setToFirstPageOnPaginationChange
                   }
                 ></ic-pagination-bar>
               )}

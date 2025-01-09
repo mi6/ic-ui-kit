@@ -190,6 +190,7 @@ export interface IcPaginationBarOptions {
   pageLabel?: string;
   hideRangeLabel?: boolean;
   hideAllFromItemsPerPage?: boolean;
+  setToFirstPageOnPaginationChange?: boolean;
 }
 
 export type IcCallbackFunctionNoReturn = (...args: unknown[]) => void;
