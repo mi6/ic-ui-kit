@@ -1641,16 +1641,6 @@ const DataTable = () => (
 export default DataTable;
 ```
 
-### Missing cell data
-
-The example below demonstrates the table being able to handle empty cell values (null, undefined or empty string).
-
-<Canvas withSource="none">
-  <Story name="Missing cell data" parameters={{ loki: { skip: true } }}>
-    {MissingCellData()}
-  </Story>
-</Canvas>
-
 ### Description and icons within cells
 
 Descriptions and icons can be included in the cells by proving a `description` field in the data. This will populate the cell with an icon (if provided) and a text string underneath the cell data, this can be applied to any cell.

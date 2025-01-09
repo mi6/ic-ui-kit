@@ -1106,8 +1106,10 @@ export const LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS = [
   },
   {
     firstName: {
-      data: "Josephine",
       actionElement: copyButton,
+      description: {
+        data: "Alias: The Ghost",
+      },
     },
     lastName: "Blogger",
     age: 32,

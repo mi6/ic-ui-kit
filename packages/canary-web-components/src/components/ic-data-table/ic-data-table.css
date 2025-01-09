@@ -392,6 +392,7 @@ td.table-density-spacious {
 .description-cell {
   display: flex;
   flex-direction: row;
+  margin-top: var(--ic-space-xxs);
 }
 
 .description-cell-text {
