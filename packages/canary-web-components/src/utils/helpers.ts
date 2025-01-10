@@ -679,6 +679,15 @@ export const addDataToPosition = (
   return newData;
 };
 
+/*
+ * Checks if the component is slotted in its relevant 'group' component
+ * @param component - the component to check
+ */
+export const isSlottedInGroup = (component: any): boolean => {
+  const parent = component?.tagName + "-GROUP";
+  return component?.parentElement?.tagName === parent;
+};
+
 export const hasDynamicChildSlots = (
   mutationList: MutationRecord[],
   slotNames: string | string[]
