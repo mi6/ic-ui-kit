@@ -4110,6 +4110,25 @@ describe("IcDataTable table with descriptions", () => {
       .find(".table-cell:nth-child(1) .cell-container")
       .should("have.attr", "style", "--row-height: 1.5rem;");
   });
+
+  it("should expand row height beyond global row height if a description is present but no cell data is present", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(3)
+      .find(".table-cell:nth-child(1) .cell-container")
+      .should("have.attr", "style", "--row-height: 44px");
+  });
 });
 
 describe("IcDataTable table with descriptions", () => {
@@ -4194,96 +4213,96 @@ describe("IcDataTable table with descriptions", () => {
         "contain",
         LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
       );
-  });
+});
 
-  it("should not truncate long text if global row height allows for all text to be present", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
-        caption="Data Tables"
-        truncationPattern="tooltip"
-        globalRowHeight={200}
-      />
+it("should not truncate long text if global row height allows for all text to be present", () => {
+  mount(
+    <IcDataTable
+      columns={COLS}
+      data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+      caption="Data Tables"
+      truncationPattern="tooltip"
+      globalRowHeight={200}
+    />
+  );
+
+  cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    .eq(0)
+    .find(".table-cell:nth-child(1) ic-tooltip")
+    .should("not.exist");
+
+  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    .eq(0)
+    .find(".table-cell:nth-child(1) ic-typography")
+    .should(
+      "contain",
+      LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
     );
 
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
+  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    .eq(0)
+    .find(".table-cell:nth-child(1) div div ic-typography")
+    .should(
+      "contain",
+      LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
+    );
+});
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) ic-tooltip")
-      .should("not.exist");
+it("should truncate long text without truncating descriptions - using tooltip pattern when global row height is set", () => {
+  mount(
+    <IcDataTable
+      columns={COLS}
+      data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+      caption="Data Tables"
+      truncationPattern="tooltip"
+      globalRowHeight={40}
+    />
+  );
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) ic-typography")
-      .should(
-        "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
-      );
+  cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) div div ic-typography")
-      .should(
-        "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
-      );
-  });
+  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    .eq(0)
+    .find(".table-cell:nth-child(1) ic-tooltip")
+    .should("exist");
 
-  it("should truncate long text without truncating descriptions - using tooltip pattern when global row height is set", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
-        caption="Data Tables"
-        truncationPattern="tooltip"
-        globalRowHeight={40}
-      />
+  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    .eq(0)
+    .find(".table-cell:nth-child(1) ic-tooltip ic-typography")
+    .should(
+      "contain",
+      LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
     );
 
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) ic-tooltip")
-      .should("exist");
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) ic-tooltip ic-typography")
-      .should(
-        "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
-      );
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) div div ic-typography")
-      .should(
-        "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
-      );
-  });
-
-  it("should expand row height beyond global row height if description is present", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
-        caption="Data Tables"
-        truncationPattern="tooltip"
-        globalRowHeight={40}
-      />
+  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    .eq(0)
+    .find(".table-cell:nth-child(1) div div ic-typography")
+    .should(
+      "contain",
+      LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
     );
+});
 
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
+it("should expand row height beyond global row height if description is present", () => {
+  mount(
+    <IcDataTable
+      columns={COLS}
+      data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+      caption="Data Tables"
+      truncationPattern="tooltip"
+      globalRowHeight={40}
+    />
+  );
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(1)
-      .find(".table-cell:nth-child(1) .cell-container")
-      .should("have.attr", "style", "--row-height: 1.5rem;");
-  });
+  cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    .eq(1)
+    .find(".table-cell:nth-child(1) .cell-container")
+    .should("have.attr", "style", "--row-height: 1.5rem;");
+});
 });
 
 describe("IcDataTable row deletion", () => {
