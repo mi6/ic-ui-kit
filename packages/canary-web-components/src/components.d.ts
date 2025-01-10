@@ -121,6 +121,7 @@ export namespace Components {
     min?: number;
     progress?: number;
     showBackground?: boolean;
+    overlay?: boolean;
   };
         /**
           * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
@@ -1097,6 +1098,7 @@ declare namespace LocalJSX {
     min?: number;
     progress?: number;
     showBackground?: boolean;
+    overlay?: boolean;
   };
         /**
           * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.

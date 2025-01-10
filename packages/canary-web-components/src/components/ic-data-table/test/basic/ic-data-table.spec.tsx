@@ -1370,4 +1370,39 @@ describe(icDataTable, () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
+  it("should render the loading indicator with an overlay above the table", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={[data[0]]}
+          loading={true}
+          loadingOptions={{
+            overlay: true,
+          }}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render updating in assertive aria-live div", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={[data[0]]}
+          updating={true}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
 });

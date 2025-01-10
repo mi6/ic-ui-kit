@@ -1,3 +1,5 @@
+import { IcThemeForegroundNoDefault } from "@ukic/web-components";
+
 export type IcDataTableSortOrderOptions =
   | "unsorted"
   | "ascending"
@@ -39,6 +41,18 @@ export type IcDataTableColumnObject = {
     onAllCells?: boolean;
     hideOnHeader?: boolean;
   };
+};
+
+export type IcLoadingOptions = {
+  appearance?: IcThemeForegroundNoDefault;
+  description?: string;
+  label?: string;
+  labelDuration?: number;
+  max?: number;
+  min?: number;
+  progress?: number;
+  showBackground?: boolean;
+  overlay?: boolean;
 };
 
 export type IcDataTableRowHeights = number | "auto";

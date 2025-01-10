@@ -225,6 +225,7 @@ exports[`ic-data-table should apply a specified row height to all rows when glob
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -455,6 +456,7 @@ exports[`ic-data-table should apply a specified row height to specific rows when
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -685,6 +687,7 @@ exports[`ic-data-table should apply the correct density scaler to rowHeights whe
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -915,6 +918,7 @@ exports[`ic-data-table should apply the correct density scaler to rowHeights whe
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -964,6 +968,7 @@ exports[`ic-data-table should be able to slot a custom empty state into the data
         </table>
         <slot name="empty-state"></slot>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
   <ic-empty-state class="left" slot="empty-state">
@@ -1234,6 +1239,7 @@ exports[`ic-data-table should correctly render a custom icon in the header when 
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -1464,6 +1470,7 @@ exports[`ic-data-table should not override the height of certain rows if \`varia
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -1694,6 +1701,7 @@ exports[`ic-data-table should not override the height of rows if \`globalRowHeig
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -1924,6 +1932,7 @@ exports[`ic-data-table should not render custom icon in header when hideOnHeader
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -2156,6 +2165,7 @@ exports[`ic-data-table should pass the caption down to any slotted ic-data-table
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
   <ic-data-table-title-bar slot="title-bar">
@@ -2225,6 +2235,10 @@ exports[`ic-data-table should pass through the loadingOptions to the loading ind
           </thead>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading
+      </div>
+      <div class="loading-overlay"></div>
       <ic-loading-indicator appearance="light" class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
@@ -2277,6 +2291,9 @@ exports[`ic-data-table should pass through the updatingOptions to the linear loa
           </th>
         </table>
         <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
+      </div>
+      <div aria-live="assertive" class="sr-only">
+        Updating
       </div>
     </div>
   </mock:shadow-root>
@@ -2508,6 +2525,7 @@ exports[`ic-data-table should render 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -2739,6 +2757,7 @@ exports[`ic-data-table should render a slotted icon instead of an icon defined i
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
   <svg aria-hidden="true" focusable="false" slot="name-0-icon" viewBox="0 0 24 24">
@@ -2958,6 +2977,7 @@ exports[`ic-data-table should render an action element if present in the data se
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -3253,6 +3273,7 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -3483,6 +3504,7 @@ exports[`ic-data-table should render embedded 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -3725,6 +3747,7 @@ exports[`ic-data-table should render sortable 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
       <div aria-live="polite" class="screen-reader-sort-text">
         table unsorted
       </div>
@@ -3777,6 +3800,7 @@ exports[`ic-data-table should render the empty state when data is null 1`] = `
         </table>
         <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -3826,6 +3850,92 @@ exports[`ic-data-table should render the empty state when no data is passed thro
         </table>
         <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render the loading indicator with an overlay above the table 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading
+      </div>
+      <div class="loading-overlay show"></div>
+      <ic-loading-indicator class="loading loading-empty show show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -3874,6 +3984,10 @@ exports[`ic-data-table should render the loading state when the \`loading\` prop
           </thead>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading
+      </div>
+      <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
@@ -3926,6 +4040,95 @@ exports[`ic-data-table should render the updating state when the \`updating\` pr
           </th>
         </table>
         <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
+      </div>
+      <div aria-live="assertive" class="sr-only">
+        Updating
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render updating in assertive aria-live div 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header updating-state-headers" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header updating-state-headers" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header updating-state-headers" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header updating-state-headers" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <th class="updating-state" colspan="4">
+            <ic-loading-indicator description="Updating table data" fullwidth="" size="small" type="linear"></ic-loading-indicator>
+          </th>
+          <tbody>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="assertive" class="sr-only">
+        Updating
       </div>
     </div>
   </mock:shadow-root>
@@ -4159,6 +4362,7 @@ exports[`ic-data-table should render with a slotted ic-data-table-title-bar 1`] 
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
   <ic-data-table-title-bar slot="title-bar"></ic-data-table-title-bar>
@@ -4390,6 +4594,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
       <div class="pagination-container">
         <ic-pagination-bar alignment="right" appearance="default" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
@@ -4643,6 +4848,7 @@ exports[`ic-data-table should render with column header truncation 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -4873,6 +5079,7 @@ exports[`ic-data-table should render with column header truncation 2`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -5071,6 +5278,7 @@ exports[`ic-data-table should render with column headers hidden 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -5301,6 +5509,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
       <div class="pagination-container">
         <ic-pagination-bar alignment="right" appearance="default" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
@@ -5654,6 +5863,7 @@ exports[`ic-data-table should render with pagination 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
       <div class="pagination-container">
         <ic-pagination-bar alignment="right" appearance="default" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="20" type="simple"></ic-pagination-bar>
       </div>
@@ -5863,6 +6073,7 @@ exports[`ic-data-table should render with row headers 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -6069,6 +6280,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
       <div class="pagination-container">
         <ic-pagination-bar alignment="right" appearance="default" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
@@ -6302,6 +6514,7 @@ exports[`ic-data-table should reset all rows to the default height when resetRow
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -6532,263 +6745,9 @@ exports[`ic-data-table should reset all rows to the default height when resetRow
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
-`;
-
-exports[`ic-data-table should slot a custom element into a cell 1`] = `
-<ic-data-table>
-  <mock:shadow-root>
-    <div class="table-container">
-      <div class="table-row-container">
-        <table style="--table-layout: fixed;">
-          <caption class="table-caption">
-            Table
-          </caption>
-          <thead>
-            <tr>
-              <th class="column-header" scope="col">
-                <div class="column-header-inner-container">
-                  <ic-typography class="column-header-text" variant="body">
-                    Name
-                  </ic-typography>
-                </div>
-              </th>
-              <th class="column-header" scope="col">
-                <div class="column-header-inner-container">
-                  <ic-typography class="column-header-text" variant="body">
-                    Age
-                  </ic-typography>
-                </div>
-              </th>
-              <th class="column-header" scope="col">
-                <div class="column-header-inner-container">
-                  <ic-typography class="column-header-text" variant="body">
-                    Department
-                  </ic-typography>
-                </div>
-              </th>
-              <th class="column-header" scope="col">
-                <div class="column-header-inner-container">
-                  <ic-typography class="column-header-text" variant="body">
-                    Employee number
-                  </ic-typography>
-                </div>
-              </th>
-              <th class="column-header" scope="col">
-                <div class="column-header-inner-container">
-                  <ic-typography class="column-header-text" variant="body">
-                    Actions
-                  </ic-typography>
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="table-row">
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    John Smith
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    36
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    Accounts
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    1
-                  </ic-typography>
-                </div>
-              </td>
-            </tr>
-            <tr class="table-row">
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    Sally Jones
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    32
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    Engineering
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    2
-                  </ic-typography>
-                </div>
-              </td>
-            </tr>
-            <tr class="table-row">
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    Tim Rayes
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    41
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    Sales
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    3
-                  </ic-typography>
-                </div>
-              </td>
-            </tr>
-            <tr class="table-row">
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    Luke Fisher
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    23
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    Engineering
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    4
-                  </ic-typography>
-                </div>
-              </td>
-            </tr>
-            <tr class="table-row">
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    Jane Lock
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    34
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    Engineering
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    5
-                  </ic-typography>
-                </div>
-              </td>
-            </tr>
-            <tr class="table-row">
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    Margaret Hale
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    45
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <ic-typography variant="body">
-                    HR
-                  </ic-typography>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <ic-typography variant="body">
-                    6
-                  </ic-typography>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </mock:shadow-root>
-  <ic-button slot="actions-0">
-    Delete
-  </ic-button>
-  <ic-button slot="actions-1">
-    Delete
-  </ic-button>
-  <ic-button slot="actions-2">
-    Delete
-  </ic-button>
-  <ic-button slot="actions-3">
-    Delete
-  </ic-button>
-  <ic-button slot="actions-4">
-    Delete
-  </ic-button>
-  <ic-button slot="actions-5">
-    Delete
-  </ic-button>
 </ic-data-table>
 `;
 
@@ -7057,6 +7016,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
       <div aria-live="polite" class="screen-reader-sort-text">
         table unsorted
       </div>
@@ -7330,6 +7290,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
       <div aria-live="polite" class="screen-reader-sort-text">
         name sorted ascending
       </div>
@@ -7603,6 +7564,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
       <div aria-live="polite" class="screen-reader-sort-text">
         name sorted descending
       </div>
@@ -7876,6 +7838,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
       <div aria-live="polite" class="screen-reader-sort-text">
         age sorted ascending
       </div>
@@ -7927,6 +7890,10 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
           </thead>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading
+      </div>
+      <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
@@ -7976,6 +7943,10 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
           </thead>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading
+      </div>
+      <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
@@ -8207,6 +8178,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -8255,6 +8227,10 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
           </thead>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading
+      </div>
+      <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
@@ -8486,6 +8462,7 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
 </ic-data-table>

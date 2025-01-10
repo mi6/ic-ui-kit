@@ -1234,6 +1234,7 @@ export const Loading = (): HTMLIcDataTableElement => {
   dataTable.setAttribute("loading", "true");
   return dataTable;
 };
+
 export const EmptyLoading = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement(
     "Empty and Loading State",
