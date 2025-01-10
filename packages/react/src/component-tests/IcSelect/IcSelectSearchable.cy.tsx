@@ -101,10 +101,11 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
       NO_RESULTS_FOUND
     );
 
-    cy.get(IC_SELECT).shadow().find("input").click();
+    // trigger('click') used to get round issue with .click() triggering onBlur and therefore clearing input
+    cy.get(IC_SELECT).shadow().find("input").trigger("click");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(NOT_BE_VISIBLE);
 
-    cy.get(IC_SELECT).shadow().find("input").click();
+    cy.get(IC_SELECT).shadow().find("input").trigger("click");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(BE_VISIBLE);
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, 1);
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI).should(
@@ -144,10 +145,8 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.checkHydrated(IC_SELECT);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
-    cy.findShadowEl(IC_SELECT, "input").click();
     cy.findShadowEl(IC_SELECT, "input").type("fi");
     cy.findShadowEl(IC_SELECT, "input").type(TYPE_BACKSPACE);
-    cy.findShadowEl(IC_SELECT, "input").click();
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "2");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(0).contains("Flat white");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(1).contains(COFFEE_EXAMPLE);
@@ -164,10 +163,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkHydrated(IC_SELECT);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("mo");
-    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.get(IC_SELECT).shadow().find(".expand-icon").should("exist").click();
     cy.findShadowEl(IC_SELECT, IC_MENU_LI)
       .should(HAVE_LENGTH, "1")
       .should(HAVE_TEXT, "MochaCoffee with chocolate");
@@ -204,7 +200,6 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.checkHydrated(IC_SELECT);
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("b");
-    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "4");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(0).contains("Filter");
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(1).contains("Latte");
@@ -264,6 +259,32 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     );
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, null);
     cy.get("@spyWinConsoleLog").should("have.been.calledTwice");
+  });
+
+  it("should clear the input text on blur when an option isn't selected", () => {
+    mount(
+      <>
+        <button>Button</button>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={searchableCoffeeOption}
+          searchable
+        />
+      </>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
+      .find(DATA_VALUE_CAP)
+      .click({ force: true });
+    cy.get("button").click();
+    cy.get(IC_SELECT).shadow().find("input").should(HAVE_VALUE, "Cappuccino");
+
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
+    cy.get("button").click();
+    cy.get(IC_SELECT).shadow().find("input").should(HAVE_VALUE, "");
   });
 
   it("should still filter the options when the input is changed after selecting an option", () => {
@@ -478,7 +499,6 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkHydrated(IC_SELECT);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("Lat");
-    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).should(BE_VISIBLE);
@@ -519,7 +539,6 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     mount(<LoadingSelectSearchableNoTimeout />);
 
     cy.checkHydrated(IC_SELECT);
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("foo");
     cy.get("ic-button").click();
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     cy.findShadowEl(IC_SELECT, IC_TYPOGRAPHY).should(
@@ -527,6 +546,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
       LOADING_MESSAGE
     );
 
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("foo");
     cy.clickOnShadowEl(IC_SELECT, ID_CLEAR_BUTTON);
     cy.findShadowEl(IC_SELECT, IC_TYPOGRAPHY).should(
       CONTAIN_TEXT,
