@@ -102,6 +102,8 @@ export class DataTable {
   private SHOW_TRUNC_TOOLTIP_STRING = "show-trunc-tooltip";
   private DESCRIPTION_CELL_STRING = ".description-cell";
   private DESCRIPTION_CELL_CONTAINER_STRING = "description-cell-container";
+  private CELL_TEXT_WRAPPER_STRING = ".cell-text-wrapper";
+  private IC_TYPOGRAPHY_STRING = "ic-typography";
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -422,7 +424,9 @@ export class DataTable {
         const headers = this.el.shadowRoot.querySelectorAll("th.column-header");
         headers.forEach((header) => {
           const tooltip = header.querySelector(this.IC_TOOLTIP_STRING);
-          const typographyEls = header.querySelectorAll("ic-typography");
+          const typographyEls = header.querySelectorAll(
+            this.IC_TYPOGRAPHY_STRING
+          );
           if (tooltip && typographyEls && typographyEls.length === 2) {
             tooltip.classList.remove(this.SHOW_TRUNC_TOOLTIP_STRING);
             if (typographyEls[1].clientWidth > typographyEls[0].clientWidth) {
@@ -574,7 +578,7 @@ export class DataTable {
 
         newRows.forEach((row) => {
           row
-            .querySelectorAll("ic-typography")
+            .querySelectorAll(this.IC_TYPOGRAPHY_STRING)
             .forEach((typographyEl: HTMLIcTypographyElement) => {
               const cellContainer = this.getCellContainer(typographyEl);
               const tooltipEl = this.getTooltip(typographyEl);
@@ -774,7 +778,10 @@ export class DataTable {
       if (this.truncationPattern === this.TOOLTIP_STRING && tooltip) {
         typographyEl.setAttribute("style", `--ic-line-clamp: 0`);
 
-        cellContainer.prepend(typographyEl);
+        const cellTextWrapper = cellContainer.querySelector(
+          this.CELL_TEXT_WRAPPER_STRING
+        );
+        cellTextWrapper.prepend(typographyEl);
         tooltip.remove();
       }
 
@@ -1357,7 +1364,7 @@ export class DataTable {
           )}
           {columnProps?.dataType !== "element" &&
             !isSlotUsed(this.el, cellSlotName) && (
-              <Fragment>
+              <div class="cell-text-wrapper">
                 <ic-typography
                   variant="body"
                   class={{
@@ -1410,7 +1417,7 @@ export class DataTable {
                       </ic-typography>
                     </div>
                   )}
-              </Fragment>
+              </div>
             )}
         </Fragment>
       )}
@@ -1808,8 +1815,9 @@ export class DataTable {
       const descriptionCellContainer = description.closest(
         ".description-cell-container"
       );
-      const typography =
-        descriptionCellContainer.firstChild as HTMLIcTypographyElement;
+      const typography = descriptionCellContainer.querySelector(
+        this.IC_TYPOGRAPHY_STRING
+      ) as HTMLIcTypographyElement;
 
       const descriptionMarginTop = window
         .getComputedStyle(description)
@@ -1817,7 +1825,7 @@ export class DataTable {
 
       const descriptionHeight =
         description.clientHeight + parseInt(descriptionMarginTop, 10);
-        
+
       if (this.globalRowHeight && this.globalRowHeight !== "auto") {
         if (
           this.truncationPattern === this.TOOLTIP_STRING &&
@@ -1943,7 +1951,10 @@ export class DataTable {
     typographyEl: HTMLIcTypographyElement,
     tooltip: HTMLIcTooltipElement
   ) {
-    cellContainer.prepend(typographyEl);
+    const cellTextWrapper = cellContainer.querySelector(
+      this.CELL_TEXT_WRAPPER_STRING
+    );
+    cellTextWrapper.prepend(typographyEl);
     if (tooltip) {
       tooltip.remove();
     }
@@ -1991,7 +2002,10 @@ export class DataTable {
       // This might need reverting back to absolute if the tooltip doesn't dynamically position itself correctly
       strategy: "fixed",
     });
-    cellContainer.prepend(tooltipEl);
+    const cellTextWrapper = cellContainer.querySelector(
+      this.CELL_TEXT_WRAPPER_STRING
+    );
+    cellTextWrapper.prepend(tooltipEl);
     tooltipEl.prepend(typographyEl);
   }
 
