@@ -787,14 +787,11 @@ export class Select {
     event.stopPropagation();
     this.hasTimedOut = false;
     clearTimeout(this.timeoutTimer);
-    this.noOptions = null;
+    this.clearInput();
     this.emitIcChange(null);
     this.icClear.emit();
 
     if (this.searchable) {
-      this.searchableSelectElement.value = null;
-      this.searchableSelectInputValue = null;
-      this.filteredOptions = this.uniqueOptions;
       this.hiddenInputValue = null;
       this.searchableSelectElement.focus();
     } else {
@@ -1091,6 +1088,10 @@ export class Select {
     if (isSearchableAndNoFocusedInternalElements) {
       if (!this.retryButtonClick) {
         this.setMenuChange(false);
+        // Clear input field on blur when searchable if no option is selected
+        if (!this.value) {
+          this.clearInput();
+        }
       }
       this.handleFocusIndicatorDisplay();
     }
@@ -1119,6 +1120,16 @@ export class Select {
         this.value as string
       );
       this.hiddenInputValue = this.value as string;
+    }
+  };
+
+  private clearInput = (): void => {
+    this.noOptions = null;
+
+    if (this.searchable) {
+      this.searchableSelectElement.value = null;
+      this.searchableSelectInputValue = null;
+      this.filteredOptions = this.uniqueOptions;
     }
   };
 
