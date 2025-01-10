@@ -386,7 +386,7 @@ td.table-density-spacious {
 
 .description-cell-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .description-cell {
@@ -401,6 +401,12 @@ td.table-density-spacious {
 
 .description-cell-icon {
   padding-right: var(--ic-space-xs);
+}
+
+.description-cell-icon > svg {
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+  display: inline-block;
 }
 
 @media screen and (min-width: 577px) {
