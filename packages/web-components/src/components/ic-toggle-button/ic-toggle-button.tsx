@@ -13,8 +13,13 @@ import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
+  isSlottedInGroup,
 } from "../../utils/helpers";
-import { IcSizes, IcThemeMode } from "../../utils/types";
+import {
+  IcSizes,
+  IcThemeMode,
+  IcIconPlacementOptions,
+} from "../../utils/types";
 
 /**
  * @slot icon - Content will be displayed alongside the toggle button label.
@@ -29,8 +34,6 @@ import { IcSizes, IcThemeMode } from "../../utils/types";
   },
 })
 export class ToggleButton {
-  private iconPosition: "left" | "right" | "top";
-
   @Element() el: HTMLIcToggleButtonElement;
 
   /**
@@ -46,7 +49,7 @@ export class ToggleButton {
   /**
    * If `true`, the toggle button will be in disabled state.
    */
-  @Prop() disabled?: boolean = false;
+  @Prop({ mutable: true }) disabled?: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -55,12 +58,12 @@ export class ToggleButton {
   /**
    * If `true`, the toggle button will fill the width of the container.
    */
-  @Prop() fullWidth?: boolean = false;
+  @Prop({ mutable: true }) fullWidth?: boolean = false;
 
   /**
    * The placement of the icon in relation to the toggle button label.
    */
-  @Prop() iconPlacement?: "left" | "right" | "top";
+  @Prop() iconPlacement?: IcIconPlacementOptions = "left";
 
   /**
    * The label to display in the toggle button. This is required for the default variant of toggle buttons.
@@ -70,27 +73,28 @@ export class ToggleButton {
   /**
    * If `true`, the toggle button will be in loading state.
    */
-  @Prop() loading?: boolean = false;
+  @Prop({ mutable: true }) loading?: boolean = false;
 
   /**
    * If `true`, the toggle button will display as black in the light theme, and white in dark theme.
    */
-  @Prop() monochrome?: boolean = false;
+  @Prop({ mutable: true }) monochrome?: boolean = false;
 
   /**
    * The size of the toggle button to be displayed.
    */
-  @Prop() size?: IcSizes = "medium";
+  @Prop({ mutable: true }) size?: IcSizes = "medium";
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: IcThemeMode = "inherit";
+  @Prop({ mutable: true }) theme?: IcThemeMode = "inherit";
 
   /**
    * The variant of the toggle button.
    */
-  @Prop({ reflect: true }) variant: "default" | "icon" = "default";
+  @Prop({ reflect: true, mutable: true }) variant: "default" | "icon" =
+    "default";
 
   /**
    * Emitted when the user clicks a toggle button.
@@ -102,10 +106,9 @@ export class ToggleButton {
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
 
-    const parentIconPlacement = (
-      this.el.parentElement as HTMLIcToggleButtonGroupElement
-    ).iconPlacement;
-    this.iconPosition = this.iconPlacement || parentIconPlacement || "left";
+    if (isSlottedInGroup(this.el)) {
+      this.loopAttributes();
+    }
   }
 
   componentDidLoad(): void {
@@ -128,6 +131,52 @@ export class ToggleButton {
       this.checked = !this.checked;
     }
   }
+
+  private loopAttributes = () => {
+    const trackedAttributes: string[] = [
+      "loading",
+      "disabled",
+      "full-width",
+      "icon-placement",
+      "variant",
+      "size",
+      "theme",
+      "monochrome",
+    ];
+    const parentAttributes = this.el.parentElement.attributes;
+    for (let i = 0; i < trackedAttributes.length; i++) {
+      if (parentAttributes.getNamedItem(trackedAttributes[i]) !== null) {
+        const attribute = parentAttributes.getNamedItem(trackedAttributes[i]);
+        switch (attribute.name) {
+          case trackedAttributes[0]:
+            this.loading = attribute.value !== "false";
+            break;
+          case trackedAttributes[1]:
+            console.log(attribute.value);
+            this.disabled = attribute.value !== "false";
+            break;
+          case trackedAttributes[2]:
+            this.fullWidth = attribute.value !== "false";
+            break;
+          case trackedAttributes[3]:
+            this.iconPlacement = attribute.value as "left" | "right" | "top";
+            break;
+          case trackedAttributes[4]:
+            this.variant = attribute.value as "default" | "icon";
+            break;
+          case trackedAttributes[5]:
+            this.size = attribute.value as IcSizes;
+            break;
+          case trackedAttributes[6]:
+            this.theme = attribute.value as IcThemeMode;
+            break;
+          case trackedAttributes[7]:
+            this.monochrome = attribute.value !== "false";
+            break;
+        }
+      }
+    }
+  };
 
   private handleFocus = (ev: FocusEvent) => {
     ev.stopImmediatePropagation();
@@ -168,12 +217,11 @@ export class ToggleButton {
           size={this.size}
           fullWidth={this.fullWidth}
           loading={this.loading}
-          aria-disabled={`${this.disabled}`}
         >
           {this.variant !== "icon" && this.label}
           <slot />
           {isSlotUsed(this.el, "icon") && (
-            <slot name="icon" slot={`${this.iconPosition}-icon`}></slot>
+            <slot name="icon" slot={`${this.iconPlacement}-icon`}></slot>
           )}
           {isSlotUsed(this.el, "badge") && (
             <slot name="badge" slot="badge"></slot>

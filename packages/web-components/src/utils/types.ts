@@ -212,3 +212,5 @@ type RGBA = `rgba(${string})`;
 type HEX = `#${string}`;
 
 export type IcColor = RGB | RGBA | HEX;
+
+export type IcIconPlacementOptions = "left" | "right" | "top";
