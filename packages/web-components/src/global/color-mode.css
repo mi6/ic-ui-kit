@@ -676,6 +676,9 @@ ic-theme,
   --ic-data-table-header-text: var(--ic-color-text-primary);
   --ic-data-table-overlay-background: var(--ic-color-background-primary);
   --ic-data-table-overlay-border: var(--ic-color-border-neutral-grey-dark);
+  --ic-data-table-loading-indicator-overlay-background: var(
+    --ic-architectural-black
+  );
 
   /* Data table title bar */
   --ic-data-table-title-bar-title: var(--ic-color-text-primary);
@@ -2020,6 +2023,9 @@ ic-theme,
     --ic-data-table-header-text: var(--ic-color-text-primary);
     --ic-data-table-overlay-background: var(--ic-color-background-primary);
     --ic-data-table-overlay-border: var(--ic-color-border-neutral-grey-light);
+    --ic-data-table-loading-indicator-overlay-background: var(
+      --ic-architectural-black
+    );
 
     /* Data table title bar */
     --ic-data-table-title-bar-title: var(--ic-color-text-primary);
@@ -3373,6 +3379,9 @@ ic-theme,
   --ic-data-table-header-text: var(--ic-color-text-primary);
   --ic-data-table-overlay-background: var(--ic-color-background-primary);
   --ic-data-table-overlay-border: var(--ic-color-border-neutral-grey-light);
+  --ic-data-table-loading-indicator-overlay-background: var(
+    --ic-architectural-black
+  );
 
   /* Data table title bar */
   --ic-data-table-title-bar-title: var(--ic-color-text-primary);
