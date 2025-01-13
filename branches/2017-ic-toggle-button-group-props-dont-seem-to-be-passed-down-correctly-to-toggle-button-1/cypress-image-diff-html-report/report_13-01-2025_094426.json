@@ -7382,7 +7382,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx-light-theme-monochrome",
-          "percentage": 0.06415605972938176,
+          "percentage": 0.059025418253494825,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -8363,9 +8363,9 @@
       ]
     }
   ],
-  "startedAt": "2025-01-10T15:44:37.554Z",
-  "endedAt": "2025-01-10T16:00:49.272Z",
-  "duration": 880193,
+  "startedAt": "2025-01-13T09:44:26.284Z",
+  "endedAt": "2025-01-13T10:00:58.587Z",
+  "duration": 899494,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
