@@ -15,6 +15,7 @@ import {
   IcSelectTypes,
   IcSelectMethodTypes,
   IcThemeMode,
+  IcButtonTooltipPlacement,
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-toggle-button-group.types";
 import { removeDisabledFalse } from "../../utils/helpers";
@@ -123,6 +124,17 @@ export class ToggleButtonGroup {
   watchThemeHandler(): void {
     this.getAllToggleButtons().forEach((el) => {
       el.theme = this.theme;
+    });
+  }
+
+  /**
+   * The position of the tooltip in relation to the toggle buttons.
+   */
+  @Prop() tooltipPlacement: IcButtonTooltipPlacement = "bottom";
+  @Watch("tooltipPlacement")
+  watchTooltipPlacementHandler(): void {
+    this.getAllToggleButtons().forEach((el) => {
+      el.tooltipPlacement = this.tooltipPlacement;
     });
   }
 
