@@ -975,6 +975,8 @@ The loading indicator can be customised using the `loadingOptions` prop:
 - `label` sets the visual message
 - `labelDuration` is the number of milliseconds before the label changes
 - `showBackground` allows for a white background and grey border to help the indicator stand out
+- `overlay` renders a dark overlay over the previous data set while new data is loaded
+  - Setting `overlay` also sets `showBackground` to `true` so the loading indicator stands out against the dark overlay.
 
 If it needs to be determinate, use `max`, `min` and `progress`.
 
@@ -2207,6 +2209,7 @@ export const defaultArgs = {
   loadingMax: 100,
   loadingMin: 0,
   loadingProgress: 50, 
+  loadingOverlay: false,
   loadingShowBackground: false,
   minimumLoadingDisplayDuration: 1000,
   paginationItemsPerPageOptions: [
@@ -2318,7 +2321,8 @@ export const defaultArgs = {
           max: args.loadingMax,
           min: args.loadingMin,
           progress: args.loadingProgress,
-          showBackground: args.loadingShowBackground
+          showBackground: args.loadingShowBackground,
+          overlay: args.loadingOverlay
         }}
         minimumLoadingDisplayDuration={args.minimumLoadingDisplayDuration}
         paginationBarOptions={{
