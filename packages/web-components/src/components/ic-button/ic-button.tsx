@@ -21,16 +21,13 @@ import {
   renderFileHiddenInput,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
-import {
-  IcButtonTypes,
-  IcButtonVariants,
-  IcButtonTooltipPlacement,
-} from "./ic-button.types";
+import { IcButtonTypes, IcButtonVariants } from "./ic-button.types";
 import {
   IcSizes,
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
+  IcButtonTooltipPlacement,
 } from "../../utils/types";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
 

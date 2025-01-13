@@ -15,6 +15,7 @@ import {
   IcThemeForeground,
   IcSelectTypes,
   IcSelectMethodTypes,
+  IcButtonTooltipPlacement,
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-toggle-button-group.types";
 import { removeDisabledFalse } from "../../utils/helpers";
@@ -89,6 +90,17 @@ export class ToggleButtonGroup {
   @Prop() size?: IcSizes = "default";
 
   /**
+   * The position of the tooltip in relation to the toggle buttons.
+   */
+  @Prop() tooltipPlacement: IcButtonTooltipPlacement = "bottom";
+  @Watch("tooltipPlacement")
+  watchTooltipPlacementHandler(): void {
+    this.getAllToggleButtons().forEach((el) => {
+      el.tooltipPlacement = this.tooltipPlacement;
+    });
+  }
+
+  /**
    * The variant of the toggle button.
    */
   @Prop({ reflect: true }) variant: "default" | "icon" = "default";
@@ -150,6 +162,7 @@ export class ToggleButtonGroup {
       el.appearance = this.appearance;
       el.variant = this.variant;
       el.fullWidth = this.fullWidth;
+      el.tooltipPlacement = this.tooltipPlacement;
       el.id = i.toString();
       el.tabIndex = -1;
       el.addEventListener("keydown", (ev) => {
