@@ -5402,7 +5402,7 @@
         {
           "status": "fail",
           "name": "IcSelect.cy.tsx-disabled-options-open-high-contrast",
-          "percentage": 0.11072488428533127,
+          "percentage": 0.10744300814850634,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -5997,7 +5997,7 @@
         {
           "status": "fail",
           "name": "IcSelectSearchable.cy.tsx-searchable-disabled-options-open-high-contrast",
-          "percentage": 0.05192301994298868,
+          "percentage": 0.04715930449020639,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -8385,9 +8385,9 @@
       ]
     }
   ],
-  "startedAt": "2025-01-10T15:48:32.010Z",
-  "endedAt": "2025-01-10T16:04:18.509Z",
-  "duration": 854682,
+  "startedAt": "2025-01-13T08:35:35.606Z",
+  "endedAt": "2025-01-13T08:51:07.351Z",
+  "duration": 840679,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
