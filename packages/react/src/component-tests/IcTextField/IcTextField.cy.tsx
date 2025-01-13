@@ -43,6 +43,7 @@ import {
   Uncontrolled,
   DarkTheme,
   DarkThemeValidation,
+  HiddenInput,
 } from "./IcTextFieldTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -341,6 +342,18 @@ describe("IcTextField end-to-end tests", () => {
     const input = cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT);
 
     input.should(HAVE_FOCUS);
+  });
+
+  it("should remove the hidden input when hiddenInput prop is toggled", () => {
+    mount(<HiddenInput />);
+
+    cy.get(IC_TEXTFIELD).invoke("prop", "hiddenInput", true);
+
+    cy.get(IC_TEXTFIELD).find('input[type="hidden"]').should("exist");
+
+    cy.get(IC_TEXTFIELD).invoke("prop", "hiddenInput", false);
+
+    cy.get(IC_TEXTFIELD).find('input[type="hidden"]').should("not.exist");
   });
 });
 
