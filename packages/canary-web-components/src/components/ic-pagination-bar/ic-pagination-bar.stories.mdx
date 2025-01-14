@@ -326,3 +326,36 @@ If you have a predefined list of items you want in the itemsPerPage select, the 
   hide-all-from-items-per-page="true"
 ></ic-pagination-bar>
 ```
+
+### Set to first page when items per page changes
+
+If you have a predefined list of items you want in the itemsPerPage select, the 'All' option can be hidden by setting `hide-all-from-items-per-page` to `true`.
+
+<Canvas withSource="none">
+  <Story
+    name="Set to first page when items per page changes"
+    parameters={{ loki: { skip: true } }}
+  >
+    {html`<div style="height:150px">
+      <ic-pagination-bar
+        total-items="100"
+        show-items-per-page-control="true"
+        show-go-to-page-control="true"
+        hide-all-from-items-per-page="true"
+        set-to-first-page-on-pagination-change="true"
+      ></ic-pagination-bar>
+    </div>`}
+  </Story>
+</Canvas>
+
+#### Set to first page when items per page changes code example
+
+```html
+<ic-pagination-bar
+  total-items="100"
+  show-items-per-page-control="true"
+  show-go-to-page-control="true"
+  hide-all-from-items-per-page="true"
+  set-to-first-page-on-pagination-change="true"
+></ic-pagination-bar>
+```
