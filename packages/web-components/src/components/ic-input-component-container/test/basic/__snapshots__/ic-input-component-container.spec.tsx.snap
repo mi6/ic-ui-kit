@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-input-component-container should test rendering icon after initial render 1`] = `
+<ic-input-component-container class="default">
+  <!---->
+  <div class="focus-indicator">
+    <div class="icon-container">
+      <svg slot="left-icon"></svg>
+    </div>
+    content
+  </div>
+</ic-input-component-container>
+`;

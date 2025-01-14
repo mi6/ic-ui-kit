@@ -6,7 +6,6 @@ import {
   h,
   State,
   Listen,
-  forceUpdate,
 } from "@stencil/core";
 import {
   IcAlignment,
@@ -21,7 +20,7 @@ import {
   onComponentRequiredPropUndefined,
   isPropDefined,
   isSlotUsed,
-  checkSlotInChildMutations,
+  renderDynamicChildSlots,
 } from "../../utils/helpers";
 import { IcHeroContentAlignments } from "./ic-hero.types";
 
@@ -114,7 +113,9 @@ export class Hero {
         "Hero"
       );
 
-    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(mutationList, "secondary", this)
+    );
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
@@ -141,18 +142,6 @@ export class Hero {
     const y = -100 + scrolltotop * factor;
     this.scrollFactor = "right " + y + "px";
   }
-
-  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
-    if (
-      mutationList.some(({ type, addedNodes, removedNodes }) =>
-        type === "childList"
-          ? checkSlotInChildMutations(addedNodes, removedNodes, "secondary")
-          : false
-      )
-    ) {
-      forceUpdate(this);
-    }
-  };
 
   render() {
     const {

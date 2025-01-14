@@ -195,6 +195,38 @@ exports[`ic-hero component should render: renders 1`] = `
 </ic-hero>
 `;
 
+exports[`ic-hero component should test rendering secondary slot after initial render 1`] = `
+<ic-hero heading="Test title" subheading="Test text">
+  <mock:shadow-root>
+    <ic-section-container aligned="left" class="section-container" fullheight="">
+      <div class="left-container left-container-full-width">
+        <div class="heading">
+          <slot name="heading">
+            <ic-typography class="heading-bottom-spacing" variant="h1">
+              Test title
+            </ic-typography>
+          </slot>
+        </div>
+        <div class="subheading">
+          <slot name="subheading">
+            <ic-typography variant="body">
+              Test text
+            </ic-typography>
+          </slot>
+        </div>
+        <div class="interaction-container">
+          <slot name="interaction"></slot>
+        </div>
+      </div>
+      <div class="right-container">
+        <slot name="secondary"></slot>
+      </div>
+    </ic-section-container>
+  </mock:shadow-root>
+  <svg slot="secondary"></svg>
+</ic-hero>
+`;
+
 exports[`ic-hero component should use not parallax on scroll when a background image is given, but parallax disabled: renders-with-parallax-on-scroll-disabled 1`] = `
 <ic-hero background-image="test.png" class="has-background-image" disable-background-parallax="" heading="Test title" subheading="Test text" style="background-image: url(test.png); background-position: right -100px;">
   <mock:shadow-root>

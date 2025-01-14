@@ -21,7 +21,7 @@ import {
   IcThemeForeground,
   IcThemeForegroundEnum,
 } from "./types"; // Using @ukic/web-components/dist/types/utils/types does not work so duplicated constants into canary package
-import { EventEmitter } from "@stencil/core";
+import { EventEmitter, forceUpdate } from "@stencil/core";
 import { IcDataTableDataType } from "../interface";
 
 const DARK_MODE_THRESHOLD = 133.3505;
@@ -650,10 +650,14 @@ export const capitalize = (text: string): string => {
 export const checkSlotInChildMutations = (
   addedNodes: NodeList,
   removedNodes: NodeList,
-  slotName: string
+  slotName: string | string[]
 ): boolean => {
   const hasSlot = (nodeList: NodeList) =>
-    Array.from(nodeList).some((node) => (node as Element).slot === slotName);
+    Array.from(nodeList).some((node) =>
+      Array.isArray(slotName)
+        ? slotName.some((name) => (node as Element).slot === name)
+        : (node as Element).slot === slotName
+    );
   return hasSlot(addedNodes) || hasSlot(removedNodes);
 };
 
@@ -678,4 +682,24 @@ export const addDataToPosition = (
     j++;
   }
   return newData;
+};
+
+export const hasDynamicChildSlots = (
+  mutationList: MutationRecord[],
+  slotNames: string | string[]
+) =>
+  mutationList.some(({ type, addedNodes, removedNodes }) =>
+    type === "childList"
+      ? checkSlotInChildMutations(addedNodes, removedNodes, slotNames)
+      : false
+  );
+
+export const renderDynamicChildSlots = (
+  mutationList: MutationRecord[],
+  slotNames: string | string[],
+  ref: any
+): void => {
+  if (hasDynamicChildSlots(mutationList, slotNames)) {
+    forceUpdate(ref);
+  }
 };

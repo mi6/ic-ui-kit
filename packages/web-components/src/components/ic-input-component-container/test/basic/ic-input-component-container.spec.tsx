@@ -1,7 +1,21 @@
+import {
+  mockHasDynamicChildSlots,
+  mockMutationObserverImplementation,
+  MockMutationRecord,
+  mockRenderDynamicChildSlots,
+} from "../../../../testspec.setup";
 import { InputComponentContainer } from "../../ic-input-component-container";
 import { newSpecPage } from "@stencil/core/testing";
 
 describe("ic-input-component-container", () => {
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
@@ -162,15 +176,40 @@ describe("ic-input-component-container", () => {
       html: `<ic-input-component-container>content</ic-input-component-container>`,
     });
 
+    const component = page.rootInstance;
+    const host = page.root;
+
+    const observerInstance =
+      mockMutationObserverImplementation.mock.results[0].value;
+
     const icon = document.createElement("svg");
     icon.setAttribute("slot", "left-icon");
 
-    page.rootInstance.hostMutationCallback([
+    observerInstance.observe(host, { childList: true });
+
+    host.appendChild(icon);
+
+    const mockMutationRecord: MockMutationRecord[] = [
       {
-        type: "childList",
         addedNodes: [icon],
         removedNodes: [],
+        target: host,
       },
-    ]);
+    ];
+
+    observerInstance.trigger(mockMutationRecord);
+
+    await page.waitForChanges();
+
+    expect(mockRenderDynamicChildSlots).toHaveBeenCalledTimes(1);
+    expect(mockRenderDynamicChildSlots).toHaveBeenCalledWith(
+      mockMutationRecord,
+      "left-icon",
+      component
+    );
+
+    expect(mockHasDynamicChildSlots).toHaveBeenCalledTimes(1);
+
+    expect(page.root).toMatchSnapshot();
   });
 });

@@ -1,4 +1,4 @@
-import { EventEmitter } from "@stencil/core";
+import { EventEmitter, forceUpdate } from "@stencil/core";
 import {
   IcCallbackFunctionNoReturn,
   IcInformationStatusOrEmpty,
@@ -664,3 +664,24 @@ export const checkSlotInChildMutations = (
 
 export const isElInAGGrid = (el: HTMLElement): boolean =>
   !!el.closest(".ag-cell") && !!el.closest(".ag-root");
+
+export const hasDynamicChildSlots = (
+  mutationList: MutationRecord[],
+  slotNames: string | string[]
+) => {
+  return mutationList.some(({ type, addedNodes, removedNodes }) =>
+    type === "childList"
+      ? checkSlotInChildMutations(addedNodes, removedNodes, slotNames)
+      : false
+  );
+};
+
+export const renderDynamicChildSlots = (
+  mutationList: MutationRecord[],
+  slotNames: string | string[],
+  ref: any
+): void => {
+  if (hasDynamicChildSlots(mutationList, slotNames)) {
+    forceUpdate(ref);
+  }
+};

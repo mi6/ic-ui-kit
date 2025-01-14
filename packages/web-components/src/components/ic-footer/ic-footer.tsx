@@ -16,6 +16,7 @@ import {
   checkResizeObserver,
   hasClassificationBanner,
   isSlotUsed,
+  renderDynamicChildSlots,
 } from "../../utils/helpers";
 import {
   IcAlignment,
@@ -40,6 +41,7 @@ import { IcFooterBreakpoints } from "./ic-footer.types";
 export class Footer {
   private footerEl: HTMLElement;
   private resizeObserver: ResizeObserver = null;
+  private hostMutationObserver: MutationObserver = null;
 
   @Element() el: HTMLIcFooterElement;
 
@@ -85,6 +87,8 @@ export class Footer {
     if (this.resizeObserver !== null) {
       this.resizeObserver.disconnect();
     }
+
+    this.hostMutationObserver?.disconnect();
   }
 
   componentWillLoad(): void {
@@ -93,6 +97,14 @@ export class Footer {
 
   componentDidLoad(): void {
     checkResizeObserver(this.runResizeObserver);
+
+    this.hostMutationObserver = new MutationObserver((mutationList) => {
+      return renderDynamicChildSlots(mutationList, "link", this);
+    });
+
+    this.hostMutationObserver.observe(this.el, {
+      childList: true,
+    });
   }
 
   @Listen("themeChange", { target: "document" })

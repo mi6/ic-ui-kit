@@ -430,3 +430,33 @@ exports[`ic-footer should render without the copyright text when the copyright p
   </ic-typography>
 </ic-footer>
 `;
+
+exports[`ic-footer should test rendering slotted after initial render 1`] = `
+<ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
+  <mock:shadow-root>
+    <footer>
+      <div class="footer-links">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-links-inner" role="list">
+            <slot name="link"></slot>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-compliance">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-compliance-inner">
+            <div class="footer-copyright">
+              <ic-typography variant="label-uppercase">
+                © Crown Copyright
+              </ic-typography>
+            </div>
+          </div>
+        </ic-section-container>
+      </div>
+    </footer>
+  </mock:shadow-root>
+  <ic-footer-link slot="link">
+    foo
+  </ic-footer-link>
+</ic-footer>
+`;
