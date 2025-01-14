@@ -11,6 +11,7 @@ import {
   Appearance,
   ToggleCollapsed,
   ToggleBackBreadcrumb,
+  SlottedLinks,
 } from "./IcBreadcrumbTestData";
 import {
   BE_VISIBLE,
@@ -19,6 +20,7 @@ import {
   NOT_BE_VISIBLE,
   NOT_HAVE_ATTR,
   NOT_EXIST,
+  HAVE_CSS,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -107,6 +109,21 @@ describe("IcBreadcrumb end-to-end tests", () => {
       .each(($el) => {
         cy.wrap($el).focus().should(HAVE_FOCUS);
       });
+  });
+
+  it.only("should not allow focus or click on the slotted breadcrumb for the current page", () => {
+    mount(<SlottedLinks />);
+
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.wait(500).get(IC_BREADCRUMB_LABEL).find("a").eq(0).focus();
+    cy.realPress("Tab");
+    cy.get("ic-button").shadow().find("button").should(HAVE_FOCUS);
+
+    cy.get(IC_BREADCRUMB_LABEL)
+      .eq(1)
+      .shadow()
+      .find("slot")
+      .should(HAVE_CSS, "pointer-events", "none");
   });
 
   it("should render collapsed breadcrumb", () => {

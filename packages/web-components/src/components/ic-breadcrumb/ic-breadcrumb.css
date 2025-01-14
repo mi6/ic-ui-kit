@@ -59,6 +59,10 @@ ic-link {
   color: var(--ic-breadcrumb-text-monochrome);
 }
 
+:host([aria-current="page"]) slot {
+  pointer-events: none;
+}
+
 :host(.collapsed-breadcrumb-wrapper) {
   margin-right: var(--ic-space-xs) !important;
   display: flex;

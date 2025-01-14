@@ -1877,22 +1877,6 @@ const DataTable = () => {
 export default DataTable;
 ```
 
-export const defaultPaginationBarArgs = {
-  itemsPerPageOptions: [
-    { label: "5", value: "5" },
-    { label: "10", value: "10" },
-    { label: "15", value: "15" },
-  ],
-  rangeLabelType: "page",
-  type: "simple",
-  showItemsPerPageControl: true,
-  showGoToPageControl: true,
-  alignment: "right",
-  itemLabel: "Item",
-  pageLabel: "Page",
-  hideRangeLabel: false
-};
-
 ### Slotted pagination bar
 
 There may be scenarios when using `IcDataTable` when pagination and data fetching is done using a backend API.
@@ -2219,6 +2203,7 @@ export const defaultArgs = {
   ],
   paginationRangeLabelType: "page",
   paginationType: "simple",
+  paginationSetToFirstPageOnPaginationChange: false,
   paginationShowItemsPerPageControl: true,
   paginationShowGoToPageControl: true,
   paginationAlignment: "right",
@@ -2329,8 +2314,9 @@ export const defaultArgs = {
           itemsPerPageOptions: args.paginationItemsPerPageOptions,
           rangeLabelType: args.paginationRangeLabelType,
           type: args.paginationType,
-          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
+          setToFirstPageOnPaginationChange: args.paginationSetToFirstPageOnPaginationChange,
           showGoToPageControl: args.paginationShowGoToPageControl,
+          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
           alignment: args.paginationAlignment,
           pageLabel: args.paginationPageLabel,
           itemLabel: args.paginationItemLabel,

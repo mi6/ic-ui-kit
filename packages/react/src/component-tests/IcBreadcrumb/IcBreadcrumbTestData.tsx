@@ -1,5 +1,10 @@
 import React, { ReactElement } from "react";
-import { IcBreadcrumb, IcBreadcrumbGroup, IcButton } from "../../components";
+import {
+  IcBreadcrumb,
+  IcBreadcrumbGroup,
+  IcButton,
+  IcLink,
+} from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const ReusableSlottedIcon = (): ReactElement => (
@@ -218,6 +223,30 @@ export const Appearance = (): ReactElement => {
           ></IcBreadcrumb>
         </IcBreadcrumbGroup>
       </div>
+    </div>
+  );
+};
+
+export const SlottedLinks = (): ReactElement => {
+  return (
+    <div>
+      <IcBreadcrumbGroup>
+        <IcBreadcrumb>
+          <IcLink>
+            <a slot="router-item" href="#">
+              Breadcrumb 1
+            </a>
+          </IcLink>
+        </IcBreadcrumb>
+        <IcBreadcrumb current>
+          <IcLink>
+            <a slot="router-item" href="#">
+              Breadcrumb 2
+            </a>
+          </IcLink>
+        </IcBreadcrumb>
+      </IcBreadcrumbGroup>
+      <IcButton>Button</IcButton>
     </div>
   );
 };

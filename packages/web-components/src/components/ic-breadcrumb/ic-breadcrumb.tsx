@@ -17,6 +17,8 @@ import { IcThemeMode } from "../../utils/types";
   },
 })
 export class Breadcrumb {
+  private breadcrumbContainer: HTMLDivElement;
+
   @Element() el: HTMLIcBreadcrumbElement;
 
   /**
@@ -51,6 +53,15 @@ export class Breadcrumb {
 
   componentWillRender(): void {
     this.setSlottedCurrentPageClass();
+  }
+
+  componentDidRender(): void {
+    const slottedLink = this.breadcrumbContainer?.querySelector(
+      'slot:not([name="icon"])'
+    ) as HTMLElement;
+    if (slottedLink && this.current) {
+      slottedLink.tabIndex = -1;
+    }
   }
 
   /**
@@ -136,7 +147,7 @@ export class Breadcrumb {
         aria-current={current && "page"}
         role="listitem"
       >
-        <div class="breadcrumb">
+        <div ref={(el) => (this.breadcrumbContainer = el)} class="breadcrumb">
           <span innerHTML={chevronIcon} class="chevron" aria-hidden="true" />
           {this.showBackIcon && describedById && (
             <span

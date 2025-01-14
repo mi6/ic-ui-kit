@@ -414,6 +414,43 @@ const PaginationBar = () => (
 export default PaginationBar;
 ```
 
+### Set to first page when items per page changes
+
+If you have a predefined list of items you want in the itemsPerPage select, the 'All' option can be hidden by setting `hide-all-from-items-per-page` to `true`.
+
+<Canvas withSource="none">
+  <Story name="Set to first page when items per page changes">
+    <div style={{
+      height: '150px'
+    }}>
+        <IcPaginationBar
+          totalItems="100"
+          showItemsPerPageControl
+          showGoToPageControl
+          setToFirstPageOnPaginationChange
+        />
+    </div>
+  </Story>
+</Canvas>
+
+#### Set to first page when items per page changes code example
+
+```jsx
+import * as React from "react";
+import { IcPaginationBar } from '@ukic/canary-react';
+
+const PaginationBar = () => (
+    <IcPaginationBar
+      totalItems="100"
+      showItemsPerPageControl
+      showGoToPageControl
+      setToFirstPageOnPaginationChange
+    />
+);
+
+export default PaginationBar;
+```
+
 ### Playground
 
 Go to the <IcLink href="/?path=/story/react-components-pagination-bar--playground">separate page for the playground example</IcLink> to view the prop controls.
@@ -431,8 +468,9 @@ export const defaultArgs = {
   monochrome: false,
   pageLabel: "Page",
   rangeLabelType: "page",
-  showItemsPerPageControl: false,
-  showGoToPageControl: false,
+  setToFirstPageOnPaginationChange: false,
+  showItemsPerPageControl: true,
+  showGoToPageControl: true,
   totalItems: 100,
   type: "simple",
   theme: "inherit",
@@ -476,6 +514,7 @@ export const defaultArgs = {
           itemsPerPageOptions={args.itemsPerPageOptions}
           pageLabel={args.pageLabel}
           rangeLabelType={args.rangeLabelType}
+          setToFirstPageOnPaginationChange={args.setToFirstPageOnPaginationChange}
           showItemsPerPageControl={args.showItemsPerPageControl}
           showGoToPageControl={args.showGoToPageControl}
           totalItems={args.totalItems}
