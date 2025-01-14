@@ -2082,8 +2082,8 @@
             "references": {
               "IcButtonTooltipPlacement": {
                 "location": "import",
-                "path": "./ic-button.types",
-                "id": "src/components/ic-button/ic-button.types.ts::IcButtonTooltipPlacement"
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcButtonTooltipPlacement"
               }
             }
           },
@@ -17528,6 +17528,47 @@
           "required": false
         },
         {
+          "name": "tooltipPlacement",
+          "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
+          "complexType": {
+            "original": "IcButtonTooltipPlacement",
+            "resolved": "\"bottom\" | \"left\" | \"right\" | \"top\"",
+            "references": {
+              "IcButtonTooltipPlacement": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcButtonTooltipPlacement"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "tooltip-placement",
+          "reflectToAttr": false,
+          "docs": "The position of the tooltip in relation to the toggle button.",
+          "docsTags": [],
+          "default": "\"bottom\"",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "variant",
           "type": "\"default\" | \"icon\"",
           "complexType": {
@@ -17876,6 +17917,47 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "tooltipPlacement",
+          "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
+          "complexType": {
+            "original": "IcButtonTooltipPlacement",
+            "resolved": "\"bottom\" | \"left\" | \"right\" | \"top\"",
+            "references": {
+              "IcButtonTooltipPlacement": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcButtonTooltipPlacement"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "tooltip-placement",
+          "reflectToAttr": false,
+          "docs": "The position of the tooltip in relation to the toggle buttons.",
+          "docsTags": [],
+          "default": "\"bottom\"",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -19022,10 +19104,10 @@
       "docstring": "",
       "path": "src/components/ic-badge/ic-badge.types.ts"
     },
-    "src/components/ic-button/ic-button.types.ts::IcButtonTooltipPlacement": {
+    "src/utils/types.ts::IcButtonTooltipPlacement": {
       "declaration": "export type IcButtonTooltipPlacement = \"top\" | \"right\" | \"bottom\" | \"left\";",
       "docstring": "",
-      "path": "src/components/ic-button/ic-button.types.ts"
+      "path": "src/utils/types.ts"
     },
     "src/components/ic-button/ic-button.types.ts::IcButtonTypes": {
       "declaration": "export type IcButtonTypes = \"reset\" | \"submit\" | \"button\";",

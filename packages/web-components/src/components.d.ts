@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 import { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
-import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
+import { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
@@ -34,10 +34,10 @@ import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 import { Options } from "@popperjs/core";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
-export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
+export { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
@@ -2275,6 +2275,10 @@ export namespace Components {
          */
         "toggleChecked": boolean;
         /**
+          * The position of the tooltip in relation to the toggle button.
+         */
+        "tooltipPlacement": IcButtonTooltipPlacement;
+        /**
           * The variant of the toggle button.
          */
         "variant": "default" | "icon";
@@ -2316,6 +2320,10 @@ export namespace Components {
           * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
          */
         "size"?: IcSizes;
+        /**
+          * The position of the tooltip in relation to the toggle buttons.
+         */
+        "tooltipPlacement": IcButtonTooltipPlacement;
         /**
           * The variant of the toggle button.
          */
@@ -5744,6 +5752,10 @@ declare namespace LocalJSX {
          */
         "toggleChecked"?: boolean;
         /**
+          * The position of the tooltip in relation to the toggle button.
+         */
+        "tooltipPlacement"?: IcButtonTooltipPlacement;
+        /**
           * The variant of the toggle button.
          */
         "variant"?: "default" | "icon";
@@ -5789,6 +5801,10 @@ declare namespace LocalJSX {
           * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
          */
         "size"?: IcSizes;
+        /**
+          * The position of the tooltip in relation to the toggle buttons.
+         */
+        "tooltipPlacement"?: IcButtonTooltipPlacement;
         /**
           * The variant of the toggle button.
          */
