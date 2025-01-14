@@ -292,4 +292,10 @@
     outline: none;
     border: 0.125rem solid transparent;
   }
+
+  .disabled-option {
+    color: GrayText;
+
+    --ic-typography-color: GrayText;
+  }
 }
