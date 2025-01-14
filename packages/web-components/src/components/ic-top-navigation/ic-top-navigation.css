@@ -281,4 +281,8 @@ slot[name="toggle-icon"] svg {
   slot[name="app-icon"]::slotted(*) {
     fill: currentcolor;
   }
+
+  slot[name="toggle-icon"] svg {
+    fill: currentcolor;
+  }
 }
