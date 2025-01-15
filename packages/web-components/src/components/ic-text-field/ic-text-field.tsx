@@ -32,6 +32,7 @@ import {
   isSlotUsed,
   removeDisabledFalse,
   checkSlotInChildMutations,
+  removeHiddenInput,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -575,9 +576,10 @@ export class TextField {
 
     const invalid = `${currentStatus === IcInformationStatus.Error}`;
 
-    if (hiddenInput) {
-      renderHiddenInput(true, this.el, name, value, disabledMode);
-    }
+    hiddenInput
+      ? renderHiddenInput(true, this.el, name, value, disabledMode)
+      : removeHiddenInput(this.el);
+
     return (
       <Host class={{ ["fullwidth"]: fullWidth }}>
         <ic-input-container readonly={readonly} disabled={disabledMode}>

@@ -6,7 +6,7 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcTextField } from "../components";
+import { IcTextField, IcButton } from "../components";
 import {SlottedSVG} from "../react-component-lib/slottedSVG";
 import readme from "../../../web-components/src/components/ic-text-field/readme.md";
 
@@ -558,6 +558,27 @@ export const Uncontrolled = () => {
       label="What is your favourite coffee?"
       helper-text="Long answer please."
     ></IcTextField>
+  </Story>
+</Canvas>
+
+### Hidden input
+
+export const HiddenInput = () => {
+  const [renderHidden, setRenderHidden] = useState(true);
+  const handleChange = () => {
+    setRenderHidden(!renderHidden);
+  };
+  return (
+    <>
+      <IcTextField label="my label" hiddenInput={renderHidden} />
+      <IcButton onClick={() => handleChange()}>Toggle hidden input</IcButton>
+    </>
+  );
+};
+
+<Canvas>
+  <Story name="Hidden input">
+    <HiddenInput />
   </Story>
 </Canvas>
 

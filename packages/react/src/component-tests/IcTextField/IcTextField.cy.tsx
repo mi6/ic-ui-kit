@@ -41,6 +41,7 @@ import {
   Controlled,
   Uncontrolled,
   TextFieldWithMaxLengthMessage,
+  HiddenInput,
 } from "./IcTextFieldTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -341,6 +342,18 @@ describe("IcTextField end-to-end tests", () => {
     cy.get(IC_TEXTFIELD).invoke("attr", "title", "new-input-title");
 
     input.should(HAVE_ATTR, "title", "new-input-title");
+  });
+
+  it("should remove the hidden input when hiddenInput prop is toggled", () => {
+    mount(<HiddenInput />);
+
+    cy.get(IC_TEXTFIELD).invoke("prop", "hiddenInput", true);
+
+    cy.get(IC_TEXTFIELD).find('input[type="hidden"]').should("exist");
+
+    cy.get(IC_TEXTFIELD).invoke("prop", "hiddenInput", false);
+
+    cy.get(IC_TEXTFIELD).find('input[type="hidden"]').should("not.exist");
   });
 });
 
