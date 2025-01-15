@@ -38,6 +38,8 @@ import {
   LargeDataSet,
   ActionElement,
   MissingCellData,
+  TurnOffSelectedRowHighlighting,
+  SelectedRowChangeEvent,
   DevArea,
 } from "./story-data";
 import readme from "./readme.md";
@@ -1691,6 +1693,92 @@ const DataTable = () => (
 );
 
 export default DataTable;
+```
+
+### Turn off selected row highlighting
+
+The example below demonstrates the table being configured to not highlight the selected row.
+
+<Canvas withSource="none">
+  <Story name="Turn off selected row highlighting">
+    {TurnOffSelectedRowHighlighting()}
+  </Story>
+</Canvas>
+
+#### Turn off selected row highlighting code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Turn off selected row highlighting"
+  highlight-selected-row="false"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "name",
+      title: "Name",
+      dataType: "string",
+    },
+    ...
+  ];
+
+  const data = [
+    {
+      name: "John Smith",
+      age: 36,
+      department: "Accounts & Finance",
+      employeeNumber: 1,
+      jobTitle: "Senior Financial Operations and Reporting Analyst",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Selected row change event
+
+<Canvas withSource="none">
+  <Story name="Selected row change event">{SelectedRowChangeEvent()}</Story>
+</Canvas>
+
+#### Selected row change event code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Selected row change event"
+  onIcSelectedRowChange={(event) => console.log("Selected row changed: ", event.detail) }
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "name",
+      title: "Name",
+      dataType: "string",
+    },
+    ...
+  ];
+
+  const data = [
+    {
+      name: "John Smith",
+      age: 36,
+      department: "Accounts & Finance",
+      employeeNumber: 1,
+      jobTitle: "Senior Financial Operations and Reporting Analyst",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
 ```
 
 #### Development Area
