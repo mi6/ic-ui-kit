@@ -40,7 +40,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "neutral",
+      name: "IcStatusTag/neutral",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
@@ -55,7 +55,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "success",
+      name: "IcStatusTag/success",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -67,7 +67,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "warning",
+      name: "IcStatusTag/warning",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -79,7 +79,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "danger",
+      name: "IcStatusTag/danger",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
@@ -91,7 +91,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "small",
+      name: "IcStatusTag/small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -103,7 +103,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "large",
+      name: "IcStatusTag/large",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -128,7 +128,7 @@ describe("IcStatusTag visual regression tests in high contrast mode", () => {
     cy.checkHydrated(STATUS_TAG_SELECTOR);
 
     cy.compareSnapshot({
-      name: "high-contrast",
+      name: "IcStatusTag/high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });

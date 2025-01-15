@@ -144,7 +144,7 @@ describe("IcToast visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
+      name: "IcToast/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -157,7 +157,7 @@ describe("IcToast visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "message-variant",
+      name: "IcToast/message-variant",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -170,7 +170,7 @@ describe("IcToast visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "multiline",
+      name: "IcToast/multiline",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
     });
   });
@@ -183,7 +183,7 @@ describe("IcToast visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-button",
+      name: "IcToast/slotted-button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -196,7 +196,7 @@ describe("IcToast visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-link",
+      name: "IcToast/slotted-link",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -209,7 +209,7 @@ describe("IcToast visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "auto-dismiss",
+      name: "IcToast/auto-dismiss",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
@@ -222,7 +222,7 @@ describe("IcToast visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "custom-icon",
+      name: "IcToast/custom-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -235,7 +235,7 @@ describe("IcToast visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "custom-aria-label",
+      name: "IcToast/custom-aria-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
@@ -261,7 +261,7 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     cy.get(IC_BUTTON_SELECTOR).click().wait(500);
 
     cy.compareSnapshot({
-      name: "auto-dismiss-high-contrast",
+      name: "IcToast/auto-dismiss-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -273,7 +273,7 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     cy.get(IC_BUTTON_SELECTOR).click().wait(500);
 
     cy.compareSnapshot({
-      name: "custom-icon-high-contrast",
+      name: "IcToast/custom-icon-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
   });
@@ -285,7 +285,7 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     cy.get(OPEN_BUTTON_SELECTOR).click().wait(500);
 
     cy.compareSnapshot({
-      name: "slotted-button-high-contrast",
+      name: "IcToast/slotted-button-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
@@ -297,7 +297,7 @@ describe("IcToast visual regression tests in high contrast mode", () => {
     cy.get(IC_BUTTON_SELECTOR).click().wait(500);
 
     cy.compareSnapshot({
-      name: "slotted-link-high-contrast",
+      name: "IcToast/slotted-link-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });

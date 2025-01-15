@@ -40,7 +40,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 200);
     cy.compareSnapshot({
-      name: "default",
+      name: "IcHero/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -54,7 +54,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-headings",
+      name: "IcHero/slotted-headings",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -67,7 +67,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "centered",
+      name: "IcHero/centered",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -79,7 +79,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "centered-content",
+      name: "IcHero/centered-content",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
   });
@@ -92,7 +92,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "small",
+      name: "IcHero/small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -106,7 +106,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "secondary-heading-search",
+      name: "IcHero/secondary-heading-search",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
 
@@ -124,7 +124,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "card-content",
+      name: "IcHero/card-content",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -137,7 +137,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "image-right",
+      name: "IcHero/image-right",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -149,7 +149,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "background-image",
+      name: "IcHero/background-image",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -161,7 +161,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "long-heading",
+      name: "IcHero/long-heading",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
@@ -176,7 +176,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "full-width",
+      name: "IcHero/full-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -189,7 +189,7 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "theme",
+      name: "IcHero/theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
@@ -218,7 +218,7 @@ describe("IcHero visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_HERO_SELECTOR);
 
     cy.wait(500).compareSnapshot({
-      name: "default-high-contrast",
+      name: "IcHero/default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -229,7 +229,7 @@ describe("IcHero visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_HERO_SELECTOR);
 
     cy.wait(500).compareSnapshot({
-      name: "slotted-headings-high-contrast",
+      name: "IcHero/slotted-headings-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
@@ -240,7 +240,7 @@ describe("IcHero visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_HERO_SELECTOR);
 
     cy.wait(500).compareSnapshot({
-      name: "card-content-high-contrast",
+      name: "IcHero/card-content-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -251,7 +251,7 @@ describe("IcHero visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_HERO_SELECTOR);
 
     cy.wait(500).compareSnapshot({
-      name: "background-image-high-contrast",
+      name: "IcHero/background-image-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });

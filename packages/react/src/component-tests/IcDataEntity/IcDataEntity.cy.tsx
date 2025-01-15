@@ -52,7 +52,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
+      name: "IcDataEntity/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -68,7 +68,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "links",
+      name: "IcDataEntity/links",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
@@ -84,7 +84,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-heading-label",
+      name: "IcDataEntity/slotted-heading-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
@@ -104,7 +104,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "one-data-row",
+      name: "IcDataEntity/one-data-row",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -128,7 +128,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "button",
+      name: "IcDataEntity/button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
@@ -144,7 +144,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "status-tag",
+      name: "IcDataEntity/status-tag",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
@@ -160,7 +160,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "status-tag-as-value",
+      name: "IcDataEntity/status-tag-as-value",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -176,7 +176,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "size-small",
+      name: "IcDataEntity/size-small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
@@ -192,7 +192,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "long-text-values",
+      name: "IcDataEntity/long-text-values",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
     });
   });
@@ -208,7 +208,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "editable-data",
+      name: "IcDataEntity/editable-data",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
@@ -225,7 +225,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "editable-data-clicked",
+      name: "IcDataEntity/editable-data-clicked",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
@@ -253,7 +253,7 @@ describe("IcDataEntity end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
 
     cy.compareSnapshot({
-      name: "editable-name-data",
+      name: "IcDataEntity/editable-name-data",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
@@ -286,7 +286,7 @@ describe("IcDataEntity visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_ENTITY_SELECTOR);
 
     cy.compareSnapshot({
-      name: "default-high-contrast",
+      name: "IcDataEntity/default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
   });
@@ -301,7 +301,7 @@ describe("IcDataEntity visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_ENTITY_SELECTOR);
 
     cy.compareSnapshot({
-      name: "links-high-contrast",
+      name: "IcDataEntity/links-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
@@ -316,7 +316,7 @@ describe("IcDataEntity visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_ENTITY_SELECTOR);
 
     cy.compareSnapshot({
-      name: "button-high-contrast",
+      name: "IcDataEntity/button-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
@@ -331,7 +331,7 @@ describe("IcDataEntity visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_ENTITY_SELECTOR);
 
     cy.compareSnapshot({
-      name: "status-tag-high-contrast",
+      name: "IcDataEntity/status-tag-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
@@ -346,7 +346,7 @@ describe("IcDataEntity visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_ENTITY_SELECTOR);
 
     cy.compareSnapshot({
-      name: "editable-data-high-contrast",
+      name: "IcDataEntity/editable-data-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
@@ -362,7 +362,7 @@ describe("IcDataEntity visual regression tests in high contrast mode", () => {
     cy.get("ic-button").contains("Edit").click().wait(500);
 
     cy.compareSnapshot({
-      name: "editable-data-clicked-high-contrast",
+      name: "IcDataEntity/editable-data-clicked-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });

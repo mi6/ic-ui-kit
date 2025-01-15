@@ -68,7 +68,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "static",
+      name: "IcChip/static",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -84,7 +84,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "outlined",
+      name: "IcChip/outlined",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -96,7 +96,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-icon",
+      name: "IcChip/with-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -114,7 +114,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "sizes",
+      name: "IcChip/sizes",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
@@ -128,7 +128,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dismissible",
+      name: "IcChip/dismissible",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
@@ -144,7 +144,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dismissible-focus",
+      name: "IcChip/dismissible-focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
@@ -158,7 +158,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "custom-dismiss-label",
+      name: "IcChip/custom-dismiss-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -170,7 +170,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled",
+      name: "IcChip/disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -184,7 +184,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "long-label",
+      name: "IcChip/long-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
     });
   });
@@ -196,7 +196,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "white-background",
+      name: "IcChip/white-background",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
@@ -208,7 +208,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "custom-colour",
+      name: "IcChip/custom-colour",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
   });
@@ -220,7 +220,7 @@ describe("IcChip visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "badge-slot",
+      name: "IcChip/badge-slot",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -231,7 +231,7 @@ describe("IcChip visual regression and a11y tests", () => {
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "in-ag-grid",
+      name: "IcChip/in-ag-grid",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
@@ -256,7 +256,7 @@ describe("IcChip visual regression tests in high contrast mode", () => {
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "custom-colour-high-contrast",
+      name: "IcChip/custom-colour-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
   });
@@ -267,7 +267,7 @@ describe("IcChip visual regression tests in high contrast mode", () => {
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "disabled-high-contrast",
+      name: "IcChip/disabled-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -280,7 +280,7 @@ describe("IcChip visual regression tests in high contrast mode", () => {
     cy.checkHydrated("ic-chip#large-chip");
 
     cy.compareSnapshot({
-      name: "dismissible-high-contrast",
+      name: "IcChip/dismissible-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
@@ -295,7 +295,7 @@ describe("IcChip visual regression tests in high contrast mode", () => {
     cy.findShadowEl("ic-chip#small-chip", "button").eq(0).focus().wait(500);
 
     cy.compareSnapshot({
-      name: "dismissible-focus-high-contrast",
+      name: "IcChip/dismissible-focus-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
@@ -306,7 +306,7 @@ describe("IcChip visual regression tests in high contrast mode", () => {
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "white-background-high-contrast",
+      name: "IcChip/white-background-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });

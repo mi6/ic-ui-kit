@@ -37,7 +37,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple",
+      name: "IcPagination/simple",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -58,7 +58,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "focus-simple",
+      name: "IcPagination/focus-simple",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -77,7 +77,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex",
+      name: "IcPagination/complex",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
@@ -102,7 +102,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "focus-complex",
+      name: "IcPagination/focus-complex",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -117,7 +117,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark-complex-appearance",
+      name: "IcPagination/dark-complex-appearance",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
@@ -138,7 +138,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "dark-complex-focus",
+      name: "IcPagination/dark-complex-focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -157,7 +157,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark-simple-appearance",
+      name: "IcPagination/dark-simple-appearance",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -182,7 +182,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "dark-simple-focus",
+      name: "IcPagination/dark-simple-focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -199,7 +199,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "light-complex-appearance",
+      name: "IcPagination/light-complex-appearance",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
@@ -222,7 +222,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "light-complex-focus",
+      name: "IcPagination/light-complex-focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -239,7 +239,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light-simple-appearance",
+      name: "IcPagination/light-simple-appearance",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
@@ -262,7 +262,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "light-simple-focus",
+      name: "IcPagination/light-simple-focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
@@ -282,7 +282,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "boundary-adjacent-items",
+      name: "IcPagination/boundary-adjacent-items",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
@@ -303,7 +303,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "boundary-adjacent-items-centre-page",
+      name: "IcPagination/boundary-adjacent-items-centre-page",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
@@ -318,7 +318,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "hide-first-last-page-buttons",
+      name: "IcPagination/hide-first-last-page-buttons",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -333,7 +333,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "hide-current-page",
+      name: "IcPagination/hide-current-page",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -348,7 +348,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled-with-complex",
+      name: "IcPagination/disabled-with-complex",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
@@ -363,7 +363,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled-with-simple",
+      name: "IcPagination/disabled-with-simple",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
@@ -399,7 +399,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "label",
+      name: "IcPagination/label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
@@ -414,7 +414,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default-page-4",
+      name: "IcPagination/default-page-4",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
@@ -445,7 +445,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple-after-click-next-page-1",
+      name: "IcPagination/simple-after-click-next-page-1",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
@@ -471,7 +471,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex-after-click-next-page-1",
+      name: "IcPagination/complex-after-click-next-page-1",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -498,7 +498,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex-after-click-page-3",
+      name: "IcPagination/complex-after-click-page-3",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
@@ -523,7 +523,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple-after-click-page-3",
+      name: "IcPagination/simple-after-click-page-3",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -548,7 +548,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex-after-click-lastPage-button",
+      name: "IcPagination/complex-after-click-lastPage-button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -578,7 +578,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex-after-click-page-13-button",
+      name: "IcPagination/complex-after-click-page-13-button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -600,7 +600,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple-after-click-lastPage-button",
+      name: "IcPagination/simple-after-click-lastPage-button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -627,7 +627,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple-after-click-page-13-button",
+      name: "IcPagination/simple-after-click-page-13-button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
@@ -655,7 +655,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple-previous-page-button-clicked",
+      name: "IcPagination/simple-previous-page-button-clicked",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
@@ -683,7 +683,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex-previous-page-button-clicked",
+      name: "IcPagination/complex-previous-page-button-clicked",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
@@ -711,7 +711,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple-first-page-button-clicked",
+      name: "IcPagination/simple-first-page-button-clicked",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
@@ -739,7 +739,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex-first-page-button-clicked",
+      name: "IcPagination/complex-first-page-button-clicked",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -776,7 +776,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex-middle-state-page-7",
+      name: "IcPagination/complex-middle-state-page-7",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -868,7 +868,7 @@ describe("IcPagination visual regression tests in high contrast mode", () => {
     cy.checkHydrated(PAGINATION_SELECTOR);
 
     cy.compareSnapshot({
-      name: "simple-high-contrast",
+      name: "IcPagination/simple-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
@@ -886,7 +886,7 @@ describe("IcPagination visual regression tests in high contrast mode", () => {
     cy.checkHydrated(PAGINATION_SELECTOR);
 
     cy.compareSnapshot({
-      name: "complex-high-contrast",
+      name: "IcPagination/complex-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
@@ -906,7 +906,7 @@ describe("IcPagination visual regression tests in high contrast mode", () => {
       });
 
     cy.wait(500).compareSnapshot({
-      name: "focus-simple-high-contrast",
+      name: "IcPagination/focus-simple-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
     });
   });
@@ -930,7 +930,7 @@ describe("IcPagination visual regression tests in high contrast mode", () => {
       });
 
     cy.wait(500).compareSnapshot({
-      name: "focus-complex-high-contrast",
+      name: "IcPagination/focus-complex-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -948,7 +948,7 @@ describe("IcPagination visual regression tests in high contrast mode", () => {
     cy.checkHydrated(PAGINATION_SELECTOR);
 
     cy.compareSnapshot({
-      name: "dark-simple-appearance-high-contrast",
+      name: "IcPagination/dark-simple-appearance-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
@@ -964,7 +964,7 @@ describe("IcPagination visual regression tests in high contrast mode", () => {
     cy.checkHydrated(PAGINATION_SELECTOR);
 
     cy.compareSnapshot({
-      name: "light-complex-appearance-high-contrast",
+      name: "IcPagination/light-complex-appearance-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });

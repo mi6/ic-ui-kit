@@ -30,7 +30,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
+      name: "IcLink/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -48,7 +48,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default-focus",
+      name: "IcLink/default-focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -66,7 +66,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark",
+      name: "IcLink/dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
@@ -86,7 +86,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark-focus",
+      name: "IcLink/dark-focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
@@ -106,7 +106,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light",
+      name: "IcLink/light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
@@ -128,7 +128,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light-focus",
+      name: "IcLink/light-focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
@@ -162,7 +162,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "icon",
+      name: "IcLink/icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -187,7 +187,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "multiline",
+      name: "IcLink/multiline",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
     });
   });
@@ -227,7 +227,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "inline",
+      name: "IcLink/inline",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -256,7 +256,7 @@ describe("IcLink visual regression tests in high contrast mode", () => {
     cy.checkHydrated(LINK_SELECTOR);
 
     cy.compareSnapshot({
-      name: "default-high-contrast",
+      name: "IcLink/default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -273,7 +273,7 @@ describe("IcLink visual regression tests in high contrast mode", () => {
     cy.get(LINK_SELECTOR).shadow().find("a").focus();
 
     cy.compareSnapshot({
-      name: "default-focus-high-contrast",
+      name: "IcLink/default-focus-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -290,7 +290,7 @@ describe("IcLink visual regression tests in high contrast mode", () => {
     cy.checkHydrated(LINK_SELECTOR);
 
     cy.compareSnapshot({
-      name: "inline-high-contrast",
+      name: "IcLink/inline-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -307,7 +307,7 @@ describe("IcLink visual regression tests in high contrast mode", () => {
     cy.checkHydrated(LINK_SELECTOR);
 
     cy.compareSnapshot({
-      name: "icon-high-contrast",
+      name: "IcLink/icon-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });

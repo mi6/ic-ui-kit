@@ -52,7 +52,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
+      name: "IcFooter/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
@@ -68,7 +68,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "group-links",
+      name: "IcFooter/group-links",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
@@ -91,7 +91,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "group-links-mobile",
+      name: "IcFooter/group-links-mobile",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
     });
   });
@@ -104,7 +104,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "before-click",
+      name: "IcFooter/before-click",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -123,7 +123,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.wait(500).compareSnapshot({
-      name: "after-click",
+      name: "IcFooter/after-click",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
@@ -136,7 +136,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "center",
+      name: "IcFooter/center",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -151,7 +151,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "full-width",
+      name: "IcFooter/full-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -164,7 +164,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "extra-small",
+      name: "IcFooter/extra-small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.059),
     });
   });
@@ -176,7 +176,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "extra-large",
+      name: "IcFooter/extra-large",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -189,7 +189,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait("svg", 500);
     cy.compareSnapshot({
-      name: "logo-with-links",
+      name: "IcFooter/logo-with-links",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
@@ -202,7 +202,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "layout-link",
+      name: "IcFooter/layout-link",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
     });
   });
@@ -215,7 +215,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "no-copyright",
+      name: "IcFooter/no-copyright",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
@@ -228,7 +228,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "no-description",
+      name: "IcFooter/no-description",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
@@ -241,7 +241,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "no-caption-copyright",
+      name: "IcFooter/no-caption-copyright",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
@@ -254,7 +254,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "no-links",
+      name: "IcFooter/no-links",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -267,7 +267,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-description-caption",
+      name: "IcFooter/slotted-description-caption",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -279,7 +279,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "classification-banner",
+      name: "IcFooter/classification-banner",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -291,7 +291,7 @@ describe("IcFooter end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "theme",
+      name: "IcFooter/theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -320,7 +320,7 @@ describe("IcFooter visual regression tests in high contrast mode", () => {
     cy.checkHydrated(FOOTER_SELECTOR);
 
     cy.compareSnapshot({
-      name: "default-high-contrast",
+      name: "IcFooter/default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
@@ -331,7 +331,7 @@ describe("IcFooter visual regression tests in high contrast mode", () => {
     cy.checkHydrated(FOOTER_SELECTOR);
 
     cy.compareSnapshot({
-      name: "slotted-content-high-contrast",
+      name: "IcFooter/slotted-content-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -343,7 +343,7 @@ describe("IcFooter visual regression tests in high contrast mode", () => {
     cy.checkHydrated(FOOTER_SELECTOR);
 
     cy.compareSnapshot({
-      name: "logo-links-high-contrast",
+      name: "IcFooter/logo-links-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });

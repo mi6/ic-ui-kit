@@ -61,7 +61,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "static-card",
+      name: "IcCard/static-card",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
@@ -79,7 +79,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focus",
+      name: "IcCard/focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
@@ -99,7 +99,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 200);
     cy.compareSnapshot({
-      name: "blur",
+      name: "IcCard/blur",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
@@ -113,7 +113,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "wrapped-anchor",
+      name: "IcCard/wrapped-anchor",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -126,7 +126,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-icon",
+      name: "IcCard/with-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -141,7 +141,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "heading-only",
+      name: "IcCard/heading-only",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -156,7 +156,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "message",
+      name: "IcCard/message",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
@@ -171,7 +171,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "sub-heading",
+      name: "IcCard/sub-heading",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
     });
   });
@@ -182,7 +182,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(CARD_SELECTOR);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-headings",
+      name: "IcCard/slotted-headings",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
     });
   });
@@ -196,7 +196,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 200);
     cy.compareSnapshot({
-      name: "interaction",
+      name: "IcCard/interaction",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
     });
   });
@@ -211,7 +211,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "adornment",
+      name: "IcCard/adornment",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
   });
@@ -224,7 +224,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "top-image",
+      name: "IcCard/top-image",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
   });
@@ -237,7 +237,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "mid-image",
+      name: "IcCard/mid-image",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
   });
@@ -253,7 +253,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "interaction-controls",
+      name: "IcCard/interaction-controls",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
   });
@@ -267,7 +267,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "clickable-link",
+      name: "IcCard/clickable-link",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -280,7 +280,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
-      name: "clickable-button",
+      name: "IcCard/clickable-button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -293,7 +293,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "badge",
+      name: "IcCard/badge",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
@@ -306,7 +306,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled",
+      name: "IcCard/disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -321,7 +321,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "full-width",
+      name: "IcCard/full-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
@@ -334,7 +334,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
-      name: "expandable",
+      name: "IcCard/expandable",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
   });
@@ -348,7 +348,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "expanded-clicked",
+      name: "IcCard/expanded-clicked",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.052),
     });
   });
@@ -360,7 +360,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(CARD_SELECTOR);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "reduced-width",
+      name: "IcCard/reduced-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
     });
   });
@@ -372,7 +372,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(CARD_SELECTOR);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "increased-width",
+      name: "IcCard/increased-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -384,7 +384,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(CARD_SELECTOR);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "additional-height",
+      name: "IcCard/additional-height",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
     });
   });
@@ -403,7 +403,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "render-three",
+      name: "IcCard/render-three",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
     });
   });
@@ -429,7 +429,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
       cy.get("a").focus().should(HAVE_FOCUS);
 
       cy.wait(300).compareSnapshot({
-        name: "wrapped-anchor-high-contrast",
+        name: "IcCard/wrapped-anchor-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
       });
     });
@@ -442,7 +442,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
       cy.wait(1000).get("ic-button").shadow().find("button").focus();
 
       cy.wait(100).compareSnapshot({
-        name: "interaction-high-contrast",
+        name: "IcCard/interaction-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
       });
     });
@@ -455,7 +455,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
       cy.get(CARD_SELECTOR).click();
 
       cy.wait(200).compareSnapshot({
-        name: "clickable-link-high-contrast",
+        name: "IcCard/clickable-link-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       });
     });
@@ -467,7 +467,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
       cy.get(CARD_SELECTOR).click().should(HAVE_FOCUS);
 
       cy.wait(200).compareSnapshot({
-        name: "clickable-button-high-contrast",
+        name: "IcCard/clickable-button-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
       });
     });
@@ -478,7 +478,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
       cy.checkHydrated(CARD_SELECTOR);
 
       cy.compareSnapshot({
-        name: "badge-high-contrast",
+        name: "IcCard/badge-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
       });
     });
@@ -489,7 +489,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
       cy.checkHydrated(CARD_SELECTOR);
 
       cy.compareSnapshot({
-        name: "disabled-high-contrast",
+        name: "IcCard/disabled-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
       });
     });
@@ -502,7 +502,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
       cy.get(TYPOGRAPHY_SELECTOR).contains("Expanded").should(BE_VISIBLE);
 
       cy.compareSnapshot({
-        name: "expanded-clicked-high-contrast",
+        name: "IcCard/expanded-clicked-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
       });
     });
@@ -513,7 +513,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
       cy.checkHydrated(CARD_SELECTOR);
 
       cy.compareSnapshot({
-        name: "render-three-high-contrast",
+        name: "IcCard/render-three-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
       });
     });
