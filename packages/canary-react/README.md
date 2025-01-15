@@ -16,10 +16,10 @@ To install the components:
 In the root of your project:
 
 ```shell
-// using npm
+# using npm
 npm install @ukic/canary-react @ukic/fonts
 
-// using yarn
+# using yarn
 rm package-lock.json
 yarn add @ukic/canary-react @ukic/fonts
 ```
