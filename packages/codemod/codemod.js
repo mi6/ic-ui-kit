@@ -1,12 +1,24 @@
 #!/usr/bin/env node
 import fs from "fs";
 import yargs from 'yargs';
+import pino from 'pino';
+
 import { searchDirectory } from "./sections/directory-search.js";
 import { compareComponent } from "./sections/component-changes.js";
 import { simpleTestComparison } from "./sections/simple-test-comparison.js";
 import * as reactData from "./changeReact.json" with {type: "json"};
 import * as htmlData from "./changes.json" with {type: "json"};
 
+const logger = pino({
+  name: 'ICDS Codemod',
+  transport: {
+    target: 'pino-pretty',
+    options: {
+      colorize: true,
+      ignore: "time,hostname,pid",
+    }
+  }
+});
 /**
  * 
  * @param {*} filePath 
@@ -18,7 +30,7 @@ import * as htmlData from "./changes.json" with {type: "json"};
     const data =  fs.readFileSync(filePath, "utf8");
     return data;
   } catch (err) {
-    console.error("Error reading file:", err);
+    logger.error("Error reading file:", err);
     return [];
   }
 }
@@ -44,8 +56,8 @@ const main = async (path, test = false) => {
       );
       if(changedFile !== linesArray){
       fs.writeFile(file, changedFile, (err) => {
-        if (err) return console.log(err);
-        console.log(`${file.split('\\').slice(-1)} modified successfully`);
+        if (err) return logger.error(err);
+        logger.info(`${file.split('\\').slice(-1)} modified successfully`);
       });
     }
     }
@@ -56,8 +68,8 @@ const main = async (path, test = false) => {
       );
       if(changedFile !== linesArray){
       fs.writeFile(file, changedFile, (err) => {
-        if (err) return console.log(err);
-        console.log(`${file.split('\\').slice(-1)} modified successfully`);
+        if (err) return logger.error(err);
+        logger.info(`${file.split('\\').slice(-1)} modified successfully`);
       });
     }
     } else {
@@ -67,8 +79,8 @@ const main = async (path, test = false) => {
       );
       if(changedComponentFile !== linesArray){
       fs.writeFile(file, String(changedComponentFile), (err) => {
-        if (err) return console.log(err);
-        console.log(`${file.split('\\').slice(-1)} modified successfully`);
+        if (err) return logger.error(err);
+        logger.info(`${file.split('\\').slice(-1)} modified successfully`);
       });
     }
     }
@@ -97,13 +109,14 @@ cli.usage('Usage: node ./$0 [options]')
 .alias('h', 'help')
 .alias('v', 'version')
 .epilog('Created by ICDS ♥')
-.parse()
+.parse();
 
 const { dir, test } = cli.argv;
 
 if(!dir) {
-  console.error('Please provide a directory path to the codemod');
+  logger.error('Please provide a directory path to the codemod');
   process.exit(1);
 }
 
+logger.info("Starting codemod...");
 await main(dir, test);

@@ -10,6 +10,8 @@
     },
     "dependencies": {
         "jest-cli": "^29.7.0",
+        "pino": "^9.6.0",
+        "pino-pretty": "^13.0.0",
         "yargs": "^17.7.2"
     }
 }
