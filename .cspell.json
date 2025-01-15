@@ -153,7 +153,9 @@
       "sippin",
       "chillin",
       "maxin",
-      "relaxin"
+      "relaxin",
+      "codemod",
+      "nargs"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc", "la"],
     "ignorePaths": [
