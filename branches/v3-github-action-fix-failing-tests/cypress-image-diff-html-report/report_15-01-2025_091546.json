@@ -1,7 +1,7 @@
 {
   "total": 740,
-  "totalPassed": 740,
-  "totalFailed": 0,
+  "totalPassed": 738,
+  "totalFailed": 2,
   "totalSuites": 40,
   "suites": [
     {
@@ -2407,14 +2407,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-neutral-alert.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDialog.cy.tsx-info-alert",
-          "percentage": 0,
+          "percentage": 0.059610279454693604,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-info-alert.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-info-alert.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-info-alert.png"
         },
         {
@@ -2429,14 +2429,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-warning-alert.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDialog.cy.tsx-error-alert",
-          "percentage": 0,
+          "percentage": 0.05980654576772234,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-error-alert.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-error-alert.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-error-alert.png"
         },
         {
@@ -8385,9 +8385,9 @@
       ]
     }
   ],
-  "startedAt": "2025-01-15T08:40:30.091Z",
-  "endedAt": "2025-01-15T08:55:27.600Z",
-  "duration": 806941,
+  "startedAt": "2025-01-15T09:15:46.413Z",
+  "endedAt": "2025-01-15T09:30:39.793Z",
+  "duration": 804022,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
