@@ -54,7 +54,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "default-multi-select",
+      name: "IcSelect_Multi/default-multi-select",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -71,7 +71,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-default-value",
+      name: "IcSelect_Multi/multi-select-default-value",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -88,7 +88,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-descriptions",
+      name: "IcSelect_Multi/multi-select-descriptions",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -105,7 +105,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-small",
+      name: "IcSelect_Multi/multi-select-small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -122,7 +122,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-large",
+      name: "IcSelect_Multi/multi-select-large",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -139,7 +139,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-disabled-options",
+      name: "IcSelect_Multi/multi-select-disabled-options",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -154,7 +154,7 @@ describe("IcSelect - Multi", () => {
     cy.checkHydrated(MULTI_SELECT);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "multi-select-read-only",
+      name: "IcSelect_Multi/multi-select-read-only",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -171,7 +171,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-groups",
+      name: "IcSelect_Multi/multi-select-groups",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -263,7 +263,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "multi-select-shift-arrow-down",
+      name: "IcSelect_Multi/multi-select-shift-arrow-down",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -284,7 +284,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-shift-arrow-up",
+      name: "IcSelect_Multi/multi-select-shift-arrow-up",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -306,7 +306,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-shift-ctrl-end",
+      name: "IcSelect_Multi/multi-select-shift-ctrl-end",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -328,7 +328,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-shift-ctrl-home",
+      name: "IcSelect_Multi/multi-select-shift-ctrl-home",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -351,7 +351,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-shift-click",
+      name: "IcSelect_Multi/multi-select-shift-click",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -374,7 +374,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-shift-click-from-bottom",
+      name: "IcSelect_Multi/multi-select-shift-click-from-bottom",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -394,7 +394,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-select-all-button-focused",
+      name: "IcSelect_Multi/multi-select-select-all-button-focused",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -415,7 +415,7 @@ describe("IcSelect - Multi", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "multi-select-clear-button-focused",
+      name: "IcSelect_Multi/multi-select-clear-button-focused",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -445,7 +445,7 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).focus().click().wait(500);
 
     cy.compareSnapshot({
-      name: "default-multi-select-high-contrast",
+      name: "IcSelect_Multi/default-multi-select-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -467,7 +467,7 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     });
 
     cy.wait(300).compareSnapshot({
-      name: "multi-select-partially-selected-high-contrast",
+      name: "IcSelect_Multi/multi-select-partially-selected-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -487,7 +487,7 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
       .realPress(["Shift", "ArrowUp"]);
 
     cy.wait(300).compareSnapshot({
-      name: "multi-select-option-highlighted-high-contrast",
+      name: "IcSelect_Multi/multi-select-option-highlighted-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -506,7 +506,7 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
       .realPress("Tab");
 
     cy.wait(300).compareSnapshot({
-      name: "multi-select-select-all-button-focused-high-contrast",
+      name: "IcSelect_Multi/multi-select-select-all-button-focused-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {
@@ -526,7 +526,7 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
       .realPress("Tab");
 
     cy.wait(300).compareSnapshot({
-      name: "multi-select-clear-button-focused-high-contrast",
+      name: "IcSelect_Multi/multi-select-clear-button-focused-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       delay: SCREENSHOT_DELAY,
       cypressScreenshotOptions: {

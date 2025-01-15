@@ -70,7 +70,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
+      name: "IcCardHorizontal/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
@@ -80,7 +80,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-message",
+      name: "IcCardHorizontal/with-message",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
   });
@@ -94,7 +94,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-icon",
+      name: "IcCardHorizontal/with-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -110,7 +110,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "clickable",
+      name: "IcCardHorizontal/clickable",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
@@ -122,7 +122,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "clickable-link",
+      name: "IcCardHorizontal/clickable-link",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
@@ -139,7 +139,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-image-small",
+      name: "IcCardHorizontal/with-image-small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
@@ -156,7 +156,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-image-default",
+      name: "IcCardHorizontal/with-image-default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
@@ -173,7 +173,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-image-large",
+      name: "IcCardHorizontal/with-image-large",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -190,7 +190,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-image-extra-large",
+      name: "IcCardHorizontal/with-image-extra-large",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
@@ -202,7 +202,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled",
+      name: "IcCardHorizontal/disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
@@ -218,7 +218,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-heading-message",
+      name: "IcCardHorizontal/slotted-heading-message",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -245,7 +245,7 @@ describe("IcCardHorizontal", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-truncated-text",
+      name: "IcCardHorizontal/with-truncated-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
     });
   });
@@ -271,7 +271,7 @@ describe("IcCardHorizontal", () => {
 
       cy.checkA11yWithWait();
       cy.compareSnapshot({
-        name: "default-high-contrast",
+        name: "IcCardHorizontal/default-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
       });
     });
@@ -287,7 +287,7 @@ describe("IcCardHorizontal", () => {
 
       cy.checkA11yWithWait();
       cy.compareSnapshot({
-        name: "clickable-high-contrast",
+        name: "IcCardHorizontal/clickable-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
       });
     });
@@ -299,7 +299,7 @@ describe("IcCardHorizontal", () => {
 
       cy.checkA11yWithWait();
       cy.compareSnapshot({
-        name: "clickable-link-high-contrast",
+        name: "IcCardHorizontal/clickable-link-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
       });
     });
@@ -309,7 +309,7 @@ describe("IcCardHorizontal", () => {
 
       cy.checkA11yWithWait();
       cy.compareSnapshot({
-        name: "disabled-high-contrast",
+        name: "IcCardHorizontal/disabled-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       });
     });

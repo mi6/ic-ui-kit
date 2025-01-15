@@ -67,7 +67,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
+      name: "IcTreeView/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -97,7 +97,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-icons",
+      name: "IcTreeView/with-icons",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -109,7 +109,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "small",
+      name: "IcTreeView/small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -121,7 +121,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "large",
+      name: "IcTreeView/large",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -133,7 +133,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light",
+      name: "IcTreeView/light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -145,7 +145,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled-tree-item",
+      name: "IcTreeView/disabled-tree-item",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
@@ -157,7 +157,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "selected-tree-item",
+      name: "IcTreeView/selected-tree-item",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -169,7 +169,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "link-tree-item",
+      name: "IcTreeView/link-tree-item",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -181,7 +181,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "expanded-tree-item",
+      name: "IcTreeView/expanded-tree-item",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -211,7 +211,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "text-wrapping",
+      name: "IcTreeView/text-wrapping",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
@@ -260,7 +260,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "truncated-text",
+      name: "IcTreeView/truncated-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
 
@@ -268,7 +268,7 @@ describe("IcTreeView", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "truncated-text-hover",
+      name: "IcTreeView/truncated-text-hover",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
     });
   });
@@ -432,7 +432,7 @@ describe("IcTreeView visual regression tests in high contrast mode", () => {
     cy.checkHydrated(TREE_VIEW);
 
     cy.compareSnapshot({
-      name: "default-high-contrast",
+      name: "IcTreeView/default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -443,7 +443,7 @@ describe("IcTreeView visual regression tests in high contrast mode", () => {
     cy.checkHydrated(TREE_VIEW);
 
     cy.compareSnapshot({
-      name: "disabled-tree-item-high-contrast",
+      name: "IcTreeView/disabled-tree-item-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -454,7 +454,7 @@ describe("IcTreeView visual regression tests in high contrast mode", () => {
     cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).click();
 
     cy.compareSnapshot({
-      name: "expanded-tree-item-high-contrast",
+      name: "IcTreeView/expanded-tree-item-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -465,7 +465,7 @@ describe("IcTreeView visual regression tests in high contrast mode", () => {
     cy.checkHydrated(TREE_VIEW);
 
     cy.compareSnapshot({
-      name: "selected-tree-item-high-contrast",
+      name: "IcTreeView/selected-tree-item-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
@@ -495,7 +495,7 @@ describe("IcTreeView visual regression tests in high contrast mode", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-icons-high-contrast",
+      name: "IcTreeView/with-icons-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
   });

@@ -141,7 +141,7 @@ describe("IcDataTables", () => {
     cy.checkA11yWithWait();
 
     cy.compareSnapshot({
-      name: "default",
+      name: "IcDataTable/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -155,7 +155,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "section-container",
+      name: "IcDataTable/section-container",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.093),
       cypressSCreenshotOptions: {
         capture: "viewport",
@@ -172,7 +172,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(4).click();
 
     cy.compareSnapshot({
-      name: "highlighted-row",
+      name: "IcDataTable/highlighted-row",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -195,7 +195,7 @@ describe("IcDataTables", () => {
     cy.checkA11yWithWait();
 
     cy.compareSnapshot({
-      name: "with-row-headers",
+      name: "IcDataTable/with-row-headers",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.049),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -209,7 +209,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "embedded",
+      name: "IcDataTable/embedded",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.046),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -229,7 +229,7 @@ describe("IcDataTables", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "column-header-truncation",
+      name: "IcDataTable/column-header-truncation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -241,7 +241,7 @@ describe("IcDataTables", () => {
     mount(<BasicDataTable sortable />);
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.compareSnapshot({
-      name: "sortable",
+      name: "IcDataTable/sortable",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -253,7 +253,7 @@ describe("IcDataTables", () => {
     cy.wait(250);
 
     cy.compareSnapshot({
-      name: "sortable-first-sort",
+      name: "IcDataTable/sortable-first-sort",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.047),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -265,7 +265,7 @@ describe("IcDataTables", () => {
     cy.wait(250);
 
     cy.compareSnapshot({
-      name: "sortable-second-sort",
+      name: "IcDataTable/sortable-second-sort",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -381,7 +381,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "column-overrides",
+      name: "IcDataTable/column-overrides",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.049),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -402,7 +402,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "row-overrides",
+      name: "IcDataTable/row-overrides",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.049),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -423,7 +423,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "cell-overrides",
+      name: "IcDataTable/cell-overrides",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -439,7 +439,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "custom-icons",
+      name: "IcDataTable/custom-icons",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -463,7 +463,7 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.compareSnapshot({
-      name: "slotted-icon",
+      name: "IcDataTable/slotted-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -477,7 +477,7 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.compareSnapshot({
-      name: "null-data",
+      name: "IcDataTable/null-data",
       testThreshold: setThresholdBasedOnEnv(0.027),
     });
     cy.checkA11yWithWait();
@@ -493,7 +493,7 @@ describe("IcDataTables", () => {
       .should(HAVE_TEXT, "No Data");
 
     cy.compareSnapshot({
-      name: "no-data",
+      name: "IcDataTable/no-data",
       testThreshold: setThresholdBasedOnEnv(0.027),
     });
   });
@@ -528,7 +528,7 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.compareSnapshot({
-      name: "empty-state",
+      name: "IcDataTable/empty-state",
       testThreshold: setThresholdBasedOnEnv(0.033),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -542,7 +542,7 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.compareSnapshot({
-      name: "updating",
+      name: "IcDataTable/updating",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.015),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -567,7 +567,7 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.wait(350).compareSnapshot({
-      name: "loading-options",
+      name: "IcDataTable/loading-options",
       testThreshold: setThresholdBasedOnEnv(0.029),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -602,7 +602,7 @@ describe("IcDataTables", () => {
     );
 
     cy.compareSnapshot({
-      name: "loading-indicator-background",
+      name: "IcDataTable/loading-indicator-background",
       testThreshold: setThresholdBasedOnEnv(0.028),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -624,7 +624,7 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.compareSnapshot({
-      name: "updating-options",
+      name: "IcDataTable/updating-options",
       testThreshold: setThresholdBasedOnEnv(0.027),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -663,7 +663,7 @@ describe("IcDataTables", () => {
       .should(HAVE_ATTR, ARIA_LABEL, "Updating");
 
     cy.compareSnapshot({
-      name: "multiple-updating-options",
+      name: "IcDataTable/multiple-updating-options",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -683,7 +683,7 @@ describe("IcDataTables", () => {
     cy.wait(300);
 
     cy.compareSnapshot({
-      name: "specified-row-height",
+      name: "IcDataTable/specified-row-height",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.091),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -703,7 +703,7 @@ describe("IcDataTables", () => {
     cy.wait(300);
 
     cy.compareSnapshot({
-      name: "auto-set-row-height",
+      name: "IcDataTable/auto-set-row-height",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -761,7 +761,7 @@ describe("IcDataTables", () => {
     cy.wait(300);
 
     cy.compareSnapshot({
-      name: "slotted-title-bar",
+      name: "IcDataTable/slotted-title-bar",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.049),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -789,7 +789,7 @@ describe("IcDataTables", () => {
     cy.checkA11yWithWait();
 
     cy.compareSnapshot({
-      name: "on-all-cells-except-cells-with-custom-icon",
+      name: "IcDataTable/on-all-cells-except-cells-with-custom-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -852,7 +852,7 @@ describe("IcDataTables", () => {
     cy.wait(300);
 
     cy.compareSnapshot({
-      name: "density-dense",
+      name: "IcDataTable/density-dense",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.04),
     });
 
@@ -861,7 +861,7 @@ describe("IcDataTables", () => {
     cy.wait(300);
 
     cy.compareSnapshot({
-      name: "density-spacious",
+      name: "IcDataTable/density-spacious",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -882,7 +882,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "globalRowHeight-set-to-auto",
+      name: "IcDataTable/globalRowHeight-set-to-auto",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -906,7 +906,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(20).scrollIntoView();
 
     cy.compareSnapshot({
-      name: "sticky-header",
+      name: "IcDataTable/sticky-header",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.089),
       delay: 500,
       cypressScreenshotOptions: {
@@ -925,7 +925,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "thead").should(NOT_BE_VISIBLE);
 
     cy.compareSnapshot({
-      name: "sticky-header-removed",
+      name: "IcDataTable/sticky-header-removed",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.086),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -955,7 +955,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "density-default-dropdown",
+      name: "IcDataTable/density-default-dropdown",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.05),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -981,7 +981,7 @@ describe("IcDataTables", () => {
       .should(HAVE_LENGTH, 3);
 
     cy.compareSnapshot({
-      name: "density-dense-dropdown",
+      name: "IcDataTable/density-dense-dropdown",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.047),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -1026,7 +1026,7 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "slotted-icon-in-cell",
+      name: "IcDataTable/slotted-icon-in-cell",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.032),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -1095,7 +1095,7 @@ describe("IcDataTables", () => {
     cy.checkA11yWithWait(undefined, 300);
 
     cy.compareSnapshot({
-      name: "action-elements",
+      name: "IcDataTable/action-elements",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.038),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -1156,7 +1156,7 @@ describe("IcDataTables", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "empty-data-values",
+      name: "IcDataTable/empty-data-values",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -1291,7 +1291,7 @@ describe("IcDataTables with IcPaginationBar", () => {
     cy.checkA11yWithWait();
 
     cy.compareSnapshot({
-      name: "pagination",
+      name: "IcDataTable/pagination",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.129),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -1362,7 +1362,7 @@ describe("IcDataTables with IcPaginationBar", () => {
     cy.wait(500);
 
     cy.compareSnapshot({
-      name: "pagination-uncontrolled",
+      name: "IcDataTable/pagination-uncontrolled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.129),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -1503,7 +1503,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkA11yWithWait();
 
       cy.compareSnapshot({
-        name: "tooltip-truncation",
+        name: "IcDataTable/tooltip-truncation",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.035),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -1586,7 +1586,7 @@ describe("IcDataTable with truncation", () => {
         .should(HAVE_ATTR, "label", LONG_DATA_VALUES[2].jobTitle);
 
       cy.compareSnapshot({
-        name: "tooltip-truncation-sort",
+        name: "IcDataTable/tooltip-truncation-sort",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
 
         cypressScreenshotOptions: {
@@ -1618,7 +1618,7 @@ describe("IcDataTable with truncation", () => {
       });
 
       cy.compareSnapshot({
-        name: "tooltip-truncation-rowheight", // cspell:disable-line
+        name: "IcDataTable/tooltip-truncation-rowheight", // cspell:disable-line
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
       });
     });
@@ -1655,7 +1655,7 @@ describe("IcDataTable with truncation", () => {
         .should(HAVE_ATTR, "label", LONG_DATA_VALUES[0].jobTitle);
 
       cy.compareSnapshot({
-        name: "tooltip-truncation-reset-rowheight", // cspell:disable-line
+        name: "IcDataTable/tooltip-truncation-reset-rowheight", // cspell:disable-line
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.036),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -1759,7 +1759,7 @@ describe("IcDataTable with truncation", () => {
       });
 
       cy.compareSnapshot({
-        name: "tooltip-truncation-wide-table",
+        name: "IcDataTable/tooltip-truncation-wide-table",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.029),
       });
     });
@@ -1788,7 +1788,7 @@ describe("IcDataTable with truncation", () => {
         });
 
       cy.compareSnapshot({
-        name: "tooltip-truncation-dense",
+        name: "IcDataTable/tooltip-truncation-dense",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
       });
     });
@@ -1817,7 +1817,7 @@ describe("IcDataTable with truncation", () => {
         });
 
       cy.compareSnapshot({
-        name: "tooltip-truncation-spacious",
+        name: "IcDataTable/tooltip-truncation-spacious",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.034),
       });
     });
@@ -2031,7 +2031,7 @@ describe("IcDataTable with truncation", () => {
       cy.wait(350);
 
       cy.compareSnapshot({
-        name: "tooltip-truncation-custom-icon",
+        name: "IcDataTable/tooltip-truncation-custom-icon",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.023),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -2121,7 +2121,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkA11yWithWait();
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-hide",
+        name: "IcDataTable/show-hide-truncation-hide",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -2143,7 +2143,7 @@ describe("IcDataTable with truncation", () => {
         .should("have.text", "See less");
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-show",
+        name: "IcDataTable/show-hide-truncation-show",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -2172,7 +2172,7 @@ describe("IcDataTable with truncation", () => {
         .focus();
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-focus-hover-state",
+        name: "IcDataTable/show-hide-truncation-focus-hover-state",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.04),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -2242,7 +2242,7 @@ describe("IcDataTable with truncation", () => {
       });
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-row-height",
+        name: "IcDataTable/show-hide-truncation-row-height",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
       });
     });
@@ -2399,7 +2399,7 @@ describe("IcDataTable with truncation", () => {
         .click();
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-data-update",
+        name: "IcDataTable/show-hide-truncation-data-update",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.027),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -2439,7 +2439,7 @@ describe("IcDataTable with truncation", () => {
       );
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-scroll",
+        name: "IcDataTable/show-hide-truncation-scroll",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.087),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -2557,7 +2557,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-dense",
+        name: "IcDataTable/show-hide-truncation-dense",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -2580,7 +2580,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-spacious",
+        name: "IcDataTable/show-hide-truncation-spacious",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -2748,7 +2748,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-custom-icon",
+        name: "IcDataTable/show-hide-truncation-custom-icon",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.02),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -2771,7 +2771,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-link-multiline",
+        name: "IcDataTable/show-hide-truncation-link-multiline",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.086),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -2981,7 +2981,7 @@ describe("IcDataTable with truncation", () => {
       cy.wait(250);
 
       cy.compareSnapshot({
-        name: "show-hide-truncation-toggle",
+        name: "IcDataTable/show-hide-truncation-toggle",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.09),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -3241,7 +3241,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkA11yWithWait();
 
       cy.compareSnapshot({
-        name: "text-wrap-tooltip-truncation-column",
+        name: "IcDataTable/text-wrap-tooltip-truncation-column",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.053),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -3263,7 +3263,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
       cy.compareSnapshot({
-        name: "text-wrap-show-hide-truncation-column",
+        name: "IcDataTable/text-wrap-show-hide-truncation-column",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.054),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -3284,7 +3284,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
       cy.compareSnapshot({
-        name: "text-wrap-tooltip-truncation-rows",
+        name: "IcDataTable/text-wrap-tooltip-truncation-rows",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.055),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -3306,7 +3306,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
       cy.compareSnapshot({
-        name: "text-wrap-show-hide-truncation-rows",
+        name: "IcDataTable/text-wrap-show-hide-truncation-rows",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -3330,7 +3330,7 @@ describe("IcDataTable with truncation", () => {
       cy.wait(400);
 
       cy.compareSnapshot({
-        name: "text-wrap-tooltip-truncation-table-cell",
+        name: "IcDataTable/text-wrap-tooltip-truncation-table-cell",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -3352,7 +3352,7 @@ describe("IcDataTable with truncation", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
       cy.compareSnapshot({
-        name: "text-wrap-show-hide-truncation-table-cell",
+        name: "IcDataTable/text-wrap-show-hide-truncation-table-cell",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.042),
         cypressScreenshotOptions: {
           capture: "viewport",
@@ -4089,7 +4089,7 @@ describe("IcDataTable row deletion", () => {
       .focus();
 
     cy.compareSnapshot({
-      name: "slotted-custom-element-in-cell",
+      name: "IcDataTable/slotted-custom-element-in-cell",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.049),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4145,7 +4145,7 @@ describe("IcDataTable row deletion", () => {
       .focus();
 
     cy.compareSnapshot({
-      name: "tooltip-in-final-row",
+      name: "IcDataTable/tooltip-in-final-row",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.041),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4186,7 +4186,7 @@ describe("IcDataTable row deletion", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "icons-only-in-some-rows",
+      name: "IcDataTable/icons-only-in-some-rows",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.038),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4218,7 +4218,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "default-high-contrast",
+      name: "IcDataTable/default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4239,7 +4239,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "with-title-bar-high-contrast",
+      name: "IcDataTable/with-title-bar-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.05),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4256,7 +4256,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "custom-icons-high-contrast",
+      name: "IcDataTable/custom-icons-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.024),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4273,7 +4273,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(4).click();
 
     cy.compareSnapshot({
-      name: "highlighted-row-high-contrast",
+      name: "IcDataTable/highlighted-row-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4308,7 +4308,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     );
 
     cy.compareSnapshot({
-      name: "loading-indicator-background-high-contrast",
+      name: "IcDataTable/loading-indicator-background-high-contrast",
       testThreshold: setThresholdBasedOnEnv(0.026),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4326,7 +4326,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
       .should(HAVE_TEXT, "No Data");
 
     cy.compareSnapshot({
-      name: "no-data-high-contrast",
+      name: "IcDataTable/no-data-high-contrast",
       testThreshold: setThresholdBasedOnEnv(0.026),
     });
   });
@@ -4346,7 +4346,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "show-hide-truncation-dense-high-contrast",
+      name: "IcDataTable/show-hide-truncation-dense-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.042),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4378,7 +4378,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
       });
 
     cy.compareSnapshot({
-      name: "tooltip-truncation-spacious-high-contrast",
+      name: "IcDataTable/tooltip-truncation-spacious-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.022),
     });
   });
@@ -4404,7 +4404,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
       .focus();
 
     cy.compareSnapshot({
-      name: "show-hide-truncation-focus-hover-state-high-contrast",
+      name: "IcDataTable/show-hide-truncation-focus-hover-state-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.031),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4428,7 +4428,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.compareSnapshot({
-      name: "slotted-icon-high-contrast",
+      name: "IcDataTable/slotted-icon-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.024),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4441,7 +4441,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "sortable-high-contrast",
+      name: "IcDataTable/sortable-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4462,7 +4462,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "row-overrides-high-contrast",
+      name: "IcDataTable/row-overrides-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.042),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -4512,7 +4512,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
       .focus();
 
     cy.compareSnapshot({
-      name: "slotted-custom-element-in-cell-high-contrast",
+      name: "IcDataTable/slotted-custom-element-in-cell-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.036),
       cypressScreenshotOptions: {
         capture: "viewport",
