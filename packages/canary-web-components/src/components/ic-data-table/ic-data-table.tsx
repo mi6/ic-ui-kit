@@ -39,6 +39,7 @@ import {
   dynamicDebounce,
   getSlotElements,
   checkResizeObserver,
+  deviceSizeMatches,
 } from "../../utils/helpers";
 
 /**
@@ -90,6 +91,7 @@ export class DataTable {
   private itemsPerPageChange = false;
   private DATA_ROW_HEIGHT_STRING = "data-row-height";
   private ROW_HEIGHT_CSS_VARIABLE = "--row-height";
+  private LINE_CLAMP_CSS_VARIABLE = "--ic-line-clamp";
   private previousItemsPerPage: number;
   private DEFAULT_LINE_HEIGHT = 24;
   private densityUpdate = false;
@@ -393,13 +395,6 @@ export class DataTable {
       this.truncationPattern === this.TOOLTIP_STRING
     ) {
       this.truncateUpdatedData();
-      this.updateCellHeightsWithDescriptions();
-      window.addEventListener("resize", this.updateCellHeightsWithDescriptions);
-    } else {
-      window.removeEventListener(
-        "resize",
-        this.updateCellHeightsWithDescriptions
-      );
     }
   }
 
@@ -407,6 +402,7 @@ export class DataTable {
     this.fixCellTooltips();
     this.updateCellHeightsWithDescriptions();
     this.adjustWidthForActionElement();
+    window.addEventListener("resize", this.updateCellHeightsWithDescriptions);
   }
 
   private runHeaderResizeObserver = () => {
@@ -514,7 +510,7 @@ export class DataTable {
 
             if (this.truncationPattern === this.TOOLTIP_STRING) {
               this.removeTooltip(cellContainer, typographyEl, tooltipEl);
-              typographyEl.setAttribute("style", `--ic-line-clamp: 0`);
+              typographyEl.setAttribute("style", `${this.LINE_CLAMP_CSS_VARIABLE}: 0`);
             } else if (this.truncationPattern === this.SHOW_HIDE_STRING) {
               this.resetShowHideTruncation(typographyEl);
             }
@@ -776,7 +772,7 @@ export class DataTable {
       }
     } else {
       if (this.truncationPattern === this.TOOLTIP_STRING && tooltip) {
-        typographyEl.setAttribute("style", `--ic-line-clamp: 0`);
+        typographyEl.setAttribute("style", `${this.LINE_CLAMP_CSS_VARIABLE}: 0`);
 
         const cellTextWrapper = cellContainer.querySelector(
           this.CELL_TEXT_WRAPPER_STRING
@@ -1413,7 +1409,7 @@ export class DataTable {
                         variant="caption"
                         class="description-cell-text"
                       >
-                        {cellValue("description")?.data}
+                        {cellValue("description")?.data ?? cellValue("description")}
                       </ic-typography>
                     </div>
                   )}
@@ -1779,7 +1775,7 @@ export class DataTable {
 
         if (typographyEl.closest(this.TEXT_WRAP_CLASS)) {
           this.removeTooltip(cellContainer, typographyEl, tooltip);
-          typographyEl.setAttribute("style", `--ic-line-clamp: 0`);
+          typographyEl.setAttribute("style", `${this.LINE_CLAMP_CSS_VARIABLE}: 0`);
           return;
         }
 
@@ -1804,17 +1800,21 @@ export class DataTable {
     cellContainer: Element
   ) => {
     cellContainer.setAttribute("data-row-height", rowHeight.toString());
-    cellContainer.setAttribute("style", `--row-height: ${rowHeight}px`);
+    cellContainer.setAttribute(
+      "style",
+      `${this.ROW_HEIGHT_CSS_VARIABLE}: ${rowHeight}px`
+    );
   };
 
   // Method to update the row heights on cells with descriptions and tooltip truncation
   private updateCellHeightsWithDescriptions = () => {
     const descriptions =
-      this.el.shadowRoot.querySelectorAll(".description-cell");
+      this.el.shadowRoot.querySelectorAll(this.DESCRIPTION_CELL_STRING);
+
     descriptions.forEach((description) => {
       const descriptionCellContainer = description.closest(
         ".description-cell-container"
-      );
+      ) as HTMLElement;
       const typography = descriptionCellContainer.querySelector(
         this.IC_TYPOGRAPHY_STRING
       ) as HTMLIcTypographyElement;
@@ -1828,13 +1828,36 @@ export class DataTable {
 
       if (this.globalRowHeight && this.globalRowHeight !== "auto") {
         if (
-          this.truncationPattern === this.TOOLTIP_STRING &&
+          !typography.textContent &&
           descriptionHeight + this.DEFAULT_LINE_HEIGHT > this.globalRowHeight
         ) {
           this.updateRowHeightForDescriptions(
-            descriptionHeight + this.DEFAULT_LINE_HEIGHT,
+            descriptionHeight,
             descriptionCellContainer
           );
+        } else if (this.truncationPattern === this.TOOLTIP_STRING) {
+          if (
+            descriptionHeight + this.DEFAULT_LINE_HEIGHT >
+            this.globalRowHeight
+          ) {
+            const cellIcon = descriptionCellContainer?.querySelector(".icon");
+            if (deviceSizeMatches(577) && cellIcon) {
+              // recalculate descriptionHeight as when a word break occurs this value changes
+              // Additional spacing given for 300-400% zoom
+              this.updateRowHeightForDescriptions(
+                descriptionHeight +
+                  this.DEFAULT_LINE_HEIGHT +
+                  cellIcon.clientHeight,
+                descriptionCellContainer
+              );
+            } else {
+              this.updateRowHeightForDescriptions(
+                descriptionHeight + this.DEFAULT_LINE_HEIGHT,
+                descriptionCellContainer
+              );
+            }
+          }
+          this.addLineClampCSS(typography, descriptionCellContainer);
           // Additional case for show/hide truncation for when a description is present, but the text
           // isn't overflowing the cell to trigger the show more button to appear.
         } else if (
@@ -1853,15 +1876,6 @@ export class DataTable {
               descriptionHeight
             );
           }
-        } else if (
-          !description.closest(".cell-container").firstChild.textContent &&
-          !this.truncationPattern &&
-          descriptionHeight + this.DEFAULT_LINE_HEIGHT > this.globalRowHeight
-        ) {
-          this.updateRowHeightForDescriptions(
-            descriptionHeight,
-            descriptionCellContainer
-          );
         }
       }
     });
@@ -1905,7 +1919,7 @@ export class DataTable {
     ) {
       if (
         !typographyEl.getAttribute("style") ||
-        typographyEl.style.cssText.includes("--ic-line-clamp: 0;")
+        typographyEl.style.cssText.includes(`${this.LINE_CLAMP_CSS_VARIABLE}: 0;`)
       ) {
         this.addLineClampCSS(typographyEl, cellContainer);
       }
@@ -1973,17 +1987,28 @@ export class DataTable {
       ) &&
       cellContainer?.clientHeight > descriptionCellHeight
     ) {
+      let iconHeight: number;
+      if (deviceSizeMatches(577)) {
+        const cellIcon = cellContainer?.querySelector(".icon");
+        iconHeight = cellIcon ? cellIcon.clientHeight : 0;
+      } else {
+        iconHeight = 0;
+      }
+
       const height =
         cellContainer?.clientHeight -
-        cellContainer.querySelector(this.DESCRIPTION_CELL_STRING)?.clientHeight;
+        cellContainer.querySelector(this.DESCRIPTION_CELL_STRING)
+          ?.clientHeight -
+        iconHeight;
+
       typographyEl.setAttribute(
         "style",
-        `--ic-line-clamp: ${this.getLines(height || 0)}`
+        `${this.LINE_CLAMP_CSS_VARIABLE}: ${this.getLines(height || 0)}`
       );
     } else {
       typographyEl.setAttribute(
         "style",
-        `--ic-line-clamp: ${this.getLines(cellContainer?.clientHeight)}`
+        `${this.LINE_CLAMP_CSS_VARIABLE}: ${this.getLines(cellContainer?.clientHeight)}`
       );
     }
   }

@@ -1067,11 +1067,13 @@ export const DATA_WITH_EMPTY_VALUES = [
 export const LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS = [
   {
     firstName: {
-      data: "Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe",
+      data: "Josephine Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe",
       description: {
         data: "Alias: JB",
+        icon: imageIconSVG,
       },
       actionElement: copyButton,
+      icon: userIconSVG,
     },
     lastName: "Bloggs",
     age: 30,
@@ -1107,9 +1109,7 @@ export const LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS = [
   {
     firstName: {
       actionElement: copyButton,
-      description: {
-        data: "Alias: The Ghost",
-      },
+      description: "Alias: The Ghost",
     },
     lastName: "Blogger",
     age: 32,
