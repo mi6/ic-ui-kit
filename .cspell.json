@@ -179,8 +179,7 @@
       "packages/react/cypress-image-diff-html-report/**",
       "packages/canary-react/cypress-image-diff-html-report/**",
       "vscode-data.json",
-      "packages/web-components/src/global/ag-theme-icds.css",
-      "packages/codemod/README.md"
+      "packages/web-components/src/global/ag-theme-icds.css"
     ],
     "import": ["@cspell/dict-la/cspell-ext.json", "@cspell/dict-lorem-ipsum/cspell-ext.json", "@cspell/dict-html-symbol-entities/cspell-ext.json", "@cspell/dict-scientific-terms-gb/cspell-ext.json"]
 }

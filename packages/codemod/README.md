@@ -11,7 +11,7 @@ Given a Directory it will scan over files and find any relevant ICDS components 
 ## How to run
 
 
-This pacakge will be usable as an excecutable requiring a directory and optional test boolean argument if tests are r
+This package will be usable as an executable requiring a directory and optional test boolean argument to cover tests 
 
 ```console
 - npx @ukic/codemod <dir> <test>
