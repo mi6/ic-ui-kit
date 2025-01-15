@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import fs from "fs";
+import yargs from 'yargs';
 import { searchDirectory } from "./sections/directory-search.js";
 import { compareComponent } from "./sections/component-changes.js";
 import { simpleTestComparison } from "./sections/simple-test-comparison.js";
@@ -75,12 +76,34 @@ const main = async (path, test = false) => {
 );
 };
 
-const directoryPath = process.argv[2];
-const testing = process.argv[3];
 
-if (!directoryPath) {
-  console.error("Please provide a directory path");
-  process.exitCode = 1;
+const cli = yargs(process.argv.slice(2))
+cli.usage('Usage: node ./$0 [options]')
+.example('node ./$0 --dir ./src', 'execute codemod in src directory')
+.option("dir", {
+  alias: 'd',
+  describe: 'Directory to migrate',
+  nargs: 1,
+  demandOption: 'Directory to migrate required',
+  type: "string"
+})
+.option("test", {
+  alias: 't',
+  describe: 'Run codemod on directory provided, if false, skip migration',
+  type: "boolean",
+  default: false
+})
+.help('h')
+.alias('h', 'help')
+.alias('v', 'version')
+.epilog('Created by ICDS ♥')
+.parse()
+
+const { dir, test } = cli.argv;
+
+if(!dir) {
+  console.error("Please provide a directory path to the codemod");
+  process.exit(1);
 }
 
-await main(directoryPath, testing);
+await main(dir, test);

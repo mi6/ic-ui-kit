@@ -5,9 +5,11 @@
     "bin": "./codemod.js",
     "type": "module",
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "example:cli": "node --no-warnings ./codemod.js --dir src"
     },
     "dependencies": {
-        "jest-cli": "^29.7.0"
+        "jest-cli": "^29.7.0",
+        "yargs": "^17.7.2"
     }
 }
