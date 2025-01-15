@@ -15,10 +15,7 @@ import readme from "./readme.md";
 ### Switch brand
 
 <Canvas>
-  <Story
-    name="Switch brand"
-    parameters={{ loki: { skip: true }, layout: "fullscreen" }}
-  >
+  <Story name="Switch brand">
     {html` <ic-theme brand-color="rgba(27, 60, 121, 1)">
       <ic-button
         variant="primary"
@@ -189,7 +186,7 @@ export const defaultArgs = {
   <Story
     name="Playground"
     args={defaultArgs}
-    parameters={{ loki: { skip: true }, layout: "fullscreen" }}
+    parameters={{ layout: "fullscreen" }}
     argTypes={{
       theme: {
         options: ["system", "light", "dark"],
@@ -403,7 +400,7 @@ export const defaultThemeArgs = {
   <Story
     name="Theme visualisation playground"
     args={defaultThemeArgs}
-    parameters={{ loki: { skip: true }, layout: "fullscreen" }}
+    parameters={{ layout: "fullscreen" }}
     argTypes={{
       theme: {
         options: ["system", "light", "dark"],

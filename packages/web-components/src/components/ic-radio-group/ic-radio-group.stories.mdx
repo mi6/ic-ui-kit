@@ -15,7 +15,7 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {(args) =>
       html`
         <ic-radio-group label="This is a label" name="1">
@@ -42,7 +42,7 @@ import readme from "./readme.md";
 ### Horizontal
 
 <Canvas>
-  <Story name="Horizontal" parameters={{ loki: { skip: true } }}>
+  <Story name="Horizontal">
     {(args) =>
       html`
         <ic-radio-group
@@ -84,7 +84,7 @@ import readme from "./readme.md";
 ### Required
 
 <Canvas>
-  <Story name="Required" parameters={{ loki: { skip: true } }}>
+  <Story name="Required">
     {(args) =>
       html`
         <ic-radio-group label="This is a label" required name="1">
@@ -111,7 +111,7 @@ import readme from "./readme.md";
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {(args) =>
       html`
         <ic-radio-group label="This is a label" name="1">
@@ -145,7 +145,7 @@ import readme from "./readme.md";
 ### Conditional dynamic
 
 <Canvas>
-  <Story name="Conditional dynamic" parameters={{ loki: { skip: true } }}>
+  <Story name="Conditional dynamic">
     {(args) =>
       html`
         <script>
@@ -205,7 +205,7 @@ import readme from "./readme.md";
 ### Conditional static
 
 <Canvas>
-  <Story name="Conditional static" parameters={{ loki: { skip: true } }}>
+  <Story name="Conditional static">
     {(args) =>
       html`
         <ic-radio-group label=" Conditional static" name="1">
@@ -226,7 +226,7 @@ import readme from "./readme.md";
 ### Helper text
 
 <Canvas>
-  <Story name="Helper text" parameters={{ loki: { skip: true } }}>
+  <Story name="Helper text">
     {(args) =>
       html`
         <ic-radio-group
@@ -257,7 +257,7 @@ import readme from "./readme.md";
 ### Small
 
 <Canvas>
-  <Story name="Small" parameters={{ loki: { skip: true } }}>
+  <Story name="Small">
     {(args) =>
       html`
         <ic-radio-group label="This is a label" name="1" size="small">
@@ -284,7 +284,7 @@ import readme from "./readme.md";
 ### Validation
 
 <Canvas>
-  <Story name="Validation" parameters={{ loki: { skip: true } }}>
+  <Story name="Validation">
     {(args) =>
       html`
         <ic-radio-group
@@ -316,7 +316,7 @@ import readme from "./readme.md";
 ### Form - This shows how the radio button works within a form and is where the value of the radio button selected will appear in the console.log
 
 <Canvas>
-  <Story name="Form" parameters={{ loki: { skip: true } }}>
+  <Story name="Form">
     {(args) =>
       html`
         <form>
@@ -376,7 +376,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       orientation: {
         options: ["vertical", "horizontal"],

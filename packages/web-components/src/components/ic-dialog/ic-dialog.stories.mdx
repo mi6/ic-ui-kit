@@ -15,7 +15,7 @@ import readme from "./readme.md";
 ### Sizes
 
 <Canvas>
-  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+  <Story name="Sizes">
     {html`
       <script>
         function showSmallDialog() {
@@ -81,7 +81,7 @@ import readme from "./readme.md";
 ### Slotted content
 
 <Canvas>
-  <Story name="Slotted content" parameters={{ loki: { skip: true } }}>
+  <Story name="Slotted content">
     {html`
       <script>
         function showDialog() {
@@ -225,10 +225,7 @@ import readme from "./readme.md";
 ### Background close prevented
 
 <Canvas>
-  <Story
-    name="Background close prevented"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Background close prevented">
     {html`
       <script>
         function showClosePreventedDialog() {
@@ -256,7 +253,7 @@ import readme from "./readme.md";
 ### Scrollable
 
 <Canvas>
-  <Story name="Scrollable" parameters={{ loki: { skip: true } }}>
+  <Story name="Scrollable">
     {html`
       <script>
         function showScrollableDialog() {
@@ -319,7 +316,7 @@ import readme from "./readme.md";
 ### Events example
 
 <Canvas>
-  <Story name="Events example" parameters={{ loki: { skip: true } }}>
+  <Story name="Events example">
     {html`
       <script>
         function showDialog() {
@@ -357,7 +354,7 @@ import readme from "./readme.md";
 ### Popover
 
 <Canvas>
-  <Story name="Popover" parameters={{ loki: { skip: true } }}>
+  <Story name="Popover">
     {html`
       <script>
         function dropdownItems() {
@@ -672,7 +669,7 @@ import readme from "./readme.md";
 ### Disable Height constraint
 
 <Canvas>
-  <Story name="Disable Height Constraint" parameters={{ loki: { skip: true } }}>
+  <Story name="Disable Height Constraint">
     {html`
       <script>
         function dropdownItems() {
@@ -922,7 +919,7 @@ import readme from "./readme.md";
 ### Disable Width constraint
 
 <Canvas>
-  <Story name="Disable Width Constraint" parameters={{ loki: { skip: true } }}>
+  <Story name="Disable Width Constraint">
     {html`
       <script>
         document
@@ -957,10 +954,7 @@ import readme from "./readme.md";
 ### Show/hide interactive elements
 
 <Canvas>
-  <Story
-    name="show/hide interactive elements"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="show/hide interactive elements">
     {html`
       <script>
         function showSmallDialog() {
@@ -1005,7 +999,7 @@ import readme from "./readme.md";
 ### Hidden close button
 
 <Canvas>
-  <Story name="Hidden close button" parameters={{ loki: { skip: true } }}>
+  <Story name="Hidden close button">
     {html`
       <script>
         function showHiddenCloseButtonDialog() {
@@ -1034,7 +1028,7 @@ import readme from "./readme.md";
 ### Auto opening
 
 <Canvas>
-  <Story name="Auto Opening" parameters={{ loki: { skip: true } }}>
+  <Story name="Auto Opening">
     {html`
       <script>
         function showAutoOpenCloseButtonDialog() {
@@ -1080,7 +1074,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       size: {
         options: ["small", "medium", "large"],

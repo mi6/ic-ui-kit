@@ -15,7 +15,7 @@ import readme from "./readme.md";
 ## Static
 
 <Canvas>
-  <Story name="Static" parameters={{ loki: { skip: true } }}>
+  <Story name="Static">
     {html`<div style="display: flex; flex-direction: column;">
       <div style="background-color: white; padding: 8px">
         <ic-theme theme="light">
@@ -124,7 +124,7 @@ import readme from "./readme.md";
 ## Outlined
 
 <Canvas>
-  <Story name="Outlined" parameters={{ loki: { skip: true } }}>
+  <Story name="Outlined">
     {html`<div style="display: flex; flex-direction: column;">
       <div style="background-color: white; padding: 8px">
         <ic-theme theme="light">
@@ -233,7 +233,7 @@ import readme from "./readme.md";
 ## Dismissible
 
 <Canvas>
-  <Story name="Dismissible" parameters={{ loki: { skip: true } }}>
+  <Story name="Dismissible">
     {html`<div style="display: flex; flex-direction: column;">
       <div style="background-color: white; padding: 8px">
         <ic-theme theme="light">
@@ -452,7 +452,7 @@ import readme from "./readme.md";
 ## Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {html`<div style="display: flex; flex-direction: column;">
       <div style="background-color: white; padding: 8px">
         <ic-theme theme="light">
@@ -705,7 +705,7 @@ import readme from "./readme.md";
 ## Without icons
 
 <Canvas>
-  <Story name="Without icons" parameters={{ loki: { skip: true } }}>
+  <Story name="Without icons">
     {html`<div style="display: flex; flex-direction: column;">
       <div style="background-color: white; padding: 8px">
         <ic-theme theme="light">
@@ -740,7 +740,7 @@ import readme from "./readme.md";
 ## Long label
 
 <Canvas>
-  <Story name="Long label" parameters={{ loki: { skip: true } }}>
+  <Story name="Long label">
     {html`<ic-chip
         label="Really long name for a chip that should wrap"
         dismissible="true"
@@ -806,7 +806,7 @@ import readme from "./readme.md";
 ## Custom colour
 
 <Canvas>
-  <Story name="Custom colour" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom colour">
     {html`
       <ic-chip label="Label" custom-color="#F8C8DC">
         <svg
@@ -865,7 +865,7 @@ import readme from "./readme.md";
 ## Switch colour
 
 <Canvas>
-  <Story name="Switch colour" parameters={{ loki: { skip: true } }}>
+  <Story name="Switch colour">
     {html`
       <ic-chip label="Label" custom-color="#F8C8DC">
         <svg
@@ -920,7 +920,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       customColor: {
         control: { type: "text" },
