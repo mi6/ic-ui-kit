@@ -30,9 +30,9 @@
     "dist/"
   ],
   "dependencies": {
-    "@ukic/canary-web-components": "^3.0.0-canary.6",
-    "@ukic/react": "^3.0.0-alpha.6",
-    "@ukic/web-components": "^3.0.0-alpha.6"
+    "@ukic/canary-web-components": "next",
+    "@ukic/react": "next",
+    "@ukic/web-components": "next"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
