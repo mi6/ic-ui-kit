@@ -46,7 +46,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@ukic/web-components": "^3.0.0-alpha.6"
+    "@ukic/web-components": "next"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
