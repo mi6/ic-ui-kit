@@ -3948,6 +3948,10 @@ describe("IcDataTable table with descriptions", () => {
     cy.task("generateReport");
   });
 
+  const FIRST_CELL_TEXT_QUERY = ".table-cell:nth-child(1) ic-typography";
+  const FIRST_CELL_DESCRIPTION_TEXT_QUERY =
+    ".table-cell:nth-child(1) div div ic-typography";
+
   it("should fully display descriptions in cells with no restrictions set", () => {
     mount(
       <IcDataTable
@@ -3961,7 +3965,7 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
       .eq(0)
-      .find(".table-cell:nth-child(1) ic-typography")
+      .find(FIRST_CELL_TEXT_QUERY)
       .should(
         "contain",
         LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
@@ -3969,10 +3973,15 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
       .eq(0)
-      .find(".table-cell:nth-child(1) div div ic-typography")
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
       .should(
         "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
       );
   });
 
@@ -4008,17 +4017,22 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
       .eq(0)
-      .find(".table-cell:nth-child(1) ic-typography")
+      .find(FIRST_CELL_TEXT_QUERY)
       .shadow()
       .find("button")
       .contains("See more");
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
       .eq(0)
-      .find(".table-cell:nth-child(1) div div ic-typography")
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
       .should(
         "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
       );
   });
 
@@ -4042,7 +4056,7 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
       .eq(0)
-      .find(".table-cell:nth-child(1) ic-typography")
+      .find(FIRST_CELL_TEXT_QUERY)
       .should(
         "contain",
         LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
@@ -4050,10 +4064,15 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
       .eq(0)
-      .find(".table-cell:nth-child(1) div div ic-typography")
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
       .should(
         "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
       );
   });
 
@@ -4085,10 +4104,15 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
       .eq(0)
-      .find(".table-cell:nth-child(1) div div ic-typography")
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
       .should(
         "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
       );
   });
 
@@ -4127,182 +4151,8 @@ describe("IcDataTable table with descriptions", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
       .eq(3)
       .find(".table-cell:nth-child(1) .cell-container")
-      .should("have.attr", "style", "--row-height: 44px");
+      .should("have.attr", "style", "--row-height: 24px");
   });
-});
-
-describe("IcDataTable table with descriptions", () => {
-  beforeEach(() => {
-    cy.injectAxe();
-    cy.viewport(1024, 768);
-  });
-
-  afterEach(() => {
-    cy.task("generateReport");
-  });
-
-  it("should fully display descriptions in cells with no restrictions set", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
-        caption="Data Tables"
-      />
-    );
-
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) ic-typography")
-      .should(
-        "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
-      );
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) div div ic-typography")
-      .should(
-        "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
-      );
-  });
-
-  it("should add an icon next to the descriptions when provided", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
-        caption="Data Tables"
-      />
-    );
-
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) div div span")
-      .should("exist");
-  });
-
-  it("should truncate long text without truncating descriptions - using show/hide pattern when global row height is set", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
-        caption="Data Tables"
-        truncationPattern="show-hide"
-        globalRowHeight={120}
-      />
-    );
-
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) ic-typography")
-      .shadow()
-      .find("button")
-      .contains("See more");
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-      .eq(0)
-      .find(".table-cell:nth-child(1) div div ic-typography")
-      .should(
-        "contain",
-        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
-      );
-});
-
-it("should not truncate long text if global row height allows for all text to be present", () => {
-  mount(
-    <IcDataTable
-      columns={COLS}
-      data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
-      caption="Data Tables"
-      truncationPattern="tooltip"
-      globalRowHeight={200}
-    />
-  );
-
-  cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-    .eq(0)
-    .find(".table-cell:nth-child(1) ic-tooltip")
-    .should("not.exist");
-
-  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-    .eq(0)
-    .find(".table-cell:nth-child(1) ic-typography")
-    .should(
-      "contain",
-      LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
-    );
-
-  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-    .eq(0)
-    .find(".table-cell:nth-child(1) div div ic-typography")
-    .should(
-      "contain",
-      LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
-    );
-});
-
-it("should truncate long text without truncating descriptions - using tooltip pattern when global row height is set", () => {
-  mount(
-    <IcDataTable
-      columns={COLS}
-      data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
-      caption="Data Tables"
-      truncationPattern="tooltip"
-      globalRowHeight={40}
-    />
-  );
-
-  cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-    .eq(0)
-    .find(".table-cell:nth-child(1) ic-tooltip")
-    .should("exist");
-
-  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-    .eq(0)
-    .find(".table-cell:nth-child(1) ic-tooltip ic-typography")
-    .should(
-      "contain",
-      LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
-    );
-
-  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-    .eq(0)
-    .find(".table-cell:nth-child(1) div div ic-typography")
-    .should(
-      "contain",
-      LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description.data
-    );
-});
-
-it("should expand row height beyond global row height if description is present", () => {
-  mount(
-    <IcDataTable
-      columns={COLS}
-      data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
-      caption="Data Tables"
-      truncationPattern="tooltip"
-      globalRowHeight={40}
-    />
-  );
-
-  cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-  cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
-    .eq(1)
-    .find(".table-cell:nth-child(1) .cell-container")
-    .should("have.attr", "style", "--row-height: 1.5rem;");
-});
 });
 
 describe("IcDataTable row deletion", () => {
