@@ -100,6 +100,7 @@ const TRUNCATION_SHOW_HIDE_SELECTOR = ".truncation-show-hide";
 const TRUNCATION_TOOLTIP_SELECTOR = ".truncation-tooltip";
 const TABLE_CELL_FIRST_CHILD_SELECTOR = ".table-cell:first-child";
 const ICON_BUTTON = "ic-button.ic-button-variant-icon";
+const ACTION_ELEMENT = "action-element";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const BasicDataTable = (dataTableProps?: any): ReactElement => (
@@ -1102,7 +1103,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
       .eq(0)
       .find("span")
-      .should(HAVE_CLASS, "action-element")
+      .should(HAVE_CLASS, ACTION_ELEMENT)
       .find("ic-button")
       .should("be.visible");
 
@@ -1153,7 +1154,7 @@ describe("IcDataTables", () => {
       .should(HAVE_CSS, "grid-template-columns", "156.797px 32px");
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "span")
-      .should(HAVE_CLASS, "action-element")
+      .should(HAVE_CLASS, ACTION_ELEMENT)
       .should(HAVE_CSS, "justify-content", "right");
   });
 

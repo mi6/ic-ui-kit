@@ -2234,7 +2234,11 @@ exports[`ic-data-table should pass through the loadingOptions to the loading ind
           </thead>
         </table>
       </div>
-      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." monochrome="" theme="inherit"></ic-loading-indicator>
+      <div aria-live="assertive" class="sr-only">
+        Loading...
+      </div>
+      <div class="loading-overlay"></div>
+      <ic-loading-indicator appearance="light" class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -2288,7 +2292,7 @@ exports[`ic-data-table should pass through the updatingOptions to the linear loa
         <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
       </div>
       <div aria-live="assertive" class="sr-only">
-        Updating
+        Updating table data
       </div>
     </div>
   </mock:shadow-root>
@@ -3927,7 +3931,7 @@ exports[`ic-data-table should render the loading indicator with an overlay above
         </table>
       </div>
       <div aria-live="assertive" class="sr-only">
-        Loading
+        Loading...
       </div>
       <div class="loading-overlay show"></div>
       <ic-loading-indicator class="loading loading-empty show show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
@@ -3979,6 +3983,10 @@ exports[`ic-data-table should render the loading state when the \`loading\` prop
           </thead>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading...
+      </div>
+      <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
   </mock:shadow-root>
@@ -4033,7 +4041,7 @@ exports[`ic-data-table should render the updating state when the \`updating\` pr
         <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
       </div>
       <div aria-live="assertive" class="sr-only">
-        Updating
+        Updating table data
       </div>
     </div>
   </mock:shadow-root>
@@ -4119,7 +4127,7 @@ exports[`ic-data-table should render updating in assertive aria-live div 1`] = `
         </table>
       </div>
       <div aria-live="assertive" class="sr-only">
-        Updating
+        Updating table data
       </div>
     </div>
   </mock:shadow-root>
@@ -7003,6 +7011,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
           </tbody>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </mock:shadow-root>
   <ic-button slot="actions-0">
@@ -8165,6 +8174,10 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
           </thead>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading...
+      </div>
+      <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
   </mock:shadow-root>
@@ -8214,6 +8227,10 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
           </thead>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading...
+      </div>
+      <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show show-background" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
   </mock:shadow-root>
@@ -8494,6 +8511,10 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
           </thead>
         </table>
       </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading...
+      </div>
+      <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
   </mock:shadow-root>

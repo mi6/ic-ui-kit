@@ -1443,6 +1443,12 @@ export class DataTable {
                 <span
                   class="action-element"
                   innerHTML={cellValue("actionElement")}
+                  // eslint-disable-next-line react/jsx-no-bind
+                  onClick={
+                    cell.actionOnClick
+                      ? () => this.handleClick(cell.actionOnClick)
+                      : undefined
+                  }
                 ></span>
               </div>
             ) : (
@@ -1878,6 +1884,7 @@ export class DataTable {
       });
     });
   };
+  private handleClick = (callback: () => void) => callback();
 
   private renderTableBody = (
     data: IcDataTableDataType[],
