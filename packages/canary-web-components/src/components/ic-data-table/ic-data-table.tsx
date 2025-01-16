@@ -102,8 +102,9 @@ export class DataTable {
   private prevTableContainerWidth: number;
   private IC_TOOLTIP_STRING = "ic-tooltip";
   private SHOW_TRUNC_TOOLTIP_STRING = "show-trunc-tooltip";
-  private DESCRIPTION_CELL_STRING = ".description-cell";
-  private DESCRIPTION_CELL_CONTAINER_STRING = "description-cell-container";
+  private CELL_DESCRIPTION_STRING = ".cell-description";
+  private CELL_CONTAINER_WITH_DESCRIPTION_STRING =
+    "cell-container-with-description";
   private CELL_TEXT_WRAPPER_STRING = ".cell-text-wrapper";
   private IC_TYPOGRAPHY_STRING = "ic-typography";
 
@@ -510,7 +511,10 @@ export class DataTable {
 
             if (this.truncationPattern === this.TOOLTIP_STRING) {
               this.removeTooltip(cellContainer, typographyEl, tooltipEl);
-              typographyEl.setAttribute("style", `${this.LINE_CLAMP_CSS_VARIABLE}: 0`);
+              typographyEl.setAttribute(
+                "style",
+                `${this.LINE_CLAMP_CSS_VARIABLE}: 0`
+              );
             } else if (this.truncationPattern === this.SHOW_HIDE_STRING) {
               this.resetShowHideTruncation(typographyEl);
             }
@@ -526,7 +530,7 @@ export class DataTable {
           // with textWrap, set the row height
           if (
             !cellContainer.classList.contains(
-              this.DESCRIPTION_CELL_CONTAINER_STRING
+              this.CELL_CONTAINER_WITH_DESCRIPTION_STRING
             ) &&
             !cellContainer?.style?.height &&
             rowHeight > cellContainer.clientHeight &&
@@ -699,7 +703,7 @@ export class DataTable {
     );
     if (
       cellContainer.classList.contains(
-        this.DESCRIPTION_CELL_CONTAINER_STRING
+        this.CELL_CONTAINER_WITH_DESCRIPTION_STRING
       ) &&
       descriptionHeight
     ) {
@@ -772,7 +776,10 @@ export class DataTable {
       }
     } else {
       if (this.truncationPattern === this.TOOLTIP_STRING && tooltip) {
-        typographyEl.setAttribute("style", `${this.LINE_CLAMP_CSS_VARIABLE}: 0`);
+        typographyEl.setAttribute(
+          "style",
+          `${this.LINE_CLAMP_CSS_VARIABLE}: 0`
+        );
 
         const cellTextWrapper = cellContainer.querySelector(
           this.CELL_TEXT_WRAPPER_STRING
@@ -1076,7 +1083,7 @@ export class DataTable {
         cellContainer.style.setProperty(this.ROW_HEIGHT_CSS_VARIABLE, null);
       } else if (
         !cellContainer.classList.contains(
-          this.DESCRIPTION_CELL_CONTAINER_STRING
+          this.CELL_CONTAINER_WITH_DESCRIPTION_STRING
         )
       ) {
         typographyEl.resetTruncation().then(() => {
@@ -1325,7 +1332,7 @@ export class DataTable {
           !!this.getCellOptions(cell, "textWrap"),
         ["cell-icon"]: hasIcon || !!columnProps?.icon?.icon,
         ...this.setTruncationClass(),
-        [this.DESCRIPTION_CELL_CONTAINER_STRING]:
+        [this.CELL_CONTAINER_WITH_DESCRIPTION_STRING]:
           this.isObject(cell) && Object.keys(cell).includes("description"),
       }}
       style={{
@@ -1395,21 +1402,22 @@ export class DataTable {
                   Object.keys(cell).includes("description") && (
                     <div
                       class={{
-                        ["description-cell"]: true,
+                        ["cell-description"]: true,
                         [`data-type-${columnProps?.dataType}`]: true,
                       }}
                     >
                       {cellValue("description")?.icon && (
                         <span
-                          class="description-cell-icon"
+                          class="cell-description-icon"
                           innerHTML={cellValue("description").icon}
                         ></span>
                       )}
                       <ic-typography
                         variant="caption"
-                        class="description-cell-text"
+                        class="cell-description-text"
                       >
-                        {cellValue("description")?.data ?? cellValue("description")}
+                        {cellValue("description")?.data ??
+                          cellValue("description")}
                       </ic-typography>
                     </div>
                   )}
@@ -1756,7 +1764,7 @@ export class DataTable {
     // Filter out column headers and cell descriptions
     return Array.from(
       this.el.shadowRoot.querySelectorAll(
-        "ic-typography:not(.column-header-text,.description-cell-text)"
+        "ic-typography:not(.column-header-text,.cell-description-text)"
       )
     );
   };
@@ -1775,7 +1783,10 @@ export class DataTable {
 
         if (typographyEl.closest(this.TEXT_WRAP_CLASS)) {
           this.removeTooltip(cellContainer, typographyEl, tooltip);
-          typographyEl.setAttribute("style", `${this.LINE_CLAMP_CSS_VARIABLE}: 0`);
+          typographyEl.setAttribute(
+            "style",
+            `${this.LINE_CLAMP_CSS_VARIABLE}: 0`
+          );
           return;
         }
 
@@ -1808,14 +1819,15 @@ export class DataTable {
 
   // Method to update the row heights on cells with descriptions and tooltip truncation
   private updateCellHeightsWithDescriptions = () => {
-    const descriptions =
-      this.el.shadowRoot.querySelectorAll(this.DESCRIPTION_CELL_STRING);
+    const descriptions = this.el.shadowRoot.querySelectorAll(
+      this.CELL_DESCRIPTION_STRING
+    );
 
     descriptions.forEach((description) => {
-      const descriptionCellContainer = description.closest(
-        ".description-cell-container"
+      const cellContainer = description.closest(
+        `.${this.CELL_CONTAINER_WITH_DESCRIPTION_STRING}`
       ) as HTMLElement;
-      const typography = descriptionCellContainer.querySelector(
+      const typography = cellContainer.querySelector(
         this.IC_TYPOGRAPHY_STRING
       ) as HTMLIcTypographyElement;
 
@@ -1831,16 +1843,13 @@ export class DataTable {
           !typography.textContent &&
           descriptionHeight + this.DEFAULT_LINE_HEIGHT > this.globalRowHeight
         ) {
-          this.updateRowHeightForDescriptions(
-            descriptionHeight,
-            descriptionCellContainer
-          );
+          this.updateRowHeightForDescriptions(descriptionHeight, cellContainer);
         } else if (this.truncationPattern === this.TOOLTIP_STRING) {
           if (
             descriptionHeight + this.DEFAULT_LINE_HEIGHT >
             this.globalRowHeight
           ) {
-            const cellIcon = descriptionCellContainer?.querySelector(".icon");
+            const cellIcon = cellContainer?.querySelector(".icon");
             if (deviceSizeMatches(577) && cellIcon) {
               // recalculate descriptionHeight as when a word break occurs this value changes
               // Additional spacing given for 300-400% zoom
@@ -1848,16 +1857,16 @@ export class DataTable {
                 descriptionHeight +
                   this.DEFAULT_LINE_HEIGHT +
                   cellIcon.clientHeight,
-                descriptionCellContainer
+                cellContainer
               );
             } else {
               this.updateRowHeightForDescriptions(
                 descriptionHeight + this.DEFAULT_LINE_HEIGHT,
-                descriptionCellContainer
+                cellContainer
               );
             }
           }
-          this.addLineClampCSS(typography, descriptionCellContainer);
+          this.addLineClampCSS(typography, cellContainer);
           // Additional case for show/hide truncation for when a description is present, but the text
           // isn't overflowing the cell to trigger the show more button to appear.
         } else if (
@@ -1866,13 +1875,13 @@ export class DataTable {
         ) {
           this.updateRowHeightForDescriptions(
             descriptionHeight + this.DEFAULT_LINE_HEIGHT,
-            descriptionCellContainer
+            cellContainer
           );
 
           if (descriptionHeight) {
             this.createShowHideTruncation(
               typography,
-              descriptionCellContainer as HTMLElement,
+              cellContainer as HTMLElement,
               descriptionHeight
             );
           }
@@ -1919,7 +1928,9 @@ export class DataTable {
     ) {
       if (
         !typographyEl.getAttribute("style") ||
-        typographyEl.style.cssText.includes(`${this.LINE_CLAMP_CSS_VARIABLE}: 0;`)
+        typographyEl.style.cssText.includes(
+          `${this.LINE_CLAMP_CSS_VARIABLE}: 0;`
+        )
       ) {
         this.addLineClampCSS(typographyEl, cellContainer);
       }
@@ -1979,11 +1990,11 @@ export class DataTable {
     cellContainer: HTMLElement
   ) {
     const descriptionCellHeight = cellContainer.querySelector(
-      this.DESCRIPTION_CELL_STRING
+      this.CELL_DESCRIPTION_STRING
     )?.clientHeight;
     if (
       cellContainer.classList.contains(
-        this.DESCRIPTION_CELL_CONTAINER_STRING
+        this.CELL_CONTAINER_WITH_DESCRIPTION_STRING
       ) &&
       cellContainer?.clientHeight > descriptionCellHeight
     ) {
@@ -1997,7 +2008,7 @@ export class DataTable {
 
       const height =
         cellContainer?.clientHeight -
-        cellContainer.querySelector(this.DESCRIPTION_CELL_STRING)
+        cellContainer.querySelector(this.CELL_DESCRIPTION_STRING)
           ?.clientHeight -
         iconHeight;
 
@@ -2008,7 +2019,9 @@ export class DataTable {
     } else {
       typographyEl.setAttribute(
         "style",
-        `${this.LINE_CLAMP_CSS_VARIABLE}: ${this.getLines(cellContainer?.clientHeight)}`
+        `${this.LINE_CLAMP_CSS_VARIABLE}: ${this.getLines(
+          cellContainer?.clientHeight
+        )}`
       );
     }
   }

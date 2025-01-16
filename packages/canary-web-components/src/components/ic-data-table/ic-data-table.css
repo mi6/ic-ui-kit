@@ -388,27 +388,27 @@ td.table-density-spacious {
   grid-template-columns: auto auto;
 }
 
-.description-cell-container {
+.cell-container-with-description {
   display: flex;
   flex-direction: row;
 }
 
-.description-cell {
+.cell-description {
   display: flex;
   flex-direction: row;
   margin-top: var(--ic-space-xxs);
   word-break: break-all;
 }
 
-.description-cell-text {
+.cell-description-text {
   color: var(--ic-color-secondary-text);
 }
 
-.description-cell-icon {
+.cell-description-icon {
   padding-right: var(--ic-space-xs);
 }
 
-.description-cell-icon > svg {
+.cell-description-icon > svg {
   height: calc(var(--ic-space-lg) - var(--ic-space-xxs));
   width: calc(var(--ic-space-lg) - var(--ic-space-xxs));
   display: flex;
@@ -426,7 +426,7 @@ td.table-density-spacious {
     flex-wrap: wrap;
   }
 
-  .description-cell-icon {
+  .cell-description-icon {
     padding-right: 0;
   }
 }

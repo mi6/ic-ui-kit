@@ -52,17 +52,17 @@ exports[`ic-data-table should add description text or sub-icon to cells of table
             <tr class="table-row">
               <td class="table-cell">
                 <div class="cell-grid-wrapper" style="grid-template-columns: auto calc(0px + var(--ic-space-xs));">
-                  <div class="cell-container data-type-string description-cell-container">
+                  <div class="cell-container data-type-string cell-container-with-description">
                     <ic-typography variant="body">
                       Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe
                     </ic-typography>
-                    <div class="data-type-string description-cell">
-                      <span class="description-cell-icon">
+                    <div class="data-type-string cell-description">
+                      <span class="cell-description-icon">
                         <svg height="20" viewBox="0 -960 960 960" width="20" xmlns="http://www.w3.org/2000/svg">
                           <path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"></path>
                         </svg>
                       </span>
-                      <ic-typography class="description-cell-text" variant="caption">
+                      <ic-typography class="cell-description-text" variant="caption">
                         First name: A given name or the name that occurs first in a given name
                       </ic-typography>
                     </div>
@@ -145,17 +145,17 @@ exports[`ic-data-table should add description text or sub-icon to cells of table
             </tr>
             <tr class="table-row">
               <td class="table-cell">
-                <div class="cell-container data-type-string description-cell-container">
+                <div class="cell-container data-type-string cell-container-with-description">
                   <ic-typography variant="body">
                     Joey
                   </ic-typography>
-                  <div class="data-type-string description-cell">
-                    <span class="description-cell-icon">
+                  <div class="data-type-string cell-description">
+                    <span class="cell-description-icon">
                       <svg height="20" viewBox="0 -960 960 960" width="20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"></path>
                       </svg>
                     </span>
-                    <ic-typography class="description-cell-text" variant="caption">
+                    <ic-typography class="cell-description-text" variant="caption">
                       Given name
                     </ic-typography>
                   </div>
