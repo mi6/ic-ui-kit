@@ -27,10 +27,10 @@ To install the components:
 In the root of your project:
 
 ```shell
-// using npm
+# using npm
 npm install @ukic/web-components @ukic/fonts
 
-// using yarn
+# using yarn
 rm package-lock.json
 yarn add @ukic/web-components @ukic/fonts
 ```
@@ -111,10 +111,10 @@ module.exports = {
 ### Step one
 
 ```shell
-// using npm
+# using npm
 npm install @ukic/web-components @ukic/fonts
 
-// using yarn
+# using yarn
 rm package-lock.json
 yarn add @ukic/web-components @ukic/fonts
 
