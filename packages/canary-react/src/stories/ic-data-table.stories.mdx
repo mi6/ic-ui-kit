@@ -2175,6 +2175,98 @@ const DataTable = () => (
 export default DataTable;
 ```
 
+### Turn off selected row highlighting
+
+An example showing the table with selected row highlighting turned off.
+
+<Canvas withSource="none">
+  <Story name="Turn off selected row highlighting">
+    <IcDataTable caption="Turn off selected row highlighting" columns={COLS} data={DATA} highlightSelectedRow={false} />
+  </Story>
+</Canvas>
+
+#### Turn off selected row highlighting code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+// Copy columns array for 'basic' example
+const COLUMNS: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+// Copy data array for 'basic' example
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable caption="Turn off selected row highlighting" columns={COLUMNS} data={DATA} highlightSelectedRow={false} />
+);
+
+export default DataTable;
+```
+
+### Selected row event
+
+An example showing the table emitting the icSelectedRowChange event when a row is selected or de-selected.
+
+<Canvas withSource="none">
+  <Story name="Selected row event">
+    <IcDataTable caption="Selected row event" columns={COLS} data={DATA} onIcSelectedRowChange={(event) => console.log("Selected row changed: ", event.detail)} />
+  </Story>
+</Canvas>
+
+#### Selected row event code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+// Copy columns array for 'basic' example
+const COLUMNS: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+// Copy data array for 'basic' example
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable caption="Selected row event" columns={COLS} data={DATA} onIcSelectedRowChange={(event) => console.log("Selected row changed: ", event.detail)} />
+);
+
+export default DataTable;
+```
+
 ### Playground example
 
 Go to the <IcLink href="/?path=/story/react-components-data-table--playground-example">separate page for the playground example</IcLink> to view the prop controls.
@@ -2189,6 +2281,7 @@ export const defaultArgs = {
   globalRowHeight: 40,
   height: "",
   hideColumnHeaders: false,
+  highlightSelectedRow: true,
   loading: false,
   loadingAppearance: "dark",
   loadingDesc: "loading",
@@ -2312,6 +2405,7 @@ export const defaultArgs = {
         globalRowHeight={args.globalRowHeight}
         height={args.height}
         hideColumnHeaders={args.hideColumnHeaders}
+        highlightSelectedRow={args.highlightSelectedRow}
         loading={args.loading}
         loadingOptions={{
           appearance: args.loadingAppearance,
