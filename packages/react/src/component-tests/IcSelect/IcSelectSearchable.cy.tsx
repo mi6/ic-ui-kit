@@ -233,26 +233,37 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).should("not.have.text");
   });
 
-  it("should emit the value as null when the input is changed after selecting an option", () => {
+  it("should clear the value when the input is changed after selecting an option", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
         options={searchableCoffeeOption}
         searchable
-        showClearButton
+        onIcChange={(event) => console.log(event.detail.value)}
       />
     );
 
     cy.checkHydrated(IC_SELECT);
+    cy.spy(window.console, "log").as("spyWinConsoleLog");
+
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("{upArrow}");
-    cy.get(IC_SELECT).invoke("on", "icChange", cy.stub().as("icChanges"));
     cy.findShadowEl(IC_SELECT, IC_MENU_UL)
       .find(DATA_VALUE_CAP)
       .click({ force: true });
-    cy.findShadowEl(IC_SELECT, DATA_VALUE_CAP)
-      .contains("Cappuccino")
-      .should(HAVE_TEXT, "Cappuccino");
-    cy.clickOnShadowEl(IC_SELECT, ID_CLEAR_BUTTON);
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(
+      HAVE_ATTR,
+      ARIA_SELECTED,
+      "true"
+    );
+
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("foo");
+    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(
+      HAVE_ATTR,
+      ARIA_SELECTED,
+      "false"
+    );
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, null);
+    cy.get("@spyWinConsoleLog").should("have.been.calledTwice");
   });
 
   it("should still filter the options when the input is changed after selecting an option", () => {
@@ -284,7 +295,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.findShadowEl(IC_SELECT, IC_MENU_LI).eq(2).contains(COFFEE_EXAMPLE);
   });
 
-  it("should emit icChange on delay", () => {
+  it("should emit icInput on delay", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -295,15 +306,14 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     );
 
     cy.checkHydrated(IC_SELECT);
-    cy.get(IC_SELECT).invoke("on", "icChange", cy.stub().as("icChange"));
+    cy.get(IC_SELECT).invoke("on", "icInput", cy.stub().as("icInput"));
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("foo");
-    cy.get("@icChange").should(NOT_HAVE_BEEN_CALLED);
+    cy.get("@icInput").should(NOT_HAVE_BEEN_CALLED);
     cy.wait(600);
-    cy.get("@icChange").should(HAVE_BEEN_CALLED);
-    cy.get(".ic-input").should(HAVE_VALUE, "foo");
+    cy.get("@icInput").should(HAVE_BEEN_CALLED);
   });
 
-  it("should update hidden input to value typed in select searchable input", () => {
+  it("should update hidden input value when an option is selected", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -313,76 +323,31 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     );
 
     cy.checkHydrated(IC_SELECT);
-    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("bar");
-    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "bar");
-  });
-
-  it("should keep typed in hidden input value when highlighting menu options", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-
-    cy.checkHydrated(IC_SELECT);
-    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "");
     cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("cap");
+    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "");
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "cap");
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "cap");
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
+      .find(DATA_VALUE_CAP)
+      .click({ force: true });
+    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "Cap");
   });
 
-  it("should update hidden value from typed to selected", () => {
+  it("should clear hidden input value when the input is changed after selecting an option", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
         options={searchableCoffeeOption}
         searchable
+        value="Cap"
       />
     );
 
     cy.checkHydrated(IC_SELECT);
+    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "Cap");
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("o");
-    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "o");
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "7");
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
-      .find(DATA_VALUE_CAP)
-      .contains("Cappuccino")
-      .should(HAVE_TEXT, "Cappuccino");
-  });
-
-  it("should update hidden value from typed to selected to typed", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-
-    cy.checkHydrated(IC_SELECT);
-    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("o");
-    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "o");
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl(IC_SELECT, IC_MENU_LI).should(HAVE_LENGTH, "7");
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.findShadowEl(IC_SELECT, IC_MENU_UL)
-      .find(DATA_VALUE_CAP)
-      .contains("Cappuccino")
-      .should(HAVE_TEXT, "Cappuccino");
-    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("1");
-    cy.get(".ic-input").should(HAVE_VALUE, "Cappuccino1");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("foo");
+    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "");
   });
 
   it("should update the value of the input and options when passing the value directly", () => {
@@ -600,13 +565,14 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     );
 
     cy.checkHydrated(IC_SELECT);
-    cy.get(".ic-input").should(HAVE_VALUE, "");
+    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "");
 
-    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("foo");
-    cy.get(".ic-input").should(HAVE_VALUE, "foo");
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type(TYPE_ENTER);
+    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "Cap");
 
     cy.get("#resetButton").click();
-    cy.get(".ic-input").should(HAVE_VALUE, "");
+    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "");
   });
 
   it("should render as a controlled component", () => {
