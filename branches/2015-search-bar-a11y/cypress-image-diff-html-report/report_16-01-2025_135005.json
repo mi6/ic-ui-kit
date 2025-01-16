@@ -1,6 +1,6 @@
 {
-  "total": 738,
-  "totalPassed": 737,
+  "total": 740,
+  "totalPassed": 739,
   "totalFailed": 1,
   "totalSuites": 40,
   "suites": [
@@ -5401,6 +5401,17 @@
         },
         {
           "status": "pass",
+          "name": "IcSelect.cy.tsx-disabled-options-open-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
+          "specFilename": "IcSelect.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelect.cy.tsx-disabled-options-open-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx-disabled-options-open-high-contrast.png"
+        },
+        {
+          "status": "pass",
           "name": "IcSelect.cy.tsx-groups-open-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -5982,6 +5993,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectSearchable.cy.tsx-searchable-groups-in-filter-open-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx-searchable-groups-in-filter-open-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSelectSearchable.cy.tsx-searchable-disabled-options-open-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
+          "specFilename": "IcSelectSearchable.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectSearchable.cy.tsx-searchable-disabled-options-open-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx-searchable-disabled-options-open-high-contrast.png"
         },
         {
           "status": "pass",
@@ -8363,9 +8385,9 @@
       ]
     }
   ],
-  "startedAt": "2025-01-13T10:52:49.382Z",
-  "endedAt": "2025-01-13T11:07:55.380Z",
-  "duration": 813893,
+  "startedAt": "2025-01-16T13:50:05.491Z",
+  "endedAt": "2025-01-16T14:05:19.991Z",
+  "duration": 821103,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
