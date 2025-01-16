@@ -1649,9 +1649,9 @@ To set the min and max width of a table cell, set the `table-layout` attribute t
 </script>
 ```
 
-### Action Element
+### Action Element and OnClick Action
 
-The example below demonstrates action elements appearing in table cells after being passed in via the data.
+The cell data can contain an `actionElement` which can be a string containing any html to be rendered. The `actionElement` will be displayed to the right of the cell data. An `actionOnClick` can be specified for the `actionElement`. This should be used with a keyboard accessible component such as `icButton` for a function to be run when the `actionElement` is clicked.
 
 <Canvas withSource="none">
   <Story name="Action Element" parameters={{ loki: { skip: true } }}>
