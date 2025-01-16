@@ -87,6 +87,7 @@ const PAGINATION_GO_TO_PAGE_TEXT_FIELD_SELECTOR =
   ".go-to-page-holder ic-text-field";
 const PAGINATION_GO_TO_PAGE_BUTTON_SELECTOR = ".go-to-page-holder ic-button";
 const ITEMS_PER_PAGE_SELECTOR = ".items-per-page-input";
+const ACTION_ELEMENT = "action-element";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const BasicDataTable = (dataTableProps?: any): ReactElement => (
