@@ -9,7 +9,7 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {(args) => html`<ic-toggle-button label="Toggle"></ic-toggle-button>
       <script>
         var toggle = document.querySelector("ic-toggle-button");
@@ -23,7 +23,7 @@ import readme from "./readme.md";
 ### Checked
 
 <Canvas>
-  <Story name="Checked" parameters={{ loki: { skip: true } }}>
+  <Story name="Checked">
     {(args) =>
       html`<ic-toggle-button label="Toggle" checked="true"></ic-toggle-button>`
     }
@@ -33,7 +33,7 @@ import readme from "./readme.md";
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {(args) => html`<ic-toggle-button
         label="Toggle"
         disabled="true"
@@ -49,7 +49,7 @@ import readme from "./readme.md";
 ### With icon
 
 <Canvas>
-  <Story name="With icon" parameters={{ loki: { skip: true } }}>
+  <Story name="With icon">
     {(args) => html`<ic-toggle-button label="Toggle">
       <svg
         slot="icon"
@@ -71,7 +71,7 @@ import readme from "./readme.md";
 ### Sizes
 
 <Canvas>
-  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+  <Story name="Sizes">
     {(args) => html`<div style="padding: 6px">
         <ic-toggle-button label="Toggle" size="small"></ic-toggle-button>
       </div>
@@ -87,7 +87,7 @@ import readme from "./readme.md";
 ### With badge
 
 <Canvas>
-  <Story name="With badge" parameters={{ loki: { skip: true } }}>
+  <Story name="With badge">
     {(args) => html`<ic-toggle-button label="Toggle">
         <ic-badge label="1" slot="badge" variant="success"></ic-badge>
       </ic-toggle-button>
@@ -100,7 +100,7 @@ import readme from "./readme.md";
 ### Monochrome
 
 <Canvas>
-  <Story name="Monochrome" parameters={{ loki: { skip: true } }}>
+  <Story name="Monochrome">
     {(args) =>
       html`<ic-toggle-button
         label="Toggle"
@@ -113,7 +113,7 @@ import readme from "./readme.md";
 ### Full width
 
 <Canvas>
-  <Story name="Full width" parameters={{ loki: { skip: true } }}>
+  <Story name="Full width">
     {(args) =>
       html`<ic-toggle-button
         label="Toggle"
@@ -126,7 +126,7 @@ import readme from "./readme.md";
 ### Loading
 
 <Canvas>
-  <Story name="Loading" parameters={{ loki: { skip: true } }}>
+  <Story name="Loading">
     {(args) =>
       html`<div style="padding: 6px">
           <ic-toggle-button label="Toggle" loading="true"></ic-toggle-button>
@@ -232,7 +232,7 @@ import readme from "./readme.md";
 ### Icon only
 
 <Canvas>
-  <Story name="Icon only" parameters={{ loki: { skip: true } }}>
+  <Story name="Icon only">
     {(args) => html`<div style="padding:6px 10px; width:fit-content">
         <ic-toggle-button
           variant="icon"
@@ -348,7 +348,7 @@ import readme from "./readme.md";
 ### Icon right
 
 <Canvas>
-  <Story name="Icon right" parameters={{ loki: { skip: true } }}>
+  <Story name="Icon right">
     {(args) => html`<ic-toggle-button label="Toggle" icon-placement="right">
       <svg
         slot="icon"
@@ -370,7 +370,7 @@ import readme from "./readme.md";
 ### Icon top
 
 <Canvas>
-  <Story name="Icon top" parameters={{ loki: { skip: true } }}>
+  <Story name="Icon top">
     {(args) => html`<ic-toggle-button label="Toggle" icon-placement="top">
       <svg
         slot="icon"

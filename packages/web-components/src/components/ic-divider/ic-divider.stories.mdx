@@ -3,11 +3,7 @@ import { Markdown } from "@storybook/blocks";
 import { html } from "lit-html";
 import readme from "./readme.md?raw";
 
-<Meta
-  title="Web Components/Divider"
-  component="ic-divider"
-  parameters={{ loki: { skip: true } }}
-/>
+<Meta title="Web Components/Divider" component="ic-divider" />
 
 <Markdown>{readme}</Markdown>
 
@@ -287,7 +283,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       "border-style": {
         options: ["solid", "dashed"],

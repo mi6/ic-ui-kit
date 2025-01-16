@@ -18,7 +18,7 @@ import Step from "../ic-step/readme.md";
 ### Full-width stepper
 
 <Canvas>
-  <Story name="Full-width stepper" parameters={{ loki: { skip: true } }}>
+  <Story name="Full-width stepper">
     {html`<ic-stepper>
       <ic-step heading="Create" type="completed"></ic-step>
       <ic-step heading="Read" type="current"></ic-step>
@@ -31,7 +31,7 @@ import Step from "../ic-step/readme.md";
 ### Left-aligned stepper
 
 <Canvas>
-  <Story name="Left-aligned stepper" parameters={{ loki: { skip: true } }}>
+  <Story name="Left-aligned stepper">
     {html`<ic-stepper aligned="left">
       <ic-step heading="Create" type="completed"></ic-step>
       <ic-step heading="Read" type="current"></ic-step>
@@ -44,10 +44,7 @@ import Step from "../ic-step/readme.md";
 ### With hidden step information
 
 <Canvas>
-  <Story
-    name="With hidden step information"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="With hidden step information">
     {html`<ic-stepper hide-step-info>
       <ic-step heading="Create" type="completed"></ic-step>
       <ic-step heading="Read" type="current"></ic-step>
@@ -60,7 +57,7 @@ import Step from "../ic-step/readme.md";
 ### Without headings
 
 <Canvas>
-  <Story name="Without headings" parameters={{ loki: { skip: true } }}>
+  <Story name="Without headings">
     {html`<ic-stepper>
       <ic-step type="completed"></ic-step>
       <ic-step type="completed"></ic-step>
@@ -73,7 +70,7 @@ import Step from "../ic-step/readme.md";
 ### Custom stepper
 
 <Canvas>
-  <Story name="Custom stepper" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom stepper">
     {html`<ic-stepper>
       <ic-step heading="First"></ic-step>
       <ic-step
@@ -94,7 +91,7 @@ import Step from "../ic-step/readme.md";
 ### Custom connector width
 
 <Canvas>
-  <Story name="Custom connector width" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom connector width">
     {html`<ic-stepper aligned="left" connector-width="200">
       <ic-step heading="First"></ic-step>
       <ic-step
@@ -115,7 +112,7 @@ import Step from "../ic-step/readme.md";
 ### Compact stepper
 
 <Canvas>
-  <Story name="Compact stepper" parameters={{ loki: { skip: true } }}>
+  <Story name="Compact stepper">
     {html`<ic-stepper variant="compact" id="standard-compact-stepper">
         <ic-step heading="Create"></ic-step>
         <ic-step heading="Read" type="current"></ic-step>
@@ -180,7 +177,7 @@ import Step from "../ic-step/readme.md";
 ### Custom compact stepper
 
 <Canvas>
-  <Story name="Custom compact stepper" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom compact stepper">
     {html`<ic-stepper variant="compact" id="custom-compact-stepper">
         <ic-step heading="First"></ic-step>
         <ic-step
@@ -274,7 +271,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       theme: {
         options: ["inherit", "light", "dark"],

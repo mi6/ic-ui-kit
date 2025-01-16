@@ -53,7 +53,7 @@ To use the date picker component, import `@ukic/canary-web-components` into your
 The default date picker, which uses the date format of `DD/MM/YYYY`.
 
 <Canvas withSource="none">
-  <Story name="Default" parameters={{ loki: { skip: true } }} height="540px">
+  <Story name="Default" height="540px">
     {Default()}
   </Story>
 </Canvas>
@@ -71,7 +71,7 @@ The default date picker, which uses the date format of `DD/MM/YYYY`.
 Set the size of the date picker by using the `size` prop. This prop takes the values `small`, `default` or `large`. Depending on the chosen size, the prop will apply styling to increase or decrease the amount of spacing within the component.
 
 <Canvas withSource="none">
-  <Story name="Sizes" parameters={{ loki: { skip: true } }} height="790px">
+  <Story name="Sizes" height="790px">
     {Sizes()}
   </Story>
 </Canvas>
@@ -100,7 +100,7 @@ Set the size of the date picker by using the `size` prop. This prop takes the va
 Set the size of the input field by using the `--input-width` CSS custom property. The picker will grow, but not exceed its maximum supported width.
 
 <Canvas withSource="none">
-  <Story name="Max width" parameters={{ loki: { skip: true } }} height="790px">
+  <Story name="Max width" height="790px">
     {MaxWidth()}
   </Story>
 </Canvas>
@@ -132,7 +132,7 @@ Set the size of the input field by using the `--input-width` CSS custom property
 Disable the date picker and prevent user interaction by using the `disabled` prop.
 
 <Canvas withSource="none">
-  <Story name="Disabled" parameters={{ loki: { skip: true } }} height="100px">
+  <Story name="Disabled" height="100px">
     {Disabled()}
   </Story>
 </Canvas>
@@ -152,11 +152,7 @@ The `date-format` prop determines how dates are displayed. The supported formats
 The default format is `DD/MM/YYYY`.
 
 <Canvas withSource="none">
-  <Story
-    name="Date formats"
-    parameters={{ loki: { skip: true } }}
-    height="750px"
-  >
+  <Story name="Date formats" height="750px">
     {DateFormats()}
   </Story>
 </Canvas>
@@ -184,7 +180,7 @@ The default format is `DD/MM/YYYY`.
 The `value` prop sets the date in the input field. The value can be in any format supported by the `date-format` prop, in ISO 8601 date string format (yyyy-mm-dd) or as a JavaScript Date object.
 
 <Canvas withSource="none">
-  <Story name="Value" parameters={{ loki: { skip: true } }} height="540px">
+  <Story name="Value" height="540px">
     {Value()}
   </Story>
 </Canvas>
@@ -205,11 +201,7 @@ If no `value` is set, the `open-at-date` prop can be used to specify the date in
 The supported formats are the same as for the `value` prop.
 
 <Canvas withSource="none">
-  <Story
-    name="Open at date"
-    parameters={{ loki: { skip: true } }}
-    height="540px"
-  >
+  <Story name="Open at date" height="540px">
     {OpenAt()}
   </Story>
 </Canvas>
@@ -229,11 +221,7 @@ The supported formats are the same as for the `value` prop.
 The first day of the week can be changed by setting the `start-of-week` prop. This is a numeric value where 0 = Sunday, 1 = Monday, etc up to 6 = Saturday.
 
 <Canvas withSource="none">
-  <Story
-    name="Start of week"
-    parameters={{ loki: { skip: true } }}
-    height="540px"
-  >
+  <Story name="Start of week" height="540px">
     {WeekStart()}
   </Story>
 </Canvas>
@@ -252,11 +240,7 @@ The first day of the week can be changed by setting the `start-of-week` prop. Th
 Specific days of the week can be disabled from selection by setting the `disableDays` prop. The value can be set as an array of numeric values where where 0 = Sunday, 1 = Monday, etc up to 6 = Saturday.
 
 <Canvas withSource="none">
-  <Story
-    name="Disable days of week"
-    parameters={{ loki: { skip: true } }}
-    height="540px"
-  >
+  <Story name="Disable days of week" height="540px">
     {WorkingWeek()}
   </Story>
 </Canvas>
@@ -278,7 +262,7 @@ Specific days of the week can be disabled from selection by setting the `disable
 The `max` and `min` props can be used to limit the range of dates available for selection. Values can be in any format supported by the `date-format` prop, in ISO 8601 date string format (yyyy-mm-dd) or as a JavaScript Date object.
 
 <Canvas withSource="none">
-  <Story name="Max & Min" parameters={{ loki: { skip: true } }} height="500px">
+  <Story name="Max & Min" height="500px">
     {MaxMin()}
   </Story>
 </Canvas>
@@ -298,11 +282,7 @@ The `max` and `min` props can be used to limit the range of dates available for 
 ### Disable dates in past
 
 <Canvas withSource="none">
-  <Story
-    name="Disable dates in past"
-    parameters={{ loki: { skip: true } }}
-    height="540px"
-  >
+  <Story name="Disable dates in past" height="540px">
     {DisablePast()}
   </Story>
 </Canvas>
@@ -323,11 +303,7 @@ Dates before today can be disabled with the `disable-past` prop.
 Dates after today can be disabled with the `disable-future` prop.
 
 <Canvas withSource="none">
-  <Story
-    name="Disable dates in future"
-    parameters={{ loki: { skip: true } }}
-    height="540px"
-  >
+  <Story name="Disable dates in future" height="540px">
     {DisableFuture()}
   </Story>
 </Canvas>
@@ -346,11 +322,7 @@ Dates after today can be disabled with the `disable-future` prop.
 Days outside of the current month in view can be hidden by setting the `show-days-outside-month` prop to `false`.
 
 <Canvas withSource="none">
-  <Story
-    name="Days outside month hidden"
-    parameters={{ loki: { skip: true } }}
-    height="540px"
-  >
+  <Story name="Days outside month hidden" height="540px">
     {HideOutsideMonth()}
   </Story>
 </Canvas>
@@ -369,11 +341,7 @@ Days outside of the current month in view can be hidden by setting the `show-day
 The "Go to today" and "Clear" buttons can be hidden from the calendar view by setting the `show-picker-today-button` and `show-picker-clear-button` props to `false`.
 
 <Canvas withSource="none">
-  <Story
-    name="Today & clear buttons hidden"
-    parameters={{ loki: { skip: true } }}
-    height="480px"
-  >
+  <Story name="Today & clear buttons hidden" height="480px">
     {HideButtons()}
   </Story>
 </Canvas>
@@ -393,11 +361,7 @@ The "Go to today" and "Clear" buttons can be hidden from the calendar view by se
 Any prop that accepts a date value can be set to a Javascript Date object. The following example sets the `value`, `max` and `min` props.
 
 <Canvas withSource="none">
-  <Story
-    name="JavaScript dates"
-    parameters={{ loki: { skip: true } }}
-    height="500px"
-  >
+  <Story name="JavaScript dates" height="500px">
     {JSDates()}
   </Story>
 </Canvas>
@@ -424,11 +388,7 @@ Any prop that accepts a date value can be set to a Javascript Date object. The f
 The `IcChange` event is emitted by the date picker when the selected date changes.
 
 <Canvas withSource="none">
-  <Story
-    name="IcChange event"
-    parameters={{ loki: { skip: true } }}
-    height="540px"
-  >
+  <Story name="IcChange event" height="540px">
     {IcChangeDate()}
   </Story>
 </Canvas>

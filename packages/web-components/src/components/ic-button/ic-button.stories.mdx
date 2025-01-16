@@ -28,7 +28,7 @@ export const defaultArgs = {
 ### Primary
 
 <Canvas>
-  <Story name="Primary" parameters={{ loki: { skip: true } }}>
+  <Story name="Primary">
     {html`<div
         style="display: flex; flex-direction: row; width: fit-content; background-color: #ececec;"
       >
@@ -101,7 +101,7 @@ export const defaultArgs = {
 ### Secondary
 
 <Canvas>
-  <Story name="Secondary" parameters={{ loki: { skip: true } }}>
+  <Story name="Secondary">
     {html` <div
         style="display: flex; flex-direction: row; width: fit-content; background-color: #ececec;"
       >
@@ -224,7 +224,7 @@ export const defaultArgs = {
 ### Tertiary
 
 <Canvas>
-  <Story name="Tertiary" parameters={{ loki: { skip: true } }}>
+  <Story name="Tertiary">
     {html` <div
         style="display: flex; flex-direction: row; width: fit-content; background-color: #ececec;"
       >
@@ -297,7 +297,7 @@ export const defaultArgs = {
 ### Destructive
 
 <Canvas>
-  <Story name="Destructive" parameters={{ loki: { skip: true } }}>
+  <Story name="Destructive">
     {html` <div
         style="display: flex; flex-direction: row; width: fit-content; background-color: #ececec;"
       >
@@ -340,7 +340,7 @@ export const defaultArgs = {
 ### Icon variants
 
 <Canvas>
-  <Story name="Icon variants" parameters={{ loki: { skip: true } }}>
+  <Story name="Icon variants">
     {html`<div style="display:flex; gap: 1rem; flex-direction:column;">
       <div>
         <ic-typography>Default</ic-typography>
@@ -1181,7 +1181,7 @@ export const defaultArgs = {
 ### With icon
 
 <Canvas>
-  <Story name="With icon" parameters={{ loki: { skip: true } }}>
+  <Story name="With icon">
     {html`<div style="padding: 1rem; display: flex; gap: 1rem">
         <ic-button variant="primary">
           Primary
@@ -1320,7 +1320,7 @@ export const defaultArgs = {
 ### Dropdown
 
 <Canvas>
-  <Story name="Dropdown" parameters={{ loki: { skip: true } }}>
+  <Story name="Dropdown">
     {html`<div>
       <div style="padding: 6px">
         <ic-button dropdown="true" variant="primary">Button</ic-button>
@@ -1491,7 +1491,7 @@ export const defaultArgs = {
 ### Dropdown example
 
 <Canvas>
-  <Story name="Dropdown example" parameters={{ loki: { skip: true } }}>
+  <Story name="Dropdown example">
     {html`<script>
         var icPopover = document.querySelector("#popover-menu");
         var icButton = document.querySelector("#button-1");
@@ -1527,7 +1527,7 @@ export const defaultArgs = {
 ### Size
 
 <Canvas>
-  <Story name="Size" parameters={{ loki: { skip: true } }}>
+  <Story name="Size">
     {html` <ic-button variant="primary" size="small">Small</ic-button>
       <ic-button variant="primary">Default</ic-button>
       <ic-button variant="primary" size="large">Large</ic-button>
@@ -1585,10 +1585,7 @@ export const defaultArgs = {
 ### Router link
 
 <Canvas>
-  <Story
-    name="Router link"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Router link" parameters={{ layout: "fullscreen" }}>
     {html`<div style="padding: 8px">
         <ic-button size="small">
           <a slot="router-item" href="/">Slotted link</a>
@@ -1644,7 +1641,7 @@ export const defaultArgs = {
 ### Icon without viewBox
 
 <Canvas>
-  <Story name="Icon without viewBox" parameters={{ loki: { skip: true } }}>
+  <Story name="Icon without viewBox">
     {html`<ic-button variant="primary" size="small"
         >Small
         <svg
@@ -1696,7 +1693,7 @@ export const defaultArgs = {
 ### Full width
 
 <Canvas>
-  <Story name="Full width" parameters={{ loki: { skip: true } }}>
+  <Story name="Full width">
     {html`
       <ic-button variant="primary" full-width="true"
         >Button
@@ -1851,7 +1848,7 @@ export const defaultArgs = {
 ### Min width
 
 <Canvas>
-  <Story name="Min width" parameters={{ loki: { skip: true } }}>
+  <Story name="Min width">
     {html`
       <style>
         ic-button {
@@ -1867,7 +1864,7 @@ export const defaultArgs = {
 ### Height
 
 <Canvas>
-  <Story name="Height" parameters={{ loki: { skip: true } }}>
+  <Story name="Height">
     {html`
       <style>
         ic-button[name="tall-button"] {
@@ -1883,7 +1880,7 @@ export const defaultArgs = {
 ### With tooltip
 
 <Canvas>
-  <Story name="Tooltips" parameters={{ loki: { skip: true } }}>
+  <Story name="Tooltips">
     {html`<ic-button
         variant="icon"
         aria-label="refresh"
@@ -1963,7 +1960,6 @@ export const defaultArgs = {
       },
     }}
     name="Playground"
-    parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<ic-button
@@ -2011,7 +2007,6 @@ export const defaultArgs = {
       },
     }}
     name="Playground with icon"
-    parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<ic-button
@@ -2043,7 +2038,7 @@ export const defaultArgs = {
 ### Loading
 
 <Canvas>
-  <Story name="Loading" parameters={{ loki: { skip: true } }}>
+  <Story name="Loading">
     {html`
       <div style="padding: 6px">
         <ic-button variant="primary" loading"
@@ -2103,7 +2098,7 @@ export const defaultArgs = {
 ### Aria-describedby
 
 <Canvas>
-  <Story name="Aria-describedby" parameters={{ loki: { skip: true } }}>
+  <Story name="Aria-describedby">
     {html`
       <script>
         function btnClick() {
@@ -2128,7 +2123,7 @@ export const defaultArgs = {
 ### File Upload - will show how file upload can be used in a form
 
 <Canvas>
-  <Story name="File upload in a form" parameters={{ loki: { skip: true } }}>
+  <Story name="File upload in a form">
     {(args) =>
       html`
         <form method="POST" action="someurl" enctype="multipart/form-data">
@@ -2174,7 +2169,7 @@ export const defaultArgs = {
 ### File Upload
 
 <Canvas>
-  <Story name="File upload" parameters={{ loki: { skip: true } }}>
+  <Story name="File upload">
     {(args) =>
       html`
         <span id="selected-file">No File Selected</span>

@@ -20,10 +20,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### App icon and title
 
 <Canvas>
-  <Story
-    name="App icon and title"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="App icon and title" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation app-title="Application Name">
         <svg
@@ -47,10 +44,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### Slotted title link
 
 <Canvas>
-  <Story
-    name="Slotted title link"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Slotted title link" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation>
         <a slot="app-title" href="/">Application Name</a>
@@ -77,10 +71,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### With Status and version
 
 <Canvas>
-  <Story
-    name="Status and version"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Status and version" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation
         app-title="Application Name"
@@ -108,10 +99,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### With Search
 
 <Canvas>
-  <Story
-    name="With search"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="With search" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation
           app-title="Application Name"
@@ -155,10 +143,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### With Icons
 
 <Canvas>
-  <Story
-    name="With icons"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="With icons" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation
         app-title="Application Name"
@@ -264,10 +249,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### Long app title
 
 <Canvas>
-  <Story
-    name="Long app title"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Long app title" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation
         app-title="Application with a long name"
@@ -319,10 +301,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### With navigation
 
 <Canvas>
-  <Story
-    name="With navigation"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="With navigation" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation
         app-title="Application Name"
@@ -401,10 +380,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### Using unnamed slots
 
 <Canvas>
-  <Story
-    name="Using unnamed slots"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Using unnamed slots" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation
         app-title="Application Name"
@@ -441,10 +417,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### With grouped navigation
 
 <Canvas>
-  <Story
-    name="With grouped navigation"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="With grouped navigation" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation
         app-title="Application Name"
@@ -540,10 +513,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### Content center aligned
 
 <Canvas>
-  <Story
-    name="Content center aligned"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Content center aligned" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation
         app-title="Application Name"
@@ -622,10 +592,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### Content left aligned
 
 <Canvas>
-  <Story
-    name="Content left aligned"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Content left aligned" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation
         app-title="Application Name"
@@ -704,10 +671,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### Brand
 
 <Canvas>
-  <Story
-    name="Brand"
-    parameters={{ loki: { skip: true }, layout: "fullscreen" }}
-  >
+  <Story name="Brand" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-theme brand-color="rgb(27, 60, 121)" id="brand-story-ic-theme">
         <ic-top-navigation
@@ -834,7 +798,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 <Canvas>
   <Story
     name="Long single-word app title"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+    parameters={{ layout: "fullscreen" }}
   >
     {(args) =>
       html`<ic-top-navigation
@@ -887,10 +851,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### Short title
 
 <Canvas>
-  <Story
-    name="Short title"
-    parameters={{ layout: "fullscreen", loki: { skip: true } }}
-  >
+  <Story name="Short title" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<ic-top-navigation
         app-title="Application Name"
@@ -917,10 +878,7 @@ import NavigationGroup from "../ic-navigation-group/readme.md";
 ### Top nav resized event
 
 <Canvas>
-  <Story
-    name="Top nav resized event"
-    parameters={{ loki: { skip: true }, layout: "fullscreen" }}
-  >
+  <Story name="Top nav resized event" parameters={{ layout: "fullscreen" }}>
     {(args) =>
       html`<script>
           var topNav = document.querySelector("ic-top-navigation");
@@ -994,7 +952,6 @@ export const defaultArgs = {
       },
     }}
     name="Playground"
-    parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<ic-top-navigation

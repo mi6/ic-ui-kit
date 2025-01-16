@@ -29,7 +29,7 @@ export const defaultArgs = {
 ### Variants
 
 <Canvas>
-  <Story name="Variants" parameters={{ loki: { skip: true } }}>
+  <Story name="Variants">
     {html`<ic-alert
         heading="Neutral"
         message="This alert is for displaying miscellaneous messages"
@@ -61,7 +61,7 @@ export const defaultArgs = {
 ### Message only
 
 <Canvas>
-  <Story name="Message only" parameters={{ loki: { skip: true } }}>
+  <Story name="Message only">
     {html`<ic-alert
       message="This alert is for displaying miscellaneous messages"
     ></ic-alert>`}
@@ -71,7 +71,7 @@ export const defaultArgs = {
 ### Dismissible
 
 <Canvas>
-  <Story name="Dismissible" parameters={{ loki: { skip: true } }}>
+  <Story name="Dismissible">
     {html`<ic-alert
       heading="Neutral"
       message="This alert is for displaying miscellaneous messages"
@@ -83,7 +83,7 @@ export const defaultArgs = {
 ### With action
 
 <Canvas>
-  <Story name="With action" parameters={{ loki: { skip: true } }}>
+  <Story name="With action">
     {html`<ic-alert
       heading="Neutral"
       message="This alert is for displaying miscellaneous messages"
@@ -95,7 +95,7 @@ export const defaultArgs = {
 ### Dismissible with action
 
 <Canvas>
-  <Story name="Dismissible with action" parameters={{ loki: { skip: true } }}>
+  <Story name="Dismissible with action">
     {html`<ic-alert
       heading="Neutral"
       message="This alert is for displaying miscellaneous messages"
@@ -108,7 +108,7 @@ export const defaultArgs = {
 ### Title above
 
 <Canvas>
-  <Story name="Title above" parameters={{ loki: { skip: true } }}>
+  <Story name="Title above">
     {html`<ic-alert
       heading="Neutral"
       message="This alert is for displaying miscellaneous messages"
@@ -120,7 +120,7 @@ export const defaultArgs = {
 ### Responsive title
 
 <Canvas>
-  <Story name="Responsive title" parameters={{ loki: { skip: true } }}>
+  <Story name="Responsive title">
     {html`<ic-alert
         heading="This title is very long so should force the alert to add 'title-above'"
         message="This alert does not have 'title-above' added as a prop but it is forced to add it due to the length of the title"
@@ -136,7 +136,7 @@ export const defaultArgs = {
 ### Custom message
 
 <Canvas>
-  <Story name="Custom message" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom message">
     {html`<ic-alert heading="This alert uses a custom message slot">
       <ic-typography variant="body" slot="message">
         <p>
@@ -152,10 +152,7 @@ export const defaultArgs = {
 ### Custom message and title above
 
 <Canvas>
-  <Story
-    name="Custom message and title above"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Custom message and title above">
     {html`<ic-alert
       heading="Want to know more about our coffee?"
       title-above="true"
@@ -170,7 +167,7 @@ export const defaultArgs = {
 ### Announced
 
 <Canvas>
-  <Story name="Announced" parameters={{ loki: { skip: true } }}>
+  <Story name="Announced">
     {html`
       <ic-alert
         id="alert"
@@ -201,7 +198,7 @@ export const defaultArgs = {
 ### Slotted icon
 
 <Canvas>
-  <Story name="Slotted icon" parameters={{ loki: { skip: true } }}>
+  <Story name="Slotted icon">
     {html`
       <ic-alert
         id="alert"
@@ -230,7 +227,7 @@ export const defaultArgs = {
 ### No icon
 
 <Canvas>
-  <Story name="No icon" parameters={{ loki: { skip: true } }}>
+  <Story name="No icon">
     {html`
       <ic-alert
         id="alert"
@@ -258,7 +255,6 @@ export const defaultArgs = {
       },
     }}
     name="Playground"
-    parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<ic-alert

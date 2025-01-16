@@ -15,7 +15,7 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {(args) =>
       html` <ic-search-bar label="What is your favourite coffee?">
       </ic-search-bar>`
@@ -26,7 +26,7 @@ import readme from "./readme.md";
 ### Basic
 
 <Canvas>
-  <Story name="Basic" parameters={{ loki: { skip: true } }}>
+  <Story name="Basic">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -50,10 +50,7 @@ import readme from "./readme.md";
 ### With custom label and value fields
 
 <Canvas>
-  <Story
-    name="With custom label and value fields"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="With custom label and value fields">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -79,7 +76,7 @@ import readme from "./readme.md";
 ### With options
 
 <Canvas>
-  <Story name="With options" parameters={{ loki: { skip: true } }}>
+  <Story name="With options">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -108,10 +105,7 @@ import readme from "./readme.md";
 ### With options (no filtering)
 
 <Canvas>
-  <Story
-    name="With options (no filtering)"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="With options (no filtering)">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -138,7 +132,7 @@ import readme from "./readme.md";
 ### In a form
 
 <Canvas>
-  <Story name="In a form" parameters={{ loki: { skip: true } }}>
+  <Story name="In a form">
     {(args) =>
       html` <form>
         <ic-search-bar
@@ -153,7 +147,7 @@ import readme from "./readme.md";
 ### Helper text
 
 <Canvas>
-  <Story name="Helper text" parameters={{ loki: { skip: true } }}>
+  <Story name="Helper text">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -176,7 +170,7 @@ import readme from "./readme.md";
 ### Small
 
 <Canvas>
-  <Story name="Small" parameters={{ loki: { skip: true } }}>
+  <Story name="Small">
     {(args) =>
       html` <ic-search-bar
         label="What is your favourite coffee?"
@@ -189,7 +183,7 @@ import readme from "./readme.md";
 ### Hidden label
 
 <Canvas>
-  <Story name="Hidden label" parameters={{ loki: { skip: true } }}>
+  <Story name="Hidden label">
     {(args) =>
       html` <ic-search-bar
         label="What is your favourite coffee?"
@@ -202,7 +196,7 @@ import readme from "./readme.md";
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {(args) =>
       html` <ic-search-bar
         label="What is your favourite coffee?"
@@ -215,7 +209,7 @@ import readme from "./readme.md";
 ### Full width
 
 <Canvas>
-  <Story name="Full width" parameters={{ loki: { skip: true } }}>
+  <Story name="Full width">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -244,7 +238,7 @@ import readme from "./readme.md";
 ### External filtering
 
 <Canvas>
-  <Story name="External filtering" parameters={{ loki: { skip: true } }}>
+  <Story name="External filtering">
     {(args) =>
       html` <ic-search-bar
           label="Search for coffee"
@@ -311,10 +305,7 @@ import readme from "./readme.md";
 ### External filtering with loading
 
 <Canvas>
-  <Story
-    name="External filtering with loading"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="External filtering with loading">
     {(args) =>
       html` <ic-search-bar
           label="Search for coffee"
@@ -386,10 +377,7 @@ import readme from "./readme.md";
 ### External filtering with custom loading messages
 
 <Canvas>
-  <Story
-    name="External filtering with custom loading messages"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="External filtering with custom loading messages">
     {(args) =>
       html` <ic-search-bar
           label="Search for coffee"
@@ -463,7 +451,7 @@ import readme from "./readme.md";
 ### Query search mode
 
 <Canvas>
-  <Story name="Query search mode" parameters={{ loki: { skip: true } }}>
+  <Story name="Query search mode">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -487,7 +475,7 @@ import readme from "./readme.md";
 ### Empty option list text
 
 <Canvas>
-  <Story name="Empty option list text" parameters={{ loki: { skip: true } }}>
+  <Story name="Empty option list text">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -511,10 +499,7 @@ import readme from "./readme.md";
 ### Characters until suggestion
 
 <Canvas>
-  <Story
-    name="Characters until suggestion"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Characters until suggestion">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -538,7 +523,7 @@ import readme from "./readme.md";
 ### Hint text
 
 <Canvas>
-  <Story name="Hint text" parameters={{ loki: { skip: true } }}>
+  <Story name="Hint text">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -563,7 +548,7 @@ import readme from "./readme.md";
 ### Long option labels
 
 <Canvas>
-  <Story name="Long option labels" parameters={{ loki: { skip: true } }}>
+  <Story name="Long option labels">
     {(args) =>
       html` <ic-search-bar
           label="What is your favourite coffee?"
@@ -631,7 +616,6 @@ export const defaultArgs = {
       },
     }}
     name="Playground"
-    parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<ic-search-bar

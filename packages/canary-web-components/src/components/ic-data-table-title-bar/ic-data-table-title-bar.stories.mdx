@@ -35,7 +35,7 @@ By default, the density selector appears within the data table title bar. The th
 - Spacious
 
 <Canvas withSource="none">
-  <Story name="Basic" height="220px" parameters={{ loki: { skip: true } }}>
+  <Story name="Basic" height="220px">
     {html`<ic-data-table-title-bar
       heading="Title Bar"
     ></ic-data-table-title-bar>`}
@@ -51,7 +51,7 @@ Custom elements can be passed into the areas which contain the title bar heading
 {/* To be moved over to Cypress */}
 
 <Canvas withSource="none">
-  <Story name="Slots" height="220px" parameters={{ loki: { skip: true } }}>
+  <Story name="Slots" height="220px">
     {html`
       <ic-data-table-title-bar>
         <ic-typography slot="heading" variant="h1"
@@ -81,11 +81,7 @@ Custom elements can be passed into the areas which contain the title bar heading
 Data table metadata and description can be added to the data table title bar via the `metadata` and `description` props.
 
 <Canvas withSource="none">
-  <Story
-    name="With metadata and description"
-    height="220px"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="With metadata and description" height="220px">
     {html`<ic-data-table-title-bar
       heading="Title Bar"
       metadata="128 items | 32gb | Updated: 01/02/03"
@@ -108,7 +104,7 @@ Data table metadata and description can be added to the data table title bar via
 By default, the density selector is displayed on the data table title bar. To hide it, set `hide-density-select` to `true`.
 
 <Canvas withSource="none">
-  <Story name="Hide density selector" parameters={{ loki: { skip: true } }}>
+  <Story name="Hide density selector">
     {html`<ic-data-table-title-bar
       hide-density-select="true"
       heading="Title Bar"
@@ -138,11 +134,7 @@ There are two slots available:
 - `custom-actions` can be used for secondary actions. The custom element will appear to the left of the density selector if displayed.
 
 <Canvas withSource="none">
-  <Story
-    name="Custom actions"
-    height="220px"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Custom actions" height="220px">
     {html`<ic-data-table-title-bar
       heading="Title Bar"
       metadata="128 items | 32gb | Updated: 01/02/03"
