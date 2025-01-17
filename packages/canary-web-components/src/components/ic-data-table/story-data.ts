@@ -1511,6 +1511,28 @@ export const ActionElement = (): HTMLElement =>
 export const MissingCellData = (): HTMLElement =>
   createDataTableElement("Missing Cell Data", COLS, DATA_WITH_EMPTY_VALUES);
 
+export const TurnOffSelectedRowHighlighting = (): HTMLElement => {
+  const dataTable = createDataTableElement(
+    "Turn off selected row highlighting",
+    COLS,
+    DATA
+  );
+  dataTable.setAttribute("highlight-selected-row", "false");
+  return dataTable;
+};
+
+export const SelectedRowChangeEvent = (): HTMLElement => {
+  const dataTable = createDataTableElement(
+    "Turn off selected row highlighting",
+    COLS,
+    DATA
+  );
+  dataTable.addEventListener("icSelectedRowChange", (event: CustomEvent) => {
+    console.log("Selected row changed", event.detail);
+  });
+  return dataTable;
+};
+
 export const DevArea = (): HTMLElement => {
   const dataTable = createDataTableElement(
     "Basic Table",

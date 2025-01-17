@@ -3,6 +3,7 @@ export const HAVE_ATTR = "have.attr";
 export const HAVE_BEEN_CALLED = "have.been.called";
 export const HAVE_BEEN_CALLED_ONCE = "have.been.calledOnce";
 export const HAVE_BEEN_CALLED_WITH = "have.been.calledWith";
+export const HAVE_CALL_COUNT = "have.callCount";
 export const HAVE_CLASS = "have.class";
 export const HAVE_CSS = "have.css";
 export const HAVE_FOCUS = "have.focus";
