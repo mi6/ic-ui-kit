@@ -2817,6 +2817,7 @@ declare global {
         new (): HTMLIcLoadingIndicatorElement;
     };
     interface HTMLIcMenuElementEventMap {
+        "icClear": void;
         "menuKeyPress": { isNavKey: boolean; key: string };
         "menuOptionId": IcMenuOptionIdEventDetail;
         "menuOptionSelect": IcOptionSelectEventDetail;
@@ -4415,6 +4416,10 @@ declare namespace LocalJSX {
           * The ID of the menu.
          */
         "menuId": string;
+        /**
+          * Emitted when the clear all button is clicked.
+         */
+        "onIcClear"?: (event: IcMenuCustomEvent<void>) => void;
         "onMenuKeyPress"?: (event: IcMenuCustomEvent<{ isNavKey: boolean; key: string }>) => void;
         "onMenuOptionId"?: (event: IcMenuCustomEvent<IcMenuOptionIdEventDetail>) => void;
         "onMenuOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
@@ -5117,7 +5122,7 @@ declare namespace LocalJSX {
          */
         "onIcChange"?: (event: IcSelectCustomEvent<IcValueEventDetail>) => void;
         /**
-          * Emitted when the clear button is clicked.
+          * Emitted when the clear or clear all button is clicked.
          */
         "onIcClear"?: (event: IcSelectCustomEvent<void>) => void;
         /**
