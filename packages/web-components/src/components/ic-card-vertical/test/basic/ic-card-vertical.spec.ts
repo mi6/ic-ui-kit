@@ -1,7 +1,21 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { CardVertical } from "../../ic-card-vertical";
+import {
+  mockHasDynamicChildSlots,
+  mockMutationObserverImplementation,
+  MockMutationRecord,
+  mockRenderDynamicChildSlots,
+} from "../../../../testspec.setup";
 
 describe("ic-card-vertical", () => {
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render", async () => {
     const page = await newSpecPage({
       components: [CardVertical],
@@ -224,24 +238,61 @@ describe("ic-card-vertical", () => {
       html: `<ic-card-vertical heading="Card" message="This is a static card"></ic-card-vertical>`,
     });
 
+    const component = page.rootInstance;
+    const host = page.root;
+
+    const observerInstance =
+      mockMutationObserverImplementation.mock.results[0].value;
+
+    observerInstance.observe(host, { childList: true });
+
     const icon = document.createElement("svg");
     icon.setAttribute("slot", "icon");
+    host.appendChild(icon);
 
     const imageMid = document.createElement("svg");
     imageMid.setAttribute("slot", "image-mid");
+    host.appendChild(imageMid);
 
     const imageTop = document.createElement("svg");
     imageTop.setAttribute("slot", "image-top");
+    host.appendChild(imageTop);
 
     const button = document.createElement("button");
     button.setAttribute("slot", "interaction-button");
+    host.appendChild(button);
 
-    page.rootInstance.hostMutationCallback([
+    const mockMutationRecord: MockMutationRecord[] = [
       {
-        type: "childList",
         addedNodes: [icon, imageMid, imageTop, button],
         removedNodes: [],
+        target: host,
       },
-    ]);
+    ];
+
+    observerInstance.trigger(mockMutationRecord);
+
+    await page.waitForChanges();
+
+    expect(mockRenderDynamicChildSlots).toHaveBeenCalledTimes(1);
+    expect(mockRenderDynamicChildSlots).toHaveBeenCalledWith(
+      mockMutationRecord,
+      [
+        "message",
+        "adornment",
+        "expanded-content",
+        "image-top",
+        "image-mid",
+        "icon",
+        "interaction-button",
+        "badge",
+        "interaction-controls",
+      ],
+      component
+    );
+
+    expect(mockHasDynamicChildSlots).toHaveBeenCalledTimes(1);
+
+    expect(page.root).toMatchSnapshot();
   });
 });

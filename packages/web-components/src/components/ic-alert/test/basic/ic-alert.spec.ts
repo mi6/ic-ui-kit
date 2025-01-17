@@ -1,7 +1,21 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Alert } from "../../ic-alert";
+import {
+  mockHasDynamicChildSlots,
+  mockMutationObserverImplementation,
+  MockMutationRecord,
+  mockRenderDynamicChildSlots,
+} from "../../../../testspec.setup";
 
 describe("ic-alert component", () => {
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render with a heading when supplied", async () => {
     const page = await newSpecPage({
       components: [Alert],
@@ -323,15 +337,40 @@ describe("ic-alert component", () => {
       html: `<ic-alert heading="Test heading"></ic-alert>`,
     });
 
+    const component = page.rootInstance;
+    const host = page.root;
+
+    const observerInstance =
+      mockMutationObserverImplementation.mock.results[0].value;
+
     const action = document.createElement("button");
     action.setAttribute("slot", "action");
 
-    page.rootInstance.hostMutationCallback([
+    observerInstance.observe(host, { childList: true });
+
+    host.appendChild(action);
+
+    const mockMutationRecord: MockMutationRecord[] = [
       {
-        type: "childList",
         addedNodes: [action],
         removedNodes: [],
+        target: host,
       },
-    ]);
+    ];
+
+    observerInstance.trigger(mockMutationRecord);
+
+    await page.waitForChanges();
+
+    expect(mockRenderDynamicChildSlots).toHaveBeenCalledTimes(1);
+    expect(mockRenderDynamicChildSlots).toHaveBeenCalledWith(
+      mockMutationRecord,
+      "action",
+      component
+    );
+
+    expect(mockHasDynamicChildSlots).toHaveBeenCalledTimes(1);
+
+    expect(page.root).toMatchSnapshot();
   });
 });
