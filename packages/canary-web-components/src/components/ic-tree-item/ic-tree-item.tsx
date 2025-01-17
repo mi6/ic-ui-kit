@@ -9,15 +9,14 @@ import {
   Watch,
   State,
   Listen,
-  forceUpdate,
   Method,
 } from "@stencil/core";
 import { IcSizes, IcThemeMode } from "../../utils/types";
 import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
-  checkSlotInChildMutations,
   removeDisabledFalse,
+  renderDynamicChildSlots,
 } from "../../utils/helpers";
 import arrowDropdown from "../../assets/arrow-dropdown.svg";
 
@@ -167,7 +166,9 @@ export class TreeItem {
         "Tree item"
       );
 
-    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(mutationList, "icon", this)
+    );
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
@@ -343,18 +344,6 @@ export class TreeItem {
     this.routerSlot = this.el.querySelector('[slot="router-item"]');
     return !!this.routerSlot;
   }
-
-  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
-    if (
-      mutationList.some(({ type, addedNodes, removedNodes }) =>
-        type === "childList"
-          ? checkSlotInChildMutations(addedNodes, removedNodes, "icon")
-          : false
-      )
-    ) {
-      forceUpdate(this);
-    }
-  };
 
   private handleDisplayTooltip = (display: boolean) => {
     const typographyEl: HTMLIcTypographyElement =
