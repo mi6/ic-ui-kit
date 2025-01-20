@@ -4,6 +4,7 @@ import { PopoverMenu } from "../../ic-popover-menu";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { MenuGroup } from "../../../ic-menu-group/ic-menu-group";
 import { Dialog } from "../../../ic-dialog/ic-dialog";
+import { Button } from "../../../ic-button/ic-button";
 
 describe("ic-popover-menu", () => {
   it("should render with anchor", async () => {
@@ -497,5 +498,40 @@ describe("ic-popover-menu", () => {
     page.rootInstance.closeMenu();
     await page.waitForChanges();
     expect(page.root.open).toBeFalsy();
+  });
+
+  it("should set open to false for root popover when submenu is open and button is clicked", async () => {
+    const page = await newSpecPage({
+      components: [PopoverMenu, MenuItem, Button],
+      html: `<ic-button id="anchorEl" onclick="buttonClick()"
+          >Show/Hide popover</ic-button
+        >
+        <script>
+          var icPopover = document.querySelector("ic-popover-menu");
+          function buttonClick() {
+            icPopover.open = !icPopover.open;
+          }
+        </script>
+      <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu">
+      <ic-menu-item label="Button 1" submenu-trigger-for="submenu" id="trigger-button"></ic-menu-item>
+      <ic-menu-item label="Button 2"></ic-menu-item>
+      </ic-popover-menu>
+      <ic-popover-menu submenu-id="submenu">
+      <ic-menu-item label="Button 1"></ic-menu-item>
+      <ic-menu-item label="Button 2"></ic-menu-item>
+      </ic-popover-menu>`,
+    });
+
+    const anchor = document.getElementById("anchorEl");
+
+    anchor.click();
+
+    const trigger = document.getElementById("trigger-button");
+
+    trigger.click();
+
+    await page.rootInstance.closeAllPopovers;
+
+    expect(page.root.open).toBeUndefined();
   });
 });

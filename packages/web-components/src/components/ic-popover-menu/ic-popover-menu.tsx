@@ -74,6 +74,8 @@ export class PopoverMenu {
         this.popoverMenuEls.unshift(this.backButton);
       }
 
+      this.closeAllPopovers();
+
       this.currentFocus = 0;
       // Needed so that anchorEl isn't always focused
       setTimeout(this.setButtonFocus, 50);
@@ -338,6 +340,22 @@ export class PopoverMenu {
         },
       ],
     });
+  };
+
+  private closeAllPopovers = () => {
+    const allPopovers = Array.from(
+      document.querySelectorAll("ic-popover-menu")
+    );
+
+    const openPopovers = allPopovers.filter((popover) => popover.open);
+
+    if (openPopovers.length > 1) {
+      for (let i = 0; i < openPopovers.length; i++) {
+        if (openPopovers[i].anchor === openPopovers[i + 1]?.anchor) {
+          allPopovers.forEach((popover) => (popover.open = false));
+        }
+      }
+    }
   };
 
   render() {
