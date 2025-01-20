@@ -309,6 +309,21 @@ describe("IcPopoverMenu end-to-end, visual regression and a11y tests", () => {
 
     cy.get("@icToggleChecked").should(HAVE_BEEN_CALLED_ONCE);
   });
+
+  it("should close submenu popover if open/close button is clicked", () => {
+    mount(<PopoverDropdown />);
+
+    cy.checkHydrated(POPOVER_SELECTOR);
+
+    cy.get(BUTTON_SELECTOR).click();
+    cy.get("#submenu-trigger-actions").click().wait(250);
+
+    cy.get(POPOVER_SELECTOR + '[submenu-id="actions"]').should(BE_VISIBLE);
+
+    cy.get(BUTTON_SELECTOR).click().click();
+
+    cy.get(POPOVER_SELECTOR + '[submenu-id="actions"]').should(NOT_BE_VISIBLE);
+  });
 });
 
 describe("IcPopoverMenu visual regression tests in high contrast mode", () => {
