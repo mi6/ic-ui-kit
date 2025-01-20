@@ -3,11 +3,11 @@ import {
   Element,
   Event,
   EventEmitter,
-  Prop,
-  State,
   h,
   Host,
   Listen,
+  Prop,
+  State,
 } from "@stencil/core";
 import { IC_DEVICE_SIZES } from "../../utils/constants";
 import {
@@ -150,10 +150,18 @@ export class Footer {
       caption,
       copyright,
       description,
-      groupLinks,
+      deviceSize,
+      el,
       foregroundColor,
+      groupLinks,
     } = this;
     const small = this.isSmall();
+
+    const showComplianceSection =
+      isSlotUsed(el, "logo") ||
+      isSlotUsed(el, "caption") ||
+      caption ||
+      copyright;
 
     return (
       <Host
@@ -171,7 +179,7 @@ export class Footer {
       >
         <footer ref={(footerEl) => (this.footerEl = footerEl)}>
           {/* Description */}
-          {(isSlotUsed(this.el, "description") || description) && (
+          {(isSlotUsed(el, "description") || description) && (
             <div class="footer-description">
               <ic-section-container aligned={aligned} fullHeight={true}>
                 <div class="footer-description-inner">
@@ -184,7 +192,7 @@ export class Footer {
           )}
 
           {/* Links */}
-          {isSlotUsed(this.el, "link") && (
+          {isSlotUsed(el, "link") && (
             <div class="footer-links">
               {groupLinks && small ? (
                 <div class="footer-links-inner" role="list">
@@ -201,49 +209,48 @@ export class Footer {
           )}
 
           {/* Compliance (logo, caption, copyright) */}
-          <div class="footer-compliance">
-            <ic-section-container aligned={aligned} fullHeight={true}>
-              <div class="footer-compliance-inner">
-                {isSlotUsed(this.el, "logo") && (
-                  <div class="footer-logo">
-                    {/* Logo */}
-                    <slot name="logo" />
-                  </div>
-                )}
-                {(isSlotUsed(this.el, "caption") || caption) && (
-                  <div class="footer-caption">
-                    <ic-typography
-                      variant={
-                        this.deviceSize <= IC_DEVICE_SIZES.M
-                          ? "caption"
-                          : "body"
-                      }
+          {showComplianceSection && (
+            <div class="footer-compliance">
+              <ic-section-container aligned={aligned} fullHeight={true}>
+                <div class="footer-compliance-inner">
+                  {isSlotUsed(el, "logo") && (
+                    <div class="footer-logo">
+                      <slot name="logo" />
+                    </div>
+                  )}
+                  {(isSlotUsed(el, "caption") || caption) && (
+                    <div class="footer-caption">
+                      <ic-typography
+                        variant={
+                          deviceSize <= IC_DEVICE_SIZES.M ? "caption" : "body"
+                        }
+                      >
+                        <slot name="caption">{caption}</slot>
+                      </ic-typography>
+                    </div>
+                  )}
+                  {copyright && (
+                    <div
+                      class={{
+                        ["footer-copyright"]: true,
+                        ["classification-spacing"]: hasClassificationBanner(),
+                      }}
                     >
-                      <slot name="caption">{caption}</slot>
-                    </ic-typography>
-                  </div>
-                )}
-                {copyright && (
-                  <div
-                    class={{
-                      ["footer-copyright"]: true,
-                      ["classification-spacing"]: hasClassificationBanner(),
-                    }}
-                  >
-                    <ic-typography
-                      variant={
-                        this.deviceSize <= IC_DEVICE_SIZES.M
-                          ? "caption-uppercase"
-                          : "label-uppercase"
-                      }
-                    >
-                      &copy; Crown Copyright
-                    </ic-typography>
-                  </div>
-                )}
-              </div>
-            </ic-section-container>
-          </div>
+                      <ic-typography
+                        variant={
+                          deviceSize <= IC_DEVICE_SIZES.M
+                            ? "caption-uppercase"
+                            : "label-uppercase"
+                        }
+                      >
+                        &copy; Crown Copyright
+                      </ic-typography>
+                    </div>
+                  )}
+                </div>
+              </ic-section-container>
+            </div>
+          )}
         </footer>
       </Host>
     );
