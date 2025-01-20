@@ -39,6 +39,31 @@ Object.defineProperty(global, "MutationObserver", {
   value: mockMutationObserver,
 });
 
+export const mockMutationObserverImplementation = jest
+  .spyOn(global, "MutationObserver")
+  .mockImplementation((callback) => ({
+    observe: jest.fn(),
+    disconnect: jest.fn(),
+    takeRecords: jest.fn(),
+    trigger: (mutations: MutationRecord[]) => {
+      callback(mutations, this);
+    },
+  }));
+
+export type MockMutationRecord = {
+  addedNodes?: Node[];
+  removedNodes?: Node[];
+  target?: Node;
+};
+
+export const mockRenderDynamicChildSlots = jest.spyOn(
+  helpers,
+  "renderDynamicChildSlots"
+);
+export const mockHasDynamicChildSlots = jest
+  .spyOn(helpers, "hasDynamicChildSlots")
+  .mockImplementation(() => true);
+
 export const waitForTimeout = async (ms: number): Promise<void> => {
   await new Promise((r) => setTimeout(r, ms));
 };

@@ -16734,7 +16734,12 @@
           "complexType": {
             "signature": "() => Promise<void>",
             "parameters": [],
-            "references": {},
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
             "return": "Promise<void>"
           },
           "signature": "setFocus() => Promise<void>",
