@@ -6,7 +6,7 @@ import React from "react";
 import { AGGridLight, AGGridDark } from "./AgGridWrapperTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.094;
+const DEFAULT_TEST_THRESHOLD = 0;
 
 describe("Visual regression and a11y tests", () => {
   beforeEach(() => {
