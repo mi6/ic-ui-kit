@@ -38,7 +38,7 @@ const DYNAMIC_SHOW_BUTTON = "ic-button#show-btn";
 const DIALOG = "ic-dialog";
 const BUTTON = "ic-button";
 
-const DEFAULT_TEST_THRESHOLD = 0;
+const DEFAULT_TEST_THRESHOLD = 0.028;
 
 describe("IcDialog end-to-end tests", () => {
   beforeEach(() => {
@@ -235,7 +235,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
     });
   });
 
@@ -249,7 +249,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 200);
     cy.compareSnapshot({
       name: "slotted-content",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.072),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -264,7 +264,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "slotted-content-clicked",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.069),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 
@@ -279,7 +279,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disable-height-constraint",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
 
@@ -293,7 +293,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "accordion",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
@@ -307,7 +307,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "accordion-group",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
 
@@ -321,7 +321,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "accordion-group-single-expansion",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -329,10 +329,10 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(AlertDialog("neutral"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "neutral-alert",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
 
@@ -340,10 +340,10 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(AlertDialog("info"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "info-alert",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.074),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -351,10 +351,10 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(AlertDialog("warning"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "warning-alert",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.075),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
 
@@ -362,10 +362,10 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(AlertDialog("error"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "error-alert",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.074),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -373,10 +373,10 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(AlertDialog("success"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "success-alert",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
 
@@ -384,10 +384,10 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(SizeDialog("small"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "small",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
     });
   });
 
@@ -398,7 +398,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "large",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
     });
   });
 
@@ -412,7 +412,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "no-dialog-controls",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
     });
   });
 
@@ -426,7 +426,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "destructive-dialog-controls",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
 
@@ -440,7 +440,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom-dialog-controls",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
   });
 
@@ -454,7 +454,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "hide-close-button",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
     });
   });
 
@@ -468,7 +468,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "scroll-before",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.098),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
     });
   });
 
@@ -483,7 +483,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "scroll-after",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.106),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.054),
     });
   });
 
@@ -505,7 +505,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tab-dynamic-content",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.104),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.051),
     });
   });
 
@@ -519,7 +519,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disable-width-constraint",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.08),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -531,7 +531,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.wait(300);
     cy.compareSnapshot({
       name: "theme-dark",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
   });
 });
@@ -562,7 +562,7 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "default-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -575,7 +575,7 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "slotted-content-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
     });
   });
 
@@ -585,7 +585,7 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
 
     cy.wait(300).compareSnapshot({
       name: "success-alert-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
 
@@ -595,7 +595,7 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
 
     cy.wait(300).compareSnapshot({
       name: "warning-alert-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
 
@@ -608,7 +608,7 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "no-dialog-controls-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
@@ -621,7 +621,7 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "destructive-dialog-controls-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
 });
