@@ -1127,6 +1127,20 @@
           "docsTags": []
         },
         {
+          "event": "icSelectedRowChange",
+          "detail": "object",
+          "bubbles": true,
+          "complexType": {
+            "original": "object",
+            "resolved": "object",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the selected row changes in the data table.",
+          "docsTags": []
+        },
+        {
           "event": "icSortChange",
           "detail": "IcSortEventDetail",
           "bubbles": true,

@@ -4208,8 +4208,7 @@ describe("IcDataTable row selection", () => {
     cy.task("generateReport");
   });
 
-  // Test skipped due to issue creating snapshot image
-  it.skip("should highlight the selected row", () => {
+  it("should highlight the selected row", () => {
     mount(<BasicDataTable />);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
@@ -4225,8 +4224,7 @@ describe("IcDataTable row selection", () => {
     });
   });
 
-  // Test skipped due to issue creating snapshot image
-  it.skip("should not highlight the selected row when the highlightSelectedRow prop is set to false", () => {
+  it("should not highlight the selected row when the highlightSelectedRow prop is set to false", () => {
     mount(<BasicDataTable highlightSelectedRow={false} />);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
