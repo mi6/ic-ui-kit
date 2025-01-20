@@ -182,6 +182,11 @@ export class DataTable {
   @Prop() height?: string;
 
   /**
+   * If `true`, the selected row is highlighted using a background colour.
+   */
+  @Prop() highlightSelectedRow?: boolean = true;
+
+  /**
    * If `true`, column headers will not be visible.
    */
   @Prop() hideColumnHeaders?: boolean = false;
@@ -323,6 +328,11 @@ export class DataTable {
    * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
    */
   @Event() icRowHeightChange: EventEmitter<void>;
+
+  /**
+   * Emitted when the selected row changes in the data table.
+   */
+  @Event() icSelectedRowChange: EventEmitter<object>;
 
   /**
    * Emitted when a column sort button is clicked.
@@ -1471,7 +1481,7 @@ export class DataTable {
   };
 
   private createColumnHeaders = () =>
-    this.columns.map(
+    (this.columns || []).map(
       ({ cellAlignment, colspan, icon, key, title, columnWidth }, index) => (
         <th
           scope="col"
@@ -1563,6 +1573,10 @@ export class DataTable {
     );
 
   private onRowClick = (row: object) => {
+    if (!this.loading && !this.updating) {
+      this.icSelectedRowChange.emit(this.selectedRow !== row ? row : null);
+    }
+
     this.selectedRow =
       this.selectedRow !== row && !this.loading && !this.updating && row;
   };
@@ -1604,7 +1618,8 @@ export class DataTable {
             onClick={() => this.onRowClick(row)}
             class={{
               ["table-row"]: true,
-              ["table-row-selected"]: this.selectedRow === row,
+              ["table-row-selected"]:
+                this.highlightSelectedRow && this.selectedRow === row,
             }}
           >
             {this.createCells(row, index)}

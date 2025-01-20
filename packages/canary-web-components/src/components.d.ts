@@ -104,6 +104,10 @@ export namespace Components {
          */
         "hideColumnHeaders"?: boolean;
         /**
+          * If `true`, the selected row is highlighted using a background colour.
+         */
+        "highlightSelectedRow"?: boolean;
+        /**
           * When set to `true`, the full table will show a loading state, featuring a radial indicator.
          */
         "loading"?: boolean;
@@ -621,6 +625,7 @@ declare global {
     };
     interface HTMLIcDataTableElementEventMap {
         "icRowHeightChange": void;
+        "icSelectedRowChange": object;
         "icSortChange": IcSortEventDetail;
     }
     interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
@@ -828,6 +833,10 @@ declare namespace LocalJSX {
          */
         "hideColumnHeaders"?: boolean;
         /**
+          * If `true`, the selected row is highlighted using a background colour.
+         */
+        "highlightSelectedRow"?: boolean;
+        /**
           * When set to `true`, the full table will show a loading state, featuring a radial indicator.
          */
         "loading"?: boolean;
@@ -861,6 +870,10 @@ declare namespace LocalJSX {
           * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
          */
         "onIcRowHeightChange"?: (event: IcDataTableCustomEvent<void>) => void;
+        /**
+          * Emitted when the selected row changes in the data table.
+         */
+        "onIcSelectedRowChange"?: (event: IcDataTableCustomEvent<object>) => void;
         /**
           * Emitted when a column sort button is clicked.
          */
