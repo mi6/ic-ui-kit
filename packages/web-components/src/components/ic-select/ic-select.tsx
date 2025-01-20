@@ -329,7 +329,7 @@ export class Select {
   @Event() icChange: EventEmitter<IcValueEventDetail>;
 
   /**
-   * Emitted when the clear button is clicked.
+   * Emitted when the clear or clear all button is clicked.
    */
   @Event() icClear: EventEmitter<void>;
 

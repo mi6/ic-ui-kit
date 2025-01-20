@@ -170,6 +170,11 @@ export class Menu {
   @Prop() valueField: string = "value";
 
   /**
+   * Emitted when the clear all button is clicked.
+   */
+  @Event() icClear: EventEmitter<void>;
+
+  /**
    * @internal Emitted when key is pressed while menu is open.
    */
   @Event() menuKeyPress: EventEmitter<{ isNavKey: boolean; key: string }>;
@@ -765,7 +770,7 @@ export class Menu {
             (isMacDevice() && event.metaKey) ||
             (!isMacDevice() && event.ctrlKey)
           ) {
-            this.emitSelectAll();
+            this.emitSelectAllEvents();
             this.lastOptionFocused = null;
             this.lastOptionSelected = null;
           }
@@ -908,7 +913,7 @@ export class Menu {
   private handleSelectAllClick = () => {
     this.keyboardNav = false;
     this.menu.focus();
-    this.emitSelectAll();
+    this.emitSelectAllEvents();
     this.lastOptionFocused = null;
     this.lastOptionSelected = null;
   };
@@ -1022,13 +1027,17 @@ export class Menu {
       : null;
   };
 
-  private emitSelectAll = () => {
+  private emitSelectAllEvents = () => {
     // Select all if there is either no value or not all options are selected
     // 'true' means select all, 'false' means clear all
     this.menuOptionSelectAll.emit({
       select:
         !this.value || !(this.value?.length === this.ungroupedOptions.length),
     });
+    // Emit clear event if all options are selected
+    if (this.value?.length === this.ungroupedOptions.length) {
+      this.icClear.emit();
+    }
   };
 
   private emitMenuKeyPress = (isNavKey: boolean, key: string) => {

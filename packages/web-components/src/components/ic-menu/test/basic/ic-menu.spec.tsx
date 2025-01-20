@@ -924,7 +924,7 @@ describe("ic-menu in isolation", () => {
     expect(page.rootInstance.setHighlightedOption).toHaveBeenCalledWith(0);
     expect(page.rootInstance.multiOptionClicked).toBe(null);
 
-    jest.spyOn(page.rootInstance, "emitSelectAll").mockImplementation();
+    jest.spyOn(page.rootInstance, "emitSelectAllEvents").mockImplementation();
     jest.spyOn(helpers, "isMacDevice").mockImplementation(() => true);
 
     await page.rootInstance.manualSetInputValueKeyboardOpen({
@@ -939,7 +939,7 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
-    expect(page.rootInstance.emitSelectAll).toHaveBeenCalled();
+    expect(page.rootInstance.emitSelectAllEvents).toHaveBeenCalled();
 
     jest.spyOn(helpers, "isMacDevice").mockImplementation(() => false);
 
@@ -955,7 +955,7 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
-    expect(page.rootInstance.emitSelectAll).toHaveBeenCalledTimes(2);
+    expect(page.rootInstance.emitSelectAllEvents).toHaveBeenCalledTimes(2);
 
     page.rootInstance.optionHighlighted = "doubleespresso";
     page.rootInstance.multiOptionClicked = null;
@@ -1634,12 +1634,12 @@ describe("ic-menu in isolation", () => {
 
     page.rootInstance.menu.addEventListener("focus", eventSpy);
 
-    jest.spyOn(page.rootInstance, "emitSelectAll").mockImplementation();
+    jest.spyOn(page.rootInstance, "emitSelectAllEvents").mockImplementation();
 
     await page.rootInstance.handleSelectAllClick();
 
     expect(eventSpy).toHaveBeenCalled();
-    expect(page.rootInstance.emitSelectAll).toHaveBeenCalled();
+    expect(page.rootInstance.emitSelectAllEvents).toHaveBeenCalled();
   });
   it("should test handleSelectAllBlur function", async () => {
     const multiSelect = window.document.createElement(
@@ -1690,14 +1690,14 @@ describe("ic-menu in isolation", () => {
 
     expect(page.root).toMatchSnapshot();
   });
-  it("should test emitSelectAll function", async () => {
+  it("should test emitSelectAllEvents function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
 
     page.root.addEventListener("menuOptionSelectAll", eventSpy);
 
-    await page.rootInstance.emitSelectAll();
+    await page.rootInstance.emitSelectAllEvents();
 
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -1711,7 +1711,7 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
-    await page.rootInstance.emitSelectAll();
+    await page.rootInstance.emitSelectAllEvents();
 
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -1735,7 +1735,7 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
-    await page.rootInstance.emitSelectAll();
+    await page.rootInstance.emitSelectAllEvents();
 
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({

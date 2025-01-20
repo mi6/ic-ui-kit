@@ -599,11 +599,12 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     cy.get(OPTION_SELECT_STUB).should(HAVE_CALL_COUNT, 3);
   });
 
-  it("should emit icChange when the clear all button is pressed, and emit icOptionDeselect for all options", () => {
+  it("should emit icChange and icClear when the clear all button is pressed, and emit icOptionDeselect for all options", () => {
     mount(<MultiSelectWithAllValues />);
 
     cy.checkHydrated(IC_SELECT);
     cy.get(IC_SELECT).invoke("on", "icChange", cy.stub().as("icChange"));
+    cy.get(IC_SELECT).invoke("on", "icClear", cy.stub().as("icClear"));
     cy.get(IC_SELECT).invoke(
       "on",
       "icOptionDeselect",
@@ -618,6 +619,7 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     cy.get("@icChange").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(null);
     });
+    cy.get("@icClear").should(HAVE_BEEN_CALLED_ONCE);
     cy.get(OPTION_DESELECT_STUB).should(HAVE_CALL_COUNT, 6);
   });
 

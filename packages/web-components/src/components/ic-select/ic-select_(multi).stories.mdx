@@ -51,6 +51,9 @@ export const defaultArgs = {
             { label: "Mocha", value: "Moc" },
             { label: "Macchiato", value: "Mac" },
           ];
+          select.addEventListener("icClear", function (event) {
+            console.log("icClear: clear all clicked");
+          });
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
           });

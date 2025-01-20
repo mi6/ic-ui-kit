@@ -211,9 +211,13 @@ export const playgroundOptions = [
           label="What are your favourite types of coffee?"
           options={options}
           multiple
+          onIcClear={(event) => console.log("clear all clicked")}
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           onIcOptionSelect={(event) =>
             console.log(`icOptionSelect: ${event.detail.value}`)
+          }
+          onIcOptionDeselect={(event) =>
+            console.log(`icOptionDeselect: ${event.detail.value}`)
           }
           onIcOpen={() => console.log("select dropdown opened")}
           onIcClose={() => console.log("select dropdown closed")}
