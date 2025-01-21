@@ -1384,7 +1384,12 @@ export class DataTable {
           )}
           {columnProps?.dataType !== "element" &&
             !isSlotUsed(this.el, cellSlotName) && (
-              <div class="cell-text-wrapper">
+              <div
+                class={{
+                  "cell-text-wrapper": true,
+                  "cell-text-no-wrap": !this.truncationPattern,
+                }}
+              >
                 <ic-typography
                   variant="body"
                   class={{
@@ -1899,7 +1904,9 @@ export class DataTable {
           // isn't overflowing the cell to trigger the show more button to appear.
         } else if (
           this.truncationPattern === this.SHOW_HIDE_STRING &&
-          descriptionHeight + this.DEFAULT_LINE_HEIGHT > this.globalRowHeight
+          descriptionHeight + this.DEFAULT_LINE_HEIGHT > this.globalRowHeight &&
+          typography.style.getPropertyValue("--truncation-max-lines") !==
+            "initial"
         ) {
           this.updateRowHeightForDescriptions(
             descriptionHeight + this.DEFAULT_LINE_HEIGHT,

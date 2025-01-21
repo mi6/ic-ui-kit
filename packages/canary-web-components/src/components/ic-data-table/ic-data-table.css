@@ -28,7 +28,6 @@ tbody {
 }
 
 .truncation-show-hide {
-  overflow: visible;
   display: block;
 }
 
@@ -419,6 +418,10 @@ td.table-density-spacious {
 
 .cell-text-wrapper {
   overflow: hidden;
+}
+
+.cell-text-no-wrap {
+  word-wrap: initial;
 }
 
 .cell-container-with-description {
