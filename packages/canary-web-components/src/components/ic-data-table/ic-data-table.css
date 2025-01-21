@@ -420,6 +420,10 @@ td.table-density-spacious {
   overflow: hidden;
 }
 
+.cell-text-wrapper ic-typography {
+  margin-left: 2px;
+}
+
 .cell-text-no-wrap {
   word-wrap: initial;
 }
