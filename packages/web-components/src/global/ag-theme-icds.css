@@ -1,22 +1,23 @@
 .ag-theme-icds {
   --ag-active-color: var(--ic-action-default);
+  --ag-background-color: var(--ic-color-background-primary);
   --ag-alpine-active-color: var(--ic-action-default);
   --ag-balham-active-color: var(--ic-action-default);
   --ag-material-primary-color: var(--ic-action-default);
   --ag-material-accent-color: var(--ic-action-default);
-  --ag-foreground-color: var(--ic-color-primary-text);
-  --ag-secondary-foreground-color: var(--ic-color-secondary-text);
-  --ag-data-color: var(--ic-color-primary-text);
-  --ag-header-foreground-color: var(--ic-color-primary-text);
-  --ag-header-background-color: var(--ic-architectural-40);
+  --ag-foreground-color: var(--ic-color-text-primary);
+  --ag-secondary-foreground-color: var(--ic-color-text-secondary);
+  --ag-data-color: var(--ic-color-text-primary);
+  --ag-header-foreground-color: var(--ic-color-text-primary);
+  --ag-header-background-color: var(--ic-data-table-header-background);
   --ag-tooltip-background-color: var(--ic-architectural-800);
-  --ag-disabled-foreground-color: var(--ic-color-tertiary-text);
-  --ag-subheader-background-color: var(--ic-architectural-20);
+  --ag-disabled-foreground-color: var(--ic-color-text-tertiary);
+  --ag-subheader-background-color: var(--ic-color-background-secondary);
   --ag-side-button-selected-background-color: var(--ic-action-default);
   --ag-selected-row-background-color: var(--ic-table-row-selected);
-  --ag-odd-row-background-color: var(--ic-architectural-20);
-  --ag-modal-overlay-background-color: var(--ic-architectural-white);
-  --ag-menu-background-color: var(--ic-architectural-white);
+  --ag-odd-row-background-color: var(--ic-color-background-secondary);
+  --ag-modal-overlay-background-color: var(--ic-color-background-primary);
+  --ag-menu-background-color: var(--ic-color-background-primary);
   --ag-row-hover-color: var(--ic-action-default-bg-hover);
   --ag-column-hover-color: var(--ic-action-default-bg-hover);
   --ag-range-selection-border-color: var(--ic-action-default);
@@ -27,41 +28,41 @@
   --ag-selected-tab-underline-transition-speed: var(
     --ic-transition-duration-fast
   );
-  --ag-header-cell-hover-background-color: var(--ic-architectural-80);
-  --ag-header-cell-moving-background-color: var(--ic-architectural-80);
-  --ag-chip-background-color: var(--ic-architectural-200);
+  --ag-header-cell-hover-background-color: var(--ic-color-background-disabled);
+  --ag-header-cell-moving-background-color: var(--ic-color-background-disabled);
+  --ag-chip-background-color: var(--ic-chip-background-filled-default);
   --ag-borders: solid var(--ic-border-width);
-  --ag-border-color: var(--ic-architectural-200);
+  --ag-border-color: var(--ic-color-keyline);
   --ag-borders-critical: solid var(--ic-border-width);
   --ag-borders-secondary: solid var(--ic-border-width);
-  --ag-secondary-border-color: var(--ic-architectural-100);
+  --ag-secondary-border-color: var(--ic-data-table-cell-keyline);
   --ag-row-border-style: solid;
   --ag-row-border-width: var(--ic-border-width);
-  --ag-row-border-color: var(--ic-architectural-100);
-  --ag-menu-border-color: var(--ic-architectural-400);
-  --ag-panel-border-color: var(--ic-architectural-400);
-  --ag-cell-horizontal-border: solid var(--ic-architectural-100);
+  --ag-row-border-color: var(--ic-data-table-cell-keyline);
+  --ag-menu-border-color: var(--ic-menu-border-color);
+  --ag-panel-border-color: var(--ic-menu-border-color);
+  --ag-cell-horizontal-border: solid var(--ic-data-table-cell-keyline);
   --ag-borders-input: solid var(--ic-border-width);
-  --ag-input-border-color: var(--ic-architectural-400);
+  --ag-input-border-color: var(--ic-menu-border-color);
   --ag-borders-input-invalid: solid var(--ic-space-xxxs);
-  --ag-input-border-color-invalid: var(--ic-status-error);
+  --ag-input-border-color-invalid: var(--ic-color-border-error);
   --ag-borders-side-button: solid var(--ic-border-width);
   --ag-border-radius: var(--ic-border-radius);
   --ag-invalid-color: var(--ic-status-error);
-  --ag-input-disabled-border-color: var(--ic-architectural-200);
+  --ag-input-disabled-border-color: var(--ic-color-border-neutral-disabled);
   --ag-input-disabled-background-color: transparent;
   --ag-checkbox-background-color: transparent;
   --ag-checkbox-border-radius: var(--ic-border-radius);
   --ag-checkbox-checked-color: var(--ic-action-default);
-  --ag-checkbox-unchecked-color: var(--ic-architectural-400);
+  --ag-checkbox-unchecked-color: var(--ic-color-icon-grey-default);
   --ag-checkbox-indeterminate-color: var(--ic-action-default);
   --ag-toggle-button-border-width: var(--ic-border-width);
   --ag-toggle-button-on-border-color: var(--ic-action-default);
   --ag-toggle-button-off-border-color: var(--ic-action-default);
   --ag-toggle-button-on-background-color: var(--ic-action-default);
   --ag-toggle-button-off-background-color: transparent;
-  --ag-toggle-button-switch-background-color: var(--ic-architectural-200);
-  --ag-toggle-button-switch-border-color: var(--ic-architectural-700);
+  --ag-toggle-button-switch-background-color: var(--ic-color-background-hover);
+  --ag-toggle-button-switch-border-color: var(--ic-color-text-secondary);
   --ag-input-focus-box-shadow: var(--ic-border-focus);
   --ag-minichart-selected-page-color: var(--ic-action-default);
   --ag-grid-size: var(--ic-space-xs);
@@ -80,9 +81,9 @@
   );
   --ag-header-column-separator-display: block;
   --ag-header-column-separator-width: var(--ic-border-width);
-  --ag-header-column-separator-color: var(--ic-architectural-200);
+  --ag-header-column-separator-color: var(--ic-color-keyline);
   --ag-header-column-resize-handle-width: var(--ic-border-width);
-  --ag-header-column-resize-handle-color: var(--ic-architectural-200);
+  --ag-header-column-resize-handle-color: var(--ic-color-keyline);
   --ag-column-select-indent-size: var(--ic-space-xs);
   --ag-set-filter-indent-size: var(--ic-space-xs);
   --ag-advanced-filter-builder-indent-size: var(--ic-space-xs);
@@ -93,8 +94,8 @@
   --ag-icon-font-family: aggridmaterialdesignicons;
   --ag-card-radius: var(--ic-border-radius);
   --ag-card-shadow: var(--ic-border-focus);
-  --ag-advanced-filter-join-pill-color: var(--ic-architectural-200);
-  --ag-row-loading-skeleton-effect-color: var(--ic-architectural-100);
+  --ag-advanced-filter-join-pill-color: var(--ic-color-keyline);
+  --ag-row-loading-skeleton-effect-color: var(--ic-skeleton-background);
 }
 
 .ag-theme-icds .ag-root-wrapper {
@@ -160,7 +161,7 @@
 }
 
 .ag-theme-icds .ag-paging-panel {
-  background-color: var(--ic-architectural-40);
+  background-color: var(--ic-data-table-pagination-bar-background-color);
 }
 
 .ag-theme-icds .ag-paging-row-summary-panel,
@@ -179,7 +180,7 @@
 }
 
 .ag-theme-icds .ag-paging-button.ag-disabled .ag-icon {
-  color: var(--ic-architectural-200);
+  color: var(--ic-color-icon-grey);
 }
 
 .ag-theme-icds .ag-paging-button .ag-icon {
