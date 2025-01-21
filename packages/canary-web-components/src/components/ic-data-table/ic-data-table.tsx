@@ -1874,24 +1874,40 @@ export class DataTable {
     tooltipEl.appendChild(typographyEl);
   }
 
+  private fixCellTooltip = (element: HTMLElement) => {
+    const tooltipEl = (
+      element.tagName === "IC-TOOLTIP"
+        ? element
+        : element.shadowRoot?.querySelector(this.IC_TOOLTIP_STRING)
+    ) as HTMLIcTooltipElement;
+
+    if (tooltipEl) {
+      tooltipEl.setExternalPopperProps({
+        strategy: "fixed",
+      });
+    }
+  };
+
   private fixCellTooltips = () => {
     const elements = this.el.shadowRoot.querySelectorAll(".data-type-element");
     elements.forEach((element) => {
       const slotElements = getSlotElements(element);
-      slotElements.forEach((slottedEl: HTMLElement) => {
-        const tooltipEl = (
-          slottedEl.tagName === "IC-TOOLTIP"
-            ? slottedEl
-            : slottedEl.shadowRoot?.querySelector(this.IC_TOOLTIP_STRING)
-        ) as HTMLIcTooltipElement;
-        if (tooltipEl) {
-          tooltipEl.setExternalPopperProps({
-            strategy: "fixed",
-          });
-        }
+      slotElements?.forEach((slottedEl: HTMLElement) => {
+        this.fixCellTooltip(slottedEl);
       });
     });
+
+    const actionElements =
+      this.el.shadowRoot.querySelectorAll(".action-element");
+
+    actionElements?.forEach((actionElementSpan) => {
+      const actionElement = actionElementSpan.firstChild as HTMLElement;
+      if (actionElement) {
+        this.fixCellTooltip(actionElement);
+      }
+    });
   };
+
   private handleClick = (callback: () => void) => callback();
 
   private renderTableBody = (
