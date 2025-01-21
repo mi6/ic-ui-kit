@@ -63,6 +63,15 @@ describe("ic-footer", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render without the compliance section when there is no logo, caption or copyright", async () => {
+    const page = await newSpecPage({
+      components: [Footer],
+      html: `<ic-footer description="This is a footer" copyright=false></ic-footer>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render with links", async () => {
     const page = await newSpecPage({
       components: [Footer],
