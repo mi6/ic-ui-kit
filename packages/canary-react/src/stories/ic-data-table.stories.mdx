@@ -29,7 +29,9 @@ import {
   TEXT_WRAP_LONG_DATA,
   COLS_WIDTH,
   ACTION_DATA_ELEMENTS,
-  DATA_WITH_EMPTY_VALUES
+  DATA_WITH_EMPTY_VALUES,
+  LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS,
+  DATA_ELEMENTS_WITH_DESCRIPTIONS,
 } from "../../../canary-web-components/src/components/ic-data-table/story-data";
 
 import { mdiAccountGroup, mdiImage, mdiDelete } from "@mdi/js";
@@ -1309,6 +1311,10 @@ Returning `null` from this function means that the row will use the `globalRowHe
 
 E.G: If `globalRowHeight` = 100, a dense table will set the height to be **_80_**.
 
+**_NOTE:_** If a cell has a description (see "Description and icons within cells"), then the row height for that individual row will be increased by the description height in order to fully display it.
+
+E.G: If `globalRowHeight` = 100 and a cell has a description with a height of 20, then the row height for that cell's row will be set to **_120_**.
+
 To quickly reset all row heights to the default, you can run the `resetRowHeights` method.
 
 If you'd rather let the row calculate its own height based on its content, either set `globalRowHeight` to `auto`, or return `auto` from `variableRowHeight`.
@@ -1381,6 +1387,8 @@ These values are set using the `truncationPattern` property.
 By default, `globalRowHeight` is set to `auto`. If the `truncationPattern` attribute is set to `tooltip` or `show-hide` while `globalRowHeight` is `auto`, the data will not appear truncated due to the row height being set to the data which has the most height.
 
 To see the data truncated, the `globalRowHeight` or `variableRowHeight` needs to be explicitly set to a height which is shorter than data which has the most lines.
+
+**_NOTE:_** `truncation-pattern` only applies to a cell's main data value. If a cell has a description (see "Description and icons within cells") then this will not be truncated and will still be visible beyond the truncation.
 
 #### Data truncation tooltip
 
@@ -2265,6 +2273,143 @@ const DataTable = () => (
 );
 
 export default DataTable;
+```
+
+### Description and icons within cells
+
+Descriptions and icons can be included in the cells by proving a `description` field in the data. This will populate the cell with an icon (if provided) and a text string underneath the cell data. This can be applied to any cell.
+
+You can provide a `description` object with or without an icon:
+
+With an icon
+
+```json
+  firstName: {
+    data: "Joe",
+    description: {
+      data: "The name of Joe",
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>'
+    }
+  }
+```
+
+Without an icon
+
+```json
+  firstName: {
+    data: "Joe",
+    description: {
+      data: "The name of Joe"
+    }
+  }
+```
+
+<Canvas withSource="none">
+  <Story name="Description and icons within cells">
+    <IcDataTable
+      caption="Description and icons within cells"
+      columns={COLS_WIDTH}
+      data={DATA_ELEMENTS_WITH_DESCRIPTIONS}
+      tableLayout="auto"
+    />
+  </Story>
+</Canvas>
+
+#### Description and icons within cells code example
+
+```jsx
+import { useState } from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const COLS: IcDataTableColumnObject[] = [
+  { key: "firstName", title: "First name", dataType: "string" },
+  { key: "lastName", title: "Last name", dataType: "string" },
+  { 
+    key: "age", 
+    title: "Age", 
+    dataType: "number"
+  },
+  ...
+];
+
+const DATA = [
+  {
+    firstName: {
+      data: "Joe",
+      description: {
+        data: "The name of Joe",
+        icon: imageIconSVG
+      }
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => {
+  return (
+    <IcDataTable 
+      caption="Table with descriptions in cells"
+      columns={COLS}
+      data={DATA}
+      width="800px"
+      tableLayout="auto"
+    />
+  );
+};
+```
+
+### Description and icons within cells with long text
+
+<Canvas withSource="none">
+  <Story name="Description and icons within cells with long text">
+    <IcDataTable
+      caption="Basic Table"
+      columns={COLS_WIDTH}
+      data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+      tableLayout="auto"
+    />
+  </Story>
+</Canvas>
+
+#### Description and icons within cells with long text code example
+
+```jsx
+import { useState } from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const COLS: IcDataTableColumnObject[] = [
+  { key: "firstName", title: "First name", dataType: "string" },
+  { key: "lastName", title: "Last name", dataType: "string" },
+  { 
+    key: "age", 
+    title: "Age", 
+    dataType: "number"
+  },
+  ...
+];
+
+const DATA = [
+  {
+    firstName: {
+      data: "Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe ..........",
+      description: {
+        data: "First name (noun): A given name that occurs first in a given name.",
+        icon: imageIconSVG
+      }
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
 ```
 
 ### Playground example
