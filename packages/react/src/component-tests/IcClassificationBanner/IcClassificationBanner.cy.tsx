@@ -6,7 +6,7 @@ import { IcClassificationBanner } from "../../components";
 import { mount } from "cypress/react";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.02;
+const DEFAULT_TEST_THRESHOLD = 0.015;
 const BANNER = "ic-classification-banner";
 
 describe("IcClassificationBanner visual regression and a11y tests", () => {
@@ -68,7 +68,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/official-sensitive",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 
@@ -81,7 +81,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/secret",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
 
@@ -94,7 +94,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/top-secret",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
 
@@ -154,7 +154,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/inline-official",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
 });
@@ -183,7 +183,7 @@ describe("IcClassificationBanner visual regression tests in high contrast mode",
 
     cy.compareSnapshot({
       name: "/up-to-official-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
   });
 });

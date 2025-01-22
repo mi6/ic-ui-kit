@@ -55,7 +55,7 @@ const LOADING_TIME_OPTION_TEXT = "Loading time";
 const RETRY_BUTTON_ID = "#retry-button";
 const BUTTON_DISABLED_CLASS = "ic-button-disabled";
 
-const DEFAULT_TEST_THRESHOLD = 0.02;
+const DEFAULT_TEST_THRESHOLD = 0.005;
 const CONSOLE_LOG_EVENT_SPY_ID = "@spyWinConsoleLog";
 const IC_SUBMIT_SEARCH_EVENT_ID = "@icSubmitSearch";
 
@@ -821,7 +821,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
 
@@ -833,7 +833,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
 
@@ -845,7 +845,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/full-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.061),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
     });
   });
 
@@ -857,7 +857,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/helper-text",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
     });
   });
 
@@ -869,7 +869,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/hidden-label",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -884,7 +884,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/options-no-filtering",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -902,7 +902,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/empty-option-list-text",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -919,7 +919,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/characters-until-suggestion-no-show",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
 
@@ -933,7 +933,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/characters-until-suggestion-show",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
   });
 
@@ -945,7 +945,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/small",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
 
@@ -960,7 +960,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/long-option-label",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.078),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.075),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -982,7 +982,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/search-submit-tooltip",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
   });
 
@@ -998,7 +998,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/readonly",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
   });
 
@@ -1016,7 +1016,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/spellcheck",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -1025,12 +1025,12 @@ describe("IcSearchBar visual regression and a11y tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).type("Lat");
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).type("La");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/theme-dark",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
     });
   });
 
@@ -1046,7 +1046,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/clear-icon-focused-theme-dark",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
 });
@@ -1070,7 +1070,7 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
     cy.compareSnapshot({
       name: "/default-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -1080,7 +1080,7 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
     cy.compareSnapshot({
       name: "/disabled-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -1093,7 +1093,7 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/focused-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -1107,7 +1107,7 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/options-no-filtering-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.057),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
