@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.33](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.32...@ukic/canary-web-components@2.0.0-canary.33) (2025-01-22)
+
+### Bug Fixes
+
+- **canary-web-components:** add icSelectedRowChange event to IcDataTable ([b0758f8](https://github.com/mi6/ic-ui-kit/commit/b0758f8c60b1d9a6917f6a7263375a19c322d2d1)), closes [#1226](https://github.com/mi6/ic-ui-kit/issues/1226)
+- **canary-web-components:** allow IcDataTable action-element to support tooltips ([590a12c](https://github.com/mi6/ic-ui-kit/commit/590a12cede820add9ae491a235b6212117760630)), closes [#2964](https://github.com/mi6/ic-ui-kit/issues/2964)
+- **canary-web-components:** Allow the IcDataTable to handle empty cell data values ([be13323](https://github.com/mi6/ic-ui-kit/commit/be13323627be84ad89d080059c44786877b62387))
+- **canary-web-components:** prevent mutation of ic-pagination-bar items per page options prop ([61e8231](https://github.com/mi6/ic-ui-kit/commit/61e8231a1eadfd17683bf4267b3f348259c21837))
+- **canary-web-components:** removed disabled attribute from components ([a7a013c](https://github.com/mi6/ic-ui-kit/commit/a7a013cb957a6e7c05993f796911bd88b7757732))
+- **canary-web-components:** set IcPaginationBar to the first page when the items per page changes ([475875a](https://github.com/mi6/ic-ui-kit/commit/475875a643383b5bf688e4ff6ea988283de80f9d)), closes [#2639](https://github.com/mi6/ic-ui-kit/issues/2639)
+- **canary-web-components:** show the All option of the IcPaginationBar items per page dropdown ([7d62cef](https://github.com/mi6/ic-ui-kit/commit/7d62cefc233554b277be311c71c4addec2ce689f)), closes [#2843](https://github.com/mi6/ic-ui-kit/issues/2843)
+
+### Features
+
+- **canary-web-components:** add action onclick to actionElement in dataTable ([cc5a8bf](https://github.com/mi6/ic-ui-kit/commit/cc5a8bff3bdd31dfa5a1044df4cc3288728673c7))
+- **canary-web-components:** add description to data table cells, update tests and storybook ([792c8c2](https://github.com/mi6/ic-ui-kit/commit/792c8c2a135329d491d1262eb43968c5387e7e8e))
+- **canary-web-components:** allow specifying target for anchor in ic-data-table cell ([6ecc0d3](https://github.com/mi6/ic-ui-kit/commit/6ecc0d3264639681e2c9258b521f7b9dd4d5312e)), closes [#2751](https://github.com/mi6/ic-ui-kit/issues/2751)
+- **canary-web-components:** new overlay property for loadingOptions ([2efe41f](https://github.com/mi6/ic-ui-kit/commit/2efe41fb1629cfa12acc41c43f786ff6ccce1b97)), closes [#2968](https://github.com/mi6/ic-ui-kit/issues/2968)
+- **canary-web-components:** updated mutationObserver function ([3891ed8](https://github.com/mi6/ic-ui-kit/commit/3891ed80cec48689618f7747ef250af9ed2c44e7))
+
 # [2.0.0-canary.32](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.31...@ukic/canary-web-components@2.0.0-canary.32) (2025-01-08)
 
 ### Bug Fixes

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.34.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.33.0...@ukic/web-components@2.34.0) (2025-01-22)
+
+### Bug Fixes
+
+- **web-components:** add css for search toggle icon in top nav so it appears in hcm ([632d9ae](https://github.com/mi6/ic-ui-kit/commit/632d9aeee896ad9de5bc71bf9c378c7e6821919d))
+- **web-components:** add dependencies on react types to fix a build problem ([1eee1a4](https://github.com/mi6/ic-ui-kit/commit/1eee1a4f44a39aea396cb6ce441ff4d373135465))
+- **web-components:** adds in removeHiddenInput for text field so hidden input prop can be toggled ([c2f2493](https://github.com/mi6/ic-ui-kit/commit/c2f2493586df2f09baba75d989cb5179c29a572b))
+- **web-components:** allow the IcTextField to be able to handle null or undefined values ([1324e1e](https://github.com/mi6/ic-ui-kit/commit/1324e1ead915362c52d387d34383ed9600922217)), closes [#2813](https://github.com/mi6/ic-ui-kit/issues/2813)
+- **web-components:** hide the compliance section when there is no logo, caption or copyright info ([8925d36](https://github.com/mi6/ic-ui-kit/commit/8925d361bf20cc9618fe215113eebf3b305da279)), closes [#1800](https://github.com/mi6/ic-ui-kit/issues/1800)
+- **web-components:** removed disabled attribute from components when set to false ([e588e62](https://github.com/mi6/ic-ui-kit/commit/e588e620515347fcb031d711d6916eaf5168c17d))
+- **web-components:** update disabled hover tooltip story to use aria labelledby ([a27f106](https://github.com/mi6/ic-ui-kit/commit/a27f106b3505c5bdec1cd86ea729a0c295eadbc0))
+- **web-components:** updated menu.css disabled option colour for high contrast mode ([9fb33d5](https://github.com/mi6/ic-ui-kit/commit/9fb33d56da2016c1069cc7728c55b89b43994613))
+
+### Features
+
+- **web-components:** add prop to customise tooltip text ([1a9b259](https://github.com/mi6/ic-ui-kit/commit/1a9b25940a82dbc4ec11b1a39c94f7675ad58345)), closes [#2839](https://github.com/mi6/ic-ui-kit/issues/2839)
+- **web-components:** add tooltip placement prop to match ic-button ([3e3cd40](https://github.com/mi6/ic-ui-kit/commit/3e3cd4060f24d95c10af85449afa36d740ee7452))
+- **web-components:** added mutationObserver to ic-footer ([52926b7](https://github.com/mi6/ic-ui-kit/commit/52926b7b68ef1edaf0a67ec780050fabbee986af))
+
 # [2.33.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.32.1...@ukic/web-components@2.33.0) (2025-01-08)
 
 ### Bug Fixes

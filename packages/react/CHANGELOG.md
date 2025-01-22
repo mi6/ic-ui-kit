@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.34.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.33.0...@ukic/react@2.34.0) (2025-01-22)
+
+### Bug Fixes
+
+- **react:** add a new constant to support cypress component testing ([8f5ef9f](https://github.com/mi6/ic-ui-kit/commit/8f5ef9fa9d03c0b95e4d9a91a23d60d81a605b9a)), closes [#1226](https://github.com/mi6/ic-ui-kit/issues/1226)
+- **react:** adds a story for toggling hidden input on text field ([28538e7](https://github.com/mi6/ic-ui-kit/commit/28538e75a53bef57f544692d56b0fbc54fa6f800))
+- **react:** allow the IcTextField to be able to handle null or undefined values ([146092d](https://github.com/mi6/ic-ui-kit/commit/146092d9279e9b02faddacc6069db2d95c973358)), closes [#2813](https://github.com/mi6/ic-ui-kit/issues/2813)
+- **react:** enables test for search-icon in high contrast mode ([d3fa508](https://github.com/mi6/ic-ui-kit/commit/d3fa50863a4d4a9634dbc2a96ab6688c8983b030))
+- **react:** hide the compliance section when there is no logo, caption or copyright info ([8fa338f](https://github.com/mi6/ic-ui-kit/commit/8fa338f6b8ff9abe3ff9df20ef2fa74de278f536)), closes [#1800](https://github.com/mi6/ic-ui-kit/issues/1800)
+
+### Features
+
+- **react:** add prop to customise tooltip label for chip ([9acae4f](https://github.com/mi6/ic-ui-kit/commit/9acae4f03eca958d7c83ff9826698d733c5a1d71)), closes [#2839](https://github.com/mi6/ic-ui-kit/issues/2839)
+- **react:** add tooltip placement prop on toggle button to match ic button ([abf0126](https://github.com/mi6/ic-ui-kit/commit/abf01268471dd9634e19eb96a862f263b8109a47))
+
 # [2.33.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.32.1...@ukic/react@2.33.0) (2025-01-08)
 
 ### Features

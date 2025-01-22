@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.33](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.32...@ukic/canary-react@2.0.0-canary.33) (2025-01-22)
+
+### Bug Fixes
+
+- **canary-react:** add icSelectedRowChange event to IcDataTable ([9aa88c7](https://github.com/mi6/ic-ui-kit/commit/9aa88c7ffc6186fc7354be855e035944b8039f0d)), closes [#1226](https://github.com/mi6/ic-ui-kit/issues/1226)
+- **canary-react:** allow IcDataTable action-element to support tooltips ([18d4945](https://github.com/mi6/ic-ui-kit/commit/18d49450d07e105a03da43ea582563f27096739a)), closes [#2964](https://github.com/mi6/ic-ui-kit/issues/2964)
+- **canary-react:** Allow the IcDataTable to handle empty cell data values ([3a5871a](https://github.com/mi6/ic-ui-kit/commit/3a5871ab555dc6b2ac7b9896d34f6c7766ad8693))
+- **canary-react:** set IcPaginationBar to the first page when the items per page changes ([41db085](https://github.com/mi6/ic-ui-kit/commit/41db085ee43e9772cb44f564d9d98bfc1f689fa3)), closes [#2639](https://github.com/mi6/ic-ui-kit/issues/2639)
+- **canary-react:** show the All option of the IcPaginationBar items per page dropdown ([2f02de6](https://github.com/mi6/ic-ui-kit/commit/2f02de611c19a88fd8b848b11884fb0492fcaa5c)), closes [#2843](https://github.com/mi6/ic-ui-kit/issues/2843)
+
+### Features
+
+- **canary-react:** add action onclick to action element on dataTable ([0de9c9f](https://github.com/mi6/ic-ui-kit/commit/0de9c9f1bdca7ad3a1b9786f987a67d67a590b64))
+- **canary-react:** update storybook example for links in IcDataTable to include new target key ([abb9d27](https://github.com/mi6/ic-ui-kit/commit/abb9d2729830a0d80df9f42130de43e7946aa958)), closes [#2751](https://github.com/mi6/ic-ui-kit/issues/2751)
+- **canary-react:** updated data table story to include overlay copy ([2500e7e](https://github.com/mi6/ic-ui-kit/commit/2500e7ea23149020449d11f331783e043ab73e6c)), closes [#2968](https://github.com/mi6/ic-ui-kit/issues/2968)
+
 # [2.0.0-canary.32](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.31...@ukic/canary-react@2.0.0-canary.32) (2025-01-08)
 
 ### Bug Fixes
