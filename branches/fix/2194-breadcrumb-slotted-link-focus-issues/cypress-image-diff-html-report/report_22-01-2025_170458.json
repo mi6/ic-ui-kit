@@ -1,9 +1,37 @@
 {
-  "total": 744,
-  "totalPassed": 743,
+  "total": 747,
+  "totalPassed": 746,
   "totalFailed": 1,
-  "totalSuites": 41,
+  "totalSuites": 42,
   "suites": [
+    {
+      "name": "AgGridWrapper.cy.tsx",
+      "path": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "AgGridWrapper.cy.tsx-ag-grid-light",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
+          "specFilename": "AgGridWrapper.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/AgGridWrapper.cy.tsx-ag-grid-light.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/AgGridWrapper.cy.tsx-ag-grid-light.png"
+        },
+        {
+          "status": "pass",
+          "name": "AgGridWrapper.cy.tsx-ag-grid-dark",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
+          "specFilename": "AgGridWrapper.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/AgGridWrapper.cy.tsx-ag-grid-dark.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/AgGridWrapper.cy.tsx-ag-grid-dark.png"
+        }
+      ]
+    },
     {
       "name": "IcAccordion.cy.tsx",
       "path": "src/component-tests/IcAccordion/IcAccordion.cy.tsx",
@@ -2451,14 +2479,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-success-alert.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx-small",
-          "percentage": 0.05011705049182364,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-small.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-small.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-small.png"
         },
         {
@@ -4921,14 +4949,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-spellcheck.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSearchBar.cy.tsx-theme-dark",
-          "percentage": 0,
+          "percentage": 0.274612454196819,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-theme-dark.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-theme-dark.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-theme-dark.png"
         },
         {
@@ -8230,6 +8258,17 @@
         },
         {
           "status": "pass",
+          "name": "IcTopNavigation.cy.tsx-mobile-navigation-items-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
+          "specFilename": "IcTopNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx-mobile-navigation-items-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx-mobile-navigation-items-high-contrast.png"
+        },
+        {
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx-mobile-open-menu-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -8435,9 +8474,9 @@
       ]
     }
   ],
-  "startedAt": "2025-01-17T17:05:23.187Z",
-  "endedAt": "2025-01-17T17:20:21.947Z",
-  "duration": 806288,
+  "startedAt": "2025-01-22T17:04:58.570Z",
+  "endedAt": "2025-01-22T17:20:02.341Z",
+  "duration": 809334,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
