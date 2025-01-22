@@ -4949,14 +4949,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-spellcheck.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSearchBar.cy.tsx-theme-dark",
-          "percentage": 0,
+          "percentage": 0.274612454196819,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-theme-dark.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-theme-dark.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-theme-dark.png"
         },
         {
@@ -7695,14 +7695,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx-focused-toggle-checked-toggle-group-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx-disabled-toggle-group-high-contrast",
-          "percentage": 0.008,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx-disabled-toggle-group-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx-disabled-toggle-group-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx-disabled-toggle-group-high-contrast.png"
         }
       ]
@@ -8474,9 +8474,9 @@
       ]
     }
   ],
-  "startedAt": "2025-01-21T10:57:11.580Z",
-  "endedAt": "2025-01-21T11:12:56.174Z",
-  "duration": 849765,
+  "startedAt": "2025-01-22T13:11:36.877Z",
+  "endedAt": "2025-01-22T13:26:26.034Z",
+  "duration": 794097,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
