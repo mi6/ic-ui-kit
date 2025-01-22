@@ -6,7 +6,7 @@ import React from "react";
 import { IcSectionContainer, IcButton } from "../../components";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.016;
+const DEFAULT_TEST_THRESHOLD = 0.009;
 const SECTION_CONTAINER_SELECTOR = "ic-section-container";
 
 describe("IcSectionContainer visual regression and a11y tests", () => {

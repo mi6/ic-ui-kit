@@ -126,7 +126,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -141,7 +141,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "checked",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -169,7 +169,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "with-icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -192,7 +192,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -209,7 +209,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 100, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "with-badge",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -224,7 +224,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "full-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -264,7 +264,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "icon-right",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
@@ -276,7 +276,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "icon-top",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -329,7 +329,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "light-theme-monochrome",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
     });
   });
 
@@ -340,7 +340,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "dark-theme-monochrome",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
     });
   });
 });
@@ -412,7 +412,7 @@ describe("IcToggleButton visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "loading-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
