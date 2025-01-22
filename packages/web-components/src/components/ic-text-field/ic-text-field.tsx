@@ -32,6 +32,7 @@ import {
   isSlotUsed,
   removeDisabledFalse,
   checkSlotInChildMutations,
+  removeHiddenInput,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -390,8 +391,11 @@ export class TextField {
     this.inputEl?.focus();
   }
 
+  private getNumberOfCharacters = (value: string) =>
+    value !== null && value !== undefined ? value.length : 0;
+
   private getMaxLengthExceeded = (value: string) => {
-    this.numChars = value.length;
+    this.numChars = this.getNumberOfCharacters(value);
 
     if (this.type === "number") {
       this.minValueUnattained = value && Number(value) < Number(this.min);
@@ -404,7 +408,8 @@ export class TextField {
   };
 
   private getMaxCharactersReached = (value: string) => {
-    this.numChars = value.length;
+    this.numChars = this.getNumberOfCharacters(value);
+
     this.maxCharactersReached =
       this.maxCharacters > 0 ? this.numChars >= this.maxCharacters : false;
 
@@ -571,9 +576,10 @@ export class TextField {
 
     const invalid = `${currentStatus === IcInformationStatus.Error}`;
 
-    if (hiddenInput) {
-      renderHiddenInput(true, this.el, name, value, disabledMode);
-    }
+    hiddenInput
+      ? renderHiddenInput(true, this.el, name, value, disabledMode)
+      : removeHiddenInput(this.el);
+
     return (
       <Host class={{ ["fullwidth"]: fullWidth }}>
         <ic-input-container readonly={readonly} disabled={disabledMode}>
@@ -601,7 +607,7 @@ export class TextField {
               <span
                 class={{
                   ["readonly"]: readonly,
-                  ["has-value"]: value.length > 0,
+                  ["has-value"]: this.getNumberOfCharacters(value) > 0,
                 }}
                 slot="left-icon"
               >

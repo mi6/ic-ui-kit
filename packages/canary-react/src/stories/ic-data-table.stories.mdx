@@ -29,7 +29,9 @@ import {
   TEXT_WRAP_LONG_DATA,
   COLS_WIDTH,
   ACTION_DATA_ELEMENTS,
-  DATA_WITH_EMPTY_VALUES
+  DATA_WITH_EMPTY_VALUES,
+  LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS,
+  DATA_ELEMENTS_WITH_DESCRIPTIONS,
 } from "../../../canary-web-components/src/components/ic-data-table/story-data";
 
 import { mdiAccountGroup, mdiImage, mdiDelete } from "@mdi/js";
@@ -976,6 +978,8 @@ The loading indicator can be customised using the `loadingOptions` prop:
 - `label` sets the visual message
 - `labelDuration` is the number of milliseconds before the label changes
 - `showBackground` allows for a white background and grey border to help the indicator stand out
+- `overlay` renders a dark overlay over the previous data set while new data is loaded
+  - Setting `overlay` also sets `showBackground` to `true` so the loading indicator stands out against the dark overlay.
 
 If it needs to be determinate, use `max`, `min` and `progress`.
 
@@ -1307,6 +1311,10 @@ Returning `null` from this function means that the row will use the `globalRowHe
 
 E.G: If `globalRowHeight` = 100, a dense table will set the height to be **_80_**.
 
+**_NOTE:_** If a cell has a description (see "Description and icons within cells"), then the row height for that individual row will be increased by the description height in order to fully display it.
+
+E.G: If `globalRowHeight` = 100 and a cell has a description with a height of 20, then the row height for that cell's row will be set to **_120_**.
+
 To quickly reset all row heights to the default, you can run the `resetRowHeights` method.
 
 If you'd rather let the row calculate its own height based on its content, either set `globalRowHeight` to `auto`, or return `auto` from `variableRowHeight`.
@@ -1379,6 +1387,8 @@ These values are set using the `truncationPattern` property.
 By default, `globalRowHeight` is set to `auto`. If the `truncationPattern` attribute is set to `tooltip` or `show-hide` while `globalRowHeight` is `auto`, the data will not appear truncated due to the row height being set to the data which has the most height.
 
 To see the data truncated, the `globalRowHeight` or `variableRowHeight` needs to be explicitly set to a height which is shorter than data which has the most lines.
+
+**_NOTE:_** `truncation-pattern` only applies to a cell's main data value. If a cell has a description (see "Description and icons within cells") then this will not be truncated and will still be visible beyond the truncation.
 
 #### Data truncation tooltip
 
@@ -1877,23 +1887,6 @@ const DataTable = () => {
 export default DataTable;
 ```
 
-export const defaultPaginationBarArgs = {
-  itemsPerPageOptions: [
-    { label: "5", value: "5" },
-    { label: "10", value: "10" },
-    { label: "15", value: "15" },
-  ],
-  rangeLabelType: "page",
-  type: "simple",
-  showItemsPerPageControl: true,
-  showGoToPageControl: true,
-  alignment: "right",
-  appearance: "default",
-  itemLabel: "Item",
-  pageLabel: "Page",
-  hideRangeLabel: false
-};
-
 ### Slotted pagination bar
 
 There may be scenarios when using `IcDataTable` when pagination and data fetching is done using a backend API.
@@ -2081,7 +2074,7 @@ const DataTable = () => {
 
 ### Action Element
 
-An example with action elements passed in via the data
+The cell data can contain an `actionElement` which can be a string containing any html to be rendered. The `actionElement` will be displayed to the right of the cell data. An `actionOnClick` can be specified for the `actionElement`. This should be used with a keyboard accessible component such as 'icButton' to allow for a function to be run when the `actionElement` is clicked. 
 
 <Canvas withSource="none">
   <Story name="Action Element">
@@ -2114,7 +2107,8 @@ const DATA = [
   {
     firstName: {
       data: "Joe",
-      actionElement: `<ic-button variant="icon" size="small  aria-label="you can disable tooltips on icon buttons">  <svg  aria-label="refresh button"  xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
+      actionElement: `<ic-button variant="icon" size="small"  aria-label="you can disable tooltips on icon buttons">  <svg  aria-label="refresh button"  xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
+      actionOnClick: () => console.log("hello")
     },
     lastName: "Bloggs",
     age: 30,
@@ -2189,6 +2183,235 @@ const DataTable = () => (
 export default DataTable;
 ```
 
+### Turn off selected row highlighting
+
+An example showing the table with selected row highlighting turned off.
+
+<Canvas withSource="none">
+  <Story name="Turn off selected row highlighting">
+    <IcDataTable caption="Turn off selected row highlighting" columns={COLS} data={DATA} highlightSelectedRow={false} />
+  </Story>
+</Canvas>
+
+#### Turn off selected row highlighting code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+// Copy columns array for 'basic' example
+const COLUMNS: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+// Copy data array for 'basic' example
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable caption="Turn off selected row highlighting" columns={COLUMNS} data={DATA} highlightSelectedRow={false} />
+);
+
+export default DataTable;
+```
+
+### Selected row event
+
+An example showing the table emitting the icSelectedRowChange event when a row is selected or de-selected.
+
+<Canvas withSource="none">
+  <Story name="Selected row event">
+    <IcDataTable caption="Selected row event" columns={COLS} data={DATA} onIcSelectedRowChange={(event) => console.log("Selected row changed: ", event.detail)} />
+  </Story>
+</Canvas>
+
+#### Selected row event code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+// Copy columns array for 'basic' example
+const COLUMNS: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+// Copy data array for 'basic' example
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable caption="Selected row event" columns={COLS} data={DATA} onIcSelectedRowChange={(event) => console.log("Selected row changed: ", event.detail)} />
+);
+
+export default DataTable;
+```
+
+### Description and icons within cells
+
+Descriptions and icons can be included in the cells by proving a `description` field in the data. This will populate the cell with an icon (if provided) and a text string underneath the cell data. This can be applied to any cell.
+
+You can provide a `description` object with or without an icon:
+
+With an icon
+
+```json
+  firstName: {
+    data: "Joe",
+    description: {
+      data: "The name of Joe",
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"/></svg>'
+    }
+  }
+```
+
+Without an icon
+
+```json
+  firstName: {
+    data: "Joe",
+    description: {
+      data: "The name of Joe"
+    }
+  }
+```
+
+<Canvas withSource="none">
+  <Story name="Description and icons within cells">
+    <IcDataTable
+      caption="Description and icons within cells"
+      columns={COLS_WIDTH}
+      data={DATA_ELEMENTS_WITH_DESCRIPTIONS}
+      tableLayout="auto"
+    />
+  </Story>
+</Canvas>
+
+#### Description and icons within cells code example
+
+```jsx
+import { useState } from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const COLS: IcDataTableColumnObject[] = [
+  { key: "firstName", title: "First name", dataType: "string" },
+  { key: "lastName", title: "Last name", dataType: "string" },
+  { 
+    key: "age", 
+    title: "Age", 
+    dataType: "number"
+  },
+  ...
+];
+
+const DATA = [
+  {
+    firstName: {
+      data: "Joe",
+      description: {
+        data: "The name of Joe",
+        icon: imageIconSVG
+      }
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => {
+  return (
+    <IcDataTable 
+      caption="Table with descriptions in cells"
+      columns={COLS}
+      data={DATA}
+      width="800px"
+      tableLayout="auto"
+    />
+  );
+};
+```
+
+### Description and icons within cells with long text
+
+<Canvas withSource="none">
+  <Story name="Description and icons within cells with long text">
+    <IcDataTable
+      caption="Basic Table"
+      columns={COLS_WIDTH}
+      data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+      tableLayout="auto"
+    />
+  </Story>
+</Canvas>
+
+#### Description and icons within cells with long text code example
+
+```jsx
+import { useState } from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const COLS: IcDataTableColumnObject[] = [
+  { key: "firstName", title: "First name", dataType: "string" },
+  { key: "lastName", title: "Last name", dataType: "string" },
+  { 
+    key: "age", 
+    title: "Age", 
+    dataType: "number"
+  },
+  ...
+];
+
+const DATA = [
+  {
+    firstName: {
+      data: "Joe Joe Joe Joe Joe Joe Joe Joe Joe Joe ..........",
+      description: {
+        data: "First name (noun): A given name that occurs first in a given name.",
+        icon: imageIconSVG
+      }
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+```
+
 ### Playground example
 
 Go to the <IcLink href="/?path=/story/react-components-data-table--playground-example">separate page for the playground example</IcLink> to view the prop controls.
@@ -2203,6 +2426,7 @@ export const defaultArgs = {
   globalRowHeight: 40,
   height: "",
   hideColumnHeaders: false,
+  highlightSelectedRow: true,
   loading: false,
   loadingAppearance: "dark",
   loadingDesc: "loading",
@@ -2211,22 +2435,25 @@ export const defaultArgs = {
   loadingMax: 100,
   loadingMin: 0,
   loadingProgress: 50, 
+  loadingOverlay: false,
   loadingShowBackground: false,
   minimumLoadingDisplayDuration: 1000,
+  paginationAlignment: "right",
+  paginationAppearance: "default",
+  paginationHideAllFromItemsPerPage: false,
+  paginationHideRangeLabel: false,
+  paginationItemLabel: "Item",
   paginationItemsPerPageOptions: [
     { label: "5", value: "5" },
     { label: "10", value: "10" },
     { label: "15", value: "15" },
   ],
-  paginationRangeLabelType: "page",
-  paginationType: "simple",
-  paginationShowItemsPerPageControl: true,
-  paginationShowGoToPageControl: true,
-  paginationAlignment: "right",
-  paginationAppearance: "default",
-  paginationItemLabel: "Item",
   paginationPageLabel: "Page",
-  paginationHideRangeLabel: false,
+  paginationRangeLabelType: "page",
+  paginationSetToFirstPageOnPaginationChange: false,
+  paginationShowGoToPageControl: true,
+  paginationShowItemsPerPageControl: true,
+  paginationType: "simple",
   showPagination: true,
   sortable: false,
   sortOrders: ["unsorted", "ascending", "descending"],
@@ -2323,6 +2550,7 @@ export const defaultArgs = {
         globalRowHeight={args.globalRowHeight}
         height={args.height}
         hideColumnHeaders={args.hideColumnHeaders}
+        highlightSelectedRow={args.highlightSelectedRow}
         loading={args.loading}
         loadingOptions={{
           appearance: args.loadingAppearance,
@@ -2332,20 +2560,23 @@ export const defaultArgs = {
           max: args.loadingMax,
           min: args.loadingMin,
           progress: args.loadingProgress,
-          showBackground: args.loadingShowBackground
+          showBackground: args.loadingShowBackground,
+          overlay: args.loadingOverlay
         }}
         minimumLoadingDisplayDuration={args.minimumLoadingDisplayDuration}
         paginationBarOptions={{
-          itemsPerPageOptions: args.paginationItemsPerPageOptions,
-          rangeLabelType: args.paginationRangeLabelType,
-          type: args.paginationType,
-          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
-          showGoToPageControl: args.paginationShowGoToPageControl,          
-          appearance: args.paginationAppearance,
           alignment: args.paginationAlignment,
-          pageLabel: args.paginationPageLabel,
+          appearance: args.paginationAppearance,
+          hideAllFromItemsPerPage: args.paginationHideAllFromItemsPerPage,
+          hideRangeLabel: args.paginationHideRangeLabel,
           itemLabel: args.paginationItemLabel,
-          hideRangeLabel: args.paginationHideRangeLabel
+          itemsPerPageOptions: args.paginationItemsPerPageOptions,
+          pageLabel: args.paginationPageLabel,
+          rangeLabelType: args.paginationRangeLabelType,
+          setToFirstPageOnPaginationChange: args.paginationSetToFirstPageOnPaginationChange,
+          showGoToPageControl: args.paginationShowGoToPageControl,
+          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
+          type: args.paginationType
         }}
         showPagination={args.showPagination}
         sortable={args.sortable}

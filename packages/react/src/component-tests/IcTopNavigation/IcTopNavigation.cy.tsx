@@ -612,7 +612,7 @@ describe("IcTopNavigation mobile visual regression tests in high contrast mode",
     cy.disableForcedColors();
   });
 
-  it.skip("should render with navigation items in high contrast mode", () => {
+  it("should render with navigation items in high contrast mode", () => {
     mount(<WithNavItems />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
 

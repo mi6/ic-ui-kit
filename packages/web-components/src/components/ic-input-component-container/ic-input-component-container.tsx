@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  Host,
-  Prop,
-  Watch,
-  forceUpdate,
-  h,
-} from "@stencil/core";
+import { Component, Element, Host, Prop, Watch, h } from "@stencil/core";
 
 import {
   IcInformationStatus,
@@ -15,8 +7,8 @@ import {
 } from "../../utils/types";
 import successIcon from "../../assets/success-icon.svg";
 import {
-  checkSlotInChildMutations,
   removeDisabledFalse,
+  renderDynamicChildSlots,
   slotHasContent,
 } from "../../utils/helpers";
 
@@ -90,21 +82,11 @@ export class InputComponentContainer {
   }
 
   componentDidLoad(): void {
-    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(mutationList, "left-icon", this)
+    );
     this.hostMutationObserver.observe(this.el, { childList: true });
   }
-
-  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
-    if (
-      mutationList.some(({ type, addedNodes, removedNodes }) =>
-        type === "childList"
-          ? checkSlotInChildMutations(addedNodes, removedNodes, "left-icon")
-          : false
-      )
-    ) {
-      forceUpdate(this);
-    }
-  };
 
   render() {
     const {

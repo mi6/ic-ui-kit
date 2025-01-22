@@ -2,8 +2,22 @@ import { newSpecPage } from "@stencil/core/testing";
 import { Typography } from "../../../ic-typography/ic-typography";
 import { Footer } from "../../ic-footer";
 import { DEVICE_SIZES } from "../../../../utils/helpers";
+import {
+  mockHasDynamicChildSlots,
+  mockMutationObserverImplementation,
+  MockMutationRecord,
+  mockRenderDynamicChildSlots,
+} from "../../../../testspec.setup";
 
 describe("ic-footer", () => {
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render", async () => {
     const page = await newSpecPage({
       components: [Footer],
@@ -44,6 +58,15 @@ describe("ic-footer", () => {
     const page = await newSpecPage({
       components: [Footer],
       html: `<ic-footer description="This is a footer" copyright=false><ic-typography slot="caption">Made by ICDS</ic-typography></ic-footer>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render without the compliance section when there is no logo, caption or copyright", async () => {
+    const page = await newSpecPage({
+      components: [Footer],
+      html: `<ic-footer description="This is a footer" copyright=false></ic-footer>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -180,5 +203,49 @@ describe("ic-footer", () => {
     expect(page.root).not.toBeNull;
 
     expect(page.root).toMatchSnapshot("footer-xl-breakpoint");
+  });
+
+  it("should test rendering slotted after initial render", async () => {
+    const page = await newSpecPage({
+      components: [Footer],
+      html: `<ic-footer></ic-footer>`,
+    });
+
+    const component = page.rootInstance;
+    const host = page.root;
+
+    const observerInstance =
+      mockMutationObserverImplementation.mock.results[0].value;
+
+    const footerLink = page.doc.createElement("ic-footer-link");
+    footerLink.textContent = "foo";
+    footerLink.setAttribute("slot", "link");
+
+    observerInstance.observe(host, { childList: true });
+
+    host.appendChild(footerLink);
+
+    const mockMutationRecord: MockMutationRecord[] = [
+      {
+        addedNodes: [footerLink],
+        removedNodes: [],
+        target: host,
+      },
+    ];
+
+    observerInstance.trigger(mockMutationRecord);
+
+    await page.waitForChanges();
+
+    expect(mockRenderDynamicChildSlots).toHaveBeenCalledTimes(1);
+    expect(mockRenderDynamicChildSlots).toHaveBeenCalledWith(
+      mockMutationRecord,
+      "link",
+      component
+    );
+
+    expect(mockHasDynamicChildSlots).toHaveBeenCalledTimes(1);
+
+    expect(page.root).toMatchSnapshot();
   });
 });

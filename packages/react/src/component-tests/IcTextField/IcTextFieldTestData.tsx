@@ -343,3 +343,9 @@ export const CustomSizeTextField = (): ReactElement => (
     ></IcTextField>
   </div>
 );
+
+export const HiddenInput = (): ReactElement => (
+  <div style={style}>
+    <IcTextField label="my label" />
+  </div>
+);

@@ -20,6 +20,7 @@ import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers"
 import {
   HAVE_ATTR,
   HAVE_BEEN_CALLED_ONCE,
+  HAVE_CALL_COUNT,
   HAVE_FOCUS,
   NOT_EXIST,
 } from "@ukic/react/src/component-tests/utils/constants";
@@ -582,7 +583,7 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     cy.get("@icChange").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value.length).to.equal(7);
     });
-    cy.get("@icOptionSelect").should("have.callCount", 4);
+    cy.get("@icOptionSelect").should(HAVE_CALL_COUNT, 4);
   });
 
   it("should emit icChange when the clear all button is pressed, and emit icOptionDeselect for all options", () => {
@@ -604,7 +605,7 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     cy.get("@icChange").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(null);
     });
-    cy.get("@icOptionDeselect").should("have.callCount", 7);
+    cy.get("@icOptionDeselect").should(HAVE_CALL_COUNT, 7);
   });
 
   it("should select and clear all options on Ctrl+A", () => {
@@ -626,13 +627,13 @@ describe("IcSelect - Multi visual regression tests in high contrast mode", () =>
     cy.findShadowEl(MULTI_SELECT, DROPDOWN_ARROW).click().type("{ctrl}a");
 
     cy.get("@icChange").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get("@icOptionSelect").should("have.callCount", 7);
+    cy.get("@icOptionSelect").should(HAVE_CALL_COUNT, 7);
 
     cy.findShadowEl(MULTI_SELECT, IC_INPUT_CONTAINER).type("{ctrl}a");
 
     cy.get("@icChange").should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(null);
     });
-    cy.get("@icOptionDeselect").should("have.callCount", 7);
+    cy.get("@icOptionDeselect").should(HAVE_CALL_COUNT, 7);
   });
 });

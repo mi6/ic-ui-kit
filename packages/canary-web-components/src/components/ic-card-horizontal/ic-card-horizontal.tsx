@@ -6,7 +6,6 @@ import {
   State,
   h,
   Method,
-  forceUpdate,
   Watch,
 } from "@stencil/core";
 import {
@@ -14,7 +13,7 @@ import {
   isSlotUsed,
   getThemeFromContext,
   removeDisabledFalse,
-  checkSlotInChildMutations,
+  renderDynamicChildSlots,
 } from "../../utils/helpers";
 import {
   IcTheme,
@@ -128,7 +127,9 @@ export class Card {
       );
     this.updateTheme();
 
-    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(mutationList, "image", this)
+    );
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
@@ -158,18 +159,6 @@ export class Card {
       this.el.shadowRoot.querySelector("button").focus();
     }
   }
-
-  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
-    if (
-      mutationList.some(({ type, addedNodes, removedNodes }) =>
-        type === "childList"
-          ? checkSlotInChildMutations(addedNodes, removedNodes, "image")
-          : false
-      )
-    ) {
-      forceUpdate(this);
-    }
-  };
 
   private parentFocussed = (): void => {
     this.isFocussed = true;

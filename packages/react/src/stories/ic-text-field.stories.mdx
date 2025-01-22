@@ -6,7 +6,7 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcTextField } from "../components";
+import { IcTextField, IcButton } from "../components";
 import {SlottedSVG} from "../react-component-lib/slottedSVG";
 import readme from "../../../web-components/src/components/ic-text-field/readme.md";
 
@@ -131,6 +131,58 @@ export const ControlledExample = () => {
     <IcTextField
       rows="6"
       value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+    >
+      <SlottedIcon />
+    </IcTextField>
+  </Story>
+</Canvas>
+
+### With null value
+
+<Canvas>
+  <Story name="With null value">
+    <IcTextField
+      value={null}
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+    >
+      <SlottedIcon />
+    </IcTextField>
+    <IcTextField
+      rows="6"
+      value={null}
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+    >
+      <SlottedIcon />
+    </IcTextField>
+  </Story>
+</Canvas>
+
+### With undefined value
+
+<Canvas>
+  <Story name="With undefined value">
+    <IcTextField
+      value={undefined}
+      label="What is your favourite coffee?"
+      required
+      placeholder="Placeholder"
+      helperText="Such as Arabica, Robusta or Liberica"
+    >
+      <SlottedIcon />
+    </IcTextField>
+    <IcTextField
+      rows="6"
+      value={undefined}
       label="What is your favourite coffee?"
       required
       placeholder="Placeholder"
@@ -506,6 +558,27 @@ export const Uncontrolled = () => {
       label="What is your favourite coffee?"
       helper-text="Long answer please."
     ></IcTextField>
+  </Story>
+</Canvas>
+
+### Hidden input
+
+export const HiddenInput = () => {
+  const [renderHidden, setRenderHidden] = useState(true);
+  const handleChange = () => {
+    setRenderHidden(!renderHidden);
+  };
+  return (
+    <>
+      <IcTextField label="my label" hiddenInput={renderHidden} />
+      <IcButton onClick={() => handleChange()}>Toggle hidden input</IcButton>
+    </>
+  );
+};
+
+<Canvas>
+  <Story name="Hidden input">
+    <HiddenInput />
   </Story>
 </Canvas>
 

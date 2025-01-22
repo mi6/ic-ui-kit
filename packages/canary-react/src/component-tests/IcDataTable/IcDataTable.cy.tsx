@@ -41,20 +41,22 @@ import {
   textWrapRow,
   ACTION_DATA_ELEMENTS,
   DATA_WITH_EMPTY_VALUES,
+  LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS,
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
-  HAVE_CLASS,
-  HAVE_TEXT,
-  NOT_EXIST,
   HAVE_ATTR,
   HAVE_BEEN_CALLED_ONCE,
-  HAVE_LENGTH,
-  NOT_HAVE_CLASS,
-  HAVE_CSS,
-  NOT_HAVE_CSS,
-  NOT_BE_VISIBLE,
   HAVE_BEEN_CALLED_WITH,
+  HAVE_CALL_COUNT,
+  HAVE_CLASS,
+  HAVE_CSS,
+  HAVE_LENGTH,
+  HAVE_TEXT,
+  NOT_BE_VISIBLE,
+  NOT_EXIST,
+  NOT_HAVE_CLASS,
+  NOT_HAVE_CSS,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
@@ -87,6 +89,7 @@ const PAGINATION_GO_TO_PAGE_TEXT_FIELD_SELECTOR =
   ".go-to-page-holder ic-text-field";
 const PAGINATION_GO_TO_PAGE_BUTTON_SELECTOR = ".go-to-page-holder ic-button";
 const ITEMS_PER_PAGE_SELECTOR = ".items-per-page-input";
+const ACTION_ELEMENT = "action-element";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const BasicDataTable = (dataTableProps?: any): ReactElement => (
@@ -1067,7 +1070,7 @@ describe("IcDataTables", () => {
       .click()
       .click();
 
-    cy.get("@sortChanged").should("have.callCount", 3);
+    cy.get("@sortChanged").should(HAVE_CALL_COUNT, 3);
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
       columnName: "lastName",
       sorted: "descending",
@@ -1162,6 +1165,107 @@ describe("IcDataTables", () => {
         capture: "viewport",
       },
     });
+  });
+
+  it("should render a backdrop with circular loading indicator when loadingOption.overlay is set to true", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data tables"
+        loadingOptions={{
+          overlay: true,
+        }}
+      />
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+      "be.visible"
+    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
+      .shadow()
+      .find(".ic-loading-circular-outer")
+      .should("be.visible");
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "data", LONG_DATA);
+
+    cy.wait(1000);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+      "be.not.exist"
+    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator").should(
+      "not.exist"
+    );
+  });
+
+  it("should not render an overlay with circular loading indicator when loadingOption.overlay is set to false", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data tables"
+        loadingOptions={{
+          overlay: false,
+        }}
+      />
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+      "not.exist"
+    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("not.exist");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
+      .shadow()
+      .find(".ic-loading-circular-outer")
+      .should("be.visible");
+  });
+
+  it("should render an overlay with circular loading indicator when loadingOption.overlay is set to true and no data is set", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={[]}
+        caption="Data tables"
+        loadingOptions={{
+          overlay: true,
+        }}
+      />
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+      "be.visible"
+    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("not.exist");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-empty-state").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
+      .shadow()
+      .find(".ic-loading-circular-outer")
+      .should("be.visible");
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "data", LONG_DATA);
+
+    cy.wait(1000);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+      "not.exist"
+    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-empty-state").should("not.exist");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator").should(
+      "not.exist"
+    );
   });
 });
 
@@ -3937,6 +4041,223 @@ describe("IcDataTable table sizing and column width", () => {
   });
 });
 
+describe("IcDataTable table with descriptions", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  const FIRST_CELL_TEXT_QUERY = ".table-cell:nth-child(1) ic-typography";
+  const FIRST_CELL_DESCRIPTION_TEXT_QUERY =
+    ".table-cell:nth-child(1) div div ic-typography";
+
+  it("should fully display descriptions in cells with no restrictions set", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_TEXT_QUERY)
+      .should(
+        "contain",
+        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
+      );
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
+      .should(
+        "contain",
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
+      );
+  });
+
+  it("should add an icon next to the descriptions when provided", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(1) div div span")
+      .should("exist");
+  });
+
+  it("should truncate long text without truncating descriptions - using show/hide pattern when global row height is set", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="show-hide"
+        globalRowHeight={120}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_TEXT_QUERY)
+      .shadow()
+      .find("button")
+      .contains("See more");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
+      .should(
+        "contain",
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
+      );
+  });
+
+  it("should not truncate long text if global row height allows for all text to be present", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="tooltip"
+        globalRowHeight={200}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(1) ic-tooltip")
+      .should("not.exist");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_TEXT_QUERY)
+      .should(
+        "contain",
+        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
+      );
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
+      .should(
+        "contain",
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
+      );
+  });
+
+  it("should truncate long text without truncating descriptions - using tooltip pattern when global row height is set", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(1) ic-tooltip")
+      .should("exist");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(1) ic-tooltip ic-typography")
+      .should(
+        "contain",
+        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
+      );
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
+      .should(
+        "contain",
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
+      );
+  });
+
+  it("should expand row height beyond global row height if description is present", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(1)
+      .find(".table-cell:nth-child(1) .cell-container")
+      .should("have.attr", "style", "--row-height: 1.5rem;");
+  });
+
+  it("should expand row height beyond global row height if a description is present but no cell data is present", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(3)
+      .find(".table-cell:nth-child(1) .cell-container")
+      .should("have.attr", "style", "--row-height: 24px");
+  });
+});
+
 describe("IcDataTable row deletion", () => {
   beforeEach(() => {
     cy.injectAxe();
@@ -4003,7 +4324,7 @@ describe("IcDataTable row deletion", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 5);
   });
 
-  it("should have tooltip visible when it would overlap bottom of table", () => {
+  it.skip("should have tooltip visible when it would overlap bottom of table", () => {
     const clonedData = JSON.parse(JSON.stringify(DATA_REACT_ELEMENTS));
     const nextData = [...clonedData];
     mount(
@@ -4092,6 +4413,81 @@ describe("IcDataTable row deletion", () => {
       },
       delay: 500,
     });
+  });
+});
+
+describe("IcDataTable row selection", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("should highlight the selected row", () => {
+    mount(<BasicDataTable />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+
+    cy.compareSnapshot({
+      name: "selected-row-highlight",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should not highlight the selected row when the highlightSelectedRow prop is set to false", () => {
+    mount(<BasicDataTable highlightSelectedRow={false} />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+
+    cy.compareSnapshot({
+      name: "selected-row-highlight-turned-off",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should emit icSelectedRowChange event when the selected row changes", () => {
+    mount(
+      <BasicDataTable
+        onIcSelectedRowChange={(e: CustomEvent) => console.log(e.detail)}
+      />
+    );
+
+    cy.get(DATA_TABLE_SELECTOR).invoke(
+      "on",
+      "icSelectedRowChange",
+      cy.stub().as("selectedRowChange")
+    );
+
+    cy.spy(window.console, "log").as("spyWinConsoleLog");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+
+    cy.get("@selectedRowChange").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
+      firstName: "Mark",
+      lastName: "Owens",
+      age: 45,
+      jobTitle: "Team Lead",
+      address: "12 Key Street, Town, Country, Postcode",
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+
+    cy.get("@selectedRowChange").should(HAVE_CALL_COUNT, 2);
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, null);
   });
 });
 

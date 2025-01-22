@@ -16,10 +16,10 @@ To install the components:
 In the root of your project:
 
 ```shell
-// using npm
+# using npm
 npm install @ukic/canary-react @ukic/fonts
 
-// using yarn
+# using yarn
 rm package-lock.json
 yarn add @ukic/canary-react @ukic/fonts
 ```
@@ -56,6 +56,18 @@ import { IcComponent } from "@ukic/canary-react";
 The `@ukic/canary-react` package will need to be transformed before you can use these components in Jest tests.
 
 Add a `transformIgnorePatterns` field with the value `["/node_modules/(?!@ukic/canary-react)"]` to your Jest config.
+
+## Contributing
+
+We have a couple of resources to help you with contributing.
+
+- To find out more about the different types of contributions, the criteria, raising issues or our release roadmap, read [how to contribute to the Design System and UI Kit](https://design.sis.gov.uk/community/contribute).
+- Make sure to also read our [coding standards and technical instructions](https://github.com/mi6/ic-ui-kit/blob/main/CONTRIBUTING.md).
+- [IC Design System guidance site repository](https://github.com/mi6/ic-design-system) contains the code and content for the Design System guidance site.
+- [IC UI Kit repository](https://github.com/mi6/ic-ui-kit) contains the code and content for the web components.
+## Changelog
+
+For a comprehensive changelog of the canary React components, please read the canary web components [CHANGELOG](https://github.com/mi6/ic-ui-kit/blob/main/packages/canary-web-components/CHANGELOG.md). The released updates made to the canary web components are reflected on the canary React components. 
 
 ## Security
 

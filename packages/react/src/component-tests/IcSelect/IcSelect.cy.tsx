@@ -1704,7 +1704,7 @@ describe("IcSelect visual regression tests in high contrast mode", () => {
     });
   });
 
-  it.skip("should render disabled options in high contrast mode", () => {
+  it("should render disabled options in high contrast mode", () => {
     mount(
       <div style={{ padding: "10px" }}>
         <IcSelect

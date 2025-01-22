@@ -393,6 +393,97 @@ describe("IcPaginationBar end-to-end tests", () => {
       .should(HAVE_LENGTH, 1);
   });
 
+  it("should reset to the first page when the setToFirstPageOnPaginationChange prop is set and the items per page is changed", () => {
+    mount(
+      <PaginationBarItemsPerPage
+        rangeLabelType="data"
+        setToFirstPageOnPaginationChange
+      />
+    );
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+      .shadow()
+      .find("#next-page-button")
+      .click();
+
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      "ic-typography.item-pagination-label"
+    ).should(HAVE_TEXT, "11 - 20 of 100 items");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+      .shadow()
+      .find("ic-pagination-item")
+      .shadow()
+      .find("ic-typography")
+      .should(HAVE_TEXT, "Page 2");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find("li[role='option']")
+      .eq(1)
+      .click();
+
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      "ic-typography.item-pagination-label"
+    ).should(HAVE_TEXT, "1 - 20 of 100 items");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+      .shadow()
+      .find("ic-pagination-item")
+      .shadow()
+      .find("ic-typography")
+      .should(HAVE_TEXT, "Page 1");
+  });
+
+  it("should remain on the current page when the setToFirstPageOnPaginationChange prop is unset and the items per page is changed", () => {
+    mount(<PaginationBarItemsPerPage rangeLabelType="data" />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+      .shadow()
+      .find("#next-page-button")
+      .click();
+
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      "ic-typography.item-pagination-label"
+    ).should(HAVE_TEXT, "11 - 20 of 100 items");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+      .shadow()
+      .find("ic-pagination-item")
+      .shadow()
+      .find("ic-typography")
+      .should(HAVE_TEXT, "Page 2");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find("li[role='option']")
+      .eq(1)
+      .click();
+
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      "ic-typography.item-pagination-label"
+    ).should(HAVE_TEXT, "21 - 40 of 100 items");
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+      .shadow()
+      .find("ic-pagination-item")
+      .shadow()
+      .find("ic-typography")
+      .should(HAVE_TEXT, "Page 2");
+  });
+
   it('should render the number of items instead of the page number when rangeLabelType is "data"', () => {
     mount(<PaginationBarItemsPerPage rangeLabelType="data" />);
 
@@ -587,6 +678,36 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "hide-all-option",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render with 'All' visible from items per page dropdown when there are fewer items than the available options", () => {
+    mount(<PaginationBarItemsPerPage totalItems={5} hideAllFromItemsPerPage />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, ".items-per-page-input").click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "hide-all-option-still-visible",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render with 'All' visible in the items per page dropdown when the number of items matches the upper bound of the lowest available option", () => {
+    mount(
+      <PaginationBarItemsPerPage totalItems={20} hideAllFromItemsPerPage />
+    );
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, ".items-per-page-input").click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "hide-all-option-still-visible-due-to-matching-item-upper-bound",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });

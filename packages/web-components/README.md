@@ -27,10 +27,10 @@ To install the components:
 In the root of your project:
 
 ```shell
-// using npm
+# using npm
 npm install @ukic/web-components @ukic/fonts
 
-// using yarn
+# using yarn
 rm package-lock.json
 yarn add @ukic/web-components @ukic/fonts
 ```
@@ -111,10 +111,10 @@ module.exports = {
 ### Step one
 
 ```shell
-// using npm
+# using npm
 npm install @ukic/web-components @ukic/fonts
 
-// using yarn
+# using yarn
 rm package-lock.json
 yarn add @ukic/web-components @ukic/fonts
 
@@ -159,6 +159,10 @@ We have a couple of resources to help you with contributing.
 - Make sure to also read our [coding standards and technical instructions](https://github.com/mi6/ic-ui-kit/blob/main/CONTRIBUTING.md).
 - [IC Design System guidance site repository](https://github.com/mi6/ic-design-system) contains the code and content for the Design System guidance site.
 - [IC UI Kit repository](https://github.com/mi6/ic-ui-kit) contains the code and content for the web components.
+
+## Changelog
+
+For a comprehensive list of released updates, please read the web components [CHANGELOG](https://github.com/mi6/ic-ui-kit/blob/main/packages/web-components/CHANGELOG.md). 
 
 ### Security
 

@@ -20,6 +20,7 @@ import {
   IconVariant,
   Light,
   WithIcon,
+  TooltipPlacement,
 } from "./IcToggleButtonTestData";
 
 const IC_TOGGLE_BUTTON_SELECTOR = "ic-toggle-button";
@@ -276,6 +277,48 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "icon-top",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+    });
+  });
+
+  it("should render various tooltip placements", () => {
+    mount(<TooltipPlacement />);
+
+    cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
+
+    cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
+      .shadow()
+      .find("button")
+      .eq(0)
+      .focus();
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "tooltip-placement-right",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+
+    cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
+      .shadow()
+      .find("button")
+      .eq(1)
+      .focus();
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "tooltip-placement-top",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+
+    cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
+      .shadow()
+      .find("button")
+      .eq(2)
+      .focus();
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "tooltip-placement-left",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 

@@ -8,10 +8,9 @@ import {
   Listen,
   Prop,
   h,
-  forceUpdate,
 } from "@stencil/core";
 import closeIcon from "../../assets/close-icon.svg";
-import { isSlotUsed, checkSlotInChildMutations } from "../../utils/helpers";
+import { isSlotUsed, renderDynamicChildSlots } from "../../utils/helpers";
 import { IcThemeForegroundEnum, IcStatusVariants } from "../../utils/types";
 import { VARIANT_ICONS } from "../../utils/constants";
 
@@ -85,7 +84,9 @@ export class Alert {
   componentDidLoad(): void {
     this.alertTitleShouldWrap();
 
-    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(mutationList, "action", this)
+    );
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
@@ -106,18 +107,6 @@ export class Alert {
       this.el.shadowRoot.querySelector(".alert-title")?.clientHeight;
     if (titleHeight > 24) this.alertTitleWrap = true;
   }
-
-  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
-    if (
-      mutationList.some(({ type, addedNodes, removedNodes }) =>
-        type === "childList"
-          ? checkSlotInChildMutations(addedNodes, removedNodes, "action")
-          : false
-      )
-    ) {
-      forceUpdate(this);
-    }
-  };
 
   render() {
     const {

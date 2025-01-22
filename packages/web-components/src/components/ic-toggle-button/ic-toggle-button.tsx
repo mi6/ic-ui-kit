@@ -15,7 +15,11 @@ import {
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
 } from "../../utils/helpers";
-import { IcSizes, IcThemeForeground } from "../../utils/types";
+import {
+  IcButtonTooltipPlacement,
+  IcSizes,
+  IcThemeForeground,
+} from "../../utils/types";
 
 /**
  * @slot icon - Content will be displayed alongside the toggle button label.
@@ -83,6 +87,11 @@ export class ToggleButton {
    * If `true`, the toggle button will be in a checked state.
    */
   @Prop({ mutable: true, reflect: true }) toggleChecked: boolean = false;
+
+  /**
+   * The position of the tooltip in relation to the toggle button.
+   */
+  @Prop() tooltipPlacement: IcButtonTooltipPlacement = "bottom";
 
   /**
    * The variant of the toggle button.
@@ -186,6 +195,7 @@ export class ToggleButton {
           fullWidth={this.fullWidth}
           loading={this.loading}
           aria-disabled={`${this.disabled}`}
+          tooltipPlacement={this.tooltipPlacement}
         >
           {this.variant !== "icon" && this.label}
           <slot />

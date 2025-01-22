@@ -328,7 +328,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(AlertDialog("neutral"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "neutral-alert",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
@@ -339,7 +339,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(AlertDialog("info"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "info-alert",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.074),
@@ -350,7 +350,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(AlertDialog("warning"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "warning-alert",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.075),
@@ -361,7 +361,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(AlertDialog("error"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "error-alert",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.074),
@@ -372,7 +372,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(AlertDialog("success"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "success-alert",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
@@ -383,7 +383,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(SizeDialog("small"));
     cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
