@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.6...@ukic/canary-react@3.0.0-canary.7) (2025-01-22)
+
+### Bug Fixes
+
+- **canary-react:** add icSelectedRowChange event to IcDataTable ([75f6e3a](https://github.com/mi6/ic-ui-kit/commit/75f6e3a282755aa81547ec36c3106c63ec28312b)), closes [#1226](https://github.com/mi6/ic-ui-kit/issues/1226)
+- **canary-react:** set IcPaginationBar to the first page when the items per page changes ([9864637](https://github.com/mi6/ic-ui-kit/commit/9864637c07b216639caba93188284a276e19ae9c)), closes [#2639](https://github.com/mi6/ic-ui-kit/issues/2639)
+
+### Features
+
+- **canary-react:** add action onclick to action element on dataTable ([1d20153](https://github.com/mi6/ic-ui-kit/commit/1d20153fc5bc07c9fba8c9eaf314d96723b6b2fc))
+- **canary-react:** updated data table story to include overlay copy ([be10b49](https://github.com/mi6/ic-ui-kit/commit/be10b492f03f4d8e920b3974dd90046956474f73)), closes [#2968](https://github.com/mi6/ic-ui-kit/issues/2968)
+
 # [3.0.0-canary.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.5...@ukic/canary-react@3.0.0-canary.6) (2025-01-08)
 
 ### Bug Fixes

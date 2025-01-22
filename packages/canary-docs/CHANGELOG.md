@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.6...@ukic/canary-docs@3.0.0-canary.7) (2025-01-22)
+
+### Bug Fixes
+
+- **canary-docs:** add icSelectedRowChange event to IcDataTable ([2c32253](https://github.com/mi6/ic-ui-kit/commit/2c32253e21b05c8535ecb34b5a5e908ad2d6a265)), closes [#1226](https://github.com/mi6/ic-ui-kit/issues/1226)
+- **canary-docs:** set IcPaginationBar to the first page when the items per page changes ([8ac2c2b](https://github.com/mi6/ic-ui-kit/commit/8ac2c2bed604d9bf09d1297bc85820bae490729b)), closes [#2639](https://github.com/mi6/ic-ui-kit/issues/2639)
+
 # [3.0.0-canary.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.5...@ukic/canary-docs@3.0.0-canary.6) (2025-01-08)
 
 **Note:** Version bump only for package @ukic/canary-docs

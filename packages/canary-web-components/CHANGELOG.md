@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.6...@ukic/canary-web-components@3.0.0-canary.7) (2025-01-22)
+
+### Bug Fixes
+
+- **canary-web-components:** add icSelectedRowChange event to IcDataTable ([a944bc9](https://github.com/mi6/ic-ui-kit/commit/a944bc90862c080339852b167fd892bf9f0a2539)), closes [#1226](https://github.com/mi6/ic-ui-kit/issues/1226)
+- **canary-web-components:** set IcPaginationBar to the first page when the items per page changes ([fed2c21](https://github.com/mi6/ic-ui-kit/commit/fed2c2126dad7aa14a7ac2c7cfb8aea1139ecec1)), closes [#2639](https://github.com/mi6/ic-ui-kit/issues/2639)
+
+### Features
+
+- **canary-web-components:** add action onclick to actionElement in dataTable ([9362200](https://github.com/mi6/ic-ui-kit/commit/936220017f1c7ae92f93ce2b1b46a8d2f47bba13))
+- **canary-web-components:** new overlay property for loadingOptions ([7bfa49a](https://github.com/mi6/ic-ui-kit/commit/7bfa49ab9b10cf0aed8e9af5d39984ee12d5c8f4)), closes [#2968](https://github.com/mi6/ic-ui-kit/issues/2968)
+- **canary-web-components:** updated mutationObserver function ([440ec7f](https://github.com/mi6/ic-ui-kit/commit/440ec7f3d24062f757cfe6978c95d8118453c69b))
+
 # [3.0.0-canary.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.5...@ukic/canary-web-components@3.0.0-canary.6) (2025-01-08)
 
 ### Bug Fixes

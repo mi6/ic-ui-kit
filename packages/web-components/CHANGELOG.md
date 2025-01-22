@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.6...@ukic/web-components@3.0.0-alpha.7) (2025-01-22)
+
+### Bug Fixes
+
+- **web-components:** add css for search toggle icon in top nav so it appears in hcm ([b354d1a](https://github.com/mi6/ic-ui-kit/commit/b354d1a67c5cc11b6d0ca910c7f58810f6cc515c))
+- **web-components:** add dependencies on react types to fix a build problem ([be4d353](https://github.com/mi6/ic-ui-kit/commit/be4d353a5b99b93402f2cc117ee63294834d1d63))
+- **web-components:** additional field fix ([d41761e](https://github.com/mi6/ic-ui-kit/commit/d41761ed6acddad90a7c2ca0b5ca1410c2812136))
+- **web-components:** adds in removeHiddenInput for text field so hidden input prop can be toggled ([fb074ac](https://github.com/mi6/ic-ui-kit/commit/fb074ac3b931d2298236ee9302988de66f38366b))
+- **web-components:** allow the IcTextField to be able to handle null or undefined values ([54de113](https://github.com/mi6/ic-ui-kit/commit/54de113ee9da384d1fae33dea05252844fc260aa)), closes [#2813](https://github.com/mi6/ic-ui-kit/issues/2813)
+- **web-components:** fix for items displayed on brand color background ([a7bff90](https://github.com/mi6/ic-ui-kit/commit/a7bff90357fc8bd5cd1f2c700281b84a073659b4))
+- **web-components:** fix monochrome button css issue, and update stories to have dark background ([8931cf7](https://github.com/mi6/ic-ui-kit/commit/8931cf7f52285e0cc72d74a09df9d151268fc85e))
+- **web-components:** hide the compliance section when there is no logo, caption or copyright info ([58c6ecd](https://github.com/mi6/ic-ui-kit/commit/58c6ecd4f22c5f3eead5cd1c10d4c9c84f6bff06)), closes [#1800](https://github.com/mi6/ic-ui-kit/issues/1800)
+- **web-components:** ic-text-field bug ([6ac9480](https://github.com/mi6/ic-ui-kit/commit/6ac9480c28ac4ecf7012df09b647f539a1fbfa02))
+- **web-components:** removed disabled attribute from components when set to false ([e37af84](https://github.com/mi6/ic-ui-kit/commit/e37af84bd6ec5739b69860c180dc0017de702368))
+- **web-components:** removed ic-text-field and replaced with custom input ([34b0323](https://github.com/mi6/ic-ui-kit/commit/34b032385143217d5ac4007f87b9b47cb3e915dc))
+- **web-components:** update disabled hover tooltip story to use aria labelledby ([72df8c1](https://github.com/mi6/ic-ui-kit/commit/72df8c1cbebaedec2099befaf80ec78096bb004c))
+- **web-components:** update icon colours for dark mode badge ([2ca3b77](https://github.com/mi6/ic-ui-kit/commit/2ca3b775c977f197f953f4c7e806b5572af68ca9)), closes [#2910](https://github.com/mi6/ic-ui-kit/issues/2910)
+- **web-components:** updated menu.css disabled option colour for high contrast mode ([9cba277](https://github.com/mi6/ic-ui-kit/commit/9cba2778563645e77a1922545edb99d4003fc41c))
+- **web-components:** updates css tokens in ag-theme-icds so that it responds to light/dark mode ([e0244a0](https://github.com/mi6/ic-ui-kit/commit/e0244a049bff83e27d58f792296cc8b73e8a1f14))
+
+### Documentation
+
+- **docs:** docs update ([aa0f1d7](https://github.com/mi6/ic-ui-kit/commit/aa0f1d7620d3806ae9725fc488c97aac9e044d97))
+
+### Features
+
+- **web-components:** added mutationObserver to ic-footer ([1149408](https://github.com/mi6/ic-ui-kit/commit/1149408accf695d738a1cecb3875f20aa211c7f2))
+- **web-components:** adding data table loading background css property ([10179dc](https://github.com/mi6/ic-ui-kit/commit/10179dc3bdc25873ff256b937f3d00de578742b4))
+- **web-components:** adding icClear event to clear all button of multi-select ([56aa544](https://github.com/mi6/ic-ui-kit/commit/56aa544782be3b2e5610aeb973fc45489c5962eb))
+- **web-components:** changes to ic-theme ([e8149bb](https://github.com/mi6/ic-ui-kit/commit/e8149bb48692538632e886f0ffd4b00308ac0b33))
+- **web-components:** dismiss label ([42618b2](https://github.com/mi6/ic-ui-kit/commit/42618b2f651b9dfa7257ebed5521492bdfb07ca7))
+- **web-components:** Fix/able to select no options when select has empty options array ([cccf3fe](https://github.com/mi6/ic-ui-kit/commit/cccf3febc0edfa65474bda6ce08b2e8f8c895a6d))
+- **web-components:** update searchable select to clear input on blur (when no option selected) ([db89c54](https://github.com/mi6/ic-ui-kit/commit/db89c54b80b8dd38823fe8cc36762cc25a7e5833))
+- **web-components:** update searchable select to de-select option when input edited ([d0513cf](https://github.com/mi6/ic-ui-kit/commit/d0513cf6fc29a1ec3387a9c58bdc1df661cc7fe6))
+
+### BREAKING CHANGES
+
+- **web-components:** removed ic-text-field element so tests may break
+- **web-components:** The icChange event on the searchable select now emits only option values or 'null'
+  to match how editing input de-selects the selected option. IcInput can be used to detect which
+  characters are inputted - the 'debounce' prop now applies to this instead of icChange.
+- **docs:** prop rename to more closely align with native html attribute
+- **web-components:** prop rename from auto-focus to autofocus, more closely aligning with native html attribute
+- **web-components:** color prop renamed to brandColor
+  icThemeChange event renamed to icBrandChange
+  changes to types:
+  IcThemeForegroundEnum now IcBrandForegroundEnum
+  IcThemeForeground now IcBrandForeground
+  IcThemeForegroundNoDefault now IcBrandForegroundNoDefault
+  IcTheme now IcBrand
+
 # [3.0.0-alpha.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.5...@ukic/web-components@3.0.0-alpha.6) (2025-01-08)
 
 ### Bug Fixes
