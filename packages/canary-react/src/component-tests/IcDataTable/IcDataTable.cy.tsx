@@ -47,17 +47,18 @@ import {
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
-  HAVE_CLASS,
-  HAVE_TEXT,
-  NOT_EXIST,
   HAVE_ATTR,
   HAVE_BEEN_CALLED_ONCE,
-  HAVE_LENGTH,
-  NOT_HAVE_CLASS,
-  HAVE_CSS,
-  NOT_HAVE_CSS,
-  NOT_BE_VISIBLE,
   HAVE_BEEN_CALLED_WITH,
+  HAVE_CALL_COUNT,
+  HAVE_CLASS,
+  HAVE_CSS,
+  HAVE_LENGTH,
+  HAVE_TEXT,
+  NOT_BE_VISIBLE,
+  NOT_EXIST,
+  NOT_HAVE_CLASS,
+  NOT_HAVE_CSS,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
@@ -100,6 +101,7 @@ const TRUNCATION_SHOW_HIDE_SELECTOR = ".truncation-show-hide";
 const TRUNCATION_TOOLTIP_SELECTOR = ".truncation-tooltip";
 const TABLE_CELL_FIRST_CHILD_SELECTOR = ".table-cell:first-child";
 const ICON_BUTTON = "ic-button.ic-button-variant-icon";
+const ACTION_ELEMENT = "action-element";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const BasicDataTable = (dataTableProps?: any): ReactElement => (
@@ -1081,7 +1083,7 @@ describe("IcDataTables", () => {
       .click()
       .click();
 
-    cy.get("@sortChanged").should("have.callCount", 3);
+    cy.get("@sortChanged").should(HAVE_CALL_COUNT, 3);
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
       columnName: "lastName",
       sorted: "descending",
@@ -1102,7 +1104,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "td")
       .eq(0)
       .find("span")
-      .should(HAVE_CLASS, "action-element")
+      .should(HAVE_CLASS, ACTION_ELEMENT)
       .find("ic-button")
       .should("be.visible");
 
@@ -1153,7 +1155,7 @@ describe("IcDataTables", () => {
       .should(HAVE_CSS, "grid-template-columns", "156.797px 32px");
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "span")
-      .should(HAVE_CLASS, "action-element")
+      .should(HAVE_CLASS, ACTION_ELEMENT)
       .should(HAVE_CSS, "justify-content", "right");
   });
 
@@ -1176,6 +1178,107 @@ describe("IcDataTables", () => {
         capture: "viewport",
       },
     });
+  });
+
+  it("should render a backdrop with circular loading indicator when loadingOption.overlay is set to true", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data tables"
+        loadingOptions={{
+          overlay: true,
+        }}
+      />
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+      "be.visible"
+    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
+      .shadow()
+      .find(".ic-loading-circular-outer")
+      .should("be.visible");
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "data", LONG_DATA);
+
+    cy.wait(1000);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+      "be.not.exist"
+    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator").should(
+      "not.exist"
+    );
+  });
+
+  it("should not render an overlay with circular loading indicator when loadingOption.overlay is set to false", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={DATA}
+        caption="Data tables"
+        loadingOptions={{
+          overlay: false,
+        }}
+      />
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+      "not.exist"
+    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("not.exist");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
+      .shadow()
+      .find(".ic-loading-circular-outer")
+      .should("be.visible");
+  });
+
+  it("should render an overlay with circular loading indicator when loadingOption.overlay is set to true and no data is set", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={[]}
+        caption="Data tables"
+        loadingOptions={{
+          overlay: true,
+        }}
+      />
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+      "be.visible"
+    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("not.exist");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-empty-state").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
+      .shadow()
+      .find(".ic-loading-circular-outer")
+      .should("be.visible");
+
+    cy.get(DATA_TABLE_SELECTOR).invoke("prop", "data", LONG_DATA);
+
+    cy.wait(1000);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+      "not.exist"
+    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-empty-state").should("not.exist");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator").should(
+      "not.exist"
+    );
   });
 });
 
@@ -4089,6 +4192,81 @@ describe("IcDataTable row deletion", () => {
       },
       delay: 500,
     });
+  });
+});
+
+describe("IcDataTable row selection", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("should highlight the selected row", () => {
+    mount(<BasicDataTable />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+
+    cy.compareSnapshot({
+      name: "selected-row-highlight",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should not highlight the selected row when the highlightSelectedRow prop is set to false", () => {
+    mount(<BasicDataTable highlightSelectedRow={false} />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+
+    cy.compareSnapshot({
+      name: "selected-row-highlight-turned-off",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should emit icSelectedRowChange event when the selected row changes", () => {
+    mount(
+      <BasicDataTable
+        onIcSelectedRowChange={(e: CustomEvent) => console.log(e.detail)}
+      />
+    );
+
+    cy.get(DATA_TABLE_SELECTOR).invoke(
+      "on",
+      "icSelectedRowChange",
+      cy.stub().as("selectedRowChange")
+    );
+
+    cy.spy(window.console, "log").as("spyWinConsoleLog");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+
+    cy.get("@selectedRowChange").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
+      firstName: "Mark",
+      lastName: "Owens",
+      age: 45,
+      jobTitle: "Team Lead",
+      address: "12 Key Street, Town, Country, Postcode",
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+
+    cy.get("@selectedRowChange").should(HAVE_CALL_COUNT, 2);
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, null);
   });
 });
 

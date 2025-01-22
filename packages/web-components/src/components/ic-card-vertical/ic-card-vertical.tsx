@@ -6,7 +6,6 @@ import {
   State,
   h,
   Method,
-  forceUpdate,
   Host,
   Watch,
 } from "@stencil/core";
@@ -15,7 +14,7 @@ import {
   isSlotUsed,
   getBrandFromContext,
   removeDisabledFalse,
-  checkSlotInChildMutations,
+  renderDynamicChildSlots,
 } from "../../utils/helpers";
 import {
   IcBrand,
@@ -153,7 +152,23 @@ export class CardVertical {
       );
     this.updateTheme();
 
-    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(
+        mutationList,
+        [
+          "message",
+          "adornment",
+          "expanded-content",
+          "image-top",
+          "image-mid",
+          "icon",
+          "interaction-button",
+          "badge",
+          "interaction-controls",
+        ],
+        this
+      )
+    );
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
@@ -205,28 +220,6 @@ export class CardVertical {
 
   private toggleExpanded = (): void => {
     this.areaExpanded = !this.areaExpanded;
-  };
-
-  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
-    if (
-      mutationList.some(({ type, addedNodes, removedNodes }) =>
-        type === "childList"
-          ? checkSlotInChildMutations(addedNodes, removedNodes, [
-              "message",
-              "adornment",
-              "expanded-content",
-              "image-top",
-              "image-mid",
-              "icon",
-              "interaction-button",
-              "badge",
-              "interaction-controls",
-            ])
-          : false
-      )
-    ) {
-      forceUpdate(this);
-    }
   };
 
   render() {

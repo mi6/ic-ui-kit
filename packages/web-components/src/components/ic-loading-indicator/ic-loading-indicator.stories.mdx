@@ -44,7 +44,7 @@ export const defaultArgTypes = {
 ### Circular (indeterminate)
 
 <Canvas>
-  <Story name="Circular (indeterminate)" parameters={{ loki: { skip: true } }}>
+  <Story name="Circular (indeterminate)">
     {(args) =>
       html`<ic-loading-indicator label="Loading..."></ic-loading-indicator>`
     }
@@ -54,7 +54,7 @@ export const defaultArgTypes = {
 ### Circular (determinate)
 
 <Canvas>
-  <Story name="Circular (determinate)" parameters={{ loki: { skip: true } }}>
+  <Story name="Circular (determinate)">
     {(args) =>
       html`<ic-loading-indicator
         progress="30"
@@ -69,7 +69,7 @@ export const defaultArgTypes = {
 ### Circular long label
 
 <Canvas>
-  <Story name="Circular long label" parameters={{ loki: { skip: true } }}>
+  <Story name="Circular long label">
     {(args) =>
       html`<ic-loading-indicator
         label="This is a label for a loading indicator that is indeterminate and should wrap onto more than one line when it gets too long"
@@ -81,10 +81,7 @@ export const defaultArgTypes = {
 ### Circular variants (indeterminate)
 
 <Canvas>
-  <Story
-    name="Circular variants (indeterminate)"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Circular variants (indeterminate)">
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
         <ic-loading-indicator label="Small" size="small"></ic-loading-indicator>
@@ -98,10 +95,7 @@ export const defaultArgTypes = {
 ### Circular variants (determinate)
 
 <Canvas>
-  <Story
-    name="Circular variants (determinate)"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Circular variants (determinate)">
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
         <ic-loading-indicator
@@ -132,7 +126,7 @@ export const defaultArgTypes = {
 ### Icon
 
 <Canvas>
-  <Story name="Icon" parameters={{ loki: { skip: true } }}>
+  <Story name="Icon">
     {(args) => html`<ic-loading-indicator size="icon"></ic-loading-indicator>`}
   </Story>
 </Canvas>
@@ -140,7 +134,7 @@ export const defaultArgTypes = {
 ### Linear (indeterminate)
 
 <Canvas>
-  <Story name="Linear (indeterminate)" parameters={{ loki: { skip: true } }}>
+  <Story name="Linear (indeterminate)">
     {(args) =>
       html`<ic-loading-indicator
         label="Loading..."
@@ -153,7 +147,7 @@ export const defaultArgTypes = {
 ### Linear (determinate)
 
 <Canvas>
-  <Story name="Linear (determinate)" parameters={{ loki: { skip: true } }}>
+  <Story name="Linear (determinate)">
     {(args) =>
       html`<ic-loading-indicator
         progress="30"
@@ -169,7 +163,7 @@ export const defaultArgTypes = {
 ### Linear long label
 
 <Canvas>
-  <Story name="Linear long label" parameters={{ loki: { skip: true } }}>
+  <Story name="Linear long label">
     {(args) =>
       html`<ic-loading-indicator
         type="linear"
@@ -182,10 +176,7 @@ export const defaultArgTypes = {
 ### Linear variants (indeterminate)
 
 <Canvas>
-  <Story
-    name="Linear variants (indeterminate)"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Linear variants (indeterminate)">
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
         <ic-loading-indicator
@@ -216,10 +207,7 @@ export const defaultArgTypes = {
 ### Linear variants (determinate)
 
 <Canvas>
-  <Story
-    name="Linear variants (determinate)"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Linear variants (determinate)">
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
         <ic-loading-indicator
@@ -264,7 +252,7 @@ export const defaultArgTypes = {
 <Canvas>
   <Story
     name="Circular dark mode"
-    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
+    parameters={{ backgrounds: { default: "dark" } }}
   >
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
@@ -292,7 +280,7 @@ export const defaultArgTypes = {
 <Canvas>
   <Story
     name="Icon dark mode"
-    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
+    parameters={{ backgrounds: { default: "dark" } }}
   >
     {(args) =>
       html`<ic-loading-indicator
@@ -308,7 +296,7 @@ export const defaultArgTypes = {
 <Canvas>
   <Story
     name="Linear dark mode"
-    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
+    parameters={{ backgrounds: { default: "dark" } }}
   >
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
@@ -363,7 +351,7 @@ export const defaultArgTypes = {
 ### Monochrome
 
 <Canvas>
-  <Story name="Monochrome" parameters={{ loki: { skip: true } }}>
+  <Story name="Monochrome">
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
         <ic-loading-indicator
@@ -411,7 +399,7 @@ export const defaultArgTypes = {
 ### No label
 
 <Canvas>
-  <Story name="No label" parameters={{ loki: { skip: true } }}>
+  <Story name="No label">
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
         <ic-loading-indicator description="Loading"></ic-loading-indicator
@@ -440,7 +428,7 @@ export const defaultArgTypes = {
 ### Changing label
 
 <Canvas>
-  <Story name="Changing label" parameters={{ loki: { skip: true } }}>
+  <Story name="Changing label">
     {(args) =>
       html`<ic-loading-indicator label-duration="4000"></ic-loading-indicator>
         <script>
@@ -460,7 +448,6 @@ export const defaultArgTypes = {
     name="Progress indicator for compact step"
     args={defaultArgs}
     argTypes={defaultArgTypes}
-    parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<ic-loading-indicator
@@ -478,7 +465,6 @@ export const defaultArgTypes = {
 
 <Canvas>
   <Story
-    parameters={{ loki: { skip: true } }}
     args={defaultArgs}
     argTypes={defaultArgTypes}
     name="Playground - indeterminate"
@@ -509,7 +495,6 @@ export const defaultArgTypes = {
 
 <Canvas>
   <Story
-    parameters={{ loki: { skip: true } }}
     args={{
       ...defaultArgs,
       max: 100,

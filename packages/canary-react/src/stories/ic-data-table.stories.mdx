@@ -975,6 +975,8 @@ The loading indicator can be customised using the `loadingOptions` prop:
 - `label` sets the visual message
 - `labelDuration` is the number of milliseconds before the label changes
 - `showBackground` allows for a white background and grey border to help the indicator stand out
+- `overlay` renders a dark overlay over the previous data set while new data is loaded
+  - Setting `overlay` also sets `showBackground` to `true` so the loading indicator stands out against the dark overlay.
 
 If it needs to be determinate, use `max`, `min` and `progress`.
 
@@ -1875,22 +1877,6 @@ const DataTable = () => {
 export default DataTable;
 ```
 
-export const defaultPaginationBarArgs = {
-  itemsPerPageOptions: [
-    { label: "5", value: "5" },
-    { label: "10", value: "10" },
-    { label: "15", value: "15" },
-  ],
-  rangeLabelType: "page",
-  type: "simple",
-  showItemsPerPageControl: true,
-  showGoToPageControl: true,
-  alignment: "right",
-  itemLabel: "Item",
-  pageLabel: "Page",
-  hideRangeLabel: false
-};
-
 ### Slotted pagination bar
 
 There may be scenarios when using `IcDataTable` when pagination and data fetching is done using a backend API.
@@ -2078,7 +2064,7 @@ const DataTable = () => {
 
 ### Action Element
 
-An example with action elements passed in via the data
+The cell data can contain an `actionElement` which can be a string containing any html to be rendered. The `actionElement` will be displayed to the right of the cell data. An `actionOnClick` can be specified for the `actionElement`. This should be used with a keyboard accessible component such as 'icButton' to allow for a function to be run when the `actionElement` is clicked. 
 
 <Canvas withSource="none">
   <Story name="Action Element">
@@ -2112,6 +2098,7 @@ const DATA = [
     firstName: {
       data: "Joe",
       actionElement: `<ic-button variant="icon" size="small  aria-label="you can disable tooltips on icon buttons">  <svg  aria-label="refresh button"  xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
+      actionOnClick: () => console.log("hello")
     },
     lastName: "Bloggs",
     age: 30,
@@ -2186,6 +2173,98 @@ const DataTable = () => (
 export default DataTable;
 ```
 
+### Turn off selected row highlighting
+
+An example showing the table with selected row highlighting turned off.
+
+<Canvas withSource="none">
+  <Story name="Turn off selected row highlighting">
+    <IcDataTable caption="Turn off selected row highlighting" columns={COLS} data={DATA} highlightSelectedRow={false} />
+  </Story>
+</Canvas>
+
+#### Turn off selected row highlighting code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+// Copy columns array for 'basic' example
+const COLUMNS: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+// Copy data array for 'basic' example
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable caption="Turn off selected row highlighting" columns={COLUMNS} data={DATA} highlightSelectedRow={false} />
+);
+
+export default DataTable;
+```
+
+### Selected row event
+
+An example showing the table emitting the icSelectedRowChange event when a row is selected or de-selected.
+
+<Canvas withSource="none">
+  <Story name="Selected row event">
+    <IcDataTable caption="Selected row event" columns={COLS} data={DATA} onIcSelectedRowChange={(event) => console.log("Selected row changed: ", event.detail)} />
+  </Story>
+</Canvas>
+
+#### Selected row event code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+// Copy columns array for 'basic' example
+const COLUMNS: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+// Copy data array for 'basic' example
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable caption="Selected row event" columns={COLS} data={DATA} onIcSelectedRowChange={(event) => console.log("Selected row changed: ", event.detail)} />
+);
+
+export default DataTable;
+```
+
 ### Playground example
 
 Go to the <IcLink href="/?path=/story/react-components-data-table--playground-example">separate page for the playground example</IcLink> to view the prop controls.
@@ -2200,6 +2279,7 @@ export const defaultArgs = {
   globalRowHeight: 40,
   height: "",
   hideColumnHeaders: false,
+  highlightSelectedRow: true,
   loading: false,
   loadingDesc: "loading",
   loadingLabel: "Loading data...",
@@ -2207,6 +2287,7 @@ export const defaultArgs = {
   loadingMax: 100,
   loadingMin: 0,
   loadingProgress: 50, 
+  loadingOverlay: false,
   loadingShowBackground: false,
   minimumLoadingDisplayDuration: 1000,
   paginationItemsPerPageOptions: [
@@ -2216,6 +2297,7 @@ export const defaultArgs = {
   ],
   paginationRangeLabelType: "page",
   paginationType: "simple",
+  paginationSetToFirstPageOnPaginationChange: false,
   paginationShowItemsPerPageControl: true,
   paginationShowGoToPageControl: true,
   paginationAlignment: "right",
@@ -2310,6 +2392,7 @@ export const defaultArgs = {
         globalRowHeight={args.globalRowHeight}
         height={args.height}
         hideColumnHeaders={args.hideColumnHeaders}
+        highlightSelectedRow={args.highlightSelectedRow}
         loading={args.loading}
         loadingOptions={{
           description: args.loadingDesc,
@@ -2318,15 +2401,17 @@ export const defaultArgs = {
           max: args.loadingMax,
           min: args.loadingMin,
           progress: args.loadingProgress,
-          showBackground: args.loadingShowBackground
+          showBackground: args.loadingShowBackground,
+          overlay: args.loadingOverlay
         }}
         minimumLoadingDisplayDuration={args.minimumLoadingDisplayDuration}
         paginationBarOptions={{
           itemsPerPageOptions: args.paginationItemsPerPageOptions,
           rangeLabelType: args.paginationRangeLabelType,
           type: args.paginationType,
-          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
+          setToFirstPageOnPaginationChange: args.paginationSetToFirstPageOnPaginationChange,
           showGoToPageControl: args.paginationShowGoToPageControl,
+          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
           alignment: args.paginationAlignment,
           pageLabel: args.paginationPageLabel,
           itemLabel: args.paginationItemLabel,

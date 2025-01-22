@@ -15,7 +15,7 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {(args) =>
       html`<ic-text-field label="What is your favourite coffee?">
         </ic-text-field>
@@ -28,7 +28,7 @@ import readme from "./readme.md";
 ### Autofocus
 
 <Canvas>
-  <Story name="Autofocus" parameters={{ loki: { skip: true } }}>
+  <Story name="Autofocus">
     {(args) =>
       html`<ic-text-field autofocus label="What is your favourite coffee?">
       </ic-text-field>`
@@ -39,7 +39,7 @@ import readme from "./readme.md";
 ### Placeholder and required
 
 <Canvas>
-  <Story name="Placeholder and required" parameters={{ loki: { skip: true } }}>
+  <Story name="Placeholder and required">
     {(args) =>
       html`<ic-text-field
           label="What is your favourite coffee?"
@@ -61,7 +61,7 @@ import readme from "./readme.md";
 ### Helper text
 
 <Canvas>
-  <Story name="Helper text" parameters={{ loki: { skip: true } }}>
+  <Story name="Helper text">
     {(args) =>
       html`<ic-text-field
           label="What is your favourite coffee?"
@@ -85,7 +85,7 @@ import readme from "./readme.md";
 ### With icon
 
 <Canvas>
-  <Story name="With icon" parameters={{ loki: { skip: true } }}>
+  <Story name="With icon">
     {(args) =>
       html`<ic-text-field
           label="What is your favourite coffee?"
@@ -135,7 +135,7 @@ import readme from "./readme.md";
 ### With value
 
 <Canvas>
-  <Story name="With value" parameters={{ loki: { skip: true } }}>
+  <Story name="With value">
     {(args) =>
       html`<ic-text-field
           value="Arabica"
@@ -187,7 +187,7 @@ import readme from "./readme.md";
 ### Custom width
 
 <Canvas>
-  <Story name="Custom width" parameters={{ loki: { skip: true } }}>
+  <Story name="Custom width">
     {(args) =>
       html`<style>
           ic-text-field {
@@ -249,7 +249,7 @@ import readme from "./readme.md";
 ### Full width
 
 <Canvas>
-  <Story name="Full width" parameters={{ loki: { skip: true } }}>
+  <Story name="Full width">
     {(args) =>
       html`<div style="display: flex">
           <ic-text-field
@@ -310,7 +310,7 @@ import readme from "./readme.md";
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {(args) =>
       html`<ic-text-field
           value="Arabica"
@@ -407,7 +407,7 @@ import readme from "./readme.md";
 ### Read only
 
 <Canvas>
-  <Story name="Read only" parameters={{ loki: { skip: true } }}>
+  <Story name="Read only">
     {(args) =>
       html`<ic-text-field
           value="Arabica"
@@ -480,7 +480,7 @@ import readme from "./readme.md";
 ### Validation
 
 <Canvas>
-  <Story name="Validation" parameters={{ loki: { skip: true } }}>
+  <Story name="Validation">
     {(args) =>
       html`<ic-text-field
           validation-status="success"
@@ -799,7 +799,7 @@ import readme from "./readme.md";
 ### Text area with resize
 
 <Canvas>
-  <Story name="Text area with resize" parameters={{ loki: { skip: true } }}>
+  <Story name="Text area with resize">
     {(args) =>
       html`<ic-text-field
         rows="6"
@@ -833,7 +833,7 @@ import readme from "./readme.md";
 ### Form - This shows how the text field works within a form. The field value will appear in the console.log
 
 <Canvas>
-  <Story name="Form" parameters={{ loki: { skip: true } }}>
+  <Story name="Form">
     {(args) =>
       html`
         <form>
@@ -860,7 +860,7 @@ import readme from "./readme.md";
 ### Min and max
 
 <Canvas>
-  <Story name="Min and max" parameters={{ loki: { skip: true } }}>
+  <Story name="Min and max">
     {(args) =>
       html`<ic-text-field
         inputmode="numeric"
@@ -878,7 +878,7 @@ import readme from "./readme.md";
 ### Logging icChange
 
 <Canvas>
-  <Story name="Logging icChange" parameters={{ loki: { skip: true } }}>
+  <Story name="Logging icChange">
     {(args) =>
       html`<script>
           function handleIcChange(ev) {
@@ -896,10 +896,7 @@ import readme from "./readme.md";
 ### Maximum and minimum characters
 
 <Canvas>
-  <Story
-    name="Maximum and minimum characters"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Maximum and minimum characters">
     {(args) =>
       html`<ic-text-field
           max-characters="2"

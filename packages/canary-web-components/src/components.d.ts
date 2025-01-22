@@ -104,6 +104,10 @@ export namespace Components {
          */
         "hideColumnHeaders"?: boolean;
         /**
+          * If `true`, the selected row is highlighted using a background colour.
+         */
+        "highlightSelectedRow"?: boolean;
+        /**
           * When set to `true`, the full table will show a loading state, featuring a radial indicator.
          */
         "loading"?: boolean;
@@ -119,6 +123,7 @@ export namespace Components {
     progress?: number;
     showBackground?: boolean;
     monochrome?: boolean;
+    overlay?: boolean;
   };
         /**
           * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
@@ -481,6 +486,10 @@ export namespace Components {
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
         /**
+          * If `true`, the pagination bar is set to the first page when the 'items per page' changes
+         */
+        "setToFirstPageOnPaginationChange"?: boolean;
+        /**
           * If `true`, the 'go to page' control should be displayed.
          */
         "showGoToPageControl"?: boolean;
@@ -616,6 +625,7 @@ declare global {
     };
     interface HTMLIcDataTableElementEventMap {
         "icRowHeightChange": void;
+        "icSelectedRowChange": object;
         "icSortChange": IcSortEventDetail;
     }
     interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
@@ -823,6 +833,10 @@ declare namespace LocalJSX {
          */
         "hideColumnHeaders"?: boolean;
         /**
+          * If `true`, the selected row is highlighted using a background colour.
+         */
+        "highlightSelectedRow"?: boolean;
+        /**
           * When set to `true`, the full table will show a loading state, featuring a radial indicator.
          */
         "loading"?: boolean;
@@ -838,6 +852,7 @@ declare namespace LocalJSX {
     progress?: number;
     showBackground?: boolean;
     monochrome?: boolean;
+    overlay?: boolean;
   };
         /**
           * Sets the maximum width of the data table. Can be set in `px`, `rem`, or `%`.
@@ -855,6 +870,10 @@ declare namespace LocalJSX {
           * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
          */
         "onIcRowHeightChange"?: (event: IcDataTableCustomEvent<void>) => void;
+        /**
+          * Emitted when the selected row changes in the data table.
+         */
+        "onIcSelectedRowChange"?: (event: IcDataTableCustomEvent<object>) => void;
         /**
           * Emitted when a column sort button is clicked.
          */
@@ -1224,6 +1243,10 @@ declare namespace LocalJSX {
           * Whether total number of items and current item range or total number of pages and current page is displayed.
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
+        /**
+          * If `true`, the pagination bar is set to the first page when the 'items per page' changes
+         */
+        "setToFirstPageOnPaginationChange"?: boolean;
         /**
           * If `true`, the 'go to page' control should be displayed.
          */

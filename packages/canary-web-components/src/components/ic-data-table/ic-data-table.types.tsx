@@ -41,6 +41,18 @@ export type IcDataTableColumnObject = {
   };
 };
 
+export type IcLoadingOptions = {
+  monochrome?: boolean;
+  description?: string;
+  label?: string;
+  labelDuration?: number;
+  max?: number;
+  min?: number;
+  progress?: number;
+  showBackground?: boolean;
+  overlay?: boolean;
+};
+
 export type IcDataTableRowHeights = number | "auto";
 
 export interface IcDensityUpdateEventDetail {

@@ -49,6 +49,7 @@
 | `icChange`         | Emitted when the value has changed.                             | `CustomEvent<IcValueEventDetail>`         |
 | `icClear`          | Emitted when value is cleared with clear button                 | `CustomEvent<void>`                       |
 | `icInput`          | Emitted when a keyboard input occurred.                         | `CustomEvent<IcValueEventDetail>`         |
+| `icKeydown`        | Emitted when a keydown event occurred.                          | `CustomEvent<{ event: KeyboardEvent; }>`  |
 | `icMenuChange`     | Emitted when the state of the menu changes (i.e. open or close) | `CustomEvent<IcMenuChangeEventDetail>`    |
 | `icOptionSelect`   | Emitted when option is highlighted within the menu              | `CustomEvent<IcOptionSelectEventDetail>`  |
 | `icRetryLoad`      | Emitted when the 'retry loading' button is clicked              | `CustomEvent<IcValueEventDetail>`         |
@@ -81,23 +82,21 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [ic-text-field](../ic-text-field)
+- [ic-input-container](../ic-input-container)
+- [ic-input-label](../ic-input-label)
+- [ic-input-component-container](../ic-input-component-container)
 - [ic-button](../ic-button)
 - [ic-menu](../ic-menu)
 
 ### Graph
 ```mermaid
 graph TD;
-  ic-search-bar --> ic-text-field
+  ic-search-bar --> ic-input-container
+  ic-search-bar --> ic-input-label
+  ic-search-bar --> ic-input-component-container
   ic-search-bar --> ic-button
   ic-search-bar --> ic-menu
-  ic-text-field --> ic-input-container
-  ic-text-field --> ic-input-label
-  ic-text-field --> ic-input-component-container
-  ic-text-field --> ic-input-validation
-  ic-text-field --> ic-typography
   ic-input-label --> ic-typography
-  ic-input-validation --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import { mount } from "cypress/react";
 import React from "react";
@@ -47,9 +47,17 @@ import "cypress-axe";
 import { IcSearchBar } from "../../components";
 
 const SEARCH_SELECTOR = "ic-search-bar";
-const SEARCH_INPUT = 'input[type="text"]';
-const TEXT_FIELD_SELECTOR = "ic-text-field";
+const SEARCH_INPUT = 'input[inputmode="search"]';
+const CLEAR_BUTTON_ID = "#clear-button";
+const SEARCH_SUBMIT_BUTTON_ID = "#search-submit-button";
+const FOCUSED_OPTION_CLASS_SELECTOR = "focused-option";
+const LOADING_TIME_OPTION_TEXT = "Loading time";
+const RETRY_BUTTON_ID = "#retry-button";
+const BUTTON_DISABLED_CLASS = "ic-button-disabled";
+
 const DEFAULT_TEST_THRESHOLD = 0.02;
+const CONSOLE_LOG_EVENT_SPY_ID = "@spyWinConsoleLog";
+const IC_SUBMIT_SEARCH_EVENT_ID = "@icSubmitSearch";
 
 describe("IcSearchBar end-to-end tests", () => {
   it("should render as a controlled component", () => {
@@ -57,22 +65,16 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("La");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("La");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .should(BE_VISIBLE)
       .should(HAVE_LENGTH, "1");
 
-    cy.clickOnShadowEl(SEARCH_SELECTOR, "#clear-button");
+    cy.clickOnShadowEl(SEARCH_SELECTOR, CLEAR_BUTTON_ID);
 
     cy.get("ic-button#update-opt").click();
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("La");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("La");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .should(BE_VISIBLE)
       .should(HAVE_LENGTH, "4");
@@ -84,15 +86,9 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("La");
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .realPress("Enter");
-    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, "fla");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("La");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).realPress("Enter");
+    cy.get(CONSOLE_LOG_EVENT_SPY_ID).should(HAVE_BEEN_CALLED_WITH, "fla");
   });
 
   it("should render with custom empty option list text", () => {
@@ -100,9 +96,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER)
       .type("Latte")
       .wait(200);
 
@@ -117,27 +111,21 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Lat");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Lat");
 
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(NOT_EXIST);
-    cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").should(
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_SUBMIT_BUTTON_ID).should(
       HAVE_CLASS,
-      "ic-button-disabled"
+      BUTTON_DISABLED_CLASS
     );
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("te");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("te");
 
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .should(BE_VISIBLE)
       .should(HAVE_LENGTH, "1")
       .should(CONTAIN_TEXT, "Latte");
-    cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").should(
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_SUBMIT_BUTTON_ID).should(
       NOT_HAVE_CLASS,
       "disabled"
     );
@@ -149,11 +137,7 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
     cy.wait(500);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("es")
-      .wait(200);
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("es").wait(200);
 
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .should(BE_VISIBLE)
@@ -169,12 +153,9 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, "#clear-button").should(NOT_BE_VISIBLE);
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Latte");
-    cy.findShadowEl(SEARCH_SELECTOR, "#clear-button").should(BE_VISIBLE);
+    cy.findShadowEl(SEARCH_SELECTOR, CLEAR_BUTTON_ID).should(NOT_BE_VISIBLE);
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Latte");
+    cy.findShadowEl(SEARCH_SELECTOR, CLEAR_BUTTON_ID).should(BE_VISIBLE);
   });
 
   it("should clear value when clear button pressed", () => {
@@ -183,12 +164,9 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
     cy.get(SEARCH_SELECTOR).invoke("on", "icClear", cy.stub().as("icClear"));
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Latte");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Latte");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "Latte");
-    cy.findShadowEl(SEARCH_SELECTOR, "#clear-button").click();
+    cy.findShadowEl(SEARCH_SELECTOR, CLEAR_BUTTON_ID).click();
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "");
     cy.get("@icClear").should(HAVE_BEEN_CALLED_ONCE);
   });
@@ -203,15 +181,12 @@ describe("IcSearchBar end-to-end tests", () => {
       cy.stub().as("icSubmitSearch")
     );
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .eq(0)
-      .should(HAVE_CLASS, "focused-option");
-    cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").click();
-    cy.get("@icSubmitSearch").should(HAVE_BEEN_CALLED_ONCE);
+      .should(HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_SUBMIT_BUTTON_ID).click();
+    cy.get(IC_SUBMIT_SEARCH_EVENT_ID).should(HAVE_BEEN_CALLED_ONCE);
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "espresso");
   });
 
@@ -226,13 +201,13 @@ describe("IcSearchBar end-to-end tests", () => {
       cy.stub().as("icSubmitSearch")
     );
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Espresso");
-    cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").click();
-    cy.get("@icSubmitSearch").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, "form submit");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Espresso");
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_SUBMIT_BUTTON_ID).click();
+    cy.get(IC_SUBMIT_SEARCH_EVENT_ID).should(HAVE_BEEN_CALLED_ONCE);
+    cy.get(CONSOLE_LOG_EVENT_SPY_ID).should(
+      HAVE_BEEN_CALLED_WITH,
+      "form submit"
+    );
   });
 
   it("should begin with no aria-owns attribute and then add one when the menu appears", () => {
@@ -240,18 +215,15 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR).should(
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).should(
       NOT_HAVE_ATTR,
       "aria-owns"
     );
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(NOT_EXIST);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR).should(
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).should(
       HAVE_ATTR,
       "aria-owns"
     );
@@ -265,16 +237,10 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
 
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(BE_VISIBLE);
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(SEARCH_INPUT)
-      .should(HAVE_FOCUS);
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).should(HAVE_FOCUS);
   });
 
   it("should remove menu when input value is cleared", () => {
@@ -282,13 +248,10 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
 
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(BE_VISIBLE);
-    cy.clickOnShadowEl(SEARCH_SELECTOR, "#clear-button");
+    cy.clickOnShadowEl(SEARCH_SELECTOR, CLEAR_BUTTON_ID);
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(NOT_EXIST);
   });
 
@@ -297,10 +260,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "Es");
     cy.realPress("ArrowDown");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "Es");
@@ -311,10 +271,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("ArrowDown");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(HAVE_FOCUS);
   });
@@ -324,10 +281,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("ArrowUp");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(HAVE_FOCUS);
   });
@@ -337,10 +291,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("End");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).eq(1).should(HAVE_FOCUS);
     cy.realPress("Home");
@@ -352,10 +303,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
 
     cy.realPress("Enter");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "espresso");
@@ -366,10 +314,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
 
     cy.realPress("Enter");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "Es");
@@ -380,13 +325,10 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .eq(0)
-      .should(NOT_HAVE_CLASS, "focused-option");
+      .should(NOT_HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
   });
 
   it("should move focus to first option after one ArrowDown press when searchMode is set to 'query'", () => {
@@ -394,10 +336,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("ArrowDown");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).eq(0).should(HAVE_FOCUS);
   });
@@ -407,10 +346,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "Es");
     cy.realPress("Space");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "Es ");
@@ -421,17 +357,9 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "Es");
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .then(($input) => {
-        cy.get($input).type("{backspace}");
-      });
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("{backspace}");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "E");
   });
 
@@ -440,10 +368,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("ArrowUp").realPress("Enter");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "doubleespresso");
   });
@@ -453,10 +378,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(BE_VISIBLE);
     cy.realPress("Escape");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(NOT_EXIST);
@@ -469,10 +391,7 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.get(SEARCH_SELECTOR).invoke("on", "icFocus", cy.stub().as("icFocus"));
     cy.get(SEARCH_SELECTOR).invoke("on", "icBlur", cy.stub().as("icBlur"));
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("Tab").realPress("Tab").realPress("Tab");
     cy.get("@icFocus").should(HAVE_BEEN_CALLED);
     cy.checkShadowElVisible(SEARCH_SELECTOR, IC_MENU_LI);
@@ -491,10 +410,7 @@ describe("IcSearchBar end-to-end tests", () => {
       cy.stub().as("icOptionSelect")
     );
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("Enter");
     cy.get("@icOptionSelect").should(HAVE_BEEN_CALLED_ONCE);
   });
@@ -509,10 +425,7 @@ describe("IcSearchBar end-to-end tests", () => {
       cy.stub().as("icMenuChange")
     );
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.get("@icMenuChange").should(HAVE_BEEN_CALLED_ONCE);
     cy.realPress("Escape");
     cy.get("@icMenuChange").should("have.been.calledTwice");
@@ -539,13 +452,10 @@ describe("IcSearchBar end-to-end tests", () => {
       cy.stub().as("icSubmitSearch")
     );
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Espresso");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Espresso");
     cy.realPress("Tab").realPress("Enter");
-    cy.get("@icSubmitSearch").should(NOT_HAVE_BEEN_CALLED);
-    cy.get("@spyWinConsoleLog").should(
+    cy.get(IC_SUBMIT_SEARCH_EVENT_ID).should(NOT_HAVE_BEEN_CALLED);
+    cy.get(CONSOLE_LOG_EVENT_SPY_ID).should(
       "not.have.been.calledWith",
       "form submit"
     );
@@ -557,10 +467,7 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
     cy.get(SEARCH_SELECTOR).invoke("on", "icClear", cy.stub().as("icClear"));
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Espresso");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Espresso");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "Espresso");
     cy.realPress("Tab").realPress("Space");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "");
@@ -577,12 +484,9 @@ describe("IcSearchBar end-to-end tests", () => {
       cy.stub().as("icSubmitSearch")
     );
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Espresso");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Espresso");
     cy.realPress("Tab").realPress("Tab").realPress("Space");
-    cy.get("@icSubmitSearch").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get(IC_SUBMIT_SEARCH_EVENT_ID).should(HAVE_BEEN_CALLED_ONCE);
   });
 
   it("should disable search button on 0 results", () => {
@@ -590,13 +494,10 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Ga");
-    cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").should(
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Ga");
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_SUBMIT_BUTTON_ID).should(
       HAVE_CLASS,
-      "ic-button-disabled"
+      BUTTON_DISABLED_CLASS
     );
   });
 
@@ -605,16 +506,10 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("Enter");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "espresso");
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .click();
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).click();
     cy.realPress("ArrowDown").realPress("Enter");
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "doubleespresso");
   });
@@ -624,25 +519,22 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.get(SEARCH_SELECTOR).should(HAVE_FOCUS);
     cy.realPress("Tab");
-    cy.findShadowEl(SEARCH_SELECTOR, "#clear-button").should(HAVE_FOCUS);
+    cy.findShadowEl(SEARCH_SELECTOR, CLEAR_BUTTON_ID).should(HAVE_FOCUS);
     cy.realPress("Tab");
-    cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").should(
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_SUBMIT_BUTTON_ID).should(
       HAVE_FOCUS
     );
     cy.realPress("Tab");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(HAVE_FOCUS);
     cy.realPress(["Shift", "Tab"]);
-    cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").should(
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_SUBMIT_BUTTON_ID).should(
       HAVE_FOCUS
     );
     cy.realPress(["Shift", "Tab"]);
-    cy.findShadowEl(SEARCH_SELECTOR, "#clear-button").should(HAVE_FOCUS);
+    cy.findShadowEl(SEARCH_SELECTOR, CLEAR_BUTTON_ID).should(HAVE_FOCUS);
     cy.realPress(["Shift", "Tab"]);
     cy.get(SEARCH_SELECTOR).should(HAVE_FOCUS);
   });
@@ -652,22 +544,16 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Po");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Po");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(
       CONTAIN_TEXT,
       "No results found"
     );
     cy.realPress("Backspace").realPress("Backspace");
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .eq(0)
-      .should(HAVE_CLASS, "focused-option");
+      .should(HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
   });
 
   it("should focus onto button from search bar", () => {
@@ -675,10 +561,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("ArrowDown");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(HAVE_FOCUS);
     cy.realPress("Tab");
@@ -693,10 +576,7 @@ describe("IcSearchBar end-to-end tests", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
 
     cy.get(SEARCH_SELECTOR).invoke("on", "icChange", cy.stub().as("icChange"));
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Foo");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Foo");
     cy.get("@icChange").should(NOT_HAVE_BEEN_CALLED);
     cy.wait(600);
     cy.get("@icChange").should(HAVE_BEEN_CALLED);
@@ -708,35 +588,32 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("La");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("La");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .eq(0)
-      .should(HAVE_CLASS, "focused-option");
+      .should(HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     for (let i = 1; i <= 5; i++) {
       cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
         .eq(i)
-        .should(NOT_HAVE_CLASS, "focused-option");
+        .should(NOT_HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     }
     cy.realPress("ArrowDown");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .eq(1)
-      .should(HAVE_CLASS, "focused-option");
+      .should(HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     for (let i = 2; i <= 5; i++) {
       cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
         .eq(i)
-        .should(NOT_HAVE_CLASS, "focused-option");
+        .should(NOT_HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     }
     cy.realPress("ArrowDown");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .eq(2)
-      .should(HAVE_CLASS, "focused-option");
+      .should(HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     for (let i = 3; i <= 5; i++) {
       cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
         .eq(i)
-        .should(NOT_HAVE_CLASS, "focused-option");
+        .should(NOT_HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     }
   });
 
@@ -745,39 +622,36 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("La");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("La");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .eq(0)
-      .should(HAVE_CLASS, "focused-option");
+      .should(HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     cy.realPress("ArrowUp");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .eq(5)
-      .should(HAVE_CLASS, "focused-option");
+      .should(HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     for (let i = 0; i <= 4; i++) {
       cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
         .eq(i)
-        .should(NOT_HAVE_CLASS, "focused-option");
+        .should(NOT_HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     }
     cy.realPress("ArrowUp");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .eq(4)
-      .should(HAVE_CLASS, "focused-option");
+      .should(HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     for (let i = 0; i <= 3; i++) {
       cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
         .eq(i)
-        .should(NOT_HAVE_CLASS, "focused-option");
+        .should(NOT_HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     }
     cy.realPress("ArrowUp");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .eq(3)
-      .should(HAVE_CLASS, "focused-option");
+      .should(HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     for (let i = 0; i <= 2; i++) {
       cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
         .eq(i)
-        .should(NOT_HAVE_CLASS, "focused-option");
+        .should(NOT_HAVE_CLASS, FOCUSED_OPTION_CLASS_SELECTOR);
     }
   });
 
@@ -795,16 +669,10 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Es");
     cy.realPress("ArrowDown");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(HAVE_FOCUS);
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("p");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("p");
     cy.get(SEARCH_SELECTOR).should(HAVE_FOCUS);
     cy.get(SEARCH_SELECTOR).should(HAVE_VALUE, "esp");
   });
@@ -816,20 +684,18 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER)
       .type("C")
       .wait(300)
       .type("a");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(
       CONTAIN_TEXT,
-      "Loading time"
+      LOADING_TIME_OPTION_TEXT
     );
     cy.wait(1300);
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(
       NOT_CONTAIN,
-      "Loading time"
+      LOADING_TIME_OPTION_TEXT
     );
   });
 
@@ -838,9 +704,7 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER)
       .type("C")
       .wait(300)
       .type("a");
@@ -849,10 +713,10 @@ describe("IcSearchBar end-to-end tests", () => {
       CONTAIN_TEXT,
       "Oops error"
     );
-    cy.findShadowEl(SEARCH_SELECTOR, "#retry-button").should("exist");
-    cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").should(
+    cy.findShadowEl(SEARCH_SELECTOR, RETRY_BUTTON_ID).should("exist");
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_SUBMIT_BUTTON_ID).should(
       HAVE_CLASS,
-      "ic-button-disabled"
+      BUTTON_DISABLED_CLASS
     );
   });
 
@@ -861,17 +725,15 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER)
       .type("C")
       .wait(300)
       .type("a");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(
       CONTAIN_TEXT,
-      "Loading time"
+      LOADING_TIME_OPTION_TEXT
     );
-    cy.findShadowEl(SEARCH_SELECTOR, "#clear-button").click();
+    cy.findShadowEl(SEARCH_SELECTOR, CLEAR_BUTTON_ID).click();
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(NOT_EXIST);
   });
 
@@ -880,15 +742,13 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER)
       .type("C")
       .wait(300)
       .type("a");
     cy.wait(1300);
     cy.realPress("Tab").realPress("Tab");
-    cy.findShadowEl(SEARCH_SELECTOR, "#retry-button").should(HAVE_FOCUS);
+    cy.findShadowEl(SEARCH_SELECTOR, RETRY_BUTTON_ID).should(HAVE_FOCUS);
   });
 
   it("should trigger a retry when the retry button is pressed using enter", () => {
@@ -896,19 +756,17 @@ describe("IcSearchBar end-to-end tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER)
       .type("C")
       .wait(300)
       .type("a");
     cy.wait(1300);
     cy.realPress("Tab").realPress("Tab");
-    cy.findShadowEl(SEARCH_SELECTOR, "#retry-button").should(HAVE_FOCUS);
+    cy.findShadowEl(SEARCH_SELECTOR, RETRY_BUTTON_ID).should(HAVE_FOCUS);
     cy.realPress("Enter");
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(
       CONTAIN_TEXT,
-      "Loading time"
+      LOADING_TIME_OPTION_TEXT
     );
     cy.wait(1300);
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
@@ -926,20 +784,18 @@ describe("IcSearchBar end-to-end tests", () => {
       cy.stub().as("icRetryLoad")
     );
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER)
       .type("C")
       .wait(300)
       .type("a");
     cy.wait(1300);
     cy.realPress("Tab").realPress("Tab");
-    cy.findShadowEl(SEARCH_SELECTOR, "#retry-button").should(HAVE_FOCUS);
+    cy.findShadowEl(SEARCH_SELECTOR, RETRY_BUTTON_ID).should(HAVE_FOCUS);
     cy.realPress("Space");
     cy.get("@icRetryLoad").should(HAVE_BEEN_CALLED_ONCE);
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(
       CONTAIN_TEXT,
-      "Loading time"
+      LOADING_TIME_OPTION_TEXT
     );
     cy.wait(1300);
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
@@ -1023,12 +879,9 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
     cy.wait(500);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("La");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("La");
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "options-no-filtering",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
@@ -1044,12 +897,9 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
     cy.wait(500);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Macchiato");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Macchiato");
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "empty-option-list-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
@@ -1064,12 +914,9 @@ describe("IcSearchBar visual regression and a11y tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Lat");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Lat");
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "characters-until-suggestion-no-show",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
@@ -1081,12 +928,9 @@ describe("IcSearchBar visual regression and a11y tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Latte");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Latte");
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "characters-until-suggestion-show",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
@@ -1111,12 +955,9 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
     cy.wait(500);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("es");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("es");
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "long-option-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.078),
@@ -1132,16 +973,13 @@ describe("IcSearchBar visual regression and a11y tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(SEARCH_INPUT)
-      .type("Es");
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).type("Es");
     cy.realPress("Tab").realPress("Tab");
-    cy.findShadowEl(SEARCH_SELECTOR, "#search-submit-button").should(
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_SUBMIT_BUTTON_ID).should(
       HAVE_FOCUS
     );
 
-    //cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "search-submit-tooltip",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
@@ -1157,7 +995,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    //cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "readonly",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
@@ -1173,12 +1011,9 @@ describe("IcSearchBar visual regression and a11y tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Spelcheck");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Spelcheck");
 
-    //cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "spellcheck",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
@@ -1190,12 +1025,9 @@ describe("IcSearchBar visual regression and a11y tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Lat");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Lat");
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
@@ -1241,10 +1073,7 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(SEARCH_INPUT)
-      .focus();
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).focus();
 
     cy.compareSnapshot({
       name: "focused-high-contrast",
@@ -1258,11 +1087,7 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
     cy.wait(500);
 
-    cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
-      .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("La")
-      .wait(200);
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("La").wait(200);
 
     cy.compareSnapshot({
       name: "options-no-filtering-high-contrast",

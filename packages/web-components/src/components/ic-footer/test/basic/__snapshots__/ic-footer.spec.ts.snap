@@ -397,6 +397,26 @@ exports[`ic-footer should render with the correct small breakpoint at small devi
 </ic-footer>
 `;
 
+exports[`ic-footer should render without the compliance section when there is no logo, caption or copyright 1`] = `
+<ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" copyright="false" description="This is a footer">
+  <mock:shadow-root>
+    <footer>
+      <div class="footer-description">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-description-inner">
+            <ic-typography variant="body">
+              <slot name="description">
+                This is a footer
+              </slot>
+            </ic-typography>
+          </div>
+        </ic-section-container>
+      </div>
+    </footer>
+  </mock:shadow-root>
+</ic-footer>
+`;
+
 exports[`ic-footer should render without the copyright text when the copyright prop is false 1`] = `
 <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" copyright="false" description="This is a footer">
   <mock:shadow-root>
@@ -428,5 +448,35 @@ exports[`ic-footer should render without the copyright text when the copyright p
   <ic-typography slot="caption">
     Made by ICDS
   </ic-typography>
+</ic-footer>
+`;
+
+exports[`ic-footer should test rendering slotted after initial render 1`] = `
+<ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
+  <mock:shadow-root>
+    <footer>
+      <div class="footer-links">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-links-inner" role="list">
+            <slot name="link"></slot>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-compliance">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-compliance-inner">
+            <div class="footer-copyright">
+              <ic-typography variant="label-uppercase">
+                © Crown Copyright
+              </ic-typography>
+            </div>
+          </div>
+        </ic-section-container>
+      </div>
+    </footer>
+  </mock:shadow-root>
+  <ic-footer-link slot="link">
+    foo
+  </ic-footer-link>
 </ic-footer>
 `;

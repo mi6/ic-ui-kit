@@ -27,6 +27,7 @@ import {
   IcDataTableTruncationTypes,
   IcDensityUpdateEventDetail,
   IcSortEventDetail,
+  IcLoadingOptions,
 } from "./ic-data-table.types";
 import { IcPaginationBarOptions, IcThemeMode } from "../../utils/types";
 // Unable to import helper functions via @ukic/web-components
@@ -73,6 +74,7 @@ export class DataTable {
 
   private hasLoadedForOneSecond = true;
   private loadingIndicator: HTMLIcLoadingIndicatorElement;
+  private loadingOverlay: HTMLDivElement;
   private timerStarted: number;
   private resizeObserver: ResizeObserver = null;
   private SHOW_HIDE_STRING = "show-hide";
@@ -180,6 +182,11 @@ export class DataTable {
   @Prop() height?: string;
 
   /**
+   * If `true`, the selected row is highlighted using a background colour.
+   */
+  @Prop() highlightSelectedRow?: boolean = true;
+
+  /**
    * If `true`, column headers will not be visible.
    */
   @Prop() hideColumnHeaders?: boolean = false;
@@ -201,6 +208,7 @@ export class DataTable {
     progress?: number;
     showBackground?: boolean;
     monochrome?: boolean;
+    overlay?: boolean;
   };
 
   /**
@@ -237,6 +245,7 @@ export class DataTable {
     hideRangeLabel: false,
     hideAllFromItemsPerPage: false,
     monochrome: false,
+    setToFirstPageOnPaginationChange: false,
   };
 
   /**
@@ -321,6 +330,11 @@ export class DataTable {
   @Event() icRowHeightChange: EventEmitter<void>;
 
   /**
+   * Emitted when the selected row changes in the data table.
+   */
+  @Event() icSelectedRowChange: EventEmitter<object>;
+
+  /**
    * Emitted when a column sort button is clicked.
    */
   @Event() icSortChange: EventEmitter<IcSortEventDetail>;
@@ -340,7 +354,7 @@ export class DataTable {
     this.sortedColumnOrder = this.sortOptions.sortOrders[0];
     this.loadingOptions = {
       ...this.loadingOptions,
-      showBackground: this.data?.length > 0,
+      showBackground: this.data?.length > 0 || !!this.loadingOptions?.overlay,
     };
     this.initialLoad = true;
     this.previousItemsPerPage = this.rowsPerPage;
@@ -978,7 +992,7 @@ export class DataTable {
   async dataHandler(newData: IcDataTableDataType[]): Promise<void> {
     this.loadingOptions = {
       ...this.loadingOptions,
-      showBackground: newData?.length > 0,
+      showBackground: newData?.length > 0 || !!this.loadingOptions?.overlay,
     };
     if (this.loading) {
       !this.hasLoadedForOneSecond
@@ -1093,6 +1107,9 @@ export class DataTable {
   }
 
   private showLoadingIndicator() {
+    if (this.loadingOptions?.overlay) {
+      this.loadingOverlay?.classList.add("show");
+    }
     this.loadingIndicator?.classList.add("show");
   }
 
@@ -1436,6 +1453,12 @@ export class DataTable {
                 <span
                   class="action-element"
                   innerHTML={cellValue("actionElement")}
+                  // eslint-disable-next-line react/jsx-no-bind
+                  onClick={
+                    cell.actionOnClick
+                      ? () => this.handleClick(cell.actionOnClick)
+                      : undefined
+                  }
                 ></span>
               </div>
             ) : (
@@ -1458,7 +1481,7 @@ export class DataTable {
   };
 
   private createColumnHeaders = () =>
-    this.columns.map(
+    (this.columns || []).map(
       ({ cellAlignment, colspan, icon, key, title, columnWidth }, index) => (
         <th
           scope="col"
@@ -1550,6 +1573,10 @@ export class DataTable {
     );
 
   private onRowClick = (row: object) => {
+    if (!this.loading && !this.updating) {
+      this.icSelectedRowChange.emit(this.selectedRow !== row ? row : null);
+    }
+
     this.selectedRow =
       this.selectedRow !== row && !this.loading && !this.updating && row;
   };
@@ -1591,7 +1618,8 @@ export class DataTable {
             onClick={() => this.onRowClick(row)}
             class={{
               ["table-row"]: true,
-              ["table-row-selected"]: this.selectedRow === row,
+              ["table-row-selected"]:
+                this.highlightSelectedRow && this.selectedRow === row,
             }}
           >
             {this.createCells(row, index)}
@@ -1871,12 +1899,97 @@ export class DataTable {
       });
     });
   };
+  private handleClick = (callback: () => void) => callback();
+
+  private renderTableBody = (
+    data: IcDataTableDataType[],
+    loading: boolean,
+    overlay: boolean
+  ) => {
+    if (!data?.length) return;
+
+    if (overlay && loading) {
+      return <tbody>{this.createRows()}</tbody>;
+    } else if (loading && !overlay) {
+      return null;
+    } else {
+      return <tbody>{this.createRows()}</tbody>;
+    }
+  };
+
+  private renderLoadingIndicator = (
+    isLoading: boolean,
+    loadingOptions: IcLoadingOptions
+  ) => {
+    if (!isLoading) return null;
+
+    return (
+      <Fragment>
+        <div
+          class="loading-overlay"
+          ref={(el) => (this.loadingOverlay = el)}
+        ></div>
+        <ic-loading-indicator
+          theme={this.theme}
+          monochrome={loadingOptions?.monochrome}
+          class={{
+            "loading-empty": isLoading,
+            loading: true,
+            "show-background":
+              loadingOptions.showBackground || loadingOptions.overlay,
+          }}
+          description={loadingOptions.description || "Loading table data"}
+          label={loadingOptions.label || "Loading..."}
+          labelDuration={loadingOptions?.labelDuration}
+          max={loadingOptions?.max}
+          min={loadingOptions?.min}
+          progress={loadingOptions?.progress}
+          ref={(el: HTMLIcLoadingIndicatorElement) =>
+            (this.loadingIndicator = el)
+          }
+        ></ic-loading-indicator>
+      </Fragment>
+    );
+  };
+
+  private renderAriaLiveLoading = () => {
+    if (this.loading) {
+      return this.loadingOptions?.label || "Loading...";
+    } else if (this.updating) {
+      return this.updatingOptions?.description || "Updating table data";
+    } else {
+      return "";
+    }
+  };
+
+  private renderEmptyState = (
+    data: IcDataTableDataType[],
+    loading: boolean,
+    overlay: boolean
+  ) => {
+    const emptyStateEl = isSlotUsed(this.el, "empty-state") ? (
+      <slot name="empty-state" />
+    ) : (
+      <ic-empty-state
+        aligned="center"
+        heading="No Data"
+        class="loading-empty"
+      ></ic-empty-state>
+    );
+
+    if (loading && !data?.length && overlay) {
+      return emptyStateEl;
+    } else if (!loading && !data?.length) {
+      return emptyStateEl;
+    } else {
+      return null;
+    }
+  };
 
   render() {
     const {
       caption,
       createColumnHeaders,
-      createRows,
       createUpdatingIndicator,
       data,
       hideColumnHeaders,
@@ -1934,40 +2047,14 @@ export class DataTable {
                 ) : (
                   createUpdatingIndicator()
                 ))}
-              {data?.length > 0 && !loading && <tbody>{createRows()}</tbody>}
+              {this.renderTableBody(data, loading, loadingOptions.overlay)}
             </table>
-            {!data?.length &&
-              !loading &&
-              (isSlotUsed(this.el, "empty-state") ? (
-                <slot name="empty-state" />
-              ) : (
-                <ic-empty-state
-                  aligned="center"
-                  heading="No Data"
-                  class="loading-empty"
-                ></ic-empty-state>
-              ))}
+            {this.renderEmptyState(data, loading, loadingOptions.overlay)}
           </div>
-          {loading && (
-            <ic-loading-indicator
-              theme={theme}
-              monochrome={loadingOptions?.monochrome}
-              class={{
-                "loading-empty": loading,
-                loading: true,
-                "show-background": loadingOptions.showBackground,
-              }}
-              description={loadingOptions.description || "Loading table data"}
-              label={loadingOptions.label || "Loading..."}
-              labelDuration={loadingOptions?.labelDuration}
-              max={loadingOptions?.max}
-              min={loadingOptions?.min}
-              progress={loadingOptions?.progress}
-              ref={(el: HTMLIcLoadingIndicatorElement) =>
-                (this.loadingIndicator = el)
-              }
-            ></ic-loading-indicator>
-          )}
+          <div aria-live="assertive" class="sr-only">
+            {this.renderAriaLiveLoading()}
+          </div>
+          {this.renderLoadingIndicator(loading, loadingOptions)}
           {(showPagination || isSlotUsed(this.el, "pagination-bar")) && (
             <div class="pagination-container">
               {isSlotUsed(this.el, "pagination-bar") ? (
@@ -1990,6 +2077,9 @@ export class DataTable {
                   hideRangeLabel={paginationBarOptions.hideRangeLabel}
                   hideAllFromItemsPerPage={
                     paginationBarOptions.hideAllFromItemsPerPage
+                  }
+                  setToFirstPageOnPaginationChange={
+                    paginationBarOptions.setToFirstPageOnPaginationChange
                   }
                 ></ic-pagination-bar>
               )}

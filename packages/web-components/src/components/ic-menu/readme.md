@@ -25,6 +25,13 @@
 | `valueField`              | `value-field`     | The custom name for the value field for IcMenuOption.                                                                                           | `string`                         | `"value"`      |
 
 
+## Events
+
+| Event     | Description                                   | Type                |
+| --------- | --------------------------------------------- | ------------------- |
+| `icClear` | Emitted when the clear all button is clicked. | `CustomEvent<void>` |
+
+
 ## Methods
 
 ### `handleKeyboardOpen(event: KeyboardEvent) => Promise<void>`

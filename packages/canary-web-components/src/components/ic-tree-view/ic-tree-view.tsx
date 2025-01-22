@@ -7,13 +7,12 @@ import {
   Watch,
   State,
   Listen,
-  forceUpdate,
 } from "@stencil/core";
 import { IcSizes, IcThemeMode } from "../../utils/types";
 import {
   isPropDefined,
   isSlotUsed,
-  checkSlotInChildMutations,
+  renderDynamicChildSlots,
 } from "../../utils/helpers";
 
 let treeViewIds = 0;
@@ -113,7 +112,9 @@ export class TreeView {
 
     this.addSlotChangeListener();
 
-    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver = new MutationObserver((mutationList) =>
+      renderDynamicChildSlots(mutationList, "icon", this)
+    );
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
@@ -278,18 +279,6 @@ export class TreeView {
         headingContainer.appendChild(tooltipEl);
         tooltipEl.appendChild(typographyEl);
       }
-    }
-  };
-
-  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
-    if (
-      mutationList.some(({ type, addedNodes, removedNodes }) =>
-        type === "childList"
-          ? checkSlotInChildMutations(addedNodes, removedNodes, "icon")
-          : false
-      )
-    ) {
-      forceUpdate(this);
     }
   };
 

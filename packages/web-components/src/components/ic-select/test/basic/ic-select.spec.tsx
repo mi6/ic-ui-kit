@@ -1300,6 +1300,45 @@ describe("ic-select searchable", () => {
     expect(eventSpy).not.toHaveBeenCalled();
   });
 
+  it("should clear the input text on blur when an option is not selected", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    page.rootInstance.searchableSelectInputValue = "aaa";
+    page.rootInstance.value = null;
+    await page.waitForChanges();
+
+    const event = new FocusEvent("blur");
+
+    await page.rootInstance.onBlur(event);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe(null);
+  });
+
+  it("should not clear the input text on blur when an option is selected", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+
+    const event = new FocusEvent("blur");
+
+    page.rootInstance.searchableSelectInputValue = label1;
+    page.rootInstance.value = value1;
+    await page.waitForChanges();
+
+    await page.rootInstance.onBlur(event);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe(label1);
+  });
+
   it("should test searchable input", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
@@ -1734,6 +1773,24 @@ describe("ic-select searchable", () => {
     expect(input.value).toBe(value1);
   });
 
+  it("should set the default value of searchable only when value is not null", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    page.root.value = null;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe(null);
+
+    page.root.value = value1;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe(label1);
+  });
+
   it("should test loading state and timeout for searchable select with external filtering", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
@@ -1898,6 +1955,39 @@ describe("ic-select searchable", () => {
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
+  });
+
+  it("should emit icChange when input is edited after selection", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    page.root.value = null;
+    await page.waitForChanges();
+
+    const eventSpy = jest.fn();
+    page.win.addEventListener("icChange", eventSpy);
+
+    const event = { target: { value: value1 } };
+    await page.rootInstance.handleSearchableSelectInput(event);
+    await page.waitForChanges();
+
+    expect(eventSpy).not.toHaveBeenCalled();
+
+    page.root.value = value1;
+
+    await page.rootInstance.handleSearchableSelectInput(event);
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: expect.objectContaining({
+          value: null,
+        }),
+      })
+    );
   });
 });
 

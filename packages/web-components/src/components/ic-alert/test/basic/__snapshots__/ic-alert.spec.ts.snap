@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-alert component should test rendering an action after initial render 1`] = `
+<ic-alert class="dark" heading="Test heading" role="alert">
+  <mock:shadow-root>
+    <div class="container container-neutral">
+      <div class="alert-icon-container">
+        <div class="divider divider-neutral"></div>
+        <span class="alert-icon icon-neutral svg-container">
+          svg
+        </span>
+      </div>
+      <div class="alert-content">
+        <div class="alert-message">
+          <ic-typography class="alert-title" variant="subtitle-large">
+            <p>
+              Test heading
+            </p>
+          </ic-typography>
+          <slot name="message">
+            <ic-typography variant="body"></ic-typography>
+          </slot>
+        </div>
+        <div class="alert-action-container">
+          <slot name="action"></slot>
+        </div>
+      </div>
+      <div class="dismiss-icon-container"></div>
+    </div>
+  </mock:shadow-root>
+  <button slot="action"></button>
+</ic-alert>
+`;

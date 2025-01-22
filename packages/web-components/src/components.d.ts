@@ -1666,7 +1666,7 @@ export namespace Components {
     }
     interface IcSelect {
         /**
-          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+          * The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.
          */
         "debounce"?: number;
         /**
@@ -2817,6 +2817,7 @@ declare global {
         new (): HTMLIcLoadingIndicatorElement;
     };
     interface HTMLIcMenuElementEventMap {
+        "icClear": void;
         "menuKeyPress": { isNavKey: boolean; key: string };
         "menuOptionId": IcMenuOptionIdEventDetail;
         "menuOptionSelect": IcOptionSelectEventDetail;
@@ -3019,6 +3020,7 @@ declare global {
         "icSubmitSearchBlur": IcBlurEventDetail;
         "icSearchBarBlur": IcSearchBarBlurEventDetail;
         "icSearchBarFocus": IcValueEventDetail;
+        "icKeydown": { event: KeyboardEvent };
     }
     interface HTMLIcSearchBarElement extends Components.IcSearchBar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcSearchBarElementEventMap>(type: K, listener: (this: HTMLIcSearchBarElement, ev: IcSearchBarCustomEvent<HTMLIcSearchBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4415,6 +4417,10 @@ declare namespace LocalJSX {
           * The ID of the menu.
          */
         "menuId": string;
+        /**
+          * Emitted when the clear all button is clicked.
+         */
+        "onIcClear"?: (event: IcMenuCustomEvent<void>) => void;
         "onMenuKeyPress"?: (event: IcMenuCustomEvent<{ isNavKey: boolean; key: string }>) => void;
         "onMenuOptionId"?: (event: IcMenuCustomEvent<IcMenuOptionIdEventDetail>) => void;
         "onMenuOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
@@ -4964,6 +4970,10 @@ declare namespace LocalJSX {
          */
         "onIcInput"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         /**
+          * Emitted when a keydown event occurred.
+         */
+        "onIcKeydown"?: (event: IcSearchBarCustomEvent<{ event: KeyboardEvent }>) => void;
+        /**
           * Emitted when the state of the menu changes (i.e. open or close)
          */
         "onIcMenuChange"?: (event: IcSearchBarCustomEvent<IcMenuChangeEventDetail>) => void;
@@ -5045,7 +5055,7 @@ declare namespace LocalJSX {
     }
     interface IcSelect {
         /**
-          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+          * The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.
          */
         "debounce"?: number;
         /**
@@ -5117,7 +5127,7 @@ declare namespace LocalJSX {
          */
         "onIcChange"?: (event: IcSelectCustomEvent<IcValueEventDetail>) => void;
         /**
-          * Emitted when the clear button is clicked.
+          * Emitted when the clear or clear all button is clicked.
          */
         "onIcClear"?: (event: IcSelectCustomEvent<void>) => void;
         /**

@@ -458,3 +458,9 @@ export const DarkThemeValidation = (): ReactElement => (
     />
   </div>
 );
+
+export const HiddenInput = (): ReactElement => (
+  <div style={style}>
+    <IcTextField label="my label" />
+  </div>
+);

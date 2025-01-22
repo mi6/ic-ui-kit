@@ -21,7 +21,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {html`<ic-tab-context>
       <ic-tab-group label="Example tab group">
         <ic-tab>One</ic-tab>
@@ -38,7 +38,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### With icons
 
 <Canvas>
-  <Story name="With icons" parameters={{ loki: { skip: true } }}>
+  <Story name="With icons">
     {html` <ic-tab-context>
       <ic-tab-group label="Example tab group">
         <ic-tab
@@ -95,7 +95,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {html` <ic-tab-context>
       <ic-tab-group label="Example tab group">
         <ic-tab>One</ic-tab>
@@ -112,7 +112,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Inline
 
 <Canvas>
-  <Story name="Inline" parameters={{ loki: { skip: true } }}>
+  <Story name="Inline">
     {html` <ic-tab-context>
       <ic-tab-group label="Example tab group" inline>
         <ic-tab>One</ic-tab>
@@ -129,7 +129,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Manual activation
 
 <Canvas>
-  <Story name="Manual activation" parameters={{ loki: { skip: true } }}>
+  <Story name="Manual activation">
     {html` <ic-tab-context activation-type="manual">
       <ic-tab-group label="Example tab group">
         <ic-tab>One</ic-tab>
@@ -146,7 +146,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Responsive
 
 <Canvas>
-  <Story name="Responsive" parameters={{ loki: { skip: true } }}>
+  <Story name="Responsive">
     {html`
       <ic-tab-context>
         <ic-tab-group label="Example tab group">
@@ -183,7 +183,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Nested Tabs
 
 <Canvas>
-  <Story name="Nested tabs" parameters={{ loki: { skip: true } }}>
+  <Story name="Nested tabs">
     {html`<ic-tab-context id="main">
         <ic-tab-group label="Example tab group">
           <ic-tab>Outer One</ic-tab>
@@ -217,7 +217,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### icTabSelect event
 
 <Canvas>
-  <Story name="icTabSelect event" parameters={{ loki: { skip: true } }}>
+  <Story name="icTabSelect event">
     {(args) =>
       html`<ic-tab-context>
           <ic-tab-group label="Example tab group">
@@ -244,7 +244,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Min and max content
 
 <Canvas>
-  <Story name="Min and max content" parameters={{ loki: { skip: true } }}>
+  <Story name="Min and max content">
     {html`<div style="max-width:500px">
       <ic-tab-context>
         <ic-tab-group label="Example tab group">
@@ -279,7 +279,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       activationType: {
         options: ["automatic", "manual"],

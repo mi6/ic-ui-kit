@@ -16,12 +16,12 @@ To install the components:
 In the root of your project:
 
 ```shell
-// using npm
-npm install @ukic/react @ukic/fonts
+# using npm
+npm install @ukic/react@next @ukic/fonts@next @ukic/web-components@next
 
-// using yarn
+# using yarn
 rm package-lock.json
-yarn add @ukic/react @ukic/fonts
+yarn add @ukic/react@next @ukic/fonts@next @ukic/web-components@next
 ```
 
 ### Step two
@@ -43,7 +43,7 @@ Add the following into the top level CSS file for your project.
 @import "@ukic/react/dist/core/core.css";
 ```
 
-In order to be rendered consistently across browsers and in line with modern standards, each of the ICDS components uses styles from a global CSS file based on [Normalize.css](https://necolas.github.io/normalize.css/). 
+In order to be rendered consistently across browsers and in line with modern standards, each of the ICDS components uses styles from a global CSS file based on [Normalize.css](https://necolas.github.io/normalize.css/).
 
 If you would like to import these styles to apply them to the rest of your project and slotted elements used within any of the ICDS components, add the following into the top level CSS file as well.
 
@@ -68,7 +68,7 @@ We have a couple of resources to help you with contributing.
 
 ## Changelog
 
-For a comprehensive changelog of the React components, please read the web components [CHANGELOG](https://github.com/mi6/ic-ui-kit/blob/main/CHANGELOG.md). The released updates made to the web components are reflected on the React components. 
+For a comprehensive changelog of the React components, please read the web components [CHANGELOG](https://github.com/mi6/ic-ui-kit/blob/main/CHANGELOG.md). The released updates made to the web components are reflected on the React components.
 
 ## Security
 

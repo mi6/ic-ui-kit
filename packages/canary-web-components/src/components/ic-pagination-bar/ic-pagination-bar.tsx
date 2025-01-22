@@ -78,6 +78,7 @@ export class PaginationBar {
    * The current page number to be displayed on the pagination bar.
    */
   @Prop() currentPage?: number = 1;
+
   @Watch("currentPage")
   watchPageNumberHandler(): void {
     this.activePage = this.currentPage;
@@ -175,6 +176,16 @@ export class PaginationBar {
 
   @Watch("totalItems")
   watchTotalItemsHandler(): void {
+    this.setPaginationBarContent();
+  }
+
+  /**
+   If `true`, the pagination bar is set to the first page when the 'items per page' changes
+   */
+  @Prop() setToFirstPageOnPaginationChange?: boolean = false;
+
+  @Watch("setToFirstPageOnPaginationChange")
+  watchSetToFirstPageOnPaginationChange(): void {
     this.setPaginationBarContent();
   }
 
@@ -344,11 +355,23 @@ export class PaginationBar {
     if (focus) el.setFocus();
   };
 
+  private setToFirstPage = () => {
+    const firstPage = 1;
+    this.changePage(firstPage);
+    this.paginationEl?.setCurrentPage(firstPage);
+    this.activePage = firstPage;
+    this.icPageChange.emit({ value: firstPage });
+  };
+
   private setItemsPerPage = (newValue: number) => {
     if (this.itemsPerPage !== newValue) {
       this.itemsPerPage = newValue;
       this.itemsPerPageString = newValue.toString();
       this.icItemsPerPageChange.emit({ value: this.itemsPerPage });
+
+      if (this.setToFirstPageOnPaginationChange) {
+        this.setToFirstPage();
+      }
     }
 
     this.totalPages =

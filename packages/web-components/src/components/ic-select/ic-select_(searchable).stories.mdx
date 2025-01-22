@@ -35,7 +35,7 @@ export const defaultArgs = {
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {(args) =>
       html`<ic-select
           id="select-default"
@@ -76,7 +76,7 @@ export const defaultArgs = {
 ### Async default
 
 <Canvas>
-  <Story name="Async default" parameters={{ loki: { skip: true } }}>
+  <Story name="Async default">
     {(args) =>
       html`<ic-select
           id="select-async"
@@ -109,7 +109,7 @@ export const defaultArgs = {
 ### Default value
 
 <Canvas>
-  <Story name="Default value" parameters={{ loki: { skip: true } }}>
+  <Story name="Default value">
     {(args) =>
       html`<ic-select
           id="select-default-value"
@@ -139,10 +139,7 @@ export const defaultArgs = {
 ### Filter by start of options
 
 <Canvas>
-  <Story
-    name="Filter by start of options"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Filter by start of options">
     {(args) =>
       html`<ic-select
           id="select-filter-start"
@@ -172,7 +169,7 @@ export const defaultArgs = {
 ### With descriptions
 
 <Canvas>
-  <Story name="With descriptions" parameters={{ loki: { skip: true } }}>
+  <Story name="With descriptions">
     {(args) =>
       html`<ic-select
           id="select-descriptions"
@@ -230,10 +227,7 @@ export const defaultArgs = {
 ### With descriptions (included in search)
 
 <Canvas>
-  <Story
-    name="With descriptions (included in search)"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="With descriptions (included in search)">
     {(args) =>
       html`<ic-select
           id="select-descriptions-included"
@@ -292,7 +286,7 @@ export const defaultArgs = {
 ### Helper text
 
 <Canvas>
-  <Story name="Helper text" parameters={{ loki: { skip: true } }}>
+  <Story name="Helper text">
     {(args) =>
       html`<ic-select
           id="select-helper"
@@ -322,7 +316,7 @@ export const defaultArgs = {
 ### Sizes
 
 <Canvas>
-  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+  <Story name="Sizes">
     {(args) =>
       html`<div style="display: flex; flex-direction: column; gap: 16px;">
         <ic-select
@@ -395,7 +389,7 @@ export const defaultArgs = {
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled">
     {(args) =>
       html`<ic-select
           id="select-disabled"
@@ -425,7 +419,7 @@ export const defaultArgs = {
 ### Disabled options
 
 <Canvas>
-  <Story name="Disabled options" parameters={{ loki: { skip: true } }}>
+  <Story name="Disabled options">
     {(args) =>
       html`<ic-select
           id="select-disabled-options"
@@ -454,7 +448,7 @@ export const defaultArgs = {
 ### Hidden label
 
 <Canvas>
-  <Story name="Hidden label" parameters={{ loki: { skip: true } }}>
+  <Story name="Hidden label">
     {(args) =>
       html`<ic-select
           id="select-hidden-label"
@@ -484,7 +478,7 @@ export const defaultArgs = {
 ### Required
 
 <Canvas>
-  <Story name="Required" parameters={{ loki: { skip: true } }}>
+  <Story name="Required">
     {(args) =>
       html`<ic-select
           id="select-required"
@@ -514,7 +508,7 @@ export const defaultArgs = {
 ### Groups
 
 <Canvas>
-  <Story name="Groups" parameters={{ loki: { skip: true } }}>
+  <Story name="Groups">
     {(args) =>
       html`<ic-select
           id="select-groups"
@@ -550,10 +544,7 @@ export const defaultArgs = {
 ### Groups (group titles included in search)
 
 <Canvas>
-  <Story
-    name="Groups (group titles included in search)"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Groups (group titles included in search)">
     {(args) =>
       html`<ic-select
           id="select-groups-included"
@@ -590,7 +581,7 @@ export const defaultArgs = {
 ### Recommended
 
 <Canvas>
-  <Story name="Recommended" parameters={{ loki: { skip: true } }}>
+  <Story name="Recommended">
     {(args) =>
       html`<ic-select
           id="select-recommended"
@@ -619,7 +610,7 @@ export const defaultArgs = {
 ### Validation
 
 <Canvas>
-  <Story name="Validation" parameters={{ loki: { skip: true } }}>
+  <Story name="Validation">
     {(args) =>
       html`<ic-select
           id="select-success"
@@ -697,7 +688,7 @@ export const defaultArgs = {
 ### Scroll behaviour
 
 <Canvas>
-  <Story name="Scroll behaviour" parameters={{ loki: { skip: true } }}>
+  <Story name="Scroll behaviour">
     {(args) =>
       html`<ic-select
           id="select-scroll"
@@ -730,7 +721,7 @@ export const defaultArgs = {
 ### External filtering
 
 <Canvas>
-  <Story name="External filtering" parameters={{ loki: { skip: true } }}>
+  <Story name="External filtering">
     {(args) =>
       html`<ic-select
           label="What is your favourite coffee?"
@@ -775,7 +766,7 @@ export const defaultArgs = {
                   return new Promise((resolve) =>
                     setTimeout(
                       () => resolve(filteredResults),
-                      event.type === "icChange" ? 2000 : 900
+                      event.type === "icInput" ? 2000 : 900
                     )
                   );
                 };
@@ -793,7 +784,7 @@ export const defaultArgs = {
           select.addEventListener("icOptionSelect", function (event) {
             selectedValue = event.detail.value;
           });
-          select.addEventListener("icChange", handleFilter);
+          select.addEventListener("icInput", handleFilter);
           select.addEventListener("icRetryLoad", handleFilter);
         </script>`
     }
@@ -805,7 +796,7 @@ export const defaultArgs = {
 This shows how the searchable select works within a form. The value will appear in the console on submit.
 
 <Canvas>
-  <Story name="In form" parameters={{ loki: { skip: true } }}>
+  <Story name="In form">
     {(args) =>
       html`
         <form>
@@ -842,10 +833,7 @@ This shows how the searchable select works within a form. The value will appear 
 ### Update input value from external request
 
 <Canvas>
-  <Story
-    name="Update input value from external request"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Update input value from external request">
     {(args) =>
       html`<ic-section-container>
           <ic-select
@@ -886,10 +874,7 @@ This shows how the searchable select works within a form. The value will appear 
 ### Emitting icOptionSelect on enter
 
 <Canvas>
-  <Story
-    name="Emitting icOptionSelect on enter"
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Emitting icOptionSelect on enter">
     {(args) =>
       html`<ic-select
           id="select-icoptionselect"
@@ -917,7 +902,6 @@ This shows how the searchable select works within a form. The value will appear 
 <Canvas>
   <Story
     name="Playground"
-    parameters={{ loki: { skip: true } }}
     args={defaultArgs}
     argTypes={{
       ["search-match-position"]: {

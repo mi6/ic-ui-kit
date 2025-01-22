@@ -10,7 +10,7 @@ import BreadcrumbReadme from "../ic-breadcrumb/readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ loki: { skip: true } }}>
+  <Story name="Default">
     {html`
       <ic-breadcrumb-group>
         <ic-breadcrumb
@@ -58,7 +58,7 @@ import BreadcrumbReadme from "../ic-breadcrumb/readme.md";
 ### Slotted links
 
 <Canvas>
-  <Story name="Slotted links" parameters={{ loki: { skip: true } }}>
+  <Story name="Slotted links">
     {html`
       <ic-breadcrumb-group>
         <ic-breadcrumb page-title="breadcrumb-1">
@@ -110,7 +110,7 @@ import BreadcrumbReadme from "../ic-breadcrumb/readme.md";
 ### Back
 
 <Canvas>
-  <Story name="Back" parameters={{ loki: { skip: true } }}>
+  <Story name="Back">
     {html`
       <ic-breadcrumb-group back-breadcrumb-only="true">
         <ic-breadcrumb
@@ -151,7 +151,7 @@ import BreadcrumbReadme from "../ic-breadcrumb/readme.md";
 ### Icon
 
 <Canvas>
-  <Story name="Icon" parameters={{ loki: { skip: true } }}>
+  <Story name="Icon">
     {html`
       <ic-breadcrumb-group>
         <ic-breadcrumb
@@ -245,7 +245,7 @@ import BreadcrumbReadme from "../ic-breadcrumb/readme.md";
 ### Collapsed
 
 <Canvas>
-  <Story name="Collapsed" parameters={{ loki: { skip: true } }}>
+  <Story name="Collapsed">
     {html`
       <ic-breadcrumb-group collapsed="true">
         <ic-breadcrumb
@@ -286,7 +286,7 @@ import BreadcrumbReadme from "../ic-breadcrumb/readme.md";
 ### Slotted links collapsed
 
 <Canvas>
-  <Story name="Slotted links collapsed" parameters={{ loki: { skip: true } }}>
+  <Story name="Slotted links collapsed">
     {html`
       <ic-breadcrumb-group collapsed="true">
         <ic-breadcrumb page-title="breadcrumb 1">
@@ -331,7 +331,6 @@ export const defaultArgs = {
 <Canvas>
   <Story
     args={defaultArgs}
-    parameters={{ loki: { skip: true } }}
     argTypes={{
       iconSlot: {
         mapping: {

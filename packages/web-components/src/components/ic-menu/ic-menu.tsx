@@ -41,6 +41,7 @@ import { IcSearchBarSearchModes } from "../ic-search-bar/ic-search-bar.types";
 export class Menu {
   private ACTIVE_DESCENDANT = "aria-activedescendant";
   private CLEAR_BUTTON_ID = "clear-button";
+  private SEARCH_BAR_TAG = "IC-SEARCH-BAR";
   private disabledOptionSelected: boolean = false;
   private hasPreviouslyBlurred: boolean = false;
   private hasTimedOut: boolean = false;
@@ -170,6 +171,11 @@ export class Menu {
   @Prop() valueField: string = "value";
 
   /**
+   * Emitted when the clear all button is clicked.
+   */
+  @Event() icClear: EventEmitter<void>;
+
+  /**
    * @internal Emitted when key is pressed while menu is open.
    */
   @Event() menuKeyPress: EventEmitter<{ isNavKey: boolean; key: string }>;
@@ -286,10 +292,7 @@ export class Menu {
           this.menu.setAttribute(this.ACTIVE_DESCENDANT, highlightedEl.id);
           highlightedEl.focus();
         }
-      } else if (
-        this.inputEl.tagName !== "IC-TEXT-FIELD" &&
-        this.inputEl.tagName !== "INPUT"
-      ) {
+      } else if (this.inputEl.tagName !== "INPUT") {
         this.menu.focus();
       }
     }
@@ -442,7 +445,7 @@ export class Menu {
   };
 
   private getParentEl = (parent: HTMLElement) => {
-    if (parent.tagName === "IC-SEARCH-BAR") {
+    if (parent.tagName === this.SEARCH_BAR_TAG) {
       this.isSearchBar = true;
     } else if (parent.tagName === "IC-SELECT") {
       if (
@@ -765,7 +768,7 @@ export class Menu {
             (isMacDevice() && event.metaKey) ||
             (!isMacDevice() && event.ctrlKey)
           ) {
-            this.emitSelectAll();
+            this.emitSelectAllEvents();
             this.lastOptionFocused = null;
             this.lastOptionSelected = null;
           }
@@ -908,7 +911,7 @@ export class Menu {
   private handleSelectAllClick = () => {
     this.keyboardNav = false;
     this.menu.focus();
-    this.emitSelectAll();
+    this.emitSelectAllEvents();
     this.lastOptionFocused = null;
     this.lastOptionSelected = null;
   };
@@ -1022,13 +1025,17 @@ export class Menu {
       : null;
   };
 
-  private emitSelectAll = () => {
+  private emitSelectAllEvents = () => {
     // Select all if there is either no value or not all options are selected
     // 'true' means select all, 'false' means clear all
     this.menuOptionSelectAll.emit({
       select:
         !this.value || !(this.value?.length === this.ungroupedOptions.length),
     });
+    // Emit clear event if all options are selected
+    if (this.value?.length === this.ungroupedOptions.length) {
+      this.icClear.emit();
+    }
   };
 
   private emitMenuKeyPress = (isNavKey: boolean, key: string) => {
@@ -1229,7 +1236,7 @@ export class Menu {
       !!option[this.valueField] &&
       !!this.value &&
       selected &&
-      this.parentEl.tagName !== "IC-SEARCH-BAR";
+      this.parentEl.tagName !== this.SEARCH_BAR_TAG;
 
     return (
       <Fragment>
@@ -1377,6 +1384,8 @@ export class Menu {
       open,
       inputEl,
       keyboardNav,
+      parentEl,
+      SEARCH_BAR_TAG,
     } = this;
 
     const selectAllButtonText = `${
@@ -1390,7 +1399,10 @@ export class Menu {
         class={{
           "ic-menu-full-width": fullWidth,
           "ic-menu-no-focus":
-            inputEl?.tagName === "INPUT" || hasTimedOut || isLoading,
+            (inputEl?.tagName === "INPUT" &&
+              parentEl?.tagName !== SEARCH_BAR_TAG) ||
+            hasTimedOut ||
+            isLoading,
           [`ic-menu-${size}`]: true,
           "ic-menu-open": open && options.length !== 0,
           "ic-menu-multiple": this.isMultiSelect,
@@ -1404,7 +1416,12 @@ export class Menu {
             aria-label={`${inputLabel} pop-up`}
             aria-multiselectable={this.isMultiSelect ? "true" : "false"}
             tabindex={
-              open && !keyboardNav && inputEl?.tagName !== "INPUT" ? "0" : "-1"
+              open &&
+              !keyboardNav &&
+              (inputEl?.tagName !== "INPUT" ||
+                parentEl?.tagName === SEARCH_BAR_TAG)
+                ? "0"
+                : "-1"
             }
             ref={(el) => (this.menu = el)}
             onKeyDown={this.handleMenuKeyDown}
