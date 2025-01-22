@@ -3020,6 +3020,7 @@ declare global {
         "icSubmitSearchBlur": IcBlurEventDetail;
         "icSearchBarBlur": IcSearchBarBlurEventDetail;
         "icSearchBarFocus": IcValueEventDetail;
+        "icKeydown": { event: KeyboardEvent };
     }
     interface HTMLIcSearchBarElement extends Components.IcSearchBar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcSearchBarElementEventMap>(type: K, listener: (this: HTMLIcSearchBarElement, ev: IcSearchBarCustomEvent<HTMLIcSearchBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4968,6 +4969,10 @@ declare namespace LocalJSX {
           * Emitted when a keyboard input occurred.
          */
         "onIcInput"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when a keydown event occurred.
+         */
+        "onIcKeydown"?: (event: IcSearchBarCustomEvent<{ event: KeyboardEvent }>) => void;
         /**
           * Emitted when the state of the menu changes (i.e. open or close)
          */

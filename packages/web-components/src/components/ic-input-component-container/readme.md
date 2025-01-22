@@ -48,12 +48,14 @@
 
 ### Used by
 
+ - [ic-search-bar](../ic-search-bar)
  - [ic-select](../ic-select)
  - [ic-text-field](../ic-text-field)
 
 ### Graph
 ```mermaid
 graph TD;
+  ic-search-bar --> ic-input-component-container
   ic-select --> ic-input-component-container
   ic-text-field --> ic-input-component-container
   style ic-input-component-container fill:#f9f,stroke:#333,stroke-width:4px

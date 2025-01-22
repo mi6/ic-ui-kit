@@ -5,19 +5,22 @@
  */
 
 :host(.ic-search-bar-search) {
+  display: block;
+
   --divider-height: 1.5rem;
   --ic-input-label-helpertext-padding: var(--ic-space-xxs);
   --border-color: var(--ic-search-bar-outline);
   --input-bg-color: var(--ic-search-bar-background);
   --border-color-disabled: var(--ic-search-bar-outline-disabled);
-  --text-field-placeholder-color: var(--ic-search-bar-placeholder-text);
-  --text-field-disabled-text-color: var(--ic-search-bar-disabled-text);
-  --text-field-text-color: var(--ic-search-bar-filled-text);
   --menu-item-text-color: var(--ic-search-bar-dropdown-option-text);
   --menu-item-desc-text-color: var(--ic-search-bar-dropdown-option-description);
   --menu-bg-color: var(--ic-search-bar-dropdown-background);
   --menu-border-color: var(--ic-search-bar-dropdown-outline);
-  --text-field-typing-cursor: var(--ic-search-bar-filled-text-cursor);
+}
+
+:host(.ic-search-bar-disabled) {
+  --ic-input-label-text-color: var(--ic-search-bar-label-disabled);
+  --ic-input-label-helper-text-color: var(--ic-search-bar-subtitle-disabled);
 }
 
 :host(.ic-search-bar-search:hover) {
@@ -46,6 +49,60 @@
 
 :host(.ic-search-bar-search) .ic-button-disabled svg {
   color: var(--ic-architectural-400);
+}
+
+/* Custom Input */
+
+::placeholder {
+  color: var(--ic-search-bar-placeholder-text);
+  opacity: 1;
+}
+
+input {
+  border: 0;
+  border-radius: var(--ic-border-radius);
+  color: var(--ic-search-bar-filled-text);
+  background-color: var(--input-bg-color);
+  line-height: 1.5rem;
+  letter-spacing: 0.005rem;
+  width: 100%;
+  padding-right: var(--ic-space-xs);
+  padding-left: var(--ic-space-xs);
+  caret-color: var(--ic-search-bar-filled-text-cursor);
+}
+
+input:focus {
+  border: 0;
+  outline: 0;
+}
+
+input:disabled {
+  color: var(--ic-search-bar-disabled-text);
+}
+
+/* Chrome, Safari, Edge */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-left-pad {
+  padding-left: 0;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+input[type="search"].truncate-value {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* CLEAR */
