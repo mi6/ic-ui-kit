@@ -1,37 +1,9 @@
 {
-  "total": 747,
-  "totalPassed": 746,
-  "totalFailed": 1,
-  "totalSuites": 42,
+  "total": 745,
+  "totalPassed": 745,
+  "totalFailed": 0,
+  "totalSuites": 41,
   "suites": [
-    {
-      "name": "AgGridWrapper.cy.tsx",
-      "path": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
-      "tests": [
-        {
-          "status": "pass",
-          "name": "AgGridWrapper.cy.tsx-ag-grid-light",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
-          "specFilename": "AgGridWrapper.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/AgGridWrapper.cy.tsx-ag-grid-light.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/AgGridWrapper.cy.tsx-ag-grid-light.png"
-        },
-        {
-          "status": "pass",
-          "name": "AgGridWrapper.cy.tsx-ag-grid-dark",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
-          "specFilename": "AgGridWrapper.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/AgGridWrapper.cy.tsx-ag-grid-dark.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/AgGridWrapper.cy.tsx-ag-grid-dark.png"
-        }
-      ]
-    },
     {
       "name": "IcAccordion.cy.tsx",
       "path": "src/component-tests/IcAccordion/IcAccordion.cy.tsx",
@@ -4949,14 +4921,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-spellcheck.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx-theme-dark",
-          "percentage": 0.274612454196819,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-theme-dark.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-theme-dark.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-theme-dark.png"
         },
         {
@@ -8474,9 +8446,9 @@
       ]
     }
   ],
-  "startedAt": "2025-01-22T13:11:36.877Z",
-  "endedAt": "2025-01-22T13:26:26.034Z",
-  "duration": 794097,
+  "startedAt": "2025-01-22T15:26:54.723Z",
+  "endedAt": "2025-01-22T15:42:34.871Z",
+  "duration": 845484,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
