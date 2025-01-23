@@ -1586,22 +1586,33 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
+      cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(4).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
+        .last()
+        .find(`${LAST_CELL_SELECTOR} ic-tooltip`)
+        .should(HAVE_LENGTH, 1);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
+        .eq(4)
+        .click()
+        .click();
       cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(2).click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .last()
         .find(`${LAST_CELL_SELECTOR} ic-tooltip`)
+        .should(HAVE_LENGTH, 1)
         .should(HAVE_ATTR, "label", LONG_DATA_VALUES[2].jobTitle);
 
-      // TODO: ADD BACK WHEN ERROR AROUND ADDING NEW TOOLTIP ELEMENTS IS FIXED
-      // cy.compareSnapshot({
-      //   name: "tooltip-truncation-sort",
-      //   testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
+      cy.compareSnapshot({
+        name: "tooltip-truncation-sort",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
 
-      //   cypressScreenshotOptions: {
-      //     capture: "viewport",
-      //   },
-      // });
+        cypressScreenshotOptions: {
+          capture: "viewport",
+        },
+      });
     });
 
     it("it should display all data on multiple lines when large global row height is set with tooltips removed", () => {
