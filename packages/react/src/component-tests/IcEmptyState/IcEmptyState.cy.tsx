@@ -37,7 +37,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "basic-desktop",
+      name: "/basic-desktop",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
@@ -50,7 +50,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "title",
+      name: "/title",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -70,7 +70,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "body",
+      name: "/body",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -83,7 +83,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-image",
+      name: "/slotted-image",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -96,7 +96,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "button",
+      name: "/button",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
@@ -109,7 +109,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "right-aligned",
+      name: "/right-aligned",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -122,7 +122,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "center-aligned",
+      name: "/center-aligned",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -135,7 +135,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "small-image",
+      name: "/small-image",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -148,7 +148,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "large-image",
+      name: "/large-image",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -165,7 +165,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "truncated-text",
+      name: "/truncated-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.052),
     });
   });
@@ -185,7 +185,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "truncated-text-after-click",
+      name: "/truncated-text-after-click",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.083),
     });
   });
@@ -197,7 +197,7 @@ describe("IcEmptyState end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-content",
+      name: "/slotted-content",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
@@ -226,7 +226,7 @@ describe("IcEmptyState visual regression tests in high contrast mode", () => {
     cy.checkHydrated(EMPTY_STATE);
 
     cy.compareSnapshot({
-      name: "basic-desktop-high-contrast",
+      name: "/basic-desktop-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -237,7 +237,7 @@ describe("IcEmptyState visual regression tests in high contrast mode", () => {
     cy.checkHydrated(EMPTY_STATE);
 
     cy.compareSnapshot({
-      name: "truncated-text-high-contrast",
+      name: "/truncated-text-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
     });
   });

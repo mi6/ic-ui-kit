@@ -59,7 +59,7 @@ describe("IcDivider visual and a11y testing", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "horizontal-weights",
+      name: "/horizontal-weights",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
     });
   });
@@ -109,7 +109,7 @@ describe("IcDivider visual and a11y testing", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "vertical-weights",
+      name: "/vertical-weights",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
     });
   });
@@ -178,7 +178,7 @@ describe("IcDivider visual and a11y testing", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "theme",
+      name: "/theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -215,7 +215,7 @@ describe("IcDivider visual and a11y testing", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "border-styles",
+      name: "/border-styles",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -307,7 +307,7 @@ describe("IcDivider visual and a11y testing", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "labels-and-label-placement",
+      name: "/labels-and-label-placement",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.111),
     });
   });
