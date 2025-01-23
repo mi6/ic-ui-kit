@@ -127,13 +127,7 @@ export const CustomMessage = (): ReactElement => {
 export const WithAction = (): ReactElement => {
   return (
     <IcAlert heading="With action" message="This alert has an action.">
-      <IcButton
-        type="button"
-        slot="action"
-        variant="secondary"
-        theme="dark"
-        monochrome
-      >
+      <IcButton type="button" slot="action" variant="secondary" monochrome>
         Button
       </IcButton>
     </IcAlert>
