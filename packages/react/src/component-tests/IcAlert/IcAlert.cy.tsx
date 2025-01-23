@@ -180,7 +180,7 @@ describe("IcAlert visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "variants",
+      name: "/variants",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.054),
     });
   });
@@ -193,7 +193,7 @@ describe("IcAlert visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dismissible",
+      name: "/dismissible",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
@@ -206,7 +206,7 @@ describe("IcAlert visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "responsive",
+      name: "/responsive",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
@@ -219,7 +219,7 @@ describe("IcAlert visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "title-above-set",
+      name: "/title-above-set",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -232,7 +232,7 @@ describe("IcAlert visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "custom-message",
+      name: "/custom-message",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -245,7 +245,7 @@ describe("IcAlert visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-action",
+      name: "/with-action",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
@@ -258,7 +258,7 @@ describe("IcAlert visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "message-only",
+      name: "/message-only",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
@@ -272,7 +272,7 @@ describe("IcAlert visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "no-icon",
+      name: "/no-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -285,7 +285,7 @@ describe("IcAlert visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-icon",
+      name: "/slotted-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
   });
@@ -315,7 +315,7 @@ describe("IcAlert visual regression tests in high contrast mode", () => {
     cy.wait(500);
 
     cy.compareSnapshot({
-      name: "variants-high-contrast",
+      name: "/variants-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.052),
     });
   });
@@ -327,7 +327,7 @@ describe("IcAlert visual regression tests in high contrast mode", () => {
     cy.wait(500);
 
     cy.compareSnapshot({
-      name: "with-action-high-contrast",
+      name: "/with-action-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
@@ -339,7 +339,7 @@ describe("IcAlert visual regression tests in high contrast mode", () => {
     cy.wait(500);
 
     cy.compareSnapshot({
-      name: "custom-message-high-contrast",
+      name: "/custom-message-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -351,7 +351,7 @@ describe("IcAlert visual regression tests in high contrast mode", () => {
     cy.wait(500);
 
     cy.compareSnapshot({
-      name: "dismissible-high-contrast",
+      name: "/dismissible-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -363,7 +363,7 @@ describe("IcAlert visual regression tests in high contrast mode", () => {
     cy.wait(500);
 
     cy.compareSnapshot({
-      name: "slotted-icon-high-contrast",
+      name: "/slotted-icon-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });

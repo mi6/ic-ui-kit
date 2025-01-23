@@ -40,7 +40,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "variants",
+      name: "/variants",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.074),
     });
   });
@@ -52,7 +52,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "bold",
+      name: "/bold",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.069),
     });
   });
@@ -64,7 +64,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "bold-on-h2",
+      name: "/bold-on-h2",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -76,7 +76,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "italic",
+      name: "/italic",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.078),
     });
   });
@@ -88,7 +88,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "strikethrough",
+      name: "/strikethrough",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.068),
     });
   });
@@ -100,7 +100,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "underline",
+      name: "/underline",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.079),
     });
   });
@@ -112,7 +112,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "vertical-margins",
+      name: "/vertical-margins",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
     });
   });
@@ -124,7 +124,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "restyled",
+      name: "/restyled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -136,7 +136,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "truncation",
+      name: "/truncation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.071),
     });
   });
@@ -157,7 +157,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "truncation-expanded",
+      name: "/truncation-expanded",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.164),
     });
   });
@@ -169,7 +169,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "min-and-max",
+      name: "/min-and-max",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.181),
     });
   });
@@ -181,7 +181,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "all-prop-text-styles",
+      name: "/all-prop-text-styles",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.074),
     });
   });
@@ -192,7 +192,7 @@ describe("IcTypography visual regression and a11y tests", () => {
     cy.checkHydrated(TYPOGRAPHY_SELECTOR);
 
     cy.compareSnapshot({
-      name: "in-ag-grid",
+      name: "/in-ag-grid",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
     });
   });
@@ -217,7 +217,7 @@ describe("IcTypography visual regression tests in high contrast mode", () => {
     cy.checkHydrated(TYPOGRAPHY_SELECTOR);
 
     cy.compareSnapshot({
-      name: "variants-high-contrast",
+      name: "/variants-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.066),
     });
   });
@@ -228,7 +228,7 @@ describe("IcTypography visual regression tests in high contrast mode", () => {
     cy.checkHydrated(TYPOGRAPHY_SELECTOR);
 
     cy.compareSnapshot({
-      name: "truncation-high-contrast",
+      name: "/truncation-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.062),
     });
   });
@@ -239,7 +239,7 @@ describe("IcTypography visual regression tests in high contrast mode", () => {
     cy.checkHydrated(TYPOGRAPHY_SELECTOR);
 
     cy.compareSnapshot({
-      name: "all-prop-text-styles-high-contrast",
+      name: "/all-prop-text-styles-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.071),
     });
   });
