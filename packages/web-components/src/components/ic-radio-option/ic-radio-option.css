@@ -6,7 +6,7 @@ ic-radio-option {
   width: fit-content;
 }
 
-.additional-field-wrapper ic-text-field {
+.additional-field-wrapper [slot="additional-field"] {
   margin-top: calc(var(--ic-space-sm) / 2);
   margin-left: var(--ic-space-xl);
 }
