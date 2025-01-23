@@ -1018,7 +1018,7 @@ export const ACTION_DATA_ELEMENTS = [
   {
     firstName: {
       data: "Joe",
-      actionElement: `<ic-button variant="icon" size="small  aria-label="you can disable tooltips on icon buttons"> <svg aria-label="refresh button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000000"> <path d="M0 0h24v24H0V0z" fill="none"></path> <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path> </svg></ic-button>`,
+      actionElement: `<ic-button data-testid="copy-button-test" variant="icon" size="small" tooltip-placement="bottom" aria-label="Copy test to clipboard"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg></ic-button><ic-toast-region><ic-toast heading="Identifier variant copied successfully." variant="success" data-testid="copy-toast"></ic-toast></ic-toast-region>`,
       actionOnClick: () => {
         console.log("hello");
       },
@@ -1043,7 +1043,7 @@ export const ACTION_DATA_ELEMENTS = [
     lastName: "Smith",
     age: {
       data: 45,
-      actionElement: `<ic-button variant="icon" id="small-button" size="small aria-label="you can disable tooltips on icon buttons"> <svg aria-label="refresh button" xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
+      actionElement: `<ic-button variant="icon" id="small-button" size="small" aria-label="you can disable tooltips on icon buttons"> <svg aria-label="refresh button" xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
     },
     jobTitle: "Team Lead",
     address: "12 Key Street, Town, Country, Postcode",
