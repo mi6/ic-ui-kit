@@ -112,18 +112,30 @@ import { useState, useEffect, useRef } from "react";
       <IcRadioOption
         additionalFieldDisplay="dynamic"
         value="valueName1"
-        label="option1"
+        label="Option with Radio as conditional slotted additional field"
       >
-        <IcTextField
+        <IcRadioGroup
           slot="additional-field"
-          placeholder="Placeholder"
-          label="What's your favourite type of coffee? "
-        />
+          helperText="Child Group Helper Text"
+          label="Children"
+          name="radio-group-2"
+        >
+          <IcRadioOption
+            key="child-option-1"
+            label="child-option-1"
+            value="child-option-1"
+          ></IcRadioOption>
+          <IcRadioOption
+            key="child-option-2"
+            label="child-option-2"
+            value="child-option-2"
+          ></IcRadioOption>
+        </IcRadioGroup>
       </IcRadioOption>
       <IcRadioOption
         additionalFieldDisplay="dynamic"
         value="valueName2"
-        label="option2 - error example"
+        label="Option with Text-field as conditional slotted additional field"
       >
         <IcTextField
           validationStatus="error"
@@ -136,13 +148,9 @@ import { useState, useEffect, useRef } from "react";
       <IcRadioOption
         additionalFieldDisplay="dynamic"
         value="valueName3"
-        label="option3"
+        label="Option with Button as conditional slotted additional field"
       >
-        <IcTextField
-          slot="additional-field"
-          placeholder="Placeholder"
-          label="What's your favourite type of coffee? "
-        />
+        <IcButton slot="additional-field">Hello world</IcButton>
       </IcRadioOption>
     </IcRadioGroup>
   </Story>
@@ -152,14 +160,32 @@ import { useState, useEffect, useRef } from "react";
 
 <Canvas>
   <Story name="Conditional static">
-    <IcRadioGroup label="Conditional dynamic" name="1">
+    <IcRadioGroup label="Conditional static" name="1">
       <IcRadioOption value="valueName1" label="option1">
         <IcTextField
           slot="additional-field"
           label="What's your favourite type of coffee?"
         />
       </IcRadioOption>
-      <IcRadioOption value="valueName2" label="option2" />
+      <IcRadioOption value="valueName2" label="option2">
+        <IcRadioGroup
+          slot="additional-field"
+          helperText="Child Group Helper Text"
+          label="Children"
+          name="radio-group-2"
+        >
+          <IcRadioOption
+            key="child-option-1"
+            label="child-option-1"
+            value="child-option-1"
+          ></IcRadioOption>
+          <IcRadioOption
+            key="child-option-2"
+            label="child-option-2"
+            value="child-option-2"
+          ></IcRadioOption>
+        </IcRadioGroup>
+      </IcRadioOption>
     </IcRadioGroup>
   </Story>
 </Canvas>
