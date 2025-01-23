@@ -413,3 +413,68 @@ export const InAForm = () => {
     </form>
   );
 };
+
+export const RadioGroupInAdditionalField = (): JSX.Element => (
+  <IcRadioGroup label="Parent" name="radio-group-1">
+    <IcRadioOption
+      additional-field-display="dynamic"
+      value="valueName1"
+      label="option1"
+      selected
+    >
+      <IcRadioGroup
+        slot="additional-field"
+        helperText="Child Group Helper Text"
+        label="Children"
+        name="radio-group-2"
+      >
+        <IcRadioOption
+          key="child-option-1"
+          label="child-option-1"
+          value="child-option-1"
+        ></IcRadioOption>
+        <IcRadioOption
+          key="child-option-2"
+          label="child-option-2"
+          value="child-option-2"
+        ></IcRadioOption>
+      </IcRadioGroup>
+    </IcRadioOption>
+    <IcRadioOption
+      additional-field-display="dynamic"
+      value="valueName2"
+      label="option2"
+    >
+      <IcTextField
+        slot="additional-field"
+        placeholder="Placeholder"
+        label="What's your favourite type of coffee?"
+      />
+    </IcRadioOption>
+  </IcRadioGroup>
+);
+
+export const StaticChildRadioGroup = (): JSX.Element => (
+  <IcRadioGroup label="Conditional static" name="1">
+    <IcRadioOption value="valueName1" label="option1" />
+    <IcRadioOption value="valueName2" label="option2">
+      <IcRadioGroup
+        slot="additional-field"
+        helperText="Child Group Helper Text"
+        label="Children"
+        name="radio-group-2"
+      >
+        <IcRadioOption
+          key="child-option-1"
+          label="child-option-1"
+          value="child-option-1"
+        ></IcRadioOption>
+        <IcRadioOption
+          key="child-option-2"
+          label="child-option-2"
+          value="child-option-2"
+        ></IcRadioOption>
+      </IcRadioGroup>
+    </IcRadioOption>
+  </IcRadioGroup>
+);
