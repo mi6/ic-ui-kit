@@ -109,21 +109,9 @@ export const ToggleGroupLoadingLight = (): ReactElement => {
   return (
     <div style={{ margin: "10px  0 0 10px" }}>
       <IcToggleButtonGroup loading={true} theme="dark" monochrome>
-        <IcToggleButton
-          label="First toggle"
-          theme="dark"
-          monochrome
-        ></IcToggleButton>
-        <IcToggleButton
-          label="Second toggle"
-          theme="dark"
-          monochrome
-        ></IcToggleButton>
-        <IcToggleButton
-          label="Third toggle"
-          theme="dark"
-          monochrome
-        ></IcToggleButton>
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
     </div>
   );
@@ -133,21 +121,9 @@ export const ToggleGroupLoadingDark = (): ReactElement => {
   return (
     <div style={{ margin: "10px  0 0 10px" }}>
       <IcToggleButtonGroup loading={true} theme="light" monochrome>
-        <IcToggleButton
-          label="First toggle"
-          theme="light"
-          monochrome
-        ></IcToggleButton>
-        <IcToggleButton
-          label="Second toggle"
-          theme="light"
-          monochrome
-        ></IcToggleButton>
-        <IcToggleButton
-          label="Third toggle"
-          theme="light"
-          monochrome
-        ></IcToggleButton>
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
     </div>
   );
@@ -237,13 +213,13 @@ export const ToggleGroupIconRight = (): ReactElement => {
   return (
     <div style={{ margin: "1rem" }}>
       <IcToggleButtonGroup iconPlacement="right">
-        <IcToggleButton label="First toggle" iconPlacement="right">
+        <IcToggleButton label="First toggle">
           <ReusableSlottedIcon />
         </IcToggleButton>
-        <IcToggleButton label="Second toggle" iconPlacement="right">
+        <IcToggleButton label="Second toggle">
           <ReusableSlottedIcon />
         </IcToggleButton>
-        <IcToggleButton label="Third toggle" iconPlacement="right">
+        <IcToggleButton label="Third toggle">
           <ReusableSlottedIcon />
         </IcToggleButton>
       </IcToggleButtonGroup>
@@ -272,13 +248,13 @@ export const ToggleGroupIconTop = (): ReactElement => {
   return (
     <div style={{ margin: "1rem" }}>
       <IcToggleButtonGroup iconPlacement="top">
-        <IcToggleButton label="First toggle" iconPlacement="top">
+        <IcToggleButton label="First toggle">
           <ReusableSlottedIcon />
         </IcToggleButton>
-        <IcToggleButton label="Second toggle" iconPlacement="top">
+        <IcToggleButton label="Second toggle">
           <ReusableSlottedIcon />
         </IcToggleButton>
-        <IcToggleButton label="Third toggle" iconPlacement="top">
+        <IcToggleButton label="Third toggle">
           <ReusableSlottedIcon />
         </IcToggleButton>
       </IcToggleButtonGroup>

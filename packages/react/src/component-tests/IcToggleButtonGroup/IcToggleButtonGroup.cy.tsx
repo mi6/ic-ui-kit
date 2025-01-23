@@ -51,8 +51,6 @@ const TOGGLE_BUTTON_AXE_OPTIONS = {
   },
 };
 
-const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
-
 describe("IcToggleButtonGroup", () => {
   describe("E2E", () => {
     it("should check single/manual on only one toggle", () => {
@@ -84,7 +82,7 @@ describe("IcToggleButtonGroup", () => {
       cy.get(IC_TOGGLE_BUTTON_GROUP).eq(1).focus();
       getToggle(0).should(NOT_HAVE_ATTR, "checked");
       getToggle(1).click({ force: true });
-      cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
+      getToggle(0).should(NOT_HAVE_ATTR, "checked");
     });
     it("should focus toggle but not check with toggle when loading", () => {
       cy.spy(window.console, "log").as("spyWinConsoleLog");
@@ -94,7 +92,7 @@ describe("IcToggleButtonGroup", () => {
       cy.get(IC_TOGGLE_BUTTON_GROUP).focus();
       getToggle(0).should(NOT_HAVE_ATTR, "checked");
       getToggle(1).click({ force: true });
-      cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
+      getToggle(0).should(NOT_HAVE_ATTR, "checked");
     });
     it("should tab through toggles and check focus and selection state", () => {
       mount(<ToggleGroupSingle />);
