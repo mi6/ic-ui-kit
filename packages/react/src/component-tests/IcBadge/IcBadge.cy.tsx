@@ -70,7 +70,7 @@ describe("IcBadge visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "success",
+      name: "/success",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -82,7 +82,7 @@ describe("IcBadge visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "error",
+      name: "/error",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -94,7 +94,7 @@ describe("IcBadge visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "warning",
+      name: "/warning",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -106,7 +106,7 @@ describe("IcBadge visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "neutral",
+      name: "/neutral",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -118,7 +118,7 @@ describe("IcBadge visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light",
+      name: "/light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -130,7 +130,7 @@ describe("IcBadge visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "info",
+      name: "/info",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -142,7 +142,7 @@ describe("IcBadge visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "custom",
+      name: "/custom",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -154,7 +154,7 @@ describe("IcBadge visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "max-number",
+      name: "/max-number",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
@@ -167,7 +167,7 @@ describe("IcBadge visual regression and a11y tests", () => {
     cy.wait(500);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "position-near",
+      name: "/position-near",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
@@ -181,7 +181,7 @@ describe("IcBadge visual regression and a11y tests", () => {
     cy.wait(500);
     cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
-      name: "position-inline",
+      name: "/position-inline",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -193,7 +193,7 @@ describe("IcBadge visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "theme-dark",
+      name: "/theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -205,7 +205,7 @@ describe("IcBadge visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "theme-dark-icon",
+      name: "/theme-dark-icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -230,7 +230,7 @@ describe.skip("IcBadge visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_BADGE_SELECTOR);
 
     cy.wait(500).compareSnapshot({
-      name: "success-high-contrast",
+      name: "/success-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -241,7 +241,7 @@ describe.skip("IcBadge visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_BADGE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "error-high-contrast",
+      name: "/error-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
@@ -252,7 +252,7 @@ describe.skip("IcBadge visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_BADGE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "warning-high-contrast",
+      name: "/warning-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
@@ -263,7 +263,7 @@ describe.skip("IcBadge visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_BADGE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "neutral-high-contrast",
+      name: "/neutral-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
@@ -274,7 +274,7 @@ describe.skip("IcBadge visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_BADGE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "light-high-contrast",
+      name: "/light-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
@@ -285,7 +285,7 @@ describe.skip("IcBadge visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_BADGE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "info-high-contrast",
+      name: "/info-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });

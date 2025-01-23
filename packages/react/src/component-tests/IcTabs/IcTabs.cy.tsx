@@ -439,7 +439,7 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
+      name: "/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -449,7 +449,7 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled",
+      name: "/disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
@@ -459,7 +459,7 @@ describe("IcTab visual regression tests", () => {
 
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "responsive",
+      name: "/responsive",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
@@ -473,7 +473,7 @@ describe("IcTab visual regression tests", () => {
 
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "responsive-light",
+      name: "/responsive-light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -487,7 +487,7 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light",
+      name: "/light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -497,7 +497,7 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-icons",
+      name: "/with-icons",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -507,7 +507,7 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-inline-badges",
+      name: "/with-inline-badges",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
   });
@@ -517,7 +517,7 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-inline-prop",
+      name: "/with-inline-prop",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -527,7 +527,7 @@ describe("IcTab visual regression tests", () => {
 
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "compact",
+      name: "/compact",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
@@ -537,7 +537,7 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "nested",
+      name: "/nested",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
@@ -547,7 +547,7 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "manual-activation",
+      name: "/manual-activation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -561,7 +561,7 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focused",
+      name: "/focused",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
       delay: 500,
     });
@@ -580,7 +580,7 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focused-light",
+      name: "/focused-light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
       delay: 500,
     });
@@ -591,7 +591,7 @@ describe("IcTab visual regression tests", () => {
 
     // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "min-max",
+      name: "/min-max",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
     });
   });
@@ -618,7 +618,7 @@ describe("IcTabs visual regression in high contrast mode", () => {
     cy.get("@activeElement").should(CONTAIN_TEXT, "Method");
 
     cy.compareSnapshot({
-      name: "focused-high-contrast",
+      name: "/focused-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -627,7 +627,7 @@ describe("IcTabs visual regression in high contrast mode", () => {
     mount(<DisabledTab />);
 
     cy.compareSnapshot({
-      name: "disabled-high-contrast",
+      name: "/disabled-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
   });
@@ -636,7 +636,7 @@ describe("IcTabs visual regression in high contrast mode", () => {
     mount(<InlineTabGroup />);
 
     cy.compareSnapshot({
-      name: "inline-prop-high-contrast",
+      name: "/inline-prop-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });

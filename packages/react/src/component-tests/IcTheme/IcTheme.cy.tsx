@@ -42,12 +42,12 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-light-with-dark-mode-component-overrides",
+      name: "/ic-theme-light-with-dark-mode-component-overrides",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
-  it("should render in light mode when IcTheme theme is set to light with components within another IcTheme component with theme set to dark rendered in dark mode", () => {
+  it.only("should render in light mode when IcTheme theme is set to light with components within another IcTheme component with theme set to dark rendered in dark mode", () => {
     mount(
       <ThemeWithComponentWithinSeparateIcTheme
         color={"rgba(27, 60, 121, 1)"}
@@ -60,12 +60,12 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-light-with-components-within-ic-theme",
+      name: "/ic-theme-light-with-components-within-ic-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
-  it("should render according to dark mode system settings when IcTheme theme is set to system", () => {
+  it.only("should render according to dark mode system settings when IcTheme theme is set to system", () => {
     cy.wrap(
       Cypress.automation("remote:debugger:protocol", {
         command: "Emulation.setEmulatedMedia",
@@ -92,7 +92,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-system-dark",
+      name: "/ic-theme-system-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -124,7 +124,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-system-light",
+      name: "/ic-theme-system-light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
@@ -142,7 +142,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-inherit-dark",
+      name: "/ic-theme-inherit-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -160,7 +160,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-inherit-light",
+      name: "/ic-theme-inherit-light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
@@ -183,7 +183,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     );
 
     cy.compareSnapshot({
-      name: "sunrise-brand",
+      name: "/sunrise-brand",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
 

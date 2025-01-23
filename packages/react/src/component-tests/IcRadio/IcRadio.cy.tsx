@@ -398,7 +398,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
+      name: "/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -410,7 +410,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "horizontal",
+      name: "/horizontal",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -422,7 +422,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "helper-text",
+      name: "/helper-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
@@ -434,7 +434,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled-options",
+      name: "/disabled-options",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
@@ -446,7 +446,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled-group",
+      name: "/disabled-group",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
@@ -458,7 +458,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "small",
+      name: "/small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -470,7 +470,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "validation",
+      name: "/validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
@@ -482,7 +482,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "empty-initial-before-update",
+      name: "/empty-initial-before-update",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
     });
   });
@@ -496,7 +496,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "empty-initial-after-update",
+      name: "/empty-initial-after-update",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.071),
     });
   });
@@ -508,7 +508,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "changing-before-update",
+      name: "/changing-before-update",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.071),
     });
   });
@@ -521,7 +521,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "changing-after-update",
+      name: "/changing-after-update",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.059),
     });
   });
@@ -533,7 +533,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "conditional-static",
+      name: "/conditional-static",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
@@ -546,7 +546,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "conditional-dynamic-first-selected",
+      name: "/conditional-dynamic-first-selected",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.052),
     });
   });
@@ -559,7 +559,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "conditional-dynamic-second-selected",
+      name: "/conditional-dynamic-second-selected",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.065),
     });
   });
@@ -571,7 +571,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "conditional-dynamic-text",
+      name: "/conditional-dynamic-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
     });
   });
@@ -583,7 +583,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark-theme",
+      name: "/dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -608,7 +608,7 @@ describe("IcRadio visual regression tests in high contrast mode", () => {
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "default-high-contrast",
+      name: "/default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -620,7 +620,7 @@ describe("IcRadio visual regression tests in high contrast mode", () => {
     cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
 
     cy.compareSnapshot({
-      name: "conditional-dynamic-high-contrast",
+      name: "/conditional-dynamic-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
       delay: 1000,
     });
