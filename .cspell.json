@@ -155,7 +155,8 @@
       "maxin",
       "relaxin",
       "codemod",
-      "nargs"
+      "nargs",
+      "testid"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc", "la"],
     "ignorePaths": [

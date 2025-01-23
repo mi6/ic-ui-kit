@@ -1025,7 +1025,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
 
     cy.checkHydrated(SEARCH_SELECTOR);
 
-    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).type("Lat");
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).type("Lat");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
