@@ -1033,6 +1033,22 @@ describe("IcSearchBar visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
+
+  it("should render dark theme search bar with clear icon focused", () => {
+    mount(<ThemeDark />);
+
+    cy.checkHydrated(SEARCH_SELECTOR);
+
+    cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).type("Lat");
+
+    cy.realPress("Tab");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "clear-icon-focused-theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+    });
+  });
 });
 
 describe("IcSearchBar visual regression tests in high contrast mode", () => {
