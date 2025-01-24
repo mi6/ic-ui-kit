@@ -141,11 +141,15 @@ ic-input-component-container .focus-indicator {
 .calendar-button:focus,
 .clear-button:active *,
 .calendar-button:active * {
-  fill: var(--ic-architectural-white);
+  fill: var(--ic-atoms-input-clear-button-focus);
 }
 
 .clear-button svg {
   color: var(--ic-date-input-clear-icon);
+}
+
+.clear-button:focus svg {
+  color: var(--ic-atoms-input-clear-button-focus);
 }
 
 .divider {
