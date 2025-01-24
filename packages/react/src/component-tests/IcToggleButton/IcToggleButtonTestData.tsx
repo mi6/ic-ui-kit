@@ -63,6 +63,34 @@ export const IconPlacementTop = (): ReactElement => {
   );
 };
 
+export const TooltipPlacement = (): ReactElement => {
+  return (
+    <div style={{ padding: "100px 8px" }}>
+      <IcToggleButton
+        variant="icon"
+        accessibleLabel="Refresh the page"
+        tooltipPlacement="right"
+      >
+        <ReusableSlottedIcon />
+      </IcToggleButton>
+      <IcToggleButton
+        variant="icon"
+        accessibleLabel="Refresh the page"
+        tooltipPlacement="top"
+      >
+        <ReusableSlottedIcon />
+      </IcToggleButton>
+      <IcToggleButton
+        variant="icon"
+        accessibleLabel="Refresh the page"
+        tooltipPlacement="left"
+      >
+        <ReusableSlottedIcon />
+      </IcToggleButton>
+    </div>
+  );
+};
+
 export const Dark = (): ReactElement => {
   return (
     <div
