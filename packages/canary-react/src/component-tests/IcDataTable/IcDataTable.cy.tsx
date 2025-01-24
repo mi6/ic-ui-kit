@@ -44,6 +44,7 @@ import {
   DATA_EMPHASIS,
   ACTION_DATA_ELEMENTS,
   DATA_WITH_EMPTY_VALUES,
+  LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS,
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
@@ -4037,6 +4038,223 @@ describe("IcDataTable table sizing and column width", () => {
   });
 });
 
+describe("IcDataTable table with descriptions", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  const FIRST_CELL_TEXT_QUERY = ".table-cell:nth-child(1) ic-typography";
+  const FIRST_CELL_DESCRIPTION_TEXT_QUERY =
+    ".table-cell:nth-child(1) div div ic-typography";
+
+  it("should fully display descriptions in cells with no restrictions set", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_TEXT_QUERY)
+      .should(
+        "contain",
+        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
+      );
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
+      .should(
+        "contain",
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
+      );
+  });
+
+  it("should add an icon next to the descriptions when provided", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(1) div div span")
+      .should("exist");
+  });
+
+  it("should truncate long text without truncating descriptions - using show/hide pattern when global row height is set", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="show-hide"
+        globalRowHeight={120}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_TEXT_QUERY)
+      .shadow()
+      .find("button")
+      .contains("See more");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
+      .should(
+        "contain",
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
+      );
+  });
+
+  it("should not truncate long text if global row height allows for all text to be present", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="tooltip"
+        globalRowHeight={200}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(1) ic-tooltip")
+      .should("not.exist");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_TEXT_QUERY)
+      .should(
+        "contain",
+        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
+      );
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
+      .should(
+        "contain",
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
+      );
+  });
+
+  it("should truncate long text without truncating descriptions - using tooltip pattern when global row height is set", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(1) ic-tooltip")
+      .should("exist");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(".table-cell:nth-child(1) ic-tooltip ic-typography")
+      .should(
+        "contain",
+        LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
+      );
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(0)
+      .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
+      .should(
+        "contain",
+        (
+          LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.description as {
+            data: string;
+            icon: string;
+          }
+        ).data
+      );
+  });
+
+  it("should expand row height beyond global row height if description is present", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(1)
+      .find(".table-cell:nth-child(1) .cell-container")
+      .should("have.attr", "style", "--row-height: 1.5rem;");
+  });
+
+  it("should expand row height beyond global row height if a description is present but no cell data is present", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        truncationPattern="tooltip"
+        globalRowHeight={40}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+      .eq(3)
+      .find(".table-cell:nth-child(1) .cell-container")
+      .should("have.attr", "style", "--row-height: 24px");
+  });
+});
+
 describe("IcDataTable row deletion", () => {
   beforeEach(() => {
     cy.injectAxe();
@@ -4142,6 +4360,8 @@ describe("IcDataTable row deletion", () => {
       .shadow()
       .find("button")
       .focus();
+
+    cy.checkA11yWithWait(undefined, 1000);
 
     cy.compareSnapshot({
       name: "tooltip-in-final-row",

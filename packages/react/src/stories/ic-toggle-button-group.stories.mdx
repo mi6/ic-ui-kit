@@ -139,9 +139,9 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         disabled
         accessibleLabel="Single and manual select toggle group"
       >
-        <IcToggleButton label="First toggle" disabled></IcToggleButton>
-        <IcToggleButton label="Second toggle" disabled></IcToggleButton>
-        <IcToggleButton label="Third toggle" disabled></IcToggleButton>
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
     </>
   </Story>
@@ -157,9 +157,9 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         loading
         accessibleLabel="Single and manual select toggle group"
       >
-        <IcToggleButton label="First toggle" loading></IcToggleButton>
-        <IcToggleButton label="Second toggle" loading></IcToggleButton>
-        <IcToggleButton label="Third toggle" loading></IcToggleButton>
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
     </>
   </Story>
@@ -175,7 +175,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
         variant="icon"
         accessibleLabel="Single and manual select toggle group"
       >
-        <IcToggleButton variant="icon" accessibleLabel="First Refresh">
+        <IcToggleButton accessibleLabel="First Refresh">
           <SlottedSVG
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -187,7 +187,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
             <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
           </SlottedSVG>
         </IcToggleButton>
-        <IcToggleButton variant="icon" accessibleLabel="Second Refresh">
+        <IcToggleButton accessibleLabel="Second Refresh">
           <SlottedSVG
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -321,20 +321,34 @@ export const defaultArgs = {
   toggleDisabled: false,
   toggleFullWidth: false,
   toggleIconPlacement: "left",
-  label: "Toggle",
+  toggleLabel: "Custom Toggle",
   toggleLoading: false,
   toggleMonochrome: false,
-  toggleSize: "default",
+  toggleSize: "medium",
   toggleTheme: "inherit",
-  checked: false,
+  toggleChecked: false,
   toggleVariant: "default",
 };
 
 <Canvas>
   <Story
-    args={defaultArgs}
-   
-    argTypes={{
+     args={defaultArgs}
+        argTypes={{
+      accessibleLabel: {
+        control: {
+          type: "text",
+        },
+          },
+      disabled: {
+        control: {
+          type: "boolean",
+        },
+          },
+      fullWidth: {
+        control: {
+          type: "boolean",
+        },
+          },
       iconPlacement: {
         options: [
           "left", "right", "top"
@@ -342,7 +356,17 @@ export const defaultArgs = {
         control: {
           type: "radio",
         },
-      },
+          },
+      loading: {
+        control: {
+          type: "boolean",
+        },
+          },
+      monochrome: {
+        control: {
+          type: "boolean",
+        },
+          },
       selectMethod: {
         options: [
           "manual", "auto"
@@ -361,42 +385,10 @@ export const defaultArgs = {
       },
       size: {
         options: [
-          "default", "small", "large"
+          "medium", "small", "large"
         ],
         control: {
           type: "radio",
-        },
-      },
-      variant: {
-        options: [
-          "default", "icon"
-        ],
-        control: {
-          type: "inline-radio",
-        },
-      },
-      toggleIconPlacement: {
-        options: [
-          "left", "right", "top"
-        ],
-        control: {
-          type: "radio",
-        },
-      },
-      toggleSize: {
-        options: [
-          "default", "small", "large"
-        ],
-        control: {
-          type: "radio",
-        },
-      },
-      toggleVariant: {
-        options: [
-          "default", "icon"
-        ],
-        control: {
-          type: "inline-radio",
         },
       },
       theme: {
@@ -407,9 +399,76 @@ export const defaultArgs = {
           type: "inline-radio",
         },
       },
+      variant: {
+        options: [
+          "default", "icon"
+        ],
+        control: {
+          type: "inline-radio",
+        },
+          },
+      toggleAccessibleLabel: {
+        control: {
+          type: "text",
+        },
+          },
+      toggleDisabled: {
+        control: {
+          type: "boolean",
+        },
+          },
+      toggleFullWidth: {
+        control: {
+          type: "boolean",
+        },
+          },
+      toggleIconPlacement: {
+        options: [
+          "left", "right", "top"
+        ],
+        control: {
+          type: "radio",
+        },
+          },
+      toggleLabel: {
+        control: {
+          type: "text",
+        },
+          },
+      toggleLoading: {
+        control: {
+          type: "boolean",
+        },
+          },
+      toggleMonochrome: {
+        control: {
+          type: "boolean",
+        },
+          },
+      toggleSize: {
+        options: [
+          "medium", "small", "large"
+        ],
+        control: {
+          type: "radio",
+        },
+      },
       toggleTheme: {
         options: [
           "inherit", "light", "dark"
+        ],
+        control: {
+          type: "inline-radio",
+        },
+          },
+      toggleChecked: {
+        control: {
+          type: "boolean",
+        },
+          },
+      toggleVariant: {
+        options: [
+          "default", "icon"
         ],
         control: {
           type: "inline-radio",
@@ -437,13 +496,13 @@ export const defaultArgs = {
           disabled={args.toggleDisabled}
           fullWidth={args.toggleFullWidth}
           iconPlacement={args.toggleIconPlacement}
+          label={args.toggleLabel}
           loading={args.toggleLoading}
           monochrome={args.toggleMonochrome}
           size={args.toggleSize}
-          checked={args.checked}
           theme={args.toggleTheme}
+          checked={args.toggleChecked}
           variant={args.toggleVariant}
-          label={args.label}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

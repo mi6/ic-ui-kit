@@ -71,26 +71,26 @@ import readme from "./readme.md";
         <ic-typography>Small</ic-typography>
         <ic-toggle-button-group size="small" accessible-label="Single and manual select toggle group"
         >
-        <ic-toggle-button label="First toggle" size="small"></ic-toggle-button>
-        <ic-toggle-button label="Second toggle" size="small"></ic-toggle-button>
-        <ic-toggle-button label="Third toggle" size="small"></ic-toggle-button>
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
         <ic-typography>Large</ic-typography>
         <ic-toggle-button-group size="large" accessible-label="Single and manual select toggle group"
         >
-        <ic-toggle-button label="First toggle" size="large"></ic-toggle-button>
-        <ic-toggle-button label="Second toggle" size="large"></ic-toggle-button>
-        <ic-toggle-button label="Third toggle" size="large"></ic-toggle-button>
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
         <ic-typography>Full width</ic-typography>
         <ic-toggle-button-group
           full-width="true" accessible-label="Single and manual select toggle group"
         >
-        <ic-toggle-button label="First toggle" full-width="true"></ic-toggle-button>
-        <ic-toggle-button label="Second toggle" full-width="true"></ic-toggle-button>
-        <ic-toggle-button label="Third toggle" full-width="true"></ic-toggle-button>
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
         <ic-typography>Custom width</ic-typography>
@@ -123,18 +123,9 @@ import readme from "./readme.md";
         monochrome="true"
         accessible-label="Single and manual select toggle group"
       >
-        <ic-toggle-button
-          label="First toggle"
-          monochrome="true"
-        ></ic-toggle-button>
-        <ic-toggle-button
-          label="Second toggle"
-          monochrome="true"
-        ></ic-toggle-button>
-        <ic-toggle-button
-          label="Third toggle"
-          monochrome="true"
-        ></ic-toggle-button>
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
       </ic-toggle-button-group>`
     }
   </Story>
@@ -150,18 +141,9 @@ import readme from "./readme.md";
           disabled="true"
           accessible-label="Single and manual select toggle group"
         >
-          <ic-toggle-button
-            label="First toggle"
-            disabled="true"
-          ></ic-toggle-button>
-          <ic-toggle-button
-            label="Second toggle"
-            disabled="true"
-          ></ic-toggle-button>
-          <ic-toggle-button
-            label="Third toggle"
-            disabled="true"
-          ></ic-toggle-button>
+          <ic-toggle-button label="First toggle"></ic-toggle-button>
+          <ic-toggle-button label="Second toggle"></ic-toggle-button>
+          <ic-toggle-button label="Third toggle"></ic-toggle-button>
         </ic-toggle-button-group>`
     }
   </Story>
@@ -176,18 +158,9 @@ import readme from "./readme.md";
           loading="true"
           accessible-label="Single and manual select toggle group"
         >
-          <ic-toggle-button
-            label="First toggle"
-            loading="true"
-          ></ic-toggle-button>
-          <ic-toggle-button
-            label="Second toggle"
-            loading="true"
-          ></ic-toggle-button>
-          <ic-toggle-button
-            label="Third toggle"
-            loading="true"
-          ></ic-toggle-button>
+          <ic-toggle-button label="First toggle"></ic-toggle-button>
+          <ic-toggle-button label="Second toggle"></ic-toggle-button>
+          <ic-toggle-button label="Third toggle"></ic-toggle-button>
         </ic-toggle-button-group>
         <br />
         <ic-toggle-button-group
@@ -195,21 +168,9 @@ import readme from "./readme.md";
           monochrome="true"
           accessible-label="Single and manual select toggle group"
         >
-          <ic-toggle-button
-            label="First toggle"
-            loading="true"
-            monochrome="true"
-          ></ic-toggle-button>
-          <ic-toggle-button
-            label="Second toggle"
-            loading="true"
-            monochrome="true"
-          ></ic-toggle-button>
-          <ic-toggle-button
-            label="Third toggle"
-            loading="true"
-            monochrome="true"
-          ></ic-toggle-button>
+          <ic-toggle-button label="First toggle"></ic-toggle-button>
+          <ic-toggle-button label="Second toggle"></ic-toggle-button>
+          <ic-toggle-button label="Third toggle"></ic-toggle-button>
         </ic-toggle-button-group> `
     }
   </Story>
@@ -225,7 +186,7 @@ import readme from "./readme.md";
           variant="icon"
           accessible-label="A group of buttons"
         >
-          <ic-toggle-button variant="icon" accessible-label="refresh">
+          <ic-toggle-button accessible-label="refresh">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -239,7 +200,7 @@ import readme from "./readme.md";
               />
             </svg>
           </ic-toggle-button>
-          <ic-toggle-button variant="icon" accessible-label="refresh">
+          <ic-toggle-button accessible-label="refresh">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -387,12 +348,12 @@ export const defaultArgs = {
   toggleDisabled: false,
   toggleFullWidth: false,
   toggleIconPlacement: "left",
-  label: "Toggle",
+  toggleLabel: "Custom Toggle",
   toggleLoading: false,
   toggleMonochrome: false,
-  toggleSize: "default",
+  toggleSize: "medium",
   toggleTheme: "inherit",
-  checked: false,
+  toggleChecked: false,
   toggleVariant: "default",
 };
 
@@ -400,10 +361,35 @@ export const defaultArgs = {
   <Story
     args={defaultArgs}
     argTypes={{
+      accessibleLabel: {
+        control: {
+          type: "text",
+        },
+      },
+      disabled: {
+        control: {
+          type: "boolean",
+        },
+      },
+      fullWidth: {
+        control: {
+          type: "boolean",
+        },
+      },
       iconPlacement: {
         options: ["left", "right", "top"],
         control: {
           type: "radio",
+        },
+      },
+      loading: {
+        control: {
+          type: "boolean",
+        },
+      },
+      monochrome: {
+        control: {
+          type: "boolean",
         },
       },
       selectMethod: {
@@ -424,10 +410,31 @@ export const defaultArgs = {
           type: "radio",
         },
       },
+      theme: {
+        options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
       variant: {
         options: ["default", "icon"],
         control: {
           type: "inline-radio",
+        },
+      },
+      toggleAccessibleLabel: {
+        control: {
+          type: "text",
+        },
+      },
+      toggleDisabled: {
+        control: {
+          type: "boolean",
+        },
+      },
+      toggleFullWidth: {
+        control: {
+          type: "boolean",
         },
       },
       toggleIconPlacement: {
@@ -436,26 +443,40 @@ export const defaultArgs = {
           type: "radio",
         },
       },
+      toggleLabel: {
+        control: {
+          type: "text",
+        },
+      },
+      toggleLoading: {
+        control: {
+          type: "boolean",
+        },
+      },
+      toggleMonochrome: {
+        control: {
+          type: "boolean",
+        },
+      },
       toggleSize: {
         options: ["medium", "small", "large"],
         control: {
           type: "radio",
         },
       },
-      toggleVariant: {
-        options: ["default", "icon"],
-        control: {
-          type: "inline-radio",
-        },
-      },
-      theme: {
-        options: ["inherit", "light", "dark"],
-        control: {
-          type: "inline-radio",
-        },
-      },
       toggleTheme: {
         options: ["inherit", "light", "dark"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      toggleChecked: {
+        control: {
+          type: "boolean",
+        },
+      },
+      toggleVariant: {
+        options: ["default", "icon"],
         control: {
           type: "inline-radio",
         },
@@ -482,13 +503,13 @@ export const defaultArgs = {
           disabled=${args.toggleDisabled}
           full-width=${args.toggleFullWidth}
           icon-placement=${args.toggleIconPlacement}
+          label=${args.toggleLabel}
           loading=${args.toggleLoading}
           monochrome=${args.toggleMonochrome}
           size=${args.toggleSize}
-          checked=${args.checked}
-          variant=${args.toggleVariant}
           theme=${args.toggleTheme}
-          label=${args.label}
+          checked=${args.toggleChecked}
+          variant=${args.toggleVariant}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

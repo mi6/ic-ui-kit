@@ -19,15 +19,15 @@ describe("ic-toggle-button-group component snapshot tests", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<ic-toggle-button-group aria-disabled="true" aria-label="Toggle button group" class="ic-toggle-button-group-disabled" disabled="" role="group" select-type="single" tabindex="0" variant="default">
+      .toEqualHtml(`<ic-toggle-button-group aria-label="Toggle button group" class="ic-toggle-button-group-disabled" disabled="" role="group" select-type="single" tabindex="0" variant="default">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
       <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-disabled ic-toggle-button-medium" id="0" label="Toggle" tabindex="-1" variant="default">
         <mock:shadow-root>
-          <ic-button aria-disabled="true" aria-pressed="false" class="ic-button-disabled ic-button-size-medium ic-button-variant-secondary" exportparts="button">
+          <ic-button aria-pressed="false" class="ic-button-disabled ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-disabled="false" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" type="button">
+              <button aria-disabled="true" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -38,9 +38,9 @@ describe("ic-toggle-button-group component snapshot tests", () => {
       </ic-toggle-button>
       <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-disabled ic-toggle-button-medium" id="1" label="Toggle" tabindex="-1" variant="default">
         <mock:shadow-root>
-          <ic-button aria-disabled="true" aria-pressed="false" class="ic-button-disabled ic-button-size-medium ic-button-variant-secondary" exportparts="button">
+          <ic-button aria-pressed="false" class="ic-button-disabled ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-disabled="false" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" type="button">
+              <button aria-disabled="true" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -51,9 +51,9 @@ describe("ic-toggle-button-group component snapshot tests", () => {
       </ic-toggle-button>
       <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-disabled ic-toggle-button-medium" id="2" label="Toggle" tabindex="-1" variant="default">
         <mock:shadow-root>
-          <ic-button aria-disabled="true" aria-pressed="false" class="ic-button-disabled ic-button-size-medium ic-button-variant-secondary" exportparts="button">
+          <ic-button aria-pressed="false" class="ic-button-disabled ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-disabled="false" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" type="button">
+              <button aria-disabled="true" aria-label="Toggle, unticked, Toggle button group" class="button" disabled="" part="button" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -68,15 +68,15 @@ describe("ic-toggle-button-group component snapshot tests", () => {
 
     await page.waitForChanges();
     expect(page.root)
-      .toEqualHtml(`<ic-toggle-button-group aria-disabled="false" aria-label="Toggle button group" role="group" select-type="single" tabindex="0" variant="default">
+      .toEqualHtml(`<ic-toggle-button-group aria-label="Toggle button group" role="group" select-type="single" tabindex="0" variant="default">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
       <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="0" label="Toggle" tabindex="-1" variant="default">
         <mock:shadow-root>
-          <ic-button aria-disabled="false" aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
+          <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-disabled="false" aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+              <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -87,9 +87,9 @@ describe("ic-toggle-button-group component snapshot tests", () => {
       </ic-toggle-button>
       <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="1" label="Toggle" tabindex="-1" variant="default">
         <mock:shadow-root>
-          <ic-button aria-disabled="false" aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
+          <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-disabled="false" aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+              <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -100,9 +100,9 @@ describe("ic-toggle-button-group component snapshot tests", () => {
       </ic-toggle-button>
       <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="2" label="Toggle" tabindex="-1" variant="default">
         <mock:shadow-root>
-          <ic-button aria-disabled="false" aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
+          <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
             <mock:shadow-root>
-              <button aria-disabled="false" aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+              <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </mock:shadow-root>
@@ -112,6 +112,91 @@ describe("ic-toggle-button-group component snapshot tests", () => {
         </mock:shadow-root>
       </ic-toggle-button>
     </ic-toggle-button-group>`);
+  });
+
+  it("should render and update full-width", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButtonGroup, ToggleButton, Button],
+      html: `<ic-toggle-button-group select-type="single" full-width>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+            </ic-toggle-button-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.fullWidth = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render and update loading", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButtonGroup, ToggleButton, Button],
+      html: `<ic-toggle-button-group select-type="single" loading>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+            </ic-toggle-button-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.loading = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render and update monochrome", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButtonGroup, ToggleButton, Button],
+      html: `<ic-toggle-button-group select-type="single" monochrome>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+            </ic-toggle-button-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.monochrome = false;
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render and update size", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButtonGroup, ToggleButton, Button],
+      html: `<ic-toggle-button-group select-type="single" size="small">
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+            </ic-toggle-button-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.size = "large";
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render and update variant", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButtonGroup, ToggleButton, Button],
+      html: `<ic-toggle-button-group select-type="single" variant="icon">
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+            </ic-toggle-button-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.variant = "default";
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
   });
 });
 

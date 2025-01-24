@@ -60,6 +60,12 @@ export class ToggleButtonGroup {
    * If `true`, the toggle button group will fill the width of the container.
    */
   @Prop() fullWidth?: boolean = false;
+  @Watch("fullWidth")
+  watchFullWidthHandler(): void {
+    this.getAllToggleButtons().forEach((el) => {
+      el.fullWidth = this.fullWidth;
+    });
+  }
 
   /**
    * The placement of the icons in relation to the toggle button labels.
@@ -70,6 +76,12 @@ export class ToggleButtonGroup {
    * If `true`, the toggle button group will be in loading state.
    */
   @Prop() loading?: boolean = false;
+  @Watch("loading")
+  watchLoadingHandler(): void {
+    this.getAllToggleButtons().forEach((el) => {
+      el.loading = this.loading;
+    });
+  }
 
   /**
    * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
@@ -96,6 +108,12 @@ export class ToggleButtonGroup {
    * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
    */
   @Prop() size?: IcSizes = "medium";
+  @Watch("size")
+  watchSizeHandler(): void {
+    this.getAllToggleButtons().forEach((el) => {
+      el.size = this.size;
+    });
+  }
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -112,6 +130,12 @@ export class ToggleButtonGroup {
    * The variant of the toggle button.
    */
   @Prop({ reflect: true }) variant: "default" | "icon" = "default";
+  @Watch("variant")
+  watchVariantHandler(): void {
+    this.getAllToggleButtons().forEach((el) => {
+      el.variant = this.variant;
+    });
+  }
 
   /**
    * Emitted when a toggle button is selected.
@@ -163,14 +187,6 @@ export class ToggleButtonGroup {
   componentDidLoad(): void {
     this.getAllToggleButtons().forEach((el, i) => {
       this.setSlottedAria(el);
-      el.size = this.size;
-      el.loading = this.loading;
-      el.iconPlacement = this.iconPlacement;
-      el.disabled ? null : (el.disabled = this.disabled);
-      el.theme = this.theme;
-      el.monochrome = this.monochrome;
-      el.variant = this.variant;
-      el.fullWidth = this.fullWidth;
       el.id = i.toString();
       el.tabIndex = -1;
       el.addEventListener("keydown", (ev) => {
@@ -305,7 +321,6 @@ export class ToggleButtonGroup {
       <Host
         role="group"
         aria-label={this.accessibleLabel}
-        aria-disabled={this.disabled ? "true" : "false"}
         tabindex={0}
         class={{
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
