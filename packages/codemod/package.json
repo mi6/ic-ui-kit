@@ -13,5 +13,10 @@
     "jest-cli": "^29.7.0",
     "yargs": "^17.7.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
