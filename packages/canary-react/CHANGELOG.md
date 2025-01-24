@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.7...@ukic/canary-react@3.0.0-canary.8) (2025-01-24)
+
+### Bug Fixes
+
+- **canary-react:** allow IcDataTable action-element to support tooltips ([d71ba60](https://github.com/mi6/ic-ui-kit/commit/d71ba6076ab7100baa5c0eaf400deb3d0c831230)), closes [#2964](https://github.com/mi6/ic-ui-kit/issues/2964)
+
 # [3.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.6...@ukic/canary-react@3.0.0-canary.7) (2025-01-22)
 
 ### Bug Fixes

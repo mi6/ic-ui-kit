@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.7...@ukic/web-components@3.0.0-alpha.8) (2025-01-24)
+
+### Bug Fixes
+
+- **web-components:** bugfix ([7c73a6b](https://github.com/mi6/ic-ui-kit/commit/7c73a6b22cc1ce9cef8105b8770f29d68c989770))
+- **web-components:** bugfix: props passed correctly to child in group ([e4a4e41](https://github.com/mi6/ic-ui-kit/commit/e4a4e41178df8d6c150dba602bd86e16ee649cde))
+
 # [3.0.0-alpha.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.6...@ukic/web-components@3.0.0-alpha.7) (2025-01-22)
 
 ### Bug Fixes

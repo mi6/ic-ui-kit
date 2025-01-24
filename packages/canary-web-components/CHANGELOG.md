@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.7...@ukic/canary-web-components@3.0.0-canary.8) (2025-01-24)
+
+### Bug Fixes
+
+- **canary-web-components:** allow IcDataTable action-element to support tooltips ([a2d4bb3](https://github.com/mi6/ic-ui-kit/commit/a2d4bb357fd6c34b052c62e5e2f05657f4b02da7)), closes [#2964](https://github.com/mi6/ic-ui-kit/issues/2964)
+
+### Features
+
+- **canary-web-components:** add description to data table cells, update tests and storybook ([abda14a](https://github.com/mi6/ic-ui-kit/commit/abda14a92f1e924cc8323633b91f4bfeea449889))
+
 # [3.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.6...@ukic/canary-web-components@3.0.0-canary.7) (2025-01-22)
 
 ### Bug Fixes
