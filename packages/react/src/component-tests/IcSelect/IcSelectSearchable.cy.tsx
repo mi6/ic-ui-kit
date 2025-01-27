@@ -1060,6 +1060,19 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
+
+  it("should render dark theme searchable with clear button focused", () => {
+    mount(<DarkThemeSearchable />);
+    cy.findShadowEl(IC_SELECT, IC_INPUT_CONTAINER).type("b");
+
+    cy.findShadowEl(IC_SELECT, ID_CLEAR_BUTTON).shadow().find("button").focus();
+
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "clear-icon-focused-theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
 });
 
 describe("IcSelect searchable visual regression tests in high contrast mode", () => {

@@ -2794,6 +2794,32 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
+
+  it("should render dark theme date picker with clear button focused", () => {
+    mount(
+      <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+        <IcDatePicker
+          label={DEFAULT_LABEL}
+          value={DEFAULT_VALUE}
+          theme="dark"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CLEAR_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .focus();
+
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "clear-button-focused-theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+    });
+  });
 });
 
 describe("IcDatePicker visual regression tests in high contrast mode", () => {
