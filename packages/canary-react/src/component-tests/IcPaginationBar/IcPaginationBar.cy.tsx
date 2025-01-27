@@ -27,7 +27,7 @@ const ARIA_CURRENT = "aria-current";
 const ITEM_PAGINATION_LABEL_SELECTOR = ".item-pagination-label";
 const TEXT_FIELD = "ic-text-field";
 
-const DEFAULT_TEST_THRESHOLD = 0.027;
+const DEFAULT_TEST_THRESHOLD = 0.022;
 
 describe("IcPaginationBar end-to-end tests", () => {
   beforeEach(() => {
@@ -596,7 +596,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "right-alignment",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
 
@@ -634,7 +634,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "go-to-page",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
 
@@ -651,7 +651,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "go-to-page-valid",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
 
@@ -676,7 +676,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.compareSnapshot({
       name: "go-to-page-invalid-tooltip",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
@@ -690,7 +690,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "hide-all-option",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
 });
@@ -719,7 +719,7 @@ describe("IcPaginationBar visual regression tests in high contrast mode", () => 
 
     cy.compareSnapshot({
       name: "go-to-page-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 
@@ -744,7 +744,7 @@ describe("IcPaginationBar visual regression tests in high contrast mode", () => 
 
     cy.compareSnapshot({
       name: "go-to-page-invalid-tooltip-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
 });
