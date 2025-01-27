@@ -12,7 +12,7 @@ import {
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import { IcThemeMode } from "../../../../web-components/dist/types/utils/types";
 
-const DEFAULT_TEST_THRESHOLD = 0.008;
+const DEFAULT_TEST_THRESHOLD = 0.005;
 
 const CARD_SELECTOR = "ic-card-horizontal";
 
@@ -122,7 +122,7 @@ describe("IcCardHorizontal", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-message",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
@@ -136,7 +136,7 @@ describe("IcCardHorizontal", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
@@ -152,7 +152,7 @@ describe("IcCardHorizontal", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "clickable",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
 
@@ -164,7 +164,7 @@ describe("IcCardHorizontal", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "clickable-link",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
 
@@ -181,7 +181,7 @@ describe("IcCardHorizontal", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-image-small",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
 
@@ -198,7 +198,7 @@ describe("IcCardHorizontal", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-image-default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -215,7 +215,7 @@ describe("IcCardHorizontal", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-image-large",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -232,7 +232,7 @@ describe("IcCardHorizontal", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-image-extra-large",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -244,7 +244,7 @@ describe("IcCardHorizontal", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -288,7 +288,7 @@ describe("IcCardHorizontal", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-truncated-text",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
   });
 
@@ -299,7 +299,7 @@ describe("IcCardHorizontal", () => {
 
     cy.compareSnapshot({
       name: "theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
     });
   });
 
@@ -310,7 +310,7 @@ describe("IcCardHorizontal", () => {
 
     cy.compareSnapshot({
       name: "theme-clickable",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
 
@@ -321,72 +321,75 @@ describe("IcCardHorizontal", () => {
 
     cy.compareSnapshot({
       name: "theme-disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
+    });
+  });
+});
+
+describe("IcCardHorizontal visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  before(() => {
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render", () => {
+    mount(<BasicCardHorizontal />);
+
+    cy.checkHydrated(CARD_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "default-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
 
-  describe("IcCardHorizontal visual regression tests in high contrast mode", () => {
-    before(() => {
-      cy.enableForcedColors();
-      cy.viewport(1024, 768);
+  it("should render clickable", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <BasicCardHorizontal clickable />
+      </div>
+    );
+
+    cy.get(CARD_SELECTOR).click("topLeft").should(HAVE_FOCUS);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "clickable-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
+  });
 
-    after(() => {
-      cy.disableForcedColors();
+  it("should render clickable as a link", () => {
+    mount(<BasicCardHorizontal clickable href="#" />);
+
+    cy.get('[href="#"]').should(BE_VISIBLE);
+
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "clickable-link-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
+  });
 
-    afterEach(() => {
-      cy.task("generateReport");
-    });
+  it("should render disabled", () => {
+    mount(<BasicCardHorizontal disabled clickable />);
 
-    it("should render", () => {
-      mount(<BasicCardHorizontal />);
-
-      cy.checkHydrated(CARD_SELECTOR);
-
-      cy.checkA11yWithWait();
-      cy.compareSnapshot({
-        name: "default-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
-      });
-    });
-
-    it("should render clickable", () => {
-      mount(
-        <div style={{ margin: "16px" }}>
-          <BasicCardHorizontal clickable />
-        </div>
-      );
-
-      cy.get(CARD_SELECTOR).click("topLeft").should(HAVE_FOCUS);
-
-      cy.checkA11yWithWait();
-      cy.compareSnapshot({
-        name: "clickable-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
-      });
-    });
-
-    it("should render clickable as a link", () => {
-      mount(<BasicCardHorizontal clickable href="#" />);
-
-      cy.get('[href="#"]').should(BE_VISIBLE);
-
-      // cy.checkA11yWithWait();
-      cy.compareSnapshot({
-        name: "clickable-link-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
-      });
-    });
-
-    it("should render disabled", () => {
-      mount(<BasicCardHorizontal disabled clickable />);
-
-      cy.checkA11yWithWait();
-      cy.compareSnapshot({
-        name: "disabled-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
-      });
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "disabled-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 });

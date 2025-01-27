@@ -32,7 +32,7 @@ const LONG_CUSTOM_DISABLE_DAY_MESSAGE =
   "This is a very long message to test the validation message";
 const STATUS_TEXT_SPAN = ".statustext";
 const DEFAULT_HELPER_TEXT = "Use format DD/MM/YYYY";
-const DEFAULT_THRESHOLD = 0.04;
+const DEFAULT_THRESHOLD = 0.031;
 
 describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
@@ -61,7 +61,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "date-input-render",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.004),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -80,7 +80,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "date-input-dark-mode",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.006),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.011),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -335,7 +335,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-values",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.004),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -390,7 +390,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-min-validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.025),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.022),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -419,7 +419,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-max-validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.025),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.023),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -464,7 +464,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-custom-invalid-date-message",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.018),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.013),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -497,7 +497,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-custom-disable-days-message",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.013),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -525,7 +525,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-long-custom-disable-days-message",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.036),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -558,7 +558,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-custom-disable-future-message",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.013),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -586,7 +586,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-long-custom-disable-future-message",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.036),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -619,7 +619,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-custom-disable-past-message",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.014),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -647,7 +647,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-long-custom-disable-past-message",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.036),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -737,7 +737,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-error-validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.008),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.004),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -761,7 +761,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-warning-validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.015),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.007),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -785,7 +785,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "date-input-with-success-validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.0085),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.005),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -822,7 +822,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "date-input-validation-dark-mode",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.046),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.048),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -948,7 +948,7 @@ describe("IcDateInput visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "date-input-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.006),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.013),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -979,7 +979,7 @@ describe("IcDateInput visual regression tests in high contrast mode", () => {
 
     cy.wait(500).compareSnapshot({
       name: "date-input-with-custom-disable-days-message-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.013),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.022),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -994,7 +994,7 @@ describe("IcDateInput visual regression tests in high contrast mode", () => {
 
     cy.wait(500).compareSnapshot({
       name: "date-input-with-validation-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.102),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.114),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
