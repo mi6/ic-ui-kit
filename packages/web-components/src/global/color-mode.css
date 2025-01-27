@@ -1031,6 +1031,9 @@ ic-theme,
   --ic-skeleton-background: var(--ic-state-layer-neutral-light);
   --ic-skeleton-background-secondary: var(--ic-state-layer-neutral-default);
 
+  /* Skip link */
+  --ic-skip-link-background: var(--ic-color-background-primary);
+
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-text-inverse);
   --ic-status-tag-text-inverted: var(--ic-color-text-primary);
@@ -2411,6 +2414,9 @@ ic-theme,
     --ic-skeleton-background: var(--ic-state-layer-neutral-dark);
     --ic-skeleton-background-secondary: var(--ic-state-layer-neutral-darker);
 
+    /* Skip link */
+    --ic-skip-link-background: var(--ic-color-background-primary);
+
     /* Status tags */
     --ic-status-tag-text: var(--ic-color-text-inverse);
     --ic-status-tag-text-inverted: var(--ic-color-text-inverse);
@@ -3747,6 +3753,9 @@ ic-theme,
   /* Skeleton */
   --ic-skeleton-background: var(--ic-state-layer-neutral-dark);
   --ic-skeleton-background-secondary: var(--ic-state-layer-neutral-darker);
+
+  /* Skip link */
+  --ic-skip-link-background: var(--ic-color-background-primary);
 
   /* Status tags */
   --ic-status-tag-text: var(--ic-color-text-inverse);

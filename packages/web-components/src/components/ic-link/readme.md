@@ -45,12 +45,14 @@ Type: `Promise<void>`
 
  - [ic-breadcrumb](../ic-breadcrumb)
  - [ic-footer-link](../ic-footer-link)
+ - [ic-skip-link](../ic-skip-link)
 
 ### Graph
 ```mermaid
 graph TD;
   ic-breadcrumb --> ic-link
   ic-footer-link --> ic-link
+  ic-skip-link --> ic-link
   style ic-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
