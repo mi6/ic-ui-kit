@@ -8,6 +8,7 @@ import { Button } from "../../../ic-button/ic-button";
 import { TextField } from "../../../ic-text-field/ic-text-field";
 import { AccordionGroup } from "../../../ic-accordion-group/ic-accordion-group";
 import { Accordion } from "../../../ic-accordion/ic-accordion";
+import { SearchBar } from "../../../ic-search-bar/ic-search-bar";
 
 const DIALOG_DELAY_MS = 100;
 
@@ -570,6 +571,37 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.focusedElementIndex).toBe(1);
   });
 
+  it("should render with a ic-search-bar as first focussable element", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Accordion, Button, SearchBar],
+      html: `<ic-dialog heading="Dialog heading">
+        <ic-search-bar label="What is your favourite coffee?"></ic-search-bar>
+        <ic-button>Click Me</ic-button>
+      </ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+    const dialog = document.querySelector("ic-dialog");
+
+    dialog.open = true;
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(page.rootInstance.interactiveElementList[1].nodeName).toBe(
+      "IC-SEARCH-BAR"
+    );
+
+    page.win.document.dispatchEvent(
+      new KeyboardEvent("keydown", keyboardEvent("Tab"))
+    );
+    await page.waitForChanges();
+
+    expect(page.rootInstance.focusedElementIndex).toBe(1);
+  });
+
   it("should render with the close button", async () => {
     const page = await newSpecPage({
       components: [Dialog, Button],
@@ -636,15 +668,15 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogEl.show).toBeCalled();
   });
-});
 
-it("should render as large size and disableWidthConstraint is set", async () => {
-  const page = await newSpecPage({
-    components: [Dialog, Button],
-    html: `<ic-dialog heading="Dialog heading" size="large" disable-width-constraint="true" buttons="false"></ic-dialog>`,
+  it("should render as large size and disableWidthConstraint is set", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Button],
+      html: `<ic-dialog heading="Dialog heading" size="large" disable-width-constraint="true" buttons="false"></ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+
+    expect(page.root).toMatchSnapshot();
   });
-
-  setupDialogMethods(page);
-
-  expect(page.root).toMatchSnapshot();
 });

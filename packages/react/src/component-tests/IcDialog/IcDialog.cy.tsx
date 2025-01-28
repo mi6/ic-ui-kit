@@ -19,6 +19,7 @@ import {
   DialogAccordion,
   DialogAccordionGroup,
   DialogAccordionGroupSingleExpansion,
+  DialogSearch,
   NoWidthConstraintDialog,
   ThemeDark,
 } from "./IcDialogTestData";
@@ -323,6 +324,26 @@ describe("IcDialog visual regression and a11y tests", () => {
       name: "accordion-group-single-expansion",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
+  });
+
+  it("should focus interactive content - search bar", () => {
+    mount(<DialogSearch />);
+
+    cy.get(DIALOG).should("exist");
+    cy.get("ic-button#slotted-dialog-btn").click();
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+    cy.wait(300);
+    cy.get("ic-search-bar").should(HAVE_FOCUS).realPress("Tab");
+    cy.wait(300);
+    cy.findShadowEl("ic-search-bar", "#clear-button")
+      .should(HAVE_FOCUS)
+      .realPress("Tab");
+    cy.wait(300);
+    cy.findShadowEl("ic-search-bar", "#search-submit-button")
+      .should(HAVE_FOCUS)
+      .realPress("Tab");
+    cy.wait(300);
+    cy.get("ic-text-field").should(HAVE_FOCUS);
   });
 
   it("should render neutral alert dialog", () => {
