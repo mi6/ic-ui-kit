@@ -1351,6 +1351,8 @@ ic-theme,
 /* colors for system dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
+    color-scheme: dark;
+
     /* Text */
     --ic-color-text-primary: var(--ic-color-text-primary-dark);
     --ic-color-text-secondary: var(--ic-color-text-secondary-dark);
@@ -2744,6 +2746,8 @@ ic-theme,
 
 /* colors for dark theme */
 .ic-theme-dark {
+  color-scheme: dark;
+
   /* Text */
   --ic-color-text-primary: var(--ic-color-text-primary-dark);
   --ic-color-text-secondary: var(--ic-color-text-secondary-dark);
