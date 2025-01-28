@@ -55,7 +55,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "with-expandable-nav-groups-top-nav",
+        name: "/with-expandable-nav-groups-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
       });
     });
@@ -74,7 +74,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       //cy.checkA11yWithWait(undefined, 250);
       cy.wait(250).compareSnapshot({
-        name: "with-expandable-nav-groups-top-nav-expanded",
+        name: "/with-expandable-nav-groups-top-nav-expanded",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
       });
     });
@@ -131,7 +131,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "expandable-nav-group-focused-top-nav",
+        name: "/expandable-nav-group-focused-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
       });
     });
@@ -180,7 +180,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "nav-item-within-expandable-nav-group-focused-top-nav",
+        name: "/nav-item-within-expandable-nav-group-focused-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
       });
     });
@@ -217,7 +217,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       //cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "with-nav-groups-top-nav",
+        name: "/with-nav-groups-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
       });
     });
@@ -263,7 +263,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "nav-group-focused-top-nav",
+        name: "/nav-group-focused-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       });
     });
@@ -276,7 +276,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "with-nav-items-top-nav",
+        name: "/with-nav-items-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
       });
     });
@@ -312,7 +312,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "nav-item-focused-top-nav",
+        name: "/nav-item-focused-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       });
     });
@@ -325,7 +325,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "with-nav-buttons-top-nav",
+        name: "/with-nav-buttons-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
       });
     });
@@ -367,7 +367,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "nav-button-focused-top-nav",
+        name: "/nav-button-focused-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
       });
     });
@@ -380,7 +380,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       // cy.checkA11yWithWait(undefined, 250); a11y error with unique landmarks
       cy.compareSnapshot({
-        name: "theme-dark-top-nav",
+        name: "/theme-dark-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
       });
     });
@@ -404,7 +404,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "with-expandable-nav-groups-side-nav",
+        name: "/with-expandable-nav-groups-side-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
       });
     });
@@ -419,7 +419,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "with-expandable-nav-groups-side-nav-expanded",
+        name: "/with-expandable-nav-groups-side-nav-expanded",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
       });
     });
@@ -466,7 +466,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "expandable-nav-group-focused-side-nav",
+        name: "/expandable-nav-group-focused-side-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
       });
     });
@@ -488,7 +488,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "nav-item-within-expandable-nav-group-focused-side-nav",
+        name: "/nav-item-within-expandable-nav-group-focused-side-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
       });
     });
@@ -503,7 +503,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "with-nav-groups-side-nav",
+        name: "/with-nav-groups-side-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
       });
     });
@@ -544,7 +544,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
 
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
-        name: "with-nav-items-side-nav",
+        name: "/with-nav-items-side-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
       });
     });
@@ -595,7 +595,7 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
     cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click().wait(250);
 
     cy.compareSnapshot({
-      name: "all-nav-types-top-nav-high-contrast",
+      name: "/all-nav-types-top-nav-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
@@ -614,7 +614,7 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
     cy.get(NAVIGATION_GROUP_SELECTOR).eq(0).should(HAVE_FOCUS);
 
     cy.wait(250).compareSnapshot({
-      name: "nav-group-top-nav-focused-high-contrast",
+      name: "/nav-group-top-nav-focused-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -628,7 +628,7 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
     cy.get(SIDE_NAV_SELECTOR).should(HAVE_CLASS, "xs-menu-open");
 
     cy.compareSnapshot({
-      name: "all-nav-types-side-nav-high-contrast",
+      name: "/all-nav-types-side-nav-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -649,7 +649,7 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
     cy.get(NAVIGATION_GROUP_SELECTOR).eq(0).should(HAVE_FOCUS);
 
     cy.compareSnapshot({
-      name: "nav-group-side-nav-focused-high-contrast",
+      name: "/nav-group-side-nav-focused-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });

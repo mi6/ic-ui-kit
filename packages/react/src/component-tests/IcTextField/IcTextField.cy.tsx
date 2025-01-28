@@ -371,7 +371,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "icon-value-max-characters",
+      name: "/icon-value-max-characters",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -381,7 +381,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "small-text-field",
+      name: "/small-text-field",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -391,7 +391,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "full-width-text-field",
+      name: "/full-width-text-field",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -401,7 +401,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "multiline-text-area-with-resize",
+      name: "/multiline-text-area-with-resize",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
@@ -411,7 +411,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "inline-validation-text-field",
+      name: "/inline-validation-text-field",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -421,7 +421,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "validation-text-field",
+      name: "/validation-text-field",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.098),
     });
   });
@@ -431,7 +431,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "readonly-text-field",
+      name: "/readonly-text-field",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
@@ -441,7 +441,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "custom-text-field",
+      name: "/custom-text-field",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -455,7 +455,7 @@ describe("IcTextField visual regression tests", () => {
     cy.get(IC_TEXTFIELD).should(HAVE_FOCUS);
 
     cy.compareSnapshot({
-      name: "focused-input-text-field",
+      name: "/focused-input-text-field",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
@@ -465,7 +465,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "min-max-characters-text-field",
+      name: "/min-max-characters-text-field",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -475,7 +475,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark-theme",
+      name: "/dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -485,7 +485,7 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark-theme-validation",
+      name: "/dark-theme-validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -511,7 +511,7 @@ describe("IcTextField visual regression in high contrast mode", () => {
     cy.get(IC_TEXTFIELD).should(HAVE_FOCUS);
 
     cy.compareSnapshot({
-      name: "focused-input-text-field-high-contrast",
+      name: "/focused-input-text-field-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -520,7 +520,7 @@ describe("IcTextField visual regression in high contrast mode", () => {
     mount(<DisabledTextField />);
 
     cy.wait(100).compareSnapshot({
-      name: "disabled-text-field-high-contrast",
+      name: "/disabled-text-field-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
@@ -529,7 +529,7 @@ describe("IcTextField visual regression in high contrast mode", () => {
     mount(<ReadonlyTextField />);
 
     cy.wait(100).compareSnapshot({
-      name: "readonly-text-field-high-contrast",
+      name: "/readonly-text-field-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
@@ -538,7 +538,7 @@ describe("IcTextField visual regression in high contrast mode", () => {
     mount(<TextFieldWithValidation />);
 
     cy.wait(100).compareSnapshot({
-      name: "validation-text-field-high-contrast",
+      name: "/validation-text-field-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.115),
     });
   });

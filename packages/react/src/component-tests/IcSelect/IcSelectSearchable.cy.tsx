@@ -654,7 +654,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "searchable-default",
+      name: "/searchable-default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -675,7 +675,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-default-open",
+      name: "/searchable-default-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
     });
   });
@@ -697,7 +697,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 1000);
     cy.compareSnapshot({
-      name: "searchable-default-value-open",
+      name: "/searchable-default-value-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -719,7 +719,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca");
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "searchable-search-match-position-open",
+      name: "/searchable-search-match-position-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
@@ -741,7 +741,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-descriptions-open",
+      name: "/searchable-descriptions-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
     });
   });
@@ -763,7 +763,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-descriptions-in-filter-open",
+      name: "/searchable-descriptions-in-filter-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
     });
   });
@@ -784,7 +784,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "searchable-custom-placeholder",
+      name: "/searchable-custom-placeholder",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
@@ -806,7 +806,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-custom-elements-open",
+      name: "/searchable-custom-elements-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -827,7 +827,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "searchable-small",
+      name: "/searchable-small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -849,7 +849,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-small-open",
+      name: "/searchable-small-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
@@ -870,7 +870,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "searchable-large",
+      name: "/searchable-large",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -892,7 +892,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-large-open",
+      name: "/searchable-large-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
@@ -913,7 +913,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "searchable-disabled",
+      name: "/searchable-disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -935,7 +935,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-disabled-options-open",
+      name: "/searchable-disabled-options-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
@@ -956,7 +956,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "searchable-full-width",
+      name: "/searchable-full-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -978,7 +978,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-full-width-open",
+      name: "/searchable-full-width-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -1000,7 +1000,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-groups-open",
+      name: "/searchable-groups-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
@@ -1023,7 +1023,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-groups-in-filter-open",
+      name: "/searchable-groups-in-filter-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
@@ -1045,7 +1045,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "searchable-recommended-open",
+      name: "/searchable-recommended-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -1056,7 +1056,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "searchable-dark-theme",
+      name: "/searchable-dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -1069,7 +1069,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
 
     // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "clear-icon-focused-theme-dark",
+      name: "/clear-icon-focused-theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -1104,7 +1104,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
     cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(500);
 
     cy.compareSnapshot({
-      name: "searchable-recommended-open-high-contrast",
+      name: "/searchable-recommended-open-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -1126,7 +1126,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
     cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("bo").wait(500);
 
     cy.compareSnapshot({
-      name: "searchable-groups-in-filter-open-high-contrast",
+      name: "/searchable-groups-in-filter-open-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
@@ -1147,7 +1147,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
     cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(500);
 
     cy.compareSnapshot({
-      name: "searchable-disabled-options-open-high-contrast",
+      name: "/searchable-disabled-options-open-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
@@ -1168,7 +1168,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
     cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(500);
 
     cy.compareSnapshot({
-      name: "searchable-descriptions-open-high-contrast",
+      name: "/searchable-descriptions-open-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
     });
   });

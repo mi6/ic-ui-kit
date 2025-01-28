@@ -114,7 +114,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
+      name: "/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -129,7 +129,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "icon",
+      name: "/icon",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -148,7 +148,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
 
     // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark-theme",
+      name: "/dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -167,7 +167,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
 
     // cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "icon-dark-theme",
+      name: "/icon-dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -190,7 +190,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focussed",
+      name: "/focussed",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -213,7 +213,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focussed-icon-only",
+      name: "/focussed-icon-only",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -241,7 +241,7 @@ describe("IcBackToTop visual regression tests in high contrast mode", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR).wait(1000);
 
     cy.compareSnapshot({
-      name: "default-high-contrast",
+      name: "/default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -255,7 +255,7 @@ describe("IcBackToTop visual regression tests in high contrast mode", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR).wait(500);
 
     cy.compareSnapshot({
-      name: "icon-high-contrast",
+      name: "/icon-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -277,7 +277,7 @@ describe("IcBackToTop visual regression tests in high contrast mode", () => {
       .wait(1000);
 
     cy.compareSnapshot({
-      name: "focussed-high-contrast",
+      name: "/focussed-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -299,7 +299,7 @@ describe("IcBackToTop visual regression tests in high contrast mode", () => {
       .wait(1000);
 
     cy.compareSnapshot({
-      name: "focussed-icon-only-high-contrast",
+      name: "/focussed-icon-only-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
       cypressScreenshotOptions: {
         capture: "viewport",
