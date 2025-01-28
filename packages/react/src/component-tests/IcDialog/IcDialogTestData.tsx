@@ -11,6 +11,7 @@ import {
   IcAlert,
   IcAccordion,
   IcAccordionGroup,
+  IcSearchBar,
 } from "../..";
 import { IcStatusVariants } from "@ukic/web-components";
 
@@ -157,6 +158,35 @@ export const DialogAccordionGroupSingleExpansion = () => {
           <IcAccordion heading="Accordion 2">Text 2</IcAccordion>
           <IcAccordion heading="Accordion 3">Text 3</IcAccordion>
         </IcAccordionGroup>
+      </IcDialog>
+    </>
+  );
+};
+
+export const DialogSearch = () => {
+  const dialogEl = useRef<any>(null);
+  const handleClick = () => {
+    dialogEl.current.open = true;
+  };
+  return (
+    <>
+      <IcButton id="slotted-dialog-btn" onClick={handleClick}>
+        Display dialog
+      </IcButton>
+      <IcDialog
+        ref={dialogEl}
+        heading="This is a default dialog"
+        label="Dialog"
+      >
+        <IcTypography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </IcTypography>
+        <IcSearchBar
+          label="What is your favourite coffee?"
+          value="Americano"
+        ></IcSearchBar>
+        <IcTextField label="What is your favourite coffee?" />
       </IcDialog>
     </>
   );
