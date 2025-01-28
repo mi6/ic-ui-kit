@@ -65,7 +65,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     });
   });
 
-  it.skip("should render according to dark mode system settings when IcTheme theme is set to system", () => {
+  it("should render according to dark mode system settings when IcTheme theme is set to system", () => {
     cy.wrap(
       Cypress.automation("remote:debugger:protocol", {
         command: "Emulation.setEmulatedMedia",
