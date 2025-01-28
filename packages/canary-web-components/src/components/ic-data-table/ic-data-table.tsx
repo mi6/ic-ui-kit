@@ -1969,7 +1969,8 @@ export class DataTable {
       ) {
         this.addLineClampCSS(typographyEl, cellContainer);
       }
-      this.createTruncationTooltip(typographyEl, cellContainer);
+      if (!cellContainer.querySelector(this.IC_TOOLTIP_STRING))
+        this.createTruncationTooltip(typographyEl, cellContainer);
     }
   }
   private setTableDimensions = () => {
