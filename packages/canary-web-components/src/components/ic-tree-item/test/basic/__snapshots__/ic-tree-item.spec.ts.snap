@@ -131,3 +131,15 @@ exports[`ic-tree-item component should render with slotted label 1`] = `
   </ic-typography>
 </ic-tree-item>
 `;
+
+exports[`ic-tree-item component should test rendering icon slot after initial render 1`] = `
+<ic-tree-item class="ic-tree-item-dark" id="ic-tree-item-13" label="Item 1">
+  <mock:shadow-root>
+    <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
+      <ic-typography class="tree-item-label">
+        Item 1
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-tree-item>
+`;

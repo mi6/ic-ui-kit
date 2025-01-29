@@ -82,7 +82,7 @@ describe("ic-tree-view component", () => {
     expect(treeItem.selected).toBeFalsy();
   });
 
-  it.skip("should test rendering icon slot after initial render", async () => {
+  it("should test rendering icon slot after initial render", async () => {
     const page = await newSpecPage({
       components: [TreeView],
       html: `<ic-tree-view heading="Heading"></ic-tree-view>`,
@@ -91,12 +91,6 @@ describe("ic-tree-view component", () => {
     const icon = document.createElement("svg");
     icon.setAttribute("slot", "icon");
 
-    page.rootInstance.hostMutationCallback([
-      {
-        type: "childList",
-        addedNodes: [icon],
-        removedNodes: [],
-      },
-    ]);
+    expect(page.root).toMatchSnapshot();
   });
 });

@@ -85,3 +85,16 @@ exports[`ic-tree-view component should render with tree items 1`] = `
   </ic-tree-item>
 </ic-tree-view>
 `;
+
+exports[`ic-tree-view component should test rendering icon slot after initial render 1`] = `
+<ic-tree-view aria-label="Heading" class="ic-tree-view-dark" context-id="ic-tree-view-5" heading="Heading">
+  <mock:shadow-root>
+    <div class="heading-area-container">
+      <ic-typography class="tree-view-header" variant="subtitle-large">
+        Heading
+      </ic-typography>
+    </div>
+    <slot></slot>
+  </mock:shadow-root>
+</ic-tree-view>
+`;
