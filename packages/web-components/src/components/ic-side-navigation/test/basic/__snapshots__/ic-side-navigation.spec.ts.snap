@@ -346,7 +346,7 @@ exports[`ic-side-navigation should render with short app title: renders-with-sho
           Navigation menu toggle button
         </span>
       </nav>
-      <div class="app-title-wrapper menu-visibility-visible">
+      <div class="app-title-wrapper">
         <a class="title-link" href="/">
           <div aria-hidden="true" class="app-icon-container">
             <slot name="app-icon"></slot>
@@ -362,7 +362,7 @@ exports[`ic-side-navigation should render with short app title: renders-with-sho
       </div>
     </div>
     <div class="side-navigation" id="side-navigation">
-      <div class="side-navigation-inner">
+      <div class="menu-visibility-visible side-navigation-inner">
         <nav aria-labelledby="primary-navigation-landmark" class="primary-navigation">
           <span aria-hidden="true" class="navigation-landmark-title" id="primary-navigation-landmark">
             Primary
@@ -372,7 +372,7 @@ exports[`ic-side-navigation should render with short app title: renders-with-sho
           </ul>
         </nav>
       </div>
-      <div class="bottom-wrapper">
+      <div class="bottom-wrapper menu-visibility-visible">
         <div class="bottom-side-nav">
           <div class="app-status-wrapper">
             <div class="app-status">

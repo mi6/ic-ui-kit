@@ -1,13 +1,14 @@
-import { newSpecPage } from "@stencil/core/testing";
-import { IcButton } from "@ukic/web-components/dist/components/ic-button";
-import { DataTable } from "../../ic-data-table";
-import { IcPagination } from "@ukic/web-components/dist/components/ic-pagination";
-import { PaginationBar } from "../../../ic-pagination-bar/ic-pagination-bar";
-import { IcPaginationItem } from "@ukic/web-components/dist/components/ic-pagination-item";
 import { h } from "@stencil/core";
+import { newSpecPage } from "@stencil/core/testing";
+
+import { Button } from "@ukic/web-components/src/components/ic-button/ic-button";
+import { DataTable } from "../../ic-data-table";
+import { EmptyState } from "@ukic/web-components/src/components/ic-empty-state/ic-empty-state";
+import { Pagination } from "@ukic/web-components/src/components/ic-pagination/ic-pagination";
+import { PaginationBar } from "../../../ic-pagination-bar/ic-pagination-bar";
+import { PaginationItem } from "@ukic/web-components/src/components/ic-pagination-item/ic-pagination-item";
 import { IcDataTableColumnObject } from "../../ic-data-table.types";
 import { waitForTimeout } from "../../../../testspec.setup";
-import { IcEmptyState } from "@ukic/web-components/dist/components/ic-empty-state";
 import { DataTableTitleBar } from "../../../ic-data-table-title-bar/ic-data-table-title-bar";
 import { LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS } from "../../story-data";
 
@@ -415,7 +416,7 @@ const dataWithActionElement = [
     name: {
       data: name1,
       actionElement: `<ic-button size="small" variant="icon"  aria-label="you can disable tooltips on icon buttons"  disable-tooltip="true">  <svg    xmlns="http://www.w3.org/2000/svg"    width="24"    height="24"    viewBox="0 0 24 24"    fill="#000000"  >    <path d="M0 0h24v24H0V0z" fill="none"></path>    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>  </svg></ic-button>`,
-      actionOnClick: () => console.log("hello"),
+      actionOnClick: () => console.log("Button clicked"),
     },
     age: 36,
     department: "Accounts",
@@ -711,7 +712,7 @@ describe(icDataTable, () => {
 
   it("should be able to slot a custom empty state into the data table", async () => {
     const page = await newSpecPage({
-      components: [IcButton, DataTable, IcEmptyState],
+      components: [Button, DataTable, EmptyState],
       template: () => (
         <ic-data-table caption="test table" columns={columns} data={[]}>
           <ic-empty-state
@@ -945,11 +946,11 @@ describe(icDataTable, () => {
   it("should change page when the pagination items are clicked", async () => {
     const page = await newSpecPage({
       components: [
-        IcButton,
+        Button,
         DataTable,
-        IcPagination,
+        Pagination,
         PaginationBar,
-        IcPaginationItem,
+        PaginationItem,
       ],
       template: () => (
         <ic-data-table
@@ -1078,7 +1079,7 @@ describe(icDataTable, () => {
 
   it("should sort data when the sort button is clicked", async () => {
     const page = await newSpecPage({
-      components: [IcButton, DataTable],
+      components: [Button, DataTable],
       template: () => (
         <ic-data-table
           caption="test table"
@@ -1160,7 +1161,7 @@ describe(icDataTable, () => {
 
   it("should highlight the correct row when clicked", async () => {
     const page = await newSpecPage({
-      components: [IcButton, DataTable],
+      components: [Button, DataTable],
       template: () => (
         <ic-data-table
           caption="test table"

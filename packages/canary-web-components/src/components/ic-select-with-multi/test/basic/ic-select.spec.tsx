@@ -1,11 +1,12 @@
 import { h } from "@stencil/core";
 import { newSpecPage } from "@stencil/core/testing";
+
+import { Button } from "@ukic/web-components/src/components/ic-button/ic-button";
+import { InputComponentContainer } from "@ukic/web-components/src/components/ic-input-component-container/ic-input-component-container";
+import * as helpers from "@ukic/web-components/src/utils/helpers";
 import { Menu } from "../../../ic-menu-with-multi/ic-menu";
 import { Select } from "../../ic-select";
-import * as helpers from "@ukic/web-components/dist/types/utils/helpers";
-import { IcButton } from "@ukic/web-components/dist/components/ic-button";
 import { waitForTimeout } from "../../../../testspec.setup";
-import { IcInputComponentContainer } from "@ukic/web-components/dist/components/ic-input-component-container";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -111,7 +112,7 @@ const getTestSelect = (props: string) =>
 describe("ic-select single", () => {
   it("should not render a label when the 'hide-label' prop is supplied", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: getTestSelect("hide-label"),
     });
 
@@ -120,7 +121,7 @@ describe("ic-select single", () => {
 
   it("should test select as submit on form", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<form id="new-form"></form><ic-select id="ic-select" form="new-form" label="IC Select Test" value="test-value"></ic-select>`,
     });
 
@@ -129,7 +130,7 @@ describe("ic-select single", () => {
 
   it("should render readonly", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: getTestSelect('readonly="true"'),
     });
 
@@ -138,7 +139,7 @@ describe("ic-select single", () => {
 
   it("should have correct validation status", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: getTestSelect('validation-status="error"'),
     });
 
@@ -147,7 +148,7 @@ describe("ic-select single", () => {
 
   it("should not have a validation status if disabled", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: getTestSelect('disabled validation-status="error"'),
     });
 
@@ -156,7 +157,7 @@ describe("ic-select single", () => {
 
   it("should render correct validation text", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: getTestSelect(
         'validation-status="error" validation-text="Test validation text"'
       ),
@@ -167,7 +168,7 @@ describe("ic-select single", () => {
 
   it("should not render validation text if no validation status has been supplied", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: getTestSelect('validation-text="Test validation text"'),
     });
 
@@ -177,7 +178,7 @@ describe("ic-select single", () => {
   it("should test with clear button", async () => {
     const eventSpy = jest.fn();
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" show-clear-button="true" value="test-value"></ic-select>`,
     });
     page.root.addEventListener("icClear", eventSpy);
@@ -190,7 +191,7 @@ describe("ic-select single", () => {
 
     const clearButton = page.root.shadowRoot.querySelector(
       clearButtonId
-    ) as HTMLIcButtonElement;
+    ) as HTMLButtonElement;
 
     clearButton.focus();
     await page.waitForChanges();
@@ -207,7 +208,7 @@ describe("ic-select single", () => {
 
   it("should test menu handleKeyboardOpen method - arrow down (custom select)", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -238,7 +239,7 @@ describe("ic-select single", () => {
 
   it("should test menu handleKeyboardOpen method - arrow up (custom select)", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -269,7 +270,7 @@ describe("ic-select single", () => {
 
   it("should test keydown on menu - space key (custom)", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -294,7 +295,7 @@ describe("ic-select single", () => {
 
   it("should test mousedown handler", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -315,7 +316,7 @@ describe("ic-select single", () => {
 
   it("should use option labels if no values", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
     page.root.options = menuOptionsNoValues;
@@ -327,7 +328,7 @@ describe("ic-select single", () => {
 
   it("should select the option that matches the pressed character key", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -371,7 +372,7 @@ describe("ic-select single", () => {
 
   it("should select the option that matches the pressed character key - grouped options", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -399,7 +400,7 @@ describe("ic-select single", () => {
 
   it("should test getFilteredChildMenuOptions for custom select", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -416,7 +417,7 @@ describe("ic-select single", () => {
 
   it("should select the option that matches the character key pressed when menu is open", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -451,7 +452,7 @@ describe("ic-select single", () => {
 
   it("should add to pressedCharacters as characters are pressed and then reset it after 1 second", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -488,7 +489,7 @@ describe("ic-select single", () => {
 
   it("should not open the menu when space key is used as a character key", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -511,7 +512,7 @@ describe("ic-select single", () => {
 
   it("should not close the menu when space key is used as a character key", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -549,7 +550,7 @@ describe("ic-select single", () => {
 
   it("should test loading state and timeout for custom select", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" timeout="1000"></ic-select>`,
     });
     const eventSpy = jest.fn();
@@ -566,7 +567,7 @@ describe("ic-select single", () => {
     await page.waitForChanges();
     const retryButton = page.root.shadowRoot
       .querySelector("ic-menu")
-      .querySelector(retryButtonId) as HTMLIcButtonElement;
+      .querySelector(retryButtonId) as HTMLButtonElement;
     retryButton.blur();
     expect(page.rootInstance.open).toBeFalsy;
     expect(eventSpy).toHaveBeenCalled;
@@ -579,7 +580,7 @@ describe("ic-select single", () => {
   it("should focus the input when escape is pressed whilst the menu is focused", async () => {
     const spy = jest.spyOn(HTMLButtonElement.prototype, "focus");
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
     page.root.options = menuOptions;
@@ -602,7 +603,7 @@ describe("ic-select single", () => {
 
   it("should deduplicateOptions and log a console warning about the offending items", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
@@ -726,7 +727,7 @@ describe("ic-select single native", () => {
 describe("ic-select searchable", () => {
   it("should render as required", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: getTestSelect('required="true" searchable="true"'),
     });
 
@@ -735,7 +736,7 @@ describe("ic-select searchable", () => {
 
   it("should test with clear button with searchable", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
     page.root.options = menuOptions;
@@ -744,7 +745,7 @@ describe("ic-select searchable", () => {
 
     const clearButton = page.root.shadowRoot.querySelector(
       clearButtonId
-    ) as HTMLIcButtonElement;
+    ) as HTMLButtonElement;
 
     clearButton.focus();
     await page.waitForChanges();
@@ -761,7 +762,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown handler searchable", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
     jest.spyOn(page.rootInstance, "setFocus").mockImplementation();
@@ -815,7 +816,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on menu - arrow up (searchable)", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -842,7 +843,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on menu - arrow up wrap around (searchable)", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -870,7 +871,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on menu - arrow down", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -898,7 +899,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on menu - arrow down wrap around", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -926,7 +927,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on menu - home key", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -950,7 +951,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on menu - end key", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -977,7 +978,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on menu - backspace key", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1005,7 +1006,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on menu - enter key", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1046,7 +1047,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on menu - space key", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1071,7 +1072,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on menu - other key", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1099,7 +1100,7 @@ describe("ic-select searchable", () => {
 
   it("should test keyup on menu list", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1128,7 +1129,7 @@ describe("ic-select searchable", () => {
 
   it("should test click on input", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1143,7 +1144,7 @@ describe("ic-select searchable", () => {
 
   it("should test click on input with external filtering", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true"></ic-select>`,
     });
 
@@ -1158,7 +1159,7 @@ describe("ic-select searchable", () => {
 
   it("should test blur on searchable input", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1176,7 +1177,7 @@ describe("ic-select searchable", () => {
 
   it("should test blur on searchable input where target is an element of the menu but not a menu option", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1202,7 +1203,7 @@ describe("ic-select searchable", () => {
 
   it("should test searchable input", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1246,7 +1247,7 @@ describe("ic-select searchable", () => {
 
   it("should test searchable input filtering", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1270,7 +1271,7 @@ describe("ic-select searchable", () => {
 
   it("should test searchable input - with search match position set to start", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" search-match-position="start"></ic-select>`,
     });
 
@@ -1294,7 +1295,7 @@ describe("ic-select searchable", () => {
 
   it("should test searchable input - with descriptions and descriptions included in search", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" include-descriptions-in-search="true"></ic-select>`,
     });
 
@@ -1318,7 +1319,7 @@ describe("ic-select searchable", () => {
 
   it("should test searchable input - with search match position set to start and descriptions included in search", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" search-match-position="start" include-descriptions-in-search="true"></ic-select>`,
     });
 
@@ -1342,7 +1343,7 @@ describe("ic-select searchable", () => {
 
   it("should test searchable input - with groups", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1366,7 +1367,7 @@ describe("ic-select searchable", () => {
 
   it("should test searchable input - with groups and group titles included in search", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" include-group-titles-in-search="true"></ic-select>`,
     });
 
@@ -1390,7 +1391,7 @@ describe("ic-select searchable", () => {
 
   it("should test selectchange on no result found entry", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1412,7 +1413,7 @@ describe("ic-select searchable", () => {
 
   it("should test dropdown icon mousedown handler", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -1450,7 +1451,7 @@ describe("ic-select searchable", () => {
 
   it("should test debounce change", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300"></ic-select>`,
     });
 
@@ -1463,7 +1464,7 @@ describe("ic-select searchable", () => {
 
   it("should test no results state when no options passed and filtering disabled", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300"></ic-select>`,
     });
 
@@ -1499,7 +1500,7 @@ describe("ic-select searchable", () => {
 
   it("should test menu opens and closes when enter pressed - external filtering", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300"></ic-select>`,
     });
 
@@ -1558,7 +1559,7 @@ describe("ic-select searchable", () => {
 
   it("should set the default value of searchable as custom value when not matching options", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label='Select test' searchable='true' value='Test value 01'></ic-select>`,
     });
 
@@ -1573,7 +1574,7 @@ describe("ic-select searchable", () => {
 
   it("should set the default value of searchable as option label if matching label/value exists", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       template: () => (
         <ic-select
           label="select test"
@@ -1592,7 +1593,7 @@ describe("ic-select searchable", () => {
 
   it("should set the default value of searchable as option label when options initially set to [] then populated", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       template: () => (
         <ic-select
           label="select test"
@@ -1614,7 +1615,7 @@ describe("ic-select searchable", () => {
 
   it("should set the default value to custom value when options initially set to [] then set to [] again", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       template: () => (
         <ic-select
           label="select test"
@@ -1636,7 +1637,7 @@ describe("ic-select searchable", () => {
 
   it("should test loading state and timeout for searchable select with external filtering", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300" timeout="1000"></ic-select>`,
     });
 
@@ -1661,7 +1662,7 @@ describe("ic-select searchable", () => {
     await page.waitForChanges();
     const retryButton = page.root.shadowRoot
       .querySelector("ic-menu")
-      .querySelector(retryButtonId) as HTMLIcButtonElement;
+      .querySelector(retryButtonId) as HTMLButtonElement;
     retryButton.click();
     page.rootInstance.loading = true;
     await page.waitForChanges();
@@ -1675,7 +1676,7 @@ describe("ic-select searchable", () => {
   it("should focus the input when escape is pressed whilst the menu is focused (searchable)", async () => {
     const spy = jest.spyOn(HTMLInputElement.prototype, "focus");
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
     page.root.options = menuOptions;
@@ -1698,7 +1699,7 @@ describe("ic-select searchable", () => {
 
   it("should test keydown on loading retry button", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300" timeout="1000"></ic-select>`,
     });
     const input = page.root.shadowRoot.querySelector("input");
@@ -1722,14 +1723,14 @@ describe("ic-select searchable", () => {
     });
     const retryButton = page.root.shadowRoot
       .querySelector("ic-menu")
-      .querySelector(retryButtonId) as HTMLIcButtonElement;
+      .querySelector(retryButtonId) as HTMLButtonElement;
     retryButton.dispatchEvent(event);
     expect(spy).toHaveBeenCalled;
   });
 
   it("should stop the timeout if clear button is clicked before timeout", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true" timeout="1000"></ic-select>`,
     });
     page.rootInstance.searchableSelectInputValue = "test";
@@ -1747,7 +1748,7 @@ describe("ic-select searchable", () => {
 
     const clearButton = page.root.shadowRoot.querySelector(
       clearButtonId
-    ) as HTMLIcButtonElement;
+    ) as HTMLButtonElement;
     clearButton.click();
     await page.waitForChanges();
     expect(page.rootInstance.filteredOptions).toHaveLength(1);
@@ -1765,7 +1766,7 @@ describe("ic-select searchable", () => {
 
   it("should clear the searchable input if the value is programmatically set to undefined", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
     page.rootInstance.searchableSelectInputValue = "test";
@@ -1794,7 +1795,7 @@ describe("ic-select multi", () => {
     });
 
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
     });
 
@@ -1806,7 +1807,7 @@ describe("ic-select multi", () => {
 
   it("should test handleKeyboardOpen method on menu - arrow down", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
     });
 
@@ -1831,7 +1832,7 @@ describe("ic-select multi", () => {
 
   it("should test menu handleKeyboardOpen method - arrow up", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
     });
 
@@ -1856,7 +1857,7 @@ describe("ic-select multi", () => {
 
   it("should test keydown on menu - arrow down, up, and enter", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
     });
 
@@ -1931,7 +1932,7 @@ describe("ic-select multi", () => {
 
   it("should select all options - handleSelectAllChange", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
     });
 
@@ -1950,7 +1951,7 @@ describe("ic-select multi", () => {
 
   it("should emit icOptionSelect only for unselected options - handleSelectAllChange", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
     });
 
@@ -1968,7 +1969,7 @@ describe("ic-select multi", () => {
 
   it("should deselect all options - handleSelectAllChange", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
     });
 
@@ -1983,7 +1984,7 @@ describe("ic-select multi", () => {
 
   it("should sort the selected options by the order of the options in the menu", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, IcInputComponentContainer, IcButton],
+      components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" multiple="true"></ic-select>`,
     });
 

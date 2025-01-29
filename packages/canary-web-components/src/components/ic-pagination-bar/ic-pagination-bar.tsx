@@ -231,9 +231,8 @@ export class PaginationBar {
     this.changePage(page);
   }
 
-  private changeItemsPerPage = () => {
+  private changeItemsPerPage = () =>
     this.setItemsPerPage(Number(this.pageDropdownEl.value));
-  };
 
   private changePage = (page: number) => {
     this.activePage = page;
@@ -241,9 +240,8 @@ export class PaginationBar {
     this.setUpperBound();
   };
 
-  private focusElFromLabel = (el: "ic-select" | "ic-text-field") => {
+  private focusElFromLabel = (el: "ic-select" | "ic-text-field") =>
     this.paginationBarEl.querySelector(el)?.setFocus();
-  };
 
   private goToPage = () => {
     const input = this.pageInputEl;
@@ -261,9 +259,8 @@ export class PaginationBar {
     }
   };
 
-  private goToPageLabelClickHandler = () => {
+  private goToPageLabelClickHandler = () =>
     this.focusElFromLabel("ic-text-field");
-  };
 
   private handleBlur = () => {
     const textField = this.pageInputEl;
@@ -318,9 +315,8 @@ export class PaginationBar {
     }
   };
 
-  private itemsPerPageLabelClickHandler = () => {
+  private itemsPerPageLabelClickHandler = () =>
     this.focusElFromLabel("ic-select");
-  };
 
   private paginationShouldWrap = () => {
     if (this.type === "simple") {
@@ -427,6 +423,16 @@ export class PaginationBar {
     const relabelLastOptionToAll = () =>
       (this.displayedItemsPerPageOptions[currentItemsLength - 1].label = "All");
 
+    const removeExcessiveOptions = () => {
+      const maxItemsPerPageOptions = 4;
+      if (this.displayedItemsPerPageOptions.length > maxItemsPerPageOptions) {
+        this.displayedItemsPerPageOptions.splice(
+          maxItemsPerPageOptions - 1,
+          this.displayedItemsPerPageOptions.length - maxItemsPerPageOptions
+        );
+      }
+    };
+
     if (currentItemsLength === 0) {
       addAllOption();
     } else if (lastItemsPerPageEqualsTotalItems()) {
@@ -434,6 +440,8 @@ export class PaginationBar {
     } else if (!this.hideAllFromItemsPerPage) {
       addAllOption();
     }
+
+    removeExcessiveOptions();
   };
 
   private setPaginationBarContent = (): void => {

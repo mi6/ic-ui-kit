@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-tree-view component should render 1`] = `
-<ic-tree-view class="ic-tree-view-dark" context-id="ic-tree-view-0" heading="Heading">
+<ic-tree-view aria-label="Heading" class="ic-tree-view-dark" context-id="ic-tree-view-0" heading="Heading">
   <mock:shadow-root>
     <div class="heading-area-container">
       <ic-typography class="tree-view-header" variant="subtitle-large">
@@ -14,7 +14,7 @@ exports[`ic-tree-view component should render 1`] = `
 `;
 
 exports[`ic-tree-view component should render with icon 1`] = `
-<ic-tree-view class="ic-tree-view-dark" context-id="ic-tree-view-1" heading="Heading">
+<ic-tree-view aria-label="Heading" class="ic-tree-view-dark" context-id="ic-tree-view-1" heading="Heading">
   <mock:shadow-root>
     <div class="heading-area-container">
       <div class="icon-container">
@@ -56,7 +56,7 @@ exports[`ic-tree-view component should render with slotted heading 1`] = `
 `;
 
 exports[`ic-tree-view component should render with tree items 1`] = `
-<ic-tree-view class="ic-tree-view-dark" context-id="ic-tree-view-2" heading="Heading">
+<ic-tree-view aria-label="Heading" class="ic-tree-view-dark" context-id="ic-tree-view-2" heading="Heading">
   <mock:shadow-root>
     <div class="heading-area-container">
       <ic-typography class="tree-view-header" variant="subtitle-large">
@@ -65,18 +65,18 @@ exports[`ic-tree-view component should render with tree items 1`] = `
     </div>
     <slot></slot>
   </mock:shadow-root>
-  <ic-tree-item aria-disabled="false" class="ic-tree-item-dark" context-id="ic-tree-view-2" id="ic-tree-item-0" label="Item 1">
+  <ic-tree-item class="ic-tree-item-dark" context-id="ic-tree-view-2" id="ic-tree-item-0" label="Item 1">
     <mock:shadow-root>
-      <div class="ic-tree-item-single tree-item-content" tabindex="0">
+      <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
         <ic-typography class="tree-item-label">
           Item 1
         </ic-typography>
       </div>
     </mock:shadow-root>
   </ic-tree-item>
-  <ic-tree-item aria-disabled="false" class="ic-tree-item-dark" context-id="ic-tree-view-2" id="ic-tree-item-1" label="Item 2">
+  <ic-tree-item class="ic-tree-item-dark" context-id="ic-tree-view-2" id="ic-tree-item-1" label="Item 2">
     <mock:shadow-root>
-      <div class="ic-tree-item-single tree-item-content" tabindex="0">
+      <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
         <ic-typography class="tree-item-label">
           Item 2
         </ic-typography>

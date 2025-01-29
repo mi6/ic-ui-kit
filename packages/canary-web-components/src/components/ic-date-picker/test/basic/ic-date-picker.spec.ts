@@ -1,20 +1,19 @@
 import { newSpecPage } from "@stencil/core/testing";
+
+import { Button as Button } from "@ukic/web-components/src/components/ic-button/ic-button";
+import { InputLabel as InputLabel } from "@ukic/web-components/src/components/ic-input-label/ic-input-label";
+import { Tooltip as Tooltip } from "@ukic/web-components/src/components/ic-tooltip/ic-tooltip";
 import { DatePicker } from "../../ic-date-picker";
 import { DateInput } from "../../../ic-date-input/ic-date-input";
-import { IcButton as Button } from "@ukic/web-components/dist/components/ic-button";
-import { IcTooltip as Tooltip } from "@ukic/web-components/dist/components/ic-tooltip";
 import {
   waitForTimeout,
   testKeyboardEvent as keyboardEvent,
 } from "../../../../testspec.setup";
 import { dateMatches } from "../../../../utils/date-helpers";
-import { IcInputLabel as InputLabel } from "@ukic/web-components/dist/components/ic-input-label";
 
 const DELAY_MS = 350;
 
-const dateIsToday = (d: Date) => {
-  return dateMatches(d, new Date());
-};
+const dateIsToday = (d: Date) => dateMatches(d, new Date());
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());

@@ -685,6 +685,7 @@ describe("ic-select", () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
+
   it("should return true when running on a mobile or tablet device", async () => {
     // Mock the navigator object
     Object.defineProperty(window, "navigator", {

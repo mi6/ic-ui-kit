@@ -54,6 +54,7 @@ describe("ic-badge", () => {
 
     expect(page.root).toMatchSnapshot("should render warning variant");
   });
+
   it("should render info variant", async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
