@@ -1888,7 +1888,7 @@ describe("ic-menu in isolation", () => {
     const input = window.document.createElement("input");
 
     const page = await newSpecPage({
-      components: [Menu, InputComponentContainer, LoadingIndicator, Typography],
+      components: [Menu, InputComponentContainer],
       template: () => (
         <ic-menu-with-multi
           open
