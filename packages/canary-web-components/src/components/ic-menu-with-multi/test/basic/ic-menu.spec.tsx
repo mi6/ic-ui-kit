@@ -2,14 +2,11 @@ import { h } from "@stencil/core";
 import { newSpecPage } from "@stencil/core/testing";
 
 import { InputComponentContainer } from "@ukic/web-components/src/components/ic-input-component-container/ic-input-component-container";
-import * as helpers from "@ukic/web-components/dist/types/utils/helpers";
+import { LoadingIndicator } from "@ukic/web-components/src/components/ic-loading-indicator/ic-loading-indicator";
+import { Typography } from "@ukic/web-components/src/components/ic-typography/ic-typography";
+import * as helpers from "../../../../utils/helpers";
 import { Menu } from "../../ic-menu";
 import { testKeyboardEvent as keyboardEvent } from "../../../../testspec.setup";
-
-// These tests still use 'ic-select' and not 'ic-select-with-multi'
-// It does not matter as unit tests in the canary branch do not run anyway
-// And it saves converting them back when the multi-select is merged into the main branch
-// (Check the original multi-select branch, i.e. where the changes were added straight to the web-components folder, to see the tests working)
 
 const menuOptions = [
   { label: "Espresso", value: "espresso" },
@@ -54,7 +51,7 @@ const createMenu = () => {
   return newSpecPage({
     components: [Menu, InputComponentContainer],
     template: () => (
-      <ic-menu
+      <ic-menu-with-multi
         open
         activationType="automatic"
         options={menuOptions}
@@ -64,7 +61,7 @@ const createMenu = () => {
         anchorEl={div}
         value={menuOptions[0].value}
         parentEl={div}
-      ></ic-menu>
+      ></ic-menu-with-multi>
     ),
   });
 };
@@ -406,7 +403,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={searchMenuOptions}
@@ -416,7 +413,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchBar}
           value={searchMenuOptions[0].value}
           parentEl={searchBar}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -631,7 +628,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -641,7 +638,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchableSelect}
           value={menuOptions[0].value}
           parentEl={searchableSelect}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -667,7 +664,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -677,7 +674,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={select}
           value={menuOptions[0].value}
           parentEl={select}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -703,7 +700,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -713,7 +710,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={select}
           value={menuOptions[0].value}
           parentEl={select}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -736,7 +733,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -746,7 +743,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -879,7 +876,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -889,7 +886,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={select}
           value={menuOptions[0].value}
           parentEl={select}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
     const eventSpy = jest.fn();
@@ -915,7 +912,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -925,7 +922,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={select}
           value={menuOptions[0].value}
           parentEl={select}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -1349,7 +1346,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -1359,7 +1356,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchBar}
           value={menuOptions[0].value}
           parentEl={searchBar as HTMLIcSearchBarElement}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -1392,7 +1389,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -1402,7 +1399,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={searchBar}
           value={menuOptions[0].value}
           parentEl={searchBar}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -1540,7 +1537,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -1550,7 +1547,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -1663,7 +1660,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -1673,7 +1670,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -1723,7 +1720,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -1733,7 +1730,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -1783,7 +1780,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -1793,7 +1790,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -1853,7 +1850,7 @@ describe("ic-menu in isolation", () => {
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -1863,7 +1860,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
@@ -1891,9 +1888,9 @@ describe("ic-menu in isolation", () => {
     const input = window.document.createElement("input");
 
     const page = await newSpecPage({
-      components: [Menu, InputComponentContainer],
+      components: [Menu, InputComponentContainer, LoadingIndicator, Typography],
       template: () => (
-        <ic-menu
+        <ic-menu-with-multi
           open
           activationType="automatic"
           options={menuOptions}
@@ -1903,7 +1900,7 @@ describe("ic-menu in isolation", () => {
           anchorEl={multiSelect}
           value={menuOptions[0].value}
           parentEl={multiSelect}
-        ></ic-menu>
+        ></ic-menu-with-multi>
       ),
     });
 
