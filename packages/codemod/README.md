@@ -29,17 +29,14 @@ This package will be usable as an executable requiring a directory and optional 
 ```
 
 ### Examples:
+With tests
 ```console
 - npx @ukic/codemod --dir ./#path/app/src/components --test true
 ```
-
-or run locally via 
-
+Without tests
 ```console
-- npm @ukic/codemod 
-- cd to codemod files
-- node ./codemod --dir ./#path/app/src/components --test false
-```  
+- npx @ukic/codemod --dir ./#path/app/src/components
+```
 
 ## Contributing
 

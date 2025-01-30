@@ -6,22 +6,28 @@ export default [
     type: "prop",
   },
   {
-    v2Name: "small",
+    v2Name: `small\\b[^'"]`,
     v3Name: 'size="small"',
     componentsAffected: "ic-select",
     type: "absolute",
   },
   {
-    v2Name: 'size="default"',
+    v2Name: `size=[{]?["']default['"][}]?`,
     v3Name: 'size="medium"',
     componentsAffected: "ic-status-tag",
-    type: "prop",
+    type: "absolute",
   },
   {
-    v2Name: 'size="default"',
+    v2Name: `size=[{]?["']default['"][}]?`,
+    v3Name: 'size="medium"',
+    componentsAffected: "ic-dialog",
+    type: "absolute",
+  },
+  {
+    v2Name: `size=[{]?["']default['"][}]?`,
     v3Name: 'size="medium"',
     componentsAffected: "ic-switch",
-    type: "prop",
+    type: "absolute",
   },
   {
     v2Name: "group-title",

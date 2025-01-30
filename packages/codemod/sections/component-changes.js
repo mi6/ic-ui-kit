@@ -33,8 +33,12 @@ export function compareComponent(stringArray, jsonData) {
           if (newProp.type === "absolute") {
             const regex = generateRegex(newProp.v2Name, "absolute-props");
             const exactMatch = String(newComponent).match(regex);
-            if (exactMatch)
-              newComponent = newComponent.replace(prop, newProp.v3Name);
+            if (exactMatch) {
+              newComponent = newComponent.replace(
+                exactMatch[0],
+                newProp.v3Name
+              );
+            }
           } else newComponent = newComponent.replace(prop, newProp.v3Name);
         });
         fileString = fileString.replace(component, newComponent);
