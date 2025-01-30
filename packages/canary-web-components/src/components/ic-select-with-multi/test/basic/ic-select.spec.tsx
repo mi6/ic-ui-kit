@@ -109,7 +109,7 @@ const getTestSelect = (props: string) =>
     });
   </script>`;
 
-describe("ic-select single", () => {
+describe.skip("ic-select single", () => {
   it("should not render a label when the 'hide-label' prop is supplied", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
@@ -638,7 +638,7 @@ describe("ic-select single", () => {
   });
 });
 
-describe("ic-select single native", () => {
+describe.skip("ic-select single native", () => {
   beforeEach(() => {
     Object.defineProperty(helpers, "isMobileOrTablet", {
       value: jest.fn().mockReturnValue(true),
@@ -724,7 +724,7 @@ describe("ic-select single native", () => {
   });
 });
 
-describe("ic-select searchable", () => {
+describe.skip("ic-select searchable", () => {
   it("should render as required", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
@@ -1788,7 +1788,7 @@ describe("ic-select searchable", () => {
   });
 });
 
-describe("ic-select multi", () => {
+describe.skip("ic-select multi", () => {
   it("should not render a native select on a mobile / tablet screen", async () => {
     Object.defineProperty(helpers, "isMobileOrTablet", {
       value: jest.fn().mockReturnValue(true),

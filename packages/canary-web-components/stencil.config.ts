@@ -61,7 +61,6 @@ export const config: Config = {
     moduleNameMapper: {
       "\\.svg": "<rootDir>/mocks/svgMock.ts",
     },
-    modulePaths: ["<rootDir>/node_modules", "<rootDir>/../web-components/dist"],
     coverageThreshold: {
       "./src/components/*/*.tsx": {
         branches: 80,
@@ -71,41 +70,7 @@ export const config: Config = {
       },
     },
     setupFilesAfterEnv: ["./src/testspec.setup.ts"],
-    // transformIgnorePatterns: ["node_modules/(?!@ukic|@stencil)"],
-    // transformIgnorePatterns: [],
-    // transformIgnorePatterns: ["/node_modules/(?!@ukic/web-components)"],
-    // transformIgnorePatterns: ["node_modules/(?!@ukic/web-components/dist/components/|@ukic/web-components/dist/types/)", "../web-components/dist/components/"],
-    transform: {
-      // Kind of works:
-      // "^.+\\.(js)?$": "ts-jest",
-
-      // "^.+\\.(js|jsx|ts|tsx)?$": "ts-jest",
-      // "^.+\\.spec\\.(ts|tsx)?$": "ts-jest",
-      // "../web-components/dist": "ts-jest",
-      // "^.+\\.(js|jsx)$": "babel-jest",
-      // "^.+\\.(js|jsx)$": "ts-jest",
-    },
-    // Kind of works:
-    // transformIgnorePatterns: [],
-
-    // globals: {
-    //   "ts-jest": {
-    //     useESM: true,
-    //     isolatedModules: true,
-    //   },
-    // },
-    // transform: {
-    //     "^.+\\.(ts|tsx)?$": "@stencil/core/testing/jest-preprocessor",
-    //     "^.+\\.(js|jsx)$": "@stencil/core/testing/jest-preprocessor",
-    //   "^.+\\.(ts|tsx|js|jsx|css)$": "@stencil/core/testing/jest-preprocessor"
-    // },
-
-    
-
-    // transformIgnorePatterns: [
-    // "<rootDir>/node_modules/(?!@ukic|@stencil/core|@stencil/postcss|@stencil/react-output-target)",
-    // "<rootDir>/node_modules/(?!@ukic/web-components|@stencil/core)",
-    // ],
+    transformIgnorePatterns: ["/node_modules/(?!@ukic/web-components)"],
   },
   plugins: [
     inlineSvg(),
