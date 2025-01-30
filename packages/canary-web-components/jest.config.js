@@ -4,7 +4,7 @@ module.exports = {
   "testEnvironment": "jsdom",
   "testRegex": "(\\.(test.a11y))\\.(ts)$",
   "transformIgnorePatterns": [
-    "node_modules/(?!(@ukic|@stencil|@open-wc|@lit|lit|lit-html|lit-element)/)"
+    "node_modules/(?!(@stencil|@open-wc|@lit|lit|lit-html|lit-element)/)"
   ],
   "setupFilesAfterEnv": [
     "./src/testa11y.setup.ts"
