@@ -280,10 +280,9 @@ svg {
   transition: left 0s;
 }
 
-:host(.navigation-item-top-nav-child-selected) .link::before,
 :host(.navigation-item-side-menu-selected) .link::before,
 :host(.navigation-item-side-menu-selected) .link:focus::before {
-  margin-top: 0.25rem;
+  margin-top: var(--ic-space-xxs);
 }
 
 :host(.navigation-item-top-nav-child-selected) .link:focus {
