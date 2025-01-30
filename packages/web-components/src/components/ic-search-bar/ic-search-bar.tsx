@@ -487,7 +487,7 @@ export class SearchBar {
     );
 
     if (this.inputEl !== undefined) {
-      this.anchorEl = this.inputEl.shadowRoot.querySelector(
+      this.anchorEl = this.inputEl.shadowRoot?.querySelector(
         "ic-input-component-container"
       );
     }

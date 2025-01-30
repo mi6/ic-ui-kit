@@ -42,6 +42,7 @@ export class Dialog {
   private IC_TEXT_FIELD: string = "IC-TEXT-FIELD";
   private IC_ACCORDION: string = "IC-ACCORDION";
   private IC_ACCORDION_GROUP: string = "IC-ACCORDION-GROUP";
+  private IC_SEARCH_BAR: string = "IC-SEARCH-BAR";
   private interactiveElementList: HTMLElement[];
   private resizeObserver: ResizeObserver = null;
   private resizeTimeout: number;
@@ -229,8 +230,9 @@ export class Dialog {
     if (this.dialogRendered) {
       switch (ev.key) {
         case "Tab":
-          ev.preventDefault();
-          this.focusNextInteractiveElement(ev.shiftKey);
+          if (this.focusNextInteractiveElement(ev.shiftKey)) {
+            ev.preventDefault();
+          }
           break;
         case "Escape":
           if (!ev.repeat) {
@@ -381,6 +383,8 @@ export class Dialog {
       (focusedElement as HTMLIcAccordionGroupElement).setFocus();
     } else if (focusedElement.tagName === this.IC_ACCORDION) {
       (focusedElement as HTMLIcAccordionElement).setFocus();
+    } else if (focusedElement.tagName === this.IC_SEARCH_BAR) {
+      (focusedElement as HTMLIcSearchBarElement).setFocus();
     } else {
       focusedElement.focus({
         preventScroll: this.disableHeightConstraint ? true : false,
@@ -419,7 +423,7 @@ export class Dialog {
         `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]), 
           ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group, 
           ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, 
-          ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion`
+          ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion, ic-date-input, ic-date-picker`
       )
     );
     if (slottedInteractiveElements.length > 0) {
@@ -443,8 +447,16 @@ export class Dialog {
   private getNextFocusEl = (focusedElementIndex: number) =>
     this.interactiveElementList[focusedElementIndex];
 
-  private focusNextInteractiveElement = (shiftKey: boolean) => {
+  private focusNextInteractiveElement = (shiftKey: boolean): boolean => {
     this.getFocusedElementIndex();
+
+    if (
+      this.interactiveElementList[this.focusedElementIndex].tagName ===
+      "IC-SEARCH-BAR"
+    ) {
+      return false;
+    }
+
     this.setFocusIndexBasedOnShiftKey(shiftKey);
     this.loopNextFocusIndexIfLastElement();
 
@@ -468,10 +480,13 @@ export class Dialog {
         (nextFocusEl as HTMLIcAccordionGroupElement).setFocus();
       } else if (nextFocusEl.tagName === this.IC_ACCORDION) {
         (nextFocusEl as HTMLIcAccordionElement).setFocus();
+      } else if (nextFocusEl.tagName === this.IC_SEARCH_BAR) {
+        (nextFocusEl as HTMLIcSearchBarElement).setFocus();
       } else {
         (nextFocusEl as HTMLElement).focus();
       }
     }
+    return true;
   };
 
   private setButtonOnClick = () => {
