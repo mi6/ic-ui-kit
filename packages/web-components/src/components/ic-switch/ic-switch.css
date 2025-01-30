@@ -47,12 +47,6 @@ input {
   flex: 1 0 100%;
 }
 
-.ic-switch-checked-status {
-  padding-left: var(--ic-space-xxs);
-  width: var(--ic-space-lg);
-  color: var(--ic-switch-help-text);
-}
-
 .ic-switch-toggle::before {
   content: "";
   width: 1.333rem;
@@ -141,10 +135,6 @@ input {
   border: var(--ic-space-1px) dashed var(--ic-switch-unchecked-outline-disabled);
 }
 
-.ic-switch-input:disabled ~ .ic-switch-checked-status {
-  color: var(--ic-architectural-300);
-}
-
 .ic-switch-input:disabled + .ic-switch-toggle::before {
   background-color: var(--ic-switch-unchecked-disabled);
 }
@@ -161,10 +151,6 @@ input {
 
 .ic-switch-small {
   gap: var(--ic-space-xxxs);
-}
-
-.ic-switch-small .ic-switch-checked-status {
-  padding-left: 0.375rem;
 }
 
 .ic-switch-small .ic-switch-toggle {
@@ -209,10 +195,6 @@ input {
   .ic-switch-input:disabled:checked + .ic-switch-toggle,
   .ic-switch-input:disabled + .ic-switch-toggle::before {
     border-color: GrayText;
-  }
-
-  .ic-switch-input:disabled ~ .ic-switch-checked-status {
-    color: GrayText;
   }
 
   .ic-switch-disabled .ic-switch-icon-circle,

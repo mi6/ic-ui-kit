@@ -55,18 +55,10 @@ export const Default = () => {
   );
 };
 
-export const State = () => {
-  return (
-    <div style={{ padding: "10px" }}>
-      <IcSwitch showState label="Label" />
-    </div>
-  );
-};
-
 export const Checked = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSwitch checked showState label="Label" />
+      <IcSwitch checked label="Label" />
     </div>
   );
 };
@@ -74,8 +66,8 @@ export const Checked = () => {
 export const Disabled = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSwitch disabled showState label="Label" />
-      <IcSwitch disabled checked showState label="Label" />
+      <IcSwitch disabled label="Label" />
+      <IcSwitch disabled checked label="Label" />
     </div>
   );
 };
@@ -83,7 +75,7 @@ export const Disabled = () => {
 export const Small = () => {
   return (
     <div style={{ padding: "10px" }}>
-      <IcSwitch size="small" showState label="Label" />
+      <IcSwitch size="small" label="Label" />
     </div>
   );
 };

@@ -1952,10 +1952,6 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * If `true`, the switch will render the On/Off state text.
-         */
-        "showState"?: boolean;
-        /**
           * The size of the switch component.
          */
         "size"?: IcSizesNoLarge;
@@ -5396,10 +5392,6 @@ declare namespace LocalJSX {
           * Emitted when the toggle has focus.
          */
         "onIcFocus"?: (event: IcSwitchCustomEvent<void>) => void;
-        /**
-          * If `true`, the switch will render the On/Off state text.
-         */
-        "showState"?: boolean;
         /**
           * The size of the switch component.
          */

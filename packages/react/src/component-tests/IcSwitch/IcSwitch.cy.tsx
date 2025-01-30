@@ -1,11 +1,10 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import React from "react";
 import { mount } from "cypress/react";
 import {
   Controlled,
   Default,
-  State,
   Checked,
   Disabled,
   Small,
@@ -25,6 +24,9 @@ import {
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const SWITCH_SELECTOR = "ic-switch";
+const SWITCH_INPUT_CLASS = ".ic-switch-input";
+const ARIA_CHECKED_ATTR = "aria-checked";
+const CONSOLE_LOG_EVENT_SPY = "@spyWinConsoleLog";
 const DEFAULT_TEST_THRESHOLD = 0.001;
 
 describe("IcSwitch end-to-end tests", () => {
@@ -46,17 +48,17 @@ describe("IcSwitch end-to-end tests", () => {
 
     cy.checkHydrated(SWITCH_SELECTOR);
 
-    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").focus();
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).focus();
     cy.realPress("Space");
-    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").should(
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).should(
       HAVE_ATTR,
-      "aria-checked",
+      ARIA_CHECKED_ATTR,
       "true"
     );
     cy.realPress("Space");
-    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").should(
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).should(
       HAVE_ATTR,
-      "aria-checked",
+      ARIA_CHECKED_ATTR,
       "false"
     );
   });
@@ -79,7 +81,7 @@ describe("IcSwitch end-to-end tests", () => {
     cy.get(SWITCH_SELECTOR).invoke("on", "icFocus", cy.stub().as("icFocus"));
     cy.get(SWITCH_SELECTOR).invoke("on", "icBlur", cy.stub().as("icBlur"));
 
-    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").focus();
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).focus();
     cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
     cy.get(SWITCH_SELECTOR).blur();
     cy.get("@icBlur").should(HAVE_BEEN_CALLED_ONCE);
@@ -96,12 +98,12 @@ describe("IcSwitch end-to-end tests", () => {
     cy.get(SWITCH_SELECTOR).click();
     cy.get(".ic-input").should(HAVE_VALUE, "on");
     cy.get("@icChange").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
+    cy.get(CONSOLE_LOG_EVENT_SPY).should(HAVE_BEEN_CALLED_WITH, {
       checked: true,
     });
     cy.get(SWITCH_SELECTOR).click();
     cy.get(".ic-input").should(HAVE_VALUE, "");
-    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
+    cy.get(CONSOLE_LOG_EVENT_SPY).should(HAVE_BEEN_CALLED_WITH, {
       checked: false,
     });
   });
@@ -114,7 +116,7 @@ describe("IcSwitch end-to-end tests", () => {
 
     cy.get(SWITCH_SELECTOR).click();
     cy.get("input[type='submit']").click();
-    cy.get("@spyWinConsoleLog").should(
+    cy.get(CONSOLE_LOG_EVENT_SPY).should(
       HAVE_BEEN_CALLED_WITH,
       "Form data: test-name = on"
     );
@@ -125,21 +127,21 @@ describe("IcSwitch end-to-end tests", () => {
 
     cy.checkHydrated(SWITCH_SELECTOR);
 
-    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").should(
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).should(
       HAVE_ATTR,
-      "aria-checked",
+      ARIA_CHECKED_ATTR,
       "false"
     );
     cy.get(SWITCH_SELECTOR).click();
-    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").should(
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).should(
       HAVE_ATTR,
-      "aria-checked",
+      ARIA_CHECKED_ATTR,
       "true"
     );
     cy.get("input[type='reset']").click();
-    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").should(
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).should(
       HAVE_ATTR,
-      "aria-checked",
+      ARIA_CHECKED_ATTR,
       "false"
     );
   });
@@ -163,18 +165,6 @@ describe("IcSwitch visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
-    });
-  });
-
-  it("should render a switch with state text", () => {
-    mount(<State />);
-
-    cy.checkHydrated(SWITCH_SELECTOR);
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "state",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -242,7 +232,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
     mount(<HiddenLabel />);
 
     cy.checkHydrated(SWITCH_SELECTOR);
-    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").should(
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).should(
       HAVE_ATTR,
       "aria-label",
       "Label"
@@ -259,7 +249,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
     mount(<Default />);
 
     cy.checkHydrated(SWITCH_SELECTOR);
-    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").focus().wait(200);
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).focus().wait(200);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -298,22 +288,11 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
     mount(<Default />);
 
     cy.checkHydrated(SWITCH_SELECTOR);
-    cy.findShadowEl(SWITCH_SELECTOR, ".ic-switch-input").focus().wait(200);
+    cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).focus().wait(200);
 
     cy.compareSnapshot({
       name: "focus-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
-    });
-  });
-
-  it("should render an unchecked switch in high contrast mode", () => {
-    mount(<State />);
-
-    cy.checkHydrated(SWITCH_SELECTOR);
-
-    cy.compareSnapshot({
-      name: "unchecked-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
