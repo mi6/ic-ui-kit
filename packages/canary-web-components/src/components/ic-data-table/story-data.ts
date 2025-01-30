@@ -983,7 +983,8 @@ export const ACTION_DATA_ELEMENTS = [
     firstName: {
       data: "Joe",
       actionElement: `${downloadButton}${cellphoneButton}${copyButton}`,
-      actionOnClick: () => {
+      actionOnClick: (event: Event) => {
+        event?.stopPropagation();
         console.log("hello");
       },
     },
