@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import React from "react";
 import { mount } from "cypress/react";
@@ -21,6 +21,8 @@ import {
   ConditionalDynamicTextFieldValue,
   InAForm,
   ThemeDark,
+  RadioGroupInAdditionalField,
+  StaticChildRadioGroup,
 } from "./IcRadioTestData";
 import {
   HAVE_PROP,
@@ -32,6 +34,7 @@ import {
   HAVE_ATTR,
   NOT_BE_VISIBLE,
   HAVE_BEEN_CALLED,
+  BE_VISIBLE,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -41,6 +44,8 @@ const IC_BUTTON = "ic-button";
 const BUTTON = "button";
 const INPUT = "input";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
+const CONTAINER_CLASS = ".container";
+const CONSOLE_LOG_SPY_ALIAS = "@spyWinConsoleLog";
 const DEFAULT_TEST_THRESHOLD = 0.026;
 
 describe("IcRadio end-to-end tests", () => {
@@ -127,8 +132,8 @@ describe("IcRadio end-to-end tests", () => {
     mount(<Uncontrolled />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
-    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, true);
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
+    cy.get(CONSOLE_LOG_SPY_ALIAS).should(HAVE_BEEN_CALLED_WITH, true);
   });
 
   it("should update the radio options' disabled state when the group's state is updated", () => {
@@ -159,10 +164,10 @@ describe("IcRadio end-to-end tests", () => {
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
 
-    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(CONTAINER_CLASS).click();
     cy.realPress("ArrowDown");
     cy.get(RADIO_SELECTOR).eq(2).should(HAVE_PROP, "selected", false);
     cy.realPress("ArrowUp");
@@ -175,11 +180,11 @@ describe("IcRadio end-to-end tests", () => {
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", true);
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", false);
     cy.findShadowEl(TEXT_FIELD_SELECTOR, INPUT).type("test");
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "value", "test");
-    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(CONTAINER_CLASS).click();
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", true);
   });
 
@@ -191,28 +196,28 @@ describe("IcRadio end-to-end tests", () => {
     cy.get(TEXT_FIELD_SELECTOR).eq(0).should(NOT_BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(1).should(NOT_BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(2).should(NOT_BE_VISIBLE);
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
-    cy.get(TEXT_FIELD_SELECTOR).eq(0).should("be.visible");
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
+    cy.get(TEXT_FIELD_SELECTOR).eq(0).should(BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(1).should(NOT_BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(2).should(NOT_BE_VISIBLE);
 
-    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(CONTAINER_CLASS).click();
     cy.get(TEXT_FIELD_SELECTOR).eq(0).should(NOT_BE_VISIBLE);
-    cy.get(TEXT_FIELD_SELECTOR).eq(1).should("be.visible");
+    cy.get(TEXT_FIELD_SELECTOR).eq(1).should(BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(2).should(NOT_BE_VISIBLE);
 
-    cy.get(RADIO_SELECTOR).eq(2).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(2).find(CONTAINER_CLASS).click();
     cy.get(TEXT_FIELD_SELECTOR).eq(0).should(NOT_BE_VISIBLE);
     cy.get(TEXT_FIELD_SELECTOR).eq(1).should(NOT_BE_VISIBLE);
-    cy.get(TEXT_FIELD_SELECTOR).eq(2).should("be.visible");
+    cy.get(TEXT_FIELD_SELECTOR).eq(2).should(BE_VISIBLE);
   });
 
   it("should call onclick function of component in additional-field slot when slotted component is clicked and not lose focus on arrow keydown", () => {
     mount(<ConditionalDynamic />);
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
     cy.get(TEXT_FIELD_SELECTOR).eq(0).click();
     cy.spy(window.console, "log").as("spyWinConsoleLog");
-    cy.get("@spyWinConsoleLog").should(
+    cy.get(CONSOLE_LOG_SPY_ALIAS).should(
       HAVE_BEEN_CALLED_WITH,
       "Textfield clicked"
     );
@@ -235,7 +240,7 @@ describe("IcRadio end-to-end tests", () => {
       cy.stub().as("icCheck")
     );
 
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
 
     cy.get("@icChange").should(HAVE_BEEN_CALLED);
@@ -318,7 +323,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
     cy.realPress("Tab");
     cy.get(TEXT_FIELD_SELECTOR).eq(0).should(HAVE_FOCUS);
@@ -329,7 +334,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", false);
     cy.realPress("ArrowDown");
@@ -359,10 +364,10 @@ describe("IcRadio end-to-end tests", () => {
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
     cy.spy(window.console, "log").as("spyWinConsoleLog");
 
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
     cy.get("input[type='submit']").click();
-    cy.get("@spyWinConsoleLog").should(
+    cy.get(CONSOLE_LOG_SPY_ALIAS).should(
       HAVE_BEEN_CALLED_WITH,
       "Form value: valueName1"
     );
@@ -373,12 +378,56 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
 
     cy.get("input[type='reset']").click();
 
     cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
+  });
+
+  it("should handle keyboard navigation of a slotted radio-group within an additional-field", () => {
+    mount(<RadioGroupInAdditionalField />);
+
+    cy.get("#ic-radio-option-option1-Parent").focus();
+    cy.realPress("Tab").realPress("ArrowDown");
+
+    cy.get(`${RADIO_SELECTOR}[label="child-option-2"]`).should(
+      HAVE_PROP,
+      "selected",
+      true
+    );
+    cy.get(`${RADIO_SELECTOR}[label="option2"]`).should(
+      HAVE_PROP,
+      "selected",
+      false
+    );
+  });
+
+  it("should select parent radio if a child radio is selected when additionFieldDisplay is static", () => {
+    mount(<StaticChildRadioGroup />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.get(`${RADIO_SELECTOR}[label="option2"]`).should(
+      HAVE_PROP,
+      "selected",
+      false
+    );
+
+    cy.get(`${RADIO_SELECTOR}[label="child-option-1"]`).find("input").focus();
+    cy.realPress("Space");
+
+    cy.get(`${RADIO_SELECTOR}[label="child-option-1"]`).should(
+      HAVE_PROP,
+      "selected",
+      true
+    );
+    cy.get(`${RADIO_SELECTOR}[label="option2"]`).should(
+      HAVE_PROP,
+      "selected",
+      true
+    );
   });
 });
 
@@ -542,7 +591,7 @@ describe("IcRadio visual regression and a11y tests", () => {
     mount(<ConditionalDynamic />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
-    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(CONTAINER_CLASS).click();
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -555,7 +604,7 @@ describe("IcRadio visual regression and a11y tests", () => {
     mount(<ConditionalDynamic />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
-    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(CONTAINER_CLASS).click();
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -617,7 +666,7 @@ describe("IcRadio visual regression tests in high contrast mode", () => {
     mount(<ConditionalDynamic />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
-    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(CONTAINER_CLASS).click();
 
     cy.compareSnapshot({
       name: "conditional-dynamic-high-contrast",

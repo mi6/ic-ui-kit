@@ -156,24 +156,26 @@ export class RadioGroup {
 
   @Listen("icCheck")
   selectHandler({ detail, target }: CustomEvent<IcValueEventDetail>): void {
-    this.checkedValue = detail.value as string;
     const selectedOption = target as HTMLIcRadioOptionElement;
-    this.icChange.emit({
-      value: this.checkedValue,
-      selectedOption: {
-        radio: selectedOption,
-        textFieldValue: selectedOption?.querySelector("ic-text-field")?.value,
-      },
-    });
-
-    if (this.radioOptions !== undefined) {
-      this.radioOptions.forEach((radioOption, index) => {
-        radioOption.selected = selectedOption === radioOption;
-        if (radioOption.selected) {
-          this.selectedChild = index;
-        }
+    if (selectedOption.parentElement === this.el) {
+      this.checkedValue = detail.value as string;
+      this.icChange.emit({
+        value: this.checkedValue,
+        selectedOption: {
+          radio: selectedOption,
+          textFieldValue: selectedOption?.querySelector("ic-text-field")?.value,
+        },
       });
-      this.setFirstRadioOptionTabIndex(this.selectedChild > 0 ? -1 : 0);
+
+      if (this.radioOptions !== undefined) {
+        this.radioOptions.forEach((radioOption, index) => {
+          radioOption.selected = selectedOption === radioOption;
+          if (radioOption.selected) {
+            this.selectedChild = index;
+          }
+        });
+        this.setFirstRadioOptionTabIndex(this.selectedChild > 0 ? -1 : 0);
+      }
     }
   }
 
@@ -230,8 +232,10 @@ export class RadioGroup {
 
   private handleKeyDown = (event: KeyboardEvent): void => {
     const additionalFields = Array.from(
-      this.el.querySelectorAll('[slot="additional-field"]')
-    ) as HTMLIcTextFieldElement[];
+      this.el.querySelectorAll<HTMLIcTextFieldElement>(
+        'ic-text-field[slot="additional-field"]'
+      )
+    );
     const activeEl = document.activeElement;
     if (
       additionalFields.length > 0 &&
@@ -243,6 +247,7 @@ export class RadioGroup {
       return;
     }
 
+    event.stopPropagation();
     switch (event.key) {
       case "ArrowDown":
       case "ArrowRight":
@@ -298,7 +303,9 @@ export class RadioGroup {
   private setRadioOptions = () => {
     this.selectedChild = -1;
     this.checkedValue = "";
-    this.radioOptions = Array.from(this.el.querySelectorAll("ic-radio-option"));
+    this.radioOptions = Array.from(this.el.children).filter(
+      (el) => el.tagName === "IC-RADIO-OPTION"
+    ) as HTMLIcRadioOptionElement[];
     if (this.radioOptions.length > 0) {
       this.radioOptions.forEach((radioOption, index) => {
         if (!radioOption.selected) {

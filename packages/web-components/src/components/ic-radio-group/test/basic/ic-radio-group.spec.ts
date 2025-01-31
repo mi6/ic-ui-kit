@@ -155,7 +155,10 @@ describe("ic-radio-group", () => {
 
     const callbackFn = jest.fn();
     page.doc.addEventListener("icChange", callbackFn);
-    page.rootInstance.selectHandler({ detail: { value: "true" } });
+    page.rootInstance.selectHandler({
+      detail: { value: "true" },
+      target: page.root.querySelector("ic-radio-option"),
+    });
     await page.waitForChanges();
 
     expect(callbackFn).toHaveBeenCalled();

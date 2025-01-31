@@ -161,24 +161,39 @@ import readme from "./readme.md";
           document
             .querySelector("ic-radio-group")
             .addEventListener("icChange", handleIcChange);
+          document
+            .querySelector("ic-button")
+            .addEventListener("click", () => alert("Button"));
         </script>
         <ic-radio-group label="Conditional dynamic" name="1">
           <ic-radio-option
             additional-field-display="dynamic"
             value="valueName1"
-            label="option1"
+            label="Option with Radio as conditional slotted additional field"
             selected
           >
-            <ic-text-field
+            <ic-radio-group
               slot="additional-field"
-              placeholder="Placeholder"
-              label="What's your favourite type of coffee?"
-            ></ic-text-field>
+              helperText="Child Group Helper Text"
+              label="Children"
+              name="radio-group-2"
+            >
+              <ic-radio-option
+                key="child-option-1"
+                label="child-option-1"
+                value="child-option-1"
+              ></ic-radio-option>
+              <ic-radio-option
+                key="child-option-2"
+                label="child-option-2"
+                value="child-option-2"
+              ></ic-radio-option>
+            </ic-radio-group>
           </ic-radio-option>
           <ic-radio-option
             additional-field-display="dynamic"
             value="valueName2"
-            label="option2 - error example"
+            label="Option with Text-field as conditional slotted additional field"
           >
             <ic-text-field
               validation-status="error"
@@ -216,6 +231,23 @@ import readme from "./readme.md";
             ></ic-text-field>
           </ic-radio-option>
           <ic-radio-option value="valueName2" label="option2">
+            <ic-radio-group
+              slot="additional-field"
+              helperText="Child Group Helper Text"
+              label="Children"
+              name="radio-group-2"
+            >
+              <ic-radio-option
+                key="child-option-1"
+                label="child-option-1"
+                value="child-option-1"
+              ></ic-radio-option>
+              <ic-radio-option
+                key="child-option-2"
+                label="child-option-2"
+                value="child-option-2"
+              ></ic-radio-option>
+            </ic-radio-group>
           </ic-radio-option>
         </ic-radio-group>
       `
