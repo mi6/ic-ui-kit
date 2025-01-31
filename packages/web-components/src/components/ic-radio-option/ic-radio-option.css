@@ -6,7 +6,8 @@
   width: fit-content;
 }
 
-:host([additional-field-display="static"]) ::slotted(ic-text-field) {
+:host([additional-field-display="static"])
+  ::slotted([slot="additional-field"]) {
   margin-top: calc(var(--ic-space-sm) / 2);
   margin-left: var(--ic-space-xl);
 }

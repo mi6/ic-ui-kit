@@ -127,6 +127,16 @@ export class RadioOption {
    * Emitted when the radio option is selected.
    */
   @Event() icCheck: EventEmitter<IcValueEventDetail>;
+  @Listen("icCheck")
+  handleCheck(ev: CustomEvent<IcValueEventDetail>): void {
+    const children = Array.from(this.el.children);
+    const targetEl = ev.target as Element;
+    if (
+      this.additionalFieldDisplay === "static" &&
+      (children.includes(targetEl.parentElement) || children.includes(targetEl))
+    )
+      this.icCheck.emit({ value: this.value });
+  }
 
   /**
    * @deprecated This event should not be used anymore. Use icCheck instead.
@@ -225,7 +235,7 @@ export class RadioOption {
 
       if (this.hasAdditionalField) {
         this.value =
-          this.el.querySelector(TEXT_FIELD_SELECTOR).value ||
+          this.el.querySelector(TEXT_FIELD_SELECTOR)?.value ||
           this.defaultRadioValue;
       }
 
@@ -273,7 +283,7 @@ export class RadioOption {
 
     return (
       <Host onClick={handleClick} class={{ disabled }}>
-        <div class={{ ["container"]: true, disabled }}>
+        <div class={{ container: true, disabled }}>
           <div>
             <input
               role="radio"
