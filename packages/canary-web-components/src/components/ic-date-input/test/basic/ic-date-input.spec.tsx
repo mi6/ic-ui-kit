@@ -16,6 +16,8 @@ const HYPHEN = "-";
 
 const ARIA_INVALID = "aria-invalid";
 
+const VALIDATION_MESSAGE = "Please enter a valid date.";
+
 describe("ic-date-input component", () => {
   it("should render", async () => {
     const page = await newSpecPage({
@@ -1048,9 +1050,7 @@ describe("ic-date-input component", () => {
 
       componentInstance.setValidationMessage();
 
-      expect(componentInstance.invalidDateText).toBe(
-        "Please enter a valid date."
-      );
+      expect(componentInstance.invalidDateText).toBe(VALIDATION_MESSAGE);
     });
 
     it("should set invalidDateText if date (month) is not valid", async () => {
@@ -1062,9 +1062,7 @@ describe("ic-date-input component", () => {
 
       componentInstance.setValidationMessage();
 
-      expect(componentInstance.invalidDateText).toBe(
-        "Please enter a valid date."
-      );
+      expect(componentInstance.invalidDateText).toBe(VALIDATION_MESSAGE);
     });
 
     it("should set invalidDateText to invalidDateMessage if date (month) is not valid", async () => {
@@ -1076,9 +1074,7 @@ describe("ic-date-input component", () => {
 
       componentInstance.setValidationMessage();
 
-      expect(componentInstance.invalidDateText).toBe(
-        "Please enter a valid date."
-      );
+      expect(componentInstance.invalidDateText).toBe(VALIDATION_MESSAGE);
     });
 
     it("should set invalidDateText as empty string if date is not complete", async () => {
