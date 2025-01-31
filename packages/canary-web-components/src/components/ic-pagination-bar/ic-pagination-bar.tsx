@@ -85,7 +85,43 @@ export class PaginationBar {
 
   @Watch("currentPage")
   watchPageNumberHandler(): void {
-    this.activePage = this.currentPage;
+    if (typeof this.currentPage === "number" && this.currentPage) {
+      if (
+        this.currentPage < 1 ||
+        (this.totalPages && this.currentPage > this.totalPages)
+      ) {
+        console.error(
+          "Current page must be a number greater than zero but less than or equal to the total number of pages"
+        );
+      } else {
+        this.activePage = this.currentPage;
+      }
+    }
+  }
+
+  /**
+   * The items per page option to be selected.
+   */
+  @Prop() selectedItemsPerPage?: number;
+
+  @Watch("selectedItemsPerPage")
+  watchSelectedItemsPerPageHandler(): void {
+    if (
+      this.selectedItemsPerPage !== null &&
+      this.selectedItemsPerPage !== undefined
+    ) {
+      if (
+        this.displayedItemsPerPageOptions?.filter(
+          (option) => option.value === `${this.selectedItemsPerPage}`
+        ).length
+      ) {
+        this.setItemsPerPage(this.selectedItemsPerPage);
+      } else {
+        console.error(
+          `The selected items per page option "${this.selectedItemsPerPage}" does not exist`
+        );
+      }
+    }
   }
 
   /**
@@ -207,6 +243,7 @@ export class PaginationBar {
     this.watchPageLabelHandler();
     this.watchItemLabelHandler();
     this.setPaginationBarContent();
+    this.watchSelectedItemsPerPageHandler();
   }
 
   componentDidLoad(): void {
