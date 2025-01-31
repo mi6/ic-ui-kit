@@ -403,3 +403,31 @@ If you have a predefined list of items you want in the itemsPerPage select, the 
   set-to-first-page-on-pagination-change="true"
 ></ic-pagination-bar>
 ```
+
+### Set the selected items per page
+
+The `selected-items-per-page` prop can be used to programmatically set the items per page dropdown option.
+
+<Canvas withSource="none">
+  <Story name="Set the selected items per page">
+    {html`<div style="height:150px">
+      <ic-pagination-bar
+        total-items="100"
+        show-items-per-page-control="true"
+        show-go-to-page-control="true"
+        selected-items-per-page="25"
+      ></ic-pagination-bar>
+    </div>`}
+  </Story>
+</Canvas>
+
+### Set the selected items per page code example
+
+```html
+<ic-pagination-bar
+  total-items="100"
+  show-items-per-page-control="true"
+  show-go-to-page-control="true"
+  selected-items-per-page="25"
+></ic-pagination-bar>
+```

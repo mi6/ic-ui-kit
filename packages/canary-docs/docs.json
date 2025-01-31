@@ -3734,6 +3734,27 @@
           "required": false
         },
         {
+          "name": "selectedItemsPerPage",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "selected-items-per-page",
+          "reflectToAttr": false,
+          "docs": "The items per page option to be selected.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "setToFirstPageOnPaginationChange",
           "type": "boolean",
           "complexType": {

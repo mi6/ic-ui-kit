@@ -549,6 +549,10 @@ export namespace Components {
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
         /**
+          * The items per page option to be selected.
+         */
+        "selectedItemsPerPage"?: number;
+        /**
           * If `true`, the pagination bar is set to the first page when the 'items per page' changes
          */
         "setToFirstPageOnPaginationChange"?: boolean;
@@ -1559,6 +1563,10 @@ declare namespace LocalJSX {
           * Whether total number of items and current item range or total number of pages and current page is displayed.
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
+        /**
+          * The items per page option to be selected.
+         */
+        "selectedItemsPerPage"?: number;
         /**
           * If `true`, the pagination bar is set to the first page when the 'items per page' changes
          */

@@ -393,6 +393,34 @@ describe("IcPaginationBar end-to-end tests", () => {
       .should(HAVE_LENGTH, 1);
   });
 
+  // Skipped test due to problem creating snapshot
+  it.skip("should select the correct option in the items per page dropdown", () => {
+    mount(<PaginationBarItemsPerPage selectedItemsPerPage={20} />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+
+    cy.compareSnapshot({
+      name: "selected-items-per-page",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  // Skipped test due to problem creating snapshot
+  it.skip("should select the first option in the items per page dropdown if an invalid selectedItemsPerPage is provided", () => {
+    mount(<PaginationBarItemsPerPage selectedItemsPerPage={99} />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+
+    cy.compareSnapshot({
+      name: "selected-items-per-page-invalid-selectedItemsPerPage",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
   it("should reset to the first page when the setToFirstPageOnPaginationChange prop is set and the items per page is changed", () => {
     mount(
       <PaginationBarItemsPerPage
