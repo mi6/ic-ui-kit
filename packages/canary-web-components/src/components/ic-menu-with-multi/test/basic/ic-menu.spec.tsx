@@ -2,8 +2,6 @@ import { h } from "@stencil/core";
 import { newSpecPage } from "@stencil/core/testing";
 
 import { InputComponentContainer } from "@ukic/web-components/src/components/ic-input-component-container/ic-input-component-container";
-import { LoadingIndicator } from "@ukic/web-components/src/components/ic-loading-indicator/ic-loading-indicator";
-import { Typography } from "@ukic/web-components/src/components/ic-typography/ic-typography";
 import * as helpers from "../../../../utils/helpers";
 import { Menu } from "../../ic-menu";
 import { testKeyboardEvent as keyboardEvent } from "../../../../testspec.setup";
