@@ -1,7 +1,7 @@
 {
   "total": 751,
-  "totalPassed": 749,
-  "totalFailed": 2,
+  "totalPassed": 751,
+  "totalFailed": 0,
   "totalSuites": 42,
   "suites": [
     {
@@ -4712,14 +4712,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-changing-after-update.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcRadio.cy.tsx-conditional-static",
-          "percentage": 0.09431860898041278,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-static.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-conditional-static.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-static.png"
         },
         {
@@ -4949,14 +4949,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-spellcheck.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx-theme-dark",
-          "percentage": 0.274612454196819,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-theme-dark.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-theme-dark.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-theme-dark.png"
         },
         {
@@ -8518,9 +8518,9 @@
       ]
     }
   ],
-  "startedAt": "2025-01-31T13:36:59.302Z",
-  "endedAt": "2025-01-31T13:53:20.813Z",
-  "duration": 887452,
+  "startedAt": "2025-01-31T14:20:42.504Z",
+  "endedAt": "2025-01-31T14:36:36.017Z",
+  "duration": 855781,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
