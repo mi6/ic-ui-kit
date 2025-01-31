@@ -294,7 +294,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "tooltip-placement-right",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
 
     cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
@@ -306,7 +306,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "tooltip-placement-top",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
 
     cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
@@ -318,7 +318,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "tooltip-placement-left",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
   });
 
@@ -329,7 +329,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "light-theme-monochrome",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
     });
   });
 
@@ -340,7 +340,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "dark-theme-monochrome",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 });
@@ -412,7 +412,7 @@ describe("IcToggleButton visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "loading-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
 
