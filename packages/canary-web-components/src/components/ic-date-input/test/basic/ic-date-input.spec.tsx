@@ -1,12 +1,13 @@
 import { newSpecPage } from "@stencil/core/testing";
+
+import { Button } from "@ukic/web-components/src/components/ic-button/ic-button";
+import { InputLabel } from "@ukic/web-components/src/components/ic-input-label/ic-input-label";
 import { DateInput } from "../../ic-date-input";
 import {
   handleEvent,
   createDateInputEnv,
   keyboardEvent,
 } from "../helpers/ic-date-input";
-import { IcButton } from "@ukic/web-components/dist/components/ic-button";
-import { IcInputLabel } from "@ukic/web-components/dist/components/ic-input-label";
 
 const DATE_1970 = "01/01/1970";
 const DATE_2000 = "01/01/2000";
@@ -15,10 +16,12 @@ const HYPHEN = "-";
 
 const ARIA_INVALID = "aria-invalid";
 
+const VALIDATION_MESSAGE = "Please enter a valid date.";
+
 describe("ic-date-input component", () => {
   it("should render", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel],
+      components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label"></ic-date-input>`,
     });
 
@@ -27,7 +30,7 @@ describe("ic-date-input component", () => {
 
   it("should render as required", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel],
+      components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label" required></ic-date-input>`,
     });
 
@@ -41,7 +44,7 @@ describe("ic-date-input component", () => {
 
   it("should render as disabled", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel],
+      components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label" disabled></ic-date-input>`,
     });
 
@@ -50,7 +53,7 @@ describe("ic-date-input component", () => {
 
   it("should render small", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel],
+      components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label" size="small" show-calendar-button="true"></ic-date-input>`,
     });
 
@@ -59,7 +62,7 @@ describe("ic-date-input component", () => {
 
   it("should render large", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel],
+      components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label" size="large" show-calendar-button="true"></ic-date-input>`,
     });
 
@@ -68,7 +71,7 @@ describe("ic-date-input component", () => {
 
   it("should render with custom helper text", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel],
+      components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label" helper-text="Test helper text"></ic-date-input>`,
     });
 
@@ -77,7 +80,7 @@ describe("ic-date-input component", () => {
 
   it("should render with helper text hidden", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel],
+      components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label" hide-helper-text="true"></ic-date-input>`,
     });
 
@@ -86,7 +89,7 @@ describe("ic-date-input component", () => {
 
   it("should render correctly with MM/DD/YYYY format", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel],
+      components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label" date-format="MM/DD/YYYY"></ic-date-input>`,
     });
 
@@ -95,7 +98,7 @@ describe("ic-date-input component", () => {
 
   it("should render correctly with YYYY/MM/DD format", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel],
+      components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label" date-format="YYY/MM/DD"></ic-date-input>`,
     });
 
@@ -104,7 +107,7 @@ describe("ic-date-input component", () => {
 
   it("should render with custom validation status and text", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel],
+      components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label" validation-status="error" validation-text="Test error text"></ic-date-input>`,
     });
 
@@ -113,7 +116,7 @@ describe("ic-date-input component", () => {
 
   it("should render with open calendar button", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel, IcButton],
+      components: [DateInput, InputLabel, Button],
       html: `<ic-date-input label="Test label" value="21/01/2001" show-calendar-button="true"></ic-date-input>`,
     });
 
@@ -122,7 +125,7 @@ describe("ic-date-input component", () => {
 
   it("should render disabled, with calendar button", async () => {
     const page = await newSpecPage({
-      components: [DateInput, IcInputLabel, IcButton],
+      components: [DateInput, InputLabel, Button],
       html: `<ic-date-input label="Test label" value="21/01/2001" show-calendar-button="true" disabled></ic-date-input>`,
     });
 
@@ -132,7 +135,7 @@ describe("ic-date-input component", () => {
   describe("date format conversion", () => {
     it("should handle single digit day and month", async () => {
       const page = await newSpecPage({
-        components: [DateInput, IcInputLabel],
+        components: [DateInput, InputLabel],
         html: `<ic-date-input label="Test label" value="1/1/2001"></ic-date-input>`,
       });
 
@@ -141,7 +144,7 @@ describe("ic-date-input component", () => {
 
     it("should handle US format value - DD/MM/YYYY date format", async () => {
       const page = await newSpecPage({
-        components: [DateInput, IcInputLabel],
+        components: [DateInput, InputLabel],
         html: `<ic-date-input label="Test label" value="07/26/2001"></ic-date-input>`,
       });
 
@@ -150,7 +153,7 @@ describe("ic-date-input component", () => {
 
     it("should handle US format value - MM/DD/YYYY date format", async () => {
       const page = await newSpecPage({
-        components: [DateInput, IcInputLabel],
+        components: [DateInput, InputLabel],
         html: `<ic-date-input label="Test label" value="07/26/2001" date-format="MM/DD/YYYY"></ic-date-input>`,
       });
 
@@ -159,7 +162,7 @@ describe("ic-date-input component", () => {
 
     it("should handle US format value - YYYY/MM/DD date format", async () => {
       const page = await newSpecPage({
-        components: [DateInput, IcInputLabel],
+        components: [DateInput, InputLabel],
         html: `<ic-date-input label="Test label" value="07/26/2001" date-format="YYYY/MM/DD"></ic-date-input>`,
       });
 
@@ -168,7 +171,7 @@ describe("ic-date-input component", () => {
 
     it("should handle ambiguous value - DD/MM/YYYY date format", async () => {
       const page = await newSpecPage({
-        components: [DateInput, IcInputLabel],
+        components: [DateInput, InputLabel],
         html: `<ic-date-input label="Test label" value="07/10/2001" date-format="DD/MM/YYYY"></ic-date-input>`,
       });
 
@@ -177,7 +180,7 @@ describe("ic-date-input component", () => {
 
     it("should handle ambiguous value - MM/DD/YYYY date format", async () => {
       const page = await newSpecPage({
-        components: [DateInput, IcInputLabel],
+        components: [DateInput, InputLabel],
         html: `<ic-date-input label="Test label" value="07/10/2001" date-format="MM/DD/YYYY"></ic-date-input>`,
       });
 
@@ -186,7 +189,7 @@ describe("ic-date-input component", () => {
 
     it("should handle ambiguous value - YYYY/MM/DD date format", async () => {
       const page = await newSpecPage({
-        components: [DateInput, IcInputLabel],
+        components: [DateInput, InputLabel],
         html: `<ic-date-input label="Test label" value="07/10/2001" date-format="YYYY/MM/DD"></ic-date-input>`,
       });
 
@@ -530,6 +533,7 @@ describe("ic-date-input component", () => {
 
       expect(dayInput.value).toBe("01");
     });
+
     it("should set day value to 13 if day value is 12 and ArrowUp is pressed", async () => {
       const { dayInput, componentInstance } = await createDateInputEnv();
 
@@ -542,6 +546,7 @@ describe("ic-date-input component", () => {
 
       expect(dayInput.value).toBe("13");
     });
+
     it("should set month value to 1 if month value is 12 and ArrowUp is pressed", async () => {
       const { monthInput, componentInstance } = await createDateInputEnv();
 
@@ -554,6 +559,7 @@ describe("ic-date-input component", () => {
 
       expect(monthInput.value).toBe("01");
     });
+
     it("should set month value to 11 if month value is 10 and ArrowUp is pressed", async () => {
       const { monthInput, componentInstance } = await createDateInputEnv();
 
@@ -566,6 +572,7 @@ describe("ic-date-input component", () => {
 
       expect(monthInput.value).toBe("11");
     });
+
     it("should set year value to 0 if year value is 9999 and ArrowUp is pressed", async () => {
       const { yearInput, componentInstance } = await createDateInputEnv();
 
@@ -578,6 +585,7 @@ describe("ic-date-input component", () => {
 
       expect(yearInput.value).toBe("00");
     });
+
     it("should set day value to 31 if day value is 1 and ArrowDown is pressed", async () => {
       const { dayInput, componentInstance } = await createDateInputEnv();
 
@@ -590,6 +598,7 @@ describe("ic-date-input component", () => {
 
       expect(dayInput.value).toBe("31");
     });
+
     it("should set day value to 10 if day value is 11 and ArrowDown is pressed", async () => {
       const { dayInput, componentInstance } = await createDateInputEnv();
 
@@ -602,6 +611,7 @@ describe("ic-date-input component", () => {
 
       expect(dayInput.value).toBe("10");
     });
+
     it("should set month value to 12 if month value is 1 and ArrowDown is pressed", async () => {
       const { monthInput, componentInstance } = await createDateInputEnv();
 
@@ -614,6 +624,7 @@ describe("ic-date-input component", () => {
 
       expect(monthInput.value).toBe("12");
     });
+
     it("should set year value to 9999 if year value is 0 and ArrowDown is pressed", async () => {
       const { yearInput, componentInstance } = await createDateInputEnv();
 
@@ -626,6 +637,7 @@ describe("ic-date-input component", () => {
 
       expect(yearInput.value).toBe("9999");
     });
+
     it("should set day value to 31 if day value is empty and ArrowDown is pressed", async () => {
       const { dayInput, componentInstance } = await createDateInputEnv();
 
@@ -638,6 +650,7 @@ describe("ic-date-input component", () => {
 
       expect(dayInput.value).toBe("31");
     });
+
     it("should set month value to 12 if month value is empty and ArrowDown is pressed", async () => {
       const { monthInput, componentInstance } = await createDateInputEnv();
 
@@ -650,6 +663,7 @@ describe("ic-date-input component", () => {
 
       expect(monthInput.value).toBe("12");
     });
+
     it("should set year value to this year if year value is empty and ArrowDown is pressed", async () => {
       const { yearInput, componentInstance } = await createDateInputEnv();
 
@@ -662,6 +676,7 @@ describe("ic-date-input component", () => {
 
       expect(yearInput.value).toBe(`${new Date().getFullYear()}`);
     });
+
     it("should set year value to this year if year value is empty and ArrowUp is pressed", async () => {
       const { yearInput, componentInstance } = await createDateInputEnv();
 
@@ -707,6 +722,7 @@ describe("ic-date-input component", () => {
         })
       );
     });
+
     it("should set value as 1st January 2000 as Date object if day, month and year is set", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -727,6 +743,7 @@ describe("ic-date-input component", () => {
 
       expect(componentInstance.value).toBe(date);
     });
+
     it("should set selectedDateInfoEl with 1st January 2000 as string if day, month and year is set", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -749,6 +766,7 @@ describe("ic-date-input component", () => {
         "Selected date: Saturday, 1 January 2000"
       );
     });
+
     it("should set value to null if day, month or year is not set", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -769,6 +787,7 @@ describe("ic-date-input component", () => {
 
       expect(componentInstance.value).toBe(null);
     });
+
     it("should set selectedDateInfoEl with empty string if day, month and year is set", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -812,6 +831,7 @@ describe("ic-date-input component", () => {
         componentInstance.selectedDate
       );
     });
+
     it("should call updateInputValues if isDateSetFromKeyboardEvent is false", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -862,6 +882,7 @@ describe("ic-date-input component", () => {
       expect(monthInput.value).toBe("01");
       expect(yearInput.value).toBe("2000");
     });
+
     it("should set day, month and year input values from paste event with 01-01-2000", async () => {
       const { componentInstance, dayInput, monthInput, yearInput } =
         await createDateInputEnv();
@@ -905,6 +926,7 @@ describe("ic-date-input component", () => {
 
       expect(spySetInputValue).toBeCalled();
     });
+
     it("should not call setInputValue if date invalid", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -927,6 +949,7 @@ describe("ic-date-input component", () => {
 
       expect(spyCheckSingleCopiedValueIsValid).toBeCalled();
     });
+
     it("should call checkSingleCopiedValueIsValid if copied value is 31", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -939,6 +962,7 @@ describe("ic-date-input component", () => {
 
       expect(spyCheckSingleCopiedValueIsValid).toBeCalled();
     });
+
     it("should call checkSingleCopiedValueIsValid if copied value is 2001", async () => {
       const { componentInstance, yearInput } = await createDateInputEnv();
 
@@ -951,6 +975,7 @@ describe("ic-date-input component", () => {
 
       expect(spyCheckSingleCopiedValueIsValid).toBeCalled();
     });
+
     it("should not call checkSingleCopiedValueIsValid if copied value is :1", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -963,6 +988,7 @@ describe("ic-date-input component", () => {
 
       expect(spyCheckSingleCopiedValueIsValid).not.toBeCalled();
     });
+
     it("should not call checkSingleCopiedValueIsValid if copied value is :14", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -975,6 +1001,7 @@ describe("ic-date-input component", () => {
 
       expect(spyCheckSingleCopiedValueIsValid).not.toBeCalled();
     });
+
     it("should not call checkSingleCopiedValueIsValid if copied value is -39", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -987,6 +1014,7 @@ describe("ic-date-input component", () => {
 
       expect(spyCheckSingleCopiedValueIsValid).not.toBeCalled();
     });
+
     it("should not call checkSingleCopiedValueIsValid if copied value is 5 digits", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -1022,10 +1050,9 @@ describe("ic-date-input component", () => {
 
       componentInstance.setValidationMessage();
 
-      expect(componentInstance.invalidDateText).toBe(
-        "Please enter a valid date."
-      );
+      expect(componentInstance.invalidDateText).toBe(VALIDATION_MESSAGE);
     });
+
     it("should set invalidDateText if date (month) is not valid", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -1035,14 +1062,11 @@ describe("ic-date-input component", () => {
 
       componentInstance.setValidationMessage();
 
-      expect(componentInstance.invalidDateText).toBe(
-        "Please enter a valid date."
-      );
+      expect(componentInstance.invalidDateText).toBe(VALIDATION_MESSAGE);
     });
+
     it("should set invalidDateText to invalidDateMessage if date (month) is not valid", async () => {
       const { componentInstance } = await createDateInputEnv();
-
-      componentInstance.invalidDateMessage = "Invalid date";
 
       componentInstance.day = "1";
       componentInstance.month = "13";
@@ -1050,8 +1074,9 @@ describe("ic-date-input component", () => {
 
       componentInstance.setValidationMessage();
 
-      expect(componentInstance.invalidDateText).toBe("Invalid date");
+      expect(componentInstance.invalidDateText).toBe(VALIDATION_MESSAGE);
     });
+
     it("should set invalidDateText as empty string if date is not complete", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -1063,6 +1088,7 @@ describe("ic-date-input component", () => {
 
       expect(componentInstance.invalidDateText).toBe("");
     });
+
     it("should set invalidDateText to disablePastMessage if date is in past", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
@@ -1078,6 +1104,7 @@ describe("ic-date-input component", () => {
         componentInstance.disablePastMessage
       );
     });
+
     it("should set invalidDateText to disableFutureMessage if date is in future", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
@@ -1085,7 +1112,7 @@ describe("ic-date-input component", () => {
 
       componentInstance.day = "31";
       componentInstance.month = "8";
-      componentInstance.year = "2024";
+      componentInstance.year = "2030";
 
       componentInstance.setValidationMessage();
 
@@ -1093,6 +1120,7 @@ describe("ic-date-input component", () => {
         componentInstance.disableFutureMessage
       );
     });
+
     it("should set invalidDateText empty string if date valid", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
@@ -1106,6 +1134,7 @@ describe("ic-date-input component", () => {
 
       expect(componentInstance.invalidDateText).toBe("");
     });
+
     it("should set invalidDateText to min message if date is before min date", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
@@ -1137,6 +1166,7 @@ describe("ic-date-input component", () => {
         "Please enter a date after 2023/07/10."
       );
     });
+
     it("should set invalidDateText to disablePastMessage if both dateUntilNow and min prop have been set", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
@@ -1153,6 +1183,7 @@ describe("ic-date-input component", () => {
         componentInstance.disablePastMessage
       );
     });
+
     it("should set invalidDateText to max message if date is after max date", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
@@ -1184,6 +1215,7 @@ describe("ic-date-input component", () => {
         "Please enter a date before 2023/07/10."
       );
     });
+
     it("should set invalidDateText to disableFutureMessage if both dateFromNow and max prop have been set", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
@@ -1200,6 +1232,7 @@ describe("ic-date-input component", () => {
         componentInstance.disableFutureMessage
       );
     });
+
     it("should set invalidDateText to disableDays message if date is on a disabled weekday", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
@@ -1245,6 +1278,7 @@ describe("ic-date-input component", () => {
 
       expect(spySetValidationMessage).toHaveBeenCalled();
     });
+
     it("should set the Zulu ISOString into the correct date variables", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -1254,6 +1288,7 @@ describe("ic-date-input component", () => {
       expect(componentInstance.month).toMatch("11");
       expect(componentInstance.year).toMatch("2001");
     });
+
     it("should set inputs to null if date is null", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -1280,6 +1315,7 @@ describe("ic-date-input component", () => {
 
       expect(spyAutocompleteYear).toBeCalled();
     });
+
     it("should set day to 01 if 0 has been entered as an input value", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -1289,6 +1325,7 @@ describe("ic-date-input component", () => {
 
       expect(dayInput.value).toBe("01");
     });
+
     it("should set day to 05 if 5 has been entered as an input value", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -1298,6 +1335,7 @@ describe("ic-date-input component", () => {
 
       expect(dayInput.value).toBe("05");
     });
+
     it("should set month to 01 if 0 has been entered as an input value", async () => {
       const { componentInstance, monthInput } = await createDateInputEnv();
 
@@ -1307,6 +1345,7 @@ describe("ic-date-input component", () => {
 
       expect(monthInput.value).toBe("01");
     });
+
     it("should set month to 05 if 5 has been entered as an input value", async () => {
       const { componentInstance, monthInput } = await createDateInputEnv();
 
@@ -1316,6 +1355,7 @@ describe("ic-date-input component", () => {
 
       expect(monthInput.value).toBe("05");
     });
+
     it("should call setInputValue method", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -1339,6 +1379,7 @@ describe("ic-date-input component", () => {
 
       expect(yearInput.value).toBe("2001");
     });
+
     it("should set the year input value to 2010", async () => {
       const { componentInstance, yearInput } = await createDateInputEnv();
 
@@ -1348,6 +1389,7 @@ describe("ic-date-input component", () => {
 
       expect(yearInput.value).toBe("2010");
     });
+
     it("should set the year input value to 2100", async () => {
       const { componentInstance, yearInput } = await createDateInputEnv();
 
@@ -1357,6 +1399,7 @@ describe("ic-date-input component", () => {
 
       expect(yearInput.value).toBe("2100");
     });
+
     it("should not call setInputValue method if no year has been set", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -1738,6 +1781,7 @@ describe("ic-date-input component", () => {
 
       expect(isValid).toBeTruthy();
     });
+
     it("should return true if dayInput pasted value is 31", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -1748,6 +1792,7 @@ describe("ic-date-input component", () => {
 
       expect(isValid).toBeTruthy();
     });
+
     it("should return true if dayInput pasted value is 24", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -1758,6 +1803,7 @@ describe("ic-date-input component", () => {
 
       expect(isValid).toBeTruthy();
     });
+
     it("should return false if dayInput pasted value is 0", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -1768,6 +1814,7 @@ describe("ic-date-input component", () => {
 
       expect(isValid).toBeFalsy();
     });
+
     it("should return false if dayInput pasted value is above 31", async () => {
       const { componentInstance, dayInput } = await createDateInputEnv();
 
@@ -1778,6 +1825,7 @@ describe("ic-date-input component", () => {
 
       expect(isValid).toBeFalsy();
     });
+
     it("should return false if monthInput pasted value is 0", async () => {
       const { componentInstance, monthInput } = await createDateInputEnv();
 
@@ -1788,6 +1836,7 @@ describe("ic-date-input component", () => {
 
       expect(isValid).toBeFalsy();
     });
+
     it("should return true if monthInput pasted value is 1", async () => {
       const { componentInstance, monthInput } = await createDateInputEnv();
 
@@ -1798,6 +1847,7 @@ describe("ic-date-input component", () => {
 
       expect(isValid).toBeTruthy();
     });
+
     it("should return true if monthInput pasted value is 12", async () => {
       const { componentInstance, monthInput } = await createDateInputEnv();
 
@@ -1808,6 +1858,7 @@ describe("ic-date-input component", () => {
 
       expect(isValid).toBeTruthy();
     });
+
     it("should return false if monthInput pasted value is 13", async () => {
       const { componentInstance, monthInput } = await createDateInputEnv();
 
@@ -1818,6 +1869,7 @@ describe("ic-date-input component", () => {
 
       expect(isValid).toBeFalsy();
     });
+
     it("should return true if yearMonth pasted value passed in", async () => {
       const { componentInstance, yearInput } = await createDateInputEnv();
 
@@ -1828,6 +1880,7 @@ describe("ic-date-input component", () => {
 
       expect(isValid).toBeTruthy();
     });
+
     it("should return false if undefined input with pasted value passed in", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -1859,6 +1912,7 @@ describe("ic-date-input component", () => {
         componentInstance.isPastedStringDateValid("1/1/2001")
       ).toBeTruthy();
     });
+
     it("should return true if 1-1-2001 is value", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -1866,6 +1920,7 @@ describe("ic-date-input component", () => {
         componentInstance.isPastedStringDateValid("1-1-2001")
       ).toBeTruthy();
     });
+
     it("should return true if 1.1.2001 is value", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -1873,11 +1928,13 @@ describe("ic-date-input component", () => {
         componentInstance.isPastedStringDateValid("1.1.2001")
       ).toBeTruthy();
     });
+
     it("should return true if abc is value", async () => {
       const { componentInstance } = await createDateInputEnv();
 
       expect(componentInstance.isPastedStringDateValid("abc")).toBeFalsy();
     });
+
     it("should return true if 123456789 is value", async () => {
       const { componentInstance } = await createDateInputEnv();
 

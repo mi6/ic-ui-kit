@@ -131,8 +131,8 @@ export class Typography {
     }
   }
 
-  private toggleExpanded = (ev: Event) => {
-    ev.stopPropagation();
+  private toggleExpanded = (event: Event) => {
+    event.stopPropagation();
 
     this.expanded = !this.expanded;
     this.typographyTruncationExpandToggle.emit({

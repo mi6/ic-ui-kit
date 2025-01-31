@@ -1,7 +1,8 @@
 import { newSpecPage } from "@stencil/core/testing";
+
+import { Typography } from "@ukic/web-components/src/components/ic-typography/ic-typography";
 import { TreeView } from "../../ic-tree-view";
 import { TreeItem } from "../../../ic-tree-item/ic-tree-item";
-import { IcTypography as Typography } from "@ukic/web-components/dist/components/ic-typography";
 
 describe("ic-tree-view component", () => {
   it("should render", async () => {
@@ -90,12 +91,6 @@ describe("ic-tree-view component", () => {
     const icon = document.createElement("svg");
     icon.setAttribute("slot", "icon");
 
-    page.rootInstance.hostMutationCallback([
-      {
-        type: "childList",
-        addedNodes: [icon],
-        removedNodes: [],
-      },
-    ]);
+    expect(page.root).toMatchSnapshot();
   });
 });

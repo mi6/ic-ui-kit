@@ -15,7 +15,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-13" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-13-screen-reader-info   ic-date-input-13-assistive-hint" id="ic-date-input-13" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -27,9 +27,9 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -37,7 +37,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -48,9 +48,9 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -58,7 +58,7 @@ exports[`ic-date-picker should have sunday as first day of week 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -484,7 +484,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-18" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-18-screen-reader-info   ic-date-input-18-assistive-hint" id="ic-date-input-18" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -496,9 +496,9 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -506,7 +506,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -517,9 +517,9 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -527,7 +527,7 @@ exports[`ic-date-picker should only allow selection in specified month 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -1002,7 +1002,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-12" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-12-screen-reader-info   ic-date-input-12-assistive-hint" id="ic-date-input-12" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -1014,9 +1014,9 @@ exports[`ic-date-picker should open at specified date 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -1024,7 +1024,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -1035,9 +1035,9 @@ exports[`ic-date-picker should open at specified date 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -1045,7 +1045,7 @@ exports[`ic-date-picker should open at specified date 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -1471,7 +1471,7 @@ exports[`ic-date-picker should render as required field 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-5" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-5-screen-reader-info   ic-date-input-5-assistive-hint" id="ic-date-input-5" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -1483,9 +1483,9 @@ exports[`ic-date-picker should render as required field 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -1493,7 +1493,7 @@ exports[`ic-date-picker should render as required field 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -1504,9 +1504,9 @@ exports[`ic-date-picker should render as required field 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -1514,7 +1514,7 @@ exports[`ic-date-picker should render as required field 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -1552,7 +1552,7 @@ exports[`ic-date-picker should render default size 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-0" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-0-screen-reader-info  ic-date-input-0-selected-date-info ic-date-input-0-assistive-hint" id="ic-date-input-0" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
@@ -1564,9 +1564,9 @@ exports[`ic-date-picker should render default size 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -1574,7 +1574,7 @@ exports[`ic-date-picker should render default size 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -1585,9 +1585,9 @@ exports[`ic-date-picker should render default size 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -1595,7 +1595,7 @@ exports[`ic-date-picker should render default size 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -1613,7 +1613,7 @@ exports[`ic-date-picker should render default size 1`] = `
             </span>
           </ic-input-container>
         </mock:shadow-root>
-        <input class="ic-input" name="ic-date-input-0" type="hidden" value="2023-07-11T00:00:00.000Z">
+        <input class="ic-input" name="ic-date-input-0" type="hidden" value="2023-07-10T23:00:00.000Z">
       </ic-date-input>
     </div>
     <div>
@@ -2084,9 +2084,9 @@ exports[`ic-date-picker should render disabled 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark disabled hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -2094,7 +2094,7 @@ exports[`ic-date-picker should render disabled 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" type="button">
+                        <button aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -2105,9 +2105,9 @@ exports[`ic-date-picker should render disabled 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -2115,7 +2115,7 @@ exports[`ic-date-picker should render disabled 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display calendar" class="button" disabled="" part="button" type="button">
+                          <button aria-disabled="true" aria-haspopup="dialog" aria-label="Display calendar" class="button" disabled="" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -2153,7 +2153,7 @@ exports[`ic-date-picker should render large datepicker 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-2" role="group" size="large" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-2-screen-reader-info  ic-date-input-2-selected-date-info ic-date-input-2-assistive-hint" id="ic-date-input-2" role="group" size="large" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
@@ -2165,9 +2165,9 @@ exports[`ic-date-picker should render large datepicker 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-large button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -2175,7 +2175,7 @@ exports[`ic-date-picker should render large datepicker 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -2186,9 +2186,9 @@ exports[`ic-date-picker should render large datepicker 1`] = `
                     <div class="divider large"></div>
                     <ic-button class="button-size-large button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -2196,7 +2196,7 @@ exports[`ic-date-picker should render large datepicker 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -2214,7 +2214,7 @@ exports[`ic-date-picker should render large datepicker 1`] = `
             </span>
           </ic-input-container>
         </mock:shadow-root>
-        <input class="ic-input" name="ic-date-input-2" type="hidden" value="2023-07-11T00:00:00.000Z">
+        <input class="ic-input" name="ic-date-input-2" type="hidden" value="2023-07-10T23:00:00.000Z">
       </ic-date-input>
     </div>
     <div>
@@ -2673,7 +2673,7 @@ exports[`ic-date-picker should render small datepicker 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-1" role="group" size="small" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-1-screen-reader-info  ic-date-input-1-selected-date-info ic-date-input-1-assistive-hint" id="ic-date-input-1" role="group" size="small" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
@@ -2685,9 +2685,9 @@ exports[`ic-date-picker should render small datepicker 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-small button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -2695,7 +2695,7 @@ exports[`ic-date-picker should render small datepicker 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -2706,9 +2706,9 @@ exports[`ic-date-picker should render small datepicker 1`] = `
                     <div class="divider small"></div>
                     <ic-button class="button-size-small button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -2716,7 +2716,7 @@ exports[`ic-date-picker should render small datepicker 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -2734,7 +2734,7 @@ exports[`ic-date-picker should render small datepicker 1`] = `
             </span>
           </ic-input-container>
         </mock:shadow-root>
-        <input class="ic-input" name="ic-date-input-1" type="hidden" value="2023-07-11T00:00:00.000Z">
+        <input class="ic-input" name="ic-date-input-1" type="hidden" value="2023-07-10T23:00:00.000Z">
       </ic-date-input>
     </div>
     <div>
@@ -3193,7 +3193,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-8" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-8-screen-reader-info  ic-date-input-8-selected-date-info ic-date-input-8-assistive-hint" id="ic-date-input-8" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
@@ -3205,9 +3205,9 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -3215,7 +3215,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -3226,9 +3226,9 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -3236,7 +3236,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -3254,7 +3254,7 @@ exports[`ic-date-picker should render with DD/MM/YYYY format 1`] = `
             </span>
           </ic-input-container>
         </mock:shadow-root>
-        <input class="ic-input" name="ic-date-input-8" type="hidden" value="2023-07-11T00:00:00.000Z">
+        <input class="ic-input" name="ic-date-input-8" type="hidden" value="2023-07-10T23:00:00.000Z">
       </ic-date-input>
     </div>
     <div>
@@ -3736,9 +3736,9 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -3746,7 +3746,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -3757,9 +3757,9 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -3767,7 +3767,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -3785,7 +3785,7 @@ exports[`ic-date-picker should render with MM/DD/YYYY format 1`] = `
             </span>
           </ic-input-container>
         </mock:shadow-root>
-        <input class="ic-input" name="ic-date-input-9" type="hidden" value="2023-07-11T00:00:00.000Z">
+        <input class="ic-input" name="ic-date-input-9" type="hidden" value="2023-07-10T23:00:00.000Z">
       </ic-date-input>
     </div>
     <div>
@@ -4244,7 +4244,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
               Type or use the up and down arrow keys to change the values for the year, month, and day.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-10" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-10-screen-reader-info  ic-date-input-10-selected-date-info ic-date-input-10-assistive-hint" id="ic-date-input-10" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2023">
@@ -4256,9 +4256,9 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -4266,7 +4266,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -4277,9 +4277,9 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -4287,7 +4287,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -4305,7 +4305,7 @@ exports[`ic-date-picker should render with YYYY/MM/DD format 1`] = `
             </span>
           </ic-input-container>
         </mock:shadow-root>
-        <input class="ic-input" name="ic-date-input-10" type="hidden" value="2023-07-11T00:00:00.000Z">
+        <input class="ic-input" name="ic-date-input-10" type="hidden" value="2023-07-10T23:00:00.000Z">
       </ic-date-input>
     </div>
     <div>
@@ -4764,7 +4764,7 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="custom-id" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" custom-id-screen-reader-info   custom-id-assistive-hint" id="custom-id" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -4776,9 +4776,9 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -4786,7 +4786,7 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -4797,9 +4797,9 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -4807,7 +4807,7 @@ exports[`ic-date-picker should render with custom inputId and name 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -4845,7 +4845,7 @@ exports[`ic-date-picker should render with custom validation 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-7" role="group" size="default" validationstatus="error">
+            <ic-input-component-container aria-labelledby=" ic-date-input-7-screen-reader-info ic-date-input-7-validation-text  ic-date-input-7-assistive-hint" id="ic-date-input-7" role="group" size="default" validationstatus="error">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD">
@@ -4857,9 +4857,9 @@ exports[`ic-date-picker should render with custom validation 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark hidden" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -4867,7 +4867,7 @@ exports[`ic-date-picker should render with custom validation 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -4878,9 +4878,9 @@ exports[`ic-date-picker should render with custom validation 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -4888,7 +4888,7 @@ exports[`ic-date-picker should render with custom validation 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -4927,7 +4927,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-11" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-11-screen-reader-info  ic-date-input-11-selected-date-info ic-date-input-11-assistive-hint" id="ic-date-input-11" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
@@ -4939,9 +4939,9 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -4949,7 +4949,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -4960,9 +4960,9 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -4970,7 +4970,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -4988,7 +4988,7 @@ exports[`ic-date-picker should render with saturday and sundays disabled 1`] = `
             </span>
           </ic-input-container>
         </mock:shadow-root>
-        <input class="ic-input" name="ic-date-input-11" type="hidden" value="2023-07-11T00:00:00.000Z">
+        <input class="ic-input" name="ic-date-input-11" type="hidden" value="2023-07-10T23:00:00.000Z">
       </ic-date-input>
     </div>
     <div>
@@ -5447,7 +5447,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-3" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-3-screen-reader-info  ic-date-input-3-selected-date-info ic-date-input-3-assistive-hint" id="ic-date-input-3" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="11">
@@ -5459,9 +5459,9 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -5469,7 +5469,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -5480,9 +5480,9 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -5490,7 +5490,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -5508,7 +5508,7 @@ exports[`ic-date-picker should render with today & clear buttons hidden 1`] = `
             </span>
           </ic-input-container>
         </mock:shadow-root>
-        <input class="ic-input" name="ic-date-input-3" type="hidden" value="2023-07-11T00:00:00.000Z">
+        <input class="ic-input" name="ic-date-input-3" type="hidden" value="2023-07-10T23:00:00.000Z">
       </ic-date-input>
     </div>
     <div>
@@ -5950,7 +5950,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-16" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-16-screen-reader-info  ic-date-input-16-selected-date-info ic-date-input-16-assistive-hint" id="ic-date-input-16" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="25">
@@ -5962,9 +5962,9 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -5972,7 +5972,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -5983,9 +5983,9 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -5993,7 +5993,7 @@ exports[`ic-date-picker should show month picker view when button clicked 1`] = 
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -6234,7 +6234,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
               Type or use the up and down arrow keys to change the values for the day, month, and year.
             </span>
             <span aria-live="assertive" class="sr-only" id="live-region"></span>
-            <ic-input-component-container id="ic-date-input-17" role="group" size="default" validationstatus="">
+            <ic-input-component-container aria-labelledby=" ic-date-input-17-screen-reader-info  ic-date-input-17-selected-date-info ic-date-input-17-assistive-hint" id="ic-date-input-17" role="group" size="default" validationstatus="">
               <div class="input-container">
                 <div class="date-inputs">
                   <input aria-label="day" class="day-input fit-to-value" id="day-input" inputmode="number" pattern="[0-9]*" placeholder="DD" value="25">
@@ -6246,9 +6246,9 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
                 <div class="action-buttons">
                   <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
                     <mock:shadow-root>
-                      <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-clear-button" target="ic-button-with-tooltip-clear-button">
+                      <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-clear-button">
                         <mock:shadow-root>
-                          <div class="ic-tooltip-container" role="tooltip">
+                          <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                             <ic-typography variant="caption">
                               Clear input
                             </ic-typography>
@@ -6256,7 +6256,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
                           </div>
                           <slot></slot>
                         </mock:shadow-root>
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
+                        <button aria-label="Clear input" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -6267,9 +6267,9 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
                     <div class="default divider"></div>
                     <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                       <mock:shadow-root>
-                        <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-calendar-button" target="ic-button-with-tooltip-calendar-button">
+                        <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-calendar-button">
                           <mock:shadow-root>
-                            <div class="ic-tooltip-container" role="tooltip">
+                            <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
                               <ic-typography variant="caption">
                                 Display calendar
                               </ic-typography>
@@ -6277,7 +6277,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
                             </div>
                             <slot></slot>
                           </mock:shadow-root>
-                          <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
+                          <button aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                             <slot></slot>
                           </button>
                         </ic-tooltip>
@@ -6482,7 +6482,7 @@ exports[`ic-date-picker should show year picker view when button clicked 1`] = `
                 <mock:shadow-root>
                   <button aria-hidden="true" class="button" part="button" type="button">
                     <slot></slot>
-                    <div class="icon-container">
+                    <div class="icon-container right-icon">
                       <slot name="right-icon"></slot>
                     </div>
                   </button>

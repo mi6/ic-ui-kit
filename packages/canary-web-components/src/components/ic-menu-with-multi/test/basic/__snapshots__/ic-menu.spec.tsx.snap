@@ -3,7 +3,7 @@
 exports[`ic-menu in isolation should render 1`] = `
 Object {
   "body": <body>
-  <ic-menu class="default no-focus open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
+  <ic-menu-with-multi class="default no-focus open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
     <ul aria-label="input-label pop-up" aria-multiselectable="false" class="menu" id="menu-id" role="listbox" tabindex="-1">
       <li aria-disabled="false" aria-label="Espresso" aria-selected="true" class="option" data-label="Espresso" data-value="espresso" id="menu-id-espresso" role="option" tabindex="-1">
         <div class="option-text-container">
@@ -41,7 +41,7 @@ Object {
           </div>
         </div>
       </li>
-      <li aria-disabled="false" aria-label="Cappuccino, with chocolate is best!" aria-selected="false" class="option" data-label="Cappuccino" data-value="cappucino" id="menu-id-cappucino" role="option" tabindex="-1">
+      <li aria-disabled="false" aria-label="Cappuccino, with chocolate is best!" aria-selected="false" class="option" data-label="Cappuccino" data-value="cappuccino" id="menu-id-cappuccino" role="option" tabindex="-1">
         <div class="option-text-container">
           <div class="option-label">
             <ic-typography aria-hidden="true" variant="body">
@@ -50,7 +50,7 @@ Object {
               </p>
             </ic-typography>
           </div>
-          <ic-typography aria-hidden="true" class="option-description" id="menu-id-cappucino-description" variant="caption">
+          <ic-typography aria-hidden="true" class="option-description" id="menu-id-cappuccino-description" variant="caption">
             <p>
               with chocolate is best!
             </p>
@@ -130,7 +130,7 @@ Object {
         </div>
       </li>
     </ul>
-  </ic-menu>
+  </ic-menu-with-multi>
 </body>,
   "build": Object {
     "allRenderFn": true,
@@ -154,7 +154,6 @@ Object {
     "disconnectedCallback": true,
     "element": true,
     "event": true,
-    "experimentalScopedSlotChanges": false,
     "experimentalSlotFixes": false,
     "formAssociated": true,
     "hasRenderFn": true,
@@ -226,8 +225,8 @@ Object {
 }
 `;
 
-exports[`ic-menu in isolation tests handleSelectAllFocus function 1`] = `
-<ic-menu class="default no-focus open select-all-focused" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
+exports[`ic-menu in isolation should test handleSelectAllFocus function 1`] = `
+<ic-menu-with-multi class="default no-focus open select-all-focused" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
   <ul aria-label="input-label pop-up" aria-multiselectable="false" class="menu" id="menu-id" role="listbox" tabindex="-1">
     <li aria-disabled="false" aria-label="Espresso" aria-selected="true" class="option" data-label="Espresso" data-value="espresso" id="menu-id-espresso" role="option" tabindex="-1">
       <div class="option-text-container">
@@ -265,7 +264,7 @@ exports[`ic-menu in isolation tests handleSelectAllFocus function 1`] = `
         </div>
       </div>
     </li>
-    <li aria-disabled="false" aria-label="Cappuccino, with chocolate is best!" aria-selected="false" class="option" data-label="Cappuccino" data-value="cappucino" id="menu-id-cappucino" role="option" tabindex="-1">
+    <li aria-disabled="false" aria-label="Cappuccino, with chocolate is best!" aria-selected="false" class="option" data-label="Cappuccino" data-value="cappuccino" id="menu-id-cappuccino" role="option" tabindex="-1">
       <div class="option-text-container">
         <div class="option-label">
           <ic-typography aria-hidden="true" variant="body">
@@ -274,7 +273,7 @@ exports[`ic-menu in isolation tests handleSelectAllFocus function 1`] = `
             </p>
           </ic-typography>
         </div>
-        <ic-typography aria-hidden="true" class="option-description" id="menu-id-cappucino-description" variant="caption">
+        <ic-typography aria-hidden="true" class="option-description" id="menu-id-cappuccino-description" variant="caption">
           <p>
             with chocolate is best!
           </p>
@@ -354,5 +353,5 @@ exports[`ic-menu in isolation tests handleSelectAllFocus function 1`] = `
       </div>
     </li>
   </ul>
-</ic-menu>
+</ic-menu-with-multi>
 `;

@@ -1,13 +1,13 @@
-import { PaginationBar } from "../../ic-pagination-bar";
-import { IcPagination } from "@ukic/web-components/dist/components/ic-pagination";
-import { IcButton } from "@ukic/web-components/dist/components/ic-button";
-import { IcTooltip } from "@ukic/web-components/dist/components/ic-tooltip";
-import { IcTextField } from "@ukic/web-components/dist/components/ic-text-field";
-import { DEVICE_SIZES } from "@ukic/web-components/dist/types/utils/helpers";
-import { waitForTimeout } from "../../../../testspec.setup";
 import { newSpecPage } from "@stencil/core/testing";
-import { IcSelect } from "@ukic/web-components/dist/components/ic-select";
-import { IcTypography } from "@ukic/web-components/dist/components/ic-typography";
+
+import { Button } from "@ukic/web-components/src/components/ic-button/ic-button";
+import { Pagination } from "@ukic/web-components/src/components/ic-pagination/ic-pagination";
+import { Select } from "@ukic/web-components/src/components/ic-select/ic-select";
+import { TextField } from "@ukic/web-components/src/components/ic-text-field/ic-text-field";
+import { Tooltip } from "@ukic/web-components/src/components/ic-tooltip/ic-tooltip";
+import { Typography } from "@ukic/web-components/src/components/ic-typography/ic-typography";
+import { PaginationBar } from "../../ic-pagination-bar";
+import { waitForTimeout } from "../../../../testspec.setup";
 
 describe("ic-pagination-bar", () => {
   it("should render", async () => {
@@ -48,7 +48,7 @@ describe("ic-pagination-bar", () => {
 
   it("should render with complex pagination controls", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination],
+      components: [PaginationBar, Pagination],
       html: `<ic-pagination-bar total-items="100" type="complex"></ic-pagination-bar>`,
     });
 
@@ -212,7 +212,7 @@ describe("ic-pagination-bar", () => {
 
   it("should update page details when currentPage prop is changed", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination],
+      components: [PaginationBar, Pagination],
       html: `<ic-pagination-bar total-items="100"></ic-pagination-bar>`,
     });
 
@@ -227,15 +227,13 @@ describe("ic-pagination-bar", () => {
 
   it("should wrap pagination when the device size is small", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination],
+      components: [PaginationBar, Pagination],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
     await page.rootInstance.runResizeObserver();
 
     await page.waitForChanges();
-
-    await page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
 
     await page.waitForChanges();
 
@@ -250,7 +248,7 @@ describe("ic-pagination-bar", () => {
 
   it("should adjust the total page count when items per page is changed", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination],
+      components: [PaginationBar, Pagination],
       html: `<ic-pagination-bar total-items="100" show-items-per-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -293,7 +291,7 @@ describe("ic-pagination-bar", () => {
 
   it("should change page when the pagination controls are clicked", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcButton],
+      components: [PaginationBar, Pagination, Button],
       html: `<ic-pagination-bar total-items="100"></ic-pagination-bar>`,
     });
 
@@ -322,7 +320,7 @@ describe("ic-pagination-bar", () => {
 
   it("should change page when the go to page button is clicked", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip],
+      components: [PaginationBar, Pagination, Tooltip],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -353,7 +351,7 @@ describe("ic-pagination-bar", () => {
 
   it("should change page when enter is pressed on the go to page input", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip],
+      components: [PaginationBar, Pagination, Tooltip],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -388,7 +386,7 @@ describe("ic-pagination-bar", () => {
 
   it("should error immediately when an invalid page is entered before it is submitted", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip, IcTextField],
+      components: [PaginationBar, Pagination, Tooltip, TextField],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -411,7 +409,7 @@ describe("ic-pagination-bar", () => {
 
   it("should remain in error state if enter is pressed while in error state", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip, IcTextField],
+      components: [PaginationBar, Pagination, Tooltip, TextField],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -444,7 +442,7 @@ describe("ic-pagination-bar", () => {
 
   it("should not change page when the go to page button is clicked with an invalid page", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTextField],
+      components: [PaginationBar, Pagination, TextField],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -475,7 +473,7 @@ describe("ic-pagination-bar", () => {
 
   it("should not change page when enter is pressed on the go to page input with an invalid page", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip, IcTextField],
+      components: [PaginationBar, Pagination, Tooltip, TextField],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -510,7 +508,7 @@ describe("ic-pagination-bar", () => {
 
   it("should hide the tooltip when the input loses focus", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip],
+      components: [PaginationBar, Pagination, Tooltip],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -539,7 +537,7 @@ describe("ic-pagination-bar", () => {
 
   it("should remove the error status when the input loses focus if the value is not invalid", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip],
+      components: [PaginationBar, Pagination, Tooltip],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -564,7 +562,7 @@ describe("ic-pagination-bar", () => {
 
   it("should show the tooltip when the input is focussed if it is in an error state", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip],
+      components: [PaginationBar, Pagination, Tooltip],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -593,7 +591,7 @@ describe("ic-pagination-bar", () => {
 
   it("should error when a non numeric value is entered", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip],
+      components: [PaginationBar, Pagination, Tooltip],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -616,7 +614,7 @@ describe("ic-pagination-bar", () => {
 
   it("should remove the non-numeric error when a number is entered", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip],
+      components: [PaginationBar, Pagination, Tooltip],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -651,7 +649,7 @@ describe("ic-pagination-bar", () => {
 
   it("should remove the error state when backspace is pressed", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip],
+      components: [PaginationBar, Pagination, Tooltip],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -684,7 +682,7 @@ describe("ic-pagination-bar", () => {
 
   it("should focus the number of items select when clicking its label", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcSelect, IcTypography],
+      components: [PaginationBar, Pagination, Select, Typography],
       html: `<ic-pagination-bar total-items="100" show-items-per-page-control="true"></ic-pagination-bar>`,
     });
     const label = document
@@ -693,7 +691,7 @@ describe("ic-pagination-bar", () => {
         ".items-per-page-control-label"
       ) as HTMLIcTypographyElement;
 
-    const event = jest.spyOn(IcSelect.prototype, "setFocus");
+    const event = jest.spyOn(Select.prototype, "setFocus");
     label.click();
 
     await page.waitForChanges();
@@ -701,22 +699,23 @@ describe("ic-pagination-bar", () => {
     expect(event).toHaveBeenCalled();
   });
 
-  // this test currently fails - will need to be fixed before component is moved from canary
-  it.skip("should focus the go to page text-field when clicking its label", async () => {
+  it("should focus the go to page text-field when clicking its label", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTextField, IcTypography],
+      components: [PaginationBar, Pagination, TextField, Typography],
       html: `<ic-pagination-bar total-items="100" show-items-per-page="false" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
     const label = document
       .querySelector("ic-pagination-bar")
-      .shadowRoot.querySelector("ic-typography");
+      .shadowRoot.querySelector(
+        ".go-to-page-holder > ic-typography"
+      ) as HTMLElement;
 
-    const event = jest.spyOn(IcTextField.prototype, "setFocus");
+    const spySetFocus = jest.spyOn(TextField.prototype, "setFocus");
     label.click();
 
     await page.waitForChanges();
 
-    expect(event).toHaveBeenCalled();
+    expect(spySetFocus).toHaveBeenCalled();
   });
 
   it("should update pagination when number of item changes", async () => {

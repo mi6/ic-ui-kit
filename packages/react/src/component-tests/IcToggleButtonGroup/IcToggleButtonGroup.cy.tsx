@@ -65,6 +65,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(0).should(NOT_HAVE_ATTR, "toggle-checked");
       getToggle(2).should(HAVE_ATTR, "toggle-checked");
     });
+
     it("should check multi on several toggles", () => {
       mount(<ToggleGroupMulti />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
@@ -76,6 +77,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(1).click();
       getToggle(1).should(HAVE_ATTR, "toggle-checked");
     });
+
     it("should focus parent but not interact with toggle when disabled", () => {
       cy.spy(window.console, "log").as("spyWinConsoleLog");
       mount(<ToggleGroupDisabled />);
@@ -86,6 +88,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(1).click({ force: true });
       cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
     });
+
     it("should focus toggle but not check with toggle when loading", () => {
       cy.spy(window.console, "log").as("spyWinConsoleLog");
       mount(<ToggleGroupLoading />);
@@ -96,6 +99,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(1).click({ force: true });
       cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
     });
+
     it("should tab through toggles and check focus and selection state", () => {
       mount(<ToggleGroupSingle />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);

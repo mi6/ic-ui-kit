@@ -101,8 +101,8 @@ export class DataTableTitleBar {
       >
         <div class="header-container">
           <slot name="heading">
-            <ic-typography variant="h3" className="heading">
-              <h3>{heading}</h3>
+            <ic-typography variant="h3">
+              <h3 class="heading">{heading}</h3>
             </ic-typography>
           </slot>
           {metadata && (

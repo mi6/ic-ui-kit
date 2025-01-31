@@ -12,6 +12,7 @@ describe("default variant of ic-step component", () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
   it("should render default step with correct title", async () => {
     const page = await newSpecPage({
       components: [Step, Typography],

@@ -13,6 +13,7 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(page.root).toMatchSnapshot("render with ten pages");
   });
+
   it("should render on the last page", async () => {
     const page = await newSpecPage({
       components: [Pagination],
@@ -39,6 +40,7 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(page.root).toMatchSnapshot("no first or last page button");
   });
+
   it("should render without current page", async () => {
     const page = await newSpecPage({
       components: [Pagination],
@@ -47,6 +49,7 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(page.root).toMatchSnapshot("no current page");
   });
+
   it("should render all pages when total pages less than min width based on boundary-count and adjacent-count", async () => {
     const page = await newSpecPage({
       components: [Pagination],
@@ -61,6 +64,7 @@ describe("ic-pagination simple appearance component", () => {
       "pages less than adjacent-count + boundary-count"
     );
   });
+
   it("should render with interactions disabled", async () => {
     const page = await newSpecPage({
       components: [Pagination],
@@ -69,6 +73,7 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(page.root).toMatchSnapshot("loading");
   });
+
   it("should click the next page button", async () => {
     const page = await newSpecPage({
       components: [Pagination, Button, PaginationItem],
@@ -108,6 +113,7 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(pageEl.page).toBe(15);
   });
+
   it("should click the previous page button", async () => {
     const page = await newSpecPage({
       components: [Pagination, Button, PaginationItem],
@@ -127,6 +133,7 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(pageEl.page).toBe(4);
   });
+
   it("should click the first page button", async () => {
     const page = await newSpecPage({
       components: [Pagination, Button, PaginationItem],
@@ -146,6 +153,7 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(pageEl.page).toBe(1);
   });
+
   it("should render disabled", async () => {
     const page = await newSpecPage({
       components: [Pagination],
@@ -322,6 +330,7 @@ describe("ic-pagination complex type", () => {
 
     expect(pageEl.page).toBe(1);
   });
+
   it("should click the previous page button in complex type", async () => {
     const page = await newSpecPage({
       components: [Pagination, Button, PaginationItem],
@@ -341,6 +350,7 @@ describe("ic-pagination complex type", () => {
 
     expect(pageEl.page).toBe(1);
   });
+
   it("should click the last page button in complex type", async () => {
     const page = await newSpecPage({
       components: [Pagination, Button, PaginationItem],
@@ -360,6 +370,7 @@ describe("ic-pagination complex type", () => {
 
     expect(pageEl.page).toBe(1);
   });
+
   it("should click the first page button in complex type", async () => {
     const page = await newSpecPage({
       components: [Pagination, Button, PaginationItem],
@@ -380,6 +391,7 @@ describe("ic-pagination complex type", () => {
 
     expect(pageEl.page).toBe(1);
   });
+
   it("should click the pagination-item in complex type", async () => {
     const page = await newSpecPage({
       components: [Pagination, Button, PaginationItem],
@@ -481,6 +493,7 @@ describe("ic-pagination appearance tests", () => {
 
     expect(page.root).toMatchSnapshot("render dark simple pagination");
   });
+
   it("should render as simple type in light appearance", async () => {
     const page = await newSpecPage({
       components: [Pagination],
@@ -489,6 +502,7 @@ describe("ic-pagination appearance tests", () => {
 
     expect(page.root).toMatchSnapshot("render light simple pagination");
   });
+
   it("should render as complex type in dark appearance", async () => {
     const page = await newSpecPage({
       components: [Pagination],
@@ -497,6 +511,7 @@ describe("ic-pagination appearance tests", () => {
 
     expect(page.root).toMatchSnapshot("render dark complex pagination");
   });
+
   it("should render as complex type in light appearance", async () => {
     const page = await newSpecPage({
       components: [Pagination],

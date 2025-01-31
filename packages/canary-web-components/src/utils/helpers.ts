@@ -1,3 +1,5 @@
+import { EventEmitter, forceUpdate } from "@stencil/core";
+
 /**
  * To investigate:
  * IcColorRGBA works via @ukic/web-components but IcThemeForeground does not even though they are exported
@@ -15,13 +17,13 @@ import {
   IC_BLOCK_COLOR_COMPONENTS,
   IC_BLOCK_COLOR_EXCEPTIONS,
   IC_FIXED_COLOR_COMPONENTS,
-} from "./constants"; // Using @ukic/web-components/dist/types/utils/constants does not work so duplicated constants into canary package
+} from "@ukic/web-components/src/utils/constants";
 import {
   IcMenuOption,
   IcThemeForeground,
   IcThemeForegroundEnum,
-} from "./types"; // Using @ukic/web-components/dist/types/utils/types does not work so duplicated constants into canary package
-import { EventEmitter, forceUpdate } from "@stencil/core";
+} from "@ukic/web-components/src/utils/types";
+
 import { IcDataTableDataType } from "../interface";
 
 const DARK_MODE_THRESHOLD = 133.3505;

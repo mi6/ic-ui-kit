@@ -72,11 +72,13 @@ describe("ic-menu in isolation", () => {
 
     expect(page).toMatchSnapshot();
   });
+
   it("should set open prop to true by default", async () => {
     const page = await createMenu();
 
     expect(page.root.open).toBe(true);
   });
+
   it("should test ungroupedOptionsSet emitter", async () => {
     const page = await createMenu();
 
@@ -96,6 +98,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test menuOptionSelect emitter", async () => {
     const page = await createMenu();
 
@@ -117,6 +120,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test menuStateChange emitter", async () => {
     const page = await createMenu();
 
@@ -143,6 +147,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test menuOptionId emitter", async () => {
     const page = await createMenu();
 
@@ -164,6 +169,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test menuKeyPress emitter", async () => {
     const page = await createMenu();
 
@@ -186,6 +192,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test setNextOptionValue function", async () => {
     const page = await createMenu();
 
@@ -205,6 +212,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test setPreviousOptionValue function", async () => {
     const page = await createMenu();
 
@@ -226,6 +234,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test handleClickOpen function", async () => {
     const page = await createMenu();
 
@@ -249,6 +258,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test handleKeyboardOpen function", async () => {
     const page = await createMenu();
 
@@ -291,6 +301,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test autoSetInputValueKeyboardOpen function", async () => {
     const page = await createMenu();
 
@@ -356,6 +367,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test autoSetInputValueKeyboardOpen function with character keys", async () => {
     const page = await createMenu();
 
@@ -370,6 +382,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.root.value).toBe("espresso");
   });
+
   it("should test manSetInputValueKeyboardOpen function", async () => {
     const searchBar = window.document.createElement(
       IcSearchBar
@@ -829,6 +842,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.value).toBe(menuOptions[0].value);
   });
+
   it("should test manSetInputValueKeyboardOpen function when select on enter", async () => {
     const select = window.document.createElement(
       "IC-SELECT"
@@ -867,6 +881,7 @@ describe("ic-menu in isolation", () => {
 
     expect(eventSpy).toHaveBeenCalled();
   });
+
   it("should test setInputValue function when default parameter passed", async () => {
     const select = window.document.createElement(
       "IC-SELECT"
@@ -900,6 +915,7 @@ describe("ic-menu in isolation", () => {
 
     expect(select.setFocus).toHaveBeenCalled();
   });
+
   it("should test handleSubmitSearch function", async () => {
     const page = await createMenu();
 
@@ -927,6 +943,7 @@ describe("ic-menu in isolation", () => {
 
     expect(eventSpy).toHaveBeenCalled();
   });
+
   it("should test handleSetFirstOption function", async () => {
     const page = await createMenu();
 
@@ -952,6 +969,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.optionHighlighted).toBe("espresso");
   });
+
   it("should test handleClearListener function", async () => {
     const page = await createMenu();
 
@@ -969,6 +987,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.optionHighlighted).toBe("");
   });
+
   it("should test handleOptionClick function", async () => {
     const page = await createMenu();
 
@@ -995,6 +1014,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test handleBlur function", async () => {
     const page = await createMenu();
 
@@ -1034,6 +1054,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test handleMouseDown function", async () => {
     const page = await createMenu();
 
@@ -1053,6 +1074,7 @@ describe("ic-menu in isolation", () => {
 
     expect(eventSpy).toHaveBeenCalled();
   });
+
   it("should test handleMenuKeyDown function", async () => {
     const page = await createMenu();
 
@@ -1076,6 +1098,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test searchMode=`query", async () => {
     const page = await createMenu();
 
@@ -1087,6 +1110,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.optionHighlighted).toBeUndefined;
   });
+
   it("should test handleMenuKeyDown function as searchableSelect", async () => {
     const page = await createMenu();
 
@@ -1109,6 +1133,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test handleRetry function", async () => {
     const page = await createMenu();
 
@@ -1128,6 +1153,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test handleRetryKeyDown function", async () => {
     const page = await createMenu();
 
@@ -1148,6 +1174,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test autoSetValueOnMenuKeyDown - Shift - function", async () => {
     const page = await createMenu();
 
@@ -1166,6 +1193,7 @@ describe("ic-menu in isolation", () => {
 
     expect(eventSpy).not.toHaveBeenCalled();
   });
+
   it("should test autoSetValueOnMenuKeyDown function", async () => {
     const page = await createMenu();
 
@@ -1241,6 +1269,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+
   it("should test handleMenukeyUp function", async () => {
     const page = await createMenu();
 
@@ -1268,6 +1297,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.disabledOptionSelected).toBe(false);
   });
+
   it("should test connectedCallback function", async () => {
     const searchBar = window.document.createElement(IcSearchBar);
     const input = window.document.createElement("input");
@@ -1291,6 +1321,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.optionHighlighted).toBe("espresso");
   });
+
   it("should test disconnectedCallback function", async () => {
     const page = await createMenu();
 
@@ -1306,6 +1337,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.parentEl.__listeners.length).toBe(0);
   });
+
   it("should test componentDidLoad function", async () => {
     const searchBar = window.document.createElement(
       IcSearchBar
@@ -1338,6 +1370,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.focusFromSearchKeypress).toBe(true);
   });
+
   it("should test getParentEl function", async () => {
     const select = window.document.createElement(
       "ic-select"
@@ -1353,6 +1386,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.isSearchableSelect).toBe(true);
   });
+
   it("should test handleTimeoutBlur function", async () => {
     const page = await createMenu();
 

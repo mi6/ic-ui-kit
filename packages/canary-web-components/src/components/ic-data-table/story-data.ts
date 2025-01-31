@@ -984,7 +984,7 @@ export const ACTION_DATA_ELEMENTS = [
       data: "Joe",
       actionElement: `${downloadButton}${cellphoneButton}${copyButton}`,
       actionOnClick: () => {
-        console.log("hello");
+        console.log("Copy button clicked");
       },
     },
     lastName: "Bloggs",

@@ -1,7 +1,8 @@
-import { SpecPage, newSpecPage } from "@stencil/core/testing";
-import { DateInput } from "../../ic-date-input";
 import { h } from "@stencil/core";
-import { IcInputLabel } from "@ukic/web-components/dist/components/ic-input-label";
+import { SpecPage, newSpecPage } from "@stencil/core/testing";
+
+import { InputLabel } from "@ukic/web-components/src/components/ic-input-label/ic-input-label";
+import { DateInput } from "../../ic-date-input";
 
 interface EventType {
   inputType: string;
@@ -25,7 +26,7 @@ interface DateInputType {
 
 export const createDateInput = (format = "DD/MM/YYYY"): Promise<SpecPage> =>
   newSpecPage({
-    components: [DateInput, IcInputLabel],
+    components: [DateInput, InputLabel],
     template: () => (
       <ic-date-input label="Test label" date-format={format}></ic-date-input>
     ),

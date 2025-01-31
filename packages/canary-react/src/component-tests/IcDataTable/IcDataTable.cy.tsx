@@ -1677,6 +1677,7 @@ describe("IcDataTable with truncation", () => {
         },
       });
     });
+
     it("should re-evaluate tooltip truncation if data prop is updated", () => {
       mount(
         <IcDataTable
@@ -2650,6 +2651,7 @@ describe("IcDataTable with truncation", () => {
           .should("have.text", "See more");
       });
     });
+
     it("should render show hide truncation using go to page pagination functionality", () => {
       mount(
         <IcDataTable
@@ -2749,6 +2751,7 @@ describe("IcDataTable with truncation", () => {
           .should("have.text", "See more");
       });
     });
+
     it("should render truncation correctly with custom icon", () => {
       mount(
         <IcDataTable
@@ -2770,6 +2773,7 @@ describe("IcDataTable with truncation", () => {
         },
       });
     });
+
     it("should render show / hide on multiple lines for small tables", () => {
       cy.viewport(300, 750);
 
@@ -3405,6 +3409,7 @@ describe("IcDataTable table sizing and column width", () => {
         .should("equal", 200);
     });
   });
+
   it("should set the column width to the correct % when table width is 100%", () => {
     mount(
       <IcDataTable
@@ -3423,6 +3428,7 @@ describe("IcDataTable table sizing and column width", () => {
         .should("equal", 256);
     });
   });
+
   it("should set the column width to the correct rem when table width is 100%", () => {
     mount(
       <IcDataTable
@@ -3461,6 +3467,7 @@ describe("IcDataTable table sizing and column width", () => {
         .should("equal", 200);
     });
   });
+
   it("should set the column width to the correct % when table width is 500px", () => {
     mount(
       <IcDataTable
@@ -3480,6 +3487,7 @@ describe("IcDataTable table sizing and column width", () => {
         .should("equal", 125);
     });
   });
+
   it("should set the column width to the correct rem when table width is 500px", () => {
     mount(
       <IcDataTable
@@ -3525,6 +3533,7 @@ describe("IcDataTable table sizing and column width", () => {
         .should("equal", 100);
     });
   });
+
   it("should set 2 column width to the correct % when table width is 100%", () => {
     mount(
       <IcDataTable
@@ -3550,6 +3559,7 @@ describe("IcDataTable table sizing and column width", () => {
         .should("equal", 102.390625);
     });
   });
+
   it("should set 2 column width to the correct rem when table width is 100%", () => {
     mount(
       <IcDataTable
@@ -3602,6 +3612,7 @@ describe("IcDataTable table sizing and column width", () => {
         .should("equal", 100);
     });
   });
+
   it("should set 2 column width to the correct % when table width is 500px", () => {
     mount(
       <IcDataTable
@@ -3628,6 +3639,7 @@ describe("IcDataTable table sizing and column width", () => {
         .should("equal", 50);
     });
   });
+
   it("should set 2 column width to the correct rem when table width is 500px", () => {
     mount(
       <IcDataTable
@@ -3673,6 +3685,7 @@ describe("IcDataTable table sizing and column width", () => {
       .find(".table-cell:nth-child(2) ic-tooltip")
       .should("exist");
   });
+
   it("should display show-hide truncation on truncation column set with px", () => {
     mount(
       <IcDataTable
@@ -3713,6 +3726,7 @@ describe("IcDataTable table sizing and column width", () => {
       .find(".table-cell:nth-child(2) ic-tooltip")
       .should("exist");
   });
+
   it("should display show-hide truncation on column when first column width set with px and table width set to 500px", () => {
     mount(
       <IcDataTable
@@ -3734,6 +3748,7 @@ describe("IcDataTable table sizing and column width", () => {
       .find("button")
       .should("have.text", "See more");
   });
+
   it("should set column width to correct px when data table includes pagination and navigating to different pages", () => {
     const nextData = (rows: number) => {
       const newData: { firstName: string; lastName: string; age: number }[] =

@@ -1,6 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
+
+import { Typography } from "@ukic/web-components/src/components/ic-typography/ic-typography";
 import { Card } from "../../ic-card-horizontal";
-import { IcTypography as Typography } from "@ukic/web-components/dist/components/ic-typography";
 
 describe("ic-card-horizontal", () => {
   it("should render", async () => {

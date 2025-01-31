@@ -130,6 +130,7 @@ describe("ic-toggle-button-group component unit tests", () => {
     await page.waitForChanges();
     expect(toggleButtonArray.length).toBe(3);
   });
+
   it("should test when the toggle button group receives focus, it should cause the first toggle button inside the group to get focused (when select method is 'single' and no item is already selected)", async () => {
     const page = await newSpecPage({
       components: [ToggleButtonGroup, ToggleButton, Button],
@@ -152,6 +153,7 @@ describe("ic-toggle-button-group component unit tests", () => {
 
     expect(buttons[0].toggleChecked).toBeFalsy();
   });
+
   it("should test that focusing group when an ic-toggle-button selected should not select first option", async () => {
     const page = await newSpecPage({
       components: [ToggleButtonGroup, ToggleButton, Button],
@@ -178,6 +180,7 @@ describe("ic-toggle-button-group component unit tests", () => {
     expect(buttons[0].toggleChecked).toBeFalsy();
     expect(buttons[1].toggleChecked).toBeTruthy();
   });
+
   it("should test that focusing the toggle-button-group focuses, but does not not select, the first ic-toggle-button when select method is 'multi'", async () => {
     const page = await newSpecPage({
       components: [ToggleButtonGroup, ToggleButton, Button],
@@ -202,6 +205,7 @@ describe("ic-toggle-button-group component unit tests", () => {
 
     expect(buttons[0].toggleChecked).toBeFalsy();
   });
+
   it("should test that focusing the toggle-button-group focuses, but does not not select, the first ic-toggle-button when select method is 'multi'", async () => {
     const page = await newSpecPage({
       components: [ToggleButtonGroup, ToggleButton, Button],
@@ -233,6 +237,7 @@ describe("ic-toggle-button-group component unit tests", () => {
 
     expect(eventSpy).toHaveBeenCalled();
   });
+
   it("should test handleKeyDown function", async () => {
     const page = await newSpecPage({
       components: [ToggleButtonGroup, ToggleButton, Button],
@@ -292,6 +297,7 @@ describe("ic-toggle-button-group component unit tests", () => {
     page.rootInstance.handleKeyDown(keyboard("Tab"));
     document.dispatchEvent(keyboard("Tab"));
   });
+
   it("should test handleKeyDown on disabled toggle-button-group", async () => {
     const page = await newSpecPage({
       components: [ToggleButtonGroup, ToggleButton, Button],
