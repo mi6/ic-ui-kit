@@ -108,6 +108,16 @@ export class RadioOption {
    * Emitted when the radio option is selected.
    */
   @Event() icCheck: EventEmitter<IcValueEventDetail>;
+  @Listen("icCheck")
+  handleCheck(ev: CustomEvent<IcValueEventDetail>): void {
+    if (
+      this.additionalFieldDisplay === "static" &&
+      Array.from(this.el.querySelectorAll("ic-radio-option")).includes(
+        ev.target as HTMLIcRadioOptionElement
+      )
+    )
+      this.icCheck.emit({ value: this.value });
+  }
 
   /**
    * Emitted when the radio option is selected or deselected.
@@ -189,7 +199,7 @@ export class RadioOption {
 
   private getAdditionalField(): HTMLIcTextFieldElement {
     const additionalField = this.el.querySelector(
-      '[slot="additional-field"]'
+      'ic-text-field[slot="additional-field"]'
     ) as HTMLIcTextFieldElement;
     if (additionalField) additionalField.hiddenInput = false;
     return additionalField;
@@ -197,10 +207,13 @@ export class RadioOption {
 
   private handleClick = (event: MouseEvent) => {
     const clickedAdditionalField = (event.target as Element).matches(
-      ".dynamic-container, .dynamic-container *"
+      ".dynamic-container:not(ic-radio-option, .checkmark), .dynamic-container *:not(ic-radio-option, .checkmark)"
     );
 
-    if (!this.disabled && !clickedAdditionalField) {
+    if (
+      !this.disabled &&
+      (!clickedAdditionalField || event.target === this.radioElement)
+    ) {
       event.stopPropagation();
       if (this.skipFocus === false) {
         this.radioElement.focus();
@@ -208,7 +221,7 @@ export class RadioOption {
       this.skipFocus = false;
 
       if (this.hasAdditionalField) {
-        this.value = this.getAdditionalField().value || this.defaultRadioValue;
+        this.value = this.getAdditionalField()?.value || this.defaultRadioValue;
       }
 
       this.icCheck.emit({
