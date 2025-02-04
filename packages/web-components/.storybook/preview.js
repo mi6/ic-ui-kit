@@ -17,6 +17,7 @@ const preview = {
       hideNoControlsWarning: true
     }
   },
+
   globalTypes: {
     theme: {
       description: 'Global theme for components',
@@ -28,9 +29,11 @@ const preview = {
       },
     },
   },
+
   initialGlobals: {
     theme: 'light',
   },
+
   decorators: [
     (story, context) => {
       const selectedTheme = context.globals.theme || 'light';
@@ -45,6 +48,8 @@ const preview = {
       `;
     },
   ],
+
+  tags: ['autodocs']
 };
 
 export default preview;
