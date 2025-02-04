@@ -11,6 +11,7 @@ import {
   Appearance,
   ToggleCollapsed,
   ToggleBackBreadcrumb,
+  SlottedLinks,
 } from "./IcBreadcrumbTestData";
 import {
   BE_VISIBLE,
@@ -84,7 +85,7 @@ describe("IcBreadcrumb end-to-end tests", () => {
     cy.get('[page-title="Home"]').should(BE_VISIBLE);
   });
 
-  it("should add 'aria-current' when current prop is true", () => {
+  it("should add 'aria-current' when current prop is true and remove it when changed to false", () => {
     mount(<WithCurrentPage />);
 
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
@@ -92,6 +93,9 @@ describe("IcBreadcrumb end-to-end tests", () => {
     cy.get('[page-title="Coffee"]').should(HAVE_ATTR, "aria-current", "page");
     cy.get('[page-title="Home"]').should(NOT_HAVE_ATTR, "current", "true");
     cy.get('[page-title="Beverages"]').should(NOT_HAVE_ATTR, "current", "true");
+
+    cy.get('[page-title="Coffee"]').invoke("prop", "current", false);
+    cy.get('[page-title="Coffee"]').should(NOT_HAVE_ATTR, "aria-current");
   });
 
   it("should call 'setFocus' when breadcrumb is focused", () => {
@@ -107,6 +111,22 @@ describe("IcBreadcrumb end-to-end tests", () => {
       .each(($el) => {
         cy.wrap($el).focus().should(HAVE_FOCUS);
       });
+  });
+
+  it("should only allow focus on slotted links when not within current page breadcrumbs", () => {
+    mount(<SlottedLinks />);
+
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.get("ic-button").eq(0).shadow().find("button").focus();
+    cy.realPress("Tab");
+    cy.get("ic-button").eq(1).shadow().find("button").should(HAVE_FOCUS);
+
+    cy.get(IC_BREADCRUMB_LABEL).eq(0).invoke("prop", "current", false);
+
+    cy.get("ic-button").eq(0).shadow().find("button").focus();
+    cy.realPress("Tab");
+    cy.realPress("Tab");
+    cy.get("ic-button").eq(1).shadow().find("button").should(HAVE_FOCUS);
   });
 
   it("should render collapsed breadcrumb", () => {
