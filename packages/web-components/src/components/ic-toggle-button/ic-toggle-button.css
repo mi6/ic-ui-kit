@@ -82,9 +82,7 @@
   --toggle-button-text-colour: var(--ic-toggle-button-selected-text-disabled);
 }
 
-:host(
-    .ic-toggle-button-disabled.ic-toggle-button-checked.ic-toggle-button-monochrome
-  ) {
+:host(.ic-toggle-button-disabled.ic-toggle-button-checked.ic-toggle-button-monochrome) {
   --toggle-button-border: var(
     --ic-toggle-button-selected-border-disabled-monochrome
   );
@@ -202,9 +200,7 @@
 
 :host(.ic-toggle-button-monochrome.ic-toggle-button-checked)
   ::part(button):active,
-:host(
-    .ic-toggle-button-icon.ic-toggle-button-monochrome.ic-toggle-button-checked
-  )
+:host(.ic-toggle-button-icon.ic-toggle-button-monochrome.ic-toggle-button-checked)
   ::part(button):active {
   background-color: var(
     --ic-toggle-button-selected-background-pressed-monochrome
@@ -234,13 +230,9 @@
   background-repeat: no-repeat;
 }
 
-:host(
-    .ic-toggle-button-disabled.ic-toggle-button-checked.ic-toggle-button-monochrome
-  )
+:host(.ic-toggle-button-disabled.ic-toggle-button-checked.ic-toggle-button-monochrome)
   ::part(button),
-:host(
-    .ic-toggle-button-icon.ic-toggle-button-disabled.ic-toggle-button-checked.ic-toggle-button-monochrome
-  )
+:host(.ic-toggle-button-icon.ic-toggle-button-disabled.ic-toggle-button-checked.ic-toggle-button-monochrome)
   ::part(button)::before {
   background-image: radial-gradient(
     var(--ic-toggle-button-selected-background-disabled-monochrome) 95%,
@@ -299,9 +291,7 @@
   --inner-color: var(--ic-toggle-button-selected-loading-bar);
 }
 
-:host(
-    .ic-toggle-button-checked.ic-toggle-button-loading.ic-toggle-button-monochrome
-  )
+:host(.ic-toggle-button-checked.ic-toggle-button-loading.ic-toggle-button-monochrome)
   ::part(button) {
   --loading-button-background: var(
     --ic-toggle-button-selected-background-pressed-monochrome
