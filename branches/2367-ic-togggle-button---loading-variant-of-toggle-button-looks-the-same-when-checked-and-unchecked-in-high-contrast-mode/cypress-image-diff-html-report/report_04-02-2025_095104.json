@@ -1,37 +1,9 @@
 {
-  "total": 751,
-  "totalPassed": 750,
+  "total": 749,
+  "totalPassed": 748,
   "totalFailed": 1,
-  "totalSuites": 42,
+  "totalSuites": 41,
   "suites": [
-    {
-      "name": "AgGridWrapper.cy.tsx",
-      "path": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
-      "tests": [
-        {
-          "status": "pass",
-          "name": "AgGridWrapper.cy.tsx-ag-grid-light",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
-          "specFilename": "AgGridWrapper.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/AgGridWrapper.cy.tsx-ag-grid-light.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/AgGridWrapper.cy.tsx-ag-grid-light.png"
-        },
-        {
-          "status": "pass",
-          "name": "AgGridWrapper.cy.tsx-ag-grid-dark",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
-          "specFilename": "AgGridWrapper.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/AgGridWrapper.cy.tsx-ag-grid-dark.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/AgGridWrapper.cy.tsx-ag-grid-dark.png"
-        }
-      ]
-    },
     {
       "name": "IcAccordion.cy.tsx",
       "path": "src/component-tests/IcAccordion/IcAccordion.cy.tsx",
@@ -8518,9 +8490,9 @@
       ]
     }
   ],
-  "startedAt": "2025-02-03T10:27:33.326Z",
-  "endedAt": "2025-02-03T10:42:43.760Z",
-  "duration": 816339,
+  "startedAt": "2025-02-04T09:51:04.741Z",
+  "endedAt": "2025-02-04T10:06:39.090Z",
+  "duration": 839426,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
