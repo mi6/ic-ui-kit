@@ -339,4 +339,10 @@
   :host(.ic-toggle-button-checked.ic-toggle-button-disabled) ::part(button) {
     background-color: GrayText;
   }
+
+  :host(.ic-toggle-button-checked.ic-toggle-button-loading) ::part(button),
+  :host(.ic-toggle-button-checked.ic-toggle-button-loading)
+    ::part(button):hover {
+    --loading-button-background: Highlight;
+  }
 }
