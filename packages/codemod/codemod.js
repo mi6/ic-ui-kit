@@ -34,7 +34,6 @@ const main = async (path, test = false) => {
   const files = await searchDirectory(path);
   files.forEach((file) => {
     const linesArray = readFileLinesToArray(file);
-    const isReact = file.includes(".tsx") || file.includes(".jsx");
     if (test && (file.includes(".spec.") || file.includes(".test."))) {
       const changedFile = simpleTestComparison(linesArray, [
         ...htmlData,
@@ -46,20 +45,11 @@ const main = async (path, test = false) => {
           console.log(`${file.split("\\").slice(-1)} modified successfully`);
         });
       }
-    }
-    if (file.includes(`.cy.`)) {
-      const changedFile = compareComponent(linesArray, htmlData);
-      if (changedFile !== linesArray) {
-        fs.writeFile(file, changedFile, (err) => {
-          if (err) return console.log(err);
-          console.log(`${file.split("\\").slice(-1)} modified successfully`);
-        });
-      }
     } else {
-      const changedComponentFile = compareComponent(
-        linesArray,
-        isReact ? reactData : htmlData
-      );
+      const changedComponentFile = compareComponent(linesArray, [
+        ...htmlData,
+        ...reactData,
+      ]);
       if (changedComponentFile !== linesArray) {
         fs.writeFile(file, String(changedComponentFile), (err) => {
           if (err) return console.log(err);
