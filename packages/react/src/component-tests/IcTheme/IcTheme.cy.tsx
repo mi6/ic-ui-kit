@@ -42,7 +42,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-light-with-dark-mode-component-overrides",
+      name: "/ic-theme-light-with-dark-mode-component-overrides",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
@@ -60,7 +60,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-light-with-components-within-ic-theme",
+      name: "/ic-theme-light-with-components-within-ic-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -92,7 +92,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-system-dark",
+      name: "/ic-theme-system-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -124,7 +124,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-system-light",
+      name: "/ic-theme-system-light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
@@ -142,7 +142,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-inherit-dark",
+      name: "/ic-theme-inherit-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -160,7 +160,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "ic-theme-inherit-light",
+      name: "/ic-theme-inherit-light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
@@ -183,7 +183,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     );
 
     cy.compareSnapshot({
-      name: "sunrise-brand",
+      name: "/sunrise-brand",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
 

@@ -163,7 +163,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
+      name: "/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -175,7 +175,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "checked",
+      name: "/checked",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -187,7 +187,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled",
+      name: "/disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -199,7 +199,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "small",
+      name: "/small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
@@ -211,7 +211,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "right-adornment",
+      name: "/right-adornment",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
@@ -223,7 +223,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "helper-text",
+      name: "/helper-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -240,7 +240,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "hidden-label",
+      name: "/hidden-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -253,7 +253,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focus",
+      name: "/focus",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
@@ -265,7 +265,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
 
     // cy.checkA11yWithWait(); A11y failure for colour contrast
     cy.compareSnapshot({
-      name: "theme-dark",
+      name: "/theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -291,7 +291,7 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
     cy.findShadowEl(SWITCH_SELECTOR, SWITCH_INPUT_CLASS).focus().wait(200);
 
     cy.compareSnapshot({
-      name: "focus-high-contrast",
+      name: "/focus-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -302,7 +302,7 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
     cy.checkHydrated(SWITCH_SELECTOR);
 
     cy.compareSnapshot({
-      name: "checked-high-contrast",
+      name: "/checked-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
@@ -313,7 +313,7 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
     cy.checkHydrated(SWITCH_SELECTOR);
 
     cy.compareSnapshot({
-      name: "disabled-high-contrast",
+      name: "/disabled-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
@@ -324,7 +324,7 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
     cy.checkHydrated(SWITCH_SELECTOR);
 
     cy.compareSnapshot({
-      name: "helper-text-high-contrast",
+      name: "/helper-text-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
