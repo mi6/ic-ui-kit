@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.35.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.34.0...@ukic/web-components@2.35.0) (2025-02-05)
+
+### Bug Fixes
+
+- **web-components:** fixes search bar focus issues on ic-dialog ([d11e002](https://github.com/mi6/ic-ui-kit/commit/d11e002c99a57c515e3e26c5f0ebeb5183413f53))
+
+### Features
+
+- **web-components:** added ability to slot different elements into the additional-field slot ([2f7891a](https://github.com/mi6/ic-ui-kit/commit/2f7891ad6e301d61315830d3d2bee7c707ba87c1))
+
 # [2.34.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.33.0...@ukic/web-components@2.34.0) (2025-01-22)
 
 ### Bug Fixes

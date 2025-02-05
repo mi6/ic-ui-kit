@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.35.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.34.0...@ukic/react@2.35.0) (2025-02-05)
+
+### Bug Fixes
+
+- **react:** fixes search bar focus on ic-dialog ([96a06e9](https://github.com/mi6/ic-ui-kit/commit/96a06e953760cf1177336c25b49a9658107da23f))
+
+### Features
+
+- **react:** update tooltip story title to lowercase ([249f5b9](https://github.com/mi6/ic-ui-kit/commit/249f5b9964aaa302cf683377ea1bb542f8f140a1))
+
 # [2.34.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.33.0...@ukic/react@2.34.0) (2025-01-22)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.34](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.33...@ukic/canary-web-components@2.0.0-canary.34) (2025-02-05)
+
+### Bug Fixes
+
+- **canary-web-components:** added check to prevent duplicate tooltips being added ([cec2b63](https://github.com/mi6/ic-ui-kit/commit/cec2b63a39f8489d7a978c87215cb8972e830afd))
+
 # [2.0.0-canary.33](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.32...@ukic/canary-web-components@2.0.0-canary.33) (2025-01-22)
 
 ### Bug Fixes
