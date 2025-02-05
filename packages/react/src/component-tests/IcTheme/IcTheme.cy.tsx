@@ -17,7 +17,7 @@ import {
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const THEME_SELECTOR = "ic-theme";
-const DEFAULT_TEST_THRESHOLD = 0.048;
+const DEFAULT_TEST_THRESHOLD = 0.042;
 
 describe("IcTheme end-to-end and visual regression tests", () => {
   beforeEach(() => {
@@ -93,7 +93,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/ic-theme-system-dark",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -143,7 +143,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/ic-theme-inherit-dark",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
 
@@ -161,7 +161,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/ic-theme-inherit-light",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -184,7 +184,7 @@ describe("IcTheme end-to-end and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "/sunrise-brand",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
 
     cy.get("ic-button").contains("Default theme").click();

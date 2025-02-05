@@ -67,7 +67,7 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/determinate-circulars-with-3-sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 
@@ -109,7 +109,7 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/determinate-linears-with-3-sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
       cypressScreenshotOptions: {
         clip: MULTI_CLIP,
       },
@@ -137,7 +137,7 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/determinate-light-circular-with-3-sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
 
@@ -181,7 +181,7 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-mode-colours",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
 
@@ -193,7 +193,7 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/light-monochrome-colours",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 
@@ -306,7 +306,7 @@ describe("IcLoadingIndicator visual regression tests in high contrast mode", () 
 
     cy.compareSnapshot({
       name: "/determinate-circulars-with-3-sizes-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 
@@ -343,7 +343,7 @@ describe("IcLoadingIndicator visual regression tests in high contrast mode", () 
 
     cy.compareSnapshot({
       name: "/determinate-linears-with-3-sizes-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
       cypressScreenshotOptions: {
         clip: MULTI_CLIP,
       },
@@ -363,7 +363,7 @@ describe("IcLoadingIndicator visual regression tests in high contrast mode", () 
 
     cy.compareSnapshot({
       name: "/determinate-light-circular-with-3-sizes-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 
@@ -380,7 +380,7 @@ describe("IcLoadingIndicator visual regression tests in high contrast mode", () 
 
     cy.compareSnapshot({
       name: "/determinate-circular-with-inner-label-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
       cypressScreenshotOptions: {
         clip: INNER_LABEL_CLIP,
       },

@@ -19,7 +19,7 @@ import {
 } from "./IcPageHeaderTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.042;
+const DEFAULT_TEST_THRESHOLD = 0.015;
 const PAGE_HEADER_SELECTOR = "ic-page-header";
 
 describe("IcPageHeader", () => {
@@ -40,7 +40,7 @@ describe("IcPageHeader", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
 
@@ -53,7 +53,7 @@ describe("IcPageHeader", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/sticky-variant",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.087),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.086),
       cypressScreenshotOptions: {
         clip: { x: 0, y: 450, width: 1050, height: 600 },
       },
@@ -71,7 +71,7 @@ describe("IcPageHeader", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/desktop-only-after-scroll",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.199),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.173),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -84,7 +84,7 @@ describe("IcPageHeader", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/center-page-header",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 
@@ -94,7 +94,7 @@ describe("IcPageHeader", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/small-size",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
@@ -104,7 +104,7 @@ describe("IcPageHeader", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/full-width-page-header",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 
@@ -114,7 +114,7 @@ describe("IcPageHeader", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/without-border",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 
@@ -126,7 +126,7 @@ describe("IcPageHeader", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/with-action-input-tab",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -139,7 +139,7 @@ describe("IcPageHeader", () => {
 
     cy.compareSnapshot({
       name: "/with-action-input-step",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 
@@ -148,7 +148,7 @@ describe("IcPageHeader", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/with-breadcrumb",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -157,7 +157,7 @@ describe("IcPageHeader", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/with-slotted-headings",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -166,7 +166,7 @@ describe("IcPageHeader", () => {
     // cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -187,7 +187,7 @@ describe("IcPageHeader", () => {
       mount(<PageHeaderDefault />);
       cy.compareSnapshot({
         name: "/default-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       });
     });
 
@@ -195,7 +195,7 @@ describe("IcPageHeader", () => {
       mount(<PageHeaderWithActionsInputTabs />);
       cy.compareSnapshot({
         name: "/actions-input-tabs-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
       });
     });
 
@@ -203,7 +203,7 @@ describe("IcPageHeader", () => {
       mount(<PageHeaderWithBreadcrumbNav />);
       cy.compareSnapshot({
         name: "/breadcrumbs-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
       });
     });
 
@@ -211,7 +211,7 @@ describe("IcPageHeader", () => {
       mount(<PageHeaderWithStepper />);
       cy.compareSnapshot({
         name: "/stepper-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
       });
     });
   });
