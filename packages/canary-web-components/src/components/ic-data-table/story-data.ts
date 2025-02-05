@@ -1502,6 +1502,7 @@ export const TruncationTooltip = (): HTMLElement => {
   dataTable.globalRowHeight = 40;
   dataTable.variableRowHeight = null;
   dataTable.setAttribute("truncation-pattern", "tooltip");
+  dataTable.setAttribute("sortable", "true");
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights(40));

@@ -1581,11 +1581,23 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
+      cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(4).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
+        .last()
+        .find(`${LAST_CELL_SELECTOR} ic-tooltip`)
+        .should(HAVE_LENGTH, 1);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
+        .eq(4)
+        .click()
+        .click();
       cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(2).click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .last()
         .find(`${LAST_CELL_SELECTOR} ic-tooltip`)
+        .should(HAVE_LENGTH, 1)
         .should(HAVE_ATTR, "label", LONG_DATA_VALUES[2].jobTitle);
 
       cy.compareSnapshot({
@@ -4324,7 +4336,7 @@ describe("IcDataTable row deletion", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 5);
   });
 
-  it.skip("should have tooltip visible when it would overlap bottom of table", () => {
+  it("should have tooltip visible when it would overlap bottom of table", () => {
     const clonedData = JSON.parse(JSON.stringify(DATA_REACT_ELEMENTS));
     const nextData = [...clonedData];
     mount(
@@ -4363,6 +4375,8 @@ describe("IcDataTable row deletion", () => {
       .shadow()
       .find("button")
       .focus();
+
+    cy.checkA11yWithWait(undefined, 1000);
 
     cy.compareSnapshot({
       name: "tooltip-in-final-row",

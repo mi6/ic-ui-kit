@@ -19194,6 +19194,36 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarSearchModes": {
+      "declaration": "export type IcSearchBarSearchModes = \"navigation\" | \"query\";",
+      "docstring": "",
+      "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
+    },
+    "src/utils/types.ts::IcMenuOption": {
+      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n}",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail": {
+      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
+      "docstring": "",
+      "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
+    },
+    "src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail": {
+      "declaration": "export interface IcOptionSelectEventDetail {\n  value: string;\n  label?: string;\n  optionId?: string;\n}",
+      "docstring": "",
+      "path": "src/components/ic-menu/ic-menu.types.ts"
+    },
+    "src/components/ic-menu/ic-menu.types.ts::IcMenuChangeEventDetail": {
+      "declaration": "export interface IcMenuChangeEventDetail {\n  open: boolean;\n  focusInput?: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/ic-menu/ic-menu.types.ts"
+    },
+    "src/utils/types.ts::IcBlurEventDetail": {
+      "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/components/ic-empty-state/ic-empty-state.types.ts::IcEmptyStateAlignment": {
       "declaration": "export type IcEmptyStateAlignment = \"left\" | \"center\" | \"right\";",
       "docstring": "",
@@ -19229,28 +19259,8 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
-    "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarSearchModes": {
-      "declaration": "export type IcSearchBarSearchModes = \"navigation\" | \"query\";",
-      "docstring": "",
-      "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
-    },
-    "src/utils/types.ts::IcMenuOption": {
-      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n}",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
     "src/components/ic-menu/ic-menu.types.ts::IcMenuOptionIdEventDetail": {
       "declaration": "export interface IcMenuOptionIdEventDetail {\n  optionId: string | undefined;\n}",
-      "docstring": "",
-      "path": "src/components/ic-menu/ic-menu.types.ts"
-    },
-    "src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail": {
-      "declaration": "export interface IcOptionSelectEventDetail {\n  value: string;\n  label?: string;\n  optionId?: string;\n}",
-      "docstring": "",
-      "path": "src/components/ic-menu/ic-menu.types.ts"
-    },
-    "src/components/ic-menu/ic-menu.types.ts::IcMenuChangeEventDetail": {
-      "declaration": "export interface IcMenuChangeEventDetail {\n  open: boolean;\n  focusInput?: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
@@ -19293,16 +19303,6 @@
       "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",
       "docstring": "",
       "path": "src/components/ic-radio-group/ic-radio-group.types.ts"
-    },
-    "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail": {
-      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
-      "docstring": "",
-      "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
-    },
-    "src/utils/types.ts::IcBlurEventDetail": {
-      "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcSearchMatchPositions": {
       "declaration": "export type IcSearchMatchPositions = \"start\" | \"anywhere\";",
