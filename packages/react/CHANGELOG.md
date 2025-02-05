@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.8...@ukic/react@3.0.0-alpha.9) (2025-02-05)
+
+### Bug Fixes
+
+- **react:** add Cypress visual regression for select/search clear icon dark mode ([2532e27](https://github.com/mi6/ic-ui-kit/commit/2532e27b1d3a6c23f8fdd02dbf5a1f2c210e0902))
+- **react:** add Cypress visual regression tests for ag grid wrapper ([7db1566](https://github.com/mi6/ic-ui-kit/commit/7db1566298164c180facb6f22fa26c08885a6f76))
+- **react:** adds a story for toggling hidden input on text field ([ed2b689](https://github.com/mi6/ic-ui-kit/commit/ed2b6897abe644f63e90f1ef3e04e5e6b0e8094a))
+- **react:** allow the IcTextField to be able to handle null or undefined values ([6712d6a](https://github.com/mi6/ic-ui-kit/commit/6712d6a2a0bbdfbb54592389df3c1e7f15e2ec43)), closes [#2813](https://github.com/mi6/ic-ui-kit/issues/2813)
+- **react:** enables test for search-icon in high contrast mode ([faa53fb](https://github.com/mi6/ic-ui-kit/commit/faa53fbd17c4b46596874c3f0a0ef177ebde0d62))
+- **react:** fix for items displayed on brand color background ([bfdc38c](https://github.com/mi6/ic-ui-kit/commit/bfdc38ced77380feb7c8b0324e71bdde3b16c2f3))
+- **react:** fixes search bar focus on ic-dialog ([038c434](https://github.com/mi6/ic-ui-kit/commit/038c434da99f1771fb077745b6f4794cad207faa))
+- **react:** hide the compliance section when there is no logo, caption or copyright info ([9fb7405](https://github.com/mi6/ic-ui-kit/commit/9fb74057482653855eb101c6e45f3aa4240e4a6c)), closes [#1800](https://github.com/mi6/ic-ui-kit/issues/1800)
+- **react:** slotted content is focused when running .setFocus() ([6c40dd9](https://github.com/mi6/ic-ui-kit/commit/6c40dd9fde48ba38f24dafd694f80317f79add46))
+- **react:** toggle button displays correct high contrast colours when checked and unchecked ([5335c45](https://github.com/mi6/ic-ui-kit/commit/5335c452146751677cff0ab7e6075fcdb434c917))
+- **react:** update icon colours for dark mode badge ([ede2a04](https://github.com/mi6/ic-ui-kit/commit/ede2a04ffa9f6295f391283af1180e75a7c5a6e4))
+- **web-components:** bugfix: props passed correctly to child in group ([e4a4e41](https://github.com/mi6/ic-ui-kit/commit/e4a4e41178df8d6c150dba602bd86e16ee649cde))
+
+### Features
+
+- **react:** add tooltip placement prop on toggle button to match ic button ([04e9f59](https://github.com/mi6/ic-ui-kit/commit/04e9f59b2bf4ae509b5d8f0608026574f6b41b5a))
+- **react:** ic-theme component changes ([c2484c8](https://github.com/mi6/ic-ui-kit/commit/c2484c839655252de25d2654eec00faa64f7b325))
+- **react:** removed showState from IcSwitch ([19af8d4](https://github.com/mi6/ic-ui-kit/commit/19af8d4ce18b6a688a31bbc6bf00eb5f55d3f446))
+- **web-components:** Fix/able to select no options when select has empty options array ([cccf3fe](https://github.com/mi6/ic-ui-kit/commit/cccf3febc0edfa65474bda6ce08b2e8f8c895a6d))
+
+### Tests
+
+- **react:** updated cypress tests to include new native input element in IcSearchBar ([77d0af0](https://github.com/mi6/ic-ui-kit/commit/77d0af02699c4b647252dc6b89bb1cbb08bd9353))
+
+### BREAKING CHANGES
+
+- **react:** removed showState prop
+- **react:** removed IcTextField component, which may break tests
+- **react:** BREAKING CHANGE: color prop renamed to brandColor
+  icThemeChange event renamed to icBrandChange
+  changes to types:
+  IcThemeForegroundEnum now IcBrandForegroundEnum
+  IcThemeForeground now IcBrandForeground
+  IcThemeForegroundNoDefault now IcBrandForegroundNoDefault
+  IcTheme now IcBrand
+
 # [3.0.0-alpha.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.7...@ukic/react@3.0.0-alpha.8) (2025-01-24)
 
 ### Bug Fixes

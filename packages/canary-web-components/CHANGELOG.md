@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.8...@ukic/canary-web-components@3.0.0-canary.9) (2025-02-05)
+
+### Bug Fixes
+
+- **canary-web-components:** added check to prevent duplicate tooltips being added ([4e0972c](https://github.com/mi6/ic-ui-kit/commit/4e0972c0a6bea1ab2b1565dfe9d40185ba466728))
+- **canary-web-components:** support for nested tooltips in data-table slotted elements ([6709b04](https://github.com/mi6/ic-ui-kit/commit/6709b042b974c65cab4a54632ee84373254f60c8))
+- **canary-web-components:** update data input clear icon css so that it matches other clear icons ([e1d07a2](https://github.com/mi6/ic-ui-kit/commit/e1d07a2948f2c9125a06f59f58d7015bc83aec47)), closes [#2923](https://github.com/mi6/ic-ui-kit/issues/2923)
+
 # [3.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.7...@ukic/canary-web-components@3.0.0-canary.8) (2025-01-24)
 
 ### Bug Fixes

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.8...@ukic/web-components@3.0.0-alpha.9) (2025-02-05)
+
+### Bug Fixes
+
+- **web-components:** added color-scheme css prop to ic-theme-dark classes ([827e993](https://github.com/mi6/ic-ui-kit/commit/827e9933a8323ba2e11921b61e7727f601304c06))
+- **web-components:** bugfix ([7c73a6b](https://github.com/mi6/ic-ui-kit/commit/7c73a6b22cc1ce9cef8105b8770f29d68c989770))
+- **web-components:** bugfix: props passed correctly to child in group ([e4a4e41](https://github.com/mi6/ic-ui-kit/commit/e4a4e41178df8d6c150dba602bd86e16ee649cde))
+- **web-components:** dark mode ic-alert actions fix ([92594ab](https://github.com/mi6/ic-ui-kit/commit/92594ab7f0d9a25c691ec12ff7199aa3b56776dd))
+- **web-components:** fixes search bar focus issues on ic-dialog ([ea9009f](https://github.com/mi6/ic-ui-kit/commit/ea9009fa6b96f9428fc5046da878e36b070ecb2f))
+- **web-components:** loading checked in highcontrast displays high contrast colour ([ec69743](https://github.com/mi6/ic-ui-kit/commit/ec697430d4296a039b26b052bef5a02efe50f96e))
+- **web-components:** slotted content is focused when running .setFocus ([873865a](https://github.com/mi6/ic-ui-kit/commit/873865a42c456fb9a2ac912a8a365cda2b4624ac))
+- **web-components:** update breadcrumbs to prevent focus on slotted current page link ([5231ff4](https://github.com/mi6/ic-ui-kit/commit/5231ff44371a9e88be8bf3c16bcb985a3000bfb7))
+- **web-components:** update search and select clear icon css ([5d35619](https://github.com/mi6/ic-ui-kit/commit/5d3561902e8c6d894a8a3119c135bbac08cfaca0)), closes [#2923](https://github.com/mi6/ic-ui-kit/issues/2923)
+
+### Features
+
+- **web-components:** add tooltip placement prop to match ic-button ([e8abe7c](https://github.com/mi6/ic-ui-kit/commit/e8abe7c56f92faa0c5b853eeaa146e772213c3d7))
+- **web-components:** added ability to slot different elements into the additional-field slot ([1b1396f](https://github.com/mi6/ic-ui-kit/commit/1b1396fd32d2f8cf74de315631ac66783c10c1cb))
+- **web-components:** removed showState prop from ic-switch ([b2571cb](https://github.com/mi6/ic-ui-kit/commit/b2571cb2f268b7a503d4c9164bc5df937c4ddc7a))
+
+### BREAKING CHANGES
+
+- **web-components:** removed showState prop
+- **web-components:** By default buttons in ic-alert will be in colour. Use monochrome prop to conform to designs
+
+ref 2963
+
 # [3.0.0-alpha.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.7...@ukic/web-components@3.0.0-alpha.8) (2025-01-24)
 
 ### Bug Fixes
