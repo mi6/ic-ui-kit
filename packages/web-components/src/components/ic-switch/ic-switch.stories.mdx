@@ -18,7 +18,6 @@ export const defaultArgs = {
   disabled: false,
   checked: false,
   hideLabel: false,
-  showState: false,
   size: "medium",
   theme: "inherit",
 };
@@ -35,23 +34,11 @@ export const defaultArgs = {
   <Story name="Name">{html` <ic-switch label="Label"></ic-switch> `}</Story>
 </Canvas>
 
-### State
-
-<Canvas>
-  <Story name="State">
-    {html`<div style="display:flex; justify-content: center">
-      <ic-switch show-state="true" label="Label"></ic-switch>
-    </div>`}
-  </Story>
-</Canvas>
-
 ### Checked
 
 <Canvas>
   <Story name="Checked">
-    {html`
-      <ic-switch checked="true" label="Label" show-state="true"></ic-switch>
-    `}
+    {html` <ic-switch checked="true" label="Label"></ic-switch> `}
   </Story>
 </Canvas>
 
@@ -59,9 +46,7 @@ export const defaultArgs = {
 
 <Canvas>
   <Story name="Small">
-    {html`
-      <ic-switch size="small" show-state="true" label="Label"></ic-switch>
-    `}
+    {html` <ic-switch size="small" label="Label"></ic-switch> `}
   </Story>
 </Canvas>
 
@@ -73,27 +58,20 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
-### Disabled, name and state
+### Disabled and name
 
 <Canvas>
-  <Story name="Disabled, name and state">
-    {html`
-      <ic-switch disabled="true" show-state="true" label="Label"></ic-switch>
-    `}
+  <Story name="Disabled and name">
+    {html` <ic-switch disabled="true" label="Label"></ic-switch> `}
   </Story>
 </Canvas>
 
-### Disabled, name, state and checked
+### Disabled, name and checked
 
 <Canvas>
-  <Story name="Disabled, name, state and checked">
+  <Story name="Disabled, name and checked">
     {html`
-      <ic-switch
-        disabled="true"
-        show-state="true"
-        label="Label"
-        checked="true"
-      ></ic-switch>
+      <ic-switch disabled="true" label="Label" checked="true"></ic-switch>
     `}
   </Story>
 </Canvas>
@@ -183,7 +161,6 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-switch
         disabled=${args.disabled}
-        show-state=${args.showState}
         label=${args.label}
         checked=${args.checked}
         hide-label=${args.hideLabel}

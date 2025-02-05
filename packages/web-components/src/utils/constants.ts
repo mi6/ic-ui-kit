@@ -79,7 +79,7 @@ export interface IcColorExceptions {
 }
 
 export const IC_BLOCK_COLOR_EXCEPTIONS: IcColorExceptions = {
-  "ic-alert": ["ic-link"],
+  "ic-alert": ["ic-link", "ic-button"],
 };
 
 /* Range within which the chosen theme colour would not have a sufficient brightness difference with either of the black or white foreground colours

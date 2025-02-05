@@ -63,44 +63,40 @@ import BreadcrumbReadme from "../ic-breadcrumb/readme.md";
       <ic-breadcrumb-group>
         <ic-breadcrumb page-title="breadcrumb-1">
           <ic-link>
-            <a slot="router-item" href="/breadcrumb-1"> Breadcrumb 1 </a>
+            <a slot="router-item" href="/breadcrumb-1">Breadcrumb 1</a>
           </ic-link>
         </ic-breadcrumb>
       </ic-breadcrumb-group>
       <ic-breadcrumb-group>
-        <ic-breadcrumb current="page" page-title="breadcrumb 1">
-          Breadcrumb 1
+        <ic-breadcrumb current="true" page-title="breadcrumb 1">
+          <ic-link href="/breadcrumb-1">Breadcrumb 1</ic-link>
         </ic-breadcrumb>
       </ic-breadcrumb-group>
       <ic-breadcrumb-group>
         <ic-breadcrumb page-title="breadcrumb-1">
-          <ic-link
-            ><a slot="router-item" href="/breadcrumb-1"
-              >Breadcrumb 1</a
-            ></ic-link
-          >
+          <ic-link>
+            <a slot="router-item" href="/breadcrumb-1">Breadcrumb 1</a>
+          </ic-link>
         </ic-breadcrumb>
-        <ic-breadcrumb current="page" page-title="breadcrumb 2">
-          Breadcrumb 2
+        <ic-breadcrumb current="true" page-title="breadcrumb 2">
+          <a href="/breadcrumb-2">Breadcrumb 2</a>
         </ic-breadcrumb>
       </ic-breadcrumb-group>
       <ic-breadcrumb-group>
-        <ic-breadcrumb page-title="breadcrumb 1">
-          <ic-link
-            ><a slot="router-item" href="/breadcrumb-1"
-              >Breadcrumb 1</a
-            ></ic-link
-          >
+        <ic-breadcrumb page title="breadcrumb 1">
+          <ic-link>
+            <a slot="router-item" href="/breadcrumb-1">Breadcrumb 1</a>
+          </ic-link>
         </ic-breadcrumb>
         <ic-breadcrumb page-title="breadcrumb 2">
-          <ic-link
-            ><a slot="router-item" href="/breadcrumb-2"
-              >Breadcrumb 2</a
-            ></ic-link
-          >
+          <ic-link>
+            <a slot="router-item" href="/breadcrumb-2">Breadcrumb 2</a>
+          </ic-link>
         </ic-breadcrumb>
-        <ic-breadcrumb current="page" page-title="breadcrumb 3">
-          Breadcrumb 3
+        <ic-breadcrumb current="true" page-title="breadcrumb 3">
+          <ic-link>
+            <a href="/breadcrumb-3">Breadcrumb 3</a>
+          </ic-link>
         </ic-breadcrumb>
       </ic-breadcrumb-group>
     `}

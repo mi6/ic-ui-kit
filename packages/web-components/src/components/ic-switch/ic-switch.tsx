@@ -24,7 +24,7 @@ import { IcSizesNoLarge, IcThemeMode } from "../../utils/types";
 let inputIds = 0;
 
 /**
- * @slot right-adornment - Content is placed to the right of switch before state label.
+ * @slot right-adornment - Content is placed to the right of switch.
  */
 @Component({
   tag: "ic-switch",
@@ -79,11 +79,6 @@ export class Switch {
    * The name of the control, which is submitted with the form data.
    */
   @Prop() name?: string = this.inputId;
-
-  /**
-   * If `true`, the switch will render the On/Off state text.
-   */
-  @Prop() showState?: boolean = false;
 
   /**
    * The size of the switch component.
@@ -141,9 +136,7 @@ export class Switch {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("input")) {
-      this.el.shadowRoot.querySelector("input").focus();
-    }
+    this.el.shadowRoot.querySelector("input")?.focus();
   }
 
   private handleChange = () => {
@@ -173,7 +166,6 @@ export class Switch {
       size,
       disabled,
       name,
-      showState,
       value,
       hideLabel,
       helperText,
@@ -181,13 +173,9 @@ export class Switch {
       theme,
     } = this;
 
-    renderHiddenInput(true, this.el, name, checkedState ? value : "", disabled);
+    const isSmall = size === "small";
 
-    const describedBy = getInputDescribedByText(
-      inputId,
-      helperText !== "",
-      false
-    );
+    renderHiddenInput(true, this.el, name, checkedState ? value : "", disabled);
 
     return (
       <Host
@@ -197,9 +185,9 @@ export class Switch {
       >
         <label
           class={{
-            ["ic-switch-container"]: true,
-            ["ic-switch-disabled"]: disabled,
-            ["ic-switch-small"]: size === "small",
+            "ic-switch-container": true,
+            "ic-switch-disabled": disabled,
+            "ic-switch-small": isSmall,
           }}
           htmlFor={inputId}
         >
@@ -211,8 +199,8 @@ export class Switch {
               readonly={true}
               disabled={disabled}
               class={{
-                ["ic-switch-label"]: true,
-                ["ic-switch-label-small"]: size === "small",
+                "ic-switch-label": true,
+                "ic-switch-label-small": isSmall,
               }}
             ></ic-input-label>
           )}
@@ -222,7 +210,11 @@ export class Switch {
             disabled={disabled}
             aria-label={label}
             aria-checked={checkedState ? "true" : "false"}
-            aria-describedby={describedBy}
+            aria-describedby={getInputDescribedByText(
+              inputId,
+              helperText !== "",
+              false
+            )}
             role="switch"
             class="ic-switch-input"
             type="checkbox"
@@ -243,9 +235,9 @@ export class Switch {
               <line
                 class="ic-switch-icon-line"
                 x1="9"
-                y1={size === "small" ? "2" : "1"}
+                y1={isSmall ? "2" : "1"}
                 x2="9"
-                y2={size === "small" ? "8" : "9"}
+                y2={isSmall ? "8" : "9"}
               />
             </svg>
             <svg
@@ -260,20 +252,11 @@ export class Switch {
                 fill="none"
                 cx="5"
                 cy="5"
-                r={size === "small" ? "3.335" : "4.445"}
+                r={isSmall ? "3.335" : "4.445"}
               />
             </svg>
           </span>
           <slot name="right-adornment"></slot>
-          {showState && (
-            <ic-typography
-              aria-hidden="true"
-              variant="label"
-              class="ic-switch-checked-status"
-            >
-              {checkedState ? "On" : "Off"}
-            </ic-typography>
-          )}
         </label>
       </Host>
     );

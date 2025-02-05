@@ -19,7 +19,6 @@ export const defaultArgs = {
   disabled: false,
   checked: false,
   hideLabel: false,
-  showState: false,
   size: "medium",
   theme: "inherit",
 };
@@ -40,19 +39,11 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
-### State
-
-<Canvas>
-  <Story name="State">
-    <IcSwitch showState label="Label" />
-  </Story>
-</Canvas>
-
 ### Checked
 
 <Canvas>
   <Story name="Checked">
-    <IcSwitch checked showState label="Label" />
+    <IcSwitch checked label="Label" />
   </Story>
 </Canvas>
 
@@ -89,7 +80,7 @@ export const Controlled = () => {
 
 <Canvas>
   <Story name="Size small">
-    <IcSwitch size="small" showState label="Label" />
+    <IcSwitch size="small" label="Label" />
   </Story>
 </Canvas>
 
@@ -101,19 +92,19 @@ export const Controlled = () => {
   </Story>
 </Canvas>
 
-### Disabled, label and state
+### Disabled and label
 
 <Canvas>
-  <Story name="Disabled, name and state">
-    <IcSwitch disabled showState label="Label" />
+  <Story name="Disabled and label">
+    <IcSwitch disabled label="Label" />
   </Story>
 </Canvas>
 
-### Disabled, label, state and checked
+### Disabled, label and checked
 
 <Canvas>
-  <Story name="Disabled, name, state and checked">
-    <IcSwitch disabled showState label="Label" checked />
+  <Story name="Disabled, name and checked">
+    <IcSwitch disabled label="Label" checked />
   </Story>
 </Canvas>
 
@@ -176,7 +167,6 @@ export const Controlled = () => {
     {(args) =>
       <IcSwitch
         disabled={args.disabled}
-        show-state={args.showState}
         label={args.label}
         checked={args.checked}
         hide-label={args.hideLabel}

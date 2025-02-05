@@ -213,7 +213,7 @@ export class NavigationItem {
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.itemEl?.focus();
+    this.itemEl ? this.itemEl.focus() : this.el.querySelector("a")?.focus();
   }
 
   private displayDefaultNavigationItem = (

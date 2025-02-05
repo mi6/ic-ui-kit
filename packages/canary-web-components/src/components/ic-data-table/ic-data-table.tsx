@@ -1984,7 +1984,8 @@ export class DataTable {
       ) {
         this.addLineClampCSS(typographyEl, cellContainer);
       }
-      this.createTruncationTooltip(typographyEl, cellContainer);
+      if (!cellContainer.querySelector(this.IC_TOOLTIP_STRING))
+        this.createTruncationTooltip(typographyEl, cellContainer);
     }
   }
   private setTableDimensions = () => {
@@ -2098,14 +2099,26 @@ export class DataTable {
   }
 
   private fixCellTooltip = (element: HTMLElement) => {
-    const tooltipEl = (
-      element.tagName === "IC-TOOLTIP"
-        ? element
-        : element.shadowRoot?.querySelector(this.IC_TOOLTIP_STRING)
-    ) as HTMLIcTooltipElement;
+    let tooltip: HTMLIcTooltipElement;
 
-    if (tooltipEl) {
-      tooltipEl.setExternalPopperProps({
+    if (element.tagName === "IC-TOOLTIP") {
+      tooltip = element as HTMLIcTooltipElement;
+    } else if (element.shadowRoot?.querySelector(this.IC_TOOLTIP_STRING)) {
+      tooltip = element.shadowRoot?.querySelector(
+        this.IC_TOOLTIP_STRING
+      ) as HTMLIcTooltipElement;
+    } else {
+      if (element.children?.length > 0) {
+        Array.from(element.children).forEach((el) => {
+          this.fixCellTooltip(el as HTMLElement);
+        });
+      } else {
+        return;
+      }
+    }
+
+    if (tooltip) {
+      tooltip.setExternalPopperProps({
         strategy: "fixed",
       });
     }

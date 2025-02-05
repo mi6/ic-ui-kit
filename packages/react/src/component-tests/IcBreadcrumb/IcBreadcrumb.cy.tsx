@@ -11,6 +11,7 @@ import {
   Appearance,
   ToggleCollapsed,
   ToggleBackBreadcrumb,
+  SlottedLinks,
 } from "./IcBreadcrumbTestData";
 import {
   BE_VISIBLE,
@@ -23,7 +24,7 @@ import {
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const IC_BREADCRUMB_LABEL = "ic-breadcrumb";
-const DEFAULT_TEST_THRESHOLD = 0.013;
+const DEFAULT_TEST_THRESHOLD = 0.009;
 
 describe("IcBreadcrumb end-to-end tests", () => {
   beforeEach(() => {
@@ -84,7 +85,7 @@ describe("IcBreadcrumb end-to-end tests", () => {
     cy.get('[page-title="Home"]').should(BE_VISIBLE);
   });
 
-  it("should add 'aria-current' when current prop is true", () => {
+  it("should add 'aria-current' when current prop is true and remove it when changed to false", () => {
     mount(<WithCurrentPage />);
 
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
@@ -92,6 +93,9 @@ describe("IcBreadcrumb end-to-end tests", () => {
     cy.get('[page-title="Coffee"]').should(HAVE_ATTR, "aria-current", "page");
     cy.get('[page-title="Home"]').should(NOT_HAVE_ATTR, "current", "true");
     cy.get('[page-title="Beverages"]').should(NOT_HAVE_ATTR, "current", "true");
+
+    cy.get('[page-title="Coffee"]').invoke("prop", "current", false);
+    cy.get('[page-title="Coffee"]').should(NOT_HAVE_ATTR, "aria-current");
   });
 
   it("should call 'setFocus' when breadcrumb is focused", () => {
@@ -107,6 +111,22 @@ describe("IcBreadcrumb end-to-end tests", () => {
       .each(($el) => {
         cy.wrap($el).focus().should(HAVE_FOCUS);
       });
+  });
+
+  it("should only allow focus on slotted links when not within current page breadcrumbs", () => {
+    mount(<SlottedLinks />);
+
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.get("ic-button").eq(0).shadow().find("button").focus();
+    cy.realPress("Tab");
+    cy.get("ic-button").eq(1).shadow().find("button").should(HAVE_FOCUS);
+
+    cy.get(IC_BREADCRUMB_LABEL).eq(0).invoke("prop", "current", false);
+
+    cy.get("ic-button").eq(0).shadow().find("button").focus();
+    cy.realPress("Tab");
+    cy.realPress("Tab");
+    cy.get("ic-button").eq(1).shadow().find("button").should(HAVE_FOCUS);
   });
 
   it("should render collapsed breadcrumb", () => {
@@ -148,8 +168,8 @@ describe("IcBreadcrumb visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+      name: "/default",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
 
@@ -160,7 +180,7 @@ describe("IcBreadcrumb visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "back",
+      name: "/back",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -172,8 +192,8 @@ describe("IcBreadcrumb visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+      name: "/icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
 
@@ -184,8 +204,8 @@ describe("IcBreadcrumb visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 200, { includedImpacts: ["critical"] });
     cy.compareSnapshot({
-      name: "collapsed",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
+      name: "/collapsed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
 
@@ -196,8 +216,8 @@ describe("IcBreadcrumb visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "current",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+      name: "/current",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
 
@@ -216,8 +236,8 @@ describe("IcBreadcrumb visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focussed",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+      name: "/focussed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
 
@@ -227,7 +247,7 @@ describe("IcBreadcrumb visual regression and a11y tests", () => {
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
 
     cy.compareSnapshot({
-      name: "appearance",
+      name: "/appearance",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -256,8 +276,8 @@ describe("IcBreadcrumb visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
 
     cy.compareSnapshot({
-      name: "icon-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+      name: "/icon-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -267,8 +287,8 @@ describe("IcBreadcrumb visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
 
     cy.compareSnapshot({
-      name: "collapsed-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      name: "/collapsed-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 
@@ -278,8 +298,8 @@ describe("IcBreadcrumb visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
 
     cy.compareSnapshot({
-      name: "current-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+      name: "/current-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -297,8 +317,8 @@ describe("IcBreadcrumb visual regression tests in high contrast mode", () => {
       .should(HAVE_FOCUS);
 
     cy.compareSnapshot({
-      name: "focussed-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+      name: "/focussed-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
 });

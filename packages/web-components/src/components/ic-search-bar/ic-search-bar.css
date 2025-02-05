@@ -133,7 +133,7 @@ input[type="search"].truncate-value {
 
 .clear-button:focus,
 .clear-button:active * {
-  fill: white;
+  fill: var(--ic-atoms-input-clear-button-focus);
 }
 
 .clear-button-visible {

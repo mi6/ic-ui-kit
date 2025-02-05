@@ -477,8 +477,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      name: "/default",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.044),
     });
   });
 
@@ -489,8 +489,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      name: "/disabled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
 
@@ -501,8 +501,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "hide-label",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+      name: "/hide-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
@@ -512,7 +512,7 @@ describe("IcCheckbox visual regression and a11y tests", () => {
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "hide-checkbox-label",
+      name: "/hide-checkbox-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait(undefined, 1000);
@@ -525,8 +525,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "helper",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
+      name: "/helper",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
     });
   });
 
@@ -537,8 +537,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "required",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
+      name: "/required",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
     });
   });
 
@@ -549,8 +549,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.084),
+      name: "/sizes",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.068),
     });
   });
 
@@ -561,8 +561,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "checkbox-sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
+      name: "/checkbox-sizes",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
 
@@ -573,8 +573,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "conditional",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.075),
+      name: "/conditional",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.054),
     });
   });
 
@@ -585,8 +585,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dynamic",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.087),
+      name: "/dynamic",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.072),
     });
   });
 
@@ -597,8 +597,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
+      name: "/validation",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
     });
   });
 
@@ -617,8 +617,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focus",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      name: "/focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.044),
     });
   });
 
@@ -630,8 +630,8 @@ describe("IcCheckbox visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "theme-dark",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.065),
+      name: "/theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.079),
     });
   });
 });
@@ -655,8 +655,8 @@ describe("IcCheckbox visual regression tests in high contrast mode", () => {
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "default-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.062),
+      name: "/default-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
     });
   });
 
@@ -666,8 +666,8 @@ describe("IcCheckbox visual regression tests in high contrast mode", () => {
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "disabled-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+      name: "/disabled-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.057),
     });
   });
 
@@ -677,8 +677,8 @@ describe("IcCheckbox visual regression tests in high contrast mode", () => {
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "helper-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
+      name: "/helper-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
     });
   });
 
@@ -688,8 +688,8 @@ describe("IcCheckbox visual regression tests in high contrast mode", () => {
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "conditional-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.071),
+      name: "/conditional-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.066),
     });
   });
 
@@ -699,8 +699,8 @@ describe("IcCheckbox visual regression tests in high contrast mode", () => {
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "dynamic-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.084),
+      name: "/dynamic-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.082),
     });
   });
 
@@ -710,8 +710,8 @@ describe("IcCheckbox visual regression tests in high contrast mode", () => {
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
 
     cy.compareSnapshot({
-      name: "validation-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
+      name: "/validation-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.057),
     });
   });
 
@@ -729,8 +729,8 @@ describe("IcCheckbox visual regression tests in high contrast mode", () => {
       .should(HAVE_FOCUS);
 
     cy.wait(500).compareSnapshot({
-      name: "focus-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.062),
+      name: "/focus-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
     });
   });
 });

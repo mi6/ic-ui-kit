@@ -6,7 +6,7 @@ import React from "react";
 import { IcSectionContainer, IcButton } from "../../components";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.016;
+const DEFAULT_TEST_THRESHOLD = 0.009;
 const SECTION_CONTAINER_SELECTOR = "ic-section-container";
 
 describe("IcSectionContainer visual regression and a11y tests", () => {
@@ -35,7 +35,7 @@ describe("IcSectionContainer visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "left-aligned",
+      name: "/left-aligned",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -59,7 +59,7 @@ describe("IcSectionContainer visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "center-aligned",
+      name: "/center-aligned",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -83,7 +83,7 @@ describe("IcSectionContainer visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "full-width",
+      name: "/full-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -108,7 +108,7 @@ describe("IcSectionContainer visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "full-height",
+      name: "/full-height",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });

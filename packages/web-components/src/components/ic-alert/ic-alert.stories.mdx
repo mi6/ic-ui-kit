@@ -87,7 +87,9 @@ export const defaultArgs = {
     {html`<ic-alert
       heading="Neutral"
       message="This alert is for displaying miscellaneous messages"
-      ><ic-button slot="action" variant="secondary">Button</ic-button></ic-alert
+      ><ic-button slot="action" variant="secondary" monochrome="true"
+        >Button</ic-button
+      ></ic-alert
     >`}
   </Story>
 </Canvas>
@@ -100,7 +102,9 @@ export const defaultArgs = {
       heading="Neutral"
       message="This alert is for displaying miscellaneous messages"
       dismissible="true"
-      ><ic-button slot="action" variant="secondary">Button</ic-button></ic-alert
+      ><ic-button slot="action" variant="secondary" monochrome="true"
+        >Button</ic-button
+      ></ic-alert
     >`}
   </Story>
 </Canvas>
@@ -267,7 +271,9 @@ export const defaultArgs = {
         theme=${args.theme}
       >
         ${args.showAction &&
-        html`<ic-button slot="action" variant="secondary">Button</ic-button>`} ${args.showSlottedIcon &&
+        html`<ic-button slot="action" variant="secondary" monochrome="true"
+          >Button</ic-button
+        >`} ${args.showSlottedIcon &&
         html`<svg
           slot="neutral-icon"
           xmlns="http://www.w3.org/2000/svg"

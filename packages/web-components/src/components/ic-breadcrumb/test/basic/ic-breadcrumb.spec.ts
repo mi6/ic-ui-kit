@@ -15,7 +15,9 @@ describe("ic-breadcrumb", () => {
             <span aria-hidden="true" class="chevron">
               svg
             </span>
-            <slot></slot>
+            <span class="link-wrapper" tabindex="0">
+              <slot></slot>
+            </span>
           </div>
         </mock:shadow-root>
       </ic-breadcrumb>
@@ -128,5 +130,60 @@ describe("ic-breadcrumb", () => {
 
     //Can't expect anything in this test - this is to increase code coverage only
     await page.rootInstance.setFocus().toHaveBeenCalled;
+  });
+
+  it("should prevent focus on the slotted link within the current breadcrumb", async () => {
+    const page = await newSpecPage({
+      components: [Breadcrumb],
+      html: "<ic-breadcrumb id='ic-breadcrumb' current=true><ic-link href='/'>Link</ic-link></ic-breadcrumb>",
+    });
+
+    page.rootInstance.current = true;
+    page.rootInstance.linkSlotContent.tabIndex = 0;
+    await page.waitForChanges();
+
+    // Cannot check for actual slot updates in the HTML due to assignedElements not being available in test environment
+    const slottedLinkEl = document.createElement("a");
+    page.rootInstance.slottedLinkEl = slottedLinkEl;
+    jest
+      .spyOn(page.rootInstance.slottedLinkEl, "removeAttribute")
+      .mockImplementation();
+
+    page.rootInstance.updatedSlottedLinkFocus();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.linkSlotContent.tabIndex).toBe(-1);
+    expect(page.rootInstance.slottedLinkEl.removeAttribute).toHaveBeenCalled();
+  });
+
+  it("should change to allow focus on slotted link when current prop is removed", async () => {
+    const page = await newSpecPage({
+      components: [Breadcrumb],
+      html: "<ic-breadcrumb id='ic-breadcrumb' current=true><ic-link href='/'>Link</ic-link></ic-breadcrumb>",
+    });
+
+    const slottedLinkEl = document.createElement("a");
+    page.rootInstance.slottedLinkEl = slottedLinkEl;
+    await page.waitForChanges();
+
+    jest
+      .spyOn(page.rootInstance.slottedLinkEl, "setAttribute")
+      .mockImplementation();
+
+    page.rootInstance.current = true;
+    await page.waitForChanges();
+
+    page.rootInstance.current = false;
+    page.rootInstance.linkSlotContent.tabIndex = -1;
+    page.rootInstance.updatedSlottedLinkFocus();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.linkSlotContent.tabIndex).toBe(0);
+    expect(page.rootInstance.slottedLinkEl.setAttribute).toHaveBeenCalled();
+
+    page.rootInstance.linkSlotContent = null;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.getSlottedLinkEl()).toBe(null);
   });
 });

@@ -56,7 +56,6 @@
  - [ic-side-navigation](../ic-side-navigation)
  - [ic-status-tag](../ic-status-tag)
  - [ic-step](../ic-step)
- - [ic-switch](../ic-switch)
  - [ic-tab](../ic-tab)
  - [ic-text-field](../ic-text-field)
  - [ic-toast](../ic-toast)
@@ -99,7 +98,6 @@ graph TD;
   ic-side-navigation --> ic-typography
   ic-status-tag --> ic-typography
   ic-step --> ic-typography
-  ic-switch --> ic-typography
   ic-tab --> ic-typography
   ic-text-field --> ic-typography
   ic-toast --> ic-typography

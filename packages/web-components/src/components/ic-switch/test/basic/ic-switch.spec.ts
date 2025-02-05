@@ -43,24 +43,6 @@ describe("ic-switch component", () => {
     expect(page.root).toMatchSnapshot("renders-small");
   });
 
-  it("should render with state text", async () => {
-    const page = await newSpecPage({
-      components: [Switch],
-      html: `<ic-switch label="Custom title" checked=true show-state></ic-switch>`,
-    });
-
-    expect(page.root).toMatchSnapshot("renders-with-state-text");
-  });
-
-  it("should render with state text and unchecked", async () => {
-    const page = await newSpecPage({
-      components: [Switch],
-      html: `<ic-switch label="Custom title" checked="false" show-state="true"></ic-switch>`,
-    });
-
-    expect(page.root).toMatchSnapshot("renders-with-state-text-unchecked");
-  });
-
   it("should focus", async () => {
     const page = await newSpecPage({
       components: [Switch],

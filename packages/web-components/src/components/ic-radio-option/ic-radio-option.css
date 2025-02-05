@@ -6,7 +6,7 @@ ic-radio-option {
   width: fit-content;
 }
 
-.additional-field-wrapper ic-text-field {
+.additional-field-wrapper [slot="additional-field"] {
   margin-top: calc(var(--ic-space-sm) / 2);
   margin-left: var(--ic-space-xl);
 }
@@ -86,7 +86,7 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
   border: 0.125rem solid var(--ic-radio-button-default-hover);
 }
 
-.container:hover input:checked ~ .checkmark::after {
+.container:hover:not(.disabled) input:checked ~ .checkmark::after {
   background-color: var(--ic-radio-button-default-hover);
 }
 
@@ -114,7 +114,6 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
 
 /* When the radio button is checked and disabled */
 .container input:checked:disabled ~ .checkmark {
-  background-color: var(--ic-architectural-white);
   border: 0.125rem solid var(--ic-radio-button-border-disabled);
 }
 
@@ -130,7 +129,6 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
 
 /* On mouse-over inactive */
 .container:hover input:disabled ~ .checkmark {
-  background-color: var(--ic-architectural-white);
   box-shadow: none;
   border: 0.125rem solid none;
 }

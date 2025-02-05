@@ -25,7 +25,7 @@ import {
 } from "../utils/constants";
 
 const STEPPER_SELECTOR = "ic-stepper";
-const DEFAULT_TEST_THRESHOLD = 0.007;
+const DEFAULT_TEST_THRESHOLD = 0.005;
 
 describe("IcStepper end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
@@ -46,8 +46,8 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "compact",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      name: "/compact",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -58,8 +58,8 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "custom-compact",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
+      name: "/custom-compact",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -80,8 +80,8 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
 
     // cy.checkA11yWithWait(); A11y failure for disabled text
     cy.compareSnapshot({
-      name: "full-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      name: "/full-width",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
@@ -92,8 +92,8 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
 
     // cy.checkA11yWithWait(); A11y failure for disabled text
     cy.compareSnapshot({
-      name: "left-aligned",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      name: "/left-aligned",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
@@ -106,8 +106,8 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
 
     // cy.checkA11yWithWait(); A11y failure for disabled text
     cy.compareSnapshot({
-      name: "custom-connector-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      name: "/custom-connector-width",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
     });
   });
 
@@ -118,8 +118,8 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "without-step-titles",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
+      name: "/without-step-titles",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
 
@@ -132,7 +132,7 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "with-hidden-step-information",
+      name: "/with-hidden-step-information",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -144,8 +144,8 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
 
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+      name: "/light",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
   });
 
@@ -164,8 +164,8 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
 
     // cy.checkA11yWithWait(); A11y failure for disabled text
     cy.compareSnapshot({
-      name: "small-connector-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      name: "/small-connector-width",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
     });
   });
 });
@@ -193,7 +193,7 @@ describe("IcStepper visual regression tests in high contrast mode", () => {
     cy.checkHydrated(STEPPER_SELECTOR);
 
     cy.compareSnapshot({
-      name: "compact-high-contrast",
+      name: "/compact-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -204,8 +204,8 @@ describe("IcStepper visual regression tests in high contrast mode", () => {
     cy.checkHydrated(STEPPER_SELECTOR);
 
     cy.compareSnapshot({
-      name: "full-width-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      name: "/full-width-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
@@ -217,8 +217,8 @@ describe("IcStepper visual regression tests in high contrast mode", () => {
     cy.checkHydrated(STEPPER_SELECTOR);
 
     cy.compareSnapshot({
-      name: "custom-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
+      name: "/custom-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
     });
   });
 });

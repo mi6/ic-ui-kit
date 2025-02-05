@@ -288,7 +288,7 @@ export const ThemeWithComponentWithinSeparateIcTheme = (args: {
               heading="This alert uses a custom message slot"
               dismissible={true}
             >
-              <IcButton slot="action" variant="secondary">
+              <IcButton slot="action" variant="secondary" monochrome="true">
                 Button
               </IcButton>
               <IcTypography variant="body" slot="message">

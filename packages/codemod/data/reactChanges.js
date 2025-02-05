@@ -6,7 +6,7 @@ export default [
     type: "prop",
   },
   {
-    v2Name: "small",
+    v2Name: `small\\b[^'"]`,
     v3Name: "size={'small'}",
     componentsAffected: "IcSelect",
     type: "absolute",
@@ -18,16 +18,22 @@ export default [
     type: "prop",
   },
   {
-    v2Name: "size={'default'}",
+    v2Name: `size=[{]?["']default['"][}]?`,
     v3Name: "size={'medium'}",
     componentsAffected: "IcStatusTag",
-    type: "prop",
+    type: "absolute",
   },
   {
-    v2Name: "size={'default'}",
+    v2Name: `size=[{]?["']default['"][}]?`,
     v3Name: "size={'medium'}",
     componentsAffected: "IcSwitch",
-    type: "prop",
+    type: "absolute",
+  },
+  {
+    v2Name: `size=[{]?["']default['"][}]?`,
+    v3Name: "size={'medium'}",
+    componentsAffected: "IcDialog",
+    type: "absolute",
   },
   {
     v2Name: "groupTitle",

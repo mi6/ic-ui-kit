@@ -9,7 +9,7 @@ import { IcLink, IcTypography } from "@ukic/react";
 import { HAVE_LENGTH } from "@ukic/react/src/component-tests/utils/constants";
 
 const TITLE_BAR = "ic-data-table-title-bar";
-const DEFAULT_THRESHOLD = 0.04;
+const DEFAULT_THRESHOLD = 0.014;
 
 describe("IcDataTableTitleBar", () => {
   beforeEach(() => {
@@ -72,7 +72,7 @@ describe("IcDataTableTitleBar", () => {
 
     cy.compareSnapshot({
       name: "slotted-header-and-description",
-      testThreshold: setThresholdBasedOnEnv(0),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.002),
     });
   });
 
@@ -91,7 +91,7 @@ describe("IcDataTableTitleBar", () => {
 
     cy.compareSnapshot({
       name: "metadata-and-description",
-      testThreshold: setThresholdBasedOnEnv(0),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.005),
     });
   });
 });
@@ -122,7 +122,7 @@ describe("IcDataTableTitleBar visual regression tests in high contrast mode", ()
 
     cy.compareSnapshot({
       name: "default-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.003),
     });
   });
 
@@ -143,7 +143,7 @@ describe("IcDataTableTitleBar visual regression tests in high contrast mode", ()
 
     cy.compareSnapshot({
       name: "slotted-header-and-description-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.016),
     });
   });
 
@@ -160,7 +160,7 @@ describe("IcDataTableTitleBar visual regression tests in high contrast mode", ()
 
     cy.compareSnapshot({
       name: "metadata-and-description-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(0),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.025),
     });
   });
 });

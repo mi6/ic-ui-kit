@@ -10,5 +10,3 @@ export type IcButtonVariants =
   | "icon-secondary"
   | "icon-tertiary"
   | "icon-destructive";
-
-export type IcButtonTooltipPlacement = "top" | "right" | "bottom" | "left";

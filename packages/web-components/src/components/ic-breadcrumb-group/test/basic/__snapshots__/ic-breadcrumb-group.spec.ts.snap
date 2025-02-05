@@ -197,7 +197,9 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <slot></slot>
+        <span class="link-wrapper" tabindex="0">
+          <slot></slot>
+        </span>
       </div>
     </mock:shadow-root>
     <span class="hide" id="collapsed-button-described">
@@ -252,7 +254,9 @@ exports[`ic-breadcrumb-group should render with ic-breadcrumb: should render wit
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <slot></slot>
+        <span class="link-wrapper" tabindex="0">
+          <slot></slot>
+        </span>
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
@@ -298,7 +302,9 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <slot></slot>
+        <span class="link-wrapper" tabindex="0">
+          <slot></slot>
+        </span>
       </div>
     </mock:shadow-root>
     <span class="hide" id="collapsed-button-described">
