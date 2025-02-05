@@ -1088,16 +1088,17 @@ const DataTable = () => {
 export default DataTable;
 ```
 
-### Links and elements in data
+### Links and slotted elements in data
 
 Custom HTML elements can be slotted or passed via the `data` prop to display in certain cells. When using the slotted method, the slot name follows the format of `{COLUMN_TAG}-{ROW_INDEX}`.
 
 <Canvas withSource="none">
-  <Story name="Links and Elements in data">
+  <Story name="Links and slotted elements in data">
     <IcDataTable
-      caption="Links and Elements in data"
+      caption="Links and slotted elements in data"
       columns={COLS_ELEMENTS}
       data={DATA_REACT_ELEMENTS}
+      showPagination
     >
       {DATA_REACT_ELEMENTS.map((_, index) => (
         <>
@@ -1105,26 +1106,27 @@ Custom HTML elements can be slotted or passed via the `data` prop to display in 
             key={`actions-${index}`}
             variant="destructive"
             slot={`actions-${index}`}
+            title="Delete row (top level tooltip)"
             onClick={() => console.log("Delete")}
           >
             Delete
           </IcButton>
+          <div key={`actions2-${index}`} slot={`actions2-${index}`}>
           <IcButton
-            key={`actions2-${index}`}
             variant="icon"
-            slot={`actions2-${index}`}
-            aria-label="Delete row"
+            aria-label="Delete row (nested tooltip)"
             onClick={() => console.log("Delete")}
           >
             <SlottedSVG path={mdiDelete} viewBox="0 0 24 24" />
           </IcButton>
+          </div>
         </>
       ))}
     </IcDataTable>
   </Story>
 </Canvas>
 
-#### Links and elements in data code example
+#### Links and slotted elements in data code example
 
 ```tsx
 import * as React from "react";
@@ -1164,11 +1166,33 @@ const data = [
 
 const DataTable = () => (
   <IcDataTable
-    caption="Links and Elements in data"
+    caption="Links and slotted elements in data"
     columns={columns}
     data={data}
+    showPagination="true"
   >
-    {data.map((_, index) => <IcButton key={index} slot={`actions-${index}`} variant="destructive" onClick={() => console.log("Delete")}>Delete</IcButton>)}
+    {data.map((_, index) => (
+        <>
+          <IcButton
+            key={`actions-${index}`}
+            variant="destructive"
+            slot={`actions-${index}`}
+            title="Delete row (top level tooltip)"
+            onClick={() => console.log("Delete")}
+          >
+            Delete
+          </IcButton>
+          <div key={`actions2-${index}`} slot={`actions2-${index}`}>
+          <IcButton
+            variant="icon"
+            aria-label="Delete row (nested tooltip)"
+            onClick={() => console.log("Delete")}
+          >
+            <SlottedSVG path={mdiDelete} viewBox="0 0 24 24" />
+          </IcButton>
+          </div>
+        </>
+      ))}
   </IcDataTable>
 );
 
