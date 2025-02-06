@@ -17,7 +17,8 @@ module.exports = {
     "@storybook/addon-postcss",
     "@storybook/addon-a11y",
     "@storybook/addon-mdx-gfm",
-    "storybook-addon-performance"
+    "storybook-addon-performance",
+    "@storybook/addon-webpack5-compiler-babel"
   ],
 
   "framework": {
@@ -25,7 +26,24 @@ module.exports = {
     options: {}
   },
 
-  docs: {
-    autodocs: true
+  docs: {},
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript"
+  },
+
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react']
+        }
+      }
+    });
+
+    return config;
   }
 }

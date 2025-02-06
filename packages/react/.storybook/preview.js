@@ -14,3 +14,4 @@ export const parameters = {
   }
 
 export const decorators = [withPerformance];
+export const tags = ["autodocs"];

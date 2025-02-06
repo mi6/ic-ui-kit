@@ -15,3 +15,4 @@ export const parameters = {
     hideNoControlsWarning: true
   }
 }
+export const tags = ["autodocs"];
