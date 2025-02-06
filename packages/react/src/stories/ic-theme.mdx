@@ -1,0 +1,75 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, Description } from "@storybook/blocks";
+import {
+  IcFooter,
+  IcFooterLink,
+  IcButton,
+  IcTopNavigation,
+  IcNavigationItem,
+  IcNavigationButton,
+  IcTheme,
+  IcSearchBar,
+  IcTypography,
+  IcHero,
+  IcAlert,
+  IcLink,
+  IcCheckbox,
+  IcTextField,
+  IcCardVertical,
+  IcSectionContainer
+} from "../components";
+import readme from "../../../web-components/src/components/ic-theme/readme.md";
+import * as IcThemeStories from './ic-theme.stories';
+
+<Meta of={IcThemeStories} />
+
+<Description markdown={readme} />
+
+export const Controlled = () => {
+  const [color, setColour] = useState("rgb(255, 201, 60)");
+  const defaultButtonClickHandler = () => {
+    setColour("rgb(27, 60, 121)");
+  };
+  const differentButtonClickHandler = () => {
+    setColour("rgb(255, 201, 60)");
+  };
+  return (
+    <>
+      <IcTheme brandColor={color} />
+      <IcButton variant="primary" onClick={defaultButtonClickHandler}>
+        Default brand
+      </IcButton>
+      <IcButton variant="primary" onClick={differentButtonClickHandler}>
+        Sunset brand
+      </IcButton>
+    </>
+  );
+};
+
+### Switch brand
+
+<Canvas>
+  <Story of={IcThemeStories.SwitchBrand} />
+</Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  brandColor: "rgba(27, 60, 121, 1)",
+  theme: "light",
+};
+
+<Canvas>
+  <Story of={IcThemeStories.Playground} />
+</Canvas>
+
+### Theme visualisation playground
+
+export const defaultThemeArgs = {
+  theme: "light",
+  componentTheme: "light",
+};
+
+<Canvas>
+  <Story of={IcThemeStories.ThemeVisualisationPlayground} />
+</Canvas>

@@ -1,6 +1,10 @@
-import "../dist/core/normalize.css";
+import React from 'react';
+
 import "@ukic/fonts/dist/fonts.css";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
 import "../dist/core/core.css";
+import "../dist/core/normalize.css";
 import "./storybook-overrides.css";
 
 import { withPerformance } from 'storybook-addon-performance';
@@ -16,6 +20,7 @@ const preview = {
       hideNoControlsWarning: true
     },
   },
+
   globalTypes: {
     theme: {
       description: 'Global theme for components',
@@ -27,9 +32,11 @@ const preview = {
       },
     },
   },
+
   initialGlobals: {
     theme: 'light',
   },
+
   decorators: [
     (story, context) => {
       const selectedTheme = context.globals.theme || "light";
@@ -53,6 +60,8 @@ const preview = {
     },
     withPerformance
   ],
+
+  tags: ['autodocs']
 };
 
 export default preview;
