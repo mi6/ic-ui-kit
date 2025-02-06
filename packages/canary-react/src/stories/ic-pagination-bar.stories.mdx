@@ -451,6 +451,155 @@ const PaginationBar = () => (
 export default PaginationBar;
 ```
 
+### Set the selected items per page
+
+The `selectedItemsPerPage` prop can be used to programmatically set the items per page dropdown option.
+
+<Canvas withSource="none">
+  <Story name="Set the selected items per page">
+    <div style={{
+      height: '150px'
+    }}>
+        <IcPaginationBar
+          totalItems="100"
+          showItemsPerPageControl
+          showGoToPageControl
+          selectedItemsPerPage="25"
+        />
+    </div>
+  </Story>
+</Canvas>
+
+#### Set the selected items per page code example
+
+```jsx
+import * as React from "react";
+import { IcPaginationBar } from '@ukic/canary-react';
+
+const PaginationBar = () => (
+    <IcPaginationBar
+      totalItems="100"
+      showItemsPerPageControl
+      showGoToPageControl
+      selectedItemsPerPage="25"
+    />
+);
+
+export default PaginationBar;
+```
+
+### Set the selected items per page to an invalid value
+
+The `selectedItemsPerPage` prop can be used to programmatically set the selected items per page dropdown option. If provided, this prop must match one of the items per page dropdown options, otherwise an error appears on the console and the prop is ignored.
+
+<Canvas withSource="none">
+  <Story name="Set the selected items per page to an invalid value">
+    <div style={{
+      height: '150px'
+    }}>
+        <IcPaginationBar
+          totalItems="100"
+          showItemsPerPageControl
+          showGoToPageControl
+          selectedItemsPerPage="99"
+        />
+    </div>
+  </Story>
+</Canvas>
+
+#### Set the selected items per page to an invalid value code example
+
+```jsx
+import * as React from "react";
+import { IcPaginationBar } from '@ukic/canary-react';
+
+const PaginationBar = () => (
+    <IcPaginationBar
+      totalItems="100"
+      showItemsPerPageControl
+      showGoToPageControl
+      selectedItemsPerPage="99"
+    />
+);
+
+export default PaginationBar;
+```
+
+### Set the current page
+
+The `currentPage` prop can be used to programmatically set the current page.
+
+<Canvas withSource="none">
+  <Story name="Set the current page">
+    <div style={{
+      height: '150px'
+    }}>
+        <IcPaginationBar
+          totalItems="100"
+          showItemsPerPageControl
+          showGoToPageControl
+          currentPage="3"
+        />
+    </div>
+  </Story>
+</Canvas>
+
+#### Set the current page code example
+
+```jsx
+import * as React from "react";
+import { IcPaginationBar } from '@ukic/canary-react';
+
+const PaginationBar = () => (
+    <IcPaginationBar
+      totalItems="100"
+      showItemsPerPageControl
+      showGoToPageControl
+      currentPage="3"
+    />
+);
+
+export default PaginationBar;
+```
+
+### Set the current page to an invalid value
+
+The `currentPage` prop can be used to programmatically set the current page. If provided, this prop must be greater than 0 and less than or equal to the total number of pages, otherwise an error appears on the console and the prop is ignored.
+
+<Canvas withSource="none">
+  <Story name="Set the current page to an invalid value">
+    <div style={{
+      height: '150px'
+    }}>
+        <IcPaginationBar
+          totalItems="100"
+          showItemsPerPageControl
+          showGoToPageControl
+          currentPage="-1"
+        />
+    </div>
+  </Story>
+</Canvas>
+
+#### Set the current page to an invalid value code example
+
+```jsx
+import * as React from "react";
+import { IcPaginationBar } from '@ukic/canary-react';
+
+const PaginationBar = () => (
+    <IcPaginationBar
+      totalItems="100"
+      showItemsPerPageControl
+      showGoToPageControl
+      currentPage="-1"
+    />
+);
+
+export default PaginationBar;
+```
+
+
 ### Playground
 
 Go to the <IcLink href="/?path=/story/react-components-pagination-bar--playground">separate page for the playground example</IcLink> to view the prop controls.
@@ -468,6 +617,7 @@ export const defaultArgs = {
   monochrome: false,
   pageLabel: "Page",
   rangeLabelType: "page",
+  selectedItemsPerPage: "10",
   setToFirstPageOnPaginationChange: false,
   showItemsPerPageControl: true,
   showGoToPageControl: true,
@@ -514,6 +664,7 @@ export const defaultArgs = {
           itemsPerPageOptions={args.itemsPerPageOptions}
           pageLabel={args.pageLabel}
           rangeLabelType={args.rangeLabelType}
+          selectedItemsPerPage={args.selectedItemsPerPage}
           setToFirstPageOnPaginationChange={args.setToFirstPageOnPaginationChange}
           showItemsPerPageControl={args.showItemsPerPageControl}
           showGoToPageControl={args.showGoToPageControl}
