@@ -18197,6 +18197,28 @@
       "usage": {},
       "props": [
         {
+          "name": "disableClick",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-click",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "disableHover",
           "type": "boolean",
           "complexType": {
