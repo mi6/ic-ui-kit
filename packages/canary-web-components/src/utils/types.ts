@@ -181,19 +181,20 @@ export interface IcMenuOption {
 export type IcSearchMatchPositions = "start" | "anywhere";
 
 export interface IcPaginationBarOptions {
-  itemsPerPageOptions?: { label: string; value: string }[];
-  rangeLabelType?: IcPaginationLabelTypes;
-  type?: IcPaginationTypes;
-  showItemsPerPageControl?: boolean;
-  showGoToPageControl?: boolean;
   alignment?: IcPaginationAlignmentOptions;
-  itemLabel?: string;
-  pageLabel?: string;
-  hideRangeLabel?: boolean;
   hideAllFromItemsPerPage?: boolean;
-  theme?: IcThemeMode;
+  hideRangeLabel?: boolean;
+  itemLabel?: string;
+  itemsPerPageOptions?: { label: string; value: string }[];
   monochrome?: boolean;
+  pageLabel?: string;
+  rangeLabelType?: IcPaginationLabelTypes;
+  selectedItemsPerPage?: number;
   setToFirstPageOnPaginationChange?: boolean;
+  showGoToPageControl?: boolean;
+  showItemsPerPageControl?: boolean;
+  theme?: IcThemeMode;
+  type?: IcPaginationTypes;
 }
 
 export type IcCallbackFunctionNoReturn = (...args: unknown[]) => void;
