@@ -239,22 +239,23 @@ export class DataTable {
    * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
    */
   @Prop() paginationBarOptions?: IcPaginationBarOptions = {
+    alignment: "right",
+    appearance: "default",
+    hideAllFromItemsPerPage: false,
+    hideRangeLabel: false,
+    itemLabel: "Item",
     itemsPerPageOptions: [
       { label: "10", value: "10" },
       { label: "25", value: "25" },
       { label: "50", value: "50" },
     ],
-    rangeLabelType: "page",
-    type: "simple",
-    showItemsPerPageControl: true,
-    showGoToPageControl: true,
-    alignment: "right",
-    appearance: "default",
-    itemLabel: "Item",
     pageLabel: "Page",
-    hideRangeLabel: false,
-    hideAllFromItemsPerPage: false,
+    rangeLabelType: "page",
+    selectedItemsPerPage: 10,
     setToFirstPageOnPaginationChange: false,
+    showGoToPageControl: true,
+    showItemsPerPageControl: true,
+    type: "simple",
   };
 
   /**
@@ -894,9 +895,8 @@ export class DataTable {
     this.truncate(typographyEl, cellContainer, tooltip);
   };
 
-  private getTruncWrapper(typographyEl: HTMLIcTypographyElement) {
-    return typographyEl.shadowRoot.querySelector(".trunc-wrapper");
-  }
+  private getTruncWrapper = (typographyEl: HTMLIcTypographyElement) =>
+    typographyEl.shadowRoot.querySelector(".trunc-wrapper");
 
   // Set the height to initial if row height is set and the show / hide truncation
   // is clicked
@@ -1231,13 +1231,10 @@ export class DataTable {
     );
   };
 
-  private setTruncationClass = () => {
-    if (this.truncationPattern) {
-      return { [`truncation-${this.truncationPattern}`]: true };
-    }
-
-    return {};
-  };
+  private setTruncationClass = () =>
+    this.truncationPattern
+      ? { [`truncation-${this.truncationPattern}`]: true }
+      : {};
 
   private getColumnWidth = (
     columnWidth?: string | IcDataTableColumnWidthTypes
@@ -1700,9 +1697,8 @@ export class DataTable {
       });
   };
 
-  private getObjectValue = (cell: object, key: string) => {
-    return Object.values(cell)[Object.keys(cell).indexOf(key)];
-  };
+  private getObjectValue = (cell: object, key: string) =>
+    Object.values(cell)[Object.keys(cell).indexOf(key)];
 
   private getSortButtonLabel = (key: string) => {
     let label = "";
@@ -2217,8 +2213,8 @@ export class DataTable {
       scrollOffset,
       showPagination,
       sortable,
-      sortedColumnOrder,
       sortedColumn,
+      sortedColumnOrder,
       stickyColumnHeaders,
       updateScrollOffset,
       updating,
@@ -2275,25 +2271,28 @@ export class DataTable {
                 <slot name="pagination-bar" />
               ) : (
                 <ic-pagination-bar
-                  totalItems={data?.length ?? 0}
-                  type={paginationBarOptions.type}
-                  rangeLabelType={paginationBarOptions.rangeLabelType}
-                  showItemsPerPageControl={
-                    paginationBarOptions.showItemsPerPageControl
-                  }
-                  showGoToPageControl={paginationBarOptions.showGoToPageControl}
-                  itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
                   alignment={paginationBarOptions.alignment}
                   appearance={paginationBarOptions.appearance}
-                  itemLabel={paginationBarOptions.itemLabel}
-                  pageLabel={paginationBarOptions.pageLabel}
-                  hideRangeLabel={paginationBarOptions.hideRangeLabel}
                   hideAllFromItemsPerPage={
                     paginationBarOptions.hideAllFromItemsPerPage
+                  }
+                  hideRangeLabel={paginationBarOptions.hideRangeLabel}
+                  itemLabel={paginationBarOptions.itemLabel}
+                  itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
+                  pageLabel={paginationBarOptions.pageLabel}
+                  rangeLabelType={paginationBarOptions.rangeLabelType}
+                  selectedItemsPerPage={
+                    paginationBarOptions.selectedItemsPerPage
                   }
                   setToFirstPageOnPaginationChange={
                     paginationBarOptions.setToFirstPageOnPaginationChange
                   }
+                  showGoToPageControl={paginationBarOptions.showGoToPageControl}
+                  showItemsPerPageControl={
+                    paginationBarOptions.showItemsPerPageControl
+                  }
+                  totalItems={data?.length ?? 0}
+                  type={paginationBarOptions.type}
                 ></ic-pagination-bar>
               )}
             </div>
