@@ -693,6 +693,34 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
+
+  it("should select the correct option in the items per page dropdown", () => {
+    mount(<PaginationBarItemsPerPage selectedItemsPerPage={20} />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "selected-items-per-page",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should select the first option in the items per page dropdown if an invalid selectedItemsPerPage is provided", () => {
+    mount(<PaginationBarItemsPerPage selectedItemsPerPage={99} />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "selected-items-per-page-invalid-selectedItemsPerPage",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
 });
 
 describe("IcPaginationBar visual regression tests in high contrast mode", () => {
