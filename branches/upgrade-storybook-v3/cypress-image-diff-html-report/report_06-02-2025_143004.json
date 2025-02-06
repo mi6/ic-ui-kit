@@ -4,9 +4,9 @@
   "totalFailed": 0,
   "totalSuites": 0,
   "suites": [],
-  "startedAt": "2025-02-06T14:24:04.136Z",
-  "endedAt": "2025-02-06T14:25:49.967Z",
-  "duration": 32465,
+  "startedAt": "2025-02-06T14:30:04.650Z",
+  "endedAt": "2025-02-06T14:31:49.692Z",
+  "duration": 32141,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
