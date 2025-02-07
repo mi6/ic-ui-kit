@@ -652,7 +652,7 @@ An example with truncated tree items. When the heading/label exceeds the width o
               d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
             />
           </SlottedSVG>
-          <IcTreeItem label="Coffee">
+          <IcTreeItem label="Coffee" expanded>
             <SlottedSVG
               slot="icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -666,7 +666,7 @@ An example with truncated tree items. When the heading/label exceeds the width o
             <IcTreeItem label="Latte with extra milk and sugar" />
             <IcTreeItem label="Espresso" />
           </IcTreeItem>
-          <IcTreeItem label="Tea">
+          <IcTreeItem label="Tea" expanded>
             <IcTreeItem label="Earl Grey" />
             <IcTreeItem label="Earl Grey with truncation false" truncateTreeItem={false} />
             <IcTreeItem label="Chai" />
@@ -691,7 +691,7 @@ const TreeView = () => (
       d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
     />
   </SlottedSVG>
-  <IcTreeItem label="Coffee">
+  <IcTreeItem label="Coffee" expanded>
     <SlottedSVG
       slot="icon"
       xmlns="http://www.w3.org/2000/svg"
@@ -705,7 +705,7 @@ const TreeView = () => (
     <IcTreeItem label="Latte with extra milk and sugar" />
     <IcTreeItem label="Espresso" />
   </IcTreeItem>
-  <IcTreeItem label="Tea">
+  <IcTreeItem label="Tea" expanded>
     <IcTreeItem label="Earl Grey" />
     <IcTreeItem label="Chai" />
   </IcTreeItem>
