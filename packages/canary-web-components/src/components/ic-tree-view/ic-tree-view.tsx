@@ -31,6 +31,7 @@ export class TreeView {
   private treeViewId = `ic-tree-view-${treeViewIds++}`;
   private treeItemTag = "IC-TREE-ITEM";
   private hostMutationObserver: MutationObserver = null;
+  private isLoaded = false;
 
   @Element() el: HTMLIcTreeViewElement;
 
@@ -106,9 +107,7 @@ export class TreeView {
     this.watchThemeHandler();
     this.watchTruncateTreeItemsHandler();
 
-    setTimeout(() => {
-      this.truncateHeading && this.truncateTreeViewHeading();
-    }, 100);
+    this.truncateHeading && this.truncateTreeViewHeading();
 
     this.addSlotChangeListener();
 
@@ -118,6 +117,8 @@ export class TreeView {
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
+
+    this.isLoaded = true;
   }
 
   @Listen("icTreeItemSelected")
@@ -294,7 +295,15 @@ export class TreeView {
   };
 
   render() {
-    const { heading, size, theme } = this;
+    const {
+      focusInset,
+      heading,
+      isLoaded,
+      size,
+      theme,
+      truncateHeading,
+      truncateTreeItems,
+    } = this;
 
     return (
       <Host
@@ -302,7 +311,7 @@ export class TreeView {
         class={{
           [`ic-tree-view-${size}`]: size !== "medium",
           [`ic-theme-${theme}`]: theme !== "inherit",
-          "ic-tree-view-truncate": this.truncateHeading,
+          "ic-tree-view-truncate": truncateHeading,
         }}
         onKeyDown={this.handleKeyDown}
         aria-label={this.isHeadingDefined() ? heading : null}
@@ -314,7 +323,13 @@ export class TreeView {
                 <slot name="icon" />
               </div>
             )}
-            <ic-typography variant="subtitle-large" class="tree-view-header">
+            <ic-typography
+              variant="subtitle-large"
+              class={{
+                "tree-view-header": true,
+                "with-padding": this.truncateHeading && !isLoaded,
+              }}
+            >
               {isSlotUsed(this.el, "heading") ? (
                 <slot name="heading" />
               ) : (
@@ -323,7 +338,16 @@ export class TreeView {
             </ic-typography>
           </div>
         )}
-        <slot></slot>
+        <div
+          // Hide tree items until fully loaded with props passed down from tree view - prevents FOUC
+          class={{
+            "tree-items-container-hidden":
+              (focusInset || size !== "medium" || truncateTreeItems) &&
+              !isLoaded,
+          }}
+        >
+          <slot></slot>
+        </div>
       </Host>
     );
   }
