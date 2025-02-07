@@ -42,6 +42,7 @@
 
 .icon-container {
   width: var(--ic-space-lg);
+  min-width: var(--ic-space-lg);
   height: var(--ic-space-lg);
   margin: 0 var(--ic-space-xs) 0 0;
 }
@@ -58,6 +59,15 @@
 
 .ic-tooltip-overflow {
   overflow: hidden;
+}
+
+/* Ensures truncation works - accounts for text width increase as component hydrates */
+.tree-view-header.with-padding {
+  padding-right: var(--ic-space-xs);
+}
+
+.tree-items-container-hidden {
+  visibility: hidden;
 }
 
 ::slotted([slot="icon"]) {
