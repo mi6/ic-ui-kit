@@ -9,7 +9,7 @@
 }
 
 .container {
-  min-height: 3.5rem;
+  min-height: var(--ic-alert-height);
   border-radius: var(--ic-space-xxs) var(--ic-space-xxxs) var(--ic-space-xxxs)
     var(--ic-space-xxs);
   position: relative;

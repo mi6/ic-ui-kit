@@ -5,7 +5,7 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcAlert, IcLink, IcButton } from "../components";
+import { IcAlert, IcLink, IcButton, IcTypography } from "../components";
 import readme from "../../../web-components/src/components/ic-alert/readme.md";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
@@ -140,13 +140,13 @@ export const defaultArgs = {
 <Canvas>
   <Story name="Custom message">
     <IcAlert heading="This alert uses a custom message slot">
-      <p slot="message">
+      <IcTypography slot="message">
         This is some text and
         <IcLink href="/" inline>
           this is an inline link
         </IcLink>
         within the text.
-      </p>
+      </IcTypography>
     </IcAlert>
   </Story>
 </Canvas>
@@ -156,9 +156,9 @@ export const defaultArgs = {
 <Canvas>
   <Story name="Custom message and title above">
     <IcAlert heading="Want to know more about our coffee?" titleAbove>
-      <span slot="message" style={{ font: "var(--ic-font-body)" }}>
+      <IcTypography slot="message">
         Go to our <IcLink href="/">coffee page</IcLink> to learn more.
-      </span>
+      </IcTypography>
     </IcAlert>
   </Story>
 </Canvas>
