@@ -1,10 +1,4 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs";
+import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
 import {
   COLS,
   DATA,
@@ -45,18 +39,11 @@ import {
   LongCellDescriptions,
 } from "./story-data";
 import readme from "./readme.md";
+import * as IcDataTableStories from "./ic-data-table.stories";
 
-<Meta
-  title="Web Components/Data Table"
-  component="ic-data-table"
-  parameters={{
-    componentAPI: {
-      data: readme,
-    },
-  }}
-/>
+<Meta of={IcDataTableStories} />
 
-# [Canary]: Data Table
+# \[Canary]: Data Table
 
 Use the data table component to display data in a tabular form.
 
@@ -74,7 +61,7 @@ To use the data table component, import `@ukic/canary-web-components` into your 
 A basic example with no functionality.
 
 <Canvas withSource="none">
-  <Story name="Basic">{Basic()}</Story>
+  <Story of={IcDataTableStories.BasicExample} />
 </Canvas>
 
 #### Basic code example
@@ -156,7 +143,7 @@ A basic example with no functionality.
 ### Large Data Set
 
 <Canvas withSource="none">
-  <Story name="Large Data Set">{LargeDataSet()}</Story>
+  <Story of={IcDataTableStories.LargeDataSetExample} />
 </Canvas>
 
 ### Embedded
@@ -164,7 +151,7 @@ A basic example with no functionality.
 The `embedded` boolean adds a border around the table so it can be added as a standalone table and is not required to stretch the full width of its parent container.
 
 <Canvas withSource="none">
-  <Story name="Embedded">{Embedded()}</Story>
+  <Story of={IcDataTableStories.EmbeddedExample} />
 </Canvas>
 
 #### Embedded code example
@@ -213,7 +200,7 @@ The `density` variant provides three different styles for the data table.
 ### Dense
 
 <Canvas withSource="none">
-  <Story name="Dense">{Dense()}</Story>
+  <Story of={IcDataTableStories.DenseExample} />
 </Canvas>
 
 #### Dense code example
@@ -254,7 +241,7 @@ The `density` variant provides three different styles for the data table.
 ### Spacious
 
 <Canvas withSource="none">
-  <Story name="Spacious">{Spacious()}</Story>
+  <Story of={IcDataTableStories.SpaciousExample} />
 </Canvas>
 
 #### Spacious code example
@@ -298,7 +285,7 @@ When a height for the data table is set, the scroll bar will appear to the right
 This can be mitigated by using the `sticky-column-headers` prop which takes a boolean. This can be toggled within the example below.
 
 <Canvas withSource="none">
-  <Story name="Sticky Column Headers">{Scrollable()}</Story>
+  <Story of={IcDataTableStories.StickyColumnHeadersExample} />
 </Canvas>
 
 #### Sticky column headers code example
@@ -342,7 +329,7 @@ This can be mitigated by using the `sticky-column-headers` prop which takes a bo
 By default, column header labels will wrap when they exceed the column width. To keep the column header height constant, the `columnHeaderTruncation` can be used. When set to `true`, the label will appear truncated and will display a tooltip with the full text when hovered over.
 
 <Canvas withSource="none">
-  <Story name="Column header truncation">{HeaderTruncation()}</Story>
+  <Story of={IcDataTableStories.ColumnHeaderTruncationExample} />
 </Canvas>
 
 #### Column header truncation code example
@@ -387,7 +374,7 @@ Row headers allow headings to be added to individual rows and styles them as col
 The data array includes an additional `header` key which takes an object. The title of the row header is set by passing `title` as the key and a value.
 
 <Canvas withSource="none">
-  <Story name="Row Headers">{RowHeaders()}</Story>
+  <Story of={IcDataTableStories.RowHeadersExample} />
 </Canvas>
 
 #### Row headers code example
@@ -433,7 +420,7 @@ The data array includes an additional `header` key which takes an object. The ti
 Set `sortable` to `true` to set the sort functionality on all columns. Sorting can be set to `unsorted`, `ascending` and `descending` by press the sort buttons next to the column heading.
 
 <Canvas withSource="none">
-  <Story name="Sort">{Sort()}</Story>
+  <Story of={IcDataTableStories.SortExample} />
 </Canvas>
 
 #### Sort code example
@@ -472,7 +459,7 @@ Set `sortable` to `true` to set the sort functionality on all columns. Sorting c
 It is possible to change the sort options for the sort buttons. The `sortOptions` prop takes an object with `sortOrders` and `defaultColumn`. `sortOrders` allows the sort order to be amended as we all as remove a sort type. Such as changing the order to `descending`, `unsorted` and remove `ascending`. `defaultColumn` sets which column is ordered by default. This is set by padding the column key as the `defaultColumn` value.
 
 <Canvas withSource="none">
-  <Story name="Sort Options">{SortOptions()}</Story>
+  <Story of={IcDataTableStories.SortOptionsExample} />
 </Canvas>
 
 #### Sort options code example
@@ -523,7 +510,7 @@ Pagination allows large data sets to be split into pages in order to make the da
 - `showGoToPageControl` displays controls which allows jumping between pages in a non-linear approach.
 
 <Canvas withSource="none">
-  <Story name="Pagination">{Pagination()}</Story>
+  <Story of={IcDataTableStories.PaginationExample} />
 </Canvas>
 
 #### Pagination code example
@@ -580,7 +567,7 @@ There may be a requirement to style a column differently to the rest of the data
 `emphasis` can be added to the column by setting `high` or `low`.
 
 <Canvas withSource="none">
-  <Story name="Column Overrides">{ColumnOverrides()}</Story>
+  <Story of={IcDataTableStories.ColumnOverridesExample} />
 </Canvas>
 
 #### Column overrides code example
@@ -624,7 +611,7 @@ Row overrides allow styling to be applied at a row level and is set within the `
 - `emphasis` accepts `high` or `low`.
 
 <Canvas withSource="none">
-  <Story name="Row Overrides">{RowOverrides()}</Story>
+  <Story of={IcDataTableStories.RowOverridesExample} />
 </Canvas>
 
 #### Row overrides code example
@@ -679,7 +666,7 @@ Cell overrides allows styling to be applied at a cell level. The cell which requ
 - `emphasis` accepts `high` or `low`.
 
 <Canvas withSource="none">
-  <Story name="Cell Overrides">{CellOverrides()}</Story>
+  <Story of={IcDataTableStories.CellOverridesExample} />
 </Canvas>
 
 #### Cell overrides code example
@@ -722,7 +709,7 @@ Cell overrides allows styling to be applied at a cell level. The cell which requ
 When the table receives no data (either `null` or an empty array) it will automatically show an `ic-empty-state` below the headers.
 
 <Canvas withSource="none">
-  <Story name="Default Empty State">{Empty()}</Story>
+  <Story of={IcDataTableStories.DefaultEmptyStateExample} />
 </Canvas>
 
 #### Default empty state code example
@@ -749,7 +736,7 @@ When the table receives no data (either `null` or an empty array) it will automa
 You can customise your own `ic-empty-state` component and slot it into the data table using the `empty-state` slot, to reflect different scenarios.
 
 <Canvas withSource="none">
-  <Story name="Slotted Empty State">{EmptySlotted()}</Story>
+  <Story of={IcDataTableStories.SlottedEmptyStateExample} />
 </Canvas>
 
 #### Slotted empty state code example
@@ -795,9 +782,7 @@ The loading indicator can be customised using the `loadingOptions` prop:
 If it needs to be determinate, use `max`, `min` and `progress`.
 
 <Canvas withSource="none">
-  <Story name="Loading State" height="360px">
-    {Loading()}
-  </Story>
+  <Story of={IcDataTableStories.LoadingStateExample} />
 </Canvas>
 
 #### Loading state code example
@@ -838,7 +823,7 @@ If data in the table has changed, an `updating` prop has been supplied to show a
 This prop is also accompanied by an `updatingOptions` prop, which contains similar options to `loadingOptions`, minus `label` and `labelDuration` since the linear version is displayed.
 
 <Canvas withSource="none">
-  <Story name="Updating State">{Updating()}</Story>
+  <Story of={IcDataTableStories.UpdatingStateExample} />
 </Canvas>
 
 #### Updating state code example
@@ -878,7 +863,7 @@ This prop is also accompanied by an `updatingOptions` prop, which contains simil
 Custom HTML elements can be slotted or passed via the `data` prop to display in certain cells. When using the slotted method, the slot name follows the format of `{COLUMN_TAG}-{ROW_INDEX}`.
 
 <Canvas withSource="none">
-  <Story name="Links and Elements in data">{LinksHTMLElements()}</Story>
+  <Story of={IcDataTableStories.LinksAndElementsInDataExample} />
 </Canvas>
 
 #### Links and elements in data code example
@@ -944,7 +929,7 @@ To add icons to individual cells, they can be added through the `data` prop, in 
 Both cells and headers can also have icons slotted in. Cells use the slot format: `{COLUMN_KEY}-{ROW_INDEX}-icon`, and headers use the format: `{COLUMN_KEY}-column-icon`. Slotted icons take priority over icons inserted via the `columns` and `data` props.
 
 <Canvas withSource="none">
-  <Story name="Custom Icons">{CustomIcons()}</Story>
+  <Story of={IcDataTableStories.CustomIconsExample} />
 </Canvas>
 
 #### Custom icons code example
@@ -1054,7 +1039,7 @@ To quickly reset all row heights to the default, you can run the `resetRowHeight
 If you'd rather let the row calculate its own height based on its content, either set `globalRowHeight` to `auto`, or return `auto` from `variableRowHeight`.
 
 <Canvas withSource="none">
-  <Story name="Custom Row Heights">{CustomRowHeights()}</Story>
+  <Story of={IcDataTableStories.CustomRowHeightsExample} />
 </Canvas>
 
 #### Custom row heights code example
@@ -1101,7 +1086,7 @@ The `ic-data-table-title-bar` has a built-in density selector, which allows a us
 More details on `ic-data-table-title-bar` can be found in the <ic-link href="/?path=/story/web-components-data-table-title-bar--basic" inline="">data table title bar documentation</ic-link>.
 
 <Canvas withSource="none">
-  <Story name="Custom Title Bar">{CustomTitleBar()}</Story>
+  <Story of={IcDataTableStories.CustomTitleBarExample} />
 </Canvas>
 
 #### Custom title bar code example
@@ -1192,7 +1177,7 @@ The example below demonstrates how the pagination bar responds to changes within
 More details on `ic-pagination-bar` can be found in the <ic-link href="/?path=/story/web-components-pagination-bar--docs" inline="">pagination bar documentation</ic-link>.
 
 <Canvas withSource="none">
-  <Story name="Updating data">{UpdatingData()}</Story>
+  <Story of={IcDataTableStories.UpdatingDataExample} />
 </Canvas>
 
 #### Updating data code example
@@ -1324,7 +1309,7 @@ To enable this behaviour, the `pagination-bar` slot can be utilised to provide a
 ```
 
 <Canvas withSource="none">
-  <Story name="Slotted pagination bar">{SlottedPagination()}</Story>
+  <Story of={IcDataTableStories.SlottedPaginationBarExample} />
 </Canvas>
 
 ### Data truncation
@@ -1345,7 +1330,7 @@ To see the data truncated, the `global-row-height` or `variable-row-height` need
 #### Data truncation tooltip
 
 <Canvas withSource="none">
-  <Story name="Data truncation tooltip">{TruncationTooltip()}</Story>
+  <Story of={IcDataTableStories.DataTruncationTooltipExample} />
 </Canvas>
 
 #### Data truncation tooltip code example
@@ -1386,9 +1371,7 @@ To see the data truncated, the `global-row-height` or `variable-row-height` need
 #### Data truncation see more / see less
 
 <Canvas withSource="none">
-  <Story name="Data truncation see more / see less">
-    {TruncationShowHide()}
-  </Story>
+  <Story of={IcDataTableStories.DataTruncationSeeMoreSeeLessExample} />
 </Canvas>
 
 #### Data truncation show / hide code example
@@ -1481,7 +1464,7 @@ const data = [
 ```
 
 <Canvas withSource="none">
-  <Story name="Text Wrap">{TruncationTextWrap()}</Story>
+  <Story of={IcDataTableStories.TextWrapExample} />
 </Canvas>
 
 #### Text Wrap code example
@@ -1549,7 +1532,7 @@ For the column widths to be dictated by the content inside, set the `table-layou
 To set the min and max width of a table cell, set the `table-layout` attribute to `auto` and set a `minWidth` or `maxWidth` value into `columnWidth`. The min and max width accepts dimensions in `px`, `%`, `rem`.
 
 <Canvas withSource="none">
-  <Story name="Table sizing and column width">{DataTableSizing()}</Story>
+  <Story of={IcDataTableStories.TableSizingAndColumnWidthExample} />
 </Canvas>
 
 #### Table sizing and column width code example
@@ -1600,7 +1583,7 @@ To set the min and max width of a table cell, set the `table-layout` attribute t
 The cell data can contain an `actionElement` which can be a string containing any html to be rendered. The `actionElement` will be displayed to the right of the cell data. An `actionOnClick` can be specified for the `actionElement`. This should be used with a keyboard accessible component such as `icButton` for a function to be run when the `actionElement` is clicked.
 
 <Canvas withSource="none">
-  <Story name="Action Element">{ActionElement()}</Story>
+  <Story of={IcDataTableStories.ActionElementExample} />
 </Canvas>
 
 #### Action Element code example
@@ -1673,12 +1656,7 @@ Without an icon
 ```
 
 <Canvas withSource="none">
-  <Story
-    name="Description and icons within cells"
-    parameters={{ loki: { skip: true } }}
-  >
-    {CellDescriptions()}
-  </Story>
+  <Story of={IcDataTableStories.DescriptionAndIconsWithinCellsExample} />
 </Canvas>
 
 #### Description and icons within cells code example
@@ -1728,11 +1706,8 @@ Without an icon
 
 <Canvas withSource="none">
   <Story
-    name="Description and icons within cells with long text"
-    parameters={{ loki: { skip: true } }}
-  >
-    {LongCellDescriptions()}
-  </Story>
+    of={IcDataTableStories.DescriptionAndIconsWithinCellsWithLongTextExample}
+  />
 </Canvas>
 
 #### Description and icons within cells with long text code example
@@ -1782,9 +1757,7 @@ export default DataTable;
 The example below demonstrates the table being able to handle empty cell values (null, undefined or empty string).
 
 <Canvas withSource="none">
-  <Story name="Missing cell data" parameters={{ loki: { skip: true } }}>
-    {MissingCellData()}
-  </Story>
+  <Story of={IcDataTableStories.MissingCellDataExample} />
 </Canvas>
 
 #### Missing cell data code example
@@ -1840,9 +1813,7 @@ export default DataTable;
 The example below demonstrates the table being configured to not highlight the selected row.
 
 <Canvas withSource="none">
-  <Story name="Turn off selected row highlighting">
-    {TurnOffSelectedRowHighlighting()}
-  </Story>
+  <Story of={IcDataTableStories.TurnOffSelectedRowHighlightingExample} />
 </Canvas>
 
 #### Turn off selected row highlighting code example
@@ -1883,7 +1854,7 @@ The example below demonstrates the table being configured to not highlight the s
 ### Selected row change event
 
 <Canvas withSource="none">
-  <Story name="Selected row change event">{SelectedRowChangeEvent()}</Story>
+  <Story of={IcDataTableStories.SelectedRowChangeEventExample} />
 </Canvas>
 
 #### Selected row change event code example
@@ -1924,7 +1895,5 @@ The example below demonstrates the table being configured to not highlight the s
 #### Development Area
 
 <Canvas withSource="none">
-  <Story parameters={{ loki: { skip: true } }} name="Dev Area">
-    {DevArea()}
-  </Story>
+  <Story of={IcDataTableStories.DevAreaExample} />
 </Canvas>

@@ -4,9 +4,9 @@ module.exports = {
   },
 
   "stories": [
-    "../src/getting-started.stories.mdx",
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+    "../src/*.mdx",
+    "../src/**/**/*.mdx",
+    "../src/**/**/*.stories.@(js|jsx|ts|tsx)"
   ],
 
   "addons": [
@@ -16,7 +16,8 @@ module.exports = {
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
     "@storybook/addon-mdx-gfm",
-    "./addon-tab/register"
+    "./addon-tab/register",
+    "@storybook/addon-webpack5-compiler-babel"
   ],
 
   "framework": {

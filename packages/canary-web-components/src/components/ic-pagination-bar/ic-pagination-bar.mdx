@@ -1,18 +1,11 @@
-import { Meta, Description, Canvas, Story } from "@storybook/addon-docs";
+import { Meta, Description, Canvas, Story } from "@storybook/blocks";
 import readme from "./readme.md";
 import { html } from "lit-html";
+import * as IcPaginationBarStories from "./ic-pagination-bar.stories";
 
-<Meta
-  title="Web Components/Pagination Bar"
-  component="ic-pagination-bar"
-  parameters={{
-    componentAPI: {
-      data: readme,
-    },
-  }}
-/>
+<Meta of={IcPaginationBarStories} />
 
-# [Canary]: Pagination Bar
+# \[Canary]: Pagination Bar
 
 Use the pagination bar when large amounts of content are split across multiple pages and various pagination options are required.
 
@@ -30,7 +23,8 @@ A basic example using the `total-items`.
 
 <Canvas withSource="none">
   {/* prettier-ignore */}
-  <Story name="Basic">{html`<div style="height: 120px;"><ic-pagination-bar total-items="100"></ic-pagination-bar></div>`}</Story>
+
+  <Story of={IcPaginationBarStories.Basic} />
 </Canvas>
 
 #### Basic code example
@@ -48,14 +42,7 @@ By default, the items per page is set to 10. If the total items is greater than 
 To display the items per page control, set the `show-items-per-page-control` attribute to `true`.
 
 <Canvas withSource="none">
-  <Story name="Items per page control">
-    {html`<div style="height: 150px;">
-      <ic-pagination-bar
-        total-items="100"
-        show-items-per-page-control="true"
-      ></ic-pagination-bar>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.ItemsPerPageControl} />
 </Canvas>
 
 #### Items per page control code example
@@ -92,14 +79,7 @@ The items per page control will display a dropdown with options to select the nu
 To display the go to page control, set the `show-go-to-page-control` attribute to `true`. 'Go to page' allows the user to jump to a specific page. If the page number is invalid, the input will be styled in the `ic-status-error` colour with a tooltip detailing the error.
 
 <Canvas withSource="none">
-  <Story name="Go to page control">
-    {html`<div style="height: 120px;">
-      <ic-pagination-bar
-        total-items="100"
-        show-go-to-page-control="true"
-      ></ic-pagination-bar>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.GoToPageControl} />
 </Canvas>
 
 #### Go to page control code example
@@ -115,22 +95,13 @@ To display the go to page control, set the `show-go-to-page-control` attribute t
 
 The pagination range label type can be set to two types:
 
-- `simple`: [default]: Display the total number of pages and the current page number.
+- `simple`: \[default]: Display the total number of pages and the current page number.
 - `data`: Displays the total number of items and the items range.
 
 The example below uses the `data` pagination range label type. The range is updated when the page is changed.
 
 <Canvas withSource="none">
-  <Story name="Pagination range label type">
-    {html`<div style="height: 150px;">
-      <ic-pagination-bar
-        total-items="100"
-        show-items-per-page-control="true"
-        show-go-to-page-control="true"
-        range-label-type="data"
-      ></ic-pagination-bar>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.PaginationRangeLabelType} />
 </Canvas>
 
 #### Pagination range label type code example
@@ -149,17 +120,7 @@ The example below uses the `data` pagination range label type. The range is upda
 'Item' can be changed to a custom label by setting the `item-label` attribute. Any occurrences of 'Item' in the pagination bar will be replaced with the custom label.
 
 <Canvas withSource="none">
-  <Story name="Pagination item label">
-    {html`<div style="height: 150px;">
-      <ic-pagination-bar
-        total-items="100"
-        show-items-per-page-control="true"
-        show-go-to-page-control="true"
-        range-label-type="data"
-        item-label="Image"
-      ></ic-pagination-bar>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.PaginationItemLabel} />
 </Canvas>
 
 #### Pagination range item label code example
@@ -178,21 +139,13 @@ The example below uses the `data` pagination range label type. The range is upda
 
 The pagination type can be set to two types:
 
-- `simple`: [default]: Display the current page as a label with back and next buttons.
+- `simple`: \[default]: Display the current page as a label with back and next buttons.
 - `complex`: Displays all the page numbers as buttons with back and next buttons.
 
 The `complex` pagination type is useful when there are many pages to navigate through.
 
 <Canvas withSource="none">
-  <Story name="Pagination type">
-    {html`<div style="height: 150px;">
-      <ic-pagination-bar
-        total-items="100"
-        show-items-per-page-control="true"
-        type="complex"
-      ></ic-pagination-bar>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.PaginationType} />
 </Canvas>
 
 #### Pagination type code example
@@ -212,16 +165,7 @@ The pagination elements can be aligned to the `right` (default), `left` or `spac
 #### Alignment left
 
 <Canvas withSource="none">
-  <Story name="Alignment left">
-    {html`<div style="height: 150px;">
-      <ic-pagination-bar
-        total-items="100"
-        alignment="left"
-        show-items-per-page-control="true"
-        show-go-to-page-control="true"
-      ></ic-pagination-bar>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.AlignmentLeft} />
 </Canvas>
 
 #### Alignment left code example
@@ -238,16 +182,7 @@ The pagination elements can be aligned to the `right` (default), `left` or `spac
 #### Alignment space between
 
 <Canvas withSource="none">
-  <Story name="Alignment space between">
-    {html`<div style="height: 150px;">
-      <ic-pagination-bar
-        total-items="100"
-        alignment="space-between"
-        show-items-per-page-control="true"
-        show-go-to-page-control="true"
-      ></ic-pagination-bar>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.AlignmentSpaceBetween} />
 </Canvas>
 
 #### Alignment space between code example
@@ -266,28 +201,7 @@ The pagination elements can be aligned to the `right` (default), `left` or `spac
 The background colour of the pagination bar can be customized by adding a background colour to the parent element. The `appearance` attribute can be set to `light` or `dark` to change the appearance of the pagination bar labels.
 
 <Canvas withSource="none">
-  <Story name="Appearance">
-    {html`<div
-      style="display: flex; flex-direction: column; gap: 8px; height: 220px"
-    >
-      <div style="background-color: var(--ic-architectural-black)">
-        <ic-pagination-bar
-          total-items="100"
-          appearance="light"
-          show-items-per-page-control="true"
-          show-go-to-page-control="true"
-        ></ic-pagination-bar>
-      </div>
-      <div style="background-color: var(--ic-status-info-contrast)">
-        <ic-pagination-bar
-          total-items="100"
-          appearance="dark"
-          show-items-per-page-control="true"
-          show-go-to-page-control="true"
-        ></ic-pagination-bar>
-      </div>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.Appearance} />
 </Canvas>
 
 #### Appearance code example
@@ -317,19 +231,7 @@ The background colour of the pagination bar can be customized by adding a backgr
 If the pagination bar becomes cluttered due to the number of pagination elements displayed, the range label can be hidden by setting the `hide-range-label` attribute to `true`.
 
 <Canvas withSource="none">
-  <Story name="Hide range label">
-    {html`<div style="height:150px">
-      <div style="background-color: var(--ic-architectural-100)">
-        <ic-pagination-bar
-          total-items="100"
-          appearance="dark"
-          hide-range-label="true"
-          show-items-per-page-control="true"
-          show-go-to-page-control="true"
-        ></ic-pagination-bar>
-      </div>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.HideRangeLabel} />
 </Canvas>
 
 #### Hide range label code example
@@ -351,16 +253,7 @@ If the pagination bar becomes cluttered due to the number of pagination elements
 If you have a predefined list of items you want in the itemsPerPage select, the 'All' option can be hidden by setting `hide-all-from-items-per-page` to `true`.
 
 <Canvas withSource="none">
-  <Story name="Hide all from items per page">
-    {html`<div style="height:150px">
-      <ic-pagination-bar
-        total-items="100"
-        show-items-per-page-control="true"
-        show-go-to-page-control="true"
-        hide-all-from-items-per-page="true"
-      ></ic-pagination-bar>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.HideAllFromItemsPerPage} />
 </Canvas>
 
 #### Hide 'All' from items per page code example
@@ -379,17 +272,7 @@ If you have a predefined list of items you want in the itemsPerPage select, the 
 If you have a predefined list of items you want in the itemsPerPage select, the 'All' option can be hidden by setting `hide-all-from-items-per-page` to `true`.
 
 <Canvas withSource="none">
-  <Story name="Set to first page when items per page changes">
-    {html`<div style="height:150px">
-      <ic-pagination-bar
-        total-items="100"
-        show-items-per-page-control="true"
-        show-go-to-page-control="true"
-        hide-all-from-items-per-page="true"
-        set-to-first-page-on-pagination-change="true"
-      ></ic-pagination-bar>
-    </div>`}
-  </Story>
+  <Story of={IcPaginationBarStories.SetToFirstPageWhenItemsPerPageChanges} />
 </Canvas>
 
 #### Set to first page when items per page changes code example
