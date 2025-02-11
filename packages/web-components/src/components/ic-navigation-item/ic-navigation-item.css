@@ -128,13 +128,6 @@ svg {
   outline: var(--ic-hc-focus-outline);
 }
 
-:host(.navigation-item-selected.dark) .link:focus,
-:host(.navigation-item.dark) ::slotted(a.active:focus) {
-  box-shadow: var(--ic-border-focus);
-  border-radius: var(--ic-border-radius);
-  outline: var(--ic-hc-focus-outline);
-}
-
 :host(.navigation-item) .link:active:not(:focus),
 :host(.navigation-item) ::slotted(a:active:not(:focus)) {
   background-color: var(--ic-brand-active);
