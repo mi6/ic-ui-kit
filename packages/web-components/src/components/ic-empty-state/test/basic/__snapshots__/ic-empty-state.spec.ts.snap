@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-empty-state component should render 1`] = `
+<ic-empty-state body="Body text for the empty state." class="ic-empty-state-left" heading="Empty state title" subheading="Empty state subtitle">
+  <mock:shadow-root>
+    <div>
+      <slot name="heading">
+        <ic-typography class="empty-state-heading" variant="h4">
+          Empty state title
+        </ic-typography>
+      </slot>
+      <slot name="subheading">
+        <ic-typography class="empty-state-subheading" variant="subtitle-small">
+          Empty state subtitle
+        </ic-typography>
+      </slot>
+      <slot name="body">
+        <ic-typography class="empty-state-body">
+          Body text for the empty state.
+        </ic-typography>
+      </slot>
+    </div>
+  </mock:shadow-root>
+</ic-empty-state>
+`;
+
+exports[`ic-empty-state component should render with content in the image slot 1`] = `
+<ic-empty-state body="Body text for the empty state." class="ic-empty-state-left image-medium" heading="Empty state title" subheading="Empty state subtitle">
+  <mock:shadow-root>
+    <slot name="image"></slot>
+    <div>
+      <slot name="heading">
+        <ic-typography class="empty-state-heading" variant="h4">
+          Empty state title
+        </ic-typography>
+      </slot>
+      <slot name="subheading">
+        <ic-typography class="empty-state-subheading" variant="subtitle-small">
+          Empty state subtitle
+        </ic-typography>
+      </slot>
+      <slot name="body">
+        <ic-typography class="empty-state-body">
+          Body text for the empty state.
+        </ic-typography>
+      </slot>
+    </div>
+  </mock:shadow-root>
+  <svg height:326px;width:326px;"="" slot="image" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+    <rect fill="#ff7700" height="1600" width="1600" y="-350"></rect>
+    <polygon fill="#cc0000" points="957 450 539 900 1396 900"></polygon>
+    <polygon fill="#aa0000" points="957 450 872.9 900 1396 900"></polygon>
+    <polygon fill="#c50022" points="-60 900 398 662 816 900"></polygon>
+    <polygon fill="#a3001b" points="337 900 398 662 816 900"></polygon>
+    <polygon fill="#be0044" points="1203 546 1552 900 876 900"></polygon>
+    <polygon fill="#9c0036" points="1203 546 1552 900 1162 900"></polygon>
+    <polygon fill="#b80066" points="641 695 886 900 367 900"></polygon>
+    <polygon fill="#960052" points="587 900 641 695 886 900"></polygon>
+    <polygon fill="#b10088" points="1710 900 1401 632 1096 900"></polygon>
+    <polygon fill="#8f006d" points="1710 900 1401 632 1365 900"></polygon>
+    <polygon fill="#aa00aa" points="1210 900 971 687 725 900"></polygon>
+    <polygon fill="#880088" points="943 900 1210 900 971 687"></polygon>
+  </svg>
+</ic-empty-state>
+`;
+
+exports[`ic-empty-state component should render with dark theme 1`] = `
+<ic-empty-state body="Body text for the empty state." class="ic-empty-state-left ic-theme-dark" heading="Empty state title" subheading="Empty state subtitle" theme="dark">
+  <mock:shadow-root>
+    <div>
+      <slot name="heading">
+        <ic-typography class="empty-state-heading" variant="h4">
+          Empty state title
+        </ic-typography>
+      </slot>
+      <slot name="subheading">
+        <ic-typography class="empty-state-subheading" variant="subtitle-small">
+          Empty state subtitle
+        </ic-typography>
+      </slot>
+      <slot name="body">
+        <ic-typography class="empty-state-body">
+          Body text for the empty state.
+        </ic-typography>
+      </slot>
+    </div>
+  </mock:shadow-root>
+</ic-empty-state>
+`;
+
+exports[`ic-empty-state component should render with light theme 1`] = `
+<ic-empty-state body="Body text for the empty state." class="ic-empty-state-left ic-theme-light" heading="Empty state title" subheading="Empty state subtitle" theme="light">
+  <mock:shadow-root>
+    <div>
+      <slot name="heading">
+        <ic-typography class="empty-state-heading" variant="h4">
+          Empty state title
+        </ic-typography>
+      </slot>
+      <slot name="subheading">
+        <ic-typography class="empty-state-subheading" variant="subtitle-small">
+          Empty state subtitle
+        </ic-typography>
+      </slot>
+      <slot name="body">
+        <ic-typography class="empty-state-body">
+          Body text for the empty state.
+        </ic-typography>
+      </slot>
+    </div>
+  </mock:shadow-root>
+</ic-empty-state>
+`;
+
+exports[`ic-empty-state component should test rendering an action after initial render 1`] = `
+<ic-empty-state class="ic-empty-state-left" heading="Empty state title">
+  <mock:shadow-root>
+    <div>
+      <slot name="heading">
+        <ic-typography class="empty-state-heading" variant="h4">
+          Empty state title
+        </ic-typography>
+      </slot>
+      <slot name="subheading">
+        <ic-typography class="empty-state-subheading" variant="subtitle-small"></ic-typography>
+      </slot>
+      <slot name="body">
+        <ic-typography class="empty-state-body"></ic-typography>
+      </slot>
+    </div>
+    <div class="action-area">
+      <slot name="actions"></slot>
+    </div>
+  </mock:shadow-root>
+  <button slot="actions"></button>
+</ic-empty-state>
+`;
