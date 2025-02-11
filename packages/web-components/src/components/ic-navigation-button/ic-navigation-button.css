@@ -28,3 +28,7 @@
   color: var(--ic-top-navigation-icon-pressed);
   background-color: var(--ic-top-navigation-icon-pressed-background);
 }
+
+:host(.in-side-menu) ::slotted(ic-badge) {
+  margin-left: var(--ic-space-xs);
+}

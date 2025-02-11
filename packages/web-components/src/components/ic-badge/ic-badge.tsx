@@ -1,4 +1,12 @@
-import { Component, Element, Host, Prop, Watch, h } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Host,
+  Prop,
+  Watch,
+  h,
+  Listen,
+} from "@stencil/core";
 import {
   IcBadgePositions,
   IcBadgeTypes,
@@ -16,6 +24,9 @@ import {
   isPropDefined,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
+
+const NAVIGATION_BUTTON = "IC-NAVIGATION-BUTTON";
+const TOP_NAVIGATION = "IC-TOP-NAVIGATION";
 
 /**
  * @slot badge-icon - Icon will be rendered inside the badge if type is set to icon.
@@ -64,7 +75,7 @@ export class Badge {
   /**
    * The positioning of the badge in reference to the parent element.
    */
-  @Prop() position?: IcBadgePositions = "far";
+  @Prop({ mutable: true }) position?: IcBadgePositions = "far";
 
   /**
    * The size of the badge to be displayed.
@@ -124,6 +135,20 @@ export class Badge {
       );
   }
 
+  componentWillRender(): void {
+    this.isInTopNav() && this.setPositionInTopNavigation();
+  }
+
+  @Listen("icNavigationMenuOpened", { target: "document" })
+  navBarMenuOpenHandler(): void {
+    this.isInTopNav() && (this.position = "inline");
+  }
+
+  @Listen("icNavigationMenuClosed", { target: "document" })
+  navBarMenuCloseHandler(): void {
+    this.isInTopNav() && (this.position = "near");
+  }
+
   private setBadgeColour = () => {
     const colorRGBA = convertToRGBA(this.customColor);
 
@@ -165,6 +190,22 @@ export class Badge {
         this.ariaLabel = `, ${defaultAriaLabel}`;
       }
     }
+  };
+
+  private setPositionInTopNavigation = () => {
+    const parentTopNavEl = this.el.parentElement.parentElement;
+    parentTopNavEl.classList.contains("mobile-mode")
+      ? (this.position = "inline")
+      : (this.position = "near");
+  };
+
+  private isInTopNav = (): boolean => {
+    const parentEl = this.el.parentElement;
+    const grandparentEl = parentEl.parentElement;
+    return (
+      parentEl.tagName === NAVIGATION_BUTTON &&
+      grandparentEl.tagName === TOP_NAVIGATION
+    );
   };
 
   private isAccessibleLabelDefined = () =>
