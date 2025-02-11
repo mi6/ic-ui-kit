@@ -1,13 +1,16 @@
-name: V3
-permissions: read-all
+name: Release Merged to Develop
+permissions:
+  pull-requests: write
+  contents: write
 
 on:
-  push:
-    branches:
-      - v3.0.0/main
+  pull_request:
+    types:
+      - closed
 
 jobs:
   check-updates:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop' && github.event.pull_request.head.ref == 'release'
     name: "Check package updates"
     runs-on: ubuntu-latest
     permissions:
@@ -60,11 +63,11 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Lint grammar
-        run: npm run lint:spelling
-
       - name: Prettier
         run: npm run prettier
+
+      - name: Lint grammar
+        run: npm run lint:spelling
 
       - name: Audit
         run: npm run audit:bypass-expiry
@@ -134,6 +137,11 @@ jobs:
         id: canary_cypress_tests
         run: npm run test-cypress:ci:canary
 
+      - name: Cypress performance tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        id: core_cypress_performance_tests
+        run: npm run test-cypress-perf:ci
+
   ic-ui-kit-publish:
     needs:
       [
@@ -141,7 +149,7 @@ jobs:
         ic-ui-kit-e2e-tests,
         ic-ui-kit-cypress-tests,
       ]
-    name: "Publish v3 packages"
+    name: "Publish production packages"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
@@ -161,14 +169,78 @@ jobs:
 
       - name: Build
         run: npm run build:all
-
+        
       # Runs git checkout for docs.json and canary-docs files to revert timestamp changes
       - name: Publish
         run: |
           git config --global user.name ${{ secrets.USERNAME }}
           git config --global user.email ${{ secrets.EMAIL }}
           git checkout packages/docs/docs.json packages/canary-docs/docs.json
-          npx lerna publish --tag=next --no-commit-hooks -y
+          npx lerna publish --no-commit-hooks -y
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  ic-ui-kit-deploy-storybook-canary:
+    needs: [ic-ui-kit-publish, check-updates]
+    if: ${{ needs.check-updates.outputs.canary == 'true' }}
+    name: "Deploy canary storybook"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm run bootstrap -- -- --ci
+
+      - name: Build components and web-components and react storybook
+        run: |
+          npm run build:all
+          npm run build-storybook:canary-web-components
+          npm run build-storybook:canary-react
+
+      - name: Deploy canary web components storybook
+        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
+        with:
+          folder: ./packages/canary-web-components/storybook-static
+          target-folder: ./branches/canary/main/web-components
+
+      - name: Deploy canary react storybook
+        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
+        with:
+          folder: ./packages/canary-react/storybook-static
+          target-folder: ./branches/canary/main/react
+
+  # Triggers a workflow in the design system repo
+  ic-ui-kit-update-design-system:
+    needs: [ic-ui-kit-publish]
+    name: "Trigger design system release workflow"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 #v3.0.0
+        with:
+          token: ${{ secrets.PUBLISH_PAT }}
+          repository: mi6/ic-design-system
+          event-type: design-system-release
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+
+  ic-ui-kit-develop-to-main:
+    needs: [ic-ui-kit-publish]
+    name: "Merge develop into main"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+        with:
+          fetch-depth: 0
+
+      - name: Create PR to merge develop into main
+        run: |
+          curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/mi6/ic-ui-kit/pulls" -d '{"title":"Merge develop into main","body":"Ensure all changes are in main","head":"develop","base":"main"}'
 
