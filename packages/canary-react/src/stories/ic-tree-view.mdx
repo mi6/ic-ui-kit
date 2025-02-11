@@ -1,21 +1,14 @@
-import { Meta, Description, Canvas, Story } from "@storybook/addon-docs";
+import { Meta, Description, Canvas, Story } from "@storybook/blocks";
 import { IcTypography, SlottedSVG, IcLink, IcButton } from "@ukic/react";
 import { IcTreeView, IcTreeItem } from "../components";
 import readme from "../../../canary-web-components/src/components/ic-tree-view/readme.md";
 import treeItemReadme from "../../../canary-web-components/src/components/ic-tree-item/readme.md";
 import { useState } from "react";
+import * as IcTreeViewStories from './ic-tree-view.stories';
 
-<Meta
-  title="React Components/Tree view"
-  component={IcTreeView}
-  parameters={{
-    componentAPI: {
-      data: readme + treeItemReadme,
-    },
-  }}
-/>
+<Meta of={IcTreeViewStories} />
 
-# [Canary]: Tree view
+# \[Canary]: Tree view
 
 Use the tree view component to display hierarchical data in a tree structure. The tree view component is useful for displaying nested data, such as a file system or a category hierarchy.
 
@@ -28,15 +21,7 @@ To use the tree view component, import `@ukic/canary-react` into your applicatio
 A basic example with one level of tree items.
 
 <Canvas withSource="none">
-  <Story name="Basic">
-      <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu">
-          <IcTreeItem label="Coffee" />
-          <IcTreeItem label="Tea" />
-          <IcTreeItem label="Hot chocolate" />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.Basic} />
 </Canvas>
 
 #### Basic code example
@@ -61,22 +46,7 @@ export default TreeView;
 An example with nested tree items.
 
 <Canvas withSource="none">
-  <Story name="Nested">
-    <div style={{ width: "250px" }}>
-      <IcTreeView heading="Menu">
-        <IcTreeItem label="Coffee">
-          <IcTreeItem label="Americano" />
-          <IcTreeItem label="Latte" />
-          <IcTreeItem label="Espresso" />
-        </IcTreeItem>
-        <IcTreeItem label="Tea">
-          <IcTreeItem label="Earl Grey" />
-          <IcTreeItem label="Chai" />
-        </IcTreeItem>
-        <IcTreeItem label="Hot chocolate" />
-      </IcTreeView>
-    </div>
-  </Story>
+  <Story of={IcTreeViewStories.Nested} />
 </Canvas>
 
 #### Nested code example
@@ -108,46 +78,7 @@ export default TreeView;
 An example with icons.
 
 <Canvas withSource="none">
-  <Story name="With icons">
-    <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu">
-          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
-            />
-          </SlottedSVG>
-          <IcTreeItem label="Coffee">
-            <SlottedSVG
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-              />
-            </SlottedSVG>
-            <IcTreeItem label="Americano" />
-            <IcTreeItem label="Latte">
-              <SlottedSVG
-                slot="icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-                />
-              </SlottedSVG>
-            </IcTreeItem>
-            <IcTreeItem label="Espresso" />
-          </IcTreeItem>
-          <IcTreeItem label="Tea">
-            <IcTreeItem label="Earl Grey" />
-            <IcTreeItem label="Chai" />
-          </IcTreeItem>
-          <IcTreeItem label="Hot chocolate" />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.WithIcons} />
 </Canvas>
 
 #### Icon code example
@@ -204,46 +135,7 @@ export default TreeView;
 An example with small styling passed down from tree view to tree items and nested tree items.
 
 <Canvas withSource="none">
-  <Story name="Small">
-    <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu" size="small">
-          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
-            />
-          </SlottedSVG>
-          <IcTreeItem label="Coffee">
-            <SlottedSVG
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-              />
-            </SlottedSVG>
-            <IcTreeItem label="Americano" />
-            <IcTreeItem label="Latte">
-              <SlottedSVG
-                slot="icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-                />
-              </SlottedSVG>
-            </IcTreeItem>
-            <IcTreeItem label="Espresso" />
-          </IcTreeItem>
-          <IcTreeItem label="Tea">
-            <IcTreeItem label="Earl Grey" />
-            <IcTreeItem label="Chai" />
-          </IcTreeItem>
-          <IcTreeItem label="Hot chocolate" />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.Small} />
 </Canvas>
 
 #### Small code example
@@ -300,46 +192,7 @@ export default TreeView;
 An example with large styling passed down from tree view to tree items and nested tree items.
 
 <Canvas withSource="none">
-  <Story name="Large">
-    <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu" size="large">
-          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
-            />
-          </SlottedSVG>
-          <IcTreeItem label="Coffee">
-            <SlottedSVG
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-              />
-            </SlottedSVG>
-            <IcTreeItem label="Americano" />
-            <IcTreeItem label="Latte">
-              <SlottedSVG
-                slot="icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-                />
-              </SlottedSVG>
-            </IcTreeItem>
-            <IcTreeItem label="Espresso" />
-          </IcTreeItem>
-          <IcTreeItem label="Tea">
-            <IcTreeItem label="Earl Grey" />
-            <IcTreeItem label="Chai" />
-          </IcTreeItem>
-          <IcTreeItem label="Hot chocolate" />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.Large} />
 </Canvas>
 
 #### Large code example
@@ -396,46 +249,7 @@ export default TreeView;
 An example with a light appearance.
 
 <Canvas withSource="none">
-  <Story name="Light" parameters={{ backgrounds: { default: "dark" } }}>
-    <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu" appearance="light">
-          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
-            />
-          </SlottedSVG>
-          <IcTreeItem label="Coffee">
-            <SlottedSVG
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-              />
-            </SlottedSVG>
-            <IcTreeItem label="Americano" />
-            <IcTreeItem label="Latte">
-              <SlottedSVG
-                slot="icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-                />
-              </SlottedSVG>
-            </IcTreeItem>
-            <IcTreeItem label="Espresso" />
-          </IcTreeItem>
-          <IcTreeItem label="Tea">
-            <IcTreeItem label="Earl Grey" />
-            <IcTreeItem label="Chai" />
-          </IcTreeItem>
-          <IcTreeItem label="Hot chocolate" />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.Light} />
 </Canvas>
 
 #### Appearance light code example
@@ -492,46 +306,7 @@ export default TreeView;
 An example with disabled tree items.
 
 <Canvas withSource="none">
-  <Story name="Disabled tree items">
-    <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu">
-          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
-            />
-          </SlottedSVG>
-          <IcTreeItem label="Coffee">
-            <SlottedSVG
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-              />
-            </SlottedSVG>
-            <IcTreeItem label="Americano" />
-            <IcTreeItem label="Latte" disabled>
-              <SlottedSVG
-                slot="icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-                />
-              </SlottedSVG>
-            </IcTreeItem>
-            <IcTreeItem label="Espresso" />
-          </IcTreeItem>
-          <IcTreeItem label="Tea">
-            <IcTreeItem label="Earl Grey" />
-            <IcTreeItem label="Chai" disabled />
-          </IcTreeItem>
-          <IcTreeItem label="Hot chocolate" disabled />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.DisabledTreeItems} />
 </Canvas>
 
 #### Disabled tree items code example
@@ -588,17 +363,7 @@ export default TreeView;
 An example with a tree item that is replaced by a router item.
 
 <Canvas withSource="none">
-  <Story name="Router item">
-      <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu">
-          <IcTreeItem>
-            <a slot="router-item" href="/">Slotted coffee</a>
-          </IcTreeItem>
-          <IcTreeItem label="Tea" />
-          <IcTreeItem label="Hot chocolate" />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.RouterItem} />
 </Canvas>
 
 #### Router item code example
@@ -625,18 +390,7 @@ export default TreeView;
 An example with slotted content for tree view heading and slotted content for tree item label.
 
 <Canvas withSource="none">
-  <Story name="Slotted content">
-      <div style={{ width: "250px" }}>
-        <IcTreeView>
-          <IcTypography variant="subtitle-large" slot="heading">Menu</IcTypography>
-          <IcTreeItem>
-            <IcTypography slot="label">Coffee</IcTypography>
-          </IcTreeItem>
-          <IcTreeItem label="Tea" />
-          <IcTreeItem label="Hot chocolate" />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.SlottedContent} />
 </Canvas>
 
 #### Slotted code example
@@ -664,36 +418,7 @@ export default TreeView;
 An example with max content. When the heading/label exceeds the width of the container, it will text wrap unless truncate-tree-item is set.
 
 <Canvas withSource="none">
-  <Story name="Max content">
-    <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu with nested options">
-          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
-            />
-          </SlottedSVG>
-          <IcTreeItem label="Coffee">
-            <SlottedSVG
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-              />
-            </SlottedSVG>
-            <IcTreeItem label="Americano" />
-            <IcTreeItem label="Latte with extra milk and sugar" />
-            <IcTreeItem label="Espresso" />
-          </IcTreeItem>
-          <IcTreeItem label="Tea">
-            <IcTreeItem label="Earl Grey" />
-            <IcTreeItem label="Chai" />
-          </IcTreeItem>
-          <IcTreeItem label="Hot chocolate with marshmallows" />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.MaxContent} />
 </Canvas>
 
 #### Max content code example
@@ -740,37 +465,7 @@ export default TreeView;
 An example with truncated tree items. When the heading/label exceeds the width of the container, it will be truncated with an ellipsis.
 
 <Canvas withSource="none">
-  <Story name="Truncation behaviour">
-    <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu with nested options" truncateHeading truncateTreeItems>
-          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
-            />
-          </SlottedSVG>
-          <IcTreeItem label="Coffee">
-            <SlottedSVG
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-              />
-            </SlottedSVG>
-            <IcTreeItem label="Americano" />
-            <IcTreeItem label="Latte with extra milk and sugar" />
-            <IcTreeItem label="Espresso" />
-          </IcTreeItem>
-          <IcTreeItem label="Tea">
-            <IcTreeItem label="Earl Grey" />
-            <IcTreeItem label="Earl Grey with truncation false" truncateTreeItem={false} />
-            <IcTreeItem label="Chai" />
-          </IcTreeItem>
-          <IcTreeItem label="Hot chocolate with marshmallows" />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.TruncationBehaviour} />
 </Canvas>
 
 #### Truncation behaviour code example
@@ -817,15 +512,7 @@ export default TreeView;
 An example where the tree item with `selected="true"` is selected on initial render.
 
 <Canvas withSource="none">
-  <Story name="Selected tree item">
-      <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu">
-          <IcTreeItem label="Coffee" />
-          <IcTreeItem label="Tea" />
-          <IcTreeItem label="Hot chocolate" selected />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.SelectedTreeItem} />
 </Canvas>
 
 #### Selected tree item code example
@@ -850,15 +537,7 @@ export default TreeView;
 An example where the tree item is rendered as a link.
 
 <Canvas withSource="none">
-  <Story name="Link">
-      <div style={{width: "250px"}}>
-        <IcTreeView heading="Menu">
-          <IcTreeItem label="Coffee" href="#" />
-          <IcTreeItem label="Tea" selected href="#" />
-          <IcTreeItem label="Hot chocolate" disabled href="#" />
-        </IcTreeView>
-      </div>
-  </Story>
+  <Story of={IcTreeViewStories.Link} />
 </Canvas>
 
 #### Link code example
@@ -883,24 +562,7 @@ export default TreeView;
 An example with the `expanded` prop set to `true` on a parent tree item.
 
 <Canvas withSource="none">
-  <Story name="Expanded">
-    <div style={{ width: "250px" }}>
-      <IcTreeView heading="Menu">
-        <IcTreeItem label="Coffee" expanded>
-          <IcTreeItem label="Americano" expanded>
-            <IcTreeItem label="With milk" />
-          </IcTreeItem>
-          <IcTreeItem label="Latte" />
-          <IcTreeItem label="Espresso" />
-        </IcTreeItem>
-        <IcTreeItem label="Tea">
-          <IcTreeItem label="Earl Grey" />
-          <IcTreeItem label="Chai" />
-        </IcTreeItem>
-        <IcTreeItem label="Hot chocolate" />
-      </IcTreeView>
-    </div>
-  </Story>
+  <Story of={IcTreeViewStories.Expanded} />
 </Canvas>
 
 #### Expanded code example
@@ -965,9 +627,7 @@ return (
 ); };
 
 <Canvas>
-  <Story name="Updating options">
-    <TreeItemsUpdate />
-  </Story>
+  <Story of={IcTreeViewStories.UpdatingOptions} />
 </Canvas>
 
 ### Playground example
@@ -989,58 +649,5 @@ export const defaultArgs = {
 };
 
 <Canvas withSource="none">
-  <Story
-    args={defaultArgs}
-    argTypes={{
-      appearance: {
-        options: ["dark", "light"],
-        control: { type: "inline-radio" },
-      },
-      size: {
-        options: ["default", "small", "large"],
-        control: { type: "inline-radio" },
-      }
-    }}
-    name="Playground example"
-  >
-    {(args) => (
-      <div style={{ width: "250px", backgroundColor: args.appearance == "light" ? "black" : null }}>
-      <IcTreeView 
-        heading={args.heading}
-        appearance={args.appearance}
-        size={args.size}
-        truncateHeading={args.truncateHeading}
-        truncateTreeItems={args.truncateTreeItems}
-      >
-        {args.showIcon && (
-          <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
-            />
-          </SlottedSVG> 
-        )}
-        <IcTreeItem
-          label={args.treeItemLabel}
-          disabled={args.treeItemDisabled}
-          selected={args.treeItemSelected}
-          href={args.treeItemHref}
-        >
-          {args.showTreeItemIcon && (
-            <SlottedSVG
-              slot="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
-              />
-            </SlottedSVG>
-          )}
-        </IcTreeItem>
-        <IcTreeItem label="Tea" />
-        <IcTreeItem label="Hot chocolate" />
-      </IcTreeView>
-      </div>
-    )}
-  </Story>
+  <Story of={IcTreeViewStories.PlaygroundExample} />
 </Canvas>

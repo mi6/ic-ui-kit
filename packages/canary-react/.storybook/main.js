@@ -4,8 +4,8 @@ module.exports = {
   },
 
   "stories": [
-    "../src/getting-started.stories.mdx",
-    "../src/**/*.stories.mdx",
+    "../src/getting-started.mdx",
+    "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
 
@@ -16,11 +16,16 @@ module.exports = {
     "@storybook/addon-a11y",
     "@storybook/addon-mdx-gfm",
     "storybook-addon-performance",
-    "./addon-tab/register"
+    "./addon-tab/register",
+    "@storybook/addon-webpack5-compiler-babel"
   ],
 
   "framework": {
     name: "@storybook/react-webpack5",
     options: {}
+  },
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript"
   }
 }

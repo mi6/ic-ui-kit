@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Meta, Story, Canvas } from "@storybook/blocks";
 import { IcLink } from "@ukic/react";
 import { IcSelectWithMulti } from "../components";
 import { useRef } from "react";
@@ -10,24 +10,17 @@ import {
   GROUPED_OPTIONS,
   OPTIONS_WITH_RECOMMENDED,
 } from "../../../canary-web-components/src/components/ic-select-with-multi/story-data";
+import * as IcSelectMultiStories from './ic-select_(multi).stories';
 
-<Meta
-  title="React Components/Multi-Select"
-  component={IcSelectWithMulti}
-  parameters={{
-    componentAPI: {
-      data: readme,
-    },
-  }}
-/>
+<Meta of={IcSelectMultiStories} />
 
-# [Canary]: Multi-Select
+# \[Canary]: Multi-Select
 
 Use the multi-select component to allow users to select one or more values from a list of options.
 
 There is one required prop for the multi-select:
 
-- label: `string`
+* label: `string`
 
 Click the 'Component API' tab to view all the available props, events and slots for the multi-select.
 
@@ -42,22 +35,7 @@ Note that the `multiple` prop still needs to be applied in order to enable the m
 An example of a default multi-select (with no additional functionality).
 
 <Canvas withSource="none">
-  <Story name="Default">
-    <div style={{ height: "430px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        onIcOptionSelect={(event) =>
-          console.log(`icOptionSelect: ${event.detail.value}`)
-        }
-        onIcOptionDeselect={(event) =>
-          console.log(`icOptionDeselect: ${event.detail.value}`)
-        }
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.Default} />
 </Canvas>
 
 #### Default code example
@@ -100,17 +78,7 @@ export default MultiSelect;
 Show options as pre-selected by setting the `value` prop to an array containing the values of these options.
 
 <Canvas withSource="none">
-  <Story name="Default Value">
-    <div style={{ height: "430px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        value={["Ame", "Fil", "Moc"]}
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.DefaultValue} />
 </Canvas>
 
 #### Default value code example
@@ -149,17 +117,7 @@ Display a clear button by using the `showClearButton` prop.
 This will appear when the user has selected some options and allow them to easily clear their selection.
 
 <Canvas withSource="none">
-  <Story name="With Clear Button">
-    <div style={{ height: "430px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        showClearButton
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.WithClearButton} />
 </Canvas>
 
 #### With clear button code example
@@ -197,16 +155,7 @@ export default MultiSelect;
 Display extra information about the options by providing a description using the `description` property for each option.
 
 <Canvas withSource="none">
-  <Story name="With Descriptions">
-    <div style={{ height: "470px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS_WITH_DESCRIPTIONS}
-        multiple
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.WithDescriptions} />
 </Canvas>
 
 #### With descriptions code example
@@ -269,17 +218,7 @@ const MultiSelect = () => (
 Display helper text to provide additional information by using the `helperText` prop.
 
 <Canvas withSource="none">
-  <Story name="Helper Text">
-    <div style={{ height: "450px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        helperText="Select some options from the list"
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.HelperText} />
 </Canvas>
 
 #### Helper text code example
@@ -319,37 +258,7 @@ Depending on the chosen size, the prop will apply styling to increase or decreas
 The `default` variant is seen in the first [default](#default) example.
 
 <Canvas withSource="none">
-  <Story name="Sizes">
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
-        height: "650px",
-      }}
-    >
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        size="small"
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        size="large"
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.Sizes} />
 </Canvas>
 
 #### Sizes code example
@@ -402,17 +311,7 @@ export default MultiSelects;
 Disable the multi-select and prevent user interaction by using the `disabled` prop.
 
 <Canvas withSource="none">
-  <Story name="Disabled">
-    <div style={{ height: "200px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        disabled
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.Disabled} />
 </Canvas>
 
 #### Disabled code example
@@ -450,16 +349,7 @@ export default MultiSelect;
 Disable certain options by setting the `disabled` property to `true` for each option.
 
 <Canvas withSource="none">
-  <Story name="Disabled Options">
-    <div style={{ height: "430px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS_WITH_DISABLED}
-        multiple
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.DisabledOptions} />
 </Canvas>
 
 #### Disabled options code example
@@ -496,17 +386,7 @@ export default MultiSelect;
 Hide the visible label for the multi-select by using the `hideLabel` prop.
 
 <Canvas withSource="none">
-  <Story name="Hidden label">
-    <div style={{ height: "400px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        hideLabel
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.HiddenLabel} />
 </Canvas>
 
 #### Hidden label code example
@@ -545,17 +425,7 @@ Inform the user that the multi-select is a required field by using the `required
 This will display an asterisk next to the label and apply the `aria-required` attribute.
 
 <Canvas withSource="none">
-  <Story name="Required">
-    <div style={{ height: "430px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        required
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.Required} />
 </Canvas>
 
 #### Required code example
@@ -594,18 +464,7 @@ Make the multi-select read-only by using the `readonly` prop.
 Use the `value` prop to set which options are selected and will be displayed when it is read-only.
 
 <Canvas withSource="none">
-  <Story name="Read-only">
-    <div style={{ height: "200px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        readonly
-        value={["Cap", "Fla", "Moc"]}
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.ReadOnly} />
 </Canvas>
 
 #### Read-only code example
@@ -645,16 +504,7 @@ Display options in groups by passing an array of child options to the `children`
 The parent option will be rendered as the title of the group.
 
 <Canvas withSource="none">
-  <Story name="Groups">
-    <div style={{ height: "430px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={GROUPED_OPTIONS}
-        multiple
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.Groups} />
 </Canvas>
 
 #### Groups code example
@@ -699,16 +549,7 @@ Display certain options at the top of the option list by setting the `recommende
 This will allow for quick access to these options.
 
 <Canvas withSource="none">
-  <Story name="Recommended">
-    <div style={{ height: "430px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS_WITH_RECOMMENDED}
-        multiple
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.Recommended} />
 </Canvas>
 
 #### Recommended code example
@@ -746,34 +587,7 @@ Display a validation status and message by using the `validationStatus` and `val
 The `validationStatus` prop takes the values `success`, `warning` or `error`.
 
 <Canvas>
-  <Story name="Validation">
-    <div style={{ height: "640px" }}>
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        validationStatus="success"
-        validationText="Coffee available"
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        validationStatus="warning"
-        validationText="Only a few left"
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-      <IcSelectWithMulti
-        label="What are your favourite types of coffee?"
-        options={OPTIONS}
-        multiple
-        validationStatus="error"
-        validationText="Coffee unavailable"
-        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.Validation} />
 </Canvas>
 
 #### Validation code example
@@ -851,11 +665,7 @@ export const LoadingWithError = () => {
 };
 
 <Canvas withSource="none">
-  <Story name="Loading With Error">
-    <div style={{ height: "430px" }}>
-      <LoadingWithError />
-    </div>
-  </Story>
+  <Story of={IcSelectMultiStories.LoadingWithError_} />
 </Canvas>
 
 #### Loading with error code example
@@ -965,42 +775,5 @@ export const defaultArgs = {
 };
 
 <Canvas withSource="none">
-  <Story
-    name="Playground Example"
-    args={defaultArgs}
-    argTypes={{
-      size: {
-        options: ["default", "large", "small"],
-        control: { type: "inline-radio" },
-      },
-      validationStatus: {
-        defaultValue: "",
-        options: ["", "error", "success", "warning"],
-        control: { type: "select" },
-      },
-    }}
-  >
-    {(args) => (
-      <div style={{ height: "500px" }}>
-        <IcSelectWithMulti
-          multiple
-          options={playgroundOptions}
-          disabled={args.disabled}
-          fullWidth={args.fullWidth}
-          helperText={args.helperText}
-          hideLabel={args.hideLabel}
-          loading={args.loading}
-          loadingLabel={args.loadingLabel}
-          label={args.label}
-          placeholder={args.placeholder}
-          readonly={args.readonly}
-          required={args.required}
-          size={args.size}
-          validationStatus={args.validationStatus}
-          validationText={args.validationText}
-          showClearButton={args.showClearButton}
-        />
-      </div>
-    )}
-  </Story>
+  <Story of={IcSelectMultiStories.PlaygroundExample} />
 </Canvas>
