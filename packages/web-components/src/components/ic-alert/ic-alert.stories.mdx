@@ -142,12 +142,10 @@ export const defaultArgs = {
 <Canvas>
   <Story name="Custom message">
     {html`<ic-alert heading="This alert uses a custom message slot">
-      <ic-typography variant="body" slot="message">
-        <p>
-          This is some text and
-          <ic-link href="/" inline>this is an inline link</ic-link> within the
-          text.
-        </p>
+      <ic-typography slot="message">
+        This is some text and
+        <ic-link href="/" inline>this is an inline link</ic-link> within the
+        text.
       </ic-typography>
     </ic-alert>`}
   </Story>
@@ -161,7 +159,7 @@ export const defaultArgs = {
       heading="Want to know more about our coffee?"
       title-above="true"
     >
-      <span slot="message" style="font:var(--ic-font-body)">
+      <ic-typography slot="message">
         Go to our <ic-link href="/">coffee page</ic-link> to learn more.
       </ic-typography>
     </ic-alert>`}
