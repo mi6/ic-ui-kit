@@ -1,6 +1,5 @@
+import { addons, types, useParameter } from '@storybook/manager-api';
 import React from 'react';
-import { addons, types } from '@storybook/addons';
-import { useParameter } from '@storybook/api';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 
