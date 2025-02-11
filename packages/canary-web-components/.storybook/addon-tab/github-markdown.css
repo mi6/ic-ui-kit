@@ -1,2 +1,11 @@
 /* References directory to the package within register.js did not work */
-@import url('github-markdown-css/github-markdown.css');
+@import url("github-markdown-css/github-markdown.css");
+
+/*
+* This selector targets the built-in parent of the Component API markdown div, and prevents it from displaying in a grid format,
+* which was forcing content off the page.
+*/
+div:has(> .markdown-body) {
+  display: initial;
+  place-items: initial;
+}
