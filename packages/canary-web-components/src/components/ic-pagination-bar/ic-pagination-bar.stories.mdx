@@ -403,3 +403,115 @@ If you have a predefined list of items you want in the itemsPerPage select, the 
   set-to-first-page-on-pagination-change="true"
 ></ic-pagination-bar>
 ```
+
+### Set the selected items per page
+
+The `selected-items-per-page` prop can be used to programmatically set the items per page dropdown option.
+
+<Canvas withSource="none">
+  <Story name="Set the selected items per page">
+    {html`<div style="height:150px">
+      <ic-pagination-bar
+        total-items="100"
+        show-items-per-page-control="true"
+        show-go-to-page-control="true"
+        selected-items-per-page="25"
+      ></ic-pagination-bar>
+    </div>`}
+  </Story>
+</Canvas>
+
+#### Set the selected items per page code example
+
+```html
+<ic-pagination-bar
+  total-items="100"
+  show-items-per-page-control="true"
+  show-go-to-page-control="true"
+  selected-items-per-page="25"
+></ic-pagination-bar>
+```
+
+### Set the selected items per page to an invalid value
+
+The `selected-items-per-page` prop can be used to programmatically set the selected items per page dropdown option. If provided, this prop must match one of the items per page dropdown options, otherwise an error appears on the console and the prop is ignored.
+
+<Canvas withSource="none">
+  <Story name="Set the selected items per page to an invalid value">
+    {html`<div style="height:150px">
+      <ic-pagination-bar
+        total-items="100"
+        show-items-per-page-control="true"
+        show-go-to-page-control="true"
+        selected-items-per-page="99"
+      ></ic-pagination-bar>
+    </div>`}
+  </Story>
+</Canvas>
+
+#### Set the selected items per page to an invalid value code example
+
+```html
+<ic-pagination-bar
+  total-items="100"
+  show-items-per-page-control="true"
+  show-go-to-page-control="true"
+  selected-items-per-page="99"
+></ic-pagination-bar>
+```
+
+### Set the current page
+
+The `current-page` prop can be used to programmatically set the current page.
+
+<Canvas withSource="none">
+  <Story name="Set the current page">
+    {html`<div style="height:150px">
+      <ic-pagination-bar
+        total-items="100"
+        show-items-per-page-control="true"
+        show-go-to-page-control="true"
+        current-page="3"
+      ></ic-pagination-bar>
+    </div>`}
+  </Story>
+</Canvas>
+
+#### Set the current page code example
+
+```html
+<ic-pagination-bar
+  total-items="100"
+  show-items-per-page-control="true"
+  show-go-to-page-control="true"
+  current-page="3"
+></ic-pagination-bar>
+```
+
+### Set the current page to an invalid value
+
+The `current-page` prop can be used to programmatically set the current page. If provided, this prop must be greater than 0 and less than or equal to the total number of pages, otherwise an error appears on the console and the prop is ignored.
+
+<Canvas withSource="none">
+  <Story name="Set the current page to an invalid value">
+    {html`<div style="height:150px">
+      <ic-pagination-bar
+        total-items="100"
+        show-items-per-page-control="true"
+        show-go-to-page-control="true"
+        current-page="-1"
+      ></ic-pagination-bar>
+    </div>`}
+  </Story>
+</Canvas>
+
+#### Set the current page to an invalid value code example
+
+```html
+<ic-pagination-bar
+  total-items="100"
+  show-items-per-page-control="true"
+  show-go-to-page-control="true"
+  current-page="-1"
+></ic-pa
+```
