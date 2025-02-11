@@ -17,5 +17,6 @@
     "url": "https://github.com/mi6/ic-ui-kit/issues",
     "email": "icds@gchq.gov.uk"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "^npm@10.9.2"
 }
