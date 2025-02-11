@@ -1,10 +1,4 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs";
+import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
 import { html } from "lit-html";
 import {
   Default,
@@ -25,16 +19,9 @@ import {
   InForm,
 } from "./story-data";
 import readme from "./readme.md";
+import * as IcSelectMultiStories from "./ic-select-multi.stories";
 
-<Meta
-  title="Web Components/Multi-Select"
-  component="ic-select-with-multi"
-  parameters={{
-    componentAPI: {
-      data: readme,
-    },
-  }}
-/>
+<Meta of={IcSelectMultiStories} />
 
 export const defaultArgs = {
   disabled: false,
@@ -53,7 +40,7 @@ export const defaultArgs = {
   ["show-clear-button"]: false,
 };
 
-# [Canary]: Multi-Select
+# \[Canary]: Multi-Select
 
 Use the multi-select component to allow users to select one or more values from a list of options.
 
@@ -74,7 +61,7 @@ Note that the `multiple` prop still needs to be applied in order to enable the m
 An example of a default multi-select (with no additional functionality).
 
 <Canvas withSource="none">
-  <Story name="Default">{Default()}</Story>
+  <Story of={IcSelectMultiStories.DefaultExample} />
 </Canvas>
 
 #### Default code example
@@ -113,7 +100,7 @@ An example of a default multi-select (with no additional functionality).
 Show options as pre-selected by setting the `value` prop to an array containing the values of these options.
 
 <Canvas withSource="none">
-  <Story name="Default Value">{DefaultValue()}</Story>
+  <Story of={IcSelectMultiStories.DefaultValueExample} />
 </Canvas>
 
 #### Default value code example
@@ -148,7 +135,7 @@ Display a clear button by using the `show-clear-button` prop.
 This will appear when the user has selected some options and allow them to easily clear their selection.
 
 <Canvas withSource="none">
-  <Story name="With Clear Button">{WithClearButton()}</Story>
+  <Story of={IcSelectMultiStories.WithClearButtonExample} />
 </Canvas>
 
 #### With clear button code example
@@ -182,7 +169,7 @@ This will appear when the user has selected some options and allow them to easil
 Display extra information about the options by providing a description using the `description` property for each option.
 
 <Canvas withSource="none">
-  <Story name="With Descriptions">{WithDescriptions()}</Story>
+  <Story of={IcSelectMultiStories.WithDescriptionsExample} />
 </Canvas>
 
 #### With descriptions code example
@@ -244,7 +231,7 @@ Display extra information about the options by providing a description using the
 Display helper text to provide additional information by using the `helper-text` prop.
 
 <Canvas withSource="none">
-  <Story name="Helper Text">{HelperText()}</Story>
+  <Story of={IcSelectMultiStories.HelperTextExample} />
 </Canvas>
 
 #### Helper text code example
@@ -280,7 +267,7 @@ Depending on the chosen size, the prop will apply styling to increase or decreas
 The `default` variant is seen in the first [default](#default) example.
 
 <Canvas withSource="none">
-  <Story name="Sizes">{Sizes()}</Story>
+  <Story of={IcSelectMultiStories.SizesExample} />
 </Canvas>
 
 #### Sizes code example
@@ -357,7 +344,7 @@ The `default` variant is seen in the first [default](#default) example.
 Disable the multi-select and prevent user interaction by using the `disabled` prop.
 
 <Canvas withSource="none">
-  <Story name="Disabled">{Disabled()}</Story>
+  <Story of={IcSelectMultiStories.DisabledExample} />
 </Canvas>
 
 #### Disabled code example
@@ -391,7 +378,7 @@ Disable the multi-select and prevent user interaction by using the `disabled` pr
 Disable certain options by setting the `disabled` property to `true` for each option.
 
 <Canvas withSource="none">
-  <Story name="Disabled Options">{DisabledOptions()}</Story>
+  <Story of={IcSelectMultiStories.DisabledOptionsExample} />
 </Canvas>
 
 #### Disabled options code example
@@ -424,7 +411,7 @@ Disable certain options by setting the `disabled` property to `true` for each op
 Hide the visible label for the multi-select by using the `hide-label` prop.
 
 <Canvas withSource="none">
-  <Story name="Hidden Label">{HiddenLabel()}</Story>
+  <Story of={IcSelectMultiStories.HiddenLabelExample} />
 </Canvas>
 
 #### Hidden label code example
@@ -459,7 +446,7 @@ Inform the user that the multi-select is a required field by using the `required
 This will display an asterisk next to the label and apply the `aria-required` attribute.
 
 <Canvas withSource="none">
-  <Story name="Required">{Required()}</Story>
+  <Story of={IcSelectMultiStories.RequiredExample} />
 </Canvas>
 
 #### Required code example
@@ -494,7 +481,7 @@ Make the multi-select read-only by using the `readonly` prop.
 Use the `value` prop to set which options are selected and will be displayed when it is read-only.
 
 <Canvas withSource="none">
-  <Story name="Read-only">{ReadOnly()}</Story>
+  <Story of={IcSelectMultiStories.ReadOnlyExample} />
 </Canvas>
 
 #### Read-only code example
@@ -530,7 +517,7 @@ Display options in groups by passing an array of child options to the `children`
 The parent option will be rendered as the title of the group.
 
 <Canvas withSource="none">
-  <Story name="Groups">{Groups()}</Story>
+  <Story of={IcSelectMultiStories.GroupsExample} />
 </Canvas>
 
 #### Groups code example
@@ -571,7 +558,7 @@ Display certain options at the top of the option list by setting the `recommende
 This will allow for quick access to these options.
 
 <Canvas withSource="none">
-  <Story name="Recommended">{Recommended()}</Story>
+  <Story of={IcSelectMultiStories.RecommendedExample} />
 </Canvas>
 
 #### Recommended code example
@@ -605,7 +592,7 @@ Display a validation status and message by using the `validation-status` and `va
 The `validation-status` prop takes the values `success`, `warning` or `error`.
 
 <Canvas withSource="none">
-  <Story name="Validation">{Validation()}</Story>
+  <Story of={IcSelectMultiStories.ValidationExample} />
 </Canvas>
 
 #### Validation code example
@@ -685,7 +672,7 @@ Display the loading state by using the `loading` prop.
 The multi-select will show a loading error after the amount of time specified using the `timeout` prop has elapsed.
 
 <Canvas withSource="none">
-  <Story name="Loading With Error">{LoadingWithError()}</Story>
+  <Story of={IcSelectMultiStories.LoadingWithErrorExample} />
 </Canvas>
 
 #### Loading with error code example
@@ -723,7 +710,7 @@ The multi-select will show a loading error after the amount of time specified us
 An example of the multi-select working in a form. The value will appear in the console on submit.
 
 <Canvas withSource="none">
-  <Story name="In Form">{InForm()}</Story>
+  <Story of={IcSelectMultiStories.InFormExample} />
 </Canvas>
 
 #### In form code example
