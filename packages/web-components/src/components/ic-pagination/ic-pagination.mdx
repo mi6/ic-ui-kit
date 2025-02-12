@@ -1,0 +1,26 @@
+import { Meta, Description, Canvas, Story } from "@storybook/blocks";
+import readme from "./readme.md";
+import { html } from "lit-html";
+import * as IcPaginationStories from "./ic-pagination.stories";
+
+<Meta of={IcPaginationStories} />
+
+<Description markdown={readme} />
+
+### Simple
+
+<Canvas>
+  <Story of={IcPaginationStories.Simple} />
+</Canvas>
+
+### Complex
+
+<Canvas>
+  <Story of={IcPaginationStories.Complex} />
+</Canvas>
+
+### Complex - Adjacent & Boundary Items Set
+
+<Canvas>
+  <Story of={IcPaginationStories.ComplexAdjacentBoundaryItemsSet} />
+</Canvas>

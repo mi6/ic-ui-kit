@@ -1,0 +1,26 @@
+import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
+import { html } from "lit-html";
+import readme from "./readme.md";
+import * as IcBackToTopStories from "./ic-back-to-top.stories";
+
+<Meta of={IcBackToTopStories} />
+
+<Description markdown={readme} />
+
+### Default
+
+Please switch to the Canvas and then choose to open the canvas in a new tab to see the best working illustration of this example.
+
+<Canvas>
+  <Story of={IcBackToTopStories.Default} />
+
+  <Story of={IcBackToTopStories.IconOnly} />
+</Canvas>
+
+### Page example
+
+Please switch to the Canvas and then choose to open the canvas in a new tab to see the best working illustration of this example.
+
+<Canvas>
+  <Story of={IcBackToTopStories.PageExample} />
+</Canvas>

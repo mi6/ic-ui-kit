@@ -22,6 +22,10 @@ describe("IcPaginationBar end-to-end tests", () => {
     cy.viewport(1024, 768);
   });
 
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
   it("should update pages label when clicking next and last page chevron", () => {
     mount(<PaginationBarItemsPerPage />);
 
@@ -391,6 +395,32 @@ describe("IcPaginationBar end-to-end tests", () => {
       .shadow()
       .find('[role="navigation"] ic-pagination-item')
       .should(HAVE_LENGTH, 1);
+  });
+
+  it("should select the correct option in the items per page dropdown", () => {
+    mount(<PaginationBarItemsPerPage selectedItemsPerPage={20} />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+
+    cy.compareSnapshot({
+      name: "selected-items-per-page",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should select the first option in the items per page dropdown if an invalid selectedItemsPerPage is provided", () => {
+    mount(<PaginationBarItemsPerPage selectedItemsPerPage={99} />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select").click();
+
+    cy.compareSnapshot({
+      name: "selected-items-per-page-invalid-selectedItemsPerPage",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
   });
 
   it("should reset to the first page when the setToFirstPageOnPaginationChange prop is set and the items per page is changed", () => {
