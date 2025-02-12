@@ -888,7 +888,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     // When hideHelperText is set to true, helper text should not render
     cy.get("button#hideText").focus().click();
-    cy.findShadowEl(DATE_INPUT, ".helpertext").should(HAVE_TEXT, "");
+    cy.findShadowEl(DATE_INPUT, ".helpertext").should(NOT_EXIST);
   });
 
   it("should hide the label when hideLabel is true and the label should appear within the screen reader span", () => {
