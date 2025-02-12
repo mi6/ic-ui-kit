@@ -280,7 +280,8 @@ export class Toast {
     return (
       <Host
         class={{ ["hidden"]: !visible }}
-        role={isManual ? "dialog" : "status"}
+        role={isManual ? "dialog" : "alert"}
+        aria-live={isManual ? null : "polite"}
       >
         <div class="container">
           {variant && visible && (
@@ -310,7 +311,7 @@ export class Toast {
           >
             <div class="toast-message">
               <ic-typography variant="subtitle-large">
-                {visible && <h5>{heading}</h5>}
+                {visible && (isManual ? <h5>{heading}</h5> : <p>{heading}</p>)}
               </ic-typography>
               {message && (
                 <ic-typography variant="body">

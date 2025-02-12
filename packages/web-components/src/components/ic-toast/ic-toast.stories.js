@@ -134,14 +134,14 @@ export const AutoDismiss = {
           id="toast1"
           variant="info"
           heading="Your coffee is ready"
-          message="Please dismiss and collect"
+          message="This alert will dismiss itself, please collect your java"
           dismiss-mode="automatic"
           auto-dismiss-timeout="10000"
         ></ic-toast>
         <ic-toast
           id="toast2"
           heading="Your coffee was lost"
-          message="Please dismiss and try again"
+          message="This alert will dismiss itself, sorry about the coffee"
           variant="error"
           dismiss-mode="automatic"
           auto-dismiss-timeout="10000"

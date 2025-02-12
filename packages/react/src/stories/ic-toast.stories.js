@@ -170,7 +170,7 @@ export const AutoDismiss = {
           <IcToast
             id="toast1"
             heading="Your coffee is ready"
-            message="Please dismiss and collect"
+            message="This alert will dismiss itself, please collect your java"
             variant="info"
             dismissMode="automatic"
             autoDismissTimeout={10000}

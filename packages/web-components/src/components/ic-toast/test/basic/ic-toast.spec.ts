@@ -116,15 +116,15 @@ describe("ic-toast component", () => {
     await page.waitForChanges();
 
     expect(page.root)
-      .toEqualHtml(`<ic-toast heading="Heading" role="status" dismiss-mode="automatic">
+      .toEqualHtml(`<ic-toast heading="Heading" role="alert" aria-live="polite" dismiss-mode="automatic">
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
             <div class="toast-message">
               <ic-typography variant="subtitle-large">
-                <h5>
+                <p>
                   Heading
-                </h5>
+                </p>
               </ic-typography>
             </div>
           </div>
