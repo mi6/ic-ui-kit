@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.35](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.34...@ukic/canary-web-components@2.0.0-canary.35) (2025-02-12)
+
+### Bug Fixes
+
+- **canary-web-components:** allow IcPaginationBar items per page to be set programmatically ([9e297e7](https://github.com/mi6/ic-ui-kit/commit/9e297e75f7a7732b89d1dff713bc55e7b69e46c3)), closes [#2525](https://github.com/mi6/ic-ui-kit/issues/2525)
+
 # [2.0.0-canary.34](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.33...@ukic/canary-web-components@2.0.0-canary.34) (2025-02-05)
 
 ### Bug Fixes

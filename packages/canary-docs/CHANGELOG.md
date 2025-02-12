@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0-canary.28 (2025-02-12)
+
+### Bug Fixes
+
+- **canary-docs:** allow IcPaginationBar items per page to be set programmatically ([67b839d](https://github.com/mi6/ic-ui-kit/commit/67b839dcc80d44deb70fec635e175cc29186307f)), closes [#2525](https://github.com/mi6/ic-ui-kit/issues/2525)
+
 # [2.0.0-canary.27](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.26...@ukic/canary-docs@2.0.0-canary.27) (2025-01-22)
 
 ### Bug Fixes
