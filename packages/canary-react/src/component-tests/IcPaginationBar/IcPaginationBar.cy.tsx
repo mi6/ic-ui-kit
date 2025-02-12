@@ -22,6 +22,10 @@ describe("IcPaginationBar end-to-end tests", () => {
     cy.viewport(1024, 768);
   });
 
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
   it("should update pages label when clicking next and last page chevron", () => {
     mount(<PaginationBarItemsPerPage />);
 
@@ -393,8 +397,7 @@ describe("IcPaginationBar end-to-end tests", () => {
       .should(HAVE_LENGTH, 1);
   });
 
-  // Skipped test due to problem creating snapshot
-  it.skip("should select the correct option in the items per page dropdown", () => {
+  it("should select the correct option in the items per page dropdown", () => {
     mount(<PaginationBarItemsPerPage selectedItemsPerPage={20} />);
 
     cy.checkHydrated(PAGINATION_BAR);
@@ -407,8 +410,7 @@ describe("IcPaginationBar end-to-end tests", () => {
     });
   });
 
-  // Skipped test due to problem creating snapshot
-  it.skip("should select the first option in the items per page dropdown if an invalid selectedItemsPerPage is provided", () => {
+  it("should select the first option in the items per page dropdown if an invalid selectedItemsPerPage is provided", () => {
     mount(<PaginationBarItemsPerPage selectedItemsPerPage={99} />);
 
     cy.checkHydrated(PAGINATION_BAR);
