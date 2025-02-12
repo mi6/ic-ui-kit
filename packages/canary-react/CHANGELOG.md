@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.35](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.34...@ukic/canary-react@2.0.0-canary.35) (2025-02-12)
+
+### Bug Fixes
+
+- **canary-react:** allow IcPaginationBar items per page to be set programmatically ([1bc01f8](https://github.com/mi6/ic-ui-kit/commit/1bc01f8756e74730dd8e0de283ca15ddf2d98ca5)), closes [#2525](https://github.com/mi6/ic-ui-kit/issues/2525)
+
 # [2.0.0-canary.34](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.33...@ukic/canary-react@2.0.0-canary.34) (2025-02-05)
 
 **Note:** Version bump only for package @ukic/canary-react

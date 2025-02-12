@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.35.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.35.0...@ukic/web-components@2.35.1) (2025-02-12)
+
+### Bug Fixes
+
+- **web-components:** auto-dismiss toasts now read aloud to screenreaders ([1176284](https://github.com/mi6/ic-ui-kit/commit/11762848d0048ef4263beacc20f0432b9ce39912))
+- **web-components:** fix double focus indicator on selected slotted side nav item when dark ([4fc039f](https://github.com/mi6/ic-ui-kit/commit/4fc039ff21035a0eceda180db501c8c263d1cc24))
+
 # [2.35.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.34.0...@ukic/web-components@2.35.0) (2025-02-05)
 
 ### Bug Fixes
