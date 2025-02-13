@@ -100,6 +100,8 @@ export class FooterLink {
     } = this;
     const { small, grouped } = footerConfig;
 
+    const isLogoLink = !!this.el.closest("div[slot='logo']");
+
     return (
       <Host
         class={{
@@ -108,6 +110,7 @@ export class FooterLink {
             small ? "small" : "sparse"
           }`]: true,
           [`footer-link-${this.foregroundColor}`]: true,
+          "footer-logo-link": isLogoLink,
         }}
         role="listitem"
       >

@@ -93,6 +93,24 @@
   fill: var(--ic-footer-icon);
 }
 
+:host(.footer-logo-link) {
+  transition: var(--ic-easing-transition-fast);
+}
+
+:host(.footer-logo-link:hover) {
+  background-color: var(--ic-footer-hover);
+}
+
+:host(.footer-logo-link:active) {
+  background-color: var(--ic-footer-pressed);
+}
+
+:host(.footer-logo-link:focus) {
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+  outline: var(--ic-hc-focus-outline);
+}
+
 @media (forced-colors: active) {
   :host(.footer-link-light) ::slotted(svg),
   :host(.footer-link-dark) ::slotted(svg) {
