@@ -2,18 +2,19 @@ import {
   Meta,
   Story,
   Canvas,
-  ArgsTable,
+  Controls,
   Description,
-} from "@storybook/addon-docs";
+} from "@storybook/blocks";
 import { IcDateInput } from "../components";
 import { IcButton, IcTypography, IcLink } from "@ukic/react";
 import readme from "../../../canary-web-components/src/components/ic-date-input/readme.md";
 import { useState } from "react";
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
+import * as IcDateInputStories from './ic-date-input.stories';
 
-<Meta title="React Components/Date Input" component={IcDateInput} />
+<Meta of={IcDateInputStories} />
 
-# [Canary]: Date Input
+# \[Canary]: Date Input
 
 Use the date input component to manually type in a date in different formats.
 
@@ -27,33 +28,18 @@ To use the date input component, import `@ukic/canary-react` into your applicati
 
 Each example below demonstrates the date input in three different date formats:
 
-- DD/MM/YYYY (Default date format)
-- MM/DD/YYYY
-- YYYY/MM/DD
+* DD/MM/YYYY (Default date format)
+* MM/DD/YYYY
+* YYYY/MM/DD
 
 Dates can be added by manually typing into the input or using the up and down arrow keys.
 
 To move between day, month and year using the keyboard, provide the required values based on the placeholders or use `/` or `-`.
 
-By default, the helper text displays the date format. 
+By default, the helper text displays the date format.
 
 <Canvas withSource="none">
-  <Story name="Basic">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      onIcChange={(ev) => console.log(event.detail.value)}
-    />
-    <br />
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      dateFormat="MM/DD/YYYY"
-    />
-    <br />
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      dateFormat="YYYY/MM/DD"
-    />
-  </Story>
+  <Story of={IcDateInputStories.Basic} />
 </Canvas>
 
 ```jsx
@@ -76,12 +62,7 @@ Retrieving the date input value via `onIcChange` returns the date as a Date obje
 The event returns the Date object when day, month and year have been entered.
 
 <Canvas withSource="none">
-  <Story name="onIcChange event">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      onIcChange={(ev) => console.log(event.detail.value)}
-    />
-  </Story>
+  <Story of={IcDateInputStories.OnIcChangeEvent} />
 </Canvas>
 
 ```jsx
@@ -97,18 +78,13 @@ const DateInput = () => (
 
 export default DateInput;
 ```
+
 ### With value
 
 To set a value to the date input, pass the date value in the relevant date format.
 
-<Canvas withSource='none'>
-  <Story name="With value">
-    <IcDateInput
-      id="date-input-default-date-with-value"
-      label="When would you like to collect your coffee?"
-      value="21/01/2001"
-    />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.WithValue} />
 </Canvas>
 
 ```jsx
@@ -127,20 +103,15 @@ export default DateInput;
 
 The date input also accepts a number of different date formats within the value prop.
 
-- [Date object](#date-object)
-- [Zulu datetime](#zulu-datetime)
-- [With hyphens (DD-MM-YYYY)](#with-hyphens)
-- [Epoch time](#epoch-time)
+* [Date object](#date-object)
+* [Zulu datetime](#zulu-datetime)
+* [With hyphens (DD-MM-YYYY)](#with-hyphens)
+* [Epoch time](#epoch-time)
 
 #### Date object
 
-<Canvas withSource='none'>
-  <Story name="Date object">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      value={new Date("28 November 2021")}
-    />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.DateObject} />
 </Canvas>
 
 ```jsx
@@ -159,13 +130,8 @@ export default DateInput;
 
 #### Zulu datetime
 
-<Canvas withSource='none'>
-  <Story name="Zulu datetime">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      value={new Date("28 November 2021").toISOString()}
-    />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.ZuluDatetime} />
 </Canvas>
 
 ```jsx
@@ -184,13 +150,8 @@ export default DateInput;
 
 #### With hyphens
 
-<Canvas withSource='none'>
-  <Story name="With hyphens">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      value="25-05-2005"
-    />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.WithHyphens} />
 </Canvas>
 
 ```jsx
@@ -209,13 +170,8 @@ export default DateInput;
 
 #### Epoch time
 
-<Canvas withSource='none'>
-  <Story name="Epoch time">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      value={Date.now()}
-    />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.EpochTime} />
 </Canvas>
 
 ```jsx
@@ -234,15 +190,10 @@ export default DateInput;
 
 ### Hide label
 
-To hide the label, set the `hideLabel` prop to `true`. The required `label` will still be read out by screen readers. 
+To hide the label, set the `hideLabel` prop to `true`. The required `label` will still be read out by screen readers.
 
 <Canvas withSource="none">
-  <Story name="Hide label">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      hideLabel
-    />
-  </Story>
+  <Story of={IcDateInputStories.HideLabel} />
 </Canvas>
 
 ```jsx
@@ -263,10 +214,8 @@ export default DateInput;
 
 To set the date input as a required field, add the `required` prop. This will add an asterisk at the end of the date input label.
 
-<Canvas withSource='none'>
-  <Story name="Required">
-    <IcDateInput label="When would you like to collect your coffee?" required />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.Required} />
 </Canvas>
 
 ```jsx
@@ -282,12 +231,10 @@ export default DateInput;
 
 ### Disabled
 
-Set the `disabled`, to prevent interaction with the date input. 
+Set the `disabled`, to prevent interaction with the date input.
 
-<Canvas withSource='none'>
-  <Story name="Disabled">
-    <IcDateInput label="When would you like to collect your coffee?" disabled />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.Disabled} />
 </Canvas>
 
 ```jsx
@@ -304,24 +251,13 @@ export default DateInput;
 ### Sizes
 
 The date input is available in three different sizes:
-- small
-- default
-- large
 
-<Canvas withSource='none'>
-  <Story name="Sizes">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      size="small"
-    />
-    <br />
-    <IcDateInput label="When would you like to collect your coffee?" />
-    <br />
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      size="large"
-    />
-  </Story>
+* small
+* default
+* large
+
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.Sizes} />
 </Canvas>
 
 ```jsx
@@ -341,7 +277,7 @@ export default DateInput;
 
 ### Custom helper text
 
-Use the helper text to add additional detail for the date input. 
+Use the helper text to add additional detail for the date input.
 
 export const UpdatingHelperText = () => {
   const [helpText, setHelpText] = useState("We will have your order ready for you on this date");
@@ -366,10 +302,8 @@ export const UpdatingHelperText = () => {
   )
 }
 
-<Canvas withSource='none'>
-  <Story name="Custom Helper Text">
-    <UpdatingHelperText />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.CustomHelperText} />
 </Canvas>
 
 ```jsx
@@ -390,14 +324,8 @@ export default DateInput;
 
 Hide visible helper text.
 
-<Canvas withSource='none'>
-  <Story name="Hide Helper Text">
-    <IcDateInput 
-      label="When would you like to collect your coffee?"
-      helperText="You cannot see me, but you can hear me"
-      hideHelperText="true"
-    />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.HideHelperText} />
 </Canvas>
 
 ```jsx
@@ -417,36 +345,18 @@ export default DateInput;
 
 ### Custom validation
 
-Validation on date input is set via `validationStatus` and `validationText`. 
+Validation on date input is set via `validationStatus` and `validationText`.
 
 `validationStatus` will set the style of the validation message. `validationStatus` accepts:
-- `error`
-- `warning`
-- `success`
 
-`validationStatus` is required for the `validationText` to appear. 
+* `error`
+* `warning`
+* `success`
 
-<Canvas withSource='none'>
-  <Story name="Custom validation">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      validationStatus="error"
-      validationText="There is a coffee shortage forecast for that day. Please choose a different date."
-    />
-    <br />
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      validationStatus="warning"
-      validationText="Please be aware that there may be a coffee shortage on that day."
-    />
-    <br />
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      validationStatus="success"
-      validationText="Your coffee will be available for you to collect on this day."
-    />
-    <br />
-  </Story>
+`validationStatus` is required for the `validationText` to appear.
+
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.CustomValidation} />
 </Canvas>
 
 ```jsx
@@ -482,13 +392,8 @@ Validation can be set on the date input if a date in the past has been set by se
 
 Enter a date in the past to view the validation message.
 
-<Canvas withSource='none'>
-  <Story name="Disabled past dates">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      disablePast
-    />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.DisabledPastDates} />
 </Canvas>
 
 ```jsx
@@ -511,13 +416,8 @@ Validation can be set on the date input if a date in the future has been set by 
 
 Enter a date in the future to view the validation message.
 
-<Canvas withSource='none'>
-  <Story name="Disabled future dates">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      disableFuture
-    />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.DisabledFutureDates} />
 </Canvas>
 
 ```jsx
@@ -540,21 +440,15 @@ It is possible to set a min and max date range. If a date is set and it is befor
 
 The min or max dates accept the following date formats:
 
-- [Date string](#with-value) (with slashes i.e. DD/MM/YYYY)
-- [Date string](#with-hyphens) (with hyphens i.e. DD-MM-YYYY)
-- [Date object](#date-object)
-- [Zulu time](#zulu-time)
+* [Date string](#with-value) (with slashes i.e. DD/MM/YYYY)
+* [Date string](#with-hyphens) (with hyphens i.e. DD-MM-YYYY)
+* [Date object](#date-object)
+* [Zulu time](#zulu-time)
 
 Enter a date after 2nd Jan 2023 and before 20th July to view the validation message.
 
-<Canvas withSource='none'>
-  <Story name="Min and max">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      min="02-01-2023"
-      max="20/07/2023"
-    />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.MinAndMax} />
 </Canvas>
 
 In this code snippet, the min and max have been set using two different date formats to demonstrate its flexibility.
@@ -579,7 +473,6 @@ export default DateInput;
 When the date input component is used within a form, the date value is returned as an ISO string.
 
 The value is console logged to the browser dev tools.
-
 
 export const Form = () => {
   const formSubmit = (e) => {
@@ -621,10 +514,8 @@ const Form = () => {
 export default Form;
 ```
 
-<Canvas withSource='none'>
-  <Story name="Form">
-    <Form />
-  </Story>
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.Form_} />
 </Canvas>
 
 ### With clearing value
@@ -655,14 +546,13 @@ export const ClearDateInput = () => {
 }
 
 The date input can be cleared by setting the the value attribute to one of the following:
-- empty string
-- `null`
-- `undefined`
 
-<Canvas withSource='none'>
-  <Story name="With clearing value">
-    <ClearDateInput />
-  </Story>
+* empty string
+* `null`
+* `undefined`
+
+<Canvas withSource="none">
+  <Story of={IcDateInputStories.WithClearingValue} />
 </Canvas>
 
 ### Playground example
@@ -694,70 +584,5 @@ export const defaultArgs = {
 };
 
 <Canvas withSource="none">
-  <Story
-    args={defaultArgs}
-    argTypes={{
-      dateFormat: {
-        options: ["DD/MM/YYYY", "MM/DD/YYYY", "YYYY/MM/DD"],
-        control: {
-          type: "radio",
-        },
-      },
-      validationStatus: {
-        options: ["", "error", "success", "warning"],
-        control: {
-          type: "radio",
-        },
-      },
-      size: {
-        options: ["small", "default", "large"],
-        control: {
-          type: "radio",
-        },
-      },
-    }}
-    name="Playground example"
-  >
-    {(args) => {
-
-      const [{ value }, updateArgs] = useArgs();
-
-      const updateDate = (ev) => {
-        const date = ev.detail.value;
-        let formattedDate;
-        date === null ? formattedDate = "" : formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
-        updateArgs({ value: formattedDate});
-      };
-
-      return(
-       <IcDateInput
-          dateFormat={args.dateFormat}
-          disabled={args.disabled}
-          disableDays={args.disableDays}
-          disableDaysMessage={args.disableDaysMessage}
-          disableFuture={args.disableFuture}
-          disableFutureMessage={args.disableFutureMessage}
-          disablePast={args.disablePast}
-          disablePastMessage={args.disablePastMessage}
-          helperText={args.helperText}
-          hideHelperText={args.hideHelperText}
-          hideLabel={args.hideLabel}
-          invalidDateMessage={args.invalidDateMessage}
-          label={args.label}
-          max={args.max}
-          min={args.min}
-          openAtDate={args.openAtDate}
-          required={args.required}
-          showDaysOutsideMonth={args.showDaysOutsideMonth}
-          showPickerClearButton={args.showPickerClearButton}
-          showPickerTodayButton={args.showPickerTodayButton}
-          size={args.size}
-          startOfWeek={args.startOfWeek}
-          validationStatus={args.validationStatus}
-          validationText={args.validationText}
-          value={value}
-          onIcChange={updateDate}
-      />
-    )}}
-  </Story>
+  <Story of={IcDateInputStories.PlaygroundExample} />
 </Canvas>
