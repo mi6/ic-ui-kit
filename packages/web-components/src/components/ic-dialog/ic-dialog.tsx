@@ -63,7 +63,7 @@ export class Dialog {
   @Prop() closeOnBackdropClick?: boolean = true;
 
   /**
-   * If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
+   * If 'true', sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
    */
   @Prop() destructive?: boolean = false;
 
