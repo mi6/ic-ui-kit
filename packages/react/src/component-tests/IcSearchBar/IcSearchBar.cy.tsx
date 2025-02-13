@@ -1027,7 +1027,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
 
     cy.findShadowEl(SEARCH_SELECTOR, SEARCH_INPUT).type("La");
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
