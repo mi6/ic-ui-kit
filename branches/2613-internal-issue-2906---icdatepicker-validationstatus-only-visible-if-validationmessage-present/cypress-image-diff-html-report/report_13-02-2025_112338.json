@@ -1,7 +1,7 @@
 {
   "total": 208,
-  "totalPassed": 204,
-  "totalFailed": 4,
+  "totalPassed": 205,
+  "totalFailed": 3,
   "totalSuites": 7,
   "suites": [
     {
@@ -2190,14 +2190,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTreeView.cy.tsx-theme-dark.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTreeView.cy.tsx-focus-inset",
-          "percentage": 0.11260550608207398,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTreeView/IcTreeView.cy.tsx",
           "specFilename": "IcTreeView.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTreeView.cy.tsx-focus-inset.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTreeView.cy.tsx-focus-inset.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTreeView.cy.tsx-focus-inset.png"
         },
         {
@@ -2335,9 +2335,9 @@
       ]
     }
   ],
-  "startedAt": "2025-02-11T15:57:07.645Z",
-  "endedAt": "2025-02-11T16:03:28.689Z",
-  "duration": 365265,
+  "startedAt": "2025-02-13T11:23:38.597Z",
+  "endedAt": "2025-02-13T11:29:37.728Z",
+  "duration": 343647,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
