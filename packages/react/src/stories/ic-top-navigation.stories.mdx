@@ -113,7 +113,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         slot="buttons"
         onClick={() => alert("test")}
       >
-        <IcBadge label="1" slot="badge" variant="light" />
+        <IcBadge label="1" slot="badge" customColor="#d4351c" variant="custom" theme="dark"/>
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         href="https://www.google.com"
         target="_blank"
       >
-        <IcBadge slot="badge" variant="light" type="dot" />
+        <IcBadge slot="badge" customColor="#d4351c" variant="custom" type="dot" theme="dark"/>
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -838,8 +838,9 @@ export const defaultArgs = {
           <IcBadge
             label="1"
             slot="badge"
-            position="near"
-            variant="light"
+            customColor="#d4351c"
+            variant="custom"
+            theme="dark"
           ></IcBadge>
         </IcNavigationButton>
         <IcNavigationButton
@@ -864,9 +865,10 @@ export const defaultArgs = {
           </svg>
           <IcBadge
             slot="badge"
-            position="near"
-            variant="light"
+            customColor="#d4351c"
+            variant="custom"
             type="dot"
+            theme="dark"
           ></IcBadge>
         </IcNavigationButton>
         <IcNavigationButton
