@@ -389,7 +389,7 @@ export class Toast {
               monochrome
               size="icon"
               progress={this.timerProgress}
-              description=""
+              description="Dismiss timer"
             ></ic-loading-indicator>
           ) : (
             <ic-button
