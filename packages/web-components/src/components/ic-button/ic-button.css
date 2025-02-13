@@ -389,9 +389,7 @@
 
 :host(.ic-button-variant-secondary.background.monochrome.ic-button-disabled)
   .button,
-:host(
-    .ic-button-variant-icon-secondary.background.monochrome.ic-button-disabled
-  )
+:host(.ic-button-variant-icon-secondary.background.monochrome.ic-button-disabled)
   .button {
   background-color: var(
     --ic-button-secondary-background-non-transparent-monochrome-disabled
@@ -401,9 +399,7 @@
 
 :host(.ic-button-variant-secondary.background.monochrome.ic-button-disabled)
   ::slotted(a),
-:host(
-    .ic-button-variant-icon-secondary.background.monochrome.ic-button-disabled
-  )
+:host(.ic-button-variant-icon-secondary.background.monochrome.ic-button-disabled)
   ::slotted(a) {
   background-color: var(
     --ic-button-secondary-background-non-transparent-monochrome-disabled
