@@ -228,7 +228,7 @@ export const WithIcons = {
         slot="buttons"
         onClick={() => alert("test")}
       >
-        <IcBadge text-label="1" slot="badge" variant="light" />
+        <IcBadge text-label="1" slot="badge" customColor="#d4351c" variant="custom" />
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -247,7 +247,7 @@ export const WithIcons = {
         href="https://www.google.com"
         target="_blank"
       >
-        <IcBadge slot="badge" variant="light" type="dot" />
+        <IcBadge slot="badge" customColor="#d4351c" variant="custom" type="dot" />
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -833,8 +833,8 @@ export const Playground = {
         <IcBadge
           text-label="1"
           slot="badge"
-          position="near"
-          variant="light"
+          customColor="#d4351c"
+          variant="custom"
         ></IcBadge>
       </IcNavigationButton>
       <IcNavigationButton
@@ -857,8 +857,8 @@ export const Playground = {
         </svg>
         <IcBadge
           slot="badge"
-          position="near"
-          variant="light"
+          customColor="#d4351c"
+          variant="custom"
           type="dot"
         ></IcBadge>
       </IcNavigationButton>

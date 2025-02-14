@@ -198,9 +198,7 @@ export class NavigationButton {
         >
           {label}
           <slot slot="left-icon" name="icon"></slot>
-          {isSlotUsed(this.el, "badge") && variant === "icon" && (
-            <slot name="badge"></slot>
-          )}
+          {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
         </ic-button>
       </Host>
     );

@@ -194,8 +194,8 @@ export const WithIcons = {
         <ic-badge
           text-label="1"
           slot="badge"
-          position="near"
-          variant="light"
+          custom-color="#d4351c"
+          variant="custom"
         ></ic-badge>
       </ic-navigation-button>
       <ic-navigation-button
@@ -220,8 +220,8 @@ export const WithIcons = {
         </svg>
         <ic-badge
           slot="badge"
-          position="near"
-          variant="light"
+          custom-color="#d4351c"
+          variant="custom"
           type="dot"
         ></ic-badge>
       </ic-navigation-button>
@@ -956,8 +956,8 @@ export const Playground = {
         <ic-badge
           text-label="1"
           slot="badge"
-          position="near"
-          variant="light"
+          custom-color="#d4351c"
+          variant="custom"
         ></ic-badge>
       </ic-navigation-button>
       <ic-navigation-button
@@ -982,8 +982,8 @@ export const Playground = {
         </svg>
         <ic-badge
           slot="badge"
-          position="near"
-          variant="light"
+          custom-color="#d4351c"
+          variant="custom"
           type="dot"
         ></ic-badge>
       </ic-navigation-button>

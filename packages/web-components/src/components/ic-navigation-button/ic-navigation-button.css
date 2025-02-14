@@ -14,3 +14,7 @@
   height: 100%;
   min-height: 2.5rem;
 }
+
+:host(.in-side-menu) ::slotted(ic-badge) {
+  margin-left: var(--ic-space-xs);
+}
