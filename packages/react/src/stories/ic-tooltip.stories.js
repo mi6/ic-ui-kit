@@ -3,6 +3,7 @@ import { IcTooltip } from "../components";
 import readme from "../../../web-components/src/components/ic-tooltip/readme.md";
 
 const defaultArgs = {
+  disableClick: false,
   disableHover: false,
   maxLines: 3,
   placement: "bottom",
@@ -350,6 +351,7 @@ export const Playground = {
         label={args.label}
         placement={args.placement}
         maxLines={args.maxLines}
+        disableClick={args.disableClick}
         disableHover={args.disableHover}
         id="ic-tooltip-test-button-default"
         target="button-id"
