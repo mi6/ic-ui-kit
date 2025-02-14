@@ -98,17 +98,21 @@ export class TreeView {
 
     this.hostMutationObserver?.disconnect();
   }
-
-  componentDidLoad(): void {
+  componentWillLoad(): void {
     this.setTreeItems();
 
     this.watchSizeHandler();
     this.watchFocusInsetHandler();
     this.watchThemeHandler();
     this.watchTruncateTreeItemsHandler();
+  }
 
+  componentDidRender(): void {
+    console.log("did render");
     this.truncateHeading && this.truncateTreeViewHeading();
+  }
 
+  componentDidLoad(): void {
     this.addSlotChangeListener();
 
     this.hostMutationObserver = new MutationObserver((mutationList) =>
@@ -295,15 +299,7 @@ export class TreeView {
   };
 
   render() {
-    const {
-      focusInset,
-      heading,
-      isLoaded,
-      size,
-      theme,
-      truncateHeading,
-      truncateTreeItems,
-    } = this;
+    const { heading, isLoaded, size, theme, truncateHeading } = this;
 
     return (
       <Host
@@ -338,16 +334,8 @@ export class TreeView {
             </ic-typography>
           </div>
         )}
-        <div
-          // Hide tree items until fully loaded with props passed down from tree view - prevents FOUC
-          class={{
-            "tree-items-container-hidden":
-              (focusInset || size !== "medium" || truncateTreeItems) &&
-              !isLoaded,
-          }}
-        >
-          <slot></slot>
-        </div>
+
+        <slot></slot>
       </Host>
     );
   }

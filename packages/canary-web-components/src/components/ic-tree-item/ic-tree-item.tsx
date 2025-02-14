@@ -169,11 +169,21 @@ export class TreeItem {
       childList: true,
     });
   }
+  componentDidRender(): void {
+    console.log("did render item");
+    this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
+    console.log("this.hasParentExpanded", this.expanded);
+    if (this.expanded) {
+      this.childTreeItems.forEach((child: HTMLIcTreeItemElement) => {
+        child.truncateTreeItem && this.truncateTreeItemLabel(child);
+      });
+    }
+  }
 
   componentDidUpdate(): void {
     // Truncation is run here because truncateTreeItem prop gets applied on second render
     // if being passed down from parent tree view
-    this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
+    // this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
 
     if (this.hasParentExpanded) {
       this.childTreeItems.forEach((child: HTMLIcTreeItemElement) => {
@@ -321,6 +331,7 @@ export class TreeItem {
   private truncateTreeItemLabel = (treeItem: HTMLIcTreeItemElement) => {
     const typographyEl: HTMLIcTypographyElement =
       treeItem.shadowRoot.querySelector(".tree-item-label");
+    console.log("typographyEl", typographyEl);
     const tooltip = typographyEl?.closest(this.TOOLTIP);
     const treeContent: HTMLElement =
       treeItem.shadowRoot.querySelector(".tree-item-content");
