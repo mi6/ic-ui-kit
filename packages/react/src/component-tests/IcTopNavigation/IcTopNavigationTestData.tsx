@@ -107,7 +107,12 @@ export const IconButtons = (): ReactElement => {
       <IcSearchBar slot="search" label="Search" placeholder="Search" />
       <IcNavigationButton label="Button One" slot="buttons">
         <ReusableIcon />
-        <IcBadge textLabel="1" slot="badge" position="near" variant="light" />
+        <IcBadge
+          textLabel="1"
+          slot="badge"
+          customColor="#d4351c"
+          variant="custom"
+        />
       </IcNavigationButton>
       <IcNavigationButton label="Button Two" slot="buttons">
         <SlottedSVG
