@@ -62,6 +62,10 @@
   overflow: hidden;
 }
 
+.tree-view-header.with-padding {
+  padding-right: var(--ic-space-xs);
+}
+
 /** High Contrast **/
 @media (forced-colors: active) {
   ::slotted([slot="icon"]) {
