@@ -103,6 +103,7 @@ const TRUNCATION_TOOLTIP_SELECTOR = ".truncation-tooltip";
 const TABLE_CELL_FIRST_CHILD_SELECTOR = ".table-cell:first-child";
 const ICON_BUTTON = "ic-button.ic-button-variant-icon";
 const ACTION_ELEMENT = "action-element";
+const TABLE_ROW_SELECTED = "table-row-selected";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const BasicDataTable = (dataTableProps?: any): ReactElement => (
@@ -4479,6 +4480,38 @@ describe("IcDataTable row selection", () => {
         capture: "viewport",
       },
     });
+  });
+
+  it("should not highlight the selected row when the action element click event is stopped from propagating", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={ACTION_DATA_ELEMENTS}
+        caption="Data tables"
+      ></IcDataTable>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .shadow()
+      .find(`[data-testid="copy-button"]`)
+      .eq(0)
+      .click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
+      .eq(1)
+      .should(NOT_HAVE_CLASS, TABLE_ROW_SELECTED);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .shadow()
+      .find(`[data-testid="copy-button"]`)
+      .eq(1)
+      .click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
+      .eq(2)
+      .should(HAVE_CLASS, TABLE_ROW_SELECTED);
   });
 
   it("should emit icSelectedRowChange event when the selected row changes", () => {
