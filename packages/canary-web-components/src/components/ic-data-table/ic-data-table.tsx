@@ -1525,7 +1525,7 @@ export class DataTable {
                   // eslint-disable-next-line react/jsx-no-bind
                   onClick={
                     cell.actionOnClick
-                      ? () => this.handleClick(cell.actionOnClick)
+                      ? (event) => this.handleClick(event, cell.actionOnClick)
                       : undefined
                   }
                 ></span>
@@ -2113,7 +2113,8 @@ export class DataTable {
     });
   };
 
-  private handleClick = (callback: () => void) => callback();
+  private handleClick = (event: Event, callback: (event: Event) => void) =>
+    callback(event);
 
   private renderTableBody = (
     data: IcDataTableDataType[],
