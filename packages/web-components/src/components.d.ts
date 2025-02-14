@@ -657,7 +657,7 @@ export namespace Components {
          */
         "confirmDialog": () => Promise<void>;
         /**
-          * If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
+          * If 'true', sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
          */
         "destructive"?: boolean;
         /**
@@ -3995,7 +3995,7 @@ declare namespace LocalJSX {
          */
         "closeOnBackdropClick"?: boolean;
         /**
-          * If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
+          * If 'true', sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
          */
         "destructive"?: boolean;
         /**
