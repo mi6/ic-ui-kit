@@ -11365,6 +11365,11 @@
       ],
       "listeners": [
         {
+          "event": "icCheck",
+          "capture": false,
+          "passive": false
+        },
+        {
           "event": "icChange",
           "capture": false,
           "passive": false
