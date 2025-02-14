@@ -960,8 +960,7 @@ export class DateInput {
     }
 
     const hasValidation =
-      (!isEmptyString(this.validationStatus) &&
-        !isEmptyString(this.validationText)) ||
+      !isEmptyString(this.validationStatus) ||
       !isEmptyString(this.invalidDateText);
 
     const labelledBy = `${labelEl?.id ?? ""} ${
@@ -1563,9 +1562,7 @@ export class DateInput {
       theme,
     } = this;
 
-    const hasCustomValidation =
-      !isEmptyString(this.validationStatus) &&
-      !isEmptyString(this.validationText);
+    const hasCustomValidation = !isEmptyString(this.validationStatus);
 
     const validationStatus = hasCustomValidation
       ? this.validationStatus
