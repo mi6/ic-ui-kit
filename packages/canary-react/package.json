@@ -29,6 +29,14 @@
   "files": [
     "dist/"
   ],
+  "repository": {
+    "url": "git+https://github.com/mi6/ic-ui-kit.git",
+    "directory": "packages/canary-react"
+  },
+  "bugs": {
+    "url": "https://github.com/mi6/ic-ui-kit/issues",
+    "email": "icds@gchq.gov.uk"
+  },
   "dependencies": {
     "@ukic/canary-web-components": "^2.0.0-canary.35",
     "@ukic/react": "^2.35.1",
@@ -94,5 +102,6 @@
       "dist"
     ]
   },
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "^npm@10.9.2"
 }
