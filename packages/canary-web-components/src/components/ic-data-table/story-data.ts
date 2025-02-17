@@ -1328,6 +1328,35 @@ export const SortOptions = (): HTMLIcDataTableElement => {
   return dataTable;
 };
 
+export const DisableSort = (): HTMLIcDataTableElement => {
+  const originalData = [...DATA];
+  const dataTable = createDataTableElement("Sort", COLS, DATA);
+  dataTable.setAttribute("sortable", "true");
+  dataTable.setAttribute("disable-auto-sort", "true");
+  dataTable.addEventListener("icSortChange", (event: CustomEvent) => {
+    console.log("Sort changed", event.detail);
+    if (event.detail.sorted === "ascending") {
+      DATA.sort((a, b) => {
+        const column = event.detail.columnName as keyof (typeof DATA)[0];
+        if (a[column] < b[column]) return -1;
+        if (a[column] > b[column]) return 1;
+        return 0;
+      });
+    } else if (event.detail.sorted === "descending") {
+      DATA.sort((a, b) => {
+        const column = event.detail.columnName as keyof (typeof DATA)[0];
+        if (a[column] < b[column]) return 1;
+        if (a[column] > b[column]) return -1;
+        return 0;
+      });
+    } else {
+      DATA.splice(0, DATA.length, ...originalData);
+    }
+    dataTable.data = [...DATA];
+  });
+  return dataTable;
+};
+
 export const Pagination = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Pagination", LONG_COLS, LONG_DATA);
   dataTable.setAttribute("show-pagination", "true");
