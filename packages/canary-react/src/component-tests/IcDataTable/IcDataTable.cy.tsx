@@ -140,6 +140,40 @@ export const BasicSectionContainer = (): ReactElement => {
   );
 };
 
+export const ExternalSortDataTable = (): ReactElement => {
+  const ExternalData = [...DATA];
+  const handleSort = (detail: any) => {
+    if (detail.sorted === "ascending") {
+      ExternalData.sort((a, b) => {
+        const column = detail.columnName as keyof (typeof ExternalData)[0];
+        if (a[column] < b[column]) return -1;
+        if (a[column] > b[column]) return 1;
+        return 0;
+      });
+    } else if (detail.sorted === "descending") {
+      ExternalData.sort((a, b) => {
+        const column = detail.columnName as keyof (typeof ExternalData)[0];
+        if (a[column] < b[column]) return 1;
+        if (a[column] > b[column]) return -1;
+        return 0;
+      });
+    }
+  };
+  return (
+    <IcDataTable
+      columns={COLS}
+      data={ExternalData}
+      caption="Data Tables"
+      sortable
+      disableAutoSort
+      onIcSortChange={(e) => handleSort(e.detail)}
+      sortOptions={{
+        sortOrders: ["ascending", "descending"],
+      }}
+    />
+  );
+};
+
 describe("IcDataTables", () => {
   beforeEach(() => {
     cy.injectAxe();
@@ -384,6 +418,42 @@ describe("IcDataTables", () => {
       .find("td")
       .eq(1)
       .should(HAVE_TEXT, "Bartholomew Christoper Augustine Zacchaeus Ashford"); // cspell:disable-line
+  });
+
+  it("should sort data externally if disableAutoSort is true", () => {
+    mount(<ExternalSortDataTable />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, "Sort ascending");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
+      .eq(1)
+      .find("td")
+      .eq(0)
+      .should(HAVE_TEXT, "Joe");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, "Sort descending");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
+      .eq(1)
+      .find("td")
+      .eq(0)
+      .should(HAVE_TEXT, "Sarah");
+
+    cy.checkA11yWithWait();
   });
 
   it("should render with column overrides", () => {
