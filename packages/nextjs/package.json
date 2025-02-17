@@ -24,6 +24,14 @@
   "files": [
     "dist/"
   ],
+  "repository": {
+    "url": "git+https://github.com/mi6/ic-ui-kit.git",
+    "directory": "packages/nextjs"
+  },
+  "bugs": {
+    "url": "https://github.com/mi6/ic-ui-kit/issues",
+    "email": "icds@gchq.gov.uk"
+  },
   "dependencies": {
     "@storybook/addon-a11y": "^7.6.17",
     "@storybook/addon-postcss": "^2.0.0",
@@ -59,5 +67,6 @@
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
     "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "^npm@10.9.2"
 }
