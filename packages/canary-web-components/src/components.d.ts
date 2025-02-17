@@ -88,6 +88,10 @@ export namespace Components {
          */
         "density"?: IcDataTableDensityOptions;
         /**
+          * If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.
+         */
+        "disableAutoSort"?: boolean;
+        /**
           * Applies a border to the table container.
          */
         "embedded"?: boolean;
@@ -820,6 +824,10 @@ declare namespace LocalJSX {
           * Set the density of the table including font and padding.
          */
         "density"?: IcDataTableDensityOptions;
+        /**
+          * If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.
+         */
+        "disableAutoSort"?: boolean;
         /**
           * Applies a border to the table container.
          */

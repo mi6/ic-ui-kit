@@ -17,6 +17,7 @@ import {
   RowHeaders,
   Sort,
   SortOptions,
+  DisableSort,
   Pagination,
   ColumnOverrides,
   RowOverrides,
@@ -509,6 +510,50 @@ It is possible to change the sort options for the sort buttons. The `sortOptions
     sortOrders: ['descending', 'unsorted'],
     defaultColumn: 'firstName'
   };
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Disable sort
+
+Set `sortable` to `true` and set `disable-auto-sort` to `true` to enable external sorting functionality.
+
+<Canvas withSource="none">
+  <Story name="Disable sort">{DisableSort()}</Story>
+</Canvas>
+
+#### Disable sort code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Sort"
+  sortable="true"
+  disable-auto-sort="true"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
   dataTable.columns = columns;
   dataTable.data = data;
 </script>
