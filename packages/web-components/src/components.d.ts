@@ -2315,6 +2315,9 @@ export namespace Components {
         "variant": "default" | "icon";
     }
     interface IcTooltip {
+        /**
+          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+         */
         "disableClick"?: boolean;
         /**
           * If `true`, the tooltip will not be displayed on hover, it will require a click.
@@ -5794,6 +5797,9 @@ declare namespace LocalJSX {
         "variant"?: "default" | "icon";
     }
     interface IcTooltip {
+        /**
+          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+         */
         "disableClick"?: boolean;
         /**
           * If `true`, the tooltip will not be displayed on hover, it will require a click.
