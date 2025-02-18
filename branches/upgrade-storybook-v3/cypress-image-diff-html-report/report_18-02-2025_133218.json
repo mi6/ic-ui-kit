@@ -1,6 +1,6 @@
 {
-  "total": 751,
-  "totalPassed": 747,
+  "total": 752,
+  "totalPassed": 748,
   "totalFailed": 4,
   "totalSuites": 42,
   "suites": [
@@ -2863,6 +2863,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcEmptyState.cy.tsx/slotted-content.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcEmptyState.cy.tsx/slotted-content.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcEmptyState.cy.tsx/theme-prop",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcEmptyState/IcEmptyState.cy.tsx",
+          "specFilename": "IcEmptyState.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcEmptyState.cy.tsx/theme-prop.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcEmptyState.cy.tsx/theme-prop.png"
         },
         {
           "status": "pass",
@@ -8518,9 +8529,9 @@
       ]
     }
   ],
-  "startedAt": "2025-02-07T07:48:37.311Z",
-  "endedAt": "2025-02-07T08:04:08.561Z",
-  "duration": 837685,
+  "startedAt": "2025-02-18T13:32:18.479Z",
+  "endedAt": "2025-02-18T13:47:52.305Z",
+  "duration": 837124,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
