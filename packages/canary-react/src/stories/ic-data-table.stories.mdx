@@ -617,6 +617,95 @@ const DataTable = () => (
 export default DataTable;
 ```
 
+#### Disable sort
+
+Set `sortable` to `true` and set `disable-auto-sort` to `true` to enable external sorting functionality.
+
+export const DisableSort = () => {
+  const ExternalData = [...DATA];
+
+  const handleSort = (detail) => {
+    if (detail.sorted === "ascending") {
+      ExternalData.sort((a, b) => {
+        const column = detail.columnName;
+        if (a[column] < b[column]) return -1;
+        if (a[column] > b[column]) return 1;
+        return 0;
+      });
+    } else if (detail.sorted === "descending") {
+      ExternalData.sort((a, b) => {
+        const column = detail.columnName;
+        if (a[column] < b[column]) return 1;
+        if (a[column] > b[column]) return -1;
+        return 0;
+      });
+    }
+  };
+
+  return (
+    <IcDataTable
+      columns={COLS}
+      data={ExternalData}
+      caption="Disable auto sort"
+      sortable
+      disableAutoSort
+      onIcSortChange={(e) => handleSort(e.detail)}
+      sortOptions={{
+        sortOrders: ["ascending", "descending"],
+      }}
+    />
+  );
+};
+
+<Canvas withSource="none">
+  <Story name="Disable sort">
+    <DisableSort />
+  </Story>
+</Canvas>
+
+#### Disable sort code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable
+    caption="Disable auto sort"
+    columns={columns}
+    data={data}
+    sortable
+    disableAutoSort
+    sortOptions={{
+      sortOrders: ["ascending", "descending"],
+    }}
+  />
+)
+
+export default DataTable;
+```
+
 ### Pagination
 
 Pagination allows large data sets to be split into pages in order to make the data easier to digest. Setting `showPagination` to `true` will add the `IcPagination` component to the bottom of the table. There a several sub components within pagination which are set via the `paginationBarOptions` prop.
@@ -2460,6 +2549,7 @@ export const defaultArgs = {
   paginationType: "simple",
   showPagination: true,
   sortable: false,
+  disableAutoSort: false,
   sortOrders: ["unsorted", "ascending", "descending"],
   defaultColumn: "",
   stickyColumnHeaders: false,
@@ -2585,6 +2675,7 @@ export const defaultArgs = {
         }}
         showPagination={args.showPagination}
         sortable={args.sortable}
+        disableAutoSort={args.disableAutoSort}
         sortOptions={{
           sortOrders: args.sortOrders,
           defaultColumn: args.defaultColumn
