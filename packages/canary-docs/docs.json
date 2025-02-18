@@ -585,6 +585,28 @@
           "required": false
         },
         {
+          "name": "disableAutoSort",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-auto-sort",
+          "reflectToAttr": false,
+          "docs": "If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "embedded",
           "type": "boolean",
           "complexType": {

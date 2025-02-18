@@ -170,6 +170,11 @@ export class DataTable {
   @Prop() data?: IcDataTableDataType[];
 
   /**
+   * If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.
+   */
+  @Prop() disableAutoSort?: boolean = false;
+
+  /**
    * Set the density of the table including font and padding.
    */
   @Prop({ mutable: true }) density?: IcDataTableDensityOptions = "default";
@@ -1694,7 +1699,11 @@ export class DataTable {
     });
 
     return organisedData
-      .sort(!this.sortable ? undefined : this.getSortFunction())
+      .sort(
+        !this.sortable || this.disableAutoSort
+          ? undefined
+          : this.getSortFunction()
+      )
       .map((row, index) => {
         return (
           <tr
