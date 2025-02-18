@@ -69,6 +69,27 @@
         "notes": "issue in 'cross-spawn' package - unable to upgrade currently",
         "expiry": "6 March 2025"
       }
+    },
+    {
+      "GHSA-h5c3-5r3r-rr8q": {
+        "active": true,
+        "notes": "issue in '@octokit/plugin-paginate-rest' package which relies on a lerna upgrade",
+        "expiry": "6 March 2025"
+      }
+    },
+    {
+      "GHSA-xx4v-prfh-6cgc": {
+        "active": true,
+        "notes": "issue in '@octokit/request-error' package which relies on a lerna upgrade",
+        "expiry": "6 March 2025"
+      }
+    },
+    {
+      "GHSA-67mh-4wv8-2f99": {
+        "active": true,
+        "notes": "issue in 'esbuild' package which is a dependency of storybook. Patched version 0.25.0 not used by Storybook yet",
+        "expiry": "6 March 2025"
+      }
     }
   ]
 }
