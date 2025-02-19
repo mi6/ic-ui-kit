@@ -1,18 +1,17 @@
-import "../src/global/normalize.css"
+import "../src/global/normalize.css";
 import "@ukic/fonts/dist/fonts.css";
 import "../src/global/icds.css";
 
-import { defineCustomElements } from '../dist/esm/loader';
+import { defineCustomElements } from "../dist/esm/loader";
 
 defineCustomElements();
 
 export const parameters = {
   controls: {
-      matchers: {
+    matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-    hideNoControlsWarning: true
-  }
-}
-export const tags = ["autodocs"];
+    hideNoControlsWarning: true,
+  },
+};

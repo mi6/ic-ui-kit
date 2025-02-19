@@ -1,11 +1,10 @@
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Story, Canvas, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
 import * as IcThemeStories from "./ic-theme.stories";
 
 <Meta of={IcThemeStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
 ### Switch theme
 

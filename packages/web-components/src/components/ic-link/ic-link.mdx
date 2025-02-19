@@ -1,50 +1,9 @@
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
 import * as IcLinkStories from "./ic-link.stories";
 
 <Meta of={IcLinkStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcLinkStories.Default} />
-</Canvas>
-
-### With icon
-
-<Canvas>
-  <Story of={IcLinkStories.WithIcon} />
-</Canvas>
-
-### With download
-
-<Canvas>
-  <Story of={IcLinkStories.DownloadLink} />
-</Canvas>
-
-### Dark
-
-<Canvas>
-  <Story of={IcLinkStories.Dark} />
-</Canvas>
-
-### Light
-
-<Canvas>
-  <Story of={IcLinkStories.Light} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  appearance: "default",
-  href: "/",
-  target: "",
-};
-
-<Canvas>
-  <Story of={IcLinkStories.Playground} />
-</Canvas>
+<Stories />

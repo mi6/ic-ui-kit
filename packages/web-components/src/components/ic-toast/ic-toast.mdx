@@ -1,74 +1,10 @@
-import { Story, Canvas, Meta, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Stories, Meta, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
+import toastRegionReadme from "../ic-toast-region/readme.md";
 import * as IcToastStories from "./ic-toast.stories";
 
 <Meta of={IcToastStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + toastRegionReadme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcToastStories.Default} />
-</Canvas>
-
-### With variant
-
-<Canvas>
-  <Story of={IcToastStories.WithVariant} />
-</Canvas>
-
-### Multiline message
-
-<Canvas>
-  <Story of={IcToastStories.MultilineMessage} />
-</Canvas>
-
-### Slotted action elements
-
-<Canvas>
-  <Story of={IcToastStories.SlottedActionElements} />
-</Canvas>
-
-### Auto dismiss
-
-<Canvas>
-  <Story of={IcToastStories.AutoDismiss} />
-</Canvas>
-
-### Custom neutral icon and dismiss aria-label
-
-<Canvas>
-  <Story of={IcToastStories.CustomNeutralIconAndDismissAriaLabel} />
-</Canvas>
-
-### Example on page
-
-<Canvas>
-  <Story of={IcToastStories.ExampleOnPage} />
-</Canvas>
-
-### Deprecated - setVisible
-
-<Canvas>
-  <Story of={IcToastStories.DeprecatedSetVisible} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  autoDismissTimeout: 5000,
-  dismissButtonAriaLabel: "dismiss",
-  dismissMode: "manual",
-  heading: "This is the heading",
-  message: "This is the message",
-  neutralIconAriaLabel: "",
-  variant: "neutral",
-  actionSlot: "action",
-  neutralIconSlot: "neutral-icon",
-};
-
-<Canvas>
-  <Story of={IcToastStories.Playground} />
-</Canvas>
+<Stories />

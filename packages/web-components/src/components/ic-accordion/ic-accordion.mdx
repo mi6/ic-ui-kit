@@ -1,96 +1,9 @@
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
 import * as IcAccordionStories from "./ic-accordion.stories";
 
 <Meta of={IcAccordionStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-{" "}
-
-### Default
-
-<Canvas>
-  <Story of={IcAccordionStories.Default} />
-</Canvas>
-
-### Expanded
-
-<Canvas>
-  <Story of={IcAccordionStories.Expanded} />
-</Canvas>
-
-### Icon
-
-<Canvas>
-  <Story of={IcAccordionStories.Icon} />
-</Canvas>
-
-### Group title
-
-<Canvas>
-  <Story of={IcAccordionStories.GroupTitle} />
-</Canvas>
-
-### Sizes
-
-<Canvas>
-  <Story of={IcAccordionStories.Sizes} />
-</Canvas>
-
-### Single expansion
-
-<Canvas>
-  <Story of={IcAccordionStories.SingleExpansion} />
-</Canvas>
-
-### Light text
-
-<Canvas>
-  <Story of={IcAccordionStories.LightText} />
-</Canvas>
-
-### Parent
-
-<Canvas>
-  <Story of={IcAccordionStories.Parent} />
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story of={IcAccordionStories.Disabled} />
-</Canvas>
-
-### With Popover content
-
-<Canvas>
-  <Story of={IcAccordionStories.WithPopoverContent} />
-</Canvas>
-
-### Slotted headings
-
-<Canvas>
-  <Story of={IcAccordionStories.SlottedHeadings} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  accessibleButtonLabel: "accordions",
-  appearance: "default",
-  expanded: false,
-  groupTitle: "Accordion group",
-  singleExpansion: false,
-  size: "default",
-  disabled: false,
-  expandedAccordion: false,
-  heading: "Accordion 1",
-  message: "This is an example of the main body text.",
-  sizeAccordion: "default",
-};
-
-<Canvas>
-  <Story of={IcAccordionStories.Playground} />
-</Canvas>
+<Stories />
