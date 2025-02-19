@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/codemod@1.0.0-alpha.2...@ukic/codemod@1.0.0-alpha.3) (2025-02-05)
+
+### Features
+
+- **codemod:** added json data and combine both versions of data for component serach ([0faeee1](https://github.com/mi6/ic-ui-kit/commit/0faeee11b54c4582c3a6b2d0186372ae16afa447))
+
 # [1.0.0-alpha.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/codemod@1.0.0-alpha.1...@ukic/codemod@1.0.0-alpha.2) (2025-01-24)
 
 **Note:** Version bump only for package @ukic/codemod

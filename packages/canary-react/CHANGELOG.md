@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.8...@ukic/canary-react@3.0.0-canary.9) (2025-02-05)
+
+### Bug Fixes
+
+- **canary-react:** add Cypress visual regression for date picker clear icon dark mode ([ee1c1e7](https://github.com/mi6/ic-ui-kit/commit/ee1c1e74ade79f995b5362975ac699a67602184d))
+- **canary-react:** allow IcDataTable action-element to support tooltips ([d71ba60](https://github.com/mi6/ic-ui-kit/commit/d71ba6076ab7100baa5c0eaf400deb3d0c831230)), closes [#2964](https://github.com/mi6/ic-ui-kit/issues/2964)
+
 # [3.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.7...@ukic/canary-react@3.0.0-canary.8) (2025-01-24)
 
 ### Bug Fixes
