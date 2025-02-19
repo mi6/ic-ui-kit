@@ -33,11 +33,11 @@ jobs:
       - name: Delete release branch
         run: |
           git fetch origin
-          git push origin --delete release || true
+          git push origin --delete v3.0.0/release || true
       - name: Create release branch with latest versions
         run: |
           git fetch origin v3.0.0/develop
-          RELEASE_BRANCH="release"
+          RELEASE_BRANCH="v3.0.0/release"
           git checkout -b $RELEASE_BRANCH origin/v3.0.0/develop
           echo "${{ env.VERSION }}" > DEVELOPMENT_RELEASE_CHECK.md
           git add DEVELOPMENT_RELEASE_CHECK.md
