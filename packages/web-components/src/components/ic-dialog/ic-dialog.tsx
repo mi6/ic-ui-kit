@@ -16,6 +16,7 @@ import {
   isSlotUsed,
   checkResizeObserver,
   onComponentRequiredPropUndefined,
+  getSlotElements,
 } from "../../utils/helpers";
 import { IcThemeMode } from "../../utils/types";
 
@@ -33,6 +34,7 @@ import { IcThemeMode } from "../../utils/types";
 export class Dialog {
   private backdropEl: HTMLDivElement;
   private contentArea: HTMLSlotElement;
+  private contentAreaMutationObserver: MutationObserver = null;
   private DATA_GETS_FOCUS: string = "data-gets-focus";
   private DATA_GETS_FOCUS_SELECTOR: string = "[data-gets-focus]";
   private DIALOG_CONTROLS: string = "dialog-controls";
@@ -288,12 +290,26 @@ export class Dialog {
   };
 
   private refreshInteractiveElementsOnSlotChange = () => {
-    this.contentArea = this.el.shadowRoot.querySelector("#dialog-content slot");
+    const contentWrapper = this.el.shadowRoot.querySelector("#dialog-content");
+    this.contentArea = contentWrapper.querySelector("slot");
 
+    // Detect changes to slotted elements
     this.contentArea.addEventListener(
       "slotchange",
       this.getInteractiveElements
     );
+
+    this.contentAreaMutationObserver = new MutationObserver(() => {
+      this.getInteractiveElements();
+    });
+
+    // Detect changes to children of slotted elements
+    getSlotElements(contentWrapper).forEach((el) => {
+      this.contentAreaMutationObserver.observe(el, {
+        childList: true,
+        subtree: true,
+      });
+    });
   };
 
   private removeSlotChangeListener = () => {
@@ -302,6 +318,8 @@ export class Dialog {
         "slotchange",
         this.getInteractiveElements
       );
+
+      this.contentAreaMutationObserver?.disconnect();
     }
   };
 
@@ -353,9 +371,9 @@ export class Dialog {
     );
     const slottedInteractiveElements = Array.from(
       this.el.querySelectorAll(
-        `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]), 
-          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group, 
-          ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, 
+        `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
+          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group,
+          ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
           ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion, ic-date-input, ic-date-picker`
       )
     );
