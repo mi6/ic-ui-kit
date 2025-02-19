@@ -438,6 +438,8 @@ export class TextField {
   };
 
   private onBlur = (ev: Event) => {
+    const target = ev.target as HTMLInputElement;
+    target.removeEventListener("wheel", this.onWheel);
     const value = (ev.target as HTMLInputElement).value;
     this.numChars = value.length;
     this.minCharactersUnattained =
@@ -446,7 +448,19 @@ export class TextField {
   };
 
   private onFocus = (ev: Event) => {
+    const target = ev.target as HTMLInputElement;
+    target.addEventListener("wheel", this.onWheel);
     this.icFocus.emit({ value: (ev.target as HTMLInputElement).value });
+  };
+
+  private onWheel = (ev: WheelEvent) => {
+    const target = ev.target as HTMLInputElement;
+    if (target.type === "number") {
+      target.blur();
+      setTimeout(() => {
+        target.focus();
+      }, 0);
+    }
   };
 
   private hasStatus = (status: IcInformationStatusOrEmpty) =>
