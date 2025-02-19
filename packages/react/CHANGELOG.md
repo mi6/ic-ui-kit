@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.35.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.35.1...@ukic/react@2.35.2) (2025-02-19)
+
+### Bug Fixes
+
+- **react:** expose IcToolTip disableClick prop ([435cc5a](https://github.com/mi6/ic-ui-kit/commit/435cc5aa0d4bf2e2bbe45b8571a3d8423b3ff798)), closes [#3129](https://github.com/mi6/ic-ui-kit/issues/3129)
+- **react:** update IcTopNavigation visual regression image ([68587a3](https://github.com/mi6/ic-ui-kit/commit/68587a35c9c36b358ca434158e9309359f37288e))
+
 ## [2.35.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.35.0...@ukic/react@2.35.1) (2025-02-12)
 
 **Note:** Version bump only for package @ukic/react

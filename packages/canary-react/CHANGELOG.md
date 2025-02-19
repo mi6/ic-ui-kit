@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.36](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.35...@ukic/canary-react@2.0.0-canary.36) (2025-02-19)
+
+### Bug Fixes
+
+- **canary-react:** allow IcPaginationBar items per page to be set programmatically ([1bc01f8](https://github.com/mi6/ic-ui-kit/commit/1bc01f8756e74730dd8e0de283ca15ddf2d98ca5)), closes [#2525](https://github.com/mi6/ic-ui-kit/issues/2525)
+- **canary-react:** prevent IcDataTable action element clicks from selecting the table row ([72b8f01](https://github.com/mi6/ic-ui-kit/commit/72b8f0154b8158dc61e0df5e6643f69df24ed0eb))
+- **canary-react:** update date input Cypress test to check helper text doesn't exist ([bd095c1](https://github.com/mi6/ic-ui-kit/commit/bd095c143fba7bb0c6d876902e49d5de25925017)), closes [#2370](https://github.com/mi6/ic-ui-kit/issues/2370)
+
+### Features
+
+- **canary-react:** implement disableAutoSort prop on data table ([12b1cdd](https://github.com/mi6/ic-ui-kit/commit/12b1cdd69fb6ff83da3fba7e13acc8b7144e47d1)), closes [#2415](https://github.com/mi6/ic-ui-kit/issues/2415)
+
 # [2.0.0-canary.35](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.34...@ukic/canary-react@2.0.0-canary.35) (2025-02-12)
 
 ### Bug Fixes
