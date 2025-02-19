@@ -1,94 +1,9 @@
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
 import * as IcHeroStories from "./ic-hero.stories";
 
-import image from "./assets/example-background.png";
-
 <Meta of={IcHeroStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Left aligned
-
-<Canvas>
-  <Story of={IcHeroStories.LeftAligned} />
-</Canvas>
-
-### Center aligned
-
-<Canvas>
-  <Story of={IcHeroStories.CenterAligned} />
-</Canvas>
-
-### Slotted heading and subheading
-
-<Canvas>
-  <Story of={IcHeroStories.SlottedHeadingAndSubheading} />
-</Canvas>
-
-### Long heading
-
-<Canvas>
-  <Story of={IcHeroStories.LongHeading} />
-</Canvas>
-
-### Full width
-
-<Canvas>
-  <Story of={IcHeroStories.FullWidth} />
-</Canvas>
-
-### Content center aligned
-
-<Canvas>
-  <Story of={IcHeroStories.ContentCenterAligned} />
-</Canvas>
-
-### Small
-
-<Canvas>
-  <Story of={IcHeroStories.Small} />
-</Canvas>
-
-### Secondary heading
-
-<Canvas>
-  <Story of={IcHeroStories.SecondaryHeading} />
-</Canvas>
-
-### Search bar interaction
-
-<Canvas>
-  <Story of={IcHeroStories.SearchBarInteraction} />
-</Canvas>
-
-### Card right content
-
-<Canvas>
-  <Story of={IcHeroStories.CardRightContent} />
-</Canvas>
-
-### Image right content
-
-<Canvas>
-  <Story of={IcHeroStories.ImageRightContent} />
-</Canvas>
-
-### Brand
-
-<Canvas>
-  <Story of={IcHeroStories.Brand} />
-</Canvas>
-
-### With background image (parallax effect)
-
-<Canvas>
-  <Story of={IcHeroStories.WithBackgroundImageParallaxEffect} />
-</Canvas>
-
-### With background image (no parallax effect)
-
-<Canvas>
-  <Story of={IcHeroStories.WithBackgroundImageNoParallaxEffect} />
-</Canvas>
+<Stories />

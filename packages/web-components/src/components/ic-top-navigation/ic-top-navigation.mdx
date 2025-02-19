@@ -1,124 +1,17 @@
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
-import NavigationButton from "../ic-navigation-button/readme.md";
-import NavigationItem from "../ic-navigation-item/readme.md";
-import NavigationGroup from "../ic-navigation-group/readme.md";
+import navigationButtonReadme from "../ic-navigation-button/readme.md";
+import navigationItemReadme from "../ic-navigation-item/readme.md";
+import navigationGroupReadme from "../ic-navigation-group/readme.md";
 import * as IcTopNavigationStories from "./ic-top-navigation.stories";
 
 <Meta of={IcTopNavigationStories} />
 
-<Description
-  markdown={readme + NavigationItem + NavigationGroup + NavigationButton}
-/>
+<Markdown>
+  {readme +
+    navigationItemReadme +
+    navigationGroupReadme +
+    navigationButtonReadme}
+</Markdown>
 
-### App icon and title
-
-<Canvas>
-  <Story of={IcTopNavigationStories.AppIconAndTitle} />
-</Canvas>
-
-### Slotted title link
-
-<Canvas>
-  <Story of={IcTopNavigationStories.SlottedTitleLink} />
-</Canvas>
-
-### With Status and version
-
-<Canvas>
-  <Story of={IcTopNavigationStories.StatusAndVersion} />
-</Canvas>
-
-### With Search
-
-<Canvas>
-  <Story of={IcTopNavigationStories.WithSearch} />
-</Canvas>
-
-### With Icons
-
-<Canvas>
-  <Story of={IcTopNavigationStories.WithIcons} />
-</Canvas>
-
-### Long app title
-
-<Canvas>
-  <Story of={IcTopNavigationStories.LongAppTitle} />
-</Canvas>
-
-### With navigation
-
-<Canvas>
-  <Story of={IcTopNavigationStories.WithNavigation} />
-</Canvas>
-
-### Using unnamed slots
-
-<Canvas>
-  <Story of={IcTopNavigationStories.UsingUnnamedSlots} />
-</Canvas>
-
-### With grouped navigation
-
-<Canvas>
-  <Story of={IcTopNavigationStories.WithGroupedNavigation} />
-</Canvas>
-
-### Content center aligned
-
-<Canvas>
-  <Story of={IcTopNavigationStories.ContentCenterAligned} />
-</Canvas>
-
-### Content left aligned
-
-<Canvas>
-  <Story of={IcTopNavigationStories.ContentLeftAligned} />
-</Canvas>
-
-### Brand
-
-<Canvas>
-  <Story of={IcTopNavigationStories.Brand} />
-</Canvas>
-
-### Long single-word app title
-
-<Canvas>
-  <Story of={IcTopNavigationStories.LongSingleWordAppTitle} />
-</Canvas>
-
-### Short title
-
-<Canvas>
-  <Story of={IcTopNavigationStories.ShortTitle} />
-</Canvas>
-
-### Top nav resized event
-
-<Canvas>
-  <Story of={IcTopNavigationStories.TopNavResizedEvent} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  appTitle: "Application Name",
-  contentAligned: "full-width",
-  customMobileBreakpoint: 992,
-  href: "/",
-  inline: false,
-  shortAppTitle: "App Name",
-  status: "alpha",
-  version: "0.0.1",
-  appIconSlot: "app-icon",
-  searchSlot: "search",
-  buttonsSlot: "buttons",
-  theme: "inherit",
-};
-
-<Canvas>
-  <Story of={IcTopNavigationStories.Playground} />
-</Canvas>
+<Stories />

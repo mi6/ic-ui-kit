@@ -1,62 +1,10 @@
-import { Meta, Story, Canvas, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
-import BreadcrumbReadme from "../ic-breadcrumb/readme.md";
+import breadcrumbReadme from "../ic-breadcrumb/readme.md";
 import * as IcBreadcrumbGroupStories from "./ic-breadcrumb-group.stories";
 
 <Meta of={IcBreadcrumbGroupStories} />
 
-<Description markdown={readme + BreadcrumbReadme} />
+<Markdown>{readme + breadcrumbReadme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.Default} />
-</Canvas>
-
-### Slotted links
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.SlottedLinks} />
-</Canvas>
-
-### Back
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.Back} />
-</Canvas>
-
-### Icon
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.Icon} />
-</Canvas>
-
-### Collapsed
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.Collapsed} />
-</Canvas>
-
-### Slotted links collapsed
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.SlottedLinksCollapsed} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  backBreadcrumbOnly: false,
-  collapsed: false,
-  current: false,
-  href: "/",
-  pageTitle: "Home",
-  iconSlot: true,
-  theme: "inherit",
-  monochrome: false,
-};
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.Playground} />
-</Canvas>
+<Stories />
