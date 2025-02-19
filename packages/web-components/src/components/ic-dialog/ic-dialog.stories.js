@@ -1126,40 +1126,56 @@ export const DisableWidthConstraint = {
 export const ShowHideInteractiveElements = {
   render: () => html`
     <script>
-      function showSmallDialog() {
-        dialog = document.querySelector("#small-dialog").showDialog();
+      function showShowHideContentDialog() {
+        dialog = document
+          .querySelector("#show-hide-content-dialog")
+          .showDialog();
       }
       var btnShow = document.querySelector(".show");
       btnShow.addEventListener("click", () => {
         var el = document.createElement("ic-button");
-        el.id = "toggleBtn";
-        el.innerText = "Hello World!";
+        el.id = "slotted-btn";
+        el.innerText = "Slotted element";
+        var childEl = document.createElement("ic-button");
+        childEl.id = "slotted-child-btn";
+        childEl.innerText = "Child of slotted element";
         var base = document.querySelector("#base");
         base.after(el);
+        setTimeout(() => base.appendChild(childEl), 2000);
       });
       var btnHide = document.querySelector(".hide");
       btnHide.addEventListener("click", () => {
-        if (document.querySelector("#toggleBtn")) {
-          var btn = document.querySelector("#toggleBtn");
+        if (document.querySelector("#slotted-btn")) {
+          var btn = document.querySelector("#slotted-btn");
           btn.remove();
+        }
+        if (document.querySelector("#slotted-child-btn")) {
+          var btn = document.querySelector("#slotted-child-btn");
+          setTimeout(() => btn.remove(), 2000);
         }
       });
     </script>
-    <ic-button variant="primary" onclick="showSmallDialog()"
-      >Launch small dialog</ic-button
+    <ic-button variant="primary" onclick="showShowHideContentDialog()"
+      >Launch show / hide content dialog</ic-button
     >
-    <ic-dialog heading="This is a small dialog" label="Small" id="small-dialog">
+    <ic-dialog
+      heading="This dialog allows showing and hiding of content"
+      id="show-hide-content-dialog"
+    >
       <ic-typography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        Demonstrates changes to slotted elements happening after first load.
+        <br />
+        The button which is a child of an existing slotted element will update
+        after a 2s delay.
       </ic-typography>
+      <br />
       <ic-button class="show">Show</ic-button>
       <ic-button class="hide">Hide</ic-button>
       <div id="base"></div>
     </ic-dialog>
   `,
 
-  name: "show/hide interactive elements",
+  name: "Show / hide interactive elements",
 };
 
 export const HiddenCloseButton = {
