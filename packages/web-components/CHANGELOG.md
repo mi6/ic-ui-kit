@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.35.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.35.1...@ukic/web-components@2.35.2) (2025-02-19)
+
+### Bug Fixes
+
+- **web-components:** changes to ic-badge and ic-navigation-button to show notifications in mobile ([717b975](https://github.com/mi6/ic-ui-kit/commit/717b975710e85858bce71f5916e474eca23a8545))
+- **web-components:** expose IcToolTip disableClick prop ([cd7dc0f](https://github.com/mi6/ic-ui-kit/commit/cd7dc0f743ebb91d42274b269abdebafb002ff94)), closes [#3129](https://github.com/mi6/ic-ui-kit/issues/3129)
+
 ## [2.35.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.35.0...@ukic/web-components@2.35.1) (2025-02-12)
 
 ### Bug Fixes

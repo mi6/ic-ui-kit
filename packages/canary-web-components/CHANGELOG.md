@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.36](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.35...@ukic/canary-web-components@2.0.0-canary.36) (2025-02-19)
+
+### Bug Fixes
+
+- **canary-web-components:** allow IcPaginationBar items per page to be set programmatically ([9e297e7](https://github.com/mi6/ic-ui-kit/commit/9e297e75f7a7732b89d1dff713bc55e7b69e46c3)), closes [#2525](https://github.com/mi6/ic-ui-kit/issues/2525)
+- **canary-web-components:** prevent IcDataTable action element clicks from selecting the table row ([42d1900](https://github.com/mi6/ic-ui-kit/commit/42d190011fb072807fd6654a41dbf1849c0cd560))
+- **canary-web-components:** update date input so "with-helper" css isn't used with no helper text ([4007551](https://github.com/mi6/ic-ui-kit/commit/4007551f6e8ae26bdcb04ea040d9b03a1ef2b611)), closes [#2370](https://github.com/mi6/ic-ui-kit/issues/2370)
+
+### Features
+
+- **canary-web-components:** implement disableAutoSort prop on data table ([a8e3e2d](https://github.com/mi6/ic-ui-kit/commit/a8e3e2de7bfd882de58faa3fafcaca9f61830e85)), closes [#2415](https://github.com/mi6/ic-ui-kit/issues/2415)
+
 # [2.0.0-canary.35](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.34...@ukic/canary-web-components@2.0.0-canary.35) (2025-02-12)
 
 ### Bug Fixes

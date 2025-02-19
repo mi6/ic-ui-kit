@@ -917,7 +917,7 @@
               }
             }
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "position",
           "reflectToAttr": false,
           "docs": "The positioning of the badge in reference to the parent element.",
@@ -11365,6 +11365,11 @@
       ],
       "listeners": [
         {
+          "event": "icCheck",
+          "capture": false,
+          "passive": false
+        },
+        {
           "event": "icChange",
           "capture": false,
           "passive": false
@@ -18035,6 +18040,28 @@
       "usage": {},
       "props": [
         {
+          "name": "disableClick",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-click",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "disableHover",
           "type": "boolean",
           "complexType": {
@@ -19139,6 +19166,11 @@
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },
+    "src/utils/types.ts::IcDeviceSizes": {
+      "declaration": "export type IcDeviceSizes = 0 | 576 | 768 | 992 | 1200;",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/components/ic-tooltip/ic-tooltip.types.ts::IcTooltipPlacements": {
       "declaration": "export type IcTooltipPlacements =\n  | \"top-start\"\n  | \"top\"\n  | \"top-end\"\n  | \"right-start\"\n  | \"right\"\n  | \"right-end\"\n  | \"bottom-end\"\n  | \"bottom\"\n  | \"bottom-start\"\n  | \"left-end\"\n  | \"left\"\n  | \"left-start\";",
       "docstring": "",
@@ -19273,11 +19305,6 @@
       "declaration": "export interface IcExpandedDetail {\n  sideNavExpanded: boolean;\n  sideNavMobile: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-side-navigation/ic-side-navigation.types.ts"
-    },
-    "src/utils/types.ts::IcDeviceSizes": {
-      "declaration": "export type IcDeviceSizes = 0 | 576 | 768 | 992 | 1200;",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes": {
       "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",

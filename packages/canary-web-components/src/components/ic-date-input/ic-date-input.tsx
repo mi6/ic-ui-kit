@@ -1585,7 +1585,7 @@ export class DateInput {
               for={inputId}
               label={label}
               hideLabel={hideLabel}
-              helperText={!hideHelperText ? helperText : null}
+              helperText={!hideHelperText ? helperText : ""}
               disabled={disabled}
             ></ic-input-label>
           )}
