@@ -53,7 +53,7 @@ export class Dialog {
   @State() fadeIn: boolean = false;
 
   /**
-   * If set to `false`, default buttons or slotted dialog controls will not be displayed.
+   * If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.
    */
   @Prop() buttons?: boolean = true;
 
