@@ -7,6 +7,7 @@ import {
   NoBackgroundClickDialog,
   SimpleDialog,
   SlottedContentDialog,
+  SlottedUpdatedContentDialog,
   NoHeightConstraintDialog,
   AlertDialog,
   SizeDialog,
@@ -78,6 +79,18 @@ describe("IcDialog end-to-end tests", () => {
     cy.get("ic-text-field").should(HAVE_FOCUS).realPress("Tab");
     cy.get("ic-checkbox").should(HAVE_FOCUS).realPress("Tab");
     cy.get("ic-button#test-button").should(HAVE_FOCUS);
+  });
+
+  it("should focus interactive content added after first load - including children of slotted elements", () => {
+    mount(<SlottedUpdatedContentDialog />);
+
+    cy.get(DIALOG).should("exist");
+    cy.get("ic-button#display-btn-1-btn").click().wait(300);
+    cy.get("ic-button#display-btn-2-btn").click();
+    cy.get("ic-button#display-dialog-btn").click().wait(300);
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+    cy.get("ic-button#test-button-1").should(HAVE_FOCUS).realPress("Tab");
+    cy.get("ic-button#test-button-2").should(HAVE_FOCUS);
   });
 
   it("should not hide dialog on background click when background click is disabled", () => {

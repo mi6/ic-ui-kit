@@ -42,66 +42,6 @@ const showLargeDialog = () => {
   dialog.open = true;
 };
 
-const DialogContent = () => {
-  const [show, setShow] = useState(false);
-  const handleShow = (show) => {
-    setShow(show);
-  };
-  return (
-    <>
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-      <IcButton onClick={() => handleShow(true)}>Show</IcButton>
-      <IcButton onClick={() => handleShow(false)}>Hide</IcButton>
-      {show && (
-        <>
-          <IcButton>Tab Here</IcButton>
-          <IcTypography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua.
-          </IcTypography>
-        </>
-      )}
-    </>
-  );
-};
-
 const showNeutralDialog = () => {
   const dialog = document.querySelector("#neutral-dialog");
   dialog.open = true;
@@ -206,6 +146,49 @@ const dropdownItems = () => {
   });
 };
 
+const showShowHideContentDialog = () => {
+  const dialog = document.querySelector("#show-hide-content-dialog");
+  dialog.showDialog();
+};
+
+const ShowHideContent = () => {
+  const [showEl1, setShowEl1] = useState(false);
+  const [showEl2, setShowEl2] = useState(false);
+  const handleShow = (show) => {
+    // Delay prevents false positive by ensuring the two slot updates happen at separate times
+    setTimeout(() => {
+      setShowEl1(show);
+    }, 2000);
+    setShowEl2(show);
+  };
+  return (
+    <>
+      <IcTypography>
+        Demonstrates changes to slotted elements happening after first load.
+        <br />
+        The button which is a child of an existing slotted element will update after a 2s delay.
+      </IcTypography>
+      <br />
+      <IcButton onClick={() => handleShow(true)}>Show</IcButton>
+      <IcButton onClick={() => handleShow(false)}>Hide</IcButton>
+      <div>
+        {showEl1 && (
+          <IcButton>Child of slotted element</IcButton>
+        )}
+      </div>
+      {showEl2 && (
+        <>
+          <IcButton>Slotted element</IcButton>
+          <IcTypography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </IcTypography>
+        </>
+      )}
+    </>
+  );
+};
+
 const showHiddenCloseButtonDialog = () => {
   const dialog = document.querySelector("#hidden-close-button-dialog");
   dialog.open = true;
@@ -259,7 +242,10 @@ export const Sizes = {
       size="medium"
       id="medium-dialog"
     >
-      <DialogContent />
+      <IcTypography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </IcTypography>
     </IcDialog>
     <IcDialog
       heading="This is a large dialog"
@@ -771,6 +757,22 @@ export const Popover = {
 
   name: "Popover",
 };
+
+export const ShowHideInteractiveElements = {
+  render: () => (
+    <>
+      <IcButton onClick={showShowHideContentDialog}>Launch show / hide content dialog</IcButton>
+      <IcDialog
+        id="show-hide-content-dialog"
+        heading="This dialog allows showing and hiding of content"
+      >
+        <ShowHideContent />
+      </IcDialog>
+    </>
+  ),
+
+  name: "Show / hide interactive elements",
+}
 
 export const HiddenCloseButton = {
   render: () => (
