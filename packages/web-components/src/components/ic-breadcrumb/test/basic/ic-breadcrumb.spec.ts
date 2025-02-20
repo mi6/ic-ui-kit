@@ -8,7 +8,7 @@ describe("ic-breadcrumb", () => {
       html: `<ic-breadcrumb></ic-breadcrumb>`,
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toMatchSnapshot(`
       <ic-breadcrumb role="listitem">
         <mock:shadow-root>
           <div class="breadcrumb">
@@ -30,7 +30,7 @@ describe("ic-breadcrumb", () => {
       html: `<ic-breadcrumb page-title="foo" href="/"></ic-breadcrumb>`,
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toMatchSnapshot(`
       <ic-breadcrumb href="/" page-title="foo" role="listitem">
         <mock:shadow-root>
           <div class="breadcrumb">
@@ -52,7 +52,7 @@ describe("ic-breadcrumb", () => {
       html: `<ic-breadcrumb page-title="foo" href="/" current="true"></ic-breadcrumb>`,
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toMatchSnapshot(`
       <ic-breadcrumb current="true" href="/" page-title="foo" role="listitem" aria-current="page">
         <mock:shadow-root>
           <div class="breadcrumb">
@@ -89,7 +89,7 @@ describe("ic-breadcrumb", () => {
       </ic-breadcrumb>`,
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toMatchSnapshot(`
       <ic-breadcrumb current="true" href="/" page-title="foo" aria-current="page" role="listitem">
         <mock:shadow-root>
           <div class="breadcrumb">
