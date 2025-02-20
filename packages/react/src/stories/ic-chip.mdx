@@ -1,77 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import { AgGridReact } from 'ag-grid-react';
 import * as IcChipStories from './ic-chip.stories';
-
-import { IcChip, IcBadge, IcTheme, IcTypography } from "../components";
 import chipReadme from "../../../web-components/src/components/ic-chip/readme.md";
 
 <Meta of={IcChipStories} />
 
-<Description markdown={chipReadme} />
+<Markdown>{chipReadme}</Markdown>
 
-## Static
-
-<Canvas>
-  <Story of={IcChipStories.Static} />
-</Canvas>
-
-## Outlined
-
-<Canvas>
-  <Story of={IcChipStories.Outlined} />
-</Canvas>
-
-## Dismissible
-
-<Canvas>
-  <Story of={IcChipStories.Dismissible} />
-</Canvas>
-
-## Disabled
-
-<Canvas>
-  <Story of={IcChipStories.Disabled} />
-</Canvas>
-
-## Without icons
-
-<Canvas>
-  <Story of={IcChipStories.WithoutIcons} />
-</Canvas>
-
-## Custom colour
-
-<Canvas>
-  <Story of={IcChipStories.CustomColour} />
-</Canvas>
-
-### In an AG Grid
-
-<Canvas>
-  <Story of={IcChipStories.InAnAgGrid} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  customColor: null,
-  disabled: false,
-  dismissible: false,
-  dismissLabel: "Dismiss",
-  label: "Chip label",
-  size: "medium",
-  theme: "inherit",
-  transparentBackground: true,
-  variant: "filled",
-  badgeSlot: "badge",
-};
-
-<Canvas>
-  <Story of={IcChipStories.Playground} />
-</Canvas>
+<Stories />

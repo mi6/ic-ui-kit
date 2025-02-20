@@ -1,112 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import {
-  IcBadge,
-  IcButton,
-  IcChip,
-  IcTab,
-  IcTabPanel,
-  IcTabGroup,
-  IcTabContext,
-} from "../components";
 import readme from "../../../web-components/src/components/ic-badge/readme.md";
 import * as IcBadgeStories from './ic-badge.stories';
 
 <Meta of={IcBadgeStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Success
-
-<Canvas>
-  <Story of={IcBadgeStories.Success} />
-</Canvas>
-
-### Error
-
-<Canvas>
-  <Story of={IcBadgeStories.Error} />
-</Canvas>
-
-### Warning
-
-<Canvas>
-  <Story of={IcBadgeStories.Warning} />
-</Canvas>
-
-### Neutral
-
-<Canvas>
-  <Story of={IcBadgeStories.Neutral} />
-</Canvas>
-
-### Light
-
-<Canvas>
-  <Story of={IcBadgeStories.Light} />
-</Canvas>
-
-### Info
-
-<Canvas>
-  <Story of={IcBadgeStories.Info} />
-</Canvas>
-
-### Custom
-
-<Canvas>
-  <Story of={IcBadgeStories.Custom} />
-</Canvas>
-
-### Max number
-
-<Canvas>
-  <Story of={IcBadgeStories.MaxNumber} />
-</Canvas>
-
-### Position near
-
-<Canvas>
-  <Story of={IcBadgeStories.PositionNear} />
-</Canvas>
-
-### Position inline
-
-<Canvas>
-  <Story of={IcBadgeStories.PositionInline} />
-</Canvas>
-
-### Hide badge
-
-<Canvas>
-  <Story of={IcBadgeStories.HideBadge} />
-</Canvas>
-
-### Accessible label
-
-<Canvas>
-  <Story of={IcBadgeStories.AccessibleLabel} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  accessibleLabel: "notification",
-  customColor: null,
-  maxNumber: 1000,
-  position: "far",
-  size: "medium",
-  label: "1",
-  type: "text",
-  variant: "neutral",
-  theme: "inherit",
-};
-
-<Canvas>
-  <Story of={IcBadgeStories.Playground} />
-</Canvas>
+<Stories />

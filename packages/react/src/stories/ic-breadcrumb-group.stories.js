@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import React from 'react';
 import {
   IcBreadcrumb,
   IcBreadcrumbGroup,
@@ -16,7 +18,7 @@ import {
   useLocation,
 } from "react-router-dom";
 
-const HomePage = (props) => {
+const HomePage = () => {
   return (
     <IcSectionContainer>
       <IcTypography variant="h1">Hi there!</IcTypography>

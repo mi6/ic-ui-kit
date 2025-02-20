@@ -1,97 +1,13 @@
-import { useState, useRef } from "react";
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import { IcSwitch, IcButton } from "../components";
 import readme from "../../../web-components/src/components/ic-switch/readme.md";
 import * as IcSwitchStories from './ic-switch.stories';
 
 <Meta of={IcSwitchStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-export const defaultArgs = {
-  label: "Custom Switch",
-  helperText: "Custom helper text",
-  disabled: false,
-  checked: false,
-  hideLabel: false,
-  size: "medium",
-  theme: "inherit",
-};
-
-### Default
-
-<Canvas>
-  <Story of={IcSwitchStories.Default} />
-</Canvas>
-
-### Name
-
-<Canvas>
-  <Story of={IcSwitchStories.Name} />
-</Canvas>
-
-### Checked
-
-<Canvas>
-  <Story of={IcSwitchStories.Checked} />
-</Canvas>
-
-### Checked updated
-
-<Canvas>
-  <Story of={IcSwitchStories.CheckedUpdated} />
-</Canvas>
-
-### Size small
-
-<Canvas>
-  <Story of={IcSwitchStories.SizeSmall} />
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story of={IcSwitchStories.Disabled} />
-</Canvas>
-
-### Disabled and label
-
-<Canvas>
-  <Story of={IcSwitchStories.DisabledAndLabel} />
-</Canvas>
-
-### Disabled, label and checked
-
-<Canvas>
-  <Story of={IcSwitchStories.DisabledNameAndChecked} />
-</Canvas>
-
-### ARIA label
-
-<Canvas>
-  <Story of={IcSwitchStories.AriaLabel} />
-</Canvas>
-
-### Right adornment
-
-<Canvas>
-  <Story of={IcSwitchStories.RightAdornment} />
-</Canvas>
-
-### Helper text
-
-<Canvas>
-  <Story of={IcSwitchStories.HelperText} />
-</Canvas>
-
-### Playground
-
-<Canvas>
-  <Story of={IcSwitchStories.Playground} />
-</Canvas>
+<Stories />

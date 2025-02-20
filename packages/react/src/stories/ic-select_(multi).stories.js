@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React, { useRef, useState } from "react";
 
 import { IcSelect } from "../components";
@@ -205,7 +208,7 @@ const LoadingWithError = () => {
       loading
       timeout="1000"
       onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      onIcRetryLoad={(event) => (selectEl.current.loading = true)}
+      onIcRetryLoad={() => (selectEl.current.loading = true)}
     />
   );
 };
@@ -259,7 +262,7 @@ export const Default = {
         label="What are your favourite types of coffee?"
         options={options}
         multiple
-        onIcClear={(event) => console.log("clear all clicked")}
+        onIcClear={() => console.log("clear all clicked")}
         onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         onIcOptionSelect={(event) =>
           console.log(`icOptionSelect: ${event.detail.value}`)

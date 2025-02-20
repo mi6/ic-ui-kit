@@ -1,5 +1,8 @@
-import React from "react";
-import { IcButton, IcStep, IcStepper } from "../components";
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+import React from 'react';
+import { IcStep, IcStepper, IcButton } from "../components";
 
 const defaultArgs = {
   aligned: "full-width",

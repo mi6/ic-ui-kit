@@ -1,12 +1,15 @@
-import { useArgs } from "@storybook/preview-api";
-import React, { useRef, useState } from "react";
-import { useForm } from "react-hook-form";
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import {
-  IcButton,
-  IcCheckbox,
   IcCheckboxGroup,
+  IcCheckbox,
   IcTextField,
+  IcButton,
 } from "../components";
+import { useForm } from "react-hook-form";
+import React, { useState, useRef } from "react";
+import { useArgs } from "@storybook/preview-api";
 
 const Form = () => {
   const { register, handleSubmit, unregister } = useForm();

@@ -1,4 +1,7 @@
-import React, { useRef, useState } from "react";
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+import React, { useState, useRef } from "react";
 import {
   IcAccordion,
   IcAccordionGroup,

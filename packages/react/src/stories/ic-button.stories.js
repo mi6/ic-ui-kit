@@ -1,3 +1,6 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { mdiAccountGroup } from "@mdi/js";
 import React, { useRef } from "react";
 import { iconProps } from "../component-tests/IcButton/IcButtonTestData";
@@ -150,7 +153,7 @@ const FileUpload = () => {
         variant="primary"
         fileUpload="true"
         accept=".doc, text/plain, .json"
-        onClick={(event) =>
+        onClick={() =>
           document.addEventListener("icFileSelection", (event) =>
             alert(`Files Selected: ${updateFileList(event.detail)}`),
           )
