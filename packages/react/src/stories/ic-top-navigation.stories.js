@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import {
   IcTopNavigation,
   IcNavigationButton,
@@ -11,11 +13,7 @@ import {
   IcBadge,
 } from "../components";
 import React, { useState } from "react";
-import readme from "../../../web-components/src/components/ic-top-navigation/readme.md";
-import NavigationButton from "../../../web-components/src/components/ic-navigation-button/readme.md";
-import NavigationItem from "../../../web-components/src/components/ic-navigation-item/readme.md";
-import NavigationGroup from "../../../web-components/src/components/ic-navigation-group/readme.md";
-import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
+import { NavLink, MemoryRouter, Route, Routes } from "react-router-dom";
 
 const Controlled = () => {
   const [color, setColour] = useState("rgb(255, 201, 60)");
@@ -49,25 +47,6 @@ const HomePage = () => (
 );
 
 const DailyTippers = () => (
-  <IcSectionContainer>
-    <IcTypography variant="h1">Daily tippers</IcTypography>
-    <IcTypography>
-      Lorem ipsum doloe sit amet, consectetur adipiscing
-    </IcTypography>
-  </IcSectionContainer>
-);
-
-const HomePageGrouped = () => (
-  <IcSectionContainer>
-    <IcTypography variant="h1">Hi there!</IcTypography>
-    <IcTypography>
-      This example is demonstrating the Top Navigation component with React
-      Router
-    </IcTypography>
-  </IcSectionContainer>
-);
-
-const DailyTippersGrouped = () => (
   <IcSectionContainer>
     <IcTypography variant="h1">Daily tippers</IcTypography>
     <IcTypography>
@@ -653,8 +632,8 @@ export const WithReactRouterGrouped = {
       </IcNavigationGroup>
     </IcTopNavigation>
     <Routes>
-      <Route path="/" element={<HomePageGrouped />} />
-      <Route path="/daily-tippers" element={<DailyTippersGrouped />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/daily-tippers" element={<DailyTippers />} />
     </Routes>
     </>
   ),

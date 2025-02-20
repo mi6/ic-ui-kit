@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { IcLink, IcTypography, IcSectionContainer } from "../components";
-import readme from "../../../web-components/src/components/ic-link/readme.md";
 import { NavLink, MemoryRouter, Route, Routes } from "react-router-dom";
 
 const HomePage = () => (

@@ -1,3 +1,5 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import {
   IcBackToTop,
@@ -5,7 +7,6 @@ import {
   IcClassificationBanner,
   IcTypography,
 } from "../components";
-import readme from "../../../web-components/src/components/ic-back-to-top/readme.md";
 
 const defaultArgs = {
   target: "topEl",

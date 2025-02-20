@@ -1,6 +1,7 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
-import { IcPagination, IcPaginationItem } from "../components";
-import readme from "../../../web-components/src/components/ic-pagination/readme.md";
+import { IcPagination } from "../components";
 
 const defaultArgs = {
   pages: 15,

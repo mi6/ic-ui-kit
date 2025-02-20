@@ -1,7 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { IcLoadingIndicator } from "../components";
-
-import readme from "../../../web-components/src/components/ic-loading-indicator/readme.md";
 
 const defaultArgs = {
   appearance: "dark",

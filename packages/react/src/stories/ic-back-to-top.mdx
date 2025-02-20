@@ -1,47 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
 import * as IcBackToTopStories from './ic-back-to-top.stories';
-
-import {
-  IcBackToTop,
-  IcButton,
-  IcClassificationBanner,
-  IcTypography,
-} from "../components";
 import readme from "../../../web-components/src/components/ic-back-to-top/readme.md";
-
-<Description markdown={readme} />
 
 <Meta of={IcBackToTopStories} />
 
-### Default
+<Markdown>{readme}</Markdown>
 
-Please switch to the Canvas and then choose to open the canvas in a new tab to see the best working illustration of this example.
-
-<Canvas>
-  <Story of={IcBackToTopStories.Default} />
-</Canvas>
-
-### Page Example
-
-Please switch to the Canvas and then choose to open the canvas in a new tab to see the best working illustration of this example.
-
-<Canvas>
-  <Story of={IcBackToTopStories.PageExample} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  target: "topEl",
-  variant: "default",
-};
-
-<Canvas>
-  <Story of={IcBackToTopStories.Playground} />
-</Canvas>
+<Stories />

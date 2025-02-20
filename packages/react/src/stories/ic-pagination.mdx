@@ -1,52 +1,14 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
 import * as IcPaginationStories from './ic-pagination.stories';
 
-import { IcPagination, IcPaginationItem } from "../components";
 import readme from "../../../web-components/src/components/ic-pagination/readme.md";
 
 <Meta of={IcPaginationStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-export const defaultArgs = {
-  pages: 15,
-  paginationType: "simple",
-  appearance: "default",
-  hideCurrentPage: false,
-  hideFirstAndLastPageButton: false,
-  defaultPage: 1,
-  disabled: false,
-  label: "",
-  adjacentCount: 1,
-  boundaryCount: 1,
-};
-
-### Simple
-
-<Canvas>
-  <Story of={IcPaginationStories.Simple} />
-</Canvas>
-
-### Complex
-
-<Canvas>
-  <Story of={IcPaginationStories.Complex} />
-</Canvas>
-
-### Complex - Adjacent & Boundary Items Set
-
-<Canvas>
-  <Story of={IcPaginationStories.ComplexAdjacentBoundaryItemsSet} />
-</Canvas>
-
-### Playground
-
-<Canvas>
-  <Story of={IcPaginationStories.Playground} />
-</Canvas>
+<Stories />

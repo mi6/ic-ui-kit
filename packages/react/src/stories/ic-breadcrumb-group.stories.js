@@ -1,14 +1,13 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import {
   IcBreadcrumbGroup,
   IcBreadcrumb,
   IcLink,
-  IcButton,
   IcTypography,
   IcSectionContainer,
 } from "../components";
-import readme from "../../../web-components/src/components/ic-breadcrumb-group/readme.md";
-import IcBreadcrumbReadme from "../../../web-components/src/components/ic-breadcrumb/readme.md";
 
 import {
   NavLink,

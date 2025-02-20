@@ -1,130 +1,13 @@
-import { useState, useRef } from "react";
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import { IcSwitch, IcButton } from "../components";
 import readme from "../../../web-components/src/components/ic-switch/readme.md";
 import * as IcSwitchStories from './ic-switch.stories';
 
 <Meta of={IcSwitchStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-export const defaultArgs = {
-  label: "Custom Switch",
-  helperText: "Custom helper text",
-  disabled: false,
-  checked: false,
-  hideLabel: false,
-  showState: false,
-  size: "default",
-};
-
-### Default
-
-<Canvas>
-  <Story of={IcSwitchStories.Default} />
-</Canvas>
-
-### Name
-
-<Canvas>
-  <Story of={IcSwitchStories.Name} />
-</Canvas>
-
-### State
-
-<Canvas>
-  <Story of={IcSwitchStories.State} />
-</Canvas>
-
-### Checked
-
-<Canvas>
-  <Story of={IcSwitchStories.Checked} />
-</Canvas>
-
-### Checked updated
-
-export const Controlled = () => {
-  const [checked, setChecked] = useState(true);
-  const defaultButtonClickHandler = () => {
-    setChecked(false);
-  };
-  const differentButtonClickHandler = () => {
-    setChecked(true);
-  };
-  return (
-    <>
-      <IcSwitch checked={checked} label="Label" />
-      <IcButton variant="primary" onClick={defaultButtonClickHandler}>
-        Unchecked
-      </IcButton>
-      <IcButton variant="primary" onClick={differentButtonClickHandler}>
-        Checked
-      </IcButton>
-    </>
-  );
-};
-
-<Canvas>
-  <Story of={IcSwitchStories.CheckedUpdated} />
-</Canvas>
-
-### Size small
-
-<Canvas>
-  <Story of={IcSwitchStories.SizeSmall} />
-</Canvas>
-
-### Deprecated - small
-
-<Canvas>
-  <Story of={IcSwitchStories.DeprecatedSmall} />
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story of={IcSwitchStories.Disabled} />
-</Canvas>
-
-### Disabled, label and state
-
-<Canvas>
-  <Story of={IcSwitchStories.DisabledNameAndState} />
-</Canvas>
-
-### Disabled, label, state and checked
-
-<Canvas>
-  <Story of={IcSwitchStories.DisabledNameStateAndChecked} />
-</Canvas>
-
-### ARIA label
-
-<Canvas>
-  <Story of={IcSwitchStories.AriaLabel} />
-</Canvas>
-
-### Right adornment
-
-<Canvas>
-  <Story of={IcSwitchStories.RightAdornment} />
-</Canvas>
-
-### Helper text
-
-<Canvas>
-  <Story of={IcSwitchStories.HelperText} />
-</Canvas>
-
-### Playground
-
-<Canvas>
-  <Story of={IcSwitchStories.Playground} />
-</Canvas>
+<Stories />

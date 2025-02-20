@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import React, { useState, useEffect } from "react";
 import {
   IcTabGroup,
@@ -8,11 +10,6 @@ import {
   IcBadge,
 } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
-import readme from "../../../web-components/src/components/ic-tab-context/readme.md";
-import TabContextReadme from "../../../web-components/src/components/ic-tab-context/readme.md";
-import TabReadme from "../../../web-components/src/components/ic-tab/readme.md";
-import TabGroupReadme from "../../../web-components/src/components/ic-tab-group/readme.md";
-import TabPanelReadme from "../../../web-components/src/components/ic-tab-panel/readme.md";
 
 const ControlledTabsExample = () => {
   const [selectedTab, setSelectedTab] = useState(0);

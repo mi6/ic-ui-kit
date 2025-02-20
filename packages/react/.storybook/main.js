@@ -1,35 +1,40 @@
 module.exports = {
-  "core": {
-    disableTelemetry: true
+  core: {
+    disableTelemetry: true,
   },
 
   stories: [
     {
-      directory: '../src/stories',
-      files: '*.stories.*',
-      titlePrefix: 'React Components',
+      directory: "../src/stories",
+      files: "*.mdx",
+      titlePrefix: "React Components",
+    },
+    {
+      directory: "../src/stories",
+      files: "*.stories.*",
+      titlePrefix: "React Components",
     },
   ],
 
-  "addons": [
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-postcss",
     "@storybook/addon-a11y",
     "@storybook/addon-mdx-gfm",
     "storybook-addon-performance",
-    "@storybook/addon-webpack5-compiler-babel"
+    "@storybook/addon-webpack5-compiler-babel",
   ],
 
-  "framework": {
+  framework: {
     name: "@storybook/react-webpack5",
-    options: {}
+    options: {},
   },
 
   docs: {},
 
   typescript: {
-    reactDocgen: "react-docgen-typescript"
+    reactDocgen: "react-docgen-typescript",
   },
 
   webpackFinal: async (config) => {
@@ -37,13 +42,13 @@ module.exports = {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       use: {
-        loader: 'babel-loader',
+        loader: "babel-loader",
         options: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
-        }
-      }
+          presets: ["@babel/preset-env", "@babel/preset-react"],
+        },
+      },
     });
 
     return config;
-  }
-}
+  },
+};

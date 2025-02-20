@@ -1,13 +1,13 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import {
   IcCheckboxGroup,
   IcCheckbox,
   IcTextField,
   IcButton,
 } from "../components";
-import checkboxReadme from "../../../web-components/src/components/ic-checkbox/readme.md";
-import checkboxGroupReadme from "../../../web-components/src/components/ic-checkbox-group/readme.md";
-import { set, useForm } from "react-hook-form";
-import React, { useState, useRef, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import React, { useState, useRef } from "react";
 import { useArgs } from "@storybook/preview-api";
 
 const Form = () => {
