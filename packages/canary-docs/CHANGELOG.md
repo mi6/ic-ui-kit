@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.7...@ukic/canary-docs@3.0.0-canary.8) (2025-02-20)
+
+**Note:** Version bump only for package @ukic/canary-docs
+
 # [3.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.6...@ukic/canary-docs@3.0.0-canary.7) (2025-01-22)
 
 ### Bug Fixes
