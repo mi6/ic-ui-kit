@@ -641,7 +641,7 @@ export namespace Components {
     }
     interface IcDialog {
         /**
-          * If set to `false`, default buttons or slotted dialog controls will not be displayed.
+          * If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.
          */
         "buttons"?: boolean;
         /**
@@ -3990,7 +3990,7 @@ declare namespace LocalJSX {
     }
     interface IcDialog {
         /**
-          * If set to `false`, default buttons or slotted dialog controls will not be displayed.
+          * If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.
          */
         "buttons"?: boolean;
         /**
