@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/codemod@1.0.0-alpha.3...@ukic/codemod@1.0.0-alpha.4) (2025-02-20)
+
+**Note:** Version bump only for package @ukic/codemod
+
 # [1.0.0-alpha.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/codemod@1.0.0-alpha.2...@ukic/codemod@1.0.0-alpha.3) (2025-02-05)
 
 ### Features

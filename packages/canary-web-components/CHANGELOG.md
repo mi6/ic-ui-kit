@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.9...@ukic/canary-web-components@3.0.0-canary.10) (2025-02-20)
+
+### Bug Fixes
+
+- **canary-web-components:** added check to prevent duplicate tooltips being added ([4e0972c](https://github.com/mi6/ic-ui-kit/commit/4e0972c0a6bea1ab2b1565dfe9d40185ba466728))
+- **canary-web-components:** allow IcPaginationBar items per page to be set programmatically ([80dcb4e](https://github.com/mi6/ic-ui-kit/commit/80dcb4eb31fe0c04d87a2fe1ba627c81724bcc7c)), closes [#2525](https://github.com/mi6/ic-ui-kit/issues/2525)
+- **canary-web-components:** prevent IcDataTable action element clicks from selecting the table row ([17aba87](https://github.com/mi6/ic-ui-kit/commit/17aba87ab65e7c06d55ae7e070a90ee2bdf794c8))
+- **canary-web-components:** support for nested tooltips in data-table slotted elements ([6709b04](https://github.com/mi6/ic-ui-kit/commit/6709b042b974c65cab4a54632ee84373254f60c8))
+- **canary-web-components:** update data input clear icon css so that it matches other clear icons ([e1d07a2](https://github.com/mi6/ic-ui-kit/commit/e1d07a2948f2c9125a06f59f58d7015bc83aec47)), closes [#2923](https://github.com/mi6/ic-ui-kit/issues/2923)
+- **canary-web-components:** update date input so "with-helper" css isn't used with no helper text ([ffcd26d](https://github.com/mi6/ic-ui-kit/commit/ffcd26dd0b1a9bf7065423b6d9ca754d8b7d18ee)), closes [#2370](https://github.com/mi6/ic-ui-kit/issues/2370)
+- **canary-web-components:** update tree view to improve FOUC ([bc87ee3](https://github.com/mi6/ic-ui-kit/commit/bc87ee33d2c480be24a4bc00b3f82558b5fe0039))
+- **canary-web-components:** validationStatus will be displayed without validationText ([ceddd39](https://github.com/mi6/ic-ui-kit/commit/ceddd396f9c36445150ca0d43bc1f9683ae9b0c8))
+- **ic-tree-item:** added styling and function changes ([3cfe01e](https://github.com/mi6/ic-ui-kit/commit/3cfe01eda2f05b545b4e9b0ac1d2cdc0b4ab07a6))
+
+### Features
+
+- **canary-web-components:** implement disableAutoSort prop on data table ([d46d357](https://github.com/mi6/ic-ui-kit/commit/d46d35778386e25648c4c7c4b478ea6e3d190c81)), closes [#2415](https://github.com/mi6/ic-ui-kit/issues/2415)
+
 # [3.0.0-canary.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.8...@ukic/canary-web-components@3.0.0-canary.9) (2025-02-05)
 
 ### Bug Fixes
