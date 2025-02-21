@@ -3,12 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<<<<<<< HEAD
 # [3.0.0-alpha.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.9...@ukic/docs@3.0.0-alpha.10) (2025-02-20)
 
 ### Bug Fixes
 
 - **docs:** expose IcToolTip disableClick prop ([973321f](https://github.com/mi6/ic-ui-kit/commit/973321f28b8c2c6eaab98e43f3d25b92c4e5e432)), closes [#3129](https://github.com/mi6/ic-ui-kit/issues/3129)
 
+=======
+>>>>>>> v3.0.0/main
 # [3.0.0-alpha.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.8...@ukic/docs@3.0.0-alpha.9) (2025-02-05)
 
 **Note:** Version bump only for package @ukic/docs

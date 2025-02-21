@@ -3,7 +3,11 @@
   "sideEffects": [
     "*.css"
   ],
+<<<<<<< HEAD
   "version": "3.0.0-alpha.10",
+=======
+  "version": "3.0.0-alpha.9",
+>>>>>>> v3.0.0/main
   "description": "React-wrapped web components compiled using StencilJS",
   "author": "mi6",
   "bugs": {
@@ -46,7 +50,11 @@
     "dist/"
   ],
   "dependencies": {
+<<<<<<< HEAD
     "@ukic/web-components": "^3.0.0-alpha.10"
+=======
+    "@ukic/web-components": "^3.0.0-alpha.9"
+>>>>>>> v3.0.0/main
   },
   "devDependencies": {
     "@ag-grid-community/styles": "^33.0.3",

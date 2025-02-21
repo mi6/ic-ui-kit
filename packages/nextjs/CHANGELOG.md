@@ -3,10 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<<<<<<< HEAD
 # [3.0.0-alpha.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/nextjs@3.0.0-alpha.6...@ukic/nextjs@3.0.0-alpha.7) (2025-02-20)
 
 **Note:** Version bump only for package @ukic/nextjs
 
+=======
+>>>>>>> v3.0.0/main
 # [3.0.0-alpha.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/nextjs@3.0.0-alpha.5...@ukic/nextjs@3.0.0-alpha.6) (2025-02-05)
 
 **Note:** Version bump only for package @ukic/nextjs

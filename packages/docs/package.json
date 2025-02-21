@@ -1,7 +1,11 @@
 {
   "author": "mi6",
   "name": "@ukic/docs",
+<<<<<<< HEAD
   "version": "3.0.0-alpha.10",
+=======
+  "version": "3.0.0-alpha.9",
+>>>>>>> v3.0.0/main
   "description": "API documentation for @ukic components",
   "main": "docs.json",
   "types": "docs.d.ts",

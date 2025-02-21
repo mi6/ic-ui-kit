@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<<<<<<< HEAD
 # [3.0.0-alpha.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.9...@ukic/web-components@3.0.0-alpha.10) (2025-02-20)
 
 ### Bug Fixes
@@ -41,6 +42,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ref 2963
 
+=======
+>>>>>>> v3.0.0/main
 # [3.0.0-alpha.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.8...@ukic/web-components@3.0.0-alpha.9) (2025-02-05)
 
 ### Bug Fixes

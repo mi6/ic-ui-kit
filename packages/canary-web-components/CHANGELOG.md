@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<<<<<<< HEAD
 # [3.0.0-canary.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.9...@ukic/canary-web-components@3.0.0-canary.10) (2025-02-20)
 
 ### Bug Fixes
@@ -21,6 +22,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **canary-web-components:** implement disableAutoSort prop on data table ([d46d357](https://github.com/mi6/ic-ui-kit/commit/d46d35778386e25648c4c7c4b478ea6e3d190c81)), closes [#2415](https://github.com/mi6/ic-ui-kit/issues/2415)
 
+=======
+>>>>>>> v3.0.0/main
 # [3.0.0-canary.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.8...@ukic/canary-web-components@3.0.0-canary.9) (2025-02-05)
 
 ### Bug Fixes
