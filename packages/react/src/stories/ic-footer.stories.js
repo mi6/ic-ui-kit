@@ -234,7 +234,7 @@ export const WithClassificationBanner = {
       <IcClassificationBanner classification="official" />
     <IcFooter
       aligned="full-width"
-      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
+      description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback,
           please get in touch."
       caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
       style={{ position: "fixed", bottom: "0", left: "0", right: "0" }}
@@ -318,12 +318,12 @@ export const WithReactRouter = {
       style={{ bottom: "0", left: "0", right: "0" }}
     >
       <IcFooterLink slot="link">
-        <NavLink to="/" style={{ color: "var(--ic-brand-text-color)" }}>
+        <NavLink to="/">
           Home
         </NavLink>
       </IcFooterLink>
       <IcFooterLink slot="link">
-        <NavLink to="/daily-tippers" style={{ color: "var(--ic-brand-text-color)" }}>
+        <NavLink to="/daily-tippers">
           Daily Tippers test
         </NavLink>
       </IcFooterLink>
