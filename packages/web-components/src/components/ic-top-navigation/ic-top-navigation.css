@@ -10,6 +10,7 @@
 
   --ic-button-secondary-text-monochrome: var(--ic-brand-text-color);
   --ic-button-secondary-border-monochrome: var(--ic-brand-text-color);
+  --navigation-link-colour: var(--ic-top-navigation-text);
 }
 
 :host(.dark) {
@@ -17,15 +18,14 @@
   --ic-typography-color: var(--ic-color-text-primary-light);
   --ic-top-navigation-logo: var(--ic-color-icon-neutral);
   --ic-top-navigation-icon: var(--ic-color-icon-neutral);
+  --ic-top-navigation-icon-and-label: var(--ic-color-text-primary-light);
   --ic-top-navigation-theme: var(--ic-color-icon-neutral);
   --ic-top-navigation-status-tag: var(--ic-color-background-primary-dark);
   --ic-top-navigation-status-tag-text: var(--ic-color-brand-text);
   --ic-top-navigation-status-tag-secondary: var(--ic-state-layer-darken-10);
+  --ic-top-navigation-title-hover: var(--ic-action-dark-bg-hover);
+  --ic-top-navigation-title-pressed: var(--ic-action-dark-bg-pressed);
   --navigation-link-colour: var(--ic-color-text-primary-light);
-}
-
-:host ::slotted(ic-navigation-item) {
-  --navigation-link-colour: var(--ic-top-navigation-text);
 }
 
 :host(.dark) ::slotted(ic-navigation-button) {
