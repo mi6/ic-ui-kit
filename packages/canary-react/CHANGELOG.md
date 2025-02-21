@@ -3,7 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-<<<<<<< HEAD
 # [3.0.0-canary.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.9...@ukic/canary-react@3.0.0-canary.10) (2025-02-20)
 
 ### Bug Fixes
@@ -20,8 +19,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **canary-react:** implement disableAutoSort prop on data table ([da93cb0](https://github.com/mi6/ic-ui-kit/commit/da93cb08780555119596486bd8e0edfe1e2fca9b)), closes [#2415](https://github.com/mi6/ic-ui-kit/issues/2415)
 - **canary-react:** update tree view truncation story to have expanded items ([2c6546c](https://github.com/mi6/ic-ui-kit/commit/2c6546c65196bc2c4dfc8737601faa3856204674))
 
-=======
->>>>>>> v3.0.0/main
 # [3.0.0-canary.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.8...@ukic/canary-react@3.0.0-canary.9) (2025-02-05)
 
 ### Bug Fixes
