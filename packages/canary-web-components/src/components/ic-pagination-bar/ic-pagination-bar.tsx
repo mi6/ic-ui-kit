@@ -34,6 +34,7 @@ export class PaginationBar {
   private pageInputTooltipEl: HTMLIcTooltipElement;
   private paginationBarEl: HTMLElement;
   private paginationEl: HTMLIcPaginationElement;
+  private userSetItemsPerPage: number;
 
   @Element() el: HTMLIcPaginationBarElement;
 
@@ -272,6 +273,8 @@ export class PaginationBar {
 
   private changeItemsPerPage = () => {
     this.setItemsPerPage(Number(this.pageDropdownEl.value));
+
+    this.userSetItemsPerPage = Number(this.pageDropdownEl.value);
   };
 
   private changePage = (page: number) => {
@@ -479,16 +482,25 @@ export class PaginationBar {
     this.setItemsPerPageOptions();
 
     let lastOptionValue = 0;
-    const updated = this.displayedItemsPerPageOptions.some(({ value }) => {
-      lastOptionValue = Number(value);
-      return this.itemsPerPage <= lastOptionValue;
-    });
 
-    this.setItemsPerPage(
-      updated || (!updated && this.itemsPerPage > lastOptionValue)
-        ? lastOptionValue
-        : this.itemsPerPage
-    );
+    if (this.userSetItemsPerPage) {
+      this.displayedItemsPerPageOptions.some(({ value }) => {
+        lastOptionValue = Number(value);
+        return this.userSetItemsPerPage <= lastOptionValue;
+      });
+      this.setItemsPerPage(lastOptionValue);
+    } else {
+      const updated = this.displayedItemsPerPageOptions.some(({ value }) => {
+        lastOptionValue = Number(value);
+        return this.itemsPerPage <= lastOptionValue;
+      });
+
+      this.setItemsPerPage(
+        updated || (!updated && this.itemsPerPage > lastOptionValue)
+          ? lastOptionValue
+          : this.itemsPerPage
+      );
+    }
   };
 
   private setUpperBound = () => {
