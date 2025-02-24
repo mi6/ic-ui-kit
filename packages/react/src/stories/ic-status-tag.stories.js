@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { IcStatusTag } from "../components";
-import readme from "../../../web-components/src/components/ic-status-tag/readme.md";
 
 const defaultArgs = {
   announced: false,

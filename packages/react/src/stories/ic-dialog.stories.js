@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable sonarjs/no-duplicate-string */
 import {
   IcButton,
   IcCheckbox,
@@ -12,8 +15,7 @@ import {
   IcTypography,
 } from "../components";
 import { SlottedSVG } from "../";
-import React, { useRef, useState } from "react";
-import readme from "../../../web-components/src/components/ic-dialog/readme.md";
+import React, { useState } from "react";
 
 const buttonProps = [
   { label: "Close", onclick: "this.hideDialog()" },

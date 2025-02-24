@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { IcEmptyState, IcLink, IcButton } from "../components";
-import readme from "../../../web-components/src/components/ic-empty-state/readme.md";
 
 const defaultArgs = {
   aligned: "left",

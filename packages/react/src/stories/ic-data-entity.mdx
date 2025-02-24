@@ -1,97 +1,14 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import {
-  IcButton,
-  IcDataEntity,
-  IcDataRow,
-  IcStatusTag,
-  IcLink,
-  IcTextField,
-  IcTypography,
-} from "../components";
 import readme from "../../../web-components/src/components/ic-data-row/readme.md";
+import dataEntityReadme from "../../../web-components/src/components/ic-data-entity/readme.md";
 import * as IcDataEntityStories from './ic-data-entity.stories';
 
 <Meta of={IcDataEntityStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + dataEntityReadme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcDataEntityStories.Default} />
-</Canvas>
-
-### Slotted heading and label
-
-<Canvas>
-  <Story of={IcDataEntityStories.SlottedHeadingAndLabel} />
-</Canvas>
-
-### Long text values
-
-<Canvas>
-  <Story of={IcDataEntityStories.LongTextValues} />
-</Canvas>
-
-### Size small
-
-<Canvas>
-  <Story of={IcDataEntityStories.SizeSmall} />
-</Canvas>
-
-### Deprecated - small
-
-<Canvas>
-  <Story of={IcDataEntityStories.DeprecatedSmall} />
-</Canvas>
-
-### Link
-
-<Canvas>
-  <Story of={IcDataEntityStories.Link} />
-</Canvas>
-
-### Icon button
-
-<Canvas>
-  <Story of={IcDataEntityStories.IconButton} />
-</Canvas>
-
-### Adornment
-
-<Canvas>
-  <Story of={IcDataEntityStories.Adornment} />
-</Canvas>
-
-### Status tag
-
-<Canvas>
-  <Story of={IcDataEntityStories.StatusTag} />
-</Canvas>
-
-### Editable example
-
-<Canvas>
-  <Story of={IcDataEntityStories.EditableExample} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  heading: "Details",
-  size: "default",
-  label: "Name",
-  rowSize: "default",
-  value: "Michael Johnson",
-  endCompSlot: "end-component",
-};
-
-<Canvas>
-  <Story of={IcDataEntityStories.Playground} />
-</Canvas>
+<Stories />

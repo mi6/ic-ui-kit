@@ -1,63 +1,11 @@
-import { Meta, Story, Canvas, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
-import classificationBanner from "../ic-classification-banner/readme.md";
+import footerLinkReadme from "../ic-footer-link/readme.md";
+import footerLinkGroupReadme from "../ic-footer-link-group/readme.md";
 import * as IcFooterStories from "./ic-footer.stories";
 
 <Meta of={IcFooterStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + footerLinkReadme + footerLinkGroupReadme}</Markdown>
 
-### Ungrouped links
-
-<Canvas>
-  <Story of={IcFooterStories.UngroupedLinks} />
-</Canvas>
-
-### Grouped links
-
-<Canvas>
-  <Story of={IcFooterStories.GroupedLinks} />
-</Canvas>
-
-### With classification banner
-
-<Canvas>
-  <Story of={IcFooterStories.WithClassificationBanner} />
-</Canvas>
-
-### Theming
-
-<Canvas>
-  <Story of={IcFooterStories.Theming} />
-</Canvas>
-
-### With logo links
-
-<Canvas>
-  <Story of={IcFooterStories.WithLogoLinks} />
-</Canvas>
-
-### Footer with no caption or logo or copyright
-
-<Canvas>
-  <Story of={IcFooterStories.FooterWithNoCaptionOrLogoOrCopyright} />
-</Canvas>
-
-### Footer with no links
-
-<Canvas>
-  <Story of={IcFooterStories.FooterWithNoLinks} />
-</Canvas>
-
-### Breakpoint
-
-<Canvas>
-  <Story of={IcFooterStories.Breakpoint} />
-</Canvas>
-
-### Slotted description and caption
-
-<Canvas>
-  <Story of={IcFooterStories.SlottedDescriptionAndCaption} />
-</Canvas>
+<Stories />

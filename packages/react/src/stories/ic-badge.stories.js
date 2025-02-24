@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import {
   IcBadge,
@@ -8,7 +9,6 @@ import {
   IcTabGroup,
   IcTabContext,
 } from "../components";
-import readme from "../../../web-components/src/components/ic-badge/readme.md";
 
 const showHideBadge = () => {
   const badge = document.querySelector("ic-badge");

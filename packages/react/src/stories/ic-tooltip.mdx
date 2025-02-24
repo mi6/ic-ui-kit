@@ -1,81 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import { IcTooltip } from "../components";
 import readme from "../../../web-components/src/components/ic-tooltip/readme.md";
 import * as IcTooltipStories from './ic-tooltip.stories';
 
 <Meta of={IcTooltipStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcTooltipStories.Default} />
-</Canvas>
-
-### Using external method
-
-<Canvas>
-  <Story of={IcTooltipStories.UsingExternalMethod} />
-</Canvas>
-
-### Disabled Hover
-
-<Canvas>
-  <Story of={IcTooltipStories.DisabledHover} />
-</Canvas>
-
-### Top placements
-
-<Canvas>
-  <Story of={IcTooltipStories.TopPlacements} />
-</Canvas>
-
-### Bottom placements
-
-<Canvas>
-  <Story of={IcTooltipStories.BottomPlacements} />
-</Canvas>
-
-### Right placements
-
-<Canvas>
-  <Story of={IcTooltipStories.RightPlacements} />
-</Canvas>
-
-### Left placements
-
-<Canvas>
-  <Story of={IcTooltipStories.LeftPlacements} />
-</Canvas>
-
-### Truncation
-
-<Canvas>
-  <Story of={IcTooltipStories.Truncation} />
-</Canvas>
-
-### Dark background
-
-<Canvas>
-  <Story of={IcTooltipStories.DarkBackground} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  disableHover: false,
-  maxLines: 3,
-  placement: "bottom",
-  label: "This is a description of the button",
-};
-
-<Canvas>
-  <Story of={IcTooltipStories.Playground} />
-</Canvas>
+<Stories />

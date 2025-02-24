@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 
 import { IcTypography } from "../components";
-import readme from "../../../web-components/src/components/ic-typography/readme.md";
 
 const defaultArgs = {
   applyVerticalMargins: false,

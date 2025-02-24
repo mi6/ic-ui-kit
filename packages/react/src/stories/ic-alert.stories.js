@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { IcAlert, IcLink, IcButton } from "../components";
-import readme from "../../../web-components/src/components/ic-alert/readme.md";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 const defaultArgs = {
