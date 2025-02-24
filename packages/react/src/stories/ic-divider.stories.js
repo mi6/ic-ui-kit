@@ -1,3 +1,5 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from "react";
 import { IcDivider, IcTypography } from "../components";
 
@@ -15,7 +17,6 @@ const defaultArgs = {
   "--ic-divider-background-monochrome": "",
   "--ic-divider-label": "",
   "--ic-divider-label-monochrome": "",
-  "--ic-divider-background": "",
   "--ic-divider-label-width": "",
 };
 

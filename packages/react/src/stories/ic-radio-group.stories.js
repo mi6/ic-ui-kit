@@ -1,3 +1,6 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useEffect, useRef, useState } from "react";
 import {
   IcButton,
@@ -211,7 +214,7 @@ export const Horizontal = {
       <IcRadioOption value="valueName2" label="Unselected / Default" />
     </IcRadioGroup>
     <br/>
-    <p>Horizontal orientation is overridden with >2 radio options</p>
+    <p>Horizontal orientation is overridden with 2 radio options</p>
     <br/>
     <IcRadioGroup orientation="horizontal" label="This should be vertical" name="2">
       <IcRadioOption value="valueNameA" label="First" selected />

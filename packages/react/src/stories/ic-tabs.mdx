@@ -1,21 +1,8 @@
-import { useState, useEffect } from "react";
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import {
-  IcTabGroup,
-  IcTabPanel,
-  IcTab,
-  IcTabContext,
-  IcButton,
-  IcBadge
-} from "../components";
-import { SlottedSVG } from "../react-component-lib/slottedSVG";
-import readme from "../../../web-components/src/components/ic-tab-context/readme.md";
 import TabContextReadme from "../../../web-components/src/components/ic-tab-context/readme.md";
 import TabReadme from "../../../web-components/src/components/ic-tab/readme.md";
 import TabGroupReadme from "../../../web-components/src/components/ic-tab-group/readme.md";
@@ -24,90 +11,6 @@ import * as IcTabsStories from './ic-tabs.stories';
 
 <Meta of={IcTabsStories} />
 
-<Description markdown={TabContextReadme + TabGroupReadme + TabReadme + TabPanelReadme} />
+<Markdown>{TabContextReadme + TabGroupReadme + TabPanelReadme + TabReadme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcTabsStories.Default} />
-</Canvas>
-
-### With icons
-
-<Canvas>
-  <Story of={IcTabsStories.WithIcons} />
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story of={IcTabsStories.Disabled} />
-</Canvas>
-
-### Inline
-
-<Canvas>
-  <Story of={IcTabsStories.Inline} />
-</Canvas>
-
-### Controlled
-
-```
-export const ControlledTabsExample = () => {
-  const [selectedTab, setSelectedTab] = useState(0);
-  return (
-    <>
-      <IcTabContext
-        selectedTabIndex={selectedTab}
-        onIcTabSelect={(event) => setSelectedTab(event.detail.tabIndex)}
-      >
-        <IcTabGroup label="Example tab group">
-          <IcTab>One</IcTab>
-          <IcTab>Two</IcTab>
-          <IcTab>Three</IcTab>
-        </IcTabGroup>
-        <IcTabPanel>Tab One</IcTabPanel>
-        <IcTabPanel>Tab Two</IcTabPanel>
-        <IcTabPanel>Tab Three</IcTabPanel>
-      </IcTabContext>
-    </>
-  );
-};
-```
-
-<Canvas>
-  <Story of={IcTabsStories.Controlled} />
-</Canvas>
-
-### Manual activation
-
-<Canvas>
-  <Story of={IcTabsStories.ManualActivation} />
-</Canvas>
-
-### Responsive
-
-<Canvas>
-  <Story of={IcTabsStories.Responsive} />
-</Canvas>
-
-### Dynamic rendering
-
-<Canvas>
-  <Story of={IcTabsStories.DynamicRendering} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  activationType: "automatic",
-  disabled: false,
-  inline: false,
-  groupLabel: "Example tab group",
-  theme: "inherit",
-  monochrome: false,
-};
-
-<Canvas>
-  <Story of={IcTabsStories.Playground} />
-</Canvas>
+<Stories />

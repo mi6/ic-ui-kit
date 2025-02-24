@@ -1,55 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import { IcSkeleton, IcTypography } from "../components";
 import readme from "../../../web-components/src/components/ic-skeleton/readme.md";
 import * as IcSkeletonStories from './ic-skeleton.stories';
 
 <Meta of={IcSkeletonStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Rectangle
-
-<Canvas>
-  <Story of={IcSkeletonStories.Rectangle} />
-</Canvas>
-
-### Circle
-
-<Canvas>
-  <Story of={IcSkeletonStories.Circle} />
-</Canvas>
-
-### Text
-
-<Canvas>
-  <Story of={IcSkeletonStories.Text} />
-</Canvas>
-
-### Example
-
-<Canvas>
-  <Story of={IcSkeletonStories.Example} />
-</Canvas>
-
-### Dark mode
-
-<Canvas>
-  <Story of={IcSkeletonStories.DarkMode} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  theme: "inherit",
-  variant: "rectangle",
-};
-
-<Canvas>
-  <Story of={IcSkeletonStories.Playground} />
-</Canvas>
+<Stories />

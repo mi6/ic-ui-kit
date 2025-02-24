@@ -1,84 +1,14 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import {
-  IcBreadcrumbGroup,
-  IcBreadcrumb,
-  IcLink,
-  IcButton,
-  IcTypography,
-  IcSectionContainer,
-} from "../components";
 import readme from "../../../web-components/src/components/ic-breadcrumb-group/readme.md";
 import IcBreadcrumbReadme from "../../../web-components/src/components/ic-breadcrumb/readme.md";
 import * as IcBreadcrumbGroupStories from './ic-breadcrumb-group.stories';
 
-<Description markdown={readme + IcBreadcrumbReadme} />
-
 <Meta of={IcBreadcrumbGroupStories} />
 
-import {
-  NavLink,
-  MemoryRouter,
-  Route,
-  Routes,
-  useLocation,
-  Link,
-} from "react-router-dom";
+<Markdown>{readme + IcBreadcrumbReadme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.Default} />
-</Canvas>
-
-### Slotted links
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.SlottedLinks} />
-</Canvas>
-
-### Back
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.Back} />
-</Canvas>
-
-### Icon
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.Icon} />
-</Canvas>
-
-### Collapsed
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.Collapsed} />
-</Canvas>
-
-### React Router
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.ReactRouter} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  backBreadcrumbOnly: false,
-  collapsed: false,
-  current: false,
-  href: "/",
-  pageTitle: "Home",
-  iconSlot: true,
-  theme: "inherit",
-  monochrome: false,
-};
-
-<Canvas>
-  <Story of={IcBreadcrumbGroupStories.Playground} />
-</Canvas>
+<Stories />

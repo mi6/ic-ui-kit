@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import React, { useState } from "react";
-import { IcButton, IcSwitch } from "../components";
+import { IcSwitch, IcButton } from "../components";
 
 const defaultArgs = {
   label: "Custom Switch",

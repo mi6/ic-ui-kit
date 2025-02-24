@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React, { useEffect, useRef } from "react";
 import {
   IcButton,

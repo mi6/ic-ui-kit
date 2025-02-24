@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable sonarjs/no-duplicate-string */
+import React from 'react';
 import { IcSectionContainer } from "../components";
 
 const defaultArgs = {

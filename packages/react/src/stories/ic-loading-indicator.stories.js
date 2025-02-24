@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import React from 'react';
 import { IcLoadingIndicator } from "../components";
 
 const defaultArgs = {
@@ -13,9 +14,6 @@ const defaultArgs = {
 };
 
 const defaultArgTypes = {
-  label: {
-    control: { type: "text" },
-  },
   size: {
     options: ["small", "medium", "large", "icon"],
     control: { type: "radio" },

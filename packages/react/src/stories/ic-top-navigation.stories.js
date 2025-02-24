@@ -1,17 +1,19 @@
-import React, { useState } from "react";
-import { MemoryRouter, NavLink } from "react-router-dom";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import {
-  IcBadge,
-  IcButton,
-  IcNavigationButton,
-  IcNavigationGroup,
-  IcNavigationItem,
-  IcSearchBar,
-  IcSectionContainer,
-  IcTheme,
   IcTopNavigation,
+  IcNavigationButton,
+  IcNavigationItem,
+  IcNavigationGroup,
+  IcSearchBar,
   IcTypography,
+  IcSectionContainer,
+  IcButton,
+  IcTheme,
+  IcBadge,
 } from "../components";
+import React, { useState } from "react";
+import { NavLink, MemoryRouter, Route, Routes } from "react-router-dom";
 
 const Controlled = () => {
   const [color, setColour] = useState("rgb(255, 201, 60)");
@@ -45,25 +47,6 @@ const HomePage = () => (
 );
 
 const DailyTippers = () => (
-  <IcSectionContainer>
-    <IcTypography variant="h1">Daily tippers</IcTypography>
-    <IcTypography>
-      Lorem ipsum doloe sit amet, consectetur adipiscing
-    </IcTypography>
-  </IcSectionContainer>
-);
-
-const HomePageGrouped = () => (
-  <IcSectionContainer>
-    <IcTypography variant="h1">Hi there!</IcTypography>
-    <IcTypography>
-      This example is demonstrating the Top Navigation component with React
-      Router
-    </IcTypography>
-  </IcSectionContainer>
-);
-
-const DailyTippersGrouped = () => (
   <IcSectionContainer>
     <IcTypography variant="h1">Daily tippers</IcTypography>
     <IcTypography>
@@ -650,8 +633,8 @@ export const WithReactRouterGrouped = {
       </IcNavigationGroup>
     </IcTopNavigation>
     <Routes>
-      <Route path="/" element={<HomePageGrouped />} />
-      <Route path="/daily-tippers" element={<DailyTippersGrouped />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/daily-tippers" element={<DailyTippers />} />
     </Routes>
     </>
   ),

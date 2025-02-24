@@ -1,141 +1,16 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import {
-  IcTopNavigation,
-  IcNavigationButton,
-  IcNavigationItem,
-  IcNavigationGroup,
-  IcSearchBar,
-  IcTypography,
-  IcSectionContainer,
-  IcButton,
-  IcTheme,
-  IcBadge,
-} from "../components";
-import { useState } from "react";
 import readme from "../../../web-components/src/components/ic-top-navigation/readme.md";
 import NavigationButton from "../../../web-components/src/components/ic-navigation-button/readme.md";
 import NavigationItem from "../../../web-components/src/components/ic-navigation-item/readme.md";
 import NavigationGroup from "../../../web-components/src/components/ic-navigation-group/readme.md";
-import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 import * as IcTopNavigationStories from './ic-top-navigation.stories';
 
 <Meta of={IcTopNavigationStories} />
 
-<Description markdown={readme + NavigationItem + NavigationGroup + NavigationButton} />
+<Markdown>{readme + NavigationItem + NavigationGroup + NavigationButton}</Markdown>
 
-### App icon and title
-
-<Canvas>
-  <Story of={IcTopNavigationStories.AppIconAndTitle} />
-</Canvas>
-
-### With Status and version
-
-<Canvas>
-  <Story of={IcTopNavigationStories.StatusAndVersion} />
-</Canvas>
-
-### With Search
-
-<Canvas>
-  <Story of={IcTopNavigationStories.WithSearch} />
-</Canvas>
-
-### With icons
-
-<Canvas>
-  <Story of={IcTopNavigationStories.WithIcons} />
-</Canvas>
-
-### Long app title
-
-<Canvas>
-  <Story of={IcTopNavigationStories.LongAppTitle} />
-</Canvas>
-
-### With navigation
-
-<Canvas>
-  <Story of={IcTopNavigationStories.WithNavigation} />
-</Canvas>
-
-### With group navigation
-
-<Canvas>
-  <Story of={IcTopNavigationStories.WithGroupNavigation} />
-</Canvas>
-
-### Top nav resized event
-
-<Canvas>
-  <Story of={IcTopNavigationStories.TopNavResizedEvent} />
-</Canvas>
-
-### Brand
-
-<Canvas>
-  <Story of={IcTopNavigationStories.Brand} />
-</Canvas>
-
-### With React Router
-
-<Canvas>
-  <Story of={IcTopNavigationStories.WithReactRouter} />
-</Canvas>
-
-### With React Router - grouped
-
-<Canvas>
-  <Story of={IcTopNavigationStories.WithReactRouterGrouped} />
-</Canvas>
-
-### With long single-word app title
-
-<Canvas>
-  <Story of={IcTopNavigationStories.LongSingleWordAppTitle} />
-</Canvas>
-
-### Short title
-
-<Canvas>
-  <Story of={IcTopNavigationStories.ShortTitle} />
-</Canvas>
-
-### Slotted title link
-
-<Canvas>
-  <Story of={IcTopNavigationStories.SlottedTitleLink} />
-</Canvas>
-
-### Conditional tabs
-
-<Canvas>
-  <Story of={IcTopNavigationStories.ConditionalTabs} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  appTitle: "Application Name",
-  contentAligned: "full-width",
-  customMobileBreakpoint: 992,
-  href: "/",
-  inline: false,
-  shortAppTitle: "App Name",
-  status: "alpha",
-  version: "0.0.1",
-  appIconSlot: "app-icon",
-  searchSlot: "search",
-  buttonsSlot: "buttons",
-  theme: "inherit",
-};
-
-<Canvas>
-  <Story of={IcTopNavigationStories.Playground} />
-</Canvas>
+<Stories />

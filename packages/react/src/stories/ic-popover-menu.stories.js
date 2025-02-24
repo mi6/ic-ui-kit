@@ -1,4 +1,7 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable sonarjs/no-duplicate-string */
+import React from 'react';
 import {
   IcButton,
   IcMenuGroup,

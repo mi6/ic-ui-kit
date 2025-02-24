@@ -1,69 +1,9 @@
-import { Meta, Story, Canvas, Description } from '@storybook/blocks';
-import { IcDivider, IcTypography } from '../components';
+import { Meta, Stories, Markdown } from '@storybook/blocks';
 import readme from '../../../web-components/src/components/ic-divider/readme.md';
 import * as IcDividerStories from './ic-divider.stories';
 
 <Meta of={IcDividerStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Theme
-
-<Canvas>
-  <Story of={IcDividerStories.Theme} />
-</Canvas>
-
-### Weight
-
-<Canvas>
-  <Story of={IcDividerStories.Weight} />
-</Canvas>
-
-### Border style
-
-<Canvas>
-  <Story of={IcDividerStories.BorderStyle} />
-</Canvas>
-
-### Vertical
-
-<Canvas>
-  <Story of={IcDividerStories.Vertical} />
-</Canvas>
-
-### Max content
-
-<Canvas>
-  <Story of={IcDividerStories.MaxContent} />
-</Canvas>
-
-### Label placement
-
-<Canvas>
-  <Story of={IcDividerStories.LabelPlacement} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  borderStyle: 'solid',
-  label: '',
-  labelPlacement: 'none',
-  monochrome: false,
-  orientation: 'horizontal',
-  theme: 'inherit',
-  weight: 'thin',
-  '--ic-divider-horizontal-width': '100%',
-  '--ic-divider-vertical-height': '400px',
-  '--ic-divider-background': '',
-  '--ic-divider-background-monochrome': '',
-  '--ic-divider-label': '',
-  '--ic-divider-label-monochrome': '',
-  '--ic-divider-background': '',
-  '--ic-divider-label-width': ''
-
-};
-
-<Canvas>
-  <Story of={IcDividerStories.Playground} />
-</Canvas>
+<Stories />

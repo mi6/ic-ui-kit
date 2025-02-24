@@ -1,97 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import {
-  IcButton,
-  IcCheckbox,
-  IcCheckboxGroup,
-  IcDialog,
-  IcTextField,
-  IcSelect,
-  IcAlert,
-  IcSearchBar,
-  IcChip,
-  IcTooltip,
-  IcTypography,
-} from "../components";
-import { SlottedSVG } from "../";
-import { useRef, useState } from "react";
 import readme from "../../../web-components/src/components/ic-dialog/readme.md";
 import * as IcDialogStories from './ic-dialog.stories';
 
 <Meta of={IcDialogStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Sizes
-
-<Canvas>
-  <Story of={IcDialogStories.Sizes} />
-</Canvas>
-
-### Slotted content
-
-<Canvas>
-  <Story of={IcDialogStories.SlottedContent} />
-</Canvas>
-
-### Background close prevented
-
-<Canvas>
-  <Story of={IcDialogStories.BackgroundClosePrevented} />
-</Canvas>
-
-### Scrollable
-
-<Canvas>
-  <Story of={IcDialogStories.Scrollable} />
-</Canvas>
-
-### Popover
-
-<Canvas>
-  <Story of={IcDialogStories.Popover} />
-</Canvas>
-
-### Show / hide interactive elements
-
-<Canvas>
-  <Story of={IcDialogStories.ShowHideInteractiveElements} />
-</Canvas>
-
-### Hidden close button
-
-<Canvas>
-  <Story of={IcDialogStories.HiddenCloseButton} />
-</Canvas>
-
-### Auto opening
-
-<Canvas>
-  <Story of={IcDialogStories.AutoOpening} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  buttons: true,
-  closeOnBackdropClick: true,
-  destructive: false,
-  dismissLabel: "Dismiss",
-  disableHeightConstraint: false,
-  disableWidthConstraint: false,
-  hideCloseButton: false,
-  heading: "This is a dialog",
-  label: "Dialog",
-  open: true,
-  size: "medium",
-  theme: "inherit",
-};
-
-<Canvas>
-  <Story of={IcDialogStories.Playground} />
-</Canvas>
+<Stories />
