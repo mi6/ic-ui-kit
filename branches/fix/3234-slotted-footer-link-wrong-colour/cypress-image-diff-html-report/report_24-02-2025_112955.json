@@ -1,7 +1,7 @@
 {
   "total": 753,
-  "totalPassed": 751,
-  "totalFailed": 2,
+  "totalPassed": 752,
+  "totalFailed": 1,
   "totalSuites": 42,
   "suites": [
     {
@@ -8125,14 +8125,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/brand.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx/brand-slotted-navigation-items",
-          "percentage": 0.054932175085728424,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/brand-slotted-navigation-items.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTopNavigation.cy.tsx/brand-slotted-navigation-items.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/brand-slotted-navigation-items.png"
         },
         {
@@ -8540,9 +8540,9 @@
       ]
     }
   ],
-  "startedAt": "2025-02-22T11:48:13.745Z",
-  "endedAt": "2025-02-22T12:03:25.772Z",
-  "duration": 818599,
+  "startedAt": "2025-02-24T11:29:55.597Z",
+  "endedAt": "2025-02-24T11:45:12.338Z",
+  "duration": 821552,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
