@@ -745,6 +745,24 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it("should display error validation without validation text", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput label="Test Label" validationStatus="error" />
+      </div>
+    );
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-without-error-validation-text",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.057),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
   it("should display warning validation", () => {
     mount(
       <div style={{ padding: "10px" }}>
@@ -769,6 +787,24 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it("should display warning validation without validation text", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput label="Test Label" validationStatus="warning" />
+      </div>
+    );
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-without-warning-validation-text",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
   it("should display success validation", () => {
     mount(
       <div style={{ padding: "10px" }}>
@@ -786,6 +822,24 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "date-input-with-success-validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.005),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should display success validation without validation text", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput label="Test Label" validationStatus="success" />
+      </div>
+    );
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-without-success-validation-text",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
       delay: 500,
       cypressScreenshotOptions: {
         capture: "viewport",
@@ -888,7 +942,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
 
     // When hideHelperText is set to true, helper text should not render
     cy.get("button#hideText").focus().click();
-    cy.findShadowEl(DATE_INPUT, ".helpertext").should(HAVE_TEXT, "");
+    cy.findShadowEl(DATE_INPUT, ".helpertext").should(NOT_EXIST);
   });
 
   it("should hide the label when hideLabel is true and the label should appear within the screen reader span", () => {

@@ -72,7 +72,17 @@ export class PopoverMenu {
 
   @Watch("open")
   watchOpenHandler(): void {
+    const popoverArr = this.el.parentElement?.querySelectorAll(
+      `ic-popover-menu`
+    ) as NodeListOf<HTMLIcPopoverMenuElement>;
     if (this.open) {
+      if (popoverArr.length > 0) {
+        popoverArr.forEach((popover) => {
+          if (popover !== this.el) {
+            popover.open = false;
+          }
+        });
+      }
       if (
         this.parentPopover !== undefined &&
         !this.popoverMenuEls.some((menuItem) => menuItem.id)
@@ -84,6 +94,13 @@ export class PopoverMenu {
       // Needed so that anchorEl isn't always focused
       setTimeout(this.setButtonFocus, 50);
     } else if (this.popperInstance) {
+      if (popoverArr.length > 0) {
+        popoverArr.forEach((popover) => {
+          if (popover !== this.el) {
+            popover.open = false;
+          }
+        });
+      }
       this.popperInstance.destroy();
       this.popperInstance = null;
     }

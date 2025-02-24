@@ -141,9 +141,7 @@ export class TreeItem {
 
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
-  }
 
-  componentDidLoad(): void {
     this.childTreeItems = Array.from((this.el as HTMLElement).children).filter(
       (child) => child.tagName === this.treeItemTag
     ) as HTMLIcTreeItemElement[];
@@ -151,14 +149,12 @@ export class TreeItem {
     if (this.childTreeItems.length > 0) {
       this.isParent = true;
     }
+  }
 
+  componentDidLoad(): void {
     this.setTreeItemPadding();
 
     this.updateAriaLabel();
-
-    setTimeout(() => {
-      this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
-    }, 100);
 
     !isSlotUsed(this.el, "label") &&
       onComponentRequiredPropUndefined(
@@ -175,6 +171,10 @@ export class TreeItem {
   }
 
   componentDidUpdate(): void {
+    // Truncation is run here because truncateTreeItem prop gets applied on second render
+    // if being passed down from parent tree view
+    this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
+
     if (this.hasParentExpanded) {
       this.childTreeItems.forEach((child: HTMLIcTreeItemElement) => {
         child.truncateTreeItem && this.truncateTreeItemLabel(child);

@@ -641,7 +641,7 @@ export namespace Components {
     }
     interface IcDialog {
         /**
-          * If set to `false`, default buttons or slotted dialog controls will not be displayed.
+          * If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.
          */
         "buttons"?: boolean;
         /**
@@ -657,7 +657,7 @@ export namespace Components {
          */
         "confirmDialog": () => Promise<void>;
         /**
-          * If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
+          * If 'true', sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
          */
         "destructive"?: boolean;
         /**
@@ -752,6 +752,10 @@ export namespace Components {
           * The subtitle rendered in the empty state container.
          */
         "subheading"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcFooter {
         /**
@@ -2311,6 +2315,9 @@ export namespace Components {
         "variant": "default" | "icon";
     }
     interface IcTooltip {
+        /**
+          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+         */
         "disableClick"?: boolean;
         /**
           * If `true`, the tooltip will not be displayed on hover, it will require a click.
@@ -3983,7 +3990,7 @@ declare namespace LocalJSX {
     }
     interface IcDialog {
         /**
-          * If set to `false`, default buttons or slotted dialog controls will not be displayed.
+          * If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.
          */
         "buttons"?: boolean;
         /**
@@ -3991,7 +3998,7 @@ declare namespace LocalJSX {
          */
         "closeOnBackdropClick"?: boolean;
         /**
-          * If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
+          * If 'true', sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
          */
         "destructive"?: boolean;
         /**
@@ -4102,6 +4109,10 @@ declare namespace LocalJSX {
           * The subtitle rendered in the empty state container.
          */
         "subheading"?: string;
+        /**
+          * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
     }
     interface IcFooter {
         /**
@@ -5786,6 +5797,9 @@ declare namespace LocalJSX {
         "variant"?: "default" | "icon";
     }
     interface IcTooltip {
+        /**
+          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+         */
         "disableClick"?: boolean;
         /**
           * If `true`, the tooltip will not be displayed on hover, it will require a click.

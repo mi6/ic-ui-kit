@@ -133,6 +133,7 @@
 }
 
 .icon-container {
+  min-width: var(--ic-space-lg);
   width: var(--ic-space-lg);
   height: var(--ic-space-lg);
   margin: 0 var(--ic-space-xs) 0 0;

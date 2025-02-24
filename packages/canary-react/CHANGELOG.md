@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.9...@ukic/canary-react@3.0.0-canary.10) (2025-02-20)
+
+### Bug Fixes
+
+- **canary-react:** add Cypress visual regression for date picker clear icon dark mode ([ee1c1e7](https://github.com/mi6/ic-ui-kit/commit/ee1c1e74ade79f995b5362975ac699a67602184d))
+- **canary-react:** added cypress tests and baseline images ([30037d3](https://github.com/mi6/ic-ui-kit/commit/30037d3aa1cf54628c7b85432dcb60fd9a5f9454))
+- **canary-react:** allow IcDataTable action-element to support tooltips ([d71ba60](https://github.com/mi6/ic-ui-kit/commit/d71ba6076ab7100baa5c0eaf400deb3d0c831230)), closes [#2964](https://github.com/mi6/ic-ui-kit/issues/2964)
+- **canary-react:** allow IcPaginationBar items per page to be set programmatically ([a2962d1](https://github.com/mi6/ic-ui-kit/commit/a2962d1a172d22bbe14971843d5612221e7991ac)), closes [#2525](https://github.com/mi6/ic-ui-kit/issues/2525)
+- **canary-react:** prevent IcDataTable action element clicks from selecting the table row ([7ed7bd0](https://github.com/mi6/ic-ui-kit/commit/7ed7bd01706bf91b995b12a13d613409fe602b84))
+- **canary-react:** update date input Cypress test to check helper text doesn't exist ([9df6b95](https://github.com/mi6/ic-ui-kit/commit/9df6b9577ad9587408d110ccda3b1ffdbb7ad9eb)), closes [#2370](https://github.com/mi6/ic-ui-kit/issues/2370)
+
+### Features
+
+- **canary-react:** implement disableAutoSort prop on data table ([da93cb0](https://github.com/mi6/ic-ui-kit/commit/da93cb08780555119596486bd8e0edfe1e2fca9b)), closes [#2415](https://github.com/mi6/ic-ui-kit/issues/2415)
+- **canary-react:** update tree view truncation story to have expanded items ([2c6546c](https://github.com/mi6/ic-ui-kit/commit/2c6546c65196bc2c4dfc8737601faa3856204674))
+
 # [3.0.0-canary.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.8...@ukic/canary-react@3.0.0-canary.9) (2025-02-05)
 
 ### Bug Fixes

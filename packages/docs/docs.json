@@ -1029,7 +1029,7 @@
               }
             }
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "position",
           "reflectToAttr": false,
           "docs": "The positioning of the badge in reference to the parent element.",
@@ -1241,7 +1241,20 @@
       ],
       "methods": [],
       "events": [],
-      "listeners": [],
+      "listeners": [
+        {
+          "event": "icNavigationMenuOpened",
+          "target": "document",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "icNavigationMenuClosed",
+          "target": "document",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -4665,7 +4678,7 @@
           "mutable": false,
           "attr": "destructive",
           "reflectToAttr": false,
-          "docs": "If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.",
+          "docs": "If 'true', sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5559,6 +5572,43 @@
           "docsTags": [],
           "values": [
             {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             }
           ],
@@ -11644,6 +11694,11 @@
         }
       ],
       "listeners": [
+        {
+          "event": "icCheck",
+          "capture": false,
+          "passive": false
+        },
         {
           "event": "icChange",
           "capture": false,
@@ -18142,6 +18197,28 @@
       "usage": {},
       "props": [
         {
+          "name": "disableClick",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-click",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "disableHover",
           "type": "boolean",
           "complexType": {
@@ -19280,7 +19357,7 @@
       "path": "src/components/ic-back-to-top/ic-back-to-top.types.ts"
     },
     "src/components/ic-classification-banner/ic-classification-banner.types.tsx::IcProtectiveMarkings": {
-      "declaration": "export type IcProtectiveMarkings =\n  | \"default\"\n  | \"official\"\n  | \"official-sensitive\"\n  | \"secret\"\n  | \"top-secret\";",
+      "declaration": "export type IcProtectiveMarkings =\r\n  | \"default\"\r\n  | \"official\"\r\n  | \"official-sensitive\"\r\n  | \"secret\"\r\n  | \"top-secret\";",
       "docstring": "",
       "path": "src/components/ic-classification-banner/ic-classification-banner.types.tsx"
     },
@@ -19290,7 +19367,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-footer/ic-footer.types.tsx::IcFooterBreakpoints": {
-      "declaration": "export type IcFooterBreakpoints =\n  | \"extra small\"\n  | \"small\"\n  | \"medium\"\n  | \"large\"\n  | \"extra large\";",
+      "declaration": "export type IcFooterBreakpoints =\r\n  | \"extra small\"\r\n  | \"small\"\r\n  | \"medium\"\r\n  | \"large\"\r\n  | \"extra large\";",
       "docstring": "",
       "path": "src/components/ic-footer/ic-footer.types.tsx"
     },
@@ -19305,7 +19382,7 @@
       "path": "src/components/ic-button/ic-button.types.ts"
     },
     "src/components/ic-button/ic-button.types.ts::IcButtonVariants": {
-      "declaration": "export type IcButtonVariants =\n  | \"primary\"\n  | \"secondary\"\n  | \"tertiary\"\n  | \"destructive\"\n  | \"icon\"\n  | \"icon-primary\"\n  | \"icon-secondary\"\n  | \"icon-tertiary\"\n  | \"icon-destructive\";",
+      "declaration": "export type IcButtonVariants =\r\n  | \"primary\"\r\n  | \"secondary\"\r\n  | \"tertiary\"\r\n  | \"destructive\"\r\n  | \"icon\"\r\n  | \"icon-primary\"\r\n  | \"icon-secondary\"\r\n  | \"icon-tertiary\"\r\n  | \"icon-destructive\";",
       "docstring": "",
       "path": "src/components/ic-button/ic-button.types.ts"
     },
@@ -19335,12 +19412,17 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-tab/ic-tab.types.ts::IcTabClickEventDetail": {
-      "declaration": "export interface IcTabClickEventDetail {\n  tabId: string;\n  contextId: string;\n  position: number;\n}",
+      "declaration": "export interface IcTabClickEventDetail {\r\n  tabId: string;\r\n  contextId: string;\r\n  position: number;\r\n}",
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },
+    "src/utils/types.ts::IcDeviceSizes": {
+      "declaration": "export type IcDeviceSizes = 0 | 576 | 768 | 992 | 1200;",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/components/ic-tooltip/ic-tooltip.types.ts::IcTooltipPlacements": {
-      "declaration": "export type IcTooltipPlacements =\n  | \"top-start\"\n  | \"top\"\n  | \"top-end\"\n  | \"right-start\"\n  | \"right\"\n  | \"right-end\"\n  | \"bottom-end\"\n  | \"bottom\"\n  | \"bottom-start\"\n  | \"left-end\"\n  | \"left\"\n  | \"left-start\";",
+      "declaration": "export type IcTooltipPlacements =\r\n  | \"top-start\"\r\n  | \"top\"\r\n  | \"top-end\"\r\n  | \"right-start\"\r\n  | \"right\"\r\n  | \"right-end\"\r\n  | \"bottom-end\"\r\n  | \"bottom\"\r\n  | \"bottom-start\"\r\n  | \"left-end\"\r\n  | \"left\"\r\n  | \"left-start\";",
       "docstring": "",
       "path": "src/components/ic-tooltip/ic-tooltip.types.ts"
     },
@@ -19355,7 +19437,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-checkbox-group/ic-checkbox-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  value: string[];\n  checkedOptions: {\n    checkbox: HTMLIcCheckboxElement;\n    textFieldValue?: string;\n  }[];\n  selectedOption: HTMLIcCheckboxElement;\n}",
+      "declaration": "export interface IcChangeEventDetail {\r\n  value: string[];\r\n  checkedOptions: {\r\n    checkbox: HTMLIcCheckboxElement;\r\n    textFieldValue?: string;\r\n  }[];\r\n  selectedOption: HTMLIcCheckboxElement;\r\n}",
       "docstring": "",
       "path": "src/components/ic-checkbox-group/ic-checkbox-group.types.ts"
     },
@@ -19375,7 +19457,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldInputModes": {
-      "declaration": "export type IcTextFieldInputModes =\n  | \"none\"\n  | \"text\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\";",
+      "declaration": "export type IcTextFieldInputModes =\r\n  | \"none\"\r\n  | \"text\"\r\n  | \"tel\"\r\n  | \"url\"\r\n  | \"email\"\r\n  | \"numeric\"\r\n  | \"decimal\"\r\n  | \"search\";",
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
@@ -19385,7 +19467,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldTypes": {
-      "declaration": "export type IcTextFieldTypes =\n  | \"email\"\n  | \"password\"\n  | \"tel\"\n  | \"text\"\n  | \"url\"\n  | \"number\"\n  | \"search\";",
+      "declaration": "export type IcTextFieldTypes =\r\n  | \"email\"\r\n  | \"password\"\r\n  | \"tel\"\r\n  | \"text\"\r\n  | \"url\"\r\n  | \"number\"\r\n  | \"search\";",
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
@@ -19405,12 +19487,12 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail": {
-      "declaration": "export interface IcOptionSelectEventDetail {\n  value: string;\n  label?: string;\n  optionId?: string;\n}",
+      "declaration": "export interface IcOptionSelectEventDetail {\r\n  value: string;\r\n  label?: string;\r\n  optionId?: string;\r\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcMenuChangeEventDetail": {
-      "declaration": "export interface IcMenuChangeEventDetail {\n  open: boolean;\n  focusInput?: boolean;\n}",
+      "declaration": "export interface IcMenuChangeEventDetail {\r\n  open: boolean;\r\n  focusInput?: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
@@ -19420,7 +19502,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail": {
-      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
+      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\r\n  relatedTarget: IcRelatedTarget;\r\n}",
       "docstring": "",
       "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
@@ -19485,7 +19567,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcMenuOptionIdEventDetail": {
-      "declaration": "export interface IcMenuOptionIdEventDetail {\n  optionId: string | undefined;\n}",
+      "declaration": "export interface IcMenuOptionIdEventDetail {\r\n  optionId: string | undefined;\r\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
@@ -19499,18 +19581,13 @@
       "docstring": "",
       "path": "src/components/ic-side-navigation/ic-side-navigation.types.ts"
     },
-    "src/utils/types.ts::IcDeviceSizes": {
-      "declaration": "export type IcDeviceSizes = 0 | 576 | 768 | 992 | 1200;",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
     "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes": {
       "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",
       "docstring": "",
       "path": "src/components/ic-pagination/ic-pagination.types.ts"
     },
     "src/components/ic-pagination/ic-pagination.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  value: number;\n}",
+      "declaration": "export interface IcChangeEventDetail {\r\n  value: number;\r\n}",
       "docstring": "",
       "path": "src/components/ic-pagination/ic-pagination.types.ts"
     },
@@ -19520,7 +19597,7 @@
       "path": "src/components/ic-pagination-item/ic-pagination-item.types.ts"
     },
     "src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",
+      "declaration": "export interface IcChangeEventDetail {\r\n  value: string;\r\n  selectedOption: {\r\n    radio: HTMLIcRadioOptionElement;\r\n    textFieldValue?: string;\r\n  };\r\n}",
       "docstring": "",
       "path": "src/components/ic-radio-group/ic-radio-group.types.ts"
     },
@@ -19560,12 +19637,12 @@
       "path": "src/components/ic-stepper/ic-stepper.types.ts"
     },
     "src/components/ic-switch/ic-switch.types.ts::IcSwitchChangeEventDetail": {
-      "declaration": "export interface IcSwitchChangeEventDetail {\n  value: string | null;\n  checked: boolean;\n}",
+      "declaration": "export interface IcSwitchChangeEventDetail {\r\n  value: string | null;\r\n  checked: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-switch/ic-switch.types.ts"
     },
     "src/components/ic-tab/ic-tab.types.ts::IcTabSelectEventDetail": {
-      "declaration": "export interface IcTabSelectEventDetail {\n  tabIndex: number;\n  tabLabel: string;\n}",
+      "declaration": "export interface IcTabSelectEventDetail {\r\n  tabIndex: number;\r\n  tabLabel: string;\r\n}",
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },

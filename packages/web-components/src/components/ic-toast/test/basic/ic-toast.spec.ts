@@ -116,19 +116,19 @@ describe("ic-toast component", () => {
     await page.waitForChanges();
 
     expect(page.root)
-      .toEqualHtml(`<ic-toast heading="Heading" role="status" dismiss-mode="automatic" tabindex="0">
+      .toEqualHtml(`<ic-toast heading="Heading" role="alert" aria-live="polite" dismiss-mode="automatic" tabindex="0">
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
             <div class="toast-text">
               <ic-typography class="toast-heading" variant="subtitle-large">
-                <h5>
+                <p>
                   Heading
-                </h5>
+                </p>
               </ic-typography>
             </div>
           </div>
-          <ic-loading-indicator class="toast-dismiss-timer" description="" monochrome="" progress="100" size="icon" theme="dark"></ic-loading-indicator>
+          <ic-loading-indicator class="toast-dismiss-timer" description="Dismiss timer" monochrome="" progress="100" size="icon" theme="dark"></ic-loading-indicator>
         </div>
       </mock:shadow-root>
     </ic-toast>`);

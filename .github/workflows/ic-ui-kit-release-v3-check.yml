@@ -1,0 +1,70 @@
+name: Release V3
+permissions: read-all
+
+on: workflow_dispatch
+
+# Runs release-check
+# Then creates an env variable with the version changes to display as the body of the v3 develop -> v3 main PR
+jobs:
+  ic-ui-kit-release:
+    name: "Release v3 release -> v3 develop"
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+        with:
+          fetch-depth: "0"
+      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+        with:
+          node-version: 20
+      - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
+      - name: Run release check
+        run: |
+          RELEASE_CHECK=$((echo y; sleep 0.5; echo $'\n';) | npm run release-check)
+          RELEASE_CHECK=$(echo "$RELEASE_CHECK" | sed 's/ - @/\n- @/g')
+          echo "VERSION<<EOF" >> $GITHUB_ENV
+          echo "$RELEASE_CHECK" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          git stash
+      - name: Extract and compare versions
+        run: |
+          REACT_VERSION=$(echo "${{ env.VERSION }}" | grep '@ukic/react' | sed -n 's/.*=> \([0-9.]*\(-[a-zA-Z0-9.]*\)*\).*/\1/p')
+          WEB_COMPONENTS_VERSION=$(echo "${{ env.VERSION }}" | grep '@ukic/web-components' | sed -n 's/.*=> \([0-9.]*\(-[a-zA-Z0-9.]*\)*\).*/\1/p')
+          CANARY_REACT_VERSION=$(echo "${{ env.VERSION }}" | grep '@ukic/canary-react' | sed -n 's/.*=> \([0-9.]*-canary.[0-9]*\).*/\1/p')
+          CANARY_WEB_COMPONENTS_VERSION=$(echo "${{ env.VERSION }}" | grep '@ukic/canary-web-components' | sed -n 's/.*=> \([0-9.]*-canary.[0-9]*\).*/\1/p')
+          echo "React version: $REACT_VERSION"
+          echo "Web Components version: $WEB_COMPONENTS_VERSION"
+          echo "Canary React version: $CANARY_REACT_VERSION"
+          echo "Canary Web Components version: $CANARY_WEB_COMPONENTS_VERSION"
+          if [ "$REACT_VERSION" != "$WEB_COMPONENTS_VERSION" ]; then
+            echo "Error: The versions of @ukic/react and @ukic/web-components packages are not identical."
+            exit 1
+          fi
+          if [ "$CANARY_REACT_VERSION" != "$CANARY_WEB_COMPONENTS_VERSION" ]; then
+            echo "Error: The versions of @ukic/canary-react and @ukic/canary-web-components packages are not identical."
+            exit 1
+          fi
+      - name: Configure Git user
+        run: |
+          git config --global user.name ${{ secrets.USERNAME }}
+          git config --global user.email ${{ secrets.EMAIL }}
+      - name: Delete release branch
+        run: |
+          git fetch origin
+          git push origin --delete v3.0.0/release || true
+      - name: Create release branch with latest versions
+        run: |
+          git fetch origin v3.0.0/develop
+          RELEASE_BRANCH="v3.0.0/release"
+          git checkout -b $RELEASE_BRANCH origin/v3.0.0/develop
+          echo "${{ env.VERSION }}" > DEVELOPMENT_RELEASE_CHECK.md
+          git add DEVELOPMENT_RELEASE_CHECK.md
+          git commit -m "chore(release): update v3 development release version check file"
+          git push origin $RELEASE_BRANCH
+      - name: Create release branch -> v3.0.0/develop PR 
+        run: |
+          curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/mi6/ic-ui-kit/pulls" -d '{"title":"V3 Release -> V3 Develop","body":"Updates in the file changes.","head":"v3.0.0/release","base":"v3.0.0/develop"}'
+          

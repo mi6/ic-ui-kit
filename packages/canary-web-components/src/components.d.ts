@@ -88,6 +88,10 @@ export namespace Components {
          */
         "density"?: IcDataTableDensityOptions;
         /**
+          * If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.
+         */
+        "disableAutoSort"?: boolean;
+        /**
           * Applies a border to the table container.
          */
         "embedded"?: boolean;
@@ -486,6 +490,10 @@ export namespace Components {
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
         /**
+          * The items per page option to be selected.
+         */
+        "selectedItemsPerPage"?: number;
+        /**
           * If `true`, the pagination bar is set to the first page when the 'items per page' changes
          */
         "setToFirstPageOnPaginationChange"?: boolean;
@@ -816,6 +824,10 @@ declare namespace LocalJSX {
           * Set the density of the table including font and padding.
          */
         "density"?: IcDataTableDensityOptions;
+        /**
+          * If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.
+         */
+        "disableAutoSort"?: boolean;
         /**
           * Applies a border to the table container.
          */
@@ -1243,6 +1255,10 @@ declare namespace LocalJSX {
           * Whether total number of items and current item range or total number of pages and current page is displayed.
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
+        /**
+          * The items per page option to be selected.
+         */
+        "selectedItemsPerPage"?: number;
         /**
           * If `true`, the pagination bar is set to the first page when the 'items per page' changes
          */

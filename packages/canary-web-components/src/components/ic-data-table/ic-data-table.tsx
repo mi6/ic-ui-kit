@@ -170,6 +170,11 @@ export class DataTable {
   @Prop() data?: IcDataTableDataType[];
 
   /**
+   * If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.
+   */
+  @Prop() disableAutoSort?: boolean = false;
+
+  /**
    * Set the density of the table including font and padding.
    */
   @Prop({ mutable: true }) density?: IcDataTableDensityOptions = "default";
@@ -238,22 +243,23 @@ export class DataTable {
    * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
    */
   @Prop() paginationBarOptions?: IcPaginationBarOptions = {
+    alignment: "right",
+    hideAllFromItemsPerPage: false,
+    hideRangeLabel: false,
+    itemLabel: "Item",
     itemsPerPageOptions: [
       { label: "10", value: "10" },
       { label: "25", value: "25" },
       { label: "50", value: "50" },
     ],
-    rangeLabelType: "page",
-    type: "simple",
-    showItemsPerPageControl: true,
-    showGoToPageControl: true,
-    alignment: "right",
-    itemLabel: "Item",
-    pageLabel: "Page",
-    hideRangeLabel: false,
-    hideAllFromItemsPerPage: false,
     monochrome: false,
+    pageLabel: "Page",
+    rangeLabelType: "page",
+    selectedItemsPerPage: 10,
     setToFirstPageOnPaginationChange: false,
+    showGoToPageControl: true,
+    showItemsPerPageControl: true,
+    type: "simple",
   };
 
   /**
@@ -899,9 +905,8 @@ export class DataTable {
     this.truncate(typographyEl, cellContainer, tooltip);
   };
 
-  private getTruncWrapper(typographyEl: HTMLIcTypographyElement) {
-    return typographyEl.shadowRoot.querySelector(".trunc-wrapper");
-  }
+  private getTruncWrapper = (typographyEl: HTMLIcTypographyElement) =>
+    typographyEl.shadowRoot.querySelector(".trunc-wrapper");
 
   // Set the height to initial if row height is set and the show / hide truncation
   // is clicked
@@ -1237,13 +1242,10 @@ export class DataTable {
     );
   };
 
-  private setTruncationClass = () => {
-    if (this.truncationPattern) {
-      return { [`truncation-${this.truncationPattern}`]: true };
-    }
-
-    return {};
-  };
+  private setTruncationClass = () =>
+    this.truncationPattern
+      ? { [`truncation-${this.truncationPattern}`]: true }
+      : {};
 
   private getColumnWidth = (
     columnWidth?: string | IcDataTableColumnWidthTypes
@@ -1543,7 +1545,7 @@ export class DataTable {
                   // eslint-disable-next-line react/jsx-no-bind
                   onClick={
                     cell.actionOnClick
-                      ? () => this.handleClick(cell.actionOnClick)
+                      ? (event) => this.handleClick(event, cell.actionOnClick)
                       : undefined
                   }
                 ></span>
@@ -1697,7 +1699,11 @@ export class DataTable {
     });
 
     return organisedData
-      .sort(!this.sortable ? undefined : this.getSortFunction())
+      .sort(
+        !this.sortable || this.disableAutoSort
+          ? undefined
+          : this.getSortFunction()
+      )
       .map((row, index) => {
         return (
           <tr
@@ -1715,9 +1721,8 @@ export class DataTable {
       });
   };
 
-  private getObjectValue = (cell: object, key: string) => {
-    return Object.values(cell)[Object.keys(cell).indexOf(key)];
-  };
+  private getObjectValue = (cell: object, key: string) =>
+    Object.values(cell)[Object.keys(cell).indexOf(key)];
 
   private getSortButtonLabel = (key: string) => {
     let label = "";
@@ -2144,7 +2149,8 @@ export class DataTable {
     });
   };
 
-  private handleClick = (callback: () => void) => callback();
+  private handleClick = (event: Event, callback: (event: Event) => void) =>
+    callback(event);
 
   private renderTableBody = (
     data: IcDataTableDataType[],
@@ -2245,8 +2251,8 @@ export class DataTable {
       scrollOffset,
       showPagination,
       sortable,
-      sortedColumnOrder,
       sortedColumn,
+      sortedColumnOrder,
       stickyColumnHeaders,
       updateScrollOffset,
       updating,
@@ -2306,26 +2312,29 @@ export class DataTable {
                 <slot name="pagination-bar" />
               ) : (
                 <ic-pagination-bar
-                  totalItems={data?.length ?? 0}
-                  type={paginationBarOptions.type}
-                  rangeLabelType={paginationBarOptions.rangeLabelType}
-                  showItemsPerPageControl={
-                    paginationBarOptions.showItemsPerPageControl
-                  }
-                  showGoToPageControl={paginationBarOptions.showGoToPageControl}
-                  itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
                   alignment={paginationBarOptions.alignment}
-                  theme={theme}
-                  monochrome={paginationBarOptions.monochrome}
-                  itemLabel={paginationBarOptions.itemLabel}
-                  pageLabel={paginationBarOptions.pageLabel}
-                  hideRangeLabel={paginationBarOptions.hideRangeLabel}
                   hideAllFromItemsPerPage={
                     paginationBarOptions.hideAllFromItemsPerPage
+                  }
+                  hideRangeLabel={paginationBarOptions.hideRangeLabel}
+                  itemLabel={paginationBarOptions.itemLabel}
+                  itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
+                  monochrome={paginationBarOptions.monochrome}
+                  pageLabel={paginationBarOptions.pageLabel}
+                  rangeLabelType={paginationBarOptions.rangeLabelType}
+                  selectedItemsPerPage={
+                    paginationBarOptions.selectedItemsPerPage
                   }
                   setToFirstPageOnPaginationChange={
                     paginationBarOptions.setToFirstPageOnPaginationChange
                   }
+                  showGoToPageControl={paginationBarOptions.showGoToPageControl}
+                  showItemsPerPageControl={
+                    paginationBarOptions.showItemsPerPageControl
+                  }
+                  theme={theme}
+                  totalItems={data?.length ?? 0}
+                  type={paginationBarOptions.type}
                 ></ic-pagination-bar>
               )}
             </div>

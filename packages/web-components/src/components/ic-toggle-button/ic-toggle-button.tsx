@@ -158,7 +158,6 @@ export class ToggleButton {
             this.loading = attribute.value !== "false";
             break;
           case trackedAttributes[1]:
-            console.log(attribute.value);
             this.disabled = attribute.value !== "false";
             break;
           case trackedAttributes[2]:
