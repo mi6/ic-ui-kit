@@ -200,8 +200,11 @@ export const WithNavItems = (): ReactElement => {
 
 export const WithSlottedNavItems = (): ReactElement => {
   return (
-    <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
+    <IcTopNavigation status="alpha" version="v0.0.7">
       <ReusableAppIcon />
+      <a href="/" slot="app-title">
+        ApplicationName
+      </a>
       <IcSearchBar slot="search" label="Search" placeholder="Search" />
       <IcNavigationButton label="Button One" slot="buttons">
         <ReusableIcon />
@@ -328,6 +331,33 @@ export const Brand = (): ReactElement => {
           target="_blank"
         />
         <IcNavigationItem slot="navigation" label="Three" href="/" selected />
+      </IcTopNavigation>
+    </div>
+  );
+};
+
+export const BrandWithSlottedNavItems = (): ReactElement => {
+  return (
+    <div>
+      <IcTheme brandColor="rgb(255, 201, 60)" />
+      <IcTopNavigation status="alpha" version="v0.0.7">
+        <ReusableAppIcon />
+        <a href="/" slot="app-title">
+          ApplicationName
+        </a>
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
+        <IcNavigationButton label="Button One" slot="buttons">
+          <ReusableIcon />
+        </IcNavigationButton>
+        <IcNavigationItem slot="navigation">
+          <a href="/">One</a>
+        </IcNavigationItem>
+        <IcNavigationItem slot="navigation">
+          <a href="/">Two</a>
+        </IcNavigationItem>
+        <IcNavigationItem slot="navigation">
+          <a href="/">Three</a>
+        </IcNavigationItem>
       </IcTopNavigation>
     </div>
   );
