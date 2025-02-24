@@ -244,4 +244,9 @@ button {
       }
     }
   }
+
+  .toggle-button:focus,
+  .toggle-button:hover {
+    outline-color: Highlight;
+  }
 }
