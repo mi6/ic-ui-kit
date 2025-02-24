@@ -246,6 +246,11 @@ button {
   .card.disabled .card-title {
     color: GrayText;
   }
+
+  .toggle-button:focus,
+  .toggle-button:hover {
+    outline-color: Highlight;
+  }
 }
 
 /* Add back in after storybook has the `color-scheme: light dark` code */
