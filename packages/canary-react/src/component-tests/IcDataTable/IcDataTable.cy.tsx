@@ -5000,7 +5000,7 @@ describe("Dark mode", () => {
       </IcDataTable>
     );
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dark-mode-title-bar",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.052),
