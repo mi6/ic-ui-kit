@@ -128,7 +128,6 @@ export namespace Components {
     max?: number;
     min?: number;
     progress?: number;
-    showBackground?: boolean;
     overlay?: boolean;
   };
         /**
@@ -1118,7 +1117,6 @@ declare namespace LocalJSX {
     max?: number;
     min?: number;
     progress?: number;
-    showBackground?: boolean;
     overlay?: boolean;
   };
         /**

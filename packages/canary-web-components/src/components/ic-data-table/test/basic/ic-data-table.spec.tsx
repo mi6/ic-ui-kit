@@ -811,37 +811,9 @@ describe(icDataTable, () => {
       ),
     });
 
-    expect(page.rootInstance.loadingOptions.showBackground).toBeTruthy();
     const loadingIndicator =
       page.root.shadowRoot.querySelector(icLoadingIndicator);
     expect(loadingIndicator).toHaveClass(showBackgroundClass);
-  });
-
-  it("should not apply a background to the loading indicator if no data is supplied to the table, and apply one when data is provided later", async () => {
-    const page = await newSpecPage({
-      components: [DataTable],
-      template: () => (
-        <ic-data-table
-          caption="Table"
-          columns={columns}
-          loading={true}
-        ></ic-data-table>
-      ),
-    });
-
-    expect(page.rootInstance.loadingOptions.showBackground).toBeFalsy();
-    let loadingIndicator =
-      page.root.shadowRoot.querySelector(icLoadingIndicator);
-    expect(loadingIndicator).not.toHaveClass(showBackgroundClass);
-
-    page.root.data = data;
-    await page.waitForChanges();
-
-    expect(page.rootInstance.loadingOptions.showBackground).toBeTruthy();
-    loadingIndicator = page.root.shadowRoot.querySelector(icLoadingIndicator);
-    expect(loadingIndicator).toHaveClass(showBackgroundClass);
-    //delay to allow for 1 sec setTimeout in loading indicator, otherwise next test fails
-    await waitForTimeout(1100);
   });
 
   it("when loading is `true`, setting data should cancel the loading after 1 second from initial loading", async () => {
