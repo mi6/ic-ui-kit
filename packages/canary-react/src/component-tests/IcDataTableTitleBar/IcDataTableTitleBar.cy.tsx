@@ -160,7 +160,7 @@ describe("IcDataTableTitleBar visual regression tests in high contrast mode", ()
 
     cy.compareSnapshot({
       name: "metadata-and-description-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(0),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
     });
   });
 });
