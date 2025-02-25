@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
-import { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
+import { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 import { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
@@ -35,7 +35,7 @@ import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-tog
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 import { Options } from "@popperjs/core";
 export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
-export { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
+export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
@@ -159,6 +159,10 @@ export namespace Components {
         "variant"?: IcStatusVariants;
     }
     interface IcBackToTop {
+        /**
+          * The horizontal position of the element.
+         */
+        "position"?: IcBackToTopPositions;
         /**
           * The ID of the element to jump back to when the link is clicked.
          */
@@ -3504,6 +3508,10 @@ declare namespace LocalJSX {
         "variant"?: IcStatusVariants;
     }
     interface IcBackToTop {
+        /**
+          * The horizontal position of the element.
+         */
+        "position"?: IcBackToTopPositions;
         /**
           * The ID of the element to jump back to when the link is clicked.
          */
