@@ -612,6 +612,33 @@ export const TextFieldValueChange = {
   name: "TextField value change",
 };
 
+export const RTL = {
+  render: (args) => html`
+    <ic-checkbox-group label="This is a label" name="group1" dir="rtl">
+      <ic-checkbox
+        value="valueName1"
+        label="Indeterminate"
+        indeterminate="true"
+      ></ic-checkbox>
+      <ic-checkbox value="valueName2" label="Selected" checked></ic-checkbox>
+      <ic-checkbox value="valueName3" label="Disabled" disabled></ic-checkbox>
+      <ic-checkbox
+        additional-field-display="dynamic"
+        value="valueName4"
+        label="Conditional dynamic"
+      >
+        <ic-text-field
+          slot="additional-field"
+          placeholder="Placeholder"
+          label="What's your favourite type of coffee?"
+        ></ic-text-field>
+      </ic-checkbox>
+    </ic-checkbox-group>
+  `,
+
+  name: "RTL",
+};
+
 export const Playground = {
   render: (args) => {
     const [{ checked }, updateArgs] = useArgs();
