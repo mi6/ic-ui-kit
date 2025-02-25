@@ -51,26 +51,26 @@ ic-typography.ic-typography-subtitle-small,
   --input-width: 7.625rem;
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .header-container {
     flex-direction: column;
   }
 }
 
-@media screen and (min-width: 1201px) {
+@media (min-width: 1201px) {
   .header-container {
     gap: var(--ic-space-xs);
     align-items: baseline;
   }
 }
 
-@media screen and (min-width: 769px) {
+@media (min-width: 769px) {
   .description-actions {
     justify-content: space-between;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .description-actions {
     flex-direction: column;
     align-items: flex-start;
@@ -78,13 +78,13 @@ ic-typography.ic-typography-subtitle-small,
   }
 }
 
-@media screen and (min-width: 577px) {
+@media (min-width: 577px) {
   .action-area {
     align-items: center;
   }
 }
 
-@media screen and (max-width: 576px) {
+@media (max-width: 576px) {
   .action-area {
     flex-direction: column;
   }
