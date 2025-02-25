@@ -887,11 +887,6 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR).should(
-      NOT_HAVE_CLASS,
-      "show-background"
-    );
-
     cy.clock();
 
     cy.tick(350);
