@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.0.0-alpha.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.9...@ukic/web-components@3.0.0-alpha.10) (2025-02-20)
+# [3.0.0]
 
 ### Bug Fixes
 
@@ -39,10 +39,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **web-components:** removed showState prop
 - **web-components:** By default buttons in ic-alert will be in colour. Use monochrome prop to conform to designs
 
-ref 2963
-
-# [3.0.0-alpha.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.8...@ukic/web-components@3.0.0-alpha.9) (2025-02-05)
-
 ### Bug Fixes
 
 - **web-components:** added color-scheme css prop to ic-theme-dark classes ([827e993](https://github.com/mi6/ic-ui-kit/commit/827e9933a8323ba2e11921b61e7727f601304c06))
@@ -66,19 +62,69 @@ ref 2963
 - **web-components:** removed showState prop
 - **web-components:** By default buttons in ic-alert will be in colour. Use monochrome prop to conform to designs
 
-ref 2963
-
-# [3.0.0-alpha.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.7...@ukic/web-components@3.0.0-alpha.8) (2025-01-24)
-
 ### Bug Fixes
 
 - **web-components:** bugfix ([7c73a6b](https://github.com/mi6/ic-ui-kit/commit/7c73a6b22cc1ce9cef8105b8770f29d68c989770))
 - **web-components:** bugfix: props passed correctly to child in group ([e4a4e41](https://github.com/mi6/ic-ui-kit/commit/e4a4e41178df8d6c150dba602bd86e16ee649cde))
-
-# [3.0.0-alpha.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.6...@ukic/web-components@3.0.0-alpha.7) (2025-01-22)
-
-### Bug Fixes
-
+- **web-components:** change <a> in ic-footer-link to <ic-link> ([d4685eb](https://github.com/mi6/ic-ui-kit/commit/d4685eb6e6dd35e829a7af085f65f44bffddc266)), closes [#265](https://github.com/mi6/ic-ui-kit/issues/265)
+- **web-components:** fix issue with IC Radio to override horizontal ([f27bf1a](https://github.com/mi6/ic-ui-kit/commit/f27bf1a851c7c218cd8b04aafbe172b728dd87a1))
+- **web-components:** fix radio-group rebase issue ([ef600c2](https://github.com/mi6/ic-ui-kit/commit/ef600c23fefe68ddf338fd3099c5d66104e35491))
+- **web-components:** fixes icon only variant positioning ([fc79597](https://github.com/mi6/ic-ui-kit/commit/fc795973e412f5fc4b3b6afdddd160dada929a05))
+- **web-components:** make radio group set disabled state on children ([17ebcd0](https://github.com/mi6/ic-ui-kit/commit/17ebcd020ec2c0a230efe0752accc99b1afe3107))
+- **web-components:** restore isSlotUsed after rebase ([3b0b3de](https://github.com/mi6/ic-ui-kit/commit/3b0b3de6f36dfb213d0450e9703d4e908fc626c5))
+- **web-components:** restore slotted-svg styles in footer link ([9a018a1](https://github.com/mi6/ic-ui-kit/commit/9a018a16314401f06cc0477474670309dcb3916a))
+- **web-components:** set heading levels on Hero component ([e32a0ad](https://github.com/mi6/ic-ui-kit/commit/e32a0adcd046fc71e05631532e615278a0ce1826)), closes [#1687](https://github.com/mi6/ic-ui-kit/issues/1687)
+- **web-components:** update auto dismiss toast to turn manual when hovered over ([ed51065](https://github.com/mi6/ic-ui-kit/commit/ed51065ba9ef9a0c459d92c1f0db778fac0279f6)), closes [#1291](https://github.com/mi6/ic-ui-kit/issues/1291)
+- **web-components:** adds check for undefined element in typography ([e79d281](https://github.com/mi6/ic-ui-kit/commit/e79d2810c26330173bc25f6cc4172e993b44afda))
+- **web-components:** changed conditional for applying aria-role to ic-search-bar ([cbe4be8](https://github.com/mi6/ic-ui-kit/commit/cbe4be8b2af87c7cdd151012d8882d2f2aee373f))
+- **web-components:** fix icpopoverclosed event not emitting when closed via submenu ([87010e7](https://github.com/mi6/ic-ui-kit/commit/87010e73d20713f09d544f1f47f6e466f1b149d1)), closes [#2297](https://github.com/mi6/ic-ui-kit/issues/2297)
+- **web-components:** fixed not autoselecting first tab during dynamic render ([e2140eb](https://github.com/mi6/ic-ui-kit/commit/e2140ebf734f4b36eb76cffb71b0b45caa76171c))
+- **web-components:** fixes issue with showDefaultIcon in gatsby ([84719d9](https://github.com/mi6/ic-ui-kit/commit/84719d93de2255cf76cf1cfb0d820c499ff95193))
+- **web-components:** fixes tooltips wrapping onto multiple lines ([28321f7](https://github.com/mi6/ic-ui-kit/commit/28321f73610fbdbb57e93b982375403315a32ac8))
+- **web-components:** restore radio orientation overrides after rebase ([a29a4d7](https://github.com/mi6/ic-ui-kit/commit/a29a4d72d6b300ee391d8d460a324229b0f42c50))
+- **web-components:** update auto dismiss toast to turn manual when hovered over ([a12ab96](https://github.com/mi6/ic-ui-kit/commit/a12ab9651088fc750593c7b87a83b52a219b5d37)), closes [#1291](https://github.com/mi6/ic-ui-kit/issues/1291)
+- **web-components:** update toast animation to only work when prefers reduced motion is off ([e99ffa8](https://github.com/mi6/ic-ui-kit/commit/e99ffa833842e6f798c202271f88fbcd24a0a162)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
+- **react:** add relevant storybook component to demostrate the onClick event ([f884e02](https://github.com/mi6/ic-ui-kit/commit/f884e02e1395c582391360d8c35b17612367bd92))
+- **web-components:** added styling to loading indicator ([e4bf5b5](https://github.com/mi6/ic-ui-kit/commit/e4bf5b506b2a0bb0da503a88ff348f542af583af))
+- **web-components:** added useLabelTag Prop ([4202f50](https://github.com/mi6/ic-ui-kit/commit/4202f50b61ce2876a48153a6af8216b927afe0ce))
+- **web-components:** adds check for undefined element in typography ([e79d281](https://github.com/mi6/ic-ui-kit/commit/e79d2810c26330173bc25f6cc4172e993b44afda))
+- **web-components:** adds high contrast focus ([9ceb0b7](https://github.com/mi6/ic-ui-kit/commit/9ceb0b7329e8181ff0add03ead3e130f73374761))
+- **web-components:** change to previous fix with hiding icon ([daa0949](https://github.com/mi6/ic-ui-kit/commit/daa0949bf7296cf0fe8b21b67b2bfc4406265e2a))
+- **web-components:** changed conditional for applying aria-role to ic-search-bar ([cbe4be8](https://github.com/mi6/ic-ui-kit/commit/cbe4be8b2af87c7cdd151012d8882d2f2aee373f))
+- **web-components:** fix click event not working on conditional elements in radio buttons ([b61ec80](https://github.com/mi6/ic-ui-kit/commit/b61ec80206f68842bd1ad85226766b6f24194ffe)), closes [#2514](https://github.com/mi6/ic-ui-kit/issues/2514)
+- **web-components:** fix focus overlapping text ([e7d135d](https://github.com/mi6/ic-ui-kit/commit/e7d135d3a6eb8a9baea0f900963be4793e346ba6))
+- **web-components:** fix multiple radio options being selected with the same value ([35b1603](https://github.com/mi6/ic-ui-kit/commit/35b1603b8321ec9a3d84017b6545fd9b778d1c86)), closes [#2567](https://github.com/mi6/ic-ui-kit/issues/2567)
+- **web-components:** fix nav group not align with other nav items ([bbb33d8](https://github.com/mi6/ic-ui-kit/commit/bbb33d844300a35ebd9be7c5fd041cc1af826c51))
+- **web-components:** fixes issue with showDefaultIcon in gatsby ([84719d9](https://github.com/mi6/ic-ui-kit/commit/84719d93de2255cf76cf1cfb0d820c499ff95193))
+- **web-components:** fixes tooltips wrapping onto multiple lines ([28321f7](https://github.com/mi6/ic-ui-kit/commit/28321f73610fbdbb57e93b982375403315a32ac8))
+- **web-components:** popover accessibility order match visual order ([bcf7018](https://github.com/mi6/ic-ui-kit/commit/bcf70181775840e0eac4fd07c0ff761053a2b507))
+- **web-components:** remove REM explicit width/height from checkbox SVG in favour of CSS default ([f8a856e](https://github.com/mi6/ic-ui-kit/commit/f8a856edd0a7c85fba358c8b14f9cd5bbe4a45e4))
+- **web-components:** removed margin-bottom from heading ([c4827cb](https://github.com/mi6/ic-ui-kit/commit/c4827cb8b5d82ced877a0ff3b8adbaf1e3ded60b))
+- **web-components:** restore radio orientation overrides after rebase ([a29a4d7](https://github.com/mi6/ic-ui-kit/commit/a29a4d72d6b300ee391d8d460a324229b0f42c50))
+- **web-components:** update auto dismiss toast to turn manual when hovered over ([a12ab96](https://github.com/mi6/ic-ui-kit/commit/a12ab9651088fc750593c7b87a83b52a219b5d37)), closes [#1291](https://github.com/mi6/ic-ui-kit/issues/1291)
+- **web-components:** update toast animation to only work when prefers reduced motion is off ([e99ffa8](https://github.com/mi6/ic-ui-kit/commit/e99ffa833842e6f798c202271f88fbcd24a0a162)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
+- **web-components:** add tree view css tokens to color-mode.css ([122d8f1](https://github.com/mi6/ic-ui-kit/commit/122d8f1af4362bb558088698ea005dd0a4e7f79e))
+- **web-components:** fix WCAG 1.3.1 issue in popover-menu ([04df1f7](https://github.com/mi6/ic-ui-kit/commit/04df1f775b4b4d73badd810f09fe4c671fa5f75c))
+- **web-components:** fixes nav-item screen reader issue ([d8ca918](https://github.com/mi6/ic-ui-kit/commit/d8ca918ed95c5ad619dce9275e33ab7b0b7c9ad4))
+- **web-components:** optional chaining to removeEventListener functions ([688f8fd](https://github.com/mi6/ic-ui-kit/commit/688f8fda1d55630efa153f015860992c7f12ebea))
+- **web-components:** updated prop name ([9b53d80](https://github.com/mi6/ic-ui-kit/commit/9b53d80d0c9ffd6cec6b5a39a63f9bad5bb35090))
+- **react:** add storybook logging to demonstrate new functionality ([69b9272](https://github.com/mi6/ic-ui-kit/commit/69b927283baac8221d9f0a64ab305ed8c6fc84d6))
+- **web-components:** center side-nav icons ([fcd8cc0](https://github.com/mi6/ic-ui-kit/commit/fcd8cc09133f26c0d311277d54df3255474b74d9))
+- **web-components:** fix breadcrumb group collapsed prop not toggling correctly ([185557a](https://github.com/mi6/ic-ui-kit/commit/185557a434441961c9b27e8a482da917dbab3263)), closes [#2028](https://github.com/mi6/ic-ui-kit/issues/2028) [#1998](https://github.com/mi6/ic-ui-kit/issues/1998)
+- **web-components:** fix navigation items not inheriting expanded state ([70dc3ee](https://github.com/mi6/ic-ui-kit/commit/70dc3ee2507fb89818d397b4db6760ac2c269824)), closes [#2610](https://github.com/mi6/ic-ui-kit/issues/2610)
+- **web-components:** fixes displays issues with hero ([7fde721](https://github.com/mi6/ic-ui-kit/commit/7fde721f8795f9696b89d92457e8a266cd1bc7d7))
+- **web-components:** make setting external collapsed state on side nav execute correct style changes ([9f3a21e](https://github.com/mi6/ic-ui-kit/commit/9f3a21ea60a704758fb23961ce0ab376384ef529))
+- **web-components:** update colours and colour tokens to match v3 dark mode Figma file ([afcb96a](https://github.com/mi6/ic-ui-kit/commit/afcb96ac5d025c242e7b413e3ad8440aa032235c))
+- **web-components:** update icpopoverclosed event to include relevant information ([c134f2b](https://github.com/mi6/ic-ui-kit/commit/c134f2b53c7581f73a8a30c3e615c01299cf1090)), closes [#2665](https://github.com/mi6/ic-ui-kit/issues/2665)
+- **web-components:** update top nav tokens to be the same in light and dark mode ([168a7ad](https://github.com/mi6/ic-ui-kit/commit/168a7ad9a3b1b94895abff7ac6132a2ae5f7fc50))
+- **web-components:** updated ic-card border color to correct dark mode patterns ([dac04e3](https://github.com/mi6/ic-ui-kit/commit/dac04e3036fe00cab9fb6c1b20a5870237f22a7b))
+- **web-components:** add dependencies on react types to fix a build problem ([be4d353](https://github.com/mi6/ic-ui-kit/commit/be4d353a5b99b93402f2cc117ee63294834d1d63))
+- **web-components:** additional field fix ([d41761e](https://github.com/mi6/ic-ui-kit/commit/d41761ed6acddad90a7c2ca0b5ca1410c2812136))
+- **web-components:** fix for items displayed on brand color background ([a7bff90](https://github.com/mi6/ic-ui-kit/commit/a7bff90357fc8bd5cd1f2c700281b84a073659b4))
+- **web-components:** fix monochrome button css issue, and update stories to have dark background ([8931cf7](https://github.com/mi6/ic-ui-kit/commit/8931cf7f52285e0cc72d74a09df9d151268fc85e))
+- **web-components:** ic-text-field bug ([6ac9480](https://github.com/mi6/ic-ui-kit/commit/6ac9480c28ac4ecf7012df09b647f539a1fbfa02))
+- **web-components:** removed disabled attribute from components when set to false ([e37af84](https://github.com/mi6/ic-ui-kit/commit/e37af84bd6ec5739b69860c180dc0017de702368))
+- **web-components:** update icon colours for dark mode badge ([2ca3b77](https://github.com/mi6/ic-ui-kit/commit/2ca3b775c977f197f953f4c7e806b5572af68ca9)), closes [#2910](https://github.com/mi6/ic-ui-kit/issues/2910)
 - **web-components:** add css for search toggle icon in top nav so it appears in hcm ([b354d1a](https://github.com/mi6/ic-ui-kit/commit/b354d1a67c5cc11b6d0ca910c7f58810f6cc515c))
 - **web-components:** add dependencies on react types to fix a build problem ([be4d353](https://github.com/mi6/ic-ui-kit/commit/be4d353a5b99b93402f2cc117ee63294834d1d63))
 - **web-components:** additional field fix ([d41761e](https://github.com/mi6/ic-ui-kit/commit/d41761ed6acddad90a7c2ca0b5ca1410c2812136))
@@ -98,6 +144,7 @@ ref 2963
 ### Documentation
 
 - **docs:** docs update ([aa0f1d7](https://github.com/mi6/ic-ui-kit/commit/aa0f1d7620d3806ae9725fc488c97aac9e044d97))
+- **docs:** docs update ([aa0f1d7](https://github.com/mi6/ic-ui-kit/commit/aa0f1d7620d3806ae9725fc488c97aac9e044d97))
 
 ### Features
 
@@ -109,116 +156,42 @@ ref 2963
 - **web-components:** Fix/able to select no options when select has empty options array ([cccf3fe](https://github.com/mi6/ic-ui-kit/commit/cccf3febc0edfa65474bda6ce08b2e8f8c895a6d))
 - **web-components:** update searchable select to clear input on blur (when no option selected) ([db89c54](https://github.com/mi6/ic-ui-kit/commit/db89c54b80b8dd38823fe8cc36762cc25a7e5833))
 - **web-components:** update searchable select to de-select option when input edited ([d0513cf](https://github.com/mi6/ic-ui-kit/commit/d0513cf6fc29a1ec3387a9c58bdc1df661cc7fe6))
-
-### BREAKING CHANGES
-
-- **web-components:** removed ic-text-field element so tests may break
-- **web-components:** The icChange event on the searchable select now emits only option values or 'null'
-  to match how editing input de-selects the selected option. IcInput can be used to detect which
-  characters are inputted - the 'debounce' prop now applies to this instead of icChange.
-- **docs:** prop rename to more closely align with native html attribute
-- **web-components:** prop rename from auto-focus to autofocus, more closely aligning with native html attribute
-- **web-components:** color prop renamed to brandColor
-  icThemeChange event renamed to icBrandChange
-  changes to types:
-  IcThemeForegroundEnum now IcBrandForegroundEnum
-  IcThemeForeground now IcBrandForeground
-  IcThemeForegroundNoDefault now IcBrandForegroundNoDefault
-  IcTheme now IcBrand
-
-# [3.0.0-alpha.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.5...@ukic/web-components@3.0.0-alpha.6) (2025-01-08)
-
-### Bug Fixes
-
-- **web-components:** add dependencies on react types to fix a build problem ([be4d353](https://github.com/mi6/ic-ui-kit/commit/be4d353a5b99b93402f2cc117ee63294834d1d63))
-- **web-components:** additional field fix ([d41761e](https://github.com/mi6/ic-ui-kit/commit/d41761ed6acddad90a7c2ca0b5ca1410c2812136))
-- **web-components:** fix for items displayed on brand color background ([a7bff90](https://github.com/mi6/ic-ui-kit/commit/a7bff90357fc8bd5cd1f2c700281b84a073659b4))
-- **web-components:** fix monochrome button css issue, and update stories to have dark background ([8931cf7](https://github.com/mi6/ic-ui-kit/commit/8931cf7f52285e0cc72d74a09df9d151268fc85e))
-- **web-components:** ic-text-field bug ([6ac9480](https://github.com/mi6/ic-ui-kit/commit/6ac9480c28ac4ecf7012df09b647f539a1fbfa02))
-- **web-components:** removed disabled attribute from components when set to false ([e37af84](https://github.com/mi6/ic-ui-kit/commit/e37af84bd6ec5739b69860c180dc0017de702368))
-- **web-components:** update icon colours for dark mode badge ([2ca3b77](https://github.com/mi6/ic-ui-kit/commit/2ca3b775c977f197f953f4c7e806b5572af68ca9)), closes [#2910](https://github.com/mi6/ic-ui-kit/issues/2910)
-
-### Documentation
-
-- **docs:** docs update ([aa0f1d7](https://github.com/mi6/ic-ui-kit/commit/aa0f1d7620d3806ae9725fc488c97aac9e044d97))
-
-### Features
-
-- **web-components:** changes to ic-theme ([e8149bb](https://github.com/mi6/ic-ui-kit/commit/e8149bb48692538632e886f0ffd4b00308ac0b33))
-- **web-components:** dismiss label ([42618b2](https://github.com/mi6/ic-ui-kit/commit/42618b2f651b9dfa7257ebed5521492bdfb07ca7))
-- **web-components:** Fix/able to select no options when select has empty options array ([cccf3fe](https://github.com/mi6/ic-ui-kit/commit/cccf3febc0edfa65474bda6ce08b2e8f8c895a6d))
-
-### BREAKING CHANGES
-
-- **docs:** prop rename to more closely align with native html attribute
-- **web-components:** prop rename from auto-focus to autofocus, more closely aligning with native html attribute
-- **web-components:** color prop renamed to brandColor
-  icThemeChange event renamed to icBrandChange
-  changes to types:
-  IcThemeForegroundEnum now IcBrandForegroundEnum
-  IcThemeForeground now IcBrandForeground
-  IcThemeForegroundNoDefault now IcBrandForegroundNoDefault
-  IcTheme now IcBrand
-
-# [3.0.0-alpha.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.4...@ukic/web-components@3.0.0-alpha.5) (2024-12-09)
-
-### Bug Fixes
-
-- **react:** add storybook logging to demonstrate new functionality ([69b9272](https://github.com/mi6/ic-ui-kit/commit/69b927283baac8221d9f0a64ab305ed8c6fc84d6))
-- **web-components:** center side-nav icons ([fcd8cc0](https://github.com/mi6/ic-ui-kit/commit/fcd8cc09133f26c0d311277d54df3255474b74d9))
-- **web-components:** fix breadcrumb group collapsed prop not toggling correctly ([185557a](https://github.com/mi6/ic-ui-kit/commit/185557a434441961c9b27e8a482da917dbab3263)), closes [#2028](https://github.com/mi6/ic-ui-kit/issues/2028) [#1998](https://github.com/mi6/ic-ui-kit/issues/1998)
-- **web-components:** fix navigation items not inheriting expanded state ([70dc3ee](https://github.com/mi6/ic-ui-kit/commit/70dc3ee2507fb89818d397b4db6760ac2c269824)), closes [#2610](https://github.com/mi6/ic-ui-kit/issues/2610)
-- **web-components:** fixes displays issues with hero ([7fde721](https://github.com/mi6/ic-ui-kit/commit/7fde721f8795f9696b89d92457e8a266cd1bc7d7))
-- **web-components:** make setting external collapsed state on side nav execute correct style changes ([9f3a21e](https://github.com/mi6/ic-ui-kit/commit/9f3a21ea60a704758fb23961ce0ab376384ef529))
-- **web-components:** update colours and colour tokens to match v3 dark mode Figma file ([afcb96a](https://github.com/mi6/ic-ui-kit/commit/afcb96ac5d025c242e7b413e3ad8440aa032235c))
-- **web-components:** update icpopoverclosed event to include relevant information ([c134f2b](https://github.com/mi6/ic-ui-kit/commit/c134f2b53c7581f73a8a30c3e615c01299cf1090)), closes [#2665](https://github.com/mi6/ic-ui-kit/issues/2665)
-- **web-components:** update top nav tokens to be the same in light and dark mode ([168a7ad](https://github.com/mi6/ic-ui-kit/commit/168a7ad9a3b1b94895abff7ac6132a2ae5f7fc50))
-- **web-components:** updated ic-card border color to correct dark mode patterns ([dac04e3](https://github.com/mi6/ic-ui-kit/commit/dac04e3036fe00cab9fb6c1b20a5870237f22a7b))
-
-### Code Refactoring
-
-- **web-components:** rename toggleChecked prop to checked in ic-menu-item ([e89e905](https://github.com/mi6/ic-ui-kit/commit/e89e9056b5a2f389794ec83fa00d494be541a169))
-
-### Features
-
-- **cherry-pick:** cherry-pick ticket 2208 ([c72f7b0](https://github.com/mi6/ic-ui-kit/commit/c72f7b004c8da4119372ab2ed6b700d4592426f0))
-- **web-components:** add `uppercase` prop to ic-status-tag ([e6dd097](https://github.com/mi6/ic-ui-kit/commit/e6dd0977f88c23b36d785028912727d82823d173))
-- **web-components:** add dark mode tokens for page header and add dark mode page header story ([541ce78](https://github.com/mi6/ic-ui-kit/commit/541ce7894c0917cf12689939fc431bbea562818d)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
-- **web-components:** add icToggleChecked event to ic-menu-item ([2e51d36](https://github.com/mi6/ic-ui-kit/commit/2e51d36512a15e9a997a56b378950b304b713872))
-- **web-components:** added ic-data-table color tokens to color-mode.css ([33ab425](https://github.com/mi6/ic-ui-kit/commit/33ab425445c260ae8e950e686f3756a2f37a0aae))
-- **web-components:** added theme prop for ic-text-field ([75f2c54](https://github.com/mi6/ic-ui-kit/commit/75f2c5494bdad65163b9f6f5c84c7e021ebe931c))
-- **web-components:** added theme prop to ic-select ([4d40822](https://github.com/mi6/ic-ui-kit/commit/4d4082296fb45cf3e0fdc9d936e046981290f729))
-- **web-components:** adds css tokens for date components ([a0b86f0](https://github.com/mi6/ic-ui-kit/commit/a0b86f0a4ba9c61f77fff85d79eee1d251774ba0))
-- **web-components:** adds theme prop and dark mode for back-to-top ([b841206](https://github.com/mi6/ic-ui-kit/commit/b84120635f5477e017cdb6a01edeb7e421ebfecc))
-- **web-components:** dark mode work ([580ab3a](https://github.com/mi6/ic-ui-kit/commit/580ab3acf60889fd17c096ba340e9cb7b9207139))
-- **web-components:** design tokens added for ic-side-navigation ([78f9331](https://github.com/mi6/ic-ui-kit/commit/78f93311ad0e5a54aa43919b9ff72e08be56c29d))
-- **web-components:** implement theme prop on top navigation ([880b1a9](https://github.com/mi6/ic-ui-kit/commit/880b1a9700a3ed66045f692f0f3024c52ac21a7f))
-- **web-components:** update searchable prop on select component ([0408d46](https://github.com/mi6/ic-ui-kit/commit/0408d46ce250b645cda693e6ae49506c8e90acfc))
-- **web-components:** update toggle button and toggle button group to have theme prop ([48d9e01](https://github.com/mi6/ic-ui-kit/commit/48d9e0183c86c6698fd08fdecc4e077f9cdfb252))
-
-### BREAKING CHANGES
-
-- **web-components:** Theme prop added
-- **web-components:** For toggle button/toggle button group, the appearance prop has been replaced by
-  theme and monochrome
-- **web-components:** dark mode
-- **web-components:** dark mode
-- **web-components:** new theme prop and colour switching
-- **web-components:** Rename toggleChecked prop to checked in ic-menu-item
-- **web-components:** added new theme prop and removed appearance prop
-
-# [3.0.0-alpha.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.3...@ukic/web-components@3.0.0-alpha.4) (2024-11-14)
-
-### Bug Fixes
-
-- **web-components:** add tree view css tokens to color-mode.css ([122d8f1](https://github.com/mi6/ic-ui-kit/commit/122d8f1af4362bb558088698ea005dd0a4e7f79e))
-- **web-components:** fix WCAG 1.3.1 issue in popover-menu ([04df1f7](https://github.com/mi6/ic-ui-kit/commit/04df1f775b4b4d73badd810f09fe4c671fa5f75c))
-- **web-components:** fixes nav-item screen reader issue ([d8ca918](https://github.com/mi6/ic-ui-kit/commit/d8ca918ed95c5ad619dce9275e33ab7b0b7c9ad4))
-- **web-components:** optional chaining to removeEventListener functions ([688f8fd](https://github.com/mi6/ic-ui-kit/commit/688f8fda1d55630efa153f015860992c7f12ebea))
-- **web-components:** updated prop name ([9b53d80](https://github.com/mi6/ic-ui-kit/commit/9b53d80d0c9ffd6cec6b5a39a63f9bad5bb35090))
-
-### Features
-
+- **web-components:** add aria-live region to announce current page on complex pagination ([4e47541](https://github.com/mi6/ic-ui-kit/commit/4e47541f652a560101ce4e2cbea24439de8ffe14))
+- **web-components:** add truncation styling for chip and typography when in an AG Grid ([d913a96](https://github.com/mi6/ic-ui-kit/commit/d913a964b6eeb01f97bb43b5a5756f2e530a6296))
+- **web-components:** changed ic-radio-option to not be shadow ([fa9725a](https://github.com/mi6/ic-ui-kit/commit/fa9725a16426b3d8ba05dc7a21adbac19c4f4aee))
+- **web-components:** improve component prop names ([79f4e6b](https://github.com/mi6/ic-ui-kit/commit/79f4e6bfaaf25e15254d1312bb073479a225bd0d)), closes [#662](https://github.com/mi6/ic-ui-kit/issues/662)
+- **web-components:** initial ic-theme changes for dark mode support ([0678c89](https://github.com/mi6/ic-ui-kit/commit/0678c89660232f0af26ea29fcbc01651d4cc7838))
+- **web-components:** remove deprecated props/slots/events/methods ([2e70f03](https://github.com/mi6/ic-ui-kit/commit/2e70f03a359974ead104e8afe238d6681dda5875)), closes [#230](https://github.com/mi6/ic-ui-kit/issues/230)
+- **web-components:** remove maxLength from text field, use maxCharacters instead, add hideCharCount ([172d139](https://github.com/mi6/ic-ui-kit/commit/172d139ebfbc3be09f968875656f901d3a9ce30f)), closes [.#1064](https://github.com/./issues/1064)
+- **web-components:** removed deprecated colour tokens ([4bfa1e7](https://github.com/mi6/ic-ui-kit/commit/4bfa1e7dd7e1d8bc6e17ae13515cc766be382a1b))
+- **web-components:** removed hidden input from ic-radio-group ([ae09214](https://github.com/mi6/ic-ui-kit/commit/ae092144a7f07c8d6ee9b0287570672265550fbc))
+- **web-components:** update sideNavExpanded and topNavResized event names to have "ic" prefix ([14dd746](https://github.com/mi6/ic-ui-kit/commit/14dd7467f79baa77d20c043f916aebe0d182ed99)), closes [.#1354](https://github.com/./issues/1354)
+- **web-components:** updated ic-typography and ic-tooltip ([a545108](https://github.com/mi6/ic-ui-kit/commit/a545108de5fada884f6023d2e9507ee26ddb0d47))
+- **web-components:** add maxLengthMessage prop to text field ([6d656ce](https://github.com/mi6/ic-ui-kit/commit/6d656ce70533cab7f283250d21c4443c09c09ac7)), closes [#2248](https://github.com/mi6/ic-ui-kit/issues/2248)
+- **web-components:** add showDefaultIcon prop and neutral-icon slot to alert ([cb8c2ea](https://github.com/mi6/ic-ui-kit/commit/cb8c2ea2d0a43d6027708790299981584e03b8d7))
+- **web-components:** adds ic-tooltip theme styling ([2566d0c](https://github.com/mi6/ic-ui-kit/commit/2566d0cea6e219dc8bd0c07fba939111cbcbb0cd))
+- **web-components:** fixes color issues after typography change ([7c33338](https://github.com/mi6/ic-ui-kit/commit/7c333386aead6f7bc45dbb64572880b4fbe73034))
+- **web-components:** initial ic-theme changes for dark mode support ([624267e](https://github.com/mi6/ic-ui-kit/commit/624267e4313a0f8bed5529b5af3b44cc30a11358))
+- **web-components:** remove deprecated props/slots/events/methods ([c920f2e](https://github.com/mi6/ic-ui-kit/commit/c920f2e3f71220454ebeee2028e0cbc15dde1afc)), closes [#230](https://github.com/mi6/ic-ui-kit/issues/230)
+- **web-components:** update badge to use theme to set dark/light mode colour ([ebd7920](https://github.com/mi6/ic-ui-kit/commit/ebd792043fc6f4d0fdeb9ef51bdb5809b3a689ef)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** update data list and data row to have theme prop ([ee0e4c4](https://github.com/mi6/ic-ui-kit/commit/ee0e4c4c1e7c8b333361add82672c6ca1288c3bd)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** update link and breadcrumb to use theme prop instead of appearance ([74fbcb3](https://github.com/mi6/ic-ui-kit/commit/74fbcb303c13d8ba017bfac3784ef541dcd5ba08))
+- **web-components:** update status tags to use theme to determine light/dark mode ([6f4af9a](https://github.com/mi6/ic-ui-kit/commit/6f4af9a415aae371047e3274dd46b16ba7b35564)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** add global primitive and semantic CSS tokens to allow for use in dark mode ([d07633c](https://github.com/mi6/ic-ui-kit/commit/d07633c3535bd78f7ec9b7309d5cfe1712239a63)), closes [#2466](https://github.com/mi6/ic-ui-kit/issues/2466) [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** added theme and monochrome prop to ic-loading-indicator ([46868f2](https://github.com/mi6/ic-ui-kit/commit/46868f231e8927d97ce956a21bb3eeb69f1cf79d))
+- **web-components:** adds theme prop to ic-chip ([16bae57](https://github.com/mi6/ic-ui-kit/commit/16bae57c59ee2b5c4df8d9cbe8017a1e46e7e3bb))
+- **web-components:** replaced appearance with theme prop on ic-skeleton ([b9e269f](https://github.com/mi6/ic-ui-kit/commit/b9e269f66833082e1e716e2c6bb2a7563e1e3200))
+- **web-components:** update stepper to use theme prop instead of appearance ([2164c9d](https://github.com/mi6/ic-ui-kit/commit/2164c9d99f6d687ccbb85cc7f806dc4cd7cf2be2))
+- **web-components:** add atoms css tokens to colors.css and color-mode.css ([3d7e6d8](https://github.com/mi6/ic-ui-kit/commit/3d7e6d84b215992e509dc36d5993c26fd3ced84e))
+- **web-components:** add global primitive and semantic CSS tokens to allow for use in dark mode ([d07633c](https://github.com/mi6/ic-ui-kit/commit/d07633c3535bd78f7ec9b7309d5cfe1712239a63)), closes [#2466](https://github.com/mi6/ic-ui-kit/issues/2466) [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** add multi-select functionality (moved from canary) ([cea50ef](https://github.com/mi6/ic-ui-kit/commit/cea50ef69f35ed27fd3bd4e668f006d3ac5280e3)), closes [#1966](https://github.com/mi6/ic-ui-kit/issues/1966) [#1652](https://github.com/mi6/ic-ui-kit/issues/1652) [#1658](https://github.com/mi6/ic-ui-kit/issues/1658) [#1816](https://github.com/mi6/ic-ui-kit/issues/1816) [#1917](https://github.com/mi6/ic-ui-kit/issues/1917) [#1767](https://github.com/mi6/ic-ui-kit/issues/1767) [#2071](https://github.com/mi6/ic-ui-kit/issues/2071)
+- **web-components:** add theme prop to switch to enable light and dark mode ([829c187](https://github.com/mi6/ic-ui-kit/commit/829c187f810d2ecbe1292bcf53e9236967979fc3))
+- **web-components:** added hidelabel to remove label specifically ([13f77d1](https://github.com/mi6/ic-ui-kit/commit/13f77d198927a8fff303f6cce8707e6c8395dd15)), closes [#1813](https://github.com/mi6/ic-ui-kit/issues/1813)
+- **web-components:** added theme and monochrome prop to ic-loading-indicator ([46868f2](https://github.com/mi6/ic-ui-kit/commit/46868f231e8927d97ce956a21bb3eeb69f1cf79d))
+- **web-components:** adds theme prop to ic-chip ([16bae57](https://github.com/mi6/ic-ui-kit/commit/16bae57c59ee2b5c4df8d9cbe8017a1e46e7e3bb))
+- **web-components:** dark mode popover ([09a636b](https://github.com/mi6/ic-ui-kit/commit/09a636b1f973c940763e89eee0fc7b5d35f9fc73))
+- **web-components:** replaced appearance with theme prop on ic-skeleton ([b9e269f](https://github.com/mi6/ic-ui-kit/commit/b9e269f66833082e1e716e2c6bb2a7563e1e3200))
+- **web-components:** update stepper to use theme prop instead of appearance ([2164c9d](https://github.com/mi6/ic-ui-kit/commit/2164c9d99f6d687ccbb85cc7f806dc4cd7cf2be2))
 - **react:** implement theme prop on dialog ([3c4edf0](https://github.com/mi6/ic-ui-kit/commit/3c4edf0fb5e4e1bb4bce6ae4b6eae16939c888ae))
 - **web-components:** add additional functionality to existing ic-divider component ([d71bb97](https://github.com/mi6/ic-ui-kit/commit/d71bb97e00fd3c129f26c2a1e64a1b185fcd33ec)), closes [#1331](https://github.com/mi6/ic-ui-kit/issues/1331) [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
 - **web-components:** add theme prop to accordion component ([bd505d0](https://github.com/mi6/ic-ui-kit/commit/bd505d0c5e1bfe08198eb7e1ec55e573003b1e22))
@@ -234,130 +207,36 @@ ref 2963
 - **web-components:** update classification banner to use new css tokens ([5113dbb](https://github.com/mi6/ic-ui-kit/commit/5113dbb698252de59694f365b4fff5643a29d9f9))
 - **web-components:** update footer to use css tokens ([89f4981](https://github.com/mi6/ic-ui-kit/commit/89f498167e0d8dbd137cb04d830b4985df3718ed))
 - **web-components:** update hero to use theme css tokens ([fb0c360](https://github.com/mi6/ic-ui-kit/commit/fb0c3606a47ad85f4828b66a28a7effbdb612c99))
-
-### BREAKING CHANGES
-
-- **web-components:** Appearance prop removed from pagination component and replaced with theme and
-  monochrome
-- **web-components:** Prop renamed to 'keyboardShortcutLabel'
-
-2593
-
-- **web-components:** The "appearance" prop has been replaced with a prop called "theme" and the values
-  have been swapped (i.e. the "dark" theme has white text, rather than "light").
-- **web-components:** Change default styling and props on ic-divider
-- **web-components:** added theme prop and dark mode functionality
-
-# [3.0.0-alpha.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.2...@ukic/web-components@3.0.0-alpha.3) (2024-10-31)
-
-### Bug Fixes
-
-- **react:** add relevant storybook component to demostrate the onClick event ([f884e02](https://github.com/mi6/ic-ui-kit/commit/f884e02e1395c582391360d8c35b17612367bd92))
-- **web-components:** added styling to loading indicator ([e4bf5b5](https://github.com/mi6/ic-ui-kit/commit/e4bf5b506b2a0bb0da503a88ff348f542af583af))
-- **web-components:** added useLabelTag Prop ([4202f50](https://github.com/mi6/ic-ui-kit/commit/4202f50b61ce2876a48153a6af8216b927afe0ce))
-- **web-components:** adds check for undefined element in typography ([e79d281](https://github.com/mi6/ic-ui-kit/commit/e79d2810c26330173bc25f6cc4172e993b44afda))
-- **web-components:** adds high contrast focus ([9ceb0b7](https://github.com/mi6/ic-ui-kit/commit/9ceb0b7329e8181ff0add03ead3e130f73374761))
-- **web-components:** change to previous fix with hiding icon ([daa0949](https://github.com/mi6/ic-ui-kit/commit/daa0949bf7296cf0fe8b21b67b2bfc4406265e2a))
-- **web-components:** changed conditional for applying aria-role to ic-search-bar ([cbe4be8](https://github.com/mi6/ic-ui-kit/commit/cbe4be8b2af87c7cdd151012d8882d2f2aee373f))
-- **web-components:** fix click event not working on conditional elements in radio buttons ([b61ec80](https://github.com/mi6/ic-ui-kit/commit/b61ec80206f68842bd1ad85226766b6f24194ffe)), closes [#2514](https://github.com/mi6/ic-ui-kit/issues/2514)
-- **web-components:** fix focus overlapping text ([e7d135d](https://github.com/mi6/ic-ui-kit/commit/e7d135d3a6eb8a9baea0f900963be4793e346ba6))
-- **web-components:** fix icpopoverclosed event not emitting when closed via submenu ([87010e7](https://github.com/mi6/ic-ui-kit/commit/87010e73d20713f09d544f1f47f6e466f1b149d1)), closes [#2297](https://github.com/mi6/ic-ui-kit/issues/2297)
-- **web-components:** fix multiple radio options being selected with the same value ([35b1603](https://github.com/mi6/ic-ui-kit/commit/35b1603b8321ec9a3d84017b6545fd9b778d1c86)), closes [#2567](https://github.com/mi6/ic-ui-kit/issues/2567)
-- **web-components:** fix nav group not align with other nav items ([bbb33d8](https://github.com/mi6/ic-ui-kit/commit/bbb33d844300a35ebd9be7c5fd041cc1af826c51))
-- **web-components:** fixed not autoselecting first tab during dynamic render ([e2140eb](https://github.com/mi6/ic-ui-kit/commit/e2140ebf734f4b36eb76cffb71b0b45caa76171c))
-- **web-components:** fixes issue with showDefaultIcon in gatsby ([84719d9](https://github.com/mi6/ic-ui-kit/commit/84719d93de2255cf76cf1cfb0d820c499ff95193))
-- **web-components:** fixes tooltips wrapping onto multiple lines ([28321f7](https://github.com/mi6/ic-ui-kit/commit/28321f73610fbdbb57e93b982375403315a32ac8))
-- **web-components:** popover accessibility order match visual order ([bcf7018](https://github.com/mi6/ic-ui-kit/commit/bcf70181775840e0eac4fd07c0ff761053a2b507))
-- **web-components:** remove REM explicit width/height from checkbox SVG in favour of CSS default ([f8a856e](https://github.com/mi6/ic-ui-kit/commit/f8a856edd0a7c85fba358c8b14f9cd5bbe4a45e4))
-- **web-components:** removed margin-bottom from heading ([c4827cb](https://github.com/mi6/ic-ui-kit/commit/c4827cb8b5d82ced877a0ff3b8adbaf1e3ded60b))
-- **web-components:** restore radio orientation overrides after rebase ([a29a4d7](https://github.com/mi6/ic-ui-kit/commit/a29a4d72d6b300ee391d8d460a324229b0f42c50))
-- **web-components:** update auto dismiss toast to turn manual when hovered over ([a12ab96](https://github.com/mi6/ic-ui-kit/commit/a12ab9651088fc750593c7b87a83b52a219b5d37)), closes [#1291](https://github.com/mi6/ic-ui-kit/issues/1291)
-- **web-components:** update toast animation to only work when prefers reduced motion is off ([e99ffa8](https://github.com/mi6/ic-ui-kit/commit/e99ffa833842e6f798c202271f88fbcd24a0a162)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
-
-### Features
-
-- **web-components:** add atoms css tokens to colors.css and color-mode.css ([3d7e6d8](https://github.com/mi6/ic-ui-kit/commit/3d7e6d84b215992e509dc36d5993c26fd3ced84e))
-- **web-components:** add global primitive and semantic CSS tokens to allow for use in dark mode ([d07633c](https://github.com/mi6/ic-ui-kit/commit/d07633c3535bd78f7ec9b7309d5cfe1712239a63)), closes [#2466](https://github.com/mi6/ic-ui-kit/issues/2466) [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
-- **web-components:** add multi-select functionality (moved from canary) ([cea50ef](https://github.com/mi6/ic-ui-kit/commit/cea50ef69f35ed27fd3bd4e668f006d3ac5280e3)), closes [#1966](https://github.com/mi6/ic-ui-kit/issues/1966) [#1652](https://github.com/mi6/ic-ui-kit/issues/1652) [#1658](https://github.com/mi6/ic-ui-kit/issues/1658) [#1816](https://github.com/mi6/ic-ui-kit/issues/1816) [#1917](https://github.com/mi6/ic-ui-kit/issues/1917) [#1767](https://github.com/mi6/ic-ui-kit/issues/1767) [#2071](https://github.com/mi6/ic-ui-kit/issues/2071)
-- **web-components:** add theme prop to switch to enable light and dark mode ([829c187](https://github.com/mi6/ic-ui-kit/commit/829c187f810d2ecbe1292bcf53e9236967979fc3))
-- **web-components:** added hidelabel to remove label specifically ([13f77d1](https://github.com/mi6/ic-ui-kit/commit/13f77d198927a8fff303f6cce8707e6c8395dd15)), closes [#1813](https://github.com/mi6/ic-ui-kit/issues/1813)
-- **web-components:** added theme and monochrome prop to ic-loading-indicator ([46868f2](https://github.com/mi6/ic-ui-kit/commit/46868f231e8927d97ce956a21bb3eeb69f1cf79d))
-- **web-components:** adds theme prop to ic-chip ([16bae57](https://github.com/mi6/ic-ui-kit/commit/16bae57c59ee2b5c4df8d9cbe8017a1e46e7e3bb))
-- **web-components:** dark mode popover ([09a636b](https://github.com/mi6/ic-ui-kit/commit/09a636b1f973c940763e89eee0fc7b5d35f9fc73))
-- **web-components:** replaced appearance with theme prop on ic-skeleton ([b9e269f](https://github.com/mi6/ic-ui-kit/commit/b9e269f66833082e1e716e2c6bb2a7563e1e3200))
-- **web-components:** update stepper to use theme prop instead of appearance ([2164c9d](https://github.com/mi6/ic-ui-kit/commit/2164c9d99f6d687ccbb85cc7f806dc4cd7cf2be2))
+- **cherry-pick:** cherry-pick ticket 2208 ([c72f7b0](https://github.com/mi6/ic-ui-kit/commit/c72f7b004c8da4119372ab2ed6b700d4592426f0))
+- **web-components:** add `uppercase` prop to ic-status-tag ([e6dd097](https://github.com/mi6/ic-ui-kit/commit/e6dd0977f88c23b36d785028912727d82823d173))
+- **web-components:** add dark mode tokens for page header and add dark mode page header story ([541ce78](https://github.com/mi6/ic-ui-kit/commit/541ce7894c0917cf12689939fc431bbea562818d)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
+- **web-components:** add icToggleChecked event to ic-menu-item ([2e51d36](https://github.com/mi6/ic-ui-kit/commit/2e51d36512a15e9a997a56b378950b304b713872))
+- **web-components:** added ic-data-table color tokens to color-mode.css ([33ab425](https://github.com/mi6/ic-ui-kit/commit/33ab425445c260ae8e950e686f3756a2f37a0aae))
+- **web-components:** added theme prop for ic-text-field ([75f2c54](https://github.com/mi6/ic-ui-kit/commit/75f2c5494bdad65163b9f6f5c84c7e021ebe931c))
+- **web-components:** added theme prop to ic-select ([4d40822](https://github.com/mi6/ic-ui-kit/commit/4d4082296fb45cf3e0fdc9d936e046981290f729))
+- **web-components:** adds css tokens for date components ([a0b86f0](https://github.com/mi6/ic-ui-kit/commit/a0b86f0a4ba9c61f77fff85d79eee1d251774ba0))
+- **web-components:** adds theme prop and dark mode for back-to-top ([b841206](https://github.com/mi6/ic-ui-kit/commit/b84120635f5477e017cdb6a01edeb7e421ebfecc))
+- **web-components:** dark mode work ([580ab3a](https://github.com/mi6/ic-ui-kit/commit/580ab3acf60889fd17c096ba340e9cb7b9207139))
+- **web-components:** design tokens added for ic-side-navigation ([78f9331](https://github.com/mi6/ic-ui-kit/commit/78f93311ad0e5a54aa43919b9ff72e08be56c29d))
+- **web-components:** implement theme prop on top navigation ([880b1a9](https://github.com/mi6/ic-ui-kit/commit/880b1a9700a3ed66045f692f0f3024c52ac21a7f))
+- **web-components:** update searchable prop on select component ([0408d46](https://github.com/mi6/ic-ui-kit/commit/0408d46ce250b645cda693e6ae49506c8e90acfc))
+- **web-components:** update toggle button and toggle button group to have theme prop ([48d9e01](https://github.com/mi6/ic-ui-kit/commit/48d9e0183c86c6698fd08fdecc4e077f9cdfb252))
+- **web-components:** changes to ic-theme ([e8149bb](https://github.com/mi6/ic-ui-kit/commit/e8149bb48692538632e886f0ffd4b00308ac0b33))
+- **web-components:** dismiss label ([42618b2](https://github.com/mi6/ic-ui-kit/commit/42618b2f651b9dfa7257ebed5521492bdfb07ca7))
+- **web-components:** Fix/able to select no options when select has empty options array ([cccf3fe](https://github.com/mi6/ic-ui-kit/commit/cccf3febc0edfa65474bda6ce08b2e8f8c895a6d))
 
 ### Performance Improvements
 
 - **web-components:** add the ability to change between themes in Storybook toolbar ([fe9c232](https://github.com/mi6/ic-ui-kit/commit/fe9c232f14c6945bcbea37a0a787b46c0f806f0e))
 
-### BREAKING CHANGES
+### Code Refactoring
 
-- **web-components:** "ic-select" needs to be used to get the multi-select variant, and from the
-  web-components package (rather than "ic-select-with-multi" from canary-web-components).
-- **web-components:** dark mode
-- **web-components:** removed appearance prop, added new props
-- **web-components:** component will honour system preference by default
-
-# Conflicts:
-
-# packages/web-components/src/global/borders.css
-
-# packages/web-components/src/global/color-mode.css
-
-# packages/web-components/src/global/colors.css
-
-- **web-components:** removed appearance and added theme prop
-- **web-components:** tooltip wrapping change that may affect visual regression snapshots
-- **web-components:** Rename some of the existing CSS tokens following the move towards primitive, semantic and component tokens
-- **web-components:** Behaviour change to auto dismiss toasts to show dismiss button when toast is hovered
-  over or focussed. May cause test breakages.
-
-# [3.0.0-alpha.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.1...@ukic/web-components@3.0.0-alpha.2) (2024-10-17)
-
-### Bug Fixes
-
-- **web-components:** adds check for undefined element in typography ([e79d281](https://github.com/mi6/ic-ui-kit/commit/e79d2810c26330173bc25f6cc4172e993b44afda))
-- **web-components:** changed conditional for applying aria-role to ic-search-bar ([cbe4be8](https://github.com/mi6/ic-ui-kit/commit/cbe4be8b2af87c7cdd151012d8882d2f2aee373f))
-- **web-components:** fix icpopoverclosed event not emitting when closed via submenu ([87010e7](https://github.com/mi6/ic-ui-kit/commit/87010e73d20713f09d544f1f47f6e466f1b149d1)), closes [#2297](https://github.com/mi6/ic-ui-kit/issues/2297)
-- **web-components:** fixed not autoselecting first tab during dynamic render ([e2140eb](https://github.com/mi6/ic-ui-kit/commit/e2140ebf734f4b36eb76cffb71b0b45caa76171c))
-- **web-components:** fixes issue with showDefaultIcon in gatsby ([84719d9](https://github.com/mi6/ic-ui-kit/commit/84719d93de2255cf76cf1cfb0d820c499ff95193))
-- **web-components:** fixes tooltips wrapping onto multiple lines ([28321f7](https://github.com/mi6/ic-ui-kit/commit/28321f73610fbdbb57e93b982375403315a32ac8))
-- **web-components:** restore radio orientation overrides after rebase ([a29a4d7](https://github.com/mi6/ic-ui-kit/commit/a29a4d72d6b300ee391d8d460a324229b0f42c50))
-- **web-components:** update auto dismiss toast to turn manual when hovered over ([a12ab96](https://github.com/mi6/ic-ui-kit/commit/a12ab9651088fc750593c7b87a83b52a219b5d37)), closes [#1291](https://github.com/mi6/ic-ui-kit/issues/1291)
-- **web-components:** update toast animation to only work when prefers reduced motion is off ([e99ffa8](https://github.com/mi6/ic-ui-kit/commit/e99ffa833842e6f798c202271f88fbcd24a0a162)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
-
-### Features
-
-- **web-components:** add global primitive and semantic CSS tokens to allow for use in dark mode ([d07633c](https://github.com/mi6/ic-ui-kit/commit/d07633c3535bd78f7ec9b7309d5cfe1712239a63)), closes [#2466](https://github.com/mi6/ic-ui-kit/issues/2466) [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
-- **web-components:** added theme and monochrome prop to ic-loading-indicator ([46868f2](https://github.com/mi6/ic-ui-kit/commit/46868f231e8927d97ce956a21bb3eeb69f1cf79d))
-- **web-components:** adds theme prop to ic-chip ([16bae57](https://github.com/mi6/ic-ui-kit/commit/16bae57c59ee2b5c4df8d9cbe8017a1e46e7e3bb))
-- **web-components:** replaced appearance with theme prop on ic-skeleton ([b9e269f](https://github.com/mi6/ic-ui-kit/commit/b9e269f66833082e1e716e2c6bb2a7563e1e3200))
-- **web-components:** update stepper to use theme prop instead of appearance ([2164c9d](https://github.com/mi6/ic-ui-kit/commit/2164c9d99f6d687ccbb85cc7f806dc4cd7cf2be2))
-
-### BREAKING CHANGES
-
-- **web-components:** removed appearance prop, added new props
-- **web-components:** component will honour system preference by default
-
-# Conflicts:
-
-# packages/web-components/src/global/borders.css
-
-# packages/web-components/src/global/color-mode.css
-
-# packages/web-components/src/global/colors.css
-
-- **web-components:** removed appearance and added theme prop
-- **web-components:** tooltip wrapping change that may affect visual regression snapshots
-- **web-components:** Rename some of the existing CSS tokens following the move towards primitive, semantic and component tokens
-- **web-components:** Behaviour change to auto dismiss toasts to show dismiss button when toast is hovered
-  over or focussed. May cause test breakages.
-
-# [3.0.0-alpha.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0...@ukic/web-components@3.0.0-alpha.1) (2024-10-04)
-
-### Bug Fixes
-
+- **web-components:** change the name of the data-entity component to data-list ([2bf4867](https://github.com/mi6/ic-ui-kit/commit/2bf48676dea6fb1eee7611b063572e3d1b340536)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
+- **web-components:** form attributes removed from checkbox, radio option and select ([0b40a96](https://github.com/mi6/ic-ui-kit/commit/0b40a968909a6128c7bdb4a5004329b6f8274935)), closes [#2000](https://github.com/mi6/ic-ui-kit/issues/2000)
+- **web-components:** rename ic-card to ic-card-vertical ([360a401](https://github.com/mi6/ic-ui-kit/commit/360a4018ec1ecd96ec804f4993ae52e0c2cfe8a8)), closes [#2216](https://github.com/mi6/ic-ui-kit/issues/2216)
+- **web-components:** update components with class names on host to be more specific ([37c0fd1](https://github.com/mi6/ic-ui-kit/commit/37c0fd1dc390143d6d99ab4719e5d44137d15bce)), closes [#1156](https://github.com/mi6/ic-ui-kit/issues/1156)
+- **react:** component size prop options changed ([61b3921](https://github.com/mi6/ic-ui-kit/commit/61b39213f184e4fca002962fb7800be01fe7c867))
+- **web-components:** component sizes changed ([9e5c004](https://github.com/mi6/ic-ui-kit/commit/9e5c0042e5298502f3e49da650fafd4894a03709))
 - **root:** fixes after big rebase ([490c292](https://github.com/mi6/ic-ui-kit/commit/490c292e9294c97d938575ea114f769a730628bc))
 - **web-components:** added componentDidLoad check to ic-toast-region ([a376e93](https://github.com/mi6/ic-ui-kit/commit/a376e9349b8e8d421af85b158942263b0bc00d5b))
 - **web-components:** dont generate timestamp in stencil ([22b0293](https://github.com/mi6/ic-ui-kit/commit/22b02934271db6fd1c26cdfbe289b1d5d16bee92))
@@ -370,70 +249,7 @@ ref 2963
 - **web-components:** update tabs to use theme and monochrome prop ([260277a](https://github.com/mi6/ic-ui-kit/commit/260277abe608c0c0dfc9bc8e339b9a76fef86a6b)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
 - **web-components:** update theme storybook to have a visualisation playground ([b7683d6](https://github.com/mi6/ic-ui-kit/commit/b7683d626795ba008815c3617818455506703bf2)), closes [#2373](https://github.com/mi6/ic-ui-kit/issues/2373)
 - **web-components:** update toast animation to only work when prefers reduced motion is off ([632c270](https://github.com/mi6/ic-ui-kit/commit/632c270cb745580de569df0544e63a3377177179)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
-
-### Code Refactoring
-
-- **react:** component size prop options changed ([61b3921](https://github.com/mi6/ic-ui-kit/commit/61b39213f184e4fca002962fb7800be01fe7c867))
-- **web-components:** component sizes changed ([9e5c004](https://github.com/mi6/ic-ui-kit/commit/9e5c0042e5298502f3e49da650fafd4894a03709))
-
-### Features
-
-- **web-components:** add maxLengthMessage prop to text field ([6d656ce](https://github.com/mi6/ic-ui-kit/commit/6d656ce70533cab7f283250d21c4443c09c09ac7)), closes [#2248](https://github.com/mi6/ic-ui-kit/issues/2248)
-- **web-components:** add showDefaultIcon prop and neutral-icon slot to alert ([cb8c2ea](https://github.com/mi6/ic-ui-kit/commit/cb8c2ea2d0a43d6027708790299981584e03b8d7))
-- **web-components:** adds ic-tooltip theme styling ([2566d0c](https://github.com/mi6/ic-ui-kit/commit/2566d0cea6e219dc8bd0c07fba939111cbcbb0cd))
-- **web-components:** fixes color issues after typography change ([7c33338](https://github.com/mi6/ic-ui-kit/commit/7c333386aead6f7bc45dbb64572880b4fbe73034))
-- **web-components:** initial ic-theme changes for dark mode support ([624267e](https://github.com/mi6/ic-ui-kit/commit/624267e4313a0f8bed5529b5af3b44cc30a11358))
-- **web-components:** remove deprecated props/slots/events/methods ([c920f2e](https://github.com/mi6/ic-ui-kit/commit/c920f2e3f71220454ebeee2028e0cbc15dde1afc)), closes [#230](https://github.com/mi6/ic-ui-kit/issues/230)
-- **web-components:** update badge to use theme to set dark/light mode colour ([ebd7920](https://github.com/mi6/ic-ui-kit/commit/ebd792043fc6f4d0fdeb9ef51bdb5809b3a689ef)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
-- **web-components:** update data list and data row to have theme prop ([ee0e4c4](https://github.com/mi6/ic-ui-kit/commit/ee0e4c4c1e7c8b333361add82672c6ca1288c3bd)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
-- **web-components:** update link and breadcrumb to use theme prop instead of appearance ([74fbcb3](https://github.com/mi6/ic-ui-kit/commit/74fbcb303c13d8ba017bfac3784ef541dcd5ba08))
-- **web-components:** update status tags to use theme to determine light/dark mode ([6f4af9a](https://github.com/mi6/ic-ui-kit/commit/6f4af9a415aae371047e3274dd46b16ba7b35564)), closes [#1214](https://github.com/mi6/ic-ui-kit/issues/1214)
-
-### BREAKING CHANGES
-
-- **web-components:** For link and breadcrumb components, appearance has been replaced with theme and
-  monochrome
-- **web-components:** Appearance prop replaced with monochrome/theme prop on tab context
-- **react:** prop type changed
-- **web-components:** The default size for components has been changed to 'medium' in preparation for v3
-- **web-components:** Instead of passing "loading/still loading" to a loading indicator to dynamically
-  change the label, it's now passed as ["loading", "still loading"]
-- **web-components:** Deprecated props/slots/events/methods have been removed entirely.
-
-# [3.0.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.26.0...@ukic/web-components@3.0.0) (2024-08-28)
-
-### Bug Fixes
-
-- **web-components:** change <a> in ic-footer-link to <ic-link> ([d4685eb](https://github.com/mi6/ic-ui-kit/commit/d4685eb6e6dd35e829a7af085f65f44bffddc266)), closes [#265](https://github.com/mi6/ic-ui-kit/issues/265)
-- **web-components:** fix issue with IC Radio to override horizontal ([f27bf1a](https://github.com/mi6/ic-ui-kit/commit/f27bf1a851c7c218cd8b04aafbe172b728dd87a1))
-- **web-components:** fix radio-group rebase issue ([ef600c2](https://github.com/mi6/ic-ui-kit/commit/ef600c23fefe68ddf338fd3099c5d66104e35491))
-- **web-components:** fixes icon only variant positioning ([fc79597](https://github.com/mi6/ic-ui-kit/commit/fc795973e412f5fc4b3b6afdddd160dada929a05))
-- **web-components:** make radio group set disabled state on children ([17ebcd0](https://github.com/mi6/ic-ui-kit/commit/17ebcd020ec2c0a230efe0752accc99b1afe3107))
-- **web-components:** restore isSlotUsed after rebase ([3b0b3de](https://github.com/mi6/ic-ui-kit/commit/3b0b3de6f36dfb213d0450e9703d4e908fc626c5))
-- **web-components:** restore slotted-svg styles in footer link ([9a018a1](https://github.com/mi6/ic-ui-kit/commit/9a018a16314401f06cc0477474670309dcb3916a))
-- **web-components:** set heading levels on Hero component ([e32a0ad](https://github.com/mi6/ic-ui-kit/commit/e32a0adcd046fc71e05631532e615278a0ce1826)), closes [#1687](https://github.com/mi6/ic-ui-kit/issues/1687)
-- **web-components:** update auto dismiss toast to turn manual when hovered over ([ed51065](https://github.com/mi6/ic-ui-kit/commit/ed51065ba9ef9a0c459d92c1f0db778fac0279f6)), closes [#1291](https://github.com/mi6/ic-ui-kit/issues/1291)
-
-### Code Refactoring
-
-- **web-components:** change the name of the data-entity component to data-list ([2bf4867](https://github.com/mi6/ic-ui-kit/commit/2bf48676dea6fb1eee7611b063572e3d1b340536)), closes [#79](https://github.com/mi6/ic-ui-kit/issues/79)
-- **web-components:** form attributes removed from checkbox, radio option and select ([0b40a96](https://github.com/mi6/ic-ui-kit/commit/0b40a968909a6128c7bdb4a5004329b6f8274935)), closes [#2000](https://github.com/mi6/ic-ui-kit/issues/2000)
-- **web-components:** rename ic-card to ic-card-vertical ([360a401](https://github.com/mi6/ic-ui-kit/commit/360a4018ec1ecd96ec804f4993ae52e0c2cfe8a8)), closes [#2216](https://github.com/mi6/ic-ui-kit/issues/2216)
-- **web-components:** update components with class names on host to be more specific ([37c0fd1](https://github.com/mi6/ic-ui-kit/commit/37c0fd1dc390143d6d99ab4719e5d44137d15bce)), closes [#1156](https://github.com/mi6/ic-ui-kit/issues/1156)
-
-### Features
-
-- **web-components:** add aria-live region to announce current page on complex pagination ([4e47541](https://github.com/mi6/ic-ui-kit/commit/4e47541f652a560101ce4e2cbea24439de8ffe14))
-- **web-components:** add truncation styling for chip and typography when in an AG Grid ([d913a96](https://github.com/mi6/ic-ui-kit/commit/d913a964b6eeb01f97bb43b5a5756f2e530a6296))
-- **web-components:** changed ic-radio-option to not be shadow ([fa9725a](https://github.com/mi6/ic-ui-kit/commit/fa9725a16426b3d8ba05dc7a21adbac19c4f4aee))
-- **web-components:** improve component prop names ([79f4e6b](https://github.com/mi6/ic-ui-kit/commit/79f4e6bfaaf25e15254d1312bb073479a225bd0d)), closes [#662](https://github.com/mi6/ic-ui-kit/issues/662)
-- **web-components:** initial ic-theme changes for dark mode support ([0678c89](https://github.com/mi6/ic-ui-kit/commit/0678c89660232f0af26ea29fcbc01651d4cc7838))
-- **web-components:** remove deprecated props/slots/events/methods ([2e70f03](https://github.com/mi6/ic-ui-kit/commit/2e70f03a359974ead104e8afe238d6681dda5875)), closes [#230](https://github.com/mi6/ic-ui-kit/issues/230)
-- **web-components:** remove maxLength from text field, use maxCharacters instead, add hideCharCount ([172d139](https://github.com/mi6/ic-ui-kit/commit/172d139ebfbc3be09f968875656f901d3a9ce30f)), closes [.#1064](https://github.com/./issues/1064)
-- **web-components:** removed deprecated colour tokens ([4bfa1e7](https://github.com/mi6/ic-ui-kit/commit/4bfa1e7dd7e1d8bc6e17ae13515cc766be382a1b))
-- **web-components:** removed hidden input from ic-radio-group ([ae09214](https://github.com/mi6/ic-ui-kit/commit/ae092144a7f07c8d6ee9b0287570672265550fbc))
-- **web-components:** update sideNavExpanded and topNavResized event names to have "ic" prefix ([14dd746](https://github.com/mi6/ic-ui-kit/commit/14dd7467f79baa77d20c043f916aebe0d182ed99)), closes [.#1354](https://github.com/./issues/1354)
-- **web-components:** updated ic-typography and ic-tooltip ([a545108](https://github.com/mi6/ic-ui-kit/commit/a545108de5fada884f6023d2e9507ee26ddb0d47))
+- **web-components:** rename toggleChecked prop to checked in ic-menu-item ([e89e905](https://github.com/mi6/ic-ui-kit/commit/e89e9056b5a2f389794ec83fa00d494be541a169))
 
 ### Tests
 
@@ -441,6 +257,19 @@ ref 2963
 
 ### BREAKING CHANGES
 
+- **web-components:** dark mode
+- **web-components:** removed ic-text-field element so tests may break
+- **web-components:** The icChange event on the searchable select now emits only option values or 'null'
+  to match how editing input de-selects the selected option. IcInput can be used to detect which
+  characters are inputted - the 'debounce' prop now applies to this instead of icChange.
+- **docs:** prop rename to more closely align with native html attribute
+- **web-components:** color prop renamed to brandColor
+  icThemeChange event renamed to icBrandChange
+  changes to types:
+  IcThemeForegroundEnum now IcBrandForegroundEnum
+  IcThemeForeground now IcBrandForeground
+  IcThemeForegroundNoDefault now IcBrandForegroundNoDefault
+  IcTheme now IcBrand
 - **web-components:** disabled class renamed to ic-radio-option-disabled
 - **web-components:** Change <a> in ic-footer-link to <ic-link>
 - **web-components:** ic-card is now named ic-card-vertical
@@ -472,6 +301,188 @@ ref 2963
   queried accordingly and can now be overridden
 - **web-components:** This involves removing css variables which may cause user products to appear
   incorrectly
+- **web-components:** For link and breadcrumb components, appearance has been replaced with theme and
+  monochrome
+- **web-components:** Appearance prop replaced with monochrome/theme prop on tab context
+- **web-components:** The default size for components has been changed to 'medium' in preparation for v3
+- **web-components:** Instead of passing "loading/still loading" to a loading indicator to dynamically
+  change the label, it's now passed as ["loading", "still loading"]
+- **web-components:** removed appearance prop, added new props
+- **web-components:** component will honour system preference by default
+- **web-components:** "ic-select" needs to be used to get the multi-select variant, and from the
+  web-components package (rather than "ic-select-with-multi" from canary-web-components).
+- **web-components:** Appearance prop removed from pagination component and replaced with theme and
+  monochrome
+- **web-components:** Prop renamed to 'keyboardShortcutLabel'
+- **web-components:** The "appearance" prop has been replaced with a prop called "theme" and the values
+  have been swapped (i.e. the "dark" theme has white text, rather than "light").
+- **web-components:** Change default styling and props on ic-divider
+- **web-components:** For toggle button/toggle button group, the appearance prop has been replaced by
+  theme and monochrome
+- **web-components:** Rename toggleChecked prop to checked in ic-menu-item
+- **web-components:** added new theme prop and removed appearance prop
+- **web-components:** tooltip wrapping change that may affect visual regression snapshots
+- **web-components:** Rename some of the existing CSS tokens following the move towards primitive, semantic and component tokens
+- **web-components:** prop rename from auto-focus to autofocus, more closely aligning with native html attribute
+
+## [2.35.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.35.1...@ukic/web-components@2.35.2) (2025-02-19)
+
+### Bug Fixes
+
+- **web-components:** changes to ic-badge and ic-navigation-button to show notifications in mobile ([717b975](https://github.com/mi6/ic-ui-kit/commit/717b975710e85858bce71f5916e474eca23a8545))
+- **web-components:** expose IcToolTip disableClick prop ([cd7dc0f](https://github.com/mi6/ic-ui-kit/commit/cd7dc0f743ebb91d42274b269abdebafb002ff94)), closes [#3129](https://github.com/mi6/ic-ui-kit/issues/3129)
+
+## [2.35.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.35.0...@ukic/web-components@2.35.1) (2025-02-12)
+
+### Bug Fixes
+
+- **web-components:** auto-dismiss toasts now read aloud to screenreaders ([1176284](https://github.com/mi6/ic-ui-kit/commit/11762848d0048ef4263beacc20f0432b9ce39912))
+- **web-components:** fix double focus indicator on selected slotted side nav item when dark ([4fc039f](https://github.com/mi6/ic-ui-kit/commit/4fc039ff21035a0eceda180db501c8c263d1cc24))
+
+# [2.35.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.34.0...@ukic/web-components@2.35.0) (2025-02-05)
+
+### Bug Fixes
+
+- **web-components:** fixes search bar focus issues on ic-dialog ([d11e002](https://github.com/mi6/ic-ui-kit/commit/d11e002c99a57c515e3e26c5f0ebeb5183413f53))
+
+### Features
+
+- **web-components:** added ability to slot different elements into the additional-field slot ([2f7891a](https://github.com/mi6/ic-ui-kit/commit/2f7891ad6e301d61315830d3d2bee7c707ba87c1))
+
+# [2.34.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.33.0...@ukic/web-components@2.34.0) (2025-01-22)
+
+### Bug Fixes
+
+- **web-components:** add css for search toggle icon in top nav so it appears in hcm ([632d9ae](https://github.com/mi6/ic-ui-kit/commit/632d9aeee896ad9de5bc71bf9c378c7e6821919d))
+- **web-components:** add dependencies on react types to fix a build problem ([1eee1a4](https://github.com/mi6/ic-ui-kit/commit/1eee1a4f44a39aea396cb6ce441ff4d373135465))
+- **web-components:** adds in removeHiddenInput for text field so hidden input prop can be toggled ([c2f2493](https://github.com/mi6/ic-ui-kit/commit/c2f2493586df2f09baba75d989cb5179c29a572b))
+- **web-components:** allow the IcTextField to be able to handle null or undefined values ([1324e1e](https://github.com/mi6/ic-ui-kit/commit/1324e1ead915362c52d387d34383ed9600922217)), closes [#2813](https://github.com/mi6/ic-ui-kit/issues/2813)
+- **web-components:** hide the compliance section when there is no logo, caption or copyright info ([8925d36](https://github.com/mi6/ic-ui-kit/commit/8925d361bf20cc9618fe215113eebf3b305da279)), closes [#1800](https://github.com/mi6/ic-ui-kit/issues/1800)
+- **web-components:** removed disabled attribute from components when set to false ([e588e62](https://github.com/mi6/ic-ui-kit/commit/e588e620515347fcb031d711d6916eaf5168c17d))
+- **web-components:** update disabled hover tooltip story to use aria labelledby ([a27f106](https://github.com/mi6/ic-ui-kit/commit/a27f106b3505c5bdec1cd86ea729a0c295eadbc0))
+- **web-components:** updated menu.css disabled option colour for high contrast mode ([9fb33d5](https://github.com/mi6/ic-ui-kit/commit/9fb33d56da2016c1069cc7728c55b89b43994613))
+
+### Features
+
+- **web-components:** add prop to customise tooltip text ([1a9b259](https://github.com/mi6/ic-ui-kit/commit/1a9b25940a82dbc4ec11b1a39c94f7675ad58345)), closes [#2839](https://github.com/mi6/ic-ui-kit/issues/2839)
+- **web-components:** add tooltip placement prop to match ic-button ([3e3cd40](https://github.com/mi6/ic-ui-kit/commit/3e3cd4060f24d95c10af85449afa36d740ee7452))
+- **web-components:** added mutationObserver to ic-footer ([52926b7](https://github.com/mi6/ic-ui-kit/commit/52926b7b68ef1edaf0a67ec780050fabbee986af))
+
+# [2.33.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.32.1...@ukic/web-components@2.33.0) (2025-01-08)
+
+### Bug Fixes
+
+- **web-components:** add dependencies on react types to fix a build problem ([1eee1a4](https://github.com/mi6/ic-ui-kit/commit/1eee1a4f44a39aea396cb6ce441ff4d373135465))
+- **web-components:** removed disabled attribute from components when set to false ([e588e62](https://github.com/mi6/ic-ui-kit/commit/e588e620515347fcb031d711d6916eaf5168c17d))
+
+### Features
+
+- **web-components:** add prop to customise tooltip text ([1a9b259](https://github.com/mi6/ic-ui-kit/commit/1a9b25940a82dbc4ec11b1a39c94f7675ad58345)), closes [#2839](https://github.com/mi6/ic-ui-kit/issues/2839)
+
+## [2.32.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.32.0...@ukic/web-components@2.32.1) (2024-12-18)
+
+### Bug Fixes
+
+- **web-components:** add null handling if there is no icon for navigation item ([03933cf](https://github.com/mi6/ic-ui-kit/commit/03933cfc4b9d00d0c3dfafcc4c3ab12d12ca0e64)), closes [#2795](https://github.com/mi6/ic-ui-kit/issues/2795)
+- **web-components:** fix ic-validation when validation status is empty ([7c7d224](https://github.com/mi6/ic-ui-kit/commit/7c7d224b3b2dce0f35c02466c3e7c5e82583bbbd)), closes [#2140](https://github.com/mi6/ic-ui-kit/issues/2140)
+
+# [2.32.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.31.0...@ukic/web-components@2.32.0) (2024-11-27)
+
+### Bug Fixes
+
+- **react:** add storybook logging to demonstrate new functionality ([85c4e98](https://github.com/mi6/ic-ui-kit/commit/85c4e98c56c5be6830d5c95918499d7f54d45518))
+- **web-components:** fix conditional elements not showing in toggle button slots ([e23bf56](https://github.com/mi6/ic-ui-kit/commit/e23bf56333f6bdc1422ee239f450f0e10a3420d8)), closes [#1880](https://github.com/mi6/ic-ui-kit/issues/1880)
+- **web-components:** footer-link-group fix ([408eae5](https://github.com/mi6/ic-ui-kit/commit/408eae5f1de51928dce22ec08089d0150149f9e5))
+- **web-components:** make setting external collapsed state on side nav execute correct style changes ([c70579e](https://github.com/mi6/ic-ui-kit/commit/c70579e631d83b1ea065ff3a5447fb2196d97568))
+- **web-components:** update icpopoverclosed event to include relevant information ([fdc2a3d](https://github.com/mi6/ic-ui-kit/commit/fdc2a3d256640c8a2544f2ab0c7e5d7c05140f44)), closes [#2665](https://github.com/mi6/ic-ui-kit/issues/2665)
+
+### Features
+
+- **web-components:** fix navigation items not inheriting expanded state ([db44b23](https://github.com/mi6/ic-ui-kit/commit/db44b23828d962ae0e87b3e447a4a848ba2b0245)), closes [#2610](https://github.com/mi6/ic-ui-kit/issues/2610)
+
+# [2.31.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.30.0...@ukic/web-components@2.31.0) (2024-11-13)
+
+### Bug Fixes
+
+- **web-components:** fix WCAG 1.3.1 issue in popover-menu ([53df1ac](https://github.com/mi6/ic-ui-kit/commit/53df1ac27d792e80262fe04fdbbf6ecfc86c2771))
+- **web-components:** fixes nav-item screen reader issue ([f080676](https://github.com/mi6/ic-ui-kit/commit/f080676dbdf1defdc24a31be31a01152f1a105ed))
+- **web-components:** optional chaining to removeEventListener functions ([12c28a9](https://github.com/mi6/ic-ui-kit/commit/12c28a9e8d2f1a05c5c1607b8fc202cd67b4ff1c))
+
+### Features
+
+- **web-components:** add icToggleChecked event to ic-menu-item ([8355a3f](https://github.com/mi6/ic-ui-kit/commit/8355a3f7df9e5ed8af6d41917525f220ef18137d))
+- **web-components:** added ag-grid icds theme file ([0b113a1](https://github.com/mi6/ic-ui-kit/commit/0b113a138deaf0b369540c3f2a7ad3949813c35f))
+
+# [2.30.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.29.1...@ukic/web-components@2.30.0) (2024-10-30)
+
+### Bug Fixes
+
+- **web-components:** adds high contrast focus ([97086dd](https://github.com/mi6/ic-ui-kit/commit/97086dd677e27563761da1d5232728ff1548a160))
+- **web-components:** change to previous fix with hiding icon ([8f4b68c](https://github.com/mi6/ic-ui-kit/commit/8f4b68c2b0b739efde2e87835bf7e1d173fa7aa5))
+- **web-components:** fix breadcrumb group collapsed prop not toggling correctly ([739f44f](https://github.com/mi6/ic-ui-kit/commit/739f44ff77b2113b0625e66ec8daf58aa21548de)), closes [#2028](https://github.com/mi6/ic-ui-kit/issues/2028) [#1998](https://github.com/mi6/ic-ui-kit/issues/1998)
+- **web-components:** fix focus overlapping text ([e61bd6e](https://github.com/mi6/ic-ui-kit/commit/e61bd6ec83a37808aa22e141ffde1b78bdba86dc))
+- **web-components:** fix multiple radio options being selected with the same value ([490ed51](https://github.com/mi6/ic-ui-kit/commit/490ed5131e3a58ae9f0b00aff7bb887294615477)), closes [#2567](https://github.com/mi6/ic-ui-kit/issues/2567)
+- **web-components:** fix nav group not align with other nav items ([ba950b8](https://github.com/mi6/ic-ui-kit/commit/ba950b8714cc663a81fd970aee3817941706cf2a))
+- **web-components:** popover accessibility order match visual order ([25c4f04](https://github.com/mi6/ic-ui-kit/commit/25c4f04bbcb3fafbd7478d427435af3a4298bea9))
+- **web-components:** remove REM explicit width/height from checkbox SVG in favour of CSS default ([09a29e0](https://github.com/mi6/ic-ui-kit/commit/09a29e0cce8707ad8bb52cb288e1bcbf682f0e2e))
+- **web-components:** removed margin-bottom from heading ([2ec7923](https://github.com/mi6/ic-ui-kit/commit/2ec7923a1c228885436d0b3e2c605d892a8c48e3))
+
+### Features
+
+- **web-components:** added hidelabel to remove label specifically ([67e23c3](https://github.com/mi6/ic-ui-kit/commit/67e23c34da690ec8077cd6945e8e6d983e04d166)), closes [#1813](https://github.com/mi6/ic-ui-kit/issues/1813)
+
+## [2.29.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.29.0...@ukic/web-components@2.29.1) (2024-10-16)
+
+### Bug Fixes
+
+- **web-components:** adds check for undefined element in typography ([8819041](https://github.com/mi6/ic-ui-kit/commit/88190419dc4ee328b73e99bdc7122de1f8a24fb7))
+- **web-components:** changed conditional for applying aria-role to ic-search-bar ([dfe19cd](https://github.com/mi6/ic-ui-kit/commit/dfe19cd4ee67edfd28f3b0e6802c31af4cdd02dc))
+- **web-components:** fix icpopoverclosed event not emitting when closed via submenu ([97dca9b](https://github.com/mi6/ic-ui-kit/commit/97dca9b5ca929c5848c43157b13d4955485b6225)), closes [#2297](https://github.com/mi6/ic-ui-kit/issues/2297)
+- **web-components:** fixed not autoselecting first tab during dynamic render ([d242af1](https://github.com/mi6/ic-ui-kit/commit/d242af1ce2b7ef290b76fbe6d750ab902f1a3702))
+- **web-components:** fixes issue with showDefaultIcon in gatsby ([f29a2d1](https://github.com/mi6/ic-ui-kit/commit/f29a2d115d07a0794deec897e01edf244b85353e))
+
+# [2.29.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.28.0...@ukic/web-components@2.29.0) (2024-10-02)
+
+### Bug Fixes
+
+- **web-components:** update focused styling for accordion in high contrast mode ([e243d1a](https://github.com/mi6/ic-ui-kit/commit/e243d1a0adeab945d04349a2159f6022bbbcf94c)), closes [#2172](https://github.com/mi6/ic-ui-kit/issues/2172)
+
+### Features
+
+- **web-components:** added componentDidLoad check to ic-toast-region ([e83fd6f](https://github.com/mi6/ic-ui-kit/commit/e83fd6f558721aa0d7072f8b6d4e5489f29b7bc3))
+
+# [2.28.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.27.1...@ukic/web-components@2.28.0) (2024-09-23)
+
+### Bug Fixes
+
+- **web-components:** dont generate timestamp in stencil ([698ef13](https://github.com/mi6/ic-ui-kit/commit/698ef13c44aed8240dec651638841ec72a8d6eb3))
+- **web-components:** make dot type badges read to screenreaders ([c067c06](https://github.com/mi6/ic-ui-kit/commit/c067c0694d7055e32455d70565ff6af1e5b58961)), closes [#1717](https://github.com/mi6/ic-ui-kit/issues/1717)
+
+### Features
+
+- **web-components:** add maxLengthMessage prop to text field ([aeaab0b](https://github.com/mi6/ic-ui-kit/commit/aeaab0b15ec4ac60a15a3c7adcceb9eedcc05f03)), closes [#2248](https://github.com/mi6/ic-ui-kit/issues/2248)
+- **web-components:** add showDefaultIcon prop and neutral-icon slot to alert ([4074560](https://github.com/mi6/ic-ui-kit/commit/40745605fd22edcbbd0a9248ef01d2e7a4d2f68a))
+
+## [2.27.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.27.0...@ukic/web-components@2.27.1) (2024-09-05)
+
+### Bug Fixes
+
+- **web-components:** update accordion story to be lowercase ([bf582ba](https://github.com/mi6/ic-ui-kit/commit/bf582baea3280176fa0eb76a6a6dbe21eb6183e7))
+
+# [2.27.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.26.0...@ukic/web-components@2.27.0) (2024-09-04)
+
+### Bug Fixes
+
+- **web-components:** fix issue with IC Radio to override horizontal ([f27bf1a](https://github.com/mi6/ic-ui-kit/commit/f27bf1a851c7c218cd8b04aafbe172b728dd87a1))
+- **web-components:** make radio group set disabled state on children ([17ebcd0](https://github.com/mi6/ic-ui-kit/commit/17ebcd020ec2c0a230efe0752accc99b1afe3107))
+- **web-components:** update button to add tooltip for every icon variant ([dbb1d1b](https://github.com/mi6/ic-ui-kit/commit/dbb1d1b9b80edc3d009a5cb6e7eeaf34f1642cbc)), closes [#2299](https://github.com/mi6/ic-ui-kit/issues/2299)
+- **web-components:** update toast animation to only work when prefers reduced motion is off ([98d690a](https://github.com/mi6/ic-ui-kit/commit/98d690aef1c3264419f5e41995da2286d3215449)), closes [#1926](https://github.com/mi6/ic-ui-kit/issues/1926)
+
+### Features
+
+- **web-components:** add aria-live region to announce current page on complex pagination ([4e47541](https://github.com/mi6/ic-ui-kit/commit/4e47541f652a560101ce4e2cbea24439de8ffe14))
+- **web-components:** add truncation styling for chip and typography when in an AG Grid ([d913a96](https://github.com/mi6/ic-ui-kit/commit/d913a964b6eeb01f97bb43b5a5756f2e530a6296))
+- **web-components:** updated ic-typography and ic-tooltip ([a545108](https://github.com/mi6/ic-ui-kit/commit/a545108de5fada884f6023d2e9507ee26ddb0d47))
 
 # [2.26.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.25.1...@ukic/web-components@2.26.0) (2024-08-21)
 
