@@ -108,15 +108,9 @@
 }
 
 .content-area {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
   padding: 0 var(--ic-space-md);
   margin: 0;
   overflow-y: auto;
-}
-
-.content-area::-webkit-scrollbar {
-  display: none;
 }
 
 #dialog-content {
