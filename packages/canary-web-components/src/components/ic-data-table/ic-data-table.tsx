@@ -2310,7 +2310,10 @@ export class DataTable {
           {sortable && (
             <div class="screen-reader-sort-text" aria-live="polite">
               {sortedColumnOrder !== "unsorted" && sortedColumn
-                ? `${sortedColumn} sorted ${sortedColumnOrder}`
+                ? `${
+                    this.columns.find((col) => col.key === sortedColumn)
+                      ?.title || sortedColumn
+                  } sorted ${sortedColumnOrder}`
                 : "table unsorted"}
             </div>
           )}
