@@ -69,7 +69,9 @@ export class PopoverMenu {
     if (this.open) {
       if (
         this.parentPopover !== undefined &&
-        !this.popoverMenuEls.some((menuItem) => menuItem.id)
+        !this.popoverMenuEls.some((menuItem) =>
+          menuItem.id.includes("ic-popover-submenu-back-button")
+        )
       ) {
         this.popoverMenuEls.unshift(this.backButton);
       }
@@ -291,6 +293,7 @@ export class PopoverMenu {
   private addMenuItems = (elements: Element[] | NodeListOf<ChildNode>) => {
     for (let i = 0; i < elements.length; i++) {
       const el = elements[i] as HTMLIcMenuItemElement;
+
       if (el.tagName === "IC-MENU-ITEM") {
         this.popoverMenuEls.push(el);
       } else if (el.tagName === "IC-MENU-GROUP") {
