@@ -712,10 +712,10 @@
         },
         {
           "name": "loadingOptions",
-          "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; overlay?: boolean; }",
+          "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; overlay?: boolean; }",
           "complexType": {
-            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    showBackground?: boolean;\n    overlay?: boolean;\n  }",
-            "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; overlay?: boolean; }",
+            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    overlay?: boolean;\n  }",
+            "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; overlay?: boolean; }",
             "references": {
               "IcThemeForegroundNoDefault": {
                 "location": "import",
@@ -730,7 +730,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; overlay?: boolean; }"
+              "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; overlay?: boolean; }"
             }
           ],
           "optional": true,
