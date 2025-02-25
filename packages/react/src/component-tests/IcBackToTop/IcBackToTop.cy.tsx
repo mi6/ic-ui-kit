@@ -122,6 +122,34 @@ describe("IcBackToTop visual regression and a11y tests", () => {
     });
   });
 
+  it("should render back to top positioned to the left of the viewport", () => {
+    mount(<BackToTop position="left" />);
+
+    cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR).wait(500);
+
+    cy.compareSnapshot({
+      name: "/position-left",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render back to top positioned in the centre of the viewport", () => {
+    mount(<BackToTop position="center" />);
+
+    cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR).wait(500);
+
+    cy.compareSnapshot({
+      name: "/position-centre",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
   it("should render icon only BackToTop", () => {
     mount(<BackToTop variant="icon" />);
 

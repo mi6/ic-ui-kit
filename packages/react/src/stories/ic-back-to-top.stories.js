@@ -12,6 +12,7 @@ const defaultArgs = {
   target: "topEl",
   theme: "inherit",
   variant: "default",
+  position: "right",
 };
 
 export default {
@@ -31,6 +32,34 @@ export const Default = {
   ),
 
   name: "Default",
+};
+
+export const PositionLeft = {
+  render: () => (
+   <>
+    <div id="topEl" style={{ marginTop: "-20px" }}>
+      <IcTypography variant="h2">Top of the page</IcTypography>
+    </div>
+    <div style={{ height: "1200px" }}></div>
+    <IcBackToTop target="topEl" position='left'/>
+   </>
+  ),
+
+  name: "Position left",
+};
+
+export const PositionCenter = {
+  render: () => (
+   <>
+    <div id="topEl" style={{ marginTop: "-20px" }}>
+      <IcTypography variant="h2">Top of the page</IcTypography>
+    </div>
+    <div style={{ height: "1200px" }}></div>
+    <IcBackToTop target="topEl" position='center'/>
+   </>
+  ),
+
+  name: "Position center",
 };
 
 export const PageExample = {
@@ -305,6 +334,7 @@ export const Playground = {
         target={args.target}
         variant={args.variant}
         theme={args.theme}
+        position={args.position}
       />
       <footer
         style={{
@@ -346,6 +376,13 @@ export const Playground = {
 
     variant: {
       options: ["default", "icon"],
+
+      control: {
+        type: "inline-radio",
+      },
+    },
+    position: {
+      options: ["left", "center", "right"],
 
       control: {
         type: "inline-radio",
