@@ -49,7 +49,6 @@ export type IcLoadingOptions = {
   max?: number;
   min?: number;
   progress?: number;
-  showBackground?: boolean;
   overlay?: boolean;
 };
 

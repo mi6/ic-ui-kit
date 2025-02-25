@@ -219,7 +219,6 @@ export class DataTable {
     max?: number;
     min?: number;
     progress?: number;
-    showBackground?: boolean;
     monochrome?: boolean;
     overlay?: boolean;
   };
@@ -368,7 +367,6 @@ export class DataTable {
     this.sortedColumnOrder = this.sortOptions.sortOrders[0];
     this.loadingOptions = {
       ...this.loadingOptions,
-      showBackground: this.data?.length > 0 || !!this.loadingOptions?.overlay,
     };
     this.initialLoad = true;
     this.previousItemsPerPage = this.rowsPerPage;
@@ -1037,10 +1035,9 @@ export class DataTable {
   }
 
   @Watch("data")
-  async dataHandler(newData: IcDataTableDataType[]): Promise<void> {
+  async dataHandler(): Promise<void> {
     this.loadingOptions = {
       ...this.loadingOptions,
-      showBackground: newData?.length > 0 || !!this.loadingOptions?.overlay,
     };
     if (this.loading) {
       !this.hasLoadedForOneSecond
@@ -2186,8 +2183,6 @@ export class DataTable {
           class={{
             "loading-empty": isLoading,
             loading: true,
-            "show-background":
-              loadingOptions.showBackground || loadingOptions.overlay,
           }}
           description={loadingOptions.description || "Loading table data"}
           label={loadingOptions.label || "Loading..."}

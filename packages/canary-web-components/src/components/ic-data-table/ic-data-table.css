@@ -338,9 +338,6 @@ td.table-density-spacious {
   opacity: 0;
   transition: opacity var(--ic-transition-duration-slow);
   z-index: calc(var(--ic-z-index-dialog) - 1);
-}
-
-.loading.show-background {
   background-color: var(--ic-data-table-overlay-background);
   border: var(--ic-space-1px) solid var(--ic-data-table-overlay-border);
 }
