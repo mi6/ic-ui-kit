@@ -180,4 +180,22 @@ describe("ic-back-to-top", () => {
 
     expect(page.root).toMatchSnapshot("should render with an icon only");
   });
+
+  it("should render positioned on the left", async () => {
+    const page = await newSpecPage({
+      components: [BackToTop, Button],
+      html: `<div id="topEl"><ic-back-to-top target="topEl" position="left"></ic-back-to-top></div>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render positioned in the centre", async () => {
+    const page = await newSpecPage({
+      components: [BackToTop, Button],
+      html: `<div id="topEl"><ic-back-to-top target="topEl" position="center"></ic-back-to-top></div>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
 });
