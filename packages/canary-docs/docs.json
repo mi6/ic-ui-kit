@@ -749,10 +749,10 @@
         },
         {
           "name": "loadingOptions",
-          "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; overlay?: boolean; }",
+          "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; monochrome?: boolean; overlay?: boolean; }",
           "complexType": {
-            "original": "{\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    showBackground?: boolean;\n    monochrome?: boolean;\n    overlay?: boolean;\n  }",
-            "resolved": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; overlay?: boolean; }",
+            "original": "{\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n    overlay?: boolean;\n  }",
+            "resolved": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; monochrome?: boolean; overlay?: boolean; }",
             "references": {}
           },
           "mutable": false,
@@ -761,7 +761,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; monochrome?: boolean; overlay?: boolean; }"
+              "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; monochrome?: boolean; overlay?: boolean; }"
             }
           ],
           "optional": true,
