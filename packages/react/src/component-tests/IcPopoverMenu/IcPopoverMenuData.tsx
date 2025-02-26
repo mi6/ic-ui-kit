@@ -39,9 +39,9 @@ export const PopoverDropdown = () => {
           />
         </IcPopoverMenu>
         <IcPopoverMenu submenuId="actions" aria-label="popover">
-          <IcMenuItem label="Edit" />
-          <IcMenuItem label="Find" />
-          <IcMenuItem label="Delete" variant="destructive" />
+          <IcMenuItem id="edit-id" label="Edit" />
+          <IcMenuItem id="find-id" label="Find" />
+          <IcMenuItem id="delete-id" label="Delete" variant="destructive" />
         </IcPopoverMenu>
       </>
     </div>

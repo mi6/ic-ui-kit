@@ -198,6 +198,76 @@ export const TopPlacement = {
   name: "Top placement",
 };
 
+export const DynamicPopover = {
+  render:(args) => {
+    const furtherWorkCheckboxNames = [
+      { checkboxName: "beans", verb: "grind"},
+      {checkboxName: "coffee", verb: "drink"}
+    ];
+  
+    const parentItems = furtherWorkCheckboxNames.map(({ checkboxName, verb }) => (
+              <IcMenuItem
+                id={`bulk-${checkboxName.toLowerCase()}-menu`}
+                key={`${checkboxName}Menu`}
+                label={`${checkboxName} ${verb}`}
+                submenuTriggerFor={checkboxName.toLowerCase()}
+              />
+            ));
+  
+    const submenus = furtherWorkCheckboxNames.map((tagCheckboxName) => {
+          const { checkboxName, verb } = tagCheckboxName;
+          return (
+            <IcPopoverMenu
+              key={`${checkboxName}Menu`}
+              submenuId={checkboxName.toLowerCase()}
+            >
+              <IcMenuItem
+                id={`bulk-${checkboxName.toLocaleLowerCase()}-add`}
+                label={`${checkboxName} ${verb}`}
+              />
+              <IcMenuItem
+                id={`bulk-${checkboxName.toLocaleLowerCase()}-remove`}
+                label={`${checkboxName} not ${verb}`}
+              />
+            </IcPopoverMenu>
+          );
+        })
+  
+    function buttonClick() {
+          document.querySelector("ic-popover-menu").open =
+            !document.querySelector("ic-popover-menu").open;
+        }
+        return (
+          <>
+            <IcButton id="button-dynamic" onClick={buttonClick}>
+              Show/Hide popover
+            </IcButton>
+            <IcPopoverMenu
+              id="dynamic-popover"
+              anchor="button-dynamic"
+              aria-label="popover"
+              open="false"
+            >
+              <IcMenuGroup id="bulk-management" label="Bulk Actions">
+                {parentItems}
+              </IcMenuGroup>
+              
+              <IcMenuGroup>
+                <IcMenuItem
+                  id="bulk-remove"
+                  label="Remove Items"
+                  variant="destructive"
+                />
+              </IcMenuGroup>
+              
+            </IcPopoverMenu>
+            {submenus}
+        </>
+        )
+  }, 
+  name: "Dynamic popover",
+}
+
 export const Playground = {
   render: (args) => (
     <div>
