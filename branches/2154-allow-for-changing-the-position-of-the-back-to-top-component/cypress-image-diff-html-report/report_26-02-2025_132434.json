@@ -447,7 +447,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/default",
-          "percentage": 0.05257375771237966,
+          "percentage": 0.0530659966456864,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -469,7 +469,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/dark-theme",
-          "percentage": 0.055605755097831375,
+          "percentage": 0.1353957163281025,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -491,7 +491,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/focussed",
-          "percentage": 0.0856971411425142,
+          "percentage": 0.09635351576356724,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -502,7 +502,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/focussed-icon-only",
-          "percentage": 0.0792464510246358,
+          "percentage": 0.10463269087622663,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -513,7 +513,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/default-high-contrast",
-          "percentage": 0.0573410847473258,
+          "percentage": 0.055785302723925415,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -8573,9 +8573,9 @@
       ]
     }
   ],
-  "startedAt": "2025-02-25T16:57:59.838Z",
-  "endedAt": "2025-02-25T17:15:29.887Z",
-  "duration": 954791,
+  "startedAt": "2025-02-26T13:24:34.819Z",
+  "endedAt": "2025-02-26T13:42:20.663Z",
+  "duration": 970782,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
