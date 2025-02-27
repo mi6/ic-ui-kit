@@ -491,7 +491,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/dark-theme",
-          "percentage": 0.1353957163281025,
+          "percentage": 0.0653299318842443,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -8573,9 +8573,9 @@
       ]
     }
   ],
-  "startedAt": "2025-02-27T12:24:46.061Z",
-  "endedAt": "2025-02-27T12:40:13.541Z",
-  "duration": 833029,
+  "startedAt": "2025-02-27T16:18:25.188Z",
+  "endedAt": "2025-02-27T16:34:25.730Z",
+  "duration": 863598,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
