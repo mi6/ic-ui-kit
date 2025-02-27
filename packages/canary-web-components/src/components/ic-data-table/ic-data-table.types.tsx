@@ -41,6 +41,7 @@ export type IcDataTableColumnObject = {
     onAllCells?: boolean;
     hideOnHeader?: boolean;
   };
+  excludeColumnFromSort?: boolean;
 };
 
 export type IcLoadingOptions = {
