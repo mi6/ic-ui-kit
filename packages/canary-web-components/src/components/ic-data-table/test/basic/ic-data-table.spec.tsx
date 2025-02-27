@@ -16,7 +16,6 @@ beforeAll(() => {
 });
 
 const icDataTable = "ic-data-table";
-const icLoadingIndicator = "ic-loading-indicator";
 const employeeNumber = "Employee number";
 const name1 = "John Smith";
 const name2 = "Sally Jones";
@@ -24,7 +23,6 @@ const name3 = "Luke Fisher";
 const name4 = "Jane Lock";
 const name5 = "Margaret Hale";
 const highlightedRowClass = "table-row-selected";
-const showBackgroundClass = "show-background";
 const customIcon =
   '<svg aria-labelledby="error-title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><title id="error-title">Error</title><g id="close-octagon"><path id="Vector" d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" /></g></svg>';
 
@@ -796,52 +794,6 @@ describe(icDataTable, () => {
     });
 
     expect(page.root).toMatchSnapshot();
-  });
-
-  it("should apply a background to the loading indicator if data is supplied to the table", async () => {
-    const page = await newSpecPage({
-      components: [DataTable],
-      template: () => (
-        <ic-data-table
-          caption="Table"
-          columns={columns}
-          data={data}
-          loading={true}
-        ></ic-data-table>
-      ),
-    });
-
-    expect(page.rootInstance.loadingOptions.showBackground).toBeTruthy();
-    const loadingIndicator =
-      page.root.shadowRoot.querySelector(icLoadingIndicator);
-    expect(loadingIndicator).toHaveClass(showBackgroundClass);
-  });
-
-  it("should not apply a background to the loading indicator if no data is supplied to the table, and apply one when data is provided later", async () => {
-    const page = await newSpecPage({
-      components: [DataTable],
-      template: () => (
-        <ic-data-table
-          caption="Table"
-          columns={columns}
-          loading={true}
-        ></ic-data-table>
-      ),
-    });
-
-    expect(page.rootInstance.loadingOptions.showBackground).toBeFalsy();
-    let loadingIndicator =
-      page.root.shadowRoot.querySelector(icLoadingIndicator);
-    expect(loadingIndicator).not.toHaveClass(showBackgroundClass);
-
-    page.root.data = data;
-    await page.waitForChanges();
-
-    expect(page.rootInstance.loadingOptions.showBackground).toBeTruthy();
-    loadingIndicator = page.root.shadowRoot.querySelector(icLoadingIndicator);
-    expect(loadingIndicator).toHaveClass(showBackgroundClass);
-    //delay to allow for 1 sec setTimeout in loading indicator, otherwise next test fails
-    await waitForTimeout(1100);
   });
 
   it("when loading is `true`, setting data should cancel the loading after 1 second from initial loading", async () => {

@@ -4944,7 +4944,7 @@ exports[`ic-data-table should render the loading indicator with an overlay above
         Loading...
       </div>
       <div class="loading-overlay show"></div>
-      <ic-loading-indicator class="loading loading-empty show show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -10025,7 +10025,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
         Loading...
       </div>
       <div class="loading-overlay"></div>
-      <ic-loading-indicator class="loading loading-empty show show-background" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
+      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
