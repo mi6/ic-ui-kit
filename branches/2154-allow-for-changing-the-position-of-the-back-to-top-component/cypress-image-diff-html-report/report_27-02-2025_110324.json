@@ -458,7 +458,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/icon",
-          "percentage": 0.025845695966640173,
+          "percentage": 0.03698648401781386,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -469,7 +469,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/dark-theme",
-          "percentage": 0.1353957163281025,
+          "percentage": 0.055605755097831375,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -480,7 +480,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/icon-dark-theme",
-          "percentage": 0.0428485705712571,
+          "percentage": 0.06624198064671677,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -513,7 +513,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx/default-high-contrast",
-          "percentage": 0.055785302723925415,
+          "percentage": 0.0573410847473258,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -8573,9 +8573,9 @@
       ]
     }
   ],
-  "startedAt": "2025-02-26T13:24:34.819Z",
-  "endedAt": "2025-02-26T13:42:20.663Z",
-  "duration": 970782,
+  "startedAt": "2025-02-27T11:03:24.438Z",
+  "endedAt": "2025-02-27T11:21:03.736Z",
+  "duration": 963307,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
