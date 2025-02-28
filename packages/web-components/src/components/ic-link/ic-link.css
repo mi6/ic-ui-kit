@@ -60,30 +60,22 @@
   margin-left: var(--ic-space-xxs);
 }
 
-.ic-link > .ic-link-open-in-new-icon {
-  fill: var(--ic-hyperlink);
-}
-
-.ic-link.dark > .ic-link-open-in-new-icon {
-  fill: var(--ic-color-primary-text);
-}
-
-.ic-link.light > .ic-link-open-in-new-icon {
-  fill: var(--ic-color-white-text);
-}
-
 .ic-link-open-in-new-icon > svg {
   width: var(--ic-space-md);
   height: var(--ic-space-md);
-  fill: currentcolor;
+  fill: var(--ic-hyperlink);
 }
 
-.ic-link:visited > .ic-link-open-in-new-icon {
+.ic-link:visited > .ic-link-open-in-new-icon > svg {
   fill: var(--ic-hyperlink-visited);
 }
 
-.ic-link.light:visited > .ic-link-open-in-new-icon {
-  fill: var(--ic-hyperlink-contrast-visited);
+.ic-link.dark > .ic-link-open-in-new-icon > svg {
+  fill: var(--ic-color-primary-text);
+}
+
+.ic-link.light > .ic-link-open-in-new-icon > svg {
+  fill: var(--ic-color-white-text);
 }
 
 :host(.breadcrumb-link) .ic-link {
@@ -114,4 +106,11 @@
 
 :host(.breadcrumb-link.current-page) .ic-link:visited {
   color: var(--ic-color-primary-text);
+}
+
+/** High Contrast **/
+@media (forced-colors: active) {
+  .ic-link-open-in-new-icon > svg {
+    fill: currentcolor;
+  }
 }
