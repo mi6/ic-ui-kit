@@ -12,9 +12,63 @@ export const Default = {
     </div>
     <div style="height:1200px;"></div>
     <ic-back-to-top target="topEl"></ic-back-to-top>
+    <footer style="margin-bottom: 24px;">
+      <div
+        id="footer"
+        style="width: 100%; height: 200px; background-color: #23508e;"
+      >
+        <ic-typography variant="h3">Footer</ic-typography>
+      </div>
+    </footer>
+    <ic-classification-banner
+      classification="official"
+    ></ic-classification-banner>
   `,
 
   name: "Default",
+};
+
+export const PositionLeft = {
+  render: () => html`
+    <div id="topEl" style="margin-top:-20px;">
+      <ic-typography variant="h2">Top of the page</ic-typography>
+    </div>
+    <div style="height:1200px;"></div>
+    <ic-back-to-top target="topEl" position="left"></ic-back-to-top>
+    <footer style="margin-bottom: 24px;">
+      <div
+        id="footer"
+        style="width: 100%; height: 200px; background-color: #23508e;"
+      >
+        <ic-typography variant="h3">Footer</ic-typography>
+      </div>
+    </footer>
+    <ic-classification-banner
+      classification="official"
+    ></ic-classification-banner>
+  `,
+
+  name: "Position left",
+};
+
+export const PositionCenter = {
+  render: () => html`
+    <div id="topEl" style="margin-top:-20px;">
+      <ic-typography variant="h2">Top of the page</ic-typography>
+    </div>
+    <div style="height:1200px;"></div>
+    <ic-back-to-top target="topEl" position="center"></ic-back-to-top>
+    <footer style="margin-bottom: 24px;">
+      <div id="footer" style="height: 200px; background-color: #23508e;">
+        <ic-typography variant="h3">Footer</ic-typography>
+      </div>
+    </footer>
+    <ic-classification-banner
+      classification="official"
+    ></ic-classification-banner>
+  `,
+
+  name: "Position center",
 };
 
 export const IconOnly = {
