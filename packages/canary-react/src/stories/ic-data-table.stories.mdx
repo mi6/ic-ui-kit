@@ -32,6 +32,7 @@ import {
   DATA_WITH_EMPTY_VALUES,
   LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS,
   DATA_ELEMENTS_WITH_DESCRIPTIONS,
+  COLS_EXCLUDE_SORT,
 } from "../../../canary-web-components/src/components/ic-data-table/story-data";
 
 import { mdiAccountGroup, mdiImage, mdiDelete } from "@mdi/js";
@@ -702,6 +703,58 @@ const DataTable = () => (
     }}
   />
 )
+
+export default DataTable;
+```
+
+### Exclude columns from sort
+
+Adding 'excludeColumnFromSort: true` to the column object excludes that column from displaying the sort button.
+
+<Canvas withSource="none">
+  <Story name="Exclude columns from sort">
+    <IcDataTable caption="Sort" columns={COLS_EXCLUDE_SORT} data={DATA} sortable />
+  </Story>
+</Canvas>
+
+#### Exclude columns from sort code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+// Copy columns array for 'basic' example
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+    excludeColumnFromSort: true,
+  },
+  ...
+];
+
+// Copy data array for 'basic' example
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable
+    caption="Sort"
+    columns={columns}
+    data={data}
+    sortable
+  />
+);
 
 export default DataTable;
 ```

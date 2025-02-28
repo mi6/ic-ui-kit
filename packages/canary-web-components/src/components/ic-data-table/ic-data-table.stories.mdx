@@ -18,6 +18,7 @@ import {
   Sort,
   SortOptions,
   DisableSort,
+  ExcludeColumnsFromSort,
   Pagination,
   ColumnOverrides,
   RowOverrides,
@@ -540,6 +541,46 @@ Set `sortable` to `true` and set `disable-auto-sort` to `true` to enable externa
       key: "firstName",
       title: "First name",
       dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Exclude columns from sort
+
+Adding 'excludeColumnFromSort: true` to the column object excludes that column from displaying the sort button.
+
+<Canvas withSource="none">
+  <Story name="Exclude columns from sort">{ExcludeColumnsFromSort()}</Story>
+</Canvas>
+
+#### Exclude columns from sort code example
+
+```html
+<ic-data-table id="data-table" caption="Sort" sortable="true"></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+      excludeColumnFromSort: true,
     },
     ...
   ];

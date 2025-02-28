@@ -21,6 +21,7 @@ import {
   COLS,
   COLS_ALIGNMENT,
   COLS_ELEMENTS,
+  COLS_EXCLUDE_SORT,
   DATA,
   DATA_CELL_ALIGNMENT,
   ICON_COLS,
@@ -453,6 +454,28 @@ describe("IcDataTables", () => {
       .should(HAVE_TEXT, "Sarah");
 
     cy.checkA11yWithWait();
+  });
+
+  it("should not show the sort buttons on columns where excludeColumnFromSort is true", () => {
+    mount(
+      <IcDataTable
+        caption="Exclude column from sort"
+        data={DATA}
+        columns={COLS_EXCLUDE_SORT}
+        sortable
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "exclude-column-from-sort",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.031),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
   });
 
   it("should render with column overrides", () => {
