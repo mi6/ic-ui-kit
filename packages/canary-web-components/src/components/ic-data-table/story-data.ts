@@ -90,6 +90,37 @@ export const COLS_WIDTH: IcDataTableColumnObject[] = [
   },
 ];
 
+export const COLS_EXCLUDE_SORT: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+    excludeColumnFromSort: true,
+  },
+  {
+    key: "lastName",
+    title: "Last name",
+    dataType: "string",
+  },
+  {
+    key: "age",
+    title: "Age",
+    dataType: "number",
+  },
+  {
+    key: "jobTitle",
+    title: "Job title",
+    dataType: "string",
+    excludeColumnFromSort: true,
+  },
+  {
+    key: "address",
+    title: "Address",
+    dataType: "address",
+    excludeColumnFromSort: true,
+  },
+];
+
 export const VERY_LONG_DATA = (rows: number = 100) => {
   const nextData = [];
   for (let i = 0; i < rows; i++) {
@@ -1354,6 +1385,12 @@ export const DisableSort = (): HTMLIcDataTableElement => {
     }
     dataTable.data = [...DATA];
   });
+  return dataTable;
+};
+
+export const ExcludeColumnsFromSort = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement("Sort", COLS_EXCLUDE_SORT, DATA);
+  dataTable.setAttribute("sortable", "true");
   return dataTable;
 };
 
