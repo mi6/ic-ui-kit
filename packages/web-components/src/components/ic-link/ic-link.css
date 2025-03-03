@@ -80,17 +80,13 @@
   margin-left: var(--ic-space-xxs);
 }
 
-.link > .ic-link-open-in-new-icon {
-  fill: var(--ic-link-icon-launch);
-}
-
 .ic-link-open-in-new-icon > svg {
   width: var(--ic-space-md);
   height: var(--ic-space-md);
-  fill: currentcolor;
+  fill: var(--ic-link-icon-launch);
 }
 
-.link:visited > .ic-link-open-in-new-icon {
+.link:visited > .ic-link-open-in-new-icon > svg {
   fill: var(--ic-link-icon-launch-visited);
 }
 
@@ -110,11 +106,11 @@
   color: var(--ic-link-text-visited-monochrome);
 }
 
-:host(.ic-link-monochrome) .link > .ic-link-open-in-new-icon {
+:host(.ic-link-monochrome) .link > .ic-link-open-in-new-icon > svg {
   fill: var(--ic-link-icon-launch-monochrome);
 }
 
-:host(.ic-link-monochrome) .link:visited > .ic-link-open-in-new-icon {
+:host(.ic-link-monochrome) .link:visited > .ic-link-open-in-new-icon > svg {
   fill: var(--ic-link-icon-launch-visited-monochrome);
 }
 
@@ -152,4 +148,11 @@
 
 :host(.footer-link) ::slotted(a) {
   color: var(--ic-footer-link) !important;
+}
+
+/** High Contrast **/
+@media (forced-colors: active) {
+  .ic-link-open-in-new-icon > svg {
+    fill: currentcolor;
+  }
 }
