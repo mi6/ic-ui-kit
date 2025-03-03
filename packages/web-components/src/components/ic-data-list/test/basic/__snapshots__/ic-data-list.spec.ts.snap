@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-data-list should render data-row children with slotted content 1`] = `
+<ic-data-list heading="Heading">
+  <template shadowrootmode="open">
+    <div class="heading" id="data-list-heading">
+      <slot name="heading">
+        <ic-typography variant="h3">
+          Heading
+        </ic-typography>
+      </slot>
+    </div>
+    <div class="divider"></div>
+    <ul aria-labelledby="data-list-heading" class="rows">
+      <slot></slot>
+    </ul>
+  </template>
+  <ic-data-row label="Label" value="value">
+    <ic-link href="/" slot="end-component"></ic-link>
+  </ic-data-row>
+  <ic-data-row label="Label" value="value">
+    <ic-link href="/" slot="end-component"></ic-link>
+  </ic-data-row>
+  <ic-data-row label="Label" value="value">
+    <ic-link href="/" slot="end-component"></ic-link>
+  </ic-data-row>
+  <ic-data-row label="Label" value="value">
+    <ic-link href="/" slot="end-component"></ic-link>
+  </ic-data-row>
+  <ic-data-row label="Label" value="value">
+    <ic-link href="/" slot="end-component"></ic-link>
+  </ic-data-row>
+  <ic-data-row label="Label" value="value">
+    <ic-link href="/" slot="end-component"></ic-link>
+  </ic-data-row>
+  <ic-data-row label="Label" value="value">
+    <ic-link href="/" slot="end-component"></ic-link>
+  </ic-data-row>
+  <ic-data-row label="Label" value="value">
+    <ic-link href="/" slot="end-component"></ic-link>
+  </ic-data-row>
+</ic-data-list>
+`;
+
+exports[`ic-data-list should render with a slotted heading 1`] = `
+<ic-data-list>
+  <template shadowrootmode="open">
+    <div class="heading" id="data-list-heading">
+      <slot name="heading">
+        <ic-typography variant="h3"></ic-typography>
+      </slot>
+    </div>
+    <div class="divider"></div>
+    <ul aria-labelledby="data-list-heading" class="rows">
+      <slot></slot>
+    </ul>
+  </template>
+  <ic-typography slot="heading" variant="h3">
+    Heading
+  </ic-typography>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+</ic-data-list>
+`;
+
+exports[`ic-data-list should render with data-row children 1`] = `
+<ic-data-list heading="Heading">
+  <template shadowrootmode="open">
+    <div class="heading" id="data-list-heading">
+      <slot name="heading">
+        <ic-typography variant="h3">
+          Heading
+        </ic-typography>
+      </slot>
+    </div>
+    <div class="divider"></div>
+    <ul aria-labelledby="data-list-heading" class="rows">
+      <slot></slot>
+    </ul>
+  </template>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+  <ic-data-row label="Label" value="value"></ic-data-row>
+</ic-data-list>
+`;
+
+exports[`ic-data-list should render with size small 1`] = `
+<ic-data-list class="ic-data-list-small" heading="Heading" size="small">
+  <template shadowrootmode="open">
+    <div class="heading" id="data-list-heading">
+      <slot name="heading">
+        <ic-typography variant="h3">
+          Heading
+        </ic-typography>
+      </slot>
+    </div>
+    <div class="divider"></div>
+    <ul aria-labelledby="data-list-heading" class="rows">
+      <slot></slot>
+    </ul>
+  </template>
+  <ic-data-row label="Label" size="small" value="value"></ic-data-row>
+  <ic-data-row label="Label" size="small" value="value"></ic-data-row>
+  <ic-data-row label="Label" size="small" value="value"></ic-data-row>
+</ic-data-list>
+`;

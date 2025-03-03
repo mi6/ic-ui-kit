@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-toast component should render a loading indicator instead of a dismiss button when dismissMode is automatic 1`] = `
+<ic-toast aria-live="polite" dismiss-mode="automatic" heading="Heading" role="alert" tabindex="0">
+  <template shadowrootmode="open">
+    <div class="container">
+      <div class="toast-content">
+        <div class="toast-text">
+          <ic-typography class="toast-heading" variant="subtitle-large">
+            <p>
+              Heading
+            </p>
+          </ic-typography>
+        </div>
+      </div>
+      <ic-loading-indicator class="toast-dismiss-timer" description="Dismiss timer" monochrome="" progress="100" size="icon" theme="dark"></ic-loading-indicator>
+    </div>
+  </template>
+</ic-toast>
+`;
+
+exports[`ic-toast component should render a variant icon and banner when a variant is supplied 1`] = `
+<ic-toast aria-description="Heading" aria-label="Success" heading="Heading" role="dialog" tabindex="0" variant="success">
+  <template shadowrootmode="open">
+    <div class="container">
+      <div class="toast-icon-container">
+        <div class="divider divider-success"></div>
+        <span class="toast-icon">
+          svg
+        </span>
+      </div>
+      <div class="toast-content">
+        <div class="toast-text">
+          <ic-typography class="toast-heading" variant="subtitle-large">
+            <h5>
+              Heading
+            </h5>
+          </ic-typography>
+        </div>
+      </div>
+      <ic-button aria-label="dismiss" id="dismiss-button" variant="icon">
+        svg
+      </ic-button>
+    </div>
+  </template>
+</ic-toast>
+`;
+
+exports[`ic-toast component should render when a heading and message is supplied 1`] = `
+<ic-toast aria-description="toast message" aria-label="Heading" heading="Heading" message="toast message" role="dialog" tabindex="0">
+  <template shadowrootmode="open">
+    <div class="container">
+      <div class="toast-content">
+        <div class="toast-text">
+          <ic-typography class="toast-heading" variant="subtitle-large">
+            <h5>
+              Heading
+            </h5>
+          </ic-typography>
+          <ic-typography class="toast-message" variant="body">
+            <p>
+              toast message
+            </p>
+          </ic-typography>
+        </div>
+      </div>
+      <ic-button aria-label="dismiss" id="dismiss-button" variant="icon">
+        svg
+      </ic-button>
+    </div>
+  </template>
+</ic-toast>
+`;
+
+exports[`ic-toast component should render when heading is supplied 1`] = `
+<ic-toast aria-label="Heading" heading="Heading" role="dialog" tabindex="0">
+  <template shadowrootmode="open">
+    <div class="container">
+      <div class="toast-content">
+        <div class="toast-text">
+          <ic-typography class="toast-heading" variant="subtitle-large">
+            <h5>
+              Heading
+            </h5>
+          </ic-typography>
+        </div>
+      </div>
+      <ic-button aria-label="dismiss" id="dismiss-button" variant="icon">
+        svg
+      </ic-button>
+    </div>
+  </template>
+</ic-toast>
+`;

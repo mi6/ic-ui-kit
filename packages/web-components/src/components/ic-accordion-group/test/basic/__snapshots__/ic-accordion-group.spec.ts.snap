@@ -2,7 +2,7 @@
 
 exports[`ic-accordion-group snapshots should match dark snapshot: renders as dark 1`] = `
 <ic-accordion-group class="ic-accordion-group ic-accordion-group-medium ic-theme-dark" context-id="ic-accordion-group-1" label="Test heading" theme="dark">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="label-container">
       <ic-typography variant="h4">
         <h3>
@@ -14,13 +14,13 @@ exports[`ic-accordion-group snapshots should match dark snapshot: renders as dar
       </ic-button>
     </div>
     <slot></slot>
-  </mock:shadow-root>
+  </template>
 </ic-accordion-group>
 `;
 
 exports[`ic-accordion-group snapshots should match default snapshot: renders as default 1`] = `
 <ic-accordion-group class="ic-accordion-group ic-accordion-group-medium" context-id="ic-accordion-group-0" label="Test heading">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="label-container">
       <ic-typography variant="h4">
         <h3>
@@ -32,6 +32,6 @@ exports[`ic-accordion-group snapshots should match default snapshot: renders as 
       </ic-button>
     </div>
     <slot></slot>
-  </mock:shadow-root>
+  </template>
 </ic-accordion-group>
 `;

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-skeleton should render circular variant 1`] = `
+<ic-skeleton aria-disabled="true" class="ic-skeleton-circle skeleton" variant="circle" style="height: 25px; width: 25px;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+</ic-skeleton>
+`;
+
+exports[`ic-skeleton should render text variant 1`] = `
+<ic-skeleton aria-disabled="true" class="skeleton" variant="text">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <ic-typography>
+    Test
+  </ic-typography>
+</ic-skeleton>
+`;
+
+exports[`ic-skeleton should render with default height and width 1`] = `
+<ic-skeleton aria-disabled="true" class="skeleton" style="height: 93px; width: 260px;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+</ic-skeleton>
+`;
+
+exports[`ic-skeleton should render with supplied height 1`] = `
+<ic-skeleton aria-disabled="true" class="skeleton" style="height: 100px; width: 260px;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+</ic-skeleton>
+`;
+
+exports[`ic-skeleton should render with supplied height and width 1`] = `
+<ic-skeleton aria-disabled="true" class="skeleton" style="height: 100px; width: 300px;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+</ic-skeleton>
+`;
+
+exports[`ic-skeleton should render with supplied width 1`] = `
+<ic-skeleton aria-disabled="true" class="skeleton" style="width: 300px; height: 93px;">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+</ic-skeleton>
+`;

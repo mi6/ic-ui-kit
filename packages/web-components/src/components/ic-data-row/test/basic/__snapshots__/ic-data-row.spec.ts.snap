@@ -2,7 +2,7 @@
 
 exports[`ic-data-row should not render label element if no label provided 1`] = `
 <ic-data-row role="listitem" value="value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="data">
       <div class="text-cells">
         <div class="value">
@@ -13,13 +13,13 @@ exports[`ic-data-row should not render label element if no label provided 1`] = 
       </div>
     </div>
     <div class="divider"></div>
-  </mock:shadow-root>
+  </template>
 </ic-data-row>
 `;
 
 exports[`ic-data-row should render 1`] = `
 <ic-data-row label="label" role="listitem" value="value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="data">
       <div class="text-cells">
         <div class="label">
@@ -35,13 +35,13 @@ exports[`ic-data-row should render 1`] = `
       </div>
     </div>
     <div class="divider"></div>
-  </mock:shadow-root>
+  </template>
 </ic-data-row>
 `;
 
 exports[`ic-data-row should render slotted content in the end-component slot 1`] = `
 <ic-data-row label="label" role="listitem" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="data">
       <div class="text-cells">
         <div class="label">
@@ -60,14 +60,14 @@ exports[`ic-data-row should render slotted content in the end-component slot 1`]
       </div>
     </div>
     <div class="divider"></div>
-  </mock:shadow-root>
+  </template>
   <ic-status-tag label="success" slot="end-component" variant="success"></ic-status-tag>
 </ic-data-row>
 `;
 
 exports[`ic-data-row should render slotted content in the label slot 1`] = `
 <ic-data-row role="listitem" value="value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="data">
       <div class="text-cells">
         <div class="label">
@@ -81,7 +81,7 @@ exports[`ic-data-row should render slotted content in the label slot 1`] = `
       </div>
     </div>
     <div class="divider"></div>
-  </mock:shadow-root>
+  </template>
   <ic-typography slot="label">
     Label
   </ic-typography>
@@ -90,7 +90,7 @@ exports[`ic-data-row should render slotted content in the label slot 1`] = `
 
 exports[`ic-data-row should render slotted content in the value slot 1`] = `
 <ic-data-row label="label" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="data">
       <div class="text-cells">
         <div class="label">
@@ -104,14 +104,14 @@ exports[`ic-data-row should render slotted content in the value slot 1`] = `
       </div>
     </div>
     <div class="divider"></div>
-  </mock:shadow-root>
+  </template>
   <ic-status-tag label="success" slot="value" variant="success"></ic-status-tag>
 </ic-data-row>
 `;
 
 exports[`ic-data-row should render the label variant of typography when list size is xs 1`] = `
 <ic-data-row class="breakpoint-xs" label="label" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="data">
       <div class="text-cells">
         <div class="label">
@@ -125,7 +125,7 @@ exports[`ic-data-row should render the label variant of typography when list siz
       </div>
     </div>
     <div class="divider"></div>
-  </mock:shadow-root>
+  </template>
   <ic-status-tag label="success" slot="value" variant="success"></ic-status-tag>
 </ic-data-row>
 `;
