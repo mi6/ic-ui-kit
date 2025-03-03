@@ -2,22 +2,22 @@
 
 exports[`ic-tab-panel component should render correctly when it is the active tab panel 1`] = `
 <ic-tab-panel active="" aria-hidden="false" role="tabpanel">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div>
       <slot></slot>
     </div>
-  </mock:shadow-root>
+  </template>
   IC Tab Test
 </ic-tab-panel>
 `;
 
 exports[`ic-tab-panel component should render correctly when not the active tab panel 1`] = `
 <ic-tab-panel aria-hidden="true" class="ic-tab-panel-hidden" role="tabpanel">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div>
       <slot></slot>
     </div>
-  </mock:shadow-root>
+  </template>
   IC Tab Test
 </ic-tab-panel>
 `;

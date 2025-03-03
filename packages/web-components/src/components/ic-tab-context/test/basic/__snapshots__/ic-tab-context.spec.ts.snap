@@ -4,66 +4,66 @@ exports[`ic-tab-context component should render tab context with custom contextI
 <ic-tab-context context-id="custom-context">
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="custom-context" label="Example tab group" role="tablist">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-horizontal-scroll focus-trigger="tabFocus" theme="inherit">
         <div class="tabs-container">
           <slot></slot>
         </div>
       </ic-horizontal-scroll>
-    </mock:shadow-root>
+    </template>
     <ic-tab aria-controls="ic-tab-panel-0-context-custom-context" aria-disabled="false" aria-selected="true" class="ic-tab-selected" context-id="custom-context" id="ic-tab-0-context-custom-context" role="tab" selected="" tab-id="ic-tab--0-context-custom-context" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       One
     </ic-tab>
     <ic-tab aria-controls="ic-tab-panel-1-context-custom-context" aria-disabled="false" aria-selected="false" context-id="custom-context" id="ic-tab-1-context-custom-context" role="tab" tab-id="ic-tab--1-context-custom-context" tabindex="-1">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       Two
     </ic-tab>
     <ic-tab aria-controls="ic-tab-panel-2-context-custom-context" aria-disabled="false" aria-selected="false" context-id="custom-context" id="ic-tab-2-context-custom-context" role="tab" tab-id="ic-tab--2-context-custom-context" tabindex="-1">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       Three
     </ic-tab>
   </ic-tab-group>
   <ic-tab-panel aria-hidden="false" aria-labelledby="ic-tab-0-context-custom-context" context-id="custom-context" id="ic-tab-panel-0-context-custom-context" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab One
   </ic-tab-panel>
   <ic-tab-panel aria-hidden="true" aria-labelledby="ic-tab-1-context-custom-context" class="ic-tab-panel-hidden" context-id="custom-context" id="ic-tab-panel-1-context-custom-context" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab Two
   </ic-tab-panel>
   <ic-tab-panel aria-hidden="true" aria-labelledby="ic-tab-2-context-custom-context" class="ic-tab-panel-hidden" context-id="custom-context" id="ic-tab-panel-2-context-custom-context" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab Three
   </ic-tab-panel>
 </ic-tab-context>
@@ -73,66 +73,66 @@ exports[`ic-tab-context component should render tab context with tabs - manual a
 <ic-tab-context activation-type="manual" context-id="default">
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-horizontal-scroll focus-trigger="tabFocus" theme="inherit">
         <div class="tabs-container">
           <slot></slot>
         </div>
       </ic-horizontal-scroll>
-    </mock:shadow-root>
+    </template>
     <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="true" class="ic-tab-selected" context-id="default" id="ic-tab-0-context-default" role="tab" selected="" tab-id="ic-tab--0-context-default" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       One
     </ic-tab>
     <ic-tab aria-controls="ic-tab-panel-1-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-1-context-default" role="tab" tab-id="ic-tab--1-context-default" tabindex="-1">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       Two
     </ic-tab>
     <ic-tab aria-controls="ic-tab-panel-2-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-2-context-default" role="tab" tab-id="ic-tab--2-context-default" tabindex="-1">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       Three
     </ic-tab>
   </ic-tab-group>
   <ic-tab-panel aria-hidden="false" aria-labelledby="ic-tab-0-context-default" context-id="default" id="ic-tab-panel-0-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab One
   </ic-tab-panel>
   <ic-tab-panel aria-hidden="true" aria-labelledby="ic-tab-1-context-default" class="ic-tab-panel-hidden" context-id="default" id="ic-tab-panel-1-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab Two
   </ic-tab-panel>
   <ic-tab-panel aria-hidden="true" aria-labelledby="ic-tab-2-context-default" class="ic-tab-panel-hidden" context-id="default" id="ic-tab-panel-2-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab Three
   </ic-tab-panel>
 </ic-tab-context>
@@ -142,66 +142,66 @@ exports[`ic-tab-context component should render tab context with tabs - selected
 <ic-tab-context context-id="default" selected-tab-index="2">
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-horizontal-scroll focus-trigger="tabFocus" theme="inherit">
         <div class="tabs-container">
           <slot></slot>
         </div>
       </ic-horizontal-scroll>
-    </mock:shadow-root>
+    </template>
     <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-0-context-default" role="tab" tab-id="ic-tab--0-context-default" tabindex="-1">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       One
     </ic-tab>
     <ic-tab aria-controls="ic-tab-panel-1-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-1-context-default" role="tab" tab-id="ic-tab--1-context-default" tabindex="-1">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       Two
     </ic-tab>
     <ic-tab aria-controls="ic-tab-panel-2-context-default" aria-disabled="false" aria-selected="true" class="ic-tab-selected" context-id="default" id="ic-tab-2-context-default" role="tab" selected="" tab-id="ic-tab--2-context-default" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       Three
     </ic-tab>
   </ic-tab-group>
   <ic-tab-panel aria-hidden="true" aria-labelledby="ic-tab-0-context-default" class="ic-tab-panel-hidden" context-id="default" id="ic-tab-panel-0-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab One
   </ic-tab-panel>
   <ic-tab-panel aria-hidden="true" aria-labelledby="ic-tab-1-context-default" class="ic-tab-panel-hidden" context-id="default" id="ic-tab-panel-1-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab Two
   </ic-tab-panel>
   <ic-tab-panel aria-hidden="false" aria-labelledby="ic-tab-2-context-default" context-id="default" id="ic-tab-panel-2-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab Three
   </ic-tab-panel>
 </ic-tab-context>
@@ -211,66 +211,66 @@ exports[`ic-tab-context component should render tab context with tabs - theme da
 <ic-tab-context context-id="default" theme="dark">
   <!---->
   <ic-tab-group aria-label="Example tab group" class="ic-theme-dark" context-id="default" label="Example tab group" role="tablist" theme="dark">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-horizontal-scroll focus-trigger="tabFocus" theme="dark">
         <div class="tabs-container">
           <slot></slot>
         </div>
       </ic-horizontal-scroll>
-    </mock:shadow-root>
+    </template>
     <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="true" class="ic-tab-selected ic-theme-dark" context-id="default" id="ic-tab-0-context-default" role="tab" selected="" tab-id="ic-tab--0-context-default" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       One
     </ic-tab>
     <ic-tab aria-controls="ic-tab-panel-1-context-default" aria-disabled="false" aria-selected="false" class="ic-theme-dark" context-id="default" id="ic-tab-1-context-default" role="tab" tab-id="ic-tab--1-context-default" tabindex="-1">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       Two
     </ic-tab>
     <ic-tab aria-controls="ic-tab-panel-2-context-default" aria-disabled="false" aria-selected="false" class="ic-theme-dark" context-id="default" id="ic-tab-2-context-default" role="tab" tab-id="ic-tab--2-context-default" tabindex="-1">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       Three
     </ic-tab>
   </ic-tab-group>
   <ic-tab-panel aria-hidden="false" aria-labelledby="ic-tab-0-context-default" class="ic-theme-dark" context-id="default" id="ic-tab-panel-0-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab One
   </ic-tab-panel>
   <ic-tab-panel aria-hidden="true" aria-labelledby="ic-tab-1-context-default" class="ic-tab-panel-hidden ic-theme-dark" context-id="default" id="ic-tab-panel-1-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab Two
   </ic-tab-panel>
   <ic-tab-panel aria-hidden="true" aria-labelledby="ic-tab-2-context-default" class="ic-tab-panel-hidden ic-theme-dark" context-id="default" id="ic-tab-panel-2-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab Three
   </ic-tab-panel>
 </ic-tab-context>
@@ -280,66 +280,66 @@ exports[`ic-tab-context component should render tab context with tabs 1`] = `
 <ic-tab-context context-id="default">
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-horizontal-scroll focus-trigger="tabFocus" theme="inherit">
         <div class="tabs-container">
           <slot></slot>
         </div>
       </ic-horizontal-scroll>
-    </mock:shadow-root>
+    </template>
     <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="true" class="ic-tab-selected" context-id="default" id="ic-tab-0-context-default" role="tab" selected="" tab-id="ic-tab--0-context-default" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       One
     </ic-tab>
     <ic-tab aria-controls="ic-tab-panel-1-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-1-context-default" role="tab" tab-id="ic-tab--1-context-default" tabindex="-1">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       Two
     </ic-tab>
     <ic-tab aria-controls="ic-tab-panel-2-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-2-context-default" role="tab" tab-id="ic-tab--2-context-default" tabindex="-1">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-      </mock:shadow-root>
+      </template>
       Three
     </ic-tab>
   </ic-tab-group>
   <ic-tab-panel aria-hidden="false" aria-labelledby="ic-tab-0-context-default" context-id="default" id="ic-tab-panel-0-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab One
   </ic-tab-panel>
   <ic-tab-panel aria-hidden="true" aria-labelledby="ic-tab-1-context-default" class="ic-tab-panel-hidden" context-id="default" id="ic-tab-panel-1-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab Two
   </ic-tab-panel>
   <ic-tab-panel aria-hidden="true" aria-labelledby="ic-tab-2-context-default" class="ic-tab-panel-hidden" context-id="default" id="ic-tab-panel-2-context-default" role="tabpanel">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     Tab Three
   </ic-tab-panel>
 </ic-tab-context>

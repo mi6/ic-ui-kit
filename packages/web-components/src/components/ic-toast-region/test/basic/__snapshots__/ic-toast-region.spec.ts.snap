@@ -4,7 +4,7 @@ exports[`ic-toast-region component should render 1`] = `
 <ic-toast-region>
   <!---->
   <ic-toast aria-label="Heading" class="ic-toast-hidden" heading="Heading" role="dialog" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="container">
         <div class="toast-content">
           <div class="toast-text">
@@ -15,7 +15,7 @@ exports[`ic-toast-region component should render 1`] = `
           svg
         </ic-button>
       </div>
-    </mock:shadow-root>
+    </template>
   </ic-toast>
 </ic-toast-region>
 `;

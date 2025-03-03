@@ -2,22 +2,22 @@
 
 exports[`ic-footer-link should render small with grouped links: small-footer-link-with-grouped-links 1`] = `
 <ic-footer-link class="footer-link footer-link-grouped-small footer-link-light" href="/" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-link class="footer-link" href="/">
       <slot></slot>
     </ic-link>
-  </mock:shadow-root>
+  </template>
   Link
 </ic-footer-link>
 `;
 
 exports[`ic-footer-link should render: footer-link 1`] = `
 <ic-footer-link class="footer-link footer-link-light footer-link-ungrouped-sparse" href="/" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-link class="footer-link" href="/">
       <slot></slot>
     </ic-link>
-  </mock:shadow-root>
+  </template>
   Link
 </ic-footer-link>
 `;

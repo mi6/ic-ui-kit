@@ -10,20 +10,7 @@ describe("ic-tab component", () => {
       html: `<ic-tab tab-position=1>IC Tab Test</ic-tab>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tabindex="-1" tab-position="1">
-    <mock:shadow-root>
-      <ic-typography class="ic-tab-label ic-typography-label">
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-        <span>
-          <slot></slot>
-        </span>
-      </ic-typography>
-    </mock:shadow-root>
-    IC Tab Test
-  </ic-tab>`);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should set the correct attributes when selected", async () => {
@@ -33,20 +20,7 @@ describe("ic-tab component", () => {
       supportsShadowDom: true,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-tab aria-disabled="false" aria-selected="true" class="ic-tab-selected" context-id="default" role="tab" selected="" tabindex="0" tab-position="1">
-    <mock:shadow-root>
-      <ic-typography class="ic-tab-label ic-typography-label">
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-        <span>
-          <slot></slot>
-        </span>
-      </ic-typography>
-    </mock:shadow-root>
-    IC Tab Test
-  </ic-tab>`);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should set the disabled attribute on the button", async () => {
@@ -56,38 +30,16 @@ describe("ic-tab component", () => {
       supportsShadowDom: true,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-tab aria-disabled="true" aria-selected="false" class="ic-tab-disabled" context-id="default" disabled="" role="tab" tabindex="-1" tab-position="1">
-    <mock:shadow-root>
-      <ic-typography class="ic-tab-label ic-typography-label">
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-        <span>
-          <slot></slot>
-        </span>
-      </ic-typography>
-    </mock:shadow-root>
-    IC Tab Test
-  </ic-tab>`);
+    expect(page.root).toMatchSnapshot(
+      "should set the disable attribute on the button to true"
+    );
 
     page.rootInstance.disabled = false;
 
     await page.waitForChanges();
-    expect(page.root)
-      .toEqualHtml(`<ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tabindex="-1" tab-position="1">
-<mock:shadow-root>
-  <ic-typography class="ic-tab-label ic-typography-label">
-    <mock:shadow-root>
-      <slot></slot>
-    </mock:shadow-root>
-    <span>
-      <slot></slot>
-    </span>
-  </ic-typography>
-</mock:shadow-root>
-IC Tab Test
-</ic-tab>`);
+    expect(page.root).toMatchSnapshot(
+      "should set the disable attribute on the button to false"
+    );
   });
 
   it("should display an icon", async () => {
@@ -97,22 +49,7 @@ IC Tab Test
       supportsShadowDom: true,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tabindex="-1" tab-position="1">
-    <mock:shadow-root>
-    <slot name="icon"></slot>
-      <ic-typography class="ic-tab-label ic-typography-label">
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-        <span>
-          <slot></slot>
-        </span>
-      </ic-typography>
-    </mock:shadow-root>
-    IC Tab Test
-    <svg slot="icon"></svg>
-  </ic-tab>`);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should set focus to true on mouse down", async () => {

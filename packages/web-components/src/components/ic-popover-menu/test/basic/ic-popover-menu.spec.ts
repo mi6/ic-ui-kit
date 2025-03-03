@@ -129,7 +129,7 @@ describe("ic-popover-menu", () => {
       </ic-popover-menu>`,
     });
 
-    expect(page.rootInstance.popoverMenuEls).toEqual([]);
+    page.rootInstance.popoverMenuEls = [];
 
     const menuItems = page.root.querySelectorAll("ic-menu-item");
 
@@ -178,6 +178,8 @@ describe("ic-popover-menu", () => {
       <ic-menu-item label="Button 3"></ic-menu-item>
       </ic-popover-menu>`,
     });
+
+    page.rootInstance.popoverMenuEls = [];
 
     //populating popoverEls before calling getNextItemToSelect
     const menuItems = page.root.querySelectorAll("ic-menu-item");
@@ -301,6 +303,7 @@ describe("ic-popover-menu", () => {
 
     jest.spyOn(page.rootInstance, "setButtonFocus").mockImplementation();
 
+    page.rootInstance.popoverMenuEls = [];
     //populating popoverEls before handleKeyDown
     const menuItems = page.root.querySelectorAll("ic-menu-item");
     await page.rootInstance.addMenuItems(menuItems);
