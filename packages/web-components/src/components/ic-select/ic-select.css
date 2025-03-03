@@ -173,6 +173,12 @@ select:not([disabled]) {
   color: var(--ic-color-tertiary-text);
 }
 
+.value-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .select-input-end {
   display: flex;
   align-items: center;
