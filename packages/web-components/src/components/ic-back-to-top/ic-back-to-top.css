@@ -2,6 +2,9 @@
 
 /**
  * @prop --ic-z-index-back-to-top: z-index of back to top
+ * @prop --margin-right: right y-position of back to top
+ * @prop --margin-left: left y-position of back to top
+ * @prop --footer-offset: offset of x-position from footer
  */
 
 :host {
@@ -15,7 +18,7 @@
 }
 
 :host(.ic-back-to-top-right) ic-button {
-  margin-right: var(--ic-space-md);
+  margin-right: var(--margin-right, 1rem);
 }
 
 :host(.ic-back-to-top-right) .ic-back-to-top-icon {
@@ -28,7 +31,7 @@
 }
 
 :host(.ic-back-to-top-left) ic-button {
-  margin-left: var(--ic-space-md);
+  margin-left: var(--margin-left, 1rem);
 }
 
 :host(.ic-back-to-top-left) .ic-back-to-top-icon {
@@ -77,7 +80,7 @@ ic-button.show {
 }
 
 ic-button.offset-banner:not(.by-footer) {
-  margin-bottom: var(--ic-space-lg);
+  margin-bottom: var(--footer-offset, var(--ic-space-lg));
 }
 
 .ic-back-to-top-icon > svg {
@@ -95,7 +98,7 @@ ic-button.offset-banner:not(.by-footer) {
 
 ic-button.by-footer {
   position: relative;
-  bottom: calc(var(--ic-space-lg) + var(--ic-space-xl));
+  bottom: var(--footer-offset, 3.5rem);
 }
 
 @media (forced-colors: active) {

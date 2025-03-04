@@ -187,7 +187,7 @@ describe("ic-back-to-top", () => {
       html: `<div id="topEl"><ic-back-to-top target="topEl" position="left"></ic-back-to-top></div>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render positioned on the left");
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should render positioned in the centre", async () => {
@@ -196,6 +196,6 @@ describe("ic-back-to-top", () => {
       html: `<div id="topEl"><ic-back-to-top target="topEl" position="center"></ic-back-to-top></div>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render positioned in the centre");
+    expect(page.root).toMatchSnapshot();
   });
 });
