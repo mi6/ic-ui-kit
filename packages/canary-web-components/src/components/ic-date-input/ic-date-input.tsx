@@ -88,7 +88,7 @@ export class DateInput {
   private preventYearInput: boolean;
 
   private previousInvalidDateTest: string;
-  private previousEmittedDate: Date = undefined;
+  // private previousEmittedDate: Date = undefined;
   private previousSelectedDate: Date = null;
 
   private selectedDate: Date = null;
@@ -100,15 +100,25 @@ export class DateInput {
 
   @Element() el: HTMLIcDateInputElement;
 
-  @State() day: string = "";
   @State() invalidDateText: string;
   @State() maxDate: Date;
   @State() minDate: Date;
-  @State() month: string = "";
-  @State() year: string = "";
   @State() calendarFocused: boolean = false;
   @State() clearButtonFocused: boolean = false;
   @State() removeLabelledBy: boolean = false;
+
+  @State() day: string = "";
+  @State() month: string = "";
+  @State() year: string = "";
+
+  @Watch("day")
+  @Watch("month")
+  @Watch("year")
+  watchInputHandler(): void {
+    if (this.day !== "" || this.month !== "" || this.year !== "") {
+      this.emitIcChange(this.selectedDate);
+    }
+  }
 
   /**
    * The format in which the date will be displayed.
@@ -300,7 +310,10 @@ export class DateInput {
   /**
    * Emitted when the value has changed.
    */
-  @Event() icChange: EventEmitter<{ value: Date }>;
+  @Event() icChange: EventEmitter<{
+    value: Date;
+    dateObject: { day: string; month: string; year: string };
+  }>;
 
   /**
    * Emitted when the input gains focus.
@@ -322,9 +335,9 @@ export class DateInput {
 
     if (this.value) {
       this.setDate(this.value);
-      this.previousEmittedDate = this.selectedDate;
+      // this.previousEmittedDate = this.selectedDate;
     } else {
-      this.previousEmittedDate = null;
+      //  this.previousEmittedDate = null;
     }
 
     this.screenReaderInfoId = `${this.inputId}-screen-reader-info`;
@@ -567,7 +580,6 @@ export class DateInput {
 
   private handleKeyDown = (event: KeyboardEvent, isInputPrevented: boolean) => {
     const input = event.target as HTMLInputElement;
-
     const eventKey = event.key?.toLowerCase();
     // Regex required due to FF allowing all characters as values for number text field.
     const regex =
@@ -609,7 +621,6 @@ export class DateInput {
       default:
         break;
     }
-
     this.preventInput(event, isInputPrevented);
     this.isDateSetFromKeyboardEvent = true;
   };
@@ -851,7 +862,6 @@ export class DateInput {
   // Set value in state based on input
   private setInputValue = (input: HTMLInputElement, clear = false) => {
     const newValue = clear ? "" : input.value;
-
     switch (input) {
       case this.dayInputEl:
         this.day = newValue;
@@ -1540,14 +1550,17 @@ export class DateInput {
     this.removeLabelledBy = true;
   };
 
-  private emitIcChange = (d: Date) => {
-    if (
-      !(d === null && this.previousEmittedDate === null) &&
-      !dateMatches(d, this.previousEmittedDate)
-    ) {
-      this.previousEmittedDate = d;
-      this.icChange.emit({ value: d });
-    }
+  private emitIcChange = (d: Date | null) => {
+    // if (
+    //   !(d === null && this.previousEmittedDate === null) &&
+    //   !dateMatches(d, this.previousEmittedDate)
+    // ) {
+    // this.previousEmittedDate = d;
+    this.icChange.emit({
+      value: d,
+      dateObject: { day: this.day, month: this.month, year: this.year },
+    });
+    // }
   };
 
   render() {
