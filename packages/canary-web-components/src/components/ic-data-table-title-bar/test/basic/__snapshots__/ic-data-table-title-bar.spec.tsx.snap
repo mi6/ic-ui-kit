@@ -2,7 +2,7 @@
 
 exports[`ic-data-table-title-bar should not render the actions area if hideDensitySelect is true and there are no slotted elements 1`] = `
 <ic-data-table-title-bar>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
@@ -14,13 +14,13 @@ exports[`ic-data-table-title-bar should not render the actions area if hideDensi
         </slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table-title-bar>
 `;
 
 exports[`ic-data-table-title-bar should render 1`] = `
 <ic-data-table-title-bar>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
@@ -38,13 +38,13 @@ exports[`ic-data-table-title-bar should render 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table-title-bar>
 `;
 
 exports[`ic-data-table-title-bar should render the description area if the description is slotted and there is no action area 1`] = `
 <ic-data-table-title-bar>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
@@ -59,7 +59,7 @@ exports[`ic-data-table-title-bar should render the description area if the descr
         <slot name="description"></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography slot="description">
     slotted desc
   </ic-typography>
@@ -68,7 +68,7 @@ exports[`ic-data-table-title-bar should render the description area if the descr
 
 exports[`ic-data-table-title-bar should render with description and metadata 1`] = `
 <ic-data-table-title-bar>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
@@ -93,13 +93,13 @@ exports[`ic-data-table-title-bar should render with description and metadata 1`]
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table-title-bar>
 `;
 
 exports[`ic-data-table-title-bar should render with slotted actions 1`] = `
 <ic-data-table-title-bar>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
@@ -121,7 +121,7 @@ exports[`ic-data-table-title-bar should render with slotted actions 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-button slot="primary-action">
     1
   </ic-button>
@@ -136,12 +136,14 @@ exports[`ic-data-table-title-bar should render with slotted actions 1`] = `
 
 exports[`ic-data-table-title-bar should render with slotted header and description 1`] = `
 <ic-data-table-title-bar>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
           <ic-typography class="heading" variant="h3">
-            <h3></h3>
+            <h3>
+              Title Bar
+            </h3>
           </ic-typography>
         </slot>
       </div>
@@ -152,7 +154,7 @@ exports[`ic-data-table-title-bar should render with slotted header and descripti
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography slot="heading">
     slotted header
   </ic-typography>
