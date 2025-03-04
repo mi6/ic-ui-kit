@@ -250,3 +250,23 @@ export const SlottedLinks = (): ReactElement => {
     </div>
   );
 };
+
+export const SlottedLinksWithBackBreadCrumbOnly = (): ReactElement => {
+  return (
+    <IcBreadcrumbGroup backBreadcrumbOnly>
+      <IcBreadcrumb pageTitle="Breadcrumb 1">
+        <IcLink href="#">Breadcrumb 1</IcLink>
+      </IcBreadcrumb>
+      <IcBreadcrumb pageTitle="Breadcrumb 2">
+        <a href="#">Breadcrumb 2</a>
+      </IcBreadcrumb>
+      <IcBreadcrumb pageTitle="Breadcrumb 3" current>
+        <IcLink>
+          <a slot="router-item" href="#">
+            Breadcrumb 3
+          </a>
+        </IcLink>
+      </IcBreadcrumb>
+    </IcBreadcrumbGroup>
+  );
+};
