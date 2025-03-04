@@ -17,9 +17,12 @@
 
 ## CSS Custom Properties
 
-| Name                       | Description            |
-| -------------------------- | ---------------------- |
-| `--ic-z-index-back-to-top` | z-index of back to top |
+| Name                       | Description                      |
+| -------------------------- | -------------------------------- |
+| `--footer-offset`          | offset of x-position from footer |
+| `--ic-z-index-back-to-top` | z-index of back to top           |
+| `--margin-left`            | left y-position of back to top   |
+| `--margin-right`           | right y-position of back to top  |
 
 
 ## Dependencies
