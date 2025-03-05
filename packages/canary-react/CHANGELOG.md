@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.36...@ukic/canary-react@2.0.0-canary.37) (2025-03-05)
+
+### Features
+
+- **canary-react:** add the ability to backspace through a date input to delete the date ([534252c](https://github.com/mi6/ic-ui-kit/commit/534252c27288c242fad14e47897c975241d493ef)), closes [#2244](https://github.com/mi6/ic-ui-kit/issues/2244)
+- **canary-react:** added Cypress tests ([5e6fccd](https://github.com/mi6/ic-ui-kit/commit/5e6fccd003fa49ca003167e308f5eaffb67381c9))
+- **canary-react:** improve data table column object by adding excludeColumnFromSort ([3e532f1](https://github.com/mi6/ic-ui-kit/commit/3e532f1c1bad86e49b6daba4fc24918bf4c1e9b8))
+
 # [2.0.0-canary.36](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.35...@ukic/canary-react@2.0.0-canary.36) (2025-02-19)
 
 ### Bug Fixes
