@@ -431,7 +431,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets the focus on first focusable element in the accordion group. If the \"See/Hide all\" button is present, it will be focused.\r\nOtherwise, the first accordion will be focused.",
+          "docs": "Sets the focus on first focusable element in the accordion group. If the \"See/Hide all\" button is present, it will be focused.\nOtherwise, the first accordion will be focused.",
           "docsTags": []
         }
       ],
@@ -956,7 +956,7 @@
           "mutable": false,
           "attr": "custom-color",
           "reflectToAttr": false,
-          "docs": "The custom badge colour. This will only style the badge component if variant=\"custom\".\r\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
+          "docs": "The custom badge colour. This will only style the badge component if variant=\"custom\".\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
           "docsTags": [],
           "default": "null",
           "values": [
@@ -1005,7 +1005,7 @@
           "mutable": false,
           "attr": "max-number",
           "reflectToAttr": false,
-          "docs": "The maximum number shown on the badge appended with a +.\r\nThis will only be displayed if type=\"text\" and label is not empty.",
+          "docs": "The maximum number shown on the badge appended with a +.\nThis will only be displayed if type=\"text\" and label is not empty.",
           "docsTags": [],
           "values": [
             {
@@ -3839,7 +3839,7 @@
           "mutable": false,
           "attr": "custom-color",
           "reflectToAttr": false,
-          "docs": "The custom chip colour. This will override the theme colour.\r\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
+          "docs": "The custom chip colour. This will override the theme colour.\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
           "docsTags": [],
           "default": "null",
           "values": [
@@ -3991,7 +3991,7 @@
           "mutable": false,
           "attr": "theme",
           "reflectToAttr": false,
-          "docs": "Sets the chip to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.\r\nSetting the \"customColor\" prop will override this.",
+          "docs": "Sets the chip to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.\nSetting the \"customColor\" prop will override this.",
           "docsTags": [],
           "default": "\"inherit\"",
           "values": [
@@ -4700,7 +4700,7 @@
           "mutable": false,
           "attr": "disable-height-constraint",
           "reflectToAttr": false,
-          "docs": "If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold.\r\nThis prop also prevents popover elements from being cut off within the content area.",
+          "docs": "If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold.\nThis prop also prevents popover elements from being cut off within the content area.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -7629,7 +7629,8 @@
       "parts": [],
       "dependents": [
         "ic-breadcrumb",
-        "ic-footer-link"
+        "ic-footer-link",
+        "ic-skip-link"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -7637,6 +7638,9 @@
           "ic-link"
         ],
         "ic-footer-link": [
+          "ic-link"
+        ],
+        "ic-skip-link": [
           "ic-link"
         ]
       }
@@ -7705,7 +7709,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The label to be displayed beneath the loading indicator.\r\nDisplay a changing label by supplying an array of messages.",
+          "docs": "The label to be displayed beneath the loading indicator.\nDisplay a changing label by supplying an array of messages.",
           "docsTags": [],
           "values": [
             {
@@ -7751,7 +7755,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The maximum value that the progress value can take.\r\nUsed to calculate the proportional width of the progress bar.",
+          "docs": "The maximum value that the progress value can take.\nUsed to calculate the proportional width of the progress bar.",
           "docsTags": [],
           "default": "100",
           "values": [
@@ -7773,7 +7777,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The minimum value that the progress value can take.\r\nUsed to calculate the proportional width of the progress bar.",
+          "docs": "The minimum value that the progress value can take.\nUsed to calculate the proportional width of the progress bar.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -7817,7 +7821,7 @@
           "mutable": false,
           "attr": "progress",
           "reflectToAttr": false,
-          "docs": "The current amount of progress made.\r\nIf not provided, component acts as an indeterminate loading indicator.",
+          "docs": "The current amount of progress made.\nIf not provided, component acts as an indeterminate loading indicator.",
           "docsTags": [],
           "values": [
             {
@@ -8383,7 +8387,7 @@
               "docs": "The keyboard event which is available when handleKeyboardOpen is invoked."
             }
           ],
-          "docs": "Used alongside activationType\r\nIf menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.",
+          "docs": "Used alongside activationType\nIf menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.",
           "docsTags": [
             {
               "name": "param",
@@ -8827,7 +8831,7 @@
           "detail": "{ checked: boolean; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\r\n    checked: boolean;\r\n  }",
+            "original": "{\n    checked: boolean;\n  }",
             "resolved": "{ checked: boolean; }",
             "references": {}
           },
@@ -11765,7 +11769,7 @@
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
-          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\r\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
+          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
           "docsTags": [],
           "default": "\"off\"",
           "values": [
@@ -12127,7 +12131,7 @@
           "mutable": false,
           "attr": "disable-auto-filtering",
           "reflectToAttr": false,
-          "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\r\nIf `true`, all options provided will be displayed.",
+          "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\nIf `true`, all options provided will be displayed.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -12215,7 +12219,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "Specify whether the search bar fills the full width of the container.\r\nIf `true`, this overrides the --input-width CSS variable.",
+          "docs": "Specify whether the search bar fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13786,7 +13790,7 @@
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the select, reflected by the value of the currently selected option.\r\nFor the searchable variant, the value is also reflected by the user input.\r\nFor the multi-select variant, the value must be an array of option values.",
+          "docs": "The value of the select, reflected by the value of the currently selected option.\nFor the searchable variant, the value is also reflected by the user input.\nFor the multi-select variant, the value must be an array of option values.",
           "docsTags": [],
           "values": [
             {
@@ -13972,7 +13976,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when an option is selected.\r\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
+          "docs": "Emitted when an option is selected.\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
           "docsTags": []
         },
         {
@@ -14487,6 +14491,200 @@
       "dependencyGraph": {}
     },
     {
+      "filePath": "src/components/ic-skip-link/ic-skip-link.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-skip-link",
+      "readme": "# ic-skip-link\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "full-width",
+          "reflectToAttr": false,
+          "docs": "If `true`, the link will fill the width of the page.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "inline",
+          "reflectToAttr": false,
+          "docs": "If `true`, the link will appear inline with surrounding page content when focused.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label displayed when the link is focused.",
+          "docsTags": [],
+          "default": "\"Skip to main content\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "monochrome",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "monochrome",
+          "reflectToAttr": false,
+          "docs": "If `true`, the link will display as black in the light theme, and white in the dark theme.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "The target ID for the element which should receive focus when triggering the skip link.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "theme",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Sets the theme color to the dark or light theme color. `inherit` will set the color based on the system settings or ic-theme component.",
+          "docsTags": [],
+          "default": "\"inherit\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "inherit",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "transparentBackground",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "transparent-background",
+          "reflectToAttr": false,
+          "docs": "If `true`, the background will be hidden.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-link"
+      ],
+      "dependencyGraph": {
+        "ic-skip-link": [
+          "ic-link"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-status-tag/ic-status-tag.tsx",
       "encapsulation": "shadow",
       "tag": "ic-status-tag",
@@ -14506,7 +14704,7 @@
           "mutable": false,
           "attr": "announced",
           "reflectToAttr": false,
-          "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.\r\nScreen readers will announce changes to the `label`, but not the initial value.",
+          "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.\nScreen readers will announce changes to the `label`, but not the initial value.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -15258,7 +15456,7 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the toggle does not mean if it's checked or not, use the `checked`\r\nproperty for that.\r\n\r\nThe value of a toggle is analogous to the value of a `<input type=\"checkbox\">`,\r\nit's only used when the toggle participates in a native `<form>`.",
+          "docs": "The value of the toggle does not mean if it's checked or not, use the `checked`\nproperty for that.\n\nThe value of a toggle is analogous to the value of a `<input type=\"checkbox\">`,\nit's only used when the toggle participates in a native `<form>`.",
           "docsTags": [],
           "default": "\"on\"",
           "values": [
@@ -15778,7 +15976,7 @@
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
-          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\r\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
+          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
           "docsTags": [],
           "default": "\"off\"",
           "values": [
@@ -16140,7 +16338,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "Specify whether the text field fills the full width of the container.\r\nIf `true`, this overrides the --input-width CSS variable.",
+          "docs": "Specify whether the text field fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -16256,7 +16454,7 @@
           "mutable": false,
           "attr": "inputmode",
           "reflectToAttr": false,
-          "docs": "A hint to the browser for which keyboard to display.\r\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\r\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
+          "docs": "A hint to the browser for which keyboard to display.\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
           "docsTags": [],
           "default": "\"text\"",
           "values": [
@@ -17079,7 +17277,7 @@
           "mutable": true,
           "attr": "auto-dismiss-timeout",
           "reflectToAttr": false,
-          "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\r\n(NOTE: Has a minimum value of `5000ms`)",
+          "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\n(NOTE: Has a minimum value of `5000ms`)",
           "docsTags": [],
           "default": "5000",
           "values": [
@@ -17743,7 +17941,7 @@
           "detail": "{ checked: boolean; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\r\n    checked: boolean;\r\n  }",
+            "original": "{\n    checked: boolean;\n  }",
             "resolved": "{ checked: boolean; }",
             "references": {}
           },
@@ -18620,7 +18818,7 @@
           "mutable": false,
           "attr": "custom-mobile-breakpoint",
           "reflectToAttr": false,
-          "docs": "Can set a custom breakpoint for the top navigation to switch to mobile mode.\r\nMust be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.",
+          "docs": "Can set a custom breakpoint for the top navigation to switch to mobile mode.\nMust be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.",
           "docsTags": [],
           "default": "DEVICE_SIZES.L",
           "values": [
@@ -18945,7 +19143,7 @@
           "mutable": false,
           "attr": "bold",
           "reflectToAttr": false,
-          "docs": "If `true`, the typography will have a bold font weight.\r\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
+          "docs": "If `true`, the typography will have a bold font weight.\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -19347,7 +19545,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcStatusVariants": {
-      "declaration": "export type IcStatusVariants =\r\n  | \"neutral\"\r\n  | \"info\"\r\n  | \"warning\"\r\n  | \"error\"\r\n  | \"success\";",
+      "declaration": "export type IcStatusVariants =\n  | \"neutral\"\n  | \"info\"\n  | \"warning\"\n  | \"error\"\n  | \"success\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -19357,7 +19555,7 @@
       "path": "src/components/ic-back-to-top/ic-back-to-top.types.ts"
     },
     "src/components/ic-classification-banner/ic-classification-banner.types.tsx::IcProtectiveMarkings": {
-      "declaration": "export type IcProtectiveMarkings =\r\n  | \"default\"\r\n  | \"official\"\r\n  | \"official-sensitive\"\r\n  | \"secret\"\r\n  | \"top-secret\";",
+      "declaration": "export type IcProtectiveMarkings =\n  | \"default\"\n  | \"official\"\n  | \"official-sensitive\"\n  | \"secret\"\n  | \"top-secret\";",
       "docstring": "",
       "path": "src/components/ic-classification-banner/ic-classification-banner.types.tsx"
     },
@@ -19367,7 +19565,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-footer/ic-footer.types.tsx::IcFooterBreakpoints": {
-      "declaration": "export type IcFooterBreakpoints =\r\n  | \"extra small\"\r\n  | \"small\"\r\n  | \"medium\"\r\n  | \"large\"\r\n  | \"extra large\";",
+      "declaration": "export type IcFooterBreakpoints =\n  | \"extra small\"\n  | \"small\"\n  | \"medium\"\n  | \"large\"\n  | \"extra large\";",
       "docstring": "",
       "path": "src/components/ic-footer/ic-footer.types.tsx"
     },
@@ -19382,7 +19580,7 @@
       "path": "src/components/ic-button/ic-button.types.ts"
     },
     "src/components/ic-button/ic-button.types.ts::IcButtonVariants": {
-      "declaration": "export type IcButtonVariants =\r\n  | \"primary\"\r\n  | \"secondary\"\r\n  | \"tertiary\"\r\n  | \"destructive\"\r\n  | \"icon\"\r\n  | \"icon-primary\"\r\n  | \"icon-secondary\"\r\n  | \"icon-tertiary\"\r\n  | \"icon-destructive\";",
+      "declaration": "export type IcButtonVariants =\n  | \"primary\"\n  | \"secondary\"\n  | \"tertiary\"\n  | \"destructive\"\n  | \"icon\"\n  | \"icon-primary\"\n  | \"icon-secondary\"\n  | \"icon-tertiary\"\n  | \"icon-destructive\";",
       "docstring": "",
       "path": "src/components/ic-button/ic-button.types.ts"
     },
@@ -19412,7 +19610,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-tab/ic-tab.types.ts::IcTabClickEventDetail": {
-      "declaration": "export interface IcTabClickEventDetail {\r\n  tabId: string;\r\n  contextId: string;\r\n  position: number;\r\n}",
+      "declaration": "export interface IcTabClickEventDetail {\n  tabId: string;\n  contextId: string;\n  position: number;\n}",
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },
@@ -19422,7 +19620,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-tooltip/ic-tooltip.types.ts::IcTooltipPlacements": {
-      "declaration": "export type IcTooltipPlacements =\r\n  | \"top-start\"\r\n  | \"top\"\r\n  | \"top-end\"\r\n  | \"right-start\"\r\n  | \"right\"\r\n  | \"right-end\"\r\n  | \"bottom-end\"\r\n  | \"bottom\"\r\n  | \"bottom-start\"\r\n  | \"left-end\"\r\n  | \"left\"\r\n  | \"left-start\";",
+      "declaration": "export type IcTooltipPlacements =\n  | \"top-start\"\n  | \"top\"\n  | \"top-end\"\n  | \"right-start\"\n  | \"right\"\n  | \"right-end\"\n  | \"bottom-end\"\n  | \"bottom\"\n  | \"bottom-start\"\n  | \"left-end\"\n  | \"left\"\n  | \"left-start\";",
       "docstring": "",
       "path": "src/components/ic-tooltip/ic-tooltip.types.ts"
     },
@@ -19437,7 +19635,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-checkbox-group/ic-checkbox-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\r\n  value: string[];\r\n  checkedOptions: {\r\n    checkbox: HTMLIcCheckboxElement;\r\n    textFieldValue?: string;\r\n  }[];\r\n  selectedOption: HTMLIcCheckboxElement;\r\n}",
+      "declaration": "export interface IcChangeEventDetail {\n  value: string[];\n  checkedOptions: {\n    checkbox: HTMLIcCheckboxElement;\n    textFieldValue?: string;\n  }[];\n  selectedOption: HTMLIcCheckboxElement;\n}",
       "docstring": "",
       "path": "src/components/ic-checkbox-group/ic-checkbox-group.types.ts"
     },
@@ -19447,7 +19645,7 @@
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcAutocompleteTypes": {
-      "declaration": "export type IcAutocompleteTypes =\r\n  | \"on\"\r\n  | \"off\"\r\n  | \"name\"\r\n  | \"honorific-prefix\"\r\n  | \"given-name\"\r\n  | \"additional-name\"\r\n  | \"family-name\"\r\n  | \"honorific-suffix\"\r\n  | \"nickname\"\r\n  | \"email\"\r\n  | \"username\"\r\n  | \"new-password\"\r\n  | \"current-password\"\r\n  | \"one-time-code\"\r\n  | \"organization-title\"\r\n  | \"organization\"\r\n  | \"street-address\"\r\n  | \"address-line1\"\r\n  | \"address-line2\"\r\n  | \"address-line3\"\r\n  | \"address-level4\"\r\n  | \"address-level3\"\r\n  | \"address-level2\"\r\n  | \"address-level1\"\r\n  | \"country\"\r\n  | \"country-name\"\r\n  | \"postal-code\"\r\n  | \"cc-name\"\r\n  | \"cc-given-name\"\r\n  | \"cc-additional-name\"\r\n  | \"cc-family-name\"\r\n  | \"cc-family-name\"\r\n  | \"cc-number\"\r\n  | \"cc-exp\"\r\n  | \"cc-exp-month\"\r\n  | \"cc-exp-year\"\r\n  | \"cc-csc\"\r\n  | \"cc-type\"\r\n  | \"transaction-currency\"\r\n  | \"transaction-amount\"\r\n  | \"language\"\r\n  | \"bday\"\r\n  | \"bday-day\"\r\n  | \"bday-month\"\r\n  | \"bday-year\"\r\n  | \"sex\"\r\n  | \"tel\"\r\n  | \"tel-country-code\"\r\n  | \"tel-national\"\r\n  | \"tel-area-code\"\r\n  | \"tel-local\"\r\n  | \"tel-extension\"\r\n  | \"impp\"\r\n  | \"url\"\r\n  | \"photo\";",
+      "declaration": "export type IcAutocompleteTypes =\n  | \"on\"\n  | \"off\"\n  | \"name\"\n  | \"honorific-prefix\"\n  | \"given-name\"\n  | \"additional-name\"\n  | \"family-name\"\n  | \"honorific-suffix\"\n  | \"nickname\"\n  | \"email\"\n  | \"username\"\n  | \"new-password\"\n  | \"current-password\"\n  | \"one-time-code\"\n  | \"organization-title\"\n  | \"organization\"\n  | \"street-address\"\n  | \"address-line1\"\n  | \"address-line2\"\n  | \"address-line3\"\n  | \"address-level4\"\n  | \"address-level3\"\n  | \"address-level2\"\n  | \"address-level1\"\n  | \"country\"\n  | \"country-name\"\n  | \"postal-code\"\n  | \"cc-name\"\n  | \"cc-given-name\"\n  | \"cc-additional-name\"\n  | \"cc-family-name\"\n  | \"cc-family-name\"\n  | \"cc-number\"\n  | \"cc-exp\"\n  | \"cc-exp-month\"\n  | \"cc-exp-year\"\n  | \"cc-csc\"\n  | \"cc-type\"\n  | \"transaction-currency\"\n  | \"transaction-amount\"\n  | \"language\"\n  | \"bday\"\n  | \"bday-day\"\n  | \"bday-month\"\n  | \"bday-year\"\n  | \"sex\"\n  | \"tel\"\n  | \"tel-country-code\"\n  | \"tel-national\"\n  | \"tel-area-code\"\n  | \"tel-local\"\n  | \"tel-extension\"\n  | \"impp\"\n  | \"url\"\n  | \"photo\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -19457,7 +19655,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldInputModes": {
-      "declaration": "export type IcTextFieldInputModes =\r\n  | \"none\"\r\n  | \"text\"\r\n  | \"tel\"\r\n  | \"url\"\r\n  | \"email\"\r\n  | \"numeric\"\r\n  | \"decimal\"\r\n  | \"search\";",
+      "declaration": "export type IcTextFieldInputModes =\n  | \"none\"\n  | \"text\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\";",
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
@@ -19467,12 +19665,12 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldTypes": {
-      "declaration": "export type IcTextFieldTypes =\r\n  | \"email\"\r\n  | \"password\"\r\n  | \"tel\"\r\n  | \"text\"\r\n  | \"url\"\r\n  | \"number\"\r\n  | \"search\";",
+      "declaration": "export type IcTextFieldTypes =\n  | \"email\"\n  | \"password\"\n  | \"tel\"\n  | \"text\"\n  | \"url\"\n  | \"number\"\n  | \"search\";",
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcValueEventDetail": {
-      "declaration": "export interface IcValueEventDetail {\r\n  value: string | string[];\r\n  keyPressed?: string;\r\n}",
+      "declaration": "export interface IcValueEventDetail {\n  value: string | string[];\n  keyPressed?: string;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -19482,27 +19680,27 @@
       "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
     "src/utils/types.ts::IcMenuOption": {
-      "declaration": "export interface IcMenuOption {\r\n  description?: string;\r\n  disabled?: boolean;\r\n  recommended?: boolean;\r\n  children?: IcMenuOption[];\r\n  loading?: boolean;\r\n  timedOut?: boolean;\r\n  [key: string]: any;\r\n  element?: {\r\n    component: any;\r\n    ariaLabel: string;\r\n  };\r\n  icon?: any;\r\n}",
+      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail": {
-      "declaration": "export interface IcOptionSelectEventDetail {\r\n  value: string;\r\n  label?: string;\r\n  optionId?: string;\r\n}",
+      "declaration": "export interface IcOptionSelectEventDetail {\n  value: string;\n  label?: string;\n  optionId?: string;\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcMenuChangeEventDetail": {
-      "declaration": "export interface IcMenuChangeEventDetail {\r\n  open: boolean;\r\n  focusInput?: boolean;\r\n}",
+      "declaration": "export interface IcMenuChangeEventDetail {\n  open: boolean;\n  focusInput?: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
     "src/utils/types.ts::IcBlurEventDetail": {
-      "declaration": "export interface IcBlurEventDetail {\r\n  relatedTarget: IcRelatedTarget;\r\n}",
+      "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
     "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail": {
-      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\r\n  relatedTarget: IcRelatedTarget;\r\n}",
+      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
       "docstring": "",
       "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
@@ -19512,7 +19710,7 @@
       "path": "src/components/ic-divider/ic-divider.types.tsx"
     },
     "src/components/ic-divider/ic-divider.types.tsx::IcDividerLabelPlacement": {
-      "declaration": "export type IcDividerLabelPlacement =\r\n  | \"left\"\r\n  | \"center\"\r\n  | \"right\"\r\n  | \"top\"\r\n  | \"bottom\";",
+      "declaration": "export type IcDividerLabelPlacement =\n  | \"left\"\n  | \"center\"\n  | \"right\"\n  | \"top\"\n  | \"bottom\";",
       "docstring": "",
       "path": "src/components/ic-divider/ic-divider.types.tsx"
     },
@@ -19532,7 +19730,7 @@
       "path": "src/components/ic-divider/ic-divider.types.tsx"
     },
     "src/utils/types.ts::IcTypographyVariants": {
-      "declaration": "export type IcTypographyVariants =\r\n  | \"h1\"\r\n  | \"h2\"\r\n  | \"h3\"\r\n  | \"h4\"\r\n  | \"subtitle-large\"\r\n  | \"subtitle-small\"\r\n  | \"body\"\r\n  | \"label\"\r\n  | \"label-uppercase\"\r\n  | \"caption\"\r\n  | \"caption-uppercase\"\r\n  | \"code-large\"\r\n  | \"code-small\"\r\n  | \"code-extra-small\"\r\n  | \"badge\"\r\n  | \"badge-small\";",
+      "declaration": "export type IcTypographyVariants =\n  | \"h1\"\n  | \"h2\"\n  | \"h3\"\n  | \"h4\"\n  | \"subtitle-large\"\n  | \"subtitle-small\"\n  | \"body\"\n  | \"label\"\n  | \"label-uppercase\"\n  | \"caption\"\n  | \"caption-uppercase\"\n  | \"code-large\"\n  | \"code-small\"\n  | \"code-extra-small\"\n  | \"badge\"\n  | \"badge-small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -19567,7 +19765,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcMenuOptionIdEventDetail": {
-      "declaration": "export interface IcMenuOptionIdEventDetail {\r\n  optionId: string | undefined;\r\n}",
+      "declaration": "export interface IcMenuOptionIdEventDetail {\n  optionId: string | undefined;\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
@@ -19577,7 +19775,7 @@
       "path": "src/components/ic-menu-item/ic-menu-item.types.ts"
     },
     "src/components/ic-side-navigation/ic-side-navigation.types.ts::IcExpandedDetail": {
-      "declaration": "export interface IcExpandedDetail {\r\n  sideNavExpanded: boolean;\r\n  sideNavMobile: boolean;\r\n}",
+      "declaration": "export interface IcExpandedDetail {\n  sideNavExpanded: boolean;\n  sideNavMobile: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-side-navigation/ic-side-navigation.types.ts"
     },
@@ -19587,7 +19785,7 @@
       "path": "src/components/ic-pagination/ic-pagination.types.ts"
     },
     "src/components/ic-pagination/ic-pagination.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\r\n  value: number;\r\n}",
+      "declaration": "export interface IcChangeEventDetail {\n  value: number;\n}",
       "docstring": "",
       "path": "src/components/ic-pagination/ic-pagination.types.ts"
     },
@@ -19597,7 +19795,7 @@
       "path": "src/components/ic-pagination-item/ic-pagination-item.types.ts"
     },
     "src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\r\n  value: string;\r\n  selectedOption: {\r\n    radio: HTMLIcRadioOptionElement;\r\n    textFieldValue?: string;\r\n  };\r\n}",
+      "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",
       "docstring": "",
       "path": "src/components/ic-radio-group/ic-radio-group.types.ts"
     },
@@ -19637,17 +19835,17 @@
       "path": "src/components/ic-stepper/ic-stepper.types.ts"
     },
     "src/components/ic-switch/ic-switch.types.ts::IcSwitchChangeEventDetail": {
-      "declaration": "export interface IcSwitchChangeEventDetail {\r\n  value: string | null;\r\n  checked: boolean;\r\n}",
+      "declaration": "export interface IcSwitchChangeEventDetail {\n  value: string | null;\n  checked: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-switch/ic-switch.types.ts"
     },
     "src/components/ic-tab/ic-tab.types.ts::IcTabSelectEventDetail": {
-      "declaration": "export interface IcTabSelectEventDetail {\r\n  tabIndex: number;\r\n  tabLabel: string;\r\n}",
+      "declaration": "export interface IcTabSelectEventDetail {\n  tabIndex: number;\n  tabLabel: string;\n}",
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },
     "src/utils/types.ts::IcBrand": {
-      "declaration": "{\r\n  mode: IcBrandForeground;\r\n  color: IcColorRGB;\r\n}",
+      "declaration": "{\n  mode: IcBrandForeground;\n  color: IcColorRGB;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -19667,7 +19865,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\r\n  checked: boolean[] | boolean;\r\n  toggledOptions?: {\r\n    toggleButton: HTMLIcToggleButtonElement;\r\n  }[];\r\n  selectedOption: HTMLIcToggleButtonElement;\r\n}",
+      "declaration": "export interface IcChangeEventDetail {\n  checked: boolean[] | boolean;\n  toggledOptions?: {\n    toggleButton: HTMLIcToggleButtonElement;\n  }[];\n  selectedOption: HTMLIcToggleButtonElement;\n}",
       "docstring": "",
       "path": "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts"
     }
