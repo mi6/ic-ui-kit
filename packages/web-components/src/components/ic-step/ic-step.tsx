@@ -127,6 +127,7 @@ export class Step {
       );
     } else if (
       this.stepType === "disabled" ||
+      this.stepType === "warning" ||
       this.compactStepStyling === "disabled"
     ) {
       statusIcon = (
@@ -137,7 +138,6 @@ export class Step {
         ></span>
       );
     }
-
     // COMPACT STEP COMPONENT
     const compactStep = (
       <div
@@ -214,7 +214,14 @@ export class Step {
 
     // ICON FOR DEFAULT STEP
     let icon;
-    if (this.stepType !== "completed") {
+    if(this.stepType === "warning") {
+      icon = (
+        <div class="step-icon-inner" aria-hidden="true">
+          <span class="warning-icon" innerHTML={warningIcon}></span>
+        </div>
+      );
+    }
+    else if (this.stepType !== "completed") {
       icon = (
         <ic-typography variant="subtitle-small">
           <span class="step-icon-inner" aria-hidden="true">
@@ -222,7 +229,8 @@ export class Step {
           </span>
         </ic-typography>
       );
-    } else {
+    } 
+    else {
       icon = (
         <div class="step-icon-inner" aria-hidden="true">
           <span class="check-icon" innerHTML={checkIcon}></span>
