@@ -639,6 +639,7 @@ export class TextField {
                 onInput={this.onInput}
                 onBlur={this.onBlur}
                 onFocus={this.onFocus}
+                onWheel={(e) => (e.target as HTMLElement).blur()}
                 aria-label={label}
                 aria-describedby={describedBy}
                 aria-invalid={invalid}
@@ -673,6 +674,7 @@ export class TextField {
                 onInput={this.onInput}
                 onBlur={this.onBlur}
                 onFocus={this.onFocus}
+                onWheel={(e) => (e.target as HTMLElement).blur()}
                 aria-label={label}
                 aria-describedby={describedBy}
                 aria-invalid={invalid}
