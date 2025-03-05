@@ -104,10 +104,10 @@ export const PageExample = {
       Etiam accumsan nibh erat, condimentum tempus metus suscipit nec. Duis
       placerat varius dolor eget ornare. Vestibulum egestas tellus non tellus
       ornare, eu scelerisque erat pulvinar. Nam tempus lacus eu libero
-      consequat, in elementum magna ultricies. Etiam at suscipit odio. Duis quis
-      quam vitae quam varius luctus. Aliquam erat volutpat. Fusce laoreet
-      consectetur tortor, ac suscipit sem feugiat non. Etiam tempus tellus
-      aliquet orci pretium, nec pretium nulla faucibus
+      consequat, in elementum magna ultricies. Duis quis quam vitae quam varius
+      luctus. Aliquam erat volutpat. Fusce laoreet consectetur tortor, ac
+      suscipit sem feugiat non. Etiam tempus tellus aliquet orci pretium, nec
+      pretium nulla faucibus
     </p>
     <br />
     <ic-button>Button</ic-button>
