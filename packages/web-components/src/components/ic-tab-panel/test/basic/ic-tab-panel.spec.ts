@@ -8,15 +8,7 @@ describe("ic-tab component", () => {
       html: `<ic-tab-panel panel-id="1" selected-tab="1" tab-position=1>IC Tab Test</ic-tab-panel>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-tab-panel panel-id="1" selected-tab="1" role="tabpanel" tab-position="1">
-    <mock:shadow-root>
-      <div>
-        <slot></slot>
-      </div>
-    </mock:shadow-root>
-    IC Tab Test
-  </ic-tab-panel>`);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should be hidden if the corresponding tab is not selected", async () => {
@@ -25,15 +17,7 @@ describe("ic-tab component", () => {
       html: `<ic-tab-panel panel-id="1" selected-tab="2" tab-position=1>IC Tab Test</ic-tab-panel>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-tab-panel panel-id="1" selected-tab="2" hidden="" role="tabpanel" tab-position="1">
-    <mock:shadow-root>
-      <div>
-        <slot></slot>
-      </div>
-    </mock:shadow-root>
-    IC Tab Test
-  </ic-tab-panel>`);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should be hidden if selectedTab and panelId are undefined", async () => {
@@ -42,14 +26,6 @@ describe("ic-tab component", () => {
       html: `<ic-tab-panel tab-position=1>IC Tab Test</ic-tab-panel>`,
     });
 
-    expect(page.root)
-      .toEqualHtml(`<ic-tab-panel hidden="" role="tabpanel" tab-position="1">
-    <mock:shadow-root>
-      <div>
-        <slot></slot>
-      </div>
-    </mock:shadow-root>
-    IC Tab Test
-  </ic-tab-panel>`);
+    expect(page.root).toMatchSnapshot();
   });
 });

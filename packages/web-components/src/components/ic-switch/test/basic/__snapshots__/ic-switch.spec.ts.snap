@@ -2,7 +2,7 @@
 
 exports[`ic-switch component should render an aria-label: renders-with-aria 1`] = `
 <ic-switch label="Custom title">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <label class="ic-switch-container" htmlfor="ic-switch-input-0">
       <ic-input-label class="ic-switch-label" for="ic-switch-input-0" helpertext="" label="Custom title" readonly=""></ic-input-label>
       <span class="ic-switch-line-break"></span>
@@ -17,14 +17,14 @@ exports[`ic-switch component should render an aria-label: renders-with-aria 1`] 
       </span>
       <slot name="right-adornment"></slot>
     </label>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-switch-input-0" type="hidden" value="">
 </ic-switch>
 `;
 
 exports[`ic-switch component should render checked: renders-checked 1`] = `
 <ic-switch checked="true" label="Custom title">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <label class="ic-switch-container" htmlfor="ic-switch-input-2">
       <ic-input-label class="ic-switch-label" for="ic-switch-input-2" helpertext="" label="Custom title" readonly=""></ic-input-label>
       <span class="ic-switch-line-break"></span>
@@ -39,14 +39,14 @@ exports[`ic-switch component should render checked: renders-checked 1`] = `
       </span>
       <slot name="right-adornment"></slot>
     </label>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-switch-input-2" type="hidden" value="on">
 </ic-switch>
 `;
 
 exports[`ic-switch component should render disabled: disabled-removed 1`] = `
 <ic-switch label="Custom title">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <label class="ic-switch-container" htmlfor="ic-switch-input-1">
       <ic-input-label class="ic-switch-label" for="ic-switch-input-1" helpertext="" label="Custom title" readonly=""></ic-input-label>
       <span class="ic-switch-line-break"></span>
@@ -61,14 +61,14 @@ exports[`ic-switch component should render disabled: disabled-removed 1`] = `
       </span>
       <slot name="right-adornment"></slot>
     </label>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-switch-input-1" type="hidden" value="">
 </ic-switch>
 `;
 
 exports[`ic-switch component should render disabled: renders-disabled 1`] = `
 <ic-switch disabled="true" label="Custom title">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <label class="ic-switch-container ic-switch-disabled" htmlfor="ic-switch-input-1">
       <ic-input-label class="ic-switch-label" disabled="" for="ic-switch-input-1" helpertext="" label="Custom title" readonly=""></ic-input-label>
       <span class="ic-switch-line-break"></span>
@@ -83,14 +83,14 @@ exports[`ic-switch component should render disabled: renders-disabled 1`] = `
       </span>
       <slot name="right-adornment"></slot>
     </label>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" disabled="" name="ic-switch-input-1" type="hidden" value="">
 </ic-switch>
 `;
 
 exports[`ic-switch component should render small: renders-small 1`] = `
 <ic-switch checked="true" label="Custom title" size="small">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <label class="ic-switch-container ic-switch-small" htmlfor="ic-switch-input-3">
       <ic-input-label class="ic-switch-label ic-switch-label-small" for="ic-switch-input-3" helpertext="" label="Custom title" readonly=""></ic-input-label>
       <span class="ic-switch-line-break"></span>
@@ -105,7 +105,7 @@ exports[`ic-switch component should render small: renders-small 1`] = `
       </span>
       <slot name="right-adornment"></slot>
     </label>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-switch-input-3" type="hidden" value="on">
 </ic-switch>
 `;

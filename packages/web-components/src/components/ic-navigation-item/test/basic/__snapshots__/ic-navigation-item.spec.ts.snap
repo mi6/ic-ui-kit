@@ -2,7 +2,7 @@
 
 exports[`ic-navigation-item should render with aria-label: renders-with-aria-label 1`] = `
 <ic-navigation-item aria-label="navigation item description" class="light navigation-item" href="#link" label="Item label" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <a aria-label="navigation item description" class="link" href="#link" part="link">
         <ic-typography variant="label">
@@ -11,13 +11,13 @@ exports[`ic-navigation-item should render with aria-label: renders-with-aria-lab
         <div class="chevron-container"></div>
       </a>
     </ic-tooltip>
-  </mock:shadow-root>
+  </template>
 </ic-navigation-item>
 `;
 
 exports[`ic-navigation-item should render with aria-label: renders-with-new-aria-label 1`] = `
 <ic-navigation-item aria-label="New item description" class="light navigation-item" href="#link" label="Item label" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <a aria-label="New item description" class="link" href="#link" part="link">
         <ic-typography variant="label">
@@ -26,13 +26,13 @@ exports[`ic-navigation-item should render with aria-label: renders-with-new-aria
         <div class="chevron-container"></div>
       </a>
     </ic-tooltip>
-  </mock:shadow-root>
+  </template>
 </ic-navigation-item>
 `;
 
 exports[`ic-navigation-item should render with label: renders-with-label 1`] = `
 <ic-navigation-item class="light navigation-item" label="Item label" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <div class="link" tabindex="0">
         <ic-typography variant="label">
@@ -40,6 +40,6 @@ exports[`ic-navigation-item should render with label: renders-with-label 1`] = `
         </ic-typography>
       </div>
     </ic-tooltip>
-  </mock:shadow-root>
+  </template>
 </ic-navigation-item>
 `;

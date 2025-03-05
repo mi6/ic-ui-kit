@@ -2,346 +2,346 @@
 
 exports[`ic-toggle-button-group component snapshot tests should render and update full-width 1`] = `
 <ic-toggle-button-group aria-label="Toggle button group" class="ic-toggle-button-group-full-width" full-width="" role="group" select-type="single" tabindex="0" variant="default">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="0" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-full-width ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="1" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-full-width ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
 </ic-toggle-button-group>
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update full-width 2`] = `
 <ic-toggle-button-group aria-label="Toggle button group" full-width="" role="group" select-type="single" tabindex="0" variant="default">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="0" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="1" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
 </ic-toggle-button-group>
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update loading 1`] = `
 <ic-toggle-button-group aria-label="Toggle button group" class="ic-toggle-button-group-loading" loading="" role="group" select-type="single" tabindex="0" variant="default">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-loading ic-toggle-button-medium" id="0" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-loading ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-disabled="true" aria-label="Loading, Toggle button group" class="button" part="button" type="button">
             <div class="loading-container">
               <ic-loading-indicator theme="inherit" type="linear"></ic-loading-indicator>
             </div>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-loading ic-toggle-button-medium" id="1" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-loading ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-disabled="true" aria-label="Loading, Toggle button group" class="button" part="button" type="button">
             <div class="loading-container">
               <ic-loading-indicator theme="inherit" type="linear"></ic-loading-indicator>
             </div>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
 </ic-toggle-button-group>
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update loading 2`] = `
 <ic-toggle-button-group aria-label="Toggle button group" loading="" role="group" select-type="single" tabindex="0" variant="default">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="0" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="1" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
 </ic-toggle-button-group>
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update monochrome 1`] = `
 <ic-toggle-button-group aria-label="Toggle button group" class="ic-toggle-button-group-monochrome" monochrome="" role="group" select-type="single" tabindex="0" variant="default">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium ic-toggle-button-monochrome" id="0" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium ic-toggle-button-monochrome" id="1" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
 </ic-toggle-button-group>
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update monochrome 2`] = `
 <ic-toggle-button-group aria-label="Toggle button group" monochrome="" role="group" select-type="single" tabindex="0" variant="default">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="0" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="1" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
 </ic-toggle-button-group>
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update size 1`] = `
 <ic-toggle-button-group aria-label="Toggle button group" role="group" select-type="single" size="small" tabindex="0" variant="default">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-small" id="0" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-small ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-small" id="1" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-small ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
 </ic-toggle-button-group>
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update size 2`] = `
 <ic-toggle-button-group aria-label="Toggle button group" role="group" select-type="single" size="small" tabindex="0" variant="default">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-large" id="0" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-large ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-large" id="1" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-large ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
 </ic-toggle-button-group>
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update variant 1`] = `
 <ic-toggle-button-group aria-label="Toggle button group" role="group" select-type="single" tabindex="0" variant="icon">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-icon ic-toggle-button-medium" id="0" label="Toggle" tabindex="-1" variant="icon">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-icon" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <ic-tooltip label="Toggle, unticked" placement="bottom" silent="" target="ic-button-with-tooltip-22">
             <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
               <slot></slot>
             </button>
           </ic-tooltip>
-        </mock:shadow-root>
+        </template>
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-icon ic-toggle-button-medium" id="1" label="Toggle" tabindex="-1" variant="icon">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-icon" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <ic-tooltip label="Toggle, unticked" placement="bottom" silent="" target="ic-button-with-tooltip-24">
             <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
               <slot></slot>
             </button>
           </ic-tooltip>
-        </mock:shadow-root>
+        </template>
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
 </ic-toggle-button-group>
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update variant 2`] = `
 <ic-toggle-button-group aria-label="Toggle button group" role="group" select-type="single" tabindex="0" variant="default">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="0" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
   <ic-toggle-button class="expand-toggle-group-child ic-toggle-button-medium" id="1" label="Toggle" tabindex="-1" variant="default">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <button aria-label="Toggle, unticked" class="button" part="button" type="button">
             <slot></slot>
           </button>
-        </mock:shadow-root>
+        </template>
         Toggle
         <slot></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
   </ic-toggle-button>
 </ic-toggle-button-group>
 `;

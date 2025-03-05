@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-tab component should be hidden if selectedTab and panelId are undefined 1`] = `
+<ic-tab-panel hidden="" role="tabpanel" tab-position="1">
+  <template shadowrootmode="open">
+    <div>
+      <slot></slot>
+    </div>
+  </template>
+  IC Tab Test
+</ic-tab-panel>
+`;
+
+exports[`ic-tab component should be hidden if the corresponding tab is not selected 1`] = `
+<ic-tab-panel hidden="" panel-id="1" role="tabpanel" selected-tab="2" tab-position="1">
+  <template shadowrootmode="open">
+    <div>
+      <slot></slot>
+    </div>
+  </template>
+  IC Tab Test
+</ic-tab-panel>
+`;
+
+exports[`ic-tab component should not be hidden if the corresponding tab is selected 1`] = `
+<ic-tab-panel panel-id="1" role="tabpanel" selected-tab="1" tab-position="1">
+  <template shadowrootmode="open">
+    <div>
+      <slot></slot>
+    </div>
+  </template>
+  IC Tab Test
+</ic-tab-panel>
+`;

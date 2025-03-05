@@ -2,7 +2,7 @@
 
 exports[`ic-card-horizontal should render 1`] = `
 <ic-card-horizontal heading="Card" message="This is a static card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card medium">
       <div class="card-content">
         <div class="card-header">
@@ -23,13 +23,13 @@ exports[`ic-card-horizontal should render 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-card-horizontal>
 `;
 
 exports[`ic-card-horizontal should render as a button 1`] = `
 <ic-card-horizontal clickable="true" heading="Card" message="This is a clickable card rendered as a button">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button class="card clickable medium" tabindex="0">
       <div class="card-content">
         <div class="card-header">
@@ -50,13 +50,13 @@ exports[`ic-card-horizontal should render as a button 1`] = `
         </div>
       </div>
     </button>
-  </mock:shadow-root>
+  </template>
 </ic-card-horizontal>
 `;
 
 exports[`ic-card-horizontal should render as a link 1`] = `
 <ic-card-horizontal clickable="true" heading="Card" href="/" message="This is a clickable card rendered as a button">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <a class="card clickable medium" href="/" hreflang="" tabindex="0">
       <div class="card-content">
         <div class="card-header">
@@ -77,13 +77,13 @@ exports[`ic-card-horizontal should render as a link 1`] = `
         </div>
       </div>
     </a>
-  </mock:shadow-root>
+  </template>
 </ic-card-horizontal>
 `;
 
 exports[`ic-card-horizontal should render disabled 1`] = `
 <ic-card-horizontal clickable="" disabled="" heading="Card" message="This is a static card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-disabled="true" class="card disabled medium" disabled="" tabindex="0">
       <div class="card-content">
         <div class="card-header">
@@ -104,13 +104,13 @@ exports[`ic-card-horizontal should render disabled 1`] = `
         </div>
       </div>
     </button>
-  </mock:shadow-root>
+  </template>
 </ic-card-horizontal>
 `;
 
 exports[`ic-card-horizontal should render disabled: disabled-removed 1`] = `
 <ic-card-horizontal clickable="" heading="Card" message="This is a static card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button class="card clickable medium" tabindex="0">
       <div class="card-content">
         <div class="card-header">
@@ -131,13 +131,13 @@ exports[`ic-card-horizontal should render disabled: disabled-removed 1`] = `
         </div>
       </div>
     </button>
-  </mock:shadow-root>
+  </template>
 </ic-card-horizontal>
 `;
 
 exports[`ic-card-horizontal should render extra large 1`] = `
 <ic-card-horizontal heading="Card" message="This is a static card" size="extra large">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card extra large">
       <div class="card-content">
         <div class="card-header">
@@ -158,13 +158,13 @@ exports[`ic-card-horizontal should render extra large 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-card-horizontal>
 `;
 
 exports[`ic-card-horizontal should render large 1`] = `
 <ic-card-horizontal heading="Card" message="This is a static card" size="large">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card large">
       <div class="card-content">
         <div class="card-header">
@@ -185,13 +185,13 @@ exports[`ic-card-horizontal should render large 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-card-horizontal>
 `;
 
 exports[`ic-card-horizontal should render small 1`] = `
 <ic-card-horizontal heading="Card" message="This is a static card" size="small">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card small">
       <div class="card-content">
         <div class="card-header">
@@ -212,13 +212,13 @@ exports[`ic-card-horizontal should render small 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-card-horizontal>
 `;
 
 exports[`ic-card-horizontal should render with a link parent 1`] = `
 <ic-card-horizontal clickable="true" heading="Card" message="This is a clickable card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card clickable medium">
       <div class="card-content">
         <div class="card-header">
@@ -239,22 +239,22 @@ exports[`ic-card-horizontal should render with a link parent 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-card-horizontal>
 `;
 
 exports[`ic-card-horizontal should render with a slotted heading and message 1`] = `
 <ic-card-horizontal id="test-card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card medium">
       <div class="card-content">
         <div class="card-header">
           <div class="card-title">
             <slot name="heading">
               <ic-typography class="ic-typography-h4">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <slot></slot>
-                </mock:shadow-root>
+                </template>
                 <p></p>
               </ic-typography>
             </slot>
@@ -265,17 +265,17 @@ exports[`ic-card-horizontal should render with a slotted heading and message 1`]
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography class="ic-typography-body" slot="heading">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <slot></slot>
-    </mock:shadow-root>
+    </template>
     Heading
   </ic-typography>
   <ic-typography class="ic-typography-body" slot="message">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <slot></slot>
-    </mock:shadow-root>
+    </template>
     Message
   </ic-typography>
 </ic-card-horizontal>
@@ -283,7 +283,7 @@ exports[`ic-card-horizontal should render with a slotted heading and message 1`]
 
 exports[`ic-card-horizontal should render with an icon 1`] = `
 <ic-card-horizontal heading="Card" id="test-card" message="This is a card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card medium with-icon">
       <div class="card-content">
         <div class="card-header">
@@ -307,7 +307,7 @@ exports[`ic-card-horizontal should render with an icon 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="icon">
     Image placeholder
   </div>
@@ -316,7 +316,7 @@ exports[`ic-card-horizontal should render with an icon 1`] = `
 
 exports[`ic-card-horizontal should render with an image 1`] = `
 <ic-card-horizontal heading="Card" id="test-card" message="This is a card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card medium with-image">
       <div class="image">
         <slot name="image"></slot>
@@ -340,7 +340,7 @@ exports[`ic-card-horizontal should render with an image 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="image">
     Image placeholder
   </div>

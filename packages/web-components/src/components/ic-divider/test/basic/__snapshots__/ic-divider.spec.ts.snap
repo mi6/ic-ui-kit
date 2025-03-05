@@ -25,9 +25,9 @@ exports[`ic-divider should render a label with the h4 typography variant when we
 <ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-solid ic-divider-very-thick" label="Test label" role="separator" weight="very-thick">
   <!---->
   <ic-typography class="ic-divider-label ic-typography-h4">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <slot></slot>
-    </mock:shadow-root>
+    </template>
     <p>
       Test label
     </p>
@@ -39,9 +39,9 @@ exports[`ic-divider should render a label with the label typography variant when
 <ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-medium ic-divider-solid" label="Test label" role="separator" weight="medium">
   <!---->
   <ic-typography class="ic-divider-label ic-typography-label">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <slot></slot>
-    </mock:shadow-root>
+    </template>
     <p>
       Test label
     </p>
@@ -53,9 +53,9 @@ exports[`ic-divider should render a label with the subtitle-large typography var
 <ic-divider aria-orientation="horizontal" class="ic-divider-horizontal ic-divider-solid ic-divider-thick" label="Test label" role="separator" weight="thick">
   <!---->
   <ic-typography class="ic-divider-label ic-typography-subtitle-large">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <slot></slot>
-    </mock:shadow-root>
+    </template>
     <p>
       Test label
     </p>

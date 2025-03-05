@@ -2,7 +2,7 @@
 
 exports[`ic-footer-link-group should render small: footer-link-group-small 1`] = `
 <ic-footer breakpoint="extra large" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-small ic-footer-ungrouped">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
@@ -16,9 +16,9 @@ exports[`ic-footer-link-group should render small: footer-link-group-small 1`] =
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
   <ic-footer-link-group class="footer-link-group footer-link-group-light footer-link-group-small" label="Link group" role="listitem" small="true">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-section-container fullheight="" tabindex="0">
         <div class="footer-link-group-header">
           <div class="footer-link-label">
@@ -33,13 +33,13 @@ exports[`ic-footer-link-group should render small: footer-link-group-small 1`] =
           </svg>
         </div>
       </ic-section-container>
-    </mock:shadow-root>
+    </template>
     <ic-footer-link class="footer-link footer-link-light footer-link-ungrouped-small" href="/" role="listitem">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-link class="footer-link" href="/">
           <slot></slot>
         </ic-link>
-      </mock:shadow-root>
+      </template>
       Link
     </ic-footer-link>
   </ic-footer-link-group>
@@ -48,7 +48,7 @@ exports[`ic-footer-link-group should render small: footer-link-group-small 1`] =
 
 exports[`ic-footer-link-group should render with links: footer-link-group-with-links 1`] = `
 <ic-footer-link-group class="footer-link-group footer-link-group-light footer-link-group-sparse" label="Link group" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="footer-link-label">
       <ic-typography variant="subtitle-small">
         Link group
@@ -57,13 +57,13 @@ exports[`ic-footer-link-group should render with links: footer-link-group-with-l
     <div class="footer-link-group-links" role="list">
       <slot></slot>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-footer-link class="footer-link footer-link-light footer-link-ungrouped-sparse" href="/" role="listitem">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-link class="footer-link" href="/">
         <slot></slot>
       </ic-link>
-    </mock:shadow-root>
+    </template>
     Link
   </ic-footer-link>
 </ic-footer-link-group>
@@ -71,7 +71,7 @@ exports[`ic-footer-link-group should render with links: footer-link-group-with-l
 
 exports[`ic-footer-link-group should render within footer: footer-link-group-in-footer 1`] = `
 <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
@@ -85,9 +85,9 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
   <ic-footer-link-group class="footer-link-group footer-link-group-light footer-link-group-sparse" label="Link group" role="listitem">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="footer-link-label">
         <ic-typography variant="subtitle-small">
           Link group
@@ -96,18 +96,18 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
       <div class="footer-link-group-links" role="list">
         <slot></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     <ic-footer-link class="footer-link footer-link-light footer-link-ungrouped-sparse" href="/" role="listitem">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-link class="footer-link" href="/">
           <slot></slot>
         </ic-link>
-      </mock:shadow-root>
+      </template>
       Link
     </ic-footer-link>
   </ic-footer-link-group>
   <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <footer>
         <div class="footer-compliance">
           <ic-section-container aligned="left" fullheight="">
@@ -121,14 +121,14 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
           </ic-section-container>
         </div>
       </footer>
-    </mock:shadow-root>
+    </template>
   </ic-footer>
 </ic-footer>
 `;
 
 exports[`ic-footer-link-group should render: footer-link-group 1`] = `
 <ic-footer-link-group class="footer-link-group footer-link-group-light footer-link-group-sparse" label="Link group" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="footer-link-label">
       <ic-typography variant="subtitle-small">
         Link group
@@ -137,6 +137,6 @@ exports[`ic-footer-link-group should render: footer-link-group 1`] = `
     <div class="footer-link-group-links" role="list">
       <slot></slot>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-footer-link-group>
 `;

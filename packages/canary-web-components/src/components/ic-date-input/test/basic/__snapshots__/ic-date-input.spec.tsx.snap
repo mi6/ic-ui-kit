@@ -2,7 +2,7 @@
 
 exports[`ic-date-input component date format conversion should handle US format value - DD/MM/YYYY date format 1`] = `
 <ic-date-input label="Test label" value="07/26/2001">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -45,14 +45,14 @@ exports[`ic-date-input component date format conversion should handle US format 
         </span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-12" type="hidden" value="2001-07-26T00:00:00.000Z">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component date format conversion should handle US format value - MM/DD/YYYY date format 1`] = `
 <ic-date-input date-format="MM/DD/YYYY" label="Test label" value="07/26/2001">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -95,14 +95,14 @@ exports[`ic-date-input component date format conversion should handle US format 
         </span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-13" type="hidden" value="2001-07-26T00:00:00.000Z">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component date format conversion should handle US format value - YYYY/MM/DD date format 1`] = `
 <ic-date-input date-format="YYYY/MM/DD" label="Test label" value="07/26/2001">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -145,14 +145,14 @@ exports[`ic-date-input component date format conversion should handle US format 
         </span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-14" type="hidden" value="2001-07-26T00:00:00.000Z">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component date format conversion should handle ambiguous value - DD/MM/YYYY date format 1`] = `
 <ic-date-input date-format="DD/MM/YYYY" label="Test label" value="07/10/2001">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -195,14 +195,14 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         </span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-15" type="hidden" value="2001-10-07T00:00:00.000Z">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component date format conversion should handle ambiguous value - MM/DD/YYYY date format 1`] = `
 <ic-date-input date-format="MM/DD/YYYY" label="Test label" value="07/10/2001">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -245,14 +245,14 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         </span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-16" type="hidden" value="2001-07-10T00:00:00.000Z">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component date format conversion should handle ambiguous value - YYYY/MM/DD date format 1`] = `
 <ic-date-input date-format="YYYY/MM/DD" label="Test label" value="07/10/2001">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -295,14 +295,14 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         </span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-17" type="hidden" value="2001-10-07T00:00:00.000Z">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component date format conversion should handle single digit day and month 1`] = `
 <ic-date-input label="Test label" value="1/1/2001">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -345,14 +345,14 @@ exports[`ic-date-input component date format conversion should handle single dig
         </span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-11" type="hidden" value="2001-01-01T00:00:00.000Z">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render 1`] = `
 <ic-date-input label="Test label">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -393,14 +393,14 @@ exports[`ic-date-input component should render 1`] = `
         <span role="status"></span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-0" type="hidden" value="">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render as disabled 1`] = `
 <ic-date-input disabled="" label="Test label">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container disabled="">
       <ic-input-label class="disabled with-helper">
         <ic-typography variant="label">
@@ -441,14 +441,14 @@ exports[`ic-date-input component should render as disabled 1`] = `
         <span role="status"></span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" disabled="" name="ic-date-input-2" type="hidden" value="">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render as required 1`] = `
 <ic-date-input label="Test label" required="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -492,14 +492,14 @@ exports[`ic-date-input component should render as required 1`] = `
         <span role="status"></span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-1" type="hidden" value="">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render as required: required-prop-false 1`] = `
 <ic-date-input label="Test label" required="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -540,14 +540,14 @@ exports[`ic-date-input component should render as required: required-prop-false 
         <span role="status"></span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-1" type="hidden" value="">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render correctly with MM/DD/YYYY format 1`] = `
 <ic-date-input date-format="MM/DD/YYYY" label="Test label">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -588,14 +588,14 @@ exports[`ic-date-input component should render correctly with MM/DD/YYYY format 
         <span role="status"></span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-6" type="hidden" value="">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render correctly with YYYY/MM/DD format 1`] = `
 <ic-date-input date-format="YYY/MM/DD" label="Test label">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -636,14 +636,14 @@ exports[`ic-date-input component should render correctly with YYYY/MM/DD format 
         <span role="status"></span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-7" type="hidden" value="">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render disabled, with calendar button 1`] = `
 <ic-date-input disabled="" label="Test label" show-calendar-button="true" value="21/01/2001">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container disabled="">
       <ic-input-label class="disabled with-helper">
         <ic-typography variant="label">
@@ -675,25 +675,25 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
           </div>
           <div class="action-buttons">
             <ic-button class="button-size-medium ic-button-variant-icon clear-button dark disabled" exportparts="button" id="clear-button">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
-              </mock:shadow-root>
+              </template>
               svg
             </ic-button>
             <div class="show-calendar-button-wrapper">
               <div class="default divider"></div>
               <ic-button class="button-size-medium ic-button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
                     <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display calendar" class="button" disabled="" part="button" type="button">
                       <slot></slot>
                     </button>
                   </ic-tooltip>
-                </mock:shadow-root>
+                </template>
                 svg
               </ic-button>
             </div>
@@ -706,14 +706,14 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
         </span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" disabled="" name="ic-date-input-10" type="hidden" value="2001-01-21T00:00:00.000Z">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render large 1`] = `
 <ic-date-input label="Test label" show-calendar-button="true" size="large">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -760,14 +760,14 @@ exports[`ic-date-input component should render large 1`] = `
         <span role="status"></span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-4" type="hidden" value="">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render small 1`] = `
 <ic-date-input label="Test label" show-calendar-button="true" size="small">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -814,14 +814,14 @@ exports[`ic-date-input component should render small 1`] = `
         <span role="status"></span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-3" type="hidden" value="">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render with custom helper text 1`] = `
 <ic-date-input helper-text="Test helper text" label="Test label">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -862,14 +862,14 @@ exports[`ic-date-input component should render with custom helper text 1`] = `
         <span role="status"></span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-5" type="hidden" value="">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render with custom validation status and text 1`] = `
 <ic-date-input label="Test label" validation-status="error" validation-text="Test error text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -911,14 +911,14 @@ exports[`ic-date-input component should render with custom validation status and
       </span>
       <ic-input-validation for="ic-date-input-8" message="Test error text" status="error"></ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-8" type="hidden" value="">
 </ic-date-input>
 `;
 
 exports[`ic-date-input component should render with open calendar button 1`] = `
 <ic-date-input label="Test label" show-calendar-button="true" value="21/01/2001">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label class="with-helper">
         <ic-typography variant="label">
@@ -950,25 +950,25 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
           </div>
           <div class="action-buttons">
             <ic-button class="button-size-medium ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
-              </mock:shadow-root>
+              </template>
               svg
             </ic-button>
             <div class="show-calendar-button-wrapper">
               <div class="default divider"></div>
               <ic-button class="button-size-medium ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
                     <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                       <slot></slot>
                     </button>
                   </ic-tooltip>
-                </mock:shadow-root>
+                </template>
                 svg
               </ic-button>
             </div>
@@ -981,7 +981,7 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
         </span>
       </span>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-date-input-9" type="hidden" value="2001-01-21T00:00:00.000Z">
 </ic-date-input>
 `;

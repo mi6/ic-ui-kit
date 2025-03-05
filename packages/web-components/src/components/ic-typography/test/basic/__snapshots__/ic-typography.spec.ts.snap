@@ -2,9 +2,9 @@
 
 exports[`ic-typography component should allow semantic component to be passed in and variant styling applied 1`] = `
 <ic-typography class="ic-typography-h1" variant="h1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   <h3>
     IC Typography Test
   </h3>
@@ -13,164 +13,164 @@ exports[`ic-typography component should allow semantic component to be passed in
 
 exports[`ic-typography component should apply className provided to root element to typography element 1`] = `
 <ic-typography class="ic-typography-body test-class">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should apply vertical margins class if vertical margins prop true 1`] = `
 <ic-typography apply-vertical-margins="" class="ic-typography-body ic-typography-vertical-margins-body">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render badge small with badge-small variant 1`] = `
 <ic-typography class="ic-typography-badge-small" variant="badge-small">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render badge with badge variant 1`] = `
 <ic-typography class="ic-typography-badge" variant="badge">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render caption uppercase variant 1`] = `
 <ic-typography class="ic-typography-caption-uppercase" variant="caption-uppercase">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render caption variant 1`] = `
 <ic-typography class="ic-typography-caption" variant="caption">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render code extra small with code-extra-small variant 1`] = `
 <ic-typography class="ic-typography-code-extra-small" variant="code-extra-small">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render code large with code-large variant 1`] = `
 <ic-typography class="ic-typography-code-large" variant="code-large">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render code small with code-small variant 1`] = `
 <ic-typography class="ic-typography-code-small" variant="code-small">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render h1 with h1 variant 1`] = `
 <ic-typography class="ic-typography-h1" variant="h1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render h2 with h2 variant 1`] = `
 <ic-typography class="ic-typography-h2" variant="h2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render h3 with h3 variant 1`] = `
 <ic-typography class="ic-typography-h3" variant="h3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render h4 with h4 variant 1`] = `
 <ic-typography class="ic-typography-h4" variant="h4">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render h5 with subtitle-large variant 1`] = `
 <ic-typography class="ic-typography-subtitle-large" variant="subtitle-large">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render h6 with subtitle-small variant 1`] = `
 <ic-typography class="ic-typography-subtitle-small" variant="subtitle-small">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render label uppercase with label-uppercase variant 1`] = `
 <ic-typography class="ic-typography-label-uppercase" variant="label-uppercase">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render label with label variant 1`] = `
 <ic-typography class="ic-typography-label" variant="label">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render the typography with truncation 1`] = `
 <ic-typography class="ic-typography-body" max-lines="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="trunc-wrapper">
       <slot></slot>
     </div>
-  </mock:shadow-root>
+  </template>
   Body of text that is truncated to three lines. Click the 'See more' link to expand the text, then click 'See less' to truncate the text once more! Dripper caramelization java saucer grounds galão, mocha, and robusta kopi-luwak, percolator, instant, qui saucer latte in brewed café au lait. Con panna, cup, cream, body americano affogato cup espresso, rich milk seasonal saucer grinder spoon that cultivar strong redeye frappuccino barista extraction redeye mazagran.
   <span style="visibility: hidden;"></span>
 </ic-typography>
@@ -178,14 +178,14 @@ exports[`ic-typography component should render the typography with truncation 1`
 
 exports[`ic-typography component should render the typography with truncation 2`] = `
 <ic-typography class="ic-typography-body" max-lines="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="trunc-wrapper">
       <slot></slot>
     </div>
     <button class="trunc-btn">
       See more
     </button>
-  </mock:shadow-root>
+  </template>
   Body of text that is truncated to three lines. Click the 'See more' link to expand the text, then click 'See less' to truncate the text once more! Dripper caramelization java saucer grounds galão, mocha, and robusta kopi-luwak, percolator, instant, qui saucer latte in brewed café au lait. Con panna, cup, cream, body americano affogato cup espresso, rich milk seasonal saucer grinder spoon that cultivar strong redeye frappuccino barista extraction redeye mazagran.
   <span style="visibility: hidden;"></span>
 </ic-typography>
@@ -193,72 +193,72 @@ exports[`ic-typography component should render the typography with truncation 2`
 
 exports[`ic-typography component should render with body variant 1`] = `
 <ic-typography class="ic-typography-body" variant="body">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render with bold style 1`] = `
 <ic-typography bold="true" class="ic-typography-body ic-typography-bold" variant="body">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render with default body styles 1`] = `
 <ic-typography class="ic-typography-body">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render with italic style 1`] = `
 <ic-typography class="ic-typography-body ic-typography-italic" italic="true" variant="body">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render with strikethrough 1`] = `
 <ic-typography class="ic-typography-body ic-typography-strikethrough" strikethrough="true" variant="body">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should render with underline 1`] = `
 <ic-typography class="ic-typography-body ic-typography-underline" underline="true" variant="body">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should test dark theme 1`] = `
 <ic-typography class="ic-theme-dark ic-typography-body" theme="dark">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;
 
 exports[`ic-typography component should test light theme 1`] = `
 <ic-typography class="ic-theme-light ic-typography-body" theme="light">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
-  </mock:shadow-root>
+  </template>
   IC Typography Test
 </ic-typography>
 `;

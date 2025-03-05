@@ -2,7 +2,7 @@
 
 exports[`ic-top-navigation should render with app icon & title: renders-with-app-icon-and-title 1`] = `
 <ic-top-navigation app-title="ApplicationName">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -23,7 +23,7 @@ exports[`ic-top-navigation should render with app icon & title: renders-with-app
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
   <svg fill="#000000" height="24px" slot="app-icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0V0z" fill="none"></path>
     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
@@ -33,7 +33,7 @@ exports[`ic-top-navigation should render with app icon & title: renders-with-app
 
 exports[`ic-top-navigation should render with app title: renders-with-app-title 1`] = `
 <ic-top-navigation app-title="ApplicationName">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -51,13 +51,13 @@ exports[`ic-top-navigation should render with app title: renders-with-app-title 
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-top-navigation>
 `;
 
 exports[`ic-top-navigation should render with buttons: renders-with-buttons 1`] = `
 <ic-top-navigation app-title="ApplicationName" status="alpha" version="v0.0.7">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -93,7 +93,7 @@ exports[`ic-top-navigation should render with buttons: renders-with-buttons 1`] 
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
     <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -105,7 +105,7 @@ exports[`ic-top-navigation should render with buttons: renders-with-buttons 1`] 
 
 exports[`ic-top-navigation should render with custom title link url: renders-with-custom-title-link-url 1`] = `
 <ic-top-navigation app-title="ApplicationName" href="https://www.google.co.uk/">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -123,13 +123,13 @@ exports[`ic-top-navigation should render with custom title link url: renders-wit
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-top-navigation>
 `;
 
 exports[`ic-top-navigation should render with navigation: renders-with-navigation 1`] = `
 <ic-top-navigation app-title="ApplicationName" status="alpha" version="v0.0.7">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -174,9 +174,9 @@ exports[`ic-top-navigation should render with navigation: renders-with-navigatio
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-item class="light navigation-item navigation-item-top-nav" href="/" label="Navigation 1" role="listitem" slot="navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="Navigation 1" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <ic-typography variant="label">
@@ -185,14 +185,14 @@ exports[`ic-top-navigation should render with navigation: renders-with-navigatio
           <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
   </ic-navigation-item>
 </ic-top-navigation>
 `;
 
 exports[`ic-top-navigation should render with search: renders-with-search 1`] = `
 <ic-top-navigation app-title="ApplicationName" status="alpha" version="v0.0.7">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -225,14 +225,14 @@ exports[`ic-top-navigation should render with search: renders-with-search 1`] = 
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-search-bar label="Search" placeholder="Search" slot="search"></ic-search-bar>
 </ic-top-navigation>
 `;
 
 exports[`ic-top-navigation should render with slotted app-title content: renders-with-slotted-app-title-content 1`] = `
 <ic-top-navigation status="alpha" version="v0.0.7">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -265,7 +265,7 @@ exports[`ic-top-navigation should render with slotted app-title content: renders
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
   <a href="/" slot="app-title">
     App Title
   </a>
@@ -274,7 +274,7 @@ exports[`ic-top-navigation should render with slotted app-title content: renders
 
 exports[`ic-top-navigation should render with slotted short-app-title: renders-with-slotted-short-title 1`] = `
 <ic-top-navigation class="mobile-mode" status="alpha" version="v0.0.7">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -320,7 +320,7 @@ exports[`ic-top-navigation should render with slotted short-app-title: renders-w
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
   <a href="/" slot="app-title">
     App Title
   </a>
@@ -332,7 +332,7 @@ exports[`ic-top-navigation should render with slotted short-app-title: renders-w
 
 exports[`ic-top-navigation should render with title, version & status: renders-with-title-version-status 1`] = `
 <ic-top-navigation app-title="ApplicationName" status="alpha" version="v0.0.7">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -365,13 +365,13 @@ exports[`ic-top-navigation should render with title, version & status: renders-w
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-top-navigation>
 `;
 
 exports[`ic-top-navigation should test form in search slot: form-in-search-slot 1`] = `
 <ic-top-navigation app-title="ApplicationName">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -394,7 +394,7 @@ exports[`ic-top-navigation should test form in search slot: form-in-search-slot 
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
   <form role="search" slot="search">
     <ic-search-bar label="Search" placeholder="Search" slot="search"></ic-search-bar>
   </form>
@@ -403,7 +403,7 @@ exports[`ic-top-navigation should test form in search slot: form-in-search-slot 
 
 exports[`ic-top-navigation should test short title on mobile devices: renders-with-short-title 1`] = `
 <ic-top-navigation app-title="Application Name" class="mobile-mode" short-app-title="App Name">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
         <header role="banner">
@@ -421,6 +421,6 @@ exports[`ic-top-navigation should test short title on mobile devices: renders-wi
         </header>
       </ic-section-container>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-top-navigation>
 `;
