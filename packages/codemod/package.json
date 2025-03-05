@@ -1,6 +1,6 @@
 {
   "name": "@ukic/codemod",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "Codemod tool to help assist users upgrading from v2 to v3 of the UKIC design system",
   "bin": "./codemod.js",
   "author": "mi6",

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.11](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.9...@ukic/canary-react@3.0.0-canary.11) (2025-03-05)
+
+### Bug Fixes
+
+- **canary-react:** added cypress tests and baseline images ([5fd0071](https://github.com/mi6/ic-ui-kit/commit/5fd0071f8ac0615608684303e3a89c3b1809adfa))
+- **canary-react:** allow IcPaginationBar items per page to be set programmatically ([863b825](https://github.com/mi6/ic-ui-kit/commit/863b8257ea77e9b3864bfdb9497482b2a2893363)), closes [#2525](https://github.com/mi6/ic-ui-kit/issues/2525)
+- **canary-react:** prevent IcDataTable action element clicks from selecting the table row ([6fc3449](https://github.com/mi6/ic-ui-kit/commit/6fc3449630d623fb34d5dcb2b963949ea67a3bde))
+- **canary-react:** remove showBackground from loading options in data table ([0b52642](https://github.com/mi6/ic-ui-kit/commit/0b52642512a92b52391e4201c6c5361fb4f83262))
+- **canary-react:** update date input Cypress test to check helper text doesn't exist ([2685a3a](https://github.com/mi6/ic-ui-kit/commit/2685a3ac034a0c60276d3e56d17727410172016c)), closes [#2370](https://github.com/mi6/ic-ui-kit/issues/2370)
+
+### Features
+
+- **canary-react:** add the ability to backspace through a date input to delete the date ([e9e2ac5](https://github.com/mi6/ic-ui-kit/commit/e9e2ac59936febaea08fd9852a15a50681728fc5)), closes [#2244](https://github.com/mi6/ic-ui-kit/issues/2244)
+- **canary-react:** added Cypress tests ([8c287d5](https://github.com/mi6/ic-ui-kit/commit/8c287d528a22af359ebd1fdb751cc83b3f9ad39e))
+- **canary-react:** implement disableAutoSort prop on data table ([218ec08](https://github.com/mi6/ic-ui-kit/commit/218ec08d0056cba39c34a3bbe37a97a26c92b13f)), closes [#2415](https://github.com/mi6/ic-ui-kit/issues/2415)
+- **canary-react:** improve data table column object by adding excludeColumnFromSort ([faee0c7](https://github.com/mi6/ic-ui-kit/commit/faee0c71006b552346a7b2697c02094ddf9a5e30))
+- **canary-react:** update tree view truncation story to have expanded items ([5cd50a5](https://github.com/mi6/ic-ui-kit/commit/5cd50a50802409145ae00eee6e028eccc12f939f))
+
+### BREAKING CHANGES
+
+- **canary-react:** showBackground has been removed from loading options
+
 # [3.0.0]
 
 ### Bug Fixes

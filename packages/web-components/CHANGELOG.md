@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.11](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.9...@ukic/web-components@3.0.0-alpha.11) (2025-03-05)
+
+### Bug Fixes
+
+- **web-components:** add check for selectedOption to prevent undefined error in radio group ([1e81c59](https://github.com/mi6/ic-ui-kit/commit/1e81c59793e00a6d5f0bfd970369d2865aed14d8))
+- **web-components:** add focus indicator, hover state and pressed state to footer logo links ([eb3fbfa](https://github.com/mi6/ic-ui-kit/commit/eb3fbfa2008162b137774b7ee4e5247adc81a66d))
+- **web-components:** add scrollbar to content area on dialog to make it easier to scroll ([fa869cf](https://github.com/mi6/ic-ui-kit/commit/fa869cf8cc67da2425b3abfb456a6a5242a55478)), closes [.#2868](https://github.com/./issues/2868)
+- **web-components:** adding description to ic-loading-indicator of auto-dismiss toast ([52fa5a4](https://github.com/mi6/ic-ui-kit/commit/52fa5a47a2471bd5c3006b7a4c11281fb4a042ea))
+- **web-components:** auto-dismiss toasts now read aloud to screenreaders ([3450955](https://github.com/mi6/ic-ui-kit/commit/345095549cd280a22eaddcf4b07caf259c090a32))
+- **web-components:** changes to ic-badge and ic-navigation-button to show notifications in mobile ([be1bc5a](https://github.com/mi6/ic-ui-kit/commit/be1bc5a0585ee7a09ea6c80bbe39e931d14258f1))
+- **web-components:** destructive prop description change ([cf3b94c](https://github.com/mi6/ic-ui-kit/commit/cf3b94c57e970996658392bc6266e86e7e49e53d))
+- **web-components:** expose IcToolTip disableClick prop ([3be054f](https://github.com/mi6/ic-ui-kit/commit/3be054f19b663de7d391eb2ded26b48c27cf9a4f)), closes [#3129](https://github.com/mi6/ic-ui-kit/issues/3129)
+- **web-components:** fix double focus indicator on selected slotted side nav item when dark ([8b41b1f](https://github.com/mi6/ic-ui-kit/commit/8b41b1fab8b06e5c23b1f97aaefebc81e21b80ec))
+- **web-components:** fix incorrect footer link and top nav items slotted link colours ([3c512ef](https://github.com/mi6/ic-ui-kit/commit/3c512ef38d781063373084cfa0d71dc8761196a0)), closes [.#3234](https://github.com/./issues/3234)
+- **web-components:** fixed displaying readme docs on storybook ([0f7c35a](https://github.com/mi6/ic-ui-kit/commit/0f7c35aa5405bebce25de4fb6ed5aee02d1dd875))
+- **web-components:** fixed open in new icon colour on certain browsers ([182d7f8](https://github.com/mi6/ic-ui-kit/commit/182d7f800228609560836287760da3dcd565daab))
+- **web-components:** fixes back arrow not displaying ([fd54222](https://github.com/mi6/ic-ui-kit/commit/fd542229c5246986f28c00b93193bf724f84f7b5))
+- **web-components:** fixes card button focus color in high contrast mode ([9439a45](https://github.com/mi6/ic-ui-kit/commit/9439a45ea2bf0eb81556091760956f7558c13736))
+- **web-components:** ic-alert fix - height compensation in different themes ([860b235](https://github.com/mi6/ic-ui-kit/commit/860b235a11afca2862ffbbd19bdb35c040dab81c))
+- **web-components:** ic-popover-menu close sub menus fix ([2b94f58](https://github.com/mi6/ic-ui-kit/commit/2b94f58bbb600833da04cb7d0994355cfaf2ea78))
+- **web-components:** selected items with hover state are lined up correctly in nav group ([45d483a](https://github.com/mi6/ic-ui-kit/commit/45d483ab61641b1289ea96c61e30924c9089113f))
+- **web-components:** update checkbox so that it works correctly on rtl pages ([8911b4f](https://github.com/mi6/ic-ui-kit/commit/8911b4fcd759197991be1cbd22b948300d3a2b30))
+- **web-components:** update dialog to make interactive slotted children content focussable ([7fe73dc](https://github.com/mi6/ic-ui-kit/commit/7fe73dc8ffb67fe497bbee514fa73644743bfc77)), closes [.#2773](https://github.com/./issues/2773)
+- **web-components:** updating inner border of focused toggle button ([7dd59b2](https://github.com/mi6/ic-ui-kit/commit/7dd59b2e51688e9ce10a175bc1cfd8935e7f9ca9))
+
+### Features
+
+- **web-components:** update empty state to have theme prop ([216dbb6](https://github.com/mi6/ic-ui-kit/commit/216dbb677a572c2ed91453683a12b02daeb19ee3))
+
 # [3.0.0]
 
 ### Bug Fixes

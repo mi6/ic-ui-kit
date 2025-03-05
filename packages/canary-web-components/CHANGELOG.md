@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.11](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.9...@ukic/canary-web-components@3.0.0-canary.11) (2025-03-05)
+
+### Bug Fixes
+
+- **canary-web-components:** added high contrast styling to ic-data-table ([1548a0a](https://github.com/mi6/ic-ui-kit/commit/1548a0a5fbb8f04d1fc6a0a949a18fb8d6618d55))
+- **canary-web-components:** allow IcPaginationBar items per page to be set programmatically ([0670359](https://github.com/mi6/ic-ui-kit/commit/0670359dd87d6b6e97b1d552d13777282df0e8c9)), closes [#2525](https://github.com/mi6/ic-ui-kit/issues/2525)
+- **canary-web-components:** prevent IcDataTable action element clicks from selecting the table row ([b63d8f4](https://github.com/mi6/ic-ui-kit/commit/b63d8f40c557f1c7294d854bede18b2c672d0357))
+- **canary-web-components:** remove showBackground from loading options in data table ([3eb2968](https://github.com/mi6/ic-ui-kit/commit/3eb2968551f6bbf63056b2409203e698f3c13014)), closes [#3020](https://github.com/mi6/ic-ui-kit/issues/3020)
+- **canary-web-components:** truncation on first render ([9365b0d](https://github.com/mi6/ic-ui-kit/commit/9365b0d20caf504bdf770c3bcf59aee29804b5a0))
+- **canary-web-components:** update date input so "with-helper" css isn't used with no helper text ([bdc5d19](https://github.com/mi6/ic-ui-kit/commit/bdc5d190e3cdf87f63fa3c70aea633e9a5697a33)), closes [#2370](https://github.com/mi6/ic-ui-kit/issues/2370)
+- **canary-web-components:** update the screen reader text on data table to use column title ([90a1b95](https://github.com/mi6/ic-ui-kit/commit/90a1b95a1a91a78da822ded05ec97918c0450cd1)), closes [#3015](https://github.com/mi6/ic-ui-kit/issues/3015)
+- **canary-web-components:** update tree view to improve FOUC ([0bbc72e](https://github.com/mi6/ic-ui-kit/commit/0bbc72e9a46c5260079400a6c7b1775f398ac4f7))
+- **canary-web-components:** validationStatus will be displayed without validationText ([cd95dc6](https://github.com/mi6/ic-ui-kit/commit/cd95dc68f3f09ce252b08c7f0e9b0608512fb566))
+- **ic-tree-item:** added styling and function changes ([747db78](https://github.com/mi6/ic-ui-kit/commit/747db7868f67341f49eaf1eb4f69a65645e78334))
+
+### Features
+
+- **canary-web-components:** add the ability to backspace through a date input to delete the date ([6491a4d](https://github.com/mi6/ic-ui-kit/commit/6491a4dbd98683fd2d12b831850c5c6405fe0694)), closes [#2244](https://github.com/mi6/ic-ui-kit/issues/2244)
+- **canary-web-components:** fix to revert items per page to correct value ([572fdc8](https://github.com/mi6/ic-ui-kit/commit/572fdc86dc07e33a0a9a9c35b1f2e4410f8d7037)), closes [#3223](https://github.com/mi6/ic-ui-kit/issues/3223)
+- **canary-web-components:** implement disableAutoSort prop on data table ([2e54858](https://github.com/mi6/ic-ui-kit/commit/2e548584233d16b064cb4ac36f0ac21163d48aba)), closes [#2415](https://github.com/mi6/ic-ui-kit/issues/2415)
+- **canary-web-components:** improve data table column object by adding excludeColumnFromSort ([c9d2dc2](https://github.com/mi6/ic-ui-kit/commit/c9d2dc2cc4584d28061f4bc1cf351cc2a74875be)), closes [#2416](https://github.com/mi6/ic-ui-kit/issues/2416)
+
+### BREAKING CHANGES
+
+- **canary-web-components:** showBackground has been removed from loading options
+
 # [3.0.0]
 
 ### Bug Fixes
