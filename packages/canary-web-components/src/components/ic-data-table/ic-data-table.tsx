@@ -1556,7 +1556,18 @@ export class DataTable {
 
   private createColumnHeaders = () =>
     (this.columns || []).map(
-      ({ cellAlignment, colspan, icon, key, title, columnWidth }, index) => (
+      (
+        {
+          cellAlignment,
+          colspan,
+          icon,
+          key,
+          title,
+          columnWidth,
+          excludeColumnFromSort,
+        },
+        index
+      ) => (
         <th
           scope="col"
           class={{
@@ -1606,7 +1617,7 @@ export class DataTable {
                 {title}
               </ic-typography>
             )}
-            {this.sortable && (
+            {this.sortable && !excludeColumnFromSort && (
               <ic-button
                 variant="icon"
                 id={`sort-button-${key}`}
@@ -2310,7 +2321,10 @@ export class DataTable {
           {sortable && (
             <div class="screen-reader-sort-text" aria-live="polite">
               {sortedColumnOrder !== "unsorted" && sortedColumn
-                ? `${sortedColumn} sorted ${sortedColumnOrder}`
+                ? `${
+                    this.columns.find((col) => col.key === sortedColumn)
+                      ?.title || sortedColumn
+                  } sorted ${sortedColumnOrder}`
                 : "table unsorted"}
             </div>
           )}

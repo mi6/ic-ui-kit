@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import {
   IcButton,
@@ -8,7 +9,6 @@ import {
   IcTextField,
   IcTypography,
 } from "../components";
-import readme from "../../../web-components/src/components/ic-data-row/readme.md";
 
 const defaultArgs = {
   heading: "Details",

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import {
   IcPageHeader,
@@ -18,8 +19,6 @@ import {
 } from "../components";
 
 import { MemoryRouter, Routes, Route, NavLink } from "react-router-dom";
-
-import readme from "../../../web-components/src/components/ic-page-header/readme.md";
 
 const defaultArgs = {
   aligned: "left",

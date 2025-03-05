@@ -1,8 +1,8 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import { IcStep, IcStepper, IcButton } from "../components";
-
-import readme from "../../../web-components/src/components/ic-stepper/readme.md";
-import stepReadme from "../../../web-components/src/components/ic-step/readme.md";
 
 const defaultArgs = {
   aligned: "full-width",

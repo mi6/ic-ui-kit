@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.36.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.35.2...@ukic/web-components@2.36.0) (2025-03-05)
+
+### Bug Fixes
+
+- **web-components:** add check for selectedOption to prevent undefined error in radio group ([b44826e](https://github.com/mi6/ic-ui-kit/commit/b44826e6d49dcc219e2d700521b29876363944ad))
+- **web-components:** add scrollbar to content area on dialog to make it easier to scroll ([6e46379](https://github.com/mi6/ic-ui-kit/commit/6e46379d9679a3d32295c30d651afab93da21614)), closes [.#2868](https://github.com/./issues/2868)
+- **web-components:** added more accurate check for ids ([89ab8ec](https://github.com/mi6/ic-ui-kit/commit/89ab8ec4b9379401de132f4047bf208fa19bd5f9))
+- **web-components:** fixed displaying readme docs on storybook ([8ea1325](https://github.com/mi6/ic-ui-kit/commit/8ea1325322d036188ab521eddd095a63573972d1))
+- **web-components:** fixed icon colour on ic-link ([0ced098](https://github.com/mi6/ic-ui-kit/commit/0ced0983efb6822992b54465998e809b156e0c85))
+- **web-components:** fixes card button focus color in high contrast mode ([43e8693](https://github.com/mi6/ic-ui-kit/commit/43e8693b1b8eb0206a9ed26b7ed7ed623edfe9b0))
+- **web-components:** fixes issue with long options label in ic-select ([69af4cc](https://github.com/mi6/ic-ui-kit/commit/69af4ccb95976767ba173d93b350d189678d1a04))
+- **web-components:** update checkbox so that it works correctly on rtl pages ([527889a](https://github.com/mi6/ic-ui-kit/commit/527889af06fe6bd876349b3bebd3b9247f0f112b))
+- **web-components:** update dialog to make interactive slotted children content focussable ([6a7925a](https://github.com/mi6/ic-ui-kit/commit/6a7925aa531518bfbeaef8b5e5360e070125bd23)), closes [.#2773](https://github.com/./issues/2773)
+
+### Features
+
+- **web-components:** v2 web-comps release bump ([036b36e](https://github.com/mi6/ic-ui-kit/commit/036b36ea1a13cdc268eab486a8ac62fa3489d482))
+
 ## [2.35.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.35.1...@ukic/web-components@2.35.2) (2025-02-19)
 
 ### Bug Fixes

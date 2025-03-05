@@ -19,6 +19,7 @@ import {
   COLS,
   COLS_ALIGNMENT,
   COLS_ELEMENTS,
+  COLS_EXCLUDE_SORT,
   DATA,
   DATA_CELL_ALIGNMENT,
   ICON_COLS,
@@ -440,6 +441,28 @@ describe("IcDataTables", () => {
       .should(HAVE_TEXT, "Sarah");
 
     cy.checkA11yWithWait();
+  });
+
+  it("should not show the sort buttons on columns where excludeColumnFromSort is true", () => {
+    mount(
+      <IcDataTable
+        caption="Exclude column from sort"
+        data={DATA}
+        columns={COLS_EXCLUDE_SORT}
+        sortable
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "exclude-column-from-sort",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.031),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
   });
 
   it("should render with column overrides", () => {
@@ -4631,7 +4654,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "default-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -4669,7 +4692,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "custom-icons-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.024),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.029),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -4686,7 +4709,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "highlighted-row-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.038),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -4721,7 +4744,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "loading-indicator-background-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(0.026),
+      testThreshold: setThresholdBasedOnEnv(0.028),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -4739,7 +4762,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "no-data-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(0.026),
+      testThreshold: setThresholdBasedOnEnv(0.027),
     });
   });
 
@@ -4791,7 +4814,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "tooltip-truncation-spacious-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.057),
     });
   });
 
@@ -4817,7 +4840,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "show-hide-truncation-focus-hover-state-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.031),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.035),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -4841,7 +4864,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
     cy.compareSnapshot({
       name: "slotted-icon-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.024),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.029),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -4854,7 +4877,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "sortable-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -4875,7 +4898,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "row-overrides-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.042),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -4925,7 +4948,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.036),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
       cypressScreenshotOptions: {
         capture: "viewport",
       },

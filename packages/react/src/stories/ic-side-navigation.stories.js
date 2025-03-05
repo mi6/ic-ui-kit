@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import {
   IcSideNavigation,
   IcNavigationItem,
@@ -9,9 +11,6 @@ import {
   IcBadge,
 } from "../components";
 import React, { useState } from "react";
-import readme from "../../../web-components/src/components/ic-side-navigation/readme.md";
-import NavigationItem from "../../../web-components/src/components/ic-navigation-item/readme.md";
-import NavigationGroup from "../../../web-components/src/components/ic-navigation-group/readme.md";
 
 import { NavLink, MemoryRouter, Route, Routes } from "react-router-dom";
 
@@ -410,7 +409,7 @@ const UpdateSlottedItems = () => {
   const [menu, setMenu] = useState("mainMenu");
   const currentMenu = menus[menu];
 
-  const items = currentMenu.map((item, index) => {
+  const items = currentMenu.map((item) => {
     const onMenuClick = () => {
       setMenu(item.menu);
     };

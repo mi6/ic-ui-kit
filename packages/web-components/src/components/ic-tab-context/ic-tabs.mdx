@@ -1,94 +1,14 @@
-import { useState } from "react";
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
-import TabContextReadme from "./readme.md";
-import TabReadme from "../ic-tab/readme.md";
-import TabGroupReadme from "../ic-tab-group/readme.md";
-import TabPanelReadme from "../ic-tab-panel/readme.md";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
+import tabContextReadme from "./readme.md";
+import tabReadme from "../ic-tab/readme.md";
+import tabGroupReadme from "../ic-tab-group/readme.md";
+import tabPanelReadme from "../ic-tab-panel/readme.md";
 import * as IcTabsStories from "./ic-tabs.stories";
 
 <Meta of={IcTabsStories} />
 
-<Description
-  markdown={TabContextReadme + TabGroupReadme + TabReadme + TabPanelReadme}
-/>
+<Markdown>
+  {tabContextReadme + tabGroupReadme + tabReadme + tabPanelReadme}
+</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcTabsStories.Default} />
-</Canvas>
-
-### With icons
-
-<Canvas>
-  <Story of={IcTabsStories.WithIcons} />
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story of={IcTabsStories.Disabled} />
-</Canvas>
-
-### Inline
-
-<Canvas>
-  <Story of={IcTabsStories.Inline} />
-</Canvas>
-
-### Manual activation
-
-<Canvas>
-  <Story of={IcTabsStories.ManualActivation} />
-</Canvas>
-
-### Light text
-
-<Canvas>
-  <Story of={IcTabsStories.LightText} />
-</Canvas>
-
-### Responsive
-
-<Canvas>
-  <Story of={IcTabsStories.Responsive} />
-</Canvas>
-
-### Responsive (Light text)
-
-<Canvas>
-  <Story of={IcTabsStories.ResponsiveLightText} />
-</Canvas>
-
-### Nested Tabs
-
-<Canvas>
-  <Story of={IcTabsStories.NestedTabs} />
-</Canvas>
-
-### icTabSelect event
-
-<Canvas>
-  <Story of={IcTabsStories.IcTabSelectEvent} />
-</Canvas>
-
-### Min and max content
-
-<Canvas>
-  <Story of={IcTabsStories.MinAndMaxContent} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  activationType: "automatic",
-  appearance: "dark",
-  disabled: false,
-  inline: false,
-  groupLabel: "Example tab group",
-};
-
-<Canvas>
-  <Story of={IcTabsStories.Playground} />
-</Canvas>
+<Stories />

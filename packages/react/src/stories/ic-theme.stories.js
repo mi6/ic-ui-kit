@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import React, { useState } from "react";
 import {
   IcFooter,
@@ -11,9 +13,7 @@ import {
   IcTypography,
   IcHero,
   IcAlert,
-  IcLink,
 } from "../components";
-import readme from "../../../web-components/src/components/ic-theme/readme.md";
 
 const Controlled = () => {
   const [color, setColour] = useState("rgb(255, 201, 60)");

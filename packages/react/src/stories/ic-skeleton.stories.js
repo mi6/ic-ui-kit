@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { IcSkeleton, IcTypography } from "../components";
-import readme from "../../../web-components/src/components/ic-skeleton/readme.md";
 
 const defaultArgs = {
   appearance: "default",

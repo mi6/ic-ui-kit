@@ -1170,7 +1170,20 @@
         }
       ],
       "events": [],
-      "listeners": [],
+      "listeners": [
+        {
+          "event": "icNavigationMenuOpened",
+          "target": "document",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "icNavigationMenuClosed",
+          "target": "document",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [],
       "slots": [
         {

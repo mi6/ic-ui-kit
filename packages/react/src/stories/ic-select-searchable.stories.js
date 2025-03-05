@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React, { useState, useEffect, useRef } from "react";
 
 import { IcSelect, IcButton, IcTypography } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
-import readme from "../../../web-components/src/components/ic-select/readme.md";
 
 const defaultArgs = {
   disabled: false,
@@ -31,6 +33,38 @@ const options = [
   { label: "Flat white", value: "Fla" },
   { label: "Mocha", value: "Moc" },
   { label: "Macchiato", value: "Mac" },
+];
+
+const groupedOptions = [
+  {
+    label: "Fancy",
+    children: [
+      { label: "Cappuccino", value: "Cap" },
+      { label: "Flat white", value: "Fla" },
+    ],
+  },
+  {
+    label: "Boring",
+    children: [
+      { label: "Filter", value: "Fil" },
+      { label: "Latte", value: "Lat" },
+    ],
+  },
+];
+
+const manyOptions = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+  { label: "Café au lait", value: "Caf" },
+  { label: "Espresso", value: "Esp" },
+  { label: "Cortado", value: "Cor" },
+  { label: "Ristretto", value: "Ris" },
+  { label: "Latte macchiato", value: "Lam" },
 ];
 
 const optionsWithDescriptions = [

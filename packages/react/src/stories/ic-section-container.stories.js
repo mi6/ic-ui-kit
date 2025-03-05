@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react';
 import { IcSectionContainer } from "../components";
-import readme from "../../../web-components/src/components/ic-section-container/readme.md";
 
 const defaultArgs = {
   aligned: null,

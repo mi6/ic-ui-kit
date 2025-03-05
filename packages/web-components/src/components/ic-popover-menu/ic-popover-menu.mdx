@@ -1,5 +1,4 @@
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
 import menuItemReadme from "../ic-menu-item/readme.md";
 import menuGroupReadme from "../ic-menu-group/readme.md";
@@ -7,56 +6,6 @@ import * as IcPopoverMenuStories from "./ic-popover-menu.stories";
 
 <Meta of={IcPopoverMenuStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + menuItemReadme + menuGroupReadme}</Markdown>
 
-<Description markdown={menuItemReadme} />
-
-<Description markdown={menuGroupReadme} />
-
-### Default
-
-<Canvas>
-  <Story of={IcPopoverMenuStories.Default} />
-</Canvas>
-
-### Max height
-
-<Canvas>
-  <Story of={IcPopoverMenuStories.MaxHeight} />
-</Canvas>
-
-### Left placement
-
-<Canvas>
-  <Story of={IcPopoverMenuStories.LeftPlacement} />
-</Canvas>
-
-### Top placement
-
-<Canvas>
-  <Story of={IcPopoverMenuStories.TopPlacement} />
-</Canvas>
-
-### Multiple popovers on page
-
-<Canvas>
-  <Story of={IcPopoverMenuStories.MultiplePopoversOnPage} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  open: true,
-  groupLabel: "View",
-  description: "",
-  disabled: false,
-  href: "/",
-  keyboardShortcut: "Cmd + C",
-  label: "Copy code",
-  variant: "default",
-  iconSlot: true,
-};
-
-<Canvas>
-  <Story of={IcPopoverMenuStories.Playground} />
-</Canvas>
+<Stories />

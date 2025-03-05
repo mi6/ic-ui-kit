@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React, { useState } from "react";
 import {
   IcHero,
@@ -10,7 +13,6 @@ import {
   IcLink,
   IcTypography,
 } from "../components";
-import readme from "../../../web-components/src/components/ic-hero/readme.md";
 
 import image from "./assets/example-background.png";
 

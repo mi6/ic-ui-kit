@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+import React, { useState } from "react";
 import { IcSwitch, IcButton } from "../components";
-import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 const defaultArgs = {
   label: "Custom Switch",

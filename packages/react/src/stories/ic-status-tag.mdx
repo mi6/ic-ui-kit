@@ -1,71 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
 import * as IcStatusTagStories from './ic-status-tag.stories';
-
-import { IcStatusTag } from "../components";
 import readme from "../../../web-components/src/components/ic-status-tag/readme.md";
 
 <Meta of={IcStatusTagStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Neutral
-
-<Canvas>
-  <Story of={IcStatusTagStories.Neutral} />
-</Canvas>
-
-### Success
-
-<Canvas>
-  <Story of={IcStatusTagStories.Success} />
-</Canvas>
-
-### Warning
-
-<Canvas>
-  <Story of={IcStatusTagStories.Warning} />
-</Canvas>
-
-### Danger
-
-<Canvas>
-  <Story of={IcStatusTagStories.Danger} />
-</Canvas>
-
-### Size
-
-<Canvas>
-  <Story of={IcStatusTagStories.Size} />
-</Canvas>
-
-### Deprecated - small
-
-<Canvas>
-  <Story of={IcStatusTagStories.DeprecatedSmall} />
-</Canvas>
-
-### Deprecated - appearance
-
-<Canvas>
-  <Story of={IcStatusTagStories.DeprecatedAppearance} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  announced: false,
-  label: "Status tag label",
-  size: "default",
-  status: "neutral",
-  variant: "filled",
-};
-
-<Canvas>
-  <Story of={IcStatusTagStories.Playground} />
-</Canvas>
+<Stories />

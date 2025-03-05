@@ -1,71 +1,10 @@
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
-import Step from "../ic-step/readme.md";
+import stepReadme from "../ic-step/readme.md";
 import * as IcStepperStories from "./ic-stepper.stories";
 
 <Meta of={IcStepperStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + stepReadme}</Markdown>
 
-<Description markdown={Step} />
-
-### Full-width stepper
-
-<Canvas>
-  <Story of={IcStepperStories.FullWidthStepper} />
-</Canvas>
-
-### Left-aligned stepper
-
-<Canvas>
-  <Story of={IcStepperStories.LeftAlignedStepper} />
-</Canvas>
-
-### With hidden step information
-
-<Canvas>
-  <Story of={IcStepperStories.WithHiddenStepInformation} />
-</Canvas>
-
-### Without step titles
-
-<Canvas>
-  <Story of={IcStepperStories.WithoutStepTitles} />
-</Canvas>
-
-### Custom stepper
-
-<Canvas>
-  <Story of={IcStepperStories.CustomStepper} />
-</Canvas>
-
-### Custom connector width
-
-<Canvas>
-  <Story of={IcStepperStories.CustomConnectorWidth} />
-</Canvas>
-
-### Light
-
-<Canvas>
-  <Story of={IcStepperStories.Light} />
-</Canvas>
-
-### Compact stepper
-
-<Canvas>
-  <Story of={IcStepperStories.CompactStepper} />
-</Canvas>
-
-### Compact stepper light
-
-<Canvas>
-  <Story of={IcStepperStories.CompactStepperLight} />
-</Canvas>
-
-### Custom compact stepper
-
-<Canvas>
-  <Story of={IcStepperStories.CustomCompactStepper} />
-</Canvas>
+<Stories />

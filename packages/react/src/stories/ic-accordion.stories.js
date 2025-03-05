@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import React, { useState, useRef } from "react";
 import {
   IcAccordion,
@@ -12,7 +14,6 @@ import {
   IcSearchBar,
   IcTypography,
 } from "../components";
-import readme from "../../../web-components/src/components/ic-accordion/readme.md";
 
 const PopoverMenu = () => {
   const [open, setOpen] = useState(false);

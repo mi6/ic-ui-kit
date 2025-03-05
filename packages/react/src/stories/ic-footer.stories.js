@@ -1,3 +1,6 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import {
   IcFooter,
   IcFooterLink,
@@ -9,8 +12,7 @@ import {
   IcTheme,
 } from "../components";
 import React, { useState } from "react";
-import readme from "../../../web-components/src/components/ic-footer/readme.md";
-import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
+import { NavLink, MemoryRouter, Route, Routes } from "react-router-dom";
 
 const defaultArgs = {
   aligned: "left",

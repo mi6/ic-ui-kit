@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React, { useRef, useState } from "react";
 
 import { IcSelect } from "../components";
-import readme from "../../../web-components/src/components/ic-select/readme.md";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 const defaultArgs = {
@@ -170,7 +172,7 @@ const LoadingWithError = () => {
       loading
       timeout="1000"
       onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      onIcRetryLoad={(event) => (selectEl.current.loading = true)}
+      onIcRetryLoad={() => (selectEl.current.loading = true)}
     />
   );
 };
@@ -300,7 +302,6 @@ export const CustomPlaceholder = {
         label="What is your favourite coffee?"
         placeholder="Placeholder goes here"
         options={options}
-        value={value}
         onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
       />
     );

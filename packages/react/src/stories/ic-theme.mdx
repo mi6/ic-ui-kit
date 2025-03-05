@@ -1,49 +1,9 @@
-import { useState } from "react";
-import { Meta, Story, Canvas, Description } from "@storybook/blocks";
-import {
-  IcFooter,
-  IcFooterLink,
-  IcButton,
-  IcTopNavigation,
-  IcNavigationItem,
-  IcNavigationButton,
-  IcTheme,
-  IcSearchBar,
-  IcTypography,
-  IcHero,
-  IcAlert,
-  IcLink,
-} from "../components";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "../../../web-components/src/components/ic-theme/readme.md";
 import * as IcThemeStories from './ic-theme.stories';
 
 <Meta of={IcThemeStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-export const Controlled = () => {
-  const [color, setColour] = useState("rgb(255, 201, 60)");
-  const defaultButtonClickHandler = () => {
-    setColour("rgb(27, 60, 121)");
-  };
-  const differentButtonClickHandler = () => {
-    setColour("rgb(255, 201, 60)");
-  };
-  return (
-    <>
-      <IcTheme color={color} />
-      <IcButton variant="primary" onClick={defaultButtonClickHandler}>
-        Default theme
-      </IcButton>
-      <IcButton variant="primary" onClick={differentButtonClickHandler}>
-        Sunset theme
-      </IcButton>
-    </>
-  );
-};
-
-### Switch theme
-
-<Canvas>
-  <Story of={IcThemeStories.SwitchTheme} />
-</Canvas>
+<Stories />

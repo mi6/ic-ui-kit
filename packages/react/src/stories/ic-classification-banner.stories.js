@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { IcClassificationBanner } from "../components";
-import readme from "../../../web-components/src/components/ic-classification-banner/readme.md";
 
 const defaultArgs = {
   additionalSelectors: "",

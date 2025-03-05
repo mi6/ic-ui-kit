@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.36...@ukic/canary-web-components@2.0.0-canary.37) (2025-03-05)
+
+### Bug Fixes
+
+- **canary-web-components:** added high contrast styling to ic-data-table ([5178102](https://github.com/mi6/ic-ui-kit/commit/51781023ebbb1ca111c6447643a8836dbf2b6b15))
+- **canary-web-components:** allow tree items and tree heading to truncate on first render ([095c452](https://github.com/mi6/ic-ui-kit/commit/095c4520e6a4deeb24acd7301faf2a258111403b))
+- **canary-web-components:** update the screen reader text on data table to use column title ([e7dfa3b](https://github.com/mi6/ic-ui-kit/commit/e7dfa3b3165e57b7a4e6d46c25d079caa51d0290)), closes [#3015](https://github.com/mi6/ic-ui-kit/issues/3015)
+
+### Features
+
+- **canary-web-components:** add the ability to backspace through a date input to delete the date ([c9042b4](https://github.com/mi6/ic-ui-kit/commit/c9042b406563346c91a688ab1d179e0850bc6945)), closes [#2244](https://github.com/mi6/ic-ui-kit/issues/2244)
+- **canary-web-components:** fix to revert items per page to correct value ([2c34d5e](https://github.com/mi6/ic-ui-kit/commit/2c34d5e5f8be24bc44687d19df92defd559b00bf)), closes [#3223](https://github.com/mi6/ic-ui-kit/issues/3223)
+- **canary-web-components:** improve data table column object by adding excludeColumnFromSort ([e8bddd8](https://github.com/mi6/ic-ui-kit/commit/e8bddd85103fb00a034003f869821f20aaf55f10)), closes [#2416](https://github.com/mi6/ic-ui-kit/issues/2416)
+
 # [2.0.0-canary.36](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.35...@ukic/canary-web-components@2.0.0-canary.36) (2025-02-19)
 
 ### Bug Fixes

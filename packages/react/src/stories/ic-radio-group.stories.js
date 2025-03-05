@@ -1,11 +1,12 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import {
   IcRadioGroup,
   IcRadioOption,
   IcButton,
   IcTextField,
 } from "../components";
-import radioOptionReadme from "../../../web-components/src/components/ic-radio-option/readme.md";
-import radioGroupReadme from "../../../web-components/src/components/ic-radio-group/readme.md";
 import React, { useState, useEffect, useRef } from "react";
 
 const Form = () => {
@@ -212,7 +213,7 @@ export const Horizontal = {
       <IcRadioOption value="valueName2" label="Unselected / Default" />
     </IcRadioGroup>
     <br/>
-    <p>Horizontal orientation is overridden with >2 radio options</p>
+    <p>Horizontal orientation is overridden with 2 radio options</p>
     <br/>
     <IcRadioGroup orientation="horizontal" label="This should be vertical" name="2">
       <IcRadioOption value="valueNameA" label="First" selected />

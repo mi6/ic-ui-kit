@@ -31,6 +31,7 @@ export class TreeView {
   private treeViewId = `ic-tree-view-${treeViewIds++}`;
   private treeItemTag = "IC-TREE-ITEM";
   private hostMutationObserver: MutationObserver = null;
+  private isLoaded = false;
 
   @Element() el: HTMLIcTreeViewElement;
 
@@ -86,17 +87,19 @@ export class TreeView {
 
     this.hostMutationObserver?.disconnect();
   }
-
-  componentDidLoad(): void {
+  componentWillLoad(): void {
     this.setTreeItems();
 
     this.watchAppearanceHandler();
     this.watchSizeHandler();
     this.watchTruncateTreeItemsHandler();
-    setTimeout(() => {
-      this.truncateHeading && this.truncateTreeViewHeading();
-    }, 100);
+  }
 
+  componentDidRender(): void {
+    this.truncateHeading && this.truncateTreeViewHeading();
+  }
+
+  componentDidLoad(): void {
     this.addSlotChangeListener();
 
     this.hostMutationObserver = new MutationObserver((mutationList) =>
@@ -105,6 +108,8 @@ export class TreeView {
     this.hostMutationObserver.observe(this.el, {
       childList: true,
     });
+
+    this.isLoaded = true;
   }
 
   @Listen("icTreeItemSelected")
@@ -281,7 +286,7 @@ export class TreeView {
   };
 
   render() {
-    const { appearance, heading, size } = this;
+    const { appearance, isLoaded, heading, size, truncateHeading } = this;
 
     return (
       <Host
@@ -289,7 +294,7 @@ export class TreeView {
         class={{
           [`ic-tree-view-${appearance}`]: true,
           [`ic-tree-view-${size}`]: size !== "default",
-          "ic-tree-view-truncate": this.truncateHeading,
+          "ic-tree-view-truncate": truncateHeading,
         }}
         onKeyDown={this.handleKeyDown}
         aria-label={this.isHeadingDefined() ? heading : null}
@@ -301,7 +306,13 @@ export class TreeView {
                 <slot name="icon" />
               </div>
             )}
-            <ic-typography variant="subtitle-large" class="tree-view-header">
+            <ic-typography
+              variant="subtitle-large"
+              class={{
+                "tree-view-header": true,
+                "with-padding": truncateHeading && !isLoaded,
+              }}
+            >
               {isSlotUsed(this.el, "heading") ? (
                 <slot name="heading" />
               ) : (

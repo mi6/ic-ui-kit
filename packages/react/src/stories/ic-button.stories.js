@@ -1,6 +1,8 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useRef } from "react";
 import { IcButton, IcPopoverMenu, IcMenuItem, IcBadge } from "../components";
-import readme from "../../../web-components/src/components/ic-button/readme.md";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 import { iconProps } from "../component-tests/IcButton/IcButtonTestData";
 import { mdiAccountGroup } from "@mdi/js";
@@ -166,7 +168,7 @@ const FileUpload = () => {
         variant="primary"
         fileUpload="true"
         accept=".doc, text/plain, .json"
-        onClick={(event) =>
+        onClick={() =>
           document.addEventListener("icFileSelection", (event) =>
             alert(`Files Selected: ${updateFileList(event.detail)}`),
           )

@@ -350,6 +350,32 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it("should render selected option with a long label", () => {
+    const options = [...coffeeOptions];
+    options[0] = {
+      label: "Selected item with a really really really long label",
+      value: "espresso",
+    };
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          value="espresso"
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/option-long-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+    });
+  });
+
   it("should render validation", () => {
     mount(
       <div style={{ padding: "10px" }}>

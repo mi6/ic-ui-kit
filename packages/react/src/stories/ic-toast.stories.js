@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable sonarjs/no-duplicate-string */
 import {
   IcToast,
   IcToastRegion,
@@ -6,7 +9,6 @@ import {
   IcTypography,
 } from "../components";
 import React, { useEffect, useRef } from "react";
-import readme from "../../../web-components/src/components/ic-toast/readme.md";
 
 const AutoLoadToast = () => {
   const toastRegionEl = useRef(null);

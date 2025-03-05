@@ -1,49 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import { IcSectionContainer } from "../components";
 import readme from "../../../web-components/src/components/ic-section-container/readme.md";
 import * as IcSectionContainerStories from './ic-section-container.stories';
 
 <Meta of={IcSectionContainerStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-export const defaultArgs = {
-  aligned: null,
-  fullHeight: false
-}
-
-### Left Aligned
-
-<Canvas>
-  <Story of={IcSectionContainerStories.LeftAligned} />
-</Canvas>
-
-### Center alignment
-
-<Canvas>
-  <Story of={IcSectionContainerStories.CenterAlignment} />
-</Canvas>
-
-### Full-width alignment
-
-<Canvas>
-  <Story of={IcSectionContainerStories.FullWidthAlignment} />
-</Canvas>
-
-### Full height
-
-<Canvas>
-  <Story of={IcSectionContainerStories.FullHeight} />
-</Canvas>
-
-### Playground
-
-<Canvas>
-  <Story of={IcSectionContainerStories.Playground} />
-</Canvas>
+<Stories />

@@ -87,6 +87,38 @@ export const SlottedContentDialog = () => {
   );
 };
 
+export const SlottedUpdatedContentDialog = () => {
+  const [showBtn1, setShowBtn1] = useState(false);
+  const [showBtn2, setShowBtn2] = useState(false);
+  const dialogEl = useRef<any>(null);
+  const handleClick = () => {
+    dialogEl.current.open = true;
+  };
+  return (
+    <>
+      <IcButton id="display-btn-1-btn" onClick={() => setShowBtn1(true)}>
+        Display button 1
+      </IcButton>
+      <IcButton id="display-btn-2-btn" onClick={() => setShowBtn2(true)}>
+        Display button 2
+      </IcButton>
+      <IcButton id="display-dialog-btn" onClick={handleClick}>
+        Display dialog
+      </IcButton>
+      <IcDialog
+        ref={dialogEl}
+        heading="This is a default dialog"
+        label="Dialog"
+      >
+        <div>
+          {showBtn1 && <IcButton id="test-button-1">Test button 1</IcButton>}
+        </div>
+        {showBtn2 && <IcButton id="test-button-2">Test button 2</IcButton>}
+      </IcDialog>
+    </>
+  );
+};
+
 export const DialogAccordion = () => {
   const dialogEl = useRef<any>(null);
   const handleClick = () => {

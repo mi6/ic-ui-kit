@@ -168,6 +168,14 @@ export class TreeItem {
       childList: true,
     });
   }
+  componentDidRender(): void {
+    this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
+    if (this.expanded) {
+      this.childTreeItems.forEach((child: HTMLIcTreeItemElement) => {
+        child.truncateTreeItem && this.truncateTreeItemLabel(child);
+      });
+    }
+  }
 
   componentDidUpdate(): void {
     if (this.hasParentExpanded) {

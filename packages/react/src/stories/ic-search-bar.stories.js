@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React, { useState, useEffect, useRef } from "react";
 import { IcSearchBar, IcTypography } from "../components";
-import readme from "../../../web-components/src/components/ic-search-bar/readme.md";
 
 const ExternalFiltering = () => {
   const mockData = [

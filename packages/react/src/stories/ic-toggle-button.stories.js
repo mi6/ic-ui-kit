@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react';
 import { IcToggleButton, IcBadge } from "../components";
-import readme from "../../../web-components/src/components/ic-toggle-button/readme.md";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 const defaultArgs = {

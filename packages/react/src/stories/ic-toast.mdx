@@ -1,98 +1,10 @@
-import { Meta, Story, Canvas, Description } from "@storybook/blocks";
-import {
-  IcToast,
-  IcToastRegion,
-  IcLink,
-  IcButton,
-  IcTypography,
-} from "../components";
-import { useEffect, useRef } from "react";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "../../../web-components/src/components/ic-toast/readme.md";
+import toastRegionReadme from "../../../web-components/src/components/ic-toast-region/readme.md";
 import * as IcToastStories from './ic-toast.stories';
 
 <Meta of={IcToastStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + toastRegionReadme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcToastStories.Default} />
-</Canvas>
-
-### With variant
-
-<Canvas>
-  <Story of={IcToastStories.WithVariant} />
-</Canvas>
-
-### Multiline message
-
-<Canvas>
-  <Story of={IcToastStories.MultilineMessage} />
-</Canvas>
-
-### Slotted action elements
-
-<Canvas>
-  <Story of={IcToastStories.SlottedActionElements} />
-</Canvas>
-
-### Auto dismiss
-
-<Canvas>
-  <Story of={IcToastStories.AutoDismiss} />
-</Canvas>
-
-### Custom neutral icon
-
-<Canvas>
-  <Story of={IcToastStories.CustomNeutralIcon} />
-</Canvas>
-
-### Example on page
-
-<Canvas>
-  <Story of={IcToastStories.ExampleOnPage} />
-</Canvas>
-
-### Display on page load
-
-export const AutoLoadToast = () => {
-  const toastRegionEl = useRef(null);
-  const shareToastEl = useRef(null);
-
-  useEffect(() => {
-    if (toastRegionEl.current && shareToastEl.current) {
-      toastRegionEl.current.openToast = shareToastEl.current;
-    }
-  }, []);
-
-  return (
-    <IcToastRegion ref={toastRegionEl}>
-      <IcToast heading="My toast heading" ref={shareToastEl} />
-    </IcToastRegion>
-  );
-};
-
-<Canvas>
-  <Story of={IcToastStories.DisplayOnPageLoad} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  autoDismissTimeout: 5000,
-  dismissButtonAriaLabel: "dismiss",
-  dismissMode: "manual",
-  heading: "This is the heading",
-  message: "This is the message",
-  neutralIconAriaLabel: "",
-  variant: "neutral",
-  actionSlot: "action",
-  neutralIconSlot: "neutral-icon",
-};
-
-<Canvas>
-  <Story of={IcToastStories.Playground} />
-</Canvas>
+<Stories />

@@ -1,16 +1,8 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import {
-  IcPopoverMenu,
-  IcMenuItem,
-  IcButton,
-  IcMenuGroup,
-} from "../components";
 import readme from "../../../web-components/src/components/ic-popover-menu/readme.md";
 import menuItemReadme from "../../../web-components/src/components/ic-menu-item/readme.md";
 import menuGroupReadme from "../../../web-components/src/components/ic-menu-group/readme.md";
@@ -18,44 +10,6 @@ import * as IcPopoverMenuStories from './ic-popover-menu.stories';
 
 <Meta of={IcPopoverMenuStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + menuItemReadme + menuGroupReadme}</Markdown>
 
-<Description markdown={menuItemReadme} />
-
-<Description markdown={menuGroupReadme} />
-
-### Default
-
-<Canvas>
-  <Story of={IcPopoverMenuStories.Default} />
-</Canvas>
-
-### Left placement
-
-<Canvas>
-  <Story of={IcPopoverMenuStories.LeftPlacement} />
-</Canvas>
-
-### Top placement
-
-<Canvas>
-  <Story of={IcPopoverMenuStories.TopPlacement} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  open: true,
-  groupLabel: "View",
-  description: "",
-  disabled: false,
-  href: "/",
-  keyboardShortcut: "Cmd + C",
-  label: "Copy code",
-  variant: "default",
-  iconSlot: true,
-};
-
-<Canvas>
-  <Story of={IcPopoverMenuStories.Playground} />
-</Canvas>
+<Stories />

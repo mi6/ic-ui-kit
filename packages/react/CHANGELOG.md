@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.36.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.35.2...@ukic/react@2.36.0) (2025-03-05)
+
+### Bug Fixes
+
+- **react:** added storybook example and modified cypress test ([56c1e24](https://github.com/mi6/ic-ui-kit/commit/56c1e2422b5e4e03112b9b7afe560d4b9fb364d2))
+- **react:** adds visual test for long label fix ([1bd73b8](https://github.com/mi6/ic-ui-kit/commit/1bd73b82d2b0c69847c83e6f71309e2c378e8a79))
+- **react:** fixed docs tab for react storybook ([2e321f9](https://github.com/mi6/ic-ui-kit/commit/2e321f9d7f77e0856593bd8f77dc234723cafd02))
+- **react:** fixes card button focus color in high contrast mode ([8343041](https://github.com/mi6/ic-ui-kit/commit/8343041a7f127c4d814624f6b7e3802cf30f0bbb))
+
+### Features
+
+- **react:** add Cypress test for slotting interactive content after first load ([22c58a0](https://github.com/mi6/ic-ui-kit/commit/22c58a0b7fd179bb34e8990916019ca0cc74134f)), closes [.#2773](https://github.com/./issues/2773)
+- **react:** update visual test screenshots - scrollbar on dialog ([41d49f5](https://github.com/mi6/ic-ui-kit/commit/41d49f5b49c30dc573d90d647cc284449ad3bf77)), closes [.#2868](https://github.com/./issues/2868)
+
 ## [2.35.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.35.1...@ukic/react@2.35.2) (2025-02-19)
 
 ### Bug Fixes
