@@ -290,7 +290,6 @@ export class Stepper {
     });
     this.resizeObserver.observe(this.el);
   };
-
   render() {
     return (
       <Host

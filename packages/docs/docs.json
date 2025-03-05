@@ -14613,10 +14613,10 @@
         },
         {
           "name": "stepType",
-          "type": "\"active\" | \"completed\" | \"current\" | \"disabled\"",
+          "type": "\"active\" | \"completed\" | \"current\" | \"disabled\" | \"error\" | \"warning\"",
           "complexType": {
             "original": "IcStepTypes",
-            "resolved": "\"active\" | \"completed\" | \"current\" | \"disabled\"",
+            "resolved": "\"active\" | \"completed\" | \"current\" | \"disabled\" | \"error\" | \"warning\"",
             "references": {
               "IcStepTypes": {
                 "location": "import",
@@ -14646,6 +14646,14 @@
             },
             {
               "value": "disabled",
+              "type": "string"
+            },
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -19365,7 +19373,7 @@
       "path": "src/components/ic-status-tag/ic-status-tag.types.ts"
     },
     "src/components/ic-step/ic-step.types.ts::IcStepTypes": {
-      "declaration": "export type IcStepTypes = \"active\" | \"current\" | \"completed\" | \"disabled\";",
+      "declaration": "export type IcStepTypes = \"active\" | \"current\" | \"completed\" | \"disabled\" | \"warning\" | \"error\";",
       "docstring": "",
       "path": "src/components/ic-step/ic-step.types.ts"
     },

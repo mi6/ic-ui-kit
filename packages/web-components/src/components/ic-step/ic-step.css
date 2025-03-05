@@ -90,6 +90,15 @@
   color: var(--ic-status-success);
 }
 
+.compact-step-error .step-status {
+  color: red;
+}
+
+.compact-step-warning .step-status {
+  color: orange;
+}
+
+
 :host(.light) .compact-step-completed .step-status {
   color: var(--ic-status-success-contrast);
 }
@@ -198,6 +207,14 @@
   color: var(--ic-status-success);
 }
 
+:host(.default) .error {
+  color: white;
+}
+
+:host(.default) .warning {
+  color: white;
+}
+
 :host(.default.light) .completed,
 :host(.default.light) .completed .step-title-area {
   color: var(--ic-status-success-contrast);
@@ -250,6 +267,15 @@
   border-radius: 100%;
 }
 
+.error .step-icon-inner {
+  background: red;
+}
+
+.warning .step-icon-inner {
+  background: orange;
+}
+
+
 :host(.light) .completed .step-icon-inner {
   background: var(--ic-status-success-contrast);
   box-shadow: inset var(--ic-status-success-contrast) 0 0 0 var(--ic-space-xxxs);
@@ -297,6 +323,14 @@
 
 .completed .step-connect {
   background-color: var(--ic-status-success);
+}
+
+.error .step-connect {
+  background-color: red;
+}
+
+.warning .step-connect {
+  background-color: orange;
 }
 
 :host(.light) .completed .step-connect {
