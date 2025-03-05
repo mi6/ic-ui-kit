@@ -26,6 +26,7 @@ import {
   LongWordAppTitle,
   SimpleTopNav,
   Brand,
+  BrandWithSlottedNavItems,
   ThemeDark,
   TopNavWithNavItems,
   TopNavWithSearch,
@@ -362,6 +363,17 @@ describe("IcTopNavigation desktop visual regression tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
+
+  it("should render with different brand color with slotted navigation items", () => {
+    mount(<BrandWithSlottedNavItems />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/brand-slotted-navigation-items",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
 });
 
 describe("IcTopNavigation mobile visual regression tests", () => {
@@ -595,7 +607,7 @@ describe("IcTopNavigation desktop visual regression tests in high contrast mode"
 
     cy.compareSnapshot({
       name: "/slotted-navigation-items-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 

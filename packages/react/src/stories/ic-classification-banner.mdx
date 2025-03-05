@@ -1,58 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import { IcClassificationBanner } from "../components";
 import readme from "../../../web-components/src/components/ic-classification-banner/readme.md";
 import * as IcClassificationBannerStories from './ic-classification-banner.stories';
 
 <Meta of={IcClassificationBannerStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Classifications
-
-<Canvas>
-  <Story of={IcClassificationBannerStories.Classifications} />
-</Canvas>
-
-### Up to classifications
-
-<Canvas>
-  <Story of={IcClassificationBannerStories.UpTo} />
-</Canvas>
-
-### Bottom of page
-
-<Canvas>
-  <Story of={IcClassificationBannerStories.BottomOfPage} />
-</Canvas>
-
-### Country
-
-<Canvas>
-  <Story of={IcClassificationBannerStories.Country} />
-</Canvas>
-
-### Additional selectors
-
-<Canvas>
-  <Story of={IcClassificationBannerStories.AdditionalSelectors} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  additionalSelectors: "",
-  classification: "official",
-  country: "uk",
-  inline: true,
-  upTo: false,
-};
-
-<Canvas>
-  <Story of={IcClassificationBannerStories.Playground} />
-</Canvas>
+<Stories />

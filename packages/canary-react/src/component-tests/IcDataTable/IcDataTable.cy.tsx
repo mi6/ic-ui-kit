@@ -21,6 +21,7 @@ import {
   COLS,
   COLS_ALIGNMENT,
   COLS_ELEMENTS,
+  COLS_EXCLUDE_SORT,
   DATA,
   DATA_CELL_ALIGNMENT,
   ICON_COLS,
@@ -93,7 +94,6 @@ const PAGINATION_GO_TO_PAGE_TEXT_FIELD_SELECTOR =
 const PAGINATION_GO_TO_PAGE_BUTTON_SELECTOR = ".go-to-page-holder ic-button";
 const ITEMS_PER_PAGE_SELECTOR = ".items-per-page-input";
 const EMPTY_STATE = "ic-empty-state";
-const SHOW_BACKGROUND_CLASS = "show-background";
 const ODD_TABLE_ROWS_SELECTOR = ".table-row:nth-child(odd)";
 const TABLE_CELL_TYPOGRAPHY_SELECTOR = ".table-cell:last-child ic-typography";
 const EVEN_TABLE_ROWS_SELECTOR = ".table-row:nth-child(even)";
@@ -456,6 +456,28 @@ describe("IcDataTables", () => {
     cy.checkA11yWithWait();
   });
 
+  it("should not show the sort buttons on columns where excludeColumnFromSort is true", () => {
+    mount(
+      <IcDataTable
+        caption="Exclude column from sort"
+        data={DATA}
+        columns={COLS_EXCLUDE_SORT}
+        sortable
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "exclude-column-from-sort",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.031),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
   it("should render with column overrides", () => {
     mount(
       <IcDataTable
@@ -684,11 +706,6 @@ describe("IcDataTables", () => {
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR).should(
-      HAVE_CLASS,
-      SHOW_BACKGROUND_CLASS
-    );
-
     cy.compareSnapshot({
       name: "loading-indicator-background",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
@@ -900,11 +917,6 @@ describe("IcDataTables", () => {
     );
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR).should(
-      NOT_HAVE_CLASS,
-      SHOW_BACKGROUND_CLASS
-    );
 
     cy.clock();
 
@@ -4723,11 +4735,6 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
 
     cy.get("ic-data-table").invoke("prop", "loading", true);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR).should(
-      HAVE_CLASS,
-      SHOW_BACKGROUND_CLASS
-    );
-
     cy.compareSnapshot({
       name: "loading-indicator-background-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.006),
@@ -5000,7 +5007,7 @@ describe("Dark mode", () => {
       </IcDataTable>
     );
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dark-mode-title-bar",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.052),

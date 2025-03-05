@@ -1,90 +1,9 @@
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
 import * as IcTypographyStories from "./ic-typography.stories";
 
 <Meta of={IcTypographyStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-export const defaultArgs = {
-  applyVerticalMargins: false,
-  bold: false,
-  italic: false,
-  strikethrough: false,
-  underline: false,
-  variant: "body",
-  theme: "inherit",
-};
-
-### Default
-
-<Canvas>
-  <Story of={IcTypographyStories.Default} />
-</Canvas>
-
-### Variants
-
-<Canvas>
-  <Story of={IcTypographyStories.Variants} />
-</Canvas>
-
-### Overriding component
-
-<Canvas>
-  <Story of={IcTypographyStories.ComponentOverride} />
-</Canvas>
-
-### Vertical margins
-
-<Canvas>
-  <Story of={IcTypographyStories.VerticalMargins} />
-</Canvas>
-
-### Truncation
-
-<Canvas>
-  <Story of={IcTypographyStories.Truncation} />
-</Canvas>
-
-### Bold
-
-<Canvas>
-  <Story of={IcTypographyStories.Bold} />
-</Canvas>
-
-### Italic
-
-<Canvas>
-  <Story of={IcTypographyStories.Italic} />
-</Canvas>
-
-### Strikethrough
-
-<Canvas>
-  <Story of={IcTypographyStories.Strikethrough} />
-</Canvas>
-
-### Underline
-
-<Canvas>
-  <Story of={IcTypographyStories.Underline} />
-</Canvas>
-
-### All prop text styles
-
-<Canvas>
-  <Story of={IcTypographyStories.AllPropTextStyles} />
-</Canvas>
-
-### Min and max content
-
-<Canvas>
-  <Story of={IcTypographyStories.MinAndMaxContent} />
-</Canvas>
-
-### Playground
-
-<Canvas>
-  <Story of={IcTypographyStories.Playground} />
-</Canvas>
+<Stories />

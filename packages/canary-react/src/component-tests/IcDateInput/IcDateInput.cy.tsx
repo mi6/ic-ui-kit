@@ -319,6 +319,30 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
   });
 
+  it("should test deleting the date using backspace", () => {
+    mount(<IcDateInput label="Test Label" />);
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("30");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("04");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
+
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type(
+      "{Backspace}{Backspace}{Backspace}{Backspace}"
+    );
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type(
+      "{Backspace}{Backspace}"
+    );
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type(
+      "{Backspace}{Backspace}"
+    );
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
+  });
+
   it("should enter complete date and check for accessibility", () => {
     mount(
       <div style={{ padding: "10px" }}>

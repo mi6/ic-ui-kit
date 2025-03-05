@@ -1,86 +1,9 @@
-import { Story, Canvas, Meta, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Stories, Meta, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
 import * as IcToggleButtonStories from "./ic-toggle-button.stories";
 
 <Meta of={IcToggleButtonStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcToggleButtonStories.Default} />
-</Canvas>
-
-### Checked
-
-<Canvas>
-  <Story of={IcToggleButtonStories.Checked} />
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story of={IcToggleButtonStories.Disabled} />
-</Canvas>
-
-### With icon
-
-<Canvas>
-  <Story of={IcToggleButtonStories.WithIcon} />
-</Canvas>
-
-### Sizes
-
-<Canvas>
-  <Story of={IcToggleButtonStories.Sizes} />
-</Canvas>
-
-### With badge
-
-<Canvas>
-  <Story of={IcToggleButtonStories.WithBadge} />
-</Canvas>
-
-### Monochrome
-
-<Canvas>
-  <Story of={IcToggleButtonStories.Monochrome} />
-</Canvas>
-
-### Full width
-
-<Canvas>
-  <Story of={IcToggleButtonStories.FullWidth} />
-</Canvas>
-
-### Loading
-
-<Canvas>
-  <Story of={IcToggleButtonStories.Loading} />
-</Canvas>
-
-### Icon only
-
-<Canvas>
-  <Story of={IcToggleButtonStories.IconOnly} />
-</Canvas>
-
-### Icon right
-
-<Canvas>
-  <Story of={IcToggleButtonStories.IconRight} />
-</Canvas>
-
-### Icon top
-
-<Canvas>
-  <Story of={IcToggleButtonStories.IconTop} />
-</Canvas>
-
-### Tooltip placement
-
-<Canvas>
-  <Story of={IcToggleButtonStories.TooltipPlacement} />
-</Canvas>
+<Stories />

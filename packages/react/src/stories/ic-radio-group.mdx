@@ -1,139 +1,14 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import {
-  IcRadioGroup,
-  IcRadioOption,
-  IcButton,
-  IcTextField,
-} from "../components";
 import radioOptionReadme from "../../../web-components/src/components/ic-radio-option/readme.md";
 import radioGroupReadme from "../../../web-components/src/components/ic-radio-group/readme.md";
-import { useState, useEffect, useRef } from "react";
 import * as IcRadioGroupStories from './ic-radio-group.stories';
 
 <Meta of={IcRadioGroupStories} />
 
-<Description markdown={radioOptionReadme + radioGroupReadme} />
+<Markdown>{radioOptionReadme + radioGroupReadme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Default} />
-</Canvas>
-
-### Horizontal
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Horizontal} />
-</Canvas>
-
-### Required
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Required} />
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Disabled} />
-</Canvas>
-
-### Conditional dynamic
-
-<Canvas>
-  <Story of={IcRadioGroupStories.ConditionalDynamic} />
-</Canvas>
-
-### Conditional static
-
-<Canvas>
-  <Story of={IcRadioGroupStories.ConditionalStatic} />
-</Canvas>
-
-### Helper text
-
-<Canvas>
-  <Story of={IcRadioGroupStories.HelperText} />
-</Canvas>
-
-### Size small
-
-<Canvas>
-  <Story of={IcRadioGroupStories.SizeSmall} />
-</Canvas>
-
-### Validation
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Validation} />
-</Canvas>
-
-### Form - This shows how the radio button works within a form and is where the value of the radio button selected will appear in the console.log
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Form_} />
-</Canvas>
-
-### Dynamic loading
-
-<Canvas>
-  <Story of={IcRadioGroupStories.DynamicLoading} />
-</Canvas>
-
-### Updating options
-
-<Canvas>
-  <Story of={IcRadioGroupStories.UpdatingOptions} />
-</Canvas>
-
-### Controlled
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Controlled_} />
-</Canvas>
-
-### Uncontrolled
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Uncontrolled_} />
-</Canvas>
-
-### Additional field rendering
-
-<Canvas>
-  <Story of={IcRadioGroupStories.AdditionalFieldRendering} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  disabled: false,
-  helperText: "Some helper text",
-  hideLabel: false,
-  label: "This is a label",
-  name: "1",
-  orientation: "vertical",
-  required: false,
-  size: "medium",
-  validationStatus: "",
-  validationText: "",
-  additionalFieldDisplay: "static",
-  radioDisabled: false,
-  dynamicText: "This selection requires additional answers",
-  radioLabel: "Radio 1",
-  radioName: "radio1",
-  value: "valueName1",
-  selected: false,
-  additionalFieldSlot: true,
-  theme: "inherit",
-};
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Playground} />
-</Canvas>
+<Stories />

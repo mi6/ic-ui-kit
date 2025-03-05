@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import React, { useState } from "react";
 import {
   IcBadge,
@@ -415,7 +418,7 @@ const UpdateSlottedItems = () => {
   const [menu, setMenu] = useState("mainMenu");
   const currentMenu = menus[menu];
 
-  const items = currentMenu.map((item, index) => {
+  const items = currentMenu.map((item) => {
     const onMenuClick = () => {
       setMenu(item.menu);
     };

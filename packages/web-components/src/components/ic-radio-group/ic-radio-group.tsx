@@ -181,7 +181,7 @@ export class RadioGroup {
 
   @Listen("icSelectedChange")
   changeHandler(): void {
-    const selectedOption = this.radioOptions.findIndex(
+    const selectedOption = this.radioOptions?.findIndex(
       (radioOption) => radioOption.selected
     );
     if (selectedOption < 0) {

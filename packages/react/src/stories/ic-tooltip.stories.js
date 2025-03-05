@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import React from 'react';
 import { IcTooltip } from "../components";
 
 const defaultArgs = {
@@ -87,7 +89,7 @@ export const DisabledHover = {
 };
 
 export const TopPlacements = {
-  render: (args) => (
+  render: () => (
     <div
       style={{
         margin: "40px",
@@ -139,7 +141,7 @@ export const TopPlacements = {
 };
 
 export const BottomPlacements = {
-  render: (args) => (
+  render: () => (
     <div
       style={{
         margin: "40px",
@@ -191,7 +193,7 @@ export const BottomPlacements = {
 };
 
 export const RightPlacements = {
-  render: (args) => (
+  render: () => (
     <div
       style={{
         margin: "40px",
@@ -243,7 +245,7 @@ export const RightPlacements = {
 };
 
 export const LeftPlacements = {
-  render: (args) => (
+  render: () => (
     <div
       style={{
         marginLeft: "40px",

@@ -1,124 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import { useRef } from "react";
-import { IcButton, IcPopoverMenu, IcMenuItem, IcTypography } from "../components";
 import readme from "../../../web-components/src/components/ic-button/readme.md";
-import { SlottedSVG } from "../react-component-lib/slottedSVG";
-import  { iconProps } from "../component-tests/IcButton/IcButtonTestData"
-import { mdiAccountGroup } from "@mdi/js";
 import * as IcButtonStories from './ic-button.stories';
 
 <Meta of={IcButtonStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-export const defaultArgs = {
-  message: "Custom Button",
-  disabled: false,
-  loading: false,
-  theme: "inherit",
-  size: "medium",
-  variant: "secondary",
-  fullWidth: false,
-};
-
-### Primary
-
-<Canvas>
-  <Story of={IcButtonStories.Primary} />
-</Canvas>
-
-### Secondary
-
-<Canvas>
-  <Story of={IcButtonStories.Secondary} />
-</Canvas>
-
-### Tertiary
-
-<Canvas>
-  <Story of={IcButtonStories.Tertiary} />
-</Canvas>
-
-### Destructive
-
-<Canvas>
-  <Story of={IcButtonStories.Destructive} />
-</Canvas>
-
-### With icon
-
-<Canvas>
-  <Story of={IcButtonStories.WithIcon} />
-</Canvas>
-
-### Dropdown
-
-<Canvas>
-  <Story of={IcButtonStories.Dropdown} />
-</Canvas>
-
-### Dropdown example
-
-<Canvas>
-  <Story of={IcButtonStories.DropdownExample} />
-</Canvas>
-
-### Size
-
-<Canvas>
-  <Story of={IcButtonStories.Size} />
-</Canvas>
-
-### Router
-
-<Canvas>
-  <Story of={IcButtonStories.Router} />
-</Canvas>
-
-### With mdi icons
-
-<Canvas>
-  <Story of={IcButtonStories.WithMdiIcons} />
-</Canvas>
-
-### Full width
-
-<Canvas>
-  <Story of={IcButtonStories.FullWidth} />
-</Canvas>
-
-### Icon only
-
-<Canvas>
-  <Story of={IcButtonStories.IconOnly} />
-</Canvas>
-
-### Icon variants
-
-<Canvas>
-  <Story of={IcButtonStories.IconVariants} />
-</Canvas>
-
-### Playground
-
-<Canvas>
-  <Story of={IcButtonStories.Playground} />
-</Canvas>
-
-### Playground with icon
-
-<Canvas>
-  <Story of={IcButtonStories.PlaygroundWithIcon} />
-</Canvas>
-
-### File Upload
-
-<Canvas>
-  <Story of={IcButtonStories.FileUpload_} />
-</Canvas>
+<Stories />

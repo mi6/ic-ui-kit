@@ -241,3 +241,27 @@
     display: none;
   }
 }
+
+/* Right to left */
+.checkmark:dir(rtl) {
+  right: 0;
+}
+
+.checkbox-label:dir(rtl) {
+  padding-right: var(--ic-space-sm);
+  padding-left: 0;
+}
+
+.indeterminate-symbol:dir(rtl) {
+  right: 0.288rem;
+}
+
+.branch-corner:dir(rtl) {
+  border-radius: 0 0 0.188rem 0;
+  border-right: 0.125rem solid var(--ic-action-default);
+  border-left: none;
+}
+
+.dynamic-container:dir(rtl) {
+  margin: var(--ic-space-xxxs) var(--ic-space-sm) var(--ic-space-xxs) 0;
+}

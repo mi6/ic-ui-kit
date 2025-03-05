@@ -1,85 +1,10 @@
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
-import DataRow from "../ic-data-row/readme.md";
-import Link from "../ic-link/readme.md";
-import StatusTag from "../ic-status-tag/readme.md";
-import Button from "../ic-button/readme.md";
-import TextField from "../ic-text-field/readme.md";
-import Typography from "../ic-typography/readme.md";
+import dataRowReadme from "../ic-data-row/readme.md";
 import * as IcDataListStories from "./ic-data-list.stories";
 
 <Meta of={IcDataListStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + dataRowReadme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcDataListStories.Default} />
-</Canvas>
-
-### Slotted heading and label
-
-<Canvas>
-  <Story of={IcDataListStories.SlottedHeadingAndLabel} />
-</Canvas>
-
-### Long text values
-
-<Canvas>
-  <Story of={IcDataListStories.LongTextValues} />
-</Canvas>
-
-### Small
-
-<Canvas>
-  <Story of={IcDataListStories.Small} />
-</Canvas>
-
-### Link
-
-<Canvas>
-  <Story of={IcDataListStories.Link} />
-</Canvas>
-
-### Icon button
-
-<Canvas>
-  <Story of={IcDataListStories.IconButton} />
-</Canvas>
-
-### Adornment
-
-<Canvas>
-  <Story of={IcDataListStories.Adornment} />
-</Canvas>
-
-### Status tag
-
-<Canvas>
-  <Story of={IcDataListStories.StatusTag} />
-</Canvas>
-
-### Editable example
-
-<Canvas>
-  <Story of={IcDataListStories.EditableExample} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  heading: "Details",
-  size: "medium",
-  label: "Name",
-  rowSize: "default",
-  value: "Michael Johnson",
-  endCompSlot: "end-component",
-  theme: "inherit",
-  rowTheme: "inherit",
-};
-
-<Canvas>
-  <Story of={IcDataListStories.Playground} />
-</Canvas>
+<Stories />

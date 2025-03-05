@@ -1,5 +1,6 @@
-import React from "react";
-import { IcButton, IcEmptyState, IcLink } from "../components";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import React from 'react';
+import { IcEmptyState, IcLink, IcButton } from "../components";
 
 const defaultArgs = {
   aligned: "left",

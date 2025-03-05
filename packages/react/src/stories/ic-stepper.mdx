@@ -1,85 +1,15 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
 import * as IcStepperStories from './ic-stepper.stories';
-
-import { IcStep, IcStepper, IcButton } from "../components";
 
 import readme from "../../../web-components/src/components/ic-stepper/readme.md";
 import stepReadme from "../../../web-components/src/components/ic-step/readme.md";
 
 <Meta of={IcStepperStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + stepReadme}</Markdown>
 
-<Description markdown={stepReadme} />
-
-export const defaultArgs = {
-  aligned: "full-width",
-  connectorWidth: 100,
-  variant: "default",
-  hideStepInfo: false,
-  heading: "Editable step",
-  type: "current",
-  status: "optional",
-  subheading: "Optional subtitle",
-  theme: "inherit",
-};
-
-### Full-width stepper
-
-<Canvas>
-  <Story of={IcStepperStories.FullWidthStepper} />
-</Canvas>
-
-### Left-aligned stepper
-
-<Canvas>
-  <Story of={IcStepperStories.LeftAlignedStepper} />
-</Canvas>
-
-### With hidden step information
-
-<Canvas>
-  <Story of={IcStepperStories.WithHiddenStepInformation} />
-</Canvas>
-
-### Without headings
-
-<Canvas>
-  <Story of={IcStepperStories.WithoutHeadings} />
-</Canvas>
-
-### Custom stepper
-
-<Canvas>
-  <Story of={IcStepperStories.CustomStepper} />
-</Canvas>
-
-### Custom connector width
-
-<Canvas>
-  <Story of={IcStepperStories.CustomConnectorWidth} />
-</Canvas>
-
-### Compact stepper
-
-<Canvas>
-  <Story of={IcStepperStories.CompactStepper} />
-</Canvas>
-
-### Custom compact stepper
-
-<Canvas>
-  <Story of={IcStepperStories.CustomCompactStepper} />
-</Canvas>
-
-### Playground
-
-<Canvas>
-  <Story of={IcStepperStories.Playground} />
-</Canvas>
+<Stories />

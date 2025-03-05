@@ -39,6 +39,7 @@ export type IcDataTableColumnObject = {
     onAllCells?: boolean;
     hideOnHeader?: boolean;
   };
+  excludeColumnFromSort?: boolean;
 };
 
 export type IcLoadingOptions = {
@@ -49,7 +50,6 @@ export type IcLoadingOptions = {
   max?: number;
   min?: number;
   progress?: number;
-  showBackground?: boolean;
   overlay?: boolean;
 };
 

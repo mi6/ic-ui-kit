@@ -169,12 +169,16 @@ export class TreeItem {
       childList: true,
     });
   }
+  componentDidRender(): void {
+    this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
+    if (this.expanded) {
+      this.childTreeItems.forEach((child: HTMLIcTreeItemElement) => {
+        child.truncateTreeItem && this.truncateTreeItemLabel(child);
+      });
+    }
+  }
 
   componentDidUpdate(): void {
-    // Truncation is run here because truncateTreeItem prop gets applied on second render
-    // if being passed down from parent tree view
-    this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
-
     if (this.hasParentExpanded) {
       this.childTreeItems.forEach((child: HTMLIcTreeItemElement) => {
         child.truncateTreeItem && this.truncateTreeItemLabel(child);

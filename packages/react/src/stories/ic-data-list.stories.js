@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import React from 'react';
 import {
   IcButton,
   IcDataList,

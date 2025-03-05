@@ -1,86 +1,9 @@
-import { Meta, Story, Canvas, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
 import * as IcSideNavigationStories from "./ic-side-navigation.stories";
 
 <Meta of={IcSideNavigationStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcSideNavigationStories.Default} />
-</Canvas>
-
-### Expanded
-
-<Canvas>
-  <Story of={IcSideNavigationStories.Expanded} />
-</Canvas>
-
-### Long app version and app status
-
-<Canvas>
-  <Story of={IcSideNavigationStories.LongAppVersionAndAppStatus} />
-</Canvas>
-
-## Short title
-
-<Canvas>
-  <Story of={IcSideNavigationStories.ShortTitle} />
-</Canvas>
-
-### Static
-
-<Canvas>
-  <Story of={IcSideNavigationStories.Static} />
-</Canvas>
-
-### Collapsed with labels
-
-<Canvas>
-  <Story of={IcSideNavigationStories.CollapsedIconsWithLabels} />
-</Canvas>
-
-### Slots
-
-<Canvas>
-  <Story of={IcSideNavigationStories.Slots} />
-</Canvas>
-
-### Using unnamed slots
-
-<Canvas>
-  <Story of={IcSideNavigationStories.UsingUnnamedSlots} />
-</Canvas>
-
-### Slots using app-title
-
-<Canvas>
-  <Story of={IcSideNavigationStories.SlotsUsingAppTitle} />
-</Canvas>
-
-### Slots using app-title expanded
-
-<Canvas>
-  <Story of={IcSideNavigationStories.SlotsUsingAppTitleExpanded} />
-</Canvas>
-
-### Disable top bar behaviour
-
-<Canvas>
-  <Story of={IcSideNavigationStories.DisableTopBarBehaviour} />
-</Canvas>
-
-### Disable auto parent styling
-
-<Canvas>
-  <Story of={IcSideNavigationStories.DisableAutoParentStyling} />
-</Canvas>
-
-### Side nav expanded event
-
-<Canvas>
-  <Story of={IcSideNavigationStories.SideNavExpandedEvent} />
-</Canvas>
+<Stories />

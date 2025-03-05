@@ -1237,6 +1237,9 @@ ic-theme,
   );
   --ic-toggle-button-selected-text-disabled: var(--ic-color-brand-text);
   --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-brand);
+  --ic-toggle-button-selected-border-focus: var(
+    --ic-color-border-neutral-white
+  );
   --ic-toggle-button-unselected-border-monochrome: var(
     --ic-color-border-neutral-black
   );
@@ -2630,6 +2633,9 @@ ic-theme,
       --ic-color-text-tertiary-light
     );
     --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-disabled);
+    --ic-toggle-button-selected-border-focus: var(
+      --ic-color-border-neutral-black
+    );
     --ic-toggle-button-unselected-border-monochrome: var(
       --ic-color-border-neutral-white
     );
@@ -3956,6 +3962,9 @@ ic-theme,
     --ic-color-text-tertiary-light
   );
   --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-toggle-button-selected-border-focus: var(
+    --ic-color-border-neutral-black
+  );
   --ic-toggle-button-unselected-border-monochrome: var(
     --ic-color-border-neutral-white
   );

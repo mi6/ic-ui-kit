@@ -328,10 +328,8 @@ describe("IcToggleButton visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
-      name: "light-theme-monochrome",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
       name: "/light-theme-monochrome",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
     });
   });
 
@@ -341,10 +339,28 @@ describe("IcToggleButton visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
-      name: "dark-theme-monochrome",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
       name: "/dark-theme-monochrome",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
+    });
+  });
+
+  it("should render checked and focused toggle button with dark theme", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcToggleButton label="Test" theme="dark" checked />
+      </div>
+    );
+    cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
+
+    cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
+      .shadow()
+      .find("button")
+      .focus();
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "/dark-theme-checked-focused",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
 });

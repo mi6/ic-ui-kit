@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React, { useRef, useState } from "react";
 
 import { IcSelect } from "../components";
@@ -170,7 +173,7 @@ const LoadingWithError = () => {
       loading
       timeout="1000"
       onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      onIcRetryLoad={(event) => (selectEl.current.loading = true)}
+      onIcRetryLoad={() => (selectEl.current.loading = true)}
     />
   );
 };

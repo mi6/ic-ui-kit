@@ -1,93 +1,14 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import {
-  IcButton,
-  IcDataList,
-  IcDataRow,
-  IcStatusTag,
-  IcLink,
-  IcTextField,
-  IcTypography,
-} from "../components";
 import readme from "../../../web-components/src/components/ic-data-row/readme.md";
 import * as IcDataListStories from './ic-data-list.stories';
+import dataListReadme from "../../../web-components/src/components/ic-data-list/readme.md";
 
 <Meta of={IcDataListStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + dataListReadme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcDataListStories.Default} />
-</Canvas>
-
-### Slotted heading and label
-
-<Canvas>
-  <Story of={IcDataListStories.SlottedHeadingAndLabel} />
-</Canvas>
-
-### Long text values
-
-<Canvas>
-  <Story of={IcDataListStories.LongTextValues} />
-</Canvas>
-
-### Size small
-
-<Canvas>
-  <Story of={IcDataListStories.SizeSmall} />
-</Canvas>
-
-### Link
-
-<Canvas>
-  <Story of={IcDataListStories.Link} />
-</Canvas>
-
-### Icon button
-
-<Canvas>
-  <Story of={IcDataListStories.IconButton} />
-</Canvas>
-
-### Adornment
-
-<Canvas>
-  <Story of={IcDataListStories.Adornment} />
-</Canvas>
-
-### Status tag
-
-<Canvas>
-  <Story of={IcDataListStories.StatusTag} />
-</Canvas>
-
-### Editable example
-
-<Canvas>
-  <Story of={IcDataListStories.EditableExample} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  heading: "Details",
-  size: "medium",
-  label: "Name",
-  rowSize: "default",
-  value: "Michael Johnson",
-  endCompSlot: "end-component",
-  theme: "inherit",
-  rowTheme: "inherit",
-};
-
-<Canvas>
-  <Story of={IcDataListStories.Playground} />
-</Canvas>
+<Stories />

@@ -1,96 +1,10 @@
-import { Meta, Story, Canvas, Controls, Description } from "@storybook/blocks";
-import { html } from "lit-html";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "./readme.md";
+import radioOptionReadme from "../ic-radio-option/readme.md";
 import * as IcRadioGroupStories from "./ic-radio-group.stories";
 
 <Meta of={IcRadioGroupStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme + radioOptionReadme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Default} />
-</Canvas>
-
-### Horizontal
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Horizontal} />
-</Canvas>
-
-### Required
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Required} />
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Disabled} />
-</Canvas>
-
-### Conditional dynamic
-
-<Canvas>
-  <Story of={IcRadioGroupStories.ConditionalDynamic} />
-</Canvas>
-
-### Conditional static
-
-<Canvas>
-  <Story of={IcRadioGroupStories.ConditionalStatic} />
-</Canvas>
-
-### Helper text
-
-<Canvas>
-  <Story of={IcRadioGroupStories.HelperText} />
-</Canvas>
-
-### Small
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Small} />
-</Canvas>
-
-### Validation
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Validation} />
-</Canvas>
-
-### Form - This shows how the radio button works within a form and is where the value of the radio button selected will appear in the console.log
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Form} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  disabled: false,
-  helperText: "Some helper text",
-  hideLabel: false,
-  label: "This is a label",
-  name: "1",
-  orientation: "vertical",
-  required: false,
-  size: "medium",
-  validationStatus: "",
-  validationText: "",
-  additionalFieldDisplay: "static",
-  radioDisabled: false,
-  dynamicText: "This selection requires additional answers",
-  radioLabel: "Radio 1",
-  radioName: "radio1",
-  value: "valueName1",
-  selected: false,
-  additionalFieldSlot: true,
-  theme: "inherit",
-};
-
-<Canvas>
-  <Story of={IcRadioGroupStories.Playground} />
-</Canvas>
+<Stories />

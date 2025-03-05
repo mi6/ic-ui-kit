@@ -1,91 +1,13 @@
 import {
   Meta,
-  Story,
-  Canvas,
-  Controls,
-  Description,
+  Stories,
+  Markdown
 } from "@storybook/blocks";
-import { IcEmptyState, IcLink, IcButton } from "../components";
 import readme from "../../../web-components/src/components/ic-empty-state/readme.md";
 import * as IcEmptyStateStories from './ic-empty-state.stories';
 
 <Meta of={IcEmptyStateStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### With subheading and body text
-
-<Canvas>
-  <Story of={IcEmptyStateStories.WithSubheadingAndBodyText} />
-</Canvas>
-
-### With actions
-
-<Canvas>
-  <Story of={IcEmptyStateStories.WithActions} />
-</Canvas>
-
-### With image
-
-<Canvas>
-  <Story of={IcEmptyStateStories.WithImage} />
-</Canvas>
-
-### With small image
-
-<Canvas>
-  <Story of={IcEmptyStateStories.WithSmallImage} />
-</Canvas>
-
-### With large image
-
-<Canvas>
-  <Story of={IcEmptyStateStories.WithLargeImage} />
-</Canvas>
-
-### With icon
-
-<Canvas>
-  <Story of={IcEmptyStateStories.WithIcon} />
-</Canvas>
-
-### Centre aligned
-
-<Canvas>
-  <Story of={IcEmptyStateStories.CentreAligned} />
-</Canvas>
-
-### Right aligned
-
-<Canvas>
-  <Story of={IcEmptyStateStories.RightAligned} />
-</Canvas>
-
-### Max lines
-
-<Canvas>
-  <Story of={IcEmptyStateStories.MaxLines} />
-</Canvas>
-
-### Within div
-
-<Canvas>
-  <Story of={IcEmptyStateStories.WithinDiv} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  aligned: "left",
-  body: "This is the body text for the empty state.",
-  maxLines: 3,
-  heading: "This is the heading",
-  imageSize: "default",
-  subheading: "This is the subheading",
-  showImage: false,
-  showActions: false,
-};
-
-<Canvas>
-  <Story of={IcEmptyStateStories.Playground} />
-</Canvas>
+<Stories />

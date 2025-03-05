@@ -127,6 +127,10 @@ export class Breadcrumb {
     }
   }
 
+  private renderBackIcon = () => (
+    <div class="back-icon" innerHTML={backIcon}></div>
+  );
+
   private renderDefaultBreadcrumb = (
     current: boolean,
     pageTitle: string,
@@ -157,9 +161,7 @@ export class Breadcrumb {
         class="breadcrumb-link"
         aria-describedby={this.showBackIcon && describedById && describedById}
       >
-        {this.showBackIcon && (
-          <div class="back-icon" innerHTML={backIcon}></div>
-        )}
+        {this.showBackIcon && this.renderBackIcon()}
         {isSlotUsed(this.el, "icon") && <slot name="icon"></slot>}
         {pageTitle}
       </ic-link>
@@ -216,9 +218,12 @@ export class Breadcrumb {
               href
             )
           ) : (
-            <span class="link-wrapper">
-              <slot />
-            </span>
+            <div class="slotted-link-container">
+              {this.showBackIcon && this.renderBackIcon()}
+              <span class="link-wrapper">
+                <slot />
+              </span>
+            </div>
           )}
         </div>
       </Host>

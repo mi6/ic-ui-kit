@@ -1,4 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable sonarjs/no-duplicate-string */
+import React, { useState, useEffect, useRef } from "react";
 import { IcSearchBar, IcTypography } from "../components";
 
 const ExternalFiltering = () => {

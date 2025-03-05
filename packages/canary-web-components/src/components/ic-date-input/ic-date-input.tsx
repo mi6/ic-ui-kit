@@ -605,6 +605,12 @@ export class DateInput {
         this.preventAutoFormatting = true;
         this.handleUpDownArrowKeyPress(input, event);
         break;
+      case "backspace":
+        if (input.value.length === 0) {
+          event.preventDefault();
+          this.moveToPreviousInput(input);
+        }
+        break;
       default:
         break;
     }

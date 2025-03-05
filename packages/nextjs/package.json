@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.css"
   ],
-  "version": "3.0.0-alpha.7",
+  "version": "3.0.0-alpha.8",
   "description": "React-wrapped web components served on a nextjs storybook",
   "author": "mi6",
   "private": true,

@@ -1,3 +1,6 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
 import React, { useState } from "react";
 import {
   IcAlert,
@@ -15,7 +18,7 @@ import {
   IcTextField,
   IcTheme,
   IcTopNavigation,
-  IcTypography,
+  IcTypography
 } from "../components";
 
 const Controlled = () => {

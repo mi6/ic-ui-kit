@@ -1,5 +1,7 @@
-import React, { useRef, useState } from "react";
-import { IcButton, IcTextField } from "../components";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-no-bind */
+import React, { useState, useRef } from "react";
+import { IcTextField, IcButton } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 const SlottedIcon = () => (

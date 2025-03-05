@@ -1,6 +1,7 @@
-import React from "react";
-import { MemoryRouter, NavLink, Route, Routes } from "react-router-dom";
-import { IcLink, IcSectionContainer, IcTypography } from "../components";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import React from 'react';
+import { IcLink, IcTypography, IcSectionContainer } from "../components";
+import { NavLink, MemoryRouter, Route, Routes } from "react-router-dom";
 
 const HomePage = () => (
   <IcSectionContainer>

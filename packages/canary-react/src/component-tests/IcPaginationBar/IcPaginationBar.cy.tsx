@@ -12,7 +12,10 @@ import {
   HAVE_TEXT,
 } from "@ukic/react/src/component-tests/utils/constants";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
-import { PaginationBarItemsPerPage } from "./IcPaginationBarTestData";
+import {
+  PaginationBarItemsPerPage,
+  PaginationBarItemsPerPageWithButtons,
+} from "./IcPaginationBarTestData";
 
 const PAGINATION_BAR = "ic-pagination-bar";
 const PAGINATION = "ic-pagination";
@@ -571,6 +574,65 @@ describe("IcPaginationBar end-to-end tests", () => {
       PAGINATION_BAR,
       "ic-typography.item-pagination-label"
     ).should(HAVE_TEXT, "1 - 10 of 100 rows");
+  });
+
+  it("should stay set to All when manually setting the totalItems to 5 and then 30 after initially setting to All", () => {
+    mount(<PaginationBarItemsPerPageWithButtons />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find(".select-input")
+      .click();
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find("li[role='option']")
+      .last()
+      .click();
+
+    cy.get(".set-5").click();
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find(".select-input")
+      .should("contain.text", "All");
+
+    cy.get(".set-30").click();
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find(".select-input")
+      .should("contain.text", "All");
+  });
+
+  it("should set items per page to 20 when manually setting totalItems to 5 and then 30 after initially setting to 20", () => {
+    mount(<PaginationBarItemsPerPageWithButtons />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find(".select-input")
+      .click();
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find("li[role='option'][data-value='20']")
+      .click();
+
+    cy.get(".set-5").click();
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find(".select-input")
+      .should("contain.text", "All");
+
+    cy.get(".set-30").click();
+
+    cy.findShadowEl(PAGINATION_BAR, "ic-select")
+      .shadow()
+      .find(".select-input")
+      .should("contain.text", "20");
   });
 });
 

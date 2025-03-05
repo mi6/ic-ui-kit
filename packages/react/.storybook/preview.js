@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import "@ukic/fonts/dist/fonts.css";
 import "ag-grid-community/styles/ag-grid.css";
@@ -7,40 +7,46 @@ import "../dist/core/core.css";
 import "../dist/core/normalize.css";
 import "./storybook-overrides.css";
 
-import { withPerformance } from 'storybook-addon-performance';
+import { withPerformance } from "storybook-addon-performance";
 import { IcTheme } from "../src/components";
 
 const preview = {
   parameters: {
     controls: {
-        matchers: {
+      matchers: {
         color: /(background|color)$/i,
         date: /Date$/,
       },
-      hideNoControlsWarning: true
+      hideNoControlsWarning: true,
     },
   },
 
   globalTypes: {
     theme: {
-      description: 'Global theme for components',
+      description: "Global theme for components",
       toolbar: {
-        title: 'Theme',
-        icon: 'paintbrush',
-        items: [{value: 'light', title: 'Light mode', left: '☀️'}, {value:'dark', title: 'Dark mode', left: '🌙'}],
+        title: "Theme",
+        icon: "paintbrush",
+        items: [
+          { value: "light", title: "Light mode", left: "☀️" },
+          { value: "dark", title: "Dark mode", left: "🌙" },
+        ],
         dynamicTitle: true,
       },
     },
   },
 
   initialGlobals: {
-    theme: 'light',
+    theme: "light",
   },
 
   decorators: [
     (story, context) => {
       const selectedTheme = context.globals.theme || "light";
-      const backgroundColor = selectedTheme === 'dark' ? 'var(--ic-color-background-primary-dark)' : 'var(--ic-color-background-primary-light)';
+      const backgroundColor =
+        selectedTheme === "dark"
+          ? "var(--ic-color-background-primary-dark)"
+          : "var(--ic-color-background-primary-light)";
       return (
         <>
           <style>
@@ -50,18 +56,12 @@ const preview = {
               }
             `}
           </style>
-          <IcTheme 
-            theme={selectedTheme}
-          >
-            {story()}
-          </IcTheme>
+          <IcTheme theme={selectedTheme}>{story()}</IcTheme>
         </>
       );
     },
-    withPerformance
+    withPerformance,
   ],
-
-  tags: ['autodocs']
 };
 
 export default preview;

@@ -1,12 +1,17 @@
 module.exports = {
   core: {
-    disableTelemetry: true
+    disableTelemetry: true,
   },
   stories: [
     {
-      directory: '../src/stories',
-      files: '*.stories.*',
-      titlePrefix: 'React Components',
+      directory: "../src/stories",
+      files: "*.mdx",
+      titlePrefix: "React Components",
+    },
+    {
+      directory: "../src/stories",
+      files: "*.stories.*",
+      titlePrefix: "React Components",
     },
   ],
   addons: [
@@ -17,40 +22,40 @@ module.exports = {
     "@storybook/addon-mdx-gfm",
     "storybook-addon-performance",
     "@storybook/addon-webpack5-compiler-babel",
-    "@storybook/addon-docs"
+    "@storybook/addon-docs",
   ],
   framework: {
     name: "@storybook/react-webpack5",
-    options: {}
+    options: {},
   },
-  docs: {
-    autodocs: true,
-  },
+  docs: {},
   typescript: {
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
       propFilter: (prop) => {
         if (prop.parent) {
-          return !prop.parent.fileName.includes('node_modules');
+          return !prop.parent.fileName.includes("node_modules");
         }
         return true;
-      }
-    }
+      },
+    },
   },
   webpackFinal: async (config) => {
-    config.module.rules.push(
-      {
-        test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
-          }
-        }
+    config.module.rules.push({
+      test: /\.(js|jsx|ts|tsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: [
+            "@babel/preset-env",
+            "@babel/preset-react",
+            "@babel/preset-typescript",
+          ],
+        },
       },
-    );
+    });
     return config;
-  }
+  },
 };

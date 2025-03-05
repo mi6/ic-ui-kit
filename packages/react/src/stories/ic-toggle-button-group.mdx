@@ -1,76 +1,9 @@
-import { Meta, Story, Canvas, Description } from "@storybook/blocks";
-import { IcToggleButton, IcToggleButtonGroup, IcTypography } from "../components";
+import { Meta, Stories, Markdown } from "@storybook/blocks";
 import readme from "../../../web-components/src/components/ic-toggle-button/readme.md";
-import { SlottedSVG } from "../react-component-lib/slottedSVG";
 import * as IcToggleButtonGroupStories from './ic-toggle-button-group.stories';
 
 <Meta of={IcToggleButtonGroupStories} />
 
-<Description markdown={readme} />
+<Markdown>{readme}</Markdown>
 
-### Default
-
-<Canvas>
-  <Story of={IcToggleButtonGroupStories.Default} />
-</Canvas>
-
-### Sizes
-
-<Canvas>
-  <Story of={IcToggleButtonGroupStories.Sizes} />
-</Canvas>
-
-### Monochrome
-
-<Canvas>
-  <Story of={IcToggleButtonGroupStories.Monochrome} />
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story of={IcToggleButtonGroupStories.Disabled} />
-</Canvas>
-
-### Loading
-
-<Canvas>
-  <Story of={IcToggleButtonGroupStories.Loading} />
-</Canvas>
-
-### With icons
-
-<Canvas>
-  <Story of={IcToggleButtonGroupStories.WithIcons} />
-</Canvas>
-
-### Playground
-
-export const defaultArgs = {
-  accessibleLabel: "",
-  disabled: false,
-  fullWidth: false,
-  iconPlacement: "left",
-  loading: false,
-  monochrome: false,
-  selectMethod: "manual",
-  selectType: "single",
-  size: "medium",
-  theme: "inherit",
-  variant: "default",
-  toggleAccessibleLabel: "",
-  toggleDisabled: false,
-  toggleFullWidth: false,
-  toggleIconPlacement: "left",
-  toggleLabel: "Custom Toggle",
-  toggleLoading: false,
-  toggleMonochrome: false,
-  toggleSize: "medium",
-  toggleTheme: "inherit",
-  toggleChecked: false,
-  toggleVariant: "default",
-};
-
-<Canvas>
-  <Story of={IcToggleButtonGroupStories.Playground} />
-</Canvas>
+<Stories />
