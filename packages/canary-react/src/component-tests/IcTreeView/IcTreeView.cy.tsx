@@ -424,6 +424,38 @@ describe("IcTreeView", () => {
       .eq(0)
       .should(HAVE_CSS, "background-color", "rgba(65, 70, 77, 0.1)");
   });
+
+  it("should render slotted router items and truncate them correctly", () => {
+    mount(
+      <div
+        style={{
+          width: "200px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView heading="Menu" truncateTreeItems>
+          <IcTreeItem>
+            <a slot="router-item" href="/">
+              Hot chocolate with marshmallows and whipped cream
+            </a>
+          </IcTreeItem>
+          <IcTreeItem>
+            <a slot="router-item" href="/">
+              Tea
+            </a>
+          </IcTreeItem>
+          <IcTreeItem label="Hot chocolate with marshmallows" />
+        </IcTreeView>
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.compareSnapshot({
+      name: "router-item",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+    });
+  });
 });
 
 describe("IcTreeView visual regression tests in high contrast mode", () => {
