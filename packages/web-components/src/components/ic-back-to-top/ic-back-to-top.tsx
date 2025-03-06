@@ -5,7 +5,10 @@ import {
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
 import { IcThemeMode } from "../../utils/types";
-import { IcBackToTopVariants } from "./ic-back-to-top.types";
+import {
+  IcBackToTopVariants,
+  IcBackToTopPositions,
+} from "./ic-back-to-top.types";
 
 const backToTopLabel = "Back to top";
 
@@ -26,6 +29,11 @@ export class BackToTop {
   @State() bannerOffset: boolean = false;
   @State() footerVisible: boolean = false;
   @State() targetElVisible: boolean = true;
+
+  /**
+   * The horizontal position of the element.
+   */
+  @Prop() position?: IcBackToTopPositions = "right";
 
   /**
    * The ID of the element to jump back to when the link is clicked.
@@ -186,6 +194,7 @@ export class BackToTop {
       <Host
         class={{
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+          [`ic-back-to-top-${this.position}`]: true,
         }}
       >
         <ic-button
