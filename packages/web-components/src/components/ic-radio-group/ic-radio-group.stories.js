@@ -368,6 +368,37 @@ export const Form = {
   name: "Form",
 };
 
+export const RTL = {
+  render: (args) => html`
+    <ic-radio-group label="This is a label" name="group1" dir="rtl">
+      <ic-radio-option value="valueName1" label="Default"></ic-radio-option>
+      <ic-radio-option
+        value="valueName2"
+        label="Selected"
+        selected
+      ></ic-radio-option>
+      <ic-radio-option
+        value="valueName3"
+        label="Disabled"
+        disabled
+      ></ic-radio-option>
+      <ic-radio-option
+        additional-field-display="dynamic"
+        value="valueName4"
+        label="Conditional dynamic"
+      >
+        <ic-text-field
+          slot="additional-field"
+          placeholder="Placeholder"
+          label="What's your favourite type of coffee?"
+        ></ic-text-field>
+      </ic-radio-option>
+    </ic-radio-group>
+  `,
+
+  name: "RTL",
+};
+
 const inlineRadioSelector = "inline-radio";
 
 export const Playground = {
