@@ -55,14 +55,14 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- ic-tooltip
 - ic-typography
+- ic-tooltip
 
 ### Graph
 ```mermaid
 graph TD;
-  ic-tree-item --> ic-tooltip
   ic-tree-item --> ic-typography
+  ic-tree-item --> ic-tooltip
   ic-tooltip --> ic-typography
   style ic-tree-item fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -85,7 +85,7 @@ export class TreeView {
    */
   @Prop() truncateTreeItems?: boolean = false;
   @Watch("truncateTreeItems")
-  watchTruncateTreeItemsHandler() {
+  watchTruncateTreeItemsHandler(): void {
     this.treeItems.forEach((treeItem) => {
       if (treeItem.truncateTreeItem === undefined) {
         treeItem.truncateTreeItem = this.truncateTreeItems;
