@@ -53,6 +53,19 @@ export const WithoutStepTitles = {
   name: "Without step titles",
 };
 
+export const WithErrorAndWarning = {
+  render: () =>
+    html`<ic-stepper>
+      <ic-step step-type="error"></ic-step>
+      <ic-step step-type="warning"></ic-step>
+      <ic-step step-type="completed"></ic-step>
+      <ic-step step-type="current"></ic-step>
+      <ic-step></ic-step>
+    </ic-stepper>`,
+  name: "With error and warning stepper",
+};
+
+
 export const CustomStepper = {
   render: () =>
     html`<ic-stepper>

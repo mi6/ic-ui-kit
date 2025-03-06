@@ -1,6 +1,8 @@
 import { Component, Host, h, Prop, Element, Watch } from "@stencil/core";
 import checkIcon from "../../assets/check-icon.svg";
 import warningIcon from "../../assets/warning-icon-outline.svg";
+import errorIcon from "../../assets/error-icon.svg";
+
 import { IcStepVariants, IcStepStatuses, IcStepTypes } from "./ic-step.types";
 import { isPropDefined } from "../../utils/helpers";
 
@@ -93,8 +95,13 @@ export class Step {
       ariaLabel = ". Required step";
     } else if (this.stepStatus === "optional") {
       ariaLabel = ". Optional step";
+    } else if (this.stepStatus === "warning") {
+      ariaLabel = ". Warning step"
+    } else if(this.stepStatus === "error") {
+      ariaLabel = ". Error step"
     }
 
+    
     // STEP STATUS
     let stepStatus;
     if (isPropDefined(this.stepStatus)) {
@@ -114,7 +121,16 @@ export class Step {
 
     // STATUS ICON FOR COMPACT STEP
     let statusIcon;
-    if (
+    if(this.stepType === "error") {
+      statusIcon = (
+        <span
+          class="error-icon step-icon"
+          aria-hidden="true"
+          innerHTML={errorIcon}
+        ></span>
+      );
+    }
+    else if (
       this.stepType === "completed" ||
       this.compactStepStyling === "completed"
     ) {
@@ -127,6 +143,7 @@ export class Step {
       );
     } else if (
       this.stepType === "disabled" ||
+      this.stepType === "warning" ||
       this.compactStepStyling === "disabled"
     ) {
       statusIcon = (
@@ -137,7 +154,6 @@ export class Step {
         ></span>
       );
     }
-
     // COMPACT STEP COMPONENT
     const compactStep = (
       <div
@@ -214,7 +230,22 @@ export class Step {
 
     // ICON FOR DEFAULT STEP
     let icon;
-    if (this.stepType !== "completed") {
+
+    if(this.stepType === "error") {
+      icon = (
+        <div class="step-icon-inner" aria-hidden="true">
+          <span class="error-icon" innerHTML={'x'}></span>
+        </div>
+      );
+    }
+    else if(this.stepType === "warning") {
+      icon = (
+        <div class="step-icon-inner" aria-hidden="true">
+          <span class="warning-icon" innerHTML={warningIcon}></span>
+        </div>
+      );
+    }
+    else if (this.stepType !== "completed") {
       icon = (
         <ic-typography variant="subtitle-small">
           <span class="step-icon-inner" aria-hidden="true">
@@ -222,7 +253,8 @@ export class Step {
           </span>
         </ic-typography>
       );
-    } else {
+    } 
+    else {
       icon = (
         <div class="step-icon-inner" aria-hidden="true">
           <span class="check-icon" innerHTML={checkIcon}></span>
@@ -278,7 +310,7 @@ export class Step {
         )}
       </div>
     );
-
+    
     return (
       <Host
         role="listitem"
