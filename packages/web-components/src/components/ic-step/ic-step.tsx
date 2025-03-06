@@ -234,7 +234,7 @@ export class Step {
     if(this.stepType === "error") {
       icon = (
         <div class="step-icon-inner" aria-hidden="true">
-          <span class="error-icon" innerHTML={errorIcon}></span>
+          <span class="error-icon" innerHTML={'x'}></span>
         </div>
       );
     }
