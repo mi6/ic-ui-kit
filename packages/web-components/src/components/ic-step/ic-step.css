@@ -91,11 +91,11 @@
 }
 
 .compact-step-error .step-status {
-  color: red;
+  color: #f66d63;
 }
 
 .compact-step-warning .step-status {
-  color: orange;
+  color: #ffd12e;
 }
 
 
@@ -268,11 +268,11 @@
 }
 
 .error .step-icon-inner {
-  background: red;
+  background: #f66d63;
 }
 
 .warning .step-icon-inner {
-  background: orange;
+  background: #ffd12e;
 }
 
 
@@ -326,11 +326,11 @@
 }
 
 .error .step-connect {
-  background-color: red;
+  background-color: #f66d63;
 }
 
 .warning .step-connect {
-  background-color: orange;
+  background-color: #ffd12e;
 }
 
 :host(.light) .completed .step-connect {
