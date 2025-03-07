@@ -400,3 +400,35 @@ export const MinMaxTabs = (): ReactElement => {
     </div>
   );
 };
+
+export const DelayedTabs = (): ReactElement => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setData([
+        { label: "Ingredients" },
+        { label: "Method" },
+        { label: "History" },
+      ]);
+    }, 1000);
+  }, []);
+
+  return (
+    <IcTabContext>
+      <IcTabGroup label="Example tab group">
+        {data.map((item, i) => (
+          <IcTab key={`${item.label}-${i}`}>{item.label}</IcTab>
+        ))}
+      </IcTabGroup>
+      <span></span>
+      {data.map((item, i) => (
+        <IcTabPanel key={`${item.label}-${i}`}>
+          <p>
+            Tab {i} - {item.label}
+          </p>
+        </IcTabPanel>
+      ))}
+    </IcTabContext>
+  );
+};
