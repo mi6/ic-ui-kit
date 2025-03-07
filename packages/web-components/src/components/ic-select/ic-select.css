@@ -126,7 +126,7 @@ select:not([disabled]) {
 }
 
 .select-input:focus {
-  outline: var(--ic-hc-focus-outline);
+  outline: none;
 }
 
 .select-input[disabled] {
