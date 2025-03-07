@@ -3,7 +3,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import { Breadcrumb } from "../../../ic-breadcrumb/ic-breadcrumb";
 import { DEVICE_SIZES } from "../../../../utils/helpers";
 import * as helpers from "../../../../utils/helpers";
-import { waitForTimeout } from "../../../../testspec.setup";
+import { waitForTimeout, resizeTo } from "../../../../testspec.setup";
 
 describe("ic-breadcrumb-group", () => {
   it("should render", async () => {
@@ -85,6 +85,24 @@ describe("ic-breadcrumb-group", () => {
     });
 
     expect(page.root).toMatchSnapshot("should render with collapse button");
+  });
+
+  it("should only render one collapse button when window is resized", async () => {
+    const page = await newSpecPage({
+      components: [BreadcrumbGroup, Breadcrumb],
+      html: `
+        <ic-breadcrumb-group collapsed="true">
+          <ic-breadcrumb page-title="Breadcrumb 1" href="/breadcrumb-1"></ic-breadcrumb>
+          <ic-breadcrumb page-title="Breadcrumb 2" href="/breadcrumb-2"></ic-breadcrumb>
+          <ic-breadcrumb current="true" page-title="Breadcrumb 3" href="/breadcrumb-3"></ic-breadcrumb>
+        </ic-breadcrumb-group>`,
+    });
+    resizeTo(window, 1920, 1080);
+
+    page.rootInstance.resizeObserverCallback();
+
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should set hasShadowDom", async () => {

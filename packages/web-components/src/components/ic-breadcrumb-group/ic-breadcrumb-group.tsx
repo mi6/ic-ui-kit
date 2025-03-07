@@ -206,40 +206,40 @@ export class BreadcrumbGroup {
   };
 
   private renderCollapsedBreadcrumb = () => {
-    this.collapsedBreadcrumbWrapper = document.createElement("ic-breadcrumb");
-    this.collapsedBreadcrumbWrapper.classList.add(
-      "collapsed-breadcrumb-wrapper"
-    );
-    this.collapsedBreadcrumbEl = document.createElement("button");
+    if (this.collapsedBreadcrumbEl === undefined) {
+      this.collapsedBreadcrumbWrapper = document.createElement("ic-breadcrumb");
+      this.collapsedBreadcrumbWrapper.classList.add(
+        "collapsed-breadcrumb-wrapper"
+      );
+      this.collapsedBreadcrumbEl = document.createElement("button");
 
-    const ariaLabel = document.createElement("span");
-    ariaLabel.id = "collapsed-button-label";
-    ariaLabel.innerText = "Collapsed breadcrumbs";
-    ariaLabel.className = "hide";
-    this.collapsedBreadcrumbEl.setAttribute(
-      "aria-labelledby",
-      "collapsed-button-label"
-    );
+      const ariaLabel = document.createElement("span");
+      ariaLabel.id = "collapsed-button-label";
+      ariaLabel.innerText = "Collapsed breadcrumbs";
+      ariaLabel.className = "hide";
+      this.collapsedBreadcrumbEl.setAttribute(
+        "aria-labelledby",
+        "collapsed-button-label"
+      );
 
-    const ariaDescribed = document.createElement("span");
-    ariaDescribed.id = "collapsed-button-described";
-    ariaDescribed.innerText = "Select to view collapsed breadcrumbs";
-    ariaDescribed.className = "hide";
-    this.collapsedBreadcrumbEl.setAttribute(
-      "aria-describedby",
-      "collapsed-button-described"
-    );
+      const ariaDescribed = document.createElement("span");
+      ariaDescribed.id = "collapsed-button-described";
+      ariaDescribed.innerText = "Select to view collapsed breadcrumbs";
+      ariaDescribed.className = "hide";
+      this.collapsedBreadcrumbEl.setAttribute(
+        "aria-describedby",
+        "collapsed-button-described"
+      );
 
-    this.collapsedBreadcrumbEl.id = "collapsed-ellipsis";
-    this.collapsedBreadcrumbEl.innerText = "...";
-    this.collapsedBreadcrumbEl.classList.add("collapsed-breadcrumb");
-    this.collapsedBreadcrumbEl.addEventListener("click", this.clickHandler);
+      this.collapsedBreadcrumbEl.id = "collapsed-ellipsis";
+      this.collapsedBreadcrumbEl.innerText = "...";
+      this.collapsedBreadcrumbEl.classList.add("collapsed-breadcrumb");
+      this.collapsedBreadcrumbEl.addEventListener("click", this.clickHandler);
 
-    this.collapsedBreadcrumbWrapper.append(ariaDescribed);
-    this.collapsedBreadcrumbWrapper.append(ariaLabel);
-    this.collapsedBreadcrumbWrapper.append(this.collapsedBreadcrumbEl);
-
-    return this.collapsedBreadcrumbWrapper;
+      this.collapsedBreadcrumbWrapper.append(ariaDescribed);
+      this.collapsedBreadcrumbWrapper.append(ariaLabel);
+      this.collapsedBreadcrumbWrapper.append(this.collapsedBreadcrumbEl);
+    }
   };
 
   private handleHiddenCollapsedBreadcrumbs = () => {

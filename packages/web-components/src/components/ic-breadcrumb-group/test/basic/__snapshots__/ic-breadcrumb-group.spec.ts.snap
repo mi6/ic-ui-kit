@@ -48,6 +48,77 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
 </ic-breadcrumb-group>
 `;
 
+exports[`ic-breadcrumb-group should only render one collapse button when window is resized 1`] = `
+<ic-breadcrumb-group back-breadcrumb-only="false" class="ic-breadcrumb-group-collapsed" collapsed="true">
+  <mock:shadow-root>
+    <nav aria-label="breadcrumbs">
+      <ol>
+        <slot></slot>
+      </ol>
+    </nav>
+  </mock:shadow-root>
+  <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+    <mock:shadow-root>
+      <div class="breadcrumb">
+        <span aria-hidden="true" class="chevron">
+          svg
+        </span>
+        <ic-link class="breadcrumb-link" href="/breadcrumb-1" theme="inherit">
+          Breadcrumb 1
+        </ic-link>
+      </div>
+    </mock:shadow-root>
+  </ic-breadcrumb>
+  <ic-breadcrumb class="collapsed-breadcrumb-wrapper" role="listitem">
+    <mock:shadow-root>
+      <div class="breadcrumb">
+        <span aria-hidden="true" class="chevron">
+          svg
+        </span>
+        <div class="slotted-link-container">
+          <span class="link-wrapper" tabindex="0">
+            <slot></slot>
+          </span>
+        </div>
+      </div>
+    </mock:shadow-root>
+    <span class="hide" id="collapsed-button-described">
+      Select to view collapsed breadcrumbs
+    </span>
+    <span class="hide" id="collapsed-button-label">
+      Collapsed breadcrumbs
+    </span>
+    <button aria-describedby="collapsed-button-described" aria-labelledby="collapsed-button-label" class="collapsed-breadcrumb" id="collapsed-ellipsis">
+      ...
+    </button>
+  </ic-breadcrumb>
+  <ic-breadcrumb class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem" show-back-icon="false">
+    <mock:shadow-root>
+      <div class="breadcrumb">
+        <span aria-hidden="true" class="chevron">
+          svg
+        </span>
+        <ic-link class="breadcrumb-link" href="/breadcrumb-2" theme="inherit">
+          Breadcrumb 2
+        </ic-link>
+      </div>
+    </mock:shadow-root>
+  </ic-breadcrumb>
+  <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
+    <mock:shadow-root>
+      <div class="breadcrumb">
+        <span aria-hidden="true" class="chevron">
+          svg
+        </span>
+        <span class="current-page-container">
+          Breadcrumb 3
+        </span>
+      </div>
+    </mock:shadow-root>
+  </ic-breadcrumb>
+</ic-breadcrumb-group>
+`;
+
 exports[`ic-breadcrumb-group should render collapse on already small devices: should render collapse on already small devices 1`] = `
 <ic-breadcrumb-group class="ic-breadcrumb-group-collapsed" collapsed="true">
   <mock:shadow-root>
