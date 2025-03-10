@@ -445,12 +445,16 @@ An example with a tree item that is replaced by a router item.
   <Story name="Router item">
     {html`
       <div style="width:250px">
-        <ic-tree-view heading="Menu">
+        <ic-tree-view heading="Menu" truncate-tree-items="true">
           <ic-tree-item>
-            <a slot="router-item" href="/">Slotted coffee</a>
+            <a slot="router-item" href="/"
+              >Hot chocolate with marshmallows and whipped cream</a
+            >
           </ic-tree-item>
-          <ic-tree-item label="Tea"></ic-tree-item>
-          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+          <ic-tree-item>
+            <a slot="router-item" href="/tea">Tea</a>
+          </ic-tree-item>
+          <ic-tree-item label="Coffee"></ic-tree-item>
         </ic-tree-view>
       </div>
     `}
@@ -460,12 +464,16 @@ An example with a tree item that is replaced by a router item.
 #### Router item code example
 
 ```html
-<ic-tree-view heading="Menu">
+<ic-tree-view heading="Menu" truncate-tree-items="true">
   <ic-tree-item>
-    <a slot="router-item" href="/">Slotted coffee</a>
+    <a slot="router-item" href="/"
+      >Hot chocolate with marshmallows and whipped cream</a
+    >
   </ic-tree-item>
-  <ic-tree-item label="Tea"></ic-tree-item>
-  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+  <ic-tree-item>
+    <a slot="router-item" href="/tea">Tea</a>
+  </ic-tree-item>
+  <ic-tree-item label="Coffee"></ic-tree-item>
 </ic-tree-view>
 ```
 
