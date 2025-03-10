@@ -1,7 +1,7 @@
 {
   "total": 757,
-  "totalPassed": 756,
-  "totalFailed": 1,
+  "totalPassed": 757,
+  "totalFailed": 0,
   "totalSuites": 42,
   "suites": [
     {
@@ -6106,14 +6106,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx/searchable-dark-theme.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSelectSearchable.cy.tsx/clear-icon-focused-theme-dark",
-          "percentage": 0.0428018691180654,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectSearchable.cy.tsx/clear-icon-focused-theme-dark.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSelectSearchable.cy.tsx/clear-icon-focused-theme-dark.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx/clear-icon-focused-theme-dark.png"
         },
         {
@@ -8584,9 +8584,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-10T11:08:11.974Z",
-  "endedAt": "2025-03-10T11:23:47.045Z",
-  "duration": 840812,
+  "startedAt": "2025-03-10T14:01:17.227Z",
+  "endedAt": "2025-03-10T14:16:47.022Z",
+  "duration": 835753,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
