@@ -855,6 +855,23 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.get(OPTION_SELECT_STUB).should(HAVE_BEEN_CALLED_ONCE);
   });
 
+  it("should not accept values that aren't included in the list of options", () => {
+    mount(
+      <IcSelect
+        label="What is your favourite coffee?"
+        options={coffeeOptions}
+        value="A random value"
+      />
+    );
+    cy.checkHydrated(IC_SELECT);
+
+    cy.findShadowEl(IC_SELECT, IC_TYPOGRAPHY).should(
+      CONTAIN_TEXT,
+      "Select an option"
+    );
+    cy.get("input").should(HAVE_VALUE, "");
+  });
+
   it("should apply focus on menu and display expanded icon when opened, and set option as value when clicked", () => {
     mount(
       <IcSelect
