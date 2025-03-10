@@ -8,7 +8,6 @@ import {
   h,
 } from "@stencil/core";
 import { IcThemeMode } from "../../utils/types";
-import { isPropDefined } from "../../utils/helpers";
 
 @Component({
   tag: "ic-tab-panel",
@@ -18,7 +17,14 @@ import { isPropDefined } from "../../utils/helpers";
 export class TabPanel {
   @Element() el: HTMLIcTabPanelElement;
 
-  /** @internal Determines whether black variant of the tabs should be displayed. */
+  /**
+   * @internal If `true`, the tab panel will be displayed.
+   */
+  @Prop() active: boolean = false;
+
+  /**
+   * @internal Determines whether black variant of the tabs should be displayed.
+   */
   @Prop() monochrome?: boolean = false;
 
   /**
@@ -54,18 +60,15 @@ export class TabPanel {
   }
 
   render() {
-    const { panelId, selectedTab, theme } = this;
+    const { active, theme } = this;
     return (
       <Host
         class={{
           [`ic-theme-${theme}`]: theme !== "inherit",
+          "ic-tab-panel-hidden": !active,
         }}
         role="tabpanel"
-        hidden={
-          isPropDefined(panelId) && isPropDefined(selectedTab)
-            ? !(panelId === selectedTab)
-            : true
-        }
+        aria-hidden={`${!active}`}
       >
         <div>
           <slot></slot>
