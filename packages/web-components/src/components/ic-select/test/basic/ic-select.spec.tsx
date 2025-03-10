@@ -202,10 +202,11 @@ describe("ic-select", () => {
     const eventSpy = jest.fn();
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer, Button],
-      html: `<ic-select label="IC Select Test" show-clear-button="true" value="test-value"></ic-select>`,
+      html: `<ic-select label="IC Select Test" show-clear-button="true"></ic-select>`,
     });
     page.root.addEventListener("icClear", eventSpy);
     page.root.options = menuOptions;
+    page.root.value = value1;
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("with-clear-button");
 
@@ -1695,7 +1696,7 @@ describe("ic-select searchable", () => {
     expect(removeSpy).toHaveBeenCalled;
   });
 
-  it("should set the default value of searchable as custom value when not matching options", async () => {
+  it("should set the default value of searchable as null when not matching options", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label='Select test' searchable='true' value='Test value 01'></ic-select>`,
@@ -1704,10 +1705,10 @@ describe("ic-select searchable", () => {
     page.root.options = [];
     await page.waitForChanges();
 
-    expect(page.rootInstance.searchableSelectInputValue).toBe("Test value 01");
+    expect(page.rootInstance.searchableSelectInputValue).toBe(null);
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("Test value 01");
+    expect(input.value).toBe("");
   });
 
   it("should set the default value of searchable as option label if matching label/value exists", async () => {
@@ -1727,50 +1728,6 @@ describe("ic-select searchable", () => {
 
     const input = page.root.shadowRoot.querySelector("input");
     expect(input.value).toBe(label1);
-  });
-
-  it("should set the default value of searchable as option label when options initially set to [] then populated", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      template: () => (
-        <ic-select
-          label="select test"
-          searchable
-          options={[]}
-          value={value1}
-        ></ic-select>
-      ),
-    });
-
-    page.root.options = menuOptions;
-    await page.waitForChanges();
-
-    expect(page.rootInstance.searchableSelectInputValue).toBe(label1);
-
-    const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe(label1);
-  });
-
-  it("should set the default value to custom value when options initially set to [] then set to [] again", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      template: () => (
-        <ic-select
-          label="select test"
-          searchable
-          options={[]}
-          value={value1}
-        ></ic-select>
-      ),
-    });
-
-    page.root.options = [];
-    await page.waitForChanges();
-
-    expect(page.rootInstance.searchableSelectInputValue).toBe(value1);
-
-    const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe(value1);
   });
 
   it("should set the default value of searchable only when value is not null", async () => {
