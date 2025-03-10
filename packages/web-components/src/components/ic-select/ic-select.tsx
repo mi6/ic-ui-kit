@@ -292,24 +292,28 @@ export class Select {
   @Prop({ mutable: true }) value?: string | string[];
   @State() initialValue = this.value;
   @State() inputValueToFilter = this.value as string;
-  @State() currValue = this.value;
+  @State() currValue?: string | string[];
 
   @Watch("value")
   valueChangedHandler(): void {
     if (this.value !== this.currValue) {
       if (this.value && this.multiple) {
-        this.currValue = this.getValueSortedByOptions(this.value as string[]);
+        this.currValue = this.getMultipleOptionsString(this.value as string[])
+          ? this.getValueSortedByOptions(this.value as string[])
+          : null;
         this.updateMultiSelectedCountAriaLive();
       } else {
-        this.currValue = this.value;
+        this.currValue = this.getLabelFromValue(this.value as string)
+          ? this.value
+          : null;
       }
     }
 
     if (this.searchable && this.value) {
       // Only set if value not null - prevents whole input value being cleared when edited
-      this.searchableSelectInputValue =
-        this.getLabelFromValue(String(this.currValue)) ||
-        (this.currValue as string);
+      this.searchableSelectInputValue = this.getLabelFromValue(
+        String(this.currValue)
+      );
     }
   }
 
@@ -375,6 +379,10 @@ export class Select {
   }
 
   componentWillLoad(): void {
+    const valueInOptions = this.multiple
+      ? this.getMultipleOptionsString(this.value as string[])
+      : this.getLabelFromValue(this.value as string);
+    this.currValue = valueInOptions ? this.value : null;
     this.inheritedAttributes = inheritAttributes(this.el, MUTABLE_ATTRIBUTES);
 
     removeDisabledFalse(this.disabled, this.el);
@@ -575,9 +583,9 @@ export class Select {
   };
 
   private getMultipleOptionsString = (selectedValues: string[]) => {
-    const selectedLabels = selectedValues?.map((value) =>
-      this.getLabelFromValue(value)
-    );
+    const selectedLabels = selectedValues
+      ?.map((value) => this.getLabelFromValue(value))
+      .filter((label) => !!label);
     return selectedLabels?.join(", ");
   };
 
@@ -1048,7 +1056,7 @@ export class Select {
   };
 
   private getDefaultValue = (value: string): string | null =>
-    this.getLabelFromValue(value) || value || null;
+    this.getLabelFromValue(value) || null;
 
   private setDefaultValue = (): void => {
     if (!this.hasSetDefaultValue && this.currValue) {
@@ -1183,6 +1191,10 @@ export class Select {
       currValue?.length
     } of ${getOptionsWithoutGroupTitlesCount(this.options)} selected`;
 
+    const valueLabelString = multiple
+      ? this.getMultipleOptionsString(currValue as string[])
+      : this.getLabelFromValue(currValue as string);
+
     return (
       <Host
         class={{
@@ -1227,11 +1239,7 @@ export class Select {
             )}
             {readonly ? (
               <ic-typography>
-                <p>
-                  {multiple
-                    ? this.getMultipleOptionsString(currValue as string[])
-                    : this.getLabelFromValue(currValue as string)}
-                </p>
+                <p>{valueLabelString}</p>
               </ic-typography>
             ) : isMobileOrTablet() && !multiple ? (
               <select
@@ -1357,11 +1365,8 @@ export class Select {
                   id={this.inputId}
                   aria-label={`${label}, ${
                     (multiple && currValue
-                      ? `${optionsSelectedCount}, ${this.getMultipleOptionsString(
-                          currValue as string[]
-                        )}`
-                      : this.getLabelFromValue(currValue as string)) ||
-                    placeholder
+                      ? `${optionsSelectedCount}, ${valueLabelString}`
+                      : valueLabelString) || placeholder
                   }${required ? ", required" : ""}`}
                   aria-describedby={describedBy}
                   aria-invalid={invalid}
@@ -1381,14 +1386,12 @@ export class Select {
                     class={{
                       "value-text": true,
                       "with-clear-button": currValue && showClearButton,
-                      placeholder:
-                        !this.value || (multiple && this.value.length < 1),
+                      placeholder: multiple
+                        ? !this.value || this.value.length < 1
+                        : !this.getLabelFromValue(currValue as string),
                     }}
                   >
-                    {(multiple
-                      ? this.getMultipleOptionsString(currValue as string[])
-                      : this.getLabelFromValue(currValue as string)) ||
-                      placeholder}
+                    {valueLabelString || placeholder}
                   </ic-typography>
                   <div class="select-input-end">
                     {currValue && showClearButton && (
