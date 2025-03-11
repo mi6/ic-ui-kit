@@ -39,6 +39,7 @@ export class TreeItem {
   private routerSlot: HTMLElement;
   private hostMutationObserver: MutationObserver = null;
   private TOOLTIP = "ic-tooltip";
+  private TREE_ITEM_LABEL_CLASS_SELECTOR = ".tree-item-label";
 
   @Element() el: HTMLIcTreeItemElement;
 
@@ -323,24 +324,50 @@ export class TreeItem {
   };
 
   private truncateTreeItemLabel = (treeItem: HTMLIcTreeItemElement) => {
-    const typographyEl: HTMLIcTypographyElement =
-      treeItem.shadowRoot.querySelector(".tree-item-label");
-    const tooltip = typographyEl?.closest(this.TOOLTIP);
-    const treeContent: HTMLElement =
-      treeItem.shadowRoot.querySelector(".tree-item-content");
+    let typographyEl: HTMLIcTypographyElement =
+      treeItem.shadowRoot.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR);
+    const slottedContent = treeItem.querySelector("[slot='router-item']");
+    let contentHeight = slottedContent?.scrollHeight;
 
-    if (typographyEl?.scrollHeight > treeContent?.clientHeight) {
-      typographyEl.classList.add("ic-text-overflow");
+    if (!typographyEl) {
+      const newTypographyEl = document.createElement("ic-typography");
+      newTypographyEl.innerHTML = slottedContent.textContent;
+      newTypographyEl.classList.add("tree-item-label");
+      slottedContent.replaceChild(newTypographyEl, slottedContent.firstChild);
+      typographyEl = newTypographyEl;
+    } else {
+      contentHeight = typographyEl.scrollHeight;
+    }
 
-      if (!tooltip) {
-        const tooltipEl = document.createElement("ic-tooltip");
-        tooltipEl.setAttribute("target", this.el.id);
-        tooltipEl.setAttribute("label", typographyEl.textContent);
+    const tooltipAlreadyExists = !!typographyEl?.closest(this.TOOLTIP);
+    const treeContent =
+      treeItem.shadowRoot.querySelector(".tree-item-content") || slottedContent;
+
+    if (contentHeight > treeContent?.clientHeight && !tooltipAlreadyExists) {
+      const tooltipEl = document.createElement("ic-tooltip");
+      tooltipEl.setAttribute("target", this.el.id);
+      tooltipEl.setAttribute("label", typographyEl.textContent);
+      tooltipEl.setAttribute("placement", "right");
+
+      if (treeContent === slottedContent) {
+        treeContent.addEventListener("focus", () =>
+          this.handleDisplayTooltip(true)
+        );
+        treeContent.addEventListener("blur", () =>
+          this.handleDisplayTooltip(false)
+        );
+        tooltipEl.setAttribute("style", "overflow:hidden;");
+        typographyEl.setAttribute(
+          "style",
+          "overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
+        );
+      } else {
         tooltipEl.classList.add("ic-tooltip-overflow");
-        tooltipEl.setAttribute("placement", "right");
-        treeContent.appendChild(tooltipEl);
-        tooltipEl.appendChild(typographyEl);
+        typographyEl.classList.add("ic-text-overflow");
       }
+
+      treeContent.appendChild(tooltipEl);
+      tooltipEl.appendChild(typographyEl);
     }
   };
 
@@ -351,7 +378,8 @@ export class TreeItem {
 
   private handleDisplayTooltip = (display: boolean) => {
     const typographyEl: HTMLIcTypographyElement =
-      this.el.shadowRoot.querySelector(".tree-item-label");
+      this.el.shadowRoot.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR) ||
+      this.el.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR);
     const tooltip: HTMLIcTooltipElement = typographyEl?.closest(this.TOOLTIP);
 
     tooltip?.displayTooltip(display);

@@ -494,12 +494,14 @@ An example with a tree item that is replaced by a router item.
 <Canvas withSource="none">
   <Story name="Router item">
       <div style={{ width: "250px" }}>
-        <IcTreeView heading="Menu">
+        <IcTreeView heading="Menu" truncateTreeItems>
           <IcTreeItem>
-            <a slot="router-item" href="/">Slotted coffee</a>
+            <a slot="router-item" href="/">Hot chocolate with marshmallows and whipped cream</a>
           </IcTreeItem>
-          <IcTreeItem label="Tea" />
-          <IcTreeItem label="Hot chocolate" />
+          <IcTreeItem>
+            <a slot="router-item" href="/tea">Tea</a>
+          </IcTreeItem>
+          <IcTreeItem label="Coffee" />
         </IcTreeView>
       </div>
   </Story>
@@ -512,13 +514,15 @@ import * as React from "react";
 import { IcTreeView, IcTreeItem } from "@ukic/canary-react";
 
 const TreeView = () => (
-<IcTreeView heading="Menu">
-  <IcTreeItem>
-    <a slot="router-item" href="/">Slotted coffee</a>
-  </IcTreeItem>
-  <IcTreeItem label="Tea" />
-  <IcTreeItem label="Hot chocolate" />
-</IcTreeView>
+  <IcTreeView heading="Menu" truncateTreeItems>
+    <IcTreeItem>
+      <a slot="router-item" href="/">Hot chocolate with marshmallows and whipped cream</a>
+    </IcTreeItem>
+    <IcTreeItem>
+      <a slot="router-item" href="/tea">Tea</a>
+    </IcTreeItem>
+    <IcTreeItem label="Coffee" />
+  </IcTreeView>
 )
 
 export default TreeView;
