@@ -94,7 +94,7 @@ describe("ic-back-to-top", () => {
 
     expect(page.rootInstance.isTargetElNull).toBe(true);
 
-    page.root.shadowRoot.querySelector("ic-button").click();
+    page.root?.shadowRoot?.querySelector("ic-button")?.click();
     expect(page.win.screenX).toBe(0);
     expect(page.win.screenY).toBe(0);
   });
@@ -105,7 +105,7 @@ describe("ic-back-to-top", () => {
       html: `<div id="topEl"><ic-back-to-top target="topEl"></ic-back-to-top></div>`,
     });
 
-    page.root.shadowRoot.querySelector("ic-button").click();
+    page.root?.shadowRoot?.querySelector("ic-button")?.click();
     expect(page.rootInstance.targetElVisible).toBe(true);
   });
 
@@ -166,7 +166,7 @@ describe("ic-back-to-top", () => {
       html: `<div id="topEl"><ic-back-to-top></ic-back-to-top></div>`,
     });
 
-    page.root.target = "topEl";
+    page.root?.setAttribute("target", "topEl");
     await page.waitForChanges();
 
     expect(page.rootInstance.target).toBe("topEl");

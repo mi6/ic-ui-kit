@@ -39,9 +39,9 @@ import { IcFooterBreakpoints } from "./ic-footer.types";
   shadow: true,
 })
 export class Footer {
-  private footerEl: HTMLElement;
-  private resizeObserver: ResizeObserver = null;
-  private hostMutationObserver: MutationObserver = null;
+  private footerEl?: HTMLElement;
+  private resizeObserver: ResizeObserver | null = null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el: HTMLIcFooterElement;
 
@@ -136,12 +136,14 @@ export class Footer {
   };
 
   private runResizeObserver = () => {
-    this.resizeObserver = new ResizeObserver(() => {
-      const currSize = getCurrentDeviceSize();
-      this.resizeObserverCallback(currSize);
-    });
+    if (this.footerEl) {
+      this.resizeObserver = new ResizeObserver(() => {
+        const currSize = getCurrentDeviceSize();
+        this.resizeObserverCallback(currSize);
+      });
 
-    this.resizeObserver.observe(this.footerEl);
+      this.resizeObserver.observe(this.footerEl);
+    }
   };
 
   render() {
@@ -177,7 +179,7 @@ export class Footer {
             foregroundColor === IcBrandForegroundEnum.Light,
         }}
       >
-        <footer ref={(footerEl) => (this.footerEl = footerEl)}>
+        <footer ref={(el) => (this.footerEl = el)}>
           {/* Description */}
           {(isSlotUsed(el, "description") || description) && (
             <div class="footer-description">

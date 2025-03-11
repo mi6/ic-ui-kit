@@ -21,7 +21,7 @@ import { IcSizes, IcThemeMode } from "../../utils/types";
   shadow: true,
 })
 export class EmptyState {
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el: HTMLIcEmptyStateElement;
 

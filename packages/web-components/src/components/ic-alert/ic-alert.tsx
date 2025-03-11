@@ -29,7 +29,7 @@ import { VARIANT_ICONS } from "../../utils/constants";
   shadow: true,
 })
 export class Alert {
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el: HTMLIcAlertElement;
 
@@ -107,8 +107,8 @@ export class Alert {
 
   private alertTitleShouldWrap() {
     const titleHeight =
-      this.el.shadowRoot.querySelector(".alert-title")?.clientHeight;
-    if (titleHeight > 24) this.alertTitleWrap = true;
+      this.el.shadowRoot?.querySelector(".alert-title")?.clientHeight;
+    if (titleHeight && titleHeight > 24) this.alertTitleWrap = true;
   }
 
   render() {
@@ -158,7 +158,7 @@ export class Alert {
                       ["svg-container"]: true,
                       [`icon-${variant}`]: true,
                     }}
-                    innerHTML={VARIANT_ICONS[variant].icon}
+                    innerHTML={VARIANT_ICONS[variant ?? "neutral"].icon}
                   ></span>
                 ) : (
                   <div class="icon-placeholder"></div>
@@ -170,7 +170,7 @@ export class Alert {
                     ["svg-container"]: true,
                     [`icon-${variant}`]: true,
                   }}
-                  innerHTML={VARIANT_ICONS[variant].icon}
+                  innerHTML={VARIANT_ICONS[variant ?? "neutral"].icon}
                 ></span>
               )}
             </div>

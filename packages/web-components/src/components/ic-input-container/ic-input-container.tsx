@@ -21,8 +21,8 @@ export class InputContainer {
         <div
           class={{
             ["component-container"]: true,
-            ["disabled"]: this.disabled,
-            ["readonly"]: this.readonly,
+            ["disabled"]: !!this.disabled,
+            ["readonly"]: !!this.readonly,
           }}
         >
           <slot></slot>

@@ -24,7 +24,7 @@ let accordionGroupIds = 0;
 })
 export class AccordionGroup {
   private accordionGroupId = `ic-accordion-group-${accordionGroupIds++}`;
-  private allButtonEl: HTMLIcButtonElement;
+  private allButtonEl?: HTMLIcButtonElement;
 
   @Element() el: HTMLIcAccordionGroupElement;
 
@@ -118,7 +118,7 @@ export class AccordionGroup {
     const focusEl = this.singleExpansion
       ? this.accordions[0]
       : this.allButtonEl;
-    focusEl.setFocus();
+    focusEl?.setFocus();
   }
 
   private handleExpanded = () => {

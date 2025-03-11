@@ -21,8 +21,8 @@ const backToTopLabel = "Back to top";
 })
 export class BackToTop {
   private isTargetElNull: boolean;
-  private targetEl: Element;
-  private topObserver: IntersectionObserver = null;
+  private targetEl: Element | null;
+  private topObserver: IntersectionObserver | null = null;
 
   @Element() el: HTMLIcBackToTopElement;
 
@@ -110,8 +110,8 @@ export class BackToTop {
     this.setFooterVisible(entries[0].isIntersecting);
   };
 
-  private findTargetEl = (target: string): Element => {
-    let targetElement: Element = null;
+  private findTargetEl = (target: string): Element | null => {
+    let targetElement = null;
     if (target === null || target === undefined) {
       console.log(
         "Error: No target ID specified for back to top component - defaulting to top of page"
@@ -151,26 +151,31 @@ export class BackToTop {
       this.isTargetElNull = false;
     }
 
-    //insert a new 0px height element before specified target that can be used to determine when page is scrolled
-    const objBackToTopTargetEl = document.createElement("div");
-    objBackToTopTargetEl.setAttribute("id", "ic-back-to-top-target");
-    objBackToTopTargetEl.setAttribute("tabindex", "-1"); // Needed for virtual cursor behaviour to work
-    objParent.insertBefore(objBackToTopTargetEl, this.targetEl);
+    if (this.targetEl) {
+      //insert a new 0px height element before specified target that can be used to determine when page is scrolled
+      const objBackToTopTargetEl = document.createElement("div");
+      objBackToTopTargetEl.setAttribute("id", "ic-back-to-top-target");
+      objBackToTopTargetEl.setAttribute("tabindex", "-1"); // Needed for virtual cursor behaviour to work
+      objParent.insertBefore(objBackToTopTargetEl, this.targetEl);
 
-    // resize observer needs to factor in any top margin on the target el
-    const marginTop = getComputedStyle(this.targetEl).marginTop;
-    this.topObserver = new IntersectionObserver(this.targetElObserverCallback, {
-      threshold: [0],
-      rootMargin: `${marginTop} 0px 0px 0px`,
-    });
-    this.topObserver.observe(objBackToTopTargetEl);
+      // resize observer needs to factor in any top margin on the target el
+      const marginTop = getComputedStyle(this.targetEl).marginTop;
+      this.topObserver = new IntersectionObserver(
+        this.targetElObserverCallback,
+        {
+          threshold: [0],
+          rootMargin: `${marginTop} 0px 0px 0px`,
+        }
+      );
+      this.topObserver.observe(objBackToTopTargetEl);
+    }
   };
 
   private handleClick = () => {
     if (this.isTargetElNull) {
       window.scrollTo(0, 0);
     } else {
-      this.targetEl.scrollIntoView();
+      this.targetEl?.scrollIntoView();
     }
     // Get virtual cursor to move
     (this.getObservedEl() as HTMLElement).focus();

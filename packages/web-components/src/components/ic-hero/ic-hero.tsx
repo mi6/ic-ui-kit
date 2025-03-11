@@ -37,7 +37,7 @@ import { IcHeroContentAlignments } from "./ic-hero.types";
   shadow: true,
 })
 export class Hero {
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el: HTMLIcHeroElement;
 
@@ -131,10 +131,12 @@ export class Hero {
       return;
     }
 
-    const scrolltotop = document.scrollingElement.scrollTop;
-    const factor = 0.4;
-    const y = -100 + scrolltotop * factor;
-    this.scrollFactor = "right " + y + "px";
+    const scrolltotop = document.scrollingElement?.scrollTop;
+    if (scrolltotop) {
+      const factor = 0.4;
+      const y = -100 + scrolltotop * factor;
+      this.scrollFactor = "right " + y + "px";
+    }
   }
 
   render() {

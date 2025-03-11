@@ -104,7 +104,7 @@ describe("ic-empty-state component", () => {
 
     observerInstance.observe(host, { childList: true });
 
-    host.appendChild(action);
+    host?.appendChild(action);
 
     const mockMutationRecord: MockMutationRecord[] = [
       {
