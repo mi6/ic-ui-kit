@@ -315,18 +315,18 @@ describe("ic-alert component", () => {
       html: `<ic-alert message="This is dismissible" dismissible=true></ic-alert>`,
     });
 
-    let alert = await page.root.shadowRoot.querySelector(
+    let alert = await page.root?.shadowRoot?.querySelector(
       "div.container-neutral"
     );
-    const dismissButton = await page.root.shadowRoot.querySelector("ic-button");
+    const dismissButton = await alert?.querySelector("ic-button");
 
     expect(alert).not.toBeNull();
     expect(dismissButton).not.toBeNull();
 
-    await dismissButton.click();
+    await dismissButton?.click();
 
     await page.waitForChanges();
-    alert = await page.root.shadowRoot.querySelector("div.container-neutral");
+    alert = await page.root?.shadowRoot?.querySelector("div.container-neutral");
 
     expect(alert).toBeNull();
   });
@@ -348,7 +348,7 @@ describe("ic-alert component", () => {
 
     observerInstance.observe(host, { childList: true });
 
-    host.appendChild(action);
+    host?.appendChild(action);
 
     const mockMutationRecord: MockMutationRecord[] = [
       {

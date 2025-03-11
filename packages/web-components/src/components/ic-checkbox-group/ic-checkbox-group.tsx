@@ -68,15 +68,15 @@ export class CheckboxGroup {
     oldValue: string,
     propName: "label" | "name"
   ): void {
-    Array.from(this.el.querySelectorAll(this.checkboxSelector)).forEach(
-      (checkbox: HTMLIcCheckboxElement) => {
-        if (propName === "label") checkbox.groupLabel = newValue;
-        else if (checkbox.name === oldValue) {
-          // If the checkbox name has been set by the parent, then override it
-          checkbox.name = newValue;
-        }
+    Array.from(
+      this.el.querySelectorAll<HTMLIcCheckboxElement>(this.checkboxSelector)
+    ).forEach((checkbox) => {
+      if (propName === "label") checkbox.groupLabel = newValue;
+      else if (checkbox.name === oldValue) {
+        // If the checkbox name has been set by the parent, then override it
+        checkbox.name = newValue;
       }
-    );
+    });
   }
 
   /**
@@ -94,12 +94,12 @@ export class CheckboxGroup {
    */
   @Prop() theme?: IcThemeMode = "inherit";
   @Watch("theme")
-  watchThemeHandler(newValue: IcThemeMode): void {
-    Array.from(this.el.querySelectorAll(this.checkboxSelector)).forEach(
-      (checkbox: HTMLIcCheckboxElement) => {
-        checkbox.theme = newValue;
-      }
-    );
+  watchThemeHandler(newValue: IcThemeMode | undefined): void {
+    Array.from(
+      this.el.querySelectorAll<HTMLIcCheckboxElement>(this.checkboxSelector)
+    ).forEach((checkbox) => {
+      checkbox.theme = newValue;
+    });
   }
 
   /**

@@ -31,9 +31,9 @@ describe("ic-divider", () => {
       html: `<ic-divider weight="medium" label="Test label"></ic-divider>`,
     });
 
-    const label = page.root.querySelector("ic-typography");
+    const label = document.querySelector("ic-typography");
 
-    expect(label.variant).toBe("label");
+    expect(label?.variant).toBe("label");
 
     expect(page.root).toMatchSnapshot();
   });
@@ -44,9 +44,9 @@ describe("ic-divider", () => {
       html: `<ic-divider weight="thick" label="Test label"></ic-divider>`,
     });
 
-    const label = page.root.querySelector("ic-typography");
+    const label = document.querySelector("ic-typography");
 
-    expect(label.variant).toBe("subtitle-large");
+    expect(label?.variant).toBe("subtitle-large");
 
     expect(page.root).toMatchSnapshot();
   });
@@ -57,9 +57,9 @@ describe("ic-divider", () => {
       html: `<ic-divider weight="very-thick" label="Test label"></ic-divider>`,
     });
 
-    const label = page.root.querySelector("ic-typography");
+    const label = document.querySelector("ic-typography");
 
-    expect(label.variant).toBe("h4");
+    expect(label?.variant).toBe("h4");
 
     expect(page.root).toMatchSnapshot();
   });

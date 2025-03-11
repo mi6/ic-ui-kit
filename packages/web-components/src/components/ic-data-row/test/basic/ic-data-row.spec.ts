@@ -84,7 +84,7 @@ describe("ic-data-row", () => {
     });
 
     Object.defineProperty(
-      page.root.shadowRoot.querySelector(".data"),
+      page.root?.shadowRoot?.querySelector(".data"),
       "clientWidth",
       {
         value: 200,

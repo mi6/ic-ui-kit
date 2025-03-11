@@ -32,7 +32,7 @@ export class Breadcrumb {
   private HREF_ATTR = "href";
   private linkSlotContent: HTMLElement;
   private slottedLinkEl: HTMLElement | null;
-  private slottedLinkHref: string;
+  private slottedLinkHref: string | null | undefined;
 
   @Element() el: HTMLIcBreadcrumbElement;
 
@@ -83,7 +83,8 @@ export class Breadcrumb {
       if (this.current) {
         this.slottedLinkEl.removeAttribute(this.HREF_ATTR); // Prevent screen reader announcing breadcrumb as a link
       } else {
-        this.slottedLinkEl.setAttribute(this.HREF_ATTR, this.slottedLinkHref);
+        this.slottedLinkHref &&
+          this.slottedLinkEl.setAttribute(this.HREF_ATTR, this.slottedLinkHref);
       }
     }
   };
@@ -101,7 +102,7 @@ export class Breadcrumb {
 
   componentDidLoad(): void {
     const slottedLinkWrapper =
-      this.el.shadowRoot.querySelector(".link-wrapper");
+      this.el.shadowRoot?.querySelector(".link-wrapper");
 
     if (slottedLinkWrapper) {
       this.linkSlotContent = getSlotElements(
@@ -122,9 +123,7 @@ export class Breadcrumb {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("ic-link")) {
-      this.el.shadowRoot.querySelector("ic-link").focus();
-    }
+    this.el.shadowRoot?.querySelector("ic-link")?.focus();
   }
 
   private renderBackIcon = () => (
@@ -135,7 +134,7 @@ export class Breadcrumb {
     current: boolean,
     pageTitle: string,
     describedById: string,
-    href: string
+    href: string | undefined
   ): IcBreadcrumbDefault => {
     const hasPageTitle =
       pageTitle !== null && isPropDefined(pageTitle) && pageTitle !== "";
@@ -197,7 +196,7 @@ export class Breadcrumb {
         class={{
           "ic-breadcrumb-back": this.showBackIcon,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
-          "ic-breadcrumb-monochrome": this.monochrome,
+          "ic-breadcrumb-monochrome": !!this.monochrome,
         }}
         aria-current={current && "page"}
         role="listitem"
@@ -212,7 +211,7 @@ export class Breadcrumb {
           )}
           {hasPageTitle && hasHref ? (
             this.renderDefaultBreadcrumb(
-              current,
+              !!current,
               pageTitle,
               describedById,
               href

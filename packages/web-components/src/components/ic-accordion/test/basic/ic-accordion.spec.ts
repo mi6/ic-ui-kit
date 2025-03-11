@@ -94,7 +94,7 @@ describe("ic-accordion snapshots", () => {
   it("should render with a heading slot when supplied", async () => {
     const page = await newSpecPage({
       components: [Accordion],
-      html: `  
+      html: `
       <ic-accordion>
         <slot name="heading"/></slot>
         <ic-typography variant="body">
@@ -117,7 +117,7 @@ describe("ic-accordion snapshots", () => {
     });
     expect(page.root).toMatchSnapshot("disabled");
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
@@ -135,10 +135,10 @@ describe("ic-accordion snapshots", () => {
       </ic-accordion>`,
       });
 
-      expect(page.root.expanded).toBe(false);
+      expect(page.rootInstance.expanded).toBe(false);
       await page.rootInstance.toggleExpanded();
       await page.waitForChanges();
-      expect(page.root.expanded).toBe(true);
+      expect(page.rootInstance.expanded).toBe(true);
     });
 
     it("should test id number is added to accordion", async () => {
@@ -153,8 +153,8 @@ describe("ic-accordion snapshots", () => {
       });
       const eventSpy = jest.fn();
 
-      const accordionId = page.root.id;
-      page.root.addEventListener("accordionClicked", eventSpy);
+      const accordionId = page.root?.id;
+      document.addEventListener("accordionClicked", eventSpy);
       await page.waitForChanges();
       await page.rootInstance.toggleExpanded();
       await page.waitForChanges();
@@ -178,7 +178,7 @@ describe("ic-accordion snapshots", () => {
         </ic-typography>
       </ic-accordion>`,
       });
-      expect(page.root.disabled).toBe(true);
+      expect(page.rootInstance.disabled).toBe(true);
     });
 
     it("it should add transition styling to the element", async () => {
@@ -214,7 +214,7 @@ describe("ic-accordion snapshots", () => {
         "setAccordionAnimation"
       );
       const accordionExpanded =
-        page.root.shadowRoot.querySelector(".expanded-content");
+        page.root?.shadowRoot?.querySelector(".expanded-content");
       page.rootInstance.expandedContentEl = accordionExpanded;
       Object.defineProperty(
         page.rootInstance.expandedContentEl,
@@ -241,7 +241,7 @@ describe("ic-accordion snapshots", () => {
         "setAccordionAnimation"
       );
       const accordionExpanded =
-        page.root.shadowRoot.querySelector(".expanded-content");
+        page.root?.shadowRoot?.querySelector(".expanded-content");
       page.rootInstance.expandedContentEl = accordionExpanded;
 
       Object.defineProperty(
@@ -269,7 +269,7 @@ describe("ic-accordion snapshots", () => {
       });
 
       const accordionExpanded =
-        page.root.shadowRoot.querySelector(".expanded-content");
+        page.root?.shadowRoot?.querySelector(".expanded-content");
       page.rootInstance.expandedContentEl = accordionExpanded;
       page.rootInstance.expandedContentEl.clientHeight = 50;
 
@@ -300,7 +300,7 @@ describe("ic-accordion snapshots", () => {
       });
 
       const accordionExpanded =
-        page.root.shadowRoot.querySelector(".expanded-content");
+        page.root?.shadowRoot?.querySelector(".expanded-content");
       page.rootInstance.expandedContentEl = accordionExpanded;
       page.rootInstance.expandedContentEl.clientHeight = 0;
 
@@ -333,7 +333,7 @@ describe("ic-accordion snapshots", () => {
       });
 
       const accordionExpanded =
-        page.root.shadowRoot.querySelector(".expanded-content");
+        page.root?.shadowRoot?.querySelector(".expanded-content");
       page.rootInstance.expandedContentEl = accordionExpanded;
       page.rootInstance.expandedContentEl.clientHeight = 0;
 
@@ -365,7 +365,7 @@ describe("ic-accordion snapshots", () => {
       });
 
       const accordionExpanded =
-        page.root.shadowRoot.querySelector(".expanded-content");
+        page.root?.shadowRoot?.querySelector(".expanded-content");
       page.rootInstance.expandedContentEl = accordionExpanded;
       page.rootInstance.expandedContentEl.clientHeight = 50;
 
@@ -413,7 +413,7 @@ describe("ic-accordion snapshots", () => {
       );
 
       const accordionExpanded =
-        page.root.shadowRoot.querySelector(".expanded-content");
+        page.root?.shadowRoot?.querySelector(".expanded-content");
       page.rootInstance.expandedContentEl = accordionExpanded;
       page.rootInstance.expandedContentEl.scrollHeight = 50;
       page.rootInstance.expanded = true;
@@ -443,7 +443,7 @@ describe("ic-accordion snapshots", () => {
       );
 
       const accordionExpanded =
-        page.root.shadowRoot.querySelector(".expanded-content");
+        page.root?.shadowRoot?.querySelector(".expanded-content");
       page.rootInstance.expandedContentEl = accordionExpanded;
       page.rootInstance.expandedContentEl.scrollHeight = 50;
       page.rootInstance.expanded = false;

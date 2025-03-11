@@ -65,7 +65,10 @@ export class HorizontalScroll {
     this.items = getSlotElements(this.itemsContainerEl) as HTMLElement[];
     this.items.forEach((item) => {
       if (item.addEventListener) {
-        item.addEventListener(this.focusTrigger, this.focusHandler);
+        item.addEventListener(
+          this.focusTrigger as keyof HTMLElementEventMap,
+          this.focusHandler
+        );
       }
     });
   }
@@ -83,7 +86,7 @@ export class HorizontalScroll {
     // 'mouseleave' needed in case the user moves their mouse while holding the arrow buttons
     // - 'mouseup' otherwise not detected and scrolling not stopped
     const scrollArrows = Array.from(
-      this.el.shadowRoot.querySelectorAll("div")
+      this.el.shadowRoot?.querySelectorAll("div") || []
     ) as HTMLElement[];
     ["mouseup", "mouseleave"].forEach((event) => {
       scrollArrows.forEach((arrow) =>
@@ -98,7 +101,7 @@ export class HorizontalScroll {
     }
 
     const scrollArrows = Array.from(
-      this.el.shadowRoot.querySelectorAll("div")
+      this.el.shadowRoot?.querySelectorAll("div") || []
     ) as HTMLElement[];
     ["mouseup", "mouseleave"].forEach((event) => {
       scrollArrows.forEach((arrow) =>
@@ -108,7 +111,10 @@ export class HorizontalScroll {
 
     this.items?.forEach((item) => {
       if (item.removeEventListener) {
-        item.removeEventListener(this.focusTrigger, this.focusHandler);
+        item.removeEventListener(
+          this.focusTrigger as keyof HTMLElementEventMap,
+          this.focusHandler
+        );
       }
     });
 
@@ -130,7 +136,7 @@ export class HorizontalScroll {
     this.itemsContainerEl.scrollLeft = newScrollPos;
   }
 
-  private focusHandler = (event: FocusEvent) => {
+  private focusHandler = (event: Event) => {
     this.itemFocusHandler(
       Array.from(this.items).indexOf(event.target as HTMLElement)
     );

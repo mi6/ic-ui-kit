@@ -42,7 +42,7 @@ describe("ic-input-component-container", () => {
       <div class="focus-indicator">
         content
       </div>
-    </ic-input-component-container> 
+    </ic-input-component-container>
     `);
   });
 
@@ -123,7 +123,7 @@ describe("ic-input-component-container", () => {
     </ic-input-component-container>
     `);
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toEqualHtml(`
@@ -187,7 +187,7 @@ describe("ic-input-component-container", () => {
 
     observerInstance.observe(host, { childList: true });
 
-    host.appendChild(icon);
+    host?.appendChild(icon);
 
     const mockMutationRecord: MockMutationRecord[] = [
       {

@@ -38,7 +38,7 @@ import {
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Checkbox {
-  private additionalFieldContainer: HTMLDivElement;
+  private additionalFieldContainer?: HTMLDivElement;
 
   @Element() el: HTMLIcCheckboxElement;
 
@@ -89,7 +89,7 @@ export class Checkbox {
   watchIndeterminateHandler(): void {
     this.displayIndeterminate = this.nativeIndeterminateBehaviour
       ? this.indeterminate
-      : this.indeterminate && this.checked;
+      : this.indeterminate && !!this.checked;
   }
 
   /**
@@ -178,7 +178,7 @@ export class Checkbox {
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.el.shadowRoot.querySelector<HTMLElement>(".checkbox")?.focus();
+    this.el.shadowRoot?.querySelector<HTMLElement>(".checkbox")?.focus();
   }
 
   private handleClick = () => {
@@ -224,7 +224,7 @@ export class Checkbox {
     return (
       <Host
         class={{
-          "ic-checkbox-disabled": disabled,
+          "ic-checkbox-disabled": !!disabled,
           [`ic-checkbox-${size || parentElementSize}`]: true,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
@@ -247,14 +247,14 @@ export class Checkbox {
             role="checkbox"
             class={{
               checkbox: true,
-              checked,
+              checked: !!checked,
               indeterminate: displayIndeterminate,
             }}
             type="checkbox"
             name={name}
             id={id}
             value={value}
-            disabled={disabled ? true : null}
+            disabled={disabled}
             checked={checked}
             indeterminate={displayIndeterminate}
             onClick={this.handleClick}

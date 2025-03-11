@@ -101,7 +101,7 @@ describe("ic-loading-indicator component", () => {
       html: `<ic-loading-indicator label-duration="2000"></ic-loading-indicator>`,
     });
 
-    page.root.label = ["waiting", "still waiting"];
+    page.rootInstance.label = ["waiting", "still waiting"];
 
     expect(page.rootInstance.indicatorLabel).toEqual("waiting");
 
@@ -141,8 +141,8 @@ describe("ic-loading-indicator component", () => {
 
     expect(page.rootInstance.label).toBe("IC Loading Indicator Test");
 
-    page.root.label = "New label";
-    page.root.progress = 20;
+    page.rootInstance.label = "New label";
+    page.rootInstance.progress = 20;
     await page.waitForChanges();
 
     expect(page.rootInstance.label).toBe("New label");
@@ -155,7 +155,7 @@ describe("ic-loading-indicator component", () => {
       html: `<ic-loading-indicator progress="10" min="10" max="50" type='linear'></ic-loading-indicator>`,
     });
     expect(page.rootInstance.progress).toBe(10);
-    page.root.progress = 20;
+    page.rootInstance.progress = 20;
     await page.waitForChanges();
 
     expect(page.rootInstance.progress).toBe(20);
@@ -167,15 +167,15 @@ describe("ic-loading-indicator component", () => {
       html: `<ic-loading-indicator label="IC Loading Indicator Test"></ic-loading-indicator>`,
     });
 
-    page.root.progress = "20";
+    page.rootInstance.progress = "20";
     await page.waitForChanges();
     page.rootInstance.circularDiameter = "100";
     await page.waitForChanges();
     page.rootInstance.setCircleXY();
     await page.waitForChanges();
 
-    const circle = page.root.shadowRoot.querySelector("svg circle");
-    const x = circle.getAttribute("cx");
+    const circle = page.root?.shadowRoot?.querySelector("svg circle");
+    const x = circle?.getAttribute("cx");
     expect(x).toBe("50");
   });
 

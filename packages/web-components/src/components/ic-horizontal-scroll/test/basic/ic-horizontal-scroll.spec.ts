@@ -145,7 +145,7 @@ describe("ic-horizontal-scroll", () => {
       html: testHorizontalScroll,
     });
 
-    const scrollContainer = page.root.shadowRoot.querySelector(
+    const scrollContainer = page.root?.shadowRoot?.querySelector(
       ".scroll-container-right"
     );
     const mouseDownEvent = new Event("mousedown", {
@@ -160,7 +160,7 @@ describe("ic-horizontal-scroll", () => {
     page.rootInstance.rightArrowMouseDownHandler(mouseDownEvent);
     page.waitForChanges();
 
-    scrollContainer.dispatchEvent(mouseLeaveEvent);
+    scrollContainer?.dispatchEvent(mouseLeaveEvent);
     page.waitForChanges();
 
     expect(page.rootInstance.arrowMouseUpHandler()).toHaveBeenCalled;
@@ -196,10 +196,10 @@ describe("ic-horizontal-scroll", () => {
     page.rootInstance.itemOverflow = true;
     page.waitForChanges();
 
-    const item: HTMLElement = page.root.querySelector(
+    const item: HTMLElement | null = document.querySelector(
       "[label='Test nav item 4']"
     );
-    item.focus();
+    item?.focus();
     page.waitForChanges();
 
     expect(page.rootInstance.itemFocusHandler()).toHaveBeenCalled;
@@ -223,7 +223,7 @@ describe("ic-horizontal-scroll", () => {
 
     page.rootInstance.itemOverflow = true;
     page.waitForChanges();
-    const scroll = page.root.shadowRoot.querySelector(".scroll-arrow");
+    const scroll = page.root?.shadowRoot?.querySelector(".scroll-arrow");
 
     expect(scroll).not.toBeNull();
 
