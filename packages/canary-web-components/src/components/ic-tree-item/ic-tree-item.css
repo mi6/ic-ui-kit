@@ -51,9 +51,19 @@
   background-color: var(--ic-action-dark-bg-active) !important;
 }
 
+:host(.ic-tree-item-light) .tree-item-content:hover,
+:host(.ic-tree-item-light) ::slotted([slot="router-item"]:hover) {
+  background-color: var(--ic-action-light-bg-hover) !important;
+}
+
+:host(.ic-tree-item-light) .tree-item-content:active,
+:host(.ic-tree-item-light) ::slotted([slot="router-item"]:active) {
+  background-color: var(--ic-action-light-bg-active) !important;
+}
+
 :host(.ic-tree-item-selected) .tree-item-content,
 :host(.ic-tree-item-selected) ::slotted([slot="router-item"]) {
-  background-color: var(--ic-action-default-bg-hover) !important;
+  background-color: var(--ic-action-default-bg-hover);
 }
 
 :host(.ic-tree-item-small) .tree-item-content,
@@ -86,7 +96,7 @@
 :host(.ic-tree-item-disabled) .arrow-dropdown,
 :host(.ic-tree-item-disabled) ::slotted([slot="icon"]),
 :host(.ic-tree-item-disabled) ::slotted([slot="router-item"]) {
-  color: var(--ic-architectural-200) !important;
+  color: var(--ic-architectural-200);
   fill: var(--ic-architectural-200);
   pointer-events: none;
 }
@@ -97,6 +107,15 @@
 :host(.ic-tree-item-light) ::slotted([slot="router-item"]) {
   color: var(--ic-architectural-white);
   fill: var(--ic-architectural-white);
+}
+
+:host(.ic-tree-item-light.ic-tree-item-disabled) .tree-item-content,
+:host(.ic-tree-item-light.ic-tree-item-disabled) .arrow-dropdown,
+:host(.ic-tree-item-light.ic-tree-item-disabled) ::slotted([slot="icon"]),
+:host(.ic-tree-item-light.ic-tree-item-disabled)
+  ::slotted([slot="router-item"]) {
+  color: var(--ic-architectural-300);
+  fill: var(--ic-architectural-300);
 }
 
 :host .arrow-dropdown {
@@ -162,6 +181,6 @@
 
   :host(.ic-tree-item-selected) .tree-item-content,
   :host(.ic-tree-item-selected) ::slotted([slot="router-item"]) {
-    color: Highlight !important;
+    color: Highlight;
   }
 }
