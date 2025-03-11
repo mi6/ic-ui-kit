@@ -920,6 +920,35 @@ export const COLS_ELEMENTS: IcDataTableColumnObject[] = [
   },
 ];
 
+export const COLS_ELEMENTS_SINGLE_ACTION: IcDataTableColumnObject[] = [
+  {
+    key: "actions",
+    title: "Actions",
+    dataType: "element",
+    columnAlignment: { horizontal: "center" },
+  },
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  {
+    key: "age",
+    title: "Age",
+    dataType: "number",
+  },
+  {
+    key: "jobTitle",
+    title: "Job title",
+    dataType: "string",
+  },
+  {
+    key: "address",
+    title: "Address",
+    dataType: "address",
+  },
+];
+
 export const DATA_ELEMENTS = [
   {
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
@@ -971,6 +1000,87 @@ export const DATA_ELEMENTS = [
   },
 ];
 
+export const DATA_ELEMENTS_PAGINATION = [
+  {
+    actions: `<ic-button onClick='console.log("1")'>1</ic-button>`,
+    firstName: {
+      data: "Joe",
+      href: "https://www.example.com",
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  {
+    actions: `<ic-button onClick='console.log("2")'>2</ic-button>`,
+    firstName: {
+      data: "Sarah",
+      href: "https://www.example.org",
+    },
+    age: 28,
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
+    address: "2 Main Street, Town, Country, Postcode",
+  },
+  {
+    actions: `<ic-button onClick='console.log("3")'>3</ic-button>`,
+    firstName: "Mark",
+    age: 45,
+    jobTitle: "Team Lead",
+    address: "12 Key Street, Town, Country, Postcode",
+  },
+  {
+    actions: `<ic-button onClick='console.log("4")'>4</ic-button>`,
+    firstName: "Naomi",
+    age: 32,
+    jobTitle: "Analyst",
+    address: "8 Side Street, Town, Country, Postcode",
+  },
+  {
+    actions: `<ic-button onClick='console.log("5")'>5</ic-button>`,
+    firstName: "Luke",
+    age: 18,
+    jobTitle: "Junior Developer",
+    address: "5 New Street, Town, Country, Postcode",
+  },
+  {
+    actions: `<ic-button onClick='console.log("6")'>6</ic-button>`,
+    firstName: "Dave",
+    age: 33,
+    jobTitle: "Analyst",
+    address: "4 Extra Street, Town, County, Postcode",
+  },
+  {
+    actions: `<ic-button onClick='console.log("7")'>7</ic-button>`,
+    firstName: "Amy",
+    age: 27,
+    jobTitle: "Analyst",
+    address: "3 Main Street, Town, Country, Postcode",
+  },
+  {
+    actions: `<ic-button onClick='console.log("8")'>8</ic-button>`,
+    firstName: "Mary",
+    age: 31,
+    jobTitle: "Developer",
+    address: "8 Main Street, Town, County, Postcode",
+  },
+  {
+    actions: `<ic-button onClick='console.log("9")'>9</ic-button>`,
+    firstName: "Alice",
+    age: 38,
+    jobTitle: "Team Lead",
+    address: "10 High Street, Town, Country, Postcode",
+  },
+  {
+    actions: `<ic-button onClick='console.log("10")'>10</ic-button>`,
+    firstName: "Ben",
+    age: 40,
+    jobTitle: "Team Lead",
+    address: "14 High Street, Town, Country, Postcode",
+  },
+];
+
 export const DATA_REACT_ELEMENTS = [
   {
     firstName: {
@@ -1009,6 +1119,40 @@ export const DATA_REACT_ELEMENTS = [
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
+  },
+];
+
+export const DATA_REACT_ELEMENTS_PAGINATION = [
+  ...DATA_REACT_ELEMENTS,
+  {
+    firstName: "Dave",
+    age: 33,
+    jobTitle: "Analyst",
+    address: "4 Extra Street, Town, County, Postcode",
+  },
+  {
+    firstName: "Amy",
+    age: 27,
+    jobTitle: "Analyst",
+    address: "3 Main Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Mary",
+    age: 31,
+    jobTitle: "Developer",
+    address: "8 Main Street, Town, County, Postcode",
+  },
+  {
+    firstName: "Alice",
+    age: 38,
+    jobTitle: "Team Lead",
+    address: "10 High Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Ben",
+    age: 40,
+    jobTitle: "Team Lead",
+    address: "14 High Street, Town, Country, Postcode",
   },
 ];
 
@@ -1468,6 +1612,25 @@ export const LinksHTMLElements = (): HTMLIcDataTableElement =>
     COLS_ELEMENTS,
     DATA_ELEMENTS
   );
+
+export const SlottedElementsWithPagination = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement(
+    "Slotted elements with pagination",
+    COLS_ELEMENTS_SINGLE_ACTION,
+    DATA_ELEMENTS_PAGINATION
+  );
+  dataTable.setAttribute("show-pagination", "true");
+  dataTable.paginationBarOptions = {
+    itemsPerPageOptions: [
+      { label: "5", value: "5" },
+      { label: "10", value: "10" },
+    ],
+    showItemsPerPageControl: true,
+    showGoToPageControl: true,
+    selectedItemsPerPage: 5,
+  };
+  return dataTable;
+};
 
 export const Empty = (): HTMLIcDataTableElement =>
   createDataTableElement("Empty State", COLS, null);
