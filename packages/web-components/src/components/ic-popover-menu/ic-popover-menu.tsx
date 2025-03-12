@@ -23,12 +23,12 @@ import { IcThemeMode } from "../../utils/types";
   },
 })
 export class PopoverMenu {
-  private anchorEl: HTMLElement;
+  private anchorEl: HTMLElement | null;
   private ARIA_LABEL: string = "aria-label";
-  private backButton: HTMLIcMenuItemElement;
+  private backButton?: HTMLIcMenuItemElement;
   private currentFocus: number;
   private popoverMenuEls: HTMLIcMenuItemElement[] = [];
-  private popperInstance: PopperInstance;
+  private popperInstance: PopperInstance | null;
 
   @Element() el: HTMLIcPopoverMenuElement;
 
@@ -68,7 +68,7 @@ export class PopoverMenu {
   /**
    * If `true`, the popover menu will be displayed.
    */
-  @Prop({ reflect: true, mutable: true }) open: boolean = undefined;
+  @Prop({ reflect: true, mutable: true }) open: boolean;
 
   @Watch("open")
   watchOpenHandler(): void {
@@ -87,7 +87,7 @@ export class PopoverMenu {
         this.parentPopover !== undefined &&
         !this.popoverMenuEls.some((menuItem) => menuItem.id)
       ) {
-        this.popoverMenuEls.unshift(this.backButton);
+        this.backButton && this.popoverMenuEls.unshift(this.backButton);
       }
 
       this.currentFocus = 0;
@@ -119,11 +119,13 @@ export class PopoverMenu {
   }
 
   componentDidLoad(): void {
-    const slotWrapper = this.el.shadowRoot.querySelector("ul.button");
-    const popoverMenuElements = getSlotElements(slotWrapper);
+    const slotWrapper = this.el.shadowRoot?.querySelector("ul.button");
+    if (slotWrapper) {
+      const popoverMenuElements = getSlotElements(slotWrapper);
 
-    if (popoverMenuElements !== null) {
-      this.addMenuItems(popoverMenuElements);
+      if (popoverMenuElements !== null) {
+        this.addMenuItems(popoverMenuElements);
+      }
     }
 
     if (
@@ -243,8 +245,8 @@ export class PopoverMenu {
   };
 
   // Checks that the popover menu has an anchor
-  private findAnchorEl = (anchor: string): HTMLElement => {
-    let anchorElement: HTMLElement = null;
+  private findAnchorEl = (anchor: string): HTMLElement | null => {
+    let anchorElement: HTMLElement | null = null;
     if (!anchor) {
       this.submenuId === undefined &&
         console.error("No anchor specified for popover component");
@@ -317,17 +319,18 @@ export class PopoverMenu {
       if (el.tagName === "IC-MENU-ITEM") {
         this.popoverMenuEls.push(el);
       } else if (el.tagName === "IC-MENU-GROUP") {
-        const groupSlotWrapper = el.shadowRoot.querySelector(
+        const groupSlotWrapper = el.shadowRoot?.querySelector(
           ".menu-items-wrapper"
         );
-        const menuGroupElements = getSlotElements(groupSlotWrapper);
-
-        this.addMenuItems(menuGroupElements);
+        if (groupSlotWrapper) {
+          const menuGroupElements = getSlotElements(groupSlotWrapper);
+          this.addMenuItems(menuGroupElements);
+        }
       }
     }
   };
 
-  private getMenuAriaLabel = (): string => {
+  private getMenuAriaLabel = (): string | null => {
     const ariaLabel = this.el.getAttribute(this.ARIA_LABEL);
 
     if (isPropDefined(this.submenuId)) {
@@ -338,29 +341,31 @@ export class PopoverMenu {
   };
 
   private handleBackButtonClick = (): void => {
-    this.parentPopover.openFromChild();
+    this.parentPopover?.openFromChild();
     this.open = false;
   };
 
   private initPopperJS = () => {
-    this.popperInstance = createPopper(this.anchorEl, this.el, {
-      placement: "bottom-start",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
+    if (this.anchorEl) {
+      this.popperInstance = createPopper(this.anchorEl, this.el, {
+        placement: "bottom-start",
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 4],
+            },
           },
-        },
-        {
-          name: "flip",
-          options: {
-            fallbackPlacements: ["top-start", "top-end", "bottom-end"],
-            rootBoundary: "viewport",
+          {
+            name: "flip",
+            options: {
+              fallbackPlacements: ["top-start", "top-end", "bottom-end"],
+              rootBoundary: "viewport",
+            },
           },
-        },
-      ],
-    });
+        ],
+      });
+    }
   };
 
   render() {
@@ -380,7 +385,6 @@ export class PopoverMenu {
           class={{
             menu: true,
           }}
-          tabindex={open ? "0" : "-1"}
         >
           <span
             class={{

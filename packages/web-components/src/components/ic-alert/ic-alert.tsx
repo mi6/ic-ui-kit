@@ -158,7 +158,7 @@ export class Alert {
                       ["svg-container"]: true,
                       [`icon-${variant}`]: true,
                     }}
-                    innerHTML={VARIANT_ICONS[variant ?? "neutral"].icon}
+                    innerHTML={VARIANT_ICONS[variant || "neutral"].icon}
                   ></span>
                 ) : (
                   <div class="icon-placeholder"></div>
@@ -170,7 +170,7 @@ export class Alert {
                     ["svg-container"]: true,
                     [`icon-${variant}`]: true,
                   }}
-                  innerHTML={VARIANT_ICONS[variant ?? "neutral"].icon}
+                  innerHTML={VARIANT_ICONS[variant || "neutral"].icon}
                 ></span>
               )}
             </div>

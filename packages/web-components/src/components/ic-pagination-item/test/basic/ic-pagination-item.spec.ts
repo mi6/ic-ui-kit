@@ -55,7 +55,7 @@ describe("ic-pagination-item", () => {
 
     expect(page.root).toMatchSnapshot("render disabled");
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
@@ -87,7 +87,7 @@ describe("ic-pagination-item", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("paginationItemClick", eventSpy);
+    document.addEventListener("paginationItemClick", eventSpy);
 
     page.rootInstance.handleClick();
 

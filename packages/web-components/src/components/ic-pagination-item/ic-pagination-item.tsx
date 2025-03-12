@@ -69,7 +69,7 @@ export class PaginationItem {
   /**
    * @internal - Emitted when a pagination item is clicked.
    */
-  @Event() paginationItemClick: EventEmitter<{ page: number }>;
+  @Event() paginationItemClick: EventEmitter<{ page: number | null }>;
 
   componentWillLoad(): void {
     this.watchLabelHandler();
@@ -92,7 +92,7 @@ export class PaginationItem {
     } = this;
 
     return (
-      <a class={{ ["monochrome"]: monochrome }}>
+      <a class={{ ["monochrome"]: !!monochrome }}>
         {type === "ellipsis" ? (
           <div
             class={{

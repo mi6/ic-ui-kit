@@ -444,7 +444,7 @@ export class Pagination {
       <Host
         class={{
           [`ic-theme-${theme}`]: theme !== "inherit",
-          ["ic-pagination-monochrome"]: monochrome,
+          ["ic-pagination-monochrome"]: !!monochrome,
         }}
       >
         {type === "simple" && (

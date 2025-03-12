@@ -32,9 +32,9 @@ import { IcChangeEventDetail } from "./ic-radio-group.types";
   shadow: true,
 })
 export class RadioGroup {
-  private radioContainer: HTMLDivElement;
+  private radioContainer?: HTMLDivElement;
   private radioOptions: HTMLIcRadioOptionElement[];
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
   private ADDITIONAL_FIELD = "additional-field";
   private RADIO_HORIZONTAL: IcOrientation = "horizontal";
   private RADIO_VERTICAL: IcOrientation = "vertical";
@@ -151,7 +151,7 @@ export class RadioGroup {
       "Radio Group"
     );
 
-    this.watchThemeHandler(this.theme);
+    this.watchThemeHandler(this.theme!);
   }
 
   @Listen("icCheck")
@@ -220,10 +220,12 @@ export class RadioGroup {
         ) {
           this.currentOrientation = this.RADIO_VERTICAL;
         } else {
-          if (totalWidth >= this.radioContainer?.clientWidth) {
-            this.currentOrientation = this.RADIO_VERTICAL;
-          } else if (totalWidth < this.radioContainer?.clientWidth) {
-            this.currentOrientation = this.RADIO_HORIZONTAL;
+          if (this.radioContainer) {
+            if (totalWidth >= this.radioContainer?.clientWidth) {
+              this.currentOrientation = this.RADIO_VERTICAL;
+            } else if (totalWidth < this.radioContainer?.clientWidth) {
+              this.currentOrientation = this.RADIO_HORIZONTAL;
+            }
           }
         }
       }
@@ -293,7 +295,7 @@ export class RadioGroup {
   };
 
   private addSlotChangeListener = () => {
-    this.radioContainer.addEventListener("slotchange", this.setRadioOptions);
+    this.radioContainer?.addEventListener("slotchange", this.setRadioOptions);
   };
 
   private setFirstRadioOptionTabIndex = (value: number) => {

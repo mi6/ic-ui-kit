@@ -180,6 +180,7 @@ export class MenuItem {
     const parentEl = this.el.parentElement;
 
     if (
+      parentEl &&
       parentEl.tagName === "IC-MENU-GROUP" &&
       (parentEl as HTMLIcMenuGroupElement).label
     ) {
@@ -216,7 +217,7 @@ export class MenuItem {
     return (
       <Host
         class={{
-          ["ic-menu-item-disabled"]: this.disabled,
+          ["ic-menu-item-disabled"]: !!this.disabled,
         }}
       >
         <li
@@ -239,7 +240,9 @@ export class MenuItem {
             target={isPropDefined(this.target)}
             rel={isPropDefined(this.rel)}
             referrerpolicy={
-              this.referrerpolicy !== undefined ? this.referrerpolicy : null
+              this.referrerpolicy !== undefined
+                ? this.referrerpolicy
+                : undefined
             }
             aria-disabled={`${this.disabled}`}
             aria-label={this.getMenuItemAriaLabel()}
