@@ -44,14 +44,14 @@ describe("ic-navigation-menu", () => {
 
     await page.rootInstance.handleKeyDown({
       key: "Tab",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
       key: "Tab",
       shiftKey: true,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
   });
@@ -86,7 +86,7 @@ describe("ic-navigation-menu", () => {
     await page.rootInstance.handleKeyDown({
       key: "Tab",
       shiftKey: true,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
@@ -105,7 +105,7 @@ describe("ic-navigation-menu", () => {
     await page.rootInstance.handleKeyDown({
       key: "Tab",
       shiftKey: true,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
@@ -130,7 +130,7 @@ describe("ic-navigation-menu", () => {
     await page.rootInstance.handleKeyDown({
       key: "Tab",
       shiftKey: true,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
@@ -168,7 +168,7 @@ describe("ic-navigation-menu", () => {
     await page.rootInstance.handleKeyDown({
       key: "Tab",
       shiftKey: true,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
@@ -191,7 +191,7 @@ describe("ic-navigation-menu", () => {
     await page.rootInstance.handleKeyDown({
       key: "Tab",
       shiftKey: true,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 

@@ -108,7 +108,7 @@ export const renderHiddenInput = (
   container: HTMLElement,
   name: string,
   value: string | Date | undefined | null,
-  disabled: boolean
+  disabled: boolean | undefined
 ): void => {
   if (name !== undefined && (always || hasShadowDom(container))) {
     const inputs = container.querySelectorAll(linkIcInput);
@@ -122,11 +122,11 @@ export const renderHiddenInput = (
       input.classList.add(icInput);
       container.appendChild(input);
     }
-    input.disabled = disabled;
+    input.disabled = !!disabled;
     input.name = name;
 
     if (value instanceof Date) {
-      input.value = value ? value.toISOString() : null;
+      input.value = value ? value.toISOString() : "";
     } else {
       input.value = value || "";
     }
@@ -154,7 +154,7 @@ export const renderFileHiddenInput = (
   name: string,
   value: FileList | undefined | null,
   disabled: boolean,
-  accept: string
+  accept: string | undefined | null
 ): void => {
   if (name !== undefined && hasShadowDom(container)) {
     const inputs = container.querySelectorAll(linkIcInput);
@@ -171,9 +171,11 @@ export const renderFileHiddenInput = (
     input.hidden = true;
     input.multiple = multiple;
     input.name = name;
-    input.files = value;
     input.disabled = disabled;
-    input.accept = accept;
+
+    if (value) input.files = value;
+    if (accept) input.accept = accept;
+
     input.onchange = () => {
       event.emit(input.files);
     };
@@ -189,8 +191,8 @@ export const removeHiddenInput = (container: HTMLElement): void => {
   input?.remove();
 };
 
-export const hasShadowDom = (el: HTMLElement): boolean =>
-  !!el.shadowRoot && !!el.attachShadow;
+export const hasShadowDom = (el: HTMLElement | null | undefined): boolean =>
+  el ? !!el.shadowRoot && !!el.attachShadow : false;
 
 export const getInputHelperTextID = (id: string): string => id + "-helper-text";
 
@@ -220,7 +222,7 @@ export const getInputDescribedByText = (
  */
 export const getBrandFromContext = (
   el: Element,
-  brandFromEvent: IcBrandForeground = null
+  brandFromEvent: IcBrandForeground | null = null
 ): IcBrandForeground => {
   const parentElement =
     el.parentElement || (<ShadowRoot>el.getRootNode()).host.parentElement;
@@ -293,8 +295,8 @@ export const isEmptyString = (value: string): boolean =>
   value ? value.trim().length === 0 : true;
 
 // A helper function that checks if a prop has been defined
-export const isPropDefined = (prop: string): string | null =>
-  prop !== undefined ? prop : null;
+export const isPropDefined = (prop: string | undefined): string | undefined =>
+  prop !== undefined ? prop : undefined;
 
 /**
  * Extracts the label using the value from an object. Requires the object to have a label and value property.
@@ -437,7 +439,10 @@ export const getBrandForegroundAppearance = (
     ? IcBrandForegroundEnum.Dark
     : IcBrandForegroundEnum.Light;
 
-export const getSlot = (element: HTMLElement, name: string): Element | null => {
+export const getSlot = (
+  element: HTMLElement | undefined,
+  name: string
+): Element | null => {
   if (element && element.querySelector) {
     return element.querySelector(`[slot="${name}"]`);
   }
@@ -635,7 +640,7 @@ export const pxToRem = (px: string, base = 16): string =>
  * This effectively makes it null, to not confuse screen readers that cannot interpret the false value
  */
 export const removeDisabledFalse = (
-  disabled: boolean,
+  disabled: boolean | undefined,
   element: HTMLElement
 ): void => {
   if (!disabled) {

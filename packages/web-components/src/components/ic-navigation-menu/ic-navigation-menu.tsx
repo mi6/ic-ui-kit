@@ -21,11 +21,11 @@ import { getSlot, getSlotContent, isSlotUsed } from "../../utils/helpers";
   shadow: true,
 })
 export class NavigationMenu {
-  private closeButton: HTMLIcButtonElement = null;
+  private closeButton?: HTMLIcButtonElement;
   private hasButtons: boolean = false;
   private hasNavigation: boolean = false;
-  private lastTabStop: HTMLElement = null;
-  private navBarEl: HTMLIcTopNavigationElement;
+  private lastTabStop: HTMLElement | null = null;
+  private navBarEl: HTMLIcTopNavigationElement | null;
   private navGroupFirst: boolean = false;
   private navItemAboveButtons: boolean = false;
 
@@ -71,7 +71,7 @@ export class NavigationMenu {
       this.hasButtons = true;
       this.lastTabStop = buttonContent[buttonContent.length - 1] as HTMLElement;
     } else {
-      if (this.hasNavigation) {
+      if (this.hasNavigation && navigationEls) {
         const lastEl = navigationEls[navigationEls.length - 1] as HTMLElement;
         //check for slotted content i.e. react router link
         const slotContent = getSlot(lastEl, "navigation-item");
@@ -123,9 +123,7 @@ export class NavigationMenu {
   };
 
   private focusCloseButton = () => {
-    if (this.closeButton.focus) {
-      this.closeButton.focus();
-    }
+    this.closeButton?.focus();
   };
 
   private focusLastTabStop = () => {

@@ -184,7 +184,7 @@ export namespace Components {
         /**
           * The custom badge colour. This will only style the badge component if variant="custom". Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
-        "customColor"?: IcColor;
+        "customColor"?: IcColor | null;
         /**
           * The text displayed in the badge. This will only be displayed if type="text".
          */
@@ -2182,11 +2182,11 @@ export namespace Components {
         /**
           * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS) (NOTE: Has a minimum value of `5000ms`)
          */
-        "autoDismissTimeout"?: number;
+        "autoDismissTimeout"?: number | undefined;
         /**
           * If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component
          */
-        "dismissButtonAriaLabel"?: string;
+        "dismissButtonAriaLabel"?: string | undefined;
         /**
           * How the toast will be dismissed. If manual will display a dismiss button.
          */
@@ -3533,7 +3533,7 @@ declare namespace LocalJSX {
         /**
           * The custom badge colour. This will only style the badge component if variant="custom". Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
-        "customColor"?: IcColor;
+        "customColor"?: IcColor | null;
         /**
           * The text displayed in the badge. This will only be displayed if type="text".
          */
@@ -5658,11 +5658,11 @@ declare namespace LocalJSX {
         /**
           * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS) (NOTE: Has a minimum value of `5000ms`)
          */
-        "autoDismissTimeout"?: number;
+        "autoDismissTimeout"?: number | undefined;
         /**
           * If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component
          */
-        "dismissButtonAriaLabel"?: string;
+        "dismissButtonAriaLabel"?: string | undefined;
         /**
           * How the toast will be dismissed. If manual will display a dismiss button.
          */

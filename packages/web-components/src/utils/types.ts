@@ -182,7 +182,8 @@ export type IcRequiredPropsTypes =
   | boolean
   | number
   | HTMLElement
-  | IcMenuOption[];
+  | IcMenuOption[]
+  | undefined;
 
 export type IcPropObject = { prop: IcRequiredPropsTypes; propName: string };
 
@@ -198,7 +199,7 @@ export interface IcValueEventDetail {
 }
 
 export interface IcBlurEventDetail {
-  relatedTarget: IcRelatedTarget;
+  relatedTarget: IcRelatedTarget | null;
 }
 
 export type IcSelectTypes = "single" | "multi";

@@ -21,7 +21,7 @@ describe("ic-navigation-item", () => {
     });
     expect(page.root).toMatchSnapshot("renders-with-aria-label");
 
-    page.root.setAttribute("aria-label", "New item description");
+    page.root?.setAttribute("aria-label", "New item description");
     await page.waitForChanges();
 
     page.rootInstance.hostMutationCallback([{ attributeName: "aria-label" }]);
@@ -80,7 +80,7 @@ describe("ic-navigation-item", () => {
       html: `<ic-navigation-item label="Item label"></ic-navigation-item>`,
     });
 
-    page.root.click();
+    page.root?.click();
   });
 
   it("should test inside side navigation", async () => {

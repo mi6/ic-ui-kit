@@ -47,10 +47,10 @@ import { IcExpandedDetail } from "../ic-side-navigation/ic-side-navigation.types
   },
 })
 export class NavigationItem {
-  private navigationSlot: HTMLElement;
+  private navigationSlot: HTMLElement | null;
   private isInitialRender: boolean = true;
-  private itemEl: HTMLElement;
-  private hostMutationObserver: MutationObserver = null;
+  private itemEl?: HTMLElement;
+  private hostMutationObserver: MutationObserver | null = null;
   private ANIMATION_DURATION =
     parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
   private ARIA_LABEL_STRING = "aria-label";
@@ -142,12 +142,12 @@ export class NavigationItem {
     if (this.navigationType === "side") {
       this.parentEl.removeEventListener(
         "icSideNavExpanded",
-        this.sideNavExpandHandler
+        this.sideNavExpandHandler as EventListener
       );
     } else if (this.navigationType === "top") {
       this.parentEl.removeEventListener(
         "icTopNavResized",
-        this.topNavResizedHandler
+        this.topNavResizedHandler as EventListener
       );
     }
     this.hostMutationObserver?.disconnect();
@@ -166,14 +166,14 @@ export class NavigationItem {
     if (this.navigationType === "side") {
       this.parentEl.addEventListener(
         "icSideNavExpanded",
-        this.sideNavExpandHandler
+        this.sideNavExpandHandler as EventListener
       );
     } else if (this.navigationType === "top") {
       this.parentEl.addEventListener(
         "icTopNavResized",
-        this.topNavResizedHandler
+        this.topNavResizedHandler as EventListener
       );
-      if (this.el.parentElement.tagName === "IC-NAVIGATION-GROUP")
+      if (this.el.parentElement?.tagName === "IC-NAVIGATION-GROUP")
         this.isTopNavChild = true;
       if (
         this.deviceSize <=
@@ -184,11 +184,12 @@ export class NavigationItem {
 
     this.navigationSlot = this.el.querySelector('[slot="navigation-item"]');
     if (this.navigationSlot) {
-      this.navigationSlot.ariaLabel = this.navigationSlot.textContent.trim();
+      this.navigationSlot.ariaLabel =
+        this.navigationSlot.textContent?.trim() || null;
     }
 
     if (this.el.hasAttribute(this.ARIA_LABEL_STRING)) {
-      this.ariaLabel = this.el.getAttribute(this.ARIA_LABEL_STRING);
+      this.ariaLabel = this.el.getAttribute(this.ARIA_LABEL_STRING) || "";
     }
   }
 
@@ -218,11 +219,11 @@ export class NavigationItem {
 
   private displayDefaultNavigationItem = (
     href: string,
-    hreflang: string,
-    target: string,
-    rel: string,
-    referrerpolicy: ReferrerPolicy,
-    download: string | boolean,
+    hreflang: string | undefined,
+    target: string | undefined,
+    rel: string | undefined,
+    referrerpolicy: ReferrerPolicy | undefined,
+    download: string | boolean | undefined,
     label: string
   ): HTMLElement => {
     const variant =
@@ -310,9 +311,14 @@ export class NavigationItem {
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
     mutationList.forEach(({ attributeName }) => {
-      if (attributeName === this.ARIA_LABEL_STRING) {
-        this.ariaLabel = this.el.getAttribute(attributeName);
-        forceComponentUpdate = true;
+      if (attributeName) {
+        const attribute = this.el.getAttribute(attributeName);
+        if (attribute) {
+          if (attributeName === this.ARIA_LABEL_STRING) {
+            this.ariaLabel = attribute;
+            forceComponentUpdate = true;
+          }
+        }
       }
     });
     if (forceComponentUpdate) {
@@ -357,7 +363,7 @@ export class NavigationItem {
 
   // Displays tooltip only once the collapsing animation is finished
   private sideNavToggleTooltip = (showTooltip: boolean) => {
-    const tooltip = this.el.shadowRoot.querySelector("ic-tooltip");
+    const tooltip = this.el.shadowRoot?.querySelector("ic-tooltip");
     const collapsedClass = "tooltip-navigation-item-side-nav-collapsed";
     let timer;
 
@@ -414,7 +420,7 @@ export class NavigationItem {
       >
         {/* Tooltip enabled by applying navigation-item-side-nav-collapsed class to host */}
         <ic-tooltip
-          label={this.generateTooltipLabel()}
+          label={this.generateTooltipLabel() || ""}
           target="navigation-item"
           placement="right"
           class={{

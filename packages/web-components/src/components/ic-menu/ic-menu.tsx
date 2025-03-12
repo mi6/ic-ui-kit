@@ -49,11 +49,11 @@ export class Menu {
   private isMultiSelect: boolean = false;
   private isSearchBar: boolean = false;
   private isSearchableSelect: boolean = false;
-  private lastOptionSelected: number | null = null; // Index of last option selected
-  private lastOptionFocused: number | null = null; // Index of last option focused
-  private menu?: HTMLUListElement;
-  private multiOptionClicked: string | null = null;
-  private popperInstance: PopperInstance | null;
+  private lastOptionSelected: number = null; // Index of last option selected
+  private lastOptionFocused: number = null; // Index of last option focused
+  private menu: HTMLUListElement;
+  private multiOptionClicked: string = null;
+  private popperInstance: PopperInstance;
   private preventClickOpen: boolean = false; // Prevents menu re-opening immediately after it is closed on blur when clicking input.
   private preventMenuFocus: boolean = false; // (When multiple) ensures focus moves straight to select all button from menu.
   private selectAllButton: HTMLIcButtonElement;
@@ -65,7 +65,7 @@ export class Menu {
   @State() focusFromSearchKeypress: boolean = false;
   @State() initialOptionsListRender: boolean = false;
   @State() keyboardNav: boolean = false;
-  @State() optionHighlighted: string | null;
+  @State() optionHighlighted: string;
   @State() preventIncorrectTabOrder: boolean = false;
   @State() menuOptions: IcMenuOption[];
 
@@ -237,8 +237,8 @@ export class Menu {
 
   componentWillLoad(): void {
     this.loadUngroupedOptions();
-    this.parentEl?.addEventListener("icClear", this.handleClearListener);
-    this.parentEl?.addEventListener("icSubmitSearch", this.handleSubmitSearch);
+    this.parentEl.addEventListener("icClear", this.handleClearListener);
+    this.parentEl.addEventListener("icSubmitSearch", this.handleSubmitSearch);
     this.hasTimedOut = this.options?.some((opt) => opt.timedOut);
     this.isLoading = this.options?.some((opt) => opt.loading);
   }
@@ -268,12 +268,7 @@ export class Menu {
       (option) => option[this.valueField] === this.value
     );
 
-    if (
-      this.menu &&
-      this.open &&
-      this.options.length !== 0 &&
-      !this.preventMenuFocus
-    ) {
+    if (this.open && this.options.length !== 0 && !this.preventMenuFocus) {
       if (
         this.value &&
         this.keyboardNav &&
@@ -302,7 +297,7 @@ export class Menu {
       }
     }
 
-    if (this.menu && this.open && !this.value && this.selectOnEnter) {
+    if (this.open && !this.value && this.selectOnEnter) {
       this.scrollToSelected(this.menu);
     }
 
@@ -404,7 +399,7 @@ export class Menu {
 
       // Reset optionHighlighted so previously highlighted option doesn't get reselected when Enter pressed
       if (this.isMultiSelect) {
-        this.optionHighlighted = null;
+        this.optionHighlighted = undefined;
         this.multiOptionClicked = null;
       }
     }
@@ -449,22 +444,20 @@ export class Menu {
     }
   };
 
-  private getParentEl = (parent: HTMLElement | undefined) => {
-    if (parent) {
-      if (parent.tagName === this.SEARCH_BAR_TAG) {
-        this.isSearchBar = true;
-      } else if (parent.tagName === "IC-SELECT") {
-        if (
-          parent.getAttribute("searchable") !== null &&
-          parent.getAttribute("searchable") !== undefined
-        ) {
-          this.isSearchableSelect = true;
-        } else if (
-          parent.getAttribute("multiple") !== null &&
-          parent.getAttribute("multiple") !== undefined
-        ) {
-          this.isMultiSelect = true;
-        }
+  private getParentEl = (parent: HTMLElement) => {
+    if (parent.tagName === this.SEARCH_BAR_TAG) {
+      this.isSearchBar = true;
+    } else if (parent.tagName === "IC-SELECT") {
+      if (
+        parent.getAttribute("searchable") !== null &&
+        parent.getAttribute("searchable") !== undefined
+      ) {
+        this.isSearchableSelect = true;
+      } else if (
+        parent.getAttribute("multiple") !== null &&
+        parent.getAttribute("multiple") !== undefined
+      ) {
+        this.isMultiSelect = true;
       }
     }
   };
@@ -794,7 +787,7 @@ export class Menu {
               this.selectAllButton.focus(); // Move focus to select all button instead of focused option
               this.preventMenuFocus = true;
               this.preventClickOpen = true;
-              this.optionHighlighted = null; // Stop any option focus states showing when focus moved to select all button
+              this.optionHighlighted = undefined; // Stop any option focus states showing when focus moved to select all button
             }
           } else {
             this.preventIncorrectTabOrder = true;
@@ -818,7 +811,7 @@ export class Menu {
       });
 
       if (this.closeOnSelect) {
-        this.optionHighlighted = null;
+        this.optionHighlighted = undefined;
         this.menuOptionId.emit({ optionId: undefined });
       }
     }
@@ -842,13 +835,13 @@ export class Menu {
       );
 
       this.handleOptionSelect(event, selectedOptionIndex, true);
-      this.multiOptionClicked = value ?? null;
+      this.multiOptionClicked = value;
     } else {
       this.menuOptionSelect.emit({ value, label });
       this.handleMenuChange(false);
     }
 
-    this.optionHighlighted = null;
+    this.optionHighlighted = undefined;
   };
 
   private handleRetry = (): void => {
@@ -963,7 +956,7 @@ export class Menu {
   private handleMultipleShiftSelect = (
     lastOptionInSelection: number,
     useFocusForSelection = false,
-    firstOptionSelected: number | null = null
+    firstOptionSelected: number = null
   ) => {
     this.shiftPressed = false;
 
@@ -1024,7 +1017,7 @@ export class Menu {
 
   private getFirstOptionInSelection = (
     useFocusForSelection: boolean
-  ): number | null => {
+  ): number => {
     return useFocusForSelection && this.lastOptionFocused !== null
       ? this.lastOptionFocused
       : this.lastOptionSelected !== null
@@ -1126,7 +1119,7 @@ export class Menu {
 
   private getOptionAriaLabel = (
     option: IcMenuOption,
-    parentOption?: IcMenuOption
+    parentOption: IcMenuOption
   ): string => {
     let ariaLabel = option[this.labelField];
 
@@ -1243,7 +1236,7 @@ export class Menu {
       !!option[this.valueField] &&
       !!this.value &&
       selected &&
-      this.parentEl?.tagName !== this.SEARCH_BAR_TAG;
+      this.parentEl.tagName !== this.SEARCH_BAR_TAG;
 
     return (
       <Fragment>
@@ -1292,7 +1285,7 @@ export class Menu {
   private displayOption = (
     option: IcMenuOption,
     selected: boolean,
-    index: number,
+    index?: number,
     parentOption?: IcMenuOption
   ): HTMLLIElement => {
     const {
@@ -1314,12 +1307,12 @@ export class Menu {
               option[this.valueField] === optionHighlighted
             : keyboardNav && selected,
           "last-recommended-option":
-            !!option.recommended &&
+            option.recommended &&
             options[index + 1] &&
             !options[index + 1].recommended,
-          "disabled-option": !!option.disabled,
-          "loading-option": !!option.loading,
-          timeout: !!option.timedOut,
+          "disabled-option": option.disabled,
+          "loading-option": option.loading,
+          timeout: option.timedOut,
         }}
         role="option"
         tabindex={
@@ -1332,9 +1325,7 @@ export class Menu {
         aria-label={this.getOptionAriaLabel(option, parentOption)}
         aria-selected={selected ? "true" : "false"}
         aria-disabled={option.disabled ? "true" : "false"}
-        onClick={() =>
-          !option.timedOut && !option.loading && this.handleOptionClick
-        }
+        onClick={!option.timedOut && !option.loading && this.handleOptionClick}
         onBlur={this.handleBlur}
         onMouseDown={this.handleMouseDown}
         data-value={option[this.valueField]}

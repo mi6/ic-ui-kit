@@ -596,9 +596,9 @@ export class Button {
       >
         {this.hasTooltip && (
           <ic-tooltip
-            id={describedby ?? undefined}
+            id={describedby || undefined}
             label={title || ariaLabel}
-            target={buttonId ?? undefined}
+            target={buttonId || undefined}
             placement={this.tooltipPlacement}
             silent={this.isIconVariant() && !!ariaLabel}
           >
@@ -617,7 +617,7 @@ export class Button {
             <ButtonContent />
           ))}
         {this.describedByContent && (
-          <span id={describedby ?? undefined} class="ic-button-describedby">
+          <span id={describedby || undefined} class="ic-button-describedby">
             {this.describedByContent}
           </span>
         )}

@@ -38,7 +38,7 @@ const ADDITIONAL_FIELD = "additional-field";
 export class RadioOption {
   private defaultRadioValue: string = "";
   private hasAdditionalField: boolean = false;
-  private radioElement: HTMLInputElement;
+  private radioElement?: HTMLInputElement;
   private skipFocus = false;
 
   @Element() el: HTMLIcRadioOptionElement;
@@ -194,7 +194,7 @@ export class RadioOption {
    */
   @Method()
   async setTabIndex(value: number): Promise<void> {
-    this.radioElement.tabIndex = value;
+    this.radioElement?.setAttribute("tabIndex", value.toString());
   }
 
   private getAdditionalField(): HTMLIcTextFieldElement {
@@ -216,7 +216,7 @@ export class RadioOption {
     ) {
       event.stopPropagation();
       if (this.skipFocus === false) {
-        this.radioElement.focus();
+        this.radioElement?.focus();
       }
       this.skipFocus = false;
 
@@ -270,11 +270,11 @@ export class RadioOption {
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         class={{
-          ["ic-radio-option-disabled"]: disabled,
+          ["ic-radio-option-disabled"]: !!disabled,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
-        <div class={{ container: true, disabled }}>
+        <div class={{ container: true, disabled: !!disabled }}>
           <div>
             <input
               tabindex={selected ? "0" : "-1"}
@@ -282,7 +282,7 @@ export class RadioOption {
               name={name}
               id={id}
               value={value}
-              disabled={disabled ? true : null}
+              disabled={disabled}
               checked={selected}
               ref={(el) => (this.radioElement = el)}
               form={form}

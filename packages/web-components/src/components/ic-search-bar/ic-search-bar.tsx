@@ -54,12 +54,12 @@ let inputIds = 0;
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class SearchBar {
   private anchorEl: HTMLElement;
-  private assistiveHintEl: HTMLSpanElement = null;
+  private assistiveHintEl: HTMLSpanElement | null = null;
   private debounceAriaLive: number;
   private hasTimedOut = false;
   private inputEl: HTMLInputElement;
   private inputId = `ic-search-bar-input-${inputIds++}`;
-  private menu: HTMLIcMenuElement;
+  private menu?: HTMLIcMenuElement;
   private menuCloseFromMenuChangeEvent: boolean = false;
   private menuId = `${this.inputId}-menu`;
   private preLoad = true;
@@ -69,13 +69,13 @@ export class SearchBar {
   private retryViaKeyPress: boolean;
   private timeoutTimer: number;
   private truncateValue = false;
-  private searchSubmitButton: HTMLIcButtonElement;
+  private searchSubmitButton?: HTMLIcButtonElement;
 
   @Element() el: HTMLIcSearchBarElement;
 
   @State() ariaActiveDescendant: string;
   @State() clearButtonFocused: boolean = false;
-  @State() highlightedValue: string;
+  @State() highlightedValue: string | undefined;
   @State() open: boolean = false;
   @State() searchSubmitFocused: boolean = false;
   @State() showClearButton: boolean = false;
@@ -128,7 +128,7 @@ export class SearchBar {
 
   @Watch("debounce")
   private debounceChanged() {
-    this.icChange = debounceEvent(this.icChange, this.debounce);
+    this.icChange = debounceEvent(this.icChange, this.debounce!);
   }
 
   /**
@@ -273,8 +273,8 @@ export class SearchBar {
         !this.preLoad &&
           (this.filteredOptions = [
             {
-              [this.labelField]: this.emptyOptionListText,
-              [this.valueField]: "",
+              [this.labelField!]: this.emptyOptionListText,
+              [this.valueField!]: "",
             },
           ]);
         this.preLoad = true;
@@ -300,12 +300,13 @@ export class SearchBar {
         this.labelField
       )
     ) {
-      this.inputEl.value = getLabelFromValue(
-        newValue,
-        this.options,
-        this.valueField,
-        this.labelField
-      );
+      this.inputEl.value =
+        getLabelFromValue(
+          newValue,
+          this.options,
+          this.valueField,
+          this.labelField
+        ) || "";
     } else if (this.inputEl && this.inputEl.value !== newValue) {
       this.inputEl.value = newValue;
     }
@@ -332,10 +333,10 @@ export class SearchBar {
       keyboardEvent.code === "Space"
     ) {
       this.value = "";
-      this.inputEl.value = "";
+      this.inputEl?.setAttribute("value", "");
       this.loading = false;
       clearTimeout(this.timeoutTimer);
-      this.filteredOptions = this.options;
+      this.filteredOptions = this.options!;
       this.el.setFocus();
 
       this.icClear.emit();
@@ -355,17 +356,17 @@ export class SearchBar {
     this.icInput.emit({ value: this.value });
 
     const noOptions = [
-      { [this.labelField]: this.emptyOptionListText, [this.valueField]: "" },
+      { [this.labelField!]: this.emptyOptionListText, [this.valueField!]: "" },
     ];
 
-    if (this.options.length > 0) {
+    if (this.options!.length > 0) {
       this.setMenuChange(true);
 
       this.preLoad = false;
 
       if (this.disableAutoFiltering === false) {
         const rawFilteredOptions = getFilteredMenuOptions(
-          this.options,
+          this.options!,
           false,
           this.value,
           "anywhere",
@@ -480,7 +481,7 @@ export class SearchBar {
     if (this.hasOptionsOrFilterDisabled()) {
       this.renderAssistiveHintEl();
       if (this.disableAutoFiltering) {
-        this.filteredOptions = this.options;
+        this.filteredOptions = this.options!;
       }
     }
 
@@ -545,7 +546,7 @@ export class SearchBar {
     this.highlightedValue = undefined;
     this.icSubmitSearch.emit({ value: this.value });
 
-    const form: HTMLFormElement = this.el.closest("FORM");
+    const form: HTMLFormElement | null = this.el.closest("FORM");
 
     if (this.searchSubmitButton && !!form && !this.preventSubmit) {
       handleHiddenFormButtonClick(form, this.searchSubmitButton);
@@ -577,8 +578,8 @@ export class SearchBar {
   private triggerLoading = () => {
     const loadingOption: IcMenuOption[] = [
       {
-        [this.labelField]: this.loadingLabel,
-        [this.valueField]: "",
+        [this.labelField!]: this.loadingLabel,
+        [this.valueField!]: "",
         loading: true,
       },
     ];
@@ -588,8 +589,8 @@ export class SearchBar {
       this.timeoutTimer = window.setTimeout(() => {
         this.filteredOptions = [
           {
-            [this.labelField]: this.loadingErrorLabel,
-            [this.valueField]: "",
+            [this.labelField!]: this.loadingErrorLabel,
+            [this.valueField!]: "",
             timedOut: true,
           },
         ];
@@ -613,7 +614,7 @@ export class SearchBar {
     if (ev.detail.optionId) {
       this.ariaActiveDescendant = ev.detail.optionId;
     } else {
-      this.ariaActiveDescendant = undefined;
+      this.ariaActiveDescendant = "";
     }
   };
 
@@ -685,7 +686,7 @@ export class SearchBar {
       this.hasOptionsOrFilterDisabled()
     ) {
       this.assistiveHintEl = document.createElement("span");
-      this.assistiveHintEl.innerText = this.assistiveHintText;
+      this.assistiveHintEl.innerText = this.assistiveHintText || "";
       this.assistiveHintEl.id = `${this.inputId}-assistive-hint`;
       this.assistiveHintEl.style.display = "none";
       if (input.after !== undefined) {
@@ -695,7 +696,7 @@ export class SearchBar {
   };
 
   private updateSearchResultAriaLive = (): void => {
-    const searchResultsStatusEl = this.el.shadowRoot.querySelector(
+    const searchResultsStatusEl = this.el.shadowRoot?.querySelector(
       ".search-results-status"
     ) as HTMLParagraphElement;
 
@@ -724,11 +725,11 @@ export class SearchBar {
   };
 
   private hasOptionsOrFilterDisabled = (): boolean =>
-    this.options.length > 0 || this.disableAutoFiltering;
+    this.options!.length > 0 || !!this.disableAutoFiltering;
 
   private hadNoOptions = (): boolean =>
     this.filteredOptions.length === 1 &&
-    this.filteredOptions[0][this.labelField] === this.emptyOptionListText &&
+    this.filteredOptions[0][this.labelField!] === this.emptyOptionListText &&
     this.searchMode === "navigation";
 
   private isSubmitDisabled = (): boolean => {
@@ -741,7 +742,7 @@ export class SearchBar {
       this.disabled ||
       this.hadNoOptions() ||
       this.hasTimedOut ||
-      this.loading
+      !!this.loading
     );
   };
 
@@ -752,9 +753,9 @@ export class SearchBar {
     }
     const prevNoOptionsList = this.filteredOptions.find(
       (filteredOption) =>
-        filteredOption[this.labelField] === this.emptyOptionListText ||
-        filteredOption[this.labelField] === this.loadingErrorLabel ||
-        filteredOption[this.labelField] === this.loadingLabel
+        filteredOption[this.labelField!] === this.emptyOptionListText ||
+        filteredOption[this.labelField!] === this.loadingErrorLabel ||
+        filteredOption[this.labelField!] === this.loadingLabel
     );
     if (prevNoOptionsList) {
       this.prevNoOption = true;
@@ -815,7 +816,7 @@ export class SearchBar {
 
     const labelValue = getLabelFromValue(
       value,
-      options,
+      options!,
       this.valueField,
       this.labelField
     );
@@ -826,8 +827,8 @@ export class SearchBar {
       <Host
         class={{
           ["ic-search-bar-search"]: true,
-          ["ic-search-bar-full-width"]: fullWidth,
-          ["ic-search-bar-disabled"]: disabled,
+          ["ic-search-bar-full-width"]: !!fullWidth,
+          ["ic-search-bar-disabled"]: !!disabled,
           ["ic-search-bar-small"]: size === "small",
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
@@ -846,7 +847,7 @@ export class SearchBar {
             ></ic-input-label>
           )}
           <ic-input-component-container
-            ref={(el) => (this.anchorEl = el)}
+            ref={(el) => (this.anchorEl = el!)}
             size={size}
             disabled={disabledMode}
             readonly={readonly}
@@ -855,11 +856,11 @@ export class SearchBar {
             <input
               id={inputId}
               name={name}
-              ref={(el) => (this.inputEl = el)}
+              ref={(el) => (this.inputEl = el!)}
               value={options && !!labelValue ? labelValue : value}
               class={{
-                "no-left-pad": readonly,
-                readonly,
+                "no-left-pad": !!readonly,
+                readonly: !!readonly,
                 "truncate-value": truncateValue,
               }}
               placeholder={placeholder}
@@ -872,14 +873,16 @@ export class SearchBar {
               aria-label={label}
               aria-activedescendant={ariaActiveDescendant}
               aria-expanded={
-                options.length > 0 && menuRendered ? `${menuOpen}` : undefined
+                options!.length > 0 && menuRendered ? `${menuOpen}` : undefined
               }
               aria-owns={menuRendered ? menuId : undefined}
               aria-describedby={describedById}
               aria-controls={menuRendered ? menuId : undefined}
-              aria-haspopup={options.length > 0 ? "listbox" : undefined}
+              aria-haspopup={options!.length > 0 ? "listbox" : undefined}
               aria-autocomplete={hasSuggestedSearch ? "list" : undefined}
-              role={options.length > 0 && menuRendered ? "combobox" : undefined}
+              role={
+                options!.length > 0 && menuRendered ? "combobox" : undefined
+              }
               autocomplete={autocomplete}
               autocapitalize={autocapitalize}
               autoFocus={autofocus}
@@ -890,7 +893,7 @@ export class SearchBar {
               class={{
                 "clear-button-container": true,
                 "clear-button-visible":
-                  value && !disabledMode && this.showClearButton,
+                  !!value && !disabledMode && this.showClearButton,
               }}
             >
               <ic-button
@@ -946,7 +949,7 @@ export class SearchBar {
           <div
             class={{
               "menu-container": true,
-              fullwidth: fullWidth,
+              fullwidth: !!fullWidth,
             }}
           >
             {menuRendered && (
@@ -955,9 +958,9 @@ export class SearchBar {
                   "no-results":
                     this.hadNoOptions() ||
                     (filteredOptions.length === 1 &&
-                      (filteredOptions[0][this.labelField] ===
+                      (filteredOptions[0][this.labelField!] ===
                         this.loadingLabel ||
-                        filteredOptions[0][this.labelField] ===
+                        filteredOptions[0][this.labelField!] ===
                           this.loadingErrorLabel)),
                 }}
                 activationType="manual"
