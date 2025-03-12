@@ -219,9 +219,8 @@ export class MenuItem {
           ["ic-menu-item-disabled"]: this.disabled,
         }}
       >
-        <li
+        <ic-button
           role={this.variant === "toggle" ? "menuitemcheckbox" : "menuitem"}
-          aria-disabled={`${this.disabled}`}
           aria-checked={
             this.variant === "toggle"
               ? this.checked
@@ -229,54 +228,51 @@ export class MenuItem {
                 : "false"
               : undefined
           }
+          fullWidth
+          variant="tertiary"
+          onClick={this.handleClick}
+          href={isPropDefined(this.href)}
+          hreflang={isPropDefined(this.hreflang)}
+          target={isPropDefined(this.target)}
+          rel={isPropDefined(this.rel)}
+          referrerpolicy={
+            this.referrerpolicy !== undefined ? this.referrerpolicy : null
+          }
+          aria-disabled={`${this.disabled}`}
+          aria-label={this.getMenuItemAriaLabel()}
+          aria-haspopup={
+            isPropDefined(this.submenuTriggerFor) ||
+            this.el.classList.contains("ic-popover-submenu-back-button")
+              ? "menu"
+              : false
+          }
         >
-          <ic-button
-            fullWidth
-            variant="tertiary"
-            onClick={this.handleClick}
-            href={isPropDefined(this.href)}
-            hreflang={isPropDefined(this.hreflang)}
-            target={isPropDefined(this.target)}
-            rel={isPropDefined(this.rel)}
-            referrerpolicy={
-              this.referrerpolicy !== undefined ? this.referrerpolicy : null
-            }
-            aria-disabled={`${this.disabled}`}
-            aria-label={this.getMenuItemAriaLabel()}
-            aria-haspopup={
-              isPropDefined(this.submenuTriggerFor) ||
-              this.el.classList.contains("ic-popover-submenu-back-button")
-                ? "menu"
-                : false
-            }
-          >
-            <div class="focus-border">
-              {isSlotUsed(this.el, "icon") && (
-                <span class="icon">
-                  <slot name="icon"></slot>
-                </span>
-              )}
-              <MenuItemInformation />
-              {this.variant === "toggle" && (
-                <span
-                  class={{
-                    ["check-icon"]: true,
-                    ["hide"]: !this.checked,
-                  }}
-                  aria-hidden="true"
-                  innerHTML={Check}
-                />
-              )}
-              {isPropDefined(this.submenuTriggerFor) && (
-                <span
-                  class={{ ["submenu-icon"]: true }}
-                  aria-hidden="true"
-                  innerHTML={Chevron}
-                />
-              )}
-            </div>
-          </ic-button>
-        </li>
+          <div class="focus-border">
+            {isSlotUsed(this.el, "icon") && (
+              <span class="icon">
+                <slot name="icon"></slot>
+              </span>
+            )}
+            <MenuItemInformation />
+            {this.variant === "toggle" && (
+              <span
+                class={{
+                  ["check-icon"]: true,
+                  ["hide"]: !this.checked,
+                }}
+                aria-hidden="true"
+                innerHTML={Check}
+              />
+            )}
+            {isPropDefined(this.submenuTriggerFor) && (
+              <span
+                class={{ ["submenu-icon"]: true }}
+                aria-hidden="true"
+                innerHTML={Chevron}
+              />
+            )}
+          </div>
+        </ic-button>
       </Host>
     );
   }
