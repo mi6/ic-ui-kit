@@ -11,7 +11,7 @@ export class ToastRegion {
   /**
    * The toast element to be displayed.
    */
-  @Prop({ mutable: true }) openToast: HTMLIcToastElement;
+  @Prop({ mutable: true }) openToast: HTMLIcToastElement | undefined;
   @Watch("openToast")
   watchOpenToastHandler(newValue: HTMLIcToastElement): void {
     if (this.openToast !== undefined) {

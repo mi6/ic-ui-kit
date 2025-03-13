@@ -54,9 +54,9 @@ export class TopNavigation {
   private hasIconButtons: boolean = false;
   private hasNavigation: boolean = false;
   private hasSearchSlotContent: boolean = false;
-  private mobileSearchButtonEl: HTMLIcButtonElement;
-  private resizeObserver: ResizeObserver = null;
-  private searchBar: HTMLIcSearchBarElement = null;
+  private mobileSearchButtonEl?: HTMLIcButtonElement;
+  private resizeObserver: ResizeObserver | null = null;
+  private searchBar: HTMLIcSearchBarElement | null = null;
 
   @Element() el: HTMLIcTopNavigationElement;
 
@@ -165,7 +165,7 @@ export class TopNavigation {
   @Listen("icNavigationMenuClose", {})
   navBarMenuCloseHandler(): void {
     this.showNavMenu(false);
-    this.el.shadowRoot.querySelector<HTMLElement>("#menu-button").focus();
+    this.el.shadowRoot?.querySelector<HTMLElement>("#menu-button")?.focus();
   }
 
   @Listen("icSearchBarBlur", {})
@@ -217,7 +217,7 @@ export class TopNavigation {
     this.mobileSearchBarVisible = !this.mobileSearchBarVisible;
 
     if (this.searchBar !== null) {
-      this.mobileSearchButtonEl.setAttribute(
+      this.mobileSearchButtonEl?.setAttribute(
         "aria-label",
         `${this.mobileSearchBarVisible ? "Hide" : "Show"} search`
       );
@@ -225,7 +225,7 @@ export class TopNavigation {
       this.searchBar.fullWidth = this.mobileSearchBarVisible;
       if (this.mobileSearchBarVisible) {
         setTimeout(() => {
-          this.searchBar.focus();
+          this.searchBar?.focus();
         }, 100);
       }
     }
@@ -268,7 +268,7 @@ export class TopNavigation {
         //remove attribute again as this trigger a redraw & applies css
         this.searchBar.removeAttribute("hidden");
         setTimeout(() => {
-          this.searchBar.focus();
+          this.searchBar?.focus();
         }, 100);
       }
     }

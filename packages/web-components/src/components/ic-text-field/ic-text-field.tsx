@@ -56,7 +56,7 @@ const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "title"];
 export class TextField {
   private inheritedAttributes: { [k: string]: string } = {};
   private inputEl: HTMLInputElement | HTMLTextAreaElement;
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
   private interval: ReturnType<typeof setInterval>;
 
   @Element() el: HTMLIcTextFieldElement;
@@ -170,7 +170,7 @@ export class TextField {
   /**
    * The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)
    */
-  @Prop() max: string | number = undefined;
+  @Prop() max?: string | number;
 
   /**
    * The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)
@@ -180,7 +180,7 @@ export class TextField {
   /**
    * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
    */
-  @Prop() min: string | number = undefined;
+  @Prop() min?: string | number;
 
   /**
    * The minimum number of characters that can be entered in the field.
@@ -190,7 +190,7 @@ export class TextField {
   /**
    * The name of the control, which is submitted with the form data.
    */
-  @Prop() name: string = this.inputId;
+  @Prop() name: string = this.inputId!;
 
   /**
    * The placeholder value to be displayed.

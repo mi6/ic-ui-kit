@@ -425,7 +425,7 @@ describe("ic-side-navigation", () => {
     await page.rootInstance.toggleMenuExpanded(true);
     await new Promise((r) => setTimeout(r, 2000));
 
-    page.root.dispatchEvent(
+    page.root?.dispatchEvent(
       new window.window.Event("transitionend", {
         bubbles: true,
         cancelable: true,

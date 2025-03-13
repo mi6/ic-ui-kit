@@ -19,7 +19,7 @@ describe("default variant of ic-stepper component", () => {
 
     expect(page.rootInstance.variant).toMatch("default");
 
-    const steps = page.root.querySelectorAll("ic-step");
+    const steps = document.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
       expect(step.classList.contains("aligned-full-width")).toBeTruthy();
@@ -44,7 +44,7 @@ describe("default variant of ic-stepper component", () => {
     expect(page.rootInstance.variant).toMatch("default");
     expect(page.rootInstance.aligned).toMatch("left");
     expect(
-      page.root.classList.contains("ic-stepper-aligned-left")
+      page.root?.classList.contains("ic-stepper-aligned-left")
     ).toBeTruthy();
 
     expect(page.root).toMatchSnapshot();
@@ -68,14 +68,14 @@ describe("default variant of ic-stepper component", () => {
 
     expect(page.rootInstance.hideStepInfo).toBeTruthy();
 
-    const steps = page.root.querySelectorAll("ic-step");
+    const steps = document.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
-      const stepTitleArea = step.shadowRoot.querySelector(
+      const stepTitleArea = step.shadowRoot?.querySelector(
         ".step > .heading-area"
       );
 
-      expect(stepTitleArea.classList.contains("visually-hidden")).toBeTruthy();
+      expect(stepTitleArea?.classList.contains("visually-hidden")).toBeTruthy();
     });
 
     expect(page.root).toMatchSnapshot();
@@ -100,7 +100,7 @@ describe("default variant of ic-stepper component", () => {
 
     expect(page.rootInstance.hideStepInfo).toBeFalsy();
 
-    const steps = page.root.querySelectorAll("ic-step");
+    const steps = document.querySelectorAll("ic-step");
 
     expect(page.rootInstance["variantOverride"]).toBeTruthy();
 
@@ -116,7 +116,7 @@ describe("default variant of ic-stepper component", () => {
       expect(step["heading"]).toBeUndefined();
       expect(step["subheading"]).toBeUndefined();
 
-      const stepTitleArea = step.shadowRoot.querySelector(
+      const stepTitleArea = step.shadowRoot?.querySelector(
         ".step > .heading-area"
       );
       expect(stepTitleArea).toBeNull();
@@ -146,7 +146,7 @@ describe("default variant of ic-stepper component", () => {
     expect(page.root).toMatchSnapshot();
 
     expect(
-      page.root.classList.contains("ic-stepper-aligned-left")
+      page.root?.classList.contains("ic-stepper-aligned-left")
     ).toBeTruthy();
   });
 
@@ -166,7 +166,9 @@ describe("default variant of ic-stepper component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    expect(page.root.classList.contains("ic-stepper-aligned-left")).toBeFalsy();
+    expect(
+      page.root?.classList.contains("ic-stepper-aligned-left")
+    ).toBeFalsy();
   });
 
   it("should add 'disabled step' to the aria labels of all disabled steps", async () => {
@@ -205,9 +207,7 @@ describe("default variant of ic-stepper component", () => {
 
     await page.waitForChanges();
 
-    const disabledSteps = page.root.querySelectorAll(
-      'ic-step[type="disabled"]'
-    );
+    const disabledSteps = document.querySelectorAll('ic-step[type="disabled"]');
 
     disabledSteps.forEach((step) => {
       expect(step.getAttribute("aria-label")).toMatch(/. Non-required step/i);
@@ -233,9 +233,9 @@ describe("default variant of ic-stepper component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    const lastStep = await page.root.querySelector("ic-step[last-step='']");
+    const lastStep = await document.querySelector("ic-step[last-step='']");
 
-    expect(lastStep.classList.contains("last-step")).toBeTruthy();
+    expect(lastStep?.classList.contains("last-step")).toBeTruthy();
   });
 });
 
@@ -327,15 +327,15 @@ describe("compact variant of ic-stepper component", () => {
 
     expect(page.rootInstance.hideStepInfo).toBeFalsy();
 
-    const steps = page.root.querySelectorAll("ic-step");
+    const steps = document.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
-      const heading = step.shadowRoot.querySelector(
+      const heading = step.shadowRoot?.querySelector(
         ".step > .heading-area > .heading"
       );
 
       expect(heading).not.toBeNull();
-      expect(heading.classList.contains("hide")).toBeFalsy();
+      expect(heading?.classList.contains("hide")).toBeFalsy();
     });
   });
 
@@ -359,15 +359,15 @@ describe("compact variant of ic-stepper component", () => {
 
     expect(page.rootInstance.hideStepInfo).toBeTruthy();
 
-    const steps = page.root.querySelectorAll("ic-step");
+    const steps = document.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
-      const heading = step.shadowRoot.querySelector(
+      const heading = step.shadowRoot?.querySelector(
         ".step > .heading-area > .heading"
       );
 
       expect(heading).not.toBeNull();
-      expect(heading.classList.contains("visually-hidden")).toBeFalsy();
+      expect(heading?.classList.contains("visually-hidden")).toBeFalsy();
     });
 
     expect(page.root).toMatchSnapshot();
@@ -391,7 +391,7 @@ describe("compact variant of ic-stepper component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    const steps = page.root.querySelectorAll("ic-step");
+    const steps = document.querySelectorAll("ic-step");
 
     expect(page.rootInstance["variantOverride"]).toBeTruthy();
 
@@ -451,33 +451,35 @@ describe("compact variant of ic-stepper component", () => {
 
     expect(page.rootInstance.variant).toMatch("compact");
 
-    const currentStep = page.root.querySelector('ic-step[current=""]');
+    const currentStep = document.querySelector('ic-step[current=""]');
 
     expect(
-      currentStep.shadowRoot
-        .querySelector(".step")
-        .classList.contains("current")
+      currentStep?.shadowRoot
+        ?.querySelector(".step")
+        ?.classList.contains("current")
     );
 
-    expect(currentStep.classList.contains("show")).toBeTruthy;
+    expect(currentStep?.classList.contains("show")).toBeTruthy;
 
-    expect(currentStep.classList.contains("hide")).toBeFalsy;
+    expect(currentStep?.classList.contains("hide")).toBeFalsy;
 
-    const notCurrentStep = page.root.querySelector('ic-step:not([current=""])');
+    const notCurrentStep = page.root?.querySelector(
+      'ic-step:not([current=""])'
+    );
 
-    expect(notCurrentStep.classList.contains("show")).toBeFalsy;
+    expect(notCurrentStep?.classList.contains("show")).toBeFalsy;
 
-    expect(notCurrentStep.classList.contains("hide")).toBeTruthy;
+    expect(notCurrentStep?.classList.contains("hide")).toBeTruthy;
 
-    notCurrentStep.classList.add("show");
+    notCurrentStep?.classList.add("show");
 
     page.rootInstance.resizeObserverCallback();
 
     await page.waitForChanges();
 
-    expect(notCurrentStep.classList.contains("show")).toBeFalsy;
+    expect(notCurrentStep?.classList.contains("show")).toBeFalsy;
 
-    expect(notCurrentStep.classList.contains("hide")).toBeTruthy;
+    expect(notCurrentStep?.classList.contains("hide")).toBeTruthy;
   });
 
   it("shouldn't add the 'show' and 'hide' classes to default steps", async () => {
@@ -515,15 +517,15 @@ describe("compact variant of ic-stepper component", () => {
 
     expect(page.rootInstance.variant).toMatch("default");
 
-    const currentStep = page.root.querySelector('ic-step[current=""]');
+    const currentStep = page.root?.querySelector('ic-step[current=""]');
 
     expect(
-      currentStep.shadowRoot
-        .querySelector(".step")
-        .classList.contains("current")
+      currentStep?.shadowRoot
+        ?.querySelector(".step")
+        ?.classList.contains("current")
     );
 
-    const steps = page.root.querySelectorAll("ic-step");
+    const steps = document.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
       expect(step.classList.contains("show")).toBeFalsy();
@@ -570,25 +572,23 @@ describe("compact variant of ic-stepper component", () => {
 
     expect(page.rootInstance.variant).toMatch("compact");
 
-    const currentStep = page.root.querySelector('ic-step[current=""]');
+    const currentStep = document.querySelector('ic-step[current=""]');
 
     expect(
-      currentStep.shadowRoot
-        .querySelector(".step")
-        .classList.contains("current")
+      currentStep?.shadowRoot
+        ?.querySelector(".step")
+        ?.classList.contains("current")
     );
 
-    expect(currentStep.classList.contains("show")).toBeTruthy;
+    expect(currentStep?.classList.contains("show")).toBeTruthy;
 
-    expect(currentStep.classList.contains("hide")).toBeFalsy;
+    expect(currentStep?.classList.contains("hide")).toBeFalsy;
 
-    const notCurrentSteps = page.root.querySelector(
-      'ic-step:not([current=""])'
-    );
+    const notCurrentSteps = document.querySelector('ic-step:not([current=""])');
 
-    expect(notCurrentSteps.classList.contains("show")).toBeFalsy;
+    expect(notCurrentSteps?.classList.contains("show")).toBeFalsy;
 
-    expect(notCurrentSteps.classList.contains("hide")).toBeTruthy;
+    expect(notCurrentSteps?.classList.contains("hide")).toBeTruthy;
   });
 
   it("should render status icons next to all steps with a disabled type", async () => {
@@ -626,18 +626,18 @@ describe("compact variant of ic-stepper component", () => {
 
     await page.waitForChanges();
 
-    const notRequiredSteps = page.root.querySelectorAll(
+    const notRequiredSteps = document.querySelectorAll(
       'ic-step[type="disabled"]'
     );
 
     notRequiredSteps.forEach((step) => {
-      const textContent = step.shadowRoot.querySelector(
+      const textContent = step.shadowRoot?.querySelector(
         ".step > .heading-area > .info-line > .step-status > ic-typography"
-      ).textContent;
+      )?.textContent;
 
       expect(textContent).toBe("Not required");
 
-      const statusIcon = step.shadowRoot.querySelector(
+      const statusIcon = step.shadowRoot?.querySelector(
         ".step > .heading-area > .info-line > .step-status > .step-icon"
       );
 
@@ -683,18 +683,19 @@ describe("compact variant of ic-stepper component", () => {
 
     await page.waitForChanges();
 
-    const completeSteps = page.root.querySelectorAll(
+    const completeSteps = page.root?.querySelectorAll(
       'ic-step[type="completed"]'
     );
 
-    completeSteps.forEach((step) => {
-      const textContent = step.shadowRoot.querySelector(
+    expect(completeSteps).not.toBeNull();
+    completeSteps?.forEach((step) => {
+      const textContent = step.shadowRoot?.querySelector(
         ".step > .heading-area > .info-line > .step-status > ic-typography"
-      ).textContent;
+      )?.textContent;
 
       expect(textContent).toBe("Completed");
 
-      const statusIcon = step.shadowRoot.querySelector(
+      const statusIcon = step.shadowRoot?.querySelector(
         ".step > .heading-area > .info-line > .step-status > span.step-icon"
       );
 
@@ -742,11 +743,12 @@ describe("compact variant of ic-stepper component", () => {
 
     await page.waitForChanges();
 
-    const optionalSteps = page.root.querySelectorAll(
+    const optionalSteps = page.root?.querySelectorAll(
       'ic-step[status="optional"]'
     );
 
-    optionalSteps.forEach((step) => {
+    expect(optionalSteps).not.toBeNull();
+    optionalSteps?.forEach((step) => {
       expect(step.getAttribute("aria-label")).toMatch(/. Optional step/i);
     });
   });
@@ -787,11 +789,12 @@ describe("compact variant of ic-stepper component", () => {
 
     await page.waitForChanges();
 
-    const requiredSteps = page.root.querySelectorAll(
+    const requiredSteps = page.root?.querySelectorAll(
       'ic-step[status="required"]'
     );
 
-    requiredSteps.forEach((step) => {
+    expect(requiredSteps).not.toBeNull();
+    requiredSteps?.forEach((step) => {
       expect(step.getAttribute("aria-label")).toMatch(/. Required step/i);
     });
   });
@@ -829,7 +832,7 @@ describe("compact variant of ic-stepper component", () => {
 
     expect(page.rootInstance.variant).toMatch("compact");
 
-    const steps = page.root.querySelectorAll("ic-step");
+    const steps = document.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
       expect(step["variant"]).toMatch("compact");
@@ -953,7 +956,7 @@ describe("switch between the compact and default stepper depending on whether th
 
     expect(page.rootInstance.theme).toMatch("dark");
 
-    const steps = page.root.querySelectorAll("ic-step");
+    const steps = document.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
       expect(step.classList.contains("ic-theme-dark")).toBeTruthy();
@@ -975,25 +978,25 @@ describe("switch between the compact and default stepper depending on whether th
 
     expect(page.rootInstance.hideStepInfo).toBeFalsy();
 
-    const steps = page.root.querySelectorAll("ic-step");
+    const steps = document.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
-      const heading = step.shadowRoot.querySelector(".step > .heading-area");
+      const heading = step.shadowRoot?.querySelector(".step > .heading-area");
 
       expect(heading).not.toBeNull();
-      expect(heading.classList.contains("visually-hidden")).toBeFalsy();
+      expect(heading?.classList.contains("visually-hidden")).toBeFalsy();
     });
 
-    page.rootInstance.hideStepInfo = true;
+    page.root?.setAttribute("hide-step-info", "true");
     await page.waitForChanges();
 
     expect(page.rootInstance.hideStepInfo).toBeTruthy();
 
     steps.forEach((step) => {
-      const heading = step.shadowRoot.querySelector(".step > .heading-area");
+      const heading = step.shadowRoot?.querySelector(".step > .heading-area");
 
       expect(heading).not.toBeNull();
-      expect(heading.classList.contains("visually-hidden")).toBeTruthy();
+      expect(heading?.classList.contains("visually-hidden")).toBeTruthy();
     });
   });
 });

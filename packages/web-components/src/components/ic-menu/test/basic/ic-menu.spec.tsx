@@ -991,7 +991,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.menu.tabIndex).toBe(-1);
     expect(page.rootInstance.preventClickOpen).toBe(true);
-    expect(page.rootInstance.optionHighlighted).toBe(null);
+    expect(page.rootInstance.optionHighlighted).toBe(undefined);
   });
   it("should test manualSetInputValueKeyboardOpen function when select on enter", async () => {
     const select = window.document.createElement(
@@ -1583,7 +1583,7 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
-    expect(page.rootInstance.optionHighlighted).toBe(null);
+    expect(page.rootInstance.optionHighlighted).toBe(undefined);
   });
   it("should test selectHighlightedOption function when multi-select", async () => {
     const page = await createMenu();

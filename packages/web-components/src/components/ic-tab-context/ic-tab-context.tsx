@@ -28,7 +28,7 @@ export class TabContext {
   private newTabPanels: HTMLIcTabPanelElement[] = [];
   private newTabs: HTMLIcTabElement[] = [];
   private tabs: HTMLIcTabElement[];
-  private tabGroup: HTMLIcTabGroupElement;
+  private tabGroup: HTMLIcTabGroupElement | null;
   private tabPanels: HTMLIcTabPanelElement[];
 
   @Element() el: HTMLIcTabContextElement;
@@ -65,7 +65,7 @@ export class TabContext {
       tab.monochrome = this.monochrome;
       this.tabPanels[index].monochrome = this.monochrome;
     });
-    this.tabGroup.monochrome = this.monochrome;
+    this.tabGroup && (this.tabGroup.monochrome = this.monochrome);
   }
 
   /**
@@ -78,7 +78,7 @@ export class TabContext {
       tab.theme = this.theme;
       this.tabPanels[index].theme = this.theme;
     });
-    this.tabGroup.theme = this.theme;
+    this.tabGroup && (this.tabGroup.theme = this.theme);
   }
 
   /**
@@ -92,7 +92,8 @@ export class TabContext {
     }
     this.getChildren();
     this.linkTabs();
-    this.tabGroup.addEventListener("keydown", this.keydownHandler);
+    this.tabGroup &&
+      this.tabGroup.addEventListener("keydown", this.keydownHandler);
     this.setInitialTab();
     this.configureTabs();
   }
@@ -116,9 +117,10 @@ export class TabContext {
     /* eslint-disable no-unexpected-multiline */
     this.icTabSelect.emit({
       tabIndex: event.detail.position,
-      tabLabel: this.el
-        .querySelectorAll("ic-tab")
-        [event.detail.position].textContent.trim(),
+      tabLabel:
+        this.el
+          .querySelectorAll("ic-tab")
+          [event.detail.position]?.textContent?.trim() || "",
     });
     /* eslint-enable no-unexpected-multiline */
     event.stopImmediatePropagation();
@@ -134,7 +136,10 @@ export class TabContext {
         this.tabPanels.push(...this.newTabPanels);
         this.enabledTabs = this.getEnabledTabs();
         this.linkTabs();
-        if (!this.tabs[this.selectedTab] || !this.tabPanels[this.selectedTab])
+        if (
+          this.selectedTab &&
+          (!this.tabs[this.selectedTab] || !this.tabPanels[this.selectedTab])
+        )
           this.setInitialTab();
         this.configureTabs();
         this.newTabs = [];
@@ -155,13 +160,17 @@ export class TabContext {
   async tabRemovedHandler(hadFocus?: boolean): Promise<void> {
     this.getChildren();
     this.linkTabs();
-    if (this.tabs[this.selectedTab] && this.tabPanels[this.selectedTab]) {
+    if (
+      this.selectedTab &&
+      this.tabs[this.selectedTab] &&
+      this.tabPanels[this.selectedTab]
+    ) {
       this.tabs[this.selectedTab].selected = true;
     } else {
       this.setInitialTab();
     }
 
-    if (hadFocus) {
+    if (hadFocus && this.selectedTab) {
       this.tabs[this.selectedTab].setFocus();
     }
   }
@@ -175,15 +184,19 @@ export class TabContext {
       tab.tabId = `ic-tab--${index}-context-${this.contextId}`;
       tab.tabPosition = index;
       tab.setAttribute("aria-controls", tabPanelId);
-      tab.setAttribute(CONTEXT_ID_ATTR, this.contextId);
-      this.tabGroup.setAttribute(CONTEXT_ID_ATTR, this.contextId);
       this.tabPanels[index].setAttribute("id", tabPanelId);
       this.tabPanels[index].setAttribute("aria-labelledby", tabId);
-      this.tabPanels[index].setAttribute(CONTEXT_ID_ATTR, this.contextId);
+
+      if (this.contextId) {
+        tab.setAttribute(CONTEXT_ID_ATTR, this.contextId);
+        this.tabGroup &&
+          this.tabGroup.setAttribute(CONTEXT_ID_ATTR, this.contextId);
+        this.tabPanels[index].setAttribute(CONTEXT_ID_ATTR, this.contextId);
+      }
 
       tab.theme = this.theme;
       this.tabPanels[index].theme = this.theme;
-      this.tabGroup.theme = this.theme;
+      this.tabGroup && (this.tabGroup.theme = this.theme);
     });
   };
 
@@ -192,7 +205,7 @@ export class TabContext {
    */
   private getChildren = (): void => {
     this.tabGroup = this.el.querySelector("ic-tab-group");
-    this.tabs = Array.from(this.tabGroup.querySelectorAll("ic-tab"));
+    this.tabs = Array.from(this.tabGroup?.querySelectorAll("ic-tab") || []);
     this.tabPanels = Array.from(this.el.children).filter(
       (child) => child.tagName === "IC-TAB-PANEL"
     ) as HTMLIcTabPanelElement[];
@@ -204,7 +217,7 @@ export class TabContext {
     const enabledTabIndex = this.enabledTabs.findIndex(
       (tab) =>
         tab.tabId ===
-        this.tabs[isManual ? this.focusedTabIndex : this.selectedTab].tabId
+        this.tabs[isManual ? this.focusedTabIndex : this.selectedTab || 0].tabId
     );
     const keyboardFunction = isManual
       ? this.keyboardFocusTab
@@ -278,9 +291,9 @@ export class TabContext {
       /* eslint-disable no-unexpected-multiline */
       this.icTabSelect.emit({
         tabIndex: newIndex,
-        tabLabel: this.el
-          .querySelectorAll("ic-tab")
-          [newIndex].textContent.trim(),
+        tabLabel:
+          this.el.querySelectorAll("ic-tab")[newIndex]?.textContent?.trim() ||
+          "",
       });
     }
   };

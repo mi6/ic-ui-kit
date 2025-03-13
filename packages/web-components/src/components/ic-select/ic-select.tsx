@@ -55,37 +55,37 @@ const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "tabindex", "title"];
   },
 })
 export class Select {
-  private anchorEl: HTMLElement;
+  private anchorEl?: HTMLElement;
   private blurredBecauseButtonPressed: boolean;
   private characterKeyPressTimer: number;
-  private clearButton: HTMLIcButtonElement;
-  private customSelectElement: HTMLButtonElement;
+  private clearButton?: HTMLIcButtonElement;
+  private customSelectElement?: HTMLButtonElement;
   private debounceAria: number;
   private hasSetDefaultValue = false;
   private hasTimedOut: boolean;
   private inheritedAttributes: { [k: string]: string } = {};
   private initialOptionsEmpty = false;
   private inputId = `ic-select-input-${inputIds++}`;
-  private menu: HTMLIcMenuElement;
+  private menu?: HTMLIcMenuElement;
   private menuId = `${this.inputId}-menu`;
-  private nativeSelectElement: HTMLSelectElement;
+  private nativeSelectElement?: HTMLSelectElement;
   private retryButtonClick: boolean;
   private searchableMenuItemSelected: boolean = false;
-  private searchableSelectElement: HTMLInputElement;
+  private searchableSelectElement?: HTMLInputElement;
   private timeoutTimer: number;
   private ungroupedOptions: IcMenuOption[] = [];
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el!: HTMLIcSelectElement;
 
   @State() ariaActiveDescendant: string;
   @State() clearButtonFocused: boolean = false;
   @State() debounceIcInput: number;
-  @State() hiddenInputValue: string;
-  @State() noOptions: IcMenuOption[] = null;
+  @State() hiddenInputValue: string | null;
+  @State() noOptions: IcMenuOption[] | null = null;
   @State() open: boolean = false;
   @State() pressedCharacters: string = "";
-  @State() searchableSelectInputValue: string = null;
+  @State() searchableSelectInputValue: string | null = null;
 
   /**
    * If `true`, the disabled state will be set.
@@ -235,8 +235,8 @@ export class Select {
    * The possible selection options.
    */
   @Prop() options?: IcMenuOption[] = [];
-  @State() filteredOptions: IcMenuOption[] = this.options;
-  @State() uniqueOptions: IcMenuOption[] = this.options;
+  @State() filteredOptions: IcMenuOption[] = this.options!;
+  @State() uniqueOptions: IcMenuOption[] = this.options!;
 
   @Watch("options")
   watchOptionsHandler(): void {
@@ -245,10 +245,10 @@ export class Select {
       clearTimeout(this.timeoutTimer);
       if (this.isExternalFiltering()) {
         // When searchable select
-        if (this.options?.length > 0) {
+        if (this.options!.length > 0) {
           this.setOptionsValuesFromLabels();
           this.noOptions = null;
-          this.uniqueOptions = this.deduplicateOptions(this.options);
+          this.uniqueOptions = this.deduplicateOptions(this.options!);
           this.filteredOptions = this.uniqueOptions;
         } else {
           this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
@@ -259,7 +259,7 @@ export class Select {
         this.setDefaultValue();
       } else {
         this.setOptionsValuesFromLabels();
-        this.uniqueOptions = this.deduplicateOptions(this.options);
+        this.uniqueOptions = this.deduplicateOptions(this.options!);
         this.filteredOptions = this.uniqueOptions;
         if (this.initialOptionsEmpty) {
           this.setDefaultValue();
@@ -268,7 +268,7 @@ export class Select {
       }
     } else {
       if (!this.searchable) {
-        this.options = this.noOptions;
+        this.options = this.noOptions || [];
       }
     }
   }
@@ -289,9 +289,9 @@ export class Select {
    * For the searchable variant, the value is also reflected by the user input.
    * For the multi-select variant, the value must be an array of option values.
    */
-  @Prop({ mutable: true }) value?: string | string[];
+  @Prop({ mutable: true }) value?: string | string[] | null;
   @State() initialValue = this.value;
-  @State() inputValueToFilter = this.value as string;
+  @State() inputValueToFilter: string | null = this.value as string;
   @State() currValue = this.value;
 
   @Watch("value")
@@ -383,14 +383,14 @@ export class Select {
 
     addFormResetListener(this.el, this.handleFormReset);
 
-    if (!this.options?.length) {
+    if (!this.options!.length) {
       this.initialOptionsEmpty = true;
       this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
       this.uniqueOptions = this.noOptions;
       this.filteredOptions = this.noOptions;
     } else {
       this.setDefaultValue();
-      this.uniqueOptions = this.deduplicateOptions(this.options);
+      this.uniqueOptions = this.deduplicateOptions(this.options!);
     }
   }
 
@@ -404,7 +404,9 @@ export class Select {
       this.triggerLoading();
     }
 
-    this.hiddenInputValue = this.searchable && (this.currValue as string);
+    if (this.searchable) {
+      this.hiddenInputValue = this.currValue as string;
+    }
 
     this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
     this.hostMutationObserver.observe(this.el, {
@@ -438,10 +440,12 @@ export class Select {
     let forceComponentUpdate = false;
     mutationList.forEach(
       ({ attributeName, type, addedNodes, removedNodes }) => {
-        if (MUTABLE_ATTRIBUTES.includes(attributeName)) {
-          this.inheritedAttributes[attributeName] =
-            this.el.getAttribute(attributeName);
-          forceComponentUpdate = true;
+        if (attributeName) {
+          const attribute = this.el.getAttribute(attributeName);
+          if (attribute && MUTABLE_ATTRIBUTES.includes(attributeName)) {
+            this.inheritedAttributes[attributeName] = attribute;
+            forceComponentUpdate = true;
+          }
         } else if (type === "childList") {
           forceComponentUpdate = checkSlotInChildMutations(
             addedNodes,
@@ -483,7 +487,7 @@ export class Select {
     }
 
     const valueToEmit = this.multiple ? this.value : value;
-    this.icChange.emit({ value: valueToEmit });
+    this.icChange.emit({ value: valueToEmit || null });
   };
 
   private emitIcInput = (value: string) => {
@@ -543,8 +547,8 @@ export class Select {
    * Loop through options array and for all options with no value, infer it from the label
    */
   private setOptionsValuesFromLabels = (): void => {
-    if (this.options?.length > 0 && this.options.map) {
-      this.options.map((option) => {
+    if (this.options!.length > 0) {
+      this.options!.map((option) => {
         if (!option.value) {
           option.value = option.label;
         }
@@ -557,10 +561,12 @@ export class Select {
   };
 
   private setTextColor = (): void => {
-    if (this.nativeSelectElement.selectedIndex === 0) {
-      this.nativeSelectElement.className = "placeholder";
-    } else {
-      this.nativeSelectElement.className = "select-option-selected";
+    if (this.nativeSelectElement) {
+      if (this.nativeSelectElement.selectedIndex === 0) {
+        this.nativeSelectElement.className = "placeholder";
+      } else {
+        this.nativeSelectElement.className = "select-option-selected";
+      }
     }
   };
 
@@ -584,20 +590,22 @@ export class Select {
   private getFilteredChildMenuOptions = (option: IcMenuOption) => {
     let children = option.children;
 
-    if (this.searchable) {
-      children = getFilteredMenuOptions(
-        option.children,
-        this.includeDescriptionsInSearch,
-        this.searchableSelectInputValue,
-        this.searchMatchPosition
-      );
-    } else {
-      children = getFilteredMenuOptions(
-        option.children,
-        false,
-        this.pressedCharacters,
-        "start"
-      );
+    if (option.children) {
+      if (this.searchable) {
+        children = getFilteredMenuOptions(
+          option.children,
+          !!this.includeDescriptionsInSearch,
+          this.searchableSelectInputValue || "",
+          this.searchMatchPosition
+        );
+      } else {
+        children = getFilteredMenuOptions(
+          option.children,
+          false,
+          this.pressedCharacters,
+          "start"
+        );
+      }
     }
 
     const newOption = { ...option };
@@ -621,8 +629,10 @@ export class Select {
   };
 
   private handleNativeSelectChange = (): void => {
-    this.icOptionSelect.emit({ value: this.nativeSelectElement.value });
-    this.emitIcChange(this.nativeSelectElement.value);
+    if (this.nativeSelectElement) {
+      this.icOptionSelect.emit({ value: this.nativeSelectElement.value });
+      this.emitIcChange(this.nativeSelectElement.value);
+    }
     this.setTextColor();
   };
 
@@ -632,9 +642,7 @@ export class Select {
     const value = event.detail.value;
 
     if (event.detail.label === this.emptyOptionListText) {
-      if (this.searchable) {
-        this.searchableSelectElement.focus();
-      }
+      this.searchableSelectElement?.focus();
       return;
     }
 
@@ -644,15 +652,13 @@ export class Select {
 
       // After editing the input, if selecting the same option as before, set the input value to label again
       if (this.value === this.currValue) {
-        this.searchableSelectInputValue = this.getLabelFromValue(
-          this.value as string
-        );
+        this.searchableSelectInputValue =
+          this.getLabelFromValue(this.value as string) || null;
       }
 
       this.inputValueToFilter = null;
-      this.hiddenInputValue = this.getValueFromLabel(
-        this.searchableSelectInputValue
-      );
+      this.hiddenInputValue =
+        this.getValueFromLabel(this.searchableSelectInputValue) || null;
     }
 
     if (this.multiple && this.value?.includes(value)) {
@@ -693,7 +699,7 @@ export class Select {
       (option) => !option.disabled
     );
     const allValues = allEnabledOptions.map((option) => option.value);
-    let newValue: string[];
+    let newValue: string[] | null;
 
     if (selectAllOptions) {
       let unselectedValues;
@@ -737,12 +743,15 @@ export class Select {
   };
 
   private handleFocusIndicatorDisplay = () => {
-    const focusIndicator = this.el.shadowRoot.querySelector(".focus-indicator");
+    const focusIndicator =
+      this.el.shadowRoot?.querySelector(".focus-indicator");
 
-    if (this.open) {
-      focusIndicator.classList.add("focus-indicator-enabled");
-    } else {
-      focusIndicator.classList.remove("focus-indicator-enabled");
+    if (focusIndicator) {
+      if (this.open) {
+        focusIndicator.classList.add("focus-indicator-enabled");
+      } else {
+        focusIndicator.classList.remove("focus-indicator-enabled");
+      }
     }
   };
 
@@ -753,12 +762,12 @@ export class Select {
   };
 
   private isExternalFiltering = (): boolean =>
-    this.searchable && this.disableAutoFiltering;
+    this.searchable! && !!this.disableAutoFiltering;
 
   private handleClick = (event: MouseEvent): void => {
     if (!this.open) {
       if (this.isExternalFiltering()) {
-        this.menu.options = this.filteredOptions;
+        this.menu && (this.menu.options = this.filteredOptions);
       } else if (
         !this.hasTimedOut &&
         !this.loading &&
@@ -766,19 +775,19 @@ export class Select {
         (!this.searchable || this.searchableMenuItemSelected)
       ) {
         this.noOptions = null;
-        this.menu.options = this.uniqueOptions;
+        this.menu && (this.menu.options = this.uniqueOptions);
       }
     }
 
     if (event.detail !== 0) {
-      this.menu.handleClickOpen();
+      this.menu?.handleClickOpen();
     }
   };
 
   private handleExpandIconMouseDown = (event: MouseEvent) => {
     if (!this.disabled) {
       event.preventDefault();
-      this.searchableSelectElement.focus();
+      this.searchableSelectElement?.focus();
       this.handleClick(event);
     }
   };
@@ -793,9 +802,9 @@ export class Select {
 
     if (this.searchable) {
       this.hiddenInputValue = null;
-      this.searchableSelectElement.focus();
+      this.searchableSelectElement?.focus();
     } else {
-      this.customSelectElement.focus();
+      this.customSelectElement?.focus();
     }
   };
 
@@ -846,11 +855,11 @@ export class Select {
 
     if (!this.open) {
       if (this.isExternalFiltering() && (event.key === "Enter" || isArrowKey)) {
-        this.menu.options = this.filteredOptions;
+        this.menu && (this.menu.options = this.filteredOptions);
       } else {
         if (!this.hasTimedOut) {
           this.noOptions = null;
-          this.menu.options = this.uniqueOptions;
+          this.menu && (this.menu.options = this.uniqueOptions);
         }
       }
     }
@@ -861,7 +870,7 @@ export class Select {
       if (!(isArrowKey && this.noOptions !== null)) {
         if (!(event.key === " " && this.pressedCharacters.length > 0)) {
           // Keyboard events get passed onto ic-menu
-          this.menu.handleKeyboardOpen(event);
+          this.menu?.handleKeyboardOpen(event);
         }
         if (!this.multiple) {
           this.handleCharacterKeyDown(event.key);
@@ -906,8 +915,8 @@ export class Select {
     if (this.searchable) {
       menuOptionsFiltered = getFilteredMenuOptions(
         options,
-        this.includeDescriptionsInSearch,
-        this.inputValueToFilter,
+        !!this.includeDescriptionsInSearch,
+        this.inputValueToFilter || "",
         this.searchMatchPosition
       );
       this.searchableMenuItemSelected = false;
@@ -944,7 +953,7 @@ export class Select {
     if (isGrouped) {
       noChildOptionsWhenFiltered = true;
       newFilteredOptions.map((option) => {
-        if (option.children.length > 0) {
+        if (option.children && option.children.length > 0) {
           noChildOptionsWhenFiltered = false;
         }
       });
@@ -984,8 +993,11 @@ export class Select {
     }
   };
 
-  private getValueFromLabel = (label: string): string | undefined => {
-    return this.uniqueOptions.find((option) => option.label === label)?.value;
+  private getValueFromLabel = (label: string | null): string | undefined => {
+    return (
+      label &&
+      this.uniqueOptions.find((option) => option.label === label)?.value
+    );
   };
 
   private handleSearchableSelectInput = (event: Event): void => {
@@ -1009,7 +1021,7 @@ export class Select {
   };
 
   private updateSearchableSelectResultAriaLive = (): void => {
-    const searchableSelectResultsStatusEl = this.el.shadowRoot.querySelector(
+    const searchableSelectResultsStatusEl = this.el.shadowRoot?.querySelector(
       ".searchable-select-results-status"
     ) as HTMLDivElement;
 
@@ -1031,13 +1043,13 @@ export class Select {
   }
 
   private updateMultiSelectedCountAriaLive = (): void => {
-    const multiSelectSelectedCountEl = this.el.shadowRoot.querySelector(
+    const multiSelectSelectedCountEl = this.el.shadowRoot?.querySelector(
       ".multi-select-selected-count"
     ) as HTMLDivElement;
 
     const selectedCount = `${
       this.currValue?.length
-    } of ${getOptionsWithoutGroupTitlesCount(this.options)} selected`;
+    } of ${getOptionsWithoutGroupTitlesCount(this.options!)} selected`;
 
     if (
       multiSelectSelectedCountEl &&
@@ -1052,8 +1064,9 @@ export class Select {
 
   private setDefaultValue = (): void => {
     if (!this.hasSetDefaultValue && this.currValue) {
-      this.searchableSelectInputValue =
-        this.searchable && this.getDefaultValue(this.currValue as string);
+      this.searchableSelectInputValue = this.searchable
+        ? this.getDefaultValue(this.currValue as string)
+        : null;
 
       this.initialValue = this.currValue;
       this.hasSetDefaultValue = true;
@@ -1127,7 +1140,7 @@ export class Select {
     this.noOptions = null;
 
     if (this.searchable) {
-      this.searchableSelectElement.value = null;
+      this.searchableSelectElement?.setAttribute("value", "");
       this.searchableSelectInputValue = null;
       this.filteredOptions = this.uniqueOptions;
     }
@@ -1161,7 +1174,7 @@ export class Select {
     renderHiddenInput(
       true,
       this.el,
-      name,
+      name || this.inputId,
       this.searchable ? this.hiddenInputValue : (currValue as string),
       disabled
     );
@@ -1171,7 +1184,9 @@ export class Select {
     const describedBy = getInputDescribedByText(
       this.inputId,
       helperText !== "",
-      hasValidationStatus(this.validationStatus, this.disabled)
+      this.validationStatus
+        ? hasValidationStatus(this.validationStatus, !!this.disabled)
+        : false
     ).trim();
 
     let showLeftIcon = !!this.el.querySelector(`[slot="icon"]`);
@@ -1181,13 +1196,13 @@ export class Select {
 
     const optionsSelectedCount = `${
       currValue?.length
-    } of ${getOptionsWithoutGroupTitlesCount(this.options)} selected`;
+    } of ${getOptionsWithoutGroupTitlesCount(this.options!)} selected`;
 
     return (
       <Host
         class={{
-          "ic-select-disabled": disabled,
-          "ic-select-searchable": searchable,
+          "ic-select-disabled": !!disabled,
+          "ic-select-searchable": !!searchable,
           [`ic-select-${size}`]: size !== "medium",
           "ic-select-full-width": fullWidth,
           [`ic-theme-${theme}`]: theme !== "inherit",
@@ -1206,7 +1221,7 @@ export class Select {
             ></ic-input-label>
           )}
           <ic-input-component-container
-            ref={(el: HTMLElement) => (this.anchorEl = el)}
+            ref={(el) => (this.anchorEl = el)}
             class={{ "menu-open": this.open }}
             size={size}
             fullWidth={fullWidth}
@@ -1218,7 +1233,7 @@ export class Select {
               <span
                 slot="left-icon"
                 class={{
-                  ["readonly"]: readonly,
+                  ["readonly"]: !!readonly,
                   ["has-value"]: !!this.value,
                 }}
               >
@@ -1252,7 +1267,7 @@ export class Select {
                 <option value="" selected disabled={!showClearButton}>
                   {placeholder}
                 </option>
-                {options.map((option) => {
+                {options!.map((option) => {
                   if (option.children) {
                     return (
                       <optgroup label={option.label}>
@@ -1299,7 +1314,7 @@ export class Select {
                   aria-controls={menuId}
                   ref={(el) => (this.searchableSelectElement = el)}
                   id={this.inputId}
-                  value={this.searchableSelectInputValue}
+                  value={this.searchableSelectInputValue || undefined}
                   placeholder={placeholder}
                   disabled={disabled}
                   onInput={this.handleSearchableSelectInput}
@@ -1314,9 +1329,7 @@ export class Select {
                     <div class="clear-button-container">
                       <ic-button
                         id="clear-button"
-                        ref={(el: HTMLIcButtonElement) =>
-                          (this.clearButton = el)
-                        }
+                        ref={(el) => (this.clearButton = el)}
                         aria-label={
                           this.searchableSelectInputValue && currValue === null
                             ? "Clear input"
@@ -1380,9 +1393,9 @@ export class Select {
                     variant="body"
                     class={{
                       "value-text": true,
-                      "with-clear-button": currValue && showClearButton,
+                      "with-clear-button": !!currValue && !!showClearButton,
                       placeholder:
-                        !this.value || (multiple && this.value.length < 1),
+                        !this.value || (!!multiple && this.value.length < 1),
                     }}
                   >
                     {(multiple
@@ -1431,14 +1444,14 @@ export class Select {
                     this.noOptions[0] &&
                     this.noOptions[0].label === this.emptyOptionListText),
               }}
-              ref={(el: HTMLIcMenuElement) => (this.menu = el)}
+              ref={(el) => (this.menu = el)}
               inputEl={
-                searchable
+                (searchable
                   ? this.searchableSelectElement
-                  : this.customSelectElement
+                  : this.customSelectElement)!
               }
               inputLabel={label}
-              anchorEl={this.anchorEl}
+              anchorEl={this.anchorEl!}
               size={size}
               menuId={menuId}
               open={this.open}
@@ -1469,15 +1482,16 @@ export class Select {
               class="multi-select-selected-count"
             ></div>
           )}
-          {hasValidationStatus(this.validationStatus, this.disabled) && (
-            <ic-input-validation
-              class={{ "menu-open": this.open }}
-              ariaLiveMode="polite"
-              status={validationStatus}
-              message={validationText}
-              for={this.inputId}
-            ></ic-input-validation>
-          )}
+          {this.validationStatus &&
+            hasValidationStatus(this.validationStatus, !!this.disabled) && (
+              <ic-input-validation
+                class={{ "menu-open": this.open }}
+                ariaLiveMode="polite"
+                status={validationStatus}
+                message={validationText || ""}
+                for={this.inputId}
+              ></ic-input-validation>
+            )}
         </ic-input-container>
       </Host>
     );
