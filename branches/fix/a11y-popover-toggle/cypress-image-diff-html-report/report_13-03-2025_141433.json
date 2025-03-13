@@ -1,6 +1,6 @@
 {
-  "total": 749,
-  "totalPassed": 749,
+  "total": 756,
+  "totalPassed": 756,
   "totalFailed": 0,
   "totalSuites": 42,
   "suites": [
@@ -956,6 +956,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/dropdown.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/dropdown.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcButton.cy.tsx/expanded-dropdown-popover",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/expanded-dropdown-popover.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/expanded-dropdown-popover.png"
         },
         {
           "status": "pass",
@@ -4484,6 +4495,72 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/dark-theme.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/dark-theme.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/description",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/description.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/description.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/disabled",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/disabled.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/disabled.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/disabled-focused",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/disabled-focused.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/disabled-focused.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/menu-group",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/menu-group.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/menu-group.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/max-height",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/max-height.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/max-height.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcPopoverMenu.cy.tsx/submenu-focused",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcPopoverMenu/IcPopoverMenu.cy.tsx",
+          "specFilename": "IcPopoverMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPopoverMenu.cy.tsx/submenu-focused.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPopoverMenu.cy.tsx/submenu-focused.png"
         },
         {
           "status": "pass",
@@ -8496,9 +8573,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-12T15:31:46.224Z",
-  "endedAt": "2025-03-12T15:47:51.892Z",
-  "duration": 868891,
+  "startedAt": "2025-03-13T14:14:33.282Z",
+  "endedAt": "2025-03-13T14:30:13.217Z",
+  "duration": 845537,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
