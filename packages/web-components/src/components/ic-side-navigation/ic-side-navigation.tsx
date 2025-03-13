@@ -49,10 +49,10 @@ export class SideNavigation {
   private ANIMATION_DURATION =
     parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
   private IC_NAVIGATION_ITEM: string = "ic-navigation-item";
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
   private COLLAPSED_ICON_LABELS_END = "collapsed-icon-labels-end";
   private COLLAPSED_ICON_LABELS_START = "collapsed-icon-labels-start";
-  private menuButton: HTMLIcButtonElement = null;
+  private menuButton?: HTMLIcButtonElement;
 
   @Element() el: HTMLIcSideNavigationElement;
 
@@ -178,7 +178,7 @@ export class SideNavigation {
   }): void => {
     this.icSideNavExpanded.emit({
       sideNavExpanded: objDetails.sideNavExpanded,
-      sideNavMobile: objDetails.sideNavMobile,
+      sideNavMobile: !!objDetails.sideNavMobile,
     });
   };
 
@@ -197,7 +197,7 @@ export class SideNavigation {
   };
 
   private setToggleMenuFlyoutMenuVisibility = (menuOpen: boolean) => {
-    const sideNav = this.el.shadowRoot.querySelector(
+    const sideNav = this.el.shadowRoot?.querySelector(
       "#side-navigation"
     ) as HTMLDivElement;
     const sideNavInner = sideNav.querySelector(
@@ -221,7 +221,7 @@ export class SideNavigation {
   };
 
   private setMobileMenuAriaAttributes = (menuOpen: boolean) => {
-    if (this.menuButton !== null) {
+    if (this.menuButton) {
       this.menuButton.setAttribute("aria-expanded", `${menuOpen}`);
       this.menuButton.setAttribute(
         "aria-label",
@@ -232,13 +232,13 @@ export class SideNavigation {
 
   private setAndRemoveNoWrapAfterMenuExpanded = () => {
     const appTitle =
-      this.el.shadowRoot.querySelector(".title-link ic-typography") ||
+      this.el.shadowRoot?.querySelector(".title-link ic-typography") ||
       this.el.querySelector("[slot='app-title']");
 
-    appTitle.classList.add("ic-typography-no-wrap");
+    appTitle?.classList.add("ic-typography-no-wrap");
 
     setTimeout(() => {
-      appTitle.classList.remove("ic-typography-no-wrap");
+      appTitle?.classList.remove("ic-typography-no-wrap");
     }, this.ANIMATION_DURATION);
   };
 
@@ -250,13 +250,13 @@ export class SideNavigation {
     if (this.menuExpanded) {
       this.setAndRemoveNoWrapAfterMenuExpanded();
       this.el.shadowRoot
-        .querySelector(".app-title-inner-wrapper")
-        .classList.add("app-title-show");
+        ?.querySelector(".app-title-inner-wrapper")
+        ?.classList.add("app-title-show");
     } else {
       this.el.style.setProperty("--navigation-item-width", "320px");
       this.el.shadowRoot
-        .querySelector(".app-title-inner-wrapper")
-        .classList.remove("app-title-show");
+        ?.querySelector(".app-title-inner-wrapper")
+        ?.classList.remove("app-title-show");
 
       this.el.addEventListener("transitionend", (e) => {
         if (e.propertyName === "width") {
@@ -297,8 +297,8 @@ export class SideNavigation {
           navItemSlot = navItem.children[0];
         }
         const iconWrapper = document.createElement("div");
-        const icon = navItemSlot.querySelector("svg");
-        const label = navItem.textContent.trim();
+        const icon = navItemSlot?.querySelector("svg");
+        const label = navItem.textContent?.trim();
         const icTypography = document.createElement("ic-typography");
         icTypography.classList.add(
           "ic-typography-label",
@@ -307,19 +307,23 @@ export class SideNavigation {
         );
 
         iconWrapper.style.height = "var(--ic-space-lg)";
-        iconWrapper.append(icon);
 
-        navItemSlot.textContent = "";
+        icon && iconWrapper.append(icon);
 
-        icTypography.textContent = label;
+        if (label) {
+          label && (icTypography.textContent = label);
+        }
 
-        navItemSlot.append(iconWrapper);
-        navItemSlot.append(icTypography);
+        if (navItemSlot) {
+          navItemSlot.textContent = "";
+          navItemSlot.append(iconWrapper);
+          navItemSlot.append(icTypography);
+        }
 
         if (this.collapsedIconLabels) {
-          this.styleSlottedCollapsedIconLabels(menuExpanded, icTypography);
+          this.styleSlottedCollapsedIconLabels(!!menuExpanded, icTypography);
         } else {
-          this.styleSlottedIconLabels(menuExpanded, icTypography);
+          this.styleSlottedIconLabels(!!menuExpanded, icTypography);
         }
       }
     });
@@ -343,7 +347,7 @@ export class SideNavigation {
   };
 
   private setExpandedButtonHeight = () => {
-    const appStatusWrapper = this.el.shadowRoot.querySelector(
+    const appStatusWrapper = this.el.shadowRoot?.querySelector(
       "#side-navigation > .bottom-wrapper > .bottom-side-nav > .app-status-wrapper"
     ) as HTMLDivElement;
 
@@ -373,11 +377,11 @@ export class SideNavigation {
   };
 
   private transitionHandler = (type: string) => {
-    const primaryNavigationWrapper = this.el.shadowRoot.querySelector(
+    const primaryNavigationWrapper = this.el.shadowRoot?.querySelector(
       ".primary-navigation"
     );
 
-    const secondaryNavigationWrapper = this.el.shadowRoot.querySelector(
+    const secondaryNavigationWrapper = this.el.shadowRoot?.querySelector(
       ".bottom-wrapper > .secondary-navigation"
     );
 
@@ -424,15 +428,19 @@ export class SideNavigation {
       navItems[0].querySelector("div");
     const navItemSVG = navItems[0].querySelector("svg");
 
-    const navStyles = {
-      gap: window.getComputedStyle(navItemLink).gap,
-      iconWidth: window.getComputedStyle(navItemSVG).width,
-      paddingLeft: window.getComputedStyle(navItemLink).paddingLeft,
-    };
+    if (navItemLink && navItemSVG) {
+      const navStyles = {
+        gap: window.getComputedStyle(navItemLink).gap,
+        iconWidth: window.getComputedStyle(navItemSVG).width,
+        paddingLeft: window.getComputedStyle(navItemLink).paddingLeft,
+      };
 
-    return Object.values(navStyles).reduce((prev, curr) => {
-      return (prev += parseInt(curr));
-    }, 0);
+      return Object.values(navStyles).reduce((prev, curr) => {
+        return (prev += parseInt(curr));
+      }, 0);
+    }
+
+    return 0;
   };
 
   private displayTooltipWithExpandedLongLabel = (menuExpanded: boolean) => {
@@ -462,7 +470,10 @@ export class SideNavigation {
               navigationItem.querySelector("ic-typography.ic-typography-label")
                 ?.scrollWidth;
 
-            if (icTypographyScrollWidth > sideNavWidth - paddingIconDelta) {
+            if (
+              icTypographyScrollWidth &&
+              icTypographyScrollWidth > sideNavWidth - paddingIconDelta
+            ) {
               navigationItem.setAttribute("display-navigation-tooltip", "true");
             }
           }
@@ -490,11 +501,11 @@ export class SideNavigation {
    * @param value - padding-top css value
    */
   private setParentPaddingTop = (value: string) => {
-    this.el.parentElement.style.setProperty("padding-top", value);
+    this.el.parentElement?.style.setProperty("padding-top", value);
   };
 
   private setParentPaddingLeft = (value: string) => {
-    this.el.parentElement.style.setProperty("padding-left", value);
+    this.el.parentElement?.style.setProperty("padding-left", value);
   };
 
   private renderAppTitle = (isAppNameSubtitleVariant: boolean) => {
@@ -526,18 +537,18 @@ export class SideNavigation {
 
     if (!this.disableAutoParentStyling) {
       const topBarHeight =
-        this.el.shadowRoot.querySelector(".top-bar")?.scrollHeight;
+        this.el.shadowRoot?.querySelector(".top-bar")?.scrollHeight;
       this.setParentPaddingTop(
         isSmallAndDisableTopBar ? `${topBarHeight}px` : "0"
       );
       if (isSmallAndDisableTopBar) this.setParentPaddingLeft("0");
       if (isSmallAndDisableTopBar && this.inline) {
-        this.el.parentElement.style.setProperty(
+        this.el.parentElement?.style.setProperty(
           "height",
           `calc(100% - ${topBarHeight}px)`
         );
       } else if (!isSmallAndDisableTopBar) {
-        this.el.parentElement.style.setProperty("height", "100%");
+        this.el.parentElement?.style.setProperty("height", "100%");
       }
     }
 

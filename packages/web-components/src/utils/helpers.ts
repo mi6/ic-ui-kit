@@ -23,6 +23,7 @@ import {
 } from "./constants";
 
 const DARK_MODE_THRESHOLD = 133.3505;
+const ANYWHERE_SEARCH_POSITION = "anywhere";
 const icInput = "ic-input";
 const linkIcInput = "input.ic-input";
 
@@ -342,7 +343,7 @@ export const getFilteredMenuOptions = (
   options: IcMenuOption[],
   includeDescriptions: boolean,
   searchString: string,
-  position: IcSearchMatchPositions,
+  position: IcSearchMatchPositions = ANYWHERE_SEARCH_POSITION,
   labelField = "label"
 ): IcMenuOption[] =>
   options.filter((option) => {
@@ -350,7 +351,7 @@ export const getFilteredMenuOptions = (
     const description = option.description?.toLowerCase();
     const lowerSearchString = searchString.toLowerCase();
 
-    return position === "anywhere"
+    return position === ANYWHERE_SEARCH_POSITION
       ? includeDescriptions
         ? label.includes(lowerSearchString) ||
           description?.includes(lowerSearchString)

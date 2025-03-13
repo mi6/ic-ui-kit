@@ -149,35 +149,40 @@ export class ToggleButton {
       "theme",
       "monochrome",
     ];
-    const parentAttributes = this.el.parentElement.attributes;
+    const parentAttributes = this.el.parentElement?.attributes;
     for (let i = 0; i < trackedAttributes.length; i++) {
-      if (parentAttributes.getNamedItem(trackedAttributes[i]) !== null) {
+      if (
+        parentAttributes &&
+        parentAttributes.getNamedItem(trackedAttributes[i]) !== null
+      ) {
         const attribute = parentAttributes.getNamedItem(trackedAttributes[i]);
-        switch (attribute.name) {
-          case trackedAttributes[0]:
-            this.loading = attribute.value !== "false";
-            break;
-          case trackedAttributes[1]:
-            this.disabled = attribute.value !== "false";
-            break;
-          case trackedAttributes[2]:
-            this.fullWidth = attribute.value !== "false";
-            break;
-          case trackedAttributes[3]:
-            this.iconPlacement = attribute.value as "left" | "right" | "top";
-            break;
-          case trackedAttributes[4]:
-            this.variant = attribute.value as "default" | "icon";
-            break;
-          case trackedAttributes[5]:
-            this.size = attribute.value as IcSizes;
-            break;
-          case trackedAttributes[6]:
-            this.theme = attribute.value as IcThemeMode;
-            break;
-          case trackedAttributes[7]:
-            this.monochrome = attribute.value !== "false";
-            break;
+        if (attribute) {
+          switch (attribute.name) {
+            case trackedAttributes[0]:
+              this.loading = attribute.value !== "false";
+              break;
+            case trackedAttributes[1]:
+              this.disabled = attribute.value !== "false";
+              break;
+            case trackedAttributes[2]:
+              this.fullWidth = attribute.value !== "false";
+              break;
+            case trackedAttributes[3]:
+              this.iconPlacement = attribute.value as "left" | "right" | "top";
+              break;
+            case trackedAttributes[4]:
+              this.variant = attribute.value as "default" | "icon";
+              break;
+            case trackedAttributes[5]:
+              this.size = attribute.value as IcSizes;
+              break;
+            case trackedAttributes[6]:
+              this.theme = attribute.value as IcThemeMode;
+              break;
+            case trackedAttributes[7]:
+              this.monochrome = attribute.value !== "false";
+              break;
+          }
         }
       }
     }
@@ -200,12 +205,12 @@ export class ToggleButton {
       <Host
         class={{
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
-          ["ic-toggle-button-disabled"]: this.disabled,
+          ["ic-toggle-button-disabled"]: this.disabled!,
           ["ic-toggle-button-checked"]: this.checked,
           ["ic-toggle-button-icon"]: this.variant === "icon",
           [`ic-toggle-button-${this.size}`]: true,
-          ["ic-toggle-button-loading"]: this.loading,
-          ["ic-toggle-button-monochrome"]: this.monochrome,
+          ["ic-toggle-button-loading"]: this.loading!,
+          ["ic-toggle-button-monochrome"]: this.monochrome!,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         onFocus={this.handleFocus}

@@ -194,7 +194,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
 `;
 
 exports[`ic-select native should test native select with groups: native-select-with-groups 1`] = `
-<ic-select label="IC Select Test">
+<ic-select label="New label">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-26" helpertext="" label="New label"></ic-input-label>
@@ -228,7 +228,7 @@ exports[`ic-select native should test native select with groups: native-select-w
 `;
 
 exports[`ic-select native should test native select: native-select 1`] = `
-<ic-select label="IC Select Test">
+<ic-select label="New label">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-25" helpertext="" label="New label"></ic-input-label>
