@@ -1,6 +1,6 @@
 {
-  "total": 756,
-  "totalPassed": 756,
+  "total": 757,
+  "totalPassed": 757,
   "totalFailed": 0,
   "totalSuites": 42,
   "suites": [
@@ -6984,6 +6984,17 @@
         },
         {
           "status": "pass",
+          "name": "IcTabs.cy.tsx/delayed-tabs",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
+          "specFilename": "IcTabs.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx/delayed-tabs.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx/delayed-tabs.png"
+        },
+        {
+          "status": "pass",
           "name": "IcTabs.cy.tsx/focused-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -8573,9 +8584,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-13T14:14:33.282Z",
-  "endedAt": "2025-03-13T14:30:13.217Z",
-  "duration": 845537,
+  "startedAt": "2025-03-14T13:04:02.633Z",
+  "endedAt": "2025-03-14T13:19:48.976Z",
+  "duration": 850866,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
