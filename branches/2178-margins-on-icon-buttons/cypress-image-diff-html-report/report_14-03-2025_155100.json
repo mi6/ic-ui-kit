@@ -7322,7 +7322,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/message-variant",
-          "percentage": 0.09427618999514141,
+          "percentage": 0.035552777669262355,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -7377,7 +7377,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/custom-icon",
-          "percentage": 0.09427618999514141,
+          "percentage": 0.035552777669262355,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -7559,7 +7559,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx/light-theme-monochrome",
-          "percentage": 0.051575187832910506,
+          "percentage": 0.054516052681756036,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -7570,7 +7570,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx/dark-theme-monochrome",
-          "percentage": 0.08347454701883683,
+          "percentage": 0.09077444574328174,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -8573,9 +8573,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-14T13:02:40.500Z",
-  "endedAt": "2025-03-14T13:47:09.402Z",
-  "duration": 2573367,
+  "startedAt": "2025-03-14T15:51:00.048Z",
+  "endedAt": "2025-03-14T16:35:35.241Z",
+  "duration": 2580096,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
