@@ -1,6 +1,6 @@
 {
-  "total": 755,
-  "totalPassed": 614,
+  "total": 756,
+  "totalPassed": 615,
   "totalFailed": 141,
   "totalSuites": 42,
   "suites": [
@@ -6995,6 +6995,17 @@
         },
         {
           "status": "pass",
+          "name": "IcTabs.cy.tsx/delayed-tabs",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
+          "specFilename": "IcTabs.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx/delayed-tabs.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx/delayed-tabs.png"
+        },
+        {
+          "status": "pass",
           "name": "IcTabs.cy.tsx/focused-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7311,7 +7322,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/message-variant",
-          "percentage": 0.035552777669262355,
+          "percentage": 0.09427618999514141,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -7366,7 +7377,7 @@
         {
           "status": "fail",
           "name": "IcToast.cy.tsx/custom-icon",
-          "percentage": 0.035552777669262355,
+          "percentage": 0.09427618999514141,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -7548,7 +7559,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx/light-theme-monochrome",
-          "percentage": 0.0698856208386246,
+          "percentage": 0.051575187832910506,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -7559,7 +7570,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx/dark-theme-monochrome",
-          "percentage": 0.09077444574328174,
+          "percentage": 0.08347454701883683,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -8562,9 +8573,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-13T15:09:13.599Z",
-  "endedAt": "2025-03-13T15:55:32.240Z",
-  "duration": 2679897,
+  "startedAt": "2025-03-14T13:02:40.500Z",
+  "endedAt": "2025-03-14T13:47:09.402Z",
+  "duration": 2573367,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
