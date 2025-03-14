@@ -2024,6 +2024,7 @@ export namespace Components {
         "theme"?: IcThemeMode;
     }
     interface IcTabPanel {
+        "active": boolean;
         "monochrome"?: boolean;
         "panelId"?: string;
         "selectedTab"?: string;
@@ -5480,6 +5481,7 @@ declare namespace LocalJSX {
         "theme"?: IcThemeMode;
     }
     interface IcTabPanel {
+        "active"?: boolean;
         "monochrome"?: boolean;
         "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
         "onTabPanelRemoved"?: (event: IcTabPanelCustomEvent<void>) => void;

@@ -12,11 +12,13 @@ import {
   NOT_HAVE_BEEN_CALLED,
   HAVE_BEEN_CALLED_ONCE,
   NOT_CONTAIN,
+  HAVE_PROP,
 } from "../utils/constants";
 import {
   ChangeTabs,
   CompactTabSelector,
   ControlledModeTabs,
+  DelayedTabs,
   DisabledTab,
   InlineTabGroup,
   LargerTabGroup,
@@ -33,6 +35,7 @@ import {
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.033;
+const ARIA_HIDDEN = "aria-hidden";
 const IC_TAB_CONTEXT = "ic-tab-context";
 const IC_TAB_GROUP = "ic-tab-group";
 const IC_TAB = "ic-tab";
@@ -81,10 +84,13 @@ describe("IcTab end-to-end tests", () => {
 
     cy.get(TAB_PANEL_1)
       .should(CONTAIN_TEXT, "Tab One - Ingredients")
-      .and(NOT_HAVE_ATTR, "hidden");
+      .and(HAVE_PROP, "active", true)
+      .and(HAVE_ATTR, ARIA_HIDDEN, "false");
+
     cy.get(TAB_PANEL_2)
       .should(CONTAIN_TEXT, "Tab Two - Method")
-      .and(HAVE_ATTR, "hidden");
+      .and(HAVE_PROP, "active", false)
+      .and(HAVE_ATTR, ARIA_HIDDEN, "true");
     cy.get(TAB_PANEL_2).should(NOT_BE_VISIBLE);
 
     cy.get(TAB_2).click();
@@ -94,10 +100,12 @@ describe("IcTab end-to-end tests", () => {
 
     cy.get(TAB_PANEL_1)
       .should(CONTAIN_TEXT, "Tab One - Ingredients")
-      .and(HAVE_ATTR, "hidden");
+      .and(HAVE_PROP, "active", false)
+      .and(HAVE_ATTR, ARIA_HIDDEN, "true");
     cy.get(TAB_PANEL_2)
       .should(CONTAIN_TEXT, "Tab Two - Method")
-      .and(NOT_HAVE_ATTR, "hidden");
+      .and(HAVE_PROP, "active", true)
+      .and(HAVE_ATTR, ARIA_HIDDEN, "false");
     cy.get(TAB_PANEL_2).should(BE_VISIBLE);
   });
 
@@ -110,17 +118,17 @@ describe("IcTab end-to-end tests", () => {
     checkTab(TAB_2, false);
     checkTab(TAB_3, false);
 
-    cy.get(TAB_PANEL_1).should(BE_VISIBLE).and(NOT_HAVE_ATTR, "hidden");
-    cy.get(TAB_PANEL_2).should(NOT_BE_VISIBLE).and(HAVE_ATTR, "hidden");
-    cy.get(TAB_PANEL_3).should(NOT_BE_VISIBLE).and(HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_1).should(BE_VISIBLE).and(HAVE_PROP, "active", true);
+    cy.get(TAB_PANEL_2).should(NOT_BE_VISIBLE).and(HAVE_PROP, "active", false);
+    cy.get(TAB_PANEL_3).should(NOT_BE_VISIBLE).and(HAVE_PROP, "active", false);
 
     cy.get(TAB_2).click().should(HAVE_ATTR, "selected");
     checkTab(TAB_1, false);
     checkTab(TAB_3, false);
 
-    cy.get(TAB_PANEL_1).should(NOT_BE_VISIBLE).and(HAVE_ATTR, "hidden");
-    cy.get(TAB_PANEL_2).should(BE_VISIBLE).and(NOT_HAVE_ATTR, "hidden");
-    cy.get(TAB_PANEL_3).should(NOT_BE_VISIBLE).and(HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_1).should(NOT_BE_VISIBLE).and(HAVE_PROP, "active", false);
+    cy.get(TAB_PANEL_2).should(BE_VISIBLE).and(HAVE_PROP, "active", true);
+    cy.get(TAB_PANEL_3).should(NOT_BE_VISIBLE).and(HAVE_PROP, "active", false);
   });
 
   it("should emit icTabSelect event when a user selects a tab", () => {
@@ -157,7 +165,7 @@ describe("IcTab end-to-end tests", () => {
     cy.get("@activeElement")
       .should(CONTAIN_TEXT, "Method")
       .and(HAVE_ATTR, "selected");
-    cy.get(TAB_PANEL_2).should(BE_VISIBLE).and(NOT_HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_2).should(BE_VISIBLE).and(HAVE_PROP, "active", true);
   });
 
   it("should move focus to the previous tab when the left arrow key is pressed and when using automatic activation", () => {
@@ -178,7 +186,7 @@ describe("IcTab end-to-end tests", () => {
     cy.get("@activeElement")
       .should(CONTAIN_TEXT, "Ingredients")
       .and(HAVE_ATTR, "selected");
-    cy.get(TAB_PANEL_1).should(BE_VISIBLE).and(NOT_HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_1).should(BE_VISIBLE).and(HAVE_PROP, "active", true);
   });
 
   it("should move focus to the first tab when the right arrow key is pressed if currently on the last tab", () => {
@@ -199,7 +207,7 @@ describe("IcTab end-to-end tests", () => {
     cy.get("@activeElement")
       .should(CONTAIN_TEXT, "Ingredients")
       .and(HAVE_ATTR, "selected");
-    cy.get(TAB_PANEL_1).should(BE_VISIBLE).and(NOT_HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_1).should(BE_VISIBLE).and(HAVE_PROP, "active", true);
   });
 
   it("should move focus to the last tab when the left arrow key is pressed if currently on the first tab", () => {
@@ -220,7 +228,7 @@ describe("IcTab end-to-end tests", () => {
     cy.get("@activeElement")
       .should(CONTAIN_TEXT, "History")
       .and(HAVE_ATTR, "selected");
-    cy.get(TAB_PANEL_3).should(BE_VISIBLE).and(NOT_HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_3).should(BE_VISIBLE).and(HAVE_PROP, "active", true);
   });
 
   it("should move focus to the first tab when the Home key is pressed", () => {
@@ -240,7 +248,7 @@ describe("IcTab end-to-end tests", () => {
     cy.get("@activeElement")
       .should(CONTAIN_TEXT, "Ingredients")
       .and(HAVE_ATTR, "selected");
-    cy.get(TAB_PANEL_1).should(BE_VISIBLE).and(NOT_HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_1).should(BE_VISIBLE).and(HAVE_PROP, "active", true);
   });
 
   it("should move focus to the last tab when the End key is pressed", () => {
@@ -260,7 +268,7 @@ describe("IcTab end-to-end tests", () => {
     cy.get("@activeElement")
       .should(CONTAIN_TEXT, "Recipes")
       .and(HAVE_ATTR, "selected");
-    cy.get(TAB_PANEL_5).should(BE_VISIBLE).and(NOT_HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_5).should(BE_VISIBLE).and(HAVE_PROP, "active", true);
   });
 
   it("should not display the tab panels automatically using the arrow keys when using manual activation", () => {
@@ -280,14 +288,14 @@ describe("IcTab end-to-end tests", () => {
     cy.get("@activeElement")
       .should(CONTAIN_TEXT, "Method")
       .and(NOT_HAVE_ATTR, "selected");
-    cy.get(TAB_PANEL_2).should(NOT_BE_VISIBLE).and(HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_2).should(NOT_BE_VISIBLE).and(HAVE_PROP, "active", false);
 
     cy.realPress("Enter");
     cy.focused().as("activeElement");
     cy.get("@activeElement")
       .should(CONTAIN_TEXT, "Method")
       .and(HAVE_ATTR, "selected");
-    cy.get(TAB_PANEL_2).should(BE_VISIBLE).and(NOT_HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_2).should(BE_VISIBLE).and(HAVE_PROP, "active", true);
   });
 
   it("should move focus to next tab if focused tab is removed", () => {
@@ -396,7 +404,7 @@ describe("IcTab end-to-end tests", () => {
 
     cy.checkHydrated(IC_TAB_GROUP);
 
-    cy.get(TAB_PANEL_2).should(BE_VISIBLE).and(NOT_HAVE_ATTR, "hidden");
+    cy.get(TAB_PANEL_2).should(BE_VISIBLE).and(HAVE_PROP, "active", true);
   });
 
   it("should call icTabSelect event in controlled mode when clicked", () => {
@@ -593,6 +601,18 @@ describe("IcTab visual regression tests", () => {
     cy.compareSnapshot({
       name: "/min-max",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+    });
+  });
+
+  it("should render tabs correctly when created after a delay", () => {
+    mount(<DelayedTabs />);
+
+    cy.wait(2000);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/delayed-tabs",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
 });
