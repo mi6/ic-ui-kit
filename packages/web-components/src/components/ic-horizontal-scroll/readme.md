@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                                                               | Type                             | Default     |
-| ------------ | ------------ | ------------------------------------------------------------------------- | -------------------------------- | ----------- |
-| `appearance` | `appearance` | The appearance of the horizontal scroll, e.g. dark, light or the default. | `"dark" \| "default" \| "light"` | `"default"` |
+| Property     | Attribute    | Description                                                               | Type                                          | Default     |
+| ------------ | ------------ | ------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `appearance` | `appearance` | The appearance of the horizontal scroll, e.g. dark, light or the default. | `"dark" \| "default" \| "light" \| undefined` | `"default"` |
 
 
 ## Dependencies

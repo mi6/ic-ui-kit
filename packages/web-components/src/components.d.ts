@@ -551,7 +551,7 @@ export namespace Components {
         /**
           * The custom chip colour. This will override the theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
-        "customColor"?: IcColor;
+        "customColor"?: IcColor | null;
         /**
           * If `true`, the chip will appear disabled.
          */
@@ -1796,7 +1796,7 @@ export namespace Components {
         /**
           * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
          */
-        "value"?: string | string[];
+        "value"?: string | string[] | null;
     }
     interface IcSideNavigation {
         /**
@@ -1984,8 +1984,8 @@ export namespace Components {
           * Sets focus on the tab.
          */
         "setFocus": () => Promise<void>;
-        "tabId"?: string;
-        "tabPosition"?: number;
+        "tabId": string;
+        "tabPosition": number;
         "theme"?: IcThemeMode;
     }
     interface IcTabContext {
@@ -2091,7 +2091,7 @@ export namespace Components {
         /**
           * The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)
          */
-        "max": string | number;
+        "max"?: string | number;
         /**
           * The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)
          */
@@ -2099,7 +2099,7 @@ export namespace Components {
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
-        "min": string | number;
+        "min"?: string | number;
         /**
           * The minimum number of characters that can be entered in the field.
          */
@@ -2172,7 +2172,7 @@ export namespace Components {
         /**
           * The brand colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
-        "brandColor"?: IcColor;
+        "brandColor"?: IcColor | null;
         /**
           * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
          */
@@ -2206,7 +2206,7 @@ export namespace Components {
         /**
           * @returns The element that previously had focus before the toast appeared
          */
-        "setVisible": () => Promise<HTMLElement>;
+        "setVisible": () => Promise<HTMLElement | null>;
         /**
           * The variant of the toast being rendered
          */
@@ -2216,7 +2216,7 @@ export namespace Components {
         /**
           * The toast element to be displayed.
          */
-        "openToast": HTMLIcToastElement;
+        "openToast": HTMLIcToastElement | undefined;
     }
     interface IcToggleButton {
         /**
@@ -2955,7 +2955,7 @@ declare global {
         new (): HTMLIcPaginationElement;
     };
     interface HTMLIcPaginationItemElementEventMap {
-        "paginationItemClick": { page: number };
+        "paginationItemClick": { page: number | null };
     }
     interface HTMLIcPaginationItemElement extends Components.IcPaginationItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcPaginationItemElementEventMap>(type: K, listener: (this: HTMLIcPaginationItemElement, ev: IcPaginationItemCustomEvent<HTMLIcPaginationItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3904,7 +3904,7 @@ declare namespace LocalJSX {
         /**
           * The custom chip colour. This will override the theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
-        "customColor"?: IcColor;
+        "customColor"?: IcColor | null;
         /**
           * If `true`, the chip will appear disabled.
          */
@@ -4414,7 +4414,7 @@ declare namespace LocalJSX {
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
          */
-        "anchorEl": HTMLElement;
+        "anchorEl"?: HTMLElement;
         "autofocusOnSelected"?: boolean;
         /**
           * If `true`, the menu will close when an option is selected.
@@ -4427,7 +4427,7 @@ declare namespace LocalJSX {
         /**
           * The reference to the input element.
          */
-        "inputEl": HTMLElement;
+        "inputEl"?: HTMLElement;
         /**
           * The label for the input element.
          */
@@ -4755,7 +4755,7 @@ declare namespace LocalJSX {
           * If `true`, the pagination item will display as black in the light theme, and white in dark theme.
          */
         "monochrome"?: boolean;
-        "onPaginationItemClick"?: (event: IcPaginationItemCustomEvent<{ page: number }>) => void;
+        "onPaginationItemClick"?: (event: IcPaginationItemCustomEvent<{ page: number | null }>) => void;
         /**
           * The current page number.
          */
@@ -5236,7 +5236,7 @@ declare namespace LocalJSX {
         /**
           * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
          */
-        "value"?: string | string[];
+        "value"?: string | string[] | null;
     }
     interface IcSideNavigation {
         /**
@@ -5437,8 +5437,8 @@ declare namespace LocalJSX {
         "onTabFocus"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "onTabRemoved"?: (event: IcTabCustomEvent<void>) => void;
         "selected"?: boolean;
-        "tabId"?: string;
-        "tabPosition"?: number;
+        "tabId": string;
+        "tabPosition": number;
         "theme"?: IcThemeMode;
     }
     interface IcTabContext {
@@ -5647,7 +5647,7 @@ declare namespace LocalJSX {
         /**
           * The brand colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
-        "brandColor"?: IcColor;
+        "brandColor"?: IcColor | null;
         "onBrandChange"?: (event: IcThemeCustomEvent<IcBrand>) => void;
         /**
           * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
@@ -5692,7 +5692,7 @@ declare namespace LocalJSX {
         /**
           * The toast element to be displayed.
          */
-        "openToast"?: HTMLIcToastElement;
+        "openToast"?: HTMLIcToastElement | undefined;
     }
     interface IcToggleButton {
         /**

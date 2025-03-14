@@ -166,10 +166,10 @@ export class Tab {
       <Host
         class={{
           ["with-transition"]: !this.isInitialRender,
-          ["ic-tab-selected"]: selected!,
-          ["ic-tab-disabled"]: disabled!,
+          ["ic-tab-selected"]: !!selected,
+          ["ic-tab-disabled"]: !!disabled,
           [`ic-theme-${theme}`]: theme !== "inherit",
-          ["ic-tab-monochrome"]: monochrome!,
+          ["ic-tab-monochrome"]: !!monochrome,
         }}
         role="tab"
         aria-selected={`${selected}`}

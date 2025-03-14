@@ -416,7 +416,7 @@ export class TextField {
     this.numChars = this.getNumberOfCharacters(value);
 
     if (this.type === "number") {
-      this.minValueUnattained = value && Number(value) < Number(this.min);
+      value && (this.minValueUnattained = Number(value) < Number(this.min));
       this.maxValueExceeded = Number(value) > Number(this.max);
     }
   };
@@ -461,9 +461,11 @@ export class TextField {
     let forceComponentUpdate = false;
     mutationList.forEach(
       ({ attributeName, type, addedNodes, removedNodes }) => {
-        if (MUTABLE_ATTRIBUTES.includes(attributeName)) {
-          this.inheritedAttributes[attributeName] =
-            this.el.getAttribute(attributeName);
+        if (attributeName && MUTABLE_ATTRIBUTES.includes(attributeName)) {
+          const attribute = this.el.getAttribute(attributeName);
+          if (attribute) {
+            this.inheritedAttributes[attributeName] = attribute;
+          }
           forceComponentUpdate = true;
         } else if (type === "childList") {
           forceComponentUpdate = checkSlotInChildMutations(
@@ -562,7 +564,7 @@ export class TextField {
       maxCharacters > 0 ? `${inputId}-char-count-desc` : "";
 
     const describedBy = `${hiddenCharCountDescId} ${getInputDescribedByText(
-      inputId,
+      inputId!,
       helperText !== "",
       showStatusText
     )}`.trim();
@@ -630,7 +632,7 @@ export class TextField {
                 class={{
                   "no-left-pad": !showLeftIcon && readonly,
                   readonly,
-                  "truncate-value": truncateValue,
+                  "truncate-value": !!truncateValue,
                 }}
                 placeholder={placeholder ? placeholder : ""}
                 required={required}
@@ -650,8 +652,8 @@ export class TextField {
                 spellcheck={spellcheck}
                 inputmode={inputmode}
                 role={this.role}
-                maxlength={maxCharactersReached ? maxCharacters : null}
-                minlength={minCharactersUnattained ? minCharacters : null}
+                maxlength={maxCharactersReached ? maxCharacters : undefined}
+                minlength={minCharactersUnattained ? minCharacters : undefined}
                 {...this.inheritedAttributes}
               ></input>
             ) : (
@@ -679,8 +681,8 @@ export class TextField {
                 autocapitalize={this.autocapitalize}
                 spellcheck={spellcheck}
                 inputmode={inputmode}
-                maxlength={maxCharactersReached ? maxCharacters : null}
-                minlength={minCharactersUnattained ? minCharacters : null}
+                maxlength={maxCharactersReached ? maxCharacters : undefined}
+                minlength={minCharactersUnattained ? minCharacters : undefined}
                 {...this.inheritedAttributes}
               ></textarea>
             )}

@@ -192,7 +192,7 @@ export class Switch {
         <label
           class={{
             "ic-switch-container": true,
-            "ic-switch-disabled": disabled!,
+            "ic-switch-disabled": !!disabled,
             "ic-switch-small": isSmall,
           }}
           htmlFor={inputId}

@@ -252,11 +252,11 @@ export class Typography {
       <Host
         class={{
           [`ic-typography-${variant}`]: true,
-          [`ic-typography-vertical-margins-${variant}`]: applyVerticalMargins!,
-          ["ic-typography-bold"]: bold!,
-          ["ic-typography-italic"]: italic!,
-          ["ic-typography-strikethrough"]: strikethrough!,
-          ["ic-typography-underline"]: underline!,
+          [`ic-typography-vertical-margins-${variant}`]: !!applyVerticalMargins,
+          ["ic-typography-bold"]: !!bold,
+          ["ic-typography-italic"]: !!italic,
+          ["ic-typography-strikethrough"]: !!strikethrough,
+          ["ic-typography-underline"]: !!underline,
           ["in-ag-grid"]: this.inAGGrid,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}

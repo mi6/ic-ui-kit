@@ -105,9 +105,10 @@ export class Breadcrumb {
       this.el.shadowRoot?.querySelector(".link-wrapper");
 
     if (slottedLinkWrapper) {
-      this.linkSlotContent = getSlotElements(
-        slottedLinkWrapper
-      )[0] as HTMLElement;
+      const slotEls = getSlotElements(slottedLinkWrapper);
+      if (slotEls) {
+        this.linkSlotContent = slotEls[0] as HTMLElement;
+      }
       this.slottedLinkEl = this.getSlottedLinkEl();
       this.slottedLinkHref = this.slottedLinkEl?.getAttribute("href");
       this.updatedSlottedLinkFocus();

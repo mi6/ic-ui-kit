@@ -132,7 +132,7 @@ export type IcAutocorrectStates = "on" | "off";
 
 export type IcNavParentDetails = {
   navType: IcNavType | "";
-  parent: HTMLElement;
+  parent: HTMLElement | null;
 };
 
 export type IcTypographyVariants =

@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                  | Type                                 | Default  |
-| ------------ | ------------- | ---------------------------------------------------------------------------- | ------------------------------------ | -------- |
-| `aligned`    | `aligned`     | The alignment of the container.                                              | `"center" \| "full-width" \| "left"` | `"left"` |
-| `fullHeight` | `full-height` | If `true`, the standard vertical padding from the container will be removed. | `boolean`                            | `false`  |
+| Property     | Attribute     | Description                                                                  | Type                                              | Default  |
+| ------------ | ------------- | ---------------------------------------------------------------------------- | ------------------------------------------------- | -------- |
+| `aligned`    | `aligned`     | The alignment of the container.                                              | `"center" \| "full-width" \| "left" \| undefined` | `"left"` |
+| `fullHeight` | `full-height` | If `true`, the standard vertical padding from the container will be removed. | `boolean \| undefined`                            | `false`  |
 
 
 ## Dependencies

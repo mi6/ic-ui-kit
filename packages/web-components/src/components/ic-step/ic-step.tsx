@@ -143,7 +143,7 @@ export class Step {
       <div
         class={{
           ["step"]: true,
-          ["current"]: this.current!,
+          ["current"]: !!this.current,
           [`compact-step-${this.compactStepStyling}`]:
             !!this.compactStepStyling,
         }}

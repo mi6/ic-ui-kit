@@ -53,7 +53,7 @@ export class NavigationGroup {
     getBrandForegroundAppearance();
   @State() inTopNavSideMenu: boolean = false;
   @State() navigationType: IcNavType | "";
-  @State() parentEl: HTMLElement;
+  @State() parentEl: HTMLElement | null;
 
   /**
    *  If `true`, the group will be expandable in the side menu.
@@ -91,12 +91,12 @@ export class NavigationGroup {
     this.parentEl = parent;
 
     if (this.navigationType === "side") {
-      this.parentEl.addEventListener(
+      this.parentEl?.addEventListener(
         "icSideNavExpanded",
         this.sideNavExpandHandler as EventListener
       );
     } else if (this.navigationType === "top") {
-      this.parentEl.addEventListener(
+      this.parentEl?.addEventListener(
         "icTopNavResized",
         this.topNavResizedHandler as EventListener
       );

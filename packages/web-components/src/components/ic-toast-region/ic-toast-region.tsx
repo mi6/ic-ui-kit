@@ -4,7 +4,7 @@ import { IcFocusableComponents } from "../../utils/types";
 @Component({ tag: "ic-toast-region" })
 export class ToastRegion {
   private pendingVisibility: HTMLIcToastElement[] = [];
-  private previouslyFocused: HTMLElement;
+  private previouslyFocused: HTMLElement | null;
 
   @Element() el: HTMLIcToastRegionElement;
 

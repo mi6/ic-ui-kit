@@ -324,7 +324,7 @@ export class PopoverMenu {
         );
         if (groupSlotWrapper) {
           const menuGroupElements = getSlotElements(groupSlotWrapper);
-          this.addMenuItems(menuGroupElements);
+          menuGroupElements && this.addMenuItems(menuGroupElements);
         }
       }
     }

@@ -205,12 +205,12 @@ export class ToggleButton {
       <Host
         class={{
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
-          ["ic-toggle-button-disabled"]: this.disabled!,
+          ["ic-toggle-button-disabled"]: !!this.disabled,
           ["ic-toggle-button-checked"]: this.checked,
           ["ic-toggle-button-icon"]: this.variant === "icon",
           [`ic-toggle-button-${this.size}`]: true,
-          ["ic-toggle-button-loading"]: this.loading!,
-          ["ic-toggle-button-monochrome"]: this.monochrome!,
+          ["ic-toggle-button-loading"]: !!this.loading,
+          ["ic-toggle-button-monochrome"]: !!this.monochrome,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         onFocus={this.handleFocus}
