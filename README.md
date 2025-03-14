@@ -17,7 +17,7 @@ This is a joint project led by [MI6](https://www.sis.gov.uk), working with [GCHQ
   <img src="/static/icds-orgs.png" alt="SIS (MI6), GCHQ and MI5 Logos">
 </p>
 
-This repo holds the UI Kit components. Find the guidance and content of [`design.sis.gov.uk`](https://design.sis.gov.uk) in the [IC Design System guidance site repo](https://github.com/mi6/ic-design-system).
+This repository holds the UI Kit components. Find the guidance and content of [`design.sis.gov.uk`](https://design.sis.gov.uk) in the [IC Design System guidance site repository](https://github.com/mi6/ic-design-system).
 
 ## Why we're doing this
 

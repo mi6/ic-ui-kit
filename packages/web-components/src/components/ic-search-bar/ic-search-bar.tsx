@@ -84,7 +84,7 @@ export class SearchBar {
    * The automatic capitalisation of the text value as it is entered/edited by the user.
    * Available options: "off", "none", "on", "sentences", "words", "characters".
    */
-  @Prop() autocapitalize?: string = "off";
+  @Prop() autocapitalize: string | undefined = "off";
 
   /**
    * The state of autocompletion the browser can apply on the text value.
@@ -99,7 +99,7 @@ export class SearchBar {
   /**
    * If `true`, the form control will have input focus when the page loads.
    */
-  @Prop() autofocus?: boolean = false;
+  @Prop() autofocus: boolean | undefined = false;
 
   /**
    * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
@@ -221,7 +221,7 @@ export class SearchBar {
   /**
    * If `true`, the value of the search will have its spelling and grammar checked.
    */
-  @Prop() spellcheck?: boolean = false;
+  @Prop() spellcheck: boolean | undefined = false;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.

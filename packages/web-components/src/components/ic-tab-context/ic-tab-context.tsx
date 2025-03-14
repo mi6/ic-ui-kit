@@ -166,7 +166,6 @@ export class TabContext {
       this.tabPanels[this.selectedTab]
     ) {
       this.tabs[this.selectedTab].selected = true;
-      this.tabPanels[this.selectedTab].hidden = false;
     } else {
       this.setInitialTab();
     }
@@ -273,7 +272,7 @@ export class TabContext {
       tab.selected = tab.tabPosition === this.selectedTab;
     });
     this.tabPanels.forEach((tabPanel, index) => {
-      tabPanel.hidden = index !== this.selectedTab;
+      tabPanel.active = index === this.selectedTab;
     });
   };
 

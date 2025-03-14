@@ -11526,7 +11526,7 @@
           "name": "open",
           "type": "boolean | undefined",
           "complexType": {
-            "original": "boolean",
+            "original": "boolean | undefined",
             "resolved": "boolean | undefined",
             "references": {}
           },
@@ -12484,7 +12484,7 @@
           "name": "autocapitalize",
           "type": "string | undefined",
           "complexType": {
-            "original": "string",
+            "original": "string | undefined",
             "resolved": "string | undefined",
             "references": {}
           },
@@ -12576,7 +12576,7 @@
           "name": "autofocus",
           "type": "boolean | undefined",
           "complexType": {
-            "original": "boolean",
+            "original": "boolean | undefined",
             "resolved": "boolean | undefined",
             "references": {}
           },
@@ -13149,7 +13149,7 @@
           "name": "spellcheck",
           "type": "boolean | undefined",
           "complexType": {
-            "original": "boolean",
+            "original": "boolean | undefined",
             "resolved": "boolean | undefined",
             "references": {}
           },
@@ -16568,7 +16568,7 @@
           "name": "autocapitalize",
           "type": "string | undefined",
           "complexType": {
-            "original": "string",
+            "original": "string | undefined",
             "resolved": "string | undefined",
             "references": {}
           },
@@ -16660,7 +16660,7 @@
           "name": "autofocus",
           "type": "boolean | undefined",
           "complexType": {
-            "original": "boolean",
+            "original": "boolean | undefined",
             "resolved": "boolean | undefined",
             "references": {}
           },
@@ -17231,7 +17231,7 @@
           "name": "spellcheck",
           "type": "boolean | undefined",
           "complexType": {
-            "original": "boolean",
+            "original": "boolean | undefined",
             "resolved": "boolean | undefined",
             "references": {}
           },

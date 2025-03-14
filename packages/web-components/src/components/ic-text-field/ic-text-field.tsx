@@ -87,7 +87,7 @@ export class TextField {
   /**
    * @internal Used to identify if the slotted menu is rendered
    */
-  @Prop() ariaExpanded?: string;
+  @Prop() ariaExpanded: string | undefined;
 
   /**
    * @internal Used to identify any related child component
@@ -98,7 +98,7 @@ export class TextField {
    * The automatic capitalisation of the text value as it is entered/edited by the user.
    * Available options: "off", "none", "on", "sentences", "words", "characters".
    */
-  @Prop() autocapitalize?: string = "off";
+  @Prop() autocapitalize: string | undefined = "off";
 
   /**
    * The state of autocompletion the browser can apply on the text value.
@@ -113,7 +113,7 @@ export class TextField {
   /**
    * If `true`, the form control will have input focus when the page loads.
    */
-  @Prop() autofocus?: boolean = false;
+  @Prop() autofocus: boolean | undefined = false;
 
   /**
    * If `true`, the disabled state will be set.
@@ -215,7 +215,7 @@ export class TextField {
   /**
    * @internal Used to set the role if not default textbox;
    */
-  @Prop() role?: string;
+  @Prop() role: string | undefined;
 
   /**
    * The number of rows to transform the text field into a text area with a specific height.
@@ -230,7 +230,7 @@ export class TextField {
   /**
    * If `true`, the value of the text field will have its spelling and grammar checked.
    */
-  @Prop() spellcheck?: boolean = false;
+  @Prop() spellcheck: boolean | undefined = false;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.

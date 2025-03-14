@@ -4071,13 +4071,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "ic-tooltip",
-        "ic-typography"
+        "ic-typography",
+        "ic-tooltip"
       ],
       "dependencyGraph": {
         "ic-tree-item": [
-          "ic-tooltip",
-          "ic-typography"
+          "ic-typography",
+          "ic-tooltip"
         ],
         "ic-tooltip": [
           "ic-typography"

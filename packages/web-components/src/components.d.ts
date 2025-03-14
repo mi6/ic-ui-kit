@@ -1424,7 +1424,7 @@ export namespace Components {
         /**
           * If `true`, the popover menu will be displayed.
          */
-        "open"?: boolean;
+        "open"?: boolean | undefined;
         "openFromChild": () => Promise<void>;
         "openFromParent": () => Promise<void>;
         "parentLabel"?: string;
@@ -1540,7 +1540,7 @@ export namespace Components {
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize"?: string;
+        "autocapitalize": string | undefined;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
@@ -1552,7 +1552,7 @@ export namespace Components {
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus"?: boolean;
+        "autofocus": boolean | undefined;
         /**
           * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
          */
@@ -1644,7 +1644,7 @@ export namespace Components {
         /**
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
-        "spellcheck"?: boolean;
+        "spellcheck": boolean | undefined;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -2024,6 +2024,7 @@ export namespace Components {
         "theme"?: IcThemeMode;
     }
     interface IcTabPanel {
+        "active": boolean;
         "monochrome"?: boolean;
         "panelId"?: string;
         "selectedTab"?: string;
@@ -2033,12 +2034,12 @@ export namespace Components {
     interface IcTextField {
         "ariaActiveDescendant"?: string;
         "ariaAutocomplete"?: IcAriaAutocompleteTypes;
-        "ariaExpanded"?: string;
+        "ariaExpanded": string | undefined;
         "ariaOwns"?: string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize"?: string;
+        "autocapitalize": string | undefined;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
@@ -2050,7 +2051,7 @@ export namespace Components {
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus"?: boolean;
+        "autofocus": boolean | undefined;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -2124,7 +2125,7 @@ export namespace Components {
           * If `true`, the multiline text area will be resizeable.
          */
         "resize"?: boolean;
-        "role"?: string;
+        "role": string | undefined;
         /**
           * The number of rows to transform the text field into a text area with a specific height.
          */
@@ -2140,7 +2141,7 @@ export namespace Components {
         /**
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
-        "spellcheck"?: boolean;
+        "spellcheck": boolean | undefined;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -4785,7 +4786,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the popover menu will be displayed.
          */
-        "open"?: boolean;
+        "open"?: boolean | undefined;
         "parentLabel"?: string;
         "parentPopover"?: HTMLIcPopoverMenuElement;
         /**
@@ -4906,7 +4907,7 @@ declare namespace LocalJSX {
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize"?: string;
+        "autocapitalize"?: string | undefined;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
@@ -4918,7 +4919,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus"?: boolean;
+        "autofocus"?: boolean | undefined;
         /**
           * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
          */
@@ -5048,7 +5049,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
-        "spellcheck"?: boolean;
+        "spellcheck"?: boolean | undefined;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -5480,6 +5481,7 @@ declare namespace LocalJSX {
         "theme"?: IcThemeMode;
     }
     interface IcTabPanel {
+        "active"?: boolean;
         "monochrome"?: boolean;
         "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
         "onTabPanelRemoved"?: (event: IcTabPanelCustomEvent<void>) => void;
@@ -5491,12 +5493,12 @@ declare namespace LocalJSX {
     interface IcTextField {
         "ariaActiveDescendant"?: string;
         "ariaAutocomplete"?: IcAriaAutocompleteTypes;
-        "ariaExpanded"?: string;
+        "ariaExpanded"?: string | undefined;
         "ariaOwns"?: string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize"?: string;
+        "autocapitalize"?: string | undefined;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
@@ -5508,7 +5510,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus"?: boolean;
+        "autofocus"?: boolean | undefined;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -5603,7 +5605,7 @@ declare namespace LocalJSX {
           * If `true`, the multiline text area will be resizeable.
          */
         "resize"?: boolean;
-        "role"?: string;
+        "role"?: string | undefined;
         /**
           * The number of rows to transform the text field into a text area with a specific height.
          */
@@ -5615,7 +5617,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
-        "spellcheck"?: boolean;
+        "spellcheck"?: boolean | undefined;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
