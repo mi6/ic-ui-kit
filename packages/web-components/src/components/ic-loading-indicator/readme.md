@@ -18,7 +18,7 @@
 | `monochrome`    | `monochrome`     | If `true`, the element will display as black and white.                                                                                 | `boolean \| undefined`                                  | `false`      |
 | `progress`      | `progress`       | The current amount of progress made. If not provided, component acts as an indeterminate loading indicator.                             | `number \| undefined`                                   | `undefined`  |
 | `size`          | `size`           | The size of the loading indicator.                                                                                                      | `"icon" \| "large" \| "medium" \| "small" \| undefined` | `"medium"`   |
-| `theme`         | `theme`          | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"`                        | `"inherit"`  |
+| `theme`         | `theme`          | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined`           | `"inherit"`  |
 | `type`          | `type`           | The type of indicator, either linear or circular.                                                                                       | `"circular" \| "linear" \| undefined`                   | `"circular"` |
 
 
@@ -27,13 +27,6 @@
 | Part                     | Description |
 | ------------------------ | ----------- |
 | `"ic-loading-container"` |             |
-
-
-## CSS Custom Properties
-
-| Name                  | Description                        |
-| --------------------- | ---------------------------------- |
-| `--circular-diameter` | Diameter of the circular-indicator |
 
 
 ## Dependencies

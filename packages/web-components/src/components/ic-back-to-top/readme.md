@@ -12,14 +12,7 @@
 | `position`            | `position` | The horizontal position of the element.                                                                                                 | `"center" \| "left" \| "right" \| undefined`  | `"right"`   |
 | `target` _(required)_ | `target`   | The ID of the element to jump back to when the link is clicked.                                                                         | `string`                                      | `undefined` |
 | `theme`               | `theme`    | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined` | `"inherit"` |
-| `variant`             | `variant`  | The variant of the button to render                                                                                                     | `"default" \| "icon"`                         | `"default"` |
-
-
-## CSS Custom Properties
-
-| Name                       | Description            |
-| -------------------------- | ---------------------- |
-| `--ic-z-index-back-to-top` | z-index of back to top |
+| `variant`             | `variant`  | The variant of the button to render                                                                                                     | `"default" \| "icon" \| undefined`            | `"default"` |
 
 
 ## Dependencies

@@ -32,7 +32,7 @@ export class BreadcrumbGroup {
   /**
    * If `true`, display only a single breadcrumb for the parent page with a back icon.
    */
-  @Prop() backBreadcrumbOnly: boolean = false;
+  @Prop() backBreadcrumbOnly?: boolean = false;
   @Watch("backBreadcrumbOnly")
   watchBackBreadcrumbHandler(): void {
     this.setBackBreadcrumb();
@@ -41,7 +41,7 @@ export class BreadcrumbGroup {
   /**
    * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
    */
-  @Prop() collapsed: boolean = false;
+  @Prop() collapsed?: boolean = false;
   @Watch("collapsed")
   watchCollapsedHandler(): void {
     this.setCollapsed();
@@ -326,8 +326,8 @@ export class BreadcrumbGroup {
     return (
       <Host
         class={{
-          "ic-breadcrumb-group-back": this.backBreadcrumbOnly,
-          "ic-breadcrumb-group-collapsed": this.collapsed,
+          "ic-breadcrumb-group-back": !!this.backBreadcrumbOnly,
+          "ic-breadcrumb-group-collapsed": !!this.collapsed,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >

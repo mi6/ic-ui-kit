@@ -84,7 +84,7 @@ describe("ic-tab-context component", () => {
     expect(page.rootInstance.selectedTab).toBe(2);
 
     const eventSpy = jest.fn();
-    document.addEventListener("icTabSelect", eventSpy);
+    page.root?.addEventListener("icTabSelect", eventSpy);
 
     const tabGroup = document.querySelector("ic-tab-group");
 
@@ -156,7 +156,7 @@ describe("ic-tab-context component", () => {
 
     expect(page.rootInstance.selectedTab).toBe(0);
 
-    page.root?.setAttribute("selectedTabIndex", "1");
+    page.root?.setAttribute("selected-tab-index", "1");
     await page.waitForChanges();
 
     expect(page.rootInstance.selectedTab).toBe(1);
@@ -180,7 +180,7 @@ describe("ic-tab-context component", () => {
     expect(page.rootInstance.selectedTabIndex).toBe(undefined);
 
     const eventSpy = jest.fn();
-    document.addEventListener("icTabSelect", eventSpy);
+    page.root?.addEventListener("icTabSelect", eventSpy);
 
     await page.rootInstance.tabClickHandler({
       stopImmediatePropagation: jest.fn(),

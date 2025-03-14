@@ -45,7 +45,7 @@ export class Chip {
    * The custom chip colour. This will override the theme colour.
    * Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
-  @Prop() customColor?: IcColor | null = null;
+  @Prop() customColor?: IcColor;
 
   @Watch("customColor")
   customColorHandler(): void {
@@ -211,7 +211,7 @@ export class Chip {
             </ic-typography>
             {dismissible && (
               <ic-tooltip
-                label={dismissLabel || ""}
+                label={dismissLabel!}
                 target="dismiss-icon"
                 class={{ "tooltip-disabled": !!disabled }}
               >

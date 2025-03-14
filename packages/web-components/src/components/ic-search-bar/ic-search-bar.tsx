@@ -84,7 +84,7 @@ export class SearchBar {
    * The automatic capitalisation of the text value as it is entered/edited by the user.
    * Available options: "off", "none", "on", "sentences", "words", "characters".
    */
-  @Prop() autocapitalize = "off";
+  @Prop() autocapitalize?: string = "off";
 
   /**
    * The state of autocompletion the browser can apply on the text value.
@@ -99,12 +99,12 @@ export class SearchBar {
   /**
    * If `true`, the form control will have input focus when the page loads.
    */
-  @Prop() autofocus = false;
+  @Prop() autofocus?: boolean = false;
 
   /**
    * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
    */
-  @Prop() charactersUntilSuggestion: number = 2;
+  @Prop() charactersUntilSuggestion?: number = 2;
 
   /**
    * If `true`, the disabled state will be set.
@@ -112,7 +112,7 @@ export class SearchBar {
   @Prop() disabled?: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
-    removeDisabledFalse(this.disabled, this.el);
+    removeDisabledFalse(this.disabled, this.el as HTMLElement);
   }
 
   /**
@@ -134,7 +134,7 @@ export class SearchBar {
   /**
    * The text displayed when there are no options in the option list.
    */
-  @Prop() emptyOptionListText = "No results found";
+  @Prop() emptyOptionListText?: string = "No results found";
 
   /**
    * If `true`, the search bar will be focused when component loaded.
@@ -191,7 +191,7 @@ export class SearchBar {
   /**
    * The name of the control, which is submitted with the form data.
    */
-  @Prop() name: string = this.inputId;
+  @Prop() name?: string = this.inputId;
 
   /**
    * The placeholder value to display.
@@ -221,7 +221,7 @@ export class SearchBar {
   /**
    * If `true`, the value of the search will have its spelling and grammar checked.
    */
-  @Prop() spellcheck: boolean = false;
+  @Prop() spellcheck?: boolean = false;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -286,7 +286,7 @@ export class SearchBar {
   /**
    * The value of the search input.
    */
-  @Prop({ reflect: true, mutable: true }) value: string = "";
+  @Prop({ reflect: true, mutable: true }) value?: string = "";
 
   @Watch("value")
   watchValueHandler(newValue: string): void {
@@ -468,9 +468,9 @@ export class SearchBar {
   }
 
   componentWillLoad(): void {
-    this.watchValueHandler(this.value);
+    this.watchValueHandler(this.value!);
 
-    removeDisabledFalse(this.disabled, this.el);
+    removeDisabledFalse(this.disabled, this.el as HTMLElement);
   }
 
   componentDidLoad(): void {
@@ -544,7 +544,7 @@ export class SearchBar {
   private handleSubmitSearch = () => {
     this.highlightedValue && (this.value = this.highlightedValue);
     this.highlightedValue = undefined;
-    this.icSubmitSearch.emit({ value: this.value });
+    this.icSubmitSearch.emit({ value: this.value! });
 
     const form: HTMLFormElement | null = this.el.closest("FORM");
 
@@ -660,7 +660,7 @@ export class SearchBar {
     this.handleShowClearButton(false);
     this.menuCloseFromMenuChangeEvent = false;
     this.handleTruncateValue(true);
-    this.icSearchBarBlur.emit({ relatedTarget: nextFocus, value: this.value });
+    this.icSearchBarBlur.emit({ relatedTarget: nextFocus, value: this.value! });
     this.retryViaKeyPress = false;
     this.retryButtonClick = false;
   };
@@ -704,7 +704,7 @@ export class SearchBar {
       if (
         !this.open ||
         this.value === "" ||
-        this.value.length < this.charactersUntilSuggestion
+        this.value!.length < this.charactersUntilSuggestion!
       ) {
         searchResultsStatusEl.innerText = "";
       } else if (
@@ -714,7 +714,7 @@ export class SearchBar {
         !this.filteredOptions[0].loading
       ) {
         if (this.hadNoOptions()) {
-          searchResultsStatusEl.innerText = this.emptyOptionListText;
+          searchResultsStatusEl.innerText = this.emptyOptionListText!;
         } else {
           searchResultsStatusEl.innerText = `${
             this.filteredOptions.length
@@ -735,7 +735,8 @@ export class SearchBar {
   private isSubmitDisabled = (): boolean => {
     const valueNotSet =
       this.value === undefined || this.value === null || this.value === "";
-    const valueLengthLess = this.value.length < this.charactersUntilSuggestion;
+    const valueLengthLess =
+      this.value!.length < this.charactersUntilSuggestion!;
     return (
       valueNotSet ||
       valueLengthLess ||
@@ -812,16 +813,16 @@ export class SearchBar {
     const hasSuggestedSearch = !!value && this.hasOptionsOrFilterDisabled();
     const menuOpen = hasSuggestedSearch && open && filteredOptions.length > 0;
     const menuRendered =
-      menuOpen && value.length >= this.charactersUntilSuggestion;
+      menuOpen && value.length >= this.charactersUntilSuggestion!;
 
     const labelValue = getLabelFromValue(
-      value,
+      value!,
       options!,
       this.valueField,
       this.labelField
     );
 
-    renderHiddenInput(true, this.el, name, value, disabledMode);
+    renderHiddenInput(true, this.el as HTMLElement, name!, value, disabledMode);
 
     return (
       <Host
@@ -978,7 +979,7 @@ export class SearchBar {
                 onMenuStateChange={this.handleMenuChange}
                 onMenuOptionId={this.handleMenuOptionHighlight}
                 onRetryButtonClicked={this.handleRetry}
-                parentEl={this.el}
+                parentEl={this.el as HTMLElement}
                 value={value}
                 labelField={this.labelField}
                 valueField={this.valueField}

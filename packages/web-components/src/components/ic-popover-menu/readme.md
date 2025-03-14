@@ -9,8 +9,8 @@ This is a wrapper component to be placed around one or more ic-menu-item compone
 
 | Property    | Attribute    | Description                                                                                                                             | Type                                          | Default     |
 | ----------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
-| `anchor`    | `anchor`     | The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.                         | `string`                                      | `undefined` |
-| `open`      | `open`       | If `true`, the popover menu will be displayed.                                                                                          | `boolean`                                     | `undefined` |
+| `anchor`    | `anchor`     | The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.                         | `string \| undefined`                         | `undefined` |
+| `open`      | `open`       | If `true`, the popover menu will be displayed.                                                                                          | `boolean \| undefined`                        | `false`     |
 | `submenuId` | `submenu-id` | The unique identifier for a popover submenu.                                                                                            | `string \| undefined`                         | `undefined` |
 | `theme`     | `theme`      | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined` | `"inherit"` |
 
@@ -20,15 +20,6 @@ This is a wrapper component to be placed around one or more ic-menu-item compone
 | Event             | Description                              | Type                                 |
 | ----------------- | ---------------------------------------- | ------------------------------------ |
 | `icPopoverClosed` | Emitted when the popover menu is closed. | `CustomEvent<HTMLIcMenuItemElement>` |
-
-
-## CSS Custom Properties
-
-| Name                   | Description                         |
-| ---------------------- | ----------------------------------- |
-| `--ic-z-index-popover` | z-index of popover menu.            |
-| `--max-height`         | Maximum height of the popover menu. |
-| `--popover-width`      | Default width of the popover menu.  |
 
 
 ## Dependencies

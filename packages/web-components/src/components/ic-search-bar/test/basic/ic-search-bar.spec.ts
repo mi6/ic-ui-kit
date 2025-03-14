@@ -367,7 +367,7 @@ describe("ic-search-bar search", () => {
     page.rootInstance.open = true;
     await page.waitForChanges();
 
-    let items = Array.from(
+    const items = Array.from(
       page.root?.shadowRoot?.querySelectorAll("ic-menu li") || []
     );
 

@@ -36,7 +36,7 @@ export class MenuItem {
   /**
    * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
    */
-  @Prop({ mutable: true, reflect: true }) checked: boolean = false;
+  @Prop({ mutable: true, reflect: true }) checked?: boolean = false;
 
   /**
    * The description displayed in the menu item, below the label.
@@ -95,7 +95,7 @@ export class MenuItem {
   /**
    * The variant of the menu item.
    */
-  @Prop({ mutable: true, reflect: true }) variant: IcMenuItemVariants =
+  @Prop({ mutable: true, reflect: true }) variant?: IcMenuItemVariants =
     "default";
 
   /**

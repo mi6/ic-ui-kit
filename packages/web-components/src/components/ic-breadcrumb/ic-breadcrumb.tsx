@@ -64,7 +64,7 @@ export class Breadcrumb {
   /**
    * @internal If `true`, back icon will be displayed.
    */
-  @Prop({ reflect: true }) showBackIcon: boolean = false;
+  @Prop({ reflect: true }) showBackIcon?: boolean = false;
 
   /**
    * @internal Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -195,7 +195,7 @@ export class Breadcrumb {
     return (
       <Host
         class={{
-          "ic-breadcrumb-back": this.showBackIcon,
+          "ic-breadcrumb-back": !!this.showBackIcon,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
           "ic-breadcrumb-monochrome": !!this.monochrome,
         }}

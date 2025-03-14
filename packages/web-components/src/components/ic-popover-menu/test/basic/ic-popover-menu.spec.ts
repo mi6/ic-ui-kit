@@ -388,7 +388,7 @@ describe("ic-popover-menu", () => {
       cancelable: true,
     });
 
-    expect(page.rootInstance.open).toBeUndefined();
+    expect(page.rootInstance.open).toBeFalsy();
 
     // Make sure the event has a target for handleSubmenuChange
     trigger?.dispatchEvent(event);
@@ -417,7 +417,7 @@ describe("ic-popover-menu", () => {
       detail: { hasSubmenu: false, label: "Button 1" },
     });
 
-    expect(page.rootInstance.open).toBeUndefined();
+    expect(page.rootInstance.open).toBeFalsy();
 
     // Make sure the event has a target for handleMenuItemClick
     trigger?.dispatchEvent(event);

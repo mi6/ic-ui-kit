@@ -46,7 +46,7 @@ export class RadioOption {
   /**
    * The style of additionalField that will be displayed if used.
    */
-  @Prop({ reflect: true }) additionalFieldDisplay: IcAdditionalFieldTypes =
+  @Prop({ reflect: true }) additionalFieldDisplay?: IcAdditionalFieldTypes =
     "static";
 
   /**
@@ -61,7 +61,7 @@ export class RadioOption {
   /**
    * The text to be displayed when dynamic.
    */
-  @Prop() dynamicText: string = "This selection requires additional answers";
+  @Prop() dynamicText?: string = "This selection requires additional answers";
 
   /**
    * The <form> element to associate the radio with.
@@ -71,7 +71,7 @@ export class RadioOption {
   /**
    * The group label for the radio option.
    */
-  @Prop() groupLabel: string;
+  @Prop() groupLabel?: string;
 
   /**
    * The label for the radio option.
@@ -81,7 +81,7 @@ export class RadioOption {
   /**
    * The name for the radio option.
    */
-  @Prop() name: string;
+  @Prop() name?: string;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.

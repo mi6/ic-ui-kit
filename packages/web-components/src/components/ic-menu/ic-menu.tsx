@@ -77,27 +77,27 @@ export class Menu {
   /**
    * The reference to an anchor element the menu will position itself from when rendered.
    */
-  @Prop() anchorEl: HTMLElement;
+  @Prop() anchorEl!: HTMLElement;
 
   /**
    * @internal If `true`, autofocus will be applied on selected item when menu is open.
    */
-  @Prop() autofocusOnSelected: boolean = true;
+  @Prop() autofocusOnSelected?: boolean = true;
 
   /**
    *  If `true`, the menu will close when an option is selected.
    */
-  @Prop() closeOnSelect: boolean = true;
+  @Prop() closeOnSelect?: boolean = true;
 
   /**
    *  If `true`, the menu will fill the width of the container.
    */
-  @Prop() fullWidth: boolean = false;
+  @Prop() fullWidth?: boolean = false;
 
   /**
    * The reference to the input element.
    */
-  @Prop() inputEl: HTMLElement;
+  @Prop() inputEl!: HTMLElement;
 
   /**
    * The label for the input element.
@@ -107,7 +107,7 @@ export class Menu {
   /**
    * The custom name for the label field for IcMenuOption.
    */
-  @Prop() labelField: string = "label";
+  @Prop() labelField?: string = "label";
 
   /**
    * The ID of the menu.
@@ -168,7 +168,7 @@ export class Menu {
   /**
    * The custom name for the value field for IcMenuOption.
    */
-  @Prop() valueField: string = "value";
+  @Prop() valueField?: string = "value";
 
   /**
    * Emitted when the clear all button is clicked.
@@ -265,7 +265,7 @@ export class Menu {
 
   componentDidUpdate(): void {
     const inputValueInOptions = this.options.some(
-      (option) => option[this.valueField] === this.value
+      (option) => option[this.valueField!] === this.value
     );
 
     if (
@@ -387,7 +387,7 @@ export class Menu {
 
   private handleSubmitSearch = (): void => {
     const highlightedOptionIndex = this.options.findIndex(
-      (option) => option[this.valueField] === this.optionHighlighted
+      (option) => option[this.valueField!] === this.optionHighlighted
     );
 
     this.setInputValue(highlightedOptionIndex);
@@ -413,15 +413,15 @@ export class Menu {
   private setNextOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex + 1]) {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[selectedOptionIndex + 1][this.valueField],
+        value: this.ungroupedOptions[selectedOptionIndex + 1][this.valueField!],
         optionId: this.getOptionId(
-          this.ungroupedOptions[selectedOptionIndex + 1][this.valueField]
+          this.ungroupedOptions[selectedOptionIndex + 1][this.valueField!]
         ),
       });
     } else {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[0][this.valueField],
-        optionId: this.getOptionId(this.ungroupedOptions[0][this.valueField]),
+        value: this.ungroupedOptions[0][this.valueField!],
+        optionId: this.getOptionId(this.ungroupedOptions[0][this.valueField!]),
       });
     }
   };
@@ -429,20 +429,20 @@ export class Menu {
   private setPreviousOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex - 1]) {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[selectedOptionIndex - 1][this.valueField],
+        value: this.ungroupedOptions[selectedOptionIndex - 1][this.valueField!],
         optionId: this.getOptionId(
-          this.ungroupedOptions[selectedOptionIndex - 1][this.valueField]
+          this.ungroupedOptions[selectedOptionIndex - 1][this.valueField!]
         ),
       });
     } else {
       this.menuOptionSelect.emit({
         value:
           this.ungroupedOptions[this.ungroupedOptions.length - 1][
-            this.valueField
+            this.valueField!
           ],
         optionId: this.getOptionId(
           this.ungroupedOptions[this.ungroupedOptions.length - 1][
-            this.valueField
+            this.valueField!
           ]
         ),
       });
@@ -483,7 +483,7 @@ export class Menu {
     menuOptions[highlightedIndex] &&
       !menuOptions[highlightedIndex].timedOut &&
       (this.optionHighlighted =
-        menuOptions[highlightedIndex][this.valueField] || undefined);
+        menuOptions[highlightedIndex][this.valueField!] || undefined);
   };
 
   // Determines keyboard behaviour when selection is automatic
@@ -491,7 +491,7 @@ export class Menu {
   // and menu is closed
   private autoSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
     const selectedOptionIndex = this.ungroupedOptions.findIndex(
-      (option) => option[this.valueField] === this.value
+      (option) => option[this.valueField!] === this.value
     );
 
     this.keyboardNav = false;
@@ -552,7 +552,7 @@ export class Menu {
     const menuOptions = this.getMenuOptions();
 
     return this.value
-      ? this.value.includes(menuOptions[index][this.valueField])
+      ? this.value.includes(menuOptions[index][this.valueField!])
       : false;
   };
 
@@ -563,7 +563,7 @@ export class Menu {
     if (this.value) {
       const selectedOptionIndexes = (this.value as string[]).map((value) => {
         return menuOptions.findIndex(
-          (option) => option[this.valueField] === value
+          (option) => option[this.valueField!] === value
         );
       });
 
@@ -587,7 +587,7 @@ export class Menu {
     const highlightedOptionIndex = this.getOptionHighlightedIndex();
 
     const clickedMultiOptionIndex = menuOptions.findIndex(
-      (option) => option[this.valueField] === this.multiOptionClicked
+      (option) => option[this.valueField!] === this.multiOptionClicked
     );
 
     const getOptionId = (index: number): string =>
@@ -812,7 +812,7 @@ export class Menu {
 
     if (menuOptions[highlightedOptionIndex] !== undefined) {
       this.menuOptionSelect.emit({
-        value: menuOptions[highlightedOptionIndex][this.valueField],
+        value: menuOptions[highlightedOptionIndex][this.valueField!],
       });
 
       if (this.closeOnSelect) {
@@ -1053,7 +1053,7 @@ export class Menu {
   private autoSetValueOnMenuKeyDown = (event: KeyboardEvent): void => {
     event.cancelBubble = true;
     const selectedOptionIndex = this.ungroupedOptions.findIndex(
-      (option) => option[this.valueField] === this.value
+      (option) => option[this.valueField!] === this.value
     );
 
     const isSearchableSelect = this.inputEl.tagName === "INPUT";
@@ -1080,7 +1080,7 @@ export class Menu {
         break;
       case "Home":
         this.menuOptionSelect.emit({
-          value: this.ungroupedOptions[0][this.valueField],
+          value: this.ungroupedOptions[0][this.valueField!],
         });
         this.keyboardNav = true;
         break;
@@ -1088,7 +1088,7 @@ export class Menu {
         this.menuOptionSelect.emit({
           value:
             this.ungroupedOptions[this.ungroupedOptions.length - 1][
-              this.valueField
+              this.valueField!
             ],
         });
         this.keyboardNav = true;
@@ -1126,7 +1126,7 @@ export class Menu {
     option: IcMenuOption,
     parentOption?: IcMenuOption
   ): string => {
-    let ariaLabel = option[this.labelField];
+    let ariaLabel = option[this.labelField!];
 
     if (option.description) {
       ariaLabel = `${ariaLabel}, ${option.description}`;
@@ -1137,7 +1137,7 @@ export class Menu {
     }
 
     if (parentOption) {
-      return `${ariaLabel}, ${parentOption[this.labelField]} group`;
+      return `${ariaLabel}, ${parentOption[this.labelField!]} group`;
     } else {
       return ariaLabel;
     }
@@ -1157,7 +1157,7 @@ export class Menu {
     const menuOptions = this.getMenuOptions();
 
     return menuOptions.findIndex(
-      (option) => option[this.valueField] === this.optionHighlighted
+      (option) => option[this.valueField!] === this.optionHighlighted
     );
   };
 
@@ -1238,7 +1238,7 @@ export class Menu {
 
   private optionContent = (option: IcMenuOption, selected: boolean) => {
     const showCheckIcon =
-      !!option[this.valueField] &&
+      !!option[this.valueField!] &&
       !!this.value &&
       selected &&
       this.parentEl?.tagName !== this.SEARCH_BAR_TAG;
@@ -1261,12 +1261,12 @@ export class Menu {
               ></div>
             )}
             <ic-typography variant="body" aria-hidden="true">
-              {option[this.labelField]}
+              {option[this.labelField!]}
             </ic-typography>
           </div>
           {option.description && (
             <ic-typography
-              id={`${this.getOptionId(option[this.valueField])}-description`}
+              id={`${this.getOptionId(option[this.valueField!])}-description`}
               class="option-description"
               variant="caption"
               aria-hidden="true"
@@ -1304,12 +1304,12 @@ export class Menu {
 
     return (
       <li
-        id={this.getOptionId(option[this.valueField])}
+        id={this.getOptionId(option[this.valueField!])}
         class={{
           option: true,
           "focused-option": isManualMode
             ? (keyboardNav || initialOptionsListRender) &&
-              option[this.valueField] === optionHighlighted
+              option[this.valueField!] === optionHighlighted
             : keyboardNav && selected,
           "last-recommended-option": !!(
             option.recommended &&
@@ -1323,7 +1323,7 @@ export class Menu {
         role="option"
         tabindex={
           open &&
-          (selected || option[this.valueField] === optionHighlighted) &&
+          (selected || option[this.valueField!] === optionHighlighted) &&
           keyboardNav
             ? "0"
             : "-1"
@@ -1338,8 +1338,8 @@ export class Menu {
         }
         onBlur={this.handleBlur}
         onMouseDown={this.handleMouseDown}
-        data-value={option[this.valueField]}
-        data-label={option[this.labelField]}
+        data-value={option[this.valueField!]}
+        data-label={option[this.labelField!]}
       >
         {option.timedOut ? (
           <Fragment>
@@ -1360,7 +1360,7 @@ export class Menu {
                 </g>
               </svg>
               <ic-typography variant="label">
-                {option[this.labelField]}
+                {option[this.labelField!]}
               </ic-typography>
             </div>
             <ic-button
@@ -1407,7 +1407,7 @@ export class Menu {
     return (
       <Host
         class={{
-          "ic-menu-full-width": fullWidth,
+          "ic-menu-full-width": !!fullWidth,
           "ic-menu-no-focus":
             (inputEl?.tagName === "INPUT" &&
               parentEl?.tagName !== SEARCH_BAR_TAG) ||
@@ -1448,7 +1448,7 @@ export class Menu {
                         role="presentation"
                         variant="subtitle-small"
                       >
-                        <p>{option[this.labelField]}</p>
+                        <p>{option[this.labelField!]}</p>
                       </ic-typography>
                       {option.children.map(
                         (childOption) =>
@@ -1456,8 +1456,8 @@ export class Menu {
                           this.displayOption(
                             childOption,
                             this.isMultiSelect
-                              ? value?.includes(childOption[this.valueField])
-                              : childOption[this.valueField] === value,
+                              ? value?.includes(childOption[this.valueField!])
+                              : childOption[this.valueField!] === value,
                             index,
                             option
                           )
@@ -1474,8 +1474,8 @@ export class Menu {
                   this.displayOption(
                     option,
                     this.isMultiSelect
-                      ? value?.includes(option[this.valueField])
-                      : option[this.valueField] === value,
+                      ? value?.includes(option[this.valueField!])
+                      : option[this.valueField!] === value,
                     index
                   )
                 );

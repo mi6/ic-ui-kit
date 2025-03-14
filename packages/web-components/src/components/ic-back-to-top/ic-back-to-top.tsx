@@ -48,7 +48,7 @@ export class BackToTop {
   /**
    * The variant of the button to render
    */
-  @Prop() variant: IcBackToTopVariants = "default";
+  @Prop() variant?: IcBackToTopVariants = "default";
 
   @Watch("target")
   watchPropHandler(newValue: string, oldValue: string): void {
@@ -151,24 +151,21 @@ export class BackToTop {
       this.isTargetElNull = false;
     }
 
-    if (this.targetEl) {
-      //insert a new 0px height element before specified target that can be used to determine when page is scrolled
-      const objBackToTopTargetEl = document.createElement("div");
-      objBackToTopTargetEl.setAttribute("id", "ic-back-to-top-target");
-      objBackToTopTargetEl.setAttribute("tabindex", "-1"); // Needed for virtual cursor behaviour to work
-      objParent.insertBefore(objBackToTopTargetEl, this.targetEl);
+    //insert a new 0px height element before specified target that can be used to determine when page is scrolled
+    const objBackToTopTargetEl = document.createElement("div");
+    objBackToTopTargetEl.setAttribute("id", "ic-back-to-top-target");
+    objBackToTopTargetEl.setAttribute("tabindex", "-1"); // Needed for virtual cursor behaviour to work
+    objParent.insertBefore(objBackToTopTargetEl, this.targetEl);
 
-      // resize observer needs to factor in any top margin on the target el
-      const marginTop = getComputedStyle(this.targetEl).marginTop;
-      this.topObserver = new IntersectionObserver(
-        this.targetElObserverCallback,
-        {
-          threshold: [0],
-          rootMargin: `${marginTop} 0px 0px 0px`,
-        }
-      );
-      this.topObserver.observe(objBackToTopTargetEl);
-    }
+    // resize observer needs to factor in any top margin on the target el
+    const marginTop = this.targetEl
+      ? getComputedStyle(this.targetEl).marginTop
+      : 0;
+    this.topObserver = new IntersectionObserver(this.targetElObserverCallback, {
+      threshold: [0],
+      rootMargin: `${marginTop} 0px 0px 0px`,
+    });
+    this.topObserver.observe(objBackToTopTargetEl);
   };
 
   private handleClick = () => {

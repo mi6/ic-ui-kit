@@ -45,7 +45,7 @@ export class Checkbox {
   /**
    * The style of additionalField that will be displayed if used.
    */
-  @Prop({ reflect: true }) additionalFieldDisplay: IcAdditionalFieldTypes =
+  @Prop({ reflect: true }) additionalFieldDisplay?: IcAdditionalFieldTypes =
     "static";
 
   /**
@@ -67,7 +67,7 @@ export class Checkbox {
    * The text to be displayed when dynamic.
    */
 
-  @Prop() dynamicText: string = "This selection requires additional answers";
+  @Prop() dynamicText?: string = "This selection requires additional answers";
 
   /**
    * The <form> element to associate the checkbox with.
@@ -77,12 +77,12 @@ export class Checkbox {
   /**
    * The group label for the checkbox.
    */
-  @Prop({ mutable: true }) groupLabel: string;
+  @Prop({ mutable: true }) groupLabel?: string;
 
   /**
    * If `true`, the indeterminate state will be displayed when checked.
    */
-  @Prop() indeterminate: boolean = false;
+  @Prop() indeterminate?: boolean = false;
   @State() displayIndeterminate = this.indeterminate;
 
   @Watch("indeterminate")
@@ -100,12 +100,12 @@ export class Checkbox {
   /**
    * The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.
    */
-  @Prop({ mutable: true }) name: string;
+  @Prop({ mutable: true }) name?: string;
 
   /**
    * If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.
    */
-  @Prop() nativeIndeterminateBehaviour: boolean = false;
+  @Prop() nativeIndeterminateBehaviour?: boolean = false;
 
   /**
    * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
@@ -125,7 +125,7 @@ export class Checkbox {
   /**
    * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
-  @Prop() hideLabel = false;
+  @Prop() hideLabel?: boolean = false;
 
   /**
    * Emitted when a checkbox has been checked.
@@ -218,7 +218,7 @@ export class Checkbox {
       .size;
 
     checked
-      ? renderHiddenInput(true, el, name, checked && value, disabled)
+      ? renderHiddenInput(true, el, name!, checked && value, disabled)
       : removeHiddenInput(el);
 
     return (
@@ -248,7 +248,7 @@ export class Checkbox {
             class={{
               checkbox: true,
               checked: !!checked,
-              indeterminate: displayIndeterminate,
+              indeterminate: !!displayIndeterminate,
             }}
             type="checkbox"
             name={name}

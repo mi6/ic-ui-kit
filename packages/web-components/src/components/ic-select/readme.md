@@ -12,9 +12,9 @@
 | `debounce`                    | `debounce`                       | The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.                                                                                                                                       | `number \| undefined`                                  | `0`                  |
 | `disableAutoFiltering`        | `disable-auto-filtering`         | If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.                                                                                     | `boolean \| undefined`                                 | `false`              |
 | `disabled`                    | `disabled`                       | If `true`, the disabled state will be set.                                                                                                                                                                                              | `boolean \| undefined`                                 | `false`              |
-| `emptyOptionListText`         | `empty-option-list-text`         | The text displayed when there are no options in the option list.                                                                                                                                                                        | `string`                                               | `"No results found"` |
+| `emptyOptionListText`         | `empty-option-list-text`         | The text displayed when there are no options in the option list.                                                                                                                                                                        | `string \| undefined`                                  | `"No results found"` |
 | `form`                        | `form`                           | The <form> element to associate the select with.                                                                                                                                                                                        | `string \| undefined`                                  | `undefined`          |
-| `fullWidth`                   | `full-width`                     | If `true`, the select will fill the width of the container.                                                                                                                                                                             | `boolean`                                              | `false`              |
+| `fullWidth`                   | `full-width`                     | If `true`, the select will fill the width of the container.                                                                                                                                                                             | `boolean \| undefined`                                 | `false`              |
 | `helperText`                  | `helper-text`                    | The helper text that will be displayed for additional field guidance.                                                                                                                                                                   | `string \| undefined`                                  | `""`                 |
 | `hideLabel`                   | `hide-label`                     | If `true`, the label will be hidden and the required label value will be applied as an aria-label.                                                                                                                                      | `boolean \| undefined`                                 | `false`              |
 | `includeDescriptionsInSearch` | `include-descriptions-in-search` | If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.                                                                                                  | `boolean \| undefined`                                 | `false`              |
@@ -75,15 +75,6 @@ Type: `Promise<void>`
 | Slot     | Description                                                  |
 | -------- | ------------------------------------------------------------ |
 | `"icon"` | Content will be placed to the left of the select text input. |
-
-
-## CSS Custom Properties
-
-| Name                | Description                |
-| ------------------- | -------------------------- |
-| `--ic-z-index-menu` | z-index of select menu     |
-| `--input-width`     | Width of the input field   |
-| `--menu-width`      | Width of the dropdown menu |
 
 
 ## Dependencies

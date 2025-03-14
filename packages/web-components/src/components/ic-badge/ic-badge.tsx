@@ -59,7 +59,7 @@ export class Badge {
    * The custom badge colour. This will only style the badge component if variant="custom".
    * Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
-  @Prop() customColor?: IcColor | null = null;
+  @Prop() customColor?: IcColor;
 
   @Watch("customColor")
   customColorHandler(): void {
@@ -112,7 +112,7 @@ export class Badge {
   /**
    * If `true`, the badge will be displayed.
    */
-  @Prop() visible: boolean = true;
+  @Prop() visible?: boolean = true;
 
   @Watch("visible")
   visibleHandler(): void {

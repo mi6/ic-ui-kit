@@ -635,7 +635,7 @@ describe("ic-select", () => {
       html: `<ic-select label="IC Select Test"></ic-select>`,
     });
 
-    page.rootInstance.options = menuOptionsWithDuplicates;
+    page.root && (page.root.options = menuOptionsWithDuplicates);
 
     await page.waitForChanges();
 

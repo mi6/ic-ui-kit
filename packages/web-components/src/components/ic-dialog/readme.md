@@ -15,10 +15,10 @@
 | `disableHeightConstraint` | `disable-height-constraint` | If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold. This prop also prevents popover elements from being cut off within the content area. | `boolean \| undefined`                        | `false`     |
 | `disableWidthConstraint`  | `disable-width-constraint`  | If set to `true`, the content area width property is removed, allowing content to take the full width of the dialog when using the large variant.                                                                     | `boolean \| undefined`                        | `false`     |
 | `dismissLabel`            | `dismiss-label`             | Sets the dismiss label tooltip and aria label.                                                                                                                                                                        | `string \| undefined`                         | `"Dismiss"` |
-| `heading`                 | `heading`                   | Sets the heading for the dialog.                                                                                                                                                                                      | `string`                                      | `undefined` |
+| `heading`                 | `heading`                   | Sets the heading for the dialog.                                                                                                                                                                                      | `string \| undefined`                         | `undefined` |
 | `hideCloseButton`         | `hide-close-button`         | If `true`, the close button will not be displayed.                                                                                                                                                                    | `boolean \| undefined`                        | `false`     |
 | `label`                   | `label`                     | Sets the optional label for the dialog which appears above the heading.                                                                                                                                               | `string \| undefined`                         | `undefined` |
-| `open`                    | `open`                      | If `true`, the dialog will be displayed.                                                                                                                                                                              | `boolean`                                     | `false`     |
+| `open`                    | `open`                      | If `true`, the dialog will be displayed.                                                                                                                                                                              | `boolean \| undefined`                        | `false`     |
 | `size`                    | `size`                      | Sets the maximum and minimum height and width for the dialog.                                                                                                                                                         | `"large" \| "medium" \| "small" \| undefined` | `"small"`   |
 | `theme`                   | `theme`                     | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.                                                                               | `"dark" \| "inherit" \| "light" \| undefined` | `"inherit"` |
 
@@ -64,13 +64,6 @@ Type: `Promise<void>`
 | `"dialog-controls"` | Content will be place at the bottom of the dialog.                   |
 | `"heading"`         | Content will be placed at the top of the dialog.                     |
 | `"label"`           | Content will be placed above the dialog heading.                     |
-
-
-## CSS Custom Properties
-
-| Name                  | Description       |
-| --------------------- | ----------------- |
-| `--ic-z-index-dialog` | z-index of dialog |
 
 
 ## Dependencies

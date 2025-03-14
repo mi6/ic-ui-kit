@@ -58,12 +58,12 @@ export class NavigationGroup {
   /**
    *  If `true`, the group will be expandable in the side menu.
    */
-  @Prop() expandable: boolean = false;
+  @Prop() expandable?: boolean = false;
 
   /**
    * The label to display on the group.
    */
-  @Prop() label: string;
+  @Prop() label!: string;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -102,7 +102,7 @@ export class NavigationGroup {
       );
       if (
         this.deviceSize <=
-        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint
+        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint!
       )
         this.inTopNavSideMenu = true;
     }
@@ -472,9 +472,9 @@ export class NavigationGroup {
             [this.focusStyle]: !inTopNavSideMenu,
             ["navigation-group-side-menu"]: inTopNavSideMenu && !expandable,
             ["navigation-group-side-menu-collapsed"]:
-              inTopNavSideMenu && expandable && !dropdownOpen,
+              inTopNavSideMenu && !!expandable && !dropdownOpen,
             ["navigation-group-side-menu-expanded"]:
-              inTopNavSideMenu && expandable && dropdownOpen,
+              inTopNavSideMenu && !!expandable && dropdownOpen,
             ["selected"]: dropdownOpen && !inTopNavSideMenu,
           }}
           ref={(el) => (this.groupEl = el)}

@@ -59,7 +59,7 @@ export class Alert {
   /**
    * If `true`, the default icon for the neutral variant will appear on the left of the alert.
    */
-  @Prop() showDefaultIcon: boolean = true;
+  @Prop() showDefaultIcon?: boolean = true;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -158,7 +158,7 @@ export class Alert {
                       ["svg-container"]: true,
                       [`icon-${variant}`]: true,
                     }}
-                    innerHTML={VARIANT_ICONS[variant || "neutral"].icon}
+                    innerHTML={VARIANT_ICONS[variant].icon}
                   ></span>
                 ) : (
                   <div class="icon-placeholder"></div>
@@ -170,7 +170,7 @@ export class Alert {
                     ["svg-container"]: true,
                     [`icon-${variant}`]: true,
                   }}
-                  innerHTML={VARIANT_ICONS[variant || "neutral"].icon}
+                  innerHTML={VARIANT_ICONS[variant!].icon}
                 ></span>
               )}
             </div>

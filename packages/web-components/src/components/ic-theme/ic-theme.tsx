@@ -39,7 +39,7 @@ export class Theme {
   /**
    * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
    */
-  @Prop() theme: "dark" | "light" | "system" = "light";
+  @Prop() theme?: "dark" | "light" | "system" = "light";
 
   @Watch("theme")
   watchThemePropHandler(): void {

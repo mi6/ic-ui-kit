@@ -74,12 +74,12 @@ export class Button {
   /**
    * @internal Used to identify any related child component
    */
-  @Prop() ariaControlsId: string | boolean;
+  @Prop() ariaControlsId?: string | boolean;
 
   /**
    * @internal Used to identify any related child component
    */
-  @Prop() ariaOwnsId: string | boolean;
+  @Prop() ariaOwnsId?: string | boolean;
 
   /**
    * If `true`, the button will be in disabled state.
@@ -118,7 +118,7 @@ export class Button {
   /**
    * The name of the control for the file input, which is submitted with the form data.
    */
-  @Prop() fileInputName: string = `ic-button-file-upload-input-${buttonIds++}`;
+  @Prop() fileInputName?: string = `ic-button-file-upload-input-${buttonIds++}`;
 
   /**
    * The <form> element to associate the button with.
@@ -193,7 +193,7 @@ export class Button {
   /**
    * The list of the files that have been selected by a user.
    */
-  @Prop() selectedFiles: FileList;
+  @Prop() selectedFiles?: FileList;
 
   /**
    * The size of the button to be displayed.
@@ -339,7 +339,7 @@ export class Button {
           this.icFileSelection,
           this.el,
           !!this.multiple,
-          this.fileInputName,
+          this.fileInputName!,
           this.selectedFiles,
           !!this.disabled,
           this.accept

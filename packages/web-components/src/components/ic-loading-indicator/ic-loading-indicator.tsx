@@ -100,7 +100,7 @@ export class LoadingIndicator {
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme: IcThemeMode = "inherit";
+  @Prop() theme?: IcThemeMode = "inherit";
 
   disconnectedCallback(): void {
     clearInterval(this.interval);
@@ -180,19 +180,19 @@ export class LoadingIndicator {
 
   // Sets the circular indicator line width - accounting for the circle size being altered using the CSS custom property
   private setCircleLineWidth = () => {
+    const compactStepCircularLineWidth = this.el.classList.contains(
+      "compact-step-progress-indicator"
+    )
+      ? 40
+      : 0;
+    const toastDismissTimerCircularLineWidth = this.el.classList.contains(
+      "toast-dismiss-timer"
+    )
+      ? 20
+      : 0;
+
     if (this.outerElement) {
       const { offsetWidth: width } = this.outerElement;
-
-      const compactStepCircularLineWidth = this.el.classList.contains(
-        "compact-step-progress-indicator"
-      )
-        ? 40
-        : 0;
-      const toastDismissTimerCircularLineWidth = this.el.classList.contains(
-        "toast-dismiss-timer"
-      )
-        ? 20
-        : 0;
 
       if (
         width ||

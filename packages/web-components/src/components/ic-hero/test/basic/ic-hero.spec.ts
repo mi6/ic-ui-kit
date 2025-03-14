@@ -67,10 +67,7 @@ describe("ic-hero component", () => {
       html: `<ic-hero heading="Test title" subheading="Test text" background-image="test.png"><ic-card-vertical slot="secondary" heading="Test card"></ic-card-vertical></ic-hero>`,
     });
 
-    if (page.doc.scrollingElement) {
-      page.doc.scrollingElement.scrollTop = 50;
-    }
-    // console.log(page.doc.scrollingElement);
+    page.doc.scrollingElement && (page.doc.scrollingElement.scrollTop = 50);
     page.doc.dispatchEvent(new CustomEvent("scroll"));
 
     await page.waitForChanges();
@@ -84,9 +81,7 @@ describe("ic-hero component", () => {
       html: `<ic-hero heading="Test title" disable-background-parallax subheading="Test text" background-image="test.png"><ic-card-vertical slot="secondary" heading="Test card"></ic-card-vertical></ic-hero>`,
     });
 
-    if (page.doc.scrollingElement) {
-      page.doc.scrollingElement.scrollTop = 50;
-    }
+    page.doc.scrollingElement && (page.doc.scrollingElement.scrollTop = 50);
     page.doc.dispatchEvent(new CustomEvent("scroll"));
 
     await page.waitForChanges();

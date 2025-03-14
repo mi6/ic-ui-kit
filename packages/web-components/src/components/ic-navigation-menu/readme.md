@@ -9,9 +9,9 @@
 
 | Property  | Attribute | Description                                                                                                                             | Type                                          | Default     |
 | --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
-| `status`  | `status`  | The status info to display.                                                                                                             | `string`                                      | `""`        |
+| `status`  | `status`  | The status info to display.                                                                                                             | `string \| undefined`                         | `""`        |
 | `theme`   | `theme`   | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined` | `"inherit"` |
-| `version` | `version` | The version info to display.                                                                                                            | `string`                                      | `""`        |
+| `version` | `version` | The version info to display.                                                                                                            | `string \| undefined`                         | `""`        |
 
 
 ## Slots
@@ -20,13 +20,6 @@
 | -------------- | ----------------------------------------------------------------- |
 | `"buttons"`    | Content will be rendered above version info and below navigation. |
 | `"navigation"` | Content will be rendered at top of panel.                         |
-
-
-## CSS Custom Properties
-
-| Name                           | Description                |
-| ------------------------------ | -------------------------- |
-| `--ic-z-index-navigation-menu` | z-index of navigation menu |
 
 
 ## Dependencies
