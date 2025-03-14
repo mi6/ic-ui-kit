@@ -15,7 +15,7 @@ export class DataList {
   /**
    * The title for the data list.
    */
-  @Prop() heading: string;
+  @Prop() heading?: string;
 
   /**
    * The size of the data list component.

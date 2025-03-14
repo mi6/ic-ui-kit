@@ -45,7 +45,7 @@ export class ToggleButton {
   /**
    * If `true`, the toggle button will be in a checked state.
    */
-  @Prop({ mutable: true, reflect: true }) checked: boolean = false;
+  @Prop({ mutable: true, reflect: true }) checked?: boolean = false;
 
   /**
    * If `true`, the toggle button will be in disabled state.
@@ -94,12 +94,12 @@ export class ToggleButton {
   /**
    * The position of the tooltip in relation to the toggle button.
    */
-  @Prop() tooltipPlacement: IcButtonTooltipPlacement = "bottom";
+  @Prop() tooltipPlacement?: IcButtonTooltipPlacement = "bottom";
 
   /**
    * The variant of the toggle button.
    */
-  @Prop({ reflect: true, mutable: true }) variant: "default" | "icon" =
+  @Prop({ reflect: true, mutable: true }) variant?: "default" | "icon" =
     "default";
 
   /**
@@ -196,7 +196,7 @@ export class ToggleButton {
     !this.loading &&
       !this.disabled &&
       this.icToggleChecked.emit({
-        checked: this.checked,
+        checked: this.checked!,
       });
   };
 
@@ -206,7 +206,7 @@ export class ToggleButton {
         class={{
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
           ["ic-toggle-button-disabled"]: !!this.disabled,
-          ["ic-toggle-button-checked"]: this.checked,
+          ["ic-toggle-button-checked"]: !!this.checked,
           ["ic-toggle-button-icon"]: this.variant === "icon",
           [`ic-toggle-button-${this.size}`]: true,
           ["ic-toggle-button-loading"]: !!this.loading,
@@ -216,7 +216,7 @@ export class ToggleButton {
         onFocus={this.handleFocus}
       >
         <ic-button
-          aria-pressed={this.checked.toString()}
+          aria-pressed={this.checked!.toString()}
           variant={this.variant === "icon" ? "icon" : "secondary"}
           onClick={this.handleClick}
           title={this.accessibleLabel}

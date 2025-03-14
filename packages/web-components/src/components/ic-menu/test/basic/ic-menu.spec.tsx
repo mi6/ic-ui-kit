@@ -374,15 +374,13 @@ describe("ic-menu in isolation", () => {
     expect(page.rootInstance.value).toBe("espresso");
   });
   it("should test manualSetInputValueKeyboardOpen function", async () => {
-    const searchBar = window.document.createElement(
-      IcSearchBar
-    ) as HTMLIcSearchBarElement;
+    const searchBar = window.document.createElement(IcSearchBar) as HTMLElement;
     const input = window.document.createElement("input");
 
     const searchMenuOptions = JSON.parse(JSON.stringify(menuOptions));
     searchMenuOptions[3].disabled = true;
 
-    searchBar.setFocus = jest.fn();
+    (searchBar as HTMLIcSearchBarElement).setFocus = jest.fn();
 
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
@@ -1477,7 +1475,7 @@ describe("ic-menu in isolation", () => {
           inputEl={input}
           anchorEl={searchBar}
           value={menuOptions[0].value}
-          parentEl={searchBar as HTMLIcSearchBarElement}
+          parentEl={searchBar as HTMLElement}
         ></ic-menu>
       ),
     });
@@ -1500,11 +1498,9 @@ describe("ic-menu in isolation", () => {
     expect(page.rootInstance.parentEl.__listeners.length).toBe(0);
   });
   it("should test componentDidLoad function", async () => {
-    const searchBar = window.document.createElement(
-      IcSearchBar
-    ) as HTMLIcSearchBarElement;
+    const searchBar = window.document.createElement(IcSearchBar) as HTMLElement;
     const input = window.document.createElement("input");
-    searchBar.disableAutoFiltering = true;
+    (searchBar as HTMLIcSearchBarElement).disableAutoFiltering = true;
 
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],

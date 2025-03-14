@@ -525,8 +525,8 @@ export const DEVICE_SIZES = {
 };
 
 export const hasValidationStatus = (
-  status: IcInformationStatusOrEmpty,
-  disabled: boolean
+  status?: IcInformationStatusOrEmpty,
+  disabled?: boolean
 ): boolean => !!status && !disabled;
 
 export const isSlotUsed = (

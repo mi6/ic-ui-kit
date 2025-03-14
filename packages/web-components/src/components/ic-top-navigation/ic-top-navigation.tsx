@@ -72,31 +72,31 @@ export class TopNavigation {
   /**
    * The alignment of the top navigation content.
    */
-  @Prop() contentAligned: IcAlignment = "full-width";
+  @Prop() contentAligned?: IcAlignment = "full-width";
   /**
    * Can set a custom breakpoint for the top navigation to switch to mobile mode.
    * Must be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.
    */
-  @Prop() customMobileBreakpoint: IcDeviceSizes = DEVICE_SIZES.L;
+  @Prop() customMobileBreakpoint?: IcDeviceSizes = DEVICE_SIZES.L;
   /**
    *  The URL to navigate to when the app title is clicked.
    */
-  @Prop() href: string = "/";
+  @Prop() href?: string = "/";
 
   /**
    * If `true`, the flyout navigation menu on small devices will be contained by the parent element.
    */
-  @Prop() inline: boolean = false;
+  @Prop() inline?: boolean = false;
 
   /**
    * The short title of the app to be displayed at small screen sizes in place of the app title.
    */
-  @Prop() shortAppTitle: string = "";
+  @Prop() shortAppTitle?: string = "";
 
   /**
    * The status info to be displayed.
    */
-  @Prop() status: string = "";
+  @Prop() status?: string = "";
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -106,12 +106,12 @@ export class TopNavigation {
   /**
    * The version info to be displayed.
    */
-  @Prop() version: string = "";
+  @Prop() version?: string = "";
 
   /**
    * The app title to be displayed. This is required, unless a slotted app title link is used.
    */
-  @Prop() appTitle: string;
+  @Prop() appTitle?: string;
 
   @Watch("appTitle")
   watchPropHandler(newValue: string, oldValue: string): void {
@@ -254,7 +254,7 @@ export class TopNavigation {
   private resizeObserverCallback = (currSize: number) => {
     if (currSize !== this.deviceSize) {
       this.deviceSize = currSize;
-      if (currSize > this.customMobileBreakpoint) {
+      if (currSize > this.customMobileBreakpoint!) {
         this.showNavMenu(false);
         if (this.mobileSearchBarVisible) {
           this.toggleSearchBar();
@@ -315,7 +315,7 @@ export class TopNavigation {
 
     const searchButtonSize = deviceSize <= DEVICE_SIZES.S ? "medium" : "large";
     const hasTitle = appTitle !== "" && isPropDefined(appTitle);
-    const overMobileBreakpoint = deviceSize <= customMobileBreakpoint;
+    const overMobileBreakpoint = deviceSize <= customMobileBreakpoint!;
 
     const appTitleVariant: IcTypographyVariants = overMobileBreakpoint
       ? deviceSize <= DEVICE_SIZES.S
@@ -358,7 +358,7 @@ export class TopNavigation {
                         </div>
                       )}
                       {deviceSize <= DEVICE_SIZES.S &&
-                      (!isEmptyString(shortAppTitle) || shortAppTitleSlot) ? (
+                      (!isEmptyString(shortAppTitle!) || shortAppTitleSlot) ? (
                         <ic-typography
                           variant="subtitle-small"
                           aria-label={
@@ -539,7 +539,7 @@ export class TopNavigation {
             version={version}
             status={status}
             class={{
-              ["inline"]: inline,
+              ["inline"]: !!inline,
             }}
           >
             {hasIconButtons && (

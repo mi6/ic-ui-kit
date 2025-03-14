@@ -38,7 +38,7 @@ export class PopoverMenu {
   /**
    * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
    */
-  @Prop() anchor: string;
+  @Prop() anchor?: string;
 
   /**
    * @internal The parent popover menu of a child popover menu.
@@ -58,7 +58,7 @@ export class PopoverMenu {
   /**
    * @internal The level of menu being displayed.
    */
-  @Prop() submenuLevel: number = 1;
+  @Prop() submenuLevel?: number = 1;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -68,7 +68,8 @@ export class PopoverMenu {
   /**
    * If `true`, the popover menu will be displayed.
    */
-  @Prop({ reflect: true, mutable: true }) open: boolean;
+  @Prop({ reflect: true, mutable: true }) open?: boolean | undefined =
+    undefined;
 
   @Watch("open")
   watchOpenHandler(): void {
@@ -171,7 +172,7 @@ export class PopoverMenu {
     childEl.anchor = this.anchor;
     childEl.ariaLabel = this.el.getAttribute(this.ARIA_LABEL);
     childEl.openFromParent();
-    childEl.submenuLevel = this.submenuLevel + 1;
+    childEl.submenuLevel = this.submenuLevel! + 1;
     // Set the label in the submenu using the label of the menu item that has emitted the event
     childEl.parentLabel = target.label;
   }
@@ -245,7 +246,7 @@ export class PopoverMenu {
   };
 
   // Checks that the popover menu has an anchor
-  private findAnchorEl = (anchor: string): HTMLElement | null => {
+  private findAnchorEl = (anchor: string | undefined): HTMLElement | null => {
     let anchorElement: HTMLElement | null = null;
     if (!anchor) {
       this.submenuId === undefined &&
@@ -372,7 +373,7 @@ export class PopoverMenu {
     return (
       <Host
         class={{
-          ["ic-popover-menu-open"]: this.open,
+          ["ic-popover-menu-open"]: !!this.open,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >

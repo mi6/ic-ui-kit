@@ -180,7 +180,7 @@ export class ToggleButtonGroup {
       );
 
       this.icChange.emit({
-        checked: toggledOptions.map((opt) => opt.checked),
+        checked: toggledOptions.map((opt) => opt.checked!),
         toggledOptions: toggledOptions.map((opt) => ({
           toggleButton: opt,
         })),

@@ -30,7 +30,7 @@ export class DataRow {
   /**
    * The label in the leftmost cell of the row.
    */
-  @Prop() label: string;
+  @Prop() label?: string;
 
   /**
    * The size of the data row component.
@@ -45,7 +45,7 @@ export class DataRow {
   /**
    * The value of the middle (right if no end-component supplied) cell of the row.
    */
-  @Prop() value: string;
+  @Prop() value?: string;
 
   disconnectedCallback(): void {
     this.resizeObserver?.disconnect();

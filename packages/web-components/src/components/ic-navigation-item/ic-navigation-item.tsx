@@ -71,12 +71,12 @@ export class NavigationItem {
   /**
    * @internal If `true`, the icon and label will be displayed when side navigation is collapsed.
    */
-  @Prop() collapsedIconLabel: boolean = false;
+  @Prop() collapsedIconLabel?: boolean = false;
 
   /**
    * @internal If `true`, the navigation item will be displayed within a tooltip.
    */
-  @Prop() displayNavigationTooltip: boolean = false;
+  @Prop() displayNavigationTooltip?: boolean = false;
 
   /**
    * If `true`, the user can save the linked URL instead of navigating to it.
@@ -86,12 +86,12 @@ export class NavigationItem {
   /**
    *  @internal If `true`, the navigation item will be expandable.
    */
-  @Prop() expandable: boolean = false;
+  @Prop() expandable?: boolean = false;
 
   /**
    * The destination of the navigation item.
    */
-  @Prop() href: string = "";
+  @Prop() href?: string = "";
 
   /**
    * The human language of the linked URL.
@@ -101,7 +101,7 @@ export class NavigationItem {
   /**
    * The label of the navigation item.
    */
-  @Prop() label: string;
+  @Prop() label?: string;
 
   /**
    * The relationship of the linked URL as space-separated link types.
@@ -116,7 +116,7 @@ export class NavigationItem {
   /**
    *  If `true`, the navigation item will be set in a selected state.
    */
-  @Prop() selected: boolean = false;
+  @Prop() selected?: boolean = false;
 
   /**
    *  The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
@@ -178,7 +178,7 @@ export class NavigationItem {
         this.isTopNavChild = true;
       if (
         this.deviceSize <=
-        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint
+        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint!
       )
         this.inTopNavSideMenu = true;
     }
@@ -314,11 +314,9 @@ export class NavigationItem {
     mutationList.forEach(({ attributeName }) => {
       if (attributeName) {
         const attribute = this.el.getAttribute(attributeName);
-        if (attribute) {
-          if (attributeName === this.ARIA_LABEL_STRING) {
-            this.ariaLabel = attribute;
-            forceComponentUpdate = true;
-          }
+        if (attribute && attributeName === this.ARIA_LABEL_STRING) {
+          this.ariaLabel = attribute;
+          forceComponentUpdate = true;
         }
       }
     });
@@ -346,7 +344,7 @@ export class NavigationItem {
   private renderNavigationItemContent = () => {
     if (this.label) {
       return this.displayDefaultNavigationItem(
-        this.href,
+        this.href!,
         this.hreflang,
         this.target,
         this.rel,
@@ -391,27 +389,28 @@ export class NavigationItem {
           ["navigation-item-top-nav"]:
             !inTopNavSideMenu && this.navigationType === "top",
           ["navigation-item-top-nav-child-selected"]:
-            isTopNavChild && !inTopNavSideMenu && selected,
+            isTopNavChild && !inTopNavSideMenu && !!selected,
           [this.focusStyle]:
             (!inTopNavSideMenu && !isTopNavChild) ||
             (this.navigationType === "side" && isTopNavChild),
-          ["navigation-item-selected"]: !isTopNavChild && selected,
+          ["navigation-item-selected"]: !isTopNavChild && !!selected,
           ["navigation-item-side-menu"]: inTopNavSideMenu,
-          ["navigation-item-side-menu-selected"]: inTopNavSideMenu && selected,
+          ["navigation-item-side-menu-selected"]:
+            inTopNavSideMenu && !!selected,
           ["navigation-item-top-nav-child"]: isTopNavChild && !inTopNavSideMenu,
           ["navigation-item-page-header"]:
             this.navigationType === "page-header",
           ["with-transition"]: !this.isInitialRender,
           ["navigation-item-side-nav"]: this.navigationType === "side",
           ["navigation-item-side-nav-collapsed"]:
-            (!this.sideNavExpanded || this.displayNavigationTooltip) &&
+            (!this.sideNavExpanded || !!this.displayNavigationTooltip) &&
             this.navigationType === "side",
           ["navigation-item-side-nav-collapsed-with-label"]:
             !this.sideNavExpanded &&
             this.navigationType === "side" &&
-            this.collapsedIconLabel &&
+            !!this.collapsedIconLabel &&
             !this.isSideNavMobile,
-          ["expandable"]: this.expandable,
+          ["expandable"]: !!this.expandable,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         onBlur={isTopNavChild && !inTopNavSideMenu ? this.handleBlur : null}
@@ -427,7 +426,7 @@ export class NavigationItem {
           class={{
             ["tooltip-navigation-item"]: true,
             ["tooltip-navigation-item-side-nav-collapsed"]:
-              this.displayNavigationTooltip && this.navigationType === "side",
+              !!this.displayNavigationTooltip && this.navigationType === "side",
             ["tooltip-long-label-navigation-item-side-nav-expanded"]:
               this.el.hasAttribute("[display-navigation-tooltip = 'true']"),
           }}

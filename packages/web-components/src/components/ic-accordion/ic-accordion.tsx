@@ -45,7 +45,7 @@ export class Accordion {
   /**
    * If `true`, the accordion appears expanded.
    */
-  @Prop({ mutable: true }) expanded: boolean = false;
+  @Prop({ mutable: true }) expanded?: boolean = false;
 
   /**
    * The section header outlining section content.
@@ -91,14 +91,14 @@ export class Accordion {
   }
 
   disconnectedCallback(): void {
-    if (this.expandedContentEl) {
-      const expandedContentEl = this.expandedContentEl;
-      this.expandedContentEl.removeEventListener(
+    const expandedContentEl = this.expandedContentEl;
+    if (expandedContentEl) {
+      expandedContentEl.removeEventListener(
         "transitionend",
         (e) => this.setExpandedContentStyle(e, expandedContentEl),
         true
       );
-      this.expandedContentEl.removeEventListener(
+      expandedContentEl.removeEventListener(
         "transitionend",
         (e) => this.hideExpandedContent(e, expandedContentEl),
         true
@@ -218,7 +218,7 @@ export class Accordion {
           class={{
             [`${size}`]: true,
             ["section-button"]: true,
-            ["section-button-open"]: expanded && !disabled,
+            ["section-button-open"]: !!expanded && !disabled,
           }}
           aria-expanded={`${expanded}`}
           aria-controls="expanded-content-area"
@@ -239,7 +239,7 @@ export class Accordion {
           <span
             class={{
               ["expand-chevron"]: true,
-              ["content-expanded-chevron"]: expanded && !disabled,
+              ["content-expanded-chevron"]: !!expanded && !disabled,
             }}
             aria-hidden="true"
             innerHTML={chevronIcon}

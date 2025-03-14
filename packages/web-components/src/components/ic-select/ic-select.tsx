@@ -104,7 +104,7 @@ export class Select {
   /**
    * The text displayed when there are no options in the option list.
    */
-  @Prop() emptyOptionListText = "No results found";
+  @Prop() emptyOptionListText?: string = "No results found";
 
   /**
    * The <form> element to associate the select with.
@@ -114,7 +114,7 @@ export class Select {
   /**
    * If `true`, the select will fill the width of the container.
    */
-  @Prop() fullWidth: boolean = false;
+  @Prop() fullWidth?: boolean = false;
 
   /**
    * The helper text that will be displayed for additional field guidance.
@@ -765,9 +765,9 @@ export class Select {
     this.searchable! && !!this.disableAutoFiltering;
 
   private handleClick = (event: MouseEvent): void => {
-    if (!this.open) {
+    if (!this.open && this.menu) {
       if (this.isExternalFiltering()) {
-        this.menu && (this.menu.options = this.filteredOptions);
+        this.menu.options = this.filteredOptions;
       } else if (
         !this.hasTimedOut &&
         !this.loading &&
@@ -775,7 +775,7 @@ export class Select {
         (!this.searchable || this.searchableMenuItemSelected)
       ) {
         this.noOptions = null;
-        this.menu && (this.menu.options = this.uniqueOptions);
+        this.menu.options = this.uniqueOptions;
       }
     }
 
@@ -853,13 +853,13 @@ export class Select {
     }
     const isArrowKey = event.key === "ArrowDown" || event.key === "ArrowUp";
 
-    if (!this.open) {
+    if (this.menu && !this.open) {
       if (this.isExternalFiltering() && (event.key === "Enter" || isArrowKey)) {
-        this.menu && (this.menu.options = this.filteredOptions);
+        this.menu.options = this.filteredOptions;
       } else {
         if (!this.hasTimedOut) {
           this.noOptions = null;
-          this.menu && (this.menu.options = this.uniqueOptions);
+          this.menu.options = this.uniqueOptions;
         }
       }
     }
@@ -1027,7 +1027,7 @@ export class Select {
 
     if (searchableSelectResultsStatusEl) {
       if (this.noOptions !== null) {
-        searchableSelectResultsStatusEl.innerText = this.emptyOptionListText;
+        searchableSelectResultsStatusEl.innerText = this.emptyOptionListText!;
       } else {
         searchableSelectResultsStatusEl.innerText = "";
       }
@@ -1184,9 +1184,7 @@ export class Select {
     const describedBy = getInputDescribedByText(
       this.inputId,
       helperText !== "",
-      this.validationStatus
-        ? hasValidationStatus(this.validationStatus, !!this.disabled)
-        : false
+      hasValidationStatus(this.validationStatus, !!this.disabled)
     ).trim();
 
     let showLeftIcon = !!this.el.querySelector(`[slot="icon"]`);
@@ -1204,7 +1202,7 @@ export class Select {
           "ic-select-disabled": !!disabled,
           "ic-select-searchable": !!searchable,
           [`ic-select-${size}`]: size !== "medium",
-          "ic-select-full-width": fullWidth,
+          "ic-select-full-width": !!fullWidth,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         onBlur={this.onBlur}
@@ -1482,16 +1480,15 @@ export class Select {
               class="multi-select-selected-count"
             ></div>
           )}
-          {this.validationStatus &&
-            hasValidationStatus(this.validationStatus, !!this.disabled) && (
-              <ic-input-validation
-                class={{ "menu-open": this.open }}
-                ariaLiveMode="polite"
-                status={validationStatus}
-                message={validationText || ""}
-                for={this.inputId}
-              ></ic-input-validation>
-            )}
+          {hasValidationStatus(this.validationStatus, !!this.disabled) && (
+            <ic-input-validation
+              class={{ "menu-open": this.open }}
+              ariaLiveMode="polite"
+              status={validationStatus}
+              message={validationText || ""}
+              for={this.inputId}
+            ></ic-input-validation>
+          )}
         </ic-input-container>
       </Host>
     );

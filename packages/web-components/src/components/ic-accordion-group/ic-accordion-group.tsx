@@ -35,7 +35,7 @@ export class AccordionGroup {
   /**
    * The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.
    */
-  @Prop() accessibleButtonLabel: string = "accordions";
+  @Prop() accessibleButtonLabel?: string = "accordions";
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -51,7 +51,7 @@ export class AccordionGroup {
   /**
    * If `true`, the accordion will load in an expanded state.
    */
-  @Prop({ mutable: true }) expanded: boolean = false;
+  @Prop({ mutable: true }) expanded?: boolean = false;
   @Watch("expanded")
   watchExpandedHandler() {
     this.handleExpanded();
@@ -60,12 +60,12 @@ export class AccordionGroup {
   /**
    * The header for the accordion group.
    */
-  @Prop() label: string = "";
+  @Prop() label?: string = "";
 
   /**
    * If `true`, only one accordion will open at a time.
    */
-  @Prop() singleExpansion: boolean = false;
+  @Prop() singleExpansion?: boolean = false;
 
   /**
    * The size of the accordion.

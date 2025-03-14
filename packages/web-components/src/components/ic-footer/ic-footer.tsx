@@ -61,17 +61,17 @@ export class Footer {
   /**
    * The caption displayed at the bottom of the footer.
    */
-  @Prop() caption: string;
+  @Prop() caption?: string;
 
   /**
    * If `true`, the footer will display the crown copyright at the bottom.
    */
-  @Prop() copyright: boolean = true;
+  @Prop() copyright?: boolean = true;
 
   /**
    * The description displayed at the top of the footer.
    */
-  @Prop() description: string;
+  @Prop() description?: string;
 
   /**
    * If `true`, the footer will be set up to handle link groups instead of standalone links.

@@ -26,7 +26,7 @@ export class InputComponentContainer {
   /**
    *  If `true`, the disabled state will be set.
    */
-  @Prop() disabled: boolean = false;
+  @Prop() disabled?: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -35,17 +35,17 @@ export class InputComponentContainer {
   /**
    *  If `true`, the input component container will fill the width of the container it is in.
    */
-  @Prop() fullWidth: boolean = false;
+  @Prop() fullWidth?: boolean = false;
 
   /**
    *  If `true`, the input component container will allow for multiple lines.
    */
-  @Prop() multiLine: boolean = false;
+  @Prop() multiLine?: boolean = false;
 
   /**
    *  If `true`, the readonly state will be set.
    */
-  @Prop() readonly: boolean = false;
+  @Prop() readonly?: boolean = false;
 
   /**
    * The size of the input component container component.
@@ -55,12 +55,12 @@ export class InputComponentContainer {
   /**
    *  If `true`, the validation will display inline.
    */
-  @Prop() validationInline: boolean = false;
+  @Prop() validationInline?: boolean = false;
 
   /**
    * The validation status of the input component container - e.g. 'error' | 'warning' | 'success'.
    */
-  @Prop() validationStatus: IcInformationStatusOrEmpty = "";
+  @Prop() validationStatus?: IcInformationStatusOrEmpty = "";
 
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -90,10 +90,10 @@ export class InputComponentContainer {
           [`ic-input-component-container-${size}`]: true,
           [`ic-input-component-container-${validationStatus}`]:
             validationStatus !== "" && !disabled && !readonly,
-          "ic-input-component-container-disabled": disabled,
-          "ic-input-component-container-readonly": readonly,
-          "ic-input-component-container-multiline": multiLine,
-          "ic-input-component-container-full-width": fullWidth,
+          "ic-input-component-container-disabled": !!disabled,
+          "ic-input-component-container-readonly": !!readonly,
+          "ic-input-component-container-multiline": !!multiLine,
+          "ic-input-component-container-full-width": !!fullWidth,
         }}
         aria-disabled={disabled ? "true" : null}
       >

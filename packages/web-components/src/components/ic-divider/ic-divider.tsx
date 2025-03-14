@@ -40,7 +40,7 @@ export class Divider {
   /**
    * The line style of the divider.
    */
-  @Prop() borderStyle: IcDividerStyles = "solid";
+  @Prop() borderStyle?: IcDividerStyles = "solid";
 
   /**
    * The label for the divider. The label placement will need to be set for the label to be displayed correctly.
@@ -58,7 +58,7 @@ export class Divider {
   /**
    * The orientation of the divider.
    */
-  @Prop() orientation: IcOrientation = "horizontal";
+  @Prop() orientation?: IcOrientation = "horizontal";
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -68,7 +68,7 @@ export class Divider {
   /**
    * The thickness of the divider.
    */
-  @Prop() weight: IcDividerWeights = "thin";
+  @Prop() weight?: IcDividerWeights = "thin";
 
   @Listen("brandChange", { target: "document" })
   brandChangeHandler(ev: CustomEvent<IcBrand>): void {
@@ -153,7 +153,7 @@ export class Divider {
         return (
           <ic-typography
             class="ic-divider-label"
-            variant={getTypographyVariant(weight)}
+            variant={getTypographyVariant(weight!)}
           >
             <p>{label}</p>
           </ic-typography>

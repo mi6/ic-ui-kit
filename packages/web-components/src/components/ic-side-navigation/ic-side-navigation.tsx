@@ -66,62 +66,62 @@ export class SideNavigation {
   /**
    * The app title to be displayed. This is required, unless a slotted app title link is used.
    */
-  @Prop() appTitle: string;
+  @Prop() appTitle?: string;
 
   /**
    * If `true`, the icon and label will appear when side navigation is collapsed.
    */
-  @Prop() collapsedIconLabels: boolean = false;
+  @Prop() collapsedIconLabels?: boolean = false;
 
   /**
    * If `true`, automatic parent wrapper styling will be disabled.
    */
-  @Prop() disableAutoParentStyling: boolean = false;
+  @Prop() disableAutoParentStyling?: boolean = false;
 
   /**
    * If `true`, the side navigation will not display as a top bar on small devices.
    */
-  @Prop() disableTopBarBehaviour: boolean = false;
+  @Prop() disableTopBarBehaviour?: boolean = false;
 
   /**
    * If `true`, the side navigation will display in an expanded state.
    */
-  @Prop() expanded: boolean = false;
+  @Prop() expanded?: boolean = false;
 
   @Watch("expanded")
   watchExpandedHandler(): void {
-    this.toggleMenuExpanded(this.expanded);
+    this.toggleMenuExpanded(this.expanded!);
   }
 
   /**
    * The URL that the app title link points to.
    */
-  @Prop() href: string = "/";
+  @Prop() href?: string = "/";
 
   /**
    * @internal If `true`, side navigation will be contained by its parent element.
    */
-  @Prop() inline: boolean = false;
+  @Prop() inline?: boolean = false;
 
   /**
    * The short title of the app to be displayed at small screen sizes in place of the app title.
    */
-  @Prop() shortAppTitle: string = "";
+  @Prop() shortAppTitle?: string = "";
 
   /**
    * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
    */
-  @Prop() static: boolean = false;
+  @Prop() static?: boolean = false;
 
   /**
    * The status of the app to be displayed.
    */
-  @Prop() status: string;
+  @Prop() status?: string;
 
   /**
    * The version of the app to be displayed.
    */
-  @Prop() version: string;
+  @Prop() version?: string;
 
   /**
    * Emitted when the side navigation is collapsed and expanded.
@@ -129,7 +129,7 @@ export class SideNavigation {
   @Event() icSideNavExpanded: EventEmitter<IcExpandedDetail>;
 
   componentWillLoad(): void {
-    this.setMenuExpanded(this.expanded);
+    this.setMenuExpanded(this.expanded!);
 
     if (this.collapsedIconLabels) {
       this.setCollapsedIconLabels();
@@ -311,7 +311,7 @@ export class SideNavigation {
         icon && iconWrapper.append(icon);
 
         if (label) {
-          label && (icTypography.textContent = label);
+          icTypography.textContent = label;
         }
 
         if (navItemSlot) {
@@ -510,7 +510,7 @@ export class SideNavigation {
 
   private renderAppTitle = (isAppNameSubtitleVariant: boolean) => {
     const displayShortAppTitle =
-      this.deviceSize <= DEVICE_SIZES.S && !isEmptyString(this.shortAppTitle);
+      this.deviceSize <= DEVICE_SIZES.S && !isEmptyString(this.shortAppTitle!);
     return (
       <ic-typography
         variant={
@@ -725,9 +725,9 @@ export class SideNavigation {
       isSDevice,
       foregroundColor,
       menuOpen,
-      href,
+      href: href!,
       isAppNameSubtitleVariant,
-      appTitle,
+      appTitle: appTitle || "",
     };
 
     return (
@@ -738,12 +738,12 @@ export class SideNavigation {
           "sm-collapsed": !isSDevice && !menuExpanded,
           "sm-expanded": !isSDevice && menuExpanded,
           "side-display":
-            this.deviceSize > DEVICE_SIZES.S || this.disableTopBarBehaviour,
+            this.deviceSize > DEVICE_SIZES.S || !!this.disableTopBarBehaviour,
           [`ic-side-navigation-${IcBrandForegroundEnum.Dark}`]:
             foregroundColor === IcBrandForegroundEnum.Dark,
           ["collapsed-labels"]:
-            !isSDevice && !menuExpanded && collapsedIconLabels,
-          ["ic-side-navigation-inline"]: inline,
+            !isSDevice && !menuExpanded && !!collapsedIconLabels,
+          ["ic-side-navigation-inline"]: !!inline,
         }}
       >
         {isSDevice && this.renderTopBar({ ...topBarProps })}

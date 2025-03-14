@@ -93,7 +93,7 @@ export class Dialog {
   /**
    * Sets the heading for the dialog.
    */
-  @Prop() heading: string;
+  @Prop() heading?: string;
 
   /**
    * Sets the optional label for the dialog which appears above the heading.
@@ -103,7 +103,7 @@ export class Dialog {
   /**
    * If `true`, the dialog will be displayed.
    */
-  @Prop({ reflect: true, mutable: true }) open: boolean = false;
+  @Prop({ reflect: true, mutable: true }) open?: boolean = false;
 
   @Watch("open")
   watchOpenHandler(): void {
@@ -211,7 +211,7 @@ export class Dialog {
       this.closeOnBackdropClick &&
       ev.composedPath().indexOf(this.dialogEl) <= 0
     ) {
-      const rect = this.dialogEl?.getBoundingClientRect();
+      const rect = this.dialogEl.getBoundingClientRect();
       const isInDialog =
         rect.top <= ev.clientY &&
         ev.clientY <= rect.top + rect.height &&

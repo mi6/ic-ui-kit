@@ -102,7 +102,7 @@ describe("ic-navigation-button", () => {
     });
     expect(
       page.root?.querySelector("ic-button")?.getAttribute("aria-label")
-    ).toBe(undefined);
+    ).toBeUndefined();
 
     page.root?.setAttribute("aria-label", "new-label");
     page.rootInstance.hostMutationCallback([{ attributeName: "aria-label" }]);
