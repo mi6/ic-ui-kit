@@ -227,12 +227,12 @@ export const getBrandFromContext = (
 ): IcBrandForeground => {
   const parentElement =
     el.parentElement || (<ShadowRoot>el.getRootNode()).host.parentElement;
-  const blockColorParent = parentElement.closest(
+  const blockColorParent = parentElement?.closest(
     IC_BLOCK_COLOR_COMPONENTS.join(",")
   );
 
   // If within a block color component
-  if (blockColorParent !== null) {
+  if (blockColorParent) {
     const parentTag = blockColorParent.tagName.toLowerCase();
     const currentTag = el.tagName.toLowerCase();
 
@@ -283,7 +283,7 @@ export const handleHiddenFormButtonClick = (
 ): void => {
   const hiddenFormButton = document.createElement("button");
 
-  hiddenFormButton.setAttribute("type", button.type);
+  button.type && hiddenFormButton.setAttribute("type", button.type);
   hiddenFormButton.style.display = "none";
 
   form.appendChild(hiddenFormButton);
@@ -467,7 +467,7 @@ export const getSlotContent = (
 
 export const getSlotElements = (
   slot: Element
-): NodeListOf<ChildNode> | Element[] => {
+): NodeListOf<ChildNode> | Element[] | null => {
   const slotContent = slot.firstElementChild as HTMLSlotElement;
 
   if (slotContent !== null) {
@@ -485,20 +485,23 @@ export const getNavItemParentDetails = ({
   parentElement,
 }: HTMLElement): IcNavParentDetails => {
   let navType: IcNavParentDetails = { navType: "", parent: null };
-  switch (parentElement.tagName) {
-    case "IC-NAVIGATION-GROUP":
-      navType = getNavItemParentDetails(parentElement);
-      break;
-    case "IC-TOP-NAVIGATION":
-      navType = { navType: "top", parent: parentElement };
-      break;
-    case "IC-SIDE-NAVIGATION":
-      navType = { navType: "side", parent: parentElement };
-      break;
-    case "IC-PAGE-HEADER":
-      navType = { navType: "page-header", parent: null };
-      break;
+  if (parentElement) {
+    switch (parentElement.tagName) {
+      case "IC-NAVIGATION-GROUP":
+        navType = getNavItemParentDetails(parentElement);
+        break;
+      case "IC-TOP-NAVIGATION":
+        navType = { navType: "top", parent: parentElement };
+        break;
+      case "IC-SIDE-NAVIGATION":
+        navType = { navType: "side", parent: parentElement };
+        break;
+      case "IC-PAGE-HEADER":
+        navType = { navType: "page-header", parent: null };
+        break;
+    }
   }
+
   return navType;
 };
 

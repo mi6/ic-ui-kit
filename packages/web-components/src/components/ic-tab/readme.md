@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                | Type      | Default |
-| ---------- | ---------- | ------------------------------------------ | --------- | ------- |
-| `disabled` | `disabled` | If `true`, the disabled state will be set. | `boolean` | `false` |
+| Property   | Attribute  | Description                                | Type                   | Default |
+| ---------- | ---------- | ------------------------------------------ | ---------------------- | ------- |
+| `disabled` | `disabled` | If `true`, the disabled state will be set. | `boolean \| undefined` | `false` |
 
 
 ## Methods

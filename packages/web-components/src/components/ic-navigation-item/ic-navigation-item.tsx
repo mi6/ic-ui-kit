@@ -64,7 +64,7 @@ export class NavigationItem {
   @State() isSideNavMobile: boolean = false;
   @State() isTopNavChild: boolean = false;
   @State() navigationType: IcNavType | "";
-  @State() parentEl: HTMLElement;
+  @State() parentEl: HTMLElement | null;
   @State() sideNavExpanded: boolean = false;
   @State() ariaLabel: string = "";
 
@@ -140,12 +140,12 @@ export class NavigationItem {
 
   disconnectedCallback(): void {
     if (this.navigationType === "side") {
-      this.parentEl.removeEventListener(
+      this.parentEl?.removeEventListener(
         "icSideNavExpanded",
         this.sideNavExpandHandler as EventListener
       );
     } else if (this.navigationType === "top") {
-      this.parentEl.removeEventListener(
+      this.parentEl?.removeEventListener(
         "icTopNavResized",
         this.topNavResizedHandler as EventListener
       );
@@ -161,15 +161,16 @@ export class NavigationItem {
 
     this.sideNavExpanded =
       this.parentEl?.classList.contains("sm-expanded") ||
-      this.parentEl?.classList.contains("xs-menu-open");
+      this.parentEl?.classList.contains("xs-menu-open") ||
+      false;
 
     if (this.navigationType === "side") {
-      this.parentEl.addEventListener(
+      this.parentEl?.addEventListener(
         "icSideNavExpanded",
         this.sideNavExpandHandler as EventListener
       );
     } else if (this.navigationType === "top") {
-      this.parentEl.addEventListener(
+      this.parentEl?.addEventListener(
         "icTopNavResized",
         this.topNavResizedHandler as EventListener
       );

@@ -35,22 +35,22 @@ export class TabGroup {
   }
 
   render() {
-    const { theme, label, monochrome } = this;
+    const { inline, theme, label, monochrome } = this;
 
     return (
       <Host
         role="tablist"
         aria-label={label}
         class={{
-          ["ic-tab-group-inline"]: this.inline,
+          ["ic-tab-group-inline"]: !!inline,
           [`ic-theme-${theme}`]: theme !== "inherit",
-          ["ic-tab-group-monochrome"]: monochrome,
+          ["ic-tab-group-monochrome"]: !!monochrome,
         }}
       >
         <ic-horizontal-scroll
-          theme={this.theme}
+          theme={theme}
           focus-trigger="tabFocus"
-          monochrome={this.monochrome}
+          monochrome={monochrome}
         >
           <div class="tabs-container">
             <slot></slot>

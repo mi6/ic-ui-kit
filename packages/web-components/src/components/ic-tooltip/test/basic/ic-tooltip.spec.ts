@@ -178,7 +178,7 @@ describe("ic-tooltip component", () => {
 
     expect(page.rootInstance.label).toBe("tooltip");
 
-    page.root.label = "new tooltip";
+    page.root?.setAttribute("label", "new tooltip");
 
     await page.waitForChanges();
 
@@ -407,7 +407,7 @@ describe("ic-tooltip component", () => {
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
-      expect(page.root.placement).toBe("right");
+      expect(page.rootInstance.placement).toBe("right");
     });
   });
 
@@ -419,7 +419,7 @@ describe("ic-tooltip component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    const typographyEl = page.root.shadowRoot.querySelector(
+    const typographyEl = page.root?.shadowRoot?.querySelector(
       "div > ic-typography"
     ) as HTMLIcTypographyElement;
     expect(typographyEl.maxLines).toEqual(2);

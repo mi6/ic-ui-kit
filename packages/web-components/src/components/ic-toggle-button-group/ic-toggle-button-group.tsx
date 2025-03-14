@@ -336,10 +336,10 @@ export class ToggleButtonGroup {
         tabindex={0}
         class={{
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
-          ["ic-toggle-button-group-full-width"]: this.fullWidth!,
-          ["ic-toggle-button-group-loading"]: this.loading!,
+          ["ic-toggle-button-group-full-width"]: !!this.fullWidth,
+          ["ic-toggle-button-group-loading"]: !!this.loading,
           ["ic-toggle-button-group-disabled"]: this.disabled,
-          [`ic-toggle-button-group-monochrome`]: this.monochrome!,
+          [`ic-toggle-button-group-monochrome`]: !!this.monochrome,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         onFocus={this.handleHostFocus}

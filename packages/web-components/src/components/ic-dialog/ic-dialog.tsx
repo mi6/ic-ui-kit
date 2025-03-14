@@ -312,7 +312,7 @@ export class Dialog {
       });
 
       // Detect changes to children of slotted elements
-      getSlotElements(contentWrapper).forEach((el) => {
+      getSlotElements(contentWrapper)?.forEach((el) => {
         this.contentAreaMutationObserver?.observe(el, {
           childList: true,
           subtree: true,

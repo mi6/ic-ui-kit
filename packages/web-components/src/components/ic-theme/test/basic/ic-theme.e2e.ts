@@ -16,8 +16,8 @@ describe("ic-theme", () => {
 
     const spy = await page.spyOnEvent("brandChange");
 
-    await page.$eval("ic-theme", (elm: HTMLIcThemeElement) => {
-      elm.brandColor = "rgb(255, 201, 60)";
+    await page.$eval("ic-theme", (elm) => {
+      elm.setAttribute("brand-color", "rgb(255, 201, 60)");
     });
 
     await page.waitForChanges();
@@ -32,8 +32,8 @@ describe("ic-theme", () => {
       },
     });
 
-    await page.$eval("ic-theme", (elm: HTMLIcThemeElement) => {
-      elm.brandColor = "rgb(35, 81, 142)";
+    await page.$eval("ic-theme", (elm) => {
+      elm.setAttribute("brand-color", "rgb(35, 81, 142)");
     });
 
     await page.waitForChanges();
@@ -55,8 +55,8 @@ describe("ic-theme", () => {
 
     const spy = await page.spyOnEvent("brandChange");
 
-    await page.$eval("ic-theme", (elm: HTMLIcThemeElement) => {
-      elm.brandColor = "rgb(1000, 1000, 1000)";
+    await page.$eval("ic-theme", (elm) => {
+      elm.setAttribute("brand-color", "rgb(1000, 1000, 1000)");
     });
 
     await page.waitForChanges();
@@ -71,8 +71,8 @@ describe("ic-theme", () => {
       },
     });
 
-    await page.$eval("ic-theme", (elm: HTMLIcThemeElement) => {
-      elm.brandColor = "rgb(-1, -1, -1)";
+    await page.$eval("ic-theme", (elm) => {
+      elm.setAttribute("brand-color", "rgb(-1, -1, -1)");
     });
 
     await page.waitForChanges();

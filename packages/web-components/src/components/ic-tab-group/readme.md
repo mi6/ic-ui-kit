@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property             | Attribute | Description                                                                  | Type      | Default     |
-| -------------------- | --------- | ---------------------------------------------------------------------------- | --------- | ----------- |
-| `inline`             | `inline`  | If `true`, the tabs and tab panels will be positioned separately.            | `boolean` | `false`     |
-| `label` _(required)_ | `label`   | The label to describe the purpose of the set of tabs to screen reader users. | `string`  | `undefined` |
+| Property             | Attribute | Description                                                                  | Type                   | Default     |
+| -------------------- | --------- | ---------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `inline`             | `inline`  | If `true`, the tabs and tab panels will be positioned separately.            | `boolean \| undefined` | `false`     |
+| `label` _(required)_ | `label`   | The label to describe the purpose of the set of tabs to screen reader users. | `string`               | `undefined` |
 
 
 ## Dependencies
