@@ -140,11 +140,11 @@ describe("ic-toast component", () => {
       html: `<ic-toast heading="Heading"></ic-toast>`,
     });
 
-    expect(page.root.classList.contains("ic-toast-hidden")).toBeTruthy();
+    expect(page.root?.classList.contains("ic-toast-hidden")).toBeTruthy();
 
     page.rootInstance.setVisible();
     await page.waitForChanges();
-    expect(page.root.classList.contains("ic-toast-hidden")).toBeFalsy();
+    expect(page.root?.classList.contains("ic-toast-hidden")).toBeFalsy();
   });
 
   it("should emit the icDismiss event when dismissed with by clicking the button", async () => {
@@ -158,8 +158,8 @@ describe("ic-toast component", () => {
     page.rootInstance.setVisible();
     await page.waitForChanges();
 
-    const dismissButton = page.root.shadowRoot.querySelector("ic-button");
-    dismissButton.click();
+    const dismissButton = page.root?.shadowRoot?.querySelector("ic-button");
+    dismissButton?.click();
     await page.waitForChanges();
 
     expect(callbackFn).toHaveBeenCalled();
@@ -273,7 +273,7 @@ describe("ic-toast component", () => {
     page.rootInstance.handleKeyboard({
       key: "Tab",
       shiftKey: false,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(focusCallback).toHaveBeenCalledTimes(2);
@@ -281,7 +281,7 @@ describe("ic-toast component", () => {
     page.rootInstance.handleKeyboard({
       key: "Tab",
       shiftKey: false,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(focusCallback).toHaveBeenCalledTimes(3);
@@ -289,7 +289,7 @@ describe("ic-toast component", () => {
     page.rootInstance.handleKeyboard({
       key: "Tab",
       shiftKey: false,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(focusCallback).toHaveBeenCalledTimes(4);
@@ -297,7 +297,7 @@ describe("ic-toast component", () => {
     page.rootInstance.handleKeyboard({
       key: "Tab",
       shiftKey: true,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(focusCallback).toHaveBeenCalledTimes(5);
@@ -305,7 +305,7 @@ describe("ic-toast component", () => {
     page.rootInstance.handleKeyboard({
       key: "Tab",
       shiftKey: true,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(focusCallback).toHaveBeenCalledTimes(6);
@@ -313,7 +313,7 @@ describe("ic-toast component", () => {
     page.rootInstance.handleKeyboard({
       key: "Tab",
       shiftKey: true,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(focusCallback).toHaveBeenCalledTimes(7);
@@ -338,7 +338,7 @@ describe("ic-toast component", () => {
       html: `<ic-toast variant="neutral" neutral-icon-aria-label="Hello World" heading="Heading"></ic-toast>`,
     });
 
-    expect(page.root.getAttribute("aria-label")).toBe("Hello World");
+    expect(page.root?.getAttribute("aria-label")).toBe("Hello World");
   });
 
   it("should focus the new dismiss button when an auto dismiss toast is tabbed to", async () => {
@@ -355,12 +355,12 @@ describe("ic-toast component", () => {
     page.rootInstance.handleKeyboard({
       key: "Tab",
       shiftKey: false,
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(page.rootInstance.focusInteractiveElement).toBeTruthy();
 
-    page.root.focus();
+    page.root?.focus();
     await page.waitForChanges();
     expect(page.rootInstance.isManual).toBeTruthy();
     expect(dismissFocus).toHaveBeenCalled();

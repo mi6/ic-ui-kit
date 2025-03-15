@@ -32,9 +32,9 @@ import { IcChangeEventDetail } from "./ic-radio-group.types";
   shadow: true,
 })
 export class RadioGroup {
-  private radioContainer: HTMLDivElement;
+  private radioContainer?: HTMLDivElement;
   private radioOptions: HTMLIcRadioOptionElement[];
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
   private ADDITIONAL_FIELD = "additional-field";
   private RADIO_HORIZONTAL: IcOrientation = "horizontal";
   private RADIO_VERTICAL: IcOrientation = "vertical";
@@ -49,7 +49,7 @@ export class RadioGroup {
   /**
    * If `true`, the disabled state will be set.
    */
-  @Prop() disabled: boolean = false;
+  @Prop() disabled?: boolean = false;
 
   @Watch("disabled")
   watchDisabledHandler(newValue: boolean): void {
@@ -62,12 +62,12 @@ export class RadioGroup {
   /**
    * The helper text that will be displayed for additional field guidance.
    */
-  @Prop() helperText: string;
+  @Prop() helperText?: string;
 
   /**
    * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
-  @Prop() hideLabel: boolean = false;
+  @Prop() hideLabel?: boolean = false;
 
   /**
    * The label for the radio group to be displayed.
@@ -82,12 +82,12 @@ export class RadioGroup {
   /**
    * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
    */
-  @Prop() orientation: IcOrientation = "vertical";
+  @Prop() orientation?: IcOrientation = "vertical";
 
   /**
    * If `true`, the radio group will require a value.
    */
-  @Prop() required: boolean = false;
+  @Prop() required?: boolean = false;
 
   /**
    * The size of the radio group component.
@@ -97,15 +97,15 @@ export class RadioGroup {
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
-  @Prop() validationStatus: IcInformationStatusOrEmpty = "";
+  @Prop() validationStatus?: IcInformationStatusOrEmpty = "";
   /**
    * The validation text - e.g. 'error' | 'warning' | 'success'.
    */
-  @Prop() validationText: string = "";
+  @Prop() validationText?: string = "";
 
   @Watch("orientation")
   orientationChangeHandler(): void {
-    this.initialOrientation = this.orientation;
+    this.initialOrientation = this.orientation!;
     this.checkOrientation();
   }
 
@@ -151,7 +151,7 @@ export class RadioGroup {
       "Radio Group"
     );
 
-    this.watchThemeHandler(this.theme);
+    this.watchThemeHandler(this.theme!);
   }
 
   @Listen("icCheck")
@@ -220,10 +220,12 @@ export class RadioGroup {
         ) {
           this.currentOrientation = this.RADIO_VERTICAL;
         } else {
-          if (totalWidth >= this.radioContainer?.clientWidth) {
-            this.currentOrientation = this.RADIO_VERTICAL;
-          } else if (totalWidth < this.radioContainer?.clientWidth) {
-            this.currentOrientation = this.RADIO_HORIZONTAL;
+          if (this.radioContainer) {
+            if (totalWidth >= this.radioContainer.clientWidth) {
+              this.currentOrientation = this.RADIO_VERTICAL;
+            } else if (totalWidth < this.radioContainer.clientWidth) {
+              this.currentOrientation = this.RADIO_HORIZONTAL;
+            }
           }
         }
       }
@@ -232,7 +234,7 @@ export class RadioGroup {
 
   private handleKeyDown = (event: KeyboardEvent): void => {
     const additionalFields = Array.from(
-      this.el.querySelectorAll<HTMLIcTextFieldElement>(
+      this.el.querySelectorAll<HTMLElement>(
         'ic-text-field[slot="additional-field"]'
       )
     );
@@ -293,7 +295,7 @@ export class RadioGroup {
   };
 
   private addSlotChangeListener = () => {
-    this.radioContainer.addEventListener("slotchange", this.setRadioOptions);
+    this.radioContainer?.addEventListener("slotchange", this.setRadioOptions);
   };
 
   private setFirstRadioOptionTabIndex = (value: number) => {
@@ -365,7 +367,10 @@ export class RadioGroup {
         >
           {!hideLabel && (
             <ic-input-label
-              class={{ [`${validationStatus}`]: true, ["disabled"]: disabled }}
+              class={{
+                [`${validationStatus}`]: true,
+                ["disabled"]: !!disabled,
+              }}
               label={label}
               helperText={helperText}
               required={required}
@@ -386,7 +391,7 @@ export class RadioGroup {
           <ic-input-validation
             ariaLiveMode="polite"
             status={validationStatus}
-            message={validationText}
+            message={validationText!}
           ></ic-input-validation>
         )}
       </Host>

@@ -17,7 +17,7 @@ import {
   IcActivationTypes,
   IcMenuOption,
   IcSizes,
-  IcValueEventDetail,
+  IcMultiValueEventDetail,
 } from "../../utils/types";
 import Check from "../../assets/check-icon.svg";
 import {
@@ -49,14 +49,14 @@ export class Menu {
   private isMultiSelect: boolean = false;
   private isSearchBar: boolean = false;
   private isSearchableSelect: boolean = false;
-  private lastOptionSelected: number = null; // Index of last option selected
-  private lastOptionFocused: number = null; // Index of last option focused
-  private menu: HTMLUListElement;
-  private multiOptionClicked: string = null;
-  private popperInstance: PopperInstance;
+  private lastOptionSelected: number | null = null; // Index of last option selected
+  private lastOptionFocused: number | null = null; // Index of last option focused
+  private menu?: HTMLUListElement;
+  private multiOptionClicked: string | null = null;
+  private popperInstance: PopperInstance | null;
   private preventClickOpen: boolean = false; // Prevents menu re-opening immediately after it is closed on blur when clicking input.
   private preventMenuFocus: boolean = false; // (When multiple) ensures focus moves straight to select all button from menu.
-  private selectAllButton: HTMLIcButtonElement;
+  private selectAllButton?: HTMLIcButtonElement;
   private shiftPressed: boolean = false;
   private ungroupedOptions: IcMenuOption[] = [];
 
@@ -65,7 +65,7 @@ export class Menu {
   @State() focusFromSearchKeypress: boolean = false;
   @State() initialOptionsListRender: boolean = false;
   @State() keyboardNav: boolean = false;
-  @State() optionHighlighted: string;
+  @State() optionHighlighted: string | undefined;
   @State() preventIncorrectTabOrder: boolean = false;
   @State() menuOptions: IcMenuOption[];
 
@@ -82,17 +82,17 @@ export class Menu {
   /**
    * @internal If `true`, autofocus will be applied on selected item when menu is open.
    */
-  @Prop() autofocusOnSelected: boolean = true;
+  @Prop() autofocusOnSelected?: boolean = true;
 
   /**
    *  If `true`, the menu will close when an option is selected.
    */
-  @Prop() closeOnSelect: boolean = true;
+  @Prop() closeOnSelect?: boolean = true;
 
   /**
    *  If `true`, the menu will fill the width of the container.
    */
-  @Prop() fullWidth: boolean = false;
+  @Prop() fullWidth?: boolean = false;
 
   /**
    * The reference to the input element.
@@ -107,7 +107,7 @@ export class Menu {
   /**
    * The custom name for the label field for IcMenuOption.
    */
-  @Prop() labelField: string = "label";
+  @Prop() labelField?: string = "label";
 
   /**
    * The ID of the menu.
@@ -168,7 +168,7 @@ export class Menu {
   /**
    * The custom name for the value field for IcMenuOption.
    */
-  @Prop() valueField: string = "value";
+  @Prop() valueField?: string = "value";
 
   /**
    * Emitted when the clear all button is clicked.
@@ -203,7 +203,7 @@ export class Menu {
   /**
    * @internal Emitted when the retry button is clicked.
    */
-  @Event() retryButtonClicked: EventEmitter<IcValueEventDetail>;
+  @Event() retryButtonClicked: EventEmitter<IcMultiValueEventDetail>;
 
   /**
    * @internal Emitted when the timeout menu loses focus.
@@ -216,7 +216,7 @@ export class Menu {
   @Event() ungroupedOptionsSet: EventEmitter<{ options: IcMenuOption[] }>;
 
   connectedCallback(): void {
-    this.getParentEl(this.parentEl);
+    this.parentEl && this.getParentEl(this.parentEl);
 
     if (this.isSearchBar) {
       if (this.searchMode === "navigation") this.setHighlightedOption(0);
@@ -237,8 +237,8 @@ export class Menu {
 
   componentWillLoad(): void {
     this.loadUngroupedOptions();
-    this.parentEl.addEventListener("icClear", this.handleClearListener);
-    this.parentEl.addEventListener("icSubmitSearch", this.handleSubmitSearch);
+    this.parentEl?.addEventListener("icClear", this.handleClearListener);
+    this.parentEl?.addEventListener("icSubmitSearch", this.handleSubmitSearch);
     this.hasTimedOut = this.options?.some((opt) => opt.timedOut);
     this.isLoading = this.options?.some((opt) => opt.loading);
   }
@@ -265,10 +265,15 @@ export class Menu {
 
   componentDidUpdate(): void {
     const inputValueInOptions = this.options.some(
-      (option) => option[this.valueField] === this.value
+      (option) => option[this.valueField!] === this.value
     );
 
-    if (this.open && this.options.length !== 0 && !this.preventMenuFocus) {
+    if (
+      this.menu &&
+      this.open &&
+      this.options.length !== 0 &&
+      !this.preventMenuFocus
+    ) {
       if (
         this.value &&
         this.keyboardNav &&
@@ -297,7 +302,7 @@ export class Menu {
       }
     }
 
-    if (this.open && !this.value && this.selectOnEnter) {
+    if (this.menu && this.open && !this.value && this.selectOnEnter) {
       this.scrollToSelected(this.menu);
     }
 
@@ -382,7 +387,7 @@ export class Menu {
 
   private handleSubmitSearch = (): void => {
     const highlightedOptionIndex = this.options.findIndex(
-      (option) => option[this.valueField] === this.optionHighlighted
+      (option) => option[this.valueField!] === this.optionHighlighted
     );
 
     this.setInputValue(highlightedOptionIndex);
@@ -408,15 +413,15 @@ export class Menu {
   private setNextOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex + 1]) {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[selectedOptionIndex + 1][this.valueField],
+        value: this.ungroupedOptions[selectedOptionIndex + 1][this.valueField!],
         optionId: this.getOptionId(
-          this.ungroupedOptions[selectedOptionIndex + 1][this.valueField]
+          this.ungroupedOptions[selectedOptionIndex + 1][this.valueField!]
         ),
       });
     } else {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[0][this.valueField],
-        optionId: this.getOptionId(this.ungroupedOptions[0][this.valueField]),
+        value: this.ungroupedOptions[0][this.valueField!],
+        optionId: this.getOptionId(this.ungroupedOptions[0][this.valueField!]),
       });
     }
   };
@@ -424,20 +429,20 @@ export class Menu {
   private setPreviousOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex - 1]) {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[selectedOptionIndex - 1][this.valueField],
+        value: this.ungroupedOptions[selectedOptionIndex - 1][this.valueField!],
         optionId: this.getOptionId(
-          this.ungroupedOptions[selectedOptionIndex - 1][this.valueField]
+          this.ungroupedOptions[selectedOptionIndex - 1][this.valueField!]
         ),
       });
     } else {
       this.menuOptionSelect.emit({
         value:
           this.ungroupedOptions[this.ungroupedOptions.length - 1][
-            this.valueField
+            this.valueField!
           ],
         optionId: this.getOptionId(
           this.ungroupedOptions[this.ungroupedOptions.length - 1][
-            this.valueField
+            this.valueField!
           ]
         ),
       });
@@ -478,7 +483,7 @@ export class Menu {
     menuOptions[highlightedIndex] &&
       !menuOptions[highlightedIndex].timedOut &&
       (this.optionHighlighted =
-        menuOptions[highlightedIndex][this.valueField] || undefined);
+        menuOptions[highlightedIndex][this.valueField!] || undefined);
   };
 
   // Determines keyboard behaviour when selection is automatic
@@ -486,7 +491,7 @@ export class Menu {
   // and menu is closed
   private autoSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
     const selectedOptionIndex = this.ungroupedOptions.findIndex(
-      (option) => option[this.valueField] === this.value
+      (option) => option[this.valueField!] === this.value
     );
 
     this.keyboardNav = false;
@@ -547,7 +552,7 @@ export class Menu {
     const menuOptions = this.getMenuOptions();
 
     return this.value
-      ? this.value.includes(menuOptions[index][this.valueField])
+      ? this.value.includes(menuOptions[index][this.valueField!])
       : false;
   };
 
@@ -558,7 +563,7 @@ export class Menu {
     if (this.value) {
       const selectedOptionIndexes = (this.value as string[]).map((value) => {
         return menuOptions.findIndex(
-          (option) => option[this.valueField] === value
+          (option) => option[this.valueField!] === value
         );
       });
 
@@ -582,7 +587,7 @@ export class Menu {
     const highlightedOptionIndex = this.getOptionHighlightedIndex();
 
     const clickedMultiOptionIndex = menuOptions.findIndex(
-      (option) => option[this.valueField] === this.multiOptionClicked
+      (option) => option[this.valueField!] === this.multiOptionClicked
     );
 
     const getOptionId = (index: number): string =>
@@ -807,7 +812,7 @@ export class Menu {
 
     if (menuOptions[highlightedOptionIndex] !== undefined) {
       this.menuOptionSelect.emit({
-        value: menuOptions[highlightedOptionIndex][this.valueField],
+        value: menuOptions[highlightedOptionIndex][this.valueField!],
       });
 
       if (this.closeOnSelect) {
@@ -835,7 +840,7 @@ export class Menu {
       );
 
       this.handleOptionSelect(event, selectedOptionIndex, true);
-      this.multiOptionClicked = value;
+      this.multiOptionClicked = value || null;
     } else {
       this.menuOptionSelect.emit({ value, label });
       this.handleMenuChange(false);
@@ -858,24 +863,24 @@ export class Menu {
   private handleBlur = (event: FocusEvent): void => {
     if (event.relatedTarget !== this.inputEl) {
       if (event.relatedTarget === this.selectAllButton) {
-        this.menu.removeAttribute(this.ACTIVE_DESCENDANT);
+        this.menu?.removeAttribute(this.ACTIVE_DESCENDANT);
       }
 
       if (
         !(
-          this.menu.contains(event.relatedTarget as HTMLElement) ||
+          this.menu?.contains(event.relatedTarget as HTMLElement) ||
           event.relatedTarget === this.selectAllButton
         )
       ) {
         this.handleMenuChange(false, this.hasPreviouslyBlurred);
-        this.menu.removeAttribute(this.ACTIVE_DESCENDANT);
+        this.menu?.removeAttribute(this.ACTIVE_DESCENDANT);
         this.lastOptionFocused = null;
         this.lastOptionSelected = null;
       }
     } else {
       this.handleMenuChange(false);
       this.preventClickOpen = true;
-      this.menu.removeAttribute(this.ACTIVE_DESCENDANT);
+      this.menu?.removeAttribute(this.ACTIVE_DESCENDANT);
       this.lastOptionFocused = null;
       this.lastOptionSelected = null;
     }
@@ -910,7 +915,7 @@ export class Menu {
 
   private handleSelectAllClick = () => {
     this.keyboardNav = false;
-    this.menu.focus();
+    this.menu?.focus();
     this.emitSelectAllEvents();
     this.lastOptionFocused = null;
     this.lastOptionSelected = null;
@@ -918,7 +923,7 @@ export class Menu {
 
   private handleSelectAllBlur = (event: FocusEvent) => {
     this.host.classList.remove("ic-select-select-all-focused");
-    if (!this.menu.contains(event.relatedTarget as HTMLElement)) {
+    if (!this.menu?.contains(event.relatedTarget as HTMLElement)) {
       this.handleMenuChange(false, false);
     }
   };
@@ -956,7 +961,7 @@ export class Menu {
   private handleMultipleShiftSelect = (
     lastOptionInSelection: number,
     useFocusForSelection = false,
-    firstOptionSelected: number = null
+    firstOptionSelected: number | null = null
   ) => {
     this.shiftPressed = false;
 
@@ -1017,7 +1022,7 @@ export class Menu {
 
   private getFirstOptionInSelection = (
     useFocusForSelection: boolean
-  ): number => {
+  ): number | null => {
     return useFocusForSelection && this.lastOptionFocused !== null
       ? this.lastOptionFocused
       : this.lastOptionSelected !== null
@@ -1048,7 +1053,7 @@ export class Menu {
   private autoSetValueOnMenuKeyDown = (event: KeyboardEvent): void => {
     event.cancelBubble = true;
     const selectedOptionIndex = this.ungroupedOptions.findIndex(
-      (option) => option[this.valueField] === this.value
+      (option) => option[this.valueField!] === this.value
     );
 
     const isSearchableSelect = this.inputEl.tagName === "INPUT";
@@ -1075,7 +1080,7 @@ export class Menu {
         break;
       case "Home":
         this.menuOptionSelect.emit({
-          value: this.ungroupedOptions[0][this.valueField],
+          value: this.ungroupedOptions[0][this.valueField!],
         });
         this.keyboardNav = true;
         break;
@@ -1083,7 +1088,7 @@ export class Menu {
         this.menuOptionSelect.emit({
           value:
             this.ungroupedOptions[this.ungroupedOptions.length - 1][
-              this.valueField
+              this.valueField!
             ],
         });
         this.keyboardNav = true;
@@ -1119,9 +1124,9 @@ export class Menu {
 
   private getOptionAriaLabel = (
     option: IcMenuOption,
-    parentOption: IcMenuOption
+    parentOption?: IcMenuOption
   ): string => {
-    let ariaLabel = option[this.labelField];
+    let ariaLabel = option[this.labelField!];
 
     if (option.description) {
       ariaLabel = `${ariaLabel}, ${option.description}`;
@@ -1132,7 +1137,7 @@ export class Menu {
     }
 
     if (parentOption) {
-      return `${ariaLabel}, ${parentOption[this.labelField]} group`;
+      return `${ariaLabel}, ${parentOption[this.labelField!]} group`;
     } else {
       return ariaLabel;
     }
@@ -1152,7 +1157,7 @@ export class Menu {
     const menuOptions = this.getMenuOptions();
 
     return menuOptions.findIndex(
-      (option) => option[this.valueField] === this.optionHighlighted
+      (option) => option[this.valueField!] === this.optionHighlighted
     );
   };
 
@@ -1175,7 +1180,7 @@ export class Menu {
       }
       // 'aria-activedescendant' affects screen reader focus
       // https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/#kbd_focus_activedescendant
-      this.menu.setAttribute(this.ACTIVE_DESCENDANT, selectedOption.id);
+      this.menu?.setAttribute(this.ACTIVE_DESCENDANT, selectedOption.id);
       selectedOption.focus();
     }
   };
@@ -1205,7 +1210,7 @@ export class Menu {
       .forEach((option) => (optionsHeight += option.clientHeight));
 
     if (optionsHeight >= 320) {
-      this.menu.classList.add("menu-scroll");
+      this.menu?.classList.add("menu-scroll");
     }
   };
 
@@ -1233,10 +1238,10 @@ export class Menu {
 
   private optionContent = (option: IcMenuOption, selected: boolean) => {
     const showCheckIcon =
-      !!option[this.valueField] &&
+      !!option[this.valueField!] &&
       !!this.value &&
       selected &&
-      this.parentEl.tagName !== this.SEARCH_BAR_TAG;
+      this.parentEl?.tagName !== this.SEARCH_BAR_TAG;
 
     return (
       <Fragment>
@@ -1256,12 +1261,12 @@ export class Menu {
               ></div>
             )}
             <ic-typography variant="body" aria-hidden="true">
-              {option[this.labelField]}
+              {option[this.labelField!]}
             </ic-typography>
           </div>
           {option.description && (
             <ic-typography
-              id={`${this.getOptionId(option[this.valueField])}-description`}
+              id={`${this.getOptionId(option[this.valueField!])}-description`}
               class="option-description"
               variant="caption"
               aria-hidden="true"
@@ -1285,7 +1290,7 @@ export class Menu {
   private displayOption = (
     option: IcMenuOption,
     selected: boolean,
-    index?: number,
+    index: number,
     parentOption?: IcMenuOption
   ): HTMLLIElement => {
     const {
@@ -1299,25 +1304,26 @@ export class Menu {
 
     return (
       <li
-        id={this.getOptionId(option[this.valueField])}
+        id={this.getOptionId(option[this.valueField!])}
         class={{
           option: true,
           "focused-option": isManualMode
             ? (keyboardNav || initialOptionsListRender) &&
-              option[this.valueField] === optionHighlighted
+              option[this.valueField!] === optionHighlighted
             : keyboardNav && selected,
-          "last-recommended-option":
+          "last-recommended-option": !!(
             option.recommended &&
             options[index + 1] &&
-            !options[index + 1].recommended,
-          "disabled-option": option.disabled,
-          "loading-option": option.loading,
-          timeout: option.timedOut,
+            !options[index + 1].recommended
+          ),
+          "disabled-option": !!option.disabled,
+          "loading-option": !!option.loading,
+          timeout: !!option.timedOut,
         }}
         role="option"
         tabindex={
           open &&
-          (selected || option[this.valueField] === optionHighlighted) &&
+          (selected || option[this.valueField!] === optionHighlighted) &&
           keyboardNav
             ? "0"
             : "-1"
@@ -1325,11 +1331,15 @@ export class Menu {
         aria-label={this.getOptionAriaLabel(option, parentOption)}
         aria-selected={selected ? "true" : "false"}
         aria-disabled={option.disabled ? "true" : "false"}
-        onClick={!option.timedOut && !option.loading && this.handleOptionClick}
+        onClick={
+          !option.timedOut && !option.loading
+            ? this.handleOptionClick
+            : undefined
+        }
         onBlur={this.handleBlur}
         onMouseDown={this.handleMouseDown}
-        data-value={option[this.valueField]}
-        data-label={option[this.labelField]}
+        data-value={option[this.valueField!]}
+        data-label={option[this.labelField!]}
       >
         {option.timedOut ? (
           <Fragment>
@@ -1350,7 +1360,7 @@ export class Menu {
                 </g>
               </svg>
               <ic-typography variant="label">
-                {option[this.labelField]}
+                {option[this.labelField!]}
               </ic-typography>
             </div>
             <ic-button
@@ -1397,7 +1407,7 @@ export class Menu {
     return (
       <Host
         class={{
-          "ic-menu-full-width": fullWidth,
+          "ic-menu-full-width": !!fullWidth,
           "ic-menu-no-focus":
             (inputEl?.tagName === "INPUT" &&
               parentEl?.tagName !== SEARCH_BAR_TAG) ||
@@ -1438,7 +1448,7 @@ export class Menu {
                         role="presentation"
                         variant="subtitle-small"
                       >
-                        <p>{option[this.labelField]}</p>
+                        <p>{option[this.labelField!]}</p>
                       </ic-typography>
                       {option.children.map(
                         (childOption) =>
@@ -1446,8 +1456,8 @@ export class Menu {
                           this.displayOption(
                             childOption,
                             this.isMultiSelect
-                              ? value?.includes(childOption[this.valueField])
-                              : childOption[this.valueField] === value,
+                              ? value?.includes(childOption[this.valueField!])
+                              : childOption[this.valueField!] === value,
                             index,
                             option
                           )
@@ -1464,8 +1474,8 @@ export class Menu {
                   this.displayOption(
                     option,
                     this.isMultiSelect
-                      ? value?.includes(option[this.valueField])
-                      : option[this.valueField] === value,
+                      ? value?.includes(option[this.valueField!])
+                      : option[this.valueField!] === value,
                     index
                   )
                 );
@@ -1489,7 +1499,7 @@ export class Menu {
               <ic-button
                 class="select-all-button"
                 aria-label={`${selectAllButtonText} options for ${inputLabel}`}
-                ref={(el: HTMLIcButtonElement) => (this.selectAllButton = el)}
+                ref={(el) => (this.selectAllButton = el)}
                 variant="tertiary"
                 onClick={this.handleSelectAllClick}
                 onMouseDown={this.handleSelectAllMouseDown}

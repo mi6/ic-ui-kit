@@ -914,9 +914,24 @@
       "listeners": [],
       "styles": [
         {
+          "name": "--footer-offset",
+          "annotation": "prop",
+          "docs": "offset of x-position from footer"
+        },
+        {
           "name": "--ic-z-index-back-to-top",
           "annotation": "prop",
           "docs": "z-index of back to top"
+        },
+        {
+          "name": "--margin-left",
+          "annotation": "prop",
+          "docs": "left y-position of back to top"
+        },
+        {
+          "name": "--margin-right",
+          "annotation": "prop",
+          "docs": "right y-position of back to top"
         }
       ],
       "slots": [],
@@ -12858,16 +12873,16 @@
         },
         {
           "event": "icRetryLoad",
-          "detail": "IcValueEventDetail",
+          "detail": "IcMultiValueEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
+            "original": "IcMultiValueEventDetail",
+            "resolved": "IcMultiValueEventDetail",
             "references": {
-              "IcValueEventDetail": {
+              "IcMultiValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
+                "id": "src/utils/types.ts::IcMultiValueEventDetail"
               }
             }
           },
@@ -13874,16 +13889,16 @@
         },
         {
           "event": "icChange",
-          "detail": "IcValueEventDetail",
+          "detail": "IcMultiValueEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
+            "original": "IcMultiValueEventDetail",
+            "resolved": "IcMultiValueEventDetail",
             "references": {
-              "IcValueEventDetail": {
+              "IcMultiValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
+                "id": "src/utils/types.ts::IcMultiValueEventDetail"
               }
             }
           },
@@ -13936,16 +13951,16 @@
         },
         {
           "event": "icInput",
-          "detail": "IcValueEventDetail",
+          "detail": "IcMultiValueEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
+            "original": "IcMultiValueEventDetail",
+            "resolved": "IcMultiValueEventDetail",
             "references": {
-              "IcValueEventDetail": {
+              "IcMultiValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
+                "id": "src/utils/types.ts::IcMultiValueEventDetail"
               }
             }
           },
@@ -14010,16 +14025,16 @@
         },
         {
           "event": "icRetryLoad",
-          "detail": "IcValueEventDetail",
+          "detail": "IcMultiValueEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
+            "original": "IcMultiValueEventDetail",
+            "resolved": "IcMultiValueEventDetail",
             "references": {
-              "IcValueEventDetail": {
+              "IcMultiValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
+                "id": "src/utils/types.ts::IcMultiValueEventDetail"
               }
             }
           },
@@ -19510,7 +19525,7 @@
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcValueEventDetail": {
-      "declaration": "export interface IcValueEventDetail {\n  value: string | string[] | null;\n  keyPressed?: string;\n}",
+      "declaration": "export interface IcValueEventDetail {\n  value: string;\n  keyPressed?: string;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -19536,6 +19551,11 @@
     },
     "src/utils/types.ts::IcBlurEventDetail": {
       "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget | null;\n}",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcMultiValueEventDetail": {
+      "declaration": "export interface IcMultiValueEventDetail {\n  value: string | string[] | null;\n  keyPressed?: string;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },

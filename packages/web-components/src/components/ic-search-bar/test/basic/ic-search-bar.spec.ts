@@ -96,7 +96,7 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot("renders-with-options");
@@ -108,7 +108,7 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" helper-text="This is a description"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot("renders-with-helpertext");
@@ -159,25 +159,25 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     await page.waitForChanges();
 
     const focusEventSpy = jest.fn();
     page.win.addEventListener("icSearchBarFocus", focusEventSpy);
-    page.root.focus();
+    page.root?.focus();
     await page.waitForChanges();
     expect(focusEventSpy).toHaveBeenCalled();
     expect(page.rootInstance.open).toBeTruthy;
 
     const blurEventSpy = jest.fn();
     page.win.addEventListener("icSearchBarBlur", blurEventSpy);
-    page.root.blur();
+    page.root?.blur();
     await page.waitForChanges();
     expect(blurEventSpy).toHaveBeenCalled();
     expect(page.rootInstance.open).toBeFalsy;
 
     page.rootInstance.menuCloseFromMenuChangeEvent = true;
-    page.root.focus();
+    page.root?.focus();
     await page.waitForChanges();
     expect(page.rootInstance.open).toBeFalsy;
   });
@@ -188,7 +188,7 @@ describe("ic-search-bar search", () => {
       html: '<form><ic-search-bar label="Test label" value="espresso" focus-on-load="true"></ic-search-bar></form>',
     });
 
-    const searchButton = page.root.shadowRoot.querySelector(
+    const searchButton = page.root?.shadowRoot?.querySelector(
       "#search-submit-button"
     ) as HTMLIcButtonElement;
 
@@ -221,26 +221,26 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     page.rootInstance.open = true;
     await page.waitForChanges();
     const eventSpy = jest.fn();
     page.win.addEventListener("menuOptionId", eventSpy);
 
-    const menu = page.root.shadowRoot.querySelector("ic-menu");
-    menu.autofocusOnSelected = true;
+    const menu = page.root?.shadowRoot?.querySelector("ic-menu");
+    menu?.setAttribute("autofocusOnSelected", "true");
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
       key: "ArrowDown",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(eventSpy).toHaveBeenCalled;
 
     await page.rootInstance.handleKeyDown({
       key: "Enter",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
@@ -253,12 +253,12 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" search-mode="query"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     page.rootInstance.open = true;
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
-      detail: { event: { key: "Enter", preventDefault: (): void => null } },
+      detail: { event: { key: "Enter", preventDefault: (): null => null } },
     });
     await page.waitForChanges();
 
@@ -272,7 +272,7 @@ describe("ic-search-bar search", () => {
     });
     const focusSpy = jest.spyOn(SearchBar.prototype, "setFocus");
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     page.rootInstance.open = true;
     await page.waitForChanges();
     const eventSpy = jest.fn();
@@ -280,27 +280,27 @@ describe("ic-search-bar search", () => {
 
     await page.rootInstance.handleKeyDown({
       key: "1",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(focusSpy).toHaveBeenCalled;
 
     await page.rootInstance.handleKeyDown({
       key: "ArrowUp",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(eventSpy).toHaveBeenCalled;
 
     await page.rootInstance.handleKeyDown({
       key: "ArrowUp",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
       key: "Enter",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
@@ -309,7 +309,7 @@ describe("ic-search-bar search", () => {
     page.rootInstance.open = true;
     await page.rootInstance.handleKeyDown({
       key: "Backspace",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(page.rootInstance.value).toBe("acano");
@@ -321,13 +321,13 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     page.rootInstance.open = true;
     const focusEvent = jest.spyOn(SearchBar.prototype, "setFocus");
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
-      detail: { event: { key: "Backspace", preventDefault: (): void => null } },
+      detail: { event: { key: "Backspace", preventDefault: (): null => null } },
     });
     await page.waitForChanges();
     expect(page.rootInstance.value).toBe("espresso");
@@ -340,17 +340,17 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     page.rootInstance.open = true;
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
-      detail: { event: { key: "ArrowUp", preventDefault: (): void => null } },
+      detail: { event: { key: "ArrowUp", preventDefault: (): null => null } },
     });
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
-      detail: { event: { key: "ArrowDown", preventDefault: (): void => null } },
+      detail: { event: { key: "ArrowDown", preventDefault: (): null => null } },
     });
     await page.waitForChanges();
 
@@ -363,11 +363,13 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     page.rootInstance.open = true;
     await page.waitForChanges();
 
-    let items = Array.from(page.root.shadowRoot.querySelectorAll("ic-menu li"));
+    const items = Array.from(
+      page.root?.shadowRoot?.querySelectorAll("ic-menu li") || []
+    );
 
     (items[2] as HTMLElement).click();
     await page.waitForChanges();
@@ -377,7 +379,7 @@ describe("ic-search-bar search", () => {
     page.rootInstance.open = true;
     await page.waitForChanges();
 
-    items = Array.from(page.root.shadowRoot.querySelectorAll("ic-menu li"));
+    Array.from(page.root?.shadowRoot?.querySelectorAll("ic-menu li") || []);
 
     (items[2] as HTMLElement).blur();
     expect(page.rootInstance.open).toBe(false);
@@ -389,18 +391,18 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     page.rootInstance.open = true;
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
       key: "Tab",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.rootInstance.handleKeyDown({
       key: "Escape",
-      preventDefault: (): void => null,
-      stopImmediatePropagation: (): void => null,
+      preventDefault: (): null => null,
+      stopImmediatePropagation: (): null => null,
     });
     await page.waitForChanges();
 
@@ -414,7 +416,7 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     page.rootInstance.open = true;
     await page.waitForChanges();
 
@@ -443,7 +445,7 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    page.root.value = "mocha";
+    page.rootInstance.value = "mocha";
     await page.waitForChanges();
     expect(page.rootInstance.value).toBe("mocha");
     expect(page.rootInstance.inputEl.value).toBe("mocha");
@@ -455,23 +457,23 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" ></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     await page.waitForChanges();
 
-    const input = page.root.shadowRoot.querySelector("input");
+    const input = page.root?.shadowRoot?.querySelector("input");
     const event = new Event("input", {
       bubbles: true,
       cancelable: true,
     });
 
-    input.dispatchEvent(event);
+    input?.dispatchEvent(event);
     await page.waitForChanges();
     //delay to wait for aria live update
     await waitForTimeout(700);
     expect(page.rootInstance.open).toBe(true);
     expect(page.rootInstance.showClearButton).toBe(true);
 
-    const searchResultsStatusEl = page.root.shadowRoot.querySelector(
+    const searchResultsStatusEl = page.root?.shadowRoot?.querySelector(
       ".search-results-status"
     ) as HTMLParagraphElement;
     expect(searchResultsStatusEl).toEqualText("2 results available");
@@ -483,10 +485,10 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     await page.waitForChanges();
 
-    const clearButton = page.root.shadowRoot.querySelector(
+    const clearButton = page.root?.shadowRoot?.querySelector(
       "#clear-button"
     ) as HTMLIcButtonElement;
 
@@ -517,7 +519,7 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     const eventSpy = jest.fn();
     page.win.addEventListener("icOptionSelect", eventSpy);
     await page.waitForChanges();
@@ -534,7 +536,7 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
     page.rootInstance.open = true;
     await page.waitForChanges();
     await page.rootInstance.handleOptionSelect({
@@ -554,14 +556,14 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-auto-filtering="true"></ic-search-bar>',
     });
 
-    const input = page.root.shadowRoot.querySelector("input");
+    const input = page.root?.shadowRoot?.querySelector("input");
     const event = new Event("input", {
       bubbles: true,
       cancelable: true,
     });
 
     page.rootInstance.value = "aa";
-    input.dispatchEvent(event);
+    input?.dispatchEvent(event);
     page.rootInstance.loading = true;
     await page.waitForChanges();
     //delay to wait for aria live update
@@ -576,14 +578,14 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-auto-filtering="true" timeout="1000"></ic-search-bar>',
     });
 
-    const input = page.root.shadowRoot.querySelector("input");
+    const input = page.root?.shadowRoot?.querySelector("input");
     const event = new Event("input", {
       bubbles: true,
       cancelable: true,
     });
 
     page.rootInstance.value = "lo";
-    input.dispatchEvent(event);
+    input?.dispatchEvent(event);
     page.rootInstance.loading = true;
     await page.waitForChanges();
     //delay to wait for aria live update
@@ -597,9 +599,9 @@ describe("ic-search-bar search", () => {
 
     page.rootInstance.open = true;
     await page.waitForChanges();
-    const retryButton = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .querySelector("#retry-button") as HTMLIcButtonElement;
+    const retryButton = page.root?.shadowRoot
+      ?.querySelector("ic-menu")
+      ?.querySelector("#retry-button") as HTMLIcButtonElement;
     const eventSpy = jest.fn();
     page.win.addEventListener("icRetryLoad", eventSpy);
 
@@ -611,7 +613,7 @@ describe("ic-search-bar search", () => {
     expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading...");
     expect(eventSpy).toHaveBeenCalled();
 
-    page.root.options = [];
+    page.rootInstance.options = [];
     await page.waitForChanges();
     expect(page.rootInstance.filteredOptions[0].label).toEqual(
       "No results found"
@@ -624,7 +626,7 @@ describe("ic-search-bar search", () => {
 
     // Tests hadNoOptions() when options is updated
     page.rootInstance.open = false;
-    page.root.options = [];
+    page.rootInstance.options = [];
     await page.waitForChanges();
     expect(page.rootInstance.open).toBeFalsy;
   });
@@ -635,14 +637,14 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-auto-filtering="true" timeout="1000"></ic-search-bar>',
     });
 
-    const input = page.root.shadowRoot.querySelector("input");
+    const input = page.root?.shadowRoot?.querySelector("input");
     const event = new Event("input", {
       bubbles: true,
       cancelable: true,
     });
 
     page.rootInstance.value = "lo";
-    input.dispatchEvent(event);
+    input?.dispatchEvent(event);
     page.rootInstance.loading = true;
     await page.waitForChanges();
     //delay to wait for aria live update and timeout
@@ -676,11 +678,11 @@ describe("ic-search-bar search", () => {
     });
 
     await page.rootInstance.handleMouseDown({
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
 
     await page.waitForChanges();
 
-    expect(page.root.value).toBe("test");
+    expect(page.rootInstance.value).toBe("test");
   });
 });

@@ -46,15 +46,15 @@
 | Event              | Description                                                                                                                        | Type                                     |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
 | `icBlur`           | Emitted when the select loses focus.                                                                                               | `CustomEvent<void>`                      |
-| `icChange`         | Emitted when the value changes.                                                                                                    | `CustomEvent<IcValueEventDetail>`        |
+| `icChange`         | Emitted when the value changes.                                                                                                    | `CustomEvent<IcMultiValueEventDetail>`   |
 | `icClear`          | Emitted when the clear or clear all button is clicked.                                                                             | `CustomEvent<void>`                      |
 | `icClose`          | Emitted when the select options menu is closed.                                                                                    | `CustomEvent<void>`                      |
 | `icFocus`          | Emitted when the select gains focus.                                                                                               | `CustomEvent<void>`                      |
-| `icInput`          | Emitted when a keyboard input occurred.                                                                                            | `CustomEvent<IcValueEventDetail>`        |
+| `icInput`          | Emitted when a keyboard input occurred.                                                                                            | `CustomEvent<IcMultiValueEventDetail>`   |
 | `icOpen`           | Emitted when the select options menu is opened.                                                                                    | `CustomEvent<void>`                      |
 | `icOptionDeselect` | Emitted when `multiple` is `true` and an option is deselected.                                                                     | `CustomEvent<IcOptionSelectEventDetail>` |
 | `icOptionSelect`   | Emitted when an option is selected. Selecting an option will also trigger an `icChange/onIcChange` due to the value being updated. | `CustomEvent<IcOptionSelectEventDetail>` |
-| `icRetryLoad`      | Emitted when the 'retry loading' button is clicked for a searchable variant.                                                       | `CustomEvent<IcValueEventDetail>`        |
+| `icRetryLoad`      | Emitted when the 'retry loading' button is clicked for a searchable variant.                                                       | `CustomEvent<IcMultiValueEventDetail>`   |
 
 
 ## Methods

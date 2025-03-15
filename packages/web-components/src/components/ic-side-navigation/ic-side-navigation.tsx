@@ -49,10 +49,10 @@ export class SideNavigation {
   private ANIMATION_DURATION =
     parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
   private IC_NAVIGATION_ITEM: string = "ic-navigation-item";
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
   private COLLAPSED_ICON_LABELS_END = "collapsed-icon-labels-end";
   private COLLAPSED_ICON_LABELS_START = "collapsed-icon-labels-start";
-  private menuButton: HTMLIcButtonElement = null;
+  private menuButton?: HTMLIcButtonElement;
 
   @Element() el: HTMLIcSideNavigationElement;
 
@@ -66,62 +66,62 @@ export class SideNavigation {
   /**
    * The app title to be displayed. This is required, unless a slotted app title link is used.
    */
-  @Prop() appTitle: string;
+  @Prop() appTitle?: string;
 
   /**
    * If `true`, the icon and label will appear when side navigation is collapsed.
    */
-  @Prop() collapsedIconLabels: boolean = false;
+  @Prop() collapsedIconLabels?: boolean = false;
 
   /**
    * If `true`, automatic parent wrapper styling will be disabled.
    */
-  @Prop() disableAutoParentStyling: boolean = false;
+  @Prop() disableAutoParentStyling?: boolean = false;
 
   /**
    * If `true`, the side navigation will not display as a top bar on small devices.
    */
-  @Prop() disableTopBarBehaviour: boolean = false;
+  @Prop() disableTopBarBehaviour?: boolean = false;
 
   /**
    * If `true`, the side navigation will display in an expanded state.
    */
-  @Prop() expanded: boolean = false;
+  @Prop() expanded?: boolean = false;
 
   @Watch("expanded")
   watchExpandedHandler(): void {
-    this.toggleMenuExpanded(this.expanded);
+    this.toggleMenuExpanded(this.expanded!);
   }
 
   /**
    * The URL that the app title link points to.
    */
-  @Prop() href: string = "/";
+  @Prop() href?: string = "/";
 
   /**
    * @internal If `true`, side navigation will be contained by its parent element.
    */
-  @Prop() inline: boolean = false;
+  @Prop() inline?: boolean = false;
 
   /**
    * The short title of the app to be displayed at small screen sizes in place of the app title.
    */
-  @Prop() shortAppTitle: string = "";
+  @Prop() shortAppTitle?: string = "";
 
   /**
    * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
    */
-  @Prop() static: boolean = false;
+  @Prop() static?: boolean = false;
 
   /**
    * The status of the app to be displayed.
    */
-  @Prop() status: string;
+  @Prop() status?: string;
 
   /**
    * The version of the app to be displayed.
    */
-  @Prop() version: string;
+  @Prop() version?: string;
 
   /**
    * Emitted when the side navigation is collapsed and expanded.
@@ -129,7 +129,7 @@ export class SideNavigation {
   @Event() icSideNavExpanded: EventEmitter<IcExpandedDetail>;
 
   componentWillLoad(): void {
-    this.setMenuExpanded(this.expanded);
+    this.setMenuExpanded(this.expanded!);
 
     if (this.collapsedIconLabels) {
       this.setCollapsedIconLabels();
@@ -178,7 +178,7 @@ export class SideNavigation {
   }): void => {
     this.icSideNavExpanded.emit({
       sideNavExpanded: objDetails.sideNavExpanded,
-      sideNavMobile: objDetails.sideNavMobile,
+      sideNavMobile: !!objDetails.sideNavMobile,
     });
   };
 
@@ -197,7 +197,7 @@ export class SideNavigation {
   };
 
   private setToggleMenuFlyoutMenuVisibility = (menuOpen: boolean) => {
-    const sideNav = this.el.shadowRoot.querySelector(
+    const sideNav = this.el.shadowRoot?.querySelector(
       "#side-navigation"
     ) as HTMLDivElement;
     const sideNavInner = sideNav.querySelector(
@@ -221,7 +221,7 @@ export class SideNavigation {
   };
 
   private setMobileMenuAriaAttributes = (menuOpen: boolean) => {
-    if (this.menuButton !== null) {
+    if (this.menuButton) {
       this.menuButton.setAttribute("aria-expanded", `${menuOpen}`);
       this.menuButton.setAttribute(
         "aria-label",
@@ -232,13 +232,13 @@ export class SideNavigation {
 
   private setAndRemoveNoWrapAfterMenuExpanded = () => {
     const appTitle =
-      this.el.shadowRoot.querySelector(".title-link ic-typography") ||
+      this.el.shadowRoot?.querySelector(".title-link ic-typography") ||
       this.el.querySelector("[slot='app-title']");
 
-    appTitle.classList.add("ic-typography-no-wrap");
+    appTitle?.classList.add("ic-typography-no-wrap");
 
     setTimeout(() => {
-      appTitle.classList.remove("ic-typography-no-wrap");
+      appTitle?.classList.remove("ic-typography-no-wrap");
     }, this.ANIMATION_DURATION);
   };
 
@@ -250,13 +250,13 @@ export class SideNavigation {
     if (this.menuExpanded) {
       this.setAndRemoveNoWrapAfterMenuExpanded();
       this.el.shadowRoot
-        .querySelector(".app-title-inner-wrapper")
-        .classList.add("app-title-show");
+        ?.querySelector(".app-title-inner-wrapper")
+        ?.classList.add("app-title-show");
     } else {
       this.el.style.setProperty("--navigation-item-width", "320px");
       this.el.shadowRoot
-        .querySelector(".app-title-inner-wrapper")
-        .classList.remove("app-title-show");
+        ?.querySelector(".app-title-inner-wrapper")
+        ?.classList.remove("app-title-show");
 
       this.el.addEventListener("transitionend", (e) => {
         if (e.propertyName === "width") {
@@ -297,8 +297,8 @@ export class SideNavigation {
           navItemSlot = navItem.children[0];
         }
         const iconWrapper = document.createElement("div");
-        const icon = navItemSlot.querySelector("svg");
-        const label = navItem.textContent.trim();
+        const icon = navItemSlot?.querySelector("svg");
+        const label = navItem.textContent?.trim();
         const icTypography = document.createElement("ic-typography");
         icTypography.classList.add(
           "ic-typography-label",
@@ -307,19 +307,23 @@ export class SideNavigation {
         );
 
         iconWrapper.style.height = "var(--ic-space-lg)";
-        iconWrapper.append(icon);
 
-        navItemSlot.textContent = "";
+        icon && iconWrapper.append(icon);
 
-        icTypography.textContent = label;
+        if (label) {
+          icTypography.textContent = label;
+        }
 
-        navItemSlot.append(iconWrapper);
-        navItemSlot.append(icTypography);
+        if (navItemSlot) {
+          navItemSlot.textContent = "";
+          navItemSlot.append(iconWrapper);
+          navItemSlot.append(icTypography);
+        }
 
         if (this.collapsedIconLabels) {
-          this.styleSlottedCollapsedIconLabels(menuExpanded, icTypography);
+          this.styleSlottedCollapsedIconLabels(!!menuExpanded, icTypography);
         } else {
-          this.styleSlottedIconLabels(menuExpanded, icTypography);
+          this.styleSlottedIconLabels(!!menuExpanded, icTypography);
         }
       }
     });
@@ -343,7 +347,7 @@ export class SideNavigation {
   };
 
   private setExpandedButtonHeight = () => {
-    const appStatusWrapper = this.el.shadowRoot.querySelector(
+    const appStatusWrapper = this.el.shadowRoot?.querySelector(
       "#side-navigation > .bottom-wrapper > .bottom-side-nav > .app-status-wrapper"
     ) as HTMLDivElement;
 
@@ -373,11 +377,11 @@ export class SideNavigation {
   };
 
   private transitionHandler = (type: string) => {
-    const primaryNavigationWrapper = this.el.shadowRoot.querySelector(
+    const primaryNavigationWrapper = this.el.shadowRoot?.querySelector(
       ".primary-navigation"
     );
 
-    const secondaryNavigationWrapper = this.el.shadowRoot.querySelector(
+    const secondaryNavigationWrapper = this.el.shadowRoot?.querySelector(
       ".bottom-wrapper > .secondary-navigation"
     );
 
@@ -424,15 +428,19 @@ export class SideNavigation {
       navItems[0].querySelector("div");
     const navItemSVG = navItems[0].querySelector("svg");
 
-    const navStyles = {
-      gap: window.getComputedStyle(navItemLink).gap,
-      iconWidth: window.getComputedStyle(navItemSVG).width,
-      paddingLeft: window.getComputedStyle(navItemLink).paddingLeft,
-    };
+    if (navItemLink && navItemSVG) {
+      const navStyles = {
+        gap: window.getComputedStyle(navItemLink).gap,
+        iconWidth: window.getComputedStyle(navItemSVG).width,
+        paddingLeft: window.getComputedStyle(navItemLink).paddingLeft,
+      };
 
-    return Object.values(navStyles).reduce((prev, curr) => {
-      return (prev += parseInt(curr));
-    }, 0);
+      return Object.values(navStyles).reduce((prev, curr) => {
+        return (prev += parseInt(curr));
+      }, 0);
+    }
+
+    return 0;
   };
 
   private displayTooltipWithExpandedLongLabel = (menuExpanded: boolean) => {
@@ -462,7 +470,10 @@ export class SideNavigation {
               navigationItem.querySelector("ic-typography.ic-typography-label")
                 ?.scrollWidth;
 
-            if (icTypographyScrollWidth > sideNavWidth - paddingIconDelta) {
+            if (
+              icTypographyScrollWidth &&
+              icTypographyScrollWidth > sideNavWidth - paddingIconDelta
+            ) {
               navigationItem.setAttribute("display-navigation-tooltip", "true");
             }
           }
@@ -490,16 +501,16 @@ export class SideNavigation {
    * @param value - padding-top css value
    */
   private setParentPaddingTop = (value: string) => {
-    this.el.parentElement.style.setProperty("padding-top", value);
+    this.el.parentElement?.style.setProperty("padding-top", value);
   };
 
   private setParentPaddingLeft = (value: string) => {
-    this.el.parentElement.style.setProperty("padding-left", value);
+    this.el.parentElement?.style.setProperty("padding-left", value);
   };
 
   private renderAppTitle = (isAppNameSubtitleVariant: boolean) => {
     const displayShortAppTitle =
-      this.deviceSize <= DEVICE_SIZES.S && !isEmptyString(this.shortAppTitle);
+      this.deviceSize <= DEVICE_SIZES.S && !isEmptyString(this.shortAppTitle!);
     return (
       <ic-typography
         variant={
@@ -526,18 +537,18 @@ export class SideNavigation {
 
     if (!this.disableAutoParentStyling) {
       const topBarHeight =
-        this.el.shadowRoot.querySelector(".top-bar")?.scrollHeight;
+        this.el.shadowRoot?.querySelector(".top-bar")?.scrollHeight;
       this.setParentPaddingTop(
         isSmallAndDisableTopBar ? `${topBarHeight}px` : "0"
       );
       if (isSmallAndDisableTopBar) this.setParentPaddingLeft("0");
       if (isSmallAndDisableTopBar && this.inline) {
-        this.el.parentElement.style.setProperty(
+        this.el.parentElement?.style.setProperty(
           "height",
           `calc(100% - ${topBarHeight}px)`
         );
       } else if (!isSmallAndDisableTopBar) {
-        this.el.parentElement.style.setProperty("height", "100%");
+        this.el.parentElement?.style.setProperty("height", "100%");
       }
     }
 
@@ -595,7 +606,7 @@ export class SideNavigation {
 
     dynamicSlottedIcTypographyComps.forEach((icTypography) => {
       if (
-        icTypography?.parentElement?.parentElement?.classList.contains(
+        icTypography.parentElement?.parentElement?.classList.contains(
           "navigation-item-side-nav-collapsed-with-label"
         )
       ) {
@@ -714,9 +725,9 @@ export class SideNavigation {
       isSDevice,
       foregroundColor,
       menuOpen,
-      href,
+      href: href!,
       isAppNameSubtitleVariant,
-      appTitle,
+      appTitle: appTitle || "",
     };
 
     return (
@@ -727,12 +738,12 @@ export class SideNavigation {
           "sm-collapsed": !isSDevice && !menuExpanded,
           "sm-expanded": !isSDevice && menuExpanded,
           "side-display":
-            this.deviceSize > DEVICE_SIZES.S || this.disableTopBarBehaviour,
+            this.deviceSize > DEVICE_SIZES.S || !!this.disableTopBarBehaviour,
           [`ic-side-navigation-${IcBrandForegroundEnum.Dark}`]:
             foregroundColor === IcBrandForegroundEnum.Dark,
           ["collapsed-labels"]:
-            !isSDevice && !menuExpanded && collapsedIconLabels,
-          ["ic-side-navigation-inline"]: inline,
+            !isSDevice && !menuExpanded && !!collapsedIconLabels,
+          ["ic-side-navigation-inline"]: !!inline,
         }}
       >
         {isSDevice && this.renderTopBar({ ...topBarProps })}

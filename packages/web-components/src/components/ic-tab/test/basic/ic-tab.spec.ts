@@ -71,7 +71,7 @@ describe("ic-tab component", () => {
     IC Tab Test
   </ic-tab>`);
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root)
