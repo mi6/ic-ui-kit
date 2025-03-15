@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                                                                                                                             | Type                             | Default     |
-| ------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------- |
-| `expandable` | `expandable` | If `true`, the group will be expandable in the side menu.                                                                               | `boolean`                        | `false`     |
-| `label`      | `label`      | The label to display on the group.                                                                                                      | `string`                         | `undefined` |
-| `theme`      | `theme`      | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"` | `"inherit"` |
+| Property             | Attribute    | Description                                                                                                                             | Type                             | Default     |
+| -------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----------- |
+| `expandable`         | `expandable` | If `true`, the group will be expandable in the side menu.                                                                               | `boolean`                        | `false`     |
+| `label` _(required)_ | `label`      | The label to display on the group.                                                                                                      | `string`                         | `undefined` |
+| `theme`              | `theme`      | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"` | `"inherit"` |
 
 
 ## Methods

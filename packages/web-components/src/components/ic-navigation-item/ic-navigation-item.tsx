@@ -47,10 +47,10 @@ import { IcExpandedDetail } from "../ic-side-navigation/ic-side-navigation.types
   },
 })
 export class NavigationItem {
-  private navigationSlot: HTMLElement;
+  private navigationSlot: HTMLElement | null;
   private isInitialRender: boolean = true;
-  private itemEl: HTMLElement;
-  private hostMutationObserver: MutationObserver = null;
+  private itemEl?: HTMLElement;
+  private hostMutationObserver: MutationObserver | null = null;
   private ANIMATION_DURATION =
     parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
   private ARIA_LABEL_STRING = "aria-label";
@@ -64,19 +64,19 @@ export class NavigationItem {
   @State() isSideNavMobile: boolean = false;
   @State() isTopNavChild: boolean = false;
   @State() navigationType: IcNavType | "";
-  @State() parentEl: HTMLElement;
+  @State() parentEl: HTMLElement | null;
   @State() sideNavExpanded: boolean = false;
   @State() ariaLabel: string = "";
 
   /**
    * @internal If `true`, the icon and label will be displayed when side navigation is collapsed.
    */
-  @Prop() collapsedIconLabel: boolean = false;
+  @Prop() collapsedIconLabel?: boolean = false;
 
   /**
    * @internal If `true`, the navigation item will be displayed within a tooltip.
    */
-  @Prop() displayNavigationTooltip: boolean = false;
+  @Prop() displayNavigationTooltip?: boolean = false;
 
   /**
    * If `true`, the user can save the linked URL instead of navigating to it.
@@ -86,12 +86,12 @@ export class NavigationItem {
   /**
    *  @internal If `true`, the navigation item will be expandable.
    */
-  @Prop() expandable: boolean = false;
+  @Prop() expandable?: boolean = false;
 
   /**
    * The destination of the navigation item.
    */
-  @Prop() href: string = "";
+  @Prop() href?: string = "";
 
   /**
    * The human language of the linked URL.
@@ -101,7 +101,7 @@ export class NavigationItem {
   /**
    * The label of the navigation item.
    */
-  @Prop() label: string;
+  @Prop() label?: string;
 
   /**
    * The relationship of the linked URL as space-separated link types.
@@ -116,7 +116,7 @@ export class NavigationItem {
   /**
    *  If `true`, the navigation item will be set in a selected state.
    */
-  @Prop() selected: boolean = false;
+  @Prop() selected?: boolean = false;
 
   /**
    *  The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
@@ -140,14 +140,14 @@ export class NavigationItem {
 
   disconnectedCallback(): void {
     if (this.navigationType === "side") {
-      this.parentEl.removeEventListener(
+      this.parentEl?.removeEventListener(
         "icSideNavExpanded",
-        this.sideNavExpandHandler
+        this.sideNavExpandHandler as EventListener
       );
     } else if (this.navigationType === "top") {
-      this.parentEl.removeEventListener(
+      this.parentEl?.removeEventListener(
         "icTopNavResized",
-        this.topNavResizedHandler
+        this.topNavResizedHandler as EventListener
       );
     }
     this.hostMutationObserver?.disconnect();
@@ -161,34 +161,36 @@ export class NavigationItem {
 
     this.sideNavExpanded =
       this.parentEl?.classList.contains("sm-expanded") ||
-      this.parentEl?.classList.contains("xs-menu-open");
+      this.parentEl?.classList.contains("xs-menu-open") ||
+      false;
 
     if (this.navigationType === "side") {
-      this.parentEl.addEventListener(
+      this.parentEl?.addEventListener(
         "icSideNavExpanded",
-        this.sideNavExpandHandler
+        this.sideNavExpandHandler as EventListener
       );
     } else if (this.navigationType === "top") {
-      this.parentEl.addEventListener(
+      this.parentEl?.addEventListener(
         "icTopNavResized",
-        this.topNavResizedHandler
+        this.topNavResizedHandler as EventListener
       );
-      if (this.el.parentElement.tagName === "IC-NAVIGATION-GROUP")
+      if (this.el.parentElement?.tagName === "IC-NAVIGATION-GROUP")
         this.isTopNavChild = true;
       if (
         this.deviceSize <=
-        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint
+        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint!
       )
         this.inTopNavSideMenu = true;
     }
 
     this.navigationSlot = this.el.querySelector('[slot="navigation-item"]');
     if (this.navigationSlot) {
-      this.navigationSlot.ariaLabel = this.navigationSlot.textContent.trim();
+      this.navigationSlot.ariaLabel =
+        this.navigationSlot.textContent?.trim() || null;
     }
 
     if (this.el.hasAttribute(this.ARIA_LABEL_STRING)) {
-      this.ariaLabel = this.el.getAttribute(this.ARIA_LABEL_STRING);
+      this.ariaLabel = this.el.getAttribute(this.ARIA_LABEL_STRING) || "";
     }
   }
 
@@ -218,11 +220,11 @@ export class NavigationItem {
 
   private displayDefaultNavigationItem = (
     href: string,
-    hreflang: string,
-    target: string,
-    rel: string,
-    referrerpolicy: ReferrerPolicy,
-    download: string | boolean,
+    hreflang: string | undefined,
+    target: string | undefined,
+    rel: string | undefined,
+    referrerpolicy: ReferrerPolicy | undefined,
+    download: string | boolean | undefined,
     label: string
   ): HTMLElement => {
     const variant =
@@ -310,9 +312,12 @@ export class NavigationItem {
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
     mutationList.forEach(({ attributeName }) => {
-      if (attributeName === this.ARIA_LABEL_STRING) {
-        this.ariaLabel = this.el.getAttribute(attributeName);
-        forceComponentUpdate = true;
+      if (attributeName) {
+        const attribute = this.el.getAttribute(attributeName);
+        if (attribute && attributeName === this.ARIA_LABEL_STRING) {
+          this.ariaLabel = attribute;
+          forceComponentUpdate = true;
+        }
       }
     });
     if (forceComponentUpdate) {
@@ -339,7 +344,7 @@ export class NavigationItem {
   private renderNavigationItemContent = () => {
     if (this.label) {
       return this.displayDefaultNavigationItem(
-        this.href,
+        this.href!,
         this.hreflang,
         this.target,
         this.rel,
@@ -357,7 +362,7 @@ export class NavigationItem {
 
   // Displays tooltip only once the collapsing animation is finished
   private sideNavToggleTooltip = (showTooltip: boolean) => {
-    const tooltip = this.el.shadowRoot.querySelector("ic-tooltip");
+    const tooltip = this.el.shadowRoot?.querySelector("ic-tooltip");
     const collapsedClass = "tooltip-navigation-item-side-nav-collapsed";
     let timer;
 
@@ -384,27 +389,28 @@ export class NavigationItem {
           ["navigation-item-top-nav"]:
             !inTopNavSideMenu && this.navigationType === "top",
           ["navigation-item-top-nav-child-selected"]:
-            isTopNavChild && !inTopNavSideMenu && selected,
+            isTopNavChild && !inTopNavSideMenu && !!selected,
           [this.focusStyle]:
             (!inTopNavSideMenu && !isTopNavChild) ||
             (this.navigationType === "side" && isTopNavChild),
-          ["navigation-item-selected"]: !isTopNavChild && selected,
+          ["navigation-item-selected"]: !isTopNavChild && !!selected,
           ["navigation-item-side-menu"]: inTopNavSideMenu,
-          ["navigation-item-side-menu-selected"]: inTopNavSideMenu && selected,
+          ["navigation-item-side-menu-selected"]:
+            inTopNavSideMenu && !!selected,
           ["navigation-item-top-nav-child"]: isTopNavChild && !inTopNavSideMenu,
           ["navigation-item-page-header"]:
             this.navigationType === "page-header",
           ["with-transition"]: !this.isInitialRender,
           ["navigation-item-side-nav"]: this.navigationType === "side",
           ["navigation-item-side-nav-collapsed"]:
-            (!this.sideNavExpanded || this.displayNavigationTooltip) &&
+            (!this.sideNavExpanded || !!this.displayNavigationTooltip) &&
             this.navigationType === "side",
           ["navigation-item-side-nav-collapsed-with-label"]:
             !this.sideNavExpanded &&
             this.navigationType === "side" &&
-            this.collapsedIconLabel &&
+            !!this.collapsedIconLabel &&
             !this.isSideNavMobile,
-          ["expandable"]: this.expandable,
+          ["expandable"]: !!this.expandable,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         onBlur={isTopNavChild && !inTopNavSideMenu ? this.handleBlur : null}
@@ -414,13 +420,13 @@ export class NavigationItem {
       >
         {/* Tooltip enabled by applying navigation-item-side-nav-collapsed class to host */}
         <ic-tooltip
-          label={this.generateTooltipLabel()}
+          label={this.generateTooltipLabel() || ""}
           target="navigation-item"
           placement="right"
           class={{
             ["tooltip-navigation-item"]: true,
             ["tooltip-navigation-item-side-nav-collapsed"]:
-              this.displayNavigationTooltip && this.navigationType === "side",
+              !!this.displayNavigationTooltip && this.navigationType === "side",
             ["tooltip-long-label-navigation-item-side-nav-expanded"]:
               this.el.hasAttribute("[display-navigation-tooltip = 'true']"),
           }}

@@ -3,7 +3,7 @@
 exports[`ic-popover-menu should render a back button when submenu-id is set: should render a back button when submenu-id is set 1`] = `
 <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu" submenu-id="submenu">
   <template shadowrootmode="open">
-    <div class="menu" id="ic-popover-submenu-submenu" tabindex="0">
+    <div class="menu" id="ic-popover-submenu-submenu">
       <span>
         <span>
           <span role="menu">
@@ -79,7 +79,7 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
 exports[`ic-popover-menu should render a menu item and menu group: should render a menu item and menu group 1`] = `
 <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu">
   <template shadowrootmode="open">
-    <div class="menu" id="ic-popover-submenu-undefined" tabindex="0">
+    <div class="menu" id="ic-popover-submenu-undefined">
       <span>
         <ul aria-label="popover-menu" class="button" role="menu">
           <slot></slot>
@@ -190,7 +190,7 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
   <ic-button data-gets-focus id="anchorEl"></ic-button>
   <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu" class="ic-popover-menu-open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <template shadowrootmode="open">
-      <div class="menu" id="ic-popover-submenu-undefined" tabindex="0">
+      <div class="menu" id="ic-popover-submenu-undefined">
         <span>
           <ul aria-label="popover-menu" class="button" role="menu">
             <slot></slot>
@@ -239,7 +239,7 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
 exports[`ic-popover-menu should render when anchor starts with #: should render when target starts with # 1`] = `
 <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu">
   <template shadowrootmode="open">
-    <div class="menu" id="ic-popover-submenu-undefined" tabindex="0">
+    <div class="menu" id="ic-popover-submenu-undefined">
       <span>
         <ul aria-label="popover-menu" class="button" role="menu">
           <slot></slot>
@@ -270,7 +270,7 @@ exports[`ic-popover-menu should render when anchor starts with #: should render 
 exports[`ic-popover-menu should render with anchor: should render with anchor 1`] = `
 <ic-popover-menu anchor="anchorEl" aria-label="popover-menu">
   <template shadowrootmode="open">
-    <div class="menu" id="ic-popover-submenu-undefined" tabindex="0">
+    <div class="menu" id="ic-popover-submenu-undefined">
       <span>
         <ul aria-label="popover-menu" class="button" role="menu">
           <slot></slot>

@@ -35,7 +35,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update full-width 2`] = `
-<ic-toggle-button-group aria-label="Toggle button group" full-width="" role="group" select-type="single" tabindex="0" variant="default">
+<ic-toggle-button-group aria-label="Toggle button group" full-width="false" role="group" select-type="single" tabindex="0" variant="default">
   <template shadowrootmode="open">
     <slot></slot>
   </template>
@@ -107,7 +107,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update loading 2`] = `
-<ic-toggle-button-group aria-label="Toggle button group" loading="" role="group" select-type="single" tabindex="0" variant="default">
+<ic-toggle-button-group aria-label="Toggle button group" loading="false" role="group" select-type="single" tabindex="0" variant="default">
   <template shadowrootmode="open">
     <slot></slot>
   </template>
@@ -175,7 +175,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update monochrome 2`] = `
-<ic-toggle-button-group aria-label="Toggle button group" monochrome="" role="group" select-type="single" tabindex="0" variant="default">
+<ic-toggle-button-group aria-label="Toggle button group" monochrome="false" role="group" select-type="single" tabindex="0" variant="default">
   <template shadowrootmode="open">
     <slot></slot>
   </template>
@@ -243,7 +243,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
 `;
 
 exports[`ic-toggle-button-group component snapshot tests should render and update size 2`] = `
-<ic-toggle-button-group aria-label="Toggle button group" role="group" select-type="single" size="small" tabindex="0" variant="default">
+<ic-toggle-button-group aria-label="Toggle button group" role="group" select-type="single" size="large" tabindex="0" variant="default">
   <template shadowrootmode="open">
     <slot></slot>
   </template>

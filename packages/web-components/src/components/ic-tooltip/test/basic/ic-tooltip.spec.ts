@@ -178,7 +178,7 @@ describe("ic-tooltip component", () => {
 
     expect(page.rootInstance.label).toBe("tooltip");
 
-    page.root.label = "new tooltip";
+    page.root?.setAttribute("label", "new tooltip");
 
     await page.waitForChanges();
 
@@ -216,6 +216,19 @@ describe("ic-tooltip component", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.toolTip.getAttribute("data-show")).toBeNull;
+  });
+
+  it("should render correctly when on a dialog", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-dialog heading="Dialog heading">
+        <ic-tooltip label="tooltip"></ic-tooltip>
+      </ic-dialog>`,
+    });
+
+    page.rootInstance.onDialog = true;
+    await page.rootInstance.show(page.rootInstance.popperInstance);
+    expect(page.root).toMatchSnapshot();
   });
 
   describe("getTooltipTranslate", () => {
@@ -407,7 +420,7 @@ describe("ic-tooltip component", () => {
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
-      expect(page.root.placement).toBe("right");
+      expect(page.rootInstance.placement).toBe("right");
     });
   });
 
@@ -419,9 +432,51 @@ describe("ic-tooltip component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    const typographyEl = page.root.shadowRoot.querySelector(
+    const typographyEl = page.root?.shadowRoot?.querySelector(
       "div > ic-typography"
     ) as HTMLIcTypographyElement;
     expect(typographyEl.maxLines).toEqual(2);
+  });
+
+  it("should update the arrow position when tooltip is outside of dialog", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-tooltip target="test-button" label="tooltip" placement="top"><button id="test-button">Click</button></ic-tooltip>`,
+    });
+
+    page.rootInstance.dialogOverflow = true;
+    await page.waitForChanges();
+
+    await page.rootInstance.getTooltipTranslate({
+      left: 100,
+      right: 0,
+      top: 0,
+      bottom: 0,
+    });
+    await page.waitForChanges();
+
+    await page.rootInstance.show(page.rootInstance.popperInstance);
+    await page.waitForChanges();
+
+    expect(
+      page.rootInstance.toolTip.style.getPropertyValue(
+        "--tooltip-arrow-translate"
+      )
+    ).toBe("-100px");
+
+    page.rootInstance.placement = "bottom";
+
+    await page.rootInstance.getTooltipTranslate({
+      left: 200,
+      right: 0,
+      top: 0,
+      bottom: 0,
+    });
+
+    expect(
+      page.rootInstance.toolTip.style.getPropertyValue(
+        "--tooltip-arrow-translate"
+      )
+    ).toBe("-200px");
   });
 });

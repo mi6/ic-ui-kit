@@ -26,7 +26,7 @@ import {
   shadow: true,
 })
 export class PageHeader {
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
 
   @Element() el: HTMLIcPageHeaderElement;
 
@@ -114,7 +114,7 @@ export class PageHeader {
       this.deviceSize = currSize;
     }
 
-    const actionArea = this.el.shadowRoot.querySelector(
+    const actionArea = this.el.shadowRoot?.querySelector(
       "div.action-area"
     ) as HTMLElement;
     const actionHeights: number[] = [];
@@ -177,15 +177,15 @@ export class PageHeader {
     return (
       <Host
         class={{
-          ["ic-page-header-sticky"]: sticky,
-          ["ic-page-header-sticky-desktop"]: !sticky && stickyDesktopOnly,
+          ["ic-page-header-sticky"]: !!sticky,
+          ["ic-page-header-sticky-desktop"]: !sticky && !!stickyDesktopOnly,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         aria-label={this.el.ariaLabel || "page header"}
       >
         <header
           class={{
-            ["border-bottom"]: border,
+            ["border-bottom"]: !!border,
             ["tabs"]: isSlotUsed(this.el, "tabs"),
           }}
           role="presentation"

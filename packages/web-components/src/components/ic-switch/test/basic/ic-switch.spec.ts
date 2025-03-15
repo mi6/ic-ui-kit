@@ -19,7 +19,7 @@ describe("ic-switch component", () => {
 
     expect(page.root).toMatchSnapshot("renders-disabled");
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
@@ -51,8 +51,8 @@ describe("ic-switch component", () => {
 
     const callbackFn = jest.fn();
     page.doc.addEventListener("icFocus", callbackFn);
-    const input = page.root.shadowRoot.querySelector("input");
-    input.focus();
+    const input = page.root?.shadowRoot?.querySelector("input");
+    input?.focus();
     await page.waitForChanges();
     expect(callbackFn).toHaveBeenCalled();
   });
@@ -65,8 +65,8 @@ describe("ic-switch component", () => {
 
     const callbackFn = jest.fn();
     page.doc.addEventListener("icBlur", callbackFn);
-    const input = page.root.shadowRoot.querySelector("input");
-    input.blur();
+    const input = page.root?.shadowRoot?.querySelector("input");
+    input?.blur();
     await page.waitForChanges();
     expect(callbackFn).toHaveBeenCalled();
   });

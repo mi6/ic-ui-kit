@@ -12,7 +12,7 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test">
-        <ic-radio-option value="test"></ic-radio-option>    
+        <ic-radio-option value="test"></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -23,7 +23,7 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test"></ic-radio-option>    
+        <ic-radio-option value="test"></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -34,7 +34,7 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test" helperText="helper test">
-        <ic-radio-option value="test"></ic-radio-option>    
+        <ic-radio-option value="test"></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -45,7 +45,7 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option>    
+        <ic-radio-option value="test" selected></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -65,7 +65,7 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test" required validation-status="error" validation-text="error">
-        <ic-radio-option value="test" selected></ic-radio-option>    
+        <ic-radio-option value="test" selected></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -76,7 +76,7 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test" disabled>
-        <ic-radio-option value="test" label="test label" group-label="test group"></ic-radio-option>    
+        <ic-radio-option value="test" label="test label" group-label="test group"></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -92,13 +92,15 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test">
-        <ic-radio-option value="test" disabled label="test label" group-label="test group"></ic-radio-option>    
+        <ic-radio-option value="test" disabled label="test label" group-label="test group"></ic-radio-option>
       </ic-radio-group>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-option-disabled");
 
-    document.querySelector("ic-radio-option").disabled = false;
+    document
+      .querySelector("ic-radio-option")
+      ?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
@@ -110,7 +112,7 @@ describe("ic-radio-group", () => {
       html: `<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test" disabled label="test label" group-label="test group">
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
-        </ic-radio-option>    
+        </ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -125,7 +127,7 @@ describe("ic-radio-group", () => {
       html: `<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test" selected label="test label" group-label="test group">
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
-        </ic-radio-option>    
+        </ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -138,7 +140,7 @@ describe("ic-radio-group", () => {
       html: `<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test" label="test label" group-label="test group" additional-field-display="dynamic" selected>
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
-        </ic-radio-option>    
+        </ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -149,7 +151,7 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option>    
+        <ic-radio-option value="test" selected></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -157,7 +159,7 @@ describe("ic-radio-group", () => {
     page.doc.addEventListener("icChange", callbackFn);
     page.rootInstance.selectHandler({
       detail: { value: "true" },
-      target: page.root.querySelector("ic-radio-option"),
+      target: document.querySelector("ic-radio-option"),
     });
     await page.waitForChanges();
 
@@ -168,8 +170,8 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option>   
-        <ic-radio-option value="test2"></ic-radio-option>   
+        <ic-radio-option value="test" selected></ic-radio-option>
+        <ic-radio-option value="test2"></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -184,13 +186,13 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption, TextField],
       html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option> 
+        <ic-radio-option value="test" selected></ic-radio-option>
         <ic-radio-option label="test label">
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label" value="Test value"></ic-text-field>
         </ic-radio-option>
         <ic-radio-option label="test label" value="Radio value">
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
-        </ic-radio-option>   
+        </ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -213,7 +215,7 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption, TextField],
       html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option> 
+        <ic-radio-option value="test" selected></ic-radio-option>
         <ic-radio-option label="test label">
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label" value="Test value"></ic-text-field>
         </ic-radio-option>
@@ -232,7 +234,7 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioOption],
       html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option>    
+        <ic-radio-option value="test" selected></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -251,7 +253,7 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioOption],
       html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option>    
+        <ic-radio-option value="test" selected></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -280,22 +282,22 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioOption],
       html: `<form>
-        <ic-radio-option value="test" selected></ic-radio-option>    
-        <button id="resetButton" type="reset">Reset</button>  
+        <ic-radio-option value="test" selected></ic-radio-option>
+        <button id="resetButton" type="reset">Reset</button>
       </form>`,
     });
 
-    expect(page.root.selected).toBe(true);
+    expect(page.rootInstance.selected).toBe(true);
 
-    page.root.checked = false;
+    page.rootInstance.checked = false;
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(false);
+    expect(page.rootInstance.checked).toBe(false);
 
     await page.rootInstance.handleFormReset();
     await page.waitForChanges();
 
-    expect(page.root.selected).toBe(true);
+    expect(page.rootInstance.selected).toBe(true);
 
     //test disconnected callback
     page.setContent("");
@@ -306,8 +308,8 @@ describe("ic-radio-group", () => {
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test" required orientation="horizontal">
         <ic-radio-option value="test1" selected></ic-radio-option>
-        <ic-radio-option value="test2" ></ic-radio-option> 
-        <ic-radio-option value="test3"></ic-radio-option>    
+        <ic-radio-option value="test2" ></ic-radio-option>
+        <ic-radio-option value="test3"></ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -321,7 +323,7 @@ describe("ic-radio-group", () => {
         <ic-radio-option value="test1" selected></ic-radio-option>
         <ic-radio-option value="test" disabled label="test label" group-label="test group">
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
-        </ic-radio-option>      
+        </ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -335,7 +337,7 @@ describe("ic-radio-group", () => {
         <ic-radio-option value="test1" selected></ic-radio-option>
         <ic-radio-option value="test" disabled label="test label" group-label="test group">
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
-        </ic-radio-option>      
+        </ic-radio-option>
       </ic-radio-group>`,
     });
 
@@ -356,8 +358,8 @@ describe("ic-radio-group", () => {
       components: [RadioGroup, RadioOption, TextField],
       html: `<ic-radio-group label="test label" name="test" required orientation="horizontal">
       <ic-radio-option value="test1" selected></ic-radio-option>
-      <ic-radio-option value="test2"></ic-radio-option> 
-      <ic-radio-option value="test3"></ic-radio-option>    
+      <ic-radio-option value="test2"></ic-radio-option>
+      <ic-radio-option value="test3"></ic-radio-option>
     </ic-radio-group>`,
     });
 
@@ -371,14 +373,14 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test" required>
-      <ic-radio-option value="test"></ic-radio-option>   
-      <ic-radio-option value="test2" disabled></ic-radio-option> 
-      <ic-radio-option value="test3" selected></ic-radio-option>    
+      <ic-radio-option value="test"></ic-radio-option>
+      <ic-radio-option value="test2" disabled></ic-radio-option>
+      <ic-radio-option value="test3" selected></ic-radio-option>
     </ic-radio-group>`,
     });
 
     //test wrap around from end to beginning
-    page.root.dispatchEvent(
+    page.root?.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
         key: "ArrowDown",
         bubbles: true,
@@ -391,7 +393,7 @@ describe("ic-radio-group", () => {
     expect(page.rootInstance.radioOptions[0].selected).toBe(true);
     expect(page.rootInstance.radioOptions[2].selected).toBe(false);
 
-    page.root.dispatchEvent(
+    page.root?.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
         key: "ArrowDown",
         bubbles: true,
@@ -404,7 +406,7 @@ describe("ic-radio-group", () => {
     expect(page.rootInstance.radioOptions[0].selected).toBe(false);
     expect(page.rootInstance.radioOptions[2].selected).toBe(true);
 
-    page.root.dispatchEvent(
+    page.root?.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
         key: "ArrowUp",
         bubbles: true,
@@ -417,7 +419,7 @@ describe("ic-radio-group", () => {
     expect(page.rootInstance.radioOptions[0].selected).toBe(true);
     expect(page.rootInstance.radioOptions[2].selected).toBe(false);
 
-    page.root.dispatchEvent(
+    page.root?.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
         key: "ArrowRight",
         bubbles: true,
@@ -430,7 +432,7 @@ describe("ic-radio-group", () => {
     expect(page.rootInstance.radioOptions[0].selected).toBe(false);
     expect(page.rootInstance.radioOptions[2].selected).toBe(true);
 
-    page.root.dispatchEvent(
+    page.root?.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
         key: "ArrowLeft",
         bubbles: true,
@@ -444,7 +446,7 @@ describe("ic-radio-group", () => {
     expect(page.rootInstance.radioOptions[2].selected).toBe(false);
 
     //test wrap around from beginning to end
-    page.root.dispatchEvent(
+    page.root?.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
         key: "ArrowUp",
         bubbles: true,
@@ -462,19 +464,19 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test">
-        <ic-radio-option value="test"></ic-radio-option>    
+        <ic-radio-option value="test"></ic-radio-option>
       </ic-radio-group>`,
     });
 
     const radioContainer = document
       .querySelector("ic-radio-group")
-      .shadowRoot.querySelector(".radio-buttons-container");
+      ?.shadowRoot?.querySelector(".radio-buttons-container");
 
     jest.spyOn(page.rootInstance, "setRadioOptions").mockImplementation();
 
     await page.rootInstance.addSlotChangeListener();
 
-    radioContainer.dispatchEvent(new Event("slotchange"));
+    radioContainer?.dispatchEvent(new Event("slotchange"));
 
     await page.waitForChanges();
 
@@ -485,13 +487,13 @@ describe("ic-radio-group", () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test">
-        <ic-radio-option value="test"></ic-radio-option>    
+        <ic-radio-option value="test"></ic-radio-option>
       </ic-radio-group>`,
     });
 
     await page.waitForChanges();
 
-    const radioContainer = page.root.shadowRoot.querySelector(
+    const radioContainer = page.root?.shadowRoot?.querySelector(
       ".radio-buttons-container"
     );
     expect((radioContainer as any).__listeners.length).toBe(1);

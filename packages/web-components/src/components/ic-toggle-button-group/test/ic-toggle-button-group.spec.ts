@@ -64,7 +64,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
       </ic-toggle-button>
     </ic-toggle-button-group>`);
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root)
@@ -125,7 +125,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.rootInstance.fullWidth = false;
+    page.root?.setAttribute("full-width", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot();
@@ -142,7 +142,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.rootInstance.loading = false;
+    page.root?.setAttribute("loading", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot();
@@ -159,7 +159,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.rootInstance.monochrome = false;
+    page.root?.setAttribute("monochrome", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot();
@@ -176,7 +176,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.rootInstance.size = "large";
+    page.root?.setAttribute("size", "large");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot();
@@ -193,7 +193,7 @@ describe("ic-toggle-button-group component snapshot tests", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.rootInstance.variant = "default";
+    page.root?.setAttribute("variant", "default");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot();

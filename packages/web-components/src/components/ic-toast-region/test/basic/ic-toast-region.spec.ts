@@ -24,15 +24,15 @@ describe("ic-toast-region component", () => {
       </ic-toast-region>`,
     });
 
-    const toasts = page.root.querySelectorAll("ic-toast");
+    const toasts = document.querySelectorAll("ic-toast");
 
-    page.root.openToast = toasts[0];
+    page.rootInstance.openToast = toasts[0];
 
     await page.waitForChanges();
 
     expect(page.rootInstance.pendingVisibility.length).toBe(1);
 
-    page.root.openToast = toasts[1];
+    page.rootInstance.openToast = toasts[1];
 
     await page.waitForChanges();
 
@@ -57,7 +57,7 @@ describe("ic-toast-region component", () => {
       </ic-toast-region>`,
     });
 
-    const button = page.root.querySelector("ic-button");
+    const button = document.querySelector("ic-button");
     page.rootInstance.previouslyFocused = button;
 
     await page.rootInstance.handleDismissedToast();
@@ -73,7 +73,7 @@ describe("ic-toast-region component", () => {
       </ic-toast-region>`,
     });
 
-    const button = page.root.querySelector("button");
+    const button = document.querySelector("button");
     page.rootInstance.previouslyFocused = button;
 
     await page.rootInstance.handleDismissedToast();

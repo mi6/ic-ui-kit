@@ -85,7 +85,7 @@ describe("ic-popover-menu", () => {
       </ic-popover-menu>`,
     });
 
-    await page.root.openFromChild();
+    await page.root?.openFromChild();
     await page.waitForChanges();
     expect(page.rootInstance.openingFromChild).toBeTruthy();
     expect(page.rootInstance.open).toBeTruthy();
@@ -109,7 +109,7 @@ describe("ic-popover-menu", () => {
       </ic-popover-menu>`,
     });
 
-    await page.root.openFromParent();
+    await page.root?.openFromParent();
     await page.waitForChanges();
     expect(page.rootInstance.openingFromParent).toBeTruthy();
     expect(page.rootInstance.open).toBeTruthy();
@@ -131,7 +131,7 @@ describe("ic-popover-menu", () => {
 
     page.rootInstance.popoverMenuEls = [];
 
-    const menuItems = page.root.querySelectorAll("ic-menu-item");
+    const menuItems = document.querySelectorAll("ic-menu-item");
 
     await page.rootInstance.addMenuItems(menuItems);
     await page.waitForChanges();
@@ -150,7 +150,7 @@ describe("ic-popover-menu", () => {
     });
 
     //populating popoverEls before calling getNextItemToSelect
-    const menuItems = page.root.querySelectorAll("ic-menu-item");
+    const menuItems = document.querySelectorAll("ic-menu-item");
     await page.rootInstance.addMenuItems(menuItems);
     await page.waitForChanges();
 
@@ -182,7 +182,7 @@ describe("ic-popover-menu", () => {
     page.rootInstance.popoverMenuEls = [];
 
     //populating popoverEls before calling getNextItemToSelect
-    const menuItems = page.root.querySelectorAll("ic-menu-item");
+    const menuItems = document.querySelectorAll("ic-menu-item");
     await page.rootInstance.addMenuItems(menuItems);
     await page.waitForChanges();
 
@@ -238,7 +238,7 @@ describe("ic-popover-menu", () => {
 
     await page.rootInstance.handleKeyDown({
       key: "ArrowDown",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
@@ -260,7 +260,7 @@ describe("ic-popover-menu", () => {
 
     await page.rootInstance.handleKeyDown({
       key: "ArrowUp",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
@@ -282,7 +282,7 @@ describe("ic-popover-menu", () => {
 
     await page.rootInstance.handleKeyDown({
       key: "Home",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
@@ -305,13 +305,13 @@ describe("ic-popover-menu", () => {
 
     page.rootInstance.popoverMenuEls = [];
     //populating popoverEls before handleKeyDown
-    const menuItems = page.root.querySelectorAll("ic-menu-item");
+    const menuItems = document.querySelectorAll("ic-menu-item");
     await page.rootInstance.addMenuItems(menuItems);
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
       key: "End",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
 
@@ -332,12 +332,12 @@ describe("ic-popover-menu", () => {
     jest.spyOn(page.rootInstance, "closeMenu").mockImplementation();
 
     // Menu should be open before it can be closed
-    page.doc.querySelector("ic-popover-menu").open = true;
+    document.querySelector("ic-popover-menu")?.setAttribute("open", "true");
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
       key: "Escape",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(page.rootInstance.closeMenu).toHaveBeenCalled();
@@ -357,12 +357,13 @@ describe("ic-popover-menu", () => {
     jest.spyOn(page.rootInstance, "closeMenu").mockImplementation();
 
     // Menu should be open before it can be closed
-    page.doc.querySelector("ic-popover-menu").open = true;
+    document.querySelector("ic-popover-menu")?.setAttribute("open", "true");
+
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
       key: "Tab",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     expect(page.rootInstance.closeMenu).toHaveBeenCalled();
@@ -383,22 +384,22 @@ describe("ic-popover-menu", () => {
       </ic-popover-menu>`,
     });
 
-    const trigger = page.root.querySelector("#trigger-button");
+    const trigger = document.querySelector("#trigger-button");
 
     const event = new Event("click", {
       bubbles: true,
       cancelable: true,
     });
 
-    expect(page.root.open).toBeUndefined();
+    expect(page.rootInstance.open).toBeFalsy();
 
     // Make sure the event has a target for handleSubmenuChange
-    trigger.dispatchEvent(event);
+    trigger?.dispatchEvent(event);
 
     page.rootInstance.handleSubmenuChange(event);
     await page.waitForChanges();
     await waitForTimeout(1000);
-    expect(page.root.open).toBeFalsy();
+    expect(page.rootInstance.open).toBeFalsy();
   });
 
   it("should set the current popover's open prop to false when submenu is triggered", async () => {
@@ -411,7 +412,7 @@ describe("ic-popover-menu", () => {
       </ic-popover-menu>`,
     });
 
-    const trigger = page.root.querySelector("#trigger-button");
+    const trigger = document.querySelector("#trigger-button");
 
     const event = new CustomEvent("click", {
       bubbles: true,
@@ -419,14 +420,14 @@ describe("ic-popover-menu", () => {
       detail: { hasSubmenu: false, label: "Button 1" },
     });
 
-    expect(page.root.open).toBeUndefined();
+    expect(page.rootInstance.open).toBeFalsy();
 
     // Make sure the event has a target for handleMenuItemClick
-    trigger.dispatchEvent(event);
+    trigger?.dispatchEvent(event);
 
     page.rootInstance.handleMenuItemClick(event);
     await page.waitForChanges();
-    expect(page.root.open).toBeFalsy();
+    expect(page.rootInstance.open).toBeFalsy();
   });
 
   it("should close menu when an element that isn't in the popover is clicked", async () => {
@@ -461,6 +462,46 @@ describe("ic-popover-menu", () => {
     //TODO: When we move to cypress, make sure the AnchorEl is not focused (clicking off popover should focus whatever has been clicked instead)
   });
 
+  it("should close submenu when an element that isn't in the popover is clicked", async () => {
+    const page = await newSpecPage({
+      components: [PopoverMenu, MenuItem],
+      html: `<ic-button id="anchorEl"></ic-button>
+      <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu" id="initial-popover">
+      <ic-menu-item label="Button 1" submenu-trigger-for="submenu" id="trigger-button"></ic-menu-item>
+      <ic-menu-item label="Button 2"></ic-menu-item>
+      </ic-popover-menu>
+      <ic-popover-menu submenu-id="submenu">
+      <ic-menu-item label="Button 1"></ic-menu-item>
+      <ic-menu-item label="Button 2"></ic-menu-item>
+      </ic-popover-menu>`,
+    });
+
+    const trigger = document.querySelector("#trigger-button");
+
+    const event = new Event("click", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    trigger?.dispatchEvent(event);
+    await page.waitForChanges();
+
+    page.rootInstance.handleSubmenuChange(event);
+    await page.waitForChanges();
+
+    await waitForTimeout(1000);
+
+    const submenu = document.querySelectorAll("ic-popover-menu")[1];
+
+    expect(submenu.open).toBeTruthy();
+
+    const notPopover = document.body;
+    notPopover?.dispatchEvent(event);
+    await page.waitForChanges();
+
+    expect(submenu.open).toBeFalsy();
+  });
+
   it("should set current popover's open prop to false when back button is clicked", async () => {
     const page = await newSpecPage({
       components: [PopoverMenu, MenuItem],
@@ -471,7 +512,7 @@ describe("ic-popover-menu", () => {
       </ic-popover-menu>`,
     });
 
-    const back = page.root.shadowRoot.querySelector(
+    const back = page.root?.shadowRoot?.querySelector(
       ".ic-popover-submenu-back-button"
     );
 
@@ -480,9 +521,9 @@ describe("ic-popover-menu", () => {
       cancelable: true,
     });
 
-    back.dispatchEvent(event);
+    back?.dispatchEvent(event);
     await page.waitForChanges();
-    expect(page.root.open).toBeFalsy();
+    expect(page.rootInstance.open).toBeFalsy();
   });
 
   it("should set open to false when menu is closed", async () => {
@@ -495,10 +536,10 @@ describe("ic-popover-menu", () => {
       </ic-popover-menu>`,
     });
 
-    expect(page.root.open).toBeTruthy();
+    expect(page.rootInstance.open).toBeTruthy();
 
     page.rootInstance.closeMenu();
     await page.waitForChanges();
-    expect(page.root.open).toBeFalsy();
+    expect(page.rootInstance.open).toBeFalsy();
   });
 });

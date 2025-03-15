@@ -4,14 +4,14 @@ import { IcFocusableComponents } from "../../utils/types";
 @Component({ tag: "ic-toast-region" })
 export class ToastRegion {
   private pendingVisibility: HTMLIcToastElement[] = [];
-  private previouslyFocused: HTMLElement;
+  private previouslyFocused: HTMLElement | null;
 
   @Element() el: HTMLIcToastRegionElement;
 
   /**
    * The toast element to be displayed.
    */
-  @Prop({ mutable: true }) openToast: HTMLIcToastElement;
+  @Prop({ mutable: true }) openToast?: HTMLIcToastElement;
   @Watch("openToast")
   watchOpenToastHandler(newValue: HTMLIcToastElement): void {
     if (this.openToast !== undefined) {

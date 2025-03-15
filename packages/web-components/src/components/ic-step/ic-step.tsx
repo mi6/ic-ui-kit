@@ -103,7 +103,7 @@ export class Step {
 
     // STEP STATUS
     let stepStatus;
-    if (isPropDefined(this.status)) {
+    if (this.status && isPropDefined(this.status)) {
       stepStatus = this.status[0].toUpperCase() + this.status.slice(1);
     }
 
@@ -143,7 +143,7 @@ export class Step {
       <div
         class={{
           ["step"]: true,
-          ["current"]: this.current,
+          ["current"]: !!this.current,
           [`compact-step-${this.compactStepStyling}`]:
             !!this.compactStepStyling,
         }}
@@ -238,11 +238,10 @@ export class Step {
       <div
         class={{
           ["step-connect"]: true,
-          ["aligned-full-width"]:
-            this.el.parentElement.classList.contains("ic-stepper-default") &&
-            !this.el.parentElement.classList.contains(
-              "ic-stepper-aligned-left"
-            ),
+          ["aligned-full-width"]: !!(
+            this.el.parentElement?.classList.contains("ic-stepper-default") &&
+            !this.el.parentElement.classList.contains("ic-stepper-aligned-left")
+          ),
         }}
       >
         {partialBar}
@@ -286,11 +285,10 @@ export class Step {
         aria-label={`Step ${this.stepNum}${ariaLabel}`}
         aria-current={(this.current || this.type === "current") && "step"}
         class={{
-          ["aligned-full-width"]:
-            this.el.parentElement.classList.contains("ic-stepper-default") &&
-            !this.el.parentElement.classList.contains(
-              "ic-stepper-aligned-left"
-            ),
+          ["aligned-full-width"]: !!(
+            this.el.parentElement?.classList.contains("ic-stepper-default") &&
+            !this.el.parentElement.classList.contains("ic-stepper-aligned-left")
+          ),
           [`ic-step-${this.variant}`]: true,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
