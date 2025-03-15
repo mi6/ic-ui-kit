@@ -39,7 +39,7 @@ const TOP_NAVIGATION = "IC-TOP-NAVIGATION";
   },
 })
 export class Badge {
-  private ariaLabel: string = null;
+  private ariaLabel: string | null = null;
   private foregroundColour: IcBrandForeground;
   private parentAriaLabel: string;
 
@@ -59,7 +59,7 @@ export class Badge {
    * The custom badge colour. This will only style the badge component if variant="custom".
    * Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
-  @Prop() customColor?: IcColor = null;
+  @Prop() customColor?: IcColor;
 
   @Watch("customColor")
   customColorHandler(): void {
@@ -112,7 +112,7 @@ export class Badge {
   /**
    * If `true`, the badge will be displayed.
    */
-  @Prop() visible: boolean = true;
+  @Prop() visible?: boolean = true;
 
   @Watch("visible")
   visibleHandler(): void {
@@ -150,7 +150,7 @@ export class Badge {
   }
 
   private setBadgeColour = () => {
-    const colorRGBA = convertToRGBA(this.customColor);
+    const colorRGBA = this.customColor ? convertToRGBA(this.customColor) : null;
 
     if (colorRGBA) {
       const { r, g, b, a } = colorRGBA;
@@ -185,7 +185,7 @@ export class Badge {
           : "";
         parentEl.ariaLabel = this.visible
           ? `${ariaLabelPrefix} ${defaultAriaLabel}`
-          : undefined;
+          : null;
       } else {
         this.ariaLabel = `, ${defaultAriaLabel}`;
       }
@@ -193,19 +193,22 @@ export class Badge {
   };
 
   private setPositionInTopNavigation = () => {
-    const parentTopNavEl = this.el.parentElement.parentElement;
-    parentTopNavEl.classList.contains("mobile-mode")
+    const parentTopNavEl = this.el.parentElement?.parentElement;
+    parentTopNavEl?.classList.contains("mobile-mode")
       ? (this.position = "inline")
       : (this.position = "near");
   };
 
   private isInTopNav = (): boolean => {
     const parentEl = this.el.parentElement;
-    const grandparentEl = parentEl.parentElement;
-    return (
-      parentEl.tagName === NAVIGATION_BUTTON &&
-      grandparentEl.tagName === TOP_NAVIGATION
-    );
+    if (parentEl) {
+      const grandparentEl = parentEl?.parentElement;
+      return (
+        parentEl?.tagName === NAVIGATION_BUTTON &&
+        grandparentEl?.tagName === TOP_NAVIGATION
+      );
+    }
+    return false;
   };
 
   private isAccessibleLabelDefined = () =>

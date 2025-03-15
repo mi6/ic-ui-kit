@@ -44,6 +44,18 @@ exports[`button component should disable tooltip when prop set 1`] = `
 </ic-button>
 `;
 
+exports[`button component should render a 'file' type input when fileUpload prop is enabled 1`] = `
+<ic-button class="ic-button-size-medium ic-button-variant-primary" exportparts="button" file-upload="">
+  <mock:shadow-root>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <input accept="*" class="ic-input" hidden="" name="ic-button-file-upload-input-31" type="file">
+</ic-button>
+`;
+
 exports[`button component should render correct HTML for destructive variant 1`] = `
 <ic-button class="ic-button-size-medium ic-button-variant-destructive" exportparts="button" variant="destructive">
   <mock:shadow-root>

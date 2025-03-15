@@ -20,7 +20,7 @@ import { IcSizesNoLarge, IcThemeMode } from "../../utils/types";
 })
 export class DataRow {
   private hasEndComponent: boolean = false;
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
 
   @Element() el: HTMLIcDataRowElement;
 
@@ -30,7 +30,7 @@ export class DataRow {
   /**
    * The label in the leftmost cell of the row.
    */
-  @Prop() label: string;
+  @Prop() label?: string;
 
   /**
    * The size of the data row component.
@@ -45,7 +45,7 @@ export class DataRow {
   /**
    * The value of the middle (right if no end-component supplied) cell of the row.
    */
-  @Prop() value: string;
+  @Prop() value?: string;
 
   disconnectedCallback(): void {
     this.resizeObserver?.disconnect();
@@ -71,10 +71,17 @@ export class DataRow {
   };
 
   private checkLabelAbove() {
-    const rowSize = this.el.shadowRoot.querySelector(".data")?.clientWidth + 46;
-    if (rowSize) {
-      this.listSize =
-        rowSize < DEVICE_SIZES.S ? "xs" : rowSize < DEVICE_SIZES.M ? "m" : "xl";
+    const row = this.el.shadowRoot?.querySelector(".data");
+    if (row) {
+      const rowSize = row?.clientWidth + 46;
+      if (rowSize) {
+        this.listSize =
+          rowSize < DEVICE_SIZES.S
+            ? "xs"
+            : rowSize < DEVICE_SIZES.M
+            ? "m"
+            : "xl";
+      }
     }
   }
 
@@ -103,7 +110,7 @@ export class DataRow {
 
   private labelEndComponent(): void {
     this.el.shadowRoot
-      .querySelectorAll("slot[name=end-component]")
+      ?.querySelectorAll("slot[name=end-component]")
       .forEach((child) =>
         child.setAttribute("aria-label", `for ${this.label} row`)
       );

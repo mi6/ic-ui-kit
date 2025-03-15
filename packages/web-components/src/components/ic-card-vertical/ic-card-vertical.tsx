@@ -43,7 +43,7 @@ import chevronIcon from "../../assets/chevron-icon.svg";
   shadow: true,
 })
 export class CardVertical {
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el: HTMLIcCardVerticalElement;
 
@@ -123,7 +123,7 @@ export class CardVertical {
   @Prop({ mutable: true }) theme?: IcThemeMode = "inherit";
 
   disconnectedCallback(): void {
-    if (this.parentIsAnchorTag) {
+    if (this.parentEl && this.parentIsAnchorTag) {
       this.parentEl.removeEventListener("focus", this.parentFocussed);
       this.parentEl.removeEventListener("blur", this.parentBlurred);
     }
@@ -134,7 +134,7 @@ export class CardVertical {
   componentWillLoad(): void {
     this.parentEl = this.el.parentElement;
 
-    if (this.parentEl.tagName === "A") {
+    if (this.parentEl?.tagName === "A") {
       this.clickable = true;
       this.parentIsAnchorTag = true;
       this.parentEl.classList.add("ic-card-wrapper-link");
@@ -191,10 +191,14 @@ export class CardVertical {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("a")) {
-      this.el.shadowRoot.querySelector("a").focus();
-    } else if (this.el.shadowRoot.querySelector("button")) {
-      this.el.shadowRoot.querySelector("button").focus();
+    const shadowRoot = this.el.shadowRoot;
+
+    if (shadowRoot) {
+      if (shadowRoot.querySelector("a")) {
+        shadowRoot.querySelector("a")?.focus();
+      } else if (shadowRoot.querySelector("button")) {
+        shadowRoot.querySelector("button")?.focus();
+      }
     }
   }
 
@@ -206,7 +210,7 @@ export class CardVertical {
     this.isFocussed = false;
   };
 
-  private updateTheme(mode: IcBrandForeground = null): void {
+  private updateTheme(mode: IcBrandForeground | null = null): void {
     const foregroundColor = getBrandFromContext(this.el, mode);
 
     if (foregroundColor !== IcBrandForegroundEnum.Default) {
@@ -266,15 +270,15 @@ export class CardVertical {
         <Component
           class={{
             card: true,
-            clickable: clickable && !disabled,
-            disabled,
-            fullwidth: fullWidth,
+            clickable: !!clickable && !disabled,
+            disabled: !!disabled,
+            fullwidth: !!fullWidth,
             focussed: isFocussed,
             monochrome: monochrome,
           }}
-          tabindex={clickable && !parentIsAnchorTag ? 0 : null}
+          tabindex={clickable && !parentIsAnchorTag ? 0 : undefined}
           aria-disabled={disabled ? "true" : null}
-          disabled={disabled ? true : null}
+          disabled={disabled}
           {...attrs}
         >
           {isSlotUsed(this.el, "image-top") && (
