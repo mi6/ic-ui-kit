@@ -1348,7 +1348,7 @@ ic-theme,
   --ic-tree-view-divider: var(--ic-state-layer-neutral-dark);
   --ic-tree-view-hover: var(--ic-action-dark-bg-hover);
   --ic-tree-view-pressed: var(--ic-action-dark-bg-pressed);
-  --ic-tree-view-selected: var(--ic-action-light-selected);
+  --ic-tree-view-selected: var(--ic-action-default-bg-pressed);
 }
 
 /* colors for system dark mode */
@@ -2738,7 +2738,7 @@ ic-theme,
     /* Tree view */
     --ic-tree-view-text: var(--ic-color-text-primary);
     --ic-tree-view-background: var(--ic-color-background-primary);
-    --ic-tree-view-text-disabled: var(--ic-color-text-disabled-dark);
+    --ic-tree-view-text-disabled: var(--ic-color-text-disabled);
     --ic-tree-view-icon-disabled: var(--ic-color-icon-pressed);
     --ic-tree-view-icon: var(--ic-color-icon-inverted);
     --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
@@ -2746,7 +2746,7 @@ ic-theme,
     --ic-tree-view-divider: var(--ic-state-layer-neutral-light);
     --ic-tree-view-hover: var(--ic-action-light-bg-hover);
     --ic-tree-view-pressed: var(--ic-action-light-bg-pressed);
-    --ic-tree-view-selected: var(--ic-action-dark-selected);
+    --ic-tree-view-selected: var(--ic-action-default-bg-pressed-30);
   }
 }
 
@@ -4065,7 +4065,7 @@ ic-theme,
   /* Tree view */
   --ic-tree-view-text: var(--ic-color-text-primary);
   --ic-tree-view-background: var(--ic-color-background-primary);
-  --ic-tree-view-text-disabled: var(--ic-color-text-disabled-dark);
+  --ic-tree-view-text-disabled: var(--ic-color-text-disabled);
   --ic-tree-view-icon-disabled: var(--ic-color-icon-pressed);
   --ic-tree-view-icon: var(--ic-color-icon-inverted);
   --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
@@ -4073,5 +4073,5 @@ ic-theme,
   --ic-tree-view-divider: var(--ic-state-layer-neutral-light);
   --ic-tree-view-hover: var(--ic-action-light-bg-hover);
   --ic-tree-view-pressed: var(--ic-action-light-bg-pressed);
-  --ic-tree-view-selected: var(--ic-action-dark-selected);
+  --ic-tree-view-selected: var(--ic-action-default-bg-pressed-30);
 }

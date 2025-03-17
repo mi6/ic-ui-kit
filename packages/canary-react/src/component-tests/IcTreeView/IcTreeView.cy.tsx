@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-no-bind */
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import React, { ReactElement } from "react";
 import { mount } from "cypress/react";
@@ -19,8 +18,8 @@ const TREE_ITEM_CONTENT = ".tree-item-content";
 const DEFAULT_TEST_THRESHOLD = 0.025;
 
 export const BasicTreeView = (
-  props?: any,
-  treeItemProps?: any
+  props?: object,
+  treeItemProps?: object
 ): ReactElement => (
   <div
     style={{
@@ -277,7 +276,9 @@ describe("IcTreeView", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
 
-    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(0).realHover("mouse");
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT)
+      .eq(0)
+      .realHover({ pointer: "mouse" });
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -418,7 +419,9 @@ describe("IcTreeView", () => {
   it("should have hover state", () => {
     mount(<BasicTreeView />);
 
-    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(0).realHover("mouse");
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT)
+      .eq(0)
+      .realHover({ pointer: "mouse" });
 
     cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT)
       .eq(0)
