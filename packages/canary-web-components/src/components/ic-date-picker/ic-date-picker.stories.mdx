@@ -22,6 +22,7 @@ import {
   HideButtons,
   JSDates,
   IcChangeDate,
+  IcSelectedDateChange,
 } from "./story-data";
 import { html } from "lit-html";
 import readme from "./readme.md";
@@ -410,5 +411,32 @@ The `IcChange` event is emitted by the date picker when the selected date change
   };
   const datePicker = document.querySelector("#ic-change-datepicker");
   datePicker.addEventListener("icChange", updateSelectedDate);
+</script>
+```
+
+### IcSelectedDateChange event
+
+The `IcSelectedDateChange` event is emitted by the date picker when the selected date changes.
+
+<Canvas withSource="none">
+  <Story name="IcSelectedDateChange event" height="540px">
+    {IcSelectedDateChange()}
+  </Story>
+</Canvas>
+
+#### IcSelectedDateChange event code example
+
+```html
+<div style="display: flex; flex-direction: column; gap: 50px;">
+  <ic-date-picker id="ic-change-datepicker" />
+  <span id="selected-date"> Selected date: </span>
+</div>
+<script>
+  const displaySelectedDate = (ev) => {
+    console.log("Selected date: " + ev.detail.value);
+  };
+  const datePicker = document.querySelector("#ic-change-datepicker");
+  datePicker.addEventListener("icSelectedDateChange", updateSelectedDate);
+  datePicker.showDateInput = false;
 </script>
 ```

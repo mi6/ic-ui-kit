@@ -72,6 +72,7 @@ interface IcDateInputProps {
   required?: boolean;
   showClearButton?: boolean;
   showCalendarButton?: boolean;
+  showDateInput?: boolean;
   size?: IcSizes;
   value?: string | Date;
   validationStatus?: IcInformationStatusOrEmpty;
@@ -263,6 +264,18 @@ export class DatePicker {
   @Prop() required?: boolean = false;
 
   /**
+   * * If `true`, shows the date input control allowing entry of a date using the keyboard. If this is not provided then the component shows a calendar instead.
+   */
+  @Prop() showDateInput?: boolean = true;
+
+  @Watch("showDateInput")
+  watchShowDateInputHandler(): void {
+    if (!this.showDateInput) {
+      this.calendarOpen = true;
+    }
+  }
+
+  /**
    * If `true`, days outside the current month will be visible in the date picker.
    */
   @Prop() showDaysOutsideMonth?: boolean = true;
@@ -412,6 +425,11 @@ export class DatePicker {
    */
   @Event() icChange: EventEmitter<{ value: Date }>;
 
+  /**
+   * Emitted when the selected date has changed.
+   */
+  @Event() icSelectedDateChange: EventEmitter<{ value: Date }>;
+
   componentWillLoad(): void {
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
@@ -429,6 +447,10 @@ export class DatePicker {
 
   componentWillRender(): void {
     this.dateInputProps = this.setDateInputProps();
+
+    if (!this.showDateInput) {
+      this.calendarOpen = true;
+    }
   }
 
   componentWillUpdate(): void {
@@ -448,7 +470,8 @@ export class DatePicker {
   @Listen("calendarButtonClicked", { target: "document" })
   calendarButtonClickHandler(): void {
     //closes this picker if calendar button in another clicked
-    if (!this.myCalendarButtonClicked) {
+
+    if (!this.myCalendarButtonClicked && this.showDateInput) {
       this.calendarOpen = false;
     }
     this.myCalendarButtonClicked = false;
@@ -470,8 +493,14 @@ export class DatePicker {
     if (d === null || !dateMatches(d, this.selectedDate)) {
       this.selectedDate = d;
       this.value = d;
+
       if (emit) {
-        this.inputEl.triggerIcChange(d);
+        if (this.inputEl) {
+          this.inputEl.triggerIcChange(d);
+        } else {
+          this.setFocussedDate(this.selectedDate);
+          this.icSelectedDateChange.emit({ value: d });
+        }
       }
     }
   };
@@ -489,14 +518,18 @@ export class DatePicker {
   };
 
   private handleDocumentClick = (): void => {
-    this.calendarOpen = false;
+    if (this.showDateInput) {
+      this.calendarOpen = false;
+    }
   };
 
   private keyDownHandler = (event: KeyboardEvent) => {
     if (event.key === "Escape") {
       if (this.calendarOpen) {
         this.closeButtonClickHandler();
-        this.inputEl.setCalendarFocus();
+        if (this.inputEl) {
+          this.inputEl.setCalendarFocus();
+        }
         event.stopImmediatePropagation();
       }
     } else {
@@ -506,7 +539,9 @@ export class DatePicker {
   };
 
   private closeButtonClickHandler = () => {
-    this.calendarOpen = false;
+    if (this.showDateInput) {
+      this.calendarOpen = false;
+    }
   };
 
   private focusFirstElement = () => {
@@ -797,8 +832,13 @@ export class DatePicker {
 
   private handleSelectDay = (day: Date): void => {
     this.setSelectedDate(day);
-    this.calendarOpen = false;
-    this.inputEl.setCalendarFocus();
+
+    if (this.showDateInput) {
+      this.calendarOpen = false;
+      if (this.inputEl) {
+        this.inputEl.setCalendarFocus();
+      }
+    }
   };
 
   private handleSelectMonth = (month: number): void => {
@@ -1299,10 +1339,8 @@ export class DatePicker {
     return inputProps;
   };
 
-  render() {
+  renderCalendar = () => {
     const {
-      calendarOpen,
-      dateInputProps,
       monthNames,
       size,
       focussedMonth,
@@ -1350,214 +1388,227 @@ export class DatePicker {
     }
 
     return (
-      <Host onKeyDown={this.keyDownHandler} class={size}>
-        <div class="date-input-container">
-          <ic-date-input
-            ref={(el) => (this.inputEl = el)}
-            {...dateInputProps}
-          ></ic-date-input>
-        </div>
-        {calendarOpen && (
-          <div>
-            <span id="dialog-description" class="sr-only">
-              {dialogDescription}
-            </span>
-            <div
-              role="dialog"
-              aria-modal="true"
-              aria-label={dialogLabel}
-              aria-describedBy="dialog-description"
-              class={{
-                "calendar-container": true,
-                above: this.showPickerAbove,
-              }}
-              onMouseDown={this.handleCalendarMouseDown}
-              onClick={this.handleCalendarClick}
-            >
-              <span
-                ref={(el) => (this.liveRegionEl = el)}
-                id="live-region"
-                aria-live="assertive"
-                class="sr-only"
-              ></span>
-              <div
-                class={{
-                  "month-year-nav-container": true,
-                }}
+      <div>
+        <span id="dialog-description" class="sr-only">
+          {dialogDescription}
+        </span>
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={dialogLabel}
+          aria-describedBy="dialog-description"
+          class={{
+            "calendar-container": true,
+            "show-date-input": this.showDateInput,
+            "hide-date-input": !this.showDateInput,
+            above: this.showPickerAbove,
+          }}
+          onMouseDown={this.handleCalendarMouseDown}
+          onClick={this.handleCalendarClick}
+        >
+          <span
+            ref={(el) => (this.liveRegionEl = el)}
+            id="live-region"
+            aria-live="assertive"
+            class="sr-only"
+          ></span>
+          <div
+            class={{
+              "month-year-nav-container": true,
+            }}
+          >
+            <div class="month-year-nav">
+              {this.previousMonthButton()}
+              <span id="select-month-hint" aria-hidden="true">
+                {monthButtonText}
+              </span>
+              <ic-button
+                ref={(el: HTMLIcButtonElement) => (this.monthButtonEl = el)}
+                size={size}
+                class="month-picker-button"
+                aria-haspopup="menu"
+                aria-expanded={monthPickerVisible ? "true" : "false"}
+                full-width="true"
+                variant="tertiary"
+                aria-label={monthLabel}
+                aria-describedby="select-month-hint"
+                onKeyDown={this.monthButtonKeyDownHandler}
+                onClick={this.monthButtonClickHandler}
               >
-                <div class="month-year-nav">
-                  {this.previousMonthButton()}
-                  <span id="select-month-hint" aria-hidden="true">
-                    {monthButtonText}
-                  </span>
-                  <ic-button
-                    ref={(el: HTMLIcButtonElement) => (this.monthButtonEl = el)}
-                    size={size}
-                    class="month-picker-button"
-                    aria-haspopup="menu"
-                    aria-expanded={monthPickerVisible ? "true" : "false"}
-                    full-width="true"
-                    variant="tertiary"
-                    aria-label={monthLabel}
-                    aria-describedby="select-month-hint"
-                    onKeyDown={this.monthButtonKeyDownHandler}
-                    onClick={this.monthButtonClickHandler}
-                  >
-                    {monthNames[monthInView]}
-                  </ic-button>
-                  {this.nextMonthButton()}
-                </div>
-                <div class="month-year-nav">
-                  {this.previousYearButton()}
-                  <span id="select-year-hint" aria-hidden="true">
-                    {yearButtonText}
-                  </span>
-                  <ic-button
-                    ref={(el: HTMLIcButtonElement) => (this.yearButtonEl = el)}
-                    size={size}
-                    class="year-picker-button"
-                    aria-haspopup="menu"
-                    aria-expanded={yearPickerVisible ? "true" : "false"}
-                    full-width="true"
-                    variant="tertiary"
-                    aria-label={yearLabel}
-                    aria-describedby="select-year-hint"
-                    onKeyDown={this.yearButtonKeyDownHandler}
-                    onClick={this.yearButtonClickHandler}
-                  >
-                    {this.yearInView}
-                  </ic-button>
-                  {this.nextYearButton()}
-                </div>
-              </div>
-              {!(monthPickerVisible || yearPickerVisible) && (
-                <div
-                  class={{
-                    calendar: true,
-                    hidden: monthPickerVisible || yearPickerVisible,
-                  }}
-                  onKeyDown={this.handleCalendarKeyDown}
-                >
-                  <div class="weekdays" aria-hidden="true">
-                    {orderedDaysOfWeek.map((dayName) => {
-                      const header =
-                        size === "small" ? dayName.charAt(0) : dayName;
-                      return (
-                        <div class="calendar-day-header">
-                          <ic-typography variant="caption">
-                            {header}
-                          </ic-typography>
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  <div class="calendar-days-container">
-                    {this.currMonthView.map((day) => (
-                      <DayButton
-                        day={day}
-                        disableDay={this.disableDays.includes(
-                          Number(day.getDay())
-                        )}
-                        today={dateMatches(day, this.today)}
-                        selected={dateMatches(day, this.selectedDate)}
-                        focussed={dateMatches(day, this.focussedDate)}
-                        inRange={dateInRange(day, minDay, maxDate)}
-                        monthInView={monthInView}
-                        onSelectDay={this.handleSelectDay}
-                        focussedDayRef={this.setFocussedDayEl}
-                        onFocusDay={this.onDayButtonFocusHandler}
-                        onBlurDay={this.onDayButtonBlurHandler}
-                        showDaysOutsideMonth={this.showDaysOutsideMonth}
-                      ></DayButton>
-                    ))}
-                  </div>
-                </div>
-              )}
-              <div
-                class={{
-                  "month-picker-container": true,
-                  hidden: !monthPickerVisible,
-                }}
+                {monthNames[monthInView]}
+              </ic-button>
+              {this.nextMonthButton()}
+            </div>
+            <div class="month-year-nav">
+              {this.previousYearButton()}
+              <span id="select-year-hint" aria-hidden="true">
+                {yearButtonText}
+              </span>
+              <ic-button
+                ref={(el: HTMLIcButtonElement) => (this.yearButtonEl = el)}
+                size={size}
+                class="year-picker-button"
+                aria-haspopup="menu"
+                aria-expanded={yearPickerVisible ? "true" : "false"}
+                full-width="true"
+                variant="tertiary"
+                aria-label={yearLabel}
+                aria-describedby="select-year-hint"
+                onKeyDown={this.yearButtonKeyDownHandler}
+                onClick={this.yearButtonClickHandler}
               >
-                {monthPickerVisible && (
-                  <MonthPicker
-                    size={size}
-                    onSelectMonth={this.handleSelectMonth}
-                    monthInView={monthInView}
-                    focussedMonth={focussedMonth}
-                    onKeyDown={this.monthPickerKeyDownHandler}
-                    focussedMonthRef={this.setFocussedMonthEl}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    yearInView={yearInView}
-                  ></MonthPicker>
-                )}
-              </div>
-              <div
-                class={{
-                  "year-picker-container": true,
-                  hidden: !yearPickerVisible,
-                }}
-              >
-                {yearPickerVisible && (
-                  <YearPicker
-                    decadeView={decadeView}
-                    size={size}
-                    focussedYear={focussedYear}
-                    onSelectYear={this.handleSelectYear}
-                    onKeyDown={this.yearPickerKeyDownHandler}
-                    onFocusYear={this.onYearButtonFocusHandler}
-                    onBlurYear={this.onYearButtonBlurHandler}
-                    yearInView={yearInView}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    focussedYearRef={this.setFocussedYearEl}
-                  ></YearPicker>
-                )}
-              </div>
-              <div
-                class={{
-                  "bottom-buttons": true,
-                  "no-today": !showPickerTodayButton,
-                }}
-              >
-                {showPickerTodayButton && (
-                  <ic-button
-                    id="today-button"
-                    variant="tertiary"
-                    ref={(el: HTMLIcButtonElement) => (this.todayButtonEl = el)}
-                    size={size}
-                    aria-label="Navigate to current date"
-                    onClick={this.todayButtonClickHandler}
-                    onKeyDown={this.todayButtonKeyDownHandler}
-                    disabled={this.isCurrentMonth()}
-                  >
-                    Go to today
-                  </ic-button>
-                )}
-                {showPickerClearButton && (
-                  <ic-button
-                    id="clear-button"
-                    aria-label="clear selected date"
-                    ref={(el: HTMLIcButtonElement) => (this.clearButtonEl = el)}
-                    variant="tertiary"
-                    size={size}
-                    onClick={this.clearButtonClickHandler}
-                    onKeyDown={this.clearButtonKeyDownHandler}
-                    disabled={
-                      this.value === "" ||
-                      this.value === null ||
-                      this.value === undefined
-                    }
-                  >
-                    Clear
-                  </ic-button>
-                )}
-              </div>
+                {this.yearInView}
+              </ic-button>
+              {this.nextYearButton()}
             </div>
           </div>
+          {!(monthPickerVisible || yearPickerVisible) && (
+            <div
+              class={{
+                calendar: true,
+                hidden: monthPickerVisible || yearPickerVisible,
+              }}
+              onKeyDown={this.handleCalendarKeyDown}
+            >
+              <div class="weekdays" aria-hidden="true">
+                {orderedDaysOfWeek.map((dayName) => {
+                  const header = size === "small" ? dayName.charAt(0) : dayName;
+                  return (
+                    <div class="calendar-day-header">
+                      <ic-typography variant="caption">{header}</ic-typography>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div class="calendar-days-container">
+                {this.currMonthView.map((day) => (
+                  <DayButton
+                    day={day}
+                    disableDay={this.disableDays.includes(Number(day.getDay()))}
+                    today={dateMatches(day, this.today)}
+                    selected={dateMatches(day, this.selectedDate)}
+                    focussed={dateMatches(day, this.focussedDate)}
+                    inRange={dateInRange(day, minDay, maxDate)}
+                    monthInView={monthInView}
+                    onSelectDay={this.handleSelectDay}
+                    focussedDayRef={this.setFocussedDayEl}
+                    onFocusDay={this.onDayButtonFocusHandler}
+                    onBlurDay={this.onDayButtonBlurHandler}
+                    showDaysOutsideMonth={this.showDaysOutsideMonth}
+                  ></DayButton>
+                ))}
+              </div>
+            </div>
+          )}
+          <div
+            class={{
+              "month-picker-container": true,
+              hidden: !monthPickerVisible,
+            }}
+          >
+            {monthPickerVisible && (
+              <MonthPicker
+                size={size}
+                onSelectMonth={this.handleSelectMonth}
+                monthInView={monthInView}
+                focussedMonth={focussedMonth}
+                onKeyDown={this.monthPickerKeyDownHandler}
+                focussedMonthRef={this.setFocussedMonthEl}
+                minDate={minDate}
+                maxDate={maxDate}
+                yearInView={yearInView}
+              ></MonthPicker>
+            )}
+          </div>
+          <div
+            class={{
+              "year-picker-container": true,
+              hidden: !yearPickerVisible,
+            }}
+          >
+            {yearPickerVisible && (
+              <YearPicker
+                decadeView={decadeView}
+                size={size}
+                focussedYear={focussedYear}
+                onSelectYear={this.handleSelectYear}
+                onKeyDown={this.yearPickerKeyDownHandler}
+                onFocusYear={this.onYearButtonFocusHandler}
+                onBlurYear={this.onYearButtonBlurHandler}
+                yearInView={yearInView}
+                minDate={minDate}
+                maxDate={maxDate}
+                focussedYearRef={this.setFocussedYearEl}
+              ></YearPicker>
+            )}
+          </div>
+          <div
+            class={{
+              "bottom-buttons": true,
+              "no-today": !showPickerTodayButton,
+            }}
+          >
+            {showPickerTodayButton && (
+              <ic-button
+                id="today-button"
+                variant="tertiary"
+                ref={(el: HTMLIcButtonElement) => (this.todayButtonEl = el)}
+                size={size}
+                aria-label="Navigate to current date"
+                onClick={this.todayButtonClickHandler}
+                onKeyDown={this.todayButtonKeyDownHandler}
+                disabled={this.isCurrentMonth()}
+              >
+                Go to today
+              </ic-button>
+            )}
+            {showPickerClearButton && (
+              <ic-button
+                id="clear-button"
+                aria-label="clear selected date"
+                ref={(el: HTMLIcButtonElement) => (this.clearButtonEl = el)}
+                variant="tertiary"
+                size={size}
+                onClick={this.clearButtonClickHandler}
+                onKeyDown={this.clearButtonKeyDownHandler}
+                disabled={
+                  this.value === "" ||
+                  this.value === null ||
+                  this.value === undefined
+                }
+              >
+                Clear
+              </ic-button>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  render() {
+    const {
+      calendarOpen,
+      dateInputProps,
+      keyDownHandler,
+      renderCalendar,
+      showDateInput,
+      size,
+    } = this;
+
+    return (
+      <Host onKeyDown={keyDownHandler} class={size}>
+        {showDateInput && (
+          <div class="date-input-container">
+            <ic-date-input
+              ref={(el) => (this.inputEl = el)}
+              {...dateInputProps}
+            ></ic-date-input>
+          </div>
         )}
+
+        {calendarOpen && renderCalendar()}
       </Host>
     );
   }
