@@ -6,6 +6,7 @@ import {
   IcDataList,
   IcDataRow,
   IcLink,
+  IcSelect,
   IcStatusTag,
   IcTextField,
   IcTypography,
@@ -66,6 +67,21 @@ export const SlottedHeadingAndLabel = {
   name: "Slotted heading and label",
 };
 
+const options = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+  { label: "Café au lait", value: "Caf" },
+  { label: "Espresso", value: "Esp" },
+  { label: "Cortado", value: "Cor" },
+  { label: "Ristretto", value: "Ris" },
+  { label: "Latte macchiato", value: "Lam" },
+];
+
 export const LongTextValues = {
   render: () => (
     <IcDataList heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua">
@@ -80,6 +96,26 @@ export const LongTextValues = {
         value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
       />
       <IcDataRow label="Label" value="value" />
+      <IcDataRow label="Label">
+        <IcSelect slot="value" label="What are your favourite types of coffee?"
+            value={[
+              'Cap',
+              'Lat',
+              'Ame',
+              'Fil',
+              'Fla',
+              'Moc',
+              'Mac',
+              'Caf',
+              'Cor',
+              'Esp',
+              'Ris',
+            ]}
+            options={options}
+            multiple
+            readonly
+        />
+      </IcDataRow>
       <IcDataRow label="Label">
         <IcTypography variant="body" slot="value">
           383 Coffee Drive
