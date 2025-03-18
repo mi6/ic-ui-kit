@@ -1,7 +1,7 @@
 {
-  "total": 757,
-  "totalPassed": 754,
-  "totalFailed": 3,
+  "total": 760,
+  "totalPassed": 759,
+  "totalFailed": 1,
   "totalSuites": 42,
   "suites": [
     {
@@ -531,6 +531,28 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx/focussed-icon-only.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/focussed-icon-only.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcBackToTop.cy.tsx/left-x-y-values",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
+          "specFilename": "IcBackToTop.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx/left-x-y-values.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/left-x-y-values.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcBackToTop.cy.tsx/right-x-y-values",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
+          "specFilename": "IcBackToTop.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx/right-x-y-values.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/right-x-y-values.png"
         },
         {
           "status": "pass",
@@ -1189,14 +1211,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/with-icon-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx/icon-variants-high-contrast",
-          "percentage": 0.28302597708285315,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/icon-variants-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx/icon-variants-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/icon-variants-high-contrast.png"
         },
         {
@@ -1211,14 +1233,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/expanded-dropdown-popover-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcButton.cy.tsx/tooltip-icon-high-contrast",
-          "percentage": 0,
+          "percentage": 0.021633307652783935,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/tooltip-icon-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx/tooltip-icon-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/tooltip-icon-high-contrast.png"
         },
         {
@@ -4425,14 +4447,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx/simple-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcPagination.cy.tsx/complex-high-contrast",
-          "percentage": 0.02280350850198276,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx/complex-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx/complex-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx/complex-high-contrast.png"
         },
         {
@@ -7557,15 +7579,26 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/tooltip-placement-right.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButton.cy.tsx/tooltip-placement-top",
-          "percentage": 0.0577581163127746,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx/tooltip-placement-top.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButton.cy.tsx/tooltip-placement-top.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/tooltip-placement-top.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcToggleButton.cy.tsx/tooltip-placement-left",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
+          "specFilename": "IcToggleButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx/tooltip-placement-left.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/tooltip-placement-left.png"
         },
         {
           "status": "pass",
@@ -8584,9 +8617,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-17T16:17:14.525Z",
-  "endedAt": "2025-03-17T16:33:09.690Z",
-  "duration": 859911,
+  "startedAt": "2025-03-18T12:01:00.674Z",
+  "endedAt": "2025-03-18T12:16:40.283Z",
+  "duration": 844147,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
