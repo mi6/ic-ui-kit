@@ -21,7 +21,9 @@ import {
   ROW_ALIGNMENT,
   DATA_CELL_ALIGNMENT,
   COLS_ELEMENTS,
+  COLS_ELEMENTS_SINGLE_ACTION,
   DATA_REACT_ELEMENTS,
+  DATA_REACT_ELEMENTS_PAGINATION,
   COLUMNS_NO_TEXT_WRAP,
   ICON_DATA,
   ICON_COLS,
@@ -1333,6 +1335,93 @@ const DataTable = () => (
           </div>
         </>
       ))}
+  </IcDataTable>
+);
+
+export default DataTable;
+```
+
+### Slotted elements with pagination
+
+<Canvas withSource="none">
+  <Story name="Slotted elements with pagination">
+    <IcDataTable
+      caption="Slotted elements with pagination"
+      columns={COLS_ELEMENTS_SINGLE_ACTION}
+      data={DATA_REACT_ELEMENTS_PAGINATION}
+      showPagination
+      paginationBarOptions={{
+        itemsPerPageOptions: [
+          { label: '5', value: '5' },
+          { label: '10', value: '10' },
+        ],
+        showItemsPerPageControl: true,
+        selectedItemsPerPage: "5"
+      }}
+    >
+      {DATA_REACT_ELEMENTS_PAGINATION.map((_, index) => (
+        <IcButton
+          key={`actions-${index}`}
+          slot={`actions-${index}`}
+          onClick={() => console.log(`${index+1}`)}
+        >
+          {index+1}
+        </IcButton>
+      ))}
+    </IcDataTable>
+  </Story>
+</Canvas>
+
+#### Slotted elements with pagination code example
+
+```tsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+import { IcButton } from "@ukic/react";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+  {
+    key: "actions",
+    title: "Actions",
+    dataType: "element",
+    columnAlignment: { horizontal: "center" },
+  },
+];
+
+const data = [
+  {
+    firstName: {
+      data: "Joe",
+      href: "https://www.example.com",
+      target: "_blank",
+      rel: "noopener noreferrer",
+    },
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable
+    caption="Slotted elements with pagination"
+    columns={columns}
+    data={data}
+  >
+    {data.map((_, index) => (
+      <IcButton key={`actions-${index}`} slot={`actions-${index}`} onClick={() => console.log(`${index+1}`)}>
+        {Index+1}
+      </IcButton>
+      ))
+    }
   </IcDataTable>
 );
 

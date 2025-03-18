@@ -21,6 +21,7 @@ import {
   COLS,
   COLS_ALIGNMENT,
   COLS_ELEMENTS,
+  COLS_ELEMENTS_SINGLE_ACTION,
   COLS_EXCLUDE_SORT,
   DATA,
   DATA_CELL_ALIGNMENT,
@@ -38,6 +39,7 @@ import {
   LONG_TEXT,
   VERY_LONG_DATA,
   DATA_REACT_ELEMENTS,
+  DATA_REACT_ELEMENTS_PAGINATION,
   DATA_REACT_ELEMENTS_WITH_ICONS,
   textWrapCell,
   textWrapColumns,
@@ -49,6 +51,7 @@ import {
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
+  BE_VISIBLE,
   HAVE_ATTR,
   HAVE_BEEN_CALLED_ONCE,
   HAVE_BEEN_CALLED_WITH,
@@ -104,6 +107,12 @@ const TABLE_CELL_FIRST_CHILD_SELECTOR = ".table-cell:first-child";
 const ICON_BUTTON = "ic-button.ic-button-variant-icon";
 const ACTION_ELEMENT = "action-element";
 const TABLE_ROW_SELECTED = "table-row-selected";
+const BUTTON_SELECTOR = "button";
+const IC_BUTTON_SELECTOR = "ic-button";
+const TRUNCATION_TOOLTIP = "tooltip";
+const TRUNCATION_SHOW_HIDE = "show-hide";
+const SEE_MORE = "See more";
+const SEE_LESS = "See less";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const BasicDataTable = (dataTableProps?: any): ReactElement => (
@@ -1189,8 +1198,8 @@ describe("IcDataTables", () => {
       .eq(0)
       .find("span")
       .should(HAVE_CLASS, ACTION_ELEMENT)
-      .find("ic-button")
-      .should("be.visible");
+      .find(IC_BUTTON_SELECTOR)
+      .should(BE_VISIBLE);
 
     cy.checkA11yWithWait(undefined, 300);
 
@@ -1279,14 +1288,12 @@ describe("IcDataTables", () => {
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
-      "be.visible"
-    );
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(BE_VISIBLE);
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should(BE_VISIBLE);
     cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
       .shadow()
       .find(".ic-loading-circular-outer")
-      .should("be.visible");
+      .should(BE_VISIBLE);
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "data", LONG_DATA);
 
@@ -1295,7 +1302,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
       "be.not.exist"
     );
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should(BE_VISIBLE);
     cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator").should(
       "not.exist"
     );
@@ -1323,7 +1330,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
       .shadow()
       .find(".ic-loading-circular-outer")
-      .should("be.visible");
+      .should(BE_VISIBLE);
   });
 
   it("should render an overlay with circular loading indicator when loadingOption.overlay is set to true and no data is set", () => {
@@ -1341,15 +1348,13 @@ describe("IcDataTables", () => {
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
-      "be.visible"
-    );
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(BE_VISIBLE);
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("not.exist");
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-empty-state").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-empty-state").should(BE_VISIBLE);
     cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
       .shadow()
       .find(".ic-loading-circular-outer")
-      .should("be.visible");
+      .should(BE_VISIBLE);
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "data", LONG_DATA);
 
@@ -1358,11 +1363,67 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
       "not.exist"
     );
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("be.visible");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should(BE_VISIBLE);
     cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-empty-state").should("not.exist");
     cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator").should(
       "not.exist"
     );
+  });
+
+  it("should render different slotted content when changing page", () => {
+    const clonedData = JSON.parse(
+      JSON.stringify(DATA_REACT_ELEMENTS_PAGINATION)
+    );
+    const nextData = [...clonedData];
+    mount(
+      <IcDataTable
+        columns={COLS_ELEMENTS_SINGLE_ACTION}
+        data={nextData}
+        caption="Data tables"
+        showPagination
+        paginationBarOptions={{
+          itemsPerPageOptions: [
+            { label: "5", value: "5" },
+            { label: "10", value: "10" },
+          ],
+          showItemsPerPageControl: true,
+          selectedItemsPerPage: 5,
+        }}
+      >
+        {nextData.map((_, index) => (
+          <IcButton
+            key={`actions-${index}`}
+            slot={`actions-${index}`}
+            onClick={() => console.log(`${index + 1}`)}
+          >
+            {index + 1}
+          </IcButton>
+        ))}
+      </IcDataTable>
+    );
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find(IC_BUTTON_SELECTOR)
+      .eq(0)
+      .should(HAVE_TEXT, "1")
+      .should(BE_VISIBLE);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find(NEXT_PAGE_BUTTON_ID, { includeShadowDom: true })
+      .click();
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find(IC_BUTTON_SELECTOR)
+      .eq(0)
+      .should(HAVE_TEXT, "1")
+      .should(NOT_BE_VISIBLE);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find(IC_BUTTON_SELECTOR)
+      .eq(5)
+      .should(HAVE_TEXT, "6")
+      .should(BE_VISIBLE);
   });
 });
 
@@ -1577,7 +1638,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLS}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
         />
       );
@@ -1608,7 +1669,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLS}
           data={LONG_TEXT}
           caption="Data Tables"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
         />
       );
@@ -1629,7 +1690,7 @@ describe("IcDataTable with truncation", () => {
             columns={COLS}
             data={DATA}
             caption="Data Tables"
-            truncationPattern="tooltip"
+            truncationPattern={TRUNCATION_TOOLTIP}
             globalRowHeight={40}
           />
           <IcButton
@@ -1646,7 +1707,7 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.get("ic-button").click();
+      cy.get(IC_BUTTON_SELECTOR).click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
@@ -1661,7 +1722,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           sortable
           globalRowHeight={40}
         />
@@ -1705,7 +1766,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA_VALUES}
           caption="Data Tables"
           globalRowHeight={150}
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
         />
       );
 
@@ -1733,7 +1794,7 @@ describe("IcDataTable with truncation", () => {
             columns={COLS}
             data={LONG_DATA_VALUES}
             caption="Data Tables"
-            truncationPattern="tooltip"
+            truncationPattern={TRUNCATION_TOOLTIP}
             globalRowHeight={40}
           />
           <IcButton
@@ -1748,7 +1809,7 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.get("ic-button").click();
+      cy.get(IC_BUTTON_SELECTOR).click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
         .eq(0)
@@ -1771,7 +1832,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLS}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
         />
       );
@@ -1797,7 +1858,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLS}
           data={LONG_DATA}
           caption="Data Tables"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           style={{ height: "250px" }}
           globalRowHeight={40}
         />
@@ -1847,7 +1908,7 @@ describe("IcDataTable with truncation", () => {
           columns={newColumns()}
           data={newData()}
           caption="Data Tables"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
         />
       );
@@ -1874,7 +1935,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA_VALUES}
           caption="Data Tables"
           density="dense"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
         />
       );
@@ -1903,7 +1964,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA_VALUES}
           caption="Data Tables"
           density="spacious"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
         />
       );
@@ -1932,7 +1993,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
           paginationBarOptions={defaultPaginationBarOptions}
         />
@@ -1959,7 +2020,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
           paginationBarOptions={defaultPaginationBarOptions}
         />
@@ -2014,7 +2075,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
           paginationBarOptions={nextDefaultPaginationBarOptions}
         />
@@ -2056,7 +2117,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
           paginationBarOptions={nextDefaultPaginationBarOptions}
         />
@@ -2124,7 +2185,7 @@ describe("IcDataTable with truncation", () => {
           data={ICON_DATA_LONG_VALUES}
           caption="Data Tables"
           showPagination
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
         />
       );
@@ -2148,7 +2209,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLS}
           data={VERY_LONG_DATA(100)}
           caption="Data Tables"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
           showPagination
           sortable
@@ -2202,7 +2263,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
         />
       );
@@ -2212,14 +2273,14 @@ describe("IcDataTable with truncation", () => {
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
-        .should("have.text", LONG_DATA_VALUES[0].jobTitle);
+        .should(HAVE_TEXT, LONG_DATA_VALUES[0].jobTitle);
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
-        .should("have.text", "See more");
+        .find(BUTTON_SELECTOR)
+        .should(HAVE_TEXT, SEE_MORE);
 
       cy.checkA11yWithWait();
 
@@ -2235,15 +2296,15 @@ describe("IcDataTable with truncation", () => {
         .eq(0)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
+        .find(BUTTON_SELECTOR)
         .click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
-        .should("have.text", "See less");
+        .find(BUTTON_SELECTOR)
+        .should(HAVE_TEXT, SEE_LESS);
 
       cy.compareSnapshot({
         name: "show-hide-truncation-show",
@@ -2260,7 +2321,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
         />
       );
@@ -2271,7 +2332,7 @@ describe("IcDataTable with truncation", () => {
         .eq(0)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
+        .find(BUTTON_SELECTOR)
         .focus();
 
       cy.compareSnapshot({
@@ -2289,7 +2350,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           sortable
           globalRowHeight={40}
         />
@@ -2302,7 +2363,7 @@ describe("IcDataTable with truncation", () => {
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
-        .should("have.text", "Junior Tester");
+        .should(HAVE_TEXT, "Junior Tester");
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(0)
@@ -2310,15 +2371,15 @@ describe("IcDataTable with truncation", () => {
         .eq(2)
         .find(TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
-        .should("have.text", "See more");
+        .find(BUTTON_SELECTOR)
+        .should(HAVE_TEXT, SEE_MORE);
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(1)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
-        .should("have.text", "See more");
+        .find(BUTTON_SELECTOR)
+        .should(HAVE_TEXT, SEE_MORE);
     });
 
     it("should render full data over multiple lines and show/hide link should be removed", () => {
@@ -2328,7 +2389,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA_VALUES}
           caption="Data Tables"
           globalRowHeight={150}
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
         />
       );
 
@@ -2340,7 +2401,7 @@ describe("IcDataTable with truncation", () => {
         cy.wrap($row)
           .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
-          .find("button")
+          .find(BUTTON_SELECTOR)
           .should(NOT_EXIST);
       });
 
@@ -2357,7 +2418,7 @@ describe("IcDataTable with truncation", () => {
             columns={COLS}
             data={DATA}
             caption="Data Tables"
-            truncationPattern="show-hide"
+            truncationPattern={TRUNCATION_SHOW_HIDE}
             globalRowHeight={40}
           />
           <IcButton
@@ -2374,7 +2435,7 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.get("ic-button").click();
+      cy.get(IC_BUTTON_SELECTOR).click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
@@ -2391,7 +2452,7 @@ describe("IcDataTable with truncation", () => {
             columns={COLS}
             data={LONG_DATA_VALUES_UPDATE}
             caption="Data Tables"
-            truncationPattern="show-hide"
+            truncationPattern={TRUNCATION_SHOW_HIDE}
             globalRowHeight={40}
           />
           <IcButton
@@ -2412,10 +2473,10 @@ describe("IcDataTable with truncation", () => {
         .eq(2)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
+        .find(BUTTON_SELECTOR)
         .click();
 
-      cy.get("ic-button").click();
+      cy.get(IC_BUTTON_SELECTOR).click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR).each(($row) => {
         cy.wrap($row)
@@ -2431,7 +2492,7 @@ describe("IcDataTable with truncation", () => {
             columns={COLS}
             data={LONG_DATA_VALUES}
             caption="Data Tables"
-            truncationPattern="show-hide"
+            truncationPattern={TRUNCATION_SHOW_HIDE}
             globalRowHeight={150}
           />
           <IcButton
@@ -2446,7 +2507,7 @@ describe("IcDataTable with truncation", () => {
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-      cy.get("ic-button").click();
+      cy.get(IC_BUTTON_SELECTOR).click();
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .filter(":lt(2)")
@@ -2454,8 +2515,8 @@ describe("IcDataTable with truncation", () => {
           cy.wrap($row)
             .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
             .shadow()
-            .find("button")
-            .should("have.text", "See more");
+            .find(BUTTON_SELECTOR)
+            .should(HAVE_TEXT, SEE_MORE);
         });
     });
 
@@ -2465,7 +2526,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
         />
       );
@@ -2484,21 +2545,21 @@ describe("IcDataTable with truncation", () => {
         .eq(0)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
+        .find(BUTTON_SELECTOR)
         .should(NOT_EXIST);
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(2)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
-        .should("have.text", "See more");
+        .find(BUTTON_SELECTOR)
+        .should(HAVE_TEXT, SEE_MORE);
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(2)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
+        .find(BUTTON_SELECTOR)
         .click();
 
       cy.compareSnapshot({
@@ -2516,7 +2577,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLS}
           data={LONG_DATA}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           style={{ height: "500px" }}
           globalRowHeight={40}
         />
@@ -2535,8 +2596,8 @@ describe("IcDataTable with truncation", () => {
             cy.wrap($row)
               .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
               .shadow()
-              .find("button")
-              .should("have.text", "See more");
+              .find(BUTTON_SELECTOR)
+              .should(HAVE_TEXT, SEE_MORE);
           }
         }
       );
@@ -2573,7 +2634,7 @@ describe("IcDataTable with truncation", () => {
           columns={newColumns()}
           data={newData()}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
         />
       );
@@ -2586,7 +2647,7 @@ describe("IcDataTable with truncation", () => {
         cy.wrap($row)
           .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
-          .find("button")
+          .find(BUTTON_SELECTOR)
           .should(NOT_EXIST);
       });
     });
@@ -2597,7 +2658,7 @@ describe("IcDataTable with truncation", () => {
           columns={newColumns()}
           data={newData()}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
         />
       );
@@ -2609,7 +2670,7 @@ describe("IcDataTable with truncation", () => {
         .filter(":lt(3)")
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
+        .find(BUTTON_SELECTOR)
         .click({ multiple: true });
 
       cy.viewport(1250, 768);
@@ -2618,15 +2679,15 @@ describe("IcDataTable with truncation", () => {
         .eq(1)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
-        .should("have.text", "See less");
+        .find(BUTTON_SELECTOR)
+        .should(HAVE_TEXT, SEE_LESS);
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(2)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
-        .should("have.text", "See less");
+        .find(BUTTON_SELECTOR)
+        .should(HAVE_TEXT, SEE_LESS);
 
       cy.viewport(2100, 768);
 
@@ -2634,14 +2695,14 @@ describe("IcDataTable with truncation", () => {
         .eq(1)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
+        .find(BUTTON_SELECTOR)
         .should(NOT_EXIST);
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
         .eq(2)
         .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
         .shadow()
-        .find("button")
+        .find(BUTTON_SELECTOR)
         .should(NOT_EXIST);
     });
 
@@ -2651,7 +2712,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           density="dense"
           globalRowHeight={40}
         />
@@ -2674,7 +2735,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           density="spacious"
           globalRowHeight={40}
         />
@@ -2714,7 +2775,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           paginationBarOptions={defaultPaginationBarOptions}
           globalRowHeight={40}
         />
@@ -2733,8 +2794,8 @@ describe("IcDataTable with truncation", () => {
         cy.wrap($row)
           .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
-          .find("button")
-          .should("have.text", "See more");
+          .find(BUTTON_SELECTOR)
+          .should(HAVE_TEXT, SEE_MORE);
       });
     });
     it("should render show hide truncation using go to page pagination functionality", () => {
@@ -2744,7 +2805,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           paginationBarOptions={defaultPaginationBarOptions}
           globalRowHeight={40}
         />
@@ -2767,8 +2828,8 @@ describe("IcDataTable with truncation", () => {
         cy.wrap($row)
           .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
-          .find("button")
-          .should("have.text", "See more");
+          .find(BUTTON_SELECTOR)
+          .should(HAVE_TEXT, SEE_MORE);
       });
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, PAGINATION_BAR_SELECTOR)
@@ -2786,8 +2847,8 @@ describe("IcDataTable with truncation", () => {
         cy.wrap($row)
           .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
-          .find("button")
-          .should("have.text", "See more");
+          .find(BUTTON_SELECTOR)
+          .should(HAVE_TEXT, SEE_MORE);
       });
     });
 
@@ -2807,7 +2868,7 @@ describe("IcDataTable with truncation", () => {
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           paginationBarOptions={nextDefaultPaginationBarOptions}
           globalRowHeight={40}
         />
@@ -2832,8 +2893,8 @@ describe("IcDataTable with truncation", () => {
         cy.wrap($row)
           .find(LAST_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
-          .find("button")
-          .should("have.text", "See more");
+          .find(BUTTON_SELECTOR)
+          .should(HAVE_TEXT, SEE_MORE);
       });
     });
 
@@ -2843,7 +2904,7 @@ describe("IcDataTable with truncation", () => {
           columns={ICON_COLS}
           data={ICON_DATA_LONG_VALUES}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
         />
       );
@@ -2867,7 +2928,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
         />
       );
@@ -2889,7 +2950,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLS}
           data={VERY_LONG_DATA(100)}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
           showPagination
           sortable
@@ -2922,8 +2983,8 @@ describe("IcDataTable with truncation", () => {
           cy.wrap($row)
             .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
             .shadow()
-            .find("button")
-            .should("have.text", "See more");
+            .find(BUTTON_SELECTOR)
+            .should(HAVE_TEXT, SEE_MORE);
         });
     });
 
@@ -2955,7 +3016,7 @@ describe("IcDataTable with truncation", () => {
               showPagination
             />
             <IcButton
-              onClick={() => handleTruncationClick("show-hide")}
+              onClick={() => handleTruncationClick(TRUNCATION_SHOW_HIDE)}
               class="truncation"
             >
               Set show/hide truncation
@@ -2983,8 +3044,8 @@ describe("IcDataTable with truncation", () => {
           cy.wrap($row)
             .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
             .shadow()
-            .find("button")
-            .should("have.text", "See more");
+            .find(BUTTON_SELECTOR)
+            .should(HAVE_TEXT, SEE_MORE);
         }
       );
 
@@ -2995,8 +3056,8 @@ describe("IcDataTable with truncation", () => {
           cy.wrap($row)
             .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
             .shadow()
-            .find("button")
-            .should("have.text", "See more");
+            .find(BUTTON_SELECTOR)
+            .should(HAVE_TEXT, SEE_MORE);
         }
       );
 
@@ -3031,13 +3092,13 @@ describe("IcDataTable with truncation", () => {
               showPagination
             />
             <IcButton
-              onClick={() => handleTruncationClick("show-hide")}
+              onClick={() => handleTruncationClick(TRUNCATION_SHOW_HIDE)}
               class="truncation-show-hide"
             >
               Set show/hide truncation
             </IcButton>
             <IcButton
-              onClick={() => handleTruncationClick("tooltip")}
+              onClick={() => handleTruncationClick(TRUNCATION_TOOLTIP)}
               class="truncation-tooltip"
             >
               Set tooltip truncation
@@ -3062,8 +3123,8 @@ describe("IcDataTable with truncation", () => {
           cy.wrap($row)
             .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
             .shadow()
-            .find("button")
-            .should("have.text", "See more");
+            .find(BUTTON_SELECTOR)
+            .should(HAVE_TEXT, SEE_MORE);
         }
       );
 
@@ -3092,8 +3153,8 @@ describe("IcDataTable with truncation", () => {
           cy.wrap($row)
             .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
             .shadow()
-            .find("button")
-            .should("have.text", "See more");
+            .find(BUTTON_SELECTOR)
+            .should(HAVE_TEXT, SEE_MORE);
         }
       );
 
@@ -3102,8 +3163,8 @@ describe("IcDataTable with truncation", () => {
           cy.wrap($row)
             .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
             .shadow()
-            .find("button")
-            .should("have.text", "See more");
+            .find(BUTTON_SELECTOR)
+            .should(HAVE_TEXT, SEE_MORE);
         }
       );
 
@@ -3138,7 +3199,7 @@ describe("IcDataTable with truncation", () => {
               showPagination
             />
             <IcButton
-              onClick={() => handleTruncationClick("show-hide")}
+              onClick={() => handleTruncationClick(TRUNCATION_SHOW_HIDE)}
               class="truncation-show-hide"
             >
               Set show/hide truncation
@@ -3173,7 +3234,7 @@ describe("IcDataTable with truncation", () => {
         cy.wrap($row)
           .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
-          .find("button")
+          .find(BUTTON_SELECTOR)
           .should("not.exist");
       });
 
@@ -3210,7 +3271,7 @@ describe("IcDataTable with truncation", () => {
               showPagination
             />
             <IcButton
-              onClick={() => handleTruncationClick("show-hide")}
+              onClick={() => handleTruncationClick(TRUNCATION_SHOW_HIDE)}
               class="truncation-show-hide"
             >
               Set show/hide truncation
@@ -3219,7 +3280,7 @@ describe("IcDataTable with truncation", () => {
               Set row height: 40
             </IcButton>
             <IcButton
-              onClick={() => handleTruncationClick("tooltip")}
+              onClick={() => handleTruncationClick(TRUNCATION_TOOLTIP)}
               class="truncation-tooltip"
             >
               Set tooltip truncation
@@ -3241,7 +3302,7 @@ describe("IcDataTable with truncation", () => {
         cy.wrap($row)
           .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
-          .find("button")
+          .find(BUTTON_SELECTOR)
           .should("not.exist");
       });
 
@@ -3277,7 +3338,7 @@ describe("IcDataTable with truncation", () => {
               showPagination
             />
             <IcButton
-              onClick={() => handleTruncationClick("show-hide")}
+              onClick={() => handleTruncationClick(TRUNCATION_SHOW_HIDE)}
               class="truncation-show-hide"
             >
               Set show/hide truncation
@@ -3286,7 +3347,7 @@ describe("IcDataTable with truncation", () => {
               Set row height: 80
             </IcButton>
             <IcButton
-              onClick={() => handleTruncationClick("tooltip")}
+              onClick={() => handleTruncationClick(TRUNCATION_TOOLTIP)}
               class="truncation-tooltip"
             >
               Set tooltip truncation
@@ -3308,7 +3369,7 @@ describe("IcDataTable with truncation", () => {
         cy.wrap($row)
           .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
           .shadow()
-          .find("button")
+          .find(BUTTON_SELECTOR)
           .should("not.exist");
       });
 
@@ -3327,7 +3388,7 @@ describe("IcDataTable with truncation", () => {
           columns={textWrapColumns()}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
         />
       );
@@ -3351,7 +3412,7 @@ describe("IcDataTable with truncation", () => {
           columns={textWrapColumns()}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
         />
       );
@@ -3373,7 +3434,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={textWrapRow()}
           caption="Data Tables"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
         />
       );
 
@@ -3394,7 +3455,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={textWrapRow()}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
         />
       );
@@ -3416,7 +3477,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={textWrapCell()}
           caption="Data Tables"
-          truncationPattern="tooltip"
+          truncationPattern={TRUNCATION_TOOLTIP}
           globalRowHeight={40}
         />
       );
@@ -3440,7 +3501,7 @@ describe("IcDataTable with truncation", () => {
           columns={COLUMNS_NO_TEXT_WRAP}
           data={textWrapCell()}
           caption="Data Tables"
-          truncationPattern="show-hide"
+          truncationPattern={TRUNCATION_SHOW_HIDE}
           globalRowHeight={40}
         />
       );
@@ -3750,7 +3811,7 @@ describe("IcDataTable table sizing and column width", () => {
         caption="Basic Table"
         columns={singleColumnTruncationWidth("200px")}
         data={newData()}
-        truncationPattern="tooltip"
+        truncationPattern={TRUNCATION_TOOLTIP}
         globalRowHeight={40}
       />
     );
@@ -3769,7 +3830,7 @@ describe("IcDataTable table sizing and column width", () => {
         caption="Basic Table"
         columns={singleColumnTruncationWidth("200px")}
         data={newData()}
-        truncationPattern="show-hide"
+        truncationPattern={TRUNCATION_SHOW_HIDE}
         globalRowHeight={40}
       />
     );
@@ -3780,8 +3841,8 @@ describe("IcDataTable table sizing and column width", () => {
       .eq(0)
       .find(".table-cell:nth-child(2) ic-typography")
       .shadow()
-      .find("button")
-      .should("have.text", "See more");
+      .find(BUTTON_SELECTOR)
+      .should(HAVE_TEXT, SEE_MORE);
   });
 
   it("should display tooltip truncation on column when first column width set with px and table width set to 500px", () => {
@@ -3790,7 +3851,7 @@ describe("IcDataTable table sizing and column width", () => {
         caption="Basic Table"
         columns={singleColumnWidth("300px")}
         data={newData()}
-        truncationPattern="tooltip"
+        truncationPattern={TRUNCATION_TOOLTIP}
         globalRowHeight={40}
         width="500px"
       />
@@ -3811,7 +3872,7 @@ describe("IcDataTable table sizing and column width", () => {
         columns={singleColumnWidth("250px")}
         data={newData()}
         width="500px"
-        truncationPattern="show-hide"
+        truncationPattern={TRUNCATION_SHOW_HIDE}
         globalRowHeight={40}
       />
     );
@@ -3822,8 +3883,8 @@ describe("IcDataTable table sizing and column width", () => {
       .eq(0)
       .find(".table-cell:nth-child(2) ic-typography")
       .shadow()
-      .find("button")
-      .should("have.text", "See more");
+      .find(BUTTON_SELECTOR)
+      .should(HAVE_TEXT, SEE_MORE);
   });
 
   it("should set column width to correct px when data table includes pagination and navigating to different pages", () => {
@@ -4215,7 +4276,7 @@ describe("IcDataTable table with descriptions", () => {
         columns={COLS}
         data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
         caption="Data Tables"
-        truncationPattern="show-hide"
+        truncationPattern={TRUNCATION_SHOW_HIDE}
         globalRowHeight={120}
       />
     );
@@ -4226,8 +4287,8 @@ describe("IcDataTable table with descriptions", () => {
       .eq(0)
       .find(FIRST_CELL_TEXT_QUERY)
       .shadow()
-      .find("button")
-      .contains("See more");
+      .find(BUTTON_SELECTOR)
+      .contains(SEE_MORE);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
       .eq(0)
@@ -4249,7 +4310,7 @@ describe("IcDataTable table with descriptions", () => {
         columns={COLS}
         data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
         caption="Data Tables"
-        truncationPattern="tooltip"
+        truncationPattern={TRUNCATION_TOOLTIP}
         globalRowHeight={200}
       />
     );
@@ -4289,7 +4350,7 @@ describe("IcDataTable table with descriptions", () => {
         columns={COLS}
         data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
         caption="Data Tables"
-        truncationPattern="tooltip"
+        truncationPattern={TRUNCATION_TOOLTIP}
         globalRowHeight={40}
       />
     );
@@ -4329,7 +4390,7 @@ describe("IcDataTable table with descriptions", () => {
         columns={COLS}
         data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
         caption="Data Tables"
-        truncationPattern="tooltip"
+        truncationPattern={TRUNCATION_TOOLTIP}
         globalRowHeight={40}
       />
     );
@@ -4348,7 +4409,7 @@ describe("IcDataTable table with descriptions", () => {
         columns={COLS}
         data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
         caption="Data Tables"
-        truncationPattern="tooltip"
+        truncationPattern={TRUNCATION_TOOLTIP}
         globalRowHeight={40}
       />
     );
@@ -4409,7 +4470,7 @@ describe("IcDataTable row deletion", () => {
       .find(ICON_BUTTON)
       .eq(0)
       .shadow()
-      .find("button")
+      .find(BUTTON_SELECTOR)
       .focus();
 
     cy.compareSnapshot({
@@ -4423,7 +4484,7 @@ describe("IcDataTable row deletion", () => {
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 6);
 
-    cy.get(DATA_TABLE_SELECTOR).find("ic-button").eq(2).click();
+    cy.get(DATA_TABLE_SELECTOR).find(IC_BUTTON_SELECTOR).eq(2).click();
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 5);
   });
@@ -4465,7 +4526,7 @@ describe("IcDataTable row deletion", () => {
       .find(ICON_BUTTON)
       .eq(4)
       .shadow()
-      .find("button")
+      .find(BUTTON_SELECTOR)
       .focus();
 
     cy.checkA11yWithWait(undefined, 1000);
@@ -4765,7 +4826,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
         columns={COLUMNS_NO_TEXT_WRAP}
         data={LONG_DATA_VALUES}
         caption="Data Tables"
-        truncationPattern="show-hide"
+        truncationPattern={TRUNCATION_SHOW_HIDE}
         density="dense"
         globalRowHeight={40}
       />
@@ -4789,7 +4850,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
         data={LONG_DATA_VALUES}
         caption="Data Tables"
         density="spacious"
-        truncationPattern="tooltip"
+        truncationPattern={TRUNCATION_TOOLTIP}
         globalRowHeight={40}
       />
     );
@@ -4817,7 +4878,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
         columns={COLUMNS_NO_TEXT_WRAP}
         data={LONG_DATA_VALUES}
         caption="Data Tables"
-        truncationPattern="show-hide"
+        truncationPattern={TRUNCATION_SHOW_HIDE}
         globalRowHeight={40}
       />
     );
@@ -4828,7 +4889,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
       .eq(0)
       .find(TABLE_CELL_TYPOGRAPHY_SELECTOR)
       .shadow()
-      .find("button")
+      .find(BUTTON_SELECTOR)
       .focus();
 
     cy.compareSnapshot({
@@ -4936,7 +4997,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
       .find(ICON_BUTTON)
       .eq(0)
       .shadow()
-      .find("button")
+      .find(BUTTON_SELECTOR)
       .focus();
 
     cy.compareSnapshot({
