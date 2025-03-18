@@ -126,7 +126,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "default",
+      name: "/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
     });
   });
@@ -153,7 +153,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.wait(SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "default-dark-mode",
+      name: "/default-dark-mode",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
     });
   });
@@ -177,7 +177,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "default-max-width",
+      name: "/default-max-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
@@ -196,7 +196,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "default-month-view",
+      name: "/default-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
@@ -224,7 +224,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.wait(SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "default-month-view-dark-mode",
+      name: "/default-month-view-dark-mode",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -249,7 +249,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "default-max-width-month-view",
+      name: "/default-max-width-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
     });
   });
@@ -267,7 +267,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "default-year-view",
+      name: "/default-year-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
@@ -295,7 +295,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.wait(SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "default-year-view-dark-mode",
+      name: "/default-year-view-dark-mode",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
@@ -319,7 +319,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
-      name: "default-max-width-year-view",
+      name: "/default-max-width-year-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
@@ -339,7 +339,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "small",
+      name: "/small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
@@ -364,7 +364,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "small-max-width",
+      name: "/small-max-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
@@ -386,7 +386,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "small-month-view",
+      name: "/small-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
@@ -413,7 +413,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "small-max-width-month-view",
+      name: "/small-max-width-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
     });
   });
@@ -435,7 +435,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "small-year-view",
+      name: "/small-year-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
@@ -462,7 +462,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "small-max-width-year-view",
+      name: "/small-max-width-year-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
@@ -482,7 +482,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "large",
+      name: "/large",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
     });
   });
@@ -507,7 +507,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "large-max-width",
+      name: "/large-max-width",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
     });
   });
@@ -529,7 +529,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "large-month-view",
+      name: "/large-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -556,7 +556,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "large-max-width-month-view",
+      name: "/large-max-width-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -578,7 +578,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "large-year-view",
+      name: "/large-year-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -605,7 +605,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "large-max-width-year-view",
+      name: "/large-max-width-year-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
@@ -627,7 +627,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "goto-today-hidden",
+      name: "/goto-today-hidden",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -649,7 +649,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "clear-hidden",
+      name: "/clear-hidden",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
@@ -1122,7 +1122,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .type(ESCAPE_KEY);
 
     cy.compareSnapshot({
-      name: "escape-to-close",
+      name: "/escape-to-close",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -1138,7 +1138,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .type(ESCAPE_KEY);
 
     cy.compareSnapshot({
-      name: "escape-pressed-in-input",
+      name: "/escape-pressed-in-input",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
@@ -1231,7 +1231,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.get("body").click();
 
     cy.compareSnapshot({
-      name: "click-to-close",
+      name: "/click-to-close",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -2326,7 +2326,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "open-at-date",
+      name: "/open-at-date",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
 
@@ -2389,7 +2389,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .should("be.disabled");
 
     cy.compareSnapshot({
-      name: "disabled",
+      name: "/disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
 
@@ -2449,7 +2449,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "disable-weekends",
+      name: "/disable-weekends",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
@@ -2669,7 +2669,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "days-outside-month-hidden",
+      name: "/days-outside-month-hidden",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
 
@@ -2677,7 +2677,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .invoke("prop", "startOfWeek", "4")
       .then(() => {
         cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-          name: "start-of-week",
+          name: "/start-of-week",
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
         });
       });
@@ -2698,7 +2698,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "min-max",
+      name: "/min-max",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
@@ -2719,7 +2719,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "min-max-month-view",
+      name: "/min-max-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
@@ -2740,7 +2740,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
-      name: "min-max-year-view",
+      name: "/min-max-year-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
@@ -2790,7 +2790,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "position-above",
+      name: "/position-above",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
@@ -2816,7 +2816,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       .focus();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "clear-button-focused-theme-dark",
+      name: "/clear-button-focused-theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
@@ -2850,7 +2850,7 @@ describe("IcDatePicker visual regression tests in high contrast mode", () => {
       .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "default-high-contrast",
+      name: "/default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.051),
     });
   });
@@ -2867,7 +2867,7 @@ describe("IcDatePicker visual regression tests in high contrast mode", () => {
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "default-month-view-high-contrast",
+      name: "/default-month-view-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.057),
     });
   });
@@ -2877,7 +2877,7 @@ describe("IcDatePicker visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(DATE_PICKER);
     cy.compareSnapshot({
-      name: "disabled-high-contrast",
+      name: "/disabled-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
@@ -2899,7 +2899,7 @@ describe("IcDatePicker visual regression tests in high contrast mode", () => {
       .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "disable-weekends-high-contrast",
+      name: "/disable-weekends-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
     });
   });
@@ -2918,7 +2918,7 @@ describe("IcDatePicker visual regression tests in high contrast mode", () => {
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "min-max-month-view-high-contrast",
+      name: "/min-max-month-view-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
     });
   });
@@ -2937,7 +2937,7 @@ describe("IcDatePicker visual regression tests in high contrast mode", () => {
       .realHover();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
-      name: "calendar-button-focused-high-contrast",
+      name: "/calendar-button-focused-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });

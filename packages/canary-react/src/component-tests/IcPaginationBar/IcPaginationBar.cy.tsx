@@ -657,7 +657,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "right-alignment",
+      name: "/right-alignment",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
@@ -670,7 +670,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "left-alignment",
+      name: "/left-alignment",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -683,7 +683,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "space-between-alignment",
+      name: "/space-between-alignment",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -695,7 +695,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "go-to-page",
+      name: "/go-to-page",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
@@ -712,7 +712,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "go-to-page-valid",
+      name: "/go-to-page-valid",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
@@ -737,7 +737,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
     cy.wait(350);
 
     cy.compareSnapshot({
-      name: "go-to-page-invalid-tooltip",
+      name: "/go-to-page-invalid-tooltip",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
@@ -751,7 +751,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "hide-all-option",
+      name: "/hide-all-option",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
@@ -765,7 +765,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "selected-items-per-page",
+      name: "/selected-items-per-page",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -779,7 +779,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "selected-items-per-page-invalid-selectedItemsPerPage",
+      name: "/selected-items-per-page-invalid-selectedItemsPerPage",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
@@ -808,7 +808,7 @@ describe("IcPaginationBar visual regression tests in high contrast mode", () => 
     cy.checkHydrated(PAGINATION_BAR);
 
     cy.compareSnapshot({
-      name: "go-to-page-high-contrast",
+      name: "/go-to-page-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
@@ -833,7 +833,7 @@ describe("IcPaginationBar visual regression tests in high contrast mode", () => 
     cy.wait(350);
 
     cy.compareSnapshot({
-      name: "go-to-page-invalid-tooltip-high-contrast",
+      name: "/go-to-page-invalid-tooltip-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
