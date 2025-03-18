@@ -11,6 +11,7 @@ import {
 } from "../utils/constants";
 import { BackToTop } from "./IcBackToTopTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+import { IcBackToTop, IcFooter, IcFooterLink } from "../../components";
 
 const BACK_TO_TOP_SELECTOR = "ic-back-to-top";
 const DEFAULT_TEST_THRESHOLD = 0.061;
@@ -243,6 +244,110 @@ describe("IcBackToTop visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/focussed-icon-only",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render with left and bottom values set in style", () => {
+    mount(
+      <div style={{ height: "200vh" }}>
+        <div
+          id="topEl"
+          style={{
+            width: "100%",
+            height: "50px",
+            margin: "2rem",
+          }}
+        >
+          Top of screen
+        </div>
+        <main style={{ height: "100%" }}>main</main>
+        <IcBackToTop
+          target="topEl"
+          position="left"
+          style={{ "--margin-left": "5rem", "--footer-offset": "5rem" }}
+        />
+        <IcFooter
+          aligned="full-width"
+          description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback,
+                  please get in touch."
+          caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
+        >
+          <IcFooterLink id="link" slot="link" href="/">
+            Get Started
+          </IcFooterLink>
+        </IcFooter>
+      </div>
+    );
+
+    cy.get("ic-footer-link")
+      .shadow()
+      .find("ic-link")
+      .shadow()
+      .find("a")
+      .focus()
+      .checkHydrated(BACK_TO_TOP_SELECTOR);
+
+    cy.wait(1000);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/left-x-y-values",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render with right and bottom values set in style", () => {
+    mount(
+      <div style={{ height: "200vh" }}>
+        <div
+          id="topEl"
+          style={{
+            width: "100%",
+            height: "50px",
+            margin: "2rem",
+          }}
+        >
+          Top of screen
+        </div>
+        <main style={{ height: "100%" }}>main</main>
+        <IcBackToTop
+          target="topEl"
+          position="right"
+          style={{ "--margin-right": "5rem", "--footer-offset": "5rem" }}
+        />
+        <IcFooter
+          aligned="full-width"
+          description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback,
+                    please get in touch."
+          caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
+        >
+          <IcFooterLink id="link" slot="link" href="/">
+            Get Started
+          </IcFooterLink>
+        </IcFooter>
+      </div>
+    );
+
+    cy.get("ic-footer-link")
+      .shadow()
+      .find("ic-link")
+      .shadow()
+      .find("a")
+      .focus()
+      .checkHydrated(BACK_TO_TOP_SELECTOR);
+
+    cy.wait(1000);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/right-x-y-values",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
       cypressScreenshotOptions: {
         capture: "viewport",
