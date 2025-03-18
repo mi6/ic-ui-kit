@@ -88,7 +88,6 @@ export class DateInput {
   private preventYearInput: boolean;
 
   private previousInvalidDateTest: string;
-  private previousEmittedDate: Date = undefined;
   private previousSelectedDate: Date = null;
 
   private selectedDate: Date = null;
@@ -98,17 +97,37 @@ export class DateInput {
 
   private yearInputEl: HTMLInputElement;
 
+  private externalSetDate: boolean = false;
+  private clearInput: boolean = false;
+
   @Element() el: HTMLIcDateInputElement;
 
-  @State() day: string = "";
   @State() invalidDateText: string;
   @State() maxDate: Date;
   @State() minDate: Date;
-  @State() month: string = "";
-  @State() year: string = "";
   @State() calendarFocused: boolean = false;
   @State() clearButtonFocused: boolean = false;
   @State() removeLabelledBy: boolean = false;
+
+  @State() day: string = "";
+  @State() month: string = "";
+  @State() year: string = "";
+
+  @Watch("day")
+  @Watch("month")
+  @Watch("year")
+  watchInputHandler(): void {
+    if (
+      !this.externalSetDate &&
+      !this.clearInput &&
+      (this.day || this.month || this.year)
+    ) {
+      this.emitIcChange(this.selectedDate);
+    }
+    if (this.externalSetDate && this.day && this.month && this.year) {
+      this.externalSetDate = false;
+    }
+  }
 
   /**
    * The format in which the date will be displayed.
@@ -300,7 +319,10 @@ export class DateInput {
   /**
    * Emitted when the value has changed.
    */
-  @Event() icChange: EventEmitter<{ value: Date }>;
+  @Event() icChange: EventEmitter<{
+    value: Date;
+    dateObject: { day: string; month: string; year: string };
+  }>;
 
   /**
    * Emitted when the input gains focus.
@@ -321,10 +343,8 @@ export class DateInput {
     this.watchMaxHandler();
 
     if (this.value) {
+      this.externalSetDate = true;
       this.setDate(this.value);
-      this.previousEmittedDate = this.selectedDate;
-    } else {
-      this.previousEmittedDate = null;
     }
 
     this.screenReaderInfoId = `${this.inputId}-screen-reader-info`;
@@ -427,6 +447,8 @@ export class DateInput {
    */
   @Method()
   async triggerIcChange(d: Date): Promise<void> {
+    this.externalSetDate = true;
+    this.setDate(d);
     this.emitIcChange(d);
   }
 
@@ -811,9 +833,15 @@ export class DateInput {
         this.year = newDate.getFullYear().toString();
       } else if (typeof date === "string") {
         const defaultDateArray = splitStringDate(date, this.dateFormat);
+        this.selectedDate = new Date(
+          Number(defaultDateArray[0]),
+          Number(defaultDateArray[1]) - 1,
+          Number(defaultDateArray[2])
+        );
         this.year = defaultDateArray[0];
         this.month = defaultDateArray[1];
         this.day = defaultDateArray[2];
+        this.setValueAndEmitChange(this.selectedDate);
       }
     }
 
@@ -1486,11 +1514,13 @@ export class DateInput {
   };
 
   private handleClear = () => {
+    this.clearInput = true;
     this.inputsInOrder.forEach((input) => {
       input.classList.remove(this.FIT_TO_VALUE);
       this.setInputValue(input, true);
       this.setPreventInput(input, false);
     });
+    this.clearInput = false;
     this.isDateSetFromKeyboardEvent = false;
     this.setValidationMessage();
     this.handleDateChange(true);
@@ -1540,13 +1570,18 @@ export class DateInput {
     this.removeLabelledBy = true;
   };
 
-  private emitIcChange = (d: Date) => {
+  private emitIcChange = (d: Date | null) => {
+    this.selectedDate = d;
     if (
-      !(d === null && this.previousEmittedDate === null) &&
-      !dateMatches(d, this.previousEmittedDate)
+      !dateMatches(this.selectedDate, d) ||
+      this.day !== null ||
+      this.month !== null ||
+      this.year !== null
     ) {
-      this.previousEmittedDate = d;
-      this.icChange.emit({ value: d });
+      this.icChange.emit({
+        value: d,
+        dateObject: { day: this.day, month: this.month, year: this.year },
+      });
     }
   };
 

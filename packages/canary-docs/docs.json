@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
-      "readme": "# ic-horizontal-card\n\n\n",
+      "readme": "# ic-horizontal-card\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -376,20 +376,16 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-card-horizontal": [
-          "ic-typography"
-        ]
+        "ic-card-horizontal": ["ic-typography"]
       }
     },
     {
       "filePath": "src/components/ic-data-table/ic-data-table.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table",
-      "readme": "# ic-data-table\n\n\n",
+      "readme": "# ic-data-table\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -714,7 +710,7 @@
           "name": "loadingOptions",
           "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; overlay?: boolean; }",
           "complexType": {
-            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    showBackground?: boolean;\n    overlay?: boolean;\n  }",
+            "original": "{\r\n    appearance?: IcThemeForegroundNoDefault;\r\n    description?: string;\r\n    label?: string;\r\n    labelDuration?: number;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    showBackground?: boolean;\r\n    overlay?: boolean;\r\n  }",
             "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; overlay?: boolean; }",
             "references": {
               "IcThemeForegroundNoDefault": {
@@ -818,7 +814,7 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
           "docsTags": [],
-          "default": "{\n    alignment: \"right\",\n    appearance: \"default\",\n    hideAllFromItemsPerPage: false,\n    hideRangeLabel: false,\n    itemLabel: \"Item\",\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    pageLabel: \"Page\",\n    rangeLabelType: \"page\",\n    selectedItemsPerPage: 10,\n    setToFirstPageOnPaginationChange: false,\n    showGoToPageControl: true,\n    showItemsPerPageControl: true,\n    type: \"simple\",\n  }",
+          "default": "{\r\n    alignment: \"right\",\r\n    appearance: \"default\",\r\n    hideAllFromItemsPerPage: false,\r\n    hideRangeLabel: false,\r\n    itemLabel: \"Item\",\r\n    itemsPerPageOptions: [\r\n      { label: \"10\", value: \"10\" },\r\n      { label: \"25\", value: \"25\" },\r\n      { label: \"50\", value: \"50\" },\r\n    ],\r\n    pageLabel: \"Page\",\r\n    rangeLabelType: \"page\",\r\n    selectedItemsPerPage: 10,\r\n    setToFirstPageOnPaginationChange: false,\r\n    showGoToPageControl: true,\r\n    showItemsPerPageControl: true,\r\n    type: \"simple\",\r\n  }",
           "values": [
             {
               "type": "IcPaginationBarOptions"
@@ -853,7 +849,7 @@
           "name": "sortOptions",
           "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }",
           "complexType": {
-            "original": "{\n    sortOrders: IcDataTableSortOrderOptions[];\n    defaultColumn?: string;\n  }",
+            "original": "{\r\n    sortOrders: IcDataTableSortOrderOptions[];\r\n    defaultColumn?: string;\r\n  }",
             "resolved": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }",
             "references": {
               "IcDataTableSortOrderOptions": {
@@ -867,7 +863,7 @@
           "reflectToAttr": false,
           "docs": "Sets the order columns will be sorted in and allows for 'default' sorts to be added.",
           "docsTags": [],
-          "default": "{\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\n    defaultColumn: \"\",\n  }",
+          "default": "{\r\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\r\n    defaultColumn: \"\",\r\n  }",
           "values": [
             {
               "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }"
@@ -1027,7 +1023,7 @@
           "name": "updatingOptions",
           "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; }",
           "complexType": {
-            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    max?: number;\n    min?: number;\n    progress?: number;\n  }",
+            "original": "{\r\n    appearance?: IcThemeForegroundNoDefault;\r\n    description?: string;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n  }",
             "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; }",
             "references": {
               "IcThemeForegroundNoDefault": {
@@ -1053,7 +1049,7 @@
           "name": "variableRowHeight",
           "type": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights",
           "complexType": {
-            "original": "(params: {\n    [key: string]: any;\n    index: number;\n  }) => IcDataTableRowHeights | null",
+            "original": "(params: {\r\n    [key: string]: any;\r\n    index: number;\r\n  }) => IcDataTableRowHeights | null",
             "resolved": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights",
             "references": {
               "IcDataTableRowHeights": {
@@ -1065,7 +1061,7 @@
           },
           "mutable": true,
           "reflectToAttr": false,
-          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
+          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\r\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
           "docsTags": [],
           "values": [
             {
@@ -1255,19 +1251,10 @@
           "ic-empty-state",
           "ic-pagination-bar"
         ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-empty-state": [
-          "ic-typography"
-        ],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-empty-state": ["ic-typography"],
         "ic-pagination-bar": [
           "ic-typography",
           "ic-select",
@@ -1285,24 +1272,11 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-pagination": [
-          "ic-button",
-          "ic-pagination-item"
-        ],
-        "ic-pagination-item": [
-          "ic-typography"
-        ],
+        "ic-input-label": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-pagination": ["ic-button", "ic-pagination-item"],
+        "ic-pagination-item": ["ic-typography"],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -1316,7 +1290,7 @@
       "filePath": "src/components/ic-data-table-title-bar/ic-data-table-title-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table-title-bar",
-      "readme": "# ic-data-table-title-bar\n\n\n",
+      "readme": "# ic-data-table-title-bar\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -1470,15 +1444,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-select"
-      ],
+      "dependencies": ["ic-typography", "ic-select"],
       "dependencyGraph": {
-        "ic-data-table-title-bar": [
-          "ic-typography",
-          "ic-select"
-        ],
+        "ic-data-table-title-bar": ["ic-typography", "ic-select"],
         "ic-select": [
           "ic-input-container",
           "ic-input-label",
@@ -1488,34 +1456,19 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
       "filePath": "src/components/ic-date-input/ic-date-input.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-input",
-      "readme": "# ic-date-input\n\n\n",
+      "readme": "# ic-date-input\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1862,7 +1815,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -1892,7 +1845,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disablePast` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2157,11 +2110,11 @@
         },
         {
           "event": "icChange",
-          "detail": "{ value: Date; }",
+          "detail": "{ value: Date; dateObject: { day: string; month: string; year: string; }; }",
           "bubbles": true,
           "complexType": {
-            "original": "{ value: Date }",
-            "resolved": "{ value: Date; }",
+            "original": "{\r\n    value: Date;\r\n    dateObject: { day: string; month: string; year: string };\r\n  }",
+            "resolved": "{ value: Date; dateObject: { day: string; month: string; year: string; }; }",
             "references": {
               "Date": {
                 "location": "global",
@@ -2198,9 +2151,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-date-picker"
-      ],
+      "dependents": ["ic-date-picker"],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -2216,32 +2167,19 @@
           "ic-button",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-date-picker": [
-          "ic-date-input"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-date-picker": ["ic-date-input"]
       }
     },
     {
       "filePath": "src/components/ic-date-picker/ic-date-picker.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-picker",
-      "readme": "# ic-date-picker\n\n\n",
+      "readme": "# ic-date-picker\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2587,7 +2525,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2617,7 +2555,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disablePast` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2668,7 +2606,7 @@
           "mutable": false,
           "attr": "open-at-date",
           "reflectToAttr": false,
-          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
+          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\r\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2824,7 +2762,7 @@
           "mutable": false,
           "attr": "start-of-week",
           "reflectToAttr": false,
-          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\nDefault is Monday.",
+          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\r\nDefault is Monday.",
           "docsTags": [],
           "default": "IcWeekDays.Monday",
           "values": [
@@ -2996,27 +2934,12 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-button",
-        "ic-date-input",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-button", "ic-date-input", "ic-typography"],
       "dependencyGraph": {
-        "ic-date-picker": [
-          "ic-button",
-          "ic-date-input",
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
+        "ic-date-picker": ["ic-button", "ic-date-input", "ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
         "ic-date-input": [
           "ic-input-container",
           "ic-input-label",
@@ -3024,19 +2947,15 @@
           "ic-button",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
       "filePath": "src/components/ic-menu-with-multi/ic-menu.tsx",
       "encapsulation": "scoped",
       "tag": "ic-menu-with-multi",
-      "readme": "# ic-menu-with-multi\n\n\n",
+      "readme": "# ic-menu-with-multi\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3460,7 +3379,7 @@
               "docs": "- keyboard event"
             }
           ],
-          "docs": "Used alongside activationType\nIf menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.",
+          "docs": "Used alongside activationType\r\nIf menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.",
           "docsTags": [
             {
               "name": "param",
@@ -3480,40 +3399,25 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-select-with-multi"
-      ],
-      "dependencies": [
-        "ic-loading-indicator",
-        "ic-typography",
-        "ic-button"
-      ],
+      "dependents": ["ic-select-with-multi"],
+      "dependencies": ["ic-loading-indicator", "ic-typography", "ic-button"],
       "dependencyGraph": {
         "ic-menu-with-multi": [
           "ic-loading-indicator",
           "ic-typography",
           "ic-button"
         ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-select-with-multi": [
-          "ic-menu-with-multi"
-        ]
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-select-with-multi": ["ic-menu-with-multi"]
       }
     },
     {
       "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-bar",
-      "readme": "# ic-pagination-bar\n\n\n",
+      "readme": "# ic-pagination-bar\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3684,7 +3588,7 @@
           "name": "itemsPerPageOptions",
           "type": "{ label: string; value: string; }[]",
           "complexType": {
-            "original": "{\n    label: string;\n    value: string;\n  }[]",
+            "original": "{\r\n    label: string;\r\n    value: string;\r\n  }[]",
             "resolved": "{ label: string; value: string; }[]",
             "references": {}
           },
@@ -3930,7 +3834,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when a page is navigated to via the 'go to' input.\nThe `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.",
+          "docs": "Emitted when a page is navigated to via the 'go to' input.\r\nThe `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.",
           "docsTags": []
         }
       ],
@@ -3944,9 +3848,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-data-table"
-      ],
+      "dependents": ["ic-data-table"],
       "dependencies": [
         "ic-typography",
         "ic-select",
@@ -3973,34 +3875,14 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-pagination": [
-          "ic-button",
-          "ic-pagination-item"
-        ],
-        "ic-pagination-item": [
-          "ic-typography"
-        ],
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-pagination": ["ic-button", "ic-pagination-item"],
+        "ic-pagination-item": ["ic-typography"],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -4008,16 +3890,14 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-data-table": [
-          "ic-pagination-bar"
-        ]
+        "ic-data-table": ["ic-pagination-bar"]
       }
     },
     {
       "filePath": "src/components/ic-select-with-multi/ic-select.tsx",
       "encapsulation": "shadow",
       "tag": "ic-select-with-multi",
-      "readme": "# ic-select\n\n\n",
+      "readme": "# ic-select\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4164,7 +4044,7 @@
           "mutable": false,
           "attr": "formaction",
           "reflectToAttr": false,
-          "docs": "The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner.\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
+          "docs": "The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner.\r\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
           "docsTags": [],
           "values": [
             {
@@ -4248,7 +4128,7 @@
           "mutable": false,
           "attr": "formtarget",
           "reflectToAttr": false,
-          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the select's form owner.\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
+          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the select's form owner.\r\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
           "docsTags": [],
           "values": [
             {
@@ -4844,7 +4724,7 @@
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the select, reflected by the value of the currently selected option.\nFor the searchable variant, the value is also reflected by the user input.\nFor the multi-select variant, the value must be an array of option values.",
+          "docs": "The value of the select, reflected by the value of the currently selected option.\r\nFor the searchable variant, the value is also reflected by the user input.\r\nFor the multi-select variant, the value must be an array of option values.",
           "docsTags": [],
           "values": [
             {
@@ -5002,7 +4882,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when an option is selected.\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
+          "docs": "Emitted when an option is selected.\r\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
           "docsTags": []
         },
         {
@@ -5066,34 +4946,23 @@
           "ic-menu-with-multi",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
         "ic-menu-with-multi": [
           "ic-loading-indicator",
           "ic-typography",
           "ic-button"
         ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
       "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-item",
-      "readme": "# ic-tree-item\n\n\n",
+      "readme": "# ic-tree-item\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -5428,25 +5297,17 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-tooltip",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-tooltip", "ic-typography"],
       "dependencyGraph": {
-        "ic-tree-item": [
-          "ic-tooltip",
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-tree-item": ["ic-tooltip", "ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
       "filePath": "src/components/ic-tree-view/ic-tree-view.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-view",
-      "readme": "# ic-tree-view\n\n\n",
+      "readme": "# ic-tree-view\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -5625,18 +5486,10 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-tooltip",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-tooltip", "ic-typography"],
       "dependencyGraph": {
-        "ic-tree-view": [
-          "ic-tooltip",
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-tree-view": ["ic-tooltip", "ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     }
   ],
@@ -5647,7 +5500,7 @@
       "path": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: {\n    textWrap: boolean;\n  };\n  columnWidth?: string | IcDataTableColumnWidthTypes;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n  excludeColumnFromSort?: boolean;\n}",
+      "declaration": "{\r\n  key: string;\r\n  title: string;\r\n  dataType: IcDataTableColumnDataTypes;\r\n  columnAlignment?: {\r\n    horizontal?: string;\r\n    vertical?: string;\r\n  };\r\n  rowOptions?: {\r\n    textWrap: boolean;\r\n  };\r\n  columnWidth?: string | IcDataTableColumnWidthTypes;\r\n  textWrap?: boolean;\r\n  cellAlignment?: string;\r\n  emphasis?: string;\r\n  colspan?: number;\r\n  icon?: {\r\n    icon: string;\r\n    onAllCells?: boolean;\r\n    hideOnHeader?: boolean;\r\n  };\r\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5672,12 +5525,12 @@
       "path": "../web-components/dist/types/utils/types.d.ts"
     },
     "src/utils/types.ts::IcPaginationBarOptions": {
-      "declaration": "export interface IcPaginationBarOptions {\n  alignment?: IcPaginationAlignmentOptions;\n  appearance?: IcThemeForeground;\n  hideAllFromItemsPerPage?: boolean;\n  hideRangeLabel?: boolean;\n  itemLabel?: string;\n  itemsPerPageOptions?: { label: string; value: string }[];\n  pageLabel?: string;\n  rangeLabelType?: IcPaginationLabelTypes;\n  selectedItemsPerPage?: number;\n  setToFirstPageOnPaginationChange?: boolean;\n  showGoToPageControl?: boolean;\n  showItemsPerPageControl?: boolean;\n  type?: IcPaginationTypes;\n}",
+      "declaration": "export interface IcPaginationBarOptions {\r\n  alignment?: IcPaginationAlignmentOptions;\r\n  appearance?: IcThemeForeground;\r\n  hideAllFromItemsPerPage?: boolean;\r\n  hideRangeLabel?: boolean;\r\n  itemLabel?: string;\r\n  itemsPerPageOptions?: { label: string; value: string }[];\r\n  pageLabel?: string;\r\n  rangeLabelType?: IcPaginationLabelTypes;\r\n  selectedItemsPerPage?: number;\r\n  setToFirstPageOnPaginationChange?: boolean;\r\n  showGoToPageControl?: boolean;\r\n  showItemsPerPageControl?: boolean;\r\n  type?: IcPaginationTypes;\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableSortOrderOptions": {
-      "declaration": "export type IcDataTableSortOrderOptions =\n  | \"unsorted\"\n  | \"ascending\"\n  | \"descending\";",
+      "declaration": "export type IcDataTableSortOrderOptions =\r\n  | \"unsorted\"\r\n  | \"ascending\"\r\n  | \"descending\";",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5687,7 +5540,7 @@
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcSortEventDetail": {
-      "declaration": "export interface IcSortEventDetail {\n  columnName: string;\n  sorted: IcDataTableSortOrderOptions;\n}",
+      "declaration": "export interface IcSortEventDetail {\r\n  columnName: string;\r\n  sorted: IcDataTableSortOrderOptions;\r\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5712,12 +5565,12 @@
       "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
     },
     "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail": {
-      "declaration": "export interface IcPageChangeEventDetail {\n  value: number;\n  fromItemsPerPage?: boolean;\n}",
+      "declaration": "export interface IcPageChangeEventDetail {\r\n  value: number;\r\n  fromItemsPerPage?: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDensityUpdateEventDetail": {
-      "declaration": "export interface IcDensityUpdateEventDetail {\n  value: IcDataTableDensityOptions;\n}",
+      "declaration": "export interface IcDensityUpdateEventDetail {\r\n  value: IcDataTableDensityOptions;\r\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5727,7 +5580,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcWeekDays": {
-      "declaration": "export enum IcWeekDays {\n  Sunday = 0,\n  Monday = 1,\n  Tuesday = 2,\n  Wednesday = 3,\n  Thursday = 4,\n  Friday = 5,\n  Saturday = 6,\n}",
+      "declaration": "export enum IcWeekDays {\r\n  Sunday = 0,\r\n  Monday = 1,\r\n  Tuesday = 2,\r\n  Wednesday = 3,\r\n  Thursday = 4,\r\n  Friday = 5,\r\n  Saturday = 6,\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -5772,7 +5625,7 @@
       "path": "../web-components/dist/types/components.d.ts"
     },
     "src/utils/types.ts::IcValueEventDetail": {
-      "declaration": "export interface IcValueEventDetail {\n  value: string | string[];\n  keyPressed?: string;\n}",
+      "declaration": "export interface IcValueEventDetail {\r\n  value: string | string[];\r\n  keyPressed?: string;\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },

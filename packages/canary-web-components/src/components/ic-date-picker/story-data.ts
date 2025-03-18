@@ -159,7 +159,7 @@ const updateSelectedDate = (ev: CustomEvent): void => {
     text += ev.detail.value;
   }
   el.innerHTML = text;
-  console.log("ic-change", ev.detail.value);
+  console.log("ic-change", ev.detail);
 };
 
 export const IcChangeDate = (): HTMLElement => {

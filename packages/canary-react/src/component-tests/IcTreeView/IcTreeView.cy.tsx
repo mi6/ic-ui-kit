@@ -150,6 +150,18 @@ describe("IcTreeView", () => {
     });
   });
 
+  it("should render light with disabled tree items", () => {
+    mount(BasicTreeView({ appearance: "light" }, { disabled: true }));
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "light-disabled-tree-item",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+    });
+  });
+
   it("should render with selected tree item", () => {
     mount(BasicTreeView({}, { selected: true }));
 
@@ -410,6 +422,16 @@ describe("IcTreeView", () => {
     cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT)
       .eq(0)
       .should(HAVE_CSS, "background-color", "rgba(65, 70, 77, 0.1)");
+  });
+
+  it("should have hover state with light appearance", () => {
+    mount(BasicTreeView({ appearance: "light" }));
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(0).realHover("mouse");
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT)
+      .eq(0)
+      .should(HAVE_CSS, "background-color", "rgba(255, 255, 255, 0.1)");
   });
 });
 
