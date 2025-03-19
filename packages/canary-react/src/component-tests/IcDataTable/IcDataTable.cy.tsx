@@ -4481,7 +4481,7 @@ describe("IcDataTable row deletion", () => {
       cypressScreenshotOptions: {
         capture: "viewport",
       },
-      delay: 500,
+      delay: 550,
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 6);
