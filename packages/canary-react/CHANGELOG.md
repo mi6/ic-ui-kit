@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.11...@ukic/canary-react@3.0.0-canary.12) (2025-03-19)
+
+### Bug Fixes
+
+- **canary-react:** adds test for data-table slotted element fix ([dca2d2f](https://github.com/mi6/ic-ui-kit/commit/dca2d2fba1c391a1b10620b9d52708e565556578))
+
 # [3.0.0-canary.11](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.9...@ukic/canary-react@3.0.0-canary.11) (2025-03-05)
 
 ### Bug Fixes

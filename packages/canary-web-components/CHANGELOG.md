@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.11...@ukic/canary-web-components@3.0.0-canary.12) (2025-03-19)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes issue with data-table slotted elements ([a350c9b](https://github.com/mi6/ic-ui-kit/commit/a350c9b58f059ad87bf15631247556e07f0ca5f7))
+- **canary-web-components:** slotted router items should now truncate like regular tree items ([6bdfc36](https://github.com/mi6/ic-ui-kit/commit/6bdfc366d3d03e2e72cc54bec862ba21392cb65b))
+
 # [3.0.0-canary.11](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.9...@ukic/canary-web-components@3.0.0-canary.11) (2025-03-05)
 
 ### Bug Fixes
