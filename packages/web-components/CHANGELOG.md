@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.37.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.36.0...@ukic/web-components@2.37.0) (2025-03-19)
+
+### Features
+
+- **web-components:** styling for RTL characters in ic-radio-option ([818910f](https://github.com/mi6/ic-ui-kit/commit/818910f4d4024135949a2698ea567a4342851cc9))
+
 # [2.36.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.35.2...@ukic/web-components@2.36.0) (2025-03-05)
 
 ### Bug Fixes

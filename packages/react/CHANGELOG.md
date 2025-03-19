@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.37.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.36.0...@ukic/react@2.37.0) (2025-03-19)
+
+### Features
+
+- **react:** update story name to have lowercase E ([16ebc85](https://github.com/mi6/ic-ui-kit/commit/16ebc859f66e31cd55da3e60e1320c8c8ea32be3))
+
 # [2.36.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.35.2...@ukic/react@2.36.0) (2025-03-05)
 
 ### Bug Fixes

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.38](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.37...@ukic/canary-react@2.0.0-canary.38) (2025-03-19)
+
+### Bug Fixes
+
+- **canary-react:** adds test for data-table slotted element fix ([e7a40f5](https://github.com/mi6/ic-ui-kit/commit/e7a40f58fe183cf8533dd8e2bb7d70c224c59918))
+
+### Features
+
+- **canary-react:** added light mode styles for IcTreeView ([9400545](https://github.com/mi6/ic-ui-kit/commit/9400545f521830dbdfcc988b926ee65ef47c13c4))
+
 # [2.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.36...@ukic/canary-react@2.0.0-canary.37) (2025-03-05)
 
 ### Features
