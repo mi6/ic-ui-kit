@@ -176,7 +176,7 @@ export const PageExample = {
     </>
   ),
 
-  name: "Page Example",
+  name: "Page example",
 };
 
 export const Playground = {
