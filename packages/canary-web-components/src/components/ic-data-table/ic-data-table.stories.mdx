@@ -24,6 +24,7 @@ import {
   RowOverrides,
   CellOverrides,
   LinksHTMLElements,
+  SlottedElementsWithPagination,
   Empty,
   EmptySlotted,
   Loading,
@@ -1005,6 +1006,60 @@ Custom HTML elements can be slotted or passed via the `data` prop to display in 
       jobTitle: "Developer",
       address: "1 Main Street, Town, County, Postcode",
       actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Slotted elements with pagination
+
+<Canvas withSource="none">
+  <Story name="Slotted elements with pagination">
+    {SlottedElementsWithPagination()}
+  </Story>
+</Canvas>
+
+#### Slotted elements with pagination code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Slotted elements with pagination"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+    {
+      key: "actions",
+      title: "Actions",
+      dataType: "element",
+      columnAlignment: { horizontal: "center" },
+    },
+  ];
+
+  const data = [
+    {
+      firstName: {
+        data: "Joe",
+        href: "https://www.example.com",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+      actions: `<ic-button onClick='console.log("1")'>1</ic-button>`,
     },
     ...
   ];

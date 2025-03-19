@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.38](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.37...@ukic/canary-web-components@2.0.0-canary.38) (2025-03-19)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes issue with data-table slotted elements ([16bffab](https://github.com/mi6/ic-ui-kit/commit/16bffab52dfe6a46371619dc3478235deda09b51))
+
+### Features
+
+- **canary-web-components:** added updated styles for tree-view light mode ([373c777](https://github.com/mi6/ic-ui-kit/commit/373c777640fcfdff37495b117c8118c10520b5a7))
+
 # [2.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.36...@ukic/canary-web-components@2.0.0-canary.37) (2025-03-05)
 
 ### Bug Fixes
