@@ -13,12 +13,12 @@ export class InputLabel {
   /**
    * If `true`, the disabled state will be set.
    */
-  @Prop() disabled: boolean = false;
+  @Prop() disabled?: boolean = false;
 
   /**
    * The ID of the form element the label is bound to.
    */
-  @Prop() for: string;
+  @Prop() for?: string;
 
   /**
    * The helper text that will be displayed.
@@ -78,7 +78,7 @@ export class InputLabel {
     return (
       <Host
         class={{
-          "ic-input-label-disabled": disabled,
+          "ic-input-label-disabled": !!disabled,
           "ic-input-label-readonly": readonly,
           "with-helper": helperText !== "",
         }}
@@ -108,7 +108,9 @@ export class InputLabel {
               "helpertext-readonly": readonly,
             }}
           >
-            <span id={getInputHelperTextID(this.for)}>{helperText}</span>
+            <span id={this.for && getInputHelperTextID(this.for)}>
+              {helperText}
+            </span>
           </ic-typography>
         )}
       </Host>

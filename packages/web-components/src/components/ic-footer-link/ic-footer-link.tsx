@@ -37,7 +37,7 @@ export class FooterLink {
   /**
    * The URL that the link points to.
    */
-  @Prop() href?: string = null;
+  @Prop() href?: string;
 
   /**
    * The human language of the linked URL.
@@ -120,7 +120,7 @@ export class FooterLink {
           hreflang={hreflang}
           referrerpolicy={referrerpolicy}
           rel={rel}
-          download={download !== false ? download : null}
+          download={download !== false ? download : undefined}
           target={target}
         >
           <slot />

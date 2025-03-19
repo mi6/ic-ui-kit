@@ -101,7 +101,7 @@ exports[`ic-dialog component should render as large size and disableWidthConstra
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" data-gets-focus exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-146">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-154">
               <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
@@ -385,7 +385,7 @@ exports[`ic-dialog component should render with the close button 1`] = `
         </div>
         <ic-button class="close-icon ic-button-size-medium ic-button-variant-icon" exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-124">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-132">
               <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>

@@ -41,7 +41,7 @@ describe("ic-chip component renders label", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
@@ -129,19 +129,19 @@ describe("ic-chip component renders label", () => {
 
     const chip = await document.getElementById("test-id");
 
-    const dismissButton = page.root.shadowRoot.querySelector("button");
+    const dismissButton = page.root?.shadowRoot?.querySelector("button");
 
-    await expect(chip.classList.contains("hovered")).toBeFalsy;
+    await expect(chip?.classList.contains("hovered")).toBeFalsy;
 
     const event = new Event("mouseenter", {
       bubbles: true,
       cancelable: true,
     });
 
-    dismissButton.dispatchEvent(event);
+    dismissButton?.dispatchEvent(event);
     await page.waitForChanges();
 
-    await expect(chip.classList.contains("hovered")).toBeTruthy;
+    await expect(chip?.classList.contains("hovered")).toBeTruthy;
   });
 
   it("should lose 'hovered' style when cursor moves off dismiss button", async () => {
@@ -154,26 +154,26 @@ describe("ic-chip component renders label", () => {
 
     const chip = await document.getElementById("test-id");
 
-    const dismissButton = page.root.shadowRoot.querySelector("button");
+    const dismissButton = page.root?.shadowRoot?.querySelector("button");
 
     const enterEvent = new Event("mouseenter", {
       bubbles: true,
       cancelable: true,
     });
 
-    dismissButton.dispatchEvent(enterEvent);
+    dismissButton?.dispatchEvent(enterEvent);
     await page.waitForChanges();
 
-    await expect(chip.classList.contains("hovered")).toBeTruthy;
+    await expect(chip?.classList.contains("hovered")).toBeTruthy;
 
     const leaveEvent = new Event("mouseleave", {
       bubbles: true,
       cancelable: true,
     });
 
-    dismissButton.dispatchEvent(leaveEvent);
+    dismissButton?.dispatchEvent(leaveEvent);
 
-    await expect(chip.classList.contains("hovered")).toBeFalsy;
+    await expect(chip?.classList.contains("hovered")).toBeFalsy;
   });
 
   it("should close on dismiss icon click", async () => {
@@ -182,16 +182,16 @@ describe("ic-chip component renders label", () => {
       html: `<ic-chip label="This is dismissible" dismissible="true"></ic-chip>`,
     });
 
-    let chip = await page.root.shadowRoot.querySelector("div");
-    const dismissButton = await page.root.shadowRoot.querySelector("button");
+    let chip = await page.root?.shadowRoot?.querySelector("div");
+    const dismissButton = await page.root?.shadowRoot?.querySelector("button");
 
     expect(chip).not.toBeNull();
     expect(dismissButton).not.toBeNull();
 
-    await dismissButton.click();
+    await dismissButton?.click();
 
     await page.waitForChanges();
-    chip = await page.root.shadowRoot.querySelector("div");
+    chip = await page.root?.shadowRoot?.querySelector("div");
 
     expect(chip).toBeNull();
   });
@@ -216,7 +216,7 @@ describe("ic-chip component renders label", () => {
 
     expect(page.rootInstance.customColor).toBe("#F8C8DC");
 
-    chip.customColor = "#00008B";
+    chip?.setAttribute("custom-color", "#00008B");
     await page.waitForChanges();
 
     expect(page.rootInstance.customColor).toBe("#00008B");
@@ -236,9 +236,9 @@ describe("ic-chip component renders label", () => {
 
     expect(page.rootInstance.inAGGrid).toBe(true);
     expect(
-      page.root.shadowRoot
-        .querySelector("ic-typography")
-        .classList.contains("in-ag-grid")
+      page.root?.shadowRoot
+        ?.querySelector("ic-typography")
+        ?.classList.contains("in-ag-grid")
     ).toBe(true);
   });
 });

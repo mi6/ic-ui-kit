@@ -40,7 +40,7 @@ export class Divider {
   /**
    * The line style of the divider.
    */
-  @Prop() borderStyle: IcDividerStyles = "solid";
+  @Prop() borderStyle?: IcDividerStyles = "solid";
 
   /**
    * The label for the divider. The label placement will need to be set for the label to be displayed correctly.
@@ -58,7 +58,7 @@ export class Divider {
   /**
    * The orientation of the divider.
    */
-  @Prop() orientation: IcOrientation = "horizontal";
+  @Prop() orientation?: IcOrientation = "horizontal";
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -68,7 +68,7 @@ export class Divider {
   /**
    * The thickness of the divider.
    */
-  @Prop() weight: IcDividerWeights = "thin";
+  @Prop() weight?: IcDividerWeights = "thin";
 
   @Listen("brandChange", { target: "document" })
   brandChangeHandler(ev: CustomEvent<IcBrand>): void {
@@ -76,20 +76,22 @@ export class Divider {
   }
 
   private updateMonochromeState(): void {
-    const isBottomSideNav =
-      this.el.parentElement.classList.contains("bottom-side-nav");
-    const isBottomWrapper =
-      this.el.parentElement.parentElement.classList.contains("bottom-wrapper");
+    const parentEl = this.el.parentElement;
+    if (parentEl) {
+      const isBottomSideNav = parentEl.classList.contains("bottom-side-nav");
+      const isBottomWrapper =
+        parentEl.parentElement?.classList.contains("bottom-wrapper");
 
-    if (
-      this.el.parentElement.tagName === "IC-SIDE-NAVIGATION" ||
-      (isBottomSideNav && isBottomWrapper)
-    ) {
-      this.el.classList.add("ic-side-navigation-keyline");
-      if (this.foregroundColor === "light") {
-        this.theme = "dark";
-      } else {
-        this.theme = "light";
+      if (
+        parentEl.tagName === "IC-SIDE-NAVIGATION" ||
+        (isBottomSideNav && isBottomWrapper)
+      ) {
+        this.el.classList.add("ic-side-navigation-keyline");
+        if (this.foregroundColor === "light") {
+          this.theme = "dark";
+        } else {
+          this.theme = "light";
+        }
       }
     }
   }
@@ -151,7 +153,7 @@ export class Divider {
         return (
           <ic-typography
             class="ic-divider-label"
-            variant={getTypographyVariant(weight)}
+            variant={getTypographyVariant(weight!)}
           >
             <p>{label}</p>
           </ic-typography>
@@ -164,7 +166,7 @@ export class Divider {
       <Host
         class={{
           [`ic-theme-${theme}`]: theme !== "inherit",
-          [`ic-divider-monochrome`]: monochrome,
+          [`ic-divider-monochrome`]: !!monochrome,
           [`ic-divider-${orientation}`]: true,
           [`ic-divider-${weight}`]: true,
           [`ic-divider-${borderStyle}`]: true,

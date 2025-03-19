@@ -29,7 +29,7 @@ import { VARIANT_ICONS } from "../../utils/constants";
   shadow: true,
 })
 export class Alert {
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el: HTMLIcAlertElement;
 
@@ -59,7 +59,7 @@ export class Alert {
   /**
    * If `true`, the default icon for the neutral variant will appear on the left of the alert.
    */
-  @Prop() showDefaultIcon: boolean = true;
+  @Prop() showDefaultIcon?: boolean = true;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -107,8 +107,8 @@ export class Alert {
 
   private alertTitleShouldWrap() {
     const titleHeight =
-      this.el.shadowRoot.querySelector(".alert-title")?.clientHeight;
-    if (titleHeight > 24) this.alertTitleWrap = true;
+      this.el.shadowRoot?.querySelector(".alert-title")?.clientHeight;
+    if (titleHeight && titleHeight > 24) this.alertTitleWrap = true;
   }
 
   render() {
@@ -170,7 +170,7 @@ export class Alert {
                     ["svg-container"]: true,
                     [`icon-${variant}`]: true,
                   }}
-                  innerHTML={VARIANT_ICONS[variant].icon}
+                  innerHTML={VARIANT_ICONS[variant!].icon}
                 ></span>
               )}
             </div>

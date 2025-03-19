@@ -133,18 +133,18 @@ describe("ic-footer", () => {
     await page.waitForChanges();
 
     expect(
-      page.root.shadowRoot
-        .querySelector(".footer-caption")
-        .firstElementChild.getAttribute("variant")
+      page.root?.shadowRoot
+        ?.querySelector(".footer-caption")
+        ?.firstElementChild?.getAttribute("variant")
     ).toBe("body");
 
     await page.rootInstance.resizeObserverCallback(DEVICE_SIZES.XS);
     await page.waitForChanges();
 
     expect(
-      page.root.shadowRoot
-        .querySelector(".footer-caption")
-        .firstElementChild.getAttribute("variant")
+      page.root?.shadowRoot
+        ?.querySelector(".footer-caption")
+        ?.firstElementChild?.getAttribute("variant")
     ).toBe("caption");
 
     await page.rootInstance.disconnectedCallback();
@@ -223,7 +223,7 @@ describe("ic-footer", () => {
 
     observerInstance.observe(host, { childList: true });
 
-    host.appendChild(footerLink);
+    host?.appendChild(footerLink);
 
     const mockMutationRecord: MockMutationRecord[] = [
       {

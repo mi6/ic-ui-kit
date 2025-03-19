@@ -37,7 +37,7 @@ import { IcHeroContentAlignments } from "./ic-hero.types";
   shadow: true,
 })
 export class Hero {
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el: HTMLIcHeroElement;
 
@@ -51,7 +51,7 @@ export class Hero {
   /**
    * The alignment of the hero.
    */
-  @Prop() aligned: IcAlignment = "left";
+  @Prop() aligned?: IcAlignment = "left";
 
   /**
    * The optional background image.
@@ -61,7 +61,7 @@ export class Hero {
   /**
    * The alignment of the hero content.
    */
-  @Prop() contentAligned: IcHeroContentAlignments = "left";
+  @Prop() contentAligned?: IcHeroContentAlignments = "left";
 
   /**
    * If `true`, the background image (if set) will not scroll using a parallax effect.
@@ -71,7 +71,7 @@ export class Hero {
   /**
    * The heading of the hero. An <h2> level heading.
    */
-  @Prop() heading: string;
+  @Prop() heading?: string;
 
   /**
    * The optional secondary heading, an <h3> level heading. Replaced by slotted right content.
@@ -131,10 +131,12 @@ export class Hero {
       return;
     }
 
-    const scrolltotop = document.scrollingElement.scrollTop;
-    const factor = 0.4;
-    const y = -100 + scrolltotop * factor;
-    this.scrollFactor = "right " + y + "px";
+    const scrolltotop = document.scrollingElement?.scrollTop;
+    if (scrolltotop) {
+      const factor = 0.4;
+      const y = -100 + scrolltotop * factor;
+      this.scrollFactor = "right " + y + "px";
+    }
   }
 
   render() {

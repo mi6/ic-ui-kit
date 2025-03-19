@@ -64,7 +64,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -267,7 +267,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -289,7 +289,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -311,7 +311,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -333,7 +333,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -601,7 +601,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -905,7 +905,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -995,7 +995,6 @@
           "reflectToAttr": false,
           "docs": "The custom badge colour. This will only style the badge component if variant=\"custom\".\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
           "docsTags": [],
-          "default": "null",
           "values": [
             {
               "type": "`#${string}`"
@@ -1272,7 +1271,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -1466,7 +1465,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1488,7 +1487,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1754,7 +1753,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -2136,7 +2135,7 @@
               "type": "FileList"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3132,7 +3131,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3198,7 +3197,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3240,7 +3239,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3262,7 +3261,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3284,7 +3283,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3326,7 +3325,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3348,7 +3347,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3537,7 +3536,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3559,7 +3558,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3581,7 +3580,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3645,7 +3644,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3759,7 +3758,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3781,7 +3780,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -3878,7 +3877,6 @@
           "reflectToAttr": false,
           "docs": "The custom chip colour. This will override the theme colour.\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
           "docsTags": [],
-          "default": "null",
           "values": [
             {
               "type": "`#${string}`"
@@ -4375,7 +4373,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -4510,7 +4508,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -4601,7 +4599,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -4810,7 +4808,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -4869,13 +4867,13 @@
           "reflectToAttr": true,
           "docs": "If `true`, the dialog will be displayed.",
           "docsTags": [],
-          "default": "undefined",
+          "default": "false",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5151,7 +5149,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5272,7 +5270,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5359,7 +5357,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -5816,7 +5814,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5838,7 +5836,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5859,7 +5857,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5974,7 +5972,6 @@
           "reflectToAttr": false,
           "docs": "The URL that the link points to.",
           "docsTags": [],
-          "default": "null",
           "values": [
             {
               "type": "string"
@@ -6256,7 +6253,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6310,7 +6307,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6353,7 +6350,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6620,7 +6617,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6642,7 +6639,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6664,7 +6661,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6686,7 +6683,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6745,7 +6742,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6785,7 +6782,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -6990,7 +6987,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7011,7 +7008,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7235,7 +7232,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7256,7 +7253,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7278,7 +7275,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7339,7 +7336,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -7433,7 +7430,6 @@
           "reflectToAttr": false,
           "docs": "The URL that the link points to.",
           "docsTags": [],
-          "default": "null",
           "values": [
             {
               "type": "string"
@@ -7939,7 +7935,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -19514,7 +19510,7 @@
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcValueEventDetail": {
-      "declaration": "export interface IcValueEventDetail {\n  value: string | string[];\n  keyPressed?: string;\n}",
+      "declaration": "export interface IcValueEventDetail {\n  value: string | string[] | null;\n  keyPressed?: string;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -19539,7 +19535,7 @@
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
     "src/utils/types.ts::IcBlurEventDetail": {
-      "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
+      "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget | null;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },

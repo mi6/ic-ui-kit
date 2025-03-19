@@ -609,7 +609,7 @@ exports[`ic-checkbox-group should test labelNameHandler 1`] = `
 `;
 
 exports[`ic-checkbox-group should test labelNameHandler 2`] = `
-<ic-checkbox-group class="ic-checkbox-group-medium" label="test label" name="test">
+<ic-checkbox-group class="ic-checkbox-group-medium" label="new label" name="test">
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>

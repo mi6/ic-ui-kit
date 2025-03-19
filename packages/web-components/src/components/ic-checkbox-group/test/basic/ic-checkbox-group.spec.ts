@@ -8,7 +8,7 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test" label="test label"></ic-checkbox>    
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -19,7 +19,7 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test" required>
-        <ic-checkbox value="test" label="test label"></ic-checkbox>    
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -30,7 +30,7 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test" helper-text="helper test">
-        <ic-checkbox value="test" label="test label"></ic-checkbox>    
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -50,7 +50,7 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test" checked label="test label"></ic-checkbox>    
+        <ic-checkbox value="test" checked label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -61,7 +61,7 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test" checked indeterminate label="test label"></ic-checkbox>    
+        <ic-checkbox value="test" checked indeterminate label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -83,7 +83,7 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test" label="test label" hide-label></ic-checkbox>    
+        <ic-checkbox value="test" label="test label" hide-label></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -94,13 +94,13 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test" disabled label="test label"></ic-checkbox>    
+        <ic-checkbox value="test" disabled label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-disabled");
 
-    document.querySelector("ic-checkbox").disabled = false;
+    document.querySelector("ic-checkbox")?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
@@ -110,7 +110,7 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error">
-        <ic-checkbox value="test" label="test label"></ic-checkbox>    
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -123,7 +123,7 @@ describe("ic-checkbox-group", () => {
       html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error">
         <ic-checkbox value="test" additional-field-display="dynamic" label="test label">
         <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
-        </ic-checkbox>    
+        </ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -136,7 +136,7 @@ describe("ic-checkbox-group", () => {
       html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error">
         <ic-checkbox value="test" label="test label" additional-field-display="dynamic" checked>
         <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
-        </ic-checkbox>    
+        </ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -151,7 +151,7 @@ describe("ic-checkbox-group", () => {
       html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error">
         <ic-checkbox value="test" label="test label" additional-field-display="static">
         <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
-        </ic-checkbox>    
+        </ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -164,7 +164,7 @@ describe("ic-checkbox-group", () => {
       html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error">
         <ic-checkbox value="test" label="test label" additional-field-display="static" checked>
         <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
-        </ic-checkbox>    
+        </ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -178,13 +178,13 @@ describe("ic-checkbox-group", () => {
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test" size="small">
         <ic-checkbox value="test" label="test label"></ic-checkbox>
-        <ic-checkbox value="test" label="test label"></ic-checkbox>  
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
     expect(page.root).toMatchSnapshot();
 
-    const checkboxes = page.root.querySelectorAll("ic-checkbox");
+    const checkboxes = document.querySelectorAll("ic-checkbox");
 
     checkboxes.forEach((checkbox) => {
       expect(checkbox.classList.contains("ic-checkbox-small")).toBe(true);
@@ -196,16 +196,16 @@ describe("ic-checkbox-group", () => {
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test" size="large">
         <ic-checkbox value="test" label="test label" id="large-checkbox"></ic-checkbox>
-        <ic-checkbox value="test" label="test label" size="small" id="small-checkbox"></ic-checkbox>  
+        <ic-checkbox value="test" label="test label" size="small" id="small-checkbox"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
-    const smallCheckbox = page.root.querySelector(
+    const smallCheckbox = document.querySelector(
       "ic-checkbox#small-checkbox"
     ) as HTMLIcCheckboxElement;
     expect(smallCheckbox["size"]).toMatch("small");
 
-    const largeCheckbox = page.root.querySelector(
+    const largeCheckbox = document.querySelector(
       "ic-checkbox:not(#small-checkbox)"
     ) as HTMLIcCheckboxElement;
     expect(largeCheckbox.classList.contains("ic-checkbox-large")).toBe(true);
@@ -219,12 +219,12 @@ describe("ic-checkbox-group", () => {
       html: `<ic-checkbox value="test" label="test label" checked></ic-checkbox>`,
     });
 
-    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.checked).toBe(true);
 
     page.rootInstance.handleClick();
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(false);
+    expect(page.rootInstance.checked).toBe(false);
   });
 
   it("should call 'setFocus' when checkbox is focused", async () => {
@@ -241,7 +241,7 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test" label="test label"></ic-checkbox>    
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
@@ -249,10 +249,10 @@ describe("ic-checkbox-group", () => {
 
     page.win.addEventListener("icCheck", eventSpy);
 
-    page.root
+    document
       .querySelector("ic-checkbox")
-      .shadowRoot.querySelector("input")
-      .click();
+      ?.shadowRoot?.querySelector("input")
+      ?.click();
 
     await page.waitForChanges();
 
@@ -268,30 +268,30 @@ describe("ic-checkbox-group", () => {
 
     expect(page.rootInstance.displayIndeterminate).toBe(true);
 
-    page.root.shadowRoot.querySelector("input").click();
+    page.root?.shadowRoot?.querySelector("input")?.click();
 
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(false);
+    expect(page.rootInstance.checked).toBe(false);
     expect(page.rootInstance.displayIndeterminate).toBe(false);
 
-    page.root.shadowRoot.querySelector("input").click();
+    page.root?.shadowRoot?.querySelector("input")?.click();
 
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.checked).toBe(true);
     expect(page.rootInstance.displayIndeterminate).toBe(true);
 
-    page.root.indeterminate = false;
+    page.root?.setAttribute("indeterminate", "false");
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.checked).toBe(true);
     expect(page.rootInstance.displayIndeterminate).toBe(false);
 
-    page.root.indeterminate = true;
+    page.root?.setAttribute("indeterminate", "true");
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.checked).toBe(true);
     expect(page.rootInstance.displayIndeterminate).toBe(true);
   });
 
@@ -304,34 +304,34 @@ describe("ic-checkbox-group", () => {
 
     expect(page.rootInstance.displayIndeterminate).toBe(true);
 
-    page.root.shadowRoot.querySelector("input").click();
+    page.root?.shadowRoot?.querySelector("input")?.click();
 
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.checked).toBe(true);
     expect(page.rootInstance.displayIndeterminate).toBe(false);
 
-    page.root.shadowRoot.querySelector("input").click();
+    page.root?.shadowRoot?.querySelector("input")?.click();
 
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(false);
+    expect(page.rootInstance.checked).toBe(false);
     expect(page.rootInstance.displayIndeterminate).toBe(false);
 
-    page.root.indeterminate = false;
+    page.root?.setAttribute("indeterminate", "false");
     await page.waitForChanges();
 
-    page.root.indeterminate = true;
+    page.root?.setAttribute("indeterminate", "true");
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(false);
+    expect(page.rootInstance.checked).toBe(false);
     expect(page.rootInstance.displayIndeterminate).toBe(true);
 
-    page.root.shadowRoot.querySelector("input").click();
+    page.root?.shadowRoot?.querySelector("input")?.click();
 
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.checked).toBe(true);
     expect(page.rootInstance.displayIndeterminate).toBe(false);
   });
 
@@ -339,22 +339,22 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [Checkbox],
       html: `<form>
-          <ic-checkbox value="test" label="test label" checked></ic-checkbox>    
-          <button id="resetButton" type="reset">Reset</button>  
+          <ic-checkbox value="test" label="test label" checked></ic-checkbox>
+          <button id="resetButton" type="reset">Reset</button>
       </form>`,
     });
 
-    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.checked).toBe(true);
 
-    page.root.checked = false;
+    page.rootInstance.checked = false;
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(false);
+    expect(page.rootInstance.checked).toBe(false);
 
     await page.rootInstance.handleFormReset();
     await page.waitForChanges();
 
-    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.checked).toBe(true);
 
     //test disconnected callback
     page.setContent("");
@@ -364,13 +364,13 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [Checkbox, CheckboxGroup],
       html: `<ic-checkbox-group label="test label" name="test">
-      <ic-checkbox value="test" label="test label"></ic-checkbox>    
+      <ic-checkbox value="test" label="test label"></ic-checkbox>
     </ic-checkbox-group>`,
     });
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.label = "new label";
+    page.root?.setAttribute("label", "new label");
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();

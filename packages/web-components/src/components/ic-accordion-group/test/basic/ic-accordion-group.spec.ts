@@ -48,7 +48,7 @@ describe("ic-accordion-group functions unit test", () => {
       page.rootInstance,
       "setExpandedToAreAllAccordionsOpen"
     );
-    expect(page.root.singleExpansion).toBe(false);
+    expect(page.rootInstance.singleExpansion).toBe(false);
     await page.rootInstance.handleAccordionClicked(event);
     expect(spySetExpandedToAreAllAccordionsOpen).toBeCalled();
   });
@@ -58,10 +58,10 @@ describe("ic-accordion-group functions unit test", () => {
       components: [AccordionGroup],
       html: `<ic-accordion-group label="Test heading" expanded></ic-accordion-group>`,
     });
-    expect(page.root.expanded).toBe(true);
+    expect(page.rootInstance.expanded).toBe(true);
     await page.rootInstance.handleExpanded();
     await page.waitForChanges;
-    expect(page.root.expanded).toBe(false);
+    expect(page.rootInstance.expanded).toBe(false);
   });
 });
 
@@ -78,10 +78,10 @@ describe("ic-accordion-group component", () => {
         </ic-accordion>
       </ic-accordion-group>`,
     });
-    expect(page.root.expanded).toBe(true);
+    expect(page.rootInstance.expanded).toBe(true);
     await page.rootInstance.handleExpanded();
     await page.waitForChanges();
-    expect(page.root.expanded).toBe(false);
+    expect(page.rootInstance.expanded).toBe(false);
   });
 
   it("should test singleExpansion function", async () => {
@@ -102,10 +102,10 @@ describe("ic-accordion-group component", () => {
       </ic-accordion-group>`,
     });
 
-    const accordions = page.root.querySelectorAll("ic-accordion");
+    const accordions = document.querySelectorAll("ic-accordion");
     const accordion1 = accordions[0];
     const accordion2 = accordions[1];
-    const accordionButton = accordion1.shadowRoot.querySelector(
+    const accordionButton = accordion1.shadowRoot?.querySelector(
       ".section-button"
     ) as HTMLButtonElement;
     await page.waitForChanges();
@@ -132,13 +132,13 @@ describe("ic-accordion-group component", () => {
     // uses handleExpanded to open accordion, making areAllAccordionsOpen = true
     await page.rootInstance.handleExpanded();
     await page.waitForChanges;
-    expect(page.root.expanded).toBe(true);
+    expect(page.rootInstance.expanded).toBe(true);
     expect(page.rootInstance.areAllAccordionsOpen).toBe(true);
 
     // uses handleExpanded to close accordion, making areAllAccordionsOpen = false
     await page.rootInstance.handleExpanded();
     await page.waitForChanges;
-    expect(page.root.expanded).toBe(false);
+    expect(page.rootInstance.expanded).toBe(false);
     expect(page.rootInstance.areAllAccordionsOpen).toBe(false);
   });
 });

@@ -69,7 +69,7 @@ describe("ic-card-vertical", () => {
 
     expect(page.root).toMatchSnapshot("disabled");
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
@@ -85,11 +85,11 @@ describe("ic-card-vertical", () => {
 
     const element = await document.getElementById("test-id");
 
-    await expect(element.classList.contains("focussed")).toBeFalsy;
+    await expect(element?.classList.contains("focussed")).toBeFalsy;
 
-    await element.focus();
+    await element?.focus();
 
-    await expect(element.classList.contains("focussed")).toBeTruthy;
+    await expect(element?.classList.contains("focussed")).toBeTruthy;
   });
 
   it("should lose 'focussed' style when parent loses focus", async () => {
@@ -102,13 +102,13 @@ describe("ic-card-vertical", () => {
 
     const element = await document.getElementById("test-card");
 
-    await element.focus();
+    await element?.focus();
 
-    await expect(element.classList.contains("focussed")).toBeTruthy;
+    await expect(element?.classList.contains("focussed")).toBeTruthy;
 
-    await element.blur();
+    await element?.blur();
 
-    await expect(element.classList.contains("focussed")).toBeFalsy;
+    await expect(element?.classList.contains("focussed")).toBeFalsy;
 
     await page.rootInstance.disconnectedCallback();
   });
@@ -123,7 +123,7 @@ describe("ic-card-vertical", () => {
 
     const element = await document.getElementById("test-card");
 
-    element.click();
+    element?.click();
 
     await page.waitForChanges();
 
@@ -248,19 +248,19 @@ describe("ic-card-vertical", () => {
 
     const icon = document.createElement("svg");
     icon.setAttribute("slot", "icon");
-    host.appendChild(icon);
+    host?.appendChild(icon);
 
     const imageMid = document.createElement("svg");
     imageMid.setAttribute("slot", "image-mid");
-    host.appendChild(imageMid);
+    host?.appendChild(imageMid);
 
     const imageTop = document.createElement("svg");
     imageTop.setAttribute("slot", "image-top");
-    host.appendChild(imageTop);
+    host?.appendChild(imageTop);
 
     const button = document.createElement("button");
     button.setAttribute("slot", "interaction-button");
-    host.appendChild(button);
+    host?.appendChild(button);
 
     const mockMutationRecord: MockMutationRecord[] = [
       {

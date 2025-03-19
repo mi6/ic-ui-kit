@@ -174,6 +174,19 @@ describe("button component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render a 'file' type input when fileUpload prop is enabled", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: "<ic-button file-upload>Button</ic-button>",
+      supportsShadowDom: true,
+    });
+
+    const button = document.querySelector("ic-button");
+    button?.click();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render icon variant with a tooltip", async () => {
     const page = await newSpecPage({
       components: [Button, Tooltip],
@@ -214,7 +227,7 @@ describe("button component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.setAttribute("aria-label", "New tooltip text");
+    page.root?.setAttribute("aria-label", "New tooltip text");
     await page.waitForChanges();
 
     page.rootInstance.hostMutationCallback([{ attributeName: "aria-label" }]);
@@ -231,7 +244,7 @@ describe("button component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.setAttribute("aria-expanded", "true");
+    page.root?.setAttribute("aria-expanded", "true");
     await page.waitForChanges();
 
     page.rootInstance.hostMutationCallback([
@@ -250,7 +263,7 @@ describe("button component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.setAttribute("title", "New tooltip text");
+    page.root?.setAttribute("title", "New tooltip text");
     await page.waitForChanges();
 
     page.rootInstance.hostMutationCallback([{ attributeName: "title" }]);
@@ -265,24 +278,25 @@ describe("button component", () => {
       html: "<ic-button variant='icon' id='test-button' title='Tooltip text'>Button</ic-button>",
     });
 
-    const tooltip = page.root.shadowRoot.querySelector("ic-tooltip");
-    const tooltipContainer = tooltip.shadowRoot.querySelector(
+    const tooltip = page.root?.shadowRoot?.querySelector("ic-tooltip");
+    const tooltipContainer = tooltip?.shadowRoot?.querySelector(
       ".ic-tooltip-container"
     );
+    expect(tooltipContainer).not.toBeNull();
 
-    let tooltipVisible = tooltipContainer.getAttribute("data-show");
+    let tooltipVisible = tooltipContainer?.getAttribute("data-show");
     expect(tooltipVisible).toBeNull();
 
-    await tooltip.displayTooltip(true);
+    await tooltip?.displayTooltip(true);
     await page.waitForChanges();
 
-    tooltipVisible = tooltipContainer.getAttribute("data-show");
+    tooltipVisible = tooltipContainer?.getAttribute("data-show");
     expect(tooltipVisible).toBe("");
 
     page.rootInstance.handleKeyDown(keyboardEvent("Escape"));
     await page.waitForChanges();
 
-    tooltipVisible = tooltipContainer.getAttribute("data-show");
+    tooltipVisible = tooltipContainer?.getAttribute("data-show");
     expect(tooltipVisible).toBeNull();
   });
 
@@ -296,7 +310,7 @@ describe("button component", () => {
 
     const element = document.getElementById("test-button");
 
-    element.click();
+    element?.click();
 
     await page.waitForChanges();
 
@@ -336,7 +350,7 @@ describe("button component", () => {
     });
 
     const btn = document.getElementById("ic-button");
-    btn.click();
+    btn?.click();
 
     expect(page.root).toMatchSnapshot();
   });
@@ -380,12 +394,12 @@ describe("button component", () => {
     });
     expect(page.root).toMatchSnapshot();
 
-    page.root.disableTooltip = true;
+    page.rootInstance.disableTooltip = true;
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.disableTooltip = false;
+    page.rootInstance.disableTooltip = false;
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();

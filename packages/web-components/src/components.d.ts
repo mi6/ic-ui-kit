@@ -72,7 +72,7 @@ export namespace Components {
         /**
           * If `true`, the accordion appears expanded.
          */
-        "expanded": boolean;
+        "expanded"?: boolean;
         /**
           * The section header outlining section content.
          */
@@ -98,15 +98,15 @@ export namespace Components {
         /**
           * The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.
          */
-        "accessibleButtonLabel": string;
+        "accessibleButtonLabel"?: string;
         /**
           * If `true`, the accordion will load in an expanded state.
          */
-        "expanded": boolean;
+        "expanded"?: boolean;
         /**
           * The header for the accordion group.
          */
-        "label": string;
+        "label"?: string;
         /**
           * Sets the focus on first focusable element in the accordion group. If the "See/Hide all" button is present, it will be focused. Otherwise, the first accordion will be focused.
          */
@@ -114,7 +114,7 @@ export namespace Components {
         /**
           * If `true`, only one accordion will open at a time.
          */
-        "singleExpansion": boolean;
+        "singleExpansion"?: boolean;
         /**
           * The size of the accordion.
          */
@@ -144,7 +144,7 @@ export namespace Components {
         /**
           * If `true`, the default icon for the neutral variant will appear on the left of the alert.
          */
-        "showDefaultIcon": boolean;
+        "showDefaultIcon"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -174,7 +174,7 @@ export namespace Components {
         /**
           * The variant of the button to render
          */
-        "variant": IcBackToTopVariants;
+        "variant"?: IcBackToTopVariants;
     }
     interface IcBadge {
         /**
@@ -216,7 +216,7 @@ export namespace Components {
         /**
           * If `true`, the badge will be displayed.
          */
-        "visible": boolean;
+        "visible"?: boolean;
     }
     interface IcBreadcrumb {
         /**
@@ -236,18 +236,18 @@ export namespace Components {
           * Sets focus on the breadcrumb.
          */
         "setFocus": () => Promise<void>;
-        "showBackIcon": boolean;
+        "showBackIcon"?: boolean;
         "theme"?: IcThemeMode;
     }
     interface IcBreadcrumbGroup {
         /**
           * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
-        "backBreadcrumbOnly": boolean;
+        "backBreadcrumbOnly"?: boolean;
         /**
           * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
          */
-        "collapsed": boolean;
+        "collapsed"?: boolean;
         /**
           * If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.
          */
@@ -262,8 +262,8 @@ export namespace Components {
           * If `fileUpload` is set to `true`, this is the accepted list of file types.
          */
         "accept"?: string;
-        "ariaControlsId": string | boolean;
-        "ariaOwnsId": string | boolean;
+        "ariaControlsId"?: string | boolean;
+        "ariaOwnsId"?: string | boolean;
         /**
           * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
          */
@@ -287,7 +287,7 @@ export namespace Components {
         /**
           * The name of the control for the file input, which is submitted with the form data.
          */
-        "fileInputName": string;
+        "fileInputName"?: string;
         /**
           * If `true`, when the button is clicked the native file explorer will be launched.
          */
@@ -351,7 +351,7 @@ export namespace Components {
         /**
           * The list of the files that have been selected by a user.
          */
-        "selectedFiles": FileList;
+        "selectedFiles"?: FileList;
         /**
           * Sets focus on the native `button`.
          */
@@ -447,7 +447,7 @@ export namespace Components {
         /**
           * The style of additionalField that will be displayed if used.
          */
-        "additionalFieldDisplay": IcAdditionalFieldTypes;
+        "additionalFieldDisplay"?: IcAdditionalFieldTypes;
         /**
           * If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.
          */
@@ -459,7 +459,7 @@ export namespace Components {
         /**
           * The text to be displayed when dynamic.
          */
-        "dynamicText": string;
+        "dynamicText"?: string;
         /**
           * The <form> element to associate the checkbox with.
          */
@@ -467,15 +467,15 @@ export namespace Components {
         /**
           * The group label for the checkbox.
          */
-        "groupLabel": string;
+        "groupLabel"?: string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel": boolean;
+        "hideLabel"?: boolean;
         /**
           * If `true`, the indeterminate state will be displayed when checked.
          */
-        "indeterminate": boolean;
+        "indeterminate"?: boolean;
         /**
           * The label for the checkbox.
          */
@@ -483,11 +483,11 @@ export namespace Components {
         /**
           * The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.
          */
-        "name": string;
+        "name"?: string;
         /**
           * If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.
          */
-        "nativeIndeterminateBehaviour": boolean;
+        "nativeIndeterminateBehaviour"?: boolean;
         /**
           * Sets focus on the checkbox.
          */
@@ -509,15 +509,15 @@ export namespace Components {
         /**
           * If `true`, the checkbox group will be set to the disabled state.
          */
-        "disabled": boolean;
+        "disabled"?: boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
          */
-        "helperText": string;
+        "helperText"?: string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel": boolean;
+        "hideLabel"?: boolean;
         /**
           * The label for the checkbox group to be displayed.
          */
@@ -529,7 +529,7 @@ export namespace Components {
         /**
           * If `true`, the checkbox group will require a value.
          */
-        "required": boolean;
+        "required"?: boolean;
         /**
           * The size of the checkboxes to be displayed. This does not affect the font size of the label.
          */
@@ -541,11 +541,11 @@ export namespace Components {
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationStatus": IcInformationStatusOrEmpty;
+        "validationStatus"?: IcInformationStatusOrEmpty;
         /**
           * The validation text - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationText": string;
+        "validationText"?: string;
     }
     interface IcChip {
         /**
@@ -615,7 +615,7 @@ export namespace Components {
         /**
           * The title for the data list.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * The size of the data list component.
          */
@@ -629,7 +629,7 @@ export namespace Components {
         /**
           * The label in the leftmost cell of the row.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The size of the data row component.
          */
@@ -641,7 +641,7 @@ export namespace Components {
         /**
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
-        "value": string;
+        "value"?: string;
     }
     interface IcDialog {
         /**
@@ -679,7 +679,7 @@ export namespace Components {
         /**
           * Sets the heading for the dialog.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * If `true`, the close button will not be displayed.
          */
@@ -691,7 +691,7 @@ export namespace Components {
         /**
           * If `true`, the dialog will be displayed.
          */
-        "open": boolean;
+        "open"?: boolean;
         /**
           * Sets the maximum and minimum height and width for the dialog.
          */
@@ -705,7 +705,7 @@ export namespace Components {
         /**
           * The line style of the divider.
          */
-        "borderStyle": IcDividerStyles;
+        "borderStyle"?: IcDividerStyles;
         /**
           * The label for the divider. The label placement will need to be set for the label to be displayed correctly.
          */
@@ -721,7 +721,7 @@ export namespace Components {
         /**
           * The orientation of the divider.
          */
-        "orientation": IcOrientation;
+        "orientation"?: IcOrientation;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -729,7 +729,7 @@ export namespace Components {
         /**
           * The thickness of the divider.
          */
-        "weight": IcDividerWeights;
+        "weight"?: IcDividerWeights;
     }
     interface IcEmptyState {
         /**
@@ -773,15 +773,15 @@ export namespace Components {
         /**
           * The caption displayed at the bottom of the footer.
          */
-        "caption": string;
+        "caption"?: string;
         /**
           * If `true`, the footer will display the crown copyright at the bottom.
          */
-        "copyright": boolean;
+        "copyright"?: boolean;
         /**
           * The description displayed at the top of the footer.
          */
-        "description": string;
+        "description"?: string;
         /**
           * If `true`, the footer will be set up to handle link groups instead of standalone links.
          */
@@ -823,7 +823,7 @@ export namespace Components {
         /**
           * The alignment of the hero.
          */
-        "aligned": IcAlignment;
+        "aligned"?: IcAlignment;
         /**
           * The optional background image.
          */
@@ -831,7 +831,7 @@ export namespace Components {
         /**
           * The alignment of the hero content.
          */
-        "contentAligned": IcHeroContentAlignments;
+        "contentAligned"?: IcHeroContentAlignments;
         /**
           * If `true`, the background image (if set) will not scroll using a parallax effect.
          */
@@ -839,7 +839,7 @@ export namespace Components {
         /**
           * The heading of the hero. An <h2> level heading.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * The optional secondary heading, an <h3> level heading. Replaced by slotted right content.
          */
@@ -871,19 +871,19 @@ export namespace Components {
         /**
           * If `true`, the disabled state will be set.
          */
-        "disabled": boolean;
+        "disabled"?: boolean;
         /**
           * If `true`, the input component container will fill the width of the container it is in.
          */
-        "fullWidth": boolean;
+        "fullWidth"?: boolean;
         /**
           * If `true`, the input component container will allow for multiple lines.
          */
-        "multiLine": boolean;
+        "multiLine"?: boolean;
         /**
           * If `true`, the readonly state will be set.
          */
-        "readonly": boolean;
+        "readonly"?: boolean;
         /**
           * The size of the input component container component.
          */
@@ -891,11 +891,11 @@ export namespace Components {
         /**
           * If `true`, the validation will display inline.
          */
-        "validationInline": boolean;
+        "validationInline"?: boolean;
         /**
           * The validation status of the input component container - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationStatus": IcInformationStatusOrEmpty;
+        "validationStatus"?: IcInformationStatusOrEmpty;
     }
     interface IcInputContainer {
         /**
@@ -911,11 +911,11 @@ export namespace Components {
         /**
           * If `true`, the disabled state will be set.
          */
-        "disabled": boolean;
+        "disabled"?: boolean;
         /**
           * The ID of the form element the label is bound to.
          */
-        "for": string;
+        "for"?: string;
         /**
           * The helper text that will be displayed.
          */
@@ -946,15 +946,15 @@ export namespace Components {
         /**
           * The ARIA live mode to apply to the message.
          */
-        "ariaLiveMode": IcAriaLiveModeVariants;
+        "ariaLiveMode"?: IcAriaLiveModeVariants;
         /**
           * The ID of the form element the validation is bound to.
          */
-        "for": string;
+        "for"?: string;
         /**
           * If `true`, the input validation will fill the width of the container.
          */
-        "fullWidth": boolean;
+        "fullWidth"?: boolean;
         /**
           * The validation message to display.
          */
@@ -962,7 +962,7 @@ export namespace Components {
         /**
           * The status of the validation - e.g. 'error' | 'warning' | 'success'.
          */
-        "status": IcInformationStatusOrEmpty;
+        "status"?: IcInformationStatusOrEmpty;
     }
     interface IcLink {
         /**
@@ -1043,7 +1043,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme": IcThemeMode;
+        "theme"?: IcThemeMode;
         /**
           * The type of indicator, either linear or circular.
          */

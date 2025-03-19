@@ -33,17 +33,17 @@ export class InputValidation {
   /**
    *  The ARIA live mode to apply to the message.
    */
-  @Prop() ariaLiveMode: IcAriaLiveModeVariants = "polite";
+  @Prop() ariaLiveMode?: IcAriaLiveModeVariants = "polite";
 
   /**
    * The ID of the form element the validation is bound to.
    */
-  @Prop() for: string;
+  @Prop() for?: string;
 
   /**
    *  If `true`, the input validation will fill the width of the container.
    */
-  @Prop() fullWidth: boolean = false;
+  @Prop() fullWidth?: boolean = false;
 
   /**
    * The validation message to display.
@@ -53,7 +53,7 @@ export class InputValidation {
   /**
    * The status of the validation - e.g. 'error' | 'warning' | 'success'.
    */
-  @Prop() status: IcInformationStatusOrEmpty = "";
+  @Prop() status?: IcInformationStatusOrEmpty = "";
 
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
@@ -64,12 +64,12 @@ export class InputValidation {
 
   render() {
     const { ariaLiveMode, fullWidth, status, message } = this;
-    const displayIcon = status !== "" ? icon[status] : "";
+    const displayIcon = status !== "" ? icon[status!] : "";
     return (
       <Host
         class={{
           [`ic-input-validation-${status}`]: status !== "",
-          "ic-input-validation-full-width": fullWidth,
+          "ic-input-validation-full-width": !!fullWidth,
         }}
       >
         {displayIcon !== "" && (
@@ -85,7 +85,7 @@ export class InputValidation {
         <ic-typography variant="caption" class="statustext">
           <span
             aria-live={ariaLiveMode}
-            id={getInputValidationTextID(this.for)}
+            id={this.for && getInputValidationTextID(this.for)}
           >
             {message}
           </span>

@@ -118,7 +118,9 @@ describe("ic-breadcrumb", () => {
     await page.rootInstance.setSlottedCurrentPageClass();
 
     expect(
-      document.querySelector("ic-breadcrumb").classList.contains("current-page")
+      document
+        .querySelector("ic-breadcrumb")
+        ?.classList.contains("current-page")
     ).toBeTruthy;
   });
 
@@ -138,7 +140,7 @@ describe("ic-breadcrumb", () => {
       html: "<ic-breadcrumb id='ic-breadcrumb' current=true><ic-link href='/'>Link</ic-link></ic-breadcrumb>",
     });
 
-    page.rootInstance.current = true;
+    page.root?.setAttribute("current", "true");
     page.rootInstance.linkSlotContent.tabIndex = 0;
     await page.waitForChanges();
 
@@ -164,16 +166,17 @@ describe("ic-breadcrumb", () => {
 
     const slottedLinkEl = document.createElement("a");
     page.rootInstance.slottedLinkEl = slottedLinkEl;
+    page.rootInstance.slottedLinkHref = "/";
     await page.waitForChanges();
 
     jest
       .spyOn(page.rootInstance.slottedLinkEl, "setAttribute")
       .mockImplementation();
 
-    page.rootInstance.current = true;
+    page.root?.setAttribute("current", "true");
     await page.waitForChanges();
 
-    page.rootInstance.current = false;
+    page.root?.setAttribute("current", "false");
     page.rootInstance.linkSlotContent.tabIndex = -1;
     page.rootInstance.updatedSlottedLinkFocus();
     await page.waitForChanges();
