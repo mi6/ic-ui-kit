@@ -443,7 +443,6 @@
   --ic-action-light-bg-hover-24: var(--ic-architectural-white-state-layer-24);
   --ic-action-light-bg-pressed: var(--ic-state-layer-lighten-20);
   --ic-action-light-bg-pressed-34: var(--ic-architectural-white-state-layer-34);
-  --ic-action-light-selected: var(--ic-blue-800-state-layer-10);
 
   /* dark */
   --ic-action-dark: var(--ic-architectural-950);
@@ -453,7 +452,6 @@
   --ic-action-dark-bg-pressed: var(--ic-architectural-700-state-layer-20);
   --ic-action-dark-bg-hover-no-alpha: #ececed;
   --ic-action-dark-bg-active-no-alpha: #d9dadb;
-  --ic-action-dark-selected: var(--ic-blue-900);
 
   /* neutral */
   --ic-action-neutral-light: var(--ic-architectural-100);

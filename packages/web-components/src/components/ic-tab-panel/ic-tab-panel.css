@@ -1,6 +1,10 @@
 @import "../../global/normalize.css";
 
-:host:not[hidden] {
+:host(.ic-tab-panel-hidden) {
+  display: none;
+}
+
+:host(:not(.ic-tab-panel-hidden)) {
   display: block;
 }
 
