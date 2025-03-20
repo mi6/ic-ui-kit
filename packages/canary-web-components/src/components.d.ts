@@ -407,6 +407,10 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
+          * * If `true`, shows the date input control allowing entry of a date using the keyboard. If this is not provided then the component shows a calendar instead.
+         */
+        "showDateInput"?: boolean;
+        /**
           * If `true`, days outside the current month will be visible in the date picker.
          */
         "showDaysOutsideMonth"?: boolean;
@@ -898,6 +902,7 @@ declare global {
     };
     interface HTMLIcDatePickerElementEventMap {
         "icChange": { value: Date };
+        "icSelectedDateChange": { value: Date };
     }
     interface HTMLIcDatePickerElement extends Components.IcDatePicker, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcDatePickerElementEventMap>(type: K, listener: (this: HTMLIcDatePickerElement, ev: IcDatePickerCustomEvent<HTMLIcDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1410,6 +1415,10 @@ declare namespace LocalJSX {
          */
         "onIcChange"?: (event: IcDatePickerCustomEvent<{ value: Date }>) => void;
         /**
+          * Emitted when the selected date has changed.
+         */
+        "onIcSelectedDateChange"?: (event: IcDatePickerCustomEvent<{ value: Date }>) => void;
+        /**
           * The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
         "openAtDate"?: string | Date;
@@ -1417,6 +1426,10 @@ declare namespace LocalJSX {
           * If `true`, the input will require a value.
          */
         "required"?: boolean;
+        /**
+          * * If `true`, shows the date input control allowing entry of a date using the keyboard. If this is not provided then the component shows a calendar instead.
+         */
+        "showDateInput"?: boolean;
         /**
           * If `true`, days outside the current month will be visible in the date picker.
          */

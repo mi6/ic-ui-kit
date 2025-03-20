@@ -180,3 +180,28 @@ export const IcChangeDate = (): HTMLElement => {
 
   return container;
 };
+
+export const IcSelectedDateChange = (): HTMLElement => {
+  const datePicker = createDatePickerElement();
+
+  datePicker.size = "large";
+  datePicker.showDateInput = false;
+  datePicker.showPickerClearButton = false;
+  datePicker.showPickerTodayButton = false;
+
+  datePicker.addEventListener("icSelectedDateChange", updateSelectedDate);
+  const container = document.createElement("div");
+
+  const selDate = document.createElement("div");
+  selDate.innerText = "Selected date:";
+  selDate.id = "selected-date";
+
+  container.appendChild(datePicker);
+  container.appendChild(selDate);
+
+  container.style.display = "flex";
+  container.style.flexDirection = "column";
+  container.style.gap = "50px";
+
+  return container;
+};

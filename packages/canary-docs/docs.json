@@ -2705,6 +2705,28 @@
           "required": false
         },
         {
+          "name": "showDateInput",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-date-input",
+          "reflectToAttr": false,
+          "docs": "* If `true`, shows the date input control allowing entry of a date using the keyboard. If this is not provided then the component shows a calendar instead.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "showDaysOutsideMonth",
           "type": "boolean",
           "complexType": {

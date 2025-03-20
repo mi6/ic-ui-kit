@@ -468,7 +468,7 @@ export const DatePickerWithIcChange = () => {
         value={value}
       /> 
       <span>
-        {`Selected date: ${selectedDate}`}
+        {`Selected date: ${selectedDate || ""}`}
       </span>  
     </div>
   );
@@ -501,13 +501,75 @@ const DatePickerWithIcChange = () => {
         value={value}
       /> 
       <span>
-        {`Selected date: ${selectedDate}`}
+        {`Selected date: ${selectedDate || ""}`}
       </span>  
     </div>
   );
 };
 
 export default DatePickerWithIcChange;
+```
+
+### IcSelectedDateChange event - calendar only mode
+
+The `IcSelectedDateChange` event is emitted by the calendar in the date picker when the selected date changes.
+
+export const DatePickerWithIcSelectedDateChange = () => {
+  const [selectedDate, setSelectedDate] = useState();
+  const [value, setValue] = useState();
+  const dateChangedHandler = (event) => {
+    setValue(event.detail.value);
+    setSelectedDate(event.detail.value);
+  }
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        showDateInput={false}
+        onIcSelectedDateChange={dateChangedHandler}
+        value={value}
+      /> 
+      <span>
+        {`Selected date: ${selectedDate || ""}`}
+      </span>  
+    </div>
+  );
+};
+
+<Canvas withSource="none">
+  <Story name="IcSelectedDateChange event - calendar only mode" height="540px">
+    <DatePickerWithIcSelectedDateChange />
+  </Story>
+</Canvas>
+
+#### IcSelectedDateChange event - calendar only mode code example
+
+```jsx
+import * as React from "react";
+import { IcDatePicker } from "@ukic/canary-react";
+
+const DatePickerWithIcSelectedDateChange = () => {
+  const [selectedDate, setSelectedDate] = React.useState();
+  const [value, setValue] = useState();
+  const dateChangedHandler = (event) => {
+    setValue(event.detail.value);
+    setSelectedDate(event.detail.value);
+  }
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        onIcSelectedDateChange={dateChangedHandler}
+        value={value}
+      /> 
+      <span>
+        {`Selected date: ${selectedDate || ""}`}
+      </span>  
+    </div>
+  );
+};
+
+export default DatePickerWithIcSelectedDateChange;
 ```
 
 ### Playground example
@@ -532,6 +594,7 @@ export const defaultArgs = {
   min: "",
   openAtDate: "",
   required: false,
+  showDateInput: true,
   showDaysOutsideMonth: true,
   showPickerClearButton: true,
   showPickerTodayButton: true,
@@ -607,6 +670,7 @@ export const defaultArgs = {
           min={args.min}
           openAtDate={args.openAtDate}
           required={args.required}
+          showDateInput={args.showDateInput}
           showDaysOutsideMonth={args.showDaysOutsideMonth}
           showPickerClearButton={args.showPickerClearButton}
           showPickerTodayButton={args.showPickerTodayButton}
