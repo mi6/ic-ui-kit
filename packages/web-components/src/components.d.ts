@@ -1851,6 +1851,36 @@ export namespace Components {
          */
         "variant"?: IcSkeletonVariants;
     }
+    interface IcSkipLink {
+        /**
+          * If `true`, the link will fill the width of the page.
+         */
+        "fullWidth": boolean;
+        /**
+          * If `true`, the link will appear inline with surrounding page content when focused.
+         */
+        "inline": boolean;
+        /**
+          * The label displayed when the link is focused.
+         */
+        "label": string;
+        /**
+          * If `true`, the link will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome": boolean;
+        /**
+          * The target ID for the element which should receive focus when triggering the skip link.
+         */
+        "target": string;
+        /**
+          * Sets the theme color to the dark or light theme color. `inherit` will set the color based on the system settings or ic-theme component.
+         */
+        "theme": IcThemeMode;
+        /**
+          * If `true`, the background will be hidden.
+         */
+        "transparentBackground": boolean;
+    }
     interface IcStatusTag {
         /**
           * If `true`, role='status' is added to the component and it will act as an 'aria-live' region. Screen readers will announce changes to the `label`, but not the initial value.
@@ -3107,6 +3137,12 @@ declare global {
         prototype: HTMLIcSkeletonElement;
         new (): HTMLIcSkeletonElement;
     };
+    interface HTMLIcSkipLinkElement extends Components.IcSkipLink, HTMLStencilElement {
+    }
+    var HTMLIcSkipLinkElement: {
+        prototype: HTMLIcSkipLinkElement;
+        new (): HTMLIcSkipLinkElement;
+    };
     interface HTMLIcStatusTagElement extends Components.IcStatusTag, HTMLStencilElement {
     }
     var HTMLIcStatusTagElement: {
@@ -3397,6 +3433,7 @@ declare global {
         "ic-select": HTMLIcSelectElement;
         "ic-side-navigation": HTMLIcSideNavigationElement;
         "ic-skeleton": HTMLIcSkeletonElement;
+        "ic-skip-link": HTMLIcSkipLinkElement;
         "ic-status-tag": HTMLIcStatusTagElement;
         "ic-step": HTMLIcStepElement;
         "ic-stepper": HTMLIcStepperElement;
@@ -5296,6 +5333,36 @@ declare namespace LocalJSX {
          */
         "variant"?: IcSkeletonVariants;
     }
+    interface IcSkipLink {
+        /**
+          * If `true`, the link will fill the width of the page.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * If `true`, the link will appear inline with surrounding page content when focused.
+         */
+        "inline"?: boolean;
+        /**
+          * The label displayed when the link is focused.
+         */
+        "label"?: string;
+        /**
+          * If `true`, the link will display as black in the light theme, and white in the dark theme.
+         */
+        "monochrome"?: boolean;
+        /**
+          * The target ID for the element which should receive focus when triggering the skip link.
+         */
+        "target": string;
+        /**
+          * Sets the theme color to the dark or light theme color. `inherit` will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode;
+        /**
+          * If `true`, the background will be hidden.
+         */
+        "transparentBackground"?: boolean;
+    }
     interface IcStatusTag {
         /**
           * If `true`, role='status' is added to the component and it will act as an 'aria-live' region. Screen readers will announce changes to the `label`, but not the initial value.
@@ -5967,6 +6034,7 @@ declare namespace LocalJSX {
         "ic-select": IcSelect;
         "ic-side-navigation": IcSideNavigation;
         "ic-skeleton": IcSkeleton;
+        "ic-skip-link": IcSkipLink;
         "ic-status-tag": IcStatusTag;
         "ic-step": IcStep;
         "ic-stepper": IcStepper;
@@ -6037,6 +6105,7 @@ declare module "@stencil/core" {
             "ic-select": LocalJSX.IcSelect & JSXBase.HTMLAttributes<HTMLIcSelectElement>;
             "ic-side-navigation": LocalJSX.IcSideNavigation & JSXBase.HTMLAttributes<HTMLIcSideNavigationElement>;
             "ic-skeleton": LocalJSX.IcSkeleton & JSXBase.HTMLAttributes<HTMLIcSkeletonElement>;
+            "ic-skip-link": LocalJSX.IcSkipLink & JSXBase.HTMLAttributes<HTMLIcSkipLinkElement>;
             "ic-status-tag": LocalJSX.IcStatusTag & JSXBase.HTMLAttributes<HTMLIcStatusTagElement>;
             "ic-step": LocalJSX.IcStep & JSXBase.HTMLAttributes<HTMLIcStepElement>;
             "ic-stepper": LocalJSX.IcStepper & JSXBase.HTMLAttributes<HTMLIcStepperElement>;
