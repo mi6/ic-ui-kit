@@ -1,0 +1,41 @@
+
+import { Meta, Description, Canvas, Story } from "@storybook/addon-docs";
+import readme from "./readme.md";
+import { html } from "lit-html";
+
+<Meta
+  title="Web Components/Table of contents"
+  component="Table of contents"
+  parameters={{
+    componentAPI: {
+      data: readme,
+    },
+  }}
+/>
+
+# [Canary]: Table of contents
+
+test.
+
+### Default
+
+The default table of contents.
+
+<Canvas withSource="none">
+  <Story name="Default">
+    {html`<ic-table-of-contents>
+    <div id="content">
+    <div id="red" style="height:100vh; background:gray"><h2>Test something</h2></div>
+    <div id="blue" style="height:100vh; background:darkgray"><h2>another test</h2></div>
+    <div id="green" style="height:100vh; background:lightgray"></div>
+    </div>
+    </ic-table-of-contents>
+    `}
+  </Story>
+</Canvas>
+
+#### Default code example
+
+```html
+<ic-table-of-contents><div >test</div></ic-table-of-contents>
+```
