@@ -1,26 +1,25 @@
 module.exports = {
-  "core": {
-    disableTelemetry: true
+  core: {
+    disableTelemetry: true,
   },
 
-  "stories": [
-    "../src/getting-started.stories.mdx",
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+  stories: [
+    "../src/*.mdx",
+    "../src/**/**/*.mdx",
+    "../src/**/**/*.stories.@(js|jsx|ts|tsx)",
   ],
 
-  "addons": [
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-postcss",
     "@storybook/addon-a11y",
-    "@storybook/addon-docs",
-    "@storybook/addon-mdx-gfm",
-    "./addon-tab/register"
+    "./addon-tab/register",
+    "@storybook/addon-webpack5-compiler-babel",
   ],
 
-  "framework": {
+  framework: {
     name: "@storybook/web-components-webpack5",
-    options: {}
-  },  
-}
+    options: {},
+  },
+};

@@ -1,10 +1,10 @@
-import { Meta } from "@storybook/addon-docs";
+import { Meta } from "@storybook/blocks";
 
 <Meta title="Usage with Vanilla JS" />
 
-## Installing
+# Installing in VanillaJS projects
 
-### Step one
+## Step one
 
 Install the packages with `npm` or `yarn`.
 
@@ -14,7 +14,7 @@ npm install @ukic/canary-web-components @ukic/fonts
 yarn add @ukic/canary-web-components @ukic/fonts
 ```
 
-### Step two
+## Step two
 
 Import `defineCustomElements` in your top level JS file and call it at the bottom of the file:
 
@@ -26,12 +26,11 @@ import { defineCustomElements } from "@ukic/canary-web-components/loader";
 defineCustomElements();
 ```
 
-### Step three
+## Step three
 
 Import the ICDS CSS files into your app's top level CSS file:
 
 ```css
-/* In your top level CSS file */
 /* Depending on your setup, a path to node_modules may be needed instead */
 @import "@ukic/fonts/dist/fonts.css";
 @import "@ukic/canary-web-components/dist/core/core.css";
@@ -43,7 +42,7 @@ Import the normalised styles that are used within the ICDS components if you wou
 @import "@ukic/canary-web-components/dist/core/normalize.css";
 ```
 
-### Step four
+## Step four
 
 Declare and use components in your file, e.g.:
 
