@@ -9,11 +9,14 @@ import {
   HAVE_CSS,
   HAVE_FOCUS,
   HAVE_PROP,
+  NOT_EXIST,
+  NOT_HAVE_CSS,
 } from "@ukic/react/src/component-tests/utils/constants";
 
 const TREE_VIEW = "ic-tree-view";
 const TREE_ITEM = "ic-tree-item";
 const TREE_ITEM_CONTENT = ".tree-item-content";
+const TREE_ITEM_LABEL = ".tree-item-label";
 
 const DEFAULT_TEST_THRESHOLD = 0.025;
 
@@ -229,6 +232,8 @@ describe("IcTreeView", () => {
   });
 
   it("should render with truncated text", () => {
+    cy.viewport(992, 600);
+
     mount(
       <div
         style={{
@@ -256,17 +261,17 @@ describe("IcTreeView", () => {
 
     cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).click();
 
-    cy.findShadowEl("ic-tree-view", ".tree-view-header").should(
+    cy.findShadowEl(TREE_VIEW, ".tree-view-header").should(
       HAVE_CSS,
       TEXT_OVERFLOW,
       ELLIPSIS
     );
 
-    cy.findShadowEl(TREE_ITEM, ".tree-item-label")
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_LABEL)
       .eq(0)
       .should(HAVE_CSS, TEXT_OVERFLOW, ELLIPSIS);
 
-    cy.findShadowEl(TREE_ITEM, ".tree-item-label")
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_LABEL)
       .eq(2)
       .should(HAVE_CSS, TEXT_OVERFLOW, ELLIPSIS);
 
@@ -284,6 +289,75 @@ describe("IcTreeView", () => {
     cy.compareSnapshot({
       name: "truncated-text-hover",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+    });
+  });
+
+  it("should remove any tooltips and truncation styling when displayed on a smaller screen size", () => {
+    cy.viewport(576, 600);
+
+    const TEXT_OVERFLOW = "text-overflow";
+    const ELLIPSIS = "ellipsis";
+
+    mount(
+      <div
+        style={{
+          width: "200px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView
+          heading="Limited edition menu with extras"
+          truncateTreeItems
+          truncateHeading
+        >
+          <IcTreeItem label="Coffee with lots of extra milk" />
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey with milk on the side" />
+            <IcTreeItem label="Chai" />
+          </IcTreeItem>
+          <IcTreeItem label="Hot Chocolate" />
+        </IcTreeView>
+      </div>
+    );
+
+    cy.findShadowEl(TREE_VIEW, ".tree-view-header").should(
+      NOT_HAVE_CSS,
+      TEXT_OVERFLOW,
+      ELLIPSIS
+    );
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_LABEL)
+      .eq(0)
+      .should(NOT_HAVE_CSS, TEXT_OVERFLOW, ELLIPSIS);
+
+    cy.findShadowEl(TREE_ITEM, "ic-tooltip").should(NOT_EXIST);
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "truncated-pattern-mobile",
+      testThreshold: setThresholdBasedOnEnv(0),
+    });
+
+    cy.viewport(992, 600);
+
+    cy.wait(500);
+
+    cy.findShadowEl(TREE_VIEW, ".tree-view-header").should(
+      HAVE_CSS,
+      TEXT_OVERFLOW,
+      ELLIPSIS
+    );
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_LABEL)
+      .eq(0)
+      .should(HAVE_CSS, TEXT_OVERFLOW, ELLIPSIS);
+
+    cy.findShadowEl(TREE_ITEM, "ic-tooltip").should("exist");
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "truncated-pattern-reset-to-desktop",
+      testThreshold: setThresholdBasedOnEnv(0),
     });
   });
 
@@ -429,6 +503,8 @@ describe("IcTreeView", () => {
   });
 
   it("should render slotted router items and truncate them correctly", () => {
+    cy.viewport(992, 600);
+
     mount(
       <div
         style={{
@@ -453,6 +529,11 @@ describe("IcTreeView", () => {
     );
 
     cy.checkHydrated(TREE_VIEW);
+
+    cy.get(TREE_ITEM)
+      .find('[slot="router-item"]')
+      .eq(0)
+      .realHover({ pointer: "mouse" });
 
     cy.compareSnapshot({
       name: "router-item",
