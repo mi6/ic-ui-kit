@@ -336,7 +336,7 @@
   --ic-color-background-active-hover-dark: var(--ic-blue-200);
   --ic-color-background-pressed-default: var(--ic-blue-1300);
   --ic-color-background-pressed-light: var(--ic-architectural-300);
-  --ic-color-background-pressed-dark: var(--ic-architectural-700);
+  --ic-color-background-pressed-dark: var(--ic-blue-100);
   --ic-color-background-active-pressed-light: var(--ic-blue-1300);
   --ic-color-background-active-pressed-dark: var(--ic-blue-600);
   --ic-color-background-disabled-default: var(--ic-architectural-200);
@@ -653,13 +653,13 @@
   --ic-classification-banner-top-secret: var(--ic-classification-top-secret);
 
   /* FOOTER */
-  --ic-footer-background: var(--ic-brand-color-secondary);
+  --ic-footer-background: var(--ic-state-layer-primary);
   --ic-footer-text: var(--ic-color-brand-text);
   --ic-footer-link: var(--ic-color-hyperlink-brand);
   --ic-footer-icon: var(--ic-color-icon-brand);
   --ic-footer-chevron-icon: var(--ic-color-icon-brand);
   --ic-footer-logo: var(--ic-color-icon-brand);
-  --ic-footer-bottom-background: var(--ic-brand-color-tertiary);
+  --ic-footer-bottom-background: var(--ic-state-layer-darken-40);
   --ic-footer-keyline: var(--ic-color-keyline-lighten);
   --ic-footer-hover: var(--ic-action-light-bg-hover);
   --ic-footer-pressed: var(--ic-action-light-bg-pressed);
