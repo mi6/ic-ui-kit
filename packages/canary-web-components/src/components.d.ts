@@ -6,12 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
-import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
+import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
-export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
+export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcPosition, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
@@ -517,6 +517,13 @@ export namespace Components {
          */
         "type"?: IcPaginationTypes;
     }
+    interface IcTableOfContents {
+        "heading"?: string;
+        "position"?: IcPosition;
+        "size"?: IcSizes;
+        "theme"?: IcThemeMode;
+        "truncate"?: boolean;
+    }
     interface IcTreeItem {
         /**
           * If `true`, the tree item appears in the disabled state.
@@ -721,6 +728,12 @@ declare global {
         prototype: HTMLIcPaginationBarElement;
         new (): HTMLIcPaginationBarElement;
     };
+    interface HTMLIcTableOfContentsElement extends Components.IcTableOfContents, HTMLStencilElement {
+    }
+    var HTMLIcTableOfContentsElement: {
+        prototype: HTMLIcTableOfContentsElement;
+        new (): HTMLIcTableOfContentsElement;
+    };
     interface HTMLIcTreeItemElementEventMap {
         "icTreeItemSelected": { id: string };
     }
@@ -751,6 +764,7 @@ declare global {
         "ic-date-input": HTMLIcDateInputElement;
         "ic-date-picker": HTMLIcDatePickerElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
+        "ic-table-of-contents": HTMLIcTableOfContentsElement;
         "ic-tree-item": HTMLIcTreeItemElement;
         "ic-tree-view": HTMLIcTreeViewElement;
     }
@@ -1282,6 +1296,13 @@ declare namespace LocalJSX {
          */
         "type"?: IcPaginationTypes;
     }
+    interface IcTableOfContents {
+        "heading"?: string;
+        "position"?: IcPosition;
+        "size"?: IcSizes;
+        "theme"?: IcThemeMode;
+        "truncate"?: boolean;
+    }
     interface IcTreeItem {
         /**
           * If `true`, the tree item appears in the disabled state.
@@ -1369,6 +1390,7 @@ declare namespace LocalJSX {
         "ic-date-input": IcDateInput;
         "ic-date-picker": IcDatePicker;
         "ic-pagination-bar": IcPaginationBar;
+        "ic-table-of-contents": IcTableOfContents;
         "ic-tree-item": IcTreeItem;
         "ic-tree-view": IcTreeView;
     }
@@ -1383,6 +1405,7 @@ declare module "@stencil/core" {
             "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
             "ic-date-picker": LocalJSX.IcDatePicker & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
+            "ic-table-of-contents": LocalJSX.IcTableOfContents & JSXBase.HTMLAttributes<HTMLIcTableOfContentsElement>;
             "ic-tree-item": LocalJSX.IcTreeItem & JSXBase.HTMLAttributes<HTMLIcTreeItemElement>;
             "ic-tree-view": LocalJSX.IcTreeView & JSXBase.HTMLAttributes<HTMLIcTreeViewElement>;
         }
