@@ -10,14 +10,7 @@ describe("ic-section-container", () => {
       </ic-section-container>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-section-container class="aligned-left">
-      <mock:shadow-root>
-        <slot></slot>
-      </mock:shadow-root>
-      <p>Test container</p>
-    </ic-section-container>
-    `);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should render full-width", async () => {
@@ -28,14 +21,7 @@ describe("ic-section-container", () => {
       </ic-section-container>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-section-container aligned="full-width" class="aligned-full-width">
-      <mock:shadow-root>
-        <slot></slot>
-      </mock:shadow-root>
-      <p>Test container</p>
-    </ic-section-container>
-    `);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should render centered", async () => {
@@ -46,14 +32,7 @@ describe("ic-section-container", () => {
       </ic-section-container>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-section-container aligned="center" class="aligned-center">
-      <mock:shadow-root>
-        <slot></slot>
-      </mock:shadow-root>
-      <p>Test container</p>
-    </ic-section-container>
-    `);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should remove vertical padding when full-height", async () => {
@@ -64,13 +43,6 @@ describe("ic-section-container", () => {
       </ic-section-container>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-section-container class="aligned-left no-vertical-padding" full-height="">
-      <mock:shadow-root>
-        <slot></slot>
-      </mock:shadow-root>
-      <p>Test container</p>
-    </ic-section-container>
-    `);
+    expect(page.root).toMatchSnapshot();
   });
 });

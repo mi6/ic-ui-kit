@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-tab component should display an icon 1`] = `
+<ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tab-position="1" tabindex="-1">
+  <template shadowrootmode="open">
+    <slot name="icon"></slot>
+    <ic-typography class="ic-tab-label ic-typography-label">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <span>
+        <slot></slot>
+      </span>
+    </ic-typography>
+  </template>
+  IC Tab Test
+  <svg slot="icon"></svg>
+</ic-tab>
+`;
+
+exports[`ic-tab component should render with correct label 1`] = `
+<ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tab-position="1" tabindex="-1">
+  <template shadowrootmode="open">
+    <ic-typography class="ic-tab-label ic-typography-label">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <span>
+        <slot></slot>
+      </span>
+    </ic-typography>
+  </template>
+  IC Tab Test
+</ic-tab>
+`;
+
+exports[`ic-tab component should set the correct attributes when selected 1`] = `
+<ic-tab aria-disabled="false" aria-selected="true" class="ic-tab-selected" context-id="default" role="tab" selected="" tab-position="1" tabindex="0">
+  <template shadowrootmode="open">
+    <ic-typography class="ic-tab-label ic-typography-label">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <span>
+        <slot></slot>
+      </span>
+    </ic-typography>
+  </template>
+  IC Tab Test
+</ic-tab>
+`;
+
+exports[`ic-tab component should set the disabled attribute on the button: should set the disable attribute on the button to false 1`] = `
+<ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tab-position="1" tabindex="-1">
+  <template shadowrootmode="open">
+    <ic-typography class="ic-tab-label ic-typography-label">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <span>
+        <slot></slot>
+      </span>
+    </ic-typography>
+  </template>
+  IC Tab Test
+</ic-tab>
+`;
+
+exports[`ic-tab component should set the disabled attribute on the button: should set the disable attribute on the button to true 1`] = `
+<ic-tab aria-disabled="true" aria-selected="false" class="ic-tab-disabled" context-id="default" disabled="" role="tab" tab-position="1" tabindex="-1">
+  <template shadowrootmode="open">
+    <ic-typography class="ic-tab-label ic-typography-label">
+      <template shadowrootmode="open">
+        <slot></slot>
+      </template>
+      <span>
+        <slot></slot>
+      </span>
+    </ic-typography>
+  </template>
+  IC Tab Test
+</ic-tab>
+`;

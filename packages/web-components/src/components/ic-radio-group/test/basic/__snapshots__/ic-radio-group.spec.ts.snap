@@ -2,14 +2,14 @@
 
 exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`] = `
 <ic-radio-group helpertext="helper test" label="test label" name="test">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label" role="radiogroup">
       <ic-input-label label="test label"></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
     <div class="container">
@@ -27,14 +27,14 @@ exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`
 
 exports[`ic-radio-group should render as required: renders-required 1`] = `
 <ic-radio-group label="test label" name="test" required="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label, required" role="radiogroup">
       <ic-input-label label="test label" required=""></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
     <div class="container">
@@ -52,14 +52,14 @@ exports[`ic-radio-group should render as required: renders-required 1`] = `
 
 exports[`ic-radio-group should render radio group disabled: disabled-removed 1`] = `
 <ic-radio-group label="test label" name="test">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label" role="radiogroup">
       <ic-input-label label="test label"></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test">
     <!---->
     <div class="container">
@@ -79,14 +79,14 @@ exports[`ic-radio-group should render radio group disabled: disabled-removed 1`]
 
 exports[`ic-radio-group should render radio group disabled: renders-disabled 1`] = `
 <ic-radio-group disabled="" label="test label" name="test">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label" role="radiogroup">
       <ic-input-label class="disabled" disabled="" label="test label"></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" group-label="test group" label="test label" value="test">
     <!---->
     <div class="container disabled">
@@ -106,14 +106,14 @@ exports[`ic-radio-group should render radio group disabled: renders-disabled 1`]
 
 exports[`ic-radio-group should render radio option disabled: disabled-removed 1`] = `
 <ic-radio-group label="test label" name="test">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label" role="radiogroup">
       <ic-input-label label="test label"></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test">
     <!---->
     <div class="container">
@@ -133,14 +133,14 @@ exports[`ic-radio-group should render radio option disabled: disabled-removed 1`
 
 exports[`ic-radio-group should render radio option disabled: renders-option-disabled 1`] = `
 <ic-radio-group label="test label" name="test">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label" role="radiogroup">
       <ic-input-label label="test label"></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" disabled="" group-label="test group" label="test label" value="test">
     <!---->
     <div class="container disabled">
@@ -160,14 +160,14 @@ exports[`ic-radio-group should render radio option disabled: renders-option-disa
 
 exports[`ic-radio-group should render with dynamic additional field: renders-with-dynamic-additional-field 1`] = `
 <ic-radio-group label="test label" name="test">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label" role="radiogroup">
       <ic-input-label label="test label"></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="dynamic" group-label="test group" label="test label" selected="" value="test">
     <!---->
     <div class="container">
@@ -191,14 +191,14 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
         </ic-typography>
         <div>
           <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field" value="">
-            <mock:shadow-root>
+            <template shadowrootmode="open">
               <ic-input-container>
                 <ic-input-label for="ic-text-field-input-2" helpertext="" label="Test label"></ic-input-label>
                 <ic-input-component-container size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
               </ic-input-container>
-            </mock:shadow-root>
+            </template>
           </ic-text-field>
         </div>
       </div>
@@ -209,14 +209,14 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
 
 exports[`ic-radio-group should render with selected option: renders-with-selected-option 1`] = `
 <ic-radio-group label="test label" name="test" required="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label, required" role="radiogroup">
       <ic-input-label label="test label" required=""></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" selected="" value="test">
     <!---->
     <div class="container">
@@ -234,14 +234,14 @@ exports[`ic-radio-group should render with selected option: renders-with-selecte
 
 exports[`ic-radio-group should render with selected static additional field: renders-with-selected-additional-field 1`] = `
 <ic-radio-group label="test label" name="test">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label" role="radiogroup">
       <ic-input-label label="test label"></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" group-label="test group" label="test label" selected="" value="test">
     <!---->
     <div class="container">
@@ -259,14 +259,14 @@ exports[`ic-radio-group should render with selected static additional field: ren
       <div>
         <div class="additional-field-wrapper">
           <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field" value="">
-            <mock:shadow-root>
+            <template shadowrootmode="open">
               <ic-input-container>
                 <ic-input-label for="ic-text-field-input-1" helpertext="" label="Test label"></ic-input-label>
                 <ic-input-component-container size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
               </ic-input-container>
-            </mock:shadow-root>
+            </template>
           </ic-text-field>
         </div>
       </div>
@@ -277,14 +277,14 @@ exports[`ic-radio-group should render with selected static additional field: ren
 
 exports[`ic-radio-group should render with unselected static additional field: renders-with-unselected-additional-field 1`] = `
 <ic-radio-group label="test label" name="test">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label" role="radiogroup">
       <ic-input-label label="test label"></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" class="ic-radio-option-disabled" disabled="" group-label="test group" label="test label" value="test">
     <!---->
     <div class="container disabled">
@@ -302,14 +302,14 @@ exports[`ic-radio-group should render with unselected static additional field: r
       <div>
         <div class="additional-field-wrapper">
           <ic-text-field class="ic-text-field-disabled" disabled="" label="Test label" placeholder="Placeholder" slot="additional-field" value="">
-            <mock:shadow-root>
+            <template shadowrootmode="open">
               <ic-input-container disabled="">
                 <ic-input-label disabled="" for="ic-text-field-input-0" helpertext="" label="Test label"></ic-input-label>
                 <ic-input-component-container disabled="" size="medium" validationstatus="">
                   <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="Placeholder" type="text" value="">
                 </ic-input-component-container>
               </ic-input-container>
-            </mock:shadow-root>
+            </template>
           </ic-text-field>
         </div>
       </div>
@@ -320,7 +320,7 @@ exports[`ic-radio-group should render with unselected static additional field: r
 
 exports[`ic-radio-group should render with validation status: renders-with-validation-status 1`] = `
 <ic-radio-group label="test label" name="test" required="" validation-status="error" validation-text="error">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label, required" role="radiogroup">
       <ic-input-label class="error" label="test label" required=""></ic-input-label>
       <div class="radio-buttons-container">
@@ -328,7 +328,7 @@ exports[`ic-radio-group should render with validation status: renders-with-valid
       </div>
     </div>
     <ic-input-validation arialivemode="polite" message="error" status="error"></ic-input-validation>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" selected="" value="test">
     <!---->
     <div class="container">
@@ -346,14 +346,14 @@ exports[`ic-radio-group should render with validation status: renders-with-valid
 
 exports[`ic-radio-group should render: renders 1`] = `
 <ic-radio-group label="test label" name="test">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-label="test label" role="radiogroup">
       <ic-input-label label="test label"></ic-input-label>
       <div class="radio-buttons-container">
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-radio-option additional-field-display="static" value="test">
     <!---->
     <div class="container">

@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-classification-banner component should render default banner if no props are passed 1`] = `
+<ic-classification-banner>
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner default">
+      <ic-typography variant="caption-uppercase">
+        protective marking not set
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render default banner if props with empty strings are passed 1`] = `
+<ic-classification-banner additionalselectors="" classification="" country="">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner default">
+      <ic-typography variant="caption-uppercase">
+        protective marking not set
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render default banner if props with undefined are passed 1`] = `
+<ic-classification-banner additionalselectors="undefined" classification="undefined" country="undefined">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner default">
+      <ic-typography variant="caption-uppercase">
+        protective marking not set
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render with a different country when supplied 1`] = `
+<ic-classification-banner classification="official" country="us">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner official">
+      <span class="offscreen">
+        The protective marking of this page is:
+      </span>
+      <ic-typography variant="caption-uppercase">
+        us official
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render with additional selectors after classification when supplied 1`] = `
+<ic-classification-banner additional-selectors="ukic" classification="official">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner official">
+      <span class="offscreen">
+        The protective marking of this page is:
+      </span>
+      <ic-typography variant="caption-uppercase">
+        uk official ukic
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render with default classification text when no classification set 1`] = `
+<ic-classification-banner>
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner default">
+      <ic-typography variant="caption-uppercase">
+        protective marking not set
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render with no country when supplied "" 1`] = `
+<ic-classification-banner classification="official" country="">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner official">
+      <span class="offscreen">
+        The protective marking of this page is:
+      </span>
+      <ic-typography variant="caption-uppercase">
+        official
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render with official classification text 1`] = `
+<ic-classification-banner classification="official">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner official">
+      <span class="offscreen">
+        The protective marking of this page is:
+      </span>
+      <ic-typography variant="caption-uppercase">
+        uk official
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render with official sensitive classification text 1`] = `
+<ic-classification-banner classification="official-sensitive">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner official-sensitive">
+      <span class="offscreen">
+        The protective marking of this page is:
+      </span>
+      <ic-typography variant="caption-uppercase">
+        uk official sensitive
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render with secret classification text 1`] = `
+<ic-classification-banner classification="secret">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner secret">
+      <span class="offscreen">
+        The protective marking of this page is:
+      </span>
+      <ic-typography variant="caption-uppercase">
+        uk secret
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render with top secret classification text 1`] = `
+<ic-classification-banner classification="top-secret">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner top-secret">
+      <span class="offscreen">
+        The protective marking of this page is:
+      </span>
+      <ic-typography variant="caption-uppercase">
+        uk top secret
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;
+
+exports[`ic-classification-banner component should render with up to before classification 1`] = `
+<ic-classification-banner classification="official" up-to="true">
+  <template shadowrootmode="open">
+    <banner aria-label="Protective marking" class="classification-banner official">
+      <span class="offscreen">
+        The protective marking of this page is:
+      </span>
+      <ic-typography variant="caption-uppercase">
+        up to uk official
+      </ic-typography>
+    </banner>
+  </template>
+</ic-classification-banner>
+`;

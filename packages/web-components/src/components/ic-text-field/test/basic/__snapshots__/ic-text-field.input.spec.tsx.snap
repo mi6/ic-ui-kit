@@ -2,63 +2,63 @@
 
 exports[`ic-text-field should render disabled: disabled-removed 1`] = `
 <ic-text-field label="Test label" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-7" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
         <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-7" inputmode="text" name="ic-text-field-input-7" placeholder="" type="text" value="test value">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-7" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render disabled: renders-disabled 1`] = `
 <ic-text-field class="ic-text-field-disabled" disabled="true" label="Test label" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container disabled="">
       <ic-input-label disabled="" for="ic-text-field-input-7" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container disabled="" size="medium" validationstatus="">
         <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-7" inputmode="text" name="ic-text-field-input-7" placeholder="" type="text" value="test value">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" disabled="" name="ic-text-field-input-7" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render readonly: renders-readonly 1`] = `
 <ic-text-field class="ic-text-field-disabled" label="Test label" readonly="" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container disabled="" readonly="">
       <ic-input-label for="ic-text-field-input-8" helpertext="" label="Test label" readonly=""></ic-input-label>
       <ic-input-component-container disabled="" readonly="" size="medium" validationstatus="">
         <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-left-pad readonly" disabled="" id="ic-text-field-input-8" inputmode="text" name="ic-text-field-input-8" placeholder="" readonly="" type="text" value="test value">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" disabled="" name="ic-text-field-input-8" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with autoprops: renders-with-autoprops 1`] = `
 <ic-text-field autocapitalize="on" autocomplete="on" autocorrect="on" label="Test label" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-4" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
         <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="on" autocomplete="on" id="ic-text-field-input-4" inputmode="text" name="ic-text-field-input-4" placeholder="" type="text" value="test value">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-4" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with error validation: renders-with-error-validation 1`] = `
 <ic-text-field label="Test label" validation-status="error" validation-text="error text" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-17" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="error">
@@ -66,41 +66,41 @@ exports[`ic-text-field should render with error validation: renders-with-error-v
       </ic-input-component-container>
       <ic-input-validation arialivemode="assertive" for="ic-text-field-input-17" message="error text" status="error"></ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-17" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with helperText, required and small: renders-with-helpertext 1`] = `
 <ic-text-field helper-text="helper text value" label="Test label" required="true" size="small" value="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-3" helpertext="helper text value" label="Test label" required=""></ic-input-label>
       <ic-input-component-container size="small" validationstatus="">
         <input aria-describedby="ic-text-field-input-3-helper-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-3" inputmode="text" name="ic-text-field-input-3" placeholder="" required="" type="text" value="">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-3" type="hidden" value="">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with hidden label: renders-with-hidden-label 1`] = `
 <ic-text-field hide-label="true" label="Test label" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-component-container size="medium" validationstatus="">
         <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-5" inputmode="text" name="ic-text-field-input-5" placeholder="" type="text" value="test value">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-5" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with icon: renders-with-icon 1`] = `
 <ic-text-field label="Test label" value="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-6" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
@@ -110,7 +110,7 @@ exports[`ic-text-field should render with icon: renders-with-icon 1`] = `
         <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-6" inputmode="text" name="ic-text-field-input-6" placeholder="" type="text" value="">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"></path>
     <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"></path>
@@ -121,7 +121,7 @@ exports[`ic-text-field should render with icon: renders-with-icon 1`] = `
 
 exports[`ic-text-field should render with inline success validation: renders-with-inline-success-validation 1`] = `
 <ic-text-field label="Test label" validation-inline="true" validation-status="success" validation-text="Good choice!" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-18" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationinline="" validationstatus="success">
@@ -129,14 +129,14 @@ exports[`ic-text-field should render with inline success validation: renders-wit
       </ic-input-component-container>
       <ic-input-validation arialivemode="polite" for="ic-text-field-input-18" message="" status=""></ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-18" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with max characters and a value set which exceeds the max number of characters: renders-with-max-characters-long-value 1`] = `
 <ic-text-field label="Test label" max-characters="25" value="A long value which exceed">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-11" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
@@ -158,14 +158,14 @@ exports[`ic-text-field should render with max characters and a value set which e
         </div>
       </ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-11" type="hidden" value="A long value which exceed">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with max characters and a value set which exceeds the max number of characters: renders-with-max-characters-long-value 2`] = `
 <ic-text-field label="Test label" max-characters="25" value="A long value which exceed">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-13" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
@@ -187,14 +187,14 @@ exports[`ic-text-field should render with max characters and a value set which e
         </div>
       </ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-13" type="hidden" value="A long value which exceed">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with max characters and hidden character count: renders-with-hidden-char-count 1`] = `
 <ic-text-field hide-char-count="" label="Test label" max-characters="25" value="Test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-10" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
@@ -211,14 +211,14 @@ exports[`ic-text-field should render with max characters and hidden character co
         </div>
       </ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-10" type="hidden" value="Test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with max characters and hidden character count: renders-with-hidden-char-count 2`] = `
 <ic-text-field hide-char-count="" label="Test label" max-characters="25" value="Test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-12" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
@@ -235,14 +235,14 @@ exports[`ic-text-field should render with max characters and hidden character co
         </div>
       </ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-12" type="hidden" value="Test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with max characters: renders-with-max-characters 1`] = `
 <ic-text-field label="Test label" max-characters="25" value="Test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-9" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
@@ -264,42 +264,42 @@ exports[`ic-text-field should render with max characters: renders-with-max-chara
         </div>
       </ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-9" type="hidden" value="Test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with name & full width: renders-with-name-full-width 1`] = `
 <ic-text-field class="ic-text-field-full-width" full-width="true" label="Test label" name="mycontrolname" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-14" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container fullwidth="" size="medium" validationstatus="">
         <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-14" inputmode="text" name="mycontrolname" placeholder="" type="text" value="test value">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="mycontrolname" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with placeholder: renders-with-placeholder 1`] = `
 <ic-text-field label="Test label" placeholder="placeholder" rows="0" value="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-1" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
         <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="placeholder" type="text" value="">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-1" type="hidden" value="">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with success validation: renders-with-success-validation 1`] = `
 <ic-text-field label="Test label" validation-status="success" validation-text="Good choice!" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-15" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="success">
@@ -307,28 +307,28 @@ exports[`ic-text-field should render with success validation: renders-with-succe
       </ic-input-component-container>
       <ic-input-validation arialivemode="polite" for="ic-text-field-input-15" message="Good choice!" status="success"></ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-15" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with value: renders-with-value 1`] = `
 <ic-text-field label="Test label" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-2" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
         <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="" type="text" value="test value">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-2" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render with warning validation: renders-with-warning-validation 1`] = `
 <ic-text-field label="Test label" validation-status="warning" validation-text="warning text" value="test value">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-16" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="warning">
@@ -336,28 +336,28 @@ exports[`ic-text-field should render with warning validation: renders-with-warni
       </ic-input-component-container>
       <ic-input-validation arialivemode="polite" for="ic-text-field-input-16" message="warning text" status="warning"></ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-16" type="hidden" value="test value">
 </ic-text-field>
 `;
 
 exports[`ic-text-field should render: renders 1`] = `
 <ic-text-field label="Test label" rows="1" value="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-0" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
         <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="" type="text" value="">
       </ic-input-component-container>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-0" type="hidden" value="">
 </ic-text-field>
 `;
 
 exports[`should render with min/max and max validation: renders-with-max 1`] = `
 <ic-text-field inputmode="numeric" label="Test label" max="4" min="1" rows="1" type="number" value="6">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-24" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="error">
@@ -365,14 +365,14 @@ exports[`should render with min/max and max validation: renders-with-max 1`] = `
       </ic-input-component-container>
       <ic-input-validation arialivemode="assertive" for="ic-text-field-input-24" message="Maximum value of 4 exceeded" status="error"></ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-24" type="hidden" value="6">
 </ic-text-field>
 `;
 
 exports[`should render with min/max and min validation: renders-with-min 1`] = `
 <ic-text-field inputmode="numeric" label="Test label" max="4" min="1" rows="1" type="number" value="0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-25" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="error">
@@ -380,7 +380,7 @@ exports[`should render with min/max and min validation: renders-with-min 1`] = `
       </ic-input-component-container>
       <ic-input-validation arialivemode="assertive" for="ic-text-field-input-25" message="Minimum value of 1 not met" status="error"></ic-input-validation>
     </ic-input-container>
-  </mock:shadow-root>
+  </template>
   <input class="ic-input" name="ic-text-field-input-25" type="hidden" value="0">
 </ic-text-field>
 `;

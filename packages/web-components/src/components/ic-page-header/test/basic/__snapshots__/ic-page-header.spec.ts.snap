@@ -2,7 +2,7 @@
 
 exports[`ic-page-header component renders additional functionality should render a stepper: should render a stepper 1`] = `
 <ic-page-header aria-label="page header" heading="Create a coffee">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <header class="border-bottom" role="presentation">
       <ic-section-container aligned="left">
         <div class="main-content">
@@ -29,7 +29,7 @@ exports[`ic-page-header component renders additional functionality should render
         </div>
       </ic-section-container>
     </header>
-  </mock:shadow-root>
+  </template>
   <ic-stepper slot="stepper">
     <ic-step heading="Warm kettle" type="completed"></ic-step>
     <ic-step heading="Warm milk" subheading="Optional" type="completed"></ic-step>
@@ -40,7 +40,7 @@ exports[`ic-page-header component renders additional functionality should render
 
 exports[`ic-page-header component renders additional functionality should render actions, input & stepper: should render actions, input & stepper 1`] = `
 <ic-page-header aria-label="page header" heading="Coffee recipes" subheading="This is a simple page header component and this is the text.">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <header class="border-bottom" role="presentation">
       <ic-section-container aligned="left">
         <div class="main-content">
@@ -75,7 +75,7 @@ exports[`ic-page-header component renders additional functionality should render
         </div>
       </ic-section-container>
     </header>
-  </mock:shadow-root>
+  </template>
   <ic-stepper slot="stepper">
     <ic-step heading="Warm kettle" type="completed"></ic-step>
     <ic-step heading="Warm milk" subheading="Optional" type="completed"></ic-step>
@@ -97,7 +97,7 @@ exports[`ic-page-header component renders additional functionality should render
 
 exports[`ic-page-header component renders additional functionality should render actions, input & tabs: should render actions, input & tabs 1`] = `
 <ic-page-header aria-label="page header" heading="Coffee recipes" subheading="This is a simple page header component and this is the text.">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <header class="border-bottom tabs" role="presentation">
       <ic-section-container aligned="left" fullheight="">
         <div class="main-content">
@@ -138,7 +138,7 @@ exports[`ic-page-header component renders additional functionality should render
         </div>
       </ic-section-container>
     </header>
-  </mock:shadow-root>
+  </template>
   <ic-status-tag label="Beta" slot="heading-adornment"></ic-status-tag>
   <ic-button slot="actions" variant="tertiary">
     Filter coffee
@@ -157,7 +157,7 @@ exports[`ic-page-header component renders additional functionality should render
 
 exports[`ic-page-header component renders additional functionality should render actions: should render actions 1`] = `
 <ic-page-header aria-label="page header" heading="Page header" subheading="This is a simple page header component and this is the text.">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <header class="border-bottom" role="presentation">
       <ic-section-container aligned="left">
         <div class="main-content">
@@ -186,7 +186,7 @@ exports[`ic-page-header component renders additional functionality should render
         </div>
       </ic-section-container>
     </header>
-  </mock:shadow-root>
+  </template>
   <ic-button slot="actions" variant="tertiary">
     Filter coffee
   </ic-button>
@@ -201,7 +201,7 @@ exports[`ic-page-header component renders additional functionality should render
 
 exports[`ic-page-header component renders additional functionality should render an input field: should render an input field 1`] = `
 <ic-page-header aria-label="page header" heading="Page header" subheading="This is a simple page header component and this is the text.">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <header class="border-bottom" role="presentation">
       <ic-section-container aligned="left">
         <div class="main-content">
@@ -230,7 +230,7 @@ exports[`ic-page-header component renders additional functionality should render
         </div>
       </ic-section-container>
     </header>
-  </mock:shadow-root>
+  </template>
   <ic-status-tag label="Beta" slot="heading-adornment"></ic-status-tag>
   <ic-text-field hide-label="" placeholder="Enter your input" slot="input"></ic-text-field>
 </ic-page-header>
@@ -238,7 +238,7 @@ exports[`ic-page-header component renders additional functionality should render
 
 exports[`ic-page-header component renders additional functionality should render tabs: should render tabs 1`] = `
 <ic-page-header aria-label="page header" heading="Coffee recipes" subheading="This is a simple page header component and this is the text.">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <header class="border-bottom tabs" role="presentation">
       <ic-section-container aligned="left" fullheight="">
         <div class="main-content">
@@ -273,7 +273,7 @@ exports[`ic-page-header component renders additional functionality should render
         </div>
       </ic-section-container>
     </header>
-  </mock:shadow-root>
+  </template>
   <ic-status-tag label="Beta" slot="heading-adornment"></ic-status-tag>
   <ic-navigation-item href="/all-recipes" label="All recipes" selected="" slot="tabs"></ic-navigation-item>
   <ic-navigation-item href="/favourites" label="Favourites" slot="tabs"></ic-navigation-item>
@@ -282,7 +282,7 @@ exports[`ic-page-header component renders additional functionality should render
 
 exports[`ic-page-header component renders additional functionality should render with a custom aria-label: should render with a custom aria-label 1`] = `
 <ic-page-header aria-label="header" heading="Page header" subheading="This is a simple page header component and this is the text.">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <header class="border-bottom" role="presentation">
       <ic-section-container aligned="left">
         <div class="main-content">
@@ -308,13 +308,13 @@ exports[`ic-page-header component renders additional functionality should render
         </div>
       </ic-section-container>
     </header>
-  </mock:shadow-root>
+  </template>
 </ic-page-header>
 `;
 
 exports[`ic-page-header component renders additional functionality should render with breadcrumbs: should render with breadcrumbs 1`] = `
 <ic-page-header aria-label="page header" heading="Coffee recipes" subheading="This is a simple page header component and this is the text.">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <header class="border-bottom" role="presentation">
       <ic-section-container aligned="left">
         <div class="breadcrumb-area">
@@ -343,17 +343,17 @@ exports[`ic-page-header component renders additional functionality should render
         </div>
       </ic-section-container>
     </header>
-  </mock:shadow-root>
+  </template>
   <ic-breadcrumb-group slot="breadcrumbs">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <nav aria-label="breadcrumbs">
         <ol>
           <slot></slot>
         </ol>
       </nav>
-    </mock:shadow-root>
+    </template>
     <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="breadcrumb">
           <span aria-hidden="true" class="chevron">
             svg
@@ -362,10 +362,10 @@ exports[`ic-page-header component renders additional functionality should render
             Breadcrumb 1
           </ic-link>
         </div>
-      </mock:shadow-root>
+      </template>
     </ic-breadcrumb>
     <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="breadcrumb">
           <span aria-hidden="true" class="chevron">
             svg
@@ -374,7 +374,7 @@ exports[`ic-page-header component renders additional functionality should render
             Breadcrumb 2
           </span>
         </div>
-      </mock:shadow-root>
+      </template>
     </ic-breadcrumb>
   </ic-breadcrumb-group>
 </ic-page-header>
@@ -382,7 +382,7 @@ exports[`ic-page-header component renders additional functionality should render
 
 exports[`simple ic-page-header renders should render with a heading & sub-heading: should render with a heading & sub-heading 1`] = `
 <ic-page-header aria-label="page header" heading="Page header" subheading="This is a simple page header component and this is the text.">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <header class="border-bottom" role="presentation">
       <ic-section-container aligned="left">
         <div class="main-content">
@@ -408,6 +408,6 @@ exports[`simple ic-page-header renders should render with a heading & sub-headin
         </div>
       </ic-section-container>
     </header>
-  </mock:shadow-root>
+  </template>
 </ic-page-header>
 `;
