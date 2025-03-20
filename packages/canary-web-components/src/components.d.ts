@@ -541,6 +541,7 @@ export namespace Components {
           * The label of the tree item.
          */
         "label": string;
+        "previousTruncateTreeItem": boolean;
         /**
           * How much of the referrer to send when following the link.
          */
@@ -590,11 +591,11 @@ export namespace Components {
          */
         "theme"?: IcThemeMode;
         /**
-          * If `true`, the tree view heading will be truncated instead of text wrapping.
+          * If `true`, the tree view heading will be truncated instead of text wrapping. When used on small devices, this prop will be overridden and headings will be set to text-wrap.
          */
         "truncateHeading"?: boolean;
         /**
-          * If `true`, tree items will be truncated, unless they are individually overridden.
+          * If `true`, tree items will be truncated, unless they are individually overridden. When used on small devices, this prop will be overridden and tree-items will be set to text-wrap.
          */
         "truncateTreeItems"?: boolean;
     }
@@ -1310,6 +1311,7 @@ declare namespace LocalJSX {
           * Emitted when tree item is selected.
          */
         "onIcTreeItemSelected"?: (event: IcTreeItemCustomEvent<{ id: string }>) => void;
+        "previousTruncateTreeItem"?: boolean;
         /**
           * How much of the referrer to send when following the link.
          */
@@ -1354,11 +1356,11 @@ declare namespace LocalJSX {
          */
         "theme"?: IcThemeMode;
         /**
-          * If `true`, the tree view heading will be truncated instead of text wrapping.
+          * If `true`, the tree view heading will be truncated instead of text wrapping. When used on small devices, this prop will be overridden and headings will be set to text-wrap.
          */
         "truncateHeading"?: boolean;
         /**
-          * If `true`, tree items will be truncated, unless they are individually overridden.
+          * If `true`, tree items will be truncated, unless they are individually overridden. When used on small devices, this prop will be overridden and tree-items will be set to text-wrap.
          */
         "truncateTreeItems"?: boolean;
     }
