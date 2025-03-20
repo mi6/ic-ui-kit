@@ -250,3 +250,5 @@ export interface IcValueEventDetail {
   value: string | string[];
   keyPressed?: string;
 }
+
+export type IcPosition = "top" | "bottom" | "left" | "right";
