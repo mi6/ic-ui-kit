@@ -811,12 +811,15 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
       .shadow()
       .find("button")
       .focus()
-      .click();
-
-    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
+      .click("top");
 
     cy.get("@icDateChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(null);
+      expect(stub.getCall(0).args[0].detail.dateObject).to.deep.equal({
+        day: "",
+        month: "",
+        year: "",
+      });
     });
   });
 
