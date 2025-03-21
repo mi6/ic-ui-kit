@@ -914,9 +914,24 @@
       "listeners": [],
       "styles": [
         {
+          "name": "--footer-offset",
+          "annotation": "prop",
+          "docs": "offset of x-position from footer"
+        },
+        {
           "name": "--ic-z-index-back-to-top",
           "annotation": "prop",
           "docs": "z-index of back to top"
+        },
+        {
+          "name": "--margin-left",
+          "annotation": "prop",
+          "docs": "left y-position of back to top"
+        },
+        {
+          "name": "--margin-right",
+          "annotation": "prop",
+          "docs": "right y-position of back to top"
         }
       ],
       "slots": [],
