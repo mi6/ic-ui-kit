@@ -1,6 +1,6 @@
 {
-  "total": 212,
-  "totalPassed": 210,
+  "total": 214,
+  "totalPassed": 212,
   "totalFailed": 2,
   "totalSuites": 7,
   "suites": [
@@ -2290,6 +2290,28 @@
         },
         {
           "status": "pass",
+          "name": "IcTreeView.cy.tsx-truncated-text",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTreeView/IcTreeView.cy.tsx",
+          "specFilename": "IcTreeView.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTreeView.cy.tsx-truncated-text.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTreeView.cy.tsx-truncated-text.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcTreeView.cy.tsx-truncated-text-hover",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcTreeView/IcTreeView.cy.tsx",
+          "specFilename": "IcTreeView.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTreeView.cy.tsx-truncated-text-hover.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTreeView.cy.tsx-truncated-text-hover.png"
+        },
+        {
+          "status": "pass",
           "name": "IcTreeView.cy.tsx-truncated-pattern-mobile",
           "percentage": 0,
           "failureThreshold": 0,
@@ -2379,9 +2401,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-20T15:45:27.451Z",
-  "endedAt": "2025-03-20T15:51:42.841Z",
-  "duration": 359768,
+  "startedAt": "2025-03-21T10:24:53.288Z",
+  "endedAt": "2025-03-21T10:30:56.649Z",
+  "duration": 347549,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
