@@ -21,7 +21,7 @@ export class Tooltip {
   private arrow: HTMLDivElement;
   private delayedHideEvents = ["mouseleave"];
   private dialogOverflow = false;
-  private icDialogEl: HTMLIcDialogElement;
+  private icDialogEl: HTMLIcDialogElement | null;
   private instantHideEvents = ["focusout"];
   private mouseOverTool: boolean = false;
   private persistTooltip = false;
@@ -110,11 +110,12 @@ export class Tooltip {
   }
 
   componentDidRender(): void {
-    const typographyEl = this.el.shadowRoot.querySelector(
+    const typographyEl = this.el.shadowRoot?.querySelector(
       ".ic-tooltip-container > ic-typography"
     );
-    this.maxLines > 0 &&
-      typographyEl.setAttribute(
+    this.maxLines &&
+      this.maxLines > 0 &&
+      typographyEl?.setAttribute(
         "style",
         `--truncation-max-lines: ${this.maxLines}`
       );
@@ -126,7 +127,7 @@ export class Tooltip {
    */
   @Method()
   async displayTooltip(show: boolean, persistTooltip?: boolean): Promise<void> {
-    this.persistTooltip = persistTooltip;
+    this.persistTooltip = !!persistTooltip;
     show ? this.show() : this.hide();
   }
 
@@ -186,15 +187,18 @@ export class Tooltip {
         tooltipY = child.top - dialogEl.bottom + child.height;
         break;
     }
-    if (this.dialogOverflow && tooltipX < 0) {
-      if (this.placement.includes("top") || this.placement.includes("bottom")) {
+    if (this.dialogOverflow && tooltipX && tooltipX < 0) {
+      if (
+        this.placement!.includes("top") ||
+        this.placement!.includes("bottom")
+      ) {
         this.toolTip.style.setProperty(
           "--tooltip-arrow-translate",
           `${tooltipX}px`
         );
         tooltipX = child.left - dialogEl.left;
       }
-      if (this.placement.includes("left")) {
+      if (this.placement!.includes("left")) {
         this.placement = "right";
         tooltipX = child.left - dialogEl.left + child.width;
       }
@@ -210,11 +214,11 @@ export class Tooltip {
 
       if (this.onDialog) {
         this.el.classList.add("on-dialog");
-        const dialogEl = this.icDialogEl.shadowRoot
-          .querySelector("dialog")
-          .getBoundingClientRect();
+        const dialogEl = this.icDialogEl?.shadowRoot
+          ?.querySelector("dialog")
+          ?.getBoundingClientRect();
 
-        this.getTooltipTranslate(dialogEl);
+        dialogEl && this.getTooltipTranslate(dialogEl);
       }
 
       this.popperInstance = createPopper(this.el, this.toolTip, {
@@ -280,9 +284,11 @@ export class Tooltip {
       action === "add" ? "addEventListener" : "removeEventListener";
 
     this.showEvents.forEach((event) => {
-      this.el[method](event, this.show);
-      if (this.toolTip !== undefined) {
-        this.toolTip[method](event, this.mouseEnterTooltip);
+      if (event) {
+        this.el[method](event, this.show);
+        if (this.toolTip !== undefined) {
+          this.toolTip[method](event, this.mouseEnterTooltip);
+        }
       }
     });
 
@@ -299,7 +305,7 @@ export class Tooltip {
       }
     });
 
-    document[method]("keydown", this.handleKeyDown);
+    document[method]("keydown", this.handleKeyDown as EventListener);
   };
 
   render() {

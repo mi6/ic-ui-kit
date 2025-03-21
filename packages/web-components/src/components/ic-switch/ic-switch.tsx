@@ -48,7 +48,7 @@ export class Switch {
 
   @Watch("checked")
   checkedChangeHandler(): void {
-    this.checkedState = this.checked;
+    this.checkedState = !!this.checked;
   }
 
   /**
@@ -119,7 +119,7 @@ export class Switch {
   }
 
   componentWillLoad(): void {
-    this.checkedState = this.checked;
+    this.checkedState = this.checked!;
     addFormResetListener(this.el, this.handleFormReset);
     removeDisabledFalse(this.disabled, this.el);
   }
@@ -136,14 +136,14 @@ export class Switch {
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.el.shadowRoot.querySelector("input")?.focus();
+    this.el.shadowRoot?.querySelector("input")?.focus();
   }
 
   private handleChange = () => {
     this.checkedState = !this.checkedState;
     this.icChange.emit({
       checked: this.checkedState,
-      value: this.value,
+      value: this.value!,
     });
   };
 
@@ -156,7 +156,7 @@ export class Switch {
   };
 
   private handleFormReset = (): void => {
-    this.checkedState = this.initiallyChecked;
+    this.checkedState = this.initiallyChecked!;
   };
 
   render() {
@@ -175,7 +175,13 @@ export class Switch {
 
     const isSmall = size === "small";
 
-    renderHiddenInput(true, this.el, name, checkedState ? value : "", disabled);
+    renderHiddenInput(
+      true,
+      this.el,
+      name!,
+      checkedState ? value : "",
+      disabled
+    );
 
     return (
       <Host
@@ -186,7 +192,7 @@ export class Switch {
         <label
           class={{
             "ic-switch-container": true,
-            "ic-switch-disabled": disabled,
+            "ic-switch-disabled": !!disabled,
             "ic-switch-small": isSmall,
           }}
           htmlFor={inputId}

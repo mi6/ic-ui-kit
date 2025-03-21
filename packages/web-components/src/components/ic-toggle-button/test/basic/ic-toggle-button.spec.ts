@@ -114,7 +114,7 @@ describe("ic-toggle-button component", () => {
 
     const element = document.getElementById("test-button");
 
-    element.click();
+    element?.click();
 
     await page.waitForChanges();
 
@@ -148,7 +148,7 @@ describe("ic-toggle-button component", () => {
 
     const element = document.getElementById("test-button");
 
-    element.click();
+    element?.click();
 
     await page.waitForChanges();
 

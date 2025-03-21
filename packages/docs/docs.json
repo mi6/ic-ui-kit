@@ -884,9 +884,24 @@
       "listeners": [],
       "styles": [
         {
+          "name": "--footer-offset",
+          "annotation": "prop",
+          "docs": "offset of x-position from footer"
+        },
+        {
           "name": "--ic-z-index-back-to-top",
           "annotation": "prop",
           "docs": "z-index of back to top"
+        },
+        {
+          "name": "--margin-left",
+          "annotation": "prop",
+          "docs": "left y-position of back to top"
+        },
+        {
+          "name": "--margin-right",
+          "annotation": "prop",
+          "docs": "right y-position of back to top"
         }
       ],
       "slots": [],
@@ -7820,7 +7835,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7842,7 +7857,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7910,7 +7925,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8094,7 +8109,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -8256,7 +8271,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8541,7 +8556,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -8925,7 +8940,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8947,7 +8962,7 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "theme",
@@ -9111,7 +9126,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9153,7 +9168,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9254,7 +9269,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9416,7 +9431,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9475,7 +9490,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -9893,7 +9908,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9915,7 +9930,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9937,7 +9952,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9959,7 +9974,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9981,7 +9996,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10003,7 +10018,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10025,7 +10040,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10047,7 +10062,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10160,7 +10175,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -10275,7 +10290,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10297,7 +10312,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10326,7 +10341,7 @@
           "name": "page",
           "type": "number",
           "complexType": {
-            "original": "number | null",
+            "original": "number",
             "resolved": "number",
             "references": {}
           },
@@ -10340,7 +10355,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10479,14 +10494,14 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
           "name": "open",
           "type": "boolean",
           "complexType": {
-            "original": "boolean",
+            "original": "boolean | undefined",
             "resolved": "boolean",
             "references": {}
           },
@@ -10501,7 +10516,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10665,7 +10680,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10686,7 +10701,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10708,7 +10723,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10783,7 +10798,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10805,7 +10820,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10915,7 +10930,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -10937,7 +10952,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -11031,7 +11046,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -11075,7 +11090,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -11117,7 +11132,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -11159,7 +11174,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -11364,7 +11379,7 @@
           "name": "autocapitalize",
           "type": "string",
           "complexType": {
-            "original": "string",
+            "original": "string | undefined",
             "resolved": "string",
             "references": {}
           },
@@ -11660,7 +11675,7 @@
           "name": "autofocus",
           "type": "boolean",
           "complexType": {
-            "original": "boolean",
+            "original": "boolean | undefined",
             "resolved": "boolean",
             "references": {}
           },
@@ -11697,7 +11712,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -11785,7 +11800,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -12004,7 +12019,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -12170,7 +12185,7 @@
           "name": "spellcheck",
           "type": "boolean",
           "complexType": {
-            "original": "boolean",
+            "original": "boolean | undefined",
             "resolved": "boolean",
             "references": {}
           },
@@ -12265,7 +12280,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -12431,16 +12446,16 @@
         },
         {
           "event": "icRetryLoad",
-          "detail": "IcValueEventDetail",
+          "detail": "IcMultiValueEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
+            "original": "IcMultiValueEventDetail",
+            "resolved": "IcMultiValueEventDetail",
             "references": {
-              "IcValueEventDetail": {
+              "IcMultiValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
+                "id": "src/utils/types.ts::IcMultiValueEventDetail"
               }
             }
           },
@@ -12744,7 +12759,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -12787,7 +12802,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13362,7 +13377,7 @@
           "name": "value",
           "type": "string | string[]",
           "complexType": {
-            "original": "string | string[]",
+            "original": "string | string[] | null",
             "resolved": "string | string[]",
             "references": {}
           },
@@ -13424,16 +13439,16 @@
         },
         {
           "event": "icChange",
-          "detail": "IcValueEventDetail",
+          "detail": "IcMultiValueEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
+            "original": "IcMultiValueEventDetail",
+            "resolved": "IcMultiValueEventDetail",
             "references": {
-              "IcValueEventDetail": {
+              "IcMultiValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
+                "id": "src/utils/types.ts::IcMultiValueEventDetail"
               }
             }
           },
@@ -13486,16 +13501,16 @@
         },
         {
           "event": "icInput",
-          "detail": "IcValueEventDetail",
+          "detail": "IcMultiValueEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
+            "original": "IcMultiValueEventDetail",
+            "resolved": "IcMultiValueEventDetail",
             "references": {
-              "IcValueEventDetail": {
+              "IcMultiValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
+                "id": "src/utils/types.ts::IcMultiValueEventDetail"
               }
             }
           },
@@ -13560,16 +13575,16 @@
         },
         {
           "event": "icRetryLoad",
-          "detail": "IcValueEventDetail",
+          "detail": "IcMultiValueEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
+            "original": "IcMultiValueEventDetail",
+            "resolved": "IcMultiValueEventDetail",
             "references": {
-              "IcValueEventDetail": {
+              "IcMultiValueEventDetail": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
+                "id": "src/utils/types.ts::IcMultiValueEventDetail"
               }
             }
           },
@@ -13676,7 +13691,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13698,7 +13713,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13720,7 +13735,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13742,7 +13757,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13764,7 +13779,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13786,7 +13801,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13808,7 +13823,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13830,7 +13845,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13851,7 +13866,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13872,7 +13887,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -15477,7 +15492,7 @@
           "name": "autocapitalize",
           "type": "string",
           "complexType": {
-            "original": "string",
+            "original": "string | undefined",
             "resolved": "string",
             "references": {}
           },
@@ -15733,7 +15748,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -15766,14 +15781,14 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
           "name": "autofocus",
           "type": "boolean",
           "complexType": {
-            "original": "boolean",
+            "original": "boolean | undefined",
             "resolved": "boolean",
             "references": {}
           },
@@ -15810,7 +15825,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -15832,7 +15847,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -15854,7 +15869,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -15876,7 +15891,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -15898,7 +15913,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -15920,7 +15935,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -15999,7 +16014,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16036,7 +16051,6 @@
           "reflectToAttr": false,
           "docs": "The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)",
           "docsTags": [],
-          "default": "undefined",
           "values": [
             {
               "type": "number"
@@ -16045,7 +16059,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16067,7 +16081,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16083,7 +16097,6 @@
           "reflectToAttr": false,
           "docs": "The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)",
           "docsTags": [],
-          "default": "undefined",
           "values": [
             {
               "type": "number"
@@ -16092,7 +16105,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16114,7 +16127,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16136,7 +16149,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16158,7 +16171,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16180,7 +16193,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16202,7 +16215,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16224,7 +16237,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16246,7 +16259,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16286,7 +16299,7 @@
           "name": "spellcheck",
           "type": "boolean",
           "complexType": {
-            "original": "boolean",
+            "original": "boolean | undefined",
             "resolved": "boolean",
             "references": {}
           },
@@ -16338,7 +16351,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16391,7 +16404,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16413,7 +16426,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16453,7 +16466,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16475,7 +16488,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -16680,7 +16693,7 @@
           "name": "brandColor",
           "type": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
           "complexType": {
-            "original": "IcColor",
+            "original": "IcColor | null",
             "resolved": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
             "references": {
               "IcColor": {
@@ -16738,7 +16751,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -17053,7 +17066,7 @@
               "type": "HTMLIcToastElement"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -17131,7 +17144,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -17392,7 +17405,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -17419,7 +17432,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -18227,7 +18240,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -18264,7 +18277,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -18309,7 +18322,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -18331,7 +18344,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -18353,7 +18366,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -18375,7 +18388,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -18397,7 +18410,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -18456,7 +18469,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -19053,7 +19066,7 @@
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcValueEventDetail": {
-      "declaration": "export interface IcValueEventDetail {\n  value: string | string[] | null;\n  keyPressed?: string;\n}",
+      "declaration": "export interface IcValueEventDetail {\n  value: string;\n  keyPressed?: string;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -19068,7 +19081,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-menu/ic-menu.types.ts::IcOptionSelectEventDetail": {
-      "declaration": "export interface IcOptionSelectEventDetail {\n  value: string;\n  label?: string;\n  optionId?: string;\n}",
+      "declaration": "export interface IcOptionSelectEventDetail {\n  value: string | undefined;\n  label?: string;\n  optionId?: string;\n}",
       "docstring": "",
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
@@ -19082,8 +19095,13 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/utils/types.ts::IcMultiValueEventDetail": {
+      "declaration": "export interface IcMultiValueEventDetail {\n  value: string | string[] | null;\n  keyPressed?: string;\n}",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail": {
-      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
+      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget | null;\n}",
       "docstring": "",
       "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },

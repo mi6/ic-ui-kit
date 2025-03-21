@@ -76,10 +76,10 @@ describe("ic-pagination simple appearance component", () => {
       `,
     });
 
-    const btn = (await page.root.shadowRoot.querySelector(
+    const btn = (await page.root?.shadowRoot?.querySelector(
       "#next-page-button"
     )) as HTMLIcButtonElement;
-    const pageEl = (await page.root.shadowRoot.querySelector(
+    const pageEl = (await page.root?.shadowRoot?.querySelector(
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
@@ -96,10 +96,10 @@ describe("ic-pagination simple appearance component", () => {
       `,
     });
 
-    const btn = (await page.root.shadowRoot.querySelector(
+    const btn = (await page.root?.shadowRoot?.querySelector(
       "#last-page-button"
     )) as HTMLIcButtonElement;
-    const pageEl = (await page.root.shadowRoot.querySelector(
+    const pageEl = (await page.root?.shadowRoot?.querySelector(
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
@@ -115,10 +115,10 @@ describe("ic-pagination simple appearance component", () => {
       `,
     });
 
-    const btn = (await page.root.shadowRoot.querySelector(
+    const btn = (await page.root?.shadowRoot?.querySelector(
       "#previous-page-button"
     )) as HTMLIcButtonElement;
-    const pageEl = (await page.root.shadowRoot.querySelector(
+    const pageEl = (await page.root?.shadowRoot?.querySelector(
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
@@ -134,10 +134,10 @@ describe("ic-pagination simple appearance component", () => {
       `,
     });
 
-    const btn = (await page.root.shadowRoot.querySelector(
+    const btn = (await page.root?.shadowRoot?.querySelector(
       "#first-page-button"
     )) as HTMLIcButtonElement;
-    const pageEl = (await page.root.shadowRoot.querySelector(
+    const pageEl = (await page.root?.shadowRoot?.querySelector(
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
@@ -154,7 +154,7 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
@@ -310,10 +310,10 @@ describe("ic-pagination complex type", () => {
       `,
     });
 
-    const btn = (await page.root.shadowRoot.querySelector(
+    const btn = (await page.root?.shadowRoot?.querySelector(
       "#next-page-button"
     )) as HTMLIcButtonElement;
-    const pageEl = (await page.root.shadowRoot.querySelector(
+    const pageEl = (await page.root?.shadowRoot?.querySelector(
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
@@ -329,10 +329,10 @@ describe("ic-pagination complex type", () => {
       `,
     });
 
-    const btn = (await page.root.shadowRoot.querySelector(
+    const btn = (await page.root?.shadowRoot?.querySelector(
       "#previous-page-button"
     )) as HTMLIcButtonElement;
-    const pageEl = (await page.root.shadowRoot.querySelector(
+    const pageEl = (await page.root?.shadowRoot?.querySelector(
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
@@ -348,10 +348,10 @@ describe("ic-pagination complex type", () => {
       `,
     });
 
-    const btn = (await page.root.shadowRoot.querySelector(
+    const btn = (await page.root?.shadowRoot?.querySelector(
       "#last-page-button"
     )) as HTMLIcButtonElement;
-    const pageEl = (await page.root.shadowRoot.querySelector(
+    const pageEl = (await page.root?.shadowRoot?.querySelector(
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
@@ -367,10 +367,10 @@ describe("ic-pagination complex type", () => {
       `,
     });
 
-    const btn = (await page.root.shadowRoot.querySelector(
+    const btn = (await page.root?.shadowRoot?.querySelector(
       "#first-page-button"
     )) as HTMLIcButtonElement;
-    const pageEl = (await page.root.shadowRoot.querySelector(
+    const pageEl = (await page.root?.shadowRoot?.querySelector(
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
@@ -387,11 +387,11 @@ describe("ic-pagination complex type", () => {
       `,
     });
 
-    const icPagItem = (await page.root.shadowRoot.querySelector(
+    const icPagItem = (await page.root?.shadowRoot?.querySelector(
       "ic-pagination-item"
     )) as HTMLIcPaginationItemElement;
 
-    const btn = (await icPagItem.shadowRoot.querySelector(
+    const btn = (await icPagItem.shadowRoot?.querySelector(
       ".item-container.page"
     )) as AnyHTMLElement;
 
@@ -411,7 +411,7 @@ describe("ic-pagination complex type", () => {
     await page.rootInstance.paginationItemClickHandler({ detail: { page: 1 } });
     await page.waitForChanges();
 
-    expect(page.root.currentPage).toBe(1);
+    expect(page.rootInstance.currentPage).toBe(1);
   });
 
   it("should not allow boundaryPageCount greater than 2", async () => {
@@ -429,7 +429,7 @@ describe("ic-pagination complex type", () => {
       html: `<ic-pagination pages=15 type="complex"></ic-pagination>`,
     });
 
-    page.root.boundaryPageCount = 3;
+    page.rootInstance.boundaryPageCount = 3;
     await page.waitForChanges();
 
     expect(page.rootInstance.boundaryPageCount).toEqual(2);
@@ -450,7 +450,7 @@ describe("ic-pagination complex type", () => {
       html: `<ic-pagination pages=15 type="complex"></ic-pagination>`,
     });
 
-    page.root.adjacentPageCount = 3;
+    page.rootInstance.adjacentPageCount = 3;
     await page.waitForChanges();
 
     expect(page.rootInstance.adjacentPageCount).toEqual(2);
@@ -464,7 +464,7 @@ describe("ic-pagination complex type", () => {
 
     expect(page.rootInstance.pages).toEqual(15);
 
-    page.root.type = "complex";
+    page.root?.setAttribute("type", "complex");
     await page.waitForChanges();
 
     expect(page.rootInstance.startItems).toEqual([1]);
@@ -514,7 +514,7 @@ describe("ic-pagination appearance tests", () => {
     });
     expect(page.rootInstance.currentPage).toBe(1);
 
-    await page.root.setCurrentPage(3);
+    await page.rootInstance.setCurrentPage(3);
     await page.waitForChanges();
 
     expect(page.rootInstance.currentPage).toBe(3);

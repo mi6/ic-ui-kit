@@ -130,13 +130,13 @@ describe("ic-top-navigation", () => {
       components: [TopNavigation],
       html: `<ic-top-navigation app-title="ApplicationName"></ic-top-navigation>`,
     });
-    const appTitle = await page.root.shadowRoot.querySelector("h1");
+    const appTitle = await page.root?.shadowRoot?.querySelector("h1");
 
-    expect(appTitle.textContent).toEqual("ApplicationName");
-    page.root.appTitle = "New Application Name";
+    expect(appTitle?.textContent).toEqual("ApplicationName");
+    page.rootInstance.appTitle = "New Application Name";
     await page.waitForChanges();
 
-    expect(appTitle.textContent).toEqual("New Application Name");
+    expect(appTitle?.textContent).toEqual("New Application Name");
   });
 
   it("should test form in search slot", async () => {
@@ -181,7 +181,7 @@ describe("ic-top-navigation", () => {
     await page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
     await page.waitForChanges();
 
-    let searchBtn = page.root.shadowRoot.querySelector(
+    let searchBtn = page.root?.shadowRoot?.querySelector(
       "#search-toggle-button"
     ) as HTMLElement;
     expect(searchBtn).not.toBeNull();
@@ -190,7 +190,7 @@ describe("ic-top-navigation", () => {
     await page.waitForChanges();
     await waitForSearchFocus();
 
-    let menuButton = page.root.shadowRoot.querySelector(
+    let menuButton = page.root?.shadowRoot?.querySelector(
       "#menu-button"
     ) as HTMLElement;
     expect(menuButton).not.toBeNull();
@@ -206,20 +206,20 @@ describe("ic-top-navigation", () => {
     menuButton.click();
     await page.waitForChanges();
 
-    let menu = page.root.shadowRoot.querySelector("ic-navigation-menu");
+    let menu = page.root?.shadowRoot?.querySelector("ic-navigation-menu");
     expect(menu).not.toBeNull();
 
     await page.rootInstance.resizeObserverCallback(DEVICE_SIZES.XL);
     await page.waitForChanges();
 
-    menu = page.root.shadowRoot.querySelector("ic-navigation-menu");
+    menu = page.root?.shadowRoot?.querySelector("ic-navigation-menu");
     expect(menu).toBeNull();
 
-    searchBtn = page.root.shadowRoot.querySelector(
+    searchBtn = page.root?.shadowRoot?.querySelector(
       "#search-toggle-button"
     ) as HTMLElement;
     expect(searchBtn).toBeNull();
-    menuButton = page.root.shadowRoot.querySelector(
+    menuButton = page.root?.shadowRoot?.querySelector(
       "#menu-button"
     ) as HTMLElement;
     expect(menuButton).toBeNull();
@@ -239,7 +239,7 @@ describe("ic-top-navigation", () => {
 
     await page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
     await page.waitForChanges();
-    const searchBtn = page.root.shadowRoot.querySelector(
+    const searchBtn = page.root?.shadowRoot?.querySelector(
       "#search-toggle-button"
     ) as HTMLElement;
     expect(searchBtn).not.toBeNull();
@@ -270,7 +270,7 @@ describe("ic-top-navigation", () => {
     await page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
     await page.waitForChanges();
 
-    const menuButton = page.root.shadowRoot.querySelector(
+    const menuButton = page.root?.shadowRoot?.querySelector(
       "#menu-button"
     ) as HTMLElement;
     expect(menuButton).not.toBeNull();

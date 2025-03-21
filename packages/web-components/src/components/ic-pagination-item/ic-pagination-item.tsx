@@ -25,7 +25,7 @@ export class PaginationItem {
   /**
    * If `true`, the pagination item will be disabled.
    */
-  @Prop() disabled: boolean = false;
+  @Prop() disabled?: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -34,11 +34,11 @@ export class PaginationItem {
   /**
    * The label for the pagination item (applicable when simple pagination is being used).
    */
-  @Prop() label: string = "Page";
+  @Prop() label?: string = "Page";
 
   @Watch("label")
   watchLabelHandler(): void {
-    this.capitalizedLabel = capitalize(this.label);
+    this.capitalizedLabel = capitalize(this.label!);
   }
 
   /**
@@ -49,7 +49,7 @@ export class PaginationItem {
   /**
    * The current page number.
    */
-  @Prop() page: number | null;
+  @Prop() page?: number;
 
   /**
    * If `true`, the pagination item will be selected.
@@ -69,7 +69,7 @@ export class PaginationItem {
   /**
    * @internal - Emitted when a pagination item is clicked.
    */
-  @Event() paginationItemClick: EventEmitter<{ page: number }>;
+  @Event() paginationItemClick: EventEmitter<{ page: number | null }>;
 
   componentWillLoad(): void {
     this.watchLabelHandler();
@@ -77,7 +77,7 @@ export class PaginationItem {
   }
 
   private handleClick = () => {
-    this.paginationItemClick.emit({ page: this.page });
+    this.paginationItemClick.emit({ page: this.page || null });
   };
 
   render() {
@@ -92,13 +92,13 @@ export class PaginationItem {
     } = this;
 
     return (
-      <a class={{ ["monochrome"]: monochrome }}>
+      <a class={{ ["monochrome"]: !!monochrome }}>
         {type === "ellipsis" ? (
           <div
             class={{
               ["item-container"]: true,
               ["ellipsis"]: true,
-              ["disabled"]: disabled,
+              ["disabled"]: !!disabled,
             }}
           >
             <ic-typography variant="label">...</ic-typography>
@@ -115,7 +115,7 @@ export class PaginationItem {
             }
             class={{
               ["selected"]: !disabled && selected,
-              ["disabled"]: disabled,
+              ["disabled"]: !!disabled,
               ["item-container"]: true,
               ["page"]: type === "page",
             }}
@@ -124,7 +124,7 @@ export class PaginationItem {
               variant="label"
               class={{
                 ["page-selected"]: selected,
-                ["disabled"]: disabled,
+                ["disabled"]: !!disabled,
               }}
             >
               {page}
@@ -135,7 +135,7 @@ export class PaginationItem {
             aria-live="polite"
             class={{
               [`simple-current`]: true,
-              ["disabled"]: disabled,
+              ["disabled"]: !!disabled,
             }}
             variant="label"
           >

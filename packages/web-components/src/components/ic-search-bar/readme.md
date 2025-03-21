@@ -52,7 +52,7 @@
 | `icKeydown`        | Emitted when a keydown event occurred.                          | `CustomEvent<{ event: KeyboardEvent; }>`  |
 | `icMenuChange`     | Emitted when the state of the menu changes (i.e. open or close) | `CustomEvent<IcMenuChangeEventDetail>`    |
 | `icOptionSelect`   | Emitted when option is highlighted within the menu              | `CustomEvent<IcOptionSelectEventDetail>`  |
-| `icRetryLoad`      | Emitted when the 'retry loading' button is clicked              | `CustomEvent<IcValueEventDetail>`         |
+| `icRetryLoad`      | Emitted when the 'retry loading' button is clicked              | `CustomEvent<IcMultiValueEventDetail>`    |
 | `icSearchBarBlur`  | Emitted when blur is invoked from ic-search-bar                 | `CustomEvent<IcSearchBarBlurEventDetail>` |
 | `icSearchBarFocus` | Emitted when focus is invoked from ic-search-bar                | `CustomEvent<IcValueEventDetail>`         |
 | `icSubmitSearch`   | Emitted when the search value has been submitted                | `CustomEvent<IcValueEventDetail>`         |

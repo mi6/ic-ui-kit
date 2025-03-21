@@ -306,6 +306,22 @@ describe("ic-side-navigation", () => {
     expect(page.rootInstance.deviceSize).toBe(DEVICE_SIZES.XL);
   });
 
+  it("should set the parent element's height correctly when the inline prop is applied on a small device", async () => {
+    const page = await newSpecPage({
+      components: [SideNavigation],
+      html: `<ic-side-navigation version="v0.0.0" status="BETA" app-title="ACME" inline>
+    </ic-side-navigation>`,
+    });
+
+    const topBar = page.root?.shadowRoot?.querySelector(
+      ".top-bar"
+    ) as HTMLElement;
+    Object.defineProperty(topBar, "scrollHeight", { value: 50 });
+
+    await page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
+    expect(page.root?.parentElement?.style.height).toBe("calc(100% - 50px)");
+  });
+
   it("should test menu toggle", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem, Button],
@@ -425,7 +441,7 @@ describe("ic-side-navigation", () => {
     await page.rootInstance.toggleMenuExpanded(true);
     await new Promise((r) => setTimeout(r, 2000));
 
-    page.root.dispatchEvent(
+    page.root?.dispatchEvent(
       new window.window.Event("transitionend", {
         bubbles: true,
         cancelable: true,
