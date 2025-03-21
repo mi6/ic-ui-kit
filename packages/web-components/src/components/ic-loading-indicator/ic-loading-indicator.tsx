@@ -275,19 +275,19 @@ export class LoadingIndicator {
   };
 
   private setDashSteps = (radius: number) => {
-    if (this.circularMeter && this.progress) {
-      const max = this.max!;
-      const min = this.min!;
-      const dashArray = 2 * Math.PI * radius;
-      const progress = Math.min(Math.max(this.progress, min), max);
-      const proportion = -1 - (progress - min) / (max - min);
+    const dashArray = 2 * Math.PI * radius;
 
+    if (this.circularMeter) {
       this.circularMeter.style.setProperty(
         "--stroke-dasharray",
         `${dashArray}px`
       );
 
-      if (!this.indeterminate) {
+      if (!this.indeterminate && this.progress) {
+        const min = this.min!;
+        const max = this.max!;
+        const progress = Math.min(Math.max(this.progress, min), max);
+        const proportion = -1 - (progress - min) / (max - min);
         this.circularMeter.style.setProperty(
           "--circular-steps-max",
           String(this.max)
