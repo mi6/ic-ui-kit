@@ -603,7 +603,6 @@
   background-color: var(--ic-button-icon-color-background);
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.ic-button-variant-icon) ::slotted(a) {
@@ -611,7 +610,6 @@
   background-color: var(--ic-button-icon-color-background) !important;
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.ic-button-variant-icon) .icon-container {
@@ -656,7 +654,6 @@
 :host(.ic-button-variant-icon-primary) ::slotted(a) {
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.ic-button-variant-icon-primary) .icon-container {
@@ -675,7 +672,6 @@
 :host(.ic-button-variant-icon-secondary) ::slotted(a) {
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.ic-button-variant-icon-secondary) .icon-container {
@@ -689,7 +685,6 @@
 :host(.ic-button-variant-icon-tertiary) ::slotted(a) {
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.ic-button-variant-icon-tertiary) .icon-container {
@@ -703,7 +698,6 @@
 :host(.ic-button-variant-icon-destructive) ::slotted(a) {
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.ic-button-variant-icon-destructive) .icon-container {
@@ -931,7 +925,6 @@ div.right-icon {
   background-color: inherit;
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.ic-button-variant-icon) .icon-container {
@@ -944,7 +937,6 @@ div.right-icon {
   color: var(--button-default);
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.button-variant-icon) .icon-container {
