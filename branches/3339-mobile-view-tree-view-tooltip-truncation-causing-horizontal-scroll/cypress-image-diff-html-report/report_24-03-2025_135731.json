@@ -2335,7 +2335,7 @@
         {
           "status": "fail",
           "name": "IcTreeView.cy.tsx-router-item",
-          "percentage": 0.23980825673858688,
+          "percentage": 0.12276907030541492,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTreeView/IcTreeView.cy.tsx",
           "specFilename": "IcTreeView.cy.tsx",
@@ -2401,9 +2401,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-24T12:12:21.392Z",
-  "endedAt": "2025-03-24T12:18:20.960Z",
-  "duration": 343833,
+  "startedAt": "2025-03-24T13:57:31.175Z",
+  "endedAt": "2025-03-24T14:03:46.025Z",
+  "duration": 358734,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
