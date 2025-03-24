@@ -2,7 +2,7 @@
 
 exports[`ic-side-navigation should render expanded: renders-expanded 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-expanded" expanded="true" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
         <div class="app-title-wrapper">
@@ -35,13 +35,13 @@ exports[`ic-side-navigation should render expanded: renders-expanded 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-side-navigation>
 `;
 
 exports[`ic-side-navigation should render with app title, version and status: renders-with-app-title-version-status 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-collapsed" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
         <div class="app-title-wrapper">
@@ -78,13 +78,13 @@ exports[`ic-side-navigation should render with app title, version and status: re
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-side-navigation>
 `;
 
 exports[`ic-side-navigation should render with app-title: renders-with-app-title 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-collapsed" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
         <div class="app-title-wrapper">
@@ -117,13 +117,13 @@ exports[`ic-side-navigation should render with app-title: renders-with-app-title
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-side-navigation>
 `;
 
 exports[`ic-side-navigation should render with primary navigation items and collapsed icon labels: primary-navigation-items-and-collapsed-icon-labels 1`] = `
 <ic-side-navigation app-title="ACME" class="collapsed-labels side-display sm-collapsed" collapsed-icon-labels="true" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
         <div class="app-title-wrapper">
@@ -169,9 +169,9 @@ exports[`ic-side-navigation should render with primary navigation items and coll
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="Home" role="listitem" slot="primary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="Home" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
@@ -183,7 +183,7 @@ exports[`ic-side-navigation should render with primary navigation items and coll
           <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
     <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
     </svg>
@@ -193,7 +193,7 @@ exports[`ic-side-navigation should render with primary navigation items and coll
 
 exports[`ic-side-navigation should render with primary navigation items: renders-with-primary-navigation-items 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-collapsed" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
         <div class="app-title-wrapper">
@@ -239,9 +239,9 @@ exports[`ic-side-navigation should render with primary navigation items: renders
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" href="/" label="Home" role="listitem" slot="primary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="Home" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
@@ -253,7 +253,7 @@ exports[`ic-side-navigation should render with primary navigation items: renders
           <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
     <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
     </svg>
@@ -263,7 +263,7 @@ exports[`ic-side-navigation should render with primary navigation items: renders
 
 exports[`ic-side-navigation should render with secondary navigation items: renders-with-secondary-navigation-items 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-collapsed" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
         <div class="app-title-wrapper">
@@ -309,9 +309,9 @@ exports[`ic-side-navigation should render with secondary navigation items: rende
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="a11y" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
@@ -323,7 +323,7 @@ exports[`ic-side-navigation should render with secondary navigation items: rende
           <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
     <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9H15V22H13V16H11V22H9V9H3V7H21V9Z" fill="currentColor"></path>
     </svg>
@@ -333,7 +333,7 @@ exports[`ic-side-navigation should render with secondary navigation items: rende
 
 exports[`ic-side-navigation should render with slotted navigation item - collapsed icon labels true: slotted-navigation-item-collapsed-icon-labels 1`] = `
 <ic-side-navigation app-title="ACME" class="collapsed-labels side-display sm-collapsed" collapsed-icon-labels="true" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
         <div class="app-title-wrapper">
@@ -384,9 +384,9 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" role="listitem" slot="primary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="
               
                 
@@ -395,7 +395,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
             " placement="right" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
       <div style="height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -408,7 +408,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
     </a>
   </ic-navigation-item>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="a11y" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
@@ -420,7 +420,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
           <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
     <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9H15V22H13V16H11V22H9V9H3V7H21V9Z" fill="currentColor"></path>
     </svg>
@@ -430,7 +430,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
 
 exports[`ic-side-navigation should render with slotted navigation item - collapsed icon labels true: slotted-navigation-item-collapsed-icon-labels-menu-toggle 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-expanded" collapsed-icon-labels="true" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
         <div class="app-title-wrapper">
@@ -481,15 +481,15 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav" collapsed-icon-label="true" display-navigation-tooltip="false" role="listitem" slot="primary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="
                 
               Daily Tippers" placement="right" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
       <div style="height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -502,7 +502,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
     </a>
   </ic-navigation-item>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="a11y" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
@@ -514,7 +514,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
           <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
     <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9H15V22H13V16H11V22H9V9H3V7H21V9Z" fill="currentColor"></path>
     </svg>
@@ -524,7 +524,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
 
 exports[`ic-side-navigation should render with slotted navigation item: slotted-navigation-item 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-collapsed" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
         <div class="app-title-wrapper">
@@ -566,9 +566,9 @@ exports[`ic-side-navigation should render with slotted navigation item: slotted-
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" role="listitem" slot="primary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="
               
                 
@@ -577,7 +577,7 @@ exports[`ic-side-navigation should render with slotted navigation item: slotted-
             " placement="right" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
       <div style="height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -594,7 +594,7 @@ exports[`ic-side-navigation should render with slotted navigation item: slotted-
 
 exports[`ic-side-navigation should render with slotted primary secondary navigation and expanded: renders-with-slotted-primary-secondary-navigation-and-expanded 1`] = `
 <ic-side-navigation app-title="Application Name" class="side-display sm-expanded" expanded="true" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
         <div class="app-title-wrapper">
@@ -649,13 +649,13 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <svg fill="#000000" height="24px" slot="app-icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0V0z" fill="none"></path>
     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
   </svg>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav" role="listitem" slot="primary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="
           
             
@@ -664,7 +664,7 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
         " placement="right" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
       <div style="height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -677,7 +677,7 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
     </a>
   </ic-navigation-item>
   <ic-navigation-group class="ic-navigation-group-expanded ic-navigation-group-side-nav" expandable="true" label="Second navigation group" role="listitem" slot="primary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <button aria-expanded="true" aria-haspopup="false" class="light navigation-group" tabindex="0">
         <ic-typography variant="caption">
           Second navigation group
@@ -689,9 +689,9 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
       <ul class="grouped-links-wrapper">
         <slot></slot>
       </ul>
-    </mock:shadow-root>
+    </template>
     <ic-navigation-item class="light navigation-item navigation-item-side-nav" role="listitem">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-tooltip class="tooltip-navigation-item" label="
             
               
@@ -700,7 +700,7 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
           " placement="right" target="navigation-item">
           <slot name="navigation-item"></slot>
         </ic-tooltip>
-      </mock:shadow-root>
+      </template>
       <a aria-label="Daily Tippers" href="/child-item-2" slot="navigation-item">
         <div style="height: var(--ic-space-lg);">
           <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -714,7 +714,7 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
     </ic-navigation-item>
   </ic-navigation-group>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav" role="listitem" slot="secondary-navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="
           
             
@@ -723,7 +723,7 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
         " placement="right" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
     <a aria-label="bar" href="/bar" slot="navigation-item">
       <div style="height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">

@@ -156,7 +156,8 @@
       "relaxin",
       "codemod",
       "nargs",
-      "testid"
+      "testid",
+      "shadowrootmode"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc", "la"],
     "ignorePaths": [

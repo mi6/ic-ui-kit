@@ -1,4 +1,4 @@
-@import "../../../dist/core/normalize.css";
+@import "../../global/normalize.css";
 
 /**
   * @prop --card-horizontal-width: Width of the horizontal card

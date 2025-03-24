@@ -2,7 +2,7 @@
 
 exports[`ic-data-table should add description text or sub-icon to cells of table 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -290,13 +290,13 @@ exports[`ic-data-table should add description text or sub-icon to cells of table
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should apply a specified row height to all rows when globalRowHeight is set 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -569,13 +569,13 @@ exports[`ic-data-table should apply a specified row height to all rows when glob
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should apply a specified row height to specific rows when variableRowHeight is set, and any not included should use the default globalRowHeight 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -848,13 +848,13 @@ exports[`ic-data-table should apply a specified row height to specific rows when
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should apply the correct density scaler to rowHeights when not using the default density 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -1127,13 +1127,13 @@ exports[`ic-data-table should apply the correct density scaler to rowHeights whe
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should apply the correct density scaler to rowHeights when not using the default density 2`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -1406,13 +1406,13 @@ exports[`ic-data-table should apply the correct density scaler to rowHeights whe
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should be able to slot a custom empty state into the data table 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -1456,9 +1456,9 @@ exports[`ic-data-table should be able to slot a custom empty state into the data
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-empty-state class="ic-empty-state-left" slot="empty-state">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div>
         <slot name="heading">
           <ic-typography variant="h4">
@@ -1477,13 +1477,13 @@ exports[`ic-data-table should be able to slot a custom empty state into the data
       <div class="action-area">
         <slot name="actions"></slot>
       </div>
-    </mock:shadow-root>
+    </template>
     <ic-button class="ic-button-size-medium ic-button-variant-primary" exportparts="button" slot="actions">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <button class="button" part="button" type="button">
           <slot></slot>
         </button>
-      </mock:shadow-root>
+      </template>
       Button
     </ic-button>
   </ic-empty-state>
@@ -1492,7 +1492,7 @@ exports[`ic-data-table should be able to slot a custom empty state into the data
 
 exports[`ic-data-table should correctly render a custom icon in the header when passed through the column prop 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -1775,13 +1775,13 @@ exports[`ic-data-table should correctly render a custom icon in the header when 
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should not override the height of certain rows if \`variableRowHeight\` returns auto 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -2054,13 +2054,13 @@ exports[`ic-data-table should not override the height of certain rows if \`varia
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should not override the height of rows if \`globalRowHeight\` is set to auto 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -2333,13 +2333,13 @@ exports[`ic-data-table should not override the height of rows if \`globalRowHeig
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should not render custom icon in header when hideOnHeader is set 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -2612,13 +2612,13 @@ exports[`ic-data-table should not render custom icon in header when hideOnHeader
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should pass the caption down to any slotted ic-data-table-title-bar 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <slot name="title-bar"></slot>
       <div class="table-row-container">
@@ -2892,9 +2892,9 @@ exports[`ic-data-table should pass the caption down to any slotted ic-data-table
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-data-table-title-bar slot="title-bar">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="title-bar-wrapper">
         <div class="header-container">
           <slot name="heading">
@@ -2912,14 +2912,14 @@ exports[`ic-data-table should pass the caption down to any slotted ic-data-table
           </div>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
   </ic-data-table-title-bar>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should pass through the loadingOptions to the loading indicator 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -2966,13 +2966,13 @@ exports[`ic-data-table should pass through the loadingOptions to the loading ind
       <div class="loading-overlay"></div>
       <ic-loading-indicator appearance="light" class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should pass through the updatingOptions to the linear loading indicator 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -3021,13 +3021,13 @@ exports[`ic-data-table should pass through the updatingOptions to the linear loa
         Updating table data
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -3300,13 +3300,13 @@ exports[`ic-data-table should render 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render a slotted icon instead of an icon defined in data 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -3580,7 +3580,7 @@ exports[`ic-data-table should render a slotted icon instead of an icon defined i
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
   <svg aria-hidden="true" focusable="false" slot="name-0-icon" viewBox="0 0 24 24">
     <path d="M9 3 5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"></path>
   </svg>
@@ -3589,7 +3589,7 @@ exports[`ic-data-table should render a slotted icon instead of an icon defined i
 
 exports[`ic-data-table should render an action element if present in the data set 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -3836,13 +3836,13 @@ exports[`ic-data-table should render an action element if present in the data se
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render column icon on all column cells if onAllCells is true, except ones that already have a custom icon 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -4180,13 +4180,13 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render embedded 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -4459,13 +4459,13 @@ exports[`ic-data-table should render embedded 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render sortable 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -4753,13 +4753,13 @@ exports[`ic-data-table should render sortable 1`] = `
         table unsorted
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render the empty state when data is null 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -4803,13 +4803,13 @@ exports[`ic-data-table should render the empty state when data is null 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render the empty state when no data is passed through 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -4853,13 +4853,13 @@ exports[`ic-data-table should render the empty state when no data is passed thro
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render the loading indicator with an overlay above the table 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -4946,13 +4946,13 @@ exports[`ic-data-table should render the loading indicator with an overlay above
       <div class="loading-overlay show"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render the loading state when the \`loading\` prop is passed through 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -4999,13 +4999,13 @@ exports[`ic-data-table should render the loading state when the \`loading\` prop
       <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render the updating state when the \`updating\` prop is passed through 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -5054,13 +5054,13 @@ exports[`ic-data-table should render the updating state when the \`updating\` pr
         Updating table data
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render updating in assertive aria-live div 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -5148,13 +5148,13 @@ exports[`ic-data-table should render updating in assertive aria-live div 1`] = `
         Updating table data
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render with a slotted ic-data-table-title-bar 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <slot name="title-bar"></slot>
       <div class="table-row-container">
@@ -5428,14 +5428,14 @@ exports[`ic-data-table should render with a slotted ic-data-table-title-bar 1`] 
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-data-table-title-bar slot="title-bar"></ic-data-table-title-bar>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render with cell overrides 1`] = `
 <ic-data-table show-pagination="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -5711,13 +5711,13 @@ exports[`ic-data-table should render with cell overrides 1`] = `
         <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render with column header truncation 1`] = `
 <ic-data-table column-header-truncation="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -6010,13 +6010,13 @@ exports[`ic-data-table should render with column header truncation 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render with column header truncation 2`] = `
 <ic-data-table column-header-truncation="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -6289,13 +6289,13 @@ exports[`ic-data-table should render with column header truncation 2`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render with column headers hidden 1`] = `
 <ic-data-table hide-column-headers="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -6536,13 +6536,13 @@ exports[`ic-data-table should render with column headers hidden 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render with column overrides 1`] = `
 <ic-data-table show-pagination="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -6818,13 +6818,13 @@ exports[`ic-data-table should render with column overrides 1`] = `
         <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render with pagination 1`] = `
 <ic-data-table show-pagination="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -7252,13 +7252,13 @@ exports[`ic-data-table should render with pagination 1`] = `
         <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="20" type="simple"></ic-pagination-bar>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render with row headers 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -7495,13 +7495,13 @@ exports[`ic-data-table should render with row headers 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should render with row overrides 1`] = `
 <ic-data-table show-pagination="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -7741,13 +7741,13 @@ exports[`ic-data-table should render with row overrides 1`] = `
         <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should reset all rows to the default height when resetRowHeights is called 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -8020,13 +8020,13 @@ exports[`ic-data-table should reset all rows to the default height when resetRow
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should reset all rows to the default height when resetRowHeights is called 2`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -8299,13 +8299,13 @@ exports[`ic-data-table should reset all rows to the default height when resetRow
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should slot a custom element into a cell 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -8615,7 +8615,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-button slot="actions-0">
     Delete
   </ic-button>
@@ -8639,7 +8639,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
 
 exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -8654,13 +8654,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                     Name
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -8671,13 +8671,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                     Age
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -8688,13 +8688,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -8705,13 +8705,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                     Employee number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -8955,13 +8955,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
         table unsorted
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -8976,13 +8976,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                     Name
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -8993,13 +8993,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                     Age
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9010,13 +9010,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9027,13 +9027,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                     Employee number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9277,13 +9277,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
         name sorted ascending
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -9298,13 +9298,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                     Name
                   </ic-typography>
                   <ic-button aria-label="Remove sort" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9315,13 +9315,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                     Age
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9332,13 +9332,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9349,13 +9349,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                     Employee number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9599,13 +9599,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
         name sorted descending
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -9620,13 +9620,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                     Name
                   </ic-typography>
                   <ic-button aria-label="Sort ascending" class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9637,13 +9637,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                     Age
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="ic-button-size-medium ic-button-variant-icon sort-button" exportparts="button" id="sort-button-age">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9654,13 +9654,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                     Department
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9671,13 +9671,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                     Employee number
                   </ic-typography>
                   <ic-button class="ic-button-size-medium ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
-                    <mock:shadow-root>
+                    <template shadowrootmode="open">
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
                           <slot></slot>
                         </button>
                       </ic-tooltip>
-                    </mock:shadow-root>
+                    </template>
                     svg
                   </ic-button>
                 </div>
@@ -9921,13 +9921,13 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
         age sorted ascending
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table when loading is \`true\`, if data is set before 1 second of loading it will wait 1 second before rendering the data 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -9974,13 +9974,13 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
       <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table when loading is \`true\`, if data is set before 1 second of loading it will wait 1 second before rendering the data 2`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -10027,13 +10027,13 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
       <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table when loading is \`true\`, if data is set before 1 second of loading it will wait 1 second before rendering the data 3`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -10306,13 +10306,13 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table when loading is \`true\`, setting data should cancel the loading after 1 second from initial loading 1`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -10359,13 +10359,13 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
       <div class="loading-overlay"></div>
       <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;
 
 exports[`ic-data-table when loading is \`true\`, setting data should cancel the loading after 1 second from initial loading 2`] = `
 <ic-data-table>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="table-container">
       <div class="table-row-container">
         <table style="--table-layout: fixed;">
@@ -10638,6 +10638,6 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
       </div>
       <div aria-live="assertive" class="sr-only"></div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-data-table>
 `;

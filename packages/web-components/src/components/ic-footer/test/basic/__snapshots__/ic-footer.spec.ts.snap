@@ -2,7 +2,7 @@
 
 exports[`ic-footer should render 1`] = `
 <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
@@ -16,13 +16,13 @@ exports[`ic-footer should render 1`] = `
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
 </ic-footer>
 `;
 
 exports[`ic-footer should render with a caption via the caption prop 1`] = `
 <ic-footer caption="Made by ICDS" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" description="This is a footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-description">
         <ic-section-container aligned="left" fullheight="">
@@ -54,13 +54,13 @@ exports[`ic-footer should render with a caption via the caption prop 1`] = `
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
 </ic-footer>
 `;
 
 exports[`ic-footer should render with a caption via the caption slot 1`] = `
 <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" description="This is a footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-description">
         <ic-section-container aligned="left" fullheight="">
@@ -90,7 +90,7 @@ exports[`ic-footer should render with a caption via the caption slot 1`] = `
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
   <ic-typography slot="caption">
     Made by ICDS
   </ic-typography>
@@ -99,15 +99,15 @@ exports[`ic-footer should render with a caption via the caption slot 1`] = `
 
 exports[`ic-footer should render with a description via the description slot 1`] = `
 <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-description">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-description-inner">
             <ic-typography class="ic-typography-body">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <slot></slot>
-              </mock:shadow-root>
+              </template>
               <slot name="description"></slot>
             </ic-typography>
           </div>
@@ -118,9 +118,9 @@ exports[`ic-footer should render with a description via the description slot 1`]
           <div class="footer-compliance-inner">
             <div class="footer-copyright">
               <ic-typography class="ic-typography-label-uppercase">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <slot></slot>
-                </mock:shadow-root>
+                </template>
                 © Crown Copyright
               </ic-typography>
             </div>
@@ -128,11 +128,11 @@ exports[`ic-footer should render with a description via the description slot 1`]
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
   <ic-typography class="ic-typography-body" slot="description">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <slot></slot>
-    </mock:shadow-root>
+    </template>
     This is a footer
   </ic-typography>
 </ic-footer>
@@ -140,7 +140,7 @@ exports[`ic-footer should render with a description via the description slot 1`]
 
 exports[`ic-footer should render with classification banner: footer-classification-banner 1`] = `
 <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
@@ -154,13 +154,13 @@ exports[`ic-footer should render with classification banner: footer-classificati
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
 </ic-footer>
 `;
 
 exports[`ic-footer should render with link groups 1`] = `
 <ic-footer caption="Made by ICDS" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" description="This is a footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-description">
         <ic-section-container aligned="left" fullheight="">
@@ -199,7 +199,7 @@ exports[`ic-footer should render with link groups 1`] = `
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
   <ic-footer-link-group label="Links" slot="link">
     <ic-footer-link href="/">
       Link
@@ -213,7 +213,7 @@ exports[`ic-footer should render with link groups 1`] = `
 
 exports[`ic-footer should render with links 1`] = `
 <ic-footer caption="Made by ICDS" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" description="This is a footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-description">
         <ic-section-container aligned="left" fullheight="">
@@ -252,7 +252,7 @@ exports[`ic-footer should render with links 1`] = `
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
   <ic-footer-link href="/" slot="link">
     Link
   </ic-footer-link>
@@ -264,7 +264,7 @@ exports[`ic-footer should render with links 1`] = `
 
 exports[`ic-footer should render with the correct small breakpoint at extra large device size: footer-xl-breakpoint 1`] = `
 <ic-footer breakpoint="extra large" caption="caption" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-small ic-footer-ungrouped" id="ic-footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
@@ -285,13 +285,13 @@ exports[`ic-footer should render with the correct small breakpoint at extra larg
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
 </ic-footer>
 `;
 
 exports[`ic-footer should render with the correct small breakpoint at extra small device size: footer-xs-breakpoint 1`] = `
 <ic-footer breakpoint="extra small" caption="caption" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" id="ic-footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
@@ -312,13 +312,13 @@ exports[`ic-footer should render with the correct small breakpoint at extra smal
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
 </ic-footer>
 `;
 
 exports[`ic-footer should render with the correct small breakpoint at large device size: footer-l-breakpoint 1`] = `
 <ic-footer breakpoint="large" caption="caption" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" id="ic-footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
@@ -339,13 +339,13 @@ exports[`ic-footer should render with the correct small breakpoint at large devi
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
 </ic-footer>
 `;
 
 exports[`ic-footer should render with the correct small breakpoint at medium device size: footer-m-breakpoint 1`] = `
 <ic-footer breakpoint="medium" caption="caption" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" id="ic-footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
@@ -366,13 +366,13 @@ exports[`ic-footer should render with the correct small breakpoint at medium dev
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
 </ic-footer>
 `;
 
 exports[`ic-footer should render with the correct small breakpoint at small device size: footer-s-breakpoint 1`] = `
 <ic-footer breakpoint="small" caption="caption" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" id="ic-footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
@@ -393,13 +393,13 @@ exports[`ic-footer should render with the correct small breakpoint at small devi
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
 </ic-footer>
 `;
 
 exports[`ic-footer should render without the compliance section when there is no logo, caption or copyright 1`] = `
 <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" copyright="false" description="This is a footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-description">
         <ic-section-container aligned="left" fullheight="">
@@ -413,13 +413,13 @@ exports[`ic-footer should render without the compliance section when there is no
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
 </ic-footer>
 `;
 
 exports[`ic-footer should render without the copyright text when the copyright prop is false 1`] = `
 <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped" copyright="false" description="This is a footer">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-description">
         <ic-section-container aligned="left" fullheight="">
@@ -444,7 +444,7 @@ exports[`ic-footer should render without the copyright text when the copyright p
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
   <ic-typography slot="caption">
     Made by ICDS
   </ic-typography>
@@ -453,7 +453,7 @@ exports[`ic-footer should render without the copyright text when the copyright p
 
 exports[`ic-footer should test rendering slotted after initial render 1`] = `
 <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <footer>
       <div class="footer-links">
         <ic-section-container aligned="left" fullheight="">
@@ -474,7 +474,7 @@ exports[`ic-footer should test rendering slotted after initial render 1`] = `
         </ic-section-container>
       </div>
     </footer>
-  </mock:shadow-root>
+  </template>
   <ic-footer-link slot="link">
     foo
   </ic-footer-link>

@@ -2,7 +2,7 @@
 
 exports[`ic-card-vertical should correctly remove disabled attribute when setting disabled to false: disabled 1`] = `
 <ic-card-vertical clickable="true" disabled="" heading="Card" message="This is a full width card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-disabled="true" class="card disabled" disabled="" tabindex="0">
       <div class="card-header">
         <div class="card-title">
@@ -21,13 +21,13 @@ exports[`ic-card-vertical should correctly remove disabled attribute when settin
         </ic-typography>
       </div>
     </button>
-  </mock:shadow-root>
+  </template>
 </ic-card-vertical>
 `;
 
 exports[`ic-card-vertical should correctly remove disabled attribute when setting disabled to false: disabled-removed 1`] = `
 <ic-card-vertical clickable="true" heading="Card" message="This is a full width card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button class="card clickable" tabindex="0">
       <div class="card-header">
         <div class="card-title">
@@ -46,13 +46,13 @@ exports[`ic-card-vertical should correctly remove disabled attribute when settin
         </ic-typography>
       </div>
     </button>
-  </mock:shadow-root>
+  </template>
 </ic-card-vertical>
 `;
 
 exports[`ic-card-vertical should render 1`] = `
 <ic-card-vertical heading="Card" message="This is a static card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="card-header">
         <div class="card-title">
@@ -71,13 +71,13 @@ exports[`ic-card-vertical should render 1`] = `
         </ic-typography>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-card-vertical>
 `;
 
 exports[`ic-card-vertical should render as a button 1`] = `
 <ic-card-vertical clickable="true" heading="Card" message="This is a clickable card rendered as a button">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button class="card clickable" tabindex="0">
       <div class="card-header">
         <div class="card-title">
@@ -96,13 +96,13 @@ exports[`ic-card-vertical should render as a button 1`] = `
         </ic-typography>
       </div>
     </button>
-  </mock:shadow-root>
+  </template>
 </ic-card-vertical>
 `;
 
 exports[`ic-card-vertical should render as a link 1`] = `
 <ic-card-vertical clickable="true" heading="Card" href="/" message="This is a clickable card rendered as a button">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <a class="card clickable" href="/" hreflang="" tabindex="0">
       <div class="card-header">
         <div class="card-title">
@@ -121,13 +121,13 @@ exports[`ic-card-vertical should render as a link 1`] = `
         </ic-typography>
       </div>
     </a>
-  </mock:shadow-root>
+  </template>
 </ic-card-vertical>
 `;
 
 exports[`ic-card-vertical should render as expandable 1`] = `
 <ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="card-header">
         <div class="card-title">
@@ -163,13 +163,13 @@ exports[`ic-card-vertical should render as expandable 1`] = `
         </ic-tooltip>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-card-vertical>
 `;
 
 exports[`ic-card-vertical should render content in expanded area 1`] = `
 <ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="card-header">
         <div class="card-title">
@@ -208,7 +208,7 @@ exports[`ic-card-vertical should render content in expanded area 1`] = `
         <slot name="expanded-content"></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography slot="expanded-content">
     Extra content
   </ic-typography>
@@ -217,7 +217,7 @@ exports[`ic-card-vertical should render content in expanded area 1`] = `
 
 exports[`ic-card-vertical should render full width variant 1`] = `
 <ic-card-vertical clickable="true" full-width="true" heading="Card" message="This is a full width card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button class="card clickable fullwidth" tabindex="0">
       <div class="card-header">
         <div class="card-title">
@@ -236,13 +236,13 @@ exports[`ic-card-vertical should render full width variant 1`] = `
         </ic-typography>
       </div>
     </button>
-  </mock:shadow-root>
+  </template>
 </ic-card-vertical>
 `;
 
 exports[`ic-card-vertical should render with a link parent 1`] = `
 <ic-card-vertical clickable="true" heading="Card" message="This is a clickable card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card clickable">
       <div class="card-header">
         <div class="card-title">
@@ -261,13 +261,13 @@ exports[`ic-card-vertical should render with a link parent 1`] = `
         </ic-typography>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-card-vertical>
 `;
 
 exports[`ic-card-vertical should render with a middle image 1`] = `
 <ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="card-header">
         <div class="card-title">
@@ -296,7 +296,7 @@ exports[`ic-card-vertical should render with a middle image 1`] = `
         </ic-typography>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="image-mid">
     Image placeholder
   </div>
@@ -305,7 +305,7 @@ exports[`ic-card-vertical should render with a middle image 1`] = `
 
 exports[`ic-card-vertical should render with a subheading 1`] = `
 <ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="card-header">
         <div class="card-title">
@@ -331,13 +331,13 @@ exports[`ic-card-vertical should render with a subheading 1`] = `
         </ic-typography>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-card-vertical>
 `;
 
 exports[`ic-card-vertical should render with a top image 1`] = `
 <ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="image-top">
         <slot name="image-top"></slot>
@@ -366,7 +366,7 @@ exports[`ic-card-vertical should render with a top image 1`] = `
         </ic-typography>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="image-top">
     Image placeholder
   </div>
@@ -375,7 +375,7 @@ exports[`ic-card-vertical should render with a top image 1`] = `
 
 exports[`ic-card-vertical should render with an interaction button 1`] = `
 <ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="card-header">
         <div class="card-title">
@@ -404,7 +404,7 @@ exports[`ic-card-vertical should render with an interaction button 1`] = `
         </ic-typography>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-button slot="interaction-button" variant="primary">
     Click here
   </ic-button>
@@ -413,7 +413,7 @@ exports[`ic-card-vertical should render with an interaction button 1`] = `
 
 exports[`ic-card-vertical should render with interaction controls 1`] = `
 <ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="card-header">
         <div class="card-title">
@@ -444,7 +444,7 @@ exports[`ic-card-vertical should render with interaction controls 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-button slot="interaction-controls">
     Click here
   </ic-button>
@@ -453,7 +453,7 @@ exports[`ic-card-vertical should render with interaction controls 1`] = `
 
 exports[`ic-card-vertical should test rendering slotted after initial render 1`] = `
 <ic-card-vertical heading="Card" message="This is a static card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="image-top">
         <slot name="image-top"></slot>
@@ -484,7 +484,7 @@ exports[`ic-card-vertical should test rendering slotted after initial render 1`]
         </ic-typography>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <svg slot="icon"></svg>
   <svg slot="image-mid"></svg>
   <svg slot="image-top"></svg>
@@ -494,7 +494,7 @@ exports[`ic-card-vertical should test rendering slotted after initial render 1`]
 
 exports[`ic-card-vertical should toggle expanded content when expansion toggle is clicked 1`] = `
 <ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a clickable card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="card-header">
         <div class="card-title">
@@ -523,7 +523,7 @@ exports[`ic-card-vertical should toggle expanded content when expansion toggle i
         </ic-tooltip>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography slot="expanded-content">
     Expanded
   </ic-typography>
@@ -532,7 +532,7 @@ exports[`ic-card-vertical should toggle expanded content when expansion toggle i
 
 exports[`ic-card-vertical should toggle expanded content when expansion toggle is clicked 2`] = `
 <ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a clickable card">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="card">
       <div class="card-header">
         <div class="card-title">
@@ -564,7 +564,7 @@ exports[`ic-card-vertical should toggle expanded content when expansion toggle i
         <slot name="expanded-content"></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography slot="expanded-content">
     Expanded
   </ic-typography>

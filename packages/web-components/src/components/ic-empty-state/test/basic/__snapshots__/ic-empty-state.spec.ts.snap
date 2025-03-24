@@ -2,7 +2,7 @@
 
 exports[`ic-empty-state component should render 1`] = `
 <ic-empty-state body="Body text for the empty state." class="ic-empty-state-left" heading="Empty state title" subheading="Empty state subtitle">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div>
       <slot name="heading">
         <ic-typography class="empty-state-heading" variant="h4">
@@ -20,13 +20,13 @@ exports[`ic-empty-state component should render 1`] = `
         </ic-typography>
       </slot>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-empty-state>
 `;
 
 exports[`ic-empty-state component should render with content in the image slot 1`] = `
 <ic-empty-state body="Body text for the empty state." class="ic-empty-state-left image-medium" heading="Empty state title" subheading="Empty state subtitle">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot name="image"></slot>
     <div>
       <slot name="heading">
@@ -45,7 +45,7 @@ exports[`ic-empty-state component should render with content in the image slot 1
         </ic-typography>
       </slot>
     </div>
-  </mock:shadow-root>
+  </template>
   <svg height:326px;width:326px;"="" slot="image" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
     <rect fill="#ff7700" height="1600" width="1600" y="-350"></rect>
     <polygon fill="#cc0000" points="957 450 539 900 1396 900"></polygon>
@@ -66,7 +66,7 @@ exports[`ic-empty-state component should render with content in the image slot 1
 
 exports[`ic-empty-state component should render with dark theme 1`] = `
 <ic-empty-state body="Body text for the empty state." class="ic-empty-state-left ic-theme-dark" heading="Empty state title" subheading="Empty state subtitle" theme="dark">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div>
       <slot name="heading">
         <ic-typography class="empty-state-heading" variant="h4">
@@ -84,13 +84,13 @@ exports[`ic-empty-state component should render with dark theme 1`] = `
         </ic-typography>
       </slot>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-empty-state>
 `;
 
 exports[`ic-empty-state component should render with light theme 1`] = `
 <ic-empty-state body="Body text for the empty state." class="ic-empty-state-left ic-theme-light" heading="Empty state title" subheading="Empty state subtitle" theme="light">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div>
       <slot name="heading">
         <ic-typography class="empty-state-heading" variant="h4">
@@ -108,13 +108,13 @@ exports[`ic-empty-state component should render with light theme 1`] = `
         </ic-typography>
       </slot>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-empty-state>
 `;
 
 exports[`ic-empty-state component should test rendering an action after initial render 1`] = `
 <ic-empty-state class="ic-empty-state-left" heading="Empty state title">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div>
       <slot name="heading">
         <ic-typography class="empty-state-heading" variant="h4">
@@ -131,7 +131,7 @@ exports[`ic-empty-state component should test rendering an action after initial 
     <div class="action-area">
       <slot name="actions"></slot>
     </div>
-  </mock:shadow-root>
+  </template>
   <button slot="actions"></button>
 </ic-empty-state>
 `;

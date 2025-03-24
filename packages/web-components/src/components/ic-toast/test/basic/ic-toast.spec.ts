@@ -14,25 +14,7 @@ describe("ic-toast component", () => {
     page.rootInstance.setVisible();
     await page.waitForChanges();
 
-    expect(page.root)
-      .toEqualHtml(`<ic-toast aria-label="Heading" heading="Heading" role="dialog" tabindex="0">
-      <mock:shadow-root>
-        <div class="container">
-          <div class="toast-content">
-            <div class="toast-text">
-              <ic-typography class="toast-heading" variant="subtitle-large">
-                <h5>
-                  Heading
-                </h5>
-              </ic-typography>
-            </div>
-          </div>
-          <ic-button id="dismiss-button" aria-label="dismiss" variant="icon">
-            svg
-          </ic-button>
-        </div>
-      </mock:shadow-root>
-    </ic-toast>`);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should render when a heading and message is supplied", async () => {
@@ -44,30 +26,7 @@ describe("ic-toast component", () => {
     page.rootInstance.setVisible();
     await page.waitForChanges();
 
-    expect(page.root)
-      .toEqualHtml(`<ic-toast aria-label="Heading" aria-description="toast message" message="toast message" heading="Heading" role="dialog" tabindex="0">
-      <mock:shadow-root>
-        <div class="container">
-          <div class="toast-content">
-            <div class="toast-text">
-              <ic-typography class="toast-heading" variant="subtitle-large">
-                <h5>
-                  Heading
-                </h5>
-              </ic-typography>
-              <ic-typography class="toast-message" variant="body">
-                <p>
-                  toast message
-                </p>
-              </ic-typography>
-            </div>
-          </div>
-          <ic-button id="dismiss-button" aria-label="dismiss" variant="icon">
-            svg
-          </ic-button>
-        </div>
-      </mock:shadow-root>
-    </ic-toast>`);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should render a variant icon and banner when a variant is supplied", async () => {
@@ -79,31 +38,7 @@ describe("ic-toast component", () => {
     page.rootInstance.setVisible();
     await page.waitForChanges();
 
-    expect(page.root)
-      .toEqualHtml(`<ic-toast aria-label="Success" aria-description="Heading" heading="Heading" role="dialog" variant="success" tabindex="0">
-      <mock:shadow-root>
-        <div class="container">
-          <div class="toast-icon-container">
-            <div class="divider divider-success"></div>
-            <span class="toast-icon">
-              svg
-            </span>
-          </div>
-          <div class="toast-content">
-            <div class="toast-text">
-              <ic-typography class="toast-heading" variant="subtitle-large">
-                <h5>
-                  Heading
-                </h5>
-              </ic-typography>
-            </div>
-          </div>
-          <ic-button id="dismiss-button" aria-label="dismiss" variant="icon">
-            svg
-          </ic-button>
-        </div>
-      </mock:shadow-root>
-    </ic-toast>`);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should render a loading indicator instead of a dismiss button when dismissMode is automatic", async () => {
@@ -115,23 +50,7 @@ describe("ic-toast component", () => {
     page.rootInstance.setVisible();
     await page.waitForChanges();
 
-    expect(page.root)
-      .toEqualHtml(`<ic-toast heading="Heading" role="alert" aria-live="polite" dismiss-mode="automatic" tabindex="0">
-      <mock:shadow-root>
-        <div class="container">
-          <div class="toast-content">
-            <div class="toast-text">
-              <ic-typography class="toast-heading" variant="subtitle-large">
-                <p>
-                  Heading
-                </p>
-              </ic-typography>
-            </div>
-          </div>
-          <ic-loading-indicator class="toast-dismiss-timer" description="Dismiss timer" monochrome="" progress="100" size="icon" theme="dark"></ic-loading-indicator>
-        </div>
-      </mock:shadow-root>
-    </ic-toast>`);
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should display the toast when setVisible is ran", async () => {

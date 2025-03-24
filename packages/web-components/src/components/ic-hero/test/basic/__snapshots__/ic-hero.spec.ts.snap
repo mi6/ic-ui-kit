@@ -2,7 +2,7 @@
 
 exports[`ic-hero component should render at size small: renders-small-variant 1`] = `
 <ic-hero class="ic-hero-small" heading="Test title" size="small" subheading="Test text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
         <div class="heading">
@@ -26,13 +26,13 @@ exports[`ic-hero component should render at size small: renders-small-variant 1`
         </div>
       </div>
     </ic-section-container>
-  </mock:shadow-root>
+  </template>
 </ic-hero>
 `;
 
 exports[`ic-hero component should render with a background image when given: renders-with-background-image 1`] = `
 <ic-hero background-image="test.png" class="has-background-image" heading="Test title" subheading="Test text" style="background-image: url(test.png); background-position: right -100px;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
         <div class="heading">
@@ -59,14 +59,14 @@ exports[`ic-hero component should render with a background image when given: ren
         <slot name="secondary"></slot>
       </div>
     </ic-section-container>
-  </mock:shadow-root>
+  </template>
   <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;
 
 exports[`ic-hero component should render with a secondary heading: renders-with-secondary-heading 1`] = `
 <ic-hero class="secondary-heading" heading="Test title" secondary-heading="Test title" secondary-subheading="Test text" subheading="Test text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container">
         <div class="heading">
@@ -108,13 +108,13 @@ exports[`ic-hero component should render with a secondary heading: renders-with-
         </slot>
       </div>
     </ic-section-container>
-  </mock:shadow-root>
+  </template>
 </ic-hero>
 `;
 
 exports[`ic-hero component should render with interaction content: renders-with-interaction-content 1`] = `
 <ic-hero heading="Test title" subheading="Test text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
         <div class="heading">
@@ -138,7 +138,7 @@ exports[`ic-hero component should render with interaction content: renders-with-
         </div>
       </div>
     </ic-section-container>
-  </mock:shadow-root>
+  </template>
   <ic-button slot="interaction">
     Button
   </ic-button>
@@ -147,7 +147,7 @@ exports[`ic-hero component should render with interaction content: renders-with-
 
 exports[`ic-hero component should render with secondary content: renders-with-secondary-content 1`] = `
 <ic-hero heading="Test title" subheading="Test text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
         <div class="heading">
@@ -174,14 +174,14 @@ exports[`ic-hero component should render with secondary content: renders-with-se
         <slot name="secondary"></slot>
       </div>
     </ic-section-container>
-  </mock:shadow-root>
+  </template>
   <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;
 
 exports[`ic-hero component should render: renders 1`] = `
 <ic-hero heading="Test title" subheading="Test text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
         <div class="heading">
@@ -205,13 +205,13 @@ exports[`ic-hero component should render: renders 1`] = `
         </div>
       </div>
     </ic-section-container>
-  </mock:shadow-root>
+  </template>
 </ic-hero>
 `;
 
 exports[`ic-hero component should test rendering secondary slot after initial render 1`] = `
 <ic-hero heading="Test title" subheading="Test text">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
         <div class="heading">
@@ -238,14 +238,14 @@ exports[`ic-hero component should test rendering secondary slot after initial re
         <slot name="secondary"></slot>
       </div>
     </ic-section-container>
-  </mock:shadow-root>
+  </template>
   <svg slot="secondary"></svg>
 </ic-hero>
 `;
 
 exports[`ic-hero component should use not parallax on scroll when a background image is given, but parallax disabled: renders-with-parallax-on-scroll-disabled 1`] = `
 <ic-hero background-image="test.png" class="has-background-image" disable-background-parallax="" heading="Test title" subheading="Test text" style="background-image: url(test.png); background-position: right -100px;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
         <div class="heading">
@@ -272,14 +272,14 @@ exports[`ic-hero component should use not parallax on scroll when a background i
         <slot name="secondary"></slot>
       </div>
     </ic-section-container>
-  </mock:shadow-root>
+  </template>
   <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;
 
 exports[`ic-hero component should use parallax on scroll when a background image is given: renders-with-parallax-on-scroll 1`] = `
 <ic-hero background-image="test.png" class="has-background-image" heading="Test title" subheading="Test text" style="background-image: url(test.png); background-position: right -80px;">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
         <div class="heading">
@@ -306,7 +306,7 @@ exports[`ic-hero component should use parallax on scroll when a background image
         <slot name="secondary"></slot>
       </div>
     </ic-section-container>
-  </mock:shadow-root>
+  </template>
   <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;

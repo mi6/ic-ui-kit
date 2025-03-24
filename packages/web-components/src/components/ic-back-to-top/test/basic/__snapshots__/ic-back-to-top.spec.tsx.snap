@@ -2,92 +2,92 @@
 
 exports[`ic-back-to-top should render positioned in the centre 1`] = `
 <ic-back-to-top class="ic-back-to-top-center" position="center" target="topEl">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <button aria-label="Back to top" class="button" part="button" type="button">
           <slot></slot>
         </button>
-      </mock:shadow-root>
+      </template>
       <span class="ic-back-to-top-icon">
         svg
       </span>
       Back to top
     </ic-button>
-  </mock:shadow-root>
+  </template>
 </ic-back-to-top>
 `;
 
 exports[`ic-back-to-top should render positioned on the left 1`] = `
 <ic-back-to-top class="ic-back-to-top-left" position="left" target="topEl">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <button aria-label="Back to top" class="button" part="button" type="button">
           <slot></slot>
         </button>
-      </mock:shadow-root>
+      </template>
       <span class="ic-back-to-top-icon">
         svg
       </span>
       Back to top
     </ic-button>
-  </mock:shadow-root>
+  </template>
 </ic-back-to-top>
 `;
 
 exports[`ic-back-to-top should render when target starts with #: should render when target starts with # 1`] = `
 <ic-back-to-top class="ic-back-to-top-right" target="#topEl">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <button aria-label="Back to top" class="button" part="button" type="button">
           <slot></slot>
         </button>
-      </mock:shadow-root>
+      </template>
       <span class="ic-back-to-top-icon">
         svg
       </span>
       Back to top
     </ic-button>
-  </mock:shadow-root>
+  </template>
 </ic-back-to-top>
 `;
 
 exports[`ic-back-to-top should render with an icon only: should render with an icon only 1`] = `
 <ic-back-to-top class="ic-back-to-top-right" target="topEl" variant="icon">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-button class="ic-button-size-large ic-button-variant-icon-secondary icon-only" exportparts="button">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-12" label="Back to top" placement="bottom" silent="" target="ic-button-with-tooltip-12">
           <button aria-describedby="ic-tooltip-ic-button-with-tooltip-12" aria-label="Back to top" class="button" part="button" type="button">
             <slot></slot>
           </button>
         </ic-tooltip>
-      </mock:shadow-root>
+      </template>
       <span class="ic-back-to-top-icon">
         svg
       </span>
     </ic-button>
-  </mock:shadow-root>
+  </template>
 </ic-back-to-top>
 `;
 
 exports[`ic-back-to-top should render with dark theme: should render with dark theme 1`] = `
 <ic-back-to-top class="ic-back-to-top-right ic-theme-dark" target="topEl" theme="dark">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary ic-theme-dark" exportparts="button">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <button aria-label="Back to top" class="button" part="button" type="button">
           <slot></slot>
         </button>
-      </mock:shadow-root>
+      </template>
       <span class="ic-back-to-top-icon">
         svg
       </span>
       Back to top
     </ic-button>
-  </mock:shadow-root>
+  </template>
 </ic-back-to-top>
 `;
 
@@ -96,23 +96,23 @@ exports[`ic-back-to-top should render with footer: should render with footer 1`]
   <div id="ic-back-to-top-target" tabindex="-1"></div>
   <div id="topEl">
     <ic-back-to-top class="ic-back-to-top-right" target="topEl">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-          <mock:shadow-root>
+          <template shadowrootmode="open">
             <button aria-label="Back to top" class="button" part="button" type="button">
               <slot></slot>
             </button>
-          </mock:shadow-root>
+          </template>
           <span class="ic-back-to-top-icon">
             svg
           </span>
           Back to top
         </ic-button>
-      </mock:shadow-root>
+      </template>
     </ic-back-to-top>
   </div>
   <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <footer>
         <div class="footer-compliance">
           <ic-section-container aligned="left" fullheight="">
@@ -126,61 +126,61 @@ exports[`ic-back-to-top should render with footer: should render with footer 1`]
           </ic-section-container>
         </div>
       </footer>
-    </mock:shadow-root>
+    </template>
   </ic-footer>
 </body>
 `;
 
 exports[`ic-back-to-top should render with light theme: should render with light theme 1`] = `
 <ic-back-to-top class="ic-back-to-top-right ic-theme-light" target="topEl" theme="light">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary ic-theme-light" exportparts="button">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <button aria-label="Back to top" class="button" part="button" type="button">
           <slot></slot>
         </button>
-      </mock:shadow-root>
+      </template>
       <span class="ic-back-to-top-icon">
         svg
       </span>
       Back to top
     </ic-button>
-  </mock:shadow-root>
+  </template>
 </ic-back-to-top>
 `;
 
 exports[`ic-back-to-top should render with no targetId set: should render with no targetId set 1`] = `
 <ic-back-to-top class="ic-back-to-top-right">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <button aria-label="Back to top" class="button" part="button" type="button">
           <slot></slot>
         </button>
-      </mock:shadow-root>
+      </template>
       <span class="ic-back-to-top-icon">
         svg
       </span>
       Back to top
     </ic-button>
-  </mock:shadow-root>
+  </template>
 </ic-back-to-top>
 `;
 
 exports[`ic-back-to-top should render: should render 1`] = `
 <ic-back-to-top class="ic-back-to-top-right" target="topEl">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-button class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <button aria-label="Back to top" class="button" part="button" type="button">
           <slot></slot>
         </button>
-      </mock:shadow-root>
+      </template>
       <span class="ic-back-to-top-icon">
         svg
       </span>
       Back to top
     </ic-button>
-  </mock:shadow-root>
+  </template>
 </ic-back-to-top>
 `;
