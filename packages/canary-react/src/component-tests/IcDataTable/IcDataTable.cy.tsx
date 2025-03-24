@@ -142,14 +142,14 @@ export const ExternalSortDataTable = (): ReactElement => {
   const handleSort = (detail: any) => {
     if (detail.sorted === "ascending") {
       ExternalData.sort((a, b) => {
-        const column = detail.columnName as keyof (typeof ExternalData)[0];
+        const column = detail.columnName as keyof typeof ExternalData[0];
         if (a[column] < b[column]) return -1;
         if (a[column] > b[column]) return 1;
         return 0;
       });
     } else if (detail.sorted === "descending") {
       ExternalData.sort((a, b) => {
-        const column = detail.columnName as keyof (typeof ExternalData)[0];
+        const column = detail.columnName as keyof typeof ExternalData[0];
         if (a[column] < b[column]) return 1;
         if (a[column] > b[column]) return -1;
         return 0;
