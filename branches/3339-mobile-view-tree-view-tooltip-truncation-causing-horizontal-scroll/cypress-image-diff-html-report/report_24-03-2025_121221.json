@@ -1,7 +1,7 @@
 {
   "total": 214,
-  "totalPassed": 213,
-  "totalFailed": 1,
+  "totalPassed": 212,
+  "totalFailed": 2,
   "totalSuites": 7,
   "suites": [
     {
@@ -928,14 +928,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-text-wrap-show-hide-truncation-table-cell.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDataTable.cy.tsx-slotted-custom-element-in-cell",
-          "percentage": 0,
+          "percentage": 0.017249532942046578,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx-slotted-custom-element-in-cell.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx-slotted-custom-element-in-cell.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx-slotted-custom-element-in-cell.png"
         },
         {
@@ -2335,7 +2335,7 @@
         {
           "status": "fail",
           "name": "IcTreeView.cy.tsx-router-item",
-          "percentage": 0.14159944641772598,
+          "percentage": 0.23980825673858688,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTreeView/IcTreeView.cy.tsx",
           "specFilename": "IcTreeView.cy.tsx",
@@ -2401,9 +2401,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-21T12:51:40.977Z",
-  "endedAt": "2025-03-21T12:57:47.322Z",
-  "duration": 350692,
+  "startedAt": "2025-03-24T12:12:21.392Z",
+  "endedAt": "2025-03-24T12:18:20.960Z",
+  "duration": 343833,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
