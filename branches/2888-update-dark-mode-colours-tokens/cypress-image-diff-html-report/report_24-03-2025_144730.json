@@ -1,7 +1,7 @@
 {
   "total": 768,
-  "totalPassed": 760,
-  "totalFailed": 8,
+  "totalPassed": 761,
+  "totalFailed": 7,
   "totalSuites": 43,
   "suites": [
     {
@@ -2567,14 +2567,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx/no-dialog-controls.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx/destructive-dialog-controls",
-          "percentage": 0.05845225972250061,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx/destructive-dialog-controls.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx/destructive-dialog-controls.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx/destructive-dialog-controls.png"
         },
         {
@@ -8711,9 +8711,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-24T14:05:32.529Z",
-  "endedAt": "2025-03-24T14:22:56.226Z",
-  "duration": 945798,
+  "startedAt": "2025-03-24T14:47:30.292Z",
+  "endedAt": "2025-03-24T15:05:15.437Z",
+  "duration": 966616,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
