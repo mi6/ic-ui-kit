@@ -1,7 +1,7 @@
 {
   "total": 717,
-  "totalPassed": 713,
-  "totalFailed": 4,
+  "totalPassed": 717,
+  "totalFailed": 0,
   "totalSuites": 42,
   "suites": [
     {
@@ -2099,14 +2099,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx/no-dialog-controls.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDialog.cy.tsx/destructive-dialog-controls",
-          "percentage": 0.07167998907179976,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx/destructive-dialog-controls.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx/destructive-dialog-controls.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx/destructive-dialog-controls.png"
         },
         {
@@ -3439,25 +3439,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcNavigationMenu.cy.tsx/nav-group-top-nav-focused-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcNavigationMenu.cy.tsx/all-nav-types-side-nav-high-contrast",
-          "percentage": 0.14415703243338496,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcNavigationMenu/IcNavigationMenu.cy.tsx",
           "specFilename": "IcNavigationMenu.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcNavigationMenu.cy.tsx/all-nav-types-side-nav-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcNavigationMenu.cy.tsx/all-nav-types-side-nav-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcNavigationMenu.cy.tsx/all-nav-types-side-nav-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcNavigationMenu.cy.tsx/nav-group-side-nav-focused-high-contrast",
-          "percentage": 0.14924578907143596,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcNavigationMenu/IcNavigationMenu.cy.tsx",
           "specFilename": "IcNavigationMenu.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcNavigationMenu.cy.tsx/nav-group-side-nav-focused-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcNavigationMenu.cy.tsx/nav-group-side-nav-focused-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcNavigationMenu.cy.tsx/nav-group-side-nav-focused-high-contrast.png"
         }
       ]
@@ -5671,14 +5671,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx/searchable-groups-in-filter-open-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSelectSearchable.cy.tsx/searchable-disabled-options-open-high-contrast",
-          "percentage": 0.0690217357069496,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectSearchable.cy.tsx/searchable-disabled-options-open-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSelectSearchable.cy.tsx/searchable-disabled-options-open-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx/searchable-disabled-options-open-high-contrast.png"
         },
         {
@@ -8144,9 +8144,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-24T16:26:55.350Z",
-  "endedAt": "2025-03-24T16:43:23.987Z",
-  "duration": 892327,
+  "startedAt": "2025-03-25T08:38:52.945Z",
+  "endedAt": "2025-03-25T08:54:44.305Z",
+  "duration": 853741,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
