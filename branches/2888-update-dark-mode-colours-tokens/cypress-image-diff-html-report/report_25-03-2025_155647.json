@@ -1,9 +1,37 @@
 {
-  "total": 766,
-  "totalPassed": 765,
+  "total": 768,
+  "totalPassed": 767,
   "totalFailed": 1,
-  "totalSuites": 42,
+  "totalSuites": 43,
   "suites": [
+    {
+      "name": "AgGridWrapper.cy.tsx",
+      "path": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "AgGridWrapper.cy.tsx/ag-grid-light",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
+          "specFilename": "AgGridWrapper.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/AgGridWrapper.cy.tsx/ag-grid-light.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/AgGridWrapper.cy.tsx/ag-grid-light.png"
+        },
+        {
+          "status": "pass",
+          "name": "AgGridWrapper.cy.tsx/ag-grid-dark",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/AgGridWrapper/AgGridWrapper.cy.tsx",
+          "specFilename": "AgGridWrapper.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/AgGridWrapper.cy.tsx/ag-grid-dark.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/AgGridWrapper.cy.tsx/ag-grid-dark.png"
+        }
+      ]
+    },
     {
       "name": "IcAccordion.cy.tsx",
       "path": "src/component-tests/IcAccordion/IcAccordion.cy.tsx",
@@ -2541,7 +2569,7 @@
         {
           "status": "fail",
           "name": "IcDialog.cy.tsx/destructive-dialog-controls",
-          "percentage": 0.1303291106519696,
+          "percentage": 0.14542054674861687,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -8683,9 +8711,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-25T14:58:44.185Z",
-  "endedAt": "2025-03-25T15:14:20.863Z",
-  "duration": 840007,
+  "startedAt": "2025-03-25T15:56:47.656Z",
+  "endedAt": "2025-03-25T16:12:06.049Z",
+  "duration": 822327,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
