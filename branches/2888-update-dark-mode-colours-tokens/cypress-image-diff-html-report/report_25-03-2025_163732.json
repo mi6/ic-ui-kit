@@ -2569,7 +2569,7 @@
         {
           "status": "fail",
           "name": "IcDialog.cy.tsx/destructive-dialog-controls",
-          "percentage": 0.14542054674861687,
+          "percentage": 0.14502155012273177,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -8711,9 +8711,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-25T15:56:47.656Z",
-  "endedAt": "2025-03-25T16:12:06.049Z",
-  "duration": 822327,
+  "startedAt": "2025-03-25T16:37:32.871Z",
+  "endedAt": "2025-03-25T16:53:30.958Z",
+  "duration": 860757,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
