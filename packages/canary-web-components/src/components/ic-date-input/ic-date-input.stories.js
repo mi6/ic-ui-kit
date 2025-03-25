@@ -40,7 +40,7 @@ export const Default = {
         var dateInput = document.querySelector("ic-date-input");
         {
           dateInput.addEventListener("icChange", function (event) {
-            console.log("icChange", event.detail.value);
+            console.log("icChange", event.detail);
           });
         }
       </script>
@@ -71,7 +71,7 @@ export const IcChangeEvent = {
       <script>
         var dateInput = document.querySelector("ic-date-input");
         dateInput.addEventListener("icChange", function (event) {
-          console.log(event.detail.value);
+          console.log(event.detail);
         });
       </script>`,
 

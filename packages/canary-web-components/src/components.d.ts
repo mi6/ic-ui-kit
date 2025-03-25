@@ -879,7 +879,10 @@ declare global {
     interface HTMLIcDateInputElementEventMap {
         "calendarButtonClicked": { value: Date };
         "icBlur": { value: Date };
-        "icChange": { value: Date };
+        "icChange": {
+    value: Date;
+    dateObject: { day: string; month: string; year: string };
+  };
         "icFocus": { value: Date };
     }
     interface HTMLIcDateInputElement extends Components.IcDateInput, HTMLStencilElement {
@@ -1305,7 +1308,10 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onIcChange"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
+        "onIcChange"?: (event: IcDateInputCustomEvent<{
+    value: Date;
+    dateObject: { day: string; month: string; year: string };
+  }>) => void;
         /**
           * Emitted when the input gains focus.
          */
