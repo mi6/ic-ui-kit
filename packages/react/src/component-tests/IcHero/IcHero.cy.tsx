@@ -146,10 +146,11 @@ describe("IcHero end-to-end, visual regression and a11y tests", () => {
 
     cy.checkHydrated(IC_HERO_SELECTOR);
 
-    cy.checkA11yWithWait(undefined, 300);
+    cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/background-image",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+      delay: 500,
     });
   });
 
