@@ -930,7 +930,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-slotted-custom-element-in-cell",
-          "percentage": 0.017249532942046578,
+          "percentage": 0.03416573375885918,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -2379,9 +2379,9 @@
       ]
     }
   ],
-  "startedAt": "2025-03-26T09:57:08.178Z",
-  "endedAt": "2025-03-26T10:03:07.257Z",
-  "duration": 343643,
+  "startedAt": "2025-03-26T10:47:53.326Z",
+  "endedAt": "2025-03-26T10:53:56.241Z",
+  "duration": 346836,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
