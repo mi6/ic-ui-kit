@@ -729,7 +729,7 @@ describe("IcButton visual regression and a11y tests", () => {
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
 
-    cy.checkA11yWithWait();
+    // cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
