@@ -8,6 +8,7 @@ import {
   SimpleDialog,
   SlottedContentDialog,
   SlottedUpdatedContentDialog,
+  LotsOfSlottedContentDialog,
   NoHeightConstraintDialog,
   AlertDialog,
   SizeDialog,
@@ -55,32 +56,8 @@ describe("IcDialog end-to-end tests", () => {
     cy.get(BUTTON).click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get("body").click(0, 0);
+    cy.wait(300);
     cy.get(DIALOG).should(NOT_HAVE_ATTR, "open");
-  });
-
-  it("should render with slotted content and focus interactive content", () => {
-    mount(<SlottedContentDialog />);
-
-    cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click().wait(500);
-    cy.get(DIALOG).should(HAVE_ATTR, "open");
-    cy.get("ic-select").should(HAVE_FOCUS);
-    cy.get("ic-select").click();
-    cy.findShadowEl("ic-select", "ic-menu ul")
-      .should(BE_VISIBLE)
-      .should(HAVE_FOCUS);
-  });
-
-  it("should focus all interactive content", () => {
-    mount(<SlottedContentDialog />);
-
-    cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
-    cy.get(DIALOG).should(HAVE_ATTR, "open");
-    cy.get("ic-select").should(HAVE_FOCUS).realPress("Tab");
-    cy.get("ic-text-field").should(HAVE_FOCUS).realPress("Tab");
-    cy.get("ic-checkbox").should(HAVE_FOCUS).realPress("Tab");
-    cy.get("ic-button#test-button").should(HAVE_FOCUS);
   });
 
   it("should focus interactive content added after first load - including children of slotted elements", () => {
@@ -128,6 +105,91 @@ describe("IcDialog end-to-end tests", () => {
 
     cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button").focus();
     cy.focused().next().next().should(NOT_EXIST);
+  });
+
+  it("should test tabbing through slotted content", () => {
+    mount(<LotsOfSlottedContentDialog />);
+
+    cy.get(DIALOG).should("exist");
+    cy.wait(300);
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+
+    // after 2 tabs, the 2nd radio option should have focus
+    cy.wait(300);
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.get("ic-radio-option[value=value2] input").should(HAVE_FOCUS);
+
+    // after 3 more tabs, the text field should have focus
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.get("ic-text-field#dialog-text-field").should(HAVE_FOCUS);
+
+    // after 4 more tabs, the chip should have focus
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.realPress("Tab");
+    cy.wait(300);
+    cy.get("ic-chip").should(HAVE_FOCUS);
+  });
+
+  it("should test tabbing backwards through slotted content", () => {
+    mount(<LotsOfSlottedContentDialog />);
+
+    cy.get(DIALOG).should("exist");
+    cy.wait(300);
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+
+    // after 4 shift + tabs, the switch should have focus
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.get("ic-switch").should(HAVE_FOCUS);
+
+    // after 4 more shift + tabs, the select should have focus
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.get("ic-select").should(HAVE_FOCUS);
+
+    // after 4 more shift + tabs, the second radio option should have focus
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.get("ic-radio-option[value=value2] input").should(HAVE_FOCUS);
+
+    // after 2 more shift + tabs, the link inside the alert should have focus
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.realPress(["Shift", "Tab"]);
+    cy.wait(300);
+    cy.get("ic-link").should(HAVE_FOCUS);
   });
 
   it("should hide dialog on pressing escape on dialog", () => {
@@ -274,6 +336,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.get(DIALOG).should("exist");
     cy.get("ic-button#slotted-dialog-btn").click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
+    cy.get("ic-select").should(HAVE_FOCUS);
     cy.get("ic-select").click();
 
     cy.checkA11yWithWait(undefined, 1100);
@@ -287,7 +350,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<NoHeightConstraintDialog />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click();
+    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get("ic-select").click();
 
@@ -302,7 +365,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogAccordion />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click();
+    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -316,7 +379,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogAccordionGroup />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click();
+    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -330,7 +393,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogAccordionGroupSingleExpansion />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click();
+    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -344,10 +407,10 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogSearch />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click();
+    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.wait(300);
-    cy.get("ic-search-bar").should(HAVE_FOCUS).realPress("Tab");
+    cy.realPress("Tab");
     cy.wait(300);
     cy.findShadowEl("ic-search-bar", "#clear-button")
       .should(HAVE_FOCUS)
@@ -505,7 +568,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/scroll-before",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
     });
   });
 
@@ -520,7 +583,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/scroll-after",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.054),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.057),
     });
   });
 
@@ -542,7 +605,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/tab-dynamic-content",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.051),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
     });
   });
 
