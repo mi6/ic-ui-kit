@@ -17,12 +17,16 @@
     var(--ic-color-border-neutral-pressed);
 
   /* Focus borders */
-  --ic-border-focus: 0 0 0 2px var(--ic-architectural-white),
+  --ic-border-focus-light: 0 0 0 2px var(--ic-architectural-white),
     0 0 0 4px var(--ic-color-focus-inner), 0 0 0 8px var(--ic-color-focus-outer);
-  --ic-border-focus-inset: inset 0 0 0 4px var(--ic-color-focus-outer),
+  --ic-border-focus-dark: 0 0 0 2px var(--ic-architectural-black),
+    0 0 0 4px var(--ic-color-focus-inner), 0 0 0 8px var(--ic-color-focus-outer);
+  --ic-border-focus-inset-light: inset 0 0 0 4px var(--ic-color-focus-outer),
     inset 0 0 0 6px var(--ic-color-focus-inner),
     inset 0 0 0 8px var(--ic-architectural-white);
-  --ic-border-focus-dark: 0 0 0 2px white, 0 0 0 5px rgba(255 255 255 / 52%);
+  --ic-border-focus-inset-dark: inset 0 0 0 4px var(--ic-color-focus-outer),
+    inset 0 0 0 6px var(--ic-color-focus-inner),
+    inset 0 0 0 8px var(--ic-architectural-black);
 
   /* High contrast */
   --ic-border-hc: var(--ic-space-1px) solid transparent;
