@@ -537,7 +537,7 @@ describe("IcTextField visual regression in high contrast mode", () => {
   it("renders validation status and text", () => {
     mount(<TextFieldWithValidation />);
 
-    cy.wait(100).compareSnapshot({
+    cy.wait(500).compareSnapshot({
       name: "/validation-text-field-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.094),
     });

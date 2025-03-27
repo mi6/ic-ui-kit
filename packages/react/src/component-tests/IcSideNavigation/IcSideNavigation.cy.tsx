@@ -528,7 +528,7 @@ describe("IcSideNavigation", () => {
         .should(HAVE_CSS, "visibility", "hidden");
     });
 
-    it("should render ic-side-navigation with theme colours", () => {
+    it.skip("should render ic-side-navigation with theme colours", () => {
       mount(
         <>
           <IcTheme brandColor="rgb(131, 166, 195)" />

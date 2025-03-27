@@ -264,6 +264,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(PAGINATION_SELECTOR);
 
     // cy.checkA11yWithWait();
+    cy.wait(500);
     cy.compareSnapshot({
       name: "/disabled-with-simple",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),

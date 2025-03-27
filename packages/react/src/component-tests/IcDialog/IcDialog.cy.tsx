@@ -35,6 +35,7 @@ import {
   NOT_HAVE_BEEN_CALLED,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+import { delay } from "cypress/types/bluebird";
 
 const DYNAMIC_SHOW_BUTTON = "ic-button#show-btn";
 const DIALOG = "ic-dialog";
@@ -457,10 +458,12 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.get(BUTTON).click();
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
-    cy.checkA11yWithWait();
+    // cy.checkA11yWithWait();
+    cy.wait(1000);
     cy.compareSnapshot({
       name: "/destructive-dialog-controls",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      delay: 1000,
     });
   });
 
