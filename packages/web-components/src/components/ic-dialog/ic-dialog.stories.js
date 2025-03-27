@@ -116,52 +116,67 @@ export const SlottedContent = {
     <ic-button variant="primary" onclick="showDialog()"
       >Launch dialog</ic-button
     >
-    <ic-dialog dismiss-label="Close" size="medium">
-      <ic-typography slot="heading" variant="h4"
-        >This dialog has slotted interactive content</ic-typography
-      >
-      <ic-typography slot="label" variant="label">Slotted label</ic-typography>
-      <ic-alert
-        variant="info"
-        heading="Info"
-        message="This alert is for displaying information"
-        slot="alert"
-      ></ic-alert>
-      <ic-typography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </ic-typography>
+    <ic-dialog dismiss-label="Close" size="large" disable-width-constraint="true">
+      <div style="display:flex; flex-direction:column; gap: 0.75rem">
+        <ic-typography slot="heading" variant="h4"
+          >This dialog has slotted interactive content</ic-typography
+        >
+        <ic-typography slot="label" variant="label">Slotted label</ic-typography>
+        <ic-alert
+          variant="info"
+          heading="Info"
+          message="This alert is for displaying information"
+          slot="alert"
+        >
+        <ic-typography slot="message">
+          This is some text and <ic-link href="/" inline>this is an inline link</ic-link> within the text.
+        </ic-typography>
+        <ic-button slot="action" variant="secondary">Button</ic-button>
+        </ic-alert>
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+        <ic-radio-group label="This is a label" name="1">
+        <ic-radio-option
+          value="valueName1"
+          label="Unselected / Default" 
+          additional-field-display="dynamic"       
+        >
+          <ic-text-field
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+          >
+          </ic-text-field>
+        </ic-radio-option>
+        <ic-radio-option
+          value="valueName2"
+          label="Selected / Default"
+          additional-field-display="static"
+          selected
+        >
+          <ic-text-field
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+          >
+          </ic-text-field>
+        </ic-radio-option>
+        <ic-radio-option
+          value="valueName3"
+          label="Unselected / Disabled"
+          disabled
+        ></ic-radio-option>
+      </ic-radio-group>
       <ic-search-bar label="What is your favourite coffee?"></ic-search-bar>
-      <ic-text-field label="What is your favourite coffee?"> </ic-text-field>
+      <ic-text-field label="What is your favourite coffee?"></ic-text-field>
       <ic-select
         id="sel1"
         label="What is your favourite coffee?"
         placeholder="Placeholder goes here"
       ></ic-select>
-      <ic-checkbox-group
-        style="margin: 8px 0"
-        hide-label
-        label="confirm"
-        name="confirm-checkbox"
-      >
-        <ic-checkbox label="Option" value="confirm" id="focus"></ic-checkbox>
-      </ic-checkbox-group>
-      <ic-button id="button-1" onclick="buttonClick()">Show popover</ic-button>
-      <ic-tooltip label="This is a description of the button">
-        <ic-chip label="Default">
-          <svg
-            slot="icon"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"
-            />
-          </svg> </ic-chip
-      ></ic-tooltip>
+      <ic-button id="button-1" onclick="buttonClick()">Show popover</ic-button>      
       <div>
         <ic-popover-menu anchor="button-1" aria-label="popover">
           <ic-menu-item label="Copy code" disabled="true"></ic-menu-item>
@@ -203,16 +218,52 @@ export const SlottedContent = {
             </svg>
           </ic-menu-item>
         </ic-popover-menu>
-      </div>
-      <ic-button
-        variant="tertiary"
-        onclick="hideDialog()"
-        slot="dialog-controls"
-        >Cancel</ic-button
+      </div>      
+      <ic-checkbox-group
+        label="confirm"
+        hide-label
+        name="confirm-checkbox"
       >
-      <ic-button variant="primary" onclick="confirm()" slot="dialog-controls"
-        >Confirm</ic-button
-      >
+        <ic-checkbox label="Agree" value="confirm" id="focus" additional-field-display="static">
+        <ic-text-field
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+          /></ic-checkbox>
+        <ic-checkbox additional-field-display="dynamic" value="disagree" label="Disagree">
+          <ic-text-field
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+          />
+        </ic-checkbox>
+        <ic-checkbox label="Disabled" value="disabled" disabled>
+      </ic-checkbox-group>
+      <ic-chip label="Default" dismissible="true">
+        <svg
+          slot="icon"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"
+          />
+        </svg>
+      </ic-chip>
+      <ic-switch label="Switch label"></ic-switch>
+    </div>
+    <ic-button
+      variant="tertiary"
+      onclick="hideDialog()"
+      slot="dialog-controls"
+      >Cancel</ic-button
+    >
+    <ic-button variant="primary" onclick="confirm()" slot="dialog-controls"
+      >Confirm</ic-button
+    >
     </ic-dialog>
   `,
 
