@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property                | Attribute                 | Description                                                                                                                             | Type                             | Default        |
-| ----------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | -------------- |
-| `accessibleButtonLabel` | `accessible-button-label` | The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.                           | `string`                         | `"accordions"` |
-| `expanded`              | `expanded`                | If `true`, the accordion will load in an expanded state.                                                                                | `boolean`                        | `false`        |
-| `label`                 | `label`                   | The header for the accordion group.                                                                                                     | `string`                         | `""`           |
-| `singleExpansion`       | `single-expansion`        | If `true`, only one accordion will open at a time.                                                                                      | `boolean`                        | `false`        |
-| `size`                  | `size`                    | The size of the accordion.                                                                                                              | `"large" \| "medium" \| "small"` | `"medium"`     |
-| `theme`                 | `theme`                   | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"` | `"inherit"`    |
+| Property                | Attribute                 | Description                                                                                                                             | Type                                          | Default        |
+| ----------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | -------------- |
+| `accessibleButtonLabel` | `accessible-button-label` | The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.                           | `string \| undefined`                         | `"accordions"` |
+| `expanded`              | `expanded`                | If `true`, the accordion will load in an expanded state.                                                                                | `boolean \| undefined`                        | `false`        |
+| `label`                 | `label`                   | The header for the accordion group.                                                                                                     | `string \| undefined`                         | `""`           |
+| `singleExpansion`       | `single-expansion`        | If `true`, only one accordion will open at a time.                                                                                      | `boolean \| undefined`                        | `false`        |
+| `size`                  | `size`                    | The size of the accordion.                                                                                                              | `"large" \| "medium" \| "small" \| undefined` | `"medium"`     |
+| `theme`                 | `theme`                   | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined` | `"inherit"`    |
 
 
 ## Methods

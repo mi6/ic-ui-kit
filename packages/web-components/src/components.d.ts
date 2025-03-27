@@ -2213,11 +2213,11 @@ export namespace Components {
         /**
           * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS) (NOTE: Has a minimum value of `5000ms`)
          */
-        "autoDismissTimeout"?: number;
+        "autoDismissTimeout"?: number | undefined;
         /**
           * If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component
          */
-        "dismissButtonAriaLabel"?: string;
+        "dismissButtonAriaLabel"?: string | undefined;
         /**
           * How the toast will be dismissed. If manual will display a dismiss button.
          */
@@ -5727,11 +5727,11 @@ declare namespace LocalJSX {
         /**
           * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS) (NOTE: Has a minimum value of `5000ms`)
          */
-        "autoDismissTimeout"?: number;
+        "autoDismissTimeout"?: number | undefined;
         /**
           * If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component
          */
-        "dismissButtonAriaLabel"?: string;
+        "dismissButtonAriaLabel"?: string | undefined;
         /**
           * How the toast will be dismissed. If manual will display a dismiss button.
          */
