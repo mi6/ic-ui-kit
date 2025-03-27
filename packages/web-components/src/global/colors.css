@@ -672,7 +672,7 @@
   --ic-hero-keyline: var(--ic-color-keyline-lighten);
 
   /* SIDE NAVIGATION */
-  --ic-side-navigation-background: var(--ic-brand-color-primary);
+  --ic-side-navigation-background: var(--ic-state-layer-primary);
   --ic-side-navigation-icon: var(--ic-color-icon-brand);
   --ic-side-navigation-icon-label: var(--ic-color-brand-text);
   --ic-side-navigation-icon-and-label: var(--ic-color-brand-text);
