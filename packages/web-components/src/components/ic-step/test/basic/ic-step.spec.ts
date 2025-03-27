@@ -24,7 +24,7 @@ describe("default variant of ic-step component", () => {
   it("should render default step with correct title, subtitle and current state", async () => {
     const page = await newSpecPage({
       components: [Step, Typography],
-      html: `<ic-step variant="default" 
+      html: `<ic-step variant="default"
       heading="Second With a Very Long Title"
       subheading="Optional Subtitle"
       type="current"
@@ -37,7 +37,7 @@ describe("default variant of ic-step component", () => {
   it("should render disabled type", async () => {
     const page = await newSpecPage({
       components: [Step, Typography],
-      html: `<ic-step variant="default" 
+      html: `<ic-step variant="default"
       type="disabled"
     ></ic-step>`,
     });
@@ -48,7 +48,7 @@ describe("default variant of ic-step component", () => {
   it("should render completed type", async () => {
     const page = await newSpecPage({
       components: [Step, Typography],
-      html: `<ic-step variant="default" 
+      html: `<ic-step variant="default"
       type="completed"
     ></ic-step>`,
     });
@@ -62,7 +62,7 @@ describe("compact variant of ic-step component", () => {
     const page = await newSpecPage({
       components: [Step],
       html: `<ic-step
-      variant="compact" 
+      variant="compact"
       type="current"
       last-step="false"
       step-num="3"
@@ -93,13 +93,13 @@ describe("compact variant of ic-step component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    const stepStatus = page.root.shadowRoot.querySelector(
+    const stepStatus = page.root?.shadowRoot?.querySelector(
       ".step-status > ic-typography"
-    ).textContent;
+    )?.textContent;
 
     expect(stepStatus).toBe("Not required");
 
-    const statusIcon = page.root.shadowRoot.querySelector("span.step-icon");
+    const statusIcon = page.root?.shadowRoot?.querySelector("span.step-icon");
 
     expect(statusIcon).toEqualHtml(
       `<span class="warning-icon step-icon" aria-hidden="true">svg</span>`
@@ -124,13 +124,13 @@ describe("compact variant of ic-step component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    const stepStatus = page.root.shadowRoot.querySelector(
+    const stepStatus = page.root?.shadowRoot?.querySelector(
       ".step-status > ic-typography"
-    ).textContent;
+    )?.textContent;
 
     expect(stepStatus).toBe("Completed");
 
-    const statusIcon = page.root.shadowRoot.querySelector("span.step-icon");
+    const statusIcon = page.root?.shadowRoot?.querySelector("span.step-icon");
 
     expect(statusIcon).toEqualHtml(
       `<span class="check-icon step-icon" aria-hidden="true">svg</span>`
@@ -141,7 +141,7 @@ describe("compact variant of ic-step component", () => {
     const page = await newSpecPage({
       components: [Step],
       html: `<ic-step
-      variant="compact" 
+      variant="compact"
       type="current"
       last-step="true"
       step-num=4"
@@ -152,7 +152,7 @@ describe("compact variant of ic-step component", () => {
     });
 
     const lastStep =
-      page.root.shadowRoot.querySelector(".next-step").textContent;
+      page.root?.shadowRoot?.querySelector(".next-step")?.textContent;
 
     expect(lastStep).toBe("Last step");
   });
@@ -162,7 +162,7 @@ describe("compact variant of ic-step component", () => {
     const page = await newSpecPage({
       components: [Step, LoadingIndicator],
       html: `<ic-step
-      variant="compact" 
+      variant="compact"
       last-step="true"
       step-num=4"
       last-step-num="4"
@@ -171,12 +171,12 @@ describe("compact variant of ic-step component", () => {
     ></ic-step>`,
     });
 
-    const loadingIndicator = page.root.shadowRoot.querySelector(
+    const loadingIndicator = page.root?.shadowRoot?.querySelector(
       ".step > ic-loading-indicator"
     );
 
     expect(
-      loadingIndicator.classList.contains("compact-step-progress-indicator")
+      loadingIndicator?.classList.contains("compact-step-progress-indicator")
     ).toBeTruthy();
   });
 
@@ -184,7 +184,7 @@ describe("compact variant of ic-step component", () => {
     const page = await newSpecPage({
       components: [Step],
       html: `<ic-step
-      variant="compact" 
+      variant="compact"
       last-step="true"
       step-num=4"
       last-step-num="4"
@@ -203,7 +203,7 @@ describe("compact variant of ic-step component", () => {
     const page = await newSpecPage({
       components: [Step],
       html: `<ic-step
-      variant="compact" 
+      variant="compact"
       last-step="true"
       step-num=4"
       last-step-num="4"

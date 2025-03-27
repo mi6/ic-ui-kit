@@ -262,13 +262,13 @@ describe("ic-typography component", () => {
     expect(page.rootInstance.truncated).toBe(true);
     expect(page.rootInstance.expanded).toBe(false);
 
-    const button = page.root.shadowRoot.querySelector("button");
+    const button = page.root?.shadowRoot?.querySelector("button");
 
-    button.click();
+    button?.click();
     await page.waitForChanges();
     expect(page.rootInstance.expanded).toBe(true);
 
-    button.click();
+    button?.click();
     await page.waitForChanges();
     expect(page.rootInstance.expanded).toBe(false);
   });
@@ -334,12 +334,12 @@ describe("ic-typography component", () => {
     page.rootInstance.truncated = true;
     await page.waitForChanges();
 
-    const button = page.root.shadowRoot.querySelector("button");
-    button.focus();
+    const button = page.root?.shadowRoot?.querySelector("button");
+    button?.focus();
     await page.waitForChanges();
     expect(button).toHaveClass("focus");
 
-    button.blur();
+    button?.blur();
     await page.waitForChanges();
     expect(button).not.toHaveClass("focus");
   });
@@ -361,18 +361,18 @@ describe("ic-typography component", () => {
     page.rootInstance.truncated = true;
     await page.waitForChanges();
 
-    const button = page.root.shadowRoot.querySelector("button");
+    const button = page.root?.shadowRoot?.querySelector("button");
 
     const event = new Event("mousedown", {
       bubbles: true,
       cancelable: true,
     });
 
-    button.dispatchEvent(event);
+    button?.dispatchEvent(event);
     await page.waitForChanges();
     expect(page.rootInstance.focusBtnFromKeyboard).toBe(false);
 
-    button.focus();
+    button?.focus();
     await page.waitForChanges();
     expect(button).not.toHaveClass("focus");
   });
@@ -450,7 +450,7 @@ describe("ic-typography component", () => {
 
     expect(page.rootInstance.inAGGrid).toBe(true);
     expect(
-      document.querySelector("ic-typography").classList.contains("in-ag-grid")
+      document.querySelector("ic-typography")?.classList.contains("in-ag-grid")
     ).toBe(true);
   });
 

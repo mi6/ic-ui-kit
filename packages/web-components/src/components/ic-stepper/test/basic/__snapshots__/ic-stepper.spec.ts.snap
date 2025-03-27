@@ -429,7 +429,7 @@ exports[`default variant of ic-stepper component should add the className 'last-
       <slot></slot>
     </ul>
   </template>
-  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default" heading="Create" role="listitem" type="completed" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default" heading="Create" role="listitem" type="completed" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="completed step">
         <div class="step-top">
@@ -450,7 +450,7 @@ exports[`default variant of ic-stepper component should add the className 'last-
       </div>
     </template>
   </ic-step>
-  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" heading="Read" role="listitem" type="current" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" heading="Read" role="listitem" type="current" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="current step">
         <div class="step-top">
@@ -473,7 +473,7 @@ exports[`default variant of ic-stepper component should add the className 'last-
       </div>
     </template>
   </ic-step>
-  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default" heading="Update" role="listitem" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default" heading="Update" role="listitem" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="active step">
         <div class="step-top">
@@ -524,7 +524,7 @@ exports[`default variant of ic-stepper component should ignore the connectorWidt
       <slot></slot>
     </ul>
   </template>
-  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default" heading="Create" role="listitem" type="completed" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default" heading="Create" role="listitem" type="completed" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="completed step">
         <div class="step-top">
@@ -545,7 +545,7 @@ exports[`default variant of ic-stepper component should ignore the connectorWidt
       </div>
     </template>
   </ic-step>
-  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" heading="Read" role="listitem" type="current" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" heading="Read" role="listitem" type="current" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="current step">
         <div class="step-top">
@@ -568,7 +568,7 @@ exports[`default variant of ic-stepper component should ignore the connectorWidt
       </div>
     </template>
   </ic-step>
-  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default" heading="Update" role="listitem" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default" heading="Update" role="listitem" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="active step">
         <div class="step-top">
@@ -619,7 +619,7 @@ exports[`default variant of ic-stepper component should render a full-width step
       <slot></slot>
     </ul>
   </template>
-  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default" heading="Create" role="listitem" type="completed" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default" heading="Create" role="listitem" type="completed" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="completed step">
         <div class="step-top">
@@ -640,7 +640,7 @@ exports[`default variant of ic-stepper component should render a full-width step
       </div>
     </template>
   </ic-step>
-  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" heading="Read" role="listitem" type="current" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" heading="Read" role="listitem" type="current" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="current step">
         <div class="step-top">
@@ -663,7 +663,7 @@ exports[`default variant of ic-stepper component should render a full-width step
       </div>
     </template>
   </ic-step>
-  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default" heading="Update" role="listitem" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default" heading="Update" role="listitem" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="active step">
         <div class="step-top">
@@ -904,7 +904,7 @@ exports[`default variant of ic-stepper component should render a stepper with hi
       <slot></slot>
     </ul>
   </template>
-  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default" heading="Create" role="listitem" type="completed" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default" heading="Create" role="listitem" type="completed" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="completed step">
         <div class="step-top">
@@ -925,7 +925,7 @@ exports[`default variant of ic-stepper component should render a stepper with hi
       </div>
     </template>
   </ic-step>
-  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" heading="Read" role="listitem" type="current" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" heading="Read" role="listitem" type="current" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="current step">
         <div class="step-top">
@@ -948,7 +948,7 @@ exports[`default variant of ic-stepper component should render a stepper with hi
       </div>
     </template>
   </ic-step>
-  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default" heading="Update" role="listitem" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default" heading="Update" role="listitem" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="active step">
         <div class="step-top">
@@ -999,7 +999,7 @@ exports[`default variant of ic-stepper component should render a stepper without
       <slot></slot>
     </ul>
   </template>
-  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default" role="listitem" type="completed" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default" role="listitem" type="completed" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="completed step">
         <div class="step-top">
@@ -1015,7 +1015,7 @@ exports[`default variant of ic-stepper component should render a stepper without
       </div>
     </template>
   </ic-step>
-  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" role="listitem" type="current" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default" role="listitem" type="current" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="current step">
         <div class="step-top">
@@ -1033,7 +1033,7 @@ exports[`default variant of ic-stepper component should render a stepper without
       </div>
     </template>
   </ic-step>
-  <ic-step aria-label="Step 3. Non-required step" class="aligned-full-width ic-step-default" role="listitem" type="disabled" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 3. Non-required step" class="aligned-full-width ic-step-default" role="listitem" type="disabled" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="disabled step">
         <div class="step-top">
@@ -1074,7 +1074,7 @@ exports[`switch between the compact and default stepper depending on whether the
       <slot></slot>
     </ul>
   </template>
-  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default ic-theme-dark" heading="Create" role="listitem" type="completed" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width ic-step-default ic-theme-dark" heading="Create" role="listitem" type="completed" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="completed step">
         <div class="step-top">
@@ -1095,7 +1095,7 @@ exports[`switch between the compact and default stepper depending on whether the
       </div>
     </template>
   </ic-step>
-  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default ic-theme-dark" heading="Read" role="listitem" type="current" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width ic-step-default ic-theme-dark" heading="Read" role="listitem" type="current" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="current step">
         <div class="step-top">
@@ -1118,7 +1118,7 @@ exports[`switch between the compact and default stepper depending on whether the
       </div>
     </template>
   </ic-step>
-  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default ic-theme-dark" heading="Update" role="listitem" style="width: NaNrem; min-width: 9.25rem;">
+  <ic-step aria-label="Step 3" class="aligned-full-width ic-step-default ic-theme-dark" heading="Update" role="listitem" style="width: 0rem; min-width: 9.25rem;">
     <template shadowrootmode="open">
       <div class="active step">
         <div class="step-top">

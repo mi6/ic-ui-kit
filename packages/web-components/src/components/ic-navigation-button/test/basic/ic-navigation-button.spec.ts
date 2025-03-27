@@ -37,10 +37,10 @@ describe("ic-navigation-button", () => {
     });
 
     page.rootInstance.mode = "menu";
-    const el = page.root.shadowRoot.querySelector("ic-button");
+    const el = page.root?.shadowRoot?.querySelector("ic-button");
 
     await page.waitForChanges();
-    expect(el.className).toEqual("popout-menu-button");
+    expect(el?.className).toEqual("popout-menu-button");
   });
 
   it("should correctly set mode on menu open and close", async () => {
@@ -90,15 +90,17 @@ describe("ic-navigation-button", () => {
       html: `<ic-navigation-button label="button1"></ic-navigation-button>`,
     });
     expect(
-      page.root.shadowRoot.querySelector("ic-button").getAttribute("aria-label")
-    ).toBeNull();
+      page.root?.querySelector("ic-button")?.getAttribute("aria-label")
+    ).toBeUndefined();
 
-    page.root.setAttribute("aria-label", "new-label");
+    page.root?.setAttribute("aria-label", "new-label");
     page.rootInstance.hostMutationCallback([{ attributeName: "aria-label" }]);
     await page.waitForChanges();
 
     expect(
-      page.root.shadowRoot.querySelector("ic-button").getAttribute("aria-label")
+      page.root?.shadowRoot
+        ?.querySelector("ic-button")
+        ?.getAttribute("aria-label")
     ).toBe("new-label");
   });
 });

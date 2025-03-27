@@ -194,7 +194,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
 `;
 
 exports[`ic-select native should test native select with groups: native-select-with-groups 1`] = `
-<ic-select label="IC Select Test">
+<ic-select label="New label">
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-select-input-26" helpertext="" label="New label"></ic-input-label>
@@ -228,7 +228,7 @@ exports[`ic-select native should test native select with groups: native-select-w
 `;
 
 exports[`ic-select native should test native select: native-select 1`] = `
-<ic-select label="IC Select Test">
+<ic-select label="New label">
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-select-input-25" helpertext="" label="New label"></ic-input-label>
@@ -692,7 +692,7 @@ exports[`ic-select should test select as submit on form 1`] = `
 `;
 
 exports[`ic-select should test with clear button: with-clear-button 1`] = `
-<ic-select label="IC Select Test" show-clear-button="true">
+<ic-select label="IC Select Test" show-clear-button="true" value="Test value 1">
   <template shadowrootmode="open">
     <ic-input-container>
       <ic-input-label for="ic-select-input-8" helpertext="" label="IC Select Test"></ic-input-label>

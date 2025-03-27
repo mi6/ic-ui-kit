@@ -161,7 +161,7 @@ export class ToggleButtonGroup {
     // tabTarget used in proxySelectHandler
     tabTarget && tabTarget.focus();
     if (this.selectType === "single") {
-      if (!clickedToggle) {
+      if (!clickedToggle && tabTarget) {
         clickedToggle = tabTarget;
       }
       allToggles.forEach((el) => {
@@ -180,7 +180,7 @@ export class ToggleButtonGroup {
       );
 
       this.icChange.emit({
-        checked: toggledOptions.map((opt) => opt.checked),
+        checked: toggledOptions.map((opt) => opt.checked!),
         toggledOptions: toggledOptions.map((opt) => ({
           toggleButton: opt,
         })),
@@ -221,15 +221,15 @@ export class ToggleButtonGroup {
 
   private setSlottedAria = (el: HTMLIcToggleButtonElement) => {
     const btn = el.shadowRoot
-      .querySelector("ic-button")
-      .shadowRoot.querySelector("button") as HTMLButtonElement;
-    let aria = btn.getAttribute("aria-label");
+      ?.querySelector("ic-button")
+      ?.shadowRoot?.querySelector("button") as HTMLButtonElement;
+    let aria = btn.getAttribute("aria-label") || "";
     aria += ", ";
     aria += this.accessibleLabel;
     btn.setAttribute("aria-label", aria);
   };
 
-  private handleHostFocus = (ev: FocusEvent): void => {
+  private handleHostFocus = (ev: FocusEvent): void | null => {
     if (this.loading || this.disabled) {
       return null;
     }
@@ -336,10 +336,10 @@ export class ToggleButtonGroup {
         tabindex={0}
         class={{
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
-          ["ic-toggle-button-group-full-width"]: this.fullWidth,
-          ["ic-toggle-button-group-loading"]: this.loading,
+          ["ic-toggle-button-group-full-width"]: !!this.fullWidth,
+          ["ic-toggle-button-group-loading"]: !!this.loading,
           ["ic-toggle-button-group-disabled"]: this.disabled,
-          [`ic-toggle-button-group-monochrome`]: this.monochrome,
+          [`ic-toggle-button-group-monochrome`]: !!this.monochrome,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
         onFocus={this.handleHostFocus}

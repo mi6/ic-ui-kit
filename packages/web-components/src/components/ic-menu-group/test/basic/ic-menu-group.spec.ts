@@ -46,7 +46,9 @@ describe("menu group", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    const ariaLabel = page.root.getAttribute("aria-label");
+    const ariaLabel = document
+      .querySelector("ic-menu-group")
+      ?.getAttribute("aria-label");
     expect(ariaLabel).toMatch(page.rootInstance.label);
   });
 
@@ -93,7 +95,9 @@ describe("menu group", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    const ariaLabel = page.root.getAttribute("aria-label");
+    const ariaLabel = document
+      .querySelector("ic-menu-group")
+      ?.getAttribute("aria-label");
     expect(ariaLabel).toBeNull();
   });
 });

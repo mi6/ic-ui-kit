@@ -76,16 +76,16 @@ describe("ic-menu in isolation", () => {
   it("should set open prop to true by default", async () => {
     const page = await createMenu();
 
-    expect(page.root.open).toBe(true);
+    expect(page.rootInstance.open).toBe(true);
   });
   it("should test ungroupedOptionsSet emitter", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("ungroupedOptionsSet", eventSpy);
+    document.addEventListener("ungroupedOptionsSet", eventSpy);
 
-    page.root.options = [];
+    page.rootInstance.options = [];
 
     await page.waitForChanges();
 
@@ -102,7 +102,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
 
     await page.waitForChanges();
 
@@ -123,7 +123,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuStateChange", eventSpy);
+    document.addEventListener("menuStateChange", eventSpy);
 
     await page.waitForChanges();
 
@@ -149,7 +149,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionId", eventSpy);
+    document.addEventListener("menuOptionId", eventSpy);
 
     await page.waitForChanges();
 
@@ -172,7 +172,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuKeyPress", eventSpy);
+    document.addEventListener("menuKeyPress", eventSpy);
 
     await page.waitForChanges();
 
@@ -194,7 +194,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
 
     page.rootInstance.setNextOptionValue(15);
 
@@ -213,7 +213,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
 
     await page.waitForChanges();
 
@@ -234,9 +234,9 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuStateChange", eventSpy);
+    document.addEventListener("menuStateChange", eventSpy);
 
-    page.root.open = false;
+    page.rootInstance.open = false;
 
     await page.waitForChanges();
 
@@ -255,12 +255,12 @@ describe("ic-menu in isolation", () => {
   it("should test handleKeyboardOpen function", async () => {
     const page = await createMenu();
 
-    page.root.open = false;
+    page.rootInstance.open = false;
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuStateChange", eventSpy);
-    page.root.addEventListener("menuOptionId", eventSpy);
+    document.addEventListener("menuStateChange", eventSpy);
+    document.addEventListener("menuOptionId", eventSpy);
 
     await page.waitForChanges();
 
@@ -276,9 +276,9 @@ describe("ic-menu in isolation", () => {
       })
     );
 
-    page.root.open = false;
+    page.rootInstance.open = false;
 
-    page.root.activationType = "manual";
+    page.rootInstance.activationType = "manual";
 
     await page.waitForChanges();
 
@@ -301,11 +301,11 @@ describe("ic-menu in isolation", () => {
 
     const inputEl = page.rootInstance.inputEl;
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
-    page.root.addEventListener("menuStateChange", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuStateChange", eventSpy);
     inputEl.addEventListener("focus", eventSpy);
 
-    page.root.open = false;
+    page.rootInstance.open = false;
 
     await page.waitForChanges();
 
@@ -362,7 +362,7 @@ describe("ic-menu in isolation", () => {
   it("should test autoSetInputValueKeyboardOpen function with character keys", async () => {
     const page = await createMenu();
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
 
     await page.waitForChanges();
 
@@ -371,18 +371,16 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
-    expect(page.root.value).toBe("espresso");
+    expect(page.rootInstance.value).toBe("espresso");
   });
   it("should test manualSetInputValueKeyboardOpen function", async () => {
-    const searchBar = window.document.createElement(
-      IcSearchBar
-    ) as HTMLIcSearchBarElement;
+    const searchBar = window.document.createElement(IcSearchBar) as HTMLElement;
     const input = window.document.createElement("input");
 
     const searchMenuOptions = JSON.parse(JSON.stringify(menuOptions));
     searchMenuOptions[3].disabled = true;
 
-    searchBar.setFocus = jest.fn();
+    (searchBar as HTMLIcSearchBarElement).setFocus = jest.fn();
 
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
@@ -403,8 +401,8 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionId", eventSpy);
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionId", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
 
     page.rootInstance.manualSetInputValueKeyboardOpen(keyboardEvent("ArrowUp"));
 
@@ -929,8 +927,8 @@ describe("ic-menu in isolation", () => {
 
     await page.rootInstance.manualSetInputValueKeyboardOpen({
       key: "a",
-      preventDefault: (): void => null,
-      stopImmediatePropagation: (): void => null,
+      preventDefault: (): null => null,
+      stopImmediatePropagation: (): null => null,
       metaKey: true,
       target: {
         id: "key-id",
@@ -945,8 +943,8 @@ describe("ic-menu in isolation", () => {
 
     await page.rootInstance.manualSetInputValueKeyboardOpen({
       key: "a",
-      preventDefault: (): void => null,
-      stopImmediatePropagation: (): void => null,
+      preventDefault: (): null => null,
+      stopImmediatePropagation: (): null => null,
       ctrlKey: true,
       target: {
         id: "key-id",
@@ -962,8 +960,8 @@ describe("ic-menu in isolation", () => {
 
     await page.rootInstance.manualSetInputValueKeyboardOpen({
       key: "ArrowDown",
-      preventDefault: (): void => null,
-      stopImmediatePropagation: (): void => null,
+      preventDefault: (): null => null,
+      stopImmediatePropagation: (): null => null,
       shiftKey: true,
       target: {
         id: "key-id",
@@ -1019,7 +1017,7 @@ describe("ic-menu in isolation", () => {
     });
 
     const eventSpy = jest.fn();
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
 
     page.rootInstance.manualSetInputValueKeyboardOpen(
       keyboardEvent("ArrowDown")
@@ -1071,7 +1069,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
 
     page.rootInstance.optionHighlighted = "americano";
 
@@ -1083,7 +1081,7 @@ describe("ic-menu in isolation", () => {
       },
     });
 
-    page.root.parentEl.dispatchEvent(event);
+    page.rootInstance.parentEl.dispatchEvent(event);
 
     await page.waitForChanges();
 
@@ -1098,9 +1096,9 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
 
-    page.root.options = menuOptions;
+    page.rootInstance.options = menuOptions;
 
     await page.waitForChanges();
 
@@ -1123,7 +1121,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
 
     page.rootInstance.optionHighlighted = "americano";
 
@@ -1140,7 +1138,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
 
     const el = page.rootInstance.menu.childNodes[1];
 
@@ -1186,7 +1184,7 @@ describe("ic-menu in isolation", () => {
 
     const event = new FocusEvent("blur");
 
-    page.root.addEventListener("menuStateChange", eventSpy);
+    document.addEventListener("menuStateChange", eventSpy);
 
     page.rootInstance.handleBlur(event);
 
@@ -1201,7 +1199,7 @@ describe("ic-menu in isolation", () => {
       })
     );
 
-    const inputEl = page.root.inputEl;
+    const inputEl = page.rootInstance.inputEl;
 
     const eventTwo = new FocusEvent("blur", { relatedTarget: inputEl });
 
@@ -1223,7 +1221,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("preventDefault", eventSpy);
+    document.addEventListener("preventDefault", eventSpy);
 
     const event = new Event("click");
 
@@ -1242,7 +1240,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
 
     page.rootInstance.handleMenuKeyDown(keyboardEvent("ArrowDown"));
 
@@ -1279,7 +1277,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionId", eventSpy);
+    document.addEventListener("menuOptionId", eventSpy);
 
     page.rootInstance.handleMenuKeyDown(keyboardEvent("ArrowDown"));
 
@@ -1298,7 +1296,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("retryButtonClicked", eventSpy);
+    document.addEventListener("retryButtonClicked", eventSpy);
 
     page.rootInstance.handleRetry();
 
@@ -1317,7 +1315,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("retryButtonClicked", eventSpy);
+    document.addEventListener("retryButtonClicked", eventSpy);
 
     page.rootInstance.handleRetryKeyDown(keyboardEvent("Enter"));
 
@@ -1339,7 +1337,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
     inputEl.addEventListener("focus", eventSpy);
 
     await page.waitForChanges();
@@ -1357,9 +1355,9 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelect", eventSpy);
+    document.addEventListener("menuOptionSelect", eventSpy);
     inputEl.addEventListener("focus", eventSpy);
-    page.root.addEventListener("menuStateChange", eventSpy);
+    document.addEventListener("menuStateChange", eventSpy);
 
     page.rootInstance.autoSetValueOnMenuKeyDown(keyboardEvent("ArrowUp"));
 
@@ -1477,7 +1475,7 @@ describe("ic-menu in isolation", () => {
           inputEl={input}
           anchorEl={searchBar}
           value={menuOptions[0].value}
-          parentEl={searchBar as HTMLIcSearchBarElement}
+          parentEl={searchBar as HTMLElement}
         ></ic-menu>
       ),
     });
@@ -1500,11 +1498,9 @@ describe("ic-menu in isolation", () => {
     expect(page.rootInstance.parentEl.__listeners.length).toBe(0);
   });
   it("should test componentDidLoad function", async () => {
-    const searchBar = window.document.createElement(
-      IcSearchBar
-    ) as HTMLIcSearchBarElement;
+    const searchBar = window.document.createElement(IcSearchBar) as HTMLElement;
     const input = window.document.createElement("input");
-    searchBar.disableAutoFiltering = true;
+    (searchBar as HTMLIcSearchBarElement).disableAutoFiltering = true;
 
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],
@@ -1551,7 +1547,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("timeoutBlur", eventSpy);
+    document.addEventListener("timeoutBlur", eventSpy);
 
     const event = new FocusEvent("blur");
 
@@ -1666,7 +1662,7 @@ describe("ic-menu in isolation", () => {
 
     jest.spyOn(page.rootInstance, "handleMenuChange").mockImplementation();
 
-    const option = await page.root.querySelector("li");
+    const option = await document.querySelector("li");
 
     await page.rootInstance.handleSelectAllBlur({ relatedTarget: option });
 
@@ -1695,7 +1691,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("menuOptionSelectAll", eventSpy);
+    document.addEventListener("menuOptionSelectAll", eventSpy);
 
     await page.rootInstance.emitSelectAllEvents();
 
@@ -1750,7 +1746,7 @@ describe("ic-menu in isolation", () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("preventDefault", eventSpy);
+    document.addEventListener("preventDefault", eventSpy);
 
     const event = new Event("click");
 
@@ -1923,8 +1919,8 @@ describe("ic-menu in isolation", () => {
 
     await page.rootInstance.manualSetInputValueKeyboardOpen({
       key: "End",
-      preventDefault: (): void => null,
-      stopImmediatePropagation: (): void => null,
+      preventDefault: (): null => null,
+      stopImmediatePropagation: (): null => null,
       ctrlKey: true,
       shiftKey: true,
       target: {
@@ -1936,8 +1932,8 @@ describe("ic-menu in isolation", () => {
 
     await page.rootInstance.manualSetInputValueKeyboardOpen({
       key: "Home",
-      preventDefault: (): void => null,
-      stopImmediatePropagation: (): void => null,
+      preventDefault: (): null => null,
+      stopImmediatePropagation: (): null => null,
       ctrlKey: true,
       shiftKey: true,
       target: {

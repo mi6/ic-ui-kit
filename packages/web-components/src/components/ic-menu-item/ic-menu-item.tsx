@@ -36,7 +36,7 @@ export class MenuItem {
   /**
    * If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.
    */
-  @Prop({ mutable: true, reflect: true }) checked: boolean = false;
+  @Prop({ mutable: true, reflect: true }) checked?: boolean = false;
 
   /**
    * The description displayed in the menu item, below the label.
@@ -95,7 +95,7 @@ export class MenuItem {
   /**
    * The variant of the menu item.
    */
-  @Prop({ mutable: true, reflect: true }) variant: IcMenuItemVariants =
+  @Prop({ mutable: true, reflect: true }) variant?: IcMenuItemVariants =
     "default";
 
   /**
@@ -180,6 +180,7 @@ export class MenuItem {
     const parentEl = this.el.parentElement;
 
     if (
+      parentEl &&
       parentEl.tagName === "IC-MENU-GROUP" &&
       (parentEl as HTMLIcMenuGroupElement).label
     ) {
@@ -216,7 +217,7 @@ export class MenuItem {
     return (
       <Host
         class={{
-          ["ic-menu-item-disabled"]: this.disabled,
+          ["ic-menu-item-disabled"]: !!this.disabled,
         }}
       >
         <li
@@ -238,9 +239,7 @@ export class MenuItem {
             hreflang={isPropDefined(this.hreflang)}
             target={isPropDefined(this.target)}
             rel={isPropDefined(this.rel)}
-            referrerpolicy={
-              this.referrerpolicy !== undefined ? this.referrerpolicy : null
-            }
+            referrerpolicy={this.referrerpolicy}
             aria-disabled={`${this.disabled}`}
             aria-label={this.getMenuItemAriaLabel()}
             aria-haspopup={

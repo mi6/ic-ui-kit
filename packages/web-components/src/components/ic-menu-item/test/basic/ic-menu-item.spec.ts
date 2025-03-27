@@ -25,7 +25,7 @@ describe("menu item variants", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("disabled-removed");
@@ -68,11 +68,11 @@ describe("menu item variants", () => {
     expect(page.rootInstance.variant).toMatch("toggle");
     expect(page.rootInstance.checked).toBeFalsy();
 
-    const button = page.root.shadowRoot
-      .querySelector("li > ic-button")
-      .shadowRoot.querySelector("button");
+    const button = page.root?.shadowRoot
+      ?.querySelector("li > ic-button")
+      ?.shadowRoot?.querySelector("button");
 
-    button.click();
+    button?.click();
     await page.waitForChanges;
   });
 
@@ -119,7 +119,7 @@ describe("menu item variants", () => {
 
     const element = await document.getElementById("test-menu-item");
 
-    await element.click();
+    await element?.click();
 
     await page.waitForChanges();
 

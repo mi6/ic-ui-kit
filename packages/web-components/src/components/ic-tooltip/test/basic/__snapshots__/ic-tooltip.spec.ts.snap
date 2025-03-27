@@ -187,6 +187,20 @@ exports[`ic-tooltip component getTooltipTranslate should update when tooltip is 
 </ic-tooltip>
 `;
 
+exports[`ic-tooltip component should render correctly when on a dialog 1`] = `
+<ic-tooltip class="ic-tooltip on-dialog" label="tooltip">
+  <template shadowrootmode="open">
+    <div aria-hidden="false" class="ic-tooltip-container" data-show role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0;">
+      <ic-typography variant="caption">
+        tooltip
+      </ic-typography>
+      <div class="ic-tooltip-arrow" style="position: absolute;"></div>
+    </div>
+    <slot></slot>
+  </template>
+</ic-tooltip>
+`;
+
 exports[`ic-tooltip component should render: ic-tooltip-render 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip">
   <template shadowrootmode="open">

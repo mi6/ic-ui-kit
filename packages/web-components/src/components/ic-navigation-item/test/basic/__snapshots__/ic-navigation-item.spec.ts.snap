@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-navigation-item should render with an unnamed slot if neither a label or the navigation-item slot is used: renders-with-unnamed-slot 1`] = `
+<ic-navigation-item class="light navigation-item" role="listitem">
+  <template shadowrootmode="open">
+    <ic-tooltip class="tooltip-navigation-item" label="" placement="right" target="navigation-item">
+      <slot></slot>
+    </ic-tooltip>
+  </template>
+  <div></div>
+</ic-navigation-item>
+`;
+
+exports[`ic-navigation-item should render with an unnamed slot if neither a label or the navigation-item slot is used: renders-with-unnamed-slot-and-tooltip-label 1`] = `
+<ic-navigation-item class="light navigation-item" role="listitem">
+  <template shadowrootmode="open">
+    <ic-tooltip class="tooltip-navigation-item" label="" placement="right" target="navigation-item">
+      <slot></slot>
+    </ic-tooltip>
+  </template>
+  <div textcontent="Test label"></div>
+</ic-navigation-item>
+`;
+
 exports[`ic-navigation-item should render with aria-label: renders-with-aria-label 1`] = `
 <ic-navigation-item aria-label="navigation item description" class="light navigation-item" href="#link" label="Item label" role="listitem">
   <template shadowrootmode="open">

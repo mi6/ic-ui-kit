@@ -37,11 +37,11 @@ export class Pagination {
   /**
    * The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
    */
-  @Prop({ mutable: true }) adjacentPageCount: number = 1;
+  @Prop({ mutable: true }) adjacentPageCount?: number = 1;
 
   @Watch("adjacentPageCount")
   watchAdjacentPageCountHandler(): void {
-    if (this.adjacentPageCount > 2) {
+    if (this.adjacentPageCount! > 2) {
       this.adjacentPageCount = 2;
     }
   }
@@ -49,11 +49,11 @@ export class Pagination {
   /**
    * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
    */
-  @Prop({ mutable: true }) boundaryPageCount: number = 1;
+  @Prop({ mutable: true }) boundaryPageCount?: number = 1;
 
   @Watch("boundaryPageCount")
   watchBoundaryPageCountHandler(): void {
-    if (this.boundaryPageCount > 2) {
+    if (this.boundaryPageCount! > 2) {
       this.boundaryPageCount = 2;
     }
   }
@@ -61,12 +61,12 @@ export class Pagination {
   /**
    * The default page to display.
    */
-  @Prop() defaultPage: number = 1;
+  @Prop() defaultPage?: number = 1;
 
   /**
    * If `true`, the pagination will not allow interaction.
    */
-  @Prop() disabled: boolean = false;
+  @Prop() disabled?: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -75,17 +75,17 @@ export class Pagination {
   /**
    * If `true`, the current page of the simple pagination will not be displayed.
    */
-  @Prop() hideCurrentPage: boolean = false;
+  @Prop() hideCurrentPage?: boolean = false;
 
   /**
    * If `true`, the first and last page buttons will not be displayed.
    */
-  @Prop() hideFirstAndLastPageButton: boolean = false;
+  @Prop() hideFirstAndLastPageButton?: boolean = false;
 
   /**
    * The label for the pagination item (applicable when simple pagination is being used).
    */
-  @Prop() label: string = "Page";
+  @Prop() label?: string = "Page";
 
   /**
    * If `true`, the pagination will display as black in the light theme, and white in dark theme.
@@ -110,7 +110,7 @@ export class Pagination {
   /**
    * The type of pagination to be used.
    */
-  @Prop() type: IcPaginationTypes = "simple";
+  @Prop() type?: IcPaginationTypes = "simple";
 
   @Watch("type")
   watchTypeHandler(): void {
@@ -120,7 +120,7 @@ export class Pagination {
   /**
    * The current page displayed by the pagination.
    */
-  @Prop({ mutable: true }) currentPage: number = this.defaultPage;
+  @Prop({ mutable: true }) currentPage?: number = this.defaultPage;
 
   @Watch("currentPage")
   watchPageChangeHandler(): void {
@@ -146,7 +146,7 @@ export class Pagination {
 
     if (
       this.pages <=
-      this.boundaryPageCount * 2 + this.adjacentPageCount * 2 + 3
+      this.boundaryPageCount! * 2 + this.adjacentPageCount! * 2 + 3
     ) {
       this.startEllipsis = false;
       this.endEllipsis = false;
@@ -157,20 +157,20 @@ export class Pagination {
       return;
     }
 
-    startItemCount = this.boundaryPageCount === 0 ? 1 : this.boundaryPageCount;
+    startItemCount = this.boundaryPageCount === 0 ? 1 : this.boundaryPageCount!;
     endStart =
       this.boundaryPageCount === 0
         ? this.pages
-        : this.pages - this.boundaryPageCount + 1;
+        : this.pages - this.boundaryPageCount! + 1;
 
     if (
-      this.currentPage <=
-      this.adjacentPageCount + this.boundaryPageCount + 2
+      this.currentPage! <=
+      this.adjacentPageCount! + this.boundaryPageCount! + 2
     ) {
       startEllipsis = false;
       endEllipsis = true;
 
-      let numItems = 2 * this.adjacentPageCount + 1;
+      let numItems = 2 * this.adjacentPageCount! + 1;
       if (this.boundaryPageCount === 0) {
         numItems--;
       }
@@ -179,28 +179,28 @@ export class Pagination {
     } else {
       startEllipsis = true;
       if (
-        this.currentPage >
-        this.pages - (this.adjacentPageCount + this.boundaryPageCount + 2)
+        this.currentPage! >
+        this.pages - (this.adjacentPageCount! + this.boundaryPageCount! + 2)
       ) {
-        let numItems = 2 * this.adjacentPageCount + 1;
+        let numItems = 2 * this.adjacentPageCount! + 1;
         if (this.boundaryPageCount === 0) {
           numItems--;
         }
         midEnd =
           this.boundaryPageCount === 0
             ? this.pages - 1
-            : this.pages - this.boundaryPageCount;
+            : this.pages - this.boundaryPageCount!;
         midStart = midEnd - numItems;
       } else {
         endEllipsis = true;
-        midStart = this.currentPage - this.adjacentPageCount;
-        midEnd = this.currentPage + this.adjacentPageCount;
+        midStart = this.currentPage! - this.adjacentPageCount!;
+        midEnd = this.currentPage! + this.adjacentPageCount!;
       }
     }
 
     //create array of start items
     if (
-      this.boundaryPageCount > 0 ||
+      this.boundaryPageCount! > 0 ||
       (this.boundaryPageCount === 0 && startEllipsis === false)
     ) {
       for (let i = 1; i <= startItemCount; i++) {
@@ -210,7 +210,7 @@ export class Pagination {
 
     //create array of end items
     if (
-      this.boundaryPageCount > 0 ||
+      this.boundaryPageCount! > 0 ||
       (this.boundaryPageCount === 0 && endEllipsis === false)
     ) {
       for (let i = endStart; i <= this.pages; i++) {
@@ -253,7 +253,7 @@ export class Pagination {
   paginationItemClickHandler(ev: CustomEvent): void {
     const page = ev.detail.page;
     this.currentPage = page;
-    this.icPageChange.emit({ value: this.currentPage });
+    this.icPageChange.emit({ value: this.currentPage! });
   }
 
   /**
@@ -277,13 +277,13 @@ export class Pagination {
   };
 
   private handleClickPrevious = (): void => {
-    this.currentPage--;
-    this.icPageChange.emit({ value: this.currentPage });
+    this.currentPage!--;
+    this.icPageChange.emit({ value: this.currentPage! });
   };
 
   private handleClickNext = (): void => {
-    this.currentPage++;
-    this.icPageChange.emit({ value: this.currentPage });
+    this.currentPage!++;
+    this.icPageChange.emit({ value: this.currentPage! });
   };
 
   private handleClickLast = (): void => {
@@ -444,13 +444,13 @@ export class Pagination {
       <Host
         class={{
           [`ic-theme-${theme}`]: theme !== "inherit",
-          ["ic-pagination-monochrome"]: monochrome,
+          ["ic-pagination-monochrome"]: !!monochrome,
         }}
       >
         {type === "simple" && (
           <nav
             class={{
-              ["disabled"]: disabled,
+              ["disabled"]: !!disabled,
             }}
             role="navigation"
             aria-label="Pagination Navigation"
@@ -463,7 +463,7 @@ export class Pagination {
               type="simple-current"
               page={currentPage}
               label={label}
-              class={{ ["hide-current-page"]: hideCurrentPage }}
+              class={{ ["hide-current-page"]: !!hideCurrentPage }}
               disabled={disabled}
             />
             {this.nextButton()}
@@ -473,7 +473,7 @@ export class Pagination {
         {type === "complex" && (
           <nav
             class={{
-              ["disabled"]: disabled,
+              ["disabled"]: !!disabled,
             }}
             role="navigation"
             aria-label="Pagination Navigation"

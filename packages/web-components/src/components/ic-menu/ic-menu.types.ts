@@ -1,5 +1,5 @@
 export interface IcOptionSelectEventDetail {
-  value: string;
+  value: string | undefined;
   label?: string;
   optionId?: string;
 }

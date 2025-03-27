@@ -10,7 +10,7 @@ import { IcThemeMode } from "../../utils/types";
   shadow: true,
 })
 export class Stepper {
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
   private steps: HTMLIcStepElement[];
   private stepsWithStepTitles: HTMLIcStepElement[];
   private visuallyHidden: string = "visually-hidden";
@@ -21,9 +21,9 @@ export class Stepper {
   @State() autoSetStepTitles: boolean = true;
   @State() lastStepWidth: number = 0;
   @State() noOfResizes?: number = 0;
-  @State() stepperWidth: number = document
+  @State() stepperWidth: number | undefined = document
     .querySelector("ic-stepper")
-    .getBoundingClientRect().width;
+    ?.getBoundingClientRect().width;
   @State() stepTypes: IcStepTypes[] = [];
   @State() variantOverride?: boolean = this.variant !== "compact";
 
@@ -105,7 +105,7 @@ export class Stepper {
       this.variantOverride &&
       this.variant === "compact"
     ) {
-      this.noOfResizes = this.noOfResizes + 1;
+      this.noOfResizes = this.noOfResizes! + 1;
       if (this.noOfResizes === 1) {
         console.error(
           `The prop 'heading' is required for all steps of the Stepper component (compact variant)`
@@ -141,7 +141,7 @@ export class Stepper {
   private initialiseStepStates = (): void => {
     this.steps.forEach((step, index) => {
       // Set variant
-      step.variant = this.variant;
+      step.variant = this.variant!;
       // Assign stepNum to each step
       step.stepNum = index + 1;
       // Assign lastStep to final step
@@ -150,7 +150,7 @@ export class Stepper {
 
       if (step.type !== "current") {
         step.current = false;
-        this.stepTypes[index] = step.type;
+        this.stepTypes[index] = step.type!;
       } else {
         step.current = true;
       }
@@ -166,8 +166,8 @@ export class Stepper {
             step.heading = "Step " + step.stepNum;
             stepTitleArea &&
               stepTitleArea
-                .querySelector(".heading")
-                .setAttribute("aria-hidden", "true");
+                ?.querySelector(".heading")
+                ?.setAttribute("aria-hidden", "true");
           }
         }
         if (this.variant === "default") {
@@ -176,8 +176,8 @@ export class Stepper {
             step.heading = undefined;
             stepTitleArea &&
               stepTitleArea
-                .querySelector(".heading")
-                .removeAttribute("aria-hidden");
+                ?.querySelector(".heading")
+                ?.removeAttribute("aria-hidden");
           }
         }
       }
@@ -209,7 +209,7 @@ export class Stepper {
 
       if (this.variant === "default") {
         if (!step.lastStep) {
-          if (this.alignedFullWidth) {
+          if (this.alignedFullWidth && this.stepperWidth !== undefined) {
             step.style.width = pxToRem(
               `${
                 (this.stepperWidth - this.lastStepWidth) /
@@ -222,7 +222,7 @@ export class Stepper {
           step.classList.add("last-step");
           if (this.alignedFullWidth) {
             step.style.maxWidth = `${this.lastStepWidth}px`;
-          } else {
+          } else if (this.connectorWidth) {
             step.style.maxWidth =
               this.connectorWidth > 100
                 ? pxToRem(`${this.connectorWidth + 48}px`)
@@ -230,12 +230,12 @@ export class Stepper {
           }
         }
 
-        if (this.aligned === "left") {
+        if (this.aligned === "left" && this.connectorWidth) {
           step.style.width =
             this.connectorWidth > 100
               ? pxToRem(`${this.connectorWidth + 48}px`)
               : pxToRem("148px");
-          const stepConnect = step.shadowRoot.querySelector(
+          const stepConnect = step.shadowRoot?.querySelector(
             ".step > .step-top > .step-connect"
           ) as HTMLElement;
 
@@ -256,11 +256,11 @@ export class Stepper {
 
   private setHideStepInfo = (): void => {
     this.steps.forEach((step) => {
-      const stepTitleArea = step.shadowRoot.querySelector(
+      const stepTitleArea = step.shadowRoot?.querySelector(
         ".step > .heading-area"
       );
 
-      if (stepTitleArea !== null) {
+      if (stepTitleArea) {
         if (this.hideStepInfo) {
           stepTitleArea.classList?.add(this.visuallyHidden);
         } else {
@@ -274,7 +274,11 @@ export class Stepper {
     if (this.variantOverride) {
       let minDefaultStepperWidth = 148 * this.steps.length;
 
-      if (this.aligned === "left" && this.connectorWidth > 100) {
+      if (
+        this.aligned === "left" &&
+        this.connectorWidth &&
+        this.connectorWidth > 100
+      ) {
         minDefaultStepperWidth = (this.connectorWidth + 48) * this.steps.length;
       }
       if (this.el.clientWidth < minDefaultStepperWidth) {

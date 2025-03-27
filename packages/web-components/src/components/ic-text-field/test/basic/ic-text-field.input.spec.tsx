@@ -204,8 +204,8 @@ describe("ic-text-field", () => {
 
     const callbackFn = jest.fn();
     page.doc.addEventListener("icBlur", callbackFn);
-    const input = page.root.shadowRoot.querySelector("input");
-    await input.blur();
+    const input = page.root?.shadowRoot?.querySelector("input");
+    await input?.blur();
     expect(callbackFn).toHaveBeenCalled();
   });
 
@@ -229,7 +229,7 @@ describe("ic-text-field", () => {
       </ic-text-field>`,
     });
 
-    const slot = page.root.shadowRoot.querySelector(`[slot="icon"]`);
+    const slot = page.root?.shadowRoot?.querySelector(`[slot="icon"]`);
     expect(slot).toBeNull();
   });
 
@@ -268,7 +268,7 @@ describe("ic-text-field", () => {
       components: [TextField],
       html: `<form>
         <ic-text-field label="Test label"></ic-text-field>
-        <button id="resetButton" type="reset">Reset</button>  
+        <button id="resetButton" type="reset">Reset</button>
       </form>`,
     });
 
@@ -338,14 +338,14 @@ it("should test minCharacters method", async () => {
     html: `<ic-text-field label="Test label" rows=1 min-characters=5 value="test"></ic-text-field>`,
   });
 
-  const input = page.root.shadowRoot.querySelector("input");
-  input.blur();
+  const input = page.root?.shadowRoot?.querySelector("input");
+  input?.blur();
   expect(page.rootInstance.minCharactersUnattained).toBe(true);
 
   page.rootInstance.value = "testing";
   await page.waitForChanges();
 
-  input.blur();
+  input?.blur();
   expect(page.rootInstance.minCharactersUnattained).toBe(false);
 });
 
@@ -355,15 +355,15 @@ it("should update any attributes that are inherited from the root element", asyn
     html: `<ic-text-field label="Test label"></ic-text-field>`,
   });
   expect(
-    page.root.shadowRoot.querySelector("input").getAttribute("title")
+    page.root?.shadowRoot?.querySelector("input")?.getAttribute("title")
   ).toBeNull();
 
-  page.root.setAttribute("title", "new-label");
+  page.root?.setAttribute("title", "new-label");
   page.rootInstance.hostMutationCallback([{ attributeName: "title" }]);
   await page.waitForChanges();
 
   expect(
-    page.root.shadowRoot.querySelector("input").getAttribute("title")
+    page.root?.shadowRoot?.querySelector("input")?.getAttribute("title")
   ).toBe("new-label");
 });
 
@@ -381,8 +381,8 @@ it("should autofocus", async () => {
 
   expect(textField.autofocus).toBe(true);
 
-  const typo = page.root.shadowRoot.querySelector("ic-typography");
-  typo.classList.add("hydrated");
+  const typo = page.root?.shadowRoot?.querySelector("ic-typography");
+  typo?.classList.add("hydrated");
 
   const callbackFn = jest.fn();
   page.doc.addEventListener("icFocus", callbackFn);

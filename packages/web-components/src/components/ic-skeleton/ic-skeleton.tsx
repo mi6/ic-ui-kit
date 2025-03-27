@@ -31,7 +31,7 @@ export class Skeleton {
 
     const style = !el.firstElementChild
       ? {
-          height: el.style.height || DEFAULT_HEIGHTS[variant],
+          height: el.style.height || DEFAULT_HEIGHTS[variant!],
           width: el.style.width || (variant === "circle" ? "25px" : "260px"),
         }
       : undefined;

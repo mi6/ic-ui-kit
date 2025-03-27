@@ -29,7 +29,7 @@ export class Theme {
   /**
    * The brand colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
-  @Prop() brandColor?: IcColor = null;
+  @Prop() brandColor?: IcColor | null = null;
 
   @Watch("brandColor")
   watchBrandColorPropHandler(): void {
@@ -39,7 +39,7 @@ export class Theme {
   /**
    * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
    */
-  @Prop() theme: "dark" | "light" | "system" = "light";
+  @Prop() theme?: "dark" | "light" | "system" = "light";
 
   @Watch("theme")
   watchThemePropHandler(): void {
@@ -85,7 +85,7 @@ export class Theme {
   };
 
   private setBrandColor = () => {
-    const colorRGBA = convertToRGBA(this.brandColor);
+    const colorRGBA = this.brandColor ? convertToRGBA(this.brandColor) : null;
 
     if (colorRGBA) {
       const { r, g, b, a } = colorRGBA;

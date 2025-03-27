@@ -34,7 +34,7 @@ describe("ic-tab component", () => {
       "should set the disable attribute on the button to true"
     );
 
-    page.rootInstance.disabled = false;
+    page.root?.setAttribute("disabled", "false");
 
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot(
