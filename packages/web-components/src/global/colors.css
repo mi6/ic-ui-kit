@@ -665,7 +665,7 @@
   --ic-footer-pressed: var(--ic-action-light-bg-pressed);
 
   /* HERO */
-  --ic-hero-background: var(--ic-brand-color-tertiary);
+  --ic-hero-background: var(--ic-state-layer-primary);
   --ic-hero-heading: var(--ic-color-brand-text);
   --ic-hero-secondary-heading: var(--ic-color-brand-text);
   --ic-hero-body: var(--ic-color-brand-text);
