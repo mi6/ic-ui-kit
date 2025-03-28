@@ -263,7 +263,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
 
     cy.checkHydrated(SWITCH_SELECTOR);
 
-    // cy.checkA11yWithWait(); A11y failure for colour contrast
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),

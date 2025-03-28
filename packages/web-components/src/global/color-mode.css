@@ -302,6 +302,10 @@ ic-theme,
     --ic-atoms-input-autocomplete-field-border-light
   );
 
+  /* Border */
+  --ic-border-focus: var(--ic-border-focus-light);
+  --ic-border-focus-inset: var(--ic-border-focus-inset-light);
+
   /* Typography */
   --ic-typography-color: var(--ic-color-text-primary);
 
@@ -417,10 +421,12 @@ ic-theme,
   --ic-button-secondary-background-pressed-monochrome: var(
     --ic-action-dark-bg-pressed
   );
-  --ic-button-secondary-text: var(--ic-color-text-action);
+  --ic-button-secondary-text: var(--ic-color-text-action-light);
   --ic-button-secondary-text-monochrome: var(--ic-color-text-primary);
-  --ic-button-secondary-text-active: var(--ic-color-text-action);
-  --ic-button-secondary-text-hover-active: var(--ic-color-text-action-hover);
+  --ic-button-secondary-text-active: var(--ic-color-text-action-light);
+  --ic-button-secondary-text-hover-active: var(
+    --ic-color-text-action-hover-light
+  );
   --ic-button-secondary-text-pressed-active: var(
     --ic-color-text-action-pressed
   );
@@ -485,17 +491,21 @@ ic-theme,
   --ic-button-secondary-background-non-transparent-monochrome-active: var(
     --ic-color-background-solid-mono-pressed
   );
-  --ic-button-tertiary-text-active: var(--ic-color-text-action);
+  --ic-button-tertiary-text-active: var(--ic-color-text-action-light);
   --ic-button-tertiary-icon-active: var(--ic-color-icon-action-default);
   --ic-button-tertiary-text-disabled: var(--ic-color-text-disabled-default);
   --ic-button-tertiary-icon-disabled: var(--ic-color-icon-disabled);
-  --ic-button-tertiary-text-hover-active: var(--ic-color-text-action-hover);
+  --ic-button-tertiary-text-hover-active: var(
+    --ic-color-text-action-hover-light
+  );
   --ic-button-tertiary-icon-hover-active: var(--ic-color-icon-action-hover);
   --ic-button-tertiary-background: var(--ic-color-background-primary);
   --ic-button-tertiary-background-hover-active: var(
     --ic-action-default-bg-hover
   );
-  --ic-button-tertiary-text-pressed-active: var(--ic-color-text-action-pressed);
+  --ic-button-tertiary-text-pressed-active: var(
+    --ic-color-text-action-pressed-light
+  );
   --ic-button-tertiary-icon-pressed-active: var(--ic-color-icon-action-pressed);
   --ic-button-tertiary-background-pressed-active: var(
     --ic-action-default-bg-pressed
@@ -604,7 +614,7 @@ ic-theme,
   --ic-checkbox-state-icon-error: var(--ic-color-icon-error-dark);
   --ic-checkbox-state-text: var(--ic-color-text-primary);
   --ic-checkbox-required-bar: var(--ic-action-default);
-  --ic-checkbox-required-text: var(--ic-color-text-action);
+  --ic-checkbox-required-text: var(--ic-color-text-action-light);
 
   /* Chips */
   --ic-chip-label: var(--ic-color-text-primary);
@@ -1189,12 +1199,14 @@ ic-theme,
 
   /* Toggle button */
   --ic-toggle-button-unselected-border: var(--ic-color-border-action);
-  --ic-toggle-button-unselected-text: var(--ic-color-text-action);
+  --ic-toggle-button-unselected-text: var(--ic-color-text-action-light);
   --ic-toggle-button-unselected-icon: var(--ic-color-icon-action-default);
   --ic-toggle-button-unselected-border-hover: var(
     --ic-color-border-action-hover
   );
-  --ic-toggle-button-unselected-text-hover: var(--ic-color-text-action-hover);
+  --ic-toggle-button-unselected-text-hover: var(
+    --ic-color-text-action-hover-light
+  );
   --ic-toggle-button-unselected-icon-hover: var(--ic-color-icon-action-hover);
   --ic-toggle-button-unselected-background-hover: var(
     --ic-action-default-bg-hover
@@ -1664,6 +1676,10 @@ ic-theme,
     --ic-atoms-input-autocomplete-field-border: var(
       --ic-atoms-input-autocomplete-field-border-dark
     );
+
+    /* Border */
+    --ic-border-focus: var(--ic-border-focus-dark);
+    --ic-border-focus-inset: var(--ic-border-focus-inset-dark);
 
     /* Typography */
     --ic-typography-color: var(--ic-color-text-primary);
@@ -3059,6 +3075,10 @@ ic-theme,
   --ic-atoms-input-autocomplete-field-border: var(
     --ic-atoms-input-autocomplete-field-border-dark
   );
+
+  /* Border */
+  --ic-border-focus: var(--ic-border-focus-dark);
+  --ic-border-focus-inset: var(--ic-border-focus-inset-dark);
 
   /* Typography */
   --ic-typography-color: var(--ic-color-text-primary);

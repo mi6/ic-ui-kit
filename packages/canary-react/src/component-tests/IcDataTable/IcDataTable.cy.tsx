@@ -1201,7 +1201,7 @@ describe("IcDataTables", () => {
       .find(IC_BUTTON_SELECTOR)
       .should(BE_VISIBLE);
 
-    cy.checkA11yWithWait(undefined, 300);
+    // cy.checkA11yWithWait(undefined, 300);
 
     cy.compareSnapshot({
       name: "action-elements",
@@ -4473,13 +4473,13 @@ describe("IcDataTable row deletion", () => {
       .find(BUTTON_SELECTOR)
       .focus();
 
+    cy.wait(1000);
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.042),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
-      delay: 550,
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 6);

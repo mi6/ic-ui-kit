@@ -12,6 +12,7 @@ import {
 import { BackToTop } from "./IcBackToTopTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import { IcBackToTop, IcFooter, IcFooterLink } from "../../components";
+import { delay } from "cypress/types/bluebird";
 
 const BACK_TO_TOP_SELECTOR = "ic-back-to-top";
 const DEFAULT_TEST_THRESHOLD = 0.061;
@@ -372,7 +373,7 @@ describe("IcBackToTop visual regression tests in high contrast mode", () => {
   it("should render default BackToTop in high contrast mode", () => {
     mount(<BackToTop />);
 
-    cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR).wait(1000);
+    cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR).wait(1250);
 
     cy.compareSnapshot({
       name: "/default-high-contrast",

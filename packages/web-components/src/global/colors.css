@@ -61,11 +61,13 @@
   --ic-blue-1500: #122e63;
   --ic-blue-1600: #041144;
   --ic-blue-1700: #020b2e;
+  --ic-blue-1800: #010518;
   --ic-blue-800-state-layer-10: rgb(23 89 188 / 10%);
   --ic-blue-800-state-layer-20: rgb(23 89 188 / 20%);
   --ic-blue-800-state-layer-24: rgb(23 89 188 / 24%);
   --ic-blue-800-state-layer-30: rgb(23 89 188 / 30%);
   --ic-blue-800-state-layer-34: rgb(23 89 188 / 34%);
+  --ic-blue-800-state-layer-40: rgb(23 89 188 / 40%);
   --ic-blue-800-state-layer-50: rgb(23 89 188 / 50%);
 
   /* red */
@@ -85,6 +87,7 @@
   --ic-red-1300: #8b1209;
   --ic-red-1500: #610a05;
   --ic-red-1700: #330403;
+  --ic-red-1800: #1a0202;
 
   /* green */
   --ic-green-0: #e8fef3;
@@ -105,6 +108,7 @@
   --ic-green-1400: #00703c;
   --ic-green-1600: #0e462b;
   --ic-green-1700: #0e3020;
+  --ic-green-1800: #0a1912;
 
   /* yellow */
   --ic-yellow-0: #fffbd8;
@@ -124,6 +128,7 @@
   --ic-yellow-1300: #8f553e;
   --ic-yellow-1400: #7a4c3c;
   --ic-yellow-1700: #342521;
+  --ic-yellow-1800: #1b1413;
 
   /* purple */
   --ic-purple-0: #f9f2ff;
@@ -142,7 +147,7 @@
   --ic-purple-1200: #902fe0;
   --ic-purple-1300: #882ad5;
   --ic-purple-1400: #7c25c2;
-  --ic-purple-1800: #350f54;
+  --ic-purple-1800: #1d082e;
 
   /* light blue */
   --ic-light-blue-0: #f7faff;
@@ -175,11 +180,11 @@
   --ic-classification-top-secret: var(--ic-color-classification-red);
 
   /* HYPERLINKS */
-  --ic-color-link-default: #1759bc;
+  --ic-color-link-default: var(--ic-blue-800);
   --ic-color-link-hover: #7c2855;
   --ic-color-link-visited: #330072;
   --ic-color-link-visited-contrast: #b0b0b0;
-  --ic-color-hyperlink-default-light: var(--ic-blue-800);
+  --ic-color-hyperlink-default-light: var(--ic-color-link-default);
   --ic-color-hyperlink-default-dark: var(--ic-blue-300);
   --ic-color-hyperlink-visited-light: var(--ic-color-link-visited);
   --ic-color-hyperlink-visited-dark: var(--ic-purple-300);
@@ -195,6 +200,7 @@
 
   /* FOCUS */
   --ic-color-focus-inner: #0044d7;
+  --ic-color-focus-inner-dark: var(--ic-architectural-black);
   --ic-color-focus-outer: #80a1e8;
   --ic-hc-focus-outline: 3px solid transparent;
 
@@ -288,9 +294,9 @@
   --ic-status-unknown-contrast: var(--ic-architectural-300);
 
   /* TEXT */
-  --ic-color-brand-text: var(--ic-architectural-white);
+  --ic-color-brand-text: var(--ic-architectural-20);
   --ic-color-text-primary-light: var(--ic-architectural-950);
-  --ic-color-text-primary-dark: var(--ic-architectural-white);
+  --ic-color-text-primary-dark: var(--ic-architectural-40);
   --ic-color-text-secondary-light: var(--ic-architectural-700);
   --ic-color-text-secondary-dark: var(--ic-architectural-100);
   --ic-color-text-tertiary-light: var(--ic-architectural-500);
@@ -304,18 +310,18 @@
   --ic-color-text-inactive: var(--ic-architectural-400);
 
   /* actions */
-  --ic-color-text-action: var(--ic-blue-800);
+  --ic-color-text-action-light: var(--ic-blue-800);
   --ic-color-text-action-dark: var(--ic-blue-400);
-  --ic-color-text-action-hover: var(--ic-blue-1100);
+  --ic-color-text-action-hover-light: var(--ic-blue-1100);
   --ic-color-text-action-hover-dark: var(--ic-blue-200);
-  --ic-color-text-action-pressed: var(--ic-blue-1300);
+  --ic-color-text-action-pressed-light: var(--ic-blue-1300);
   --ic-color-text-action-pressed-dark: var(--ic-blue-100);
   --ic-color-text-error-light: var(--ic-red-300);
   --ic-color-text-error-dark: var(--ic-red-800);
 
   /* BACKGROUNDS */
   --ic-color-background-primary-light: var(--ic-architectural-white);
-  --ic-color-background-primary-dark: var(--ic-architectural-800);
+  --ic-color-background-primary-dark: var(--ic-architectural-850);
   --ic-color-background-secondary-light: var(--ic-architectural-20);
   --ic-color-background-secondary-40: var(--ic-architectural-40);
   --ic-color-background-secondary-dark: var(--ic-architectural-700);
@@ -338,8 +344,13 @@
   --ic-color-background-disabled-dark: var(--ic-architectural-300);
   --ic-color-background-disabled-mid: var(--ic-architectural-400);
   --ic-color-background-disabled-darkest: var(--ic-architectural-600);
+  --ic-color-background-disabled-selected: var(--ic-blue-1500);
   --ic-color-background-selected: var(--ic-architectural-white);
   --ic-color-background-clear-icon-hover: var(--ic-architectural-100);
+  --ic-color-background-elevation-level-1: var(--ic-architectural-950);
+  --ic-color-background-elevation-level-2: var(--ic-architectural-900);
+  --ic-color-background-elevation-level-3: var(--ic-architectural-850);
+  --ic-color-background-elevation-level-4: var(--ic-architectural-800);
 
   /* status */
   --ic-color-background-success-light: var(--ic-green-1400);
@@ -347,11 +358,11 @@
   --ic-color-background-warning-light: var(--ic-yellow-400);
   --ic-color-background-warning-dark: var(--ic-yellow-300);
   --ic-color-background-destructive-light: var(--ic-red-800);
-  --ic-color-background-destructive-dark: var(--ic-red-300);
+  --ic-color-background-destructive-dark: var(--ic-red-600);
   --ic-color-background-destructive-hover-light: var(--ic-red-1100);
   --ic-color-background-destructive-hover-dark: var(--ic-red-400);
   --ic-color-background-destructive-pressed-light: var(--ic-red-1300);
-  --ic-color-background-destructive-pressed-dark: var(--ic-red-700);
+  --ic-color-background-destructive-pressed-dark: var(--ic-red-200);
 
   /* non-transparent button background  */
   --ic-color-background-solid: var(--ic-architectural-white);
@@ -368,7 +379,7 @@
   --ic-color-border-neutral-black: var(--ic-architectural-black);
   --ic-color-border-neutral-white: var(--ic-architectural-white);
   --ic-color-border-neutral-grey-light: var(--ic-architectural-40);
-  --ic-color-border-neutral-grey-dark: var(--ic-architectural-400);
+  --ic-color-border-neutral-grey-dark: var(--ic-architectural-700);
   --ic-color-border-neutral-pressed-default: var(--ic-architectural-600);
   --ic-color-border-neutral-pressed-light: var(--ic-architectural-200);
   --ic-color-border-neutral-pressed-dark: var(--ic-architectural-700);
@@ -380,23 +391,23 @@
 
   /* status borders */
   --ic-color-border-success-light: var(--ic-green-1400);
-  --ic-color-border-success-dark: var(--ic-green-300);
+  --ic-color-border-success-dark: var(--ic-green-1000);
   --ic-color-border-success-hover-light: var(--ic-green-1600);
-  --ic-color-border-success-hover-dark: var(--ic-green-400);
+  --ic-color-border-success-hover-dark: var(--ic-green-1100);
   --ic-color-border-success-pressed-light: var(--ic-green-1700);
-  --ic-color-border-success-pressed-dark: var(--ic-green-600);
+  --ic-color-border-success-pressed-dark: var(--ic-green-1200);
   --ic-color-border-warning-light: var(--ic-yellow-900);
-  --ic-color-border-warning-dark: var(--ic-yellow-300);
+  --ic-color-border-warning-dark: var(--ic-yellow-400);
   --ic-color-border-warning-hover-light: var(--ic-yellow-1100);
-  --ic-color-border-warning-hover-dark: var(--ic-yellow-400);
+  --ic-color-border-warning-hover-dark: var(--ic-yellow-500);
   --ic-color-border-warning-pressed-light: var(--ic-yellow-1300);
-  --ic-color-border-warning-pressed-dark: var(--ic-yellow-500);
+  --ic-color-border-warning-pressed-dark: var(--ic-yellow-600);
   --ic-color-border-error-light: var(--ic-red-800);
-  --ic-color-border-error-dark: var(--ic-red-300);
+  --ic-color-border-error-dark: var(--ic-red-400);
   --ic-color-border-error-hover-light: var(--ic-red-1100);
-  --ic-color-border-error-hover-dark: var(--ic-red-400);
+  --ic-color-border-error-hover-dark: var(--ic-red-600);
   --ic-color-border-error-pressed-light: var(--ic-red-1300);
-  --ic-color-border-error-pressed-dark: var(--ic-red-700);
+  --ic-color-border-error-pressed-dark: var(--ic-red-800);
 
   /* action borders */
   --ic-color-border-action-light: var(--ic-blue-800);
@@ -429,14 +440,14 @@
 
   /* destructive */
   --ic-action-destructive-light: var(--ic-red-800);
-  --ic-action-destructive-dark: var(--ic-red-300);
+  --ic-action-destructive-dark: var(--ic-red-600);
   --ic-action-destructive-hover-light: var(--ic-red-1100);
   --ic-action-destructive-hover-dark: var(--ic-red-400);
   --ic-action-destructive-pressed-light: var(--ic-red-1300);
-  --ic-action-destructive-pressed-dark: var(--ic-red-700);
+  --ic-action-destructive-pressed-dark: var(--ic-red-200);
 
   /* light */
-  --ic-action-light: var(--ic-architectural-white);
+  --ic-action-light: var(--ic-architectural-40);
   --ic-action-light-hover: var(--ic-architectural-200);
   --ic-action-light-pressed: var(--ic-architectural-300);
   --ic-action-light-bg-hover: var(--ic-state-layer-lighten-10);
@@ -467,11 +478,11 @@
   --ic-brand-blue-primary-a: 1;
 
   /* brand state layers */
-  --ic-brand-darken-20: var(--ic-architectural-black-state-layer-20);
-  --ic-brand-darken-30: var(--ic-architectural-black-state-layer-30);
-  --ic-brand-darken-40: var(--ic-architectural-black-state-layer-40);
-  --ic-brand-lighten-20: var(--ic-architectural-white-state-layer-20);
-  --ic-brand-lighten-40: var(--ic-architectural-white-state-layer-40);
+  --ic-brand-darken-20: var(--ic-state-layer-darken-20);
+  --ic-brand-darken-30: var(--ic-state-layer-darken-30);
+  --ic-brand-darken-40: var(--ic-state-layer-darken-40);
+  --ic-brand-lighten-20: var(--ic-state-layer-lighten-20);
+  --ic-brand-lighten-40: var(--ic-state-layer-lighten-40);
   --ic-brand-color-primary-r: var(--ic-brand-blue-primary-r);
   --ic-brand-color-primary-g: var(--ic-brand-blue-primary-g);
   --ic-brand-color-primary-b: var(--ic-brand-blue-primary-b);
@@ -577,9 +588,9 @@
   --ic-table-row-selected: #c7d7ef;
 
   /* ICONS */
-  --ic-color-icon-brand: var(--ic-architectural-white);
+  --ic-color-icon-brand: var(--ic-architectural-20);
   --ic-color-icon-neutral: var(--ic-architectural-950);
-  --ic-color-icon-inverted: var(--ic-architectural-white);
+  --ic-color-icon-inverted: var(--ic-architectural-40);
   --ic-color-icon-hover-light: var(--ic-architectural-200);
   --ic-color-icon-hover-dark: var(--ic-architectural-800);
   --ic-color-icon-pressed-light: var(--ic-architectural-300);
@@ -636,7 +647,7 @@
   --ic-classification-banner-not-set: var(--ic-classification-not-set);
   --ic-classification-banner-official: var(--ic-classification-official);
   --ic-classification-banner-official-sensitive: var(
-    --ic-classification-official
+    --ic-classification-official-sensitive
   );
   --ic-classification-banner-secret: var(--ic-classification-secret);
   --ic-classification-banner-top-secret: var(--ic-classification-top-secret);
@@ -663,27 +674,27 @@
   /* SIDE NAVIGATION */
   --ic-side-navigation-background: var(--ic-brand-color-primary);
   --ic-side-navigation-icon: var(--ic-color-icon-brand);
-  --ic-side-navigation-icon-disabled: var(--ic-color-icon-grey-light);
-  --ic-side-navigation-status-tag-text: var(--ic-color-text-primary-light);
-  --ic-side-navigation-logo: var(--ic-color-icon-brand);
-  --ic-side-navigation-keyline: var(--ic-state-layer-lighten-20);
+  --ic-side-navigation-icon-label: var(--ic-color-brand-text);
   --ic-side-navigation-icon-and-label: var(--ic-color-brand-text);
-  --ic-side-navigation-theme: var(--ic-color-background-primary-light);
+  --ic-side-navigation-icon-disabled: var(--ic-color-icon-disabled-light);
+  --ic-side-navigation-status-tag-text: var(--ic-color-text-primary-light);
+  --ic-side-navigation-status-tag: var(--ic-color-background-primary-light);
   --ic-side-navigation-hover: var(--ic-brand-hover);
   --ic-side-navigation-pressed: var(--ic-brand-active);
-  --ic-side-navigation-icon-label: var(--ic-color-icon-brand);
-  --ic-side-navigation-text: var(--ic-brand-text-color);
-  --ic-side-navigation-status-tag: var(--ic-color-background-primary-light);
-  --ic-side-navigation-focussed: var(--ic-color-background-primary-light);
   --ic-side-navigation-focussed-text: var(--ic-color-text-primary-light);
-  --ic-side-navigation-focussed-icon: var(--ic-color-text-primary-light);
+  --ic-side-navigation-focussed-icon: var(--ic-color-icon-neutral);
   --ic-side-navigation-selection-indicator: var(--ic-color-icon-brand);
   --ic-side-navigation-selection-indicator-disabled: var(
     --ic-color-icon-disabled-light
   );
+  --ic-side-navigation-logo: var(--ic-color-icon-brand);
+  --ic-side-navigation-keyline: var(--ic-state-layer-lighten-20);
+  --ic-side-navigation-theme: var(--ic-color-background-primary-light);
+  --ic-side-navigation-text: var(--ic-brand-text-color);
+  --ic-side-navigation-focussed: var(--ic-color-background-primary-light);
 
   /* TOAST */
-  --ic-toast-background: var(--ic-color-background-primary-dark);
+  --ic-toast-background: var(--ic-color-background-elevation-level-3);
   --ic-toast-status-success: var(--ic-status-success-contrast);
   --ic-toast-status-error: var(--ic-status-error-contrast);
   --ic-toast-status-warning: var(--ic-status-warning-contrast);
@@ -699,12 +710,6 @@
   --ic-toast-dismiss-button: var(--ic-color-icon-inverted);
 
   /* ATOMS */
-  --ic-atoms-input-field-background-light: var(
-    --ic-color-background-primary-light
-  );
-  --ic-atoms-input-field-background-dark: var(
-    --ic-color-background-primary-dark
-  );
   --ic-atoms-input-field-label-light: var(--ic-color-text-primary-light);
   --ic-atoms-input-field-label-dark: var(--ic-color-text-primary-dark);
   --ic-atoms-input-field-label-disabled-light: var(
@@ -724,6 +729,12 @@
   );
   --ic-atoms-input-field-label-subtitle-disabled-dark: var(
     --ic-color-text-tertiary-dark
+  );
+  --ic-atoms-input-field-background-light: var(
+    --ic-color-background-primary-light
+  );
+  --ic-atoms-input-field-background-dark: var(
+    --ic-color-background-primary-dark
   );
   --ic-atoms-input-field-label-error-light: var(--ic-color-text-error-dark);
   --ic-atoms-input-field-label-error-dark: var(--ic-color-text-error-light);

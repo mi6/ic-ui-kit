@@ -1144,7 +1144,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.checkHydrated(IC_SELECT);
 
-    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(500);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(600);
 
     cy.compareSnapshot({
       name: "/searchable-disabled-options-open-high-contrast",
