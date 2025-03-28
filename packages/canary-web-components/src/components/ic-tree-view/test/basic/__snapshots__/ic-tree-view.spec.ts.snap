@@ -34,7 +34,7 @@ exports[`ic-tree-view component should render with icon 1`] = `
 `;
 
 exports[`ic-tree-view component should render with slotted heading 1`] = `
-<ic-tree-view context-id="ic-tree-view-3">
+<ic-tree-view context-id="ic-tree-view-4">
   <template shadowrootmode="open">
     <div class="heading-area-container">
       <ic-typography class="ic-typography-subtitle-large tree-view-header">
@@ -55,8 +55,8 @@ exports[`ic-tree-view component should render with slotted heading 1`] = `
 </ic-tree-view>
 `;
 
-exports[`ic-tree-view component should render with tree items 1`] = `
-<ic-tree-view aria-label="Heading" context-id="ic-tree-view-2" heading="Heading">
+exports[`ic-tree-view component should render with slotted tree items 1`] = `
+<ic-tree-view aria-label="Heading" context-id="ic-tree-view-3" heading="Heading">
   <template shadowrootmode="open">
     <div class="heading-area-container">
       <ic-typography class="tree-view-header" variant="subtitle-large">
@@ -65,7 +65,7 @@ exports[`ic-tree-view component should render with tree items 1`] = `
     </div>
     <slot></slot>
   </template>
-  <ic-tree-item context-id="ic-tree-view-2" id="ic-tree-item-0" label="Item 1">
+  <ic-tree-item context-id="ic-tree-view-3" id="ic-tree-item-0" label="Item 1">
     <template shadowrootmode="open">
       <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
         <ic-typography class="tree-item-label">
@@ -74,7 +74,7 @@ exports[`ic-tree-view component should render with tree items 1`] = `
       </div>
     </template>
   </ic-tree-item>
-  <ic-tree-item context-id="ic-tree-view-2" id="ic-tree-item-1" label="Item 2">
+  <ic-tree-item context-id="ic-tree-view-3" id="ic-tree-item-1" label="Item 2">
     <template shadowrootmode="open">
       <div aria-disabled="false" aria-live="polite" class="tree-item-content" tabindex="0">
         <ic-typography class="tree-item-label">
@@ -82,6 +82,28 @@ exports[`ic-tree-view component should render with tree items 1`] = `
         </ic-typography>
       </div>
     </template>
+  </ic-tree-item>
+</ic-tree-view>
+`;
+
+exports[`ic-tree-view component should render with tree items 1`] = `
+<ic-tree-view aria-label="Menu" context-id="ic-tree-view-2" heading="Menu" id="basic-tree-view">
+  <template shadowrootmode="open">
+    <div class="heading-area-container">
+      <ic-typography class="tree-view-header" variant="subtitle-large">
+        Menu
+      </ic-typography>
+    </div>
+    <slot></slot>
+  </template>
+  <ic-tree-item context-id="ic-tree-view-2">
+    <template shadowrootmode="open"></template>
+  </ic-tree-item>
+  <ic-tree-item context-id="ic-tree-view-2">
+    <template shadowrootmode="open"></template>
+  </ic-tree-item>
+  <ic-tree-item context-id="ic-tree-view-2">
+    <template shadowrootmode="open"></template>
   </ic-tree-item>
 </ic-tree-view>
 `;
