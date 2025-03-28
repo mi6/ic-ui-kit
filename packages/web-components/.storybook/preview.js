@@ -42,7 +42,7 @@ const preview = {
       const selectedTheme = context.globals.theme || "light";
       const backgroundColor =
         selectedTheme === "dark"
-          ? "var(--ic-color-background-primary-dark)"
+          ? "#17191c"
           : "var(--ic-color-background-primary-light)";
       return html`
         <style>
