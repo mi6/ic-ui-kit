@@ -3,13 +3,20 @@ const config = {
   core: {
     disableTelemetry: true,
   },
+
   stories: [
     {
-      directory: '../../react/src/stories',
-      files: '*.stories.*',
-      titlePrefix: 'Nextjs Components',
+      directory: "../../react/src/stories",
+      files: "*.mdx",
+      titlePrefix: "Nextjs Components",
+    },
+    {
+      directory: "../../react/src/stories",
+      files: "*.stories.*",
+      titlePrefix: "Nextjs Components",
     },
   ],
+
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -17,12 +24,16 @@ const config = {
     "@storybook/addon-postcss",
     "@storybook/addon-a11y",
   ],
+
   framework: {
     name: "@storybook/nextjs",
     options: {},
   },
-  docs: {
-    autodocs: true,
+
+  docs: {},
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
   },
 };
 export default config;
