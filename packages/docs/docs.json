@@ -10470,7 +10470,7 @@
           "mutable": false,
           "attr": "expandable",
           "reflectToAttr": false,
-          "docs": "If `true`, the group will be expandable in the side menu.",
+          "docs": "If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.",
           "docsTags": [],
           "default": "false",
           "values": [
