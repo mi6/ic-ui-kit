@@ -112,7 +112,11 @@ export const CustomConnectorWidth = () => {
           subheading="Optional subtitle that is long and should wrap"
           type="current"
         />
-        <IcStep heading="Third" type="disabled" />
+        <IcStep
+          heading="Third"
+          subheading="Optional Subtitle"
+          type="disabled"
+        />
         <IcStep
           heading="Fourth title that is long and should wrap"
           subheading="Optional Subtitle"
@@ -240,12 +244,47 @@ export const WithHiddenStepInformation = () => {
 
 export const Light = () => {
   return (
-    <div style={{ padding: "100px", backgroundColor: "#2c2f34" }}>
+    <div style={{ padding: "100px", backgroundColor: "#17191C" }}>
       <IcStepper theme="dark">
-        <IcStep heading="Create" type="completed" />
-        <IcStep heading="Read" type="current" />
-        <IcStep heading="Update" type="active" />
-        <IcStep heading="Delete" type="disabled" />
+        <IcStep
+          heading="Create"
+          type="completed"
+          subheading="Optional subtitle"
+        />
+        <IcStep heading="Read" type="current" subheading="Optional subtitle" />
+        <IcStep heading="Update" type="active" subheading="Optional subtitle" />
+        <IcStep
+          heading="Delete"
+          type="disabled"
+          subheading="Optional subtitle"
+        />
+      </IcStepper>
+    </div>
+  );
+};
+
+export const LightCompact = () => {
+  return (
+    <div style={{ padding: "10px", backgroundColor: "#17191C" }}>
+      <IcStepper theme="dark" variant="compact" id="standard-compact-stepper">
+        <IcStep heading="First" />
+        <IcStep
+          heading="Second with a very long title"
+          subheading="Optional subtitle that is long and should wrap"
+          type="current"
+        />
+        <IcStep heading="Third" type="disabled" />
+        <IcStep
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
+        />
+        <IcStep
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
+          type="completed"
+        />
       </IcStepper>
     </div>
   );

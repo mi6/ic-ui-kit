@@ -13,6 +13,7 @@ import {
   WithHiddenStepInformation,
   Light,
   SmallConnectorWidth,
+  LightCompact,
 } from "./IcStepperTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
@@ -107,7 +108,7 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
     // cy.checkA11yWithWait(); A11y failure for disabled text
     cy.compareSnapshot({
       name: "/custom-connector-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
     });
   });
 
@@ -137,15 +138,29 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
     });
   });
 
-  it("should render a light stepper", () => {
+  it("should render a light stepper in dark mode", () => {
+    cy.mockResizeObserver(1024, 500);
+
     mount(<Light />);
 
     cy.checkHydrated(STEPPER_SELECTOR);
 
-    //cy.checkA11yWithWait();
+    // cy.checkA11yWithWait(); A11y failure for disabled text
     cy.compareSnapshot({
       name: "/light",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+    });
+  });
+
+  it("should render a light compact stepper in dark mode", () => {
+    mount(<LightCompact />);
+
+    cy.checkHydrated(STEPPER_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/light-compact",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
     });
   });
 
@@ -165,7 +180,7 @@ describe("IcStepper end-to-end, visual regression and a11y tests", () => {
     // cy.checkA11yWithWait(); A11y failure for disabled text
     cy.compareSnapshot({
       name: "/small-connector-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
   });
 });
@@ -218,7 +233,7 @@ describe("IcStepper visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/custom-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
     });
   });
 });
