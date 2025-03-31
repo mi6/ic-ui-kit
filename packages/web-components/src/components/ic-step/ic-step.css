@@ -78,7 +78,7 @@
 }
 
 :host(.ic-step-compact) .disabled .heading {
-  color: var(--ic-stepper-compact-step-title);
+  color: var(--ic-stepper-compact-step-title-disabled);
 }
 
 .info-line {
@@ -224,7 +224,7 @@
 
 .current .step-icon-inner {
   background-color: var(--ic-step-number-background-active);
-  color: var(--ic-step-number-text);
+  color: var(--ic-step-number-text-current);
 }
 
 .disabled {
