@@ -46,7 +46,6 @@ export class NavigationGroup {
   private expandedNavItemsHeight: string;
   private groupEl?: HTMLElement;
   private IC_NAVIGATION_ITEM = "ic-navigation-item";
-  private isSideNavExpanded: boolean;
   private mouseGate: boolean = false;
   private nodeName = "IC-NAVIGATION-GROUP";
   private GROUPED_LINKS_WRAPPER_CLASS = ".grouped-links-wrapper";
@@ -61,9 +60,10 @@ export class NavigationGroup {
   @State() inTopNavSideMenu: boolean = false;
   @State() navigationType: IcNavType | "";
   @State() parentEl: HTMLElement | null;
+  @State() isSideNavExpanded: boolean;
 
   /**
-   *  If `true`, the group will be expandable in the side menu.
+   *  If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
    */
   @Prop() expandable?: boolean = false;
 
@@ -393,6 +393,7 @@ export class NavigationGroup {
         class={{
           ["navigation-group-dropdown-items"]: !this.inTopNavSideMenu,
         }}
+        aria-labelledby="nav-group-title"
       >
         <ul>
           <slot></slot>
@@ -448,6 +449,15 @@ export class NavigationGroup {
     }
   };
 
+  private renderGroupTitleText = (): HTMLIcTypographyElement => (
+    <ic-typography
+      id="nav-group-title"
+      variant={this.navigationType === "side" ? "caption" : "label"}
+    >
+      {this.label}
+    </ic-typography>
+  );
+
   private renderNavigationItems = (): HTMLDivElement | null => {
     if (this.dropdownOpen || (this.inTopNavSideMenu && !this.expandable)) {
       return this.renderDropdownGroupedLinks();
@@ -471,7 +481,17 @@ export class NavigationGroup {
   }
 
   render() {
-    const { label, dropdownOpen, inTopNavSideMenu, expandable } = this;
+    const { dropdownOpen, inTopNavSideMenu, expandable } = this;
+
+    const navGroupTitleClassNames = {
+      ["navigation-group"]: true,
+      [this.focusStyle]: !inTopNavSideMenu,
+      ["navigation-group-side-menu-collapsed"]:
+        inTopNavSideMenu && !!expandable && !dropdownOpen,
+      ["navigation-group-side-menu-expanded"]:
+        inTopNavSideMenu && !!expandable && dropdownOpen,
+      ["selected"]: dropdownOpen && !inTopNavSideMenu,
+    };
 
     return (
       <Host
@@ -481,53 +501,47 @@ export class NavigationGroup {
           "ic-navigation-group-collapsed": !this.expanded,
           ["ic-navigation-group-side-nav"]: this.navigationType === "side",
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+          ["ic-navigation-group-expandable"]: !!expandable,
         }}
         role="listitem"
       >
-        <button
-          onMouseEnter={
-            !inTopNavSideMenu && this.navigationType === "top"
-              ? this.handleMouseEnter
-              : undefined
-          }
-          onMouseLeave={
-            this.navigationType === "top" ? this.handleMouseLeave : undefined
-          }
-          tabindex={inTopNavSideMenu && !expandable ? "-1" : "0"}
-          onBlur={this.handleBlur}
-          onClick={expandable ? this.handleClick : undefined}
-          onKeyDown={this.handleKeydown}
-          class={{
-            ["navigation-group"]: true,
-            [this.focusStyle]: !inTopNavSideMenu,
-            ["navigation-group-side-menu"]: inTopNavSideMenu && !expandable,
-            ["navigation-group-side-menu-collapsed"]:
-              inTopNavSideMenu && !!expandable && !dropdownOpen,
-            ["navigation-group-side-menu-expanded"]:
-              inTopNavSideMenu && !!expandable && dropdownOpen,
-            ["selected"]: dropdownOpen && !inTopNavSideMenu,
-          }}
-          ref={(el) => (this.groupEl = el)}
-          aria-expanded={`${dropdownOpen || this.expanded}`}
-          aria-haspopup={`${
-            !inTopNavSideMenu && this.navigationType === "top"
-          }`}
-        >
-          <ic-typography
-            variant={this.navigationType === "side" ? "caption" : "label"}
+        {this.expandable ||
+        (!inTopNavSideMenu && this.navigationType === "top") ? (
+          <button
+            onMouseEnter={
+              !inTopNavSideMenu && this.navigationType === "top"
+                ? this.handleMouseEnter
+                : undefined
+            }
+            onMouseLeave={
+              this.navigationType === "top" ? this.handleMouseLeave : undefined
+            }
+            onBlur={this.handleBlur}
+            onClick={this.handleClick}
+            onKeyDown={this.handleKeydown}
+            class={navGroupTitleClassNames}
+            ref={(el) => (this.groupEl = el)}
+            aria-expanded={`${dropdownOpen || this.expanded}`}
+            aria-haspopup={`${
+              !inTopNavSideMenu && this.navigationType === "top"
+            }`}
           >
-            {label}
-          </ic-typography>
-          {this.navigationType === "side" && expandable && (
-            <div
-              class={{
-                "chevron-toggle-icon-wrapper": true,
-                "chevron-toggle-icon-closed": this.expanded,
-              }}
-              innerHTML={chevronIcon}
-            ></div>
-          )}
-        </button>
+            {this.renderGroupTitleText()}
+            {this.navigationType === "side" && expandable && (
+              <div
+                class={{
+                  "chevron-toggle-icon-wrapper": true,
+                  "chevron-toggle-icon-closed": this.expanded,
+                }}
+                innerHTML={chevronIcon}
+              ></div>
+            )}
+          </button>
+        ) : this.navigationType === "side" && !this.isSideNavExpanded ? null : (
+          <div class={navGroupTitleClassNames}>
+            {this.renderGroupTitleText()}
+          </div>
+        )}
         {this.renderNavigationItems()}
       </Host>
     );
