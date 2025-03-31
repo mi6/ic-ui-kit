@@ -452,7 +452,11 @@ export const WithGroupedNavigation = {
         placeholder="Search"
         label="Search"
       ></ic-search-bar>
-      <ic-navigation-group slot="navigation" label="Navigation group">
+      <ic-navigation-group
+        slot="navigation"
+        label="Navigation group (expandable on mobile)"
+        expandable="true"
+      >
         <ic-navigation-item label="One" href="/"></ic-navigation-item>
         <ic-navigation-item label="Two" href="/"></ic-navigation-item>
         <ic-navigation-item label="Three" href="/"></ic-navigation-item>
