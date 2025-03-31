@@ -380,7 +380,7 @@ export const WithGroupNavigation = {
       </svg>
       <IcSearchBar slot="search" placeholder="Search" label="Search" />
       <IcNavigationGroup
-        label="Navigation Group"
+        label="Navigation Group (expandable on mobile)"
         expandable="true"
         slot="navigation"
       >
@@ -391,7 +391,6 @@ export const WithGroupNavigation = {
       </IcNavigationGroup>
       <IcNavigationGroup
         label="Second Nav Group"
-        expandable="true"
         slot="navigation"
       >
         <IcNavigationItem label="One" href="/" />
