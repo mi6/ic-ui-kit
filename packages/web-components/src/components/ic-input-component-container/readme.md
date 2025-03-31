@@ -7,15 +7,15 @@
 
 ## Properties
 
-| Property           | Attribute           | Description                                                                                      | Type                                      | Default    |
-| ------------------ | ------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------- | ---------- |
-| `disabled`         | `disabled`          | If `true`, the disabled state will be set.                                                       | `boolean`                                 | `false`    |
-| `fullWidth`        | `full-width`        | If `true`, the input component container will fill the width of the container it is in.          | `boolean`                                 | `false`    |
-| `multiLine`        | `multi-line`        | If `true`, the input component container will allow for multiple lines.                          | `boolean`                                 | `false`    |
-| `readonly`         | `readonly`          | If `true`, the readonly state will be set.                                                       | `boolean`                                 | `false`    |
-| `size`             | `size`              | The size of the input component container component.                                             | `"large" \| "medium" \| "small"`          | `"medium"` |
-| `validationInline` | `validation-inline` | If `true`, the validation will display inline.                                                   | `boolean`                                 | `false`    |
-| `validationStatus` | `validation-status` | The validation status of the input component container - e.g. 'error' \| 'warning' \| 'success'. | `"" \| "error" \| "success" \| "warning"` | `""`       |
+| Property           | Attribute           | Description                                                                                      | Type                                                   | Default    |
+| ------------------ | ------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | ---------- |
+| `disabled`         | `disabled`          | If `true`, the disabled state will be set.                                                       | `boolean \| undefined`                                 | `false`    |
+| `fullWidth`        | `full-width`        | If `true`, the input component container will fill the width of the container it is in.          | `boolean \| undefined`                                 | `false`    |
+| `multiLine`        | `multi-line`        | If `true`, the input component container will allow for multiple lines.                          | `boolean \| undefined`                                 | `false`    |
+| `readonly`         | `readonly`          | If `true`, the readonly state will be set.                                                       | `boolean \| undefined`                                 | `false`    |
+| `size`             | `size`              | The size of the input component container component.                                             | `"large" \| "medium" \| "small" \| undefined`          | `"medium"` |
+| `validationInline` | `validation-inline` | If `true`, the validation will display inline.                                                   | `boolean \| undefined`                                 | `false`    |
+| `validationStatus` | `validation-status` | The validation status of the input component container - e.g. 'error' \| 'warning' \| 'success'. | `"" \| "error" \| "success" \| "warning" \| undefined` | `""`       |
 
 
 ## Slots
