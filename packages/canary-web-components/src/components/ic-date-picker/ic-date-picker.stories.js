@@ -9,12 +9,14 @@ import {
   HideButtons,
   HideOutsideMonth,
   IcChangeDate,
+  IcSelectedDateChange,
   JSDates,
   MaxMin,
   MaxWidth,
   OpenAt,
   Sizes,
   Value,
+  ValueCalendarOnlyMode,
   WeekStart,
   WorkingWeek,
 } from "./story-data";
@@ -90,6 +92,15 @@ export const DateFormatsExample = {
 export const ValueExample = {
   render: () => Value(),
   name: "Value",
+  height: "540px",
+};
+
+/**
+ * The `value` prop sets the date in the input field. The value can be in any format supported by the `date-format` prop, in ISO 8601 date string format (yyyy-mm-dd) or as a JavaScript Date object.
+ */
+export const ValueCalendarOnlyModeExample = {
+  render: () => ValueCalendarOnlyMode(),
+  name: "Value in calendar only mode",
   height: "540px",
 };
 
@@ -181,5 +192,14 @@ export const JavaScriptDates = {
 export const IcChangeEvent = {
   render: () => IcChangeDate(),
   name: "IcChange event",
+  height: "540px",
+};
+
+/**
+ * The date input can be hidden from the component by setting the deprecated `showDateInput` prop to `false`, thereby putting the component into "calendar only" mode. The `IcSelectedDateChange` event is emitted by the date picker when the selected date changes.
+ */
+export const IcSelectedDateChangeEvent = {
+  render: () => IcSelectedDateChange(),
+  name: "IcSelectedDateChange event",
   height: "540px",
 };
