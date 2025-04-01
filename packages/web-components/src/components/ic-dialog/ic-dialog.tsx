@@ -18,7 +18,7 @@ import {
   onComponentRequiredPropUndefined,
   getSlotElements,
 } from "../../utils/helpers";
-import { IcThemeMode } from "../../utils/types";
+import { IcFocusableComponents, IcThemeMode } from "../../utils/types";
 
 /**
  * @slot dialog-controls - Content will be place at the bottom of the dialog.
@@ -36,7 +36,6 @@ export class Dialog {
   private contentArea: HTMLSlotElement | null;
   private contentAreaMutationObserver: MutationObserver | null = null;
   private DATA_GETS_FOCUS: string = "data-gets-focus";
-  private DATA_GETS_FOCUS_SELECTOR: string = "[data-gets-focus]";
   private DIALOG_CONTROLS: string = "dialog-controls";
   private dialogEl?: HTMLDialogElement;
   private dialogHeight: number = 0;
@@ -44,6 +43,8 @@ export class Dialog {
   private IC_TEXT_FIELD: string = "IC-TEXT-FIELD";
   private IC_ACCORDION: string = "IC-ACCORDION";
   private IC_ACCORDION_GROUP: string = "IC-ACCORDION-GROUP";
+  private IC_CHECKBOX = "IC-CHECKBOX";
+  private IC_SEARCH_BAR: string = "IC-SEARCH-BAR";
   private interactiveElementList: HTMLElement[];
   private resizeObserver: ResizeObserver | null = null;
   private resizeTimeout: number;
@@ -190,7 +191,7 @@ export class Dialog {
     if (this.dialogRendered) {
       switch (ev.key) {
         case "Tab":
-          if (this.focusNextInteractiveElement(ev.shiftKey)) {
+          if (this.onTabKeyPress(ev.shiftKey)) {
             ev.preventDefault();
           }
           break;
@@ -274,7 +275,6 @@ export class Dialog {
     }, 75);
 
     setTimeout(() => {
-      this.getFocusedElementIndex();
       this.icDialogOpened.emit();
     }, 80);
   };
@@ -334,32 +334,12 @@ export class Dialog {
 
   private setInitialFocus = () => {
     this.sourceElement = document.activeElement as HTMLElement;
-
-    let focusedElement;
-
-    if (this.el.querySelector(this.DATA_GETS_FOCUS_SELECTOR) !== null) {
-      focusedElement = this.el.querySelector(
-        this.DATA_GETS_FOCUS_SELECTOR
-      ) as HTMLElement;
-    } else {
-      focusedElement = this.el.shadowRoot?.querySelector(
-        this.DATA_GETS_FOCUS_SELECTOR
-      ) as HTMLElement;
-    }
-
-    if (focusedElement) {
-      if (focusedElement.tagName === this.IC_TEXT_FIELD) {
-        (focusedElement as HTMLIcTextFieldElement).setFocus();
-      } else if (focusedElement.tagName === this.IC_ACCORDION_GROUP) {
-        (focusedElement as HTMLIcAccordionGroupElement).setFocus();
-      } else if (focusedElement.tagName === this.IC_ACCORDION) {
-        (focusedElement as HTMLIcAccordionElement).setFocus();
-      } else {
-        focusedElement.focus({
-          preventScroll: this.disableHeightConstraint ? true : false,
-        });
-      }
-    }
+    this.focusedElementIndex = this.interactiveElementList
+      ? this.interactiveElementList.findIndex((element) =>
+          element.hasAttribute(this.DATA_GETS_FOCUS)
+        )
+      : 0;
+    this.focusElement(this.interactiveElementList[this.focusedElementIndex]);
   };
 
   private getFocusedElementIndex = () => {
@@ -384,7 +364,7 @@ export class Dialog {
     const slottedInteractiveElements = Array.from(
       this.el.querySelectorAll(
         `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
-          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group,
+          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, 
           ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
           ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion, ic-date-input, ic-date-picker`
       )
@@ -410,12 +390,12 @@ export class Dialog {
   private getNextFocusEl = (focusedElementIndex: number) =>
     this.interactiveElementList[focusedElementIndex];
 
-  private focusNextInteractiveElement = (shiftKey: boolean): boolean => {
+  private onTabKeyPress = (shiftKey: boolean): boolean => {
     this.getFocusedElementIndex();
 
     if (
       this.interactiveElementList[this.focusedElementIndex].tagName ===
-      "IC-SEARCH-BAR"
+      this.IC_SEARCH_BAR
     ) {
       return false;
     }
@@ -423,31 +403,56 @@ export class Dialog {
     this.setFocusIndexBasedOnShiftKey(shiftKey);
     this.loopNextFocusIndexIfLastElement();
 
-    let nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
+    this.focusElement(this.getNextFocusEl(this.focusedElementIndex), shiftKey);
+    return true;
+  };
 
+  private shouldSkipElement = (element: HTMLElement): boolean => {
     const isHidden =
-      getComputedStyle(nextFocusEl).visibility === "hidden" ||
-      (nextFocusEl.tagName === this.IC_ACCORDION_GROUP &&
-        nextFocusEl.hasAttribute("single-expansion"));
+      getComputedStyle(element).visibility === "hidden" ||
+      element.offsetHeight === 0 ||
+      element.hasAttribute("disabled") ||
+      (element.tagName === this.IC_ACCORDION_GROUP &&
+        element.hasAttribute("single-expansion"));
 
-    if (nextFocusEl.tagName === this.IC_TEXT_FIELD) {
-      (nextFocusEl as HTMLIcTextFieldElement).setFocus();
+    let shouldSkipElement = false;
+
+    if (isHidden) {
+      shouldSkipElement = true;
     } else {
-      if (isHidden) {
-        this.setFocusIndexBasedOnShiftKey(shiftKey);
-        this.loopNextFocusIndexIfLastElement();
-
-        nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
-      }
-      if (nextFocusEl.tagName === this.IC_ACCORDION_GROUP) {
-        (nextFocusEl as HTMLIcAccordionGroupElement).setFocus();
-      } else if (nextFocusEl.tagName === this.IC_ACCORDION) {
-        (nextFocusEl as HTMLIcAccordionElement).setFocus();
-      } else {
-        (nextFocusEl as HTMLElement).focus();
+      if (element.getAttribute("type") === "radio") {
+        const radioEl = element.closest("ic-radio-option");
+        if (radioEl && !radioEl.hasAttribute("selected")) {
+          shouldSkipElement = true;
+        }
       }
     }
-    return true;
+
+    return shouldSkipElement;
+  };
+
+  private focusElement = (element: HTMLElement, shiftKey = false) => {
+    let nextFocusEl = element;
+
+    if (this.shouldSkipElement(element)) {
+      this.setFocusIndexBasedOnShiftKey(shiftKey);
+      this.loopNextFocusIndexIfLastElement();
+
+      nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
+      this.focusElement(nextFocusEl, shiftKey);
+    } else {
+      switch (element.tagName) {
+        case this.IC_ACCORDION_GROUP:
+        case this.IC_ACCORDION:
+        case this.IC_SEARCH_BAR:
+        case this.IC_TEXT_FIELD:
+        case this.IC_CHECKBOX:
+          (element as IcFocusableComponents).setFocus();
+          break;
+        default:
+          (element as HTMLElement).focus();
+      }
+    }
   };
 
   private loopNextFocusIndexIfLastElement() {

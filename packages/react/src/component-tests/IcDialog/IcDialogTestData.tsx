@@ -12,6 +12,12 @@ import {
   IcAccordion,
   IcAccordionGroup,
   IcSearchBar,
+  IcLink,
+  IcRadioGroup,
+  IcRadioOption,
+  IcChip,
+  IcSwitch,
+  SlottedSVG,
 } from "../..";
 import { IcStatusVariants } from "@ukic/web-components";
 
@@ -114,6 +120,129 @@ export const SlottedUpdatedContentDialog = () => {
           {showBtn1 && <IcButton id="test-button-1">Test button 1</IcButton>}
         </div>
         {showBtn2 && <IcButton id="test-button-2">Test button 2</IcButton>}
+      </IcDialog>
+    </>
+  );
+};
+
+export const LotsOfSlottedContentDialog = () => {
+  const options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+  ];
+  return (
+    <>
+      <IcDialog disableWidthConstraint size="large" open>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.75rem",
+          }}
+        >
+          <IcTypography slot="heading" variant="h4">
+            This is a slotted heading
+          </IcTypography>
+          <IcTypography slot="label" variant="label">
+            Slotted label
+          </IcTypography>
+          <IcAlert
+            variant="info"
+            heading="Info"
+            message="This alert is for displaying information"
+            slot="alert"
+          >
+            <IcTypography slot="message">
+              This is some text and{" "}
+              <IcLink href="/" inline>
+                this is an inline link
+              </IcLink>{" "}
+              within the text.
+            </IcTypography>
+            <IcButton slot="action" variant="secondary">
+              Button
+            </IcButton>
+          </IcAlert>
+          <IcTypography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </IcTypography>
+          <IcRadioGroup label="This is a label" name="1">
+            <IcRadioOption
+              value="value1"
+              label="Unselected / Default"
+              additionalFieldDisplay="dynamic"
+            >
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              ></IcTextField>
+            </IcRadioOption>
+            <IcRadioOption
+              value="value2"
+              label="Selected / Default"
+              additionalFieldDisplay="static"
+              selected
+            >
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              ></IcTextField>
+            </IcRadioOption>
+            <IcRadioOption
+              value="value3"
+              label="Unselected / Disabled"
+              disabled
+            ></IcRadioOption>
+          </IcRadioGroup>
+          <IcSearchBar label="What is your favourite coffee?"></IcSearchBar>
+          <IcTextField
+            id="dialog-text-field"
+            label="What is your favourite coffee?"
+          />
+          <IcSelect label="What is your favourite coffee?" options={options} />
+          <IcCheckboxGroup hideLabel label="confirm" name="confirm-checkbox">
+            <IcCheckbox
+              label="Confirm"
+              value="confirm"
+              additionalFieldDisplay="static"
+            >
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              />
+            </IcCheckbox>
+            <IcCheckbox
+              additionalFieldDisplay="dynamic"
+              value="disagree"
+              label="Disagree"
+            >
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              />
+            </IcCheckbox>
+            <IcCheckbox label="Disabled" value="disabled" disabled></IcCheckbox>
+          </IcCheckboxGroup>
+          <IcChip label="Default" dismissible="true">
+            <SlottedSVG
+              slot="icon"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z" />
+            </SlottedSVG>
+          </IcChip>
+          <IcSwitch label="Switch label"></IcSwitch>
+        </div>
       </IcDialog>
     </>
   );
