@@ -21,7 +21,27 @@ const DatePickerWithIcChange = () => {
         onIcChange={dateChangedHandler}
         value={value}
       />
-      <span>{`Selected date: ${selectedDate}`}</span>
+      <span>{`Selected date: ${selectedDate || ""}`}</span>
+    </div>
+  );
+};
+
+const DatePickerWithIcSelectedDateChange = () => {
+  const [selectedDate, setSelectedDate] = useState();
+  const [value, setValue] = useState();
+  const dateChangedHandler = (event) => {
+    setValue(event.detail.value);
+    setSelectedDate(event.detail.value);
+  };
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        showDateInput={false}
+        onIcSelectedDateChange={dateChangedHandler}
+        value={value}
+      />
+      <span>{`Selected date: ${selectedDate || ""}`}</span>
     </div>
   );
 };
@@ -44,6 +64,7 @@ const defaultArgs = {
   min: "",
   openAtDate: "",
   required: false,
+  showDateInput: true,
   showDaysOutsideMonth: true,
   showPickerClearButton: true,
   showPickerTodayButton: true,
@@ -209,6 +230,21 @@ export const Value = {
 };
 
 /**
+ * The `value` prop sets the date in the input field. The value can be in any format supported by the `dateFormat` prop, in ISO 8601 date string format (yyyy-mm-dd) or as a JavaScript Date object.
+ */
+export const ValueCalendarOnlyMode = {
+  render: () => (
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      showDateInput={false}
+      value="06/06/1944"
+    />
+  ),
+  name: "Value in calendar only Mode",
+  height: "540px",
+};
+
+/**
  * If no `value` is set, the `openAtDate` prop can be used to specify the date in view when the calendar view is opened. If not set to a value, the calendar will default to showing the current date.
  * 
  * The supported formats are the same as for the `value` prop.
@@ -361,6 +397,15 @@ export const IcChangeEvent = {
 };
 
 /**
+ * The date input can be hidden from the component by setting the deprecated `showDateInput` prop to `false`, thereby putting the component into "calendar only" mode. The `IcSelectedDateChange` event is emitted by the date picker when the selected date changes.
+ */
+export const IcSelectedDateChange = {
+  render: () => <DatePickerWithIcSelectedDateChange />,
+  name: "IcSelectedDateChange event",
+  height: "540px",
+};
+
+/**
  * Go to the <ic-link href="/?path=/story/react-components-date-picker--playground-example">separate page for the playground example</ic-link> to view the prop controls.
  */
 export const PlaygroundExample = {
@@ -398,6 +443,7 @@ export const PlaygroundExample = {
         min={args.min}
         openAtDate={args.openAtDate}
         required={args.required}
+        showDateInput={args.showDateInput}
         showDaysOutsideMonth={args.showDaysOutsideMonth}
         showPickerClearButton={args.showPickerClearButton}
         showPickerTodayButton={args.showPickerTodayButton}
