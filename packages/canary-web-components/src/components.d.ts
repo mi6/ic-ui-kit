@@ -261,6 +261,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, every individual input field completed will emit an icChange event.
+         */
+        "emitDatePartChange"?: boolean;
+        /**
           * Returns the value as a Date object
           * @returns Date
          */
@@ -367,6 +371,10 @@ export namespace Components {
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
+        /**
+          * If `true`, every individual input field completed will emit an icChange event.
+         */
+        "emitDatePartChange"?: boolean;
         /**
           * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
@@ -670,7 +678,10 @@ declare global {
     interface HTMLIcDateInputElementEventMap {
         "calendarButtonClicked": { value: Date };
         "icBlur": { value: Date };
-        "icChange": { value: Date };
+        "icChange": {
+    value: Date;
+    dateObject: { day: string; month: string; year: string };
+  };
         "icFocus": { value: Date };
     }
     interface HTMLIcDateInputElement extends Components.IcDateInput, HTMLStencilElement {
@@ -1010,6 +1021,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, every individual input field completed will emit an icChange event.
+         */
+        "emitDatePartChange"?: boolean;
+        /**
           * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
         "helperText"?: string;
@@ -1053,7 +1068,10 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onIcChange"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
+        "onIcChange"?: (event: IcDateInputCustomEvent<{
+    value: Date;
+    dateObject: { day: string; month: string; year: string };
+  }>) => void;
         /**
           * Emitted when the input gains focus.
          */
@@ -1121,6 +1139,10 @@ declare namespace LocalJSX {
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
+        /**
+          * If `true`, every individual input field completed will emit an icChange event.
+         */
+        "emitDatePartChange"?: boolean;
         /**
           * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */

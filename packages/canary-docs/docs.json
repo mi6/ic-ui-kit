@@ -404,13 +404,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--card-horizontal-width",
-          "annotation": "prop",
-          "docs": "Width of the horizontal card"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "badge",
@@ -1883,6 +1877,30 @@
           "setter": false
         },
         {
+          "name": "emitDatePartChange",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "emit-date-part-change",
+          "reflectToAttr": false,
+          "docs": "If `true`, every individual input field completed will emit an icChange event.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "helperText",
           "type": "string",
           "complexType": {
@@ -2392,11 +2410,11 @@
         },
         {
           "event": "icChange",
-          "detail": "{ value: Date; }",
+          "detail": "{ value: Date; dateObject: { day: string; month: string; year: string; }; }",
           "bubbles": true,
           "complexType": {
-            "original": "{ value: Date }",
-            "resolved": "{ value: Date; }",
+            "original": "{\r\n    value: Date;\r\n    dateObject: { day: string; month: string; year: string };\r\n  }",
+            "resolved": "{ value: Date; dateObject: { day: string; month: string; year: string; }; }",
             "references": {
               "Date": {
                 "location": "global",
@@ -2681,6 +2699,30 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "emitDatePartChange",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "emit-date-part-change",
+          "reflectToAttr": false,
+          "docs": "If `true`, every individual input field completed will emit an icChange event.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -3309,18 +3351,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ic-z-index-date-picker",
-          "annotation": "prop",
-          "docs": "z-index of date picker."
-        },
-        {
-          "name": "--input-width",
-          "annotation": "prop",
-          "docs": "Width of the input field"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -4532,13 +4563,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--tree-view-width",
-          "annotation": "prop",
-          "docs": "Width of the tree view"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "heading",
@@ -4633,7 +4658,7 @@
       "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
     },
     "src/components/ic-pagination-bar/ic-pagination-bar.types.ts::IcPageChangeEventDetail": {
-      "declaration": "export interface IcPageChangeEventDetail {\n  value: number;\n  fromItemsPerPage?: boolean;\n}",
+      "declaration": "export interface IcPageChangeEventDetail {\r\n  value: number;\r\n  fromItemsPerPage?: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
     },

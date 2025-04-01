@@ -363,3 +363,22 @@ export const WithClearingValue = {
     </script>`,
   name: "With clearing value",
 };
+
+/**
+ * The `IcChange` event is emitted by the date input every time an input field is changed.
+ */
+export const IcChangeEmitDatePartChanges = {
+  render: () => html`<ic-date-input
+      emit-date-part-change="true"
+      label="When would you like to collect your coffee?"
+    ></ic-date-input>
+    <script>
+      var dateInput = document.querySelector("ic-date-input");
+      {
+        dateInput.addEventListener("icChange", function (event) {
+          console.log("icChange", event.detail);
+        });
+      }
+    </script>`,
+  name: "IcChange with emitDatePartChange",
+};
