@@ -20,6 +20,7 @@ import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicato
 import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
+import { IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
@@ -49,6 +50,7 @@ export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicato
 export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
 export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
+export { IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
@@ -2478,6 +2480,10 @@ export interface IcMenuItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcMenuItemElement;
 }
+export interface IcNavigationGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcNavigationGroupElement;
+}
 export interface IcNavigationItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcNavigationItemElement;
@@ -2891,7 +2897,18 @@ declare global {
         prototype: HTMLIcNavigationButtonElement;
         new (): HTMLIcNavigationButtonElement;
     };
+    interface HTMLIcNavigationGroupElementEventMap {
+        "navigationGroupOpened": IcNavigationOpenEventDetail;
+    }
     interface HTMLIcNavigationGroupElement extends Components.IcNavigationGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcNavigationGroupElementEventMap>(type: K, listener: (this: HTMLIcNavigationGroupElement, ev: IcNavigationGroupCustomEvent<HTMLIcNavigationGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcNavigationGroupElementEventMap>(type: K, listener: (this: HTMLIcNavigationGroupElement, ev: IcNavigationGroupCustomEvent<HTMLIcNavigationGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcNavigationGroupElement: {
         prototype: HTMLIcNavigationGroupElement;
@@ -4579,6 +4596,7 @@ declare namespace LocalJSX {
           * The label to display on the group.
          */
         "label"?: string;
+        "onNavigationGroupOpened"?: (event: IcNavigationGroupCustomEvent<IcNavigationOpenEventDetail>) => void;
     }
     interface IcNavigationItem {
         "collapsedIconLabel"?: boolean;
