@@ -7,6 +7,8 @@ import {
   Listen,
   h,
   Method,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 
 import {
@@ -24,6 +26,8 @@ import {
 } from "../../utils/types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
+import { IcNavigationOpenEventDetail } from "./ic-navigation-group.types";
+
 @Component({
   tag: "ic-navigation-group",
   styleUrl: "ic-navigation-group.css",
@@ -69,6 +73,11 @@ export class NavigationGroup {
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
   @Prop() theme?: IcThemeMode = "inherit";
+
+  /**
+   * @internal Emitted when a navigation group opens.
+   */
+  @Event() navigationGroupOpened: EventEmitter<IcNavigationOpenEventDetail>;
 
   disconnectedCallback(): void {
     if (this.navigationType === "side") {
@@ -126,6 +135,13 @@ export class NavigationGroup {
   @Listen("childBlur")
   childBlurHandler(): void {
     this.hideDropdown();
+  }
+
+  @Listen("navigationGroupOpened", { target: "document" })
+  handleNavigationGroupOpened(event: CustomEvent): void {
+    if (event.detail.source !== this.el) {
+      this.hideDropdown();
+    }
   }
 
   @Listen("navItemClicked")
@@ -253,6 +269,10 @@ export class NavigationGroup {
 
   private showDropdown() {
     if (!this.dropdownOpen) {
+      this.navigationGroupOpened.emit({
+        source: this.el,
+      });
+
       this.toggleDropdown();
     }
   }
