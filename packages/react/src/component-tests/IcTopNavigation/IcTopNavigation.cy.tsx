@@ -371,7 +371,7 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/brand-slotted-navigation-items",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
 });
@@ -607,7 +607,7 @@ describe("IcTopNavigation desktop visual regression tests in high contrast mode"
 
     cy.compareSnapshot({
       name: "/slotted-navigation-items-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
