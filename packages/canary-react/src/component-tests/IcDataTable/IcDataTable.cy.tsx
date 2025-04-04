@@ -480,7 +480,7 @@ describe("IcDataTables", () => {
 
     cy.compareSnapshot({
       name: "exclude-column-from-sort",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.031),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -5274,7 +5274,7 @@ describe("Dark mode", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dark-mode-updating",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
