@@ -2705,6 +2705,34 @@
           "required": false
         },
         {
+          "name": "showDateInput",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-date-input",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. If `false` hides the date input control and just displays the calendar."
+            }
+          ],
+          "default": "true",
+          "deprecation": "This prop should not be used anymore. If `false` hides the date input control and just displays the calendar.",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "showDaysOutsideMonth",
           "type": "boolean",
           "complexType": {
@@ -2965,6 +2993,25 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "icSelectedDateChange",
+          "detail": "{ value: Date; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ value: Date }",
+            "resolved": "{ value: Date; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the selected date has changed.",
           "docsTags": []
         }
       ],
