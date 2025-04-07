@@ -9084,6 +9084,12 @@
           "passive": false
         },
         {
+          "event": "navigationGroupOpened",
+          "target": "document",
+          "capture": false,
+          "passive": false
+        },
+        {
           "event": "navItemClicked",
           "capture": false,
           "passive": false
@@ -19313,6 +19319,11 @@
       "declaration": "export type IcMenuItemVariants = \"toggle\" | \"destructive\" | \"default\";",
       "docstring": "",
       "path": "src/components/ic-menu-item/ic-menu-item.types.ts"
+    },
+    "src/components/ic-navigation-group/ic-navigation-group.types.ts::IcNavigationOpenEventDetail": {
+      "declaration": "export interface IcNavigationOpenEventDetail {\n  source: HTMLElement;\n}",
+      "docstring": "",
+      "path": "src/components/ic-navigation-group/ic-navigation-group.types.ts"
     },
     "src/components/ic-side-navigation/ic-side-navigation.types.ts::IcExpandedDetail": {
       "declaration": "export interface IcExpandedDetail {\n  sideNavExpanded: boolean;\n  sideNavMobile: boolean;\n}",
