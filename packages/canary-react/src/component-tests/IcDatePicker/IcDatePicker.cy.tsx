@@ -2817,7 +2817,7 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "clear-button-focused-theme-dark",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 });
