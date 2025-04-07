@@ -15,6 +15,13 @@ const preview = {
       },
       hideNoControlsWarning: true,
     },
+    options: {
+      storySort: {
+        method: 'configure',
+        includeNames: true,
+        order: ['*', ['*', ['Docs', 'Playground']]],
+      },
+    },
     viewMode: "docs",
   },
   globalTypes: {
