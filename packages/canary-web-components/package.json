@@ -1,6 +1,6 @@
 {
   "name": "@ukic/canary-web-components",
-  "version": "2.0.0-canary.38",
+  "version": "2.0.0-canary.39",
   "description": "A web component UI library compiled with StencilJS",
   "main": "dist/index.cjs.js",
   "module": "./dist/index.js",
@@ -45,7 +45,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "@stencil/core": "^4.9.0",
-    "@ukic/web-components": "^2.37.0"
+    "@ukic/web-components": "^2.37.1"
   },
   "peerDependencies": {
     "@ukic/fonts": "^2.3.0"
