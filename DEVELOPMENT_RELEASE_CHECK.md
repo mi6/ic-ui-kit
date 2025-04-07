@@ -5,15 +5,19 @@
 
 Changes:
 
-- @ukic/canary-react: 2.0.0-canary.37 => 2.0.0-canary.38
+- @ukic/canary-docs: 2.0.0-canary.30 => 2.0.0-canary.31
 
-- @ukic/canary-web-components: 2.0.0-canary.37 => 2.0.0-canary.38
+- @ukic/canary-react: 2.0.0-canary.38 => 2.0.0-canary.39
 
-- @ukic/nextjs: 0.2.29 => 0.2.30 (private)
+- @ukic/canary-web-components: 2.0.0-canary.38 => 2.0.0-canary.39
 
-- @ukic/react: 2.36.0 => 2.37.0
+- @ukic/docs: 2.15.4 => 2.15.5
 
-- @ukic/web-components: 2.36.0 => 2.37.0
+- @ukic/nextjs: 0.2.30 => 0.2.31 (private)
+
+- @ukic/react: 2.37.0 => 2.37.1
+
+- @ukic/web-components: 2.37.0 => 2.37.1
 
 ? Are you sure you want to create these versions? (ynH) [56D[56C[2K[G? Are you sure you want to create these versions? (ynH) y
 >> Yes[1A[6D[57C[1B[2K[1A[2K[G? Are you sure you want to create these versions? Yes[53D[53C
