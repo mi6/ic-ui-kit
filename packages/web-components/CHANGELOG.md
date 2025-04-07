@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.37.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.37.0...@ukic/web-components@2.37.1) (2025-04-07)
+
+### Bug Fixes
+
+- **web-components:** update navigation group so that two nav groups can't be open simultaneously ([c89bafe](https://github.com/mi6/ic-ui-kit/commit/c89bafe6f1a39e662639ad2a393a19d507893dd7)), closes [#3117](https://github.com/mi6/ic-ui-kit/issues/3117)
+
 # [2.37.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.36.0...@ukic/web-components@2.37.0) (2025-03-19)
 
 ### Features
