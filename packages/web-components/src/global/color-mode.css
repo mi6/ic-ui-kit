@@ -2014,7 +2014,7 @@ ic-theme,
     /* Data table */
     --ic-data-table-border: var(--ic-color-border-neutral-default);
     --ic-data-table-cell-background-selected: var(
-      --ic-action-light-bg-hover-24
+      --ic-action-default-bg-hover-24
     );
     --ic-data-table-icon-button-background-hover: var(
       --ic-action-light-bg-hover
@@ -2044,9 +2044,9 @@ ic-theme,
     --ic-data-table-icon-default-emphasis: var(--ic-color-icon-grey-lighter);
     --ic-data-table-icon-high-emphasis: var(--ic-color-icon-inverted);
     --ic-data-table-icon-low-emphasis: var(--ic-color-icon-grey-light);
-    --ic-data-table-cell-background-hover: var(--ic-action-light-bg-hover);
+    --ic-data-table-cell-background-hover: var(--ic-action-default-bg-hover);
     --ic-data-table-cell-background-selected-hover: var(
-      --ic-action-light-bg-pressed-34
+      --ic-action-default-bg-pressed-hover-34
     );
     --ic-data-table-header-text: var(--ic-color-text-primary);
     --ic-data-table-overlay-background: var(--ic-color-background-primary);
@@ -3390,7 +3390,9 @@ ic-theme,
 
   /* Data table */
   --ic-data-table-border: var(--ic-color-border-neutral-default);
-  --ic-data-table-cell-background-selected: var(--ic-action-light-bg-hover-24);
+  --ic-data-table-cell-background-selected: var(
+    --ic-action-default-bg-hover-24
+  );
   --ic-data-table-icon-button-background-hover: var(--ic-action-light-bg-hover);
   --ic-data-table-icon-button-background-pressed: var(
     --ic-action-light-bg-pressed
@@ -3416,9 +3418,9 @@ ic-theme,
   --ic-data-table-icon-default-emphasis: var(--ic-color-icon-grey-lighter);
   --ic-data-table-icon-high-emphasis: var(--ic-color-icon-inverted);
   --ic-data-table-icon-low-emphasis: var(--ic-color-icon-grey-light);
-  --ic-data-table-cell-background-hover: var(--ic-action-light-bg-hover);
+  --ic-data-table-cell-background-hover: var(--ic-action-default-bg-hover);
   --ic-data-table-cell-background-selected-hover: var(
-    --ic-action-light-bg-pressed-34
+    --ic-action-default-bg-pressed-hover-34
   );
   --ic-data-table-header-text: var(--ic-color-text-primary);
   --ic-data-table-overlay-background: var(--ic-color-background-primary);
