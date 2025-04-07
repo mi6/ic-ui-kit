@@ -83,6 +83,13 @@
         "notes": "issue in puppeteer",
         "expiry": "31 April 2025"
       }
+    },
+    {
+      "GHSA-xcj6-pq6g-qj4x": {
+        "active": true,
+        "notes": "Vite allows server.fs.deny to be bypassed with .svg or relative paths",
+        "expiry": "31 April 2025"
+      }
     }
   ]
 }
