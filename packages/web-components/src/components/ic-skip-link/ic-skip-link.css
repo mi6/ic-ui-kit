@@ -1,3 +1,11 @@
+/**
+* @prop --ic-skip-link-position-top: The top position of the skip link when it is not displayed inline and has an absolute position.
+*/
+
+:host {
+  display: block;
+}
+
 ic-link {
   position: absolute;
   left: -9999px;
@@ -9,16 +17,27 @@ ic-link:focus {
   padding: var(--ic-space-sm);
   box-shadow: var(--ic-border-focus);
   border-radius: var(--ic-border-radius);
+  width: fit-content;
 }
 
 .display-top:focus {
-  top: var(--ic-space-sm);
+  top: var(--ic-skip-link-position-top, var(--ic-space-sm));
+}
+
+.inline:focus {
+  position: static;
+  display: inline-block;
+  margin: var(--ic-space-xs) 0;
 }
 
 .full-width:focus {
   display: flex;
-  justify-content: center;
   right: var(--ic-space-sm);
+  width: auto;
+}
+
+.inline.full-width:focus {
+  justify-content: start;
 }
 
 .show-background {

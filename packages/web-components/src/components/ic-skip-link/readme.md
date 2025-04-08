@@ -9,13 +9,20 @@
 
 | Property                | Attribute                | Description                                                                                                                             | Type                             | Default                  |
 | ----------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ------------------------ |
-| `fullWidth`             | `full-width`             | If `true`, the link will fill the width of the page.                                                                                    | `boolean`                        | `false`                  |
-| `inline`                | `inline`                 | If `true`, the link will appear inline with surrounding page content when focused.                                                      | `boolean`                        | `false`                  |
-| `label`                 | `label`                  | The label displayed when the link is focused.                                                                                           | `string`                         | `"Skip to main content"` |
-| `monochrome`            | `monochrome`             | If `true`, the link will display as black in the light theme, and white in the dark theme.                                              | `boolean`                        | `false`                  |
+| `fullWidth`             | `full-width`             | If `true`, the skip link will fill the width of the page.                                                                               | `boolean`                        | `false`                  |
+| `inline`                | `inline`                 | If `true`, the skip link will appear inline with surrounding page content when focused.                                                 | `boolean`                        | `false`                  |
+| `label`                 | `label`                  | The label displayed when the skip link is focused.                                                                                      | `string`                         | `"Skip to main content"` |
+| `monochrome`            | `monochrome`             | If `true`, the skip link will display as black in the light theme, and white in the dark theme.                                         | `boolean`                        | `false`                  |
 | `target` _(required)_   | `target`                 | The target ID for the element which should receive focus when triggering the skip link.                                                 | `string`                         | `undefined`              |
 | `theme`                 | `theme`                  | Sets the theme color to the dark or light theme color. `inherit` will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"` | `"inherit"`              |
 | `transparentBackground` | `transparent-background` | If `true`, the background will be hidden.                                                                                               | `boolean`                        | `false`                  |
+
+
+## CSS Custom Properties
+
+| Name                          | Description                                                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------------------------- |
+| `--ic-skip-link-position-top` | The top position of the skip link when it is not displayed inline and has an absolute position. |
 
 
 ## Dependencies

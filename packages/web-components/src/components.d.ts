@@ -1855,19 +1855,19 @@ export namespace Components {
     }
     interface IcSkipLink {
         /**
-          * If `true`, the link will fill the width of the page.
+          * If `true`, the skip link will fill the width of the page.
          */
         "fullWidth": boolean;
         /**
-          * If `true`, the link will appear inline with surrounding page content when focused.
+          * If `true`, the skip link will appear inline with surrounding page content when focused.
          */
         "inline": boolean;
         /**
-          * The label displayed when the link is focused.
+          * The label displayed when the skip link is focused.
          */
         "label": string;
         /**
-          * If `true`, the link will display as black in the light theme, and white in the dark theme.
+          * If `true`, the skip link will display as black in the light theme, and white in the dark theme.
          */
         "monochrome": boolean;
         /**
@@ -5355,19 +5355,19 @@ declare namespace LocalJSX {
     }
     interface IcSkipLink {
         /**
-          * If `true`, the link will fill the width of the page.
+          * If `true`, the skip link will fill the width of the page.
          */
         "fullWidth"?: boolean;
         /**
-          * If `true`, the link will appear inline with surrounding page content when focused.
+          * If `true`, the skip link will appear inline with surrounding page content when focused.
          */
         "inline"?: boolean;
         /**
-          * The label displayed when the link is focused.
+          * The label displayed when the skip link is focused.
          */
         "label"?: string;
         /**
-          * If `true`, the link will display as black in the light theme, and white in the dark theme.
+          * If `true`, the skip link will display as black in the light theme, and white in the dark theme.
          */
         "monochrome"?: boolean;
         /**
