@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.12...@ukic/canary-react@3.0.0-canary.13) (2025-04-08)
+
+### Features
+
+- **canary-react:** upgraded storybook to v8 ([3aac7d0](https://github.com/mi6/ic-ui-kit/commit/3aac7d017dbca22738063748bc309a969c54363e))
+
 # [3.0.0-canary.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.11...@ukic/canary-react@3.0.0-canary.12) (2025-03-19)
 
 ### Bug Fixes
