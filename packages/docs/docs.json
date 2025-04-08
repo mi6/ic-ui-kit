@@ -10584,6 +10584,12 @@
           "passive": false
         },
         {
+          "event": "navigationGroupOpened",
+          "target": "document",
+          "capture": false,
+          "passive": false
+        },
+        {
           "event": "navItemClicked",
           "capture": false,
           "passive": false
@@ -21823,6 +21829,16 @@
       "docstring": "",
       "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
+    "src/utils/types.ts::IcOrientation": {
+      "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail": {
+      "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",
+      "docstring": "",
+      "path": "src/components/ic-radio-group/ic-radio-group.types.ts"
+    },
     "src/components/ic-divider/ic-divider.types.tsx::IcDividerStyles": {
       "declaration": "export type IcDividerStyles = \"solid\" | \"dashed\";",
       "docstring": "",
@@ -21832,11 +21848,6 @@
       "declaration": "export type IcDividerLabelPlacement =\n  | \"left\"\n  | \"center\"\n  | \"right\"\n  | \"top\"\n  | \"bottom\";",
       "docstring": "",
       "path": "src/components/ic-divider/ic-divider.types.tsx"
-    },
-    "src/utils/types.ts::IcOrientation": {
-      "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcBrandForeground": {
       "declaration": "export type IcBrandForeground = \"default\" | \"dark\" | \"light\";",
@@ -21893,6 +21904,16 @@
       "docstring": "",
       "path": "src/components/ic-menu-item/ic-menu-item.types.ts"
     },
+    "src/components/ic-navigation-group/ic-navigation-group.types.ts::IcNavigationOpenEventDetail": {
+      "declaration": "export interface IcNavigationOpenEventDetail {\n  source: HTMLElement;\n}",
+      "docstring": "",
+      "path": "src/components/ic-navigation-group/ic-navigation-group.types.ts"
+    },
+    "src/components/ic-navigation-group/ic-navigation-group.types.ts::IcNavigationExpandEventDetail": {
+      "declaration": "export interface IcNavigationExpandEventDetail {\n  expanded: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/ic-navigation-group/ic-navigation-group.types.ts"
+    },
     "src/components/ic-side-navigation/ic-side-navigation.types.ts::IcExpandedDetail": {
       "declaration": "export interface IcExpandedDetail {\n  sideNavExpanded: boolean;\n  sideNavMobile: boolean;\n}",
       "docstring": "",
@@ -21912,11 +21933,6 @@
       "declaration": "export type IcPaginationItemType = \"page\" | \"ellipsis\" | \"simple-current\";",
       "docstring": "",
       "path": "src/components/ic-pagination-item/ic-pagination-item.types.ts"
-    },
-    "src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",
-      "docstring": "",
-      "path": "src/components/ic-radio-group/ic-radio-group.types.ts"
     },
     "src/utils/types.ts::IcSearchMatchPositions": {
       "declaration": "export type IcSearchMatchPositions = \"start\" | \"anywhere\";",
