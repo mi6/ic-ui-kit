@@ -316,7 +316,7 @@
   --ic-color-text-action-hover-dark: var(--ic-blue-200);
   --ic-color-text-action-pressed-light: var(--ic-blue-1300);
   --ic-color-text-action-pressed-dark: var(--ic-blue-100);
-  --ic-color-text-error-light: var(--ic-red-300);
+  --ic-color-text-error-light: var(--ic-red-400);
   --ic-color-text-error-dark: var(--ic-red-800);
 
   /* BACKGROUNDS */
@@ -595,9 +595,9 @@
   --ic-color-icon-hover-dark: var(--ic-architectural-800);
   --ic-color-icon-pressed-light: var(--ic-architectural-300);
   --ic-color-icon-pressed-dark: var(--ic-architectural-700);
-  --ic-color-icon-disabled-mid: var(--ic-architectural-200);
-  --ic-color-icon-disabled-light: var(--ic-architectural-300);
-  --ic-color-icon-disabled-dark: var(--ic-architectural-500);
+  --ic-color-icon-disabled-mid: var(--ic-architectural-300);
+  --ic-color-icon-disabled-light: var(--ic-architectural-200);
+  --ic-color-icon-disabled-dark: var(--ic-architectural-600);
   --ic-color-icon-grey-default: var(--ic-architectural-400);
   --ic-color-icon-grey-lighter: var(--ic-architectural-100);
   --ic-color-icon-grey-light: var(--ic-architectural-200);
@@ -609,7 +609,7 @@
   --ic-color-icon-action-hover-dark: var(--ic-blue-200);
   --ic-color-icon-action-pressed: var(--ic-blue-1300);
   --ic-color-icon-action-pressed-dark: var(--ic-blue-100);
-  --ic-color-icon-error-light: var(--ic-red-300);
+  --ic-color-icon-error-light: var(--ic-red-400);
   --ic-color-icon-error-dark: var(--ic-red-800);
   --ic-color-icon-action-dark: var(--ic-architectural-white);
 
