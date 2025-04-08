@@ -28,6 +28,7 @@
 | `name`                  | `name`                     | The name of the control, which is submitted with the form data.                                                                                                                                                                                        | `string`                                                                                                                                                  | `undefined`                                                                                             |
 | `openAtDate`            | `open-at-date`             | The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.                             | `Date \| string`                                                                                                                                          | `""`                                                                                                    |
 | `required`              | `required`                 | If `true`, the input will require a value.                                                                                                                                                                                                             | `boolean`                                                                                                                                                 | `false`                                                                                                 |
+| `showDateInput`         | `show-date-input`          | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. If `false` hides the date input control and just displays the calendar.<br/><br/>                                                                                | `boolean`                                                                                                                                                 | `true`                                                                                                  |
 | `showDaysOutsideMonth`  | `show-days-outside-month`  | If `true`, days outside the current month will be visible in the date picker.                                                                                                                                                                          | `boolean`                                                                                                                                                 | `true`                                                                                                  |
 | `showPickerClearButton` | `show-picker-clear-button` | If `true`, the `Clear` button on the date picker will be visible.                                                                                                                                                                                      | `boolean`                                                                                                                                                 | `true`                                                                                                  |
 | `showPickerTodayButton` | `show-picker-today-button` | If `true`, the `Go to today` button on the date picker will be visible.                                                                                                                                                                                | `boolean`                                                                                                                                                 | `true`                                                                                                  |
@@ -40,9 +41,10 @@
 
 ## Events
 
-| Event      | Description                         | Type                            |
-| ---------- | ----------------------------------- | ------------------------------- |
-| `icChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date; }>` |
+| Event                  | Description                                 | Type                            |
+| ---------------------- | ------------------------------------------- | ------------------------------- |
+| `icChange`             | Emitted when the value has changed.         | `CustomEvent<{ value: Date; }>` |
+| `icSelectedDateChange` | Emitted when the selected date has changed. | `CustomEvent<{ value: Date; }>` |
 
 
 ## CSS Custom Properties
@@ -58,15 +60,15 @@
 ### Depends on
 
 - ic-button
-- [ic-date-input](../ic-date-input)
 - ic-typography
+- [ic-date-input](../ic-date-input)
 
 ### Graph
 ```mermaid
 graph TD;
   ic-date-picker --> ic-button
-  ic-date-picker --> ic-date-input
   ic-date-picker --> ic-typography
+  ic-date-picker --> ic-date-input
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

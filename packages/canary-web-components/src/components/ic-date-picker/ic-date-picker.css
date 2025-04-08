@@ -40,16 +40,23 @@ ic-date-input {
   flex-direction: column;
   gap: var(--ic-space-xs);
   position: absolute;
-  border: var(--ic-border-default);
-  border-radius: var(--ic-border-radius);
   align-items: center;
   background-color: var(--ic-architectural-white);
   z-index: var(--ic-z-index-date-picker);
   box-sizing: border-box;
-  box-shadow: var(--ic-elevation-overlay);
   margin-top: var(--ic-space-xxxs);
   padding: var(--ic-space-xs);
   animation: fade-in-calendar var(--ic-transition-duration-slow);
+}
+
+:host .calendar-container.show-date-input {
+  border: var(--ic-border-default);
+  border-radius: var(--ic-border-radius);
+  box-shadow: var(--ic-elevation-overlay);
+}
+
+:host .calendar-container.hide-date-input {
+  position: static;
 }
 
 :host(.small) .calendar-container {

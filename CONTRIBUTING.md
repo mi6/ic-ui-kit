@@ -62,7 +62,7 @@ If you would like to contribute code, please complete the following steps:
 2. Fork the [IC UI Kit repository](https://github.com/mi6/ic-ui-kit/) and clone your forked repo onto your device.
 3. Make sure to add the `mi6/ic-ui-kit` repo as your upstream remote branch, by running:
 
-```
+```console
 git remote add upstream git@github.com:mi6/ic-ui-kit.git
 ```
 
@@ -70,14 +70,14 @@ git remote add upstream git@github.com:mi6/ic-ui-kit.git
 5. Run the following:
 
 **NPM**
-```
+```console
 npm install
 npm run bootstrap
 npm run build:all
 ```
 
 **Yarn**
-```
+```console
 rm package-lock.json
 yarn install
 yarn run bootstrap
@@ -87,12 +87,12 @@ yarn run build:all
 6. To run Storybook, with instances running web and React components, run:
 
 **NPM**
-```
+```console
 npm run storybook
 ```
 
 **Yarn**
-```
+```console
 yarn run storybook
 ```
 
@@ -202,7 +202,7 @@ If you need to make changes to a commit (for example, after receiving comments o
 
 2. **If you're amending an older commit:**
    - Use `git rebase` to modify an older commit. For example, to modify commit `a1312407`, run:
-     ```sh
+     ```console
      git rebase --interactive a1312407
      ```
 
@@ -211,19 +211,19 @@ If you need to make changes to a commit (for example, after receiving comments o
    - Save the file and exit. Git will interpret and automatically execute the commands in the file, placing you in the state just after creating commit `a1312407`.
 
    - Amend the commit by making your changes and then running:
-     ```sh
+     ```console
      git commit --all --amend --no-edit
      ```
 
    - The Commitizen prompt will still appear as if you are making a new commit. Exit the prompt (usually by pressing Ctrl+C).
 
    - Continue the rebase process by running:
-     ```sh
+     ```console
      git rebase --continue
      ```
 
    - Push the changes to the remote repository using:
-     ```sh
+     ```console
      git push --force-with-lease
      ```
 
@@ -233,37 +233,37 @@ Often, when changes are merged into the original repository's `develop` branch, 
 
 1. If not configured already, make sure to add the `mi6/ic-ui-kit` repo as your upstream remote branch, by running:
 
-```sh
+```console
 git remote add upstream git@github.com:mi6/ic-ui-kit.git
 ```
 
 2. Fetch the latest upstream by running:
-```sh
+```console
 git fetch upstream
 ```
 
 3. Checkout the local `develop` branch by running:
-```sh
+```console
 git checkout develop
 ```
 
 4. Rebase your local `develop` branch off the upstream `develop` branch:
-```sh
+```console
 git rebase upstream/develop
 ```
 
 5. Checkout your feature branch:
-```sh
+```console
 git checkout feature/123-new-feature
 ```
 
 6. Rebase your feature branch off the local `develop` branch:
-```sh
+```console
 git rebase develop
 ```
 
 7. Push the updated branch:
-```sh
+```console
 git push --force-with-lease
 ```
 

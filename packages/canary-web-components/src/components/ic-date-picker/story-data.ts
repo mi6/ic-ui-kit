@@ -82,6 +82,13 @@ export const Value = (): HTMLIcDatePickerElement => {
   return datePicker;
 };
 
+export const ValueCalendarOnlyMode = (): HTMLIcDatePickerElement => {
+  const datePicker = createDatePickerElement();
+  datePicker.value = "06/06/1944";
+  datePicker.showDateInput = false;
+  return datePicker;
+};
+
 export const OpenAt = (): HTMLIcDatePickerElement => {
   const datePicker = createDatePickerElement();
   datePicker.helperText =
@@ -152,22 +159,55 @@ export const JSDates = (): HTMLIcDatePickerElement => {
   return datePicker;
 };
 
-const updateSelectedDate = (ev: CustomEvent): void => {
+const handleDateChange = (ev: CustomEvent): void => {
   const el = document.querySelector("#selected-date");
   let text = "Selected date: ";
   if (ev.detail.value) {
     text += ev.detail.value;
   }
   el.innerHTML = text;
-  console.log("ic-change", ev.detail.value);
+  console.log("icChange: ", ev.detail.value);
+};
+
+const handleSelectedDateChange = (ev: CustomEvent): void => {
+  const el = document.querySelector("#selected-date");
+  let text = "Selected date: ";
+  if (ev.detail.value) {
+    text += ev.detail.value;
+  }
+  el.innerHTML = text;
+  console.log("icSelectedDateChange: ", ev.detail.value);
 };
 
 export const IcChangeDate = (): HTMLElement => {
   const datePicker = createDatePickerElement();
-  datePicker.addEventListener("icChange", updateSelectedDate);
+  datePicker.addEventListener("icChange", handleDateChange);
   const container = document.createElement("div");
 
   const selDate = document.createElement("span");
+  selDate.innerText = "Selected date:";
+  selDate.id = "selected-date";
+
+  container.appendChild(datePicker);
+  container.appendChild(selDate);
+
+  container.style.display = "flex";
+  container.style.flexDirection = "column";
+  container.style.gap = "50px";
+
+  return container;
+};
+
+export const IcSelectedDateChange = (): HTMLElement => {
+  const datePicker = createDatePickerElement();
+
+  datePicker.size = "large";
+  datePicker.showDateInput = false;
+
+  datePicker.addEventListener("icSelectedDateChange", handleSelectedDateChange);
+  const container = document.createElement("div");
+
+  const selDate = document.createElement("div");
   selDate.innerText = "Selected date:";
   selDate.id = "selected-date";
 

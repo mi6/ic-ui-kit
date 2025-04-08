@@ -527,6 +527,26 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  // Skipped test due to issue generating snapshots
+  it.skip("should render deprecated calendar-only variant", () => {
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+        showDateInput={false}
+      />
+    );
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+
+    cy.compareSnapshot({
+      name: "calendar-only-mode",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
+
   it("should hide go to today button", () => {
     mount(
       <IcDatePicker

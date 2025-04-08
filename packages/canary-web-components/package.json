@@ -1,6 +1,6 @@
 {
   "name": "@ukic/canary-web-components",
-  "version": "2.0.0-canary.38",
+  "version": "2.0.0-canary.39",
   "description": "A web component UI library compiled with StencilJS",
   "main": "dist/index.cjs.js",
   "module": "./dist/index.js",
@@ -45,7 +45,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "@stencil/core": "^4.9.0",
-    "@ukic/web-components": "^2.37.0"
+    "@ukic/web-components": "^2.37.1"
   },
   "peerDependencies": {
     "@ukic/fonts": "^2.3.0"
@@ -58,15 +58,15 @@
     "@open-wc/testing-helpers": "^2.0.2",
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.5.3",
-    "@storybook/addon-a11y": "^7.6.10",
-    "@storybook/addon-actions": "^7.6.10",
-    "@storybook/addon-docs": "^7.6.10",
-    "@storybook/addon-essentials": "^7.6.10",
-    "@storybook/addon-links": "^7.6.10",
-    "@storybook/addon-mdx-gfm": "^7.6.10",
+    "@storybook/addon-a11y": "^8.5.3",
+    "@storybook/addon-actions": "^8.5.3",
+    "@storybook/addon-essentials": "^8.5.3",
+    "@storybook/addon-links": "^8.5.3",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/web-components": "^7.6.10",
-    "@storybook/web-components-webpack5": "^7.6.10",
+    "@storybook/addon-webpack5-compiler-babel": "^3.0.5",
+    "@storybook/blocks": "^8.5.3",
+    "@storybook/web-components": "^8.5.3",
+    "@storybook/web-components-webpack5": "^8.5.3",
     "@types/autoprefixer": "^10.2.0",
     "@types/jest": "^26.0.24",
     "@types/jest-axe": "^3.5.3",
@@ -85,7 +85,7 @@
     "react-markdown": "^8.0.7",
     "remark-gfm": "^3.0.1",
     "stencil-inline-svg": "^1.1.0",
-    "storybook": "^7.6.10",
+    "storybook": "^8.5.3",
     "ts-jest": "^26.5.6",
     "webpack": "^5.76.0"
   },

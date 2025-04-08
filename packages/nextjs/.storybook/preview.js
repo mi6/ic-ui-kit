@@ -10,5 +10,13 @@ export const parameters = {
         date: /Date$/,
       },
       hideNoControlsWarning: true
-    }
+    },
+    options: {
+      storySort: {
+        method: 'configure',
+        includeNames: true,
+        order: ['*', ['*', ['Docs', 'Playground']]],
+      },
+    },
   }
+export const tags = ["autodocs"];
