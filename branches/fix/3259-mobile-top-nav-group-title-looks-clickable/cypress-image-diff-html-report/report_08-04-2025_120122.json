@@ -1,7 +1,7 @@
 {
   "total": 768,
-  "totalPassed": 767,
-  "totalFailed": 1,
+  "totalPassed": 768,
+  "totalFailed": 0,
   "totalSuites": 43,
   "suites": [
     {
@@ -6365,14 +6365,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx/slotted-nav-items-controlled-expanded.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSideNavigation.cy.tsx/slotted-nav-items-controlled-collapsed",
-          "percentage": 0.01539139893870348,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx/slotted-nav-items-controlled-collapsed.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSideNavigation.cy.tsx/slotted-nav-items-controlled-collapsed.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx/slotted-nav-items-controlled-collapsed.png"
         },
         {
@@ -8711,9 +8711,9 @@
       ]
     }
   ],
-  "startedAt": "2025-04-04T11:00:31.360Z",
-  "endedAt": "2025-04-04T11:16:42.125Z",
-  "duration": 871393,
+  "startedAt": "2025-04-08T12:01:22.505Z",
+  "endedAt": "2025-04-08T12:17:53.158Z",
+  "duration": 892843,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
