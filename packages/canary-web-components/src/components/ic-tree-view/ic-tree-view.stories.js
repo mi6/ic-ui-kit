@@ -807,3 +807,26 @@ export const FocusInsetSlotted = {
   `,
   name: "Focus inset - slotted",
 };
+
+export const WithNestedSkipLink = {
+  render: () => html`
+    <div style="width:250px">
+      <ic-skip-link target="next-content" inline="true"></ic-skip-link>
+      <ic-tree-view heading="Menu">
+        <ic-tree-item label="Coffee">
+          <ic-tree-item label="Americano">
+            <ic-tree-item label="With milk"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Latte"></ic-tree-item>
+          <ic-tree-item label="Espresso"></ic-tree-item>
+        </ic-tree-item>
+        <ic-tree-item label="Tea">
+          <ic-tree-item label="Earl Grey"></ic-tree-item>
+          <ic-tree-item label="Chai"></ic-tree-item>
+        </ic-tree-item>
+        <ic-tree-item label="Hot chocolate"></ic-tree-item>
+      </ic-tree-view>
+    </div>
+  `,
+  name: "Nested skip link",
+};
