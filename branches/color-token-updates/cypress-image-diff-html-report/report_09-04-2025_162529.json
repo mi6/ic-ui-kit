@@ -1,7 +1,7 @@
 {
   "total": 759,
-  "totalPassed": 530,
-  "totalFailed": 229,
+  "totalPassed": 531,
+  "totalFailed": 228,
   "totalSuites": 43,
   "suites": [
     {
@@ -894,7 +894,7 @@
         {
           "status": "fail",
           "name": "IcButton.cy.tsx/secondary",
-          "percentage": 0.01624807680927192,
+          "percentage": 0.01414213562373095,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
@@ -1560,7 +1560,7 @@
         {
           "status": "fail",
           "name": "IcCardVertical.cy.tsx/theme",
-          "percentage": 0.499233787919047,
+          "percentage": 0.0836971226108361,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
           "specFilename": "IcCardVertical.cy.tsx",
@@ -1582,7 +1582,7 @@
         {
           "status": "fail",
           "name": "IcCardVertical.cy.tsx/theme-disabled",
-          "percentage": 0.058141821268957346,
+          "percentage": 0.29867834573124685,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
           "specFilename": "IcCardVertical.cy.tsx",
@@ -3959,7 +3959,7 @@
         {
           "status": "fail",
           "name": "IcPageHeader.cy.tsx/with-action-input-step",
-          "percentage": 0.05581990746109776,
+          "percentage": 0.054507196614379465,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPageHeader/IcPageHeader.cy.tsx",
           "specFilename": "IcPageHeader.cy.tsx",
@@ -6627,7 +6627,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx/custom-connector-width",
-          "percentage": 0.02857282362665615,
+          "percentage": 0.020681740134717873,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -6660,7 +6660,7 @@
         {
           "status": "fail",
           "name": "IcStepper.cy.tsx/light",
-          "percentage": 0.03223449239556907,
+          "percentage": 0.013477411658029891,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -6669,9 +6669,20 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx/light.png"
         },
         {
+          "status": "pass",
+          "name": "IcStepper.cy.tsx/light-compact",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
+          "specFilename": "IcStepper.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStepper.cy.tsx/light-compact.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStepper.cy.tsx/light-compact.png"
+        },
+        {
           "status": "fail",
           "name": "IcStepper.cy.tsx/small-connector-width",
-          "percentage": 0.024921752546721108,
+          "percentage": 0.015245388647063084,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStepper/IcStepper.cy.tsx",
           "specFilename": "IcStepper.cy.tsx",
@@ -6899,17 +6910,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx/responsive.png",
           "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx/responsive.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx/responsive.png"
-        },
-        {
-          "status": "fail",
-          "name": "IcTabs.cy.tsx/responsive-light",
-          "percentage": 0.038626415831655936,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcTabs/IcTabs.cy.tsx",
-          "specFilename": "IcTabs.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcTabs.cy.tsx/responsive-light.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTabs.cy.tsx/responsive-light.png",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTabs.cy.tsx/responsive-light.png"
         },
         {
           "status": "fail",
@@ -7598,7 +7598,7 @@
         {
           "status": "fail",
           "name": "IcToggleButton.cy.tsx/light-theme-monochrome",
-          "percentage": 0.05520869496736904,
+          "percentage": 0.04866210024238576,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -8612,9 +8612,9 @@
       ]
     }
   ],
-  "startedAt": "2025-04-09T15:19:08.396Z",
-  "endedAt": "2025-04-09T16:19:32.984Z",
-  "duration": 3519757,
+  "startedAt": "2025-04-09T16:25:29.625Z",
+  "endedAt": "2025-04-09T17:23:28.420Z",
+  "duration": 3380621,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
