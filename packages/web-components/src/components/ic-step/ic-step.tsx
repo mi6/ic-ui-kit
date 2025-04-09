@@ -146,6 +146,8 @@ export class Step {
           ["current"]: !!this.current,
           [`compact-step-${this.compactStepStyling}`]:
             !!this.compactStepStyling,
+          ["disabled"]:
+            this.type === "disabled" || this.compactStepStyling === "disabled",
         }}
       >
         <ic-loading-indicator
