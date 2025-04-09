@@ -47,7 +47,7 @@ ic-button.ic-button-disabled.next-previous::part(button) {
 }
 
 .disabled {
-  color: var(--ic-architectural-200);
+  color: var(--ic-color-text-disabled-mid);
   pointer-events: none;
   cursor: none;
   user-select: none;

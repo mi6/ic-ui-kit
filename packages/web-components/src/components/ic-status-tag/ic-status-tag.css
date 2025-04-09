@@ -81,5 +81,6 @@
     border: var(--ic-border-hc);
     -ms-high-contrast-adjust: none;
     forced-color-adjust: none;
+    --ic-typography-color: var(--ic-status-tag-text);
   }
 }

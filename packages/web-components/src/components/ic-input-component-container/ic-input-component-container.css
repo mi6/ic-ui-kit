@@ -154,7 +154,7 @@ ic-input-component-container .inline-success > svg {
 ic-input-component-container:hover {
   border: var(--ic-input-component-container-hover-border);
   border-color: var(--border-color-hover, var(--ic-color-border-neutral-hover));
-  color: var(--ic-action-dark-hover);
+  color: var(--ic-action-monochrome-hover-dark);
 }
 
 ic-input-component-container:focus {

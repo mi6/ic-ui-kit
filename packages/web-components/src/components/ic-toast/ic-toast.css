@@ -140,7 +140,7 @@
 
 ic-loading-indicator {
   --outer-color: transparent;
-  --inner-color: var(--ic-action-light);
+  --inner-color: var(--ic-action-monochrome);
 }
 
 .toast-dismiss-timer {
