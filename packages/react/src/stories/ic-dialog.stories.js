@@ -10,8 +10,15 @@ import {
   IcCheckboxGroup,
   IcChip,
   IcDialog,
+  IcLink,
+  IcMenuGroup,
+  IcMenuItem,
+  IcPopoverMenu,
+  IcRadioGroup,
+  IcRadioOption,
   IcSearchBar,
   IcSelect,
+  IcSwitch,
   IcTextField,
   IcTooltip,
   IcTypography,
@@ -212,49 +219,160 @@ export const Sizes = {
 };
 
 export const SlottedContent = {
-  render: () => (
+  render: () => {
+    const [popoverOpen, setPopoverOpen] = useState(false);
+    const showPopover = () => setPopoverOpen(true);
+    const handlePopoverClosed = () => setPopoverOpen(false);
+    return(
     <>
       <IcButton variant="primary" onclick={showDialog}>
-      Launch dialog
-    </IcButton>
-    <IcDialog>
-      <IcTypography slot="heading" variant="h4">This dialog has slotted interactive content</IcTypography>
-      <IcTypography slot="label" variant="label">Slotted label</IcTypography>
-      <IcAlert
-        variant="info"
-        heading="Info"
-        message="This alert is for displaying information"
-        slot="alert"
-      />
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
-      <IcSearchBar label="What is your favourite coffee?" />
-      <IcTextField label="What is your favourite coffee?" />
-      <IcSelect label="What is your favourite coffee?" options={options} />
-      <IcCheckboxGroup
-        style={{ marginTop: "8px" }}
-        hideLabel
-        label="confirm"
-        name="confirm-checkbox"
-      >
-        <IcCheckbox label="Confirm" value="confirm" />
-      </IcCheckboxGroup>
-      <IcButton variant="tertiary" onclick={hideDialog} slot="dialog-controls">
-        Cancel
+        Launch dialog
       </IcButton>
-      <IcButton
-        variant="primary"
-        onclick={confirm}
-        slot="dialog-controls"
-        id="focus"
-      >
-        Confirm
-      </IcButton>
-    </IcDialog>
+      <IcDialog disableWidthConstraint size="large">
+        <div style={{
+          display:"flex",
+          flexDirection: "column",
+          gap: "0.75rem"
+        }}>
+          <IcTypography slot="heading" variant="h4">
+            This is a slotted heading
+          </IcTypography>
+          <IcTypography slot="label" variant="label">
+            Slotted label
+          </IcTypography>
+          <IcAlert
+            variant="info"
+            heading="Info"
+            message="This alert is for displaying information"
+            slot="alert"
+          >
+            <IcTypography slot="message">
+              This is some text and <IcLink href="/" inline>this is an inline link</IcLink> within the text.
+            </IcTypography>
+            <IcButton slot="action" variant="secondary">Button</IcButton>
+          </IcAlert>
+          <IcTypography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </IcTypography>
+          <IcRadioGroup label="This is a label" name="1">
+            <IcRadioOption
+              value="valueName1"
+              label="Unselected / Default" 
+              additionalFieldDisplay="dynamic"       
+            >
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              >
+              </IcTextField>
+            </IcRadioOption>
+            <IcRadioOption
+              value="valueName2"
+              label="Selected / Default"
+              additionalFieldDisplay="static"
+              selected
+            >
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              >
+              </IcTextField>
+            </IcRadioOption>
+            <IcRadioOption
+              value="valueName3"
+              label="Unselected / Disabled"
+              disabled
+            ></IcRadioOption>
+          </IcRadioGroup>
+          <IcSearchBar label="What is your favourite coffee?"></IcSearchBar>
+          <IcTextField label="What is your favourite coffee?" />
+          <IcSelect label="What is your favourite coffee?" options={options} />
+          <IcButton id="button-1" onclick={showPopover}>Show popover</IcButton>      
+          <div>
+            <IcPopoverMenu anchor="button-1" aria-label="popover" open={popoverOpen} onIcPopoverClosed={handlePopoverClosed}>
+              <IcMenuItem label="Copy code" disabled="true"></IcMenuItem>
+              <IcMenuGroup label="View">
+                <IcMenuItem
+                  label="Zoom in"
+                  keyboard-shortcut-label="Cmd+"
+                ></IcMenuItem>
+              </IcMenuGroup>
+              <IcMenuItem
+                label="Actions"
+                submenu-trigger-for="abc"
+              ></IcMenuItem>
+            </IcPopoverMenu>
+            <IcPopoverMenu submenu-id="abc">
+              <IcMenuItem
+                label="Find"
+                submenu-trigger-for="abc123"
+              ></IcMenuItem>
+            </IcPopoverMenu>
+            <IcPopoverMenu submenu-id="abc123">
+              <IcMenuItem
+                disabled="true"
+                label="Search the web"
+                description="This will search the web to find the thing you are looking for."
+              ></IcMenuItem>
+              <IcMenuItem label="Find icons">
+                <svg
+                  slot="icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                >
+                  <path d="M0 0h24v24H0V0z" fill="none" />
+                  <path
+                    d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                  />
+                </svg>
+              </IcMenuItem>
+            </IcPopoverMenu>
+          </div>      
+          <IcCheckboxGroup
+            hideLabel
+            label="confirm"
+            name="confirm-checkbox"
+          >
+            <IcCheckbox label="Confirm" value="confirm" additionalFieldDisplay="static">
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              />
+            </IcCheckbox>
+            <IcCheckbox additionalFieldDisplay="dynamic" value="disagree" label="Disagree">
+              <IcTextField
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              />
+            </IcCheckbox>
+            <IcCheckbox label="Disabled" value="disabled" disabled></IcCheckbox>
+          </IcCheckboxGroup>
+          <IcChip label="Default" dismissible="true">
+            <SlottedSVG
+              slot="icon"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"
+              />
+            </SlottedSVG>
+          </IcChip>
+          <IcSwitch label="Switch label"></IcSwitch>
+        </div>
+      </IcDialog>
     </>
-  ),
+  )},
 
   name: "Slotted content",
 };

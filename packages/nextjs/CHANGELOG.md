@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/nextjs@3.0.0-alpha.9...@ukic/nextjs@3.0.0-alpha.10) (2025-04-08)
+
+### Features
+
+- **nextjs:** upgraded storybook to v8 ([d148358](https://github.com/mi6/ic-ui-kit/commit/d148358235f7e39ee5adb3e1755fac759f84306e))
+
 # [3.0.0-alpha.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/nextjs@3.0.0-alpha.8...@ukic/nextjs@3.0.0-alpha.9) (2025-03-19)
 
 **Note:** Version bump only for package @ukic/nextjs

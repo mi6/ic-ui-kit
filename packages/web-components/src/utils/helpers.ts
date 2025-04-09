@@ -23,6 +23,7 @@ import {
 } from "./constants";
 
 const DARK_MODE_THRESHOLD = 133.3505;
+const ANYWHERE_SEARCH_POSITION = "anywhere";
 const icInput = "ic-input";
 const linkIcInput = "input.ic-input";
 
@@ -108,7 +109,7 @@ export const renderHiddenInput = (
   container: HTMLElement,
   name: string,
   value: string | Date | undefined | null,
-  disabled: boolean
+  disabled: boolean | undefined
 ): void => {
   if (name !== undefined && (always || hasShadowDom(container))) {
     const inputs = container.querySelectorAll(linkIcInput);
@@ -122,11 +123,11 @@ export const renderHiddenInput = (
       input.classList.add(icInput);
       container.appendChild(input);
     }
-    input.disabled = disabled;
+    input.disabled = !!disabled;
     input.name = name;
 
     if (value instanceof Date) {
-      input.value = value ? value.toISOString() : null;
+      input.value = value ? value.toISOString() : "";
     } else {
       input.value = value || "";
     }
@@ -154,7 +155,7 @@ export const renderFileHiddenInput = (
   name: string,
   value: FileList | undefined | null,
   disabled: boolean,
-  accept: string
+  accept: string | undefined | null
 ): void => {
   if (name !== undefined && hasShadowDom(container)) {
     const inputs = container.querySelectorAll(linkIcInput);
@@ -171,9 +172,11 @@ export const renderFileHiddenInput = (
     input.hidden = true;
     input.multiple = multiple;
     input.name = name;
-    input.files = value;
     input.disabled = disabled;
-    input.accept = accept;
+
+    if (value) input.files = value;
+    if (accept) input.accept = accept;
+
     input.onchange = () => {
       event.emit(input.files);
     };
@@ -189,8 +192,8 @@ export const removeHiddenInput = (container: HTMLElement): void => {
   input?.remove();
 };
 
-export const hasShadowDom = (el: HTMLElement): boolean =>
-  !!el.shadowRoot && !!el.attachShadow;
+export const hasShadowDom = (el: HTMLElement | null | undefined): boolean =>
+  el ? !!el.shadowRoot && !!el.attachShadow : false;
 
 export const getInputHelperTextID = (id: string): string => id + "-helper-text";
 
@@ -220,16 +223,16 @@ export const getInputDescribedByText = (
  */
 export const getBrandFromContext = (
   el: Element,
-  brandFromEvent: IcBrandForeground = null
+  brandFromEvent: IcBrandForeground | null = null
 ): IcBrandForeground => {
   const parentElement =
     el.parentElement || (<ShadowRoot>el.getRootNode()).host.parentElement;
-  const blockColorParent = parentElement.closest(
+  const blockColorParent = parentElement?.closest(
     IC_BLOCK_COLOR_COMPONENTS.join(",")
   );
 
   // If within a block color component
-  if (blockColorParent !== null) {
+  if (blockColorParent) {
     const parentTag = blockColorParent.tagName.toLowerCase();
     const currentTag = el.tagName.toLowerCase();
 
@@ -280,7 +283,7 @@ export const handleHiddenFormButtonClick = (
 ): void => {
   const hiddenFormButton = document.createElement("button");
 
-  hiddenFormButton.setAttribute("type", button.type);
+  button.type && hiddenFormButton.setAttribute("type", button.type);
   hiddenFormButton.style.display = "none";
 
   form.appendChild(hiddenFormButton);
@@ -293,8 +296,8 @@ export const isEmptyString = (value: string): boolean =>
   value ? value.trim().length === 0 : true;
 
 // A helper function that checks if a prop has been defined
-export const isPropDefined = (prop: string): string | null =>
-  prop !== undefined ? prop : null;
+export const isPropDefined = (prop: string | undefined): string | undefined =>
+  prop !== undefined ? prop : undefined;
 
 /**
  * Extracts the label using the value from an object. Requires the object to have a label and value property.
@@ -340,7 +343,7 @@ export const getFilteredMenuOptions = (
   options: IcMenuOption[],
   includeDescriptions: boolean,
   searchString: string,
-  position: IcSearchMatchPositions,
+  position: IcSearchMatchPositions = ANYWHERE_SEARCH_POSITION,
   labelField = "label"
 ): IcMenuOption[] =>
   options.filter((option) => {
@@ -348,7 +351,7 @@ export const getFilteredMenuOptions = (
     const description = option.description?.toLowerCase();
     const lowerSearchString = searchString.toLowerCase();
 
-    return position === "anywhere"
+    return position === ANYWHERE_SEARCH_POSITION
       ? includeDescriptions
         ? label.includes(lowerSearchString) ||
           description?.includes(lowerSearchString)
@@ -437,7 +440,10 @@ export const getBrandForegroundAppearance = (
     ? IcBrandForegroundEnum.Dark
     : IcBrandForegroundEnum.Light;
 
-export const getSlot = (element: HTMLElement, name: string): Element | null => {
+export const getSlot = (
+  element: HTMLElement | undefined,
+  name: string
+): Element | null => {
   if (element && element.querySelector) {
     return element.querySelector(`[slot="${name}"]`);
   }
@@ -461,7 +467,7 @@ export const getSlotContent = (
 
 export const getSlotElements = (
   slot: Element
-): NodeListOf<ChildNode> | Element[] => {
+): NodeListOf<ChildNode> | Element[] | null => {
   const slotContent = slot.firstElementChild as HTMLSlotElement;
 
   if (slotContent !== null) {
@@ -479,20 +485,23 @@ export const getNavItemParentDetails = ({
   parentElement,
 }: HTMLElement): IcNavParentDetails => {
   let navType: IcNavParentDetails = { navType: "", parent: null };
-  switch (parentElement.tagName) {
-    case "IC-NAVIGATION-GROUP":
-      navType = getNavItemParentDetails(parentElement);
-      break;
-    case "IC-TOP-NAVIGATION":
-      navType = { navType: "top", parent: parentElement };
-      break;
-    case "IC-SIDE-NAVIGATION":
-      navType = { navType: "side", parent: parentElement };
-      break;
-    case "IC-PAGE-HEADER":
-      navType = { navType: "page-header", parent: null };
-      break;
+  if (parentElement) {
+    switch (parentElement.tagName) {
+      case "IC-NAVIGATION-GROUP":
+        navType = getNavItemParentDetails(parentElement);
+        break;
+      case "IC-TOP-NAVIGATION":
+        navType = { navType: "top", parent: parentElement };
+        break;
+      case "IC-SIDE-NAVIGATION":
+        navType = { navType: "side", parent: parentElement };
+        break;
+      case "IC-PAGE-HEADER":
+        navType = { navType: "page-header", parent: null };
+        break;
+    }
   }
+
   return navType;
 };
 
@@ -516,8 +525,8 @@ export const DEVICE_SIZES = {
 };
 
 export const hasValidationStatus = (
-  status: IcInformationStatusOrEmpty,
-  disabled: boolean
+  status?: IcInformationStatusOrEmpty,
+  disabled?: boolean
 ): boolean => !!status && !disabled;
 
 export const isSlotUsed = (
@@ -635,7 +644,7 @@ export const pxToRem = (px: string, base = 16): string =>
  * This effectively makes it null, to not confuse screen readers that cannot interpret the false value
  */
 export const removeDisabledFalse = (
-  disabled: boolean,
+  disabled: boolean | undefined,
   element: HTMLElement
 ): void => {
   if (!disabled) {

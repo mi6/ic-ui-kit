@@ -176,7 +176,6 @@ const ReactRouter = () => {
           </svg>
         </NavLink>
         <IcNavigationItem slot="primary-navigation">
-          <IcBadge label="1" slot="badge" variant="light" />
           <NavLink to="/" slot="navigation-item">
             <svg
               slot="icon"
@@ -191,6 +190,7 @@ const ReactRouter = () => {
                 fill="currentColor"
               />
             </svg>
+            <IcBadge label="1" slot="badge" variant="light" />
             Home
           </NavLink>
         </IcNavigationItem>
@@ -1162,6 +1162,7 @@ export const ReactRouterWithUnnamedSlot = {
                 fill="currentColor"
               />
             </svg>
+            <IcBadge label="1" slot="badge" variant="light" />
             Home
           </NavLink>
         </IcNavigationItem>

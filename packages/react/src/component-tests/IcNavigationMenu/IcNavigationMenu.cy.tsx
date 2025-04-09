@@ -592,7 +592,7 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
     mount(<AllNavTypesTopNav />);
 
     cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-    cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click().wait(250);
+    cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click().wait(500);
 
     cy.compareSnapshot({
       name: "/all-nav-types-top-nav-high-contrast",
@@ -624,8 +624,10 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
     mount(<AllNavTypesSideNav />);
 
     cy.checkShadowElVisible(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-    cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click().wait(250);
+    cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click().wait(500);
     cy.get(SIDE_NAV_SELECTOR).should(HAVE_CLASS, "xs-menu-open");
+
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/all-nav-types-side-nav-high-contrast",
@@ -647,6 +649,7 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
       .focus();
     cy.realPress("Tab");
     cy.get(NAVIGATION_GROUP_SELECTOR).eq(0).should(HAVE_FOCUS);
+    cy.wait(500);
 
     cy.compareSnapshot({
       name: "/nav-group-side-nav-focused-high-contrast",

@@ -19,6 +19,13 @@ const preview = {
       },
       hideNoControlsWarning: true,
     },
+    options: {
+      storySort: {
+        method: 'configure',
+        includeNames: true,
+        order: ['*', ['*', ['Docs', 'Playground']]],
+      },
+    },
   },
 
   globalTypes: {
@@ -45,7 +52,7 @@ const preview = {
       const selectedTheme = context.globals.theme || "light";
       const backgroundColor =
         selectedTheme === "dark"
-          ? "var(--ic-color-background-primary-dark)"
+          ? "#17191c"
           : "var(--ic-color-background-primary-light)";
       return (
         <>

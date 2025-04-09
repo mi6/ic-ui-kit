@@ -21,7 +21,7 @@ export class BreadcrumbGroup {
   private collapsedBreadcrumbs: HTMLIcBreadcrumbElement[];
   private collapsedBreadcrumbWrapper: HTMLIcBreadcrumbElement;
   private IC_BREADCRUMB: string = "ic-breadcrumb";
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
   private SHOW_BACK_ICON: string = "show-back-icon";
 
   @Element() el: HTMLIcBreadcrumbGroupElement;
@@ -32,7 +32,7 @@ export class BreadcrumbGroup {
   /**
    * If `true`, display only a single breadcrumb for the parent page with a back icon.
    */
-  @Prop() backBreadcrumbOnly: boolean = false;
+  @Prop() backBreadcrumbOnly?: boolean = false;
   @Watch("backBreadcrumbOnly")
   watchBackBreadcrumbHandler(): void {
     this.setBackBreadcrumb();
@@ -41,7 +41,7 @@ export class BreadcrumbGroup {
   /**
    * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
    */
-  @Prop() collapsed: boolean = false;
+  @Prop() collapsed?: boolean = false;
   @Watch("collapsed")
   watchCollapsedHandler(): void {
     this.setCollapsed();
@@ -105,9 +105,9 @@ export class BreadcrumbGroup {
   private setBreadcrumbTheme = () => {
     const allBreadcrumbs = Array.from(
       this.el.querySelectorAll(this.IC_BREADCRUMB)
-    );
+    ) as HTMLIcBreadcrumbElement[];
 
-    allBreadcrumbs.forEach((breadcrumb: HTMLIcBreadcrumbElement) => {
+    allBreadcrumbs.forEach((breadcrumb) => {
       breadcrumb.theme = this.theme;
     });
   };
@@ -115,9 +115,9 @@ export class BreadcrumbGroup {
   private setBreadcrumbMonochrome = () => {
     const allBreadcrumbs = Array.from(
       this.el.querySelectorAll(this.IC_BREADCRUMB)
-    );
+    ) as HTMLIcBreadcrumbElement[];
 
-    allBreadcrumbs.forEach((breadcrumb: HTMLIcBreadcrumbElement) => {
+    allBreadcrumbs.forEach((breadcrumb) => {
       breadcrumb.monochrome = this.monochrome;
     });
   };
@@ -278,9 +278,11 @@ export class BreadcrumbGroup {
   };
 
   private revertLastParentCollapsedBreadcrumb = () => {
-    this.lastParentBreadcrumb.setAttribute(this.SHOW_BACK_ICON, "false");
-    if (this.collapsed) {
-      this.lastParentBreadcrumb.classList.add("hide");
+    if (this.lastParentBreadcrumb) {
+      this.lastParentBreadcrumb.setAttribute(this.SHOW_BACK_ICON, "false");
+      if (this.collapsed) {
+        this.lastParentBreadcrumb.classList.add("hide");
+      }
     }
   };
 
@@ -324,8 +326,8 @@ export class BreadcrumbGroup {
     return (
       <Host
         class={{
-          "ic-breadcrumb-group-back": this.backBreadcrumbOnly,
-          "ic-breadcrumb-group-collapsed": this.collapsed,
+          "ic-breadcrumb-group-back": !!this.backBreadcrumbOnly,
+          "ic-breadcrumb-group-collapsed": !!this.collapsed,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >

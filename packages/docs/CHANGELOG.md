@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.12...@ukic/docs@3.0.0-alpha.13) (2025-04-08)
+
+### Features
+
+- **web-components:** update second half of web-components files to resolve strict mode errors ([b939971](https://github.com/mi6/ic-ui-kit/commit/b9399713cc98798fcca669db083869b134f82ca1)), closes [.#266](https://github.com/./issues/266) [#3349](https://github.com/mi6/ic-ui-kit/issues/3349)
+
 # [3.0.0-alpha.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.11...@ukic/docs@3.0.0-alpha.12) (2025-03-19)
 
 **Note:** Version bump only for package @ukic/docs

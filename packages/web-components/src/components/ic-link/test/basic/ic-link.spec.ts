@@ -140,15 +140,15 @@ describe("ic-link component", () => {
       html: `<ic-link>IC Link Test</ic-link>`,
     });
     expect(
-      page.root.shadowRoot.querySelector("a").getAttribute("aria-label")
+      page.root?.shadowRoot?.querySelector("a")?.getAttribute("aria-label")
     ).toBeNull();
 
-    page.root.setAttribute("aria-label", "new-label");
+    page.root?.setAttribute("aria-label", "new-label");
     page.rootInstance.hostMutationCallback([{ attributeName: "aria-label" }]);
     await page.waitForChanges();
 
     expect(
-      page.root.shadowRoot.querySelector("a").getAttribute("aria-label")
+      page.root?.shadowRoot?.querySelector("a")?.getAttribute("aria-label")
     ).toBe("new-label");
     page.rootInstance.disconnectedCallback();
   });

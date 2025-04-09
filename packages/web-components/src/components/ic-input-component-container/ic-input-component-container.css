@@ -21,6 +21,7 @@ ic-input-component-container {
   border-radius: var(--ic-border-radius);
   transition: var(--ic-easing-transition-slow);
   height: 2.5rem;
+  min-height: 2.5rem;
   width: var(--input-width, 20rem);
   padding: var(--ic-space-1px);
   background-color: var(--input-bg-color, var(--ic-color-background-primary));
@@ -37,6 +38,12 @@ ic-input-component-container.ic-input-component-container-disabled,
 ic-input-component-container.ic-input-component-container-disabled:hover {
   border: var(--ic-border-width) dashed
     var(--border-color-disabled, var(--ic-color-border-neutral-disabled));
+}
+
+ic-input-component-container.ic-input-component-container-readonly,
+ic-input-component-container.ic-input-component-container-small.ic-input-component-container-readonly,
+ic-input-component-container.ic-input-component-container-large.ic-input-component-container-readonly {
+  height: auto;
 }
 
 ic-input-component-container.ic-input-component-container-readonly,
@@ -95,10 +102,12 @@ ic-input-component-container.ic-input-component-container-success:focus-within {
 
 ic-input-component-container.ic-input-component-container-small {
   height: var(--ic-space-xl);
+  min-height: var(--ic-space-xl);
 }
 
 ic-input-component-container.ic-input-component-container-large {
   height: var(--ic-space-xxl);
+  min-height: var(--ic-space-xxl);
 }
 
 ic-input-component-container.ic-input-component-container-multiline {

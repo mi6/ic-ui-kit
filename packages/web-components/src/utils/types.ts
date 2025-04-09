@@ -132,7 +132,7 @@ export type IcAutocorrectStates = "on" | "off";
 
 export type IcNavParentDetails = {
   navType: IcNavType | "";
-  parent: HTMLElement;
+  parent: HTMLElement | null;
 };
 
 export type IcTypographyVariants =
@@ -182,7 +182,8 @@ export type IcRequiredPropsTypes =
   | boolean
   | number
   | HTMLElement
-  | IcMenuOption[];
+  | IcMenuOption[]
+  | undefined;
 
 export type IcPropObject = { prop: IcRequiredPropsTypes; propName: string };
 
@@ -193,12 +194,17 @@ export type IcOrientation = "horizontal" | "vertical";
 export type IcEmphasisType = "filled" | "outlined";
 
 export interface IcValueEventDetail {
-  value: string | string[];
+  value: string;
+  keyPressed?: string;
+}
+
+export interface IcMultiValueEventDetail {
+  value: string | string[] | null;
   keyPressed?: string;
 }
 
 export interface IcBlurEventDetail {
-  relatedTarget: IcRelatedTarget;
+  relatedTarget: IcRelatedTarget | null;
 }
 
 export type IcSelectTypes = "single" | "multi";

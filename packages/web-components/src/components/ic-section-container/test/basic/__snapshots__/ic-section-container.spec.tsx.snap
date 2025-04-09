@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-section-container should remove vertical padding when full-height 1`] = `
+<ic-section-container class="aligned-left no-vertical-padding" full-height="">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <p>
+    Test container
+  </p>
+</ic-section-container>
+`;
+
+exports[`ic-section-container should render centered 1`] = `
+<ic-section-container aligned="center" class="aligned-center">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <p>
+    Test container
+  </p>
+</ic-section-container>
+`;
+
+exports[`ic-section-container should render full-width 1`] = `
+<ic-section-container aligned="full-width" class="aligned-full-width">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <p>
+    Test container
+  </p>
+</ic-section-container>
+`;
+
+exports[`ic-section-container should render with left-aligned by default 1`] = `
+<ic-section-container class="aligned-left">
+  <template shadowrootmode="open">
+    <slot></slot>
+  </template>
+  <p>
+    Test container
+  </p>
+</ic-section-container>
+`;

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.12...@ukic/canary-web-components@3.0.0-canary.13) (2025-04-08)
+
+### Features
+
+- **canary-web-components:** upgraded canary-web-components to storybook v8 ([5cbd14b](https://github.com/mi6/ic-ui-kit/commit/5cbd14b5b0369c7244e688b26410af70e21236fc))
+
 # [3.0.0-canary.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.11...@ukic/canary-web-components@3.0.0-canary.12) (2025-03-19)
 
 ### Bug Fixes

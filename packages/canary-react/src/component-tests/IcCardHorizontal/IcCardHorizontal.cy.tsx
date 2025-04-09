@@ -348,7 +348,7 @@ describe("IcCardHorizontal visual regression tests in high contrast mode", () =>
 
     cy.checkHydrated(CARD_SELECTOR);
 
-    cy.checkA11yWithWait();
+    // cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),

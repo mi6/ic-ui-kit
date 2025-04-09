@@ -209,7 +209,7 @@ describe("ic-navigation-group", () => {
     page.rootInstance.navigationType = "side";
     await page.rootInstance.handleKeydown({
       key: " ",
-      preventDefault: (): void => null,
+      preventDefault: (): null => null,
     });
     await page.waitForChanges();
     await waitForTimeout(600);
@@ -281,9 +281,9 @@ describe("ic-navigation-group", () => {
     page.win.addEventListener("waitForNavGroupLoad", eventSpy);
     await page.waitForChanges();
     await waitForNavGroupLoad();
-    const style = page.root.shadowRoot
-      .querySelector(".grouped-links-wrapper")
-      .getAttribute("style");
+    const style = page.root?.shadowRoot
+      ?.querySelector(".grouped-links-wrapper")
+      ?.getAttribute("style");
     expect(style).toBe("--navigation-child-items-height: 0px;");
   });
 
@@ -299,17 +299,17 @@ describe("ic-navigation-group", () => {
     await waitForNavGroupLoad();
 
     let navItemLink = page.root
-      .querySelector("ic-navigation-item")
-      .shadowRoot.querySelector("a");
-    expect(navItemLink.tabIndex).toBe(-1);
+      ?.querySelector("ic-navigation-item")
+      ?.shadowRoot?.querySelector("a");
+    expect(navItemLink?.tabIndex).toBe(-1);
 
     await page.rootInstance.setGroupedNavItemTabIndex("0");
     await page.waitForChanges();
     navItemLink = page.root
-      .querySelector("ic-navigation-item")
-      .shadowRoot.querySelector("a");
+      ?.querySelector("ic-navigation-item")
+      ?.shadowRoot?.querySelector("a");
 
-    expect(navItemLink.tabIndex).toBe(0);
+    expect(navItemLink?.tabIndex).toBe(0);
   });
 
   it("should call other methods ", async () => {
@@ -318,7 +318,7 @@ describe("ic-navigation-group", () => {
       html: `<ic-navigation-group label="Group label"></ic-navigation-group>`,
     });
     await waitForNavGroupLoad();
-    await page.root.setFocus();
+    await page.rootInstance.setFocus();
   });
 
   // NOTE: This must go last as mocks getCurrentDeviceSize function, which will apply to all subsequent tests

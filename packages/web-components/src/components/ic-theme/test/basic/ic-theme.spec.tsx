@@ -87,7 +87,7 @@ describe("ic-theme", () => {
       html: `<ic-theme brand-color="rgba(159, 43, 104)"></ic-theme>`,
     });
 
-    page.root.brandColor = "rgba(133, 133, 133, 1)";
+    page.rootInstance.brandColor = "rgba(133, 133, 133, 1)";
     await page.waitForChanges();
 
     expectRGBToBe(page, "133", "133", "133");
@@ -101,13 +101,13 @@ describe("ic-theme", () => {
 
     expect(page.root).toHaveClass("ic-theme-dark");
 
-    page.root.theme = "light";
+    page.rootInstance.theme = "light";
 
     await page.waitForChanges();
 
     expect(page.root).toHaveClass("ic-theme-light");
 
-    page.root.theme = "system";
+    page.rootInstance.theme = "system";
 
     await page.waitForChanges();
 

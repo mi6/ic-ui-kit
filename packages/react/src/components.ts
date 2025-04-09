@@ -55,6 +55,7 @@ export const IcSectionContainer = /*@__PURE__*/createReactComponent<JSX.IcSectio
 export const IcSelect = /*@__PURE__*/createReactComponent<JSX.IcSelect, HTMLIcSelectElement>('ic-select');
 export const IcSideNavigation = /*@__PURE__*/createReactComponent<JSX.IcSideNavigation, HTMLIcSideNavigationElement>('ic-side-navigation');
 export const IcSkeleton = /*@__PURE__*/createReactComponent<JSX.IcSkeleton, HTMLIcSkeletonElement>('ic-skeleton');
+export const IcSkipLink = /*@__PURE__*/createReactComponent<JSX.IcSkipLink, HTMLIcSkipLinkElement>('ic-skip-link');
 export const IcStatusTag = /*@__PURE__*/createReactComponent<JSX.IcStatusTag, HTMLIcStatusTagElement>('ic-status-tag');
 export const IcStep = /*@__PURE__*/createReactComponent<JSX.IcStep, HTMLIcStepElement>('ic-step');
 export const IcStepper = /*@__PURE__*/createReactComponent<JSX.IcStepper, HTMLIcStepperElement>('ic-stepper');

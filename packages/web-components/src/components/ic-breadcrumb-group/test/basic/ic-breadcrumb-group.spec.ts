@@ -111,7 +111,8 @@ describe("ic-breadcrumb-group", () => {
       html: `<ic-breadcrumb-group></ic-breadcrumb-group>`,
     });
 
-    const element = page.root.shadowRoot.querySelector("nav");
+    const element = page.root?.shadowRoot?.querySelector("nav");
+    expect(element).not.toBeNull();
     expect(helpers.hasShadowDom(element)).toBe(false);
   });
 
@@ -126,9 +127,8 @@ describe("ic-breadcrumb-group", () => {
         </ic-breadcrumb-group>`,
     });
 
-    const collapsedEllipsis: HTMLElement =
-      page.doc.getElementById("collapsed-ellipsis");
-    collapsedEllipsis.click();
+    const collapsedEllipsis = document.getElementById("collapsed-ellipsis");
+    collapsedEllipsis?.click();
 
     await page.waitForChanges();
 
@@ -211,7 +211,7 @@ describe("ic-breadcrumb-group", () => {
 
     expect(page.rootInstance.expandedBreadcrumbs).toBe(false);
 
-    const button = page.root.querySelector(
+    const button = document.querySelector(
       "#collapsed-ellipsis"
     ) as HTMLButtonElement;
     button.click();

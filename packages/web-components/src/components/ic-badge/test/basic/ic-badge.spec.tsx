@@ -357,12 +357,12 @@ describe("ic-badge", () => {
 
     expect(page.rootInstance.visible).toBe(true);
 
-    badge.visible = false;
+    badge?.setAttribute("visible", "false");
     await page.waitForChanges();
 
     expect(page.rootInstance.visible).toBe(false);
 
-    badge.visible = true;
+    badge?.setAttribute("visible", "true");
     await page.waitForChanges();
 
     expect(page.rootInstance.visible).toBe(true);
@@ -377,7 +377,7 @@ describe("ic-badge", () => {
     await page.rootInstance.setBadgeColour();
 
     const badge = document.querySelector("ic-badge");
-    expect(badge.style.backgroundColor).toBe("rgba(248, 200, 220, 1)");
+    expect(badge?.style.backgroundColor).toBe("rgba(248, 200, 220, 1)");
   });
 
   it("should set the correct foreground colour", async () => {
@@ -415,10 +415,10 @@ describe("ic-badge", () => {
       html: `<ic-button>Button<ic-badge slot="badge" variant="custom" label="1" custom-color="#F8C8DC"/></ic-button>`,
     });
 
-    page.rootInstance.customColor = "rgb(222,10,43)";
+    page.root?.setAttribute("custom-color", "rgb(222,10,43)");
 
     const badge = document.querySelector("ic-badge");
-    expect(badge.style.backgroundColor).toBe("rgba(222, 10, 43, 1)");
+    expect(badge?.style.backgroundColor).toBe("rgba(222, 10, 43, 1)");
   });
 
   it("should set the correct variant when navigation menu is opened and closed", async () => {
@@ -519,10 +519,10 @@ describe("ic-badge", () => {
 
     document.dispatchEvent(new CustomEvent("icNavigationMenuOpened"));
     expect(page.rootInstance.mode).toBe("menu");
-    expect(badge.position).toBe("inline");
+    expect(badge?.position).toBe("inline");
 
     document.dispatchEvent(new CustomEvent("icNavigationMenuClosed"));
     expect(page.rootInstance.mode).toBe("navbar");
-    expect(badge.position).toBe("near");
+    expect(badge?.position).toBe("near");
   });
 });

@@ -18,7 +18,7 @@ import {
   onComponentRequiredPropUndefined,
   getSlotElements,
 } from "../../utils/helpers";
-import { IcThemeMode } from "../../utils/types";
+import { IcFocusableComponents, IcThemeMode } from "../../utils/types";
 
 /**
  * @slot dialog-controls - Content will be place at the bottom of the dialog.
@@ -32,20 +32,21 @@ import { IcThemeMode } from "../../utils/types";
   shadow: true,
 })
 export class Dialog {
-  private backdropEl: HTMLDivElement;
-  private contentArea: HTMLSlotElement;
-  private contentAreaMutationObserver: MutationObserver = null;
+  private backdropEl?: HTMLDivElement;
+  private contentArea: HTMLSlotElement | null;
+  private contentAreaMutationObserver: MutationObserver | null = null;
   private DATA_GETS_FOCUS: string = "data-gets-focus";
-  private DATA_GETS_FOCUS_SELECTOR: string = "[data-gets-focus]";
   private DIALOG_CONTROLS: string = "dialog-controls";
-  private dialogEl: HTMLDialogElement;
+  private dialogEl?: HTMLDialogElement;
   private dialogHeight: number = 0;
   private focusedElementIndex = 0;
   private IC_TEXT_FIELD: string = "IC-TEXT-FIELD";
   private IC_ACCORDION: string = "IC-ACCORDION";
   private IC_ACCORDION_GROUP: string = "IC-ACCORDION-GROUP";
+  private IC_CHECKBOX = "IC-CHECKBOX";
+  private IC_SEARCH_BAR: string = "IC-SEARCH-BAR";
   private interactiveElementList: HTMLElement[];
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
   private resizeTimeout: number;
   private sourceElement: HTMLElement;
 
@@ -93,7 +94,7 @@ export class Dialog {
   /**
    * Sets the heading for the dialog.
    */
-  @Prop() heading: string;
+  @Prop() heading?: string;
 
   /**
    * Sets the optional label for the dialog which appears above the heading.
@@ -103,7 +104,7 @@ export class Dialog {
   /**
    * If `true`, the dialog will be displayed.
    */
-  @Prop({ reflect: true, mutable: true }) open: boolean = undefined;
+  @Prop({ reflect: true, mutable: true }) open?: boolean = false;
 
   @Watch("open")
   watchOpenHandler(): void {
@@ -116,7 +117,7 @@ export class Dialog {
       }
       setTimeout(() => {
         this.dialogRendered = false;
-        this.dialogEl.close();
+        this.dialogEl?.close();
         this.sourceElement?.focus();
         this.dialogHeight = 0;
         this.icDialogClosed.emit();
@@ -190,7 +191,7 @@ export class Dialog {
     if (this.dialogRendered) {
       switch (ev.key) {
         case "Tab":
-          if (this.focusNextInteractiveElement(ev.shiftKey)) {
+          if (this.onTabKeyPress(ev.shiftKey)) {
             ev.preventDefault();
           }
           break;
@@ -206,10 +207,10 @@ export class Dialog {
 
   @Listen("click", {})
   handleClick(ev: MouseEvent): void {
-    const dialogElement = this.el.shadowRoot.querySelector("dialog");
     if (
+      this.dialogEl &&
       this.closeOnBackdropClick &&
-      ev.composedPath().indexOf(dialogElement) <= 0
+      ev.composedPath().indexOf(this.dialogEl) <= 0
     ) {
       const rect = this.dialogEl.getBoundingClientRect();
       const isInDialog =
@@ -244,7 +245,7 @@ export class Dialog {
     this.dialogRendered = true;
 
     if (this.disableHeightConstraint) {
-      this.dialogEl.show();
+      this.dialogEl?.show();
     } else {
       this.dialogEl?.showModal();
     }
@@ -259,7 +260,11 @@ export class Dialog {
        *
        * Without this, the scroll bar will start from the dialog's last scroll-x coordinate.
        */
-      if (this.disableHeightConstraint && this.backdropEl.scrollTop !== 0) {
+      if (
+        this.backdropEl &&
+        this.disableHeightConstraint &&
+        this.backdropEl.scrollTop !== 0
+      ) {
         this.backdropEl.scrollTop = 0;
       }
     }, 10);
@@ -270,46 +275,50 @@ export class Dialog {
     }, 75);
 
     setTimeout(() => {
-      this.getFocusedElementIndex();
       this.icDialogOpened.emit();
     }, 80);
   };
 
   private runResizeObserver = () => {
-    this.resizeObserver = new ResizeObserver(() => {
-      clearTimeout(this.resizeTimeout);
-      this.resizeTimeout = window.setTimeout(this.resizeObserverCallback, 80);
-    });
-    this.resizeObserver.observe(this.dialogEl);
+    if (this.dialogEl) {
+      this.resizeObserver = new ResizeObserver(() => {
+        clearTimeout(this.resizeTimeout);
+        this.resizeTimeout = window.setTimeout(this.resizeObserverCallback, 80);
+      });
+      this.resizeObserver.observe(this.dialogEl);
+    }
   };
 
   private resizeObserverCallback = () => {
-    if (this.dialogEl.clientHeight !== this.dialogHeight) {
+    if (this.dialogEl && this.dialogEl.clientHeight !== this.dialogHeight) {
       this.dialogHeight = this.dialogEl.clientHeight;
     }
   };
 
   private refreshInteractiveElementsOnSlotChange = () => {
-    const contentWrapper = this.el.shadowRoot.querySelector("#dialog-content");
-    this.contentArea = contentWrapper.querySelector("slot");
+    const contentWrapper = this.el.shadowRoot?.querySelector("#dialog-content");
 
-    // Detect changes to slotted elements
-    this.contentArea.addEventListener(
-      "slotchange",
-      this.getInteractiveElements
-    );
+    if (contentWrapper) {
+      this.contentArea = contentWrapper.querySelector("slot");
 
-    this.contentAreaMutationObserver = new MutationObserver(() => {
-      this.getInteractiveElements();
-    });
+      // Detect changes to slotted elements
+      this.contentArea?.addEventListener(
+        "slotchange",
+        this.getInteractiveElements
+      );
 
-    // Detect changes to children of slotted elements
-    getSlotElements(contentWrapper).forEach((el) => {
-      this.contentAreaMutationObserver.observe(el, {
-        childList: true,
-        subtree: true,
+      this.contentAreaMutationObserver = new MutationObserver(() => {
+        this.getInteractiveElements();
       });
-    });
+
+      // Detect changes to children of slotted elements
+      getSlotElements(contentWrapper)?.forEach((el) => {
+        this.contentAreaMutationObserver?.observe(el, {
+          childList: true,
+          subtree: true,
+        });
+      });
+    }
   };
 
   private removeSlotChangeListener = () => {
@@ -325,36 +334,19 @@ export class Dialog {
 
   private setInitialFocus = () => {
     this.sourceElement = document.activeElement as HTMLElement;
-
-    let focusedElement;
-
-    if (this.el.querySelector(this.DATA_GETS_FOCUS_SELECTOR) !== null) {
-      focusedElement = this.el.querySelector(
-        this.DATA_GETS_FOCUS_SELECTOR
-      ) as HTMLElement;
-    } else {
-      focusedElement = this.el.shadowRoot.querySelector(
-        this.DATA_GETS_FOCUS_SELECTOR
-      ) as HTMLElement;
-    }
-    if (focusedElement.tagName === this.IC_TEXT_FIELD) {
-      (focusedElement as HTMLIcTextFieldElement).setFocus();
-    } else if (focusedElement.tagName === this.IC_ACCORDION_GROUP) {
-      (focusedElement as HTMLIcAccordionGroupElement).setFocus();
-    } else if (focusedElement.tagName === this.IC_ACCORDION) {
-      (focusedElement as HTMLIcAccordionElement).setFocus();
-    } else {
-      focusedElement.focus({
-        preventScroll: this.disableHeightConstraint ? true : false,
-      });
-    }
+    this.focusedElementIndex = this.interactiveElementList
+      ? this.interactiveElementList.findIndex((element) =>
+          element.hasAttribute(this.DATA_GETS_FOCUS)
+        )
+      : 0;
+    this.focusElement(this.interactiveElementList[this.focusedElementIndex]);
   };
 
   private getFocusedElementIndex = () => {
     for (let i = 0; i < this.interactiveElementList.length; i++) {
       if (
         (this.interactiveElementList[i] as HTMLElement) ===
-        (this.el.shadowRoot.activeElement || document.activeElement)
+        (this.el.shadowRoot?.activeElement || document.activeElement)
       ) {
         this.focusedElementIndex = i;
       }
@@ -367,12 +359,12 @@ export class Dialog {
 
   private getInteractiveElements = () => {
     this.interactiveElementList = Array.from(
-      this.el.shadowRoot.querySelectorAll("ic-button")
+      this.el.shadowRoot?.querySelectorAll("ic-button") || []
     );
     const slottedInteractiveElements = Array.from(
       this.el.querySelectorAll(
         `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]),
-          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group,
+          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, 
           ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button,
           ic-navigation-item, ic-switch, ic-text-field, ic-accordion-group, ic-accordion, ic-date-input, ic-date-picker`
       )
@@ -398,12 +390,12 @@ export class Dialog {
   private getNextFocusEl = (focusedElementIndex: number) =>
     this.interactiveElementList[focusedElementIndex];
 
-  private focusNextInteractiveElement = (shiftKey: boolean): boolean => {
+  private onTabKeyPress = (shiftKey: boolean): boolean => {
     this.getFocusedElementIndex();
 
     if (
       this.interactiveElementList[this.focusedElementIndex].tagName ===
-      "IC-SEARCH-BAR"
+      this.IC_SEARCH_BAR
     ) {
       return false;
     }
@@ -411,31 +403,56 @@ export class Dialog {
     this.setFocusIndexBasedOnShiftKey(shiftKey);
     this.loopNextFocusIndexIfLastElement();
 
-    let nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
+    this.focusElement(this.getNextFocusEl(this.focusedElementIndex), shiftKey);
+    return true;
+  };
 
+  private shouldSkipElement = (element: HTMLElement): boolean => {
     const isHidden =
-      getComputedStyle(nextFocusEl).visibility === "hidden" ||
-      (nextFocusEl.tagName === this.IC_ACCORDION_GROUP &&
-        nextFocusEl.hasAttribute("single-expansion"));
+      getComputedStyle(element).visibility === "hidden" ||
+      element.offsetHeight === 0 ||
+      element.hasAttribute("disabled") ||
+      (element.tagName === this.IC_ACCORDION_GROUP &&
+        element.hasAttribute("single-expansion"));
 
-    if (nextFocusEl.tagName === this.IC_TEXT_FIELD) {
-      (nextFocusEl as HTMLIcTextFieldElement).setFocus();
+    let shouldSkipElement = false;
+
+    if (isHidden) {
+      shouldSkipElement = true;
     } else {
-      if (isHidden) {
-        this.setFocusIndexBasedOnShiftKey(shiftKey);
-        this.loopNextFocusIndexIfLastElement();
-
-        nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
-      }
-      if (nextFocusEl.tagName === this.IC_ACCORDION_GROUP) {
-        (nextFocusEl as HTMLIcAccordionGroupElement).setFocus();
-      } else if (nextFocusEl.tagName === this.IC_ACCORDION) {
-        (nextFocusEl as HTMLIcAccordionElement).setFocus();
-      } else {
-        (nextFocusEl as HTMLElement).focus();
+      if (element.getAttribute("type") === "radio") {
+        const radioEl = element.closest("ic-radio-option");
+        if (radioEl && !radioEl.hasAttribute("selected")) {
+          shouldSkipElement = true;
+        }
       }
     }
-    return true;
+
+    return shouldSkipElement;
+  };
+
+  private focusElement = (element: HTMLElement, shiftKey = false) => {
+    let nextFocusEl = element;
+
+    if (this.shouldSkipElement(element)) {
+      this.setFocusIndexBasedOnShiftKey(shiftKey);
+      this.loopNextFocusIndexIfLastElement();
+
+      nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
+      this.focusElement(nextFocusEl, shiftKey);
+    } else {
+      switch (element.tagName) {
+        case this.IC_ACCORDION_GROUP:
+        case this.IC_ACCORDION:
+        case this.IC_SEARCH_BAR:
+        case this.IC_TEXT_FIELD:
+        case this.IC_CHECKBOX:
+          (element as IcFocusableComponents).setFocus();
+          break;
+        default:
+          (element as HTMLElement).focus();
+      }
+    }
   };
 
   private loopNextFocusIndexIfLastElement() {
@@ -470,8 +487,8 @@ export class Dialog {
         class={{
           ["dialog"]: true,
           [`${size}`]: true,
-          ["disable-height-constraint"]: this.disableHeightConstraint,
-          ["disable-width-constraint"]: this.disableWidthConstraint,
+          ["disable-height-constraint"]: !!this.disableHeightConstraint,
+          ["disable-width-constraint"]: !!this.disableWidthConstraint,
         }}
         aria-labelledby="dialog-label dialog-heading"
         aria-describedby="dialog-alert dialog-content"
@@ -554,7 +571,7 @@ export class Dialog {
         class={{
           ["ic-dialog-hidden"]: !this.dialogRendered,
           ["ic-dialog-fade-in"]: this.fadeIn,
-          ["disable-height-constraint"]: this.disableHeightConstraint,
+          ["disable-height-constraint"]: !!this.disableHeightConstraint,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >

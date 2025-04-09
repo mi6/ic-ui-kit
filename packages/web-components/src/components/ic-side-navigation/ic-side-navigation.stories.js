@@ -1264,6 +1264,12 @@ export const Slots = {
                 fill="currentColor"
               ></path>
             </svg>
+            <ic-badge
+              label="1"
+              slot="badge"
+              variant="light"
+              position="far"
+            ></ic-badge>
             Daily Tippers
           </a>
         </ic-navigation-item>
@@ -1349,6 +1355,12 @@ export const UsingUnnamedSlots = {
                 fill="currentColor"
               ></path>
             </svg>
+            <ic-badge
+              label="1"
+              slot="badge"
+              variant="light"
+              position="far"
+            ></ic-badge>
             Daily Tippers
           </a>
         </ic-navigation-item>

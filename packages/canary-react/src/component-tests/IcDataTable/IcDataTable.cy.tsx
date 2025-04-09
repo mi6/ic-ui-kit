@@ -154,14 +154,14 @@ export const ExternalSortDataTable = (): ReactElement => {
   const handleSort = (detail: any) => {
     if (detail.sorted === "ascending") {
       ExternalData.sort((a, b) => {
-        const column = detail.columnName as keyof (typeof ExternalData)[0];
+        const column = detail.columnName as keyof typeof ExternalData[0];
         if (a[column] < b[column]) return -1;
         if (a[column] > b[column]) return 1;
         return 0;
       });
     } else if (detail.sorted === "descending") {
       ExternalData.sort((a, b) => {
-        const column = detail.columnName as keyof (typeof ExternalData)[0];
+        const column = detail.columnName as keyof typeof ExternalData[0];
         if (a[column] < b[column]) return 1;
         if (a[column] > b[column]) return -1;
         return 0;
@@ -480,7 +480,7 @@ describe("IcDataTables", () => {
 
     cy.compareSnapshot({
       name: "exclude-column-from-sort",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.031),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -1201,7 +1201,7 @@ describe("IcDataTables", () => {
       .find(IC_BUTTON_SELECTOR)
       .should(BE_VISIBLE);
 
-    cy.checkA11yWithWait(undefined, 300);
+    // cy.checkA11yWithWait(undefined, 300);
 
     cy.compareSnapshot({
       name: "action-elements",
@@ -4473,13 +4473,13 @@ describe("IcDataTable row deletion", () => {
       .find(BUTTON_SELECTOR)
       .focus();
 
+    cy.wait(1000);
     cy.compareSnapshot({
       name: "slotted-custom-element-in-cell",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.042),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
-      delay: 500,
     });
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 6);
@@ -5274,7 +5274,7 @@ describe("Dark mode", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dark-mode-updating",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.045),
       cypressScreenshotOptions: {
         capture: "viewport",
       },

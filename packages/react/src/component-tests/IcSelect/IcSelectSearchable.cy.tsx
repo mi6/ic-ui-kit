@@ -385,10 +385,10 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.findShadowEl(IC_SELECT, 'input[role="combobox"]')
       .invoke("prop", "value")
       .should("eq", "");
-    cy.get(IC_SELECT).invoke("attr", "value", "foo");
+    cy.get(IC_SELECT).invoke("attr", "value", "Cap");
     cy.findShadowEl(IC_SELECT, 'input[role="combobox"]')
       .invoke("prop", "value")
-      .should("eq", "foo");
+      .should("eq", "Cappuccino");
   });
 
   it("should trigger icChange on input for each typed value", () => {
@@ -1144,7 +1144,7 @@ describe("IcSelect searchable visual regression tests in high contrast mode", ()
 
     cy.checkHydrated(IC_SELECT);
 
-    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(500);
+    cy.get(IC_SELECT).shadow().find(IC_INPUT_CONTAINER).type("ca").wait(600);
 
     cy.compareSnapshot({
       name: "/searchable-disabled-options-open-high-contrast",

@@ -41,9 +41,9 @@ const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "title"];
   },
 })
 export class NavigationButton {
-  private buttonEl: HTMLIcButtonElement;
+  private buttonEl?: HTMLIcButtonElement;
   private inheritedAttributes: { [k: string]: string } = {};
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el: HTMLIcNavigationButtonElement;
 
@@ -148,10 +148,12 @@ export class NavigationButton {
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
     mutationList.forEach(({ attributeName }) => {
-      if (MUTABLE_ATTRIBUTES.includes(attributeName)) {
-        this.inheritedAttributes[attributeName] =
-          this.el.getAttribute(attributeName);
-        forceComponentUpdate = true;
+      if (attributeName) {
+        const attribute = this.el.getAttribute(attributeName);
+        if (attribute && MUTABLE_ATTRIBUTES.includes(attributeName)) {
+          this.inheritedAttributes[attributeName] = attribute;
+          forceComponentUpdate = true;
+        }
       }
     });
     if (forceComponentUpdate) {

@@ -4,7 +4,7 @@ import {
   IcLoadingSizes,
   IcLoadingTypes,
 } from "./ic-loading-indicator.types";
-import { IcThemeMode } from "../../utils/types";
+import { IcThemeMode, IcTypographyVariants } from "../../utils/types";
 
 @Component({
   tag: "ic-loading-indicator",
@@ -12,7 +12,7 @@ import { IcThemeMode } from "../../utils/types";
   shadow: true,
 })
 export class LoadingIndicator {
-  private circularMeter: SVGCircleElement;
+  private circularMeter?: SVGCircleElement | null;
   private innerElement?: HTMLDivElement;
   private interval: ReturnType<typeof setInterval>;
   private labelList: string[];
@@ -100,7 +100,7 @@ export class LoadingIndicator {
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme: IcThemeMode = "inherit";
+  @Prop() theme?: IcThemeMode = "inherit";
 
   disconnectedCallback(): void {
     clearInterval(this.interval);
@@ -115,7 +115,7 @@ export class LoadingIndicator {
   componentDidLoad(): void {
     if (this.type === "circular") {
       this.setCircleLineWidth();
-      this.circularMeter = this.el.shadowRoot.querySelector(
+      this.circularMeter = this.el.shadowRoot?.querySelector(
         ".ic-loading-circular-svg circle:nth-child(2)"
       );
       this.updateCircularProgressMeter();
@@ -137,7 +137,7 @@ export class LoadingIndicator {
   }
 
   private updateCircularProgressMeter = () => {
-    if (!this.indeterminate) {
+    if (!this.indeterminate && this.circularMeter) {
       this.circularMeter.style.setProperty(
         "--progress-value",
         String(this.progress)
@@ -161,14 +161,17 @@ export class LoadingIndicator {
     });
   };
 
-  private getLabelVariant = () => {
+  private getLabelVariant = (): IcTypographyVariants => {
     let variant: "label" | "h4" | "h2" = "h4";
     const width = this.outerElement?.offsetWidth;
-    if (this.size === "small" || (this.type === "circular" && width < 60)) {
+    if (
+      this.size === "small" ||
+      (width && this.type === "circular" && width < 60)
+    ) {
       variant = "label";
     } else if (
       this.size === "large" ||
-      (this.type === "circular" && width >= 120)
+      (width && this.type === "circular" && width >= 120)
     ) {
       variant = "h2";
     }
@@ -177,8 +180,6 @@ export class LoadingIndicator {
 
   // Sets the circular indicator line width - accounting for the circle size being altered using the CSS custom property
   private setCircleLineWidth = () => {
-    const { offsetWidth: width } = this.outerElement;
-
     const compactStepCircularLineWidth = this.el.classList.contains(
       "compact-step-progress-indicator"
     )
@@ -190,42 +191,51 @@ export class LoadingIndicator {
       ? 20
       : 0;
 
-    if (
-      width ||
-      compactStepCircularLineWidth ||
-      toastDismissTimerCircularLineWidth
-    ) {
-      this.circularLineWidth =
-        (compactStepCircularLineWidth ||
-          toastDismissTimerCircularLineWidth ||
-          width) * 0.1;
-      this.circularDiameter =
+    if (this.outerElement) {
+      const { offsetWidth: width } = this.outerElement;
+
+      if (
+        width ||
         compactStepCircularLineWidth ||
-        toastDismissTimerCircularLineWidth ||
-        width;
-      this.outerElement.style.setProperty(
-        "--circular-line-width",
-        `${this.circularLineWidth}px`
-      );
+        toastDismissTimerCircularLineWidth
+      ) {
+        this.circularLineWidth =
+          (compactStepCircularLineWidth ||
+            toastDismissTimerCircularLineWidth ||
+            width) * 0.1;
+        this.circularDiameter =
+          compactStepCircularLineWidth ||
+          toastDismissTimerCircularLineWidth ||
+          width;
+        this.outerElement.style.setProperty(
+          "--circular-line-width",
+          `${this.circularLineWidth}px`
+        );
+      }
     }
   };
 
   private setLinearDeterminateWidth = () => {
+    const max = this.max!;
+    const min = this.min!;
+
     if (!this.innerElement) return;
     // Ensure progress cannot be out of bounds
 
-    const progress = Math.min(this.max, Math.max(this.min, this.progress));
-    const proportion = (progress - this.min) / (this.max - this.min);
-    this.clipInnerElement = proportion > 0.5;
-    if (this.clipInnerElement) {
-      this.innerElement.classList.remove("clip");
-    } else {
-      this.innerElement.classList.add("clip");
+    if (this.progress) {
+      const progress = Math.min(max, Math.max(min, this.progress));
+      const proportion = (progress - min) / (max - min);
+      this.clipInnerElement = proportion > 0.5;
+      if (this.clipInnerElement) {
+        this.innerElement.classList.remove("clip");
+      } else {
+        this.innerElement.classList.add("clip");
+      }
+      this.innerElement.style.setProperty(
+        "--linear-width",
+        `${proportion * 100}%`
+      );
     }
-    this.innerElement.style.setProperty(
-      "--linear-width",
-      `${proportion * 100}%`
-    );
   };
 
   private calcOuterClass = (): string => {
@@ -266,23 +276,27 @@ export class LoadingIndicator {
 
   private setDashSteps = (radius: number) => {
     const dashArray = 2 * Math.PI * radius;
-    const progress = Math.min(Math.max(this.progress, this.min), this.max);
-    const proportion = -1 - (progress - this.min) / (this.max - this.min);
 
-    this.circularMeter.style.setProperty(
-      "--stroke-dasharray",
-      `${dashArray}px`
-    );
+    if (this.circularMeter) {
+      this.circularMeter.style.setProperty(
+        "--stroke-dasharray",
+        `${dashArray}px`
+      );
 
-    if (!this.indeterminate) {
-      this.circularMeter.style.setProperty(
-        "--circular-steps-max",
-        String(this.max)
-      );
-      this.circularMeter.style.setProperty(
-        "--stroke-dashoffset",
-        `${proportion * dashArray}px`
-      );
+      if (!this.indeterminate && this.progress) {
+        const min = this.min!;
+        const max = this.max!;
+        const progress = Math.min(Math.max(this.progress, min), max);
+        const proportion = -1 - (progress - min) / (max - min);
+        this.circularMeter.style.setProperty(
+          "--circular-steps-max",
+          String(this.max)
+        );
+        this.circularMeter.style.setProperty(
+          "--stroke-dashoffset",
+          `${proportion * dashArray}px`
+        );
+      }
     }
   };
 
@@ -303,9 +317,9 @@ export class LoadingIndicator {
         class={{
           [`ic-theme-${theme}`]: theme !== "inherit",
           "ic-loading-indicator-label": !!label,
-          "ic-loading-indicator-full-width": fullWidth,
+          "ic-loading-indicator-full-width": !!fullWidth,
           "inner-label": !!innerLabel,
-          "ic-loading-indicator-monochrome": monochrome,
+          "ic-loading-indicator-monochrome": !!monochrome,
         }}
       >
         <div class="ic-loading-container" part="ic-loading-container">

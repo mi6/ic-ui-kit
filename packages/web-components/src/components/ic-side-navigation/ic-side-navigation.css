@@ -107,7 +107,6 @@
   bottom: 0;
   left: 0;
   z-index: 2;
-  box-shadow: -0.188rem -0.188rem 0.5rem rgb(0 0 0 / 20%);
   background-color: var(--ic-side-navigation-background);
   display: flex;
   flex-direction: column;
@@ -405,7 +404,7 @@ slot[name="app-title"]::slotted(a) {
 
   position: relative;
   padding: 0;
-  box-shadow: -0.188rem 0.188rem 0.5rem rgb(0 0 0 / 20%);
+  box-shadow: none;
 }
 
 :host(.ic-side-navigation-inline.side-display) .top-bar {

@@ -26,9 +26,9 @@ export class Typography {
   private lastWidth: number = 0;
   private marker: HTMLElement;
   private resizeInterval: number;
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
   private truncatedHeight: number = 0;
-  private truncWrapperEl: Element;
+  private truncWrapperEl?: Element;
 
   @Element() el: HTMLIcTypographyElement;
 
@@ -118,6 +118,7 @@ export class Typography {
       (this.variant === "body" ||
         (this.el.getRootNode() as ShadowRoot)?.host?.tagName ===
           "IC-TOOLTIP") &&
+      this.maxLines &&
       this.maxLines > 0
     ) {
       const marker = document.createElement("span");
@@ -155,7 +156,7 @@ export class Typography {
   async checkMaxLines(height: number) {
     //24 is the height of a single line
     const numLines = Math.floor(height / 24);
-    if (numLines > this.maxLines) {
+    if (this.maxLines && numLines > this.maxLines) {
       this.el.setAttribute("style", `--truncation-max-lines: ${this.maxLines}`);
       this.truncatedHeight = this.el.clientHeight;
       this.truncated = true;
@@ -186,11 +187,16 @@ export class Typography {
   };
 
   private runResizeObserver = () => {
-    this.resizeObserver = new ResizeObserver(() => {
-      clearTimeout(this.resizeInterval);
-      this.resizeInterval = window.setTimeout(this.resizeObserverCallback, 50);
-    });
-    this.resizeObserver.observe(this.truncWrapperEl);
+    if (this.truncWrapperEl) {
+      this.resizeObserver = new ResizeObserver(() => {
+        clearTimeout(this.resizeInterval);
+        this.resizeInterval = window.setTimeout(
+          this.resizeObserverCallback,
+          50
+        );
+      });
+      this.resizeObserver.observe(this.truncWrapperEl);
+    }
   };
 
   private resizeObserverCallback = () => {
@@ -246,11 +252,11 @@ export class Typography {
       <Host
         class={{
           [`ic-typography-${variant}`]: true,
-          [`ic-typography-vertical-margins-${variant}`]: applyVerticalMargins,
-          ["ic-typography-bold"]: bold,
-          ["ic-typography-italic"]: italic,
-          ["ic-typography-strikethrough"]: strikethrough,
-          ["ic-typography-underline"]: underline,
+          [`ic-typography-vertical-margins-${variant}`]: !!applyVerticalMargins,
+          ["ic-typography-bold"]: !!bold,
+          ["ic-typography-italic"]: !!italic,
+          ["ic-typography-strikethrough"]: !!strikethrough,
+          ["ic-typography-underline"]: !!underline,
           ["in-ag-grid"]: this.inAGGrid,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
@@ -258,6 +264,7 @@ export class Typography {
         {(variant === "body" ||
           (this.el.getRootNode() as ShadowRoot)?.host?.tagName ===
             "IC-TOOLTIP") &&
+        maxLines &&
         maxLines > 0 ? (
           <div class="trunc-wrapper" ref={(el) => (this.truncWrapperEl = el)}>
             <slot />
@@ -265,7 +272,7 @@ export class Typography {
         ) : (
           <slot />
         )}
-        {variant === "body" && maxLines > 0 && truncated && (
+        {variant === "body" && maxLines && maxLines > 0 && truncated && (
           <button
             class={{ "trunc-btn": true, focus: this.truncButtonFocussed }}
             onFocus={this.truncButtonFocus}

@@ -1,0 +1,26 @@
+ic-link {
+  position: absolute;
+  left: -9999px;
+}
+
+ic-link:focus {
+  z-index: var(--ic-z-index-skip-link);
+  left: var(--ic-space-sm);
+  padding: var(--ic-space-sm);
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+}
+
+.display-top:focus {
+  top: var(--ic-space-sm);
+}
+
+.full-width:focus {
+  display: flex;
+  justify-content: center;
+  right: var(--ic-space-sm);
+}
+
+.show-background {
+  background: var(--ic-skip-link-background);
+}

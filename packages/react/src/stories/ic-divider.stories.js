@@ -77,7 +77,7 @@ export const Theme = {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          backgroundColor: "var(--ic-color-background-primary-dark)",
+          backgroundColor: "#17191c",
           width: "100%",
           padding: "var(--ic-space-xs) 0",
           gap: "var(--ic-space-md)",
@@ -343,7 +343,7 @@ export const Playground = {
   render: (args) => {
     const backgroundColor =
       args.theme === "dark"
-        ? "var(--ic-color-background-primary-dark)"
+        ? "#17191c"
         : args.theme === "light"
           ? "var(--ic-color-background-primary-light)"
           : "transparent";

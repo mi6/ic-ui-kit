@@ -21,8 +21,8 @@ const backToTopLabel = "Back to top";
 })
 export class BackToTop {
   private isTargetElNull: boolean;
-  private targetEl: Element;
-  private topObserver: IntersectionObserver = null;
+  private targetEl: Element | null;
+  private topObserver: IntersectionObserver | null = null;
 
   @Element() el: HTMLIcBackToTopElement;
 
@@ -48,7 +48,7 @@ export class BackToTop {
   /**
    * The variant of the button to render
    */
-  @Prop() variant: IcBackToTopVariants = "default";
+  @Prop() variant?: IcBackToTopVariants = "default";
 
   @Watch("target")
   watchPropHandler(newValue: string, oldValue: string): void {
@@ -110,8 +110,8 @@ export class BackToTop {
     this.setFooterVisible(entries[0].isIntersecting);
   };
 
-  private findTargetEl = (target: string): Element => {
-    let targetElement: Element = null;
+  private findTargetEl = (target: string): Element | null => {
+    let targetElement = null;
     if (target === null || target === undefined) {
       console.log(
         "Error: No target ID specified for back to top component - defaulting to top of page"
@@ -158,7 +158,9 @@ export class BackToTop {
     objParent.insertBefore(objBackToTopTargetEl, this.targetEl);
 
     // resize observer needs to factor in any top margin on the target el
-    const marginTop = getComputedStyle(this.targetEl).marginTop;
+    const marginTop = this.targetEl
+      ? getComputedStyle(this.targetEl).marginTop
+      : 0;
     this.topObserver = new IntersectionObserver(this.targetElObserverCallback, {
       threshold: [0],
       rootMargin: `${marginTop} 0px 0px 0px`,
@@ -170,7 +172,7 @@ export class BackToTop {
     if (this.isTargetElNull) {
       window.scrollTo(0, 0);
     } else {
-      this.targetEl.scrollIntoView();
+      this.targetEl?.scrollIntoView();
     }
     // Get virtual cursor to move
     (this.getObservedEl() as HTMLElement).focus();

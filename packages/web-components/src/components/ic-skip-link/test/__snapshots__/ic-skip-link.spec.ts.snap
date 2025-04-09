@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-skip-link component should pass down the theme and monochrome prop to the ic-link component 1`] = `
+<ic-skip-link class="ic-theme-dark" monochrome="true" target="#page-content" theme="dark">
+  <template shadowrootmode="open">
+    <ic-link class="display-top ic-link ic-link-monochrome ic-theme-dark show-background" exportparts="link">
+      <template shadowrootmode="open">
+        <a class="link" href="#page-content" part="link" tabindex="0">
+          <slot></slot>
+        </a>
+      </template>
+      Skip to main content
+    </ic-link>
+  </template>
+</ic-skip-link>
+`;
+
+exports[`ic-skip-link component should render a skip link by default with the correct text 1`] = `
+<ic-skip-link target="#page-content">
+  <template shadowrootmode="open">
+    <ic-link class="display-top ic-link show-background" exportparts="link">
+      <template shadowrootmode="open">
+        <a class="link" href="#page-content" part="link" tabindex="0">
+          <slot></slot>
+        </a>
+      </template>
+      Skip to main content
+    </ic-link>
+  </template>
+</ic-skip-link>
+`;
+
+exports[`ic-skip-link component should render a skip link with a custom label 1`] = `
+<ic-skip-link label="Custom skip label" target="#page-content">
+  <template shadowrootmode="open">
+    <ic-link class="display-top ic-link show-background" exportparts="link">
+      <template shadowrootmode="open">
+        <a class="link" href="#page-content" part="link" tabindex="0">
+          <slot></slot>
+        </a>
+      </template>
+      Custom skip label
+    </ic-link>
+  </template>
+</ic-skip-link>
+`;
+
+exports[`ic-skip-link component should render a skip link without a background when \`transparentBackground\` is true 1`] = `
+<ic-skip-link target="#page-content" transparent-background="true">
+  <template shadowrootmode="open">
+    <ic-link class="display-top ic-link" exportparts="link">
+      <template shadowrootmode="open">
+        <a class="link" href="#page-content" part="link" tabindex="0">
+          <slot></slot>
+        </a>
+      </template>
+      Skip to main content
+    </ic-link>
+  </template>
+</ic-skip-link>
+`;
+
+exports[`ic-skip-link component should render with the \`inline\` prop 1`] = `
+<ic-skip-link inline="true" target="#page-content">
+  <template shadowrootmode="open">
+    <ic-link class="ic-link show-background" exportparts="link">
+      <template shadowrootmode="open">
+        <a class="link" href="#page-content" part="link" tabindex="0">
+          <slot></slot>
+        </a>
+      </template>
+      Skip to main content
+    </ic-link>
+  </template>
+</ic-skip-link>
+`;

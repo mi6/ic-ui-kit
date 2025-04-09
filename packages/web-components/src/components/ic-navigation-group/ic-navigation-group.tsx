@@ -7,6 +7,8 @@ import {
   Listen,
   h,
   Method,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 
 import {
@@ -24,6 +26,8 @@ import {
 } from "../../utils/types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
+import { IcNavigationOpenEventDetail } from "./ic-navigation-group.types";
+
 @Component({
   tag: "ic-navigation-group",
   styleUrl: "ic-navigation-group.css",
@@ -34,10 +38,10 @@ import chevronIcon from "../../assets/chevron-icon.svg";
 export class NavigationGroup {
   private allGroupedNavigationItems: HTMLIcNavigationItemElement[] = [];
   private collapsedNavItemsHeight: string;
-  private dropdown: HTMLElement;
+  private dropdown?: HTMLElement;
   private DYNAMIC_GROUPED_LINKS_HEIGHT_MS = 100;
   private expandedNavItemsHeight: string;
-  private groupEl: HTMLElement;
+  private groupEl?: HTMLElement;
   private IC_NAVIGATION_ITEM = "ic-navigation-item";
   private isSideNavExpanded: boolean;
   private mouseGate: boolean = false;
@@ -53,33 +57,38 @@ export class NavigationGroup {
     getBrandForegroundAppearance();
   @State() inTopNavSideMenu: boolean = false;
   @State() navigationType: IcNavType | "";
-  @State() parentEl: HTMLElement;
+  @State() parentEl: HTMLElement | null;
 
   /**
    *  If `true`, the group will be expandable in the side menu.
    */
-  @Prop() expandable: boolean = false;
+  @Prop() expandable?: boolean = false;
 
   /**
    * The label to display on the group.
    */
-  @Prop() label: string;
+  @Prop() label!: string;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
   @Prop() theme?: IcThemeMode = "inherit";
 
+  /**
+   * @internal Emitted when a navigation group opens.
+   */
+  @Event() navigationGroupOpened: EventEmitter<IcNavigationOpenEventDetail>;
+
   disconnectedCallback(): void {
     if (this.navigationType === "side") {
       this.parentEl?.removeEventListener(
         "icSideNavExpanded",
-        this.sideNavExpandHandler
+        this.sideNavExpandHandler as EventListener
       );
     } else if (this.navigationType === "top") {
       this.parentEl?.removeEventListener(
         "icTopNavResized",
-        this.topNavResizedHandler
+        this.topNavResizedHandler as EventListener
       );
     }
   }
@@ -91,18 +100,18 @@ export class NavigationGroup {
     this.parentEl = parent;
 
     if (this.navigationType === "side") {
-      this.parentEl.addEventListener(
+      this.parentEl?.addEventListener(
         "icSideNavExpanded",
-        this.sideNavExpandHandler
+        this.sideNavExpandHandler as EventListener
       );
     } else if (this.navigationType === "top") {
-      this.parentEl.addEventListener(
+      this.parentEl?.addEventListener(
         "icTopNavResized",
-        this.topNavResizedHandler
+        this.topNavResizedHandler as EventListener
       );
       if (
         this.deviceSize <=
-        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint
+        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint!
       )
         this.inTopNavSideMenu = true;
     }
@@ -128,6 +137,13 @@ export class NavigationGroup {
     this.hideDropdown();
   }
 
+  @Listen("navigationGroupOpened", { target: "document" })
+  handleNavigationGroupOpened(event: CustomEvent): void {
+    if (event.detail.source !== this.el) {
+      this.hideDropdown();
+    }
+  }
+
   @Listen("navItemClicked")
   navItemClickHandler(): void {
     this.hideDropdown();
@@ -148,9 +164,9 @@ export class NavigationGroup {
     }
   }
 
-  private sideNavExpandHandler = (event?: CustomEvent): void => {
+  private sideNavExpandHandler = (event: CustomEvent): void => {
     this.isSideNavExpanded = event.detail.sideNavExpanded;
-    const linkWrapper = this.el.shadowRoot.querySelector(
+    const linkWrapper = this.el.shadowRoot?.querySelector(
       this.GROUPED_LINKS_WRAPPER_CLASS
     ) as HTMLElement;
 
@@ -213,7 +229,7 @@ export class NavigationGroup {
       .querySelectorAll(this.IC_NAVIGATION_ITEM)
       .forEach((navigationItem) => {
         const navItem =
-          navigationItem.shadowRoot.querySelector("a") ||
+          navigationItem.shadowRoot?.querySelector("a") ||
           navigationItem.querySelector("a");
         if (navItem) {
           navItem.setAttribute("tabindex", tabIndexValue);
@@ -245,7 +261,7 @@ export class NavigationGroup {
 
   private toggleExpanded = () => {
     this.expanded = !this.expanded;
-    const linkWrapper = this.el.shadowRoot.querySelector(
+    const linkWrapper = this.el.shadowRoot?.querySelector(
       this.GROUPED_LINKS_WRAPPER_CLASS
     ) as HTMLElement;
     this.toggleGroupedLinkWrapperHeight(linkWrapper, this.expanded);
@@ -253,6 +269,10 @@ export class NavigationGroup {
 
   private showDropdown() {
     if (!this.dropdownOpen) {
+      this.navigationGroupOpened.emit({
+        source: this.el,
+      });
+
       this.toggleDropdown();
     }
   }
@@ -356,7 +376,7 @@ export class NavigationGroup {
         ["navigation-group-dropdown-side-menu"]: this.inTopNavSideMenu,
         ["selected"]: this.dropdownOpen && !this.inTopNavSideMenu,
       }}
-      onMouseLeave={!this.inTopNavSideMenu ? this.handleMouseLeave : null}
+      onMouseLeave={!this.inTopNavSideMenu ? this.handleMouseLeave : undefined}
       ref={(el) => (this.dropdown = el)}
     >
       <nav
@@ -391,7 +411,7 @@ export class NavigationGroup {
   };
 
   private setInitialGroupedLinksWrapperHeight = () => {
-    const linkWrapper = this.el.shadowRoot.querySelector(
+    const linkWrapper = this.el.shadowRoot?.querySelector(
       this.GROUPED_LINKS_WRAPPER_CLASS
     ) as HTMLElement;
 
@@ -456,23 +476,25 @@ export class NavigationGroup {
       >
         <button
           onMouseEnter={
-            !inTopNavSideMenu &&
-            this.navigationType === "top" &&
-            this.handleMouseEnter
+            !inTopNavSideMenu && this.navigationType === "top"
+              ? this.handleMouseEnter
+              : undefined
           }
-          onMouseLeave={this.navigationType === "top" && this.handleMouseLeave}
+          onMouseLeave={
+            this.navigationType === "top" ? this.handleMouseLeave : undefined
+          }
           tabindex={inTopNavSideMenu && !expandable ? "-1" : "0"}
           onBlur={this.handleBlur}
-          onClick={expandable ? this.handleClick : null}
+          onClick={expandable ? this.handleClick : undefined}
           onKeyDown={this.handleKeydown}
           class={{
             ["navigation-group"]: true,
             [this.focusStyle]: !inTopNavSideMenu,
             ["navigation-group-side-menu"]: inTopNavSideMenu && !expandable,
             ["navigation-group-side-menu-collapsed"]:
-              inTopNavSideMenu && expandable && !dropdownOpen,
+              inTopNavSideMenu && !!expandable && !dropdownOpen,
             ["navigation-group-side-menu-expanded"]:
-              inTopNavSideMenu && expandable && dropdownOpen,
+              inTopNavSideMenu && !!expandable && dropdownOpen,
             ["selected"]: dropdownOpen && !inTopNavSideMenu,
           }}
           ref={(el) => (this.groupEl = el)}

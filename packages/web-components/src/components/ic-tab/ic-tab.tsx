@@ -49,10 +49,10 @@ export class Tab {
   @Prop({ reflect: true }) selected?: boolean = false;
 
   /** @internal The shared ID between panel and tab. */
-  @Prop({ reflect: true }) tabId?: string;
+  @Prop({ reflect: true }) tabId!: string;
 
   /** @internal The position of the tab inside the tabs array in context. */
-  @Prop() tabPosition?: number;
+  @Prop() tabPosition!: number;
 
   /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
   @Prop() theme?: IcThemeMode = "inherit";
@@ -120,13 +120,13 @@ export class Tab {
   private handleClick = () => {
     this.tabClick.emit({
       tabId: this.tabId,
-      contextId: this.contextId,
+      contextId: this.contextId!,
       position: this.tabPosition,
     });
     if (this.focusFromClick) {
       this.tabFocus.emit({
         tabId: this.tabId,
-        contextId: this.contextId,
+        contextId: this.contextId!,
         position: this.tabPosition,
       });
       this.focusFromClick = false;
@@ -139,7 +139,7 @@ export class Tab {
 
       this.tabFocus.emit({
         tabId: this.tabId,
-        contextId: this.contextId,
+        contextId: this.contextId!,
         position: this.tabPosition,
       });
     }
@@ -166,10 +166,10 @@ export class Tab {
       <Host
         class={{
           ["with-transition"]: !this.isInitialRender,
-          ["ic-tab-selected"]: selected,
-          ["ic-tab-disabled"]: disabled,
+          ["ic-tab-selected"]: !!selected,
+          ["ic-tab-disabled"]: !!disabled,
           [`ic-theme-${theme}`]: theme !== "inherit",
-          ["ic-tab-monochrome"]: monochrome,
+          ["ic-tab-monochrome"]: !!monochrome,
         }}
         role="tab"
         aria-selected={`${selected}`}

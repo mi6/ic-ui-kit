@@ -2,7 +2,7 @@
 
 exports[`ic-navigation-menu should render with version and status: renders-with-version-and-status 1`] = `
 <ic-navigation-menu status="Beta" version="v1.0.0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="popout-modal"></div>
     <div aria-label="App menu" aria-modal="true" class="popout-menu" role="dialog">
       <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
@@ -30,13 +30,13 @@ exports[`ic-navigation-menu should render with version and status: renders-with-
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-navigation-menu>
 `;
 
 exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-buttons 1`] = `
 <ic-navigation-menu status="Beta" version="v1.0.0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="popout-modal"></div>
     <div aria-label="App menu" aria-modal="true" class="popout-menu" role="dialog">
       <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
@@ -45,13 +45,13 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
       <nav aria-hidden="true" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
           <ic-button class="ic-button-size-large ic-button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
-            <mock:shadow-root>
+            <template shadowrootmode="open">
               <ic-tooltip label="Close app menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
                 <button aria-label="Close app menu" class="button" part="button" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
-            </mock:shadow-root>
+            </template>
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
               <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
@@ -74,11 +74,11 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button appearance="light" class="ic-button-size-large ic-button-variant-icon ic-theme-light monochrome" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-2">
             <button aria-label="button1" class="button" part="button" type="button">
               <div class="icon-container">
@@ -87,10 +87,10 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
               <slot></slot>
             </button>
           </ic-tooltip>
-        </mock:shadow-root>
+        </template>
         <slot name="icon" slot="left-icon" viewbox="0 0 24 24"></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
     <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0V0z" fill="none"></path>
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
@@ -101,7 +101,7 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
 
 exports[`ic-navigation-menu should test slotted link: renders-with-slotted-link 1`] = `
 <ic-navigation-menu status="Beta" version="v1.0.0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="popout-modal"></div>
     <div aria-label="Navigation menu" aria-modal="true" class="popout-menu" role="dialog">
       <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
@@ -130,14 +130,14 @@ exports[`ic-navigation-menu should test slotted link: renders-with-slotted-link 
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <a href="/" slot="navigation"></a>
 </ic-navigation-menu>
 `;
 
 exports[`ic-navigation-menu should test slotted navigation and buttons: renders-with-slotted-navigation-and-buttons 1`] = `
 <ic-navigation-menu status="Beta" version="v1.0.0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="popout-modal"></div>
     <div aria-label="Navigation menu" aria-modal="true" class="popout-menu" role="dialog">
       <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
@@ -146,13 +146,13 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
       <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
           <ic-button class="ic-button-size-large ic-button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
-            <mock:shadow-root>
+            <template shadowrootmode="open">
               <ic-tooltip label="Close navigation menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
                 <button aria-label="Close navigation menu" class="button" part="button" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
-            </mock:shadow-root>
+            </template>
             <svg fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
               <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"></path>
             </svg>
@@ -176,11 +176,11 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-button appearance="light" class="ic-button-size-large ic-button-variant-icon ic-theme-light monochrome" exportparts="button">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-6">
             <button aria-label="button1" class="button" part="button" type="button">
               <div class="icon-container">
@@ -189,17 +189,17 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
               <slot></slot>
             </button>
           </ic-tooltip>
-        </mock:shadow-root>
+        </template>
         <slot name="icon" slot="left-icon" viewbox="0 0 24 24"></slot>
       </ic-button>
-    </mock:shadow-root>
+    </template>
     <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0V0z" fill="none"></path>
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
     </svg>
   </ic-navigation-button>
   <ic-navigation-item class="light navigation-item" href="/" label="Navigation 1" role="listitem" slot="navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="Navigation 1" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <ic-typography variant="label">
@@ -208,14 +208,14 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
           <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
   </ic-navigation-item>
 </ic-navigation-menu>
 `;
 
 exports[`ic-navigation-menu should test slotted navigation group: renders-with-slotted-navigation-group 1`] = `
 <ic-navigation-menu status="Beta" version="v1.0.0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="popout-modal"></div>
     <div aria-label="Navigation menu" aria-modal="true" class="popout-menu" role="dialog">
       <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
@@ -244,9 +244,9 @@ exports[`ic-navigation-menu should test slotted navigation group: renders-with-s
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-group class="ic-navigation-group-expanded" expandable="true" label="Navigation group" role="listitem" slot="navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <button aria-expanded="true" aria-haspopup="false" class="light navigation-group" tabindex="0">
         <ic-typography variant="label">
           Navigation group
@@ -255,14 +255,14 @@ exports[`ic-navigation-menu should test slotted navigation group: renders-with-s
       <ul class="grouped-links-wrapper" style="--navigation-child-items-height: 0px;">
         <slot></slot>
       </ul>
-    </mock:shadow-root>
+    </template>
   </ic-navigation-group>
 </ic-navigation-menu>
 `;
 
 exports[`ic-navigation-menu should test slotted navigation item: renders-with-slotted-navigation-item 1`] = `
 <ic-navigation-menu status="Beta" version="v1.0.0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="popout-modal"></div>
     <div aria-label="Navigation menu" aria-modal="true" class="popout-menu" role="dialog">
       <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
@@ -291,9 +291,9 @@ exports[`ic-navigation-menu should test slotted navigation item: renders-with-sl
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-navigation-item class="light navigation-item" href="/" label="Navigation 1" role="listitem" slot="navigation">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <ic-tooltip class="tooltip-navigation-item" label="Navigation 1" placement="right" target="navigation-item">
         <a class="link" href="/" part="link">
           <ic-typography variant="label">
@@ -302,7 +302,7 @@ exports[`ic-navigation-menu should test slotted navigation item: renders-with-sl
           <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
-    </mock:shadow-root>
+    </template>
   </ic-navigation-item>
 </ic-navigation-menu>
 `;

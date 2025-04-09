@@ -1,8 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-navigation-item should render with an unnamed slot if neither a label or the navigation-item slot is used: renders-with-unnamed-slot 1`] = `
+<ic-navigation-item class="light navigation-item" role="listitem">
+  <template shadowrootmode="open">
+    <ic-tooltip class="tooltip-navigation-item" label="" placement="right" target="navigation-item">
+      <slot></slot>
+    </ic-tooltip>
+  </template>
+  <div></div>
+</ic-navigation-item>
+`;
+
+exports[`ic-navigation-item should render with an unnamed slot if neither a label or the navigation-item slot is used: renders-with-unnamed-slot-and-tooltip-label 1`] = `
+<ic-navigation-item class="light navigation-item" role="listitem">
+  <template shadowrootmode="open">
+    <ic-tooltip class="tooltip-navigation-item" label="" placement="right" target="navigation-item">
+      <slot></slot>
+    </ic-tooltip>
+  </template>
+  <div textcontent="Test label"></div>
+</ic-navigation-item>
+`;
+
 exports[`ic-navigation-item should render with aria-label: renders-with-aria-label 1`] = `
 <ic-navigation-item aria-label="navigation item description" class="light navigation-item" href="#link" label="Item label" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <a aria-label="navigation item description" class="link" href="#link" part="link">
         <ic-typography variant="label">
@@ -11,13 +33,13 @@ exports[`ic-navigation-item should render with aria-label: renders-with-aria-lab
         <div class="chevron-container"></div>
       </a>
     </ic-tooltip>
-  </mock:shadow-root>
+  </template>
 </ic-navigation-item>
 `;
 
 exports[`ic-navigation-item should render with aria-label: renders-with-new-aria-label 1`] = `
 <ic-navigation-item aria-label="New item description" class="light navigation-item" href="#link" label="Item label" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <a aria-label="New item description" class="link" href="#link" part="link">
         <ic-typography variant="label">
@@ -26,13 +48,13 @@ exports[`ic-navigation-item should render with aria-label: renders-with-new-aria
         <div class="chevron-container"></div>
       </a>
     </ic-tooltip>
-  </mock:shadow-root>
+  </template>
 </ic-navigation-item>
 `;
 
 exports[`ic-navigation-item should render with label: renders-with-label 1`] = `
 <ic-navigation-item class="light navigation-item" label="Item label" role="listitem">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
       <div class="link" tabindex="0">
         <ic-typography variant="label">
@@ -40,6 +62,6 @@ exports[`ic-navigation-item should render with label: renders-with-label 1`] = `
         </ic-typography>
       </div>
     </ic-tooltip>
-  </mock:shadow-root>
+  </template>
 </ic-navigation-item>
 `;

@@ -102,10 +102,10 @@ export class Toast {
   componentWillLoad(): void {
     this.handleLongText(
       this.heading.length > TOAST_HEADING_CHAR_LIMIT,
-      this.message?.length > TOAST_MESSAGE_CHAR_LIMIT
+      !!this.message && this.message?.length > TOAST_MESSAGE_CHAR_LIMIT
     );
 
-    if (this.autoDismissTimeout < 5000) this.autoDismissTimeout = 5000;
+    if (this.autoDismissTimeout! < 5000) this.autoDismissTimeout = 5000;
 
     if (isSlotUsed(this.el, "action")) this.dismissMode = "manual";
     this.isManual = this.dismissMode === "manual";
@@ -129,7 +129,7 @@ export class Toast {
       (this.variant || this.message) &&
         this.el.setAttribute(
           "aria-description",
-          this.variant ? `${this.heading}${toastMessage}` : this.message
+          this.variant ? `${this.heading}${toastMessage}` : this.message || ""
         );
     }
   }
@@ -149,7 +149,7 @@ export class Toast {
         this.el,
         "action"
       ) as ActionAreaElementTypes;
-      const dismissButton = this.el.shadowRoot.querySelector("ic-button");
+      const dismissButton = this.el.shadowRoot?.querySelector("ic-button");
       if (actionContent) this.interactiveElements.push(actionContent);
       if (dismissButton) this.interactiveElements.push(dismissButton);
 
@@ -166,7 +166,7 @@ export class Toast {
         this.el,
         "action"
       ) as ActionAreaElementTypes;
-      const dismissButton = this.el.shadowRoot.querySelector("ic-button");
+      const dismissButton = this.el.shadowRoot?.querySelector("ic-button");
       if (actionContent) this.interactiveElements.push(actionContent);
       if (dismissButton) this.interactiveElements.push(dismissButton);
     } else {
@@ -237,7 +237,7 @@ export class Toast {
    * @returns The element that previously had focus before the toast appeared
    */
   @Method()
-  async setVisible(): Promise<HTMLElement> {
+  async setVisible(): Promise<HTMLElement | null> {
     if (!this.visible) this.visible = true;
     if (!this.isManual) {
       this.dismissTimeout = window.setTimeout(
@@ -261,7 +261,7 @@ export class Toast {
 
   private handleProgressChange = () => {
     this.timerProgress -=
-      (AUTO_DISMISS_TIMER_REFRESH_RATE_MS / this.autoDismissTimeout) * 100;
+      (AUTO_DISMISS_TIMER_REFRESH_RATE_MS / this.autoDismissTimeout!) * 100;
   };
 
   private handleLongText(
@@ -289,7 +289,7 @@ export class Toast {
     if (this.isActive(isBackwards ? firstEl : lastEl))
       return isBackwards ? lastEl : firstEl;
 
-    let currentIndex: number;
+    let currentIndex: number = 0;
 
     return this.interactiveElements.some((el, index) => {
       if (!this.isActive(el)) return false;
@@ -308,7 +308,7 @@ export class Toast {
 
   private isActive(targetEl: HTMLElement): boolean {
     return targetEl === this.el
-      ? !!this.el.shadowRoot.activeElement
+      ? !!this.el.shadowRoot!.activeElement
       : document.activeElement === targetEl;
   }
 

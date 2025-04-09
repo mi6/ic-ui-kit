@@ -2,7 +2,7 @@
 
 exports[`ic-accordion snapshots should match dark snapshot: renders as dark 1`] = `
 <ic-accordion aria-disabled="false" class="ic-theme-dark" heading="Accordion 1" id="ic-accordion-1" theme="dark">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-controls="expanded-content-area" aria-expanded="false" class="medium section-button" id="ic-accordion-1-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">
         Accordion 1
@@ -16,7 +16,7 @@ exports[`ic-accordion snapshots should match dark snapshot: renders as dark 1`] 
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography variant="body">
     This is an example of the main body text.
   </ic-typography>
@@ -25,7 +25,7 @@ exports[`ic-accordion snapshots should match dark snapshot: renders as dark 1`] 
 
 exports[`ic-accordion snapshots should match default snapshot: renders as default 1`] = `
 <ic-accordion aria-disabled="false" heading="Accordion 1" id="ic-accordion-0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-controls="expanded-content-area" aria-expanded="false" class="medium section-button" id="ic-accordion-0-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">
         Accordion 1
@@ -39,7 +39,7 @@ exports[`ic-accordion snapshots should match default snapshot: renders as defaul
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography variant="body">
     This is an example of the main body text.
   </ic-typography>
@@ -48,7 +48,7 @@ exports[`ic-accordion snapshots should match default snapshot: renders as defaul
 
 exports[`ic-accordion snapshots should match large snapshot: renders large accordion 1`] = `
 <ic-accordion aria-disabled="false" heading="Accordion 1" id="ic-accordion-5" size="large">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-controls="expanded-content-area" aria-expanded="false" class="large section-button" id="ic-accordion-5-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">
         Accordion 1
@@ -62,7 +62,7 @@ exports[`ic-accordion snapshots should match large snapshot: renders large accor
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography variant="body">
     This is an example of the main body text.
   </ic-typography>
@@ -71,7 +71,7 @@ exports[`ic-accordion snapshots should match large snapshot: renders large accor
 
 exports[`ic-accordion snapshots should match small snapshot: renders small accordion 1`] = `
 <ic-accordion aria-disabled="false" heading="Accordion 1" id="ic-accordion-4" size="small">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-controls="expanded-content-area" aria-expanded="false" class="section-button small" id="ic-accordion-4-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">
         Accordion 1
@@ -85,7 +85,7 @@ exports[`ic-accordion snapshots should match small snapshot: renders small accor
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography variant="body">
     This is an example of the main body text.
   </ic-typography>
@@ -94,7 +94,7 @@ exports[`ic-accordion snapshots should match small snapshot: renders small accor
 
 exports[`ic-accordion snapshots should match with icon snapshot: renders with icon 1`] = `
 <ic-accordion aria-disabled="false" heading="Accordion 1" id="ic-accordion-2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-controls="expanded-content-area" aria-expanded="false" class="medium section-button" id="ic-accordion-2-button" tabindex="0">
       <div class="icon-container">
         <slot name="icon"></slot>
@@ -111,7 +111,7 @@ exports[`ic-accordion snapshots should match with icon snapshot: renders with ic
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <svg fill="currentColor" height="1em" slot="icon" viewBox="0 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg">
     <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path>
   </svg>
@@ -123,7 +123,7 @@ exports[`ic-accordion snapshots should match with icon snapshot: renders with ic
 
 exports[`ic-accordion snapshots should render in a disabled state: disabled 1`] = `
 <ic-accordion aria-disabled="true" class="ic-accordion-disabled" disabled="" heading="Accordion 1" id="ic-accordion-7">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-controls="expanded-content-area" aria-expanded="false" class="medium section-button" disabled="" id="ic-accordion-7-button" tabindex="-1">
       <ic-typography class="section-header" variant="subtitle-large">
         Accordion 1
@@ -137,7 +137,7 @@ exports[`ic-accordion snapshots should render in a disabled state: disabled 1`] 
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography variant="body">
     This is an example of the main body text.
   </ic-typography>
@@ -146,7 +146,7 @@ exports[`ic-accordion snapshots should render in a disabled state: disabled 1`] 
 
 exports[`ic-accordion snapshots should render in a disabled state: disabled-removed 1`] = `
 <ic-accordion aria-disabled="false" heading="Accordion 1" id="ic-accordion-7">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-controls="expanded-content-area" aria-expanded="false" class="medium section-button" id="ic-accordion-7-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">
         Accordion 1
@@ -160,7 +160,7 @@ exports[`ic-accordion snapshots should render in a disabled state: disabled-remo
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <ic-typography variant="body">
     This is an example of the main body text.
   </ic-typography>
@@ -169,7 +169,7 @@ exports[`ic-accordion snapshots should render in a disabled state: disabled-remo
 
 exports[`ic-accordion snapshots should render with a heading slot when supplied: renders with heading slot 1`] = `
 <ic-accordion aria-disabled="false" id="ic-accordion-6">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-controls="expanded-content-area" aria-expanded="false" class="medium section-button" id="ic-accordion-6-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large"></ic-typography>
       <span aria-hidden="true" class="expand-chevron">
@@ -181,7 +181,7 @@ exports[`ic-accordion snapshots should render with a heading slot when supplied:
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <slot name="heading"></slot>
   <ic-typography variant="body">
     This is an example of the main body text.
@@ -191,7 +191,7 @@ exports[`ic-accordion snapshots should render with a heading slot when supplied:
 
 exports[`ic-accordion snapshots should render with slot: renders small accordion 1`] = `
 <ic-accordion aria-disabled="false" heading="Accordion 1" id="ic-accordion-3" size="small">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <button aria-controls="expanded-content-area" aria-expanded="false" class="section-button small" id="ic-accordion-3-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">
         Accordion 1
@@ -205,7 +205,7 @@ exports[`ic-accordion snapshots should render with slot: renders small accordion
         <slot></slot>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
   <slot>
     This is an example of the main body text.
   </slot>

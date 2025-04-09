@@ -32,8 +32,8 @@ import {
 })
 export class Link {
   private inheritedAttributes: { [k: string]: string } = {};
-  private routerSlot: HTMLElement;
-  private hostMutationObserver: MutationObserver = null;
+  private routerSlot: HTMLElement | null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el: HTMLIcLinkElement;
 
@@ -45,7 +45,7 @@ export class Link {
   /**
    * The URL that the link points to.
    */
-  @Prop() href?: string = null;
+  @Prop() href?: string;
 
   /**
    * The human language of the linked URL.
@@ -104,10 +104,10 @@ export class Link {
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.el.shadowRoot.querySelector("a")?.focus();
+    this.el.shadowRoot?.querySelector("a")?.focus();
   }
 
-  private updateTheme(mode: IcBrandForeground = null): void {
+  private updateTheme(mode: IcBrandForeground | null = null): void {
     const theme = getBrandFromContext(this.el, mode);
 
     if (theme !== IcBrandForegroundEnum.Default) {
@@ -131,10 +131,12 @@ export class Link {
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
     mutationList.forEach(({ attributeName }) => {
-      if (IC_INHERITED_ARIA.includes(attributeName)) {
-        this.inheritedAttributes[attributeName] =
-          this.el.getAttribute(attributeName);
-        forceComponentUpdate = true;
+      if (attributeName) {
+        const attribute = this.el.getAttribute(attributeName);
+        if (attribute && IC_INHERITED_ARIA.includes(attributeName)) {
+          this.inheritedAttributes[attributeName] = attribute;
+          forceComponentUpdate = true;
+        }
       }
     });
     if (forceComponentUpdate) {
@@ -159,7 +161,7 @@ export class Link {
         class={{
           ["ic-link"]: true,
           [`ic-theme-${theme}`]: theme !== "inherit",
-          ["ic-link-monochrome"]: monochrome,
+          ["ic-link-monochrome"]: !!monochrome,
         }}
       >
         {this.hasRouterSlot() ? (
@@ -167,7 +169,7 @@ export class Link {
         ) : (
           <a
             class={{
-              ["link"]: href !== null,
+              ["link"]: !!href,
             }}
             download={download !== false ? download : null}
             href={href}
@@ -175,7 +177,7 @@ export class Link {
             referrerPolicy={referrerpolicy}
             rel={rel}
             target={target}
-            tabindex={href !== null ? "0" : "-1"}
+            tabindex={href ? "0" : "-1"}
             {...this.inheritedAttributes}
             part="link"
           >

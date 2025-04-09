@@ -23,12 +23,12 @@ import { IcThemeMode } from "../../utils/types";
   },
 })
 export class PopoverMenu {
-  private anchorEl: HTMLElement;
+  private anchorEl: HTMLElement | null;
   private ARIA_LABEL: string = "aria-label";
-  private backButton: HTMLIcMenuItemElement;
+  private backButton?: HTMLIcMenuItemElement;
   private currentFocus: number;
   private popoverMenuEls: HTMLIcMenuItemElement[] = [];
-  private popperInstance: PopperInstance;
+  private popperInstance: PopperInstance | null;
 
   @Element() el: HTMLIcPopoverMenuElement;
 
@@ -38,7 +38,7 @@ export class PopoverMenu {
   /**
    * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
    */
-  @Prop() anchor: string;
+  @Prop() anchor?: string;
 
   /**
    * @internal The parent popover menu of a child popover menu.
@@ -58,7 +58,7 @@ export class PopoverMenu {
   /**
    * @internal The level of menu being displayed.
    */
-  @Prop() submenuLevel: number = 1;
+  @Prop() submenuLevel?: number = 1;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -68,7 +68,8 @@ export class PopoverMenu {
   /**
    * If `true`, the popover menu will be displayed.
    */
-  @Prop({ reflect: true, mutable: true }) open: boolean = undefined;
+  @Prop({ reflect: true, mutable: true }) open?: boolean | undefined =
+    undefined;
 
   @Watch("open")
   watchOpenHandler(): void {
@@ -87,7 +88,7 @@ export class PopoverMenu {
         this.parentPopover !== undefined &&
         !this.popoverMenuEls.some((menuItem) => menuItem.id)
       ) {
-        this.popoverMenuEls.unshift(this.backButton);
+        this.backButton && this.popoverMenuEls.unshift(this.backButton);
       }
 
       this.currentFocus = 0;
@@ -119,11 +120,13 @@ export class PopoverMenu {
   }
 
   componentDidLoad(): void {
-    const slotWrapper = this.el.shadowRoot.querySelector("ul.button");
-    const popoverMenuElements = getSlotElements(slotWrapper);
+    const slotWrapper = this.el.shadowRoot?.querySelector("ul.button");
+    if (slotWrapper) {
+      const popoverMenuElements = getSlotElements(slotWrapper);
 
-    if (popoverMenuElements !== null) {
-      this.addMenuItems(popoverMenuElements);
+      if (popoverMenuElements !== null) {
+        this.addMenuItems(popoverMenuElements);
+      }
     }
 
     if (
@@ -169,7 +172,7 @@ export class PopoverMenu {
     childEl.anchor = this.anchor;
     childEl.ariaLabel = this.el.getAttribute(this.ARIA_LABEL);
     childEl.openFromParent();
-    childEl.submenuLevel = this.submenuLevel + 1;
+    childEl.submenuLevel = this.submenuLevel! + 1;
     // Set the label in the submenu using the label of the menu item that has emitted the event
     childEl.parentLabel = target.label;
   }
@@ -243,8 +246,8 @@ export class PopoverMenu {
   };
 
   // Checks that the popover menu has an anchor
-  private findAnchorEl = (anchor: string): HTMLElement => {
-    let anchorElement: HTMLElement = null;
+  private findAnchorEl = (anchor: string | undefined): HTMLElement | null => {
+    let anchorElement: HTMLElement | null = null;
     if (!anchor) {
       this.submenuId === undefined &&
         console.error("No anchor specified for popover component");
@@ -317,17 +320,18 @@ export class PopoverMenu {
       if (el.tagName === "IC-MENU-ITEM") {
         this.popoverMenuEls.push(el);
       } else if (el.tagName === "IC-MENU-GROUP") {
-        const groupSlotWrapper = el.shadowRoot.querySelector(
+        const groupSlotWrapper = el.shadowRoot?.querySelector(
           ".menu-items-wrapper"
         );
-        const menuGroupElements = getSlotElements(groupSlotWrapper);
-
-        this.addMenuItems(menuGroupElements);
+        if (groupSlotWrapper) {
+          const menuGroupElements = getSlotElements(groupSlotWrapper);
+          menuGroupElements && this.addMenuItems(menuGroupElements);
+        }
       }
     }
   };
 
-  private getMenuAriaLabel = (): string => {
+  private getMenuAriaLabel = (): string | null => {
     const ariaLabel = this.el.getAttribute(this.ARIA_LABEL);
 
     if (isPropDefined(this.submenuId)) {
@@ -338,36 +342,38 @@ export class PopoverMenu {
   };
 
   private handleBackButtonClick = (): void => {
-    this.parentPopover.openFromChild();
+    this.parentPopover?.openFromChild();
     this.open = false;
   };
 
   private initPopperJS = () => {
-    this.popperInstance = createPopper(this.anchorEl, this.el, {
-      placement: "bottom-start",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 4],
+    if (this.anchorEl) {
+      this.popperInstance = createPopper(this.anchorEl, this.el, {
+        placement: "bottom-start",
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 4],
+            },
           },
-        },
-        {
-          name: "flip",
-          options: {
-            fallbackPlacements: ["top-start", "top-end", "bottom-end"],
-            rootBoundary: "viewport",
+          {
+            name: "flip",
+            options: {
+              fallbackPlacements: ["top-start", "top-end", "bottom-end"],
+              rootBoundary: "viewport",
+            },
           },
-        },
-      ],
-    });
+        ],
+      });
+    }
   };
 
   render() {
     return (
       <Host
         class={{
-          ["ic-popover-menu-open"]: this.open,
+          ["ic-popover-menu-open"]: !!this.open,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
         }}
       >
@@ -380,7 +386,6 @@ export class PopoverMenu {
           class={{
             menu: true,
           }}
-          tabindex={open ? "0" : "-1"}
         >
           <span
             class={{

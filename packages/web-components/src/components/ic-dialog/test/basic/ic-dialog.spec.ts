@@ -9,8 +9,10 @@ import { TextField } from "../../../ic-text-field/ic-text-field";
 import { AccordionGroup } from "../../../ic-accordion-group/ic-accordion-group";
 import { Accordion } from "../../../ic-accordion/ic-accordion";
 import { SearchBar } from "../../../ic-search-bar/ic-search-bar";
+import { RadioGroup } from "../../../ic-radio-group/ic-radio-group";
+import { RadioOption } from "../../../ic-radio-option/ic-radio-option";
 
-const DIALOG_DELAY_MS = 100;
+const DIALOG_DELAY_MS = 200;
 
 const setupDialogMethods = (page: SpecPage) => {
   page.rootInstance.dialogEl.showModal = jest.fn(function mock(
@@ -128,7 +130,7 @@ describe("ic-dialog component", () => {
     const eventSpy = jest.fn();
     page.win.addEventListener("icDialogOpened", eventSpy);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -152,7 +154,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -164,7 +166,7 @@ describe("ic-dialog component", () => {
     const eventSpy = jest.fn();
     page.win.addEventListener("icDialogClosed", eventSpy);
 
-    dialog.open = false;
+    dialog?.setAttribute("open", "false");
 
     await page.waitForChanges();
     //delay for setTimeout in code
@@ -187,7 +189,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -199,7 +201,7 @@ describe("ic-dialog component", () => {
     const eventSpy = jest.fn();
     page.win.addEventListener("icDialogCancelled", eventSpy);
 
-    page.root.shadowRoot.querySelectorAll("ic-button")[1].click();
+    page.root?.shadowRoot?.querySelectorAll("ic-button")[1].click();
 
     await page.waitForChanges();
     //delay for setTimeout in code
@@ -220,7 +222,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -232,7 +234,7 @@ describe("ic-dialog component", () => {
     const eventSpy = jest.fn();
     page.win.addEventListener("icDialogConfirmed", eventSpy);
 
-    page.root.shadowRoot.querySelectorAll("ic-button")[2].click();
+    page.root?.shadowRoot?.querySelectorAll("ic-button")[2].click();
 
     await page.waitForChanges();
     //delay for setTimeout in code
@@ -253,7 +255,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -265,7 +267,7 @@ describe("ic-dialog component", () => {
     const eventSpy = jest.fn();
     page.win.addEventListener("icDialogCancelled", eventSpy);
 
-    await dialog.cancelDialog();
+    await dialog?.cancelDialog();
 
     await page.waitForChanges();
     //delay for setTimeout in code
@@ -288,7 +290,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -300,7 +302,7 @@ describe("ic-dialog component", () => {
     const eventSpy = jest.fn();
     page.win.addEventListener("icDialogConfirmed", eventSpy);
 
-    await dialog.confirmDialog();
+    await dialog?.confirmDialog();
 
     await page.waitForChanges();
     //delay for setTimeout in code
@@ -323,7 +325,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -344,7 +346,7 @@ describe("ic-dialog component", () => {
     const dialog = document.querySelector("ic-dialog");
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -376,7 +378,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -385,7 +387,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(true);
 
-    page.root.dispatchEvent(
+    page.root?.dispatchEvent(
       new window.window.MouseEvent("click", {
         bubbles: true,
         cancelable: true,
@@ -414,7 +416,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -423,7 +425,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(true);
 
-    page.root.dispatchEvent(
+    page.root?.dispatchEvent(
       new window.window.MouseEvent("click", {
         bubbles: true,
         cancelable: true,
@@ -452,7 +454,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -461,7 +463,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(true);
 
-    page.root.shadowRoot.querySelector("ic-button").click();
+    page.root?.shadowRoot?.querySelector("ic-button")?.click();
 
     await page.waitForChanges();
 
@@ -484,7 +486,7 @@ describe("ic-dialog component", () => {
     setupDialogMethods(page);
     const dialog = document.querySelector("ic-dialog");
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -497,6 +499,54 @@ describe("ic-dialog component", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.dialogRendered).toBe(true);
+  });
+
+  it("should update the index of the focused element correctly", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, TextField, Button],
+      html: `<ic-dialog heading="Dialog heading">
+        <ic-text-field label="What is your favourite coffee?">
+        </ic-text-field>
+        <ic-button>Click Me</ic-button>
+      </ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+    const dialog = document.querySelector("ic-dialog");
+
+    dialog?.setAttribute("open", "true");
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-TEXT-FIELD");
+
+    page.win.document.dispatchEvent(
+      new KeyboardEvent("keydown", { key: "Tab", shiftKey: true })
+    );
+    await page.waitForChanges();
+
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-BUTTON");
+
+    page.win.document.dispatchEvent(
+      new KeyboardEvent("keydown", { key: "Tab" })
+    );
+
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-TEXT-FIELD");
   });
 
   it("should render with an accordion group as first focussable element", async () => {
@@ -517,23 +567,29 @@ describe("ic-dialog component", () => {
     setupDialogMethods(page);
     const dialog = document.querySelector("ic-dialog");
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
     //delay for setTimeout in code
     await waitForTimeout(DIALOG_DELAY_MS);
 
-    expect(page.rootInstance.interactiveElementList[1].nodeName).toBe(
-      "IC-ACCORDION-GROUP"
-    );
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-ACCORDION-GROUP");
 
     page.win.document.dispatchEvent(
       new KeyboardEvent("keydown", keyboardEvent("Tab"))
     );
     await page.waitForChanges();
 
-    expect(page.rootInstance.focusedElementIndex).toBe(1);
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-ACCORDION");
   });
 
   it("should render with an accordion as first focussable element", async () => {
@@ -552,28 +608,34 @@ describe("ic-dialog component", () => {
     setupDialogMethods(page);
     const dialog = document.querySelector("ic-dialog");
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
     //delay for setTimeout in code
     await waitForTimeout(DIALOG_DELAY_MS);
 
-    expect(page.rootInstance.interactiveElementList[1].nodeName).toBe(
-      "IC-ACCORDION"
-    );
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-ACCORDION");
 
     page.win.document.dispatchEvent(
       new KeyboardEvent("keydown", keyboardEvent("Tab"))
     );
     await page.waitForChanges();
 
-    expect(page.rootInstance.focusedElementIndex).toBe(1);
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-BUTTON");
   });
 
   it("should render with a ic-search-bar as first focussable element", async () => {
     const page = await newSpecPage({
-      components: [Dialog, Accordion, Button, SearchBar],
+      components: [Dialog, Button, SearchBar],
       html: `<ic-dialog heading="Dialog heading">
         <ic-search-bar label="What is your favourite coffee?"></ic-search-bar>
         <ic-button>Click Me</ic-button>
@@ -583,23 +645,31 @@ describe("ic-dialog component", () => {
     setupDialogMethods(page);
     const dialog = document.querySelector("ic-dialog");
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
     //delay for setTimeout in code
     await waitForTimeout(DIALOG_DELAY_MS);
 
-    expect(page.rootInstance.interactiveElementList[1].nodeName).toBe(
-      "IC-SEARCH-BAR"
-    );
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-SEARCH-BAR");
 
     page.win.document.dispatchEvent(
       new KeyboardEvent("keydown", keyboardEvent("Tab"))
     );
     await page.waitForChanges();
 
-    expect(page.rootInstance.focusedElementIndex).toBe(1);
+    // the focussed element does not change in these tests as event does not get handled in the same
+    // way as it would in a real browser, which would focus the next element
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-SEARCH-BAR");
   });
 
   it("should render with the close button", async () => {
@@ -632,7 +702,7 @@ describe("ic-dialog component", () => {
 
     const contentAreaSlot = document
       .querySelector("ic-dialog")
-      .shadowRoot.querySelector(".content-area slot");
+      ?.shadowRoot?.querySelector(".content-area slot");
 
     jest
       .spyOn(page.rootInstance, "getInteractiveElements")
@@ -640,7 +710,7 @@ describe("ic-dialog component", () => {
 
     await page.rootInstance.refreshInteractiveElementsOnSlotChange();
 
-    contentAreaSlot.dispatchEvent(new Event("slotchange"));
+    contentAreaSlot?.dispatchEvent(new Event("slotchange"));
 
     expect(page.rootInstance.getInteractiveElements).toBeCalledTimes(1);
   });
@@ -659,7 +729,7 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    dialog.open = true;
+    dialog?.setAttribute("open", "true");
 
     await page.waitForChanges();
 
@@ -678,5 +748,138 @@ describe("ic-dialog component", () => {
     setupDialogMethods(page);
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  it("should set the height of the dialog correctly when the window is resized", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Button],
+      html: `<ic-dialog heading="Dialog heading"></ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+
+    page.rootInstance.dialogHeight = 0;
+    page.rootInstance.dialogEl.clientHeight = 100;
+    page.rootInstance.resizeObserverCallback();
+    page.waitForChanges();
+
+    expect(page.rootInstance.dialogHeight).toBe(100);
+  });
+
+  it("should focus additional field of radio when tab pressed", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Button, RadioGroup, RadioOption, TextField],
+      html: `<ic-dialog heading="Dialog heading">
+        <ic-radio-group label="This is a label" name="1">
+          <ic-radio-option
+            value="valueName1"
+            label="Selected / Default" 
+            additional-field-display="dynamic"
+            selected       
+          >
+            <ic-text-field
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            >
+            </ic-text-field>
+          </ic-radio-option>
+          <ic-radio-option
+            value="valueName2"
+            label="Unselected / Disabled"
+            disabled
+          ></ic-radio-option>
+        </ic-radio-group>
+        <ic-button>Click Me</ic-button>
+      </ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+    const dialog = document.querySelector("ic-dialog");
+
+    dialog?.setAttribute("open", "true");
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("INPUT");
+
+    page.win.document.dispatchEvent(
+      new KeyboardEvent("keydown", keyboardEvent("Tab"))
+    );
+
+    await page.waitForChanges();
+
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-TEXT-FIELD");
+
+    //check that next tab does not focus the disabled radio
+    page.win.document.dispatchEvent(
+      new KeyboardEvent("keydown", keyboardEvent("Tab"))
+    );
+
+    await page.waitForChanges();
+
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-BUTTON");
+
+    // check that shift + tab returns to previous text field
+    const tabKeyEvent = keyboardEvent("Tab");
+    tabKeyEvent.shiftKey = true;
+    page.win.document.dispatchEvent(new KeyboardEvent("keydown", tabKeyEvent));
+
+    await page.waitForChanges();
+
+    expect(
+      page.rootInstance.interactiveElementList[
+        page.rootInstance.focusedElementIndex
+      ].nodeName
+    ).toBe("IC-TEXT-FIELD");
+  });
+
+  it("should test wrap around of tab key navigation", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, TextField],
+      html: `<ic-dialog heading="Dialog heading">
+      </ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+    const dialog = document.querySelector("ic-dialog");
+
+    dialog?.setAttribute("open", "true");
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(page.rootInstance.focusedElementIndex).toBe(2);
+
+    page.win.document.dispatchEvent(
+      new KeyboardEvent("keydown", keyboardEvent("Tab"))
+    );
+
+    await page.waitForChanges();
+    expect(page.rootInstance.focusedElementIndex).toBe(0);
+
+    const tabKeyEvent = keyboardEvent("Tab");
+    tabKeyEvent.shiftKey = true;
+    page.win.document.dispatchEvent(new KeyboardEvent("keydown", tabKeyEvent));
+
+    await page.waitForChanges();
+    expect(page.rootInstance.focusedElementIndex).toBe(2);
   });
 });

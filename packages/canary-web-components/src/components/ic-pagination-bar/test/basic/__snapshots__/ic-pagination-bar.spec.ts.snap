@@ -2,7 +2,7 @@
 
 exports[`ic-pagination-bar should only allow a maximum of 4 custom items per page options 1`] = `
 <ic-pagination-bar show-items-per-page-control="true" total-items="150">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <div class="items-per-page-holder">
@@ -21,13 +21,13 @@ exports[`ic-pagination-bar should only allow a maximum of 4 custom items per pag
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render 1`] = `
 <ic-pagination-bar total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -40,13 +40,13 @@ exports[`ic-pagination-bar should render 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with a custom item label 1`] = `
 <ic-pagination-bar item-label="Row" range-label-type="data" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="item-pagination-label pagination-text-default" variant="label">
@@ -59,13 +59,13 @@ exports[`ic-pagination-bar should render with a custom item label 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with a custom page label 1`] = `
 <ic-pagination-bar page-label="Sheet" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -78,13 +78,13 @@ exports[`ic-pagination-bar should render with a custom page label 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with complex pagination controls 1`] = `
 <ic-pagination-bar total-items="100" type="complex">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -94,7 +94,7 @@ exports[`ic-pagination-bar should render with complex pagination controls 1`] = 
       <div class="pagination-controls">
         <div class="pagination-holder">
           <ic-pagination>
-            <mock:shadow-root>
+            <template shadowrootmode="open">
               <nav aria-label="Pagination Navigation" role="navigation">
                 <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
                   svg
@@ -116,18 +116,18 @@ exports[`ic-pagination-bar should render with complex pagination controls 1`] = 
                   svg
                 </ic-button>
               </nav>
-            </mock:shadow-root>
+            </template>
           </ic-pagination>
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with custom items per page options 1`] = `
 <ic-pagination-bar show-items-per-page-control="true" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <div class="items-per-page-holder">
@@ -146,13 +146,13 @@ exports[`ic-pagination-bar should render with custom items per page options 1`] 
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with dark appearance 1`] = `
 <ic-pagination-bar apperance="dark" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -165,13 +165,13 @@ exports[`ic-pagination-bar should render with dark appearance 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with data pagination type 1`] = `
 <ic-pagination-bar range-label-type="data" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="item-pagination-label pagination-text-default" variant="label">
@@ -184,13 +184,13 @@ exports[`ic-pagination-bar should render with data pagination type 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with go to page controls 1`] = `
 <ic-pagination-bar show-go-to-page-control="true" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -214,13 +214,13 @@ exports[`ic-pagination-bar should render with go to page controls 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with items per page controls 1`] = `
 <ic-pagination-bar show-items-per-page-control="true" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <div class="items-per-page-holder">
@@ -239,13 +239,13 @@ exports[`ic-pagination-bar should render with items per page controls 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with left alignment 1`] = `
 <ic-pagination-bar alignment="left" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-left">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -258,13 +258,13 @@ exports[`ic-pagination-bar should render with left alignment 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with light appearance 1`] = `
 <ic-pagination-bar appearance="light" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-light" variant="label">
@@ -277,13 +277,13 @@ exports[`ic-pagination-bar should render with light appearance 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render with space between alignment 1`] = `
 <ic-pagination-bar alignment="space-between" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-space-between">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -296,13 +296,13 @@ exports[`ic-pagination-bar should render with space between alignment 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should render without range text 1`] = `
 <ic-pagination-bar hide-range-label="true" total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="pagination-controls">
         <div class="pagination-holder">
@@ -310,13 +310,13 @@ exports[`ic-pagination-bar should render without range text 1`] = `
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should update page details when currentPage prop is changed 1`] = `
 <ic-pagination-bar total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -326,7 +326,7 @@ exports[`ic-pagination-bar should update page details when currentPage prop is c
       <div class="pagination-controls">
         <div class="pagination-holder">
           <ic-pagination>
-            <mock:shadow-root>
+            <template shadowrootmode="open">
               <nav aria-label="Pagination Navigation" role="navigation">
                 <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
                   svg
@@ -342,18 +342,18 @@ exports[`ic-pagination-bar should update page details when currentPage prop is c
                   svg
                 </ic-button>
               </nav>
-            </mock:shadow-root>
+            </template>
           </ic-pagination>
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should update page details when currentPage prop is changed 2`] = `
 <ic-pagination-bar total-items="100">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -363,7 +363,7 @@ exports[`ic-pagination-bar should update page details when currentPage prop is c
       <div class="pagination-controls">
         <div class="pagination-holder">
           <ic-pagination>
-            <mock:shadow-root>
+            <template shadowrootmode="open">
               <nav aria-label="Pagination Navigation" role="navigation">
                 <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" id="first-page-button" variant="icon">
                   svg
@@ -379,18 +379,18 @@ exports[`ic-pagination-bar should update page details when currentPage prop is c
                   svg
                 </ic-button>
               </nav>
-            </mock:shadow-root>
+            </template>
           </ic-pagination>
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should update pagination when number of item changes 1`] = `
 <ic-pagination-bar total-items="0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -403,13 +403,13 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should update pagination when number of item changes 2`] = `
 <ic-pagination-bar total-items="0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -422,13 +422,13 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;
 
 exports[`ic-pagination-bar should update pagination when number of item changes 3`] = `
 <ic-pagination-bar total-items="0">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
@@ -441,6 +441,6 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
         </div>
       </div>
     </div>
-  </mock:shadow-root>
+  </template>
 </ic-pagination-bar>
 `;

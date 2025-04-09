@@ -1556,14 +1556,14 @@ export const DisableSort = (): HTMLIcDataTableElement => {
     console.log("Sort changed", event.detail);
     if (event.detail.sorted === "ascending") {
       DATA.sort((a, b) => {
-        const column = event.detail.columnName as keyof (typeof DATA)[0];
+        const column = event.detail.columnName as keyof typeof DATA[0];
         if (a[column] < b[column]) return -1;
         if (a[column] > b[column]) return 1;
         return 0;
       });
     } else if (event.detail.sorted === "descending") {
       DATA.sort((a, b) => {
-        const column = event.detail.columnName as keyof (typeof DATA)[0];
+        const column = event.detail.columnName as keyof typeof DATA[0];
         if (a[column] < b[column]) return 1;
         if (a[column] > b[column]) return -1;
         return 0;

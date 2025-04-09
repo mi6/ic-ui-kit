@@ -49,22 +49,22 @@ let buttonIds = 0;
   },
 })
 export class Button {
-  private buttonEl: HTMLElement;
+  private buttonEl?: HTMLElement;
   private buttonIdNum = buttonIds++;
   private hasTooltip: boolean = false;
-  private id: string;
+  private id: string | null;
   private inheritedAttributes: { [k: string]: string } = {};
-  private describedbyEl: HTMLElement = null;
-  private describedById: string = null;
-  private mutationObserver: MutationObserver = null;
-  private hostMutationObserver: MutationObserver = null;
-  private routerSlot: HTMLElement;
+  private describedbyEl: HTMLElement | null = null;
+  private describedById: string | null = null;
+  private mutationObserver: MutationObserver | null = null;
+  private hostMutationObserver: MutationObserver | null = null;
+  private routerSlot: HTMLElement | null;
 
   @Element() el: HTMLIcButtonElement;
 
-  @State() ariaLabel: string = null;
-  @State() describedByContent: string = null;
-  @State() title: string = null;
+  @State() ariaLabel: string = "";
+  @State() describedByContent: string | undefined = "";
+  @State() title: string = "";
 
   /**
    * If `fileUpload` is set to `true`, this is the accepted list of file types.
@@ -74,12 +74,12 @@ export class Button {
   /**
    * @internal Used to identify any related child component
    */
-  @Prop() ariaControlsId: string | boolean;
+  @Prop() ariaControlsId?: string | boolean;
 
   /**
    * @internal Used to identify any related child component
    */
-  @Prop() ariaOwnsId: string | boolean;
+  @Prop() ariaOwnsId?: string | boolean;
 
   /**
    * If `true`, the button will be in disabled state.
@@ -118,7 +118,7 @@ export class Button {
   /**
    * The name of the control for the file input, which is submitted with the form data.
    */
-  @Prop() fileInputName: string = `ic-button-file-upload-input-${buttonIds++}`;
+  @Prop() fileInputName?: string = `ic-button-file-upload-input-${buttonIds++}`;
 
   /**
    * The <form> element to associate the button with.
@@ -193,7 +193,7 @@ export class Button {
   /**
    * The list of the files that have been selected by a user.
    */
-  @Prop() selectedFiles: FileList;
+  @Prop() selectedFiles?: FileList;
 
   /**
    * The size of the button to be displayed.
@@ -289,7 +289,7 @@ export class Button {
       const describedById = this.inheritedAttributes["aria-describedby"];
       if (describedById !== undefined) {
         this.describedById = describedById;
-        const el = this.el.parentElement.querySelector<HTMLElement>(
+        const el = this.el.parentElement?.querySelector<HTMLElement>(
           `#${describedById}`
         );
         if (el) {
@@ -304,7 +304,7 @@ export class Button {
     this.updateTheme();
 
     if (typeof MutationObserver !== "undefined") {
-      if (this.describedById) {
+      if (this.describedbyEl && this.describedById) {
         this.mutationObserver = new MutationObserver(this.mutationCallback);
         this.mutationObserver.observe(this.describedbyEl, {
           characterData: true,
@@ -338,10 +338,10 @@ export class Button {
         renderFileHiddenInput(
           this.icFileSelection,
           this.el,
-          this.multiple,
-          this.fileInputName,
+          !!this.multiple,
+          this.fileInputName!,
           this.selectedFiles,
-          this.disabled,
+          !!this.disabled,
           this.accept
         );
       }
@@ -368,8 +368,8 @@ export class Button {
   }
 
   private async closeButtonTooltip(ev: KeyboardEvent): Promise<void> {
-    const tooltip = this.el.shadowRoot.querySelector("ic-tooltip");
-    if (await tooltip.isTooltipVisible()) {
+    const tooltip = this.el.shadowRoot?.querySelector("ic-tooltip");
+    if (tooltip && (await tooltip.isTooltipVisible())) {
       tooltip.displayTooltip(false);
       ev.preventDefault();
       ev.stopImmediatePropagation();
@@ -400,7 +400,7 @@ export class Button {
       hiddenFormButton.setAttribute("type", this.el.type);
       hiddenFormButton.style.display = "none";
 
-      this.el.closest("FORM").appendChild(hiddenFormButton);
+      this.el.closest("FORM")?.appendChild(hiddenFormButton);
 
       hiddenFormButton.click();
       hiddenFormButton.remove();
@@ -421,7 +421,7 @@ export class Button {
     this.icBlur.emit();
   };
 
-  private updateTheme(mode: IcBrandForeground = null): void {
+  private updateTheme(mode: IcBrandForeground | null = null): void {
     const foregroundColor = getBrandFromContext(this.el, mode);
     if (foregroundColor !== IcBrandForegroundEnum.Default) {
       this.theme =
@@ -434,20 +434,24 @@ export class Button {
 
   // triggered when text content of sibling element in light DOM changes
   private mutationCallback = (): void => {
-    this.describedByContent = this.describedbyEl.innerText;
+    this.describedByContent = this.describedbyEl?.innerText;
   };
 
   // triggered when attributes of host element change
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
     mutationList.forEach(({ attributeName }) => {
-      const attribute = this.el.getAttribute(attributeName);
-      if (attributeName === "title") this.title = attribute;
-      else if (attributeName === "aria-label") this.ariaLabel = attribute;
+      if (attributeName) {
+        const attribute = this.el.getAttribute(attributeName);
+        if (attribute) {
+          if (attributeName === "title") this.title = attribute;
+          else if (attributeName === "aria-label") this.ariaLabel = attribute;
 
-      if (IC_INHERITED_ARIA.includes(attributeName)) {
-        this.inheritedAttributes[attributeName] = attribute;
-        forceComponentUpdate = true;
+          if (IC_INHERITED_ARIA.includes(attributeName)) {
+            this.inheritedAttributes[attributeName] = attribute;
+            forceComponentUpdate = true;
+          }
+        }
       }
     });
     if (forceComponentUpdate) {
@@ -457,11 +461,11 @@ export class Button {
 
   private setHasTooltip = (): void => {
     this.hasTooltip =
-      !this.disableTooltip && (!!this.title || this.isIconVariant());
+      !this.disableTooltip && (!!this.title || !!this.isIconVariant());
   };
 
-  private isIconVariant = (): boolean => {
-    return this.variant.startsWith("icon");
+  private isIconVariant = (): boolean | undefined => {
+    return this.variant?.startsWith("icon");
   };
 
   render() {
@@ -488,8 +492,8 @@ export class Button {
             hreflang: this.hreflang,
           };
 
-    let describedby: string = null;
-    let buttonId: string = null;
+    let describedby: string | null = null;
+    let buttonId: string | null = null;
     if (this.hasTooltip) {
       buttonId =
         this.id !== null
@@ -554,7 +558,7 @@ export class Button {
               <span
                 class={{
                   ["arrow-dropdown"]: !this.dropdownExpanded,
-                  ["dropdown-expanded"]: this.dropdownExpanded,
+                  ["dropdown-expanded"]: !!this.dropdownExpanded,
                 }}
                 innerHTML={arrowDropdown}
               />
@@ -567,15 +571,15 @@ export class Button {
       <Host
         class={{
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
-          [`monochrome`]: this.monochrome,
-          ["ic-button-disabled"]: this.disabled && !this.loading,
+          [`monochrome`]: !!this.monochrome,
+          ["ic-button-disabled"]: !!this.disabled && !this.loading,
           [`ic-button-variant-${this.variant}`]: true,
           [`ic-button-size-${this.size}`]: true,
-          ["ic-button-loading"]: this.loading,
-          ["ic-button-full-width"]: this.fullWidth,
+          ["ic-button-loading"]: !!this.loading,
+          ["ic-button-full-width"]: !!this.fullWidth,
           ["with-badge"]: isSlotUsed(this.el, "badge"),
           ["dropdown-no-icon"]:
-            this.dropdown &&
+            !!this.dropdown &&
             !isSlotUsed(this.el, "icon") &&
             !isSlotUsed(this.el, "left-icon"),
           ["top-icon"]: isSlotUsed(this.el, "top-icon"),
@@ -592,9 +596,9 @@ export class Button {
       >
         {this.hasTooltip && (
           <ic-tooltip
-            id={describedby}
+            id={describedby || undefined}
             label={title || ariaLabel}
-            target={buttonId}
+            target={buttonId || undefined}
             placement={this.tooltipPlacement}
             silent={this.isIconVariant() && !!ariaLabel}
           >
@@ -613,7 +617,7 @@ export class Button {
             <ButtonContent />
           ))}
         {this.describedByContent && (
-          <span id={describedby} class="ic-button-describedby">
+          <span id={describedby || undefined} class="ic-button-describedby">
             {this.describedByContent}
           </span>
         )}

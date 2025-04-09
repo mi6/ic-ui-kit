@@ -27,8 +27,8 @@ let accordionIds = 0;
 })
 export class Accordion {
   private accordionId = `ic-accordion-${accordionIds++}`;
-  private expandedContentEl: HTMLDivElement;
-  private accordionBtnHeading: HTMLButtonElement;
+  private expandedContentEl?: HTMLDivElement;
+  private accordionBtnHeading?: HTMLButtonElement;
   private CONTENT_VISIBILITY_PROPERTY = "--ic-expanded-content-visibility";
 
   @Element() el: HTMLIcAccordionElement;
@@ -45,7 +45,7 @@ export class Accordion {
   /**
    * If `true`, the accordion appears expanded.
    */
-  @Prop({ mutable: true }) expanded: boolean = false;
+  @Prop({ mutable: true }) expanded?: boolean = false;
 
   /**
    * The section header outlining section content.
@@ -83,9 +83,7 @@ export class Accordion {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.accordionBtnHeading) {
-      this.accordionBtnHeading.focus();
-    }
+    this.accordionBtnHeading?.focus();
   }
 
   componentWillLoad(): void {
@@ -93,15 +91,16 @@ export class Accordion {
   }
 
   disconnectedCallback(): void {
-    if (this.expandedContentEl) {
-      this.expandedContentEl.removeEventListener(
+    const expandedContentEl = this.expandedContentEl;
+    if (expandedContentEl) {
+      expandedContentEl.removeEventListener(
         "transitionend",
-        (e) => this.setExpandedContentStyle(e, this.expandedContentEl),
+        (e) => this.setExpandedContentStyle(e, expandedContentEl),
         true
       );
-      this.expandedContentEl.removeEventListener(
+      expandedContentEl.removeEventListener(
         "transitionend",
-        (e) => this.hideExpandedContent(e, this.expandedContentEl),
+        (e) => this.hideExpandedContent(e, expandedContentEl),
         true
       );
     }
@@ -109,7 +108,7 @@ export class Accordion {
 
   componentDidLoad(): void {
     // So accordion opens by default if expanded set to true
-    if (this.expanded) {
+    if (this.expanded && this.expandedContentEl) {
       this.expandedContentEl.style.height = "auto";
       this.expandedContentEl.style.setProperty(
         this.CONTENT_VISIBILITY_PROPERTY,
@@ -158,41 +157,45 @@ export class Accordion {
   };
 
   private animateExpandedContent = () => {
-    const elementHeight = this.expandedContentEl.scrollHeight;
-    if (elementHeight > 0 && this.expanded) {
-      this.expandedContentEl.style.setProperty(
-        this.CONTENT_VISIBILITY_PROPERTY,
-        "visible"
-      );
-      this.expandedContentEl.style.height = `${elementHeight}px`;
-      this.setAccordionAnimation(
-        this.expandedContentEl,
-        "300",
-        "height",
-        "ease-out"
-      );
-
-      this.expandedContentEl.addEventListener(
-        "transitionend",
-        (e: TransitionEvent) => {
-          this.setExpandedContentStyle(e, this.expandedContentEl);
-        }
-      );
-    } else if (!this.expanded) {
-      this.expandedContentEl.style.height = `${this.expandedContentEl.scrollHeight}px`;
-      if (this.expandedContentEl.scrollHeight > 0 && !this.expanded) {
-        this.expandedContentEl.style.height = "0";
+    if (this.expandedContentEl) {
+      const expandedContentEl = this.expandedContentEl;
+      const elementHeight = expandedContentEl.scrollHeight;
+      if (elementHeight > 0 && this.expanded) {
+        expandedContentEl.style.setProperty(
+          this.CONTENT_VISIBILITY_PROPERTY,
+          "visible"
+        );
+        expandedContentEl.style.height = `${elementHeight}px`;
         this.setAccordionAnimation(
-          this.expandedContentEl,
+          expandedContentEl,
           "300",
           "height",
-          "ease-in"
+          "ease-out"
         );
-        this.expandedContentEl.classList.remove("expanded-content-opened");
+
+        expandedContentEl.addEventListener(
+          "transitionend",
+          (e: TransitionEvent) => {
+            this.setExpandedContentStyle(e, expandedContentEl);
+          }
+        );
+      } else if (!this.expanded) {
+        const expandedContentEl = this.expandedContentEl;
+        expandedContentEl.style.height = `${expandedContentEl.scrollHeight}px`;
+        if (expandedContentEl.scrollHeight > 0 && !this.expanded) {
+          expandedContentEl.style.height = "0";
+          this.setAccordionAnimation(
+            expandedContentEl,
+            "300",
+            "height",
+            "ease-in"
+          );
+          expandedContentEl.classList.remove("expanded-content-opened");
+        }
+        expandedContentEl.addEventListener("transitionend", (e) => {
+          this.hideExpandedContent(e, expandedContentEl);
+        });
       }
-      this.expandedContentEl.addEventListener("transitionend", (e) => {
-        this.hideExpandedContent(e, this.expandedContentEl);
-      });
     }
   };
 
@@ -202,7 +205,7 @@ export class Accordion {
       <Host
         id={this.accordionId}
         class={{
-          ["ic-accordion-disabled"]: disabled,
+          ["ic-accordion-disabled"]: !!disabled,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         aria-disabled={disabled ? "true" : "false"}
@@ -215,7 +218,7 @@ export class Accordion {
           class={{
             [`${size}`]: true,
             ["section-button"]: true,
-            ["section-button-open"]: expanded && !disabled,
+            ["section-button-open"]: !!expanded && !disabled,
           }}
           aria-expanded={`${expanded}`}
           aria-controls="expanded-content-area"
@@ -236,7 +239,7 @@ export class Accordion {
           <span
             class={{
               ["expand-chevron"]: true,
-              ["content-expanded-chevron"]: expanded && !disabled,
+              ["content-expanded-chevron"]: !!expanded && !disabled,
             }}
             aria-hidden="true"
             innerHTML={chevronIcon}

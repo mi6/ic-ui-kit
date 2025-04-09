@@ -2,7 +2,7 @@
 
 :host {
   display: block;
-  background-color: var(--ic-brand-color-tertiary);
+  background-color: var(--ic-hero-background);
 
   --hero-heading-bottom-margin: var(--ic-space-md);
   --hero-keyline: var(--ic-hero-keyline);

@@ -69,7 +69,7 @@ exports[`ic-input-label should render with label text not wrapped in label tag 1
     Test label *
   </ic-typography>
   <ic-typography class="helpertext helpertext-normal" variant="caption">
-    <span id="undefined-helper-text">
+    <span>
       Some helper text
     </span>
   </ic-typography>
