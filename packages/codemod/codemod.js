@@ -2,7 +2,10 @@
 import fs from "fs";
 import yargs from "yargs";
 import { searchDirectory } from "./sections/directory-search.js";
-import { compareComponent } from "./sections/component-changes.js";
+import {
+  compareComponent,
+  convertComponents,
+} from "./sections/component-changes.js";
 import { simpleTestComparison } from "./sections/simple-test-comparison.js";
 import htmlData from "./data/changes.js";
 import reactData from "./data/reactChanges.js";
@@ -46,10 +49,7 @@ const main = async (path, test = false) => {
         });
       }
     } else {
-      const changedComponentFile = compareComponent(linesArray, [
-        ...htmlData,
-        ...reactData,
-      ]);
+      const changedComponentFile = convertComponents(linesArray);
       if (changedComponentFile !== linesArray) {
         fs.writeFile(file, String(changedComponentFile), (err) => {
           if (err) return console.log(err);
