@@ -306,6 +306,7 @@ const SlottedNavItemsChildren = (): ReactElement => (
           aria-label="Daily Tippers"
         >
           <ReusableSlottedIcon />
+          <IcBadge label="1" slot="badge" variant="light" />
           Daily Tippers
         </a>
       </IcNavigationItem>

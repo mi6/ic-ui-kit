@@ -298,6 +298,7 @@ export class SideNavigation {
         }
         const iconWrapper = document.createElement("div");
         const icon = navItemSlot?.querySelector("svg");
+        const badge = navItemSlot?.querySelector("ic-badge");
         const label = navItem.textContent?.trim();
         const icTypography = document.createElement("ic-typography");
         icTypography.classList.add(
@@ -306,9 +307,11 @@ export class SideNavigation {
           "navigation-item-side-nav-slotted-text"
         );
 
+        iconWrapper.style.position = "relative";
         iconWrapper.style.height = "var(--ic-space-lg)";
 
         icon && iconWrapper.append(icon);
+        badge && iconWrapper.append(badge);
 
         if (label) {
           icTypography.textContent = label;

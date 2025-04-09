@@ -397,7 +397,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
       </ic-tooltip>
     </template>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
-      <div style="height: var(--ic-space-lg);">
+      <div style="position: relative; height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
         </svg>
@@ -491,7 +491,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
       </ic-tooltip>
     </template>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
-      <div style="height: var(--ic-space-lg);">
+      <div style="position: relative; height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
         </svg>
@@ -579,7 +579,7 @@ exports[`ic-side-navigation should render with slotted navigation item: slotted-
       </ic-tooltip>
     </template>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
-      <div style="height: var(--ic-space-lg);">
+      <div style="position: relative; height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
         </svg>
@@ -666,7 +666,7 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
       </ic-tooltip>
     </template>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
-      <div style="height: var(--ic-space-lg);">
+      <div style="position: relative; height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
         </svg>
@@ -702,7 +702,7 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
         </ic-tooltip>
       </template>
       <a aria-label="Daily Tippers" href="/child-item-2" slot="navigation-item">
-        <div style="height: var(--ic-space-lg);">
+        <div style="position: relative; height: var(--ic-space-lg);">
           <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
           </svg>
@@ -725,7 +725,7 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
       </ic-tooltip>
     </template>
     <a aria-label="bar" href="/bar" slot="navigation-item">
-      <div style="height: var(--ic-space-lg);">
+      <div style="position: relative; height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
         </svg>
