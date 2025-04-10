@@ -115,6 +115,35 @@ describe("ic-page-header component renders additional functionality", () => {
     expect(page.root).toMatchSnapshot("should render tabs");
   });
 
+  it("should render tabs & slotted heading", async () => {
+    const page = await newSpecPage({
+      components: [PageHeader],
+      html: `
+      <ic-page-header aria-label="page header" subheading="This is a simple page header component and this is the text.">
+        <ic-typography variant="h2" slot="heading">
+          <h2>
+            Coffee recipes
+          </h2>
+        </ic-typography>
+        <ic-status-tag slot="heading-adornment" label="Beta"></ic-status-tag>
+        <ic-navigation-item
+          slot="tabs"
+          label="All recipes"
+          href="/all-recipes"
+          selected
+        ></ic-navigation-item>
+        <ic-navigation-item
+          slot="tabs"
+          label="Favourites"
+          href="/favourites"
+        ></ic-navigation-item>
+      </ic-page-header>
+      `,
+    });
+
+    expect(page.root).toMatchSnapshot("should render tabs & slotted heading");
+  });
+
   it("should render actions, input & tabs", async () => {
     const page = await newSpecPage({
       components: [PageHeader],
