@@ -915,6 +915,13 @@ ic-theme,
   --ic-divider-label: var(--ic-state-layer-primary);
   --ic-divider-label-monochrome: var(--ic-state-layer-darken-20);
 
+  /* Drawer */
+  --ic-drawer-background: var(--ic-color-background-primary);
+  --ic-drawer-text: var(--ic-color-text-primary);
+  --ic-drawer-chevron: var(--ic-action-default);
+  --ic-drawer-divider-color: var(--ic-atoms-option-bar-divider);
+  --ic-drawer-drop-shadow: var(--ic-elevation-overlay);
+
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);
   --ic-empty-state-subtitle: var(--ic-color-text-secondary);
@@ -2527,6 +2534,13 @@ ic-theme,
     --ic-divider-background-monochrome: var(--ic-state-layer-lighten-20);
     --ic-divider-label: var(--ic-state-layer-neutral-default);
     --ic-divider-label-monochrome: var(--ic-state-layer-lighten-20);
+
+    /* Drawer */
+    --ic-drawer-background: var(--ic-color-background-primary);
+    --ic-drawer-text: var(--ic-color-text-primary);
+    --ic-drawer-chevron: var(--ic-action-default);
+    --ic-drawer-divider-color: var(--ic-atoms-option-bar-divider);
+    --ic-drawer-drop-shadow: var(--ic-elevation-overlay-inverted);
 
     /* Empty state */
     --ic-empty-state-title: var(--ic-color-text-primary);
@@ -4177,6 +4191,13 @@ ic-theme,
   --ic-divider-background-monochrome: var(--ic-state-layer-lighten-20);
   --ic-divider-label: var(--ic-state-layer-neutral-default);
   --ic-divider-label-monochrome: var(--ic-state-layer-lighten-20);
+
+  /* Drawer */
+  --ic-drawer-background: var(--ic-color-background-primary);
+  --ic-drawer-text: var(--ic-color-text-primary);
+  --ic-drawer-chevron: var(--ic-action-default);
+  --ic-drawer-divider-color: var(--ic-atoms-option-bar-divider);
+  --ic-drawer-drop-shadow: var(--ic-elevation-overlay-inverted);
 
   /* Empty state */
   --ic-empty-state-title: var(--ic-color-text-primary);
