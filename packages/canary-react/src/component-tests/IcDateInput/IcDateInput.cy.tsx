@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import React from "react";
 import { mount } from "cypress/react";
@@ -920,12 +920,15 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
       .shadow()
       .find("button")
       .focus()
-      .click();
-
+      .click("top");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
-
     cy.get("@icDateChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(null);
+      expect(stub.getCall(0).args[0].detail.dateObject).to.deep.equal({
+        day: null,
+        month: null,
+        year: null,
+      });
     });
   });
 
@@ -997,6 +1000,39 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated("ic-date-input");
 
     cy.findShadowEl(DATE_INPUT, "ic-input-label").should("not.exist");
+  });
+
+  it("should not fire icChange emit when a field is input and emitDatePartChange is set to false", () => {
+    mount(<IcDateInput label="Test Label" emitDatePartChange={false} />);
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.get(DATE_INPUT).invoke("on", "icChange", cy.stub().as("icDateChanged"));
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(HAVE_VALUE, "18");
+    cy.get("@icDateChanged").should((stub) => {
+      expect(stub.getCall(0)).to.equal(null);
+    });
+  });
+
+  it("should fire icChange emit when a field is input and emitDatePartChange is set to true", () => {
+    mount(<IcDateInput label="Test Label" emitDatePartChange={true} />);
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.get(DATE_INPUT).invoke("on", "icChange", cy.stub().as("icDateChanged"));
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(HAVE_VALUE, "18");
+    cy.get("@icDateChanged").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value).to.equal(null);
+      expect(stub.getCall(0).args[0].detail.dateObject).to.deep.equal({
+        day: "18",
+        month: null,
+        year: null,
+      });
+    });
   });
 });
 

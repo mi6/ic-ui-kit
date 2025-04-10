@@ -2820,6 +2820,28 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
+
+  it("should emit icChange when emitDatePartChange is true", () => {
+    mount(<IcDatePicker label={DEFAULT_LABEL} emitDatePartChange />);
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.get(DATE_PICKER).invoke("on", "icChange", cy.stub().as("icDateChanged"));
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(DAY_INPUT_ARIA_LABEL)
+      .type("18");
+
+    cy.get("@icDateChanged").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value).to.equal(null);
+      expect(stub.getCall(0).args[0].detail.dateObject).to.deep.equal({
+        day: "18",
+        month: null,
+        year: null,
+      });
+    });
+  });
 });
 
 describe("IcDatePicker visual regression tests in high contrast mode", () => {

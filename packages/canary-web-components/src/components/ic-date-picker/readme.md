@@ -17,6 +17,7 @@
 | `disablePast`           | `disable-past`             | If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.                                                                                                                                       | `boolean`                                                                                                                                                 | `false`                                                                                                 |
 | `disablePastMessage`    | `disable-past-message`     | The text to display as the validation message when `disablePast` is `true` and a date in the past is entered.                                                                                                                                          | `string`                                                                                                                                                  | `"Dates in the past are not allowed. Please select a date in the future."`                              |
 | `disabled`              | `disabled`                 | If `true`, the disabled state will be set.                                                                                                                                                                                                             | `boolean`                                                                                                                                                 | `false`                                                                                                 |
+| `emitDatePartChange`    | `emit-date-part-change`    | If `true`, every individual input field completed will emit an icChange event.                                                                                                                                                                         | `boolean`                                                                                                                                                 | `false`                                                                                                 |
 | `helperText`            | `helper-text`              | The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.                                                                                                    | `string`                                                                                                                                                  | `undefined`                                                                                             |
 | `hideHelperText`        | `hide-helper-text`         | If `true`, the helper text will be visually hidden, but still read out by screenreaders.                                                                                                                                                               | `boolean`                                                                                                                                                 | `false`                                                                                                 |
 | `hideLabel`             | `hide-label`               | If `true`, the label will be visually hidden, but the required label will still be read out by screen readers.                                                                                                                                         | `boolean`                                                                                                                                                 | `false`                                                                                                 |
@@ -44,14 +45,6 @@
 | Event      | Description                         | Type                            |
 | ---------- | ----------------------------------- | ------------------------------- |
 | `icChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date; }>` |
-
-
-## CSS Custom Properties
-
-| Name                       | Description              |
-| -------------------------- | ------------------------ |
-| `--ic-z-index-date-picker` | z-index of date picker.  |
-| `--input-width`            | Width of the input field |
 
 
 ## Dependencies

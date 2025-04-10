@@ -703,6 +703,7 @@ describe("ic-date-input component", () => {
         expect.objectContaining({
           detail: expect.objectContaining({
             value: date,
+            dateObject: { day: "01", month: "01", year: "2000" },
           }),
         })
       );
@@ -1085,7 +1086,7 @@ describe("ic-date-input component", () => {
 
       componentInstance.day = "31";
       componentInstance.month = "8";
-      componentInstance.year = "2024";
+      componentInstance.year = "2050";
 
       componentInstance.setValidationMessage();
 
