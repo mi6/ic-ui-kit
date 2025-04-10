@@ -9,6 +9,8 @@ import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.
 import { IcThemeMode } from "@ukic/web-components";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode as IcThemeMode1, IcWeekDays } from "./utils/types";
+import { IcPosition } from "@ukic/web-components/dist/types/utils/types";
+import { IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
@@ -16,6 +18,8 @@ export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.
 export { IcThemeMode } from "@ukic/web-components";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode as IcThemeMode1, IcWeekDays } from "./utils/types";
+export { IcPosition } from "@ukic/web-components/dist/types/utils/types";
+export { IcDrawerExpandedDetail } from "./components/ic-drawer/ic-drawer.types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
@@ -464,6 +468,60 @@ export namespace Components {
          */
         "value"?: string | Date | null | undefined;
     }
+    interface IcDrawer {
+        /**
+          * The aria label applied to the drawer. This is required when the heading slot is used.
+         */
+        "ariaLabel": string;
+        /**
+          * The aria label of the chevron button when trigger is set to "arrow". The default aria label is "Open drawer" / "Close drawer".
+         */
+        "chevronButtonAriaLabel"?: string;
+        /**
+          * The aria label of the close button when the show-close-button attribute (web-components) / showCloseButton prop (React) is set to `true`. The default aria label is "Open drawer" / "Close drawer".
+         */
+        "closeButtonAriaLabel": string;
+        /**
+          * If set to `false`, the drawer will not close when the backdrop is clicked.
+         */
+        "closeOnBackdropClick"?: boolean;
+        /**
+          * If set to `true`, the drawer will display in an expanded state.
+         */
+        "expanded": boolean;
+        /**
+          * The heading to render in the drawer.
+         */
+        "heading"?: string;
+        /**
+          * The main body text in the drawer.
+         */
+        "message"?: string;
+        /**
+          * The position of the drawer.
+         */
+        "position": IcPosition;
+        /**
+          * If set to `true`, an X (close) button will be displayed in the drawer.
+         */
+        "showCloseButton": boolean;
+        /**
+          * The size of the expanded drawer.
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode1;
+        /**
+          * The method in which the drawer is expanded.
+         */
+        "trigger": "arrow" | "controlled";
+        /**
+          * The variant of the drawer. TODO - figure out how this works
+         */
+        "variant": "temporary" | "persistent";
+    }
     interface IcPaginationBar {
         /**
           * Sets the alignment of the items in the pagination bar.
@@ -639,6 +697,10 @@ export interface IcDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcDatePickerElement;
 }
+export interface IcDrawerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcDrawerElement;
+}
 export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationBarElement;
@@ -741,6 +803,23 @@ declare global {
         prototype: HTMLIcDatePickerElement;
         new (): HTMLIcDatePickerElement;
     };
+    interface HTMLIcDrawerElementEventMap {
+        "icDrawerExpanded": IcDrawerExpandedDetail;
+    }
+    interface HTMLIcDrawerElement extends Components.IcDrawer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcDrawerElementEventMap>(type: K, listener: (this: HTMLIcDrawerElement, ev: IcDrawerCustomEvent<HTMLIcDrawerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcDrawerElementEventMap>(type: K, listener: (this: HTMLIcDrawerElement, ev: IcDrawerCustomEvent<HTMLIcDrawerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcDrawerElement: {
+        prototype: HTMLIcDrawerElement;
+        new (): HTMLIcDrawerElement;
+    };
     interface HTMLIcPaginationBarElementEventMap {
         "icPageChange": IcPageChangeEventDetail;
         "icItemsPerPageChange": { value: number };
@@ -792,6 +871,7 @@ declare global {
         "ic-data-table-title-bar": HTMLIcDataTableTitleBarElement;
         "ic-date-input": HTMLIcDateInputElement;
         "ic-date-picker": HTMLIcDatePickerElement;
+        "ic-drawer": HTMLIcDrawerElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
         "ic-tree-item": HTMLIcTreeItemElement;
         "ic-tree-view": HTMLIcTreeViewElement;
@@ -1282,6 +1362,64 @@ declare namespace LocalJSX {
          */
         "value"?: string | Date | null | undefined;
     }
+    interface IcDrawer {
+        /**
+          * The aria label applied to the drawer. This is required when the heading slot is used.
+         */
+        "ariaLabel"?: string;
+        /**
+          * The aria label of the chevron button when trigger is set to "arrow". The default aria label is "Open drawer" / "Close drawer".
+         */
+        "chevronButtonAriaLabel"?: string;
+        /**
+          * The aria label of the close button when the show-close-button attribute (web-components) / showCloseButton prop (React) is set to `true`. The default aria label is "Open drawer" / "Close drawer".
+         */
+        "closeButtonAriaLabel"?: string;
+        /**
+          * If set to `false`, the drawer will not close when the backdrop is clicked.
+         */
+        "closeOnBackdropClick"?: boolean;
+        /**
+          * If set to `true`, the drawer will display in an expanded state.
+         */
+        "expanded"?: boolean;
+        /**
+          * The heading to render in the drawer.
+         */
+        "heading"?: string;
+        /**
+          * The main body text in the drawer.
+         */
+        "message"?: string;
+        /**
+          * Emitted when the drawer is collapsed and expanded.
+         */
+        "onIcDrawerExpanded"?: (event: IcDrawerCustomEvent<IcDrawerExpandedDetail>) => void;
+        /**
+          * The position of the drawer.
+         */
+        "position"?: IcPosition;
+        /**
+          * If set to `true`, an X (close) button will be displayed in the drawer.
+         */
+        "showCloseButton"?: boolean;
+        /**
+          * The size of the expanded drawer.
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * Sets the drawer to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
+         */
+        "theme"?: IcThemeMode1;
+        /**
+          * The method in which the drawer is expanded.
+         */
+        "trigger"?: "arrow" | "controlled";
+        /**
+          * The variant of the drawer. TODO - figure out how this works
+         */
+        "variant"?: "temporary" | "persistent";
+    }
     interface IcPaginationBar {
         /**
           * Sets the alignment of the items in the pagination bar.
@@ -1460,6 +1598,7 @@ declare namespace LocalJSX {
         "ic-data-table-title-bar": IcDataTableTitleBar;
         "ic-date-input": IcDateInput;
         "ic-date-picker": IcDatePicker;
+        "ic-drawer": IcDrawer;
         "ic-pagination-bar": IcPaginationBar;
         "ic-tree-item": IcTreeItem;
         "ic-tree-view": IcTreeView;
@@ -1474,6 +1613,7 @@ declare module "@stencil/core" {
             "ic-data-table-title-bar": LocalJSX.IcDataTableTitleBar & JSXBase.HTMLAttributes<HTMLIcDataTableTitleBarElement>;
             "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
             "ic-date-picker": LocalJSX.IcDatePicker & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
+            "ic-drawer": LocalJSX.IcDrawer & JSXBase.HTMLAttributes<HTMLIcDrawerElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
             "ic-tree-item": LocalJSX.IcTreeItem & JSXBase.HTMLAttributes<HTMLIcTreeItemElement>;
             "ic-tree-view": LocalJSX.IcTreeView & JSXBase.HTMLAttributes<HTMLIcTreeViewElement>;
