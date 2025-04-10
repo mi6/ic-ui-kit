@@ -225,3 +225,5 @@ export type IcIconPlacementOptions = "left" | "right" | "top";
 export type IcButtonTooltipPlacement = "top" | "right" | "bottom" | "left";
 
 export type IcThemeSettings = "dark" | "light" | "system";
+
+export type IcPosition = "left" | "right" | "top" | "bottom";
