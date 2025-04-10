@@ -1398,6 +1398,7 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -1636,6 +1637,7 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -2473,6 +2475,7 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -3367,6 +3370,7 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -3913,6 +3917,7 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
