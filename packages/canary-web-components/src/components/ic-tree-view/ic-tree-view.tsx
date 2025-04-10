@@ -17,6 +17,7 @@ import {
   isSlotUsed,
   renderDynamicChildSlots,
 } from "../../utils/helpers";
+import { IcTreeItemOptions } from "./ic-tree-view.types";
 
 let treeViewIds = 0;
 
@@ -94,6 +95,15 @@ export class TreeView {
     this.treeItems.forEach((treeItem) => {
       treeItem.theme = this.theme;
     });
+  }
+
+  /**
+   * The content within the tree view tree items. This will take precedence over slotted content.
+   * */
+  @Prop() treeItemData: IcTreeItemOptions[] = [];
+  @Watch("treeItemData")
+  watchTreeItemOptionsHandler(): void {
+    this.setTreeItems();
   }
 
   /**
@@ -297,17 +307,55 @@ export class TreeView {
   private getAllTreeItems(element: HTMLElement): HTMLIcTreeItemElement[] {
     const treeItems: HTMLIcTreeItemElement[] = [];
 
-    const collectTreeItems = (el: HTMLElement) => {
+    const collectTreeItemsFromSlottedContent = (el: HTMLElement) => {
       Array.from(el.children).forEach((child) => {
         if (child.tagName === this.treeItemTag) {
           treeItems.push(child as HTMLIcTreeItemElement);
         }
 
-        collectTreeItems(child as HTMLElement);
+        collectTreeItemsFromSlottedContent(child as HTMLElement);
       });
     };
 
-    collectTreeItems(element);
+    const collectTreeItemsFromData = (
+      items: IcTreeItemOptions[],
+      parentElement: HTMLElement
+    ) => {
+      Array.from(parentElement.children).forEach((child) => {
+        if (child.tagName === this.treeItemTag) {
+          parentElement.removeChild(child);
+        }
+      });
+
+      items.forEach((item) => {
+        const treeItem = document.createElement(
+          this.treeItemTag
+        ) as HTMLIcTreeItemElement;
+        const { children, icon, ...props } = item;
+        Object.assign(treeItem, props);
+
+        if (icon) {
+          const iconSlot = document.createElement("div");
+          iconSlot.setAttribute("slot", "icon");
+          iconSlot.innerHTML = icon;
+          treeItem.appendChild(iconSlot);
+        }
+
+        parentElement.appendChild(treeItem);
+        treeItems.push(treeItem);
+
+        if (children && children.length > 0) {
+          collectTreeItemsFromData(children, treeItem);
+        }
+      });
+    };
+
+    if (this.treeItemData.length > 0) {
+      collectTreeItemsFromData(this.treeItemData, element);
+    } else {
+      collectTreeItemsFromSlottedContent(element);
+    }
+
     return treeItems;
   }
 

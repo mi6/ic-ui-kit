@@ -26,6 +26,22 @@ export default {
 export const Basic = {
   render: () => (
     <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        treeItemData={[
+          { label: "Coffee" },
+          { label: "Tea" },
+          { label: "Hot chocolate" },
+        ]}
+      />
+    </div>
+  ),
+  name: "Basic",
+};
+
+export const BasicSlotted = {
+  render: () => (
+    <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu">
         <IcTreeItem label="Coffee" />
         <IcTreeItem label="Tea" />
@@ -33,10 +49,36 @@ export const Basic = {
       </IcTreeView>
     </div>
   ),
-  name: "Basic",
+  name: "Basic - slotted",
 };
 
 export const Nested = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        treeItemData={[
+          {
+            label: "Coffee",
+            children: [
+              { label: "Americano", children: [{ label: "With milk" }] },
+              { label: "Latte" },
+              { label: "Espresso" },
+            ],
+          },
+          {
+            label: "Tea",
+            children: [{ label: "Earl grey" }, { label: "Chai" }],
+          },
+          { label: "Hot chocolate" },
+        ]}
+      />
+    </div>
+  ),
+  name: "Nested",
+};
+
+export const NestedSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu">
@@ -53,10 +95,46 @@ export const Nested = {
       </IcTreeView>
     </div>
   ),
-  name: "Nested",
+  name: "Nested - slotted",
 };
 
 export const WithIcons = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        treeItemData={[
+          {
+            label: "Coffee",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+            children: [
+              { label: "Americano" },
+              {
+                label: "Latte",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+              },
+              { label: "Espresso" },
+            ],
+          },
+          {
+            label: "Tea",
+            children: [{ label: "Earl grey" }, { label: "Chai" }],
+          },
+          { label: "Hot chocolate" },
+        ]}
+      >
+        <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+          />
+        </SlottedSVG>
+      </IcTreeView>
+    </div>
+  ),
+  name: "With icons",
+};
+
+export const WithIconsSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu">
@@ -95,13 +173,50 @@ export const WithIcons = {
       </IcTreeView>
     </div>
   ),
-  name: "With icons",
+  name: "With icons - slotted",
 };
 
 /**
  * Small and large styling will be passed down from tree view to tree items and nested tree items.
  */
 export const Small = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        size="small"
+        treeItemData={[
+          {
+            label: "Coffee",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+            children: [
+              { label: "Americano" },
+              {
+                label: "Latte",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+              },
+              { label: "Espresso" },
+            ],
+          },
+          {
+            label: "Tea",
+            children: [{ label: "Earl grey" }, { label: "Chai" }],
+          },
+          { label: "Hot chocolate" },
+        ]}
+      >
+        <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+          />
+        </SlottedSVG>
+      </IcTreeView>
+    </div>
+  ),
+  name: "Small",
+};
+
+export const SmallSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu" size="small">
@@ -140,10 +255,47 @@ export const Small = {
       </IcTreeView>
     </div>
   ),
-  name: "Small",
+  name: "Small - slotted",
 };
 
 export const Large = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        size="large"
+        treeItemData={[
+          {
+            label: "Coffee",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+            children: [
+              { label: "Americano" },
+              {
+                label: "Latte",
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+              },
+              { label: "Espresso" },
+            ],
+          },
+          {
+            label: "Tea",
+            children: [{ label: "Earl grey" }, { label: "Chai" }],
+          },
+          { label: "Hot chocolate" },
+        ]}
+      >
+        <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+          />
+        </SlottedSVG>
+      </IcTreeView>
+    </div>
+  ),
+  name: "Large",
+};
+
+export const LargeSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu" size="large">
@@ -182,13 +334,53 @@ export const Large = {
       </IcTreeView>
     </div>
   ),
-  name: "Large",
+  name: "Large - slotted",
 };
 
 /**
  * Individual tree-items can be disabled using the `disabled` prop.
  */
 export const DisabledTreeItems = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        treeItemData={[
+          {
+            label: "Coffee",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+            children: [
+              { label: "Americano" },
+              {
+                label: "Latte",
+                disabled: true,
+                icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+              },
+              { label: "Espresso" },
+            ],
+          },
+          {
+            label: "Tea",
+            children: [
+              { label: "Earl grey" },
+              { label: "Chai", disabled: true },
+            ],
+          },
+          { label: "Hot chocolate", disabled: true },
+        ]}
+      >
+        <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+          />
+        </SlottedSVG>
+      </IcTreeView>
+    </div>
+  ),
+  name: "Disabled tree items",
+};
+
+export const DisabledTreeItemsSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu">
@@ -227,7 +419,7 @@ export const DisabledTreeItems = {
       </IcTreeView>
     </div>
   ),
-  name: "Disabled tree items",
+  name: "Disabled tree items - slotted",
 };
 
 /**
@@ -281,6 +473,39 @@ export const SlottedContent = {
 export const MaxContent = {
   render: () => (
     <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        treeItemData={[
+          {
+            label: "Coffee",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+            children: [
+              { label: "Americano" },
+              { label: "Latte with extra milk and sugar" },
+              { label: "Espresso" },
+            ],
+          },
+          {
+            label: "Tea",
+            children: [{ label: "Earl grey" }, { label: "Chai" }],
+          },
+          { label: "Hot chocolate with marshmallows" },
+        ]}
+      >
+        <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+          />
+        </SlottedSVG>
+      </IcTreeView>
+    </div>
+  ),
+  name: "Max content",
+};
+
+export const MaxContentSlotted = {
+  render: () => (
+    <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu with nested options">
         <SlottedSVG
           slot="icon"
@@ -309,13 +534,55 @@ export const MaxContent = {
       </IcTreeView>
     </div>
   ),
-  name: "Max content",
+  name: "Max content - slotted",
 };
 
 /**
  * When `truncateTreeItems` or `truncateHeading` are set to `true`, and the heading/label exceeds the width of the container, they will be truncated with an ellipsis.
  */
 export const TruncationBehaviour = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        truncateTreeItems
+        truncateHeading
+        treeItemData={[
+          {
+            label: "Coffee",
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+            children: [
+              { label: "Americano" },
+              { label: "Latte with extra milk and sugar" },
+              { label: "Espresso" },
+            ],
+          },
+          {
+            label: "Tea",
+            children: [
+              { label: "Earl grey" },
+              {
+                label: "Earl Grey with truncation false",
+                truncateTreeItem: false,
+              },
+              { label: "Chai" },
+            ],
+          },
+          { label: "Hot chocolate with marshmallows" },
+        ]}
+      >
+        <SlottedSVG slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+          />
+        </SlottedSVG>
+      </IcTreeView>
+    </div>
+  ),
+  name: "Truncation behaviour",
+};
+
+export const TruncationBehaviourSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView
@@ -354,13 +621,29 @@ export const TruncationBehaviour = {
       </IcTreeView>
     </div>
   ),
-  name: "Truncation behaviour",
+  name: "Truncation behaviour - slotted",
 };
 
 /**
  * Utilising the `selected` attribute on `IcTreeItem` will turn it into a controlled component, displaying the selected state when set to `true`.
  */
 export const SelectedTreeItem = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        treeItemData={[
+          { label: "Coffee" },
+          { label: "Tea" },
+          { label: "Hot chocolate", selected: true },
+        ]}
+      />
+    </div>
+  ),
+  name: "Selected tree item",
+};
+
+export const SelectedTreeItemSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu">
@@ -370,13 +653,29 @@ export const SelectedTreeItem = {
       </IcTreeView>
     </div>
   ),
-  name: "Selected tree item",
+  name: "Selected tree item - slotted",
 };
 
 /**
  * When setting the `href` attribute, the tree-item will function as a link.
  */
 export const Link = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        treeItemData={[
+          { label: "Coffee", href: "#" },
+          { label: "Tea", href: "#", selected: true },
+          { label: "Hot chocolate", disabled: true, href: "#" },
+        ]}
+      />
+    </div>
+  ),
+  name: "Link",
+};
+
+export const LinkSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu">
@@ -386,13 +685,44 @@ export const Link = {
       </IcTreeView>
     </div>
   ),
-  name: "Link",
+  name: "Link - slotted",
 };
 
 /**
  * An example with the `expanded` prop set to `true` on a parent tree item.
  */
 export const Expanded = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        treeItemData={[
+          {
+            label: "Coffee",
+            expanded: true,
+            children: [
+              {
+                label: "Americano",
+                expanded: true,
+                children: [{ label: "With milk" }],
+              },
+              { label: "Latte" },
+              { label: "Espresso" },
+            ],
+          },
+          {
+            label: "Tea",
+            children: [{ label: "Earl grey" }, { label: "Chai" }],
+          },
+          { label: "Hot chocolate" },
+        ]}
+      />
+    </div>
+  ),
+  name: "Expanded",
+};
+
+export const ExpandedSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu">
@@ -411,13 +741,40 @@ export const Expanded = {
       </IcTreeView>
     </div>
   ),
-  name: "Expanded",
+  name: "Expanded - slotted",
 };
 
 /**
  * An example with the tree item `focusInset` prop set to `true`. This sets the focus indicator to appear inside the tree item, around the label.
  */
 export const FocusInset = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView 
+        heading="Menu" 
+        focusInset
+        treeItemData={[
+        {
+          label: "Coffee",
+          children: [
+            { label: "Americano", children: [{ label: "With milk" }] },
+            { label: "Latte" },
+            { label: "Espresso" },
+          ],
+        },
+        {
+          label: "Tea",
+          children: [{ label: "Earl grey" }, { label: "Chai" }],
+        },
+        { label: "Hot chocolate" },
+      ]}
+      />
+    </div>
+  ),
+  name: "Focus inset",
+};
+
+export const FocusInsetSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView heading="Menu" focusInset>
@@ -436,10 +793,34 @@ export const FocusInset = {
       </IcTreeView>
     </div>
   ),
-  name: "Focus inset",
+  name: "Focus inset - slotted",
 };
 
 export const UpdatingOptions = {
+  render: () => {
+    const [treeItems, setTreeItems] = useState([
+      { label: "Item 1" },
+      { label: "Item 2" },
+      { label: "Item 3" },
+      { label: "Item 4" },
+    ]);
+
+    const updateTreeItems = () => {
+      setTreeItems([{ label: "Item 5" }, { label: "Item 6" }]);
+    };
+
+    return (
+      <>
+        <IcTreeView heading="Updating options" treeItemData={treeItems} />
+        <br />
+        <IcButton onClick={updateTreeItems}>Update</IcButton>
+      </>
+    );
+  },
+  name: "Updating options",
+};
+
+export const UpdatingOptionsSlotted = {
   render: () => {
     const [treeItems, setTreeItems] = useState([
       { label: "Item 1" },
@@ -464,10 +845,58 @@ export const UpdatingOptions = {
       </>
     );
   },
-  name: "Updating options",
+  name: "Updating options - slotted",
 };
 
 const defaultArgs = {
+  heading: "Menu",
+  size: "medium",
+  truncateTreeItems: false,
+  treeItemDisabled: false,
+  treeItemHref: "",
+  treeItemLabel: "Coffee",
+  treeItemSelected: false,
+  showTreeItemIcon: false,
+  focusInset: false,
+  theme: "inherit",
+};
+
+export const Playground = {
+  render: (args) => (
+    <IcTreeView 
+      heading={args.heading}
+      size={args.size}
+      focusInset={args.focusInset}
+      theme={args.theme}
+      truncateTreeItems={args.truncateTreeItems}
+      treeItemData={[
+        {
+          label: args.treeItemLabel,
+          href: args.treeItemHref,
+          disabled: args.treeItemDisabled,
+          selected: args.treeItemSelected,
+          icon: args.showTreeItemIcon && '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>'
+        },
+        { label: "Tea" },
+        { label: "Hot chocolate" }
+      ]}
+    />
+  ),
+  args: defaultArgs,
+  argTypes: {
+    size: {
+      options: ["medium", "small", "large"],
+      control: { type: "inline-radio" },
+    },
+    theme: {
+      options: ["inherit", "light", "dark"],
+      control: { type: "inline-radio" },
+    },
+  },
+  name: "Playground",
+};
+
+const defaultSlottedArgs = {
   heading: "Menu",
   size: "medium",
   showIcon: false,
@@ -485,7 +914,7 @@ const defaultArgs = {
 /**
  * Go to the <ic-link href="/?path=/story/react-components-tree-view--playground">separate page for the playground example</ic-link> to view the prop controls.
  */
-export const Playground = {
+export const PlaygroundSlotted = {
   render: (args) => (
     <IcTreeView
       heading={args.heading}
@@ -524,7 +953,7 @@ export const Playground = {
       <IcTreeItem label="Hot chocolate" />
     </IcTreeView>
   ),
-  args: defaultArgs,
+  args: defaultSlottedArgs,
   argTypes: {
     size: {
       options: ["medium", "small", "large"],
@@ -535,5 +964,5 @@ export const Playground = {
       control: { type: "inline-radio" },
     },
   },
-  name: "Playground",
+  name: "Playground - slotted",
 };

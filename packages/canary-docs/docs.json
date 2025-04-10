@@ -4506,6 +4506,35 @@
           "setter": false
         },
         {
+          "name": "treeItemData",
+          "type": "IcTreeItemOptions[]",
+          "complexType": {
+            "original": "IcTreeItemOptions[]",
+            "resolved": "IcTreeItemOptions[]",
+            "references": {
+              "IcTreeItemOptions": {
+                "location": "import",
+                "path": "./ic-tree-view.types",
+                "id": "src/components/ic-tree-view/ic-tree-view.types.tsx::IcTreeItemOptions"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The content within the tree view tree items. This will take precedence over slotted content.",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "IcTreeItemOptions[]"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "truncateHeading",
           "type": "boolean",
           "complexType": {
@@ -4686,6 +4715,11 @@
       "declaration": "export type IcInformationStatusOrEmpty = \"warning\" | \"error\" | \"success\" | \"\";",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/components/ic-tree-view/ic-tree-view.types.tsx::IcTreeItemOptions": {
+      "declaration": "{\n  label: string;\n  icon?: string;\n  children?: IcTreeItemOptions[];\n  disabled?: boolean;\n  expanded?: boolean;\n  href?: string;\n  selected?: boolean;\n  theme?: IcThemeMode;\n  truncateTreeItem?: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/ic-tree-view/ic-tree-view.types.tsx"
     }
   }
 }

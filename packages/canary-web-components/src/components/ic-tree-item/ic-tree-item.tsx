@@ -287,6 +287,10 @@ export class TreeItem {
       this.TREE_ITEM_CONTENT_CLASS_SELECTOR
     ) as HTMLElement;
 
+    if (!parentElement) {
+      return;
+    }
+
     const isSiblingOfParent = Array.from(parentElement.children)
       .map((sibling) => {
         if (
