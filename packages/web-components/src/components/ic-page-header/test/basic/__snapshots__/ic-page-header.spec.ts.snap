@@ -236,6 +236,57 @@ exports[`ic-page-header component renders additional functionality should render
 </ic-page-header>
 `;
 
+exports[`ic-page-header component renders additional functionality should render tabs & slotted heading: should render tabs & slotted heading 1`] = `
+<ic-page-header aria-label="page header" subheading="This is a simple page header component and this is the text.">
+  <mock:shadow-root>
+    <header class="border-bottom tabs" role="presentation">
+      <ic-section-container aligned="left" fullheight="">
+        <div class="main-content">
+          <div class="title-area">
+            <div class="header-content">
+              <slot name="heading">
+                <ic-typography class="heading" variant="h2">
+                  <h2></h2>
+                </ic-typography>
+              </slot>
+              <slot name="heading-adornment"></slot>
+            </div>
+            <div class="subheading-content">
+              <slot name="subheading">
+                <ic-typography variant="body">
+                  This is a simple page header component and this is the text.
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div class="navigation-area">
+          <nav aria-label="
+          
+            Coffee recipes
+          
+         page sections">
+            <ic-horizontal-scroll>
+              <ul class="tabs-slot">
+                <slot name="tabs"></slot>
+              </ul>
+            </ic-horizontal-scroll>
+          </nav>
+        </div>
+      </ic-section-container>
+    </header>
+  </mock:shadow-root>
+  <ic-typography slot="heading" variant="h2">
+    <h2>
+      Coffee recipes
+    </h2>
+  </ic-typography>
+  <ic-status-tag label="Beta" slot="heading-adornment"></ic-status-tag>
+  <ic-navigation-item href="/all-recipes" label="All recipes" selected="" slot="tabs"></ic-navigation-item>
+  <ic-navigation-item href="/favourites" label="Favourites" slot="tabs"></ic-navigation-item>
+</ic-page-header>
+`;
+
 exports[`ic-page-header component renders additional functionality should render tabs: should render tabs 1`] = `
 <ic-page-header aria-label="page header" heading="Coffee recipes" subheading="This is a simple page header component and this is the text.">
   <mock:shadow-root>
