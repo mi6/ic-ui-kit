@@ -3,7 +3,7 @@
 
 import { mount } from "cypress/react";
 import React from "react";
-import { IcButton } from "../../components";
+import { IcButton, IcBadge } from "../../components";
 import {
   BE_VISIBLE,
   CONTAIN_TEXT,
@@ -30,6 +30,7 @@ import {
   IconBtnWithTooltip,
   CustomHeightMinWidth,
   FileUpload,
+  SlottedIcon,
 } from "./IcButtonTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -457,6 +458,28 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/router-slot",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+    });
+  });
+
+  it("should render with slotted router item and slotted content", () => {
+    mount(
+      <div style={{ padding: "6px" }}>
+        <IcButton>
+          <a slot="router-item" href="/">
+            Slotted link
+            <SlottedIcon />
+            <IcBadge slot="badge" position="near" label="1" />
+          </a>
+        </IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/router-slot-with-content",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
 
