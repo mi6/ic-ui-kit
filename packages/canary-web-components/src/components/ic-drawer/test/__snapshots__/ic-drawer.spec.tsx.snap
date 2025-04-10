@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-drawer should render at the bottom of the viewport 1`] = `
+<ic-drawer class="collapsed ic-bottom-position ic-drawer" heading="Menu" message="test" position="bottom">
+  <mock:shadow-root>
+    <div class="collapsed-drawer">
+      <ic-button aria-label="Open drawer" class="chevron-btn" size="small" variant="icon">
+        svg
+      </ic-button>
+    </div>
+    <div aria-labelledby="drawer-heading" class="ic-drawer-panel medium"></div>
+  </mock:shadow-root>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render at the top of the viewport 1`] = `
+<ic-drawer class="collapsed ic-drawer ic-top-position" heading="Menu" message="test" position="top">
+  <mock:shadow-root>
+    <div class="collapsed-drawer">
+      <ic-button aria-label="Open drawer" class="chevron-btn" size="small" variant="icon">
+        svg
+      </ic-button>
+    </div>
+    <div aria-labelledby="drawer-heading" class="ic-drawer-panel medium"></div>
+  </mock:shadow-root>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render on the left 1`] = `
+<ic-drawer class="collapsed ic-drawer ic-left-position" heading="Menu" message="test" position="left">
+  <mock:shadow-root>
+    <div class="collapsed-drawer">
+      <ic-button aria-label="Open drawer" class="chevron-btn" size="small" variant="icon">
+        svg
+      </ic-button>
+    </div>
+    <div aria-labelledby="drawer-heading" class="ic-drawer-panel medium"></div>
+  </mock:shadow-root>
+</ic-drawer>
+`;
+
+exports[`ic-drawer should render on the right 1`] = `
+<ic-drawer class="collapsed ic-drawer ic-right-position" heading="Menu" message="test" position="right">
+  <mock:shadow-root>
+    <div class="collapsed-drawer">
+      <ic-button aria-label="Open drawer" class="chevron-btn" size="small" variant="icon">
+        svg
+      </ic-button>
+    </div>
+    <div aria-labelledby="drawer-heading" class="ic-drawer-panel medium"></div>
+  </mock:shadow-root>
+</ic-drawer>
+`;
