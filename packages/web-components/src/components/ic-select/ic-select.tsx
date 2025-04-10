@@ -1207,6 +1207,12 @@ export class Select {
       ? this.getMultipleOptionsString(currValue as string[])
       : this.getLabelFromValue(currValue as string);
 
+    const isClearable =
+      !disabled &&
+      (searchable
+        ? this.searchableSelectInputValue
+        : currValue && showClearButton);
+
     return (
       <Host
         class={{
@@ -1329,29 +1335,28 @@ export class Select {
                   onBlur={this.onBlur}
                   form={this.form}
                 ></input>
-                {this.searchableSelectInputValue &&
-                  (showClearButton || searchable) && (
-                    <div class="clear-button-container">
-                      <ic-button
-                        id="clear-button"
-                        ref={(el) => (this.clearButton = el)}
-                        aria-label={
-                          this.searchableSelectInputValue && currValue === null
-                            ? "Clear input"
-                            : "Clear selection"
-                        }
-                        class="clear-button"
-                        innerHTML={Clear}
-                        onClick={this.handleClear}
-                        onFocus={this.handleClearButtonFocus}
-                        onBlur={this.handleClearButtonBlur}
-                        size={size}
-                        variant="icon"
-                        theme={this.clearButtonFocused ? "light" : "dark"}
-                      ></ic-button>
-                      <div class="divider"></div>
-                    </div>
-                  )}
+                {isClearable && (
+                  <div class="clear-button-container">
+                    <ic-button
+                      id="clear-button"
+                      ref={(el) => (this.clearButton = el)}
+                      aria-label={
+                        this.searchableSelectInputValue && currValue === null
+                          ? "Clear input"
+                          : "Clear selection"
+                      }
+                      class="clear-button"
+                      innerHTML={Clear}
+                      onClick={this.handleClear}
+                      onFocus={this.handleClearButtonFocus}
+                      onBlur={this.handleClearButtonBlur}
+                      size={size}
+                      variant="icon"
+                      theme={this.clearButtonFocused ? "light" : "dark"}
+                    ></ic-button>
+                    <div class="divider"></div>
+                  </div>
+                )}
                 <span
                   onMouseDown={this.handleExpandIconMouseDown}
                   class={{
@@ -1395,7 +1400,7 @@ export class Select {
                     variant="body"
                     class={{
                       "value-text": true,
-                      "with-clear-button": !!currValue && !!showClearButton,
+                      "with-clear-button": !!isClearable,
                       placeholder: multiple
                         ? !this.value || this.value.length < 1
                         : !this.getLabelFromValue(currValue as string),
@@ -1404,9 +1409,7 @@ export class Select {
                     {valueLabelString || placeholder}
                   </ic-typography>
                   <div class="select-input-end">
-                    {currValue && showClearButton && (
-                      <div class="divider"></div>
-                    )}
+                    {isClearable && <div class="divider"></div>}
                     <span
                       class={{
                         "expand-icon": true,
@@ -1417,7 +1420,7 @@ export class Select {
                     />
                   </div>
                 </button>
-                {currValue && showClearButton && (
+                {isClearable && (
                   <ic-button
                     id="clear-button"
                     aria-label="Clear selection"
