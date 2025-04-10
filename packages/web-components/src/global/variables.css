@@ -3,9 +3,10 @@
 @import "borders.css";
 
 :root {
-  --ic-elevation-raised: 0 0 2px rgb(0 0 0 / 50%);
-  --ic-elevation-overlay: 0 2px 8px rgb(0 0 0 / 20%);
-  --ic-elevation-modal: 0 4px 16px rgb(0 0 0 / 25%);
+  --ic-elevation-raised: 0 0 2px var(--ic-state-layer-lighten-50);
+  --ic-elevation-overlay: 0 2px 8px var(--ic-state-layer-darken-20);
+  --ic-elevation-overlay-inverted: 0 2px 8px var(--ic-state-layer-lighten-20);
+  --ic-elevation-modal: 0 4px 16px var(--ic-state-layer-lighten-25);
   --ic-elevation-inset: inset 0 4px 16px rgb(0 0 0 / 25%),
     inset 0 -4px 16px rgb(0 0 0 / 25%);
   --ic-easing-transition-fast: var(--ic-transition-duration-fast)
@@ -50,5 +51,6 @@
   --ic-z-index-toast: calc(var(--ic-z-index-base-value) + 110);
   --ic-z-index-tooltip: calc(var(--ic-z-index-base-value) + 110);
   --ic-z-index-classification-banner: calc(var(--ic-z-index-base-value) + 200);
-  --ic-z-index-skip-link: calc(var(--ic-z-index-base-value) + 210);
+  --ic-z-index-drawer: calc(var(--ic-z-index-base-value) + 210);
+  --ic-z-index-skip-link: calc(var(--ic-z-index-base-value) + 220);
 }
