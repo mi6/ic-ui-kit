@@ -1,8 +1,8 @@
 {
-  "total": 52,
-  "totalPassed": 47,
-  "totalFailed": 5,
-  "totalSuites": 3,
+  "total": 87,
+  "totalPassed": 86,
+  "totalFailed": 1,
+  "totalSuites": 4,
   "suites": [
     {
       "name": "IcButton.cy.tsx",
@@ -407,6 +407,397 @@
       ]
     },
     {
+      "name": "IcCardVertical.cy.tsx",
+      "path": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+      "tests": [
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/static-card",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/static-card.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/static-card.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/focus",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/focus.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/focus.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/blur",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/blur.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/blur.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/wrapped-anchor",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/wrapped-anchor.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/wrapped-anchor.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/with-icon",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/with-icon.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/with-icon.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/heading-only",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/heading-only.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/heading-only.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/message",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/message.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/message.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/sub-heading",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/sub-heading.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/sub-heading.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/slotted-headings",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/slotted-headings.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/slotted-headings.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/interaction",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/interaction.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/interaction.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/adornment",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/adornment.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/adornment.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/top-image",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/top-image.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/top-image.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/mid-image",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/mid-image.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/mid-image.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/interaction-controls",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/interaction-controls.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/interaction-controls.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/clickable-link",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/clickable-link.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/clickable-link.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/clickable-button",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/clickable-button.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/clickable-button.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/badge",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/badge.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/badge.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/disabled",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/disabled.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/disabled.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/full-width",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/full-width.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/full-width.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/expandable",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/expandable.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/expandable.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/expanded-clicked",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/expanded-clicked.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/expanded-clicked.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/reduced-width",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/reduced-width.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/reduced-width.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/increased-width",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/increased-width.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/increased-width.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/additional-height",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/additional-height.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/additional-height.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/render-three",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/render-three.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/render-three.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/theme",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/theme.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/theme.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/theme-clickable",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/theme-clickable.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/theme-clickable.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/theme-disabled",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/theme-disabled.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/theme-disabled.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/wrapped-anchor-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/wrapped-anchor-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/wrapped-anchor-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/interaction-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/interaction-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/interaction-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/clickable-link-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/clickable-link-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/clickable-link-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/clickable-button-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/clickable-button-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/clickable-button-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/disabled-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/disabled-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/disabled-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/expanded-clicked-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/expanded-clicked-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/expanded-clicked-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCardVertical.cy.tsx/render-three-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCardVertical/IcCardVertical.cy.tsx",
+          "specFilename": "IcCardVertical.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCardVertical.cy.tsx/render-three-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCardVertical.cy.tsx/render-three-high-contrast.png"
+        }
+      ]
+    },
+    {
       "name": "IcChip.cy.tsx",
       "path": "src/component-tests/IcChip/IcChip.cy.tsx",
       "tests": [
@@ -422,25 +813,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx/with-icon.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcChip.cy.tsx/sizes",
-          "percentage": 0.16094719630984566,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
           "specFilename": "IcChip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx/sizes.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcChip.cy.tsx/sizes.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx/sizes.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcChip.cy.tsx/dismissible",
-          "percentage": 0.18586016248782308,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
           "specFilename": "IcChip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx/dismissible.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcChip.cy.tsx/dismissible.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx/dismissible.png"
         },
         {
@@ -455,14 +846,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx/dismissible-focus.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcChip.cy.tsx/dismissible-with-icon",
-          "percentage": 0.20824024587000467,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
           "specFilename": "IcChip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx/dismissible-with-icon.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcChip.cy.tsx/dismissible-with-icon.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx/dismissible-with-icon.png"
         },
         {
@@ -510,14 +901,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx/custom-colour.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcChip.cy.tsx/badge-slot",
-          "percentage": 0.09695359714832658,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
           "specFilename": "IcChip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx/badge-slot.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcChip.cy.tsx/badge-slot.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx/badge-slot.png"
         },
         {
@@ -595,9 +986,9 @@
       ]
     }
   ],
-  "startedAt": "2025-04-10T14:52:14.386Z",
-  "endedAt": "2025-04-10T14:55:28.163Z",
-  "duration": 92964,
+  "startedAt": "2025-04-10T15:05:23.471Z",
+  "endedAt": "2025-04-10T15:08:33.042Z",
+  "duration": 86436,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
