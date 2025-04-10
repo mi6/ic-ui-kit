@@ -59,6 +59,7 @@ graph TD;
   ic-side-navigation --> ic-typography
   ic-side-navigation --> ic-button
   ic-side-navigation --> ic-divider
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

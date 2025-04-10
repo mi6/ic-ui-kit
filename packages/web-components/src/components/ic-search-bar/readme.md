@@ -97,6 +97,7 @@ graph TD;
   ic-search-bar --> ic-button
   ic-search-bar --> ic-menu
   ic-input-label --> ic-typography
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

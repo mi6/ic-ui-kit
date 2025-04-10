@@ -82,6 +82,7 @@
 
 :host(.ic-button-variant-primary) ::slotted(a),
 :host(.ic-button-variant-icon-primary) ::slotted(a) {
+  --ic-typography-color: var(--ic-button-primary-text);
   color: var(--ic-button-primary-text);
   background-color: var(--ic-button-primary-background) !important;
 }
@@ -120,6 +121,7 @@
 :host(.ic-button-variant-primary.ic-button-disabled) ::slotted(a),
 :host(.ic-button-variant-icon-primary.ic-button-disabled) ::slotted(a) {
   background: var(--ic-button-primary-background-disabled) !important;
+  --ic-typography-color: var(--ic-button-primary-text-disabled) !important;
   color: var(--ic-button-primary-text-disabled) !important;
 }
 
@@ -190,6 +192,7 @@
 :host(.ic-button-variant-icon-secondary) ::slotted(a) {
   border: var(--ic-border-width) solid var(--ic-button-secondary-border) !important;
   color: var(--ic-button-secondary-text) !important;
+  --ic-typography-color: var(--ic-button-secondary-text) !important;
 }
 
 :host(.ic-button-variant-secondary) .button:hover,
@@ -443,6 +446,7 @@
 :host(.ic-button-variant-tertiary) ::slotted(a),
 :host(.ic-button-variant-icon-tertiary) ::slotted(a) {
   color: var(--ic-button-tertiary-text-active);
+  --ic-typography-color: var(--ic-button-tertiary-text-active);
 }
 
 :host(.ic-button-variant-tertiary) .button:hover,
@@ -493,6 +497,7 @@
 :host(.ic-button-variant-icon-tertiary.monochrome) .button,
 :host(.ic-button-variant-icon-tertiary.monochrome) ::slotted(a) {
   color: var(--ic-button-tertiary-text-monochrome);
+  --ic-typography-color: var(--ic-button-tertiary-text-monochrome);
 }
 
 :host(.ic-button-variant-tertiary.monochrome) .button:hover,
@@ -553,6 +558,7 @@
 :host(.ic-button-variant-destructive) ::slotted(a),
 :host(.ic-button-variant-icon-destructive) ::slotted(a) {
   color: var(--ic-button-destructive-text) !important;
+  --ic-typography-color: var(--ic-button-destructive-text) !important;
   background-color: var(--ic-button-destructive-background) !important;
   text-transform: uppercase !important;
 }
