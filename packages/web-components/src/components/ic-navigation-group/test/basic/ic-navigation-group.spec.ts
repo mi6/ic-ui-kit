@@ -18,6 +18,7 @@ const ev = {
 };
 
 const timeOut = 1000;
+const ariaExpanded = "aria-expanded";
 
 describe("ic-navigation-group", () => {
   it("should render with label", async () => {
@@ -360,6 +361,55 @@ describe("ic-navigation-group", () => {
     expect(
       page.root?.shadowRoot?.querySelector(".navigation-group")
     ).toBeNull();
+  });
+
+  it("should set aria-expanded correctly inside a side navigation", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup, NavigationItem],
+      html: `<ic-navigation-group label="Group label" expandable="true">
+        <ic-navigation-item href="/" label="Home"></ic-navigation-item>
+      </ic-navigation-group>`,
+    });
+    await waitForNavGroupLoad();
+
+    page.rootInstance.navigationType = "side";
+    await page.waitForChanges();
+
+    const navGroup = page.root?.shadowRoot?.querySelector("button");
+    expect(navGroup?.getAttribute(ariaExpanded)).toBe("true");
+
+    page.rootInstance.expanded = false;
+    await page.waitForChanges();
+    expect(navGroup?.getAttribute(ariaExpanded)).toBe("false");
+  });
+
+  it("should set aria-expanded correctly inside a top navigation", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup, NavigationItem],
+      html: `<ic-navigation-group label="Group label">
+        <ic-navigation-item href="/" label="Home"></ic-navigation-item>
+      </ic-navigation-group>`,
+    });
+    await waitForNavGroupLoad();
+
+    page.rootInstance.navigationType = "top";
+    await page.waitForChanges();
+
+    const navGroup = page.root?.shadowRoot?.querySelector("button");
+    expect(navGroup?.getAttribute(ariaExpanded)).toBe("false");
+
+    page.rootInstance.dropdownOpen = true;
+    await page.waitForChanges();
+    expect(navGroup?.getAttribute(ariaExpanded)).toBe("true");
+
+    page.rootInstance.inTopNavSideMenu = true;
+    page.root?.setAttribute("expandable", "true");
+    await page.waitForChanges();
+    expect(navGroup?.getAttribute(ariaExpanded)).toBe("true");
+
+    page.rootInstance.dropdownOpen = false;
+    await page.waitForChanges();
+    expect(navGroup?.getAttribute(ariaExpanded)).toBe("false");
   });
 
   // NOTE: This must go last as mocks getCurrentDeviceSize function, which will apply to all subsequent tests
