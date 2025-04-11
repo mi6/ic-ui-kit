@@ -31,7 +31,7 @@ describe("IcDataTableTitleBar", () => {
     cy.checkA11yWithWait();
 
     cy.compareSnapshot({
-      name: "default",
+      name: "/default",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
     });
 
@@ -71,7 +71,7 @@ describe("IcDataTableTitleBar", () => {
     cy.checkA11yWithWait();
 
     cy.compareSnapshot({
-      name: "slotted-header-and-description",
+      name: "/slotted-header-and-description",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.002),
     });
   });
@@ -90,7 +90,7 @@ describe("IcDataTableTitleBar", () => {
     cy.checkA11yWithWait();
 
     cy.compareSnapshot({
-      name: "metadata-and-description",
+      name: "/metadata-and-description",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.005),
     });
   });
@@ -121,7 +121,7 @@ describe("IcDataTableTitleBar visual regression tests in high contrast mode", ()
     cy.checkHydrated(TITLE_BAR);
 
     cy.compareSnapshot({
-      name: "default-high-contrast",
+      name: "/default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.003),
     });
   });
@@ -142,7 +142,7 @@ describe("IcDataTableTitleBar visual regression tests in high contrast mode", ()
     cy.checkHydrated(TITLE_BAR);
 
     cy.compareSnapshot({
-      name: "slotted-header-and-description-high-contrast",
+      name: "/slotted-header-and-description-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.016),
     });
   });
@@ -159,7 +159,7 @@ describe("IcDataTableTitleBar visual regression tests in high contrast mode", ()
     cy.checkHydrated(TITLE_BAR);
 
     cy.compareSnapshot({
-      name: "metadata-and-description-high-contrast",
+      name: "/metadata-and-description-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.025),
     });
   });
