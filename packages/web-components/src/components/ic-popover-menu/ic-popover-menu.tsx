@@ -137,6 +137,8 @@ export class PopoverMenu {
         `No aria-label specified for popover menu component - aria-label required`
       );
     }
+
+    this.watchOpenHandler();
   }
 
   componentWillRender(): void {
