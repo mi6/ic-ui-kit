@@ -66,10 +66,12 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     cy.checkHydrated(BANNER);
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot({
+    // See https://github.com/mi6/ic-ui-kit/pull/3394#issuecomment-2783649943
+    // Commented until the image can be regenerated
+    /* cy.compareSnapshot({
       name: "/official-sensitive",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
-    });
+    });*/
   });
 
   it("should render secret classification banner", () => {
