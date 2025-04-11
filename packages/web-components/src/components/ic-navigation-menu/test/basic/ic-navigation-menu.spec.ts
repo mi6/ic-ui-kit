@@ -197,4 +197,41 @@ describe("ic-navigation-menu", () => {
 
     expect(page.root).toMatchSnapshot("renders-with-slotted-link");
   });
+
+  it("should update the last tab stop when the last navigation group is expanded", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup, NavigationItem, NavigationMenu],
+      html: `<ic-navigation-menu version="v1.0.0" status="Beta">
+        <ic-navigation-group
+          slot="navigation"
+          label="Navigation group"
+          expandable="true"
+        >
+          <ic-navigation-item label="Navigation 1" href="/"></ic-navigation-item>
+        </ic-navigation-group>
+      </ic-navigation-menu>`,
+    });
+
+    const navGroup = document.querySelector("ic-navigation-group");
+    const navItem = document.querySelector("ic-navigation-item");
+    expect(page.rootInstance.lastTabStop).toBe(navGroup);
+
+    let navGroupExpandedEvent = new CustomEvent("navigationGroupExpanded", {
+      detail: { expanded: true },
+    });
+
+    navGroup?.dispatchEvent(navGroupExpandedEvent);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.lastTabStop).toBe(navItem);
+
+    navGroupExpandedEvent = new CustomEvent("navigationGroupExpanded", {
+      detail: { expanded: false },
+    });
+
+    navGroup?.dispatchEvent(navGroupExpandedEvent);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.lastTabStop).toBe(navGroup);
+  });
 });

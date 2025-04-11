@@ -106,14 +106,18 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
       cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
 
-      cy.findShadowEl(TOP_NAV_SELECTOR, NAVIGATION_MENU_SELECTOR)
+      const closeMenuButton = cy
+        .findShadowEl(TOP_NAV_SELECTOR, NAVIGATION_MENU_SELECTOR)
         .shadow()
-        .find(CLOSE_MENU_BUTTON_SELECTOR)
-        .should(HAVE_FOCUS);
+        .find(CLOSE_MENU_BUTTON_SELECTOR);
+
+      closeMenuButton.should(HAVE_FOCUS);
       cy.realPress("Tab");
       cy.get(NAVIGATION_GROUP_SELECTOR).eq(0).should(HAVE_FOCUS);
       cy.realPress("Tab");
       cy.get(NAVIGATION_GROUP_SELECTOR).eq(1).should(HAVE_FOCUS);
+      cy.realPress("Tab");
+      closeMenuButton.should(HAVE_FOCUS);
     });
 
     it("should render focus state on expandable navigation groups", () => {
@@ -136,16 +140,18 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       });
     });
 
-    it.skip("should expand navigation groups and tab to navigation items within expandable navigation groups", () => {
+    it("should expand navigation groups and tab to navigation items within expandable navigation groups", () => {
       mount(<WithExpandableNavGroupAndNavItemsTopNav />);
 
       cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
       cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
 
-      cy.findShadowEl(TOP_NAV_SELECTOR, NAVIGATION_MENU_SELECTOR)
+      const closeMenuButton = cy
+        .findShadowEl(TOP_NAV_SELECTOR, NAVIGATION_MENU_SELECTOR)
         .shadow()
-        .find(CLOSE_MENU_BUTTON_SELECTOR)
-        .should(HAVE_FOCUS);
+        .find(CLOSE_MENU_BUTTON_SELECTOR);
+
+      closeMenuButton.should(HAVE_FOCUS);
       cy.realPress("Tab");
       cy.get(NAVIGATION_GROUP_SELECTOR).eq(0).should(HAVE_FOCUS);
       cy.realPress("Enter");
@@ -157,10 +163,11 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.get(NAVIGATION_GROUP_SELECTOR).eq(1).should(HAVE_FOCUS);
       cy.realPress("Enter");
       cy.realPress("Tab");
-      // test fails at this point
       cy.get(NAVIGATION_ITEM_SELECTOR).eq(2).should(HAVE_FOCUS);
       cy.realPress("Tab");
       cy.get(NAVIGATION_ITEM_SELECTOR).eq(3).should(HAVE_FOCUS);
+      cy.realPress("Tab");
+      closeMenuButton.should(HAVE_FOCUS);
     });
 
     it("should render with focus state on navigation item within expandable navigation group", () => {

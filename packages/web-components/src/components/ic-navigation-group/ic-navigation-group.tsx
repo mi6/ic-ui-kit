@@ -26,7 +26,10 @@ import {
 } from "../../utils/types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
-import { IcNavigationOpenEventDetail } from "./ic-navigation-group.types";
+import {
+  IcNavigationExpandEventDetail,
+  IcNavigationOpenEventDetail,
+} from "./ic-navigation-group.types";
 
 @Component({
   tag: "ic-navigation-group",
@@ -75,9 +78,14 @@ export class NavigationGroup {
   @Prop() theme?: IcThemeMode = "inherit";
 
   /**
-   * @internal Emitted when a navigation group opens.
+   * @internal Emitted when a navigation group is opened - when within an ic-top-navigation at large screen sizes.
    */
   @Event() navigationGroupOpened: EventEmitter<IcNavigationOpenEventDetail>;
+
+  /**
+   * @internal Emitted when a navigation group is expanded - when within an ic-top-navigation at small screen sizes.
+   */
+  @Event() navigationGroupExpanded: EventEmitter<IcNavigationExpandEventDetail>;
 
   disconnectedCallback(): void {
     if (this.navigationType === "side") {
@@ -222,6 +230,8 @@ export class NavigationGroup {
 
   private toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
+    this.inTopNavSideMenu &&
+      this.navigationGroupExpanded.emit({ expanded: this.dropdownOpen });
   }
 
   private setGroupedNavItemTabIndex = (tabIndexValue: string) => {
