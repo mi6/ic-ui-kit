@@ -521,8 +521,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.get(BUTTON).click();
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
-    // cy.checkA11yWithWait();
-    cy.wait(1000);
+    cy.checkA11yWithWait(undefined, 1000);
     cy.compareSnapshot({
       name: "/destructive-dialog-controls",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
@@ -627,8 +626,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<ThemeDark />);
     cy.checkHydrated(DIALOG);
 
-    // cy.checkA11yWithWait(); Accessibility failure
-    cy.wait(300);
+    cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
       name: "/theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),

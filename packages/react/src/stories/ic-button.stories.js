@@ -78,7 +78,7 @@ const IconBtnGroup = (iconProps) => {
       <h1>{iconProps.title}</h1>
       <div
         style={{
-          backgroundColor: iconProps.theme === "light" ? "#2c2f34" : "#fff",
+          backgroundColor: iconProps.theme === "light" ? "#17191C" : "#fff",
           display: "flex",
           gap: "0.5rem",
           marginBottom: "1rem",
@@ -680,7 +680,7 @@ export const Dropdown = {
       </div>
       <div
         style={{
-          backgroundColor: "#2c2f34",
+          backgroundColor: "#17191C",
           padding: "6px 10px",
           width: "fit-content",
         }}
@@ -1139,7 +1139,7 @@ export const FullWidth = {
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
     </IcButton>
-    <div style={{ backgroundColor: "#2c2f34", padding: "6px 10px" }}>
+    <div style={{ backgroundColor: "#17191C", padding: "6px 10px" }}>
       <IcButton variant="primary" theme="light" fullWidth={true}>
         Button
         <svg
@@ -1259,7 +1259,7 @@ export const IconOnly = {
     </IcButton>
     <div
       style={{
-        backgroundColor: "#2c2f34",
+        backgroundColor: "#17191C",
         display: "inline-block",
         padding: "6px 10px",
       }}

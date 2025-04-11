@@ -361,7 +361,7 @@ export const CustomSizeTextField = (): ReactElement => (
 );
 
 export const DarkTheme = (): ReactElement => (
-  <div style={{ backgroundColor: "#121212" }}>
+  <div style={{ backgroundColor: "#17191C" }}>
     <IcTextField
       theme="dark"
       label="What is your favourite coffee?"
@@ -418,7 +418,7 @@ export const DarkTheme = (): ReactElement => (
 );
 
 export const DarkThemeValidation = (): ReactElement => (
-  <div style={{ backgroundColor: "#121212" }}>
+  <div style={{ backgroundColor: "#17191C" }}>
     <IcTextField
       theme="dark"
       value="Arabica"

@@ -465,7 +465,9 @@ export const MultiSelectWithClearButton = () => {
 };
 
 export const DarkTheme = (): ReactElement => (
-  <div style={{ backgroundColor: "#121212" }}>
+  <div
+    style={{ backgroundColor: "#17191C", height: "100vh", paddingLeft: "8px" }}
+  >
     <IcSelect
       label="What are your favourite types of coffee?"
       helperText="Select one option from the list"
@@ -490,7 +492,7 @@ export const DarkTheme = (): ReactElement => (
 );
 
 export const DarkThemeGroupDescription = (): ReactElement => (
-  <div style={{ backgroundColor: "#121212" }}>
+  <div style={{ backgroundColor: "#17191C" }}>
     <IcSelect
       label="What are your favourite types of coffee?"
       theme="dark"
@@ -500,7 +502,9 @@ export const DarkThemeGroupDescription = (): ReactElement => (
 );
 
 export const DarkThemeReadonlyDisabled = (): ReactElement => (
-  <div style={{ backgroundColor: "#121212" }}>
+  <div
+    style={{ backgroundColor: "#17191C", height: "100vh", paddingLeft: "8px" }}
+  >
     <IcSelect
       label="What are your favourite types of coffee?"
       theme="dark"
@@ -517,7 +521,9 @@ export const DarkThemeReadonlyDisabled = (): ReactElement => (
 );
 
 export const DarkThemeValidation = (): ReactElement => (
-  <div style={{ backgroundColor: "#121212" }}>
+  <div
+    style={{ backgroundColor: "#17191C", height: "100vh", paddingLeft: "8px" }}
+  >
     <IcSelect
       label="What is your favourite coffee?"
       validationStatus="success"
@@ -543,7 +549,9 @@ export const DarkThemeValidation = (): ReactElement => (
 );
 
 export const DarkThemeMulti = (): ReactElement => (
-  <div style={{ backgroundColor: "#121212" }}>
+  <div
+    style={{ backgroundColor: "#17191C", height: "100vh", paddingLeft: "8px" }}
+  >
     <IcSelect
       label="What are your favourite types of coffee?"
       options={coffeeOptions}
@@ -555,7 +563,9 @@ export const DarkThemeMulti = (): ReactElement => (
 );
 
 export const DarkThemeSearchable = (): ReactElement => (
-  <div style={{ backgroundColor: "#121212" }}>
+  <div
+    style={{ backgroundColor: "#17191C", height: "100vh", paddingLeft: "8px" }}
+  >
     <IcSelect
       label="What is your favourite coffee?"
       options={searchableCoffeeOption}

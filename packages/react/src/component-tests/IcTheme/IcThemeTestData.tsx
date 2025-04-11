@@ -23,7 +23,7 @@ import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 export const ThemeWithComponentThemeProps = (args: {
   color: "rgba(27, 60, 121, 1)";
   theme: "light" | "dark" | "system";
-  backgroundColor: "white" | "black";
+  backgroundColor: string;
 }): ReactElement => {
   return (
     <>
@@ -136,7 +136,7 @@ export const ThemeWithComponentThemeProps = (args: {
                 padding: "10px",
                 display: "flex",
                 gap: "10px",
-                backgroundColor: "black",
+                backgroundColor: "#17191C",
               }}
             >
               <IcSwitch label="Label" theme="dark" />

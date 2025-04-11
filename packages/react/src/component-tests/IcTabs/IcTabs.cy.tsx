@@ -474,12 +474,12 @@ describe("IcTab visual regression tests", () => {
 
   it("should render responsive tabs with light text", () => {
     mount(
-      <div style={{ backgroundColor: "black" }}>
+      <div style={{ backgroundColor: "#17191C" }}>
         <ResponsiveLightTextTabs />
       </div>
     );
 
-    //cy.checkA11yWithWait();
+    // cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/responsive-light",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
@@ -488,7 +488,7 @@ describe("IcTab visual regression tests", () => {
 
   it("should render IcTab with light appearance", () => {
     mount(
-      <div style={{ backgroundColor: "black" }}>
+      <div style={{ backgroundColor: "#17191C" }}>
         <LightTabs />
       </div>
     );
@@ -577,7 +577,7 @@ describe("IcTab visual regression tests", () => {
 
   it("should render focused light tab", () => {
     mount(
-      <div style={{ backgroundColor: "black" }}>
+      <div style={{ backgroundColor: "#17191C" }}>
         <LightTabs />
       </div>
     );

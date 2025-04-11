@@ -211,7 +211,7 @@ describe("IcBadge visual regression and a11y tests", () => {
   });
 });
 
-describe.skip("IcBadge visual regression tests in high contrast mode", () => {
+describe("IcBadge visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

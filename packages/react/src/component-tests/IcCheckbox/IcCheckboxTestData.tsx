@@ -383,7 +383,7 @@ export const Validation = () => {
 
 export const ThemeDark = () => {
   return (
-    <div style={{ padding: "5rem", backgroundColor: "black" }}>
+    <div style={{ padding: "5rem", backgroundColor: "#17191C" }}>
       <IcCheckboxGroup
         label="Select your extras"
         name="default"
