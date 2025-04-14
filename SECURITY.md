@@ -1,6 +1,6 @@
 # Security Policy
 
-This is the security guidance for all open-source repositories managed by the Secret Intelligence Service (SIS) which is also known as MI6. This explains how you should report vulnerabilities to SIS and what you may not do if you're testing our projects for vulnerabilities.
+This is the security guidance for all open-source repositories managed by the [Secret Intelligence Service](https://www.sis.gov.uk/) (SIS) which is also known as MI6. This explains how you should report vulnerabilities to SIS and what you may not do if you're testing our projects for vulnerabilities.
 
 Within SIS we will quickly triage and assess reported vulnerabilities with our cyber security and information assurance teams.
 
