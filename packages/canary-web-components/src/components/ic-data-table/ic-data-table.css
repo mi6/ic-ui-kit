@@ -359,7 +359,8 @@ td.table-density-spacious {
 }
 
 .table-cell .icon > svg,
-.table-cell ::slotted(svg) {
+.table-cell ::slotted(svg),
+.cell-description-icon > svg {
   fill: var(--ic-data-table-icon-default-emphasis);
 }
 
@@ -478,7 +479,7 @@ td.table-density-spacious {
 }
 
 .cell-description-text {
-  color: var(--ic-color-secondary-text);
+  color: var(--ic-data-table-cell-description-text);
 }
 
 .cell-description-icon {

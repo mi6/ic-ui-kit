@@ -689,6 +689,7 @@ ic-theme,
   --ic-data-table-loading-indicator-overlay-background: var(
     --ic-architectural-black
   );
+  --ic-data-table-cell-description-text: var(--ic-color-text-secondary-light);
 
   /* Data table title bar */
   --ic-data-table-title-bar-title: var(--ic-color-text-primary);
@@ -1045,8 +1046,8 @@ ic-theme,
   --ic-skip-link-background: var(--ic-color-background-primary);
 
   /* Status tags */
-  --ic-status-tag-text: var(--ic-color-text-inverse);
-  --ic-status-tag-text-inverted: var(--ic-color-text-primary);
+  --ic-status-tag-text: var(--ic-color-text-inverted);
+  --ic-status-tag-text-inverted: var(--ic-color-text-primary-light);
   --ic-status-tag-success: var(--ic-status-success-default);
   --ic-status-tag-outlined-background-success: var(--ic-status-success-light);
   --ic-status-tag-outlined-success: var(--ic-status-success-default);
@@ -1061,6 +1062,7 @@ ic-theme,
     --ic-status-unknown-outlined
   );
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-mid);
+  --ic-status-tag-filled-warning-text: var(--ic-status-tag-text-inverted);
 
   /* Stepper */
   --ic-step-title: var(--ic-color-text-primary);
@@ -1700,16 +1702,16 @@ ic-theme,
     --ic-accordion-chevron-disabled: var(--ic-color-icon-disabled);
 
     /* Alert */
-    --ic-alert-background-success: var(--ic-status-success-dark);
-    --ic-alert-background-error: var(--ic-red-1700);
-    --ic-alert-background-warning: var(--ic-yellow-1700);
-    --ic-alert-background-info: var(--ic-blue-1700);
-    --ic-alert-background-neutral: var(--ic-architectural-850);
-    --ic-alert-status-type-success: var(--ic-status-success-contrast);
-    --ic-alert-status-type-error: var(--ic-status-error-contrast);
-    --ic-alert-status-type-warning: var(--ic-status-warning-contrast);
-    --ic-alert-status-type-info: var(--ic-status-info-contrast);
-    --ic-alert-status-type-neutral: var(--ic-status-unknown-contrast);
+    --ic-alert-background-success: var(--ic-status-success-dark-dm);
+    --ic-alert-background-error: var(--ic-status-error-dark-dm);
+    --ic-alert-background-warning: var(--ic-status-warning-dark-dm);
+    --ic-alert-background-info: var(--ic-status-info-dark-dm);
+    --ic-alert-background-neutral: var(--ic-status-unknown-dark-dm);
+    --ic-alert-status-type-success: var(--ic-status-success-default-dm);
+    --ic-alert-status-type-error: var(--ic-status-error-contrast-dm);
+    --ic-alert-status-type-warning: var(--ic-status-warning-contrast-dm);
+    --ic-alert-status-type-info: var(--ic-status-info-contrast-dm);
+    --ic-alert-status-type-neutral: var(--ic-status-unknown-contrast-dm);
     --ic-alert-title: var(--ic-color-text-primary);
     --ic-alert-description: var(--ic-color-text-primary);
     --ic-alert-icon-success: var(--ic-status-success-contrast);
@@ -2056,6 +2058,7 @@ ic-theme,
     --ic-data-table-loading-indicator-overlay-background: var(
       --ic-architectural-black
     );
+    --ic-data-table-cell-description-text: var(--ic-color-text-secondary-dark);
 
     /* Data table title bar */
     --ic-data-table-title-bar-title: var(--ic-color-text-primary);
@@ -2436,22 +2439,27 @@ ic-theme,
     --ic-skip-link-background: var(--ic-color-background-primary);
 
     /* Status tags */
-    --ic-status-tag-text: var(--ic-color-text-inverse);
-    --ic-status-tag-text-inverted: var(--ic-color-text-inverse);
+    --ic-status-tag-text: var(--ic-color-text-primary-light);
+    --ic-status-tag-text-inverted: var(--ic-color-text-inverted);
     --ic-status-tag-success: var(--ic-status-success-contrast);
     --ic-status-tag-outlined-background-success: var(
-      --ic-status-success-outlined
+      --ic-status-success-dark-dm
     );
     --ic-status-tag-outlined-success: var(--ic-status-success-contrast);
     --ic-status-tag-error: var(--ic-status-error-contrast);
-    --ic-status-tag-outlined-background-error: var(--ic-status-error-light);
+    --ic-status-tag-outlined-background-error: var(--ic-status-error-dark-dm);
     --ic-status-tag-outlined-error: var(--ic-status-error-outlined);
     --ic-status-tag-warning: var(--ic-status-warning-contrast);
-    --ic-status-tag-outlined-background-warning: var(--ic-status-warning-light);
+    --ic-status-tag-outlined-background-warning: var(
+      --ic-status-warning-dark-dm
+    );
     --ic-status-tag-outlined-warning: var(--ic-status-warning-outlined);
     --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
-    --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-light);
+    --ic-status-tag-outlined-background-neutral: var(
+      --ic-status-unknown-dark-dm
+    );
     --ic-status-tag-outlined-neutral: var(--ic-status-unknown-default);
+    --ic-status-tag-filled-warning-text: var(--ic-status-tag-text);
 
     /* Stepper */
     --ic-step-title: var(--ic-color-text-primary);
@@ -3099,16 +3107,16 @@ ic-theme,
   --ic-accordion-chevron-disabled: var(--ic-color-icon-disabled);
 
   /* Alert */
-  --ic-alert-background-success: var(--ic-status-success-dark);
-  --ic-alert-background-error: var(--ic-red-1700);
-  --ic-alert-background-warning: var(--ic-yellow-1700);
-  --ic-alert-background-info: var(--ic-blue-1700);
-  --ic-alert-background-neutral: var(--ic-architectural-850);
-  --ic-alert-status-type-success: var(--ic-status-success-contrast);
-  --ic-alert-status-type-error: var(--ic-status-error-contrast);
-  --ic-alert-status-type-warning: var(--ic-status-warning-contrast);
-  --ic-alert-status-type-info: var(--ic-status-info-contrast);
-  --ic-alert-status-type-neutral: var(--ic-status-unknown-contrast);
+  --ic-alert-background-success: var(--ic-status-success-dark-dm);
+  --ic-alert-background-error: var(--ic-status-error-dark-dm);
+  --ic-alert-background-warning: var(--ic-status-warning-dark-dm);
+  --ic-alert-background-info: var(--ic-status-info-dark-dm);
+  --ic-alert-background-neutral: var(--ic-status-unknown-dark-dm);
+  --ic-alert-status-type-success: var(--ic-status-success-default-dm);
+  --ic-alert-status-type-error: var(--ic-status-error-contrast-dm);
+  --ic-alert-status-type-warning: var(--ic-status-warning-contrast-dm);
+  --ic-alert-status-type-info: var(--ic-status-info-contrast-dm);
+  --ic-alert-status-type-neutral: var(--ic-status-unknown-contrast-dm);
   --ic-alert-title: var(--ic-color-text-primary);
   --ic-alert-description: var(--ic-color-text-primary);
   --ic-alert-icon-success: var(--ic-status-success-contrast);
@@ -3430,6 +3438,7 @@ ic-theme,
   --ic-data-table-loading-indicator-overlay-background: var(
     --ic-architectural-black
   );
+  --ic-data-table-cell-description-text: var(--ic-color-text-secondary-dark);
 
   /* Data table title bar */
   --ic-data-table-title-bar-title: var(--ic-color-text-primary);
@@ -3782,22 +3791,21 @@ ic-theme,
   --ic-skip-link-background: var(--ic-color-background-primary);
 
   /* Status tags */
-  --ic-status-tag-text: var(--ic-color-text-inverse);
-  --ic-status-tag-text-inverted: var(--ic-color-text-inverse);
+  --ic-status-tag-text: var(--ic-color-text-primary-light);
+  --ic-status-tag-text-inverted: var(--ic-color-text-inverted);
   --ic-status-tag-success: var(--ic-status-success-contrast);
-  --ic-status-tag-outlined-background-success: var(
-    --ic-status-success-outlined
-  );
+  --ic-status-tag-outlined-background-success: var(--ic-status-success-dark-dm);
   --ic-status-tag-outlined-success: var(--ic-status-success-contrast);
   --ic-status-tag-error: var(--ic-status-error-contrast);
-  --ic-status-tag-outlined-background-error: var(--ic-status-error-light);
+  --ic-status-tag-outlined-background-error: var(--ic-status-error-dark-dm);
   --ic-status-tag-outlined-error: var(--ic-status-error-outlined);
   --ic-status-tag-warning: var(--ic-status-warning-contrast);
-  --ic-status-tag-outlined-background-warning: var(--ic-status-warning-light);
+  --ic-status-tag-outlined-background-warning: var(--ic-status-warning-dark-dm);
   --ic-status-tag-outlined-warning: var(--ic-status-warning-outlined);
   --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
-  --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-light);
+  --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-dark-dm);
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-default);
+  --ic-status-tag-filled-warning-text: var(--ic-status-tag-text);
 
   /* Stepper */
   --ic-step-title: var(--ic-color-text-primary);
