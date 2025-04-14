@@ -59,10 +59,10 @@ export class DataTableTitleBar {
 
   componentWillLoad(): void {
     const parentEl = this.el.parentElement;
-    if (parentEl.tagName === "IC-DATA-TABLE") {
+    if (parentEl?.tagName === "IC-DATA-TABLE") {
       const { caption, density, embedded } = parentEl as HTMLIcDataTableElement;
       this.initialDensitySelectOption = density;
-      this.isEmbedded = embedded;
+      this.isEmbedded = !!embedded;
       if (this.heading === DEFAULT_TITLE_BAR_HEADING) {
         this.heading = caption;
       }

@@ -34,13 +34,13 @@ let treeViewIds = 0;
 export class TreeView {
   private treeViewId = `ic-tree-view-${treeViewIds++}`;
   private treeItemTag = "IC-TREE-ITEM";
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
   private isLoaded = false;
   private resizeObserver: ResizeObserver | null = null;
   private TOOLTIP = "ic-tooltip";
 
-  private previousTruncateHeading: boolean;
-  private previousTruncateTreeItems: boolean;
+  private previousTruncateHeading: boolean = false;
+  private previousTruncateTreeItems: boolean = false;
 
   @Element() el: HTMLIcTreeViewElement;
 
@@ -62,7 +62,7 @@ export class TreeView {
   /**
    * If `true`, tree items will have inset focus.
    */
-  @Prop() focusInset?: boolean = false;
+  @Prop() focusInset: boolean = false;
   @Watch("focusInset")
   watchFocusInsetHandler(): void {
     this.treeItems.forEach((treeItem) => {
@@ -73,7 +73,7 @@ export class TreeView {
   /**
    * The heading of the tree view.
    */
-  @Prop() heading?: string = "";
+  @Prop() heading: string = "";
 
   /**
    * The size of the tree view.
@@ -110,13 +110,13 @@ export class TreeView {
    * If `true`, the tree view heading will be truncated instead of text wrapping.
    * When used on small devices, this prop will be overridden and headings will be set to text-wrap.
    */
-  @Prop({ mutable: true }) truncateHeading?: boolean = false;
+  @Prop({ mutable: true }) truncateHeading: boolean = false;
 
   /**
    * If `true`, tree items will be truncated, unless they are individually overridden.
    * When used on small devices, this prop will be overridden and tree-items will be set to text-wrap.
    */
-  @Prop({ mutable: true }) truncateTreeItems?: boolean = false;
+  @Prop({ mutable: true }) truncateTreeItems: boolean = false;
   @Watch("truncateTreeItems")
   watchTruncateTreeItemsHandler(): void {
     this.treeItems.forEach((treeItem) => {
@@ -191,8 +191,8 @@ export class TreeView {
   };
 
   private removeTruncation = (): void => {
-    this.truncateHeading = undefined;
-    this.truncateTreeItems = undefined;
+    this.truncateHeading = false;
+    this.truncateTreeItems = false;
   };
 
   private handleKeyDown = (event: KeyboardEvent): void => {
@@ -235,7 +235,7 @@ export class TreeView {
           this.treeItems[focussedChild].hasParentExpanded = false;
           this.treeItems[focussedChild].updateAriaLabel();
         } else if (
-          this.treeItems[focussedChild].parentElement.tagName ===
+          this.treeItems[focussedChild].parentElement?.tagName ===
           this.treeItemTag
         ) {
           (
@@ -273,10 +273,9 @@ export class TreeView {
       }
 
       if (
-        !this.treeItems[nextItem].disabled &&
-        (this.treeItems[nextItem].parentElement.tagName !== this.treeItemTag ||
-          (this.treeItems[nextItem].parentElement as HTMLIcTreeItemElement)
-            .expanded)
+        this.treeItems[nextItem].parentElement?.tagName !== this.treeItemTag ||
+        (this.treeItems[nextItem].parentElement as HTMLIcTreeItemElement)
+          .expanded
       ) {
         return nextItem;
       }
@@ -364,20 +363,26 @@ export class TreeView {
   };
 
   private truncateTreeViewHeading = () => {
-    const typographyEl: HTMLIcTypographyElement =
-      this.el.shadowRoot.querySelector(".tree-view-header");
+    const typographyEl =
+      this.el.shadowRoot?.querySelector<HTMLIcTypographyElement>(
+        ".tree-view-header"
+      );
     const tooltip = typographyEl?.closest(this.TOOLTIP);
-    const headingContainer: HTMLElement = this.el.shadowRoot.querySelector(
+    const headingContainer = this.el.shadowRoot?.querySelector<HTMLElement>(
       ".heading-area-container"
     );
 
-    if (typographyEl?.scrollHeight > headingContainer?.clientHeight) {
+    if (
+      typographyEl &&
+      headingContainer &&
+      typographyEl.scrollHeight > headingContainer.clientHeight
+    ) {
       typographyEl.classList.add("ic-text-overflow");
 
       if (!tooltip) {
         const tooltipEl = document.createElement("ic-tooltip");
         tooltipEl.setAttribute("target", this.el.id);
-        tooltipEl.setAttribute("label", typographyEl.textContent);
+        tooltipEl.setAttribute("label", typographyEl.textContent!);
         tooltipEl.classList.add("ic-tooltip-overflow");
         tooltipEl.setAttribute("placement", "right");
         headingContainer.appendChild(tooltipEl);
@@ -387,15 +392,17 @@ export class TreeView {
   };
 
   private removeHeadingTruncation = () => {
-    const typographyEl: HTMLIcTypographyElement =
-      this.el.shadowRoot.querySelector(".tree-view-header");
-    const tooltipEl: HTMLIcTooltipElement = typographyEl?.closest(this.TOOLTIP);
+    const typographyEl =
+      this.el.shadowRoot?.querySelector<HTMLIcTypographyElement>(
+        ".tree-view-header"
+      );
+    const tooltipEl = typographyEl?.closest<HTMLIcTooltipElement>(this.TOOLTIP);
 
-    if (tooltipEl) {
+    if (tooltipEl && typographyEl) {
       typographyEl.classList.remove("ic-text-overflow");
       this.el.shadowRoot
-        .querySelector(".heading-area-container")
-        .replaceChild(typographyEl, tooltipEl);
+        ?.querySelector(".heading-area-container")
+        ?.replaceChild(typographyEl, tooltipEl);
     }
   };
 

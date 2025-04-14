@@ -98,13 +98,13 @@ describe("ic-data-table-title-bar", () => {
     });
 
     const eventSpy = jest.fn();
-    page.root.addEventListener("icTableDensityUpdate", eventSpy);
+    page.root!.addEventListener("icTableDensityUpdate", eventSpy);
 
     const icChange = new CustomEvent("icChange", {
       detail: { value: "dense" },
     });
-    const icSelect = page.root.shadowRoot.querySelector("ic-select");
-    icSelect.dispatchEvent(icChange);
+    const icSelect = page.root!.shadowRoot?.querySelector("ic-select");
+    icSelect?.dispatchEvent(icChange);
 
     await page.waitForChanges();
     expect(eventSpy).toHaveBeenCalledWith(
