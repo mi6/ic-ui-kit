@@ -54,7 +54,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -78,17 +78,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "heading",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -99,6 +99,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -108,10 +111,10 @@
         },
         {
           "name": "href",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string | undefined",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -122,6 +125,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -131,10 +137,10 @@
         },
         {
           "name": "hreflang",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -146,6 +152,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -155,10 +164,10 @@
         },
         {
           "name": "message",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -170,6 +179,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -179,10 +191,10 @@
         },
         {
           "name": "referrerpolicy",
-          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
           "complexType": {
             "original": "ReferrerPolicy",
-            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
             "references": {
               "ReferrerPolicy": {
                 "location": "global",
@@ -230,6 +242,9 @@
             {
               "value": "unsafe-url",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -239,10 +254,10 @@
         },
         {
           "name": "rel",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -253,6 +268,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -305,10 +323,10 @@
         },
         {
           "name": "target",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -319,6 +337,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -328,15 +349,15 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeMode"
+                "path": "@ukic/web-components",
+                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
               }
             }
           },
@@ -358,6 +379,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -551,10 +575,10 @@
         },
         {
           "name": "data",
-          "type": "IcDataTableDataType[]",
+          "type": "IcDataTableDataType[] | undefined",
           "complexType": {
             "original": "IcDataTableDataType[]",
-            "resolved": "IcDataTableDataType[]",
+            "resolved": "IcDataTableDataType[] | undefined",
             "references": {
               "IcDataTableDataType": {
                 "location": "import",
@@ -570,6 +594,9 @@
           "values": [
             {
               "type": "IcDataTableDataType[]"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -611,17 +638,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disableAutoSort",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -633,6 +660,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -659,7 +689,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -693,17 +723,17 @@
               "type": "number"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "height",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -714,6 +744,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -723,10 +756,10 @@
         },
         {
           "name": "hideColumnHeaders",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -738,6 +771,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -764,7 +800,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -788,17 +824,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "loadingOptions",
-          "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; monochrome?: boolean; overlay?: boolean; }",
+          "type": "undefined | { description?: string | undefined; label?: string | undefined; labelDuration?: number | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; overlay?: boolean | undefined; }",
           "complexType": {
             "original": "{\r\n    description?: string;\r\n    label?: string;\r\n    labelDuration?: number;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    monochrome?: boolean;\r\n    overlay?: boolean;\r\n  }",
-            "resolved": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; monochrome?: boolean; overlay?: boolean; }",
+            "resolved": "undefined | { description?: string | undefined; label?: string | undefined; labelDuration?: number | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; overlay?: boolean | undefined; }",
             "references": {}
           },
           "mutable": false,
@@ -807,7 +843,34 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; monochrome?: boolean; overlay?: boolean; }"
+              "type": "undefined"
+            },
+            {
+              "type": "{ description?: string"
+            },
+            {
+              "type": "undefined; label?: string"
+            },
+            {
+              "type": "undefined; labelDuration?: number"
+            },
+            {
+              "type": "undefined; max?: number"
+            },
+            {
+              "type": "undefined; min?: number"
+            },
+            {
+              "type": "undefined; progress?: number"
+            },
+            {
+              "type": "undefined; monochrome?: boolean"
+            },
+            {
+              "type": "undefined; overlay?: boolean"
+            },
+            {
+              "type": "undefined; }"
             }
           ],
           "optional": true,
@@ -817,10 +880,10 @@
         },
         {
           "name": "maxWidth",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -831,6 +894,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -840,10 +906,10 @@
         },
         {
           "name": "minWidth",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -854,6 +920,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -880,7 +949,7 @@
               "type": "number"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -909,17 +978,17 @@
               "type": "IcPaginationBarOptions"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "showPagination",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -931,6 +1000,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -940,10 +1012,10 @@
         },
         {
           "name": "sortOptions",
-          "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }",
+          "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string | undefined; }",
           "complexType": {
             "original": "{\r\n    sortOrders: IcDataTableSortOrderOptions[];\r\n    defaultColumn?: string;\r\n  }",
-            "resolved": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }",
+            "resolved": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string | undefined; }",
             "references": {
               "IcDataTableSortOrderOptions": {
                 "location": "import",
@@ -959,20 +1031,23 @@
           "default": "{\r\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\r\n    defaultColumn: \"\",\r\n  }",
           "values": [
             {
-              "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }"
+              "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string"
+            },
+            {
+              "type": "undefined; }"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "sortable",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -984,6 +1059,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1010,7 +1088,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -1034,17 +1112,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "tableLayout",
-          "type": "\"auto\" | \"fixed\"",
+          "type": "\"auto\" | \"fixed\" | undefined",
           "complexType": {
             "original": "\"fixed\" | \"auto\"",
-            "resolved": "\"auto\" | \"fixed\"",
+            "resolved": "\"auto\" | \"fixed\" | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1061,6 +1139,9 @@
             {
               "value": "fixed",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1070,10 +1151,10 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -1100,6 +1181,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1109,10 +1193,10 @@
         },
         {
           "name": "truncationPattern",
-          "type": "\"show-hide\" | \"tooltip\"",
+          "type": "\"show-hide\" | \"tooltip\" | undefined",
           "complexType": {
             "original": "IcDataTableTruncationTypes",
-            "resolved": "\"show-hide\" | \"tooltip\"",
+            "resolved": "\"show-hide\" | \"tooltip\" | undefined",
             "references": {
               "IcDataTableTruncationTypes": {
                 "location": "import",
@@ -1134,6 +1218,9 @@
             {
               "value": "tooltip",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1160,17 +1247,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "updatingOptions",
-          "type": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
+          "type": "undefined | { description?: string | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; }",
           "complexType": {
             "original": "{\r\n    description?: string;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    monochrome?: boolean;\r\n  }",
-            "resolved": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
+            "resolved": "undefined | { description?: string | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; }",
             "references": {}
           },
           "mutable": false,
@@ -1179,7 +1266,25 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }"
+              "type": "undefined"
+            },
+            {
+              "type": "{ description?: string"
+            },
+            {
+              "type": "undefined; max?: number"
+            },
+            {
+              "type": "undefined; min?: number"
+            },
+            {
+              "type": "undefined; progress?: number"
+            },
+            {
+              "type": "undefined; monochrome?: boolean"
+            },
+            {
+              "type": "undefined; }"
             }
           ],
           "optional": true,
@@ -1189,10 +1294,10 @@
         },
         {
           "name": "variableRowHeight",
-          "type": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights",
+          "type": "((params: { [key: string]: any; index: number; }) => IcDataTableRowHeights | null) | undefined",
           "complexType": {
             "original": "(params: {\r\n    [key: string]: any;\r\n    index: number;\r\n  }) => IcDataTableRowHeights | null",
-            "resolved": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights",
+            "resolved": "((params: { [key: string]: any; index: number; }) => IcDataTableRowHeights | null) | undefined",
             "references": {
               "IcDataTableRowHeights": {
                 "location": "import",
@@ -1207,7 +1312,13 @@
           "docsTags": [],
           "values": [
             {
-              "type": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights"
+              "type": "((params: { [key: string]: any; index: number; }) => IcDataTableRowHeights"
+            },
+            {
+              "type": "null)"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1217,10 +1328,10 @@
         },
         {
           "name": "width",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1231,6 +1342,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1251,7 +1365,7 @@
             "parameters": [
               {
                 "name": "rowHeight",
-                "type": "number | \"auto\"",
+                "type": "number | \"auto\" | undefined",
                 "docs": ""
               }
             ],
@@ -1267,7 +1381,7 @@
           "parameters": [
             {
               "name": "rowHeight",
-              "type": "number | \"auto\"",
+              "type": "number | \"auto\" | undefined",
               "docs": ""
             }
           ],
@@ -1483,10 +1597,10 @@
       "props": [
         {
           "name": "description",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1497,6 +1611,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1506,10 +1623,10 @@
         },
         {
           "name": "heading",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1521,6 +1638,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1530,10 +1650,10 @@
         },
         {
           "name": "hideDensitySelect",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1545,6 +1665,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1554,10 +1677,10 @@
         },
         {
           "name": "metadata",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1568,6 +1691,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1691,7 +1817,7 @@
           "reflectToAttr": false,
           "docs": "The format in which the date will be displayed.",
           "docsTags": [],
-          "default": "\"DD/MM/YYYY\"",
+          "default": "this.DEFAULT_DATE_FORMAT",
           "values": [
             {
               "value": "DD/MM/YYYY",
@@ -1706,7 +1832,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -1735,7 +1861,7 @@
               "type": "IcWeekDays[]"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -1759,17 +1885,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disableFuture",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1781,6 +1907,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1807,17 +1936,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disablePast",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1829,6 +1958,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1855,7 +1987,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -1879,17 +2011,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "emitDatePartChange",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1901,6 +2033,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1910,10 +2045,10 @@
         },
         {
           "name": "helperText",
-          "type": "string",
+          "type": "null | string",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "string | null",
+            "resolved": "null | string",
             "references": {}
           },
           "mutable": true,
@@ -1923,10 +2058,13 @@
           "docsTags": [],
           "values": [
             {
+              "type": "null"
+            },
+            {
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -1957,10 +2095,10 @@
         },
         {
           "name": "hideLabel",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1972,6 +2110,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1998,7 +2139,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2022,7 +2163,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2077,7 +2218,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2109,7 +2250,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2157,17 +2298,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "showClearButton",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2179,6 +2320,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2220,17 +2364,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -2257,6 +2401,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2301,17 +2448,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "validationText",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2323,6 +2470,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2332,10 +2482,10 @@
         },
         {
           "name": "value",
-          "type": "Date | string",
+          "type": "Date | null | string | undefined",
           "complexType": {
             "original": "string | Date | null | undefined",
-            "resolved": "Date | string",
+            "resolved": "Date | null | string | undefined",
             "references": {
               "Date": {
                 "location": "global",
@@ -2354,7 +2504,13 @@
               "type": "Date"
             },
             {
+              "type": "null"
+            },
+            {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2367,11 +2523,11 @@
         {
           "name": "getDate",
           "returns": {
-            "type": "Promise<Date>",
+            "type": "Promise<Date | null>",
             "docs": "Date"
           },
           "complexType": {
-            "signature": "() => Promise<Date>",
+            "signature": "() => Promise<Date | null>",
             "parameters": [],
             "references": {
               "Promise": {
@@ -2383,9 +2539,9 @@
                 "id": "global::Date"
               }
             },
-            "return": "Promise<Date>"
+            "return": "Promise<Date | null>"
           },
-          "signature": "getDate() => Promise<Date>",
+          "signature": "getDate() => Promise<Date | null>",
           "parameters": [],
           "docs": "Returns the value as a Date object",
           "docsTags": [
@@ -2399,11 +2555,11 @@
       "events": [
         {
           "event": "icBlur",
-          "detail": "{ value: Date; }",
+          "detail": "{ value: Date | null; }",
           "bubbles": true,
           "complexType": {
-            "original": "{ value: Date }",
-            "resolved": "{ value: Date; }",
+            "original": "{ value: Date | null }",
+            "resolved": "{ value: Date | null; }",
             "references": {
               "Date": {
                 "location": "global",
@@ -2418,11 +2574,11 @@
         },
         {
           "event": "icChange",
-          "detail": "{ value: Date; dateObject: { day: string; month: string; year: string; }; }",
+          "detail": "{ value: Date | null; dateObject: { day: string | null; month: string | null; year: string | null; }; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\r\n    value: Date;\r\n    dateObject: { day: string; month: string; year: string };\r\n  }",
-            "resolved": "{ value: Date; dateObject: { day: string; month: string; year: string; }; }",
+            "original": "{\r\n    value: Date | null;\r\n    dateObject: {\r\n      day: string | null;\r\n      month: string | null;\r\n      year: string | null;\r\n    };\r\n  }",
+            "resolved": "{ value: Date | null; dateObject: { day: string | null; month: string | null; year: string | null; }; }",
             "references": {
               "Date": {
                 "location": "global",
@@ -2437,11 +2593,11 @@
         },
         {
           "event": "icFocus",
-          "detail": "{ value: Date; }",
+          "detail": "{ value: Date | null; }",
           "bubbles": true,
           "complexType": {
-            "original": "{ value: Date }",
-            "resolved": "{ value: Date; }",
+            "original": "{ value: Date | null }",
+            "resolved": "{ value: Date | null; }",
             "references": {
               "Date": {
                 "location": "global",
@@ -2542,17 +2698,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disableDays",
-          "type": "IcWeekDays[]",
+          "type": "IcWeekDays[] | undefined",
           "complexType": {
             "original": "IcWeekDays[]",
-            "resolved": "IcWeekDays[]",
+            "resolved": "IcWeekDays[] | undefined",
             "references": {
               "IcWeekDays": {
                 "location": "import",
@@ -2569,6 +2725,9 @@
           "values": [
             {
               "type": "IcWeekDays[]"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2578,10 +2737,10 @@
         },
         {
           "name": "disableDaysMessage",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2593,6 +2752,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2602,10 +2764,10 @@
         },
         {
           "name": "disableFuture",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2617,6 +2779,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2626,10 +2791,10 @@
         },
         {
           "name": "disableFutureMessage",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2641,6 +2806,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2650,10 +2818,10 @@
         },
         {
           "name": "disablePast",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2665,6 +2833,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2674,10 +2845,10 @@
         },
         {
           "name": "disablePastMessage",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2689,6 +2860,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2715,17 +2889,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "emitDatePartChange",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2737,6 +2911,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2746,10 +2923,10 @@
         },
         {
           "name": "helperText",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2760,6 +2937,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2793,10 +2973,10 @@
         },
         {
           "name": "hideLabel",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2808,6 +2988,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2817,10 +3000,10 @@
         },
         {
           "name": "inputId",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2831,6 +3014,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2840,10 +3026,10 @@
         },
         {
           "name": "invalidDateMessage",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2855,6 +3041,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2912,7 +3101,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2944,17 +3133,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "name",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2965,6 +3154,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3006,10 +3198,10 @@
         },
         {
           "name": "required",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3021,6 +3213,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3030,10 +3225,10 @@
         },
         {
           "name": "showDaysOutsideMonth",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3045,6 +3240,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3054,10 +3252,10 @@
         },
         {
           "name": "showPickerClearButton",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3069,6 +3267,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3078,10 +3279,10 @@
         },
         {
           "name": "showPickerTodayButton",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3093,6 +3294,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3102,10 +3306,10 @@
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\" | undefined",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -3132,6 +3336,9 @@
             {
               "value": "small",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3182,17 +3389,17 @@
               "type": "IcWeekDays.Wednesday"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -3219,6 +3426,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3228,10 +3438,10 @@
         },
         {
           "name": "validationStatus",
-          "type": "\"\" | \"error\" | \"success\" | \"warning\"",
+          "type": "\"\" | \"error\" | \"success\" | \"warning\" | undefined",
           "complexType": {
             "original": "IcInformationStatusOrEmpty",
-            "resolved": "\"\" | \"error\" | \"success\" | \"warning\"",
+            "resolved": "\"\" | \"error\" | \"success\" | \"warning\" | undefined",
             "references": {
               "IcInformationStatusOrEmpty": {
                 "location": "import",
@@ -3261,6 +3471,9 @@
             {
               "value": "warning",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3270,10 +3483,10 @@
         },
         {
           "name": "validationText",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3285,6 +3498,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3294,10 +3510,10 @@
         },
         {
           "name": "value",
-          "type": "Date | string",
+          "type": "Date | null | string | undefined",
           "complexType": {
             "original": "string | Date | null | undefined",
-            "resolved": "Date | string",
+            "resolved": "Date | null | string | undefined",
             "references": {
               "Date": {
                 "location": "global",
@@ -3316,7 +3532,13 @@
               "type": "Date"
             },
             {
+              "type": "null"
+            },
+            {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3423,10 +3645,10 @@
       "props": [
         {
           "name": "alignment",
-          "type": "\"left\" | \"right\" | \"space-between\"",
+          "type": "\"left\" | \"right\" | \"space-between\" | undefined",
           "complexType": {
             "original": "IcPaginationAlignmentOptions",
-            "resolved": "\"left\" | \"right\" | \"space-between\"",
+            "resolved": "\"left\" | \"right\" | \"space-between\" | undefined",
             "references": {
               "IcPaginationAlignmentOptions": {
                 "location": "import",
@@ -3453,6 +3675,9 @@
             {
               "value": "space-between",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3462,10 +3687,10 @@
         },
         {
           "name": "currentPage",
-          "type": "number",
+          "type": "number | undefined",
           "complexType": {
             "original": "number",
-            "resolved": "number",
+            "resolved": "number | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3477,6 +3702,9 @@
           "values": [
             {
               "type": "number"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3486,10 +3714,10 @@
         },
         {
           "name": "hideAllFromItemsPerPage",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3501,6 +3729,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3510,10 +3741,10 @@
         },
         {
           "name": "hideRangeLabel",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3525,6 +3756,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3534,10 +3768,10 @@
         },
         {
           "name": "itemLabel",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3549,6 +3783,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3558,10 +3795,10 @@
         },
         {
           "name": "itemsPerPageOptions",
-          "type": "{ label: string; value: string; }[]",
+          "type": "undefined | { label: string; value: string; }[]",
           "complexType": {
             "original": "{\r\n    label: string;\r\n    value: string;\r\n  }[]",
-            "resolved": "{ label: string; value: string; }[]",
+            "resolved": "undefined | { label: string; value: string; }[]",
             "references": {}
           },
           "mutable": false,
@@ -3569,6 +3806,9 @@
           "docs": "The options which will be displayed for 'items per page' select input.",
           "docsTags": [],
           "values": [
+            {
+              "type": "undefined"
+            },
             {
               "type": "{ label: string; value: string; }[]"
             }
@@ -3580,10 +3820,10 @@
         },
         {
           "name": "monochrome",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3595,6 +3835,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3604,10 +3847,10 @@
         },
         {
           "name": "pageLabel",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3619,6 +3862,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3628,10 +3874,10 @@
         },
         {
           "name": "rangeLabelType",
-          "type": "\"data\" | \"page\"",
+          "type": "\"data\" | \"page\" | undefined",
           "complexType": {
             "original": "IcPaginationLabelTypes",
-            "resolved": "\"data\" | \"page\"",
+            "resolved": "\"data\" | \"page\" | undefined",
             "references": {
               "IcPaginationLabelTypes": {
                 "location": "import",
@@ -3654,6 +3900,9 @@
             {
               "value": "page",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3663,10 +3912,10 @@
         },
         {
           "name": "selectedItemsPerPage",
-          "type": "number",
+          "type": "number | undefined",
           "complexType": {
             "original": "number",
-            "resolved": "number",
+            "resolved": "number | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3677,6 +3926,9 @@
           "values": [
             {
               "type": "number"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3686,10 +3938,10 @@
         },
         {
           "name": "setToFirstPageOnPaginationChange",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3701,6 +3953,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3710,10 +3965,10 @@
         },
         {
           "name": "showGoToPageControl",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3725,6 +3980,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3734,10 +3992,10 @@
         },
         {
           "name": "showItemsPerPageControl",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3749,6 +4007,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3758,15 +4019,15 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeMode"
+                "path": "@ukic/web-components",
+                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
               }
             }
           },
@@ -3788,6 +4049,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3820,10 +4084,10 @@
         },
         {
           "name": "type",
-          "type": "\"complex\" | \"simple\"",
+          "type": "\"complex\" | \"simple\" | undefined",
           "complexType": {
             "original": "IcPaginationTypes",
-            "resolved": "\"complex\" | \"simple\"",
+            "resolved": "\"complex\" | \"simple\" | undefined",
             "references": {
               "IcPaginationTypes": {
                 "location": "import",
@@ -3846,6 +4110,9 @@
             {
               "value": "simple",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4012,7 +4279,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4043,10 +4310,10 @@
         },
         {
           "name": "href",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string | undefined",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -4057,6 +4324,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4066,10 +4336,10 @@
         },
         {
           "name": "hreflang",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -4081,6 +4351,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4114,10 +4387,10 @@
         },
         {
           "name": "referrerpolicy",
-          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
           "complexType": {
             "original": "ReferrerPolicy",
-            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
             "references": {
               "ReferrerPolicy": {
                 "location": "global",
@@ -4165,6 +4438,9 @@
             {
               "value": "unsafe-url",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4174,10 +4450,10 @@
         },
         {
           "name": "rel",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -4188,6 +4464,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4221,10 +4500,10 @@
         },
         {
           "name": "target",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -4235,6 +4514,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4244,10 +4526,10 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -4274,6 +4556,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4283,10 +4568,10 @@
         },
         {
           "name": "truncateTreeItem",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -4297,6 +4582,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4420,7 +4708,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4444,17 +4732,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\" | undefined",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -4481,6 +4769,9 @@
             {
               "value": "small",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4490,10 +4781,10 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -4520,6 +4811,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4575,7 +4869,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4599,7 +4893,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4654,10 +4948,10 @@
       "docstring": "",
       "path": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts"
     },
-    "src/utils/types.ts::IcThemeMode": {
-      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
+    "../web-components/dist/types/interface.d.ts::IcThemeMode": {
+      "declaration": "any",
       "docstring": "",
-      "path": "src/utils/types.ts"
+      "path": "../web-components/dist/types/interface.d.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
       "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: {\n    textWrap: boolean;\n  };\n  columnWidth?: string | IcDataTableColumnWidthTypes;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n  excludeColumnFromSort?: boolean;\n}",
@@ -4688,6 +4982,11 @@
       "declaration": "export type IcDataTableSortOrderOptions =\n  | \"unsorted\"\n  | \"ascending\"\n  | \"descending\";",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/utils/types.ts::IcThemeMode": {
+      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
       "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"show-hide\" | undefined;",
