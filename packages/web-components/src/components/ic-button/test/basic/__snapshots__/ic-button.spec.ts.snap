@@ -52,7 +52,7 @@ exports[`button component should render a 'file' type input when fileUpload prop
     </button>
   </template>
   Button
-  <input accept="*" class="ic-input" hidden="" name="ic-button-file-upload-input-31" type="file">
+  <input accept="*" class="ic-input" hidden="" name="ic-button-file-upload-input-33" type="file">
 </ic-button>
 `;
 
@@ -151,6 +151,26 @@ exports[`button component should render correct HTML when loading 1`] = `
     </button>
   </template>
   Button
+</ic-button>
+`;
+
+exports[`button component should render correct HTML when using slotted content and slotted router item 1`] = `
+<ic-button class="ic-button-size-medium ic-button-variant-primary" exportparts="button">
+  <template shadowrootmode="open">
+    <slot name="router-item"></slot>
+  </template>
+  <a href="/" slot="router-item" style="gap: 0;">
+    <div style="margin-right: var(--ic-space-xs);">
+      <svg fill="#000000" height="24px" slot="left-icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg" style="fill: currentcolor;">
+        <path d="M0 0h24v24H0V0z" fill="none"></path>
+        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path>
+      </svg>
+      <ic-badge label="1" position="near" slot="badge"></ic-badge>
+    </div>
+    <ic-typography style="font-family: var(--ic-font-body-family); font-size: 0.875rem; font-weight: 600;">
+      Slotted link
+    </ic-typography>
+  </a>
 </ic-button>
 `;
 

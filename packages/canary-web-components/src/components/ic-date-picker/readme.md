@@ -61,6 +61,7 @@ graph TD;
   ic-date-picker --> ic-button
   ic-date-picker --> ic-date-input
   ic-date-picker --> ic-typography
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

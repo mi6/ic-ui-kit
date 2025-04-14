@@ -144,6 +144,25 @@ describe("button component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render correct HTML when using slotted content and slotted router item", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: `
+      <ic-button>
+          <a slot="router-item" href="/">
+            <svg slot='left-icon' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+              <path d="M0 0h24v24H0V0z" fill="none"/>
+              <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+            </svg>
+            <ic-badge slot="badge" label="1" position="near"></ic-badge>
+            Slotted link
+          </a>
+        </ic-button>
+      `,
+    });
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("render with correct button type when defined", async () => {
     const page = await newSpecPage({
       components: [Button],

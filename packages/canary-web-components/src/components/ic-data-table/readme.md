@@ -103,6 +103,7 @@ graph TD;
   ic-data-table --> ic-pagination-bar
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-empty-state --> ic-typography

@@ -522,6 +522,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -860,6 +861,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -1062,6 +1064,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -2899,11 +2902,13 @@
         "ic-top-navigation"
       ],
       "dependencies": [
+        "ic-typography",
         "ic-loading-indicator",
         "ic-tooltip"
       ],
       "dependencyGraph": {
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -5798,6 +5803,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -7445,6 +7451,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -9588,6 +9595,7 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -10078,6 +10086,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -10439,6 +10448,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -11168,6 +11178,7 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -11568,6 +11579,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -12019,6 +12031,7 @@
           "ic-pagination-item"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -12485,6 +12498,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -14459,6 +14473,7 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -15719,6 +15734,7 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -16102,6 +16118,7 @@
           "ic-divider"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -17824,6 +17841,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -19407,6 +19425,7 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -19926,6 +19945,7 @@
           "ic-button"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -21158,6 +21178,7 @@
           "ic-navigation-menu"
         ],
         "ic-button": [
+          "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
         ],
@@ -21494,6 +21515,7 @@
         "ic-accordion-group",
         "ic-alert",
         "ic-badge",
+        "ic-button",
         "ic-card-vertical",
         "ic-checkbox",
         "ic-chip",
@@ -21541,6 +21563,9 @@
           "ic-typography"
         ],
         "ic-badge": [
+          "ic-typography"
+        ],
+        "ic-button": [
           "ic-typography"
         ],
         "ic-card-vertical": [
