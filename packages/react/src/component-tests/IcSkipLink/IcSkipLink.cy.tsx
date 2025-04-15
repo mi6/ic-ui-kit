@@ -3,7 +3,12 @@
 import { mount } from "cypress/react";
 import React from "react";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
-import { IcButton, IcSkipLink, IcTopNavigation } from "../../components";
+import {
+  IcButton,
+  IcSkipLink,
+  IcTopNavigation,
+  IcTypography,
+} from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import { HAVE_FOCUS } from "../utils/constants";
 
@@ -23,7 +28,7 @@ describe("IcSkipLink e2e, visual regression and a11y tests", () => {
   it("should render IcSkipLink", () => {
     mount(
       <>
-        <IcSkipLink target="#page-content" />
+        <IcSkipLink target="page-content" />
         <a id="page-content" tabIndex={-1}>
           {" "}
         </a>
@@ -47,7 +52,7 @@ describe("IcSkipLink e2e, visual regression and a11y tests", () => {
   it("should render IcSkipLink with a custom label", () => {
     mount(
       <>
-        <IcSkipLink target="#page-content" label="Custom skip label" />
+        <IcSkipLink target="page-content" label="Custom skip label" />
         <a id="page-content" tabIndex={-1}>
           {" "}
         </a>
@@ -76,7 +81,7 @@ describe("IcSkipLink e2e, visual regression and a11y tests", () => {
           paddingBottom: "100px",
         }}
       >
-        <IcSkipLink target="#page-content" transparentBackground />
+        <IcSkipLink target="page-content" transparentBackground />
         <a id="page-content" tabIndex={-1}>
           {" "}
         </a>
@@ -100,7 +105,7 @@ describe("IcSkipLink e2e, visual regression and a11y tests", () => {
   it("should render IcSkipLink at the full width of the page", () => {
     mount(
       <>
-        <IcSkipLink target="#page-content" fullWidth />
+        <IcSkipLink target="page-content" fullWidth />
         <a id="page-content" tabIndex={-1}>
           {" "}
         </a>
@@ -137,7 +142,11 @@ describe("IcSkipLink e2e, visual regression and a11y tests", () => {
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
           </SlottedSVG>
         </IcTopNavigation>
-        <IcSkipLink target="#page-content" inline />
+        <IcSkipLink
+          target="page-content"
+          inline
+          style={{ marginLeft: "var(--ic-space-xs)" }}
+        />
         <a id="page-content" tabIndex={-1}>
           {" "}
         </a>
@@ -161,7 +170,7 @@ describe("IcSkipLink e2e, visual regression and a11y tests", () => {
   it("should render IcSkipLink in dark theme", () => {
     mount(
       <>
-        <IcSkipLink target="#page-content" theme="dark" />
+        <IcSkipLink target="page-content" theme="dark" />
         <a id="page-content" tabIndex={-1}>
           {" "}
         </a>
@@ -185,7 +194,7 @@ describe("IcSkipLink e2e, visual regression and a11y tests", () => {
   it("should render IcSkipLink in monochrome", () => {
     mount(
       <>
-        <IcSkipLink target="#page-content" monochrome />
+        <IcSkipLink target="page-content" monochrome />
         <a id="page-content" tabIndex={-1}>
           {" "}
         </a>
@@ -209,7 +218,7 @@ describe("IcSkipLink e2e, visual regression and a11y tests", () => {
   it("should move focus to the target element when the link is clicked", () => {
     mount(
       <>
-        <IcSkipLink target="#page-content" />
+        <IcSkipLink target="page-content" />
         <main id="page-content">Target element</main>
         <IcButton>Should receive next focus</IcButton>
       </>
@@ -245,7 +254,7 @@ describe("IcSkipLink visual regression high-contrast", () => {
   it("should render IcSkipLink with a custom label", () => {
     mount(
       <>
-        <IcSkipLink target="#page-content" label="Custom skip label" />
+        <IcSkipLink target="page-content" label="Custom skip label" />
         <a id="page-content" tabIndex={-1}>
           {" "}
         </a>

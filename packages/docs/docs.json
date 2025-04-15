@@ -16257,7 +16257,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "If `true`, the link will fill the width of the page.",
+          "docs": "If `true`, the skip link will fill the width of the page.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -16281,7 +16281,7 @@
           "mutable": false,
           "attr": "inline",
           "reflectToAttr": false,
-          "docs": "If `true`, the link will appear inline with surrounding page content when focused.",
+          "docs": "If `true`, the skip link will appear inline with surrounding page content when focused.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -16305,7 +16305,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The label displayed when the link is focused.",
+          "docs": "The label displayed when the skip link is focused.",
           "docsTags": [],
           "default": "\"Skip to main content\"",
           "values": [
@@ -16329,7 +16329,7 @@
           "mutable": false,
           "attr": "monochrome",
           "reflectToAttr": false,
-          "docs": "If `true`, the link will display as black in the light theme, and white in the dark theme.",
+          "docs": "If `true`, the skip link will display as black in the light theme, and white in the dark theme.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -16432,7 +16432,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-skip-link-position-top",
+          "annotation": "prop",
+          "docs": "The top position of the skip link when it is not displayed inline and has an absolute position."
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],

@@ -289,7 +289,7 @@ export class Toast {
     if (this.isActive(isBackwards ? firstEl : lastEl))
       return isBackwards ? lastEl : firstEl;
 
-    let currentIndex: number = 0;
+    let currentIndex = 0;
 
     return this.interactiveElements.some((el, index) => {
       if (!this.isActive(el)) return false;
