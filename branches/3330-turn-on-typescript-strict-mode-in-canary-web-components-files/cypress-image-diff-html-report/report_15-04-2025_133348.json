@@ -501,7 +501,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-slotted-title-bar",
-          "percentage": 0.13925749291396242,
+          "percentage": 0.1178421385270575,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -523,7 +523,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-density-dense",
-          "percentage": 0.13925749291396242,
+          "percentage": 0.1178421385270575,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -2412,9 +2412,9 @@
       ]
     }
   ],
-  "startedAt": "2025-04-15T12:03:00.601Z",
-  "endedAt": "2025-04-15T12:10:02.955Z",
-  "duration": 405459,
+  "startedAt": "2025-04-15T13:33:48.793Z",
+  "endedAt": "2025-04-15T13:40:40.553Z",
+  "duration": 395573,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
