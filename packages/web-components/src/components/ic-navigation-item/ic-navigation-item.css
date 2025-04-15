@@ -50,6 +50,7 @@ svg {
   transition: var(--ic-easing-transition-fast);
   position: relative;
   white-space: nowrap;
+  gap: var(--ic-space-xs);
 }
 
 :host(.navigation-item) ::slotted(a) {
@@ -135,6 +136,18 @@ svg {
   white-space: normal;
   transition: box-shadow var(--ic-transition-duration-fast),
     border-radius var(--ic-transition-duration-fast);
+}
+
+:host(.navigation-item-side-menu) ::slotted(svg) {
+  fill: var(--ic-color-primary-text);
+}
+
+:host(.navigation-item-top-nav-child) ::slotted(svg) {
+  fill: var(--ic-color-primary-text);
+}
+
+:host(.navigation-item-top-nav) ::slotted(svg) {
+  fill: var(--ic-theme-text);
 }
 
 :host(.navigation-item-side-menu) ::slotted(a) {
@@ -357,7 +370,6 @@ svg {
 }
 
 ::slotted(svg) {
-  fill: var(--ic-theme-text);
   width: var(--ic-space-lg);
   margin-left: var(--ic-space-md);
 }
