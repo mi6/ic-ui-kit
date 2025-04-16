@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.11](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.10...@ukic/canary-docs@3.0.0-canary.11) (2025-04-16)
+
+### Features
+
+- **canary-web-components:** added date object in icChange ([7db6522](https://github.com/mi6/ic-ui-kit/commit/7db65224842dce19b5f8d9eba826d20caee5029f))
+
 # [3.0.0-canary.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.9...@ukic/canary-docs@3.0.0-canary.10) (2025-04-08)
 
 **Note:** Version bump only for package @ukic/canary-docs

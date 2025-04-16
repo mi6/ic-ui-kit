@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.14](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.13...@ukic/canary-react@3.0.0-canary.14) (2025-04-16)
+
+### Features
+
+- **canary-react:** add treeItemDataProp to tree view ([75de609](https://github.com/mi6/ic-ui-kit/commit/75de6093332477eca1c13e4dbca63271295d2b7c)), closes [#2275](https://github.com/mi6/ic-ui-kit/issues/2275)
+- **canary-react:** modified cypress tests to check dateObject correctly fires ([96ab961](https://github.com/mi6/ic-ui-kit/commit/96ab9619ebd0d84bc0308359be9231c514c31df0))
+- **canary-react:** removed truncation from mobile view of tree-view ([917c2a4](https://github.com/mi6/ic-ui-kit/commit/917c2a40e99a32c187337d9e7ffa93840549d790))
+- **canary-react:** upgraded storybook to v8 ([3aac7d0](https://github.com/mi6/ic-ui-kit/commit/3aac7d017dbca22738063748bc309a969c54363e))
+
+### BREAKING CHANGES
+
+- **canary-react:** No longer truncates on mobile
+
 # [3.0.0-canary.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.12...@ukic/canary-react@3.0.0-canary.13) (2025-04-08)
 
 ### Features

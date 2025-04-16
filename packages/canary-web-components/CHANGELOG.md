@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.14](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.13...@ukic/canary-web-components@3.0.0-canary.14) (2025-04-16)
+
+### Bug Fixes
+
+- **canary-web-components:** added dark mode colours for data table cell descriptions and icons ([412f8bf](https://github.com/mi6/ic-ui-kit/commit/412f8bfcdf261f0d2736615cc028531380d6493c))
+
+### Features
+
+- **canary-web-components:** add treeItemData prop to tree view ([1bdf91a](https://github.com/mi6/ic-ui-kit/commit/1bdf91a712c7014d9d1a656343fca068aa65dd1f)), closes [#2275](https://github.com/mi6/ic-ui-kit/issues/2275)
+- **canary-web-components:** added date object in icChange ([7db6522](https://github.com/mi6/ic-ui-kit/commit/7db65224842dce19b5f8d9eba826d20caee5029f))
+- **canary-web-components:** removed truncation from tree-view when on small viewport ([2bdce2a](https://github.com/mi6/ic-ui-kit/commit/2bdce2ad2bba3a19e749f3bc401ab8c1d2ffcc12))
+- **canary-web-components:** upgraded canary-web-components to storybook v8 ([5cbd14b](https://github.com/mi6/ic-ui-kit/commit/5cbd14b5b0369c7244e688b26410af70e21236fc))
+
+### BREAKING CHANGES
+
+- **canary-web-components:** Content now wraps onto new lines on small viewports, regardless of the truncation
+  preferences
+
 # [3.0.0-canary.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.12...@ukic/canary-web-components@3.0.0-canary.13) (2025-04-08)
 
 ### Features
