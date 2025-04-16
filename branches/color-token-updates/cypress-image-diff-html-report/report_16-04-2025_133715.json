@@ -1,7 +1,7 @@
 {
-  "total": 777,
-  "totalPassed": 775,
-  "totalFailed": 2,
+  "total": 778,
+  "totalPassed": 777,
+  "totalFailed": 1,
   "totalSuites": 43,
   "suites": [
     {
@@ -1066,6 +1066,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/router-slot.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/router-slot.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcButton.cy.tsx/router-slot-with-content",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/router-slot-with-content.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/router-slot-with-content.png"
         },
         {
           "status": "pass",
@@ -5423,14 +5434,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx/disabled.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSelect.cy.tsx/disabled-default-value",
-          "percentage": 0.03714835124201342,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelect.cy.tsx/disabled-default-value.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSelect.cy.tsx/disabled-default-value.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx/disabled-default-value.png"
         },
         {
@@ -6128,14 +6139,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx/searchable-disabled.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSelectSearchable.cy.tsx/searchable-disabled-default-value",
-          "percentage": 0.03714835124201342,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectSearchable.cy.tsx/searchable-disabled-default-value.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSelectSearchable.cy.tsx/searchable-disabled-default-value.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx/searchable-disabled-default-value.png"
         },
         {
@@ -6740,14 +6751,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/sentence-case.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcStatusTag.cy.tsx/high-contrast",
-          "percentage": 0,
+          "percentage": 0.05695612346359257,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
           "specFilename": "IcStatusTag.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx/high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcStatusTag.cy.tsx/high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx/high-contrast.png"
         }
       ]
@@ -8810,9 +8821,9 @@
       ]
     }
   ],
-  "startedAt": "2025-04-11T08:39:31.185Z",
-  "endedAt": "2025-04-11T08:56:14.756Z",
-  "duration": 904888,
+  "startedAt": "2025-04-16T13:37:15.341Z",
+  "endedAt": "2025-04-16T13:53:31.778Z",
+  "duration": 880532,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
