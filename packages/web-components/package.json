@@ -1,6 +1,6 @@
 {
   "name": "@ukic/web-components",
-  "version": "2.37.1",
+  "version": "2.37.2",
   "description": "A web component UI library compiled with StencilJS",
   "author": "mi6",
   "bugs": {
