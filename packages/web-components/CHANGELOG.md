@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.37.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.37.0...@ukic/web-components@2.37.2) (2025-04-16)
+
+### Bug Fixes
+
+- **web-components:** correct formatting of OFFSEN in classification banner ([d5afb8f](https://github.com/mi6/ic-ui-kit/commit/d5afb8f634bc3fe5508e994cf93b436e195b6c70))
+- **web-components:** fix ic-page-header nav element aria label ([fd6ae26](https://github.com/mi6/ic-ui-kit/commit/fd6ae269b577224fd473279dbc537de4a5f3dbc1))
+- **web-components:** set the focus in the icpopovermenu when the open prop has been provided ([502e2b2](https://github.com/mi6/ic-ui-kit/commit/502e2b265699970b07014f04c1c97c82325849b4))
+- **web-components:** update navigation group so that two nav groups can't be open simultaneously ([7ab8b85](https://github.com/mi6/ic-ui-kit/commit/7ab8b85866ca5ad628fe3bf2bdc011f000facd8e)), closes [#3117](https://github.com/mi6/ic-ui-kit/issues/3117)
+
 ## [2.37.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.37.0...@ukic/web-components@2.37.1) (2025-04-07)
 
 ### Bug Fixes
