@@ -47,7 +47,7 @@ describe("ic-classification-banner component", () => {
           <mock:shadow-root>
             <banner aria-label="Protective marking" class="classification-banner official-sensitive">
                 <span class="offscreen">The protective marking of this page is: </span>
-                <ic-typography variant="caption-uppercase">uk official sensitive</ic-typography>
+                <ic-typography variant="caption-uppercase">uk official-sensitive</ic-typography>
             </banner>
           </mock:shadow-root>
         </ic-classification-banner>`);
