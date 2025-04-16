@@ -45,6 +45,7 @@ graph TD;
   ic-popover-menu --> ic-typography
   ic-menu-item --> ic-typography
   ic-menu-item --> ic-button
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

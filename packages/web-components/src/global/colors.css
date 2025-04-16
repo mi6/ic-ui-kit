@@ -214,10 +214,14 @@
 
   /* success status */
   --ic-status-success-default: var(--ic-green-1400);
+  --ic-status-success-default-dm: var(--ic-green-1000);
   --ic-status-success-light: var(--ic-green-0);
+  --ic-status-success-light-dm: var(--ic-green-0);
   --ic-status-success-dark: var(--ic-green-1700);
+  --ic-status-success-dark-dm: var(--ic-green-1700);
   --ic-status-success-outlined: var(--ic-green-100);
   --ic-status-success-contrast: var(--ic-green-1000);
+  --ic-status-success-contrast-dm: var(--ic-green-500);
   --ic-status-success-r: 0;
   --ic-status-success-g: 112;
   --ic-status-success-b: 60;
@@ -235,10 +239,14 @@
 
   /* warning status */
   --ic-status-warning-default: var(--ic-yellow-900);
+  --ic-status-warning-default-dm: var(--ic-yellow-400);
   --ic-status-warning-light: var(--ic-yellow-0);
+  --ic-status-warning-light-dm: var(--ic-yellow-0);
   --ic-status-warning-dark: var(--ic-yellow-1400);
+  --ic-status-warning-dark-dm: var(--ic-yellow-1700);
   --ic-status-warning-outlined: var(--ic-yellow-100);
   --ic-status-warning-contrast: var(--ic-yellow-400);
+  --ic-status-warning-contrast-dm: var(--ic-yellow-400);
   --ic-status-warning-r: 208;
   --ic-status-warning-g: 121;
   --ic-status-warning-b: 50;
@@ -256,10 +264,14 @@
 
   /* error status */
   --ic-status-error-default: var(--ic-red-800);
+  --ic-status-error-default-dm: var(--ic-red-500);
   --ic-status-error-light: var(--ic-red-0);
+  --ic-status-error-light-dm: var(--ic-red-0);
   --ic-status-error-dark: var(--ic-red-1500);
+  --ic-status-error-dark-dm: var(--ic-red-1700);
   --ic-status-error-outlined: var(--ic-red-500);
   --ic-status-error-contrast: var(--ic-red-400);
+  --ic-status-error-contrast-dm: var(--ic-red-400);
   --ic-status-error-r: 212;
   --ic-status-error-g: 53;
   --ic-status-error-b: 28;
@@ -275,23 +287,35 @@
 
   /* info status */
   --ic-status-info-default: var(--ic-blue-900);
+  --ic-status-info-default-dm: var(--ic-blue-900);
   --ic-status-info-light: var(--ic-blue-0);
+  --ic-status-info-light-dm: var(--ic-blue-100);
   --ic-status-info-dark: var(--ic-blue-1600);
+  --ic-status-info-dark-dm: var(--ic-blue-1700);
   --ic-status-info-contrast: var(--ic-blue-400);
+  --ic-status-info-contrast-dm: var(--ic-blue-400);
 
   /* anomalous status */
   --ic-status-anomalous-default: var(--ic-purple-1400);
+  --ic-status-anomalous-default-dm: var(--ic-purple-500);
   --ic-status-anomalous-light: var(--ic-purple-50);
+  --ic-status-anomalous-light-dm: var(--ic-purple-50);
   --ic-status-anomalous-dark: var(--ic-purple-1800);
+  --ic-status-anomalous-dark-dm: var(--ic-purple-1800);
   --ic-status-anomalous-contrast: var(--ic-purple-400);
+  --ic-status-anomalous-contrast-dm: var(--ic-purple-400);
 
   /* status unknown */
   --ic-status-unknown-default: var(--ic-architectural-500);
+  --ic-status-unknown-default-dm: var(--ic-architectural-300);
   --ic-status-unknown-mid: var(--ic-architectural-700);
   --ic-status-unknown-light: var(--ic-architectural-40);
+  --ic-status-unknown-light-dm: var(--ic-architectural-100);
   --ic-status-unknown-dark: var(--ic-architectural-800);
+  --ic-status-unknown-dark-dm: var(--ic-architectural-850);
   --ic-status-unknown-outlined: var(--ic-architectural-200);
   --ic-status-unknown-contrast: var(--ic-architectural-300);
+  --ic-status-unknown-contrast-dm: var(--ic-architectural-300);
 
   /* TEXT */
   --ic-color-brand-text: var(--ic-architectural-20);

@@ -67,6 +67,7 @@ graph TD;
   ic-select --> ic-menu
   ic-select --> ic-input-validation
   ic-input-label --> ic-typography
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

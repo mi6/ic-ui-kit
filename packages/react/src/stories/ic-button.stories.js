@@ -9,6 +9,7 @@ import {
   IcMenuItem,
   IcPopoverMenu,
   IcTypography,
+  IcBadge
 } from "../components";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
@@ -851,6 +852,183 @@ export const Router = {
   ),
 
   name: "Router",
+};
+
+export const RouterLinkWithSlottedContent = {
+  render: () => (
+    <>
+      <div style={{padding: "1rem", display:"flex", gap: "1rem", alignItems: "center"}}>
+        <IcButton size="small">
+          <a slot="router-item" href="/">
+            <svg
+              slot="left-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+            Slotted link
+          </a>
+        </IcButton>
+        <IcButton>
+          <a slot="router-item" href="/">
+            <svg
+              slot="left-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+            Slotted link
+          </a>
+        </IcButton>
+        <IcButton size="large">
+          <a slot="router-item" href="/">
+            <svg
+              slot="left-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+            <IcBadge slot="badge" label="1" position="near" />
+            Slotted link
+          </a>
+        </IcButton>
+      </div>
+      <div style={{padding: "1rem", display:"flex", gap: "1rem"}}>
+        <IcButton disabled>
+          <a slot="router-item" href="/">
+            <svg
+              slot="right-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+            Slotted link
+          </a>
+        </IcButton>
+        <IcButton variant="secondary">
+          <a slot="router-item" href="/">
+            <svg
+              slot="right-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+            Slotted link
+          </a>
+        </IcButton>
+        <IcButton variant="tertiary">
+          <a slot="router-item" href="/">
+            <svg
+              slot="right-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+            Slotted link
+          </a>
+        </IcButton>
+        <IcButton variant="destructive">
+          <a slot="router-item" href="/">
+            <svg
+              slot="right-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+            Slotted link
+          </a>
+        </IcButton>
+      </div>
+      <div style={{padding: "1rem", display:"flex", gap: "1rem"}}>
+        <IcButton theme="light" monochrome>
+          <a slot="router-item" href="/">
+            <svg
+              slot="top-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+            Slotted link
+          </a>
+        </IcButton>
+        <IcButton theme="dark" monochrome>
+          <a slot="router-item" href="/">
+            <svg
+              slot="top-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+            Slotted link
+          </a>
+        </IcButton>
+      </div>
+      </>),
+
+  name: "Router link - with slotted content",
 };
 
 export const WithMdiIcons = {

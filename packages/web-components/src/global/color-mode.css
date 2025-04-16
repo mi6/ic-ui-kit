@@ -689,6 +689,7 @@ ic-theme,
   --ic-data-table-loading-indicator-overlay-background: var(
     --ic-architectural-black
   );
+  --ic-data-table-cell-description-text: var(--ic-color-text-secondary-light);
 
   /* Data table title bar */
   --ic-data-table-title-bar-title: var(--ic-color-text-primary);
@@ -1045,8 +1046,8 @@ ic-theme,
   --ic-skip-link-background: var(--ic-color-background-primary);
 
   /* Status tags */
-  --ic-status-tag-text: var(--ic-color-text-inverse);
-  --ic-status-tag-text-inverted: var(--ic-color-text-primary);
+  --ic-status-tag-text: var(--ic-color-text-inverted);
+  --ic-status-tag-text-inverted: var(--ic-color-text-primary-light);
   --ic-status-tag-success: var(--ic-status-success-default);
   --ic-status-tag-outlined-background-success: var(--ic-status-success-light);
   --ic-status-tag-outlined-success: var(--ic-status-success-default);
@@ -1061,6 +1062,7 @@ ic-theme,
     --ic-status-unknown-outlined
   );
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-mid);
+  --ic-status-tag-filled-warning-text: var(--ic-status-tag-text-inverted);
 
   /* Stepper */
   --ic-step-title: var(--ic-color-text-primary);
@@ -1069,7 +1071,7 @@ ic-theme,
   --ic-step-title-active: var(--ic-color-text-primary);
   --ic-step-title-disabled: var(--ic-color-text-disabled-default);
   --ic-step-title-status-text-current: var(--ic-color-text-primary);
-  --ic-step-title-status-text-inactive: var(--ic-color-text-tertiary);
+  --ic-step-title-status-text-inactive: var(--ic-color-text-secondary);
   --ic-step-title-status-text-disabled: var(--ic-color-text-disabled-default);
   --ic-stepper-connector-success: var(--ic-status-success-default);
   --ic-stepper-connector-current-status: var(--ic-status-info-default);
@@ -1077,7 +1079,7 @@ ic-theme,
   --ic-stepper-connector-disabled: var(--ic-architectural-200);
   --ic-step-number-background-active: var(--ic-status-info-default);
   --ic-step-number-background-success: var(--ic-status-success-default);
-  --ic-step-number-text: var(--ic-color-text-inverse);
+  --ic-step-number-text-current: var(--ic-color-text-inverted);
   --ic-step-number-text-inactive: var(--ic-color-text-primary);
   --ic-step-number-text-disabled: var(--ic-color-text-disabled);
   --ic-step-number-icon-success: var(--ic-color-icon-brand);
@@ -1096,12 +1098,14 @@ ic-theme,
   );
   --ic-step-indicator-text-disabled: var(--ic-color-text-tertiary);
   --ic-stepper-compact-step-title: var(--ic-color-text-primary);
-  --ic-stepper-compact-step-title-disabled: var(--ic-color-text-tertiary);
+  --ic-stepper-compact-step-title-disabled: var(
+    --ic-color-text-disabled-default
+  );
   --ic-stepper-compact-step-stage-text: var(--ic-color-text-secondary);
   --ic-stepper-compact-step-next-text: var(--ic-color-text-primary);
   --ic-stepper-compact-step-requirement-text: var(--ic-color-text-secondary);
   --ic-stepper-compact-step-requirement-text-disabled: var(
-    --ic-color-text-tertiary
+    --ic-color-text-disabled-default
   );
   --ic-stepper-compact-step-completed-text: var(--ic-status-success-default);
 
@@ -1698,16 +1702,16 @@ ic-theme,
     --ic-accordion-chevron-disabled: var(--ic-color-icon-disabled);
 
     /* Alert */
-    --ic-alert-background-success: var(--ic-status-success-dark);
-    --ic-alert-background-error: var(--ic-red-1700);
-    --ic-alert-background-warning: var(--ic-yellow-1700);
-    --ic-alert-background-info: var(--ic-blue-1700);
-    --ic-alert-background-neutral: var(--ic-architectural-850);
-    --ic-alert-status-type-success: var(--ic-status-success-contrast);
-    --ic-alert-status-type-error: var(--ic-status-error-contrast);
-    --ic-alert-status-type-warning: var(--ic-status-warning-contrast);
-    --ic-alert-status-type-info: var(--ic-status-info-contrast);
-    --ic-alert-status-type-neutral: var(--ic-status-unknown-contrast);
+    --ic-alert-background-success: var(--ic-status-success-dark-dm);
+    --ic-alert-background-error: var(--ic-status-error-dark-dm);
+    --ic-alert-background-warning: var(--ic-status-warning-dark-dm);
+    --ic-alert-background-info: var(--ic-status-info-dark-dm);
+    --ic-alert-background-neutral: var(--ic-status-unknown-dark-dm);
+    --ic-alert-status-type-success: var(--ic-status-success-default-dm);
+    --ic-alert-status-type-error: var(--ic-status-error-contrast-dm);
+    --ic-alert-status-type-warning: var(--ic-status-warning-contrast-dm);
+    --ic-alert-status-type-info: var(--ic-status-info-contrast-dm);
+    --ic-alert-status-type-neutral: var(--ic-status-unknown-contrast-dm);
     --ic-alert-title: var(--ic-color-text-primary);
     --ic-alert-description: var(--ic-color-text-primary);
     --ic-alert-icon-success: var(--ic-status-success-contrast);
@@ -2054,6 +2058,7 @@ ic-theme,
     --ic-data-table-loading-indicator-overlay-background: var(
       --ic-architectural-black
     );
+    --ic-data-table-cell-description-text: var(--ic-color-text-secondary-dark);
 
     /* Data table title bar */
     --ic-data-table-title-bar-title: var(--ic-color-text-primary);
@@ -2434,41 +2439,46 @@ ic-theme,
     --ic-skip-link-background: var(--ic-color-background-primary);
 
     /* Status tags */
-    --ic-status-tag-text: var(--ic-color-text-inverse);
-    --ic-status-tag-text-inverted: var(--ic-color-text-inverse);
+    --ic-status-tag-text: var(--ic-color-text-primary-light);
+    --ic-status-tag-text-inverted: var(--ic-color-text-inverted);
     --ic-status-tag-success: var(--ic-status-success-contrast);
     --ic-status-tag-outlined-background-success: var(
-      --ic-status-success-outlined
+      --ic-status-success-dark-dm
     );
     --ic-status-tag-outlined-success: var(--ic-status-success-contrast);
     --ic-status-tag-error: var(--ic-status-error-contrast);
-    --ic-status-tag-outlined-background-error: var(--ic-status-error-light);
+    --ic-status-tag-outlined-background-error: var(--ic-status-error-dark-dm);
     --ic-status-tag-outlined-error: var(--ic-status-error-outlined);
     --ic-status-tag-warning: var(--ic-status-warning-contrast);
-    --ic-status-tag-outlined-background-warning: var(--ic-status-warning-light);
+    --ic-status-tag-outlined-background-warning: var(
+      --ic-status-warning-dark-dm
+    );
     --ic-status-tag-outlined-warning: var(--ic-status-warning-outlined);
     --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
-    --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-light);
+    --ic-status-tag-outlined-background-neutral: var(
+      --ic-status-unknown-dark-dm
+    );
     --ic-status-tag-outlined-neutral: var(--ic-status-unknown-default);
+    --ic-status-tag-filled-warning-text: var(--ic-status-tag-text);
 
     /* Stepper */
-    --ic-step-title: var(--ic-architectural-200);
+    --ic-step-title: var(--ic-color-text-primary);
     --ic-step-title-current: var(--ic-status-info-contrast);
     --ic-step-title-success: var(--ic-status-success-contrast);
     --ic-step-title-active: var(--ic-color-text-tertiary);
-    --ic-step-title-disabled: var(--ic-color-text-inactive);
+    --ic-step-title-disabled: var(--ic-color-text-disabled);
     --ic-step-title-status-text-current: var(--ic-color-text-primary);
-    --ic-step-title-status-text-inactive: var(--ic-color-text-primary);
-    --ic-step-title-status-text-disabled: var(--ic-color-text-tertiary);
+    --ic-step-title-status-text-inactive: var(--ic-color-text-secondary);
+    --ic-step-title-status-text-disabled: var(--ic-color-text-disabled);
     --ic-stepper-connector-success: var(--ic-status-success-contrast);
     --ic-stepper-connector-current-status: var(--ic-status-info-contrast);
     --ic-stepper-connector-remaining-status: var(--ic-architectural-600);
     --ic-stepper-connector-disabled: var(--ic-architectural-600);
     --ic-step-number-background-active: var(--ic-status-info-contrast);
     --ic-step-number-background-success: var(--ic-status-success-contrast);
-    --ic-step-number-text: var(--ic-color-text-primary);
+    --ic-step-number-text-current: var(--ic-color-text-primary-light);
     --ic-step-number-text-inactive: var(--ic-color-text-primary);
-    --ic-step-number-text-disabled: var(--ic-color-text-inactive);
+    --ic-step-number-text-disabled: var(--ic-color-text-disabled);
     --ic-step-number-icon-success: var(--ic-color-icon-grey-darker);
     --ic-step-number-inactive: var(--ic-color-background-primary);
     --ic-step-number-disabled: var(--ic-color-border-neutral-grey-dark);
@@ -2485,12 +2495,12 @@ ic-theme,
     );
     --ic-step-indicator-text-disabled: var(--ic-color-text-inactive);
     --ic-stepper-compact-step-title: var(--ic-color-text-primary);
-    --ic-stepper-compact-step-title-disabled: var(--ic-color-text-inactive);
+    --ic-stepper-compact-step-title-disabled: var(--ic-color-text-disabled);
     --ic-stepper-compact-step-stage-text: var(--ic-color-text-secondary);
     --ic-stepper-compact-step-next-text: var(--ic-color-text-primary);
     --ic-stepper-compact-step-requirement-text: var(--ic-color-text-secondary);
     --ic-stepper-compact-step-requirement-text-disabled: var(
-      --ic-color-text-inactive
+      --ic-color-text-disabled
     );
     --ic-stepper-compact-step-completed-text: var(--ic-status-success-contrast);
 
@@ -3097,16 +3107,16 @@ ic-theme,
   --ic-accordion-chevron-disabled: var(--ic-color-icon-disabled);
 
   /* Alert */
-  --ic-alert-background-success: var(--ic-status-success-dark);
-  --ic-alert-background-error: var(--ic-red-1700);
-  --ic-alert-background-warning: var(--ic-yellow-1700);
-  --ic-alert-background-info: var(--ic-blue-1700);
-  --ic-alert-background-neutral: var(--ic-architectural-850);
-  --ic-alert-status-type-success: var(--ic-status-success-contrast);
-  --ic-alert-status-type-error: var(--ic-status-error-contrast);
-  --ic-alert-status-type-warning: var(--ic-status-warning-contrast);
-  --ic-alert-status-type-info: var(--ic-status-info-contrast);
-  --ic-alert-status-type-neutral: var(--ic-status-unknown-contrast);
+  --ic-alert-background-success: var(--ic-status-success-dark-dm);
+  --ic-alert-background-error: var(--ic-status-error-dark-dm);
+  --ic-alert-background-warning: var(--ic-status-warning-dark-dm);
+  --ic-alert-background-info: var(--ic-status-info-dark-dm);
+  --ic-alert-background-neutral: var(--ic-status-unknown-dark-dm);
+  --ic-alert-status-type-success: var(--ic-status-success-default-dm);
+  --ic-alert-status-type-error: var(--ic-status-error-contrast-dm);
+  --ic-alert-status-type-warning: var(--ic-status-warning-contrast-dm);
+  --ic-alert-status-type-info: var(--ic-status-info-contrast-dm);
+  --ic-alert-status-type-neutral: var(--ic-status-unknown-contrast-dm);
   --ic-alert-title: var(--ic-color-text-primary);
   --ic-alert-description: var(--ic-color-text-primary);
   --ic-alert-icon-success: var(--ic-status-success-contrast);
@@ -3428,6 +3438,7 @@ ic-theme,
   --ic-data-table-loading-indicator-overlay-background: var(
     --ic-architectural-black
   );
+  --ic-data-table-cell-description-text: var(--ic-color-text-secondary-dark);
 
   /* Data table title bar */
   --ic-data-table-title-bar-title: var(--ic-color-text-primary);
@@ -3780,41 +3791,40 @@ ic-theme,
   --ic-skip-link-background: var(--ic-color-background-primary);
 
   /* Status tags */
-  --ic-status-tag-text: var(--ic-color-text-inverse);
-  --ic-status-tag-text-inverted: var(--ic-color-text-inverse);
+  --ic-status-tag-text: var(--ic-color-text-primary-light);
+  --ic-status-tag-text-inverted: var(--ic-color-text-inverted);
   --ic-status-tag-success: var(--ic-status-success-contrast);
-  --ic-status-tag-outlined-background-success: var(
-    --ic-status-success-outlined
-  );
+  --ic-status-tag-outlined-background-success: var(--ic-status-success-dark-dm);
   --ic-status-tag-outlined-success: var(--ic-status-success-contrast);
   --ic-status-tag-error: var(--ic-status-error-contrast);
-  --ic-status-tag-outlined-background-error: var(--ic-status-error-light);
+  --ic-status-tag-outlined-background-error: var(--ic-status-error-dark-dm);
   --ic-status-tag-outlined-error: var(--ic-status-error-outlined);
   --ic-status-tag-warning: var(--ic-status-warning-contrast);
-  --ic-status-tag-outlined-background-warning: var(--ic-status-warning-light);
+  --ic-status-tag-outlined-background-warning: var(--ic-status-warning-dark-dm);
   --ic-status-tag-outlined-warning: var(--ic-status-warning-outlined);
   --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
-  --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-light);
+  --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-dark-dm);
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-default);
+  --ic-status-tag-filled-warning-text: var(--ic-status-tag-text);
 
   /* Stepper */
-  --ic-step-title: var(--ic-architectural-200);
+  --ic-step-title: var(--ic-color-text-primary);
   --ic-step-title-current: var(--ic-status-info-contrast);
   --ic-step-title-success: var(--ic-status-success-contrast);
   --ic-step-title-active: var(--ic-color-text-tertiary);
-  --ic-step-title-disabled: var(--ic-color-text-inactive);
+  --ic-step-title-disabled: var(--ic-color-text-disabled);
   --ic-step-title-status-text-current: var(--ic-color-text-primary);
-  --ic-step-title-status-text-inactive: var(--ic-color-text-primary);
-  --ic-step-title-status-text-disabled: var(--ic-color-text-tertiary);
+  --ic-step-title-status-text-inactive: var(--ic-color-text-secondary);
+  --ic-step-title-status-text-disabled: var(--ic-color-text-disabled);
   --ic-stepper-connector-success: var(--ic-status-success-contrast);
   --ic-stepper-connector-current-status: var(--ic-status-info-contrast);
   --ic-stepper-connector-remaining-status: var(--ic-architectural-600);
   --ic-stepper-connector-disabled: var(--ic-architectural-600);
   --ic-step-number-background-active: var(--ic-status-info-contrast);
   --ic-step-number-background-success: var(--ic-status-success-contrast);
-  --ic-step-number-text: var(--ic-color-text-primary);
+  --ic-step-number-text-current: var(--ic-color-text-primary-light);
   --ic-step-number-text-inactive: var(--ic-color-text-primary);
-  --ic-step-number-text-disabled: var(--ic-color-text-inactive);
+  --ic-step-number-text-disabled: var(--ic-color-text-disabled);
   --ic-step-number-icon-success: var(--ic-color-icon-grey-darker);
   --ic-step-number-inactive: var(--ic-color-background-primary);
   --ic-step-number-disabled: var(--ic-color-border-neutral-grey-dark);
@@ -3831,12 +3841,12 @@ ic-theme,
   );
   --ic-step-indicator-text-disabled: var(--ic-color-text-inactive);
   --ic-stepper-compact-step-title: var(--ic-color-text-primary);
-  --ic-stepper-compact-step-title-disabled: var(--ic-color-text-inactive);
+  --ic-stepper-compact-step-title-disabled: var(--ic-color-text-disabled);
   --ic-stepper-compact-step-stage-text: var(--ic-color-text-secondary);
   --ic-stepper-compact-step-next-text: var(--ic-color-text-primary);
   --ic-stepper-compact-step-requirement-text: var(--ic-color-text-secondary);
   --ic-stepper-compact-step-requirement-text-disabled: var(
-    --ic-color-text-inactive
+    --ic-color-text-disabled
   );
   --ic-stepper-compact-step-completed-text: var(--ic-status-success-contrast);
 

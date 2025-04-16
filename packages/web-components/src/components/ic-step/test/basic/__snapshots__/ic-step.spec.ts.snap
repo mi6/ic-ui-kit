@@ -71,7 +71,7 @@ exports[`compact variant of ic-step component should render a step status icon f
 exports[`compact variant of ic-step component should render an step status icon for a step with a disabled type 1`] = `
 <ic-step aria-label="Step 3. Non-required step" class="ic-step-compact" compact-step-styling="disabled" heading="Third step" last-step="false" last-step-num="4" next-step-heading="next step" progress="75" role="listitem" step-num="3" type="disabled" variant="compact">
   <template shadowrootmode="open">
-    <div class="compact-step-disabled step">
+    <div class="compact-step-disabled disabled step">
       <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator not-required" inner-label="3" progress="75" size="small"></ic-loading-indicator>
       <div class="heading-area">
         <ic-typography class="heading" variant="h4">

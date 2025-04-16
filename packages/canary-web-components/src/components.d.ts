@@ -10,11 +10,13 @@ import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSiz
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
+import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
+export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export namespace Components {
     interface IcCardHorizontal {
         /**
@@ -261,6 +263,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, every individual input field completed will emit an icChange event.
+         */
+        "emitDatePartChange"?: boolean;
+        /**
           * Returns the value as a Date object
           * @returns Date
          */
@@ -367,6 +373,10 @@ export namespace Components {
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
+        /**
+          * If `true`, every individual input field completed will emit an icChange event.
+         */
+        "emitDatePartChange"?: boolean;
         /**
           * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
@@ -541,6 +551,7 @@ export namespace Components {
           * The label of the tree item.
          */
         "label": string;
+        "previousTruncateTreeItem": boolean;
         /**
           * How much of the referrer to send when following the link.
          */
@@ -590,11 +601,15 @@ export namespace Components {
          */
         "theme"?: IcThemeMode;
         /**
-          * If `true`, the tree view heading will be truncated instead of text wrapping.
+          * The content within the tree view tree items. This will take precedence over slotted content.
+         */
+        "treeItemData": IcTreeItemOptions[];
+        /**
+          * If `true`, the tree view heading will be truncated instead of text wrapping. When used on small devices, this prop will be overridden and headings will be set to text-wrap.
          */
         "truncateHeading"?: boolean;
         /**
-          * If `true`, tree items will be truncated, unless they are individually overridden.
+          * If `true`, tree items will be truncated, unless they are individually overridden. When used on small devices, this prop will be overridden and tree-items will be set to text-wrap.
          */
         "truncateTreeItems"?: boolean;
     }
@@ -669,7 +684,10 @@ declare global {
     interface HTMLIcDateInputElementEventMap {
         "calendarButtonClicked": { value: Date };
         "icBlur": { value: Date };
-        "icChange": { value: Date };
+        "icChange": {
+    value: Date;
+    dateObject: { day: string; month: string; year: string };
+  };
         "icFocus": { value: Date };
     }
     interface HTMLIcDateInputElement extends Components.IcDateInput, HTMLStencilElement {
@@ -1009,6 +1027,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, every individual input field completed will emit an icChange event.
+         */
+        "emitDatePartChange"?: boolean;
+        /**
           * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
         "helperText"?: string;
@@ -1052,7 +1074,10 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onIcChange"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
+        "onIcChange"?: (event: IcDateInputCustomEvent<{
+    value: Date;
+    dateObject: { day: string; month: string; year: string };
+  }>) => void;
         /**
           * Emitted when the input gains focus.
          */
@@ -1120,6 +1145,10 @@ declare namespace LocalJSX {
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
+        /**
+          * If `true`, every individual input field completed will emit an icChange event.
+         */
+        "emitDatePartChange"?: boolean;
         /**
           * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
@@ -1310,6 +1339,7 @@ declare namespace LocalJSX {
           * Emitted when tree item is selected.
          */
         "onIcTreeItemSelected"?: (event: IcTreeItemCustomEvent<{ id: string }>) => void;
+        "previousTruncateTreeItem"?: boolean;
         /**
           * How much of the referrer to send when following the link.
          */
@@ -1354,11 +1384,15 @@ declare namespace LocalJSX {
          */
         "theme"?: IcThemeMode;
         /**
-          * If `true`, the tree view heading will be truncated instead of text wrapping.
+          * The content within the tree view tree items. This will take precedence over slotted content.
+         */
+        "treeItemData"?: IcTreeItemOptions[];
+        /**
+          * If `true`, the tree view heading will be truncated instead of text wrapping. When used on small devices, this prop will be overridden and headings will be set to text-wrap.
          */
         "truncateHeading"?: boolean;
         /**
-          * If `true`, tree items will be truncated, unless they are individually overridden.
+          * If `true`, tree items will be truncated, unless they are individually overridden. When used on small devices, this prop will be overridden and tree-items will be set to text-wrap.
          */
         "truncateTreeItems"?: boolean;
     }

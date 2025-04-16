@@ -58,6 +58,7 @@ graph TD;
   ic-top-navigation --> ic-button
   ic-top-navigation --> ic-horizontal-scroll
   ic-top-navigation --> ic-navigation-menu
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

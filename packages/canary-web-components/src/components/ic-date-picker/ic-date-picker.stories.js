@@ -9,6 +9,7 @@ import {
   HideButtons,
   HideOutsideMonth,
   IcChangeDate,
+  IcChangeDateEmitDatePartChanges,
   JSDates,
   MaxMin,
   MaxWidth,
@@ -181,5 +182,14 @@ export const JavascriptDates = {
 export const IcChangeEvent = {
   render: () => IcChangeDate(),
   name: "IcChange event",
+  height: "540px",
+};
+
+/**
+ * The `IcChange` event is emitted by the date picker every time an input field is changed.
+ */
+export const IcChangeEventEmitDatePartChange = {
+  render: () => IcChangeDateEmitDatePartChanges(),
+  name: "IcChange event with emitDatePartChange",
   height: "540px",
 };

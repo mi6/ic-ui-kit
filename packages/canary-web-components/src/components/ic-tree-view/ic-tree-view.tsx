@@ -10,10 +10,14 @@ import {
 } from "@stencil/core";
 import { IcSizes, IcThemeMode } from "../../utils/types";
 import {
+  checkResizeObserver,
+  DEVICE_SIZES,
+  getCurrentDeviceSize,
   isPropDefined,
   isSlotUsed,
   renderDynamicChildSlots,
 } from "../../utils/helpers";
+import { IcTreeItemOptions } from "./ic-tree-view.types";
 
 let treeViewIds = 0;
 
@@ -32,8 +36,26 @@ export class TreeView {
   private treeItemTag = "IC-TREE-ITEM";
   private hostMutationObserver: MutationObserver = null;
   private isLoaded = false;
+  private resizeObserver: ResizeObserver | null = null;
+  private TOOLTIP = "ic-tooltip";
+
+  private previousTruncateHeading: boolean;
+  private previousTruncateTreeItems: boolean;
 
   @Element() el: HTMLIcTreeViewElement;
+
+  @State() smallDevice: boolean = false;
+  @Watch("smallDevice")
+  watchSmallDeviceHandler(): void {
+    if (this.smallDevice) {
+      this.previousTruncateHeading = this.truncateHeading;
+      this.previousTruncateTreeItems = this.truncateTreeItems;
+      this.removeTruncation();
+    } else {
+      this.truncateHeading = this.previousTruncateHeading;
+      this.truncateTreeItems = this.previousTruncateTreeItems;
+    }
+  }
 
   @State() treeItems: HTMLIcTreeItemElement[];
 
@@ -76,19 +98,33 @@ export class TreeView {
   }
 
   /**
+   * The content within the tree view tree items. This will take precedence over slotted content.
+   * */
+  @Prop() treeItemData: IcTreeItemOptions[] = [];
+  @Watch("treeItemData")
+  watchTreeItemOptionsHandler(): void {
+    this.setTreeItems();
+  }
+
+  /**
    * If `true`, the tree view heading will be truncated instead of text wrapping.
+   * When used on small devices, this prop will be overridden and headings will be set to text-wrap.
    */
-  @Prop() truncateHeading?: boolean = false;
+  @Prop({ mutable: true }) truncateHeading?: boolean = false;
 
   /**
    * If `true`, tree items will be truncated, unless they are individually overridden.
+   * When used on small devices, this prop will be overridden and tree-items will be set to text-wrap.
    */
-  @Prop() truncateTreeItems?: boolean = false;
+  @Prop({ mutable: true }) truncateTreeItems?: boolean = false;
   @Watch("truncateTreeItems")
   watchTruncateTreeItemsHandler(): void {
     this.treeItems.forEach((treeItem) => {
-      if (treeItem.truncateTreeItem === undefined) {
+      if (this.smallDevice) {
+        treeItem.previousTruncateTreeItem = treeItem.truncateTreeItem;
         treeItem.truncateTreeItem = this.truncateTreeItems;
+      } else {
+        treeItem.truncateTreeItem = treeItem.previousTruncateTreeItem;
       }
     });
   }
@@ -97,18 +133,30 @@ export class TreeView {
     this.el?.removeEventListener("slotchange", this.setTreeItems);
 
     this.hostMutationObserver?.disconnect();
+    this.resizeObserver?.disconnect();
   }
   componentWillLoad(): void {
     this.setTreeItems();
 
+    this.previousTruncateHeading = this.truncateHeading;
+    this.previousTruncateTreeItems = this.truncateTreeItems;
+
+    checkResizeObserver(this.runResizeObserver);
+
     this.watchSizeHandler();
     this.watchFocusInsetHandler();
     this.watchThemeHandler();
-    this.watchTruncateTreeItemsHandler();
+    this.treeItems.forEach((treeItem) => {
+      if (treeItem.truncateTreeItem === undefined) {
+        treeItem.truncateTreeItem = this.truncateTreeItems;
+      }
+    });
   }
 
   componentDidRender(): void {
-    this.truncateHeading && this.truncateTreeViewHeading();
+    this.truncateHeading
+      ? this.truncateTreeViewHeading()
+      : this.removeHeadingTruncation();
   }
 
   componentDidLoad(): void {
@@ -132,6 +180,20 @@ export class TreeView {
       }
     });
   }
+
+  private runResizeObserver = () => {
+    this.resizeObserver = new ResizeObserver(() => {
+      const isSmallDevice = getCurrentDeviceSize() <= DEVICE_SIZES.S;
+      if (this.smallDevice !== isSmallDevice) this.smallDevice = isSmallDevice;
+    });
+
+    this.resizeObserver.observe(document.body);
+  };
+
+  private removeTruncation = (): void => {
+    this.truncateHeading = undefined;
+    this.truncateTreeItems = undefined;
+  };
 
   private handleKeyDown = (event: KeyboardEvent): void => {
     const focussedChild = this.treeItems.indexOf(
@@ -245,17 +307,55 @@ export class TreeView {
   private getAllTreeItems(element: HTMLElement): HTMLIcTreeItemElement[] {
     const treeItems: HTMLIcTreeItemElement[] = [];
 
-    const collectTreeItems = (el: HTMLElement) => {
+    const collectTreeItemsFromSlottedContent = (el: HTMLElement) => {
       Array.from(el.children).forEach((child) => {
         if (child.tagName === this.treeItemTag) {
           treeItems.push(child as HTMLIcTreeItemElement);
         }
 
-        collectTreeItems(child as HTMLElement);
+        collectTreeItemsFromSlottedContent(child as HTMLElement);
       });
     };
 
-    collectTreeItems(element);
+    const collectTreeItemsFromData = (
+      items: IcTreeItemOptions[],
+      parentElement: HTMLElement
+    ) => {
+      Array.from(parentElement.children).forEach((child) => {
+        if (child.tagName === this.treeItemTag) {
+          parentElement.removeChild(child);
+        }
+      });
+
+      items.forEach((item) => {
+        const treeItem = document.createElement(
+          this.treeItemTag
+        ) as HTMLIcTreeItemElement;
+        const { children, icon, ...props } = item;
+        Object.assign(treeItem, props);
+
+        if (icon) {
+          const iconSlot = document.createElement("div");
+          iconSlot.setAttribute("slot", "icon");
+          iconSlot.innerHTML = icon;
+          treeItem.appendChild(iconSlot);
+        }
+
+        parentElement.appendChild(treeItem);
+        treeItems.push(treeItem);
+
+        if (children && children.length > 0) {
+          collectTreeItemsFromData(children, treeItem);
+        }
+      });
+    };
+
+    if (this.treeItemData.length > 0) {
+      collectTreeItemsFromData(this.treeItemData, element);
+    } else {
+      collectTreeItemsFromSlottedContent(element);
+    }
+
     return treeItems;
   }
 
@@ -266,7 +366,7 @@ export class TreeView {
   private truncateTreeViewHeading = () => {
     const typographyEl: HTMLIcTypographyElement =
       this.el.shadowRoot.querySelector(".tree-view-header");
-    const tooltip = typographyEl?.closest("ic-tooltip");
+    const tooltip = typographyEl?.closest(this.TOOLTIP);
     const headingContainer: HTMLElement = this.el.shadowRoot.querySelector(
       ".heading-area-container"
     );
@@ -283,6 +383,19 @@ export class TreeView {
         headingContainer.appendChild(tooltipEl);
         tooltipEl.appendChild(typographyEl);
       }
+    }
+  };
+
+  private removeHeadingTruncation = () => {
+    const typographyEl: HTMLIcTypographyElement =
+      this.el.shadowRoot.querySelector(".tree-view-header");
+    const tooltipEl: HTMLIcTooltipElement = typographyEl?.closest(this.TOOLTIP);
+
+    if (tooltipEl) {
+      typographyEl.classList.remove("ic-text-overflow");
+      this.el.shadowRoot
+        .querySelector(".heading-area-container")
+        .replaceChild(typographyEl, tooltipEl);
     }
   };
 

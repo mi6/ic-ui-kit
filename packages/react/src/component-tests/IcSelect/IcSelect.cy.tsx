@@ -541,6 +541,28 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     });
   });
 
+  it("should render as disabled with a default value and hide the clear button", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          disabled
+          value="cappuccino"
+          showClearButton
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/disabled-default-value",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
   it("should prevent click on disabled options", () => {
     mount(
       <div style={{ padding: "10px" }}>

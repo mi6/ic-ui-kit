@@ -40,6 +40,7 @@ export class TreeItem {
   private hostMutationObserver: MutationObserver = null;
   private TOOLTIP = "ic-tooltip";
   private TREE_ITEM_LABEL_CLASS_SELECTOR = ".tree-item-label";
+  private TREE_ITEM_CONTENT_CLASS_SELECTOR = ".tree-item-content";
 
   @Element() el: HTMLIcTreeItemElement;
 
@@ -88,6 +89,11 @@ export class TreeItem {
    * The label of the tree item.
    */
   @Prop() label: string = "";
+
+  /**
+   * @internal Holds the previous truncation state before the screen switches to a small viewport, so it can be reset when screen size changes again.
+   */
+  @Prop() previousTruncateTreeItem: boolean;
 
   /**
    * How much of the referrer to send when following the link.
@@ -171,10 +177,14 @@ export class TreeItem {
     });
   }
   componentDidRender(): void {
-    this.truncateTreeItem && this.truncateTreeItemLabel(this.el);
+    this.truncateTreeItem
+      ? this.truncateTreeItemLabel(this.el)
+      : this.removeTreeItemTruncation(this.el);
     if (this.expanded) {
       this.childTreeItems.forEach((child: HTMLIcTreeItemElement) => {
-        child.truncateTreeItem && this.truncateTreeItemLabel(child);
+        child.truncateTreeItem
+          ? this.truncateTreeItemLabel(child)
+          : this.removeTreeItemTruncation(child);
       });
     }
   }
@@ -182,7 +192,9 @@ export class TreeItem {
   componentDidUpdate(): void {
     if (this.hasParentExpanded) {
       this.childTreeItems.forEach((child: HTMLIcTreeItemElement) => {
-        child.truncateTreeItem && this.truncateTreeItemLabel(child);
+        child.truncateTreeItem
+          ? this.truncateTreeItemLabel(child)
+          : this.removeTreeItemTruncation(child);
       });
       this.hasParentExpanded = false;
     }
@@ -272,8 +284,12 @@ export class TreeItem {
     let level = 1;
     let parentElement = this.el.parentElement;
     const treeItemContent = this.el.shadowRoot.querySelector(
-      ".tree-item-content"
+      this.TREE_ITEM_CONTENT_CLASS_SELECTOR
     ) as HTMLElement;
+
+    if (!parentElement) {
+      return;
+    }
 
     const isSiblingOfParent = Array.from(parentElement.children)
       .map((sibling) => {
@@ -341,7 +357,9 @@ export class TreeItem {
 
     const tooltipAlreadyExists = !!typographyEl?.closest(this.TOOLTIP);
     const treeContent =
-      treeItem.shadowRoot.querySelector(".tree-item-content") || slottedContent;
+      treeItem.shadowRoot.querySelector(
+        this.TREE_ITEM_CONTENT_CLASS_SELECTOR
+      ) || slottedContent;
 
     if (contentHeight > treeContent?.clientHeight && !tooltipAlreadyExists) {
       const tooltipEl = document.createElement("ic-tooltip");
@@ -368,6 +386,26 @@ export class TreeItem {
 
       treeContent.appendChild(tooltipEl);
       tooltipEl.appendChild(typographyEl);
+    }
+  };
+
+  private removeTreeItemTruncation = (treeItem: HTMLIcTreeItemElement) => {
+    const slottedContent = treeItem.querySelector("[slot='router-item']");
+    const typographyEl: HTMLIcTypographyElement =
+      treeItem.shadowRoot.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR) ||
+      slottedContent.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR);
+    const tooltipEl: HTMLIcTooltipElement = typographyEl?.closest(this.TOOLTIP);
+    const treeContent =
+      treeItem.shadowRoot.querySelector(
+        this.TREE_ITEM_CONTENT_CLASS_SELECTOR
+      ) || slottedContent;
+
+    if (tooltipEl) {
+      typographyEl.classList.remove("ic-text-overflow");
+      treeContent.replaceChild(
+        treeContent === slottedContent ? typographyEl.firstChild : typographyEl,
+        tooltipEl
+      );
     }
   };
 

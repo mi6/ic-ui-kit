@@ -17,6 +17,7 @@
 | `disablePast`          | `disable-past`           | If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.                                                                                                                                       | `boolean`                                      | `false`                                                                                                 |
 | `disablePastMessage`   | `disable-past-message`   | The text to display as the validation message when `disablePast` is true and a date in the past is entered.                                                                                                                                            | `string`                                       | `"Dates in the past are not allowed. Please select a date in the future."`                              |
 | `disabled`             | `disabled`               | If `true`, the disabled state will be set.                                                                                                                                                                                                             | `boolean`                                      | `false`                                                                                                 |
+| `emitDatePartChange`   | `emit-date-part-change`  | If `true`, every individual input field completed will emit an icChange event.                                                                                                                                                                         | `boolean`                                      | `false`                                                                                                 |
 | `helperText`           | `helper-text`            | The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.                                                                                                    | `string`                                       | `undefined`                                                                                             |
 | `hideHelperText`       | `hide-helper-text`       | If `true`, the helper text will be visually hidden, but still read out by screenreaders.                                                                                                                                                               | `boolean`                                      | `false`                                                                                                 |
 | `hideLabel`            | `hide-label`             | If `true`, the label will be visually hidden, but will still be read out by screen readers.                                                                                                                                                            | `boolean`                                      | `false`                                                                                                 |
@@ -37,11 +38,11 @@
 
 ## Events
 
-| Event      | Description                         | Type                            |
-| ---------- | ----------------------------------- | ------------------------------- |
-| `icBlur`   | Emitted when the input loses focus. | `CustomEvent<{ value: Date; }>` |
-| `icChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date; }>` |
-| `icFocus`  | Emitted when the input gains focus. | `CustomEvent<{ value: Date; }>` |
+| Event      | Description                         | Type                                                                                       |
+| ---------- | ----------------------------------- | ------------------------------------------------------------------------------------------ |
+| `icBlur`   | Emitted when the input loses focus. | `CustomEvent<{ value: Date; }>`                                                            |
+| `icChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date; dateObject: { day: string; month: string; year: string; }; }>` |
+| `icFocus`  | Emitted when the input gains focus. | `CustomEvent<{ value: Date; }>`                                                            |
 
 
 ## Methods
@@ -80,6 +81,7 @@ graph TD;
   ic-date-input --> ic-button
   ic-date-input --> ic-input-validation
   ic-input-label --> ic-typography
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

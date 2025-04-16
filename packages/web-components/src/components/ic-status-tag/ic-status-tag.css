@@ -31,7 +31,7 @@
 
 .filled-warning {
   background-color: var(--ic-status-tag-warning);
-  --ic-typography-color: var(--ic-status-tag-text-inverted);
+  --ic-typography-color: var(--ic-status-tag-filled-warning-text);
 }
 
 .filled-danger {

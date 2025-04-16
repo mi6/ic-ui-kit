@@ -203,6 +203,7 @@ select:not([disabled]) {
 }
 
 :host(.ic-select-disabled) .value-text,
+:host(.ic-select-disabled) .select-input,
 .placeholder {
   color: var(--ic-select-content-placeholder-text);
 }

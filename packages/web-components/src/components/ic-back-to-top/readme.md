@@ -35,6 +35,7 @@
 ```mermaid
 graph TD;
   ic-back-to-top --> ic-button
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

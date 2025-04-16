@@ -20,7 +20,7 @@ import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicato
 import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
-import { IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
+import { IcNavigationExpandEventDetail, IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
@@ -50,7 +50,7 @@ export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicato
 export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
 export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
-export { IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
+export { IcNavigationExpandEventDetail, IcNavigationOpenEventDetail } from "./components/ic-navigation-group/ic-navigation-group.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
@@ -1855,19 +1855,19 @@ export namespace Components {
     }
     interface IcSkipLink {
         /**
-          * If `true`, the link will fill the width of the page.
+          * If `true`, the skip link will fill the width of the page.
          */
         "fullWidth": boolean;
         /**
-          * If `true`, the link will appear inline with surrounding page content when focused.
+          * If `true`, the skip link will appear inline with surrounding page content when focused.
          */
         "inline": boolean;
         /**
-          * The label displayed when the link is focused.
+          * The label displayed when the skip link is focused.
          */
         "label": string;
         /**
-          * If `true`, the link will display as black in the light theme, and white in the dark theme.
+          * If `true`, the skip link will display as black in the light theme, and white in the dark theme.
          */
         "monochrome": boolean;
         /**
@@ -2929,6 +2929,7 @@ declare global {
     };
     interface HTMLIcNavigationGroupElementEventMap {
         "navigationGroupOpened": IcNavigationOpenEventDetail;
+        "navigationGroupExpanded": IcNavigationExpandEventDetail;
     }
     interface HTMLIcNavigationGroupElement extends Components.IcNavigationGroup, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcNavigationGroupElementEventMap>(type: K, listener: (this: HTMLIcNavigationGroupElement, ev: IcNavigationGroupCustomEvent<HTMLIcNavigationGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4642,6 +4643,7 @@ declare namespace LocalJSX {
           * The label to display on the group.
          */
         "label": string;
+        "onNavigationGroupExpanded"?: (event: IcNavigationGroupCustomEvent<IcNavigationExpandEventDetail>) => void;
         "onNavigationGroupOpened"?: (event: IcNavigationGroupCustomEvent<IcNavigationOpenEventDetail>) => void;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
@@ -5353,19 +5355,19 @@ declare namespace LocalJSX {
     }
     interface IcSkipLink {
         /**
-          * If `true`, the link will fill the width of the page.
+          * If `true`, the skip link will fill the width of the page.
          */
         "fullWidth"?: boolean;
         /**
-          * If `true`, the link will appear inline with surrounding page content when focused.
+          * If `true`, the skip link will appear inline with surrounding page content when focused.
          */
         "inline"?: boolean;
         /**
-          * The label displayed when the link is focused.
+          * The label displayed when the skip link is focused.
          */
         "label"?: string;
         /**
-          * If `true`, the link will display as black in the light theme, and white in the dark theme.
+          * If `true`, the skip link will display as black in the light theme, and white in the dark theme.
          */
         "monochrome"?: boolean;
         /**

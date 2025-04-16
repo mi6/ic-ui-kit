@@ -55,6 +55,7 @@ graph TD;
   ic-toast --> ic-loading-indicator
   ic-toast --> ic-button
   ic-loading-indicator --> ic-typography
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-tooltip --> ic-typography

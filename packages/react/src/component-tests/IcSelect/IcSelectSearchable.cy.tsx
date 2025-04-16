@@ -10,7 +10,6 @@ import {
   HAVE_ATTR,
   HAVE_BEEN_CALLED,
   HAVE_BEEN_CALLED_WITH,
-  HAVE_CLASS,
   HAVE_LENGTH,
   HAVE_VALUE,
   NOT_BE_VISIBLE,
@@ -621,24 +620,6 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, "cappuccino");
   });
 
-  it.skip("should not clear input if select is disabled", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeDisabledOption}
-        disabled
-        value="cappuccino"
-        searchable
-      />
-    );
-
-    cy.checkHydrated(IC_SELECT);
-    cy.get(IC_SELECT).should(HAVE_CLASS, "disabled searchable hydrated");
-    cy.get(".ic-input").should(CONTAIN_VALUE, "cappuccino");
-    cy.clickOnShadowEl(IC_SELECT, ID_CLEAR_BUTTON);
-    cy.get(".ic-input").should(CONTAIN_VALUE, "cappuccino");
-  });
-
   it("should render default searchable select", () => {
     mount(
       <div style={{ padding: "10px" }}>
@@ -914,6 +895,29 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/searchable-disabled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render disabled with a default value", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+          disabled
+          value="cappuccino"
+          searchable
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.get(".ic-input").should(CONTAIN_VALUE, "cappuccino");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/searchable-disabled-default-value",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });

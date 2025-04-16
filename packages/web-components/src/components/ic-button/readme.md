@@ -103,12 +103,14 @@ Type: `Promise<void>`
 
 ### Depends on
 
+- [ic-typography](../ic-typography)
 - [ic-loading-indicator](../ic-loading-indicator)
 - [ic-tooltip](../ic-tooltip)
 
 ### Graph
 ```mermaid
 graph TD;
+  ic-button --> ic-typography
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography

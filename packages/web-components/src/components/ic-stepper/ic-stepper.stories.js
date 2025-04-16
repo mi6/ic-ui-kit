@@ -68,7 +68,11 @@ export const CustomStepper = {
         subheading="Optional subtitle that is long and should wrap"
         type="current"
       ></ic-step>
-      <ic-step heading="Third" type="disabled"></ic-step>
+      <ic-step
+        heading="Third"
+        subheading="Optional subtitle"
+        type="disabled"
+      ></ic-step>
       <ic-step
         heading="Fourth title that is long and should wrap"
         subheading="Optional Subtitle"

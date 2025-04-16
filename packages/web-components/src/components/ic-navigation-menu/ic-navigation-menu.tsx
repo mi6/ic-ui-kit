@@ -11,6 +11,9 @@ import {
 import { IcThemeMode } from "../../utils/types";
 import { getSlot, getSlotContent, isSlotUsed } from "../../utils/helpers";
 
+const NAV_GROUP_TAG = "IC-NAVIGATION-GROUP";
+const NAV_ITEM_TAG = "IC-NAVIGATION-ITEM";
+
 /**
  * @slot navigation - Content will be rendered at top of panel.
  * @slot buttons - Content will be rendered above version info and below navigation.
@@ -27,6 +30,7 @@ export class NavigationMenu {
   private lastTabStop: HTMLElement | null = null;
   private navBarEl: HTMLIcTopNavigationElement | null;
   private navGroupFirst: boolean = false;
+  private navigationEls: HTMLElement[];
   private navItemAboveButtons: boolean = false;
 
   @Element() el: HTMLIcNavigationMenuElement;
@@ -53,15 +57,22 @@ export class NavigationMenu {
 
   componentWillLoad(): void {
     this.navBarEl = document.querySelector("ic-top-navigation");
-    const navigationEls = getSlotContent(this.el, "navigation");
-    if (navigationEls) {
+    this.navigationEls = getSlotContent(this.el, "navigation") as HTMLElement[];
+
+    if (this.navigationEls) {
       this.hasNavigation = true;
-      const lastEl = navigationEls[navigationEls.length - 1] as HTMLElement;
-      if (lastEl.tagName === "IC-NAVIGATION-ITEM") {
+      const lastEl = this.navigationEls[this.navigationEls.length - 1];
+      if (lastEl.tagName === NAV_ITEM_TAG) {
         this.navItemAboveButtons = true;
+      } else if (lastEl.tagName === NAV_GROUP_TAG) {
+        lastEl.addEventListener("navigationGroupExpanded", ((
+          event: CustomEvent
+        ) => {
+          this.setLastTabStop(event.detail.expanded);
+        }) as EventListener);
       }
-      const firstEl = navigationEls[0] as HTMLElement;
-      if (firstEl.tagName === "IC-NAVIGATION-GROUP") {
+      const firstEl = this.navigationEls[0];
+      if (firstEl.tagName === NAV_GROUP_TAG) {
         this.navGroupFirst = true;
       }
     }
@@ -71,15 +82,8 @@ export class NavigationMenu {
       this.hasButtons = true;
       this.lastTabStop = buttonContent[buttonContent.length - 1] as HTMLElement;
     } else {
-      if (this.hasNavigation && navigationEls) {
-        const lastEl = navigationEls[navigationEls.length - 1] as HTMLElement;
-        //check for slotted content i.e. react router link
-        const slotContent = getSlot(lastEl, "navigation-item");
-        if (slotContent !== null) {
-          this.lastTabStop = slotContent as HTMLElement;
-        } else {
-          this.lastTabStop = lastEl;
-        }
+      if (this.hasNavigation && this.navigationEls) {
+        this.setLastTabStop(false);
       }
     }
   }
@@ -118,6 +122,27 @@ export class NavigationMenu {
     }
   }
 
+  private setLastTabStop = (lastNavGroupExpanded: boolean) => {
+    let lastEl = this.navigationEls[
+      this.navigationEls.length - 1
+    ] as HTMLElement;
+
+    if (lastEl.tagName === NAV_GROUP_TAG && lastNavGroupExpanded) {
+      const childNavItems = lastEl.children;
+      lastEl = childNavItems[childNavItems.length - 1] as HTMLElement;
+    }
+
+    if (lastEl.tagName === NAV_ITEM_TAG) {
+      //check for slotted content i.e. react router link
+      const slotContent = getSlot(lastEl, "navigation-item");
+      if (slotContent !== null) {
+        lastEl = slotContent as HTMLElement;
+      }
+    }
+
+    this.lastTabStop = lastEl;
+  };
+
   private closeMenu = () => {
     this.icNavigationMenuClose.emit();
   };
@@ -131,8 +156,8 @@ export class NavigationMenu {
     if (this.lastTabStop !== null) {
       switch (this.lastTabStop.tagName) {
         case "IC-NAVIGATION-BUTTON":
-        case "IC-NAVIGATION-ITEM":
-        case "IC-NAVIGATION-GROUP":
+        case NAV_ITEM_TAG:
+        case NAV_GROUP_TAG:
           focusEl = this.lastTabStop as HTMLElement;
           focusEl.focus();
           break;

@@ -9,11 +9,15 @@ import {
   HAVE_CSS,
   HAVE_FOCUS,
   HAVE_PROP,
+  NOT_EXIST,
+  NOT_HAVE_CSS,
 } from "@ukic/react/src/component-tests/utils/constants";
+import { IcTreeItemOptions } from "@ukic/canary-web-components";
 
 const TREE_VIEW = "ic-tree-view";
 const TREE_ITEM = "ic-tree-item";
 const TREE_ITEM_CONTENT = ".tree-item-content";
+const TREE_ITEM_LABEL = ".tree-item-label";
 
 const DEFAULT_TEST_THRESHOLD = 0.025;
 
@@ -49,6 +53,38 @@ export const Icon = (): ReactElement => (
   </SlottedSVG>
 );
 
+export const treeItems: IcTreeItemOptions[] = [
+  { label: "Coffee" },
+  { label: "Tea", children: [{ label: "Earl Grey" }, { label: "Chai" }] },
+  { label: "Hot Chocolate" },
+];
+
+export const treeItemsWithIcons: IcTreeItemOptions[] = [
+  {
+    label: "Coffee",
+    icon: '<svg slot="icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>file</title><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+  },
+  {
+    label: "Tea",
+    icon: '<svg slot="icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>file</title><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+    children: [
+      {
+        label: "Earl Grey",
+        icon: '<svg slot="icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>file</title><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+      },
+    ],
+  },
+];
+
+export const treeItemsLongText: IcTreeItemOptions[] = [
+  { label: "Coffee with lots of extra milk" },
+  {
+    label: "Tea",
+    children: [{ label: "Earl Grey with milk on the side" }, { label: "Chai" }],
+  },
+  { label: "Hot Chocolate" },
+];
+
 describe("IcTreeView", () => {
   beforeEach(() => {
     cy.injectAxe();
@@ -59,6 +95,27 @@ describe("IcTreeView", () => {
   });
 
   it("should render", () => {
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView heading="Menu" treeItemData={treeItems} />
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "default",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+    });
+  });
+
+  it("should render with slotted tree items", () => {
     mount(<BasicTreeView />);
 
     cy.checkHydrated(TREE_VIEW);
@@ -71,6 +128,29 @@ describe("IcTreeView", () => {
   });
 
   it("should render with icons", () => {
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView heading="Menu" treeItemData={treeItemsWithIcons}>
+          <Icon />
+        </IcTreeView>
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "with-icons",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should render with icons and slotted tree items", () => {
     mount(
       <div
         style={{
@@ -101,6 +181,27 @@ describe("IcTreeView", () => {
   });
 
   it("should render small", () => {
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView heading="Menu" size="small" treeItemData={treeItems} />
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "small",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+    });
+  });
+
+  it("should render small slotted tree items", () => {
     mount(BasicTreeView({ size: "small" }));
 
     cy.checkHydrated(TREE_VIEW);
@@ -113,6 +214,27 @@ describe("IcTreeView", () => {
   });
 
   it("should render large", () => {
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView heading="Menu" size="large" treeItemData={treeItems} />
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "large",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+    });
+  });
+
+  it("should render large slotted tree items", () => {
     mount(BasicTreeView({ size: "large" }));
 
     cy.checkHydrated(TREE_VIEW);
@@ -125,6 +247,27 @@ describe("IcTreeView", () => {
   });
 
   it("should render dark theme", () => {
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView heading="Menu" theme="dark" treeItemData={treeItems} />
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "theme-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
+    });
+  });
+
+  it("should render dark theme with slotted tree items", () => {
     mount(BasicTreeView({ theme: "dark" }));
 
     cy.checkHydrated(TREE_VIEW);
@@ -137,6 +280,29 @@ describe("IcTreeView", () => {
   });
 
   it("should render with focus inset", () => {
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView heading="Menu" focusInset treeItemData={treeItems} />
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).focus();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "focus-inset",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+    });
+  });
+
+  it("should render with focus inset for slotted tree items", () => {
     mount(BasicTreeView({ focusInset: true }));
 
     cy.checkHydrated(TREE_VIEW);
@@ -151,6 +317,37 @@ describe("IcTreeView", () => {
   });
 
   it("should render with disabled tree item", () => {
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView
+          heading="Menu"
+          treeItemData={[
+            { label: "Coffee", disabled: true },
+            {
+              label: "Tea",
+              children: [{ label: "Earl Grey" }, { label: "Chai" }],
+            },
+            { label: "Hot Chocolate" },
+          ]}
+        />
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "disabled-tree-item",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
+  });
+
+  it("should render with disabled slotted tree item", () => {
     mount(BasicTreeView({}, { disabled: true }));
 
     cy.checkHydrated(TREE_VIEW);
@@ -163,6 +360,37 @@ describe("IcTreeView", () => {
   });
 
   it("should render with selected tree item", () => {
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView
+          heading="Menu"
+          treeItemData={[
+            { label: "Coffee", selected: true },
+            {
+              label: "Tea",
+              children: [{ label: "Earl Grey" }, { label: "Chai" }],
+            },
+            { label: "Hot Chocolate" },
+          ]}
+        />
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "selected-tree-item",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+    });
+  });
+
+  it("should render with selected slotted tree item", () => {
     mount(BasicTreeView({}, { selected: true }));
 
     cy.checkHydrated(TREE_VIEW);
@@ -175,6 +403,37 @@ describe("IcTreeView", () => {
   });
 
   it("should render with tree item as link", () => {
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView
+          heading="Menu"
+          treeItemData={[
+            { label: "Coffee", href: "#" },
+            {
+              label: "Tea",
+              children: [{ label: "Earl Grey" }, { label: "Chai" }],
+            },
+            { label: "Hot Chocolate" },
+          ]}
+        />
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "link-tree-item",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+    });
+  });
+
+  it("should render with slotted tree item as link", () => {
     mount(BasicTreeView({}, { href: "#" }));
 
     cy.checkHydrated(TREE_VIEW);
@@ -187,6 +446,28 @@ describe("IcTreeView", () => {
   });
 
   it("should render with expanded tree item", () => {
+    mount(
+      <div
+        style={{
+          width: "250px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView heading="Menu" treeItemData={treeItems} />
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "expanded-tree-item",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+    });
+  });
+
+  it("should render with expanded slotted tree item", () => {
     mount(<BasicTreeView />);
 
     cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).click();
@@ -199,6 +480,34 @@ describe("IcTreeView", () => {
   });
 
   it("should render with text wrapping", () => {
+    mount(
+      <div
+        style={{
+          width: "200px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView
+          heading="Limited edition menu with extras"
+          treeItemData={treeItemsLongText}
+        />
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).click();
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(2).click();
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "text-wrapping",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+    });
+  });
+
+  it("should render with text wrapping for slotted tree items", () => {
     mount(
       <div
         style={{
@@ -229,6 +538,8 @@ describe("IcTreeView", () => {
   });
 
   it("should render with truncated text", () => {
+    cy.viewport(992, 600);
+
     mount(
       <div
         style={{
@@ -240,16 +551,12 @@ describe("IcTreeView", () => {
           heading="Limited edition menu with extras"
           truncateTreeItems
           truncateHeading
-        >
-          <IcTreeItem label="Coffee with lots of extra milk" />
-          <IcTreeItem label="Tea">
-            <IcTreeItem label="Earl Grey with milk on the side" />
-            <IcTreeItem label="Chai" />
-          </IcTreeItem>
-          <IcTreeItem label="Hot Chocolate" />
-        </IcTreeView>
+          treeItemData={treeItemsLongText}
+        />
       </div>
     );
+
+    cy.checkHydrated(TREE_VIEW);
 
     const TEXT_OVERFLOW = "text-overflow";
     const ELLIPSIS = "ellipsis";
@@ -284,6 +591,142 @@ describe("IcTreeView", () => {
     cy.compareSnapshot({
       name: "truncated-text-hover",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+    });
+  });
+
+  it("should render with truncated text for slotted tree items", () => {
+    cy.viewport(992, 600);
+
+    mount(
+      <div
+        style={{
+          width: "200px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView
+          heading="Limited edition menu with extras"
+          truncateTreeItems
+          truncateHeading
+        >
+          <IcTreeItem label="Coffee with lots of extra milk" />
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey with milk on the side" />
+            <IcTreeItem label="Chai" />
+          </IcTreeItem>
+          <IcTreeItem label="Hot Chocolate" />
+        </IcTreeView>
+      </div>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    const TEXT_OVERFLOW = "text-overflow";
+    const ELLIPSIS = "ellipsis";
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).click();
+
+    cy.findShadowEl(TREE_VIEW, ".tree-view-header").should(
+      HAVE_CSS,
+      TEXT_OVERFLOW,
+      ELLIPSIS
+    );
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_LABEL)
+      .eq(0)
+      .should(HAVE_CSS, TEXT_OVERFLOW, ELLIPSIS);
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_LABEL)
+      .eq(2)
+      .should(HAVE_CSS, TEXT_OVERFLOW, ELLIPSIS);
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT)
+      .eq(1)
+      .realHover({ pointer: "mouse" });
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "truncated-text",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+    });
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT)
+      .eq(0)
+      .realHover({ pointer: "mouse" });
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "truncated-text-hover",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+    });
+  });
+
+  it("should remove any tooltips and truncation styling when displayed on a smaller screen size", () => {
+    cy.viewport(576, 600);
+
+    const TEXT_OVERFLOW = "text-overflow";
+    const ELLIPSIS = "ellipsis";
+
+    mount(
+      <div
+        style={{
+          width: "200px",
+          padding: "16px",
+        }}
+      >
+        <IcTreeView
+          heading="Limited edition menu with extras"
+          truncateTreeItems
+          truncateHeading
+        >
+          <IcTreeItem label="Coffee with lots of extra milk" />
+          <IcTreeItem label="Tea">
+            <IcTreeItem label="Earl Grey with milk on the side" />
+            <IcTreeItem label="Chai" />
+          </IcTreeItem>
+          <IcTreeItem label="Hot Chocolate" />
+        </IcTreeView>
+      </div>
+    );
+
+    cy.findShadowEl(TREE_VIEW, ".tree-view-header").should(
+      NOT_HAVE_CSS,
+      TEXT_OVERFLOW,
+      ELLIPSIS
+    );
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_LABEL)
+      .eq(0)
+      .should(NOT_HAVE_CSS, TEXT_OVERFLOW, ELLIPSIS);
+
+    cy.findShadowEl(TREE_ITEM, "ic-tooltip").should(NOT_EXIST);
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "truncated-pattern-mobile",
+      testThreshold: setThresholdBasedOnEnv(0),
+    });
+
+    cy.viewport(992, 600);
+
+    cy.wait(500);
+
+    cy.findShadowEl(TREE_VIEW, ".tree-view-header").should(
+      HAVE_CSS,
+      TEXT_OVERFLOW,
+      ELLIPSIS
+    );
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_LABEL)
+      .eq(0)
+      .should(HAVE_CSS, TEXT_OVERFLOW, ELLIPSIS);
+
+    cy.findShadowEl(TREE_ITEM, "ic-tooltip").should("exist");
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "truncated-pattern-reset-to-desktop",
+      testThreshold: setThresholdBasedOnEnv(0),
     });
   });
 
@@ -429,6 +872,8 @@ describe("IcTreeView", () => {
   });
 
   it("should render slotted router items and truncate them correctly", () => {
+    cy.viewport(992, 600);
+
     mount(
       <div
         style={{
@@ -453,6 +898,11 @@ describe("IcTreeView", () => {
     );
 
     cy.checkHydrated(TREE_VIEW);
+
+    cy.get(TREE_ITEM)
+      .find('[slot="router-item"]')
+      .eq(0)
+      .realHover({ pointer: "mouse" });
 
     cy.compareSnapshot({
       name: "router-item",

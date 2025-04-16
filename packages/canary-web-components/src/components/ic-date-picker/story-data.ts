@@ -159,11 +159,31 @@ const updateSelectedDate = (ev: CustomEvent): void => {
     text += ev.detail.value;
   }
   el.innerHTML = text;
-  console.log("ic-change", ev.detail.value);
+  console.log("ic-change", ev.detail);
 };
 
 export const IcChangeDate = (): HTMLElement => {
   const datePicker = createDatePickerElement();
+  datePicker.addEventListener("icChange", updateSelectedDate);
+  const container = document.createElement("div");
+
+  const selDate = document.createElement("span");
+  selDate.innerText = "Selected date:";
+  selDate.id = "selected-date";
+
+  container.appendChild(datePicker);
+  container.appendChild(selDate);
+
+  container.style.display = "flex";
+  container.style.flexDirection = "column";
+  container.style.gap = "50px";
+
+  return container;
+};
+
+export const IcChangeDateEmitDatePartChanges = (): HTMLElement => {
+  const datePicker = createDatePickerElement();
+  datePicker.emitDatePartChange = true;
   datePicker.addEventListener("icChange", updateSelectedDate);
   const container = document.createElement("div");
 

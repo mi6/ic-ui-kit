@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import React, { ReactElement, useState } from "react";
 import { mount } from "cypress/react";
@@ -67,7 +67,10 @@ import {
 } from "@ukic/react/src/component-tests/utils/constants";
 
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
-import { IcDataTableTruncationTypes } from "@ukic/canary-web-components";
+import {
+  IcDataTableTruncationTypes,
+  IcSortEventDetail,
+} from "@ukic/canary-web-components";
 import {
   multipleColumnWidth,
   newData,
@@ -113,6 +116,10 @@ const TRUNCATION_TOOLTIP = "tooltip";
 const TRUNCATION_SHOW_HIDE = "show-hide";
 const SEE_MORE = "See more";
 const SEE_LESS = "See less";
+const SORT_ASCENDING = "Sort ascending";
+const CONSOLE_LOG_SPY = "@spyWinConsoleLog";
+const LOADING_OVERLAY_SELECTOR = ".loading-overlay";
+const LOADING_INDICATOR_OUTER_SELECTOR = ".ic-loading-circular-outer";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const BasicDataTable = (dataTableProps?: any): ReactElement => (
@@ -151,7 +158,7 @@ export const BasicSectionContainer = (): ReactElement => {
 
 export const ExternalSortDataTable = (): ReactElement => {
   const ExternalData = [...DATA];
-  const handleSort = (detail: any) => {
+  const handleSort = (detail: IcSortEventDetail) => {
     if (detail.sorted === "ascending") {
       ExternalData.sort((a, b) => {
         const column = detail.columnName as keyof typeof ExternalData[0];
@@ -343,7 +350,7 @@ describe("IcDataTables", () => {
       .eq(0)
       .shadow()
       .find(TOOLTIP_BUTTON_SELECTOR)
-      .should(HAVE_ATTR, ARIA_LABEL, "Sort ascending");
+      .should(HAVE_ATTR, ARIA_LABEL, SORT_ASCENDING);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
 
@@ -420,7 +427,7 @@ describe("IcDataTables", () => {
       .eq(1)
       .shadow()
       .find(TOOLTIP_BUTTON_SELECTOR)
-      .should(HAVE_ATTR, ARIA_LABEL, "Sort ascending");
+      .should(HAVE_ATTR, ARIA_LABEL, SORT_ASCENDING);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
       .eq(1)
@@ -438,7 +445,7 @@ describe("IcDataTables", () => {
       .eq(0)
       .shadow()
       .find(TOOLTIP_BUTTON_SELECTOR)
-      .should(HAVE_ATTR, ARIA_LABEL, "Sort ascending");
+      .should(HAVE_ATTR, ARIA_LABEL, SORT_ASCENDING);
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
 
@@ -788,7 +795,9 @@ describe("IcDataTables", () => {
   it("should apply a specified row height to specific rows when variableRowHeight is set, and any not included should use the default globalRowHeight", () => {
     mount(
       <BasicDataTable
-        variableRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
+        variableRowHeight={({ index }: { index: number }) =>
+          index % 2 === 0 ? 200 : null
+        }
       />
     );
 
@@ -808,7 +817,9 @@ describe("IcDataTables", () => {
   it("should not override the height of certain rows if `variableRowHeight` returns auto", () => {
     mount(
       <BasicDataTable
-        variableRowHeight={({ index }) => (index % 2 === 0 ? "auto" : null)}
+        variableRowHeight={({ index }: { index: number }) =>
+          index % 2 === 0 ? "auto" : null
+        }
       />
     );
 
@@ -1166,7 +1177,7 @@ describe("IcDataTables", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(2).click();
 
     cy.get("@sortChanged").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
+    cy.get(CONSOLE_LOG_SPY).should(HAVE_BEEN_CALLED_WITH, {
       columnName: "age",
       sorted: "ascending",
     });
@@ -1177,7 +1188,7 @@ describe("IcDataTables", () => {
       .click();
 
     cy.get("@sortChanged").should(HAVE_CALL_COUNT, 3);
-    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
+    cy.get(CONSOLE_LOG_SPY).should(HAVE_BEEN_CALLED_WITH, {
       columnName: "lastName",
       sorted: "descending",
     });
@@ -1288,22 +1299,24 @@ describe("IcDataTables", () => {
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(BE_VISIBLE);
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_OVERLAY_SELECTOR).should(
+      BE_VISIBLE
+    );
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should(BE_VISIBLE);
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR)
       .shadow()
-      .find(".ic-loading-circular-outer")
+      .find(LOADING_INDICATOR_OUTER_SELECTOR)
       .should(BE_VISIBLE);
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "data", LONG_DATA);
 
     cy.wait(1000);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_OVERLAY_SELECTOR).should(
       "be.not.exist"
     );
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should(BE_VISIBLE);
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator").should(
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR).should(
       "not.exist"
     );
   });
@@ -1323,13 +1336,13 @@ describe("IcDataTables", () => {
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_OVERLAY_SELECTOR).should(
       "not.exist"
     );
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("not.exist");
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR)
       .shadow()
-      .find(".ic-loading-circular-outer")
+      .find(LOADING_INDICATOR_OUTER_SELECTOR)
       .should(BE_VISIBLE);
   });
 
@@ -1348,24 +1361,26 @@ describe("IcDataTables", () => {
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "loading", true);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(BE_VISIBLE);
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_OVERLAY_SELECTOR).should(
+      BE_VISIBLE
+    );
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should("not.exist");
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-empty-state").should(BE_VISIBLE);
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, EMPTY_STATE).should(BE_VISIBLE);
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR)
       .shadow()
-      .find(".ic-loading-circular-outer")
+      .find(LOADING_INDICATOR_OUTER_SELECTOR)
       .should(BE_VISIBLE);
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "data", LONG_DATA);
 
     cy.wait(1000);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".loading-overlay").should(
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_OVERLAY_SELECTOR).should(
       "not.exist"
     );
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody").should(BE_VISIBLE);
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-empty-state").should("not.exist");
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-loading-indicator").should(
+    cy.findShadowEl(DATA_TABLE_SELECTOR, EMPTY_STATE).should("not.exist");
+    cy.findShadowEl(DATA_TABLE_SELECTOR, LOADING_INDICATOR_SELECTOR).should(
       "not.exist"
     );
   });
@@ -1889,11 +1904,9 @@ describe("IcDataTable with truncation", () => {
       // Ideally, it would be good to test the behaviour once the viewport size has decreased
       // however, it does not seem possible to trigger the ResizeObserver in Cypress tests
       const newColumns = () => {
-        return COLS.filter((col) => {
-          if (col.key === "jobTitle" || col.key === "address") {
-            return col;
-          }
-        });
+        return COLS.filter(
+          (col) => col.key === "jobTitle" || col.key === "address"
+        );
       };
 
       const newData = () => {
@@ -2612,11 +2625,9 @@ describe("IcDataTable with truncation", () => {
     });
 
     const newColumns = () => {
-      return COLUMNS_NO_TEXT_WRAP.filter((col) => {
-        if (col.key === "department" || col.key === "jobTitle") {
-          return col;
-        }
-      });
+      return COLUMNS_NO_TEXT_WRAP.filter(
+        (col) => col.key === "department" || col.key === "jobTitle"
+      );
     };
 
     const newData = () => {
@@ -4231,7 +4242,7 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(FIRST_CELL_TEXT_QUERY)
       .should(
@@ -4239,7 +4250,7 @@ describe("IcDataTable table with descriptions", () => {
         LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
       );
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
       .should(
@@ -4264,10 +4275,19 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(".table-cell:nth-child(1) div div span")
       .should("exist");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "cell-descriptions-icons",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.153),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
   });
 
   it("should truncate long text without truncating descriptions - using show/hide pattern when global row height is set", () => {
@@ -4283,14 +4303,14 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(FIRST_CELL_TEXT_QUERY)
       .shadow()
       .find(BUTTON_SELECTOR)
       .contains(SEE_MORE);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
       .should(
@@ -4317,12 +4337,12 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(".table-cell:nth-child(1) ic-tooltip")
       .should("not.exist");
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(FIRST_CELL_TEXT_QUERY)
       .should(
@@ -4330,7 +4350,7 @@ describe("IcDataTable table with descriptions", () => {
         LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
       );
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
       .should(
@@ -4357,12 +4377,12 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(".table-cell:nth-child(1) ic-tooltip")
       .should("exist");
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(".table-cell:nth-child(1) ic-tooltip ic-typography")
       .should(
@@ -4370,7 +4390,7 @@ describe("IcDataTable table with descriptions", () => {
         LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS[0].firstName.data
       );
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(0)
       .find(FIRST_CELL_DESCRIPTION_TEXT_QUERY)
       .should(
@@ -4397,7 +4417,7 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(1)
       .find(".table-cell:nth-child(1) .cell-container")
       .should("have.attr", "style", "--row-height: 1.5rem;");
@@ -4416,7 +4436,7 @@ describe("IcDataTable table with descriptions", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+    cy.findShadowEl(DATA_TABLE_SELECTOR, TABLE_ROW_SELECTOR)
       .eq(3)
       .find(".table-cell:nth-child(1) .cell-container")
       .should("have.attr", "style", "--row-height: 24px");
@@ -4675,7 +4695,7 @@ describe("IcDataTable row selection", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
 
     cy.get("@selectedRowChange").should(HAVE_BEEN_CALLED_ONCE);
-    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, {
+    cy.get(CONSOLE_LOG_SPY).should(HAVE_BEEN_CALLED_WITH, {
       firstName: "Mark",
       lastName: "Owens",
       age: 45,
@@ -4686,7 +4706,7 @@ describe("IcDataTable row selection", () => {
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
 
     cy.get("@selectedRowChange").should(HAVE_CALL_COUNT, 2);
-    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, null);
+    cy.get(CONSOLE_LOG_SPY).should(HAVE_BEEN_CALLED_WITH, null);
   });
 });
 
@@ -5058,10 +5078,7 @@ describe("Dark mode", () => {
           <IcTypography slot="description" variant="body">
             <p>
               This is some text and{" "}
-              <IcLink href="/" inline="">
-                this is an inline link
-              </IcLink>{" "}
-              within the text.
+              <IcLink href="/">this is an inline link</IcLink> within the text.
             </p>
           </IcTypography>
         </IcDataTableTitleBar>
@@ -5298,6 +5315,26 @@ describe("Dark mode", () => {
     cy.compareSnapshot({
       name: "dark-mode-icons",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.044),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should render cell descriptions and icons in dark mode", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+        caption="Data Tables"
+        theme="dark"
+      />
+    );
+
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-mode-cell-descriptions-icons",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.163),
       cypressScreenshotOptions: {
         capture: "viewport",
       },

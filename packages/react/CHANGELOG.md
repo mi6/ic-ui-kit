@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.14](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.13...@ukic/react@3.0.0-alpha.14) (2025-04-16)
+
+### Bug Fixes
+
+- **react:** baseline image update ([e8f2040](https://github.com/mi6/ic-ui-kit/commit/e8f20407c9d3d1986dc0a3546caa0324930335e0))
+- **react:** expose IcToolTip disableClick prop ([01fe9ed](https://github.com/mi6/ic-ui-kit/commit/01fe9ed2b12eef7428d74f4afc854a1de4981156)), closes [#3129](https://github.com/mi6/ic-ui-kit/issues/3129)
+- **react:** fixed docs tab for react storybook ([62bb763](https://github.com/mi6/ic-ui-kit/commit/62bb76307c75f38ec7c83144c2f8a2560fffd9e5))
+- **react:** fixes card button focus color in high contrast mode ([720b098](https://github.com/mi6/ic-ui-kit/commit/720b0984ea40c27d0229a7ffef6ba8a0d4474c9f))
+- **react:** set the focus in the icpopovermenu when the open prop has been provided ([bc6fa9b](https://github.com/mi6/ic-ui-kit/commit/bc6fa9b1b56b9eff7f6cb6dd9f726dba77d1c57c))
+- **react:** update Cypress tests after button updates to show slotted content with router item slot ([1e53f9b](https://github.com/mi6/ic-ui-kit/commit/1e53f9b225d7b02edaf3db0c39417d266550edaf))
+- **react:** update Cypress visual regression images after removing side nav shadow ([1d37c42](https://github.com/mi6/ic-ui-kit/commit/1d37c427e97daa8e70c94ab20667ccf239131c7e)), closes [#2624](https://github.com/mi6/ic-ui-kit/issues/2624)
+- **react:** update Cypress visual regression test baseline images ([1d06e25](https://github.com/mi6/ic-ui-kit/commit/1d06e2578abc649162b7f38aefdee5e979d2472a))
+- **react:** update IcTopNavigation visual regression image ([e7a94d1](https://github.com/mi6/ic-ui-kit/commit/e7a94d1caba7df2b75e6130f476224e40c0f8458))
+- **react:** update side nav to append badge to iconWrapper when slotted nav item used ([0a0ba96](https://github.com/mi6/ic-ui-kit/commit/0a0ba961a39cdd1dc9e270b3d004ea5ad6f42fc1)), closes [#1701](https://github.com/mi6/ic-ui-kit/issues/1701)
+- **react:** update visual regression images in IcAlert and IcTheme, fix storybook example ([577af0f](https://github.com/mi6/ic-ui-kit/commit/577af0fbfcf668b22b8728658a3a3f29ae34b48e))
+- **react:** updates dialog stories and tests after focus fix ([c6f8dc9](https://github.com/mi6/ic-ui-kit/commit/c6f8dc94708b227eb19758345c7b96bd37ea882c))
+- **react:** updates tests for select change ([4357eda](https://github.com/mi6/ic-ui-kit/commit/4357eda5bc46ad12acb9c4a675bd203757c3e779))
+
+### Features
+
+- **react:** add Cypress test for slotting interactive content after first load ([868d75a](https://github.com/mi6/ic-ui-kit/commit/868d75a8f064b8c02aa44bad9a4797606f801122)), closes [.#2773](https://github.com/./issues/2773)
+- **react:** add tests for footer and top nav fixes for slotted link colours ([7b1e3ef](https://github.com/mi6/ic-ui-kit/commit/7b1e3eff2b0116cc497edbe2b0011ea9dcd6b184)), closes [.#3234](https://github.com/./issues/3234)
+- **react:** added new react component for ic-skip-link ([d00a04f](https://github.com/mi6/ic-ui-kit/commit/d00a04feb55e6de14bb5116f392e29068554a5ae))
+- **react:** remove hashtag from skip link's target prop following prefixing of hashtag in prop ([d13356f](https://github.com/mi6/ic-ui-kit/commit/d13356f1605972a03e078c91f318dcc2a9c47053))
+- **react:** update empty state to have theme prop ([1d7925d](https://github.com/mi6/ic-ui-kit/commit/1d7925d56b42180abdd1b5d19776a923247922e4))
+- **react:** update nav menu and top nav tests and stories following nav group focus fix ([825e392](https://github.com/mi6/ic-ui-kit/commit/825e392032df1d9e1c4c2a6919db6927dfa70425)), closes [.#3261](https://github.com/./issues/3261)
+
 # [3.0.0-alpha.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.12...@ukic/react@3.0.0-alpha.13) (2025-04-08)
 
 ### Bug Fixes

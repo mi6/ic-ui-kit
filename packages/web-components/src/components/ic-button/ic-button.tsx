@@ -319,6 +319,8 @@ export class Button {
       this.hostMutationObserver.observe(this.el, {
         attributes: true,
       });
+
+      this.hasRouterSlot() && this.arrangeRouterItem();
     }
   }
 
@@ -466,6 +468,70 @@ export class Button {
 
   private isIconVariant = (): boolean | undefined => {
     return this.variant?.startsWith("icon");
+  };
+
+  private arrangeRouterItem = (): void => {
+    const setStyles = (
+      element: HTMLElement | SVGElement,
+      styles: { [key: string]: string }
+    ) => {
+      Object.entries(styles).forEach(([key, value]) => {
+        element.style.setProperty(key, value);
+      });
+    };
+    const iconWrapper = document.createElement("div");
+    const icon = this.routerSlot?.querySelector("svg");
+    const badge = this.routerSlot?.querySelector("ic-badge");
+    const label = this.routerSlot?.textContent?.trim();
+    const icTypography = document.createElement("ic-typography");
+
+    setStyles(icTypography, {
+      "font-family": "var(--ic-font-body-family)",
+      "font-size": "0.875rem",
+      "font-weight": "600",
+    });
+    setStyles(this.routerSlot!, {
+      gap: "0",
+    });
+
+    if (icon) {
+      setStyles(icon, {
+        fill: "currentcolor",
+      });
+      icon.getAttribute("slot") === "left-icon" &&
+        setStyles(iconWrapper, {
+          "margin-right": "var(--ic-space-xs)",
+        });
+      icon.getAttribute("slot") === "right-icon" &&
+        setStyles(iconWrapper, {
+          "margin-left": "var(--ic-space-xs)",
+        });
+      if (icon.getAttribute("slot") === "top-icon") {
+        setStyles(this.routerSlot!, {
+          display: "flex",
+          "flex-direction": "column",
+          "--height": "fit-content",
+        });
+      }
+      iconWrapper.append(icon);
+    }
+
+    badge && iconWrapper.append(badge);
+
+    if (label) {
+      icTypography.textContent = label;
+    }
+
+    if (this.routerSlot) {
+      this.routerSlot.textContent = "";
+      if (icon && icon.getAttribute("slot") === "right-icon") {
+        this.routerSlot.append(icTypography);
+        this.routerSlot.append(iconWrapper);
+      } else {
+        this.routerSlot.append(iconWrapper);
+        this.routerSlot.append(icTypography);
+      }
+    }
   };
 
   render() {

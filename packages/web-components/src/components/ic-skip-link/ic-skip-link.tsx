@@ -10,24 +10,24 @@ export class SkipLink {
   @Element() el: HTMLIcSkipLinkElement;
 
   /**
-   * If `true`, the link will fill the width of the page.
+   * If `true`, the skip link will fill the width of the page.
    */
-  @Prop() fullWidth = false;
+  @Prop() fullWidth: boolean = false;
 
   /**
-   * If `true`, the link will appear inline with surrounding page content when focused.
+   * If `true`, the skip link will appear inline with surrounding page content when focused.
    */
-  @Prop() inline = false;
+  @Prop() inline: boolean = false;
 
   /**
-   * The label displayed when the link is focused.
+   * The label displayed when the skip link is focused.
    */
-  @Prop() label = "Skip to main content";
+  @Prop() label: string = "Skip to main content";
 
   /**
-   * If `true`, the link will display as black in the light theme, and white in the dark theme.
+   * If `true`, the skip link will display as black in the light theme, and white in the dark theme.
    */
-  @Prop() monochrome = false;
+  @Prop() monochrome: boolean = false;
 
   /**
    * The target ID for the element which should receive focus when triggering the skip link.
@@ -42,7 +42,7 @@ export class SkipLink {
   /**
    * If `true`, the background will be hidden.
    */
-  @Prop() transparentBackground = false;
+  @Prop() transparentBackground: boolean = false;
 
   render() {
     const {
@@ -64,10 +64,11 @@ export class SkipLink {
         <ic-link
           class={{
             "display-top": !inline,
-            "full-width": fullWidth,
+            "full-width": !!fullWidth,
             "show-background": !transparentBackground,
+            inline: !!inline,
           }}
-          href={target}
+          href={`#${target}`}
           monochrome={monochrome}
           theme={theme}
         >

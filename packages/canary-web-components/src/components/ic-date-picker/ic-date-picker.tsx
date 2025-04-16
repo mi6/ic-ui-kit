@@ -61,6 +61,7 @@ interface IcDateInputProps {
   disableFutureMessage?: string;
   disablePast?: boolean;
   disablePastMessage?: string;
+  emitDatePartChange?: boolean;
   helperText?: string;
   hideHelperText?: boolean;
   hideLabel?: boolean;
@@ -143,6 +144,11 @@ export class DatePicker {
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
   }
+
+  /**
+   *  If `true`, every individual input field completed will emit an icChange event.
+   */
+  @Prop() emitDatePartChange?: boolean = false;
 
   /**
    * The days of the week to disable.
@@ -1246,6 +1252,7 @@ export class DatePicker {
       showClearButton: true,
       showCalendarButton: true,
       value: this.value,
+      emitDatePartChange: this.emitDatePartChange,
     };
 
     if (this.dateFormat !== DEFAULT_DATE_FORMAT) {
