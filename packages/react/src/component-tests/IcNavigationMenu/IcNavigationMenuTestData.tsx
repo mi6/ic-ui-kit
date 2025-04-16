@@ -45,7 +45,7 @@ export const WithExpandableNavGroupAndNavItemsTopNav = (): ReactElement => {
       </IcNavigationGroup>
       <IcNavigationGroup
         slot="navigation"
-        label="Navigation group 2"
+        label="Navigation group with a very very very long title"
         expandable={true}
       >
         <IcNavigationItem label="Navigation 3" href="/" />
@@ -62,7 +62,10 @@ export const WithNavGroupAndNavItemsTopNav = (): ReactElement => {
         <IcNavigationItem label="Navigation 1" href="/" />
         <IcNavigationItem label="Navigation 2" href="/" />
       </IcNavigationGroup>
-      <IcNavigationGroup slot="navigation" label="Navigation group 2">
+      <IcNavigationGroup
+        slot="navigation"
+        label="Navigation group with a very very very very very long title"
+      >
         <IcNavigationItem label="Navigation 3" href="/" />
         <IcNavigationItem label="Navigation 4" href="/" />
       </IcNavigationGroup>
@@ -142,7 +145,7 @@ export const WithExpandableNavGroupAndNavItemsSideNav = (): ReactElement => {
       </IcNavigationGroup>
       <IcNavigationGroup
         slot="primary-navigation"
-        label="Navigation group 2"
+        label="Navigation group with a very very very long title"
         expandable={true}
       >
         <IcNavigationItem label="Navigation 3" href="/">
@@ -168,7 +171,10 @@ export const WithNavGroupAndNavItemsSideNav = (): ReactElement => {
           <ReusableIcon />
         </IcNavigationItem>
       </IcNavigationGroup>
-      <IcNavigationGroup slot="primary-navigation" label="Navigation group 2">
+      <IcNavigationGroup
+        slot="primary-navigation"
+        label="Navigation group with a very very very very very long title"
+      >
         <IcNavigationItem label="Navigation 3" href="/">
           <ReusableIcon />
         </IcNavigationItem>

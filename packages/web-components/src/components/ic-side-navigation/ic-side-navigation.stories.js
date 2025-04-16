@@ -88,7 +88,7 @@ export const Default = {
         </ic-navigation-item>
         <ic-navigation-group
           slot="primary-navigation"
-          label="Second navigation group"
+          label="Expandable navigation group"
           expandable="true"
         >
           <ic-navigation-item label="Different navigation" href="/">
@@ -134,25 +134,29 @@ export const Default = {
             </svg>
           </ic-navigation-item>
         </ic-navigation-group>
-        <ic-navigation-item
+        <ic-navigation-group
           slot="primary-navigation"
-          href="/"
-          label="This is a very very very long label for the navigation item"
+          label="Non-expandable navigation group"
         >
-          <svg
-            slot="icon"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+          <ic-navigation-item
+            href="/"
+            label="This is a very very very long label for the navigation item"
           >
-            <path
-              d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
-              fill="currentColor"
-            />
-          </svg>
-        </ic-navigation-item>
+            <svg
+              slot="icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </ic-navigation-item>
+        </ic-navigation-group>
         <ic-navigation-item
           slot="secondary-navigation"
           href="/"
@@ -454,7 +458,7 @@ export const Expanded = {
   },
 };
 
-export const LongAppVersionAndAppStatus = {
+export const LongContent = {
   render: () => html`
     <div style="display:flex; height:100%;">
       <ic-side-navigation
@@ -528,7 +532,7 @@ export const LongAppVersionAndAppStatus = {
         </ic-navigation-item>
         <ic-navigation-group
           slot="primary-navigation"
-          label="Second navigation group"
+          label="Expandable navigation group with a very very very long title"
           expandable="true"
         >
           <ic-navigation-item label="Different navigation" href="/">
@@ -562,25 +566,30 @@ export const LongAppVersionAndAppStatus = {
             </svg>
           </ic-navigation-item>
         </ic-navigation-group>
-        <ic-navigation-item
+        <ic-navigation-group
           slot="primary-navigation"
-          href="/"
-          label="This is a very very very long label for the navigation item"
+          label="Non-expandable navigation group with a very very very long title"
+          expandable="false"
         >
-          <svg
-            slot="icon"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+          <ic-navigation-item
+            href="/"
+            label="This is a very very very long label for the navigation item"
           >
-            <path
-              d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
-              fill="currentColor"
-            />
-          </svg>
-        </ic-navigation-item>
+            <svg
+              slot="icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </ic-navigation-item>
+        </ic-navigation-group>
         <ic-navigation-item
           slot="secondary-navigation"
           href="/"
@@ -732,7 +741,7 @@ export const LongAppVersionAndAppStatus = {
     </div>
   `,
 
-  name: "Long app version and app status",
+  name: "Long content",
 
   parameters: {
     layout: "fullscreen",

@@ -1216,7 +1216,7 @@ export namespace Components {
     }
     interface IcNavigationGroup {
         /**
-          * If `true`, the group will be expandable in the side menu.
+          * If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
          */
         "expandable"?: boolean;
         /**
@@ -4636,7 +4636,7 @@ declare namespace LocalJSX {
     }
     interface IcNavigationGroup {
         /**
-          * If `true`, the group will be expandable in the side menu.
+          * If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
          */
         "expandable"?: boolean;
         /**
