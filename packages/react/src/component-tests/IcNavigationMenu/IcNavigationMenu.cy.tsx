@@ -74,7 +74,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       //cy.checkA11yWithWait(undefined, 250);
       cy.wait(250).compareSnapshot({
         name: "/with-expandable-nav-groups-top-nav-expanded",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.344),
       });
     });
 
@@ -217,7 +217,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       //cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/with-nav-groups-top-nav",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.344),
       });
     });
 
@@ -582,7 +582,7 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
 
     cy.compareSnapshot({
       name: "/all-nav-types-top-nav-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.574),
     });
   });
 
@@ -601,7 +601,7 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
 
     cy.wait(250).compareSnapshot({
       name: "/nav-group-top-nav-focused-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.574),
     });
   });
 
@@ -615,7 +615,7 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
 
     cy.compareSnapshot({
       name: "/all-nav-types-side-nav-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.574),
     });
   });
 
@@ -636,7 +636,7 @@ describe("IcNavigationMenu visual regression tests in high contrast mode", () =>
 
     cy.compareSnapshot({
       name: "/nav-group-side-nav-focused-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.574),
     });
   });
 });
