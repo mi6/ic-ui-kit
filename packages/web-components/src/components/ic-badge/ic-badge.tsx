@@ -29,8 +29,10 @@ import {
   rgbaStrToObj,
 } from "../../utils/helpers";
 
+const NAVIGATION_ITEM = "IC-NAVIGATION-ITEM";
 const NAVIGATION_BUTTON = "IC-NAVIGATION-BUTTON";
 const TOP_NAVIGATION = "IC-TOP-NAVIGATION";
+const SIDE_NAVIGATION = "IC-SIDE-NAVIGATION";
 
 /**
  * @slot badge-icon - Icon will be rendered inside the badge if type is set to icon.
@@ -47,6 +49,7 @@ export class Badge {
   private customColorRGBA: IcColorRGBA;
   private foregroundColour: IcThemeForeground;
   private parentAriaLabel: string;
+  private initialPosition: IcBadgePositions = this.position ?? "far";
 
   @Element() el: HTMLIcBadgeElement;
 
@@ -137,6 +140,7 @@ export class Badge {
 
   componentWillRender(): void {
     this.isInTopNav() && this.setPositionInTopNavigation();
+    this.isInSideNav() && this.setPositionInSideNavigation();
   }
 
   @Listen("icNavigationMenuOpened", { target: "document" })
@@ -146,7 +150,7 @@ export class Badge {
 
   @Listen("icNavigationMenuClosed", { target: "document" })
   navBarMenuCloseHandler(): void {
-    this.isInTopNav() && (this.position = "near");
+    this.isInTopNav() && (this.position = this.initialPosition);
   }
 
   /**
@@ -235,17 +239,30 @@ export class Badge {
 
   private setPositionInTopNavigation = () => {
     const parentTopNavEl = this.el.parentElement.parentElement;
-    parentTopNavEl.classList.contains("mobile-mode")
-      ? (this.position = "inline")
-      : (this.position = "near");
+    parentTopNavEl.classList.contains("mobile-mode") &&
+      (this.position = "inline");
+  };
+
+  private setPositionInSideNavigation = () => {
+    this.position = "near";
   };
 
   private isInTopNav = (): boolean => {
     const parentEl = this.el.parentElement;
     const grandparentEl = parentEl.parentElement;
     return (
-      parentEl.tagName === NAVIGATION_BUTTON &&
+      (parentEl.tagName === NAVIGATION_ITEM ||
+        parentEl.tagName === NAVIGATION_BUTTON) &&
       grandparentEl.tagName === TOP_NAVIGATION
+    );
+  };
+
+  private isInSideNav = (): boolean => {
+    const parentEl = this.el.parentElement;
+    const grandparentEl = parentEl.parentElement;
+    return (
+      parentEl.tagName === NAVIGATION_ITEM &&
+      grandparentEl.tagName === SIDE_NAVIGATION
     );
   };
 

@@ -226,7 +226,7 @@ export const WithIcons = {
         href="https://www.google.com"
         target="_blank"
       >
-        <IcBadge slot="badge" customColor="#d4351c" variant="custom" type="dot" />
+        <IcBadge slot="badge" customColor="#d4351c" variant="custom" type="dot" position="near" />
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -363,6 +363,121 @@ export const WithNavigation = {
   },
 };
 
+export const NavigationItemWithSlottedIconsAndBadges = {
+  render: () => (
+    <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
+      <svg
+        slot="app-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+      </svg>
+      <IcSearchBar slot="search" placeholder="Search" label="Search" />
+      <IcNavigationButton
+        label="Button One"
+        slot="buttons"
+        onClick={() => alert("test")}
+      >
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+        </svg>
+        <IcBadge textLabel="2" slot="badge" variant="info" position="near"/>
+      </IcNavigationButton>
+      <IcNavigationItem label="One" href="/" slot="navigation" />
+      <IcNavigationItem label="Two" href="/" slot="navigation" target="_blank"/>
+      <IcNavigationItem label="Three" href="/" slot="navigation">
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+        </svg>
+      </IcNavigationItem>
+      <IcNavigationItem label="Four" href="/" slot="navigation" target="_blank">
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+        </svg>
+      </IcNavigationItem>
+      <IcNavigationItem
+        label="Five"
+        href="/"
+        selected="true"
+        slot="navigation"
+      >
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+        </svg>
+        <IcBadge textLabel="2" slot="badge" variant="info"/>
+      </IcNavigationItem>
+      <IcNavigationItem label="Six" href="/" slot="navigation">
+        <IcBadge textLabel="2" slot="badge" variant="info"/>
+      </IcNavigationItem>
+      <IcNavigationItem label="Seven" href="/" slot="navigation">
+        <IcBadge textLabel="2" slot="badge" variant="info" position="near"/>
+      </IcNavigationItem>
+      <IcNavigationItem label="Eight" href="/" slot="navigation">
+        <IcBadge textLabel="2" slot="badge" variant="info" position="inline"/>
+      </IcNavigationItem>
+      <IcNavigationItem
+        label="Nine"
+        href="/"
+        selected="true"
+        slot="navigation"
+        target="_blank"
+      >
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+        </svg>
+        <IcBadge textLabel="A long badge" slot="badge" variant="info" position="inline"/>
+      </IcNavigationItem>
+    </IcTopNavigation>
+  ),
+
+  name: "Navigation item with slotted icons and badges",
+};
+
 export const WithGroupNavigation = {
   render: () => (
     <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
@@ -410,14 +525,84 @@ export const WithGroupNavigation = {
         expandable="true"
         slot="navigation"
       >
-        <IcNavigationItem label="One" href="/" />
-        <IcNavigationItem label="Two" href="/" />
-        <IcNavigationItem label="Three" href="/" />
-        <IcNavigationItem label="Four" href="/" />
-        <IcNavigationItem label="Five" href="/" selected="true" />
-        <IcNavigationItem label="Six" href="/" />
-        <IcNavigationItem label="Seven" href="/" />
-        <IcNavigationItem label="Eight" href="/" />
+        <IcNavigationItem label="One" href="/" target="blank">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+          </svg>
+        </IcNavigationItem>
+        <IcNavigationItem label="Two" href="/">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+          </svg>
+          <IcBadge textLabel="6" slot="badge" variant="success" size="large" position="near"/>
+        </IcNavigationItem>
+        <IcNavigationItem label="Three" href="/">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+          </svg>
+          <IcBadge textLabel="4" slot="badge" variant="error" position="far"/>
+        </IcNavigationItem>
+        <IcNavigationItem label="Four" href="/" >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+          </svg>
+          <IcBadge textLabel="10" slot="badge" size="small" position="inline"/>
+        </IcNavigationItem>
+        <IcNavigationItem label="Five" href="/" selected="true" >
+          <IcBadge textLabel="2" slot="badge" variant="info" position="near"/>
+        </IcNavigationItem>
+        <IcNavigationItem label="Six" href="/" >
+          <IcBadge slot="badge" variant="info" type="dot" position="far"/>
+        </IcNavigationItem>
+        <IcNavigationItem label="Seven" href="/" >
+          <IcBadge textLabel="A very very very long badge" slot="badge" variant="info" position="inline"/>
+        </IcNavigationItem>
+        <IcNavigationItem label="Eight" href="/" >
+          <IcBadge slot="badge" type="icon" variant="success" size="large" position="inline">
+            <svg
+              slot="badge-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              aria-label="success"
+            >
+              <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+            </svg> 
+          </IcBadge>
+        </IcNavigationItem>
       </IcNavigationGroup>
     </IcTopNavigation>
   ),
