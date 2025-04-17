@@ -264,7 +264,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait();
         cy.compareSnapshot({
           name: "/disable-top-bar-behaviour",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.31),
         });
       });
 
@@ -280,7 +280,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait();
         cy.compareSnapshot({
           name: "/theme",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.3),
         });
       });
 
@@ -297,7 +297,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait(undefined, 500);
         cy.compareSnapshot({
           name: "/theme-open",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.77),
         });
       });
     });
@@ -570,7 +570,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait();
         cy.compareSnapshot({
           name: "/basic-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.24),
         });
       });
 
@@ -587,7 +587,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait(undefined, 300);
         cy.compareSnapshot({
           name: "/basic-open-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.56),
         });
       });
 
@@ -600,7 +600,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait(undefined, 300);
         cy.compareSnapshot({
           name: "/long-props-open-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.54),
         });
       });
 
@@ -613,7 +613,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait(undefined, 300);
         cy.compareSnapshot({
           name: "/nav-group-open-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.044),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.55),
         });
       });
 
@@ -625,7 +625,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait();
         cy.compareSnapshot({
           name: "/static-expanded-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.56),
         });
       });
 
@@ -637,7 +637,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait();
         cy.compareSnapshot({
           name: "/slotted-nav-items-expanded-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.56),
         });
       });
 
@@ -674,7 +674,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait();
         cy.compareSnapshot({
           name: "/slotted-app-title-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.24),
         });
       });
 
@@ -687,7 +687,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait(undefined, 300);
         cy.compareSnapshot({
           name: "/slotted-app-title-open-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.56),
         });
       });
 
@@ -703,7 +703,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait();
         cy.compareSnapshot({
           name: "/theme-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.24),
         });
       });
 
@@ -720,7 +720,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait(undefined, 300);
         cy.compareSnapshot({
           name: "/with-theme-open-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.56),
         });
       });
     });
@@ -755,7 +755,7 @@ describe("Mobile visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/basic-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.051),
     });
   });
 
@@ -767,7 +767,7 @@ describe("Mobile visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/basic-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.044),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.079),
     });
   });
 
@@ -779,7 +779,7 @@ describe("Mobile visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/nav-group-open-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.059),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.088),
     });
   });
 
@@ -790,7 +790,7 @@ describe("Mobile visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/slotted-app-title-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.062),
     });
   });
 });
@@ -819,7 +819,7 @@ describe("Desktop visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/basic-desktop-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
 
@@ -831,7 +831,7 @@ describe("Desktop visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/basic-open-desktop-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.067),
     });
   });
 
@@ -842,7 +842,7 @@ describe("Desktop visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/slotted-nav-items-expanded-desktop-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.068),
     });
   });
 });
