@@ -113,7 +113,7 @@ ic-typography.page-selected.light {
   width: 100%;
   position: absolute;
   bottom: 0;
-  background-color: var(--ic-action-light);
+  background-color: var(--ic-action-monochrome);
 }
 
 /** DARK STATES **/
@@ -135,11 +135,11 @@ ic-typography.dark {
   width: 100%;
   position: absolute;
   bottom: 0;
-  background-color: var(--ic-action-dark);
+  background-color: var(--ic-action-monochrome-dark);
 }
 
 .disabled {
-  --ic-typography-color: var(--ic-architectural-200);
+  --ic-typography-color: var(--ic-color-text-disabled-mid);
 
   pointer-events: none;
   cursor: none;

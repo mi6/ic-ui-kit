@@ -135,7 +135,7 @@ export const DeterminateCircularLightLoadingIndIconNoLabel = (args: {
 );
 
 export const DarkModeColours = (): ReactElement => (
-  <div style={{ display: "grid", gap: "50px", backgroundColor: "#2d2d2d" }}>
+  <div style={{ display: "grid", gap: "50px", backgroundColor: "#17191C" }}>
     <IcLoadingIndicator
       progress={30}
       min={0}
@@ -193,7 +193,7 @@ export const DeterminateLinearLightLoadingIndSizeDefaultLargeFull = (args: {
   min: number;
   max: number;
 }): ReactElement => (
-  <div style={{ display: "grid", gap: "50px", backgroundColor: "#2d2d2d" }}>
+  <div style={{ display: "grid", gap: "50px", backgroundColor: "#17191C" }}>
     <IcLoadingIndicator
       progress={args.progress}
       min={args.min}

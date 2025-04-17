@@ -169,14 +169,14 @@ describe("IcBackToTop visual regression and a11y tests", () => {
 
   it("should render BackToTop with dark theme", () => {
     mount(
-      <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+      <div style={{ padding: "10px", backgroundColor: "#17191C" }}>
         <BackToTop theme="dark" />
       </div>
     );
 
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR).wait(1500);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.081),
@@ -188,7 +188,7 @@ describe("IcBackToTop visual regression and a11y tests", () => {
 
   it("should render icon only BackToTop with dark theme", () => {
     mount(
-      <div style={{ padding: "10px", backgroundColor: "#000000" }}>
+      <div style={{ padding: "10px", backgroundColor: "#17191C" }}>
         <BackToTop variant="icon" theme="dark" />
       </div>
     );

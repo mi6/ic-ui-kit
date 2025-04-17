@@ -1383,7 +1383,7 @@ export const Dropdown = {
         >
       </div>
       <div
-        style="background-color:#2c2f34; padding:6px 10px; width:fit-content;"
+        style="background-color:#17191C; padding:6px 10px; width:fit-content;"
       >
         <ic-button dropdown="true" variant="primary" theme="light"
           >Button</ic-button
@@ -1953,7 +1953,7 @@ export const FullWidth = {
         />
       </svg>
     </ic-button>
-    <div style="background-color:#2c2f34; padding:6px 10px,">
+    <div style="background-color:#17191C; padding:6px 10px,">
       <ic-button variant="primary" theme="light" full-width="true">
         Button
         <svg
@@ -2248,7 +2248,7 @@ export const Loading = {
         >
       </div>
       <div
-        style="background-color:#2c2f34; padding:6px 10px; width:fit-content"
+        style="background-color:#17191C; padding:6px 10px; width:fit-content"
       >
         <ic-button variant="primary" loading theme="light"
           >Button</ic-button
@@ -2263,7 +2263,7 @@ export const Loading = {
         >
       </div>
       <div
-        style="background-color:#2c2f34; padding:6px 10px; width:fit-content"
+        style="background-color:#17191C; padding:6px 10px; width:fit-content"
       >
         <ic-button variant="secondary" loading theme="light"
           >Button</ic-button
@@ -2278,7 +2278,7 @@ export const Loading = {
         >
       </div>
       <div
-        style="background-color:#2c2f34; padding:6px 10px; width:fit-content"
+        style="background-color:#17191C; padding:6px 10px; width:fit-content"
       >
         <ic-button variant="tertiary" loading theme="light"
           >Button</ic-button

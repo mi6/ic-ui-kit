@@ -94,7 +94,11 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
   it("should render light IcLink", () => {
     mount(
       <div
-        style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
+        style={{
+          backgroundColor: "#17191C",
+          margin: "16px",
+          minHeight: "50px",
+        }}
       >
         <IcLink href="/" theme="dark" monochrome={true}>
           About our coffees
@@ -114,7 +118,11 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
   it("should render light IcLink with focus", () => {
     mount(
       <div
-        style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
+        style={{
+          backgroundColor: "#17191C",
+          margin: "16px",
+          minHeight: "50px",
+        }}
       >
         <IcLink href="/" theme="dark" monochrome={true}>
           About our coffees

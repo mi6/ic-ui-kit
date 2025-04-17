@@ -39,18 +39,6 @@
   width: 100%;
 }
 
-:host(.ic-search-bar-search) .ic-button-disabled:hover {
-  border-color: var(--ic-architectural-200);
-}
-
-:host(.ic-search-bar-search.ic-search-bar-disabled) .ic-button-disabled svg {
-  color: var(--ic-architectural-200);
-}
-
-:host(.ic-search-bar-search) .ic-button-disabled svg {
-  color: var(--ic-architectural-400);
-}
-
 /* Custom Input */
 
 ::placeholder {

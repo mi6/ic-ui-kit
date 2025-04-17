@@ -52,7 +52,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     );
     cy.checkHydrated(BANNER);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/official",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
@@ -65,7 +65,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     );
     cy.checkHydrated(BANNER);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/official-sensitive",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
@@ -78,7 +78,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     );
     cy.checkHydrated(BANNER);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/secret",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
@@ -91,7 +91,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     );
     cy.checkHydrated(BANNER);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/top-secret",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
@@ -107,7 +107,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     );
     cy.checkHydrated(BANNER);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/country-official",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
@@ -123,7 +123,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     );
     cy.checkHydrated(BANNER);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/up-to-official",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
@@ -151,7 +151,7 @@ describe("IcClassificationBanner visual regression and a11y tests", () => {
     );
     cy.checkHydrated(BANNER);
 
-    // cy.checkA11yWithWait(undefined, 500);
+    cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "/inline-official",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
