@@ -6,14 +6,16 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
-import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
+import { IcThemeMode } from "@ukic/web-components";
 import { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
+import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode as IcThemeMode1, IcWeekDays } from "./utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 import { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
 export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
-export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode, IcWeekDays } from "./utils/types";
+export { IcThemeMode } from "@ukic/web-components";
 export { IcDataTableColumnObject, IcDataTableDataType, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail, IcSortEventDetail } from "./components/ic-data-table/ic-data-table.types";
+export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSizes, IcThemeMode as IcThemeMode1, IcWeekDays } from "./utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcPageChangeEventDetail } from "./components/ic-pagination-bar/ic-pagination-bar.types";
 export { IcTreeItemOptions } from "./components/ic-tree-view/ic-tree-view.types";
@@ -22,11 +24,11 @@ export namespace Components {
         /**
           * If `true`, the horizontal card will be a clickable variant, instead of static.
          */
-        "clickable"?: boolean;
+        "clickable": boolean;
         /**
           * If `true`, the horizontal card will be disabled if it is clickable.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * The heading for the horizontal card. This is required, unless a slotted heading is used.
          */
@@ -88,7 +90,7 @@ export namespace Components {
         /**
           * Set the density of the table including font and padding.
          */
-        "density"?: IcDataTableDensityOptions;
+        "density": IcDataTableDensityOptions;
         /**
           * If `true`, the built in sort functionality will be disabled. For example, if rows will already be sorted from an external source.
          */
@@ -96,11 +98,11 @@ export namespace Components {
         /**
           * Applies a border to the table container.
          */
-        "embedded"?: boolean;
+        "embedded": boolean;
         /**
           * Sets the row height on all rows in the table that aren't set using the `variableRowHeight` method.
          */
-        "globalRowHeight"?: IcDataTableRowHeights;
+        "globalRowHeight": IcDataTableRowHeights;
         /**
           * Sets the table height. Can be set to `auto` or a specific value in `px`, `rem`, or `%`.
          */
@@ -112,11 +114,11 @@ export namespace Components {
         /**
           * If `true`, the selected row is highlighted using a background colour.
          */
-        "highlightSelectedRow"?: boolean;
+        "highlightSelectedRow": boolean;
         /**
           * When set to `true`, the full table will show a loading state, featuring a radial indicator.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * Sets the props for the circular loading indicator used in the loading state.
          */
@@ -141,11 +143,11 @@ export namespace Components {
         /**
           * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
          */
-        "minimumLoadingDisplayDuration"?: number;
+        "minimumLoadingDisplayDuration": number;
         /**
           * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
          */
-        "paginationBarOptions"?: IcPaginationBarOptions;
+        "paginationBarOptions": IcPaginationBarOptions;
         /**
           * Resets the `globalRowHeight` prop to number or auto and sets the `variableRowHeight` prop to `null`.
          */
@@ -157,7 +159,7 @@ export namespace Components {
         /**
           * Sets the order columns will be sorted in and allows for 'default' sorts to be added.
          */
-        "sortOptions"?: {
+        "sortOptions": {
     sortOrders: IcDataTableSortOrderOptions[];
     defaultColumn?: string;
   };
@@ -168,11 +170,11 @@ export namespace Components {
         /**
           * If `true`, column headers will remain at the top of the table when scrolling vertically.
          */
-        "stickyColumnHeaders"?: boolean;
+        "stickyColumnHeaders": boolean;
         /**
           * If `true`, row headers will remain to the left when scrolling horizontally.
          */
-        "stickyRowHeaders"?: boolean;
+        "stickyRowHeaders": boolean;
         /**
           * Sets the layout of the table
          */
@@ -180,7 +182,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
          */
@@ -188,7 +190,7 @@ export namespace Components {
         /**
           * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
          */
-        "updating"?: boolean;
+        "updating": boolean;
         /**
           * Sets the props for the linear loading indicator used in the updating state.
          */
@@ -233,15 +235,15 @@ export namespace Components {
         /**
           * The format in which the date will be displayed.
          */
-        "dateFormat"?: IcDateFormat;
+        "dateFormat": IcDateFormat;
         /**
           * The days of the week to disable.
          */
-        "disableDays"?: IcWeekDays[];
+        "disableDays": IcWeekDays[];
         /**
           * The text to display as the validation message when `disableDays` is set and a disabled date is entered.
          */
-        "disableDaysMessage"?: string;
+        "disableDaysMessage": string;
         /**
           * If `true`, dates in the future are not allowed. A validation message will appear if a date in the future is entered.
          */
@@ -249,7 +251,7 @@ export namespace Components {
         /**
           * The text to display as the validation message when `disableFuture` is true and a date in the future is entered.
          */
-        "disableFutureMessage"?: string;
+        "disableFutureMessage": string;
         /**
           * If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.
          */
@@ -257,11 +259,11 @@ export namespace Components {
         /**
           * The text to display as the validation message when `disablePast` is true and a date in the past is entered.
          */
-        "disablePastMessage"?: string;
+        "disablePastMessage": string;
         /**
           * If `true`, the disabled state will be set.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * If `true`, every individual input field completed will emit an icChange event.
          */
@@ -270,11 +272,11 @@ export namespace Components {
           * Returns the value as a Date object
           * @returns Date
          */
-        "getDate": () => Promise<Date>;
+        "getDate": () => Promise<Date | null>;
         /**
           * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
-        "helperText"?: string;
+        "helperText": string | null;
         /**
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
          */
@@ -286,11 +288,11 @@ export namespace Components {
         /**
           * The ID for the input.
          */
-        "inputId"?: string;
+        "inputId": string;
         /**
           * The text to display as the validation message when an invalid date is entered.
          */
-        "invalidDateMessage"?: string;
+        "invalidDateMessage": string;
         /**
           * The label for the date input.
          */
@@ -298,11 +300,11 @@ export namespace Components {
         /**
           * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
          */
-        "max"?: string | Date;
+        "max": string | Date;
         /**
           * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
          */
-        "min"?: string | Date;
+        "min": string | Date;
         /**
           * The name of the control, which is submitted with the form data.
          */
@@ -310,7 +312,7 @@ export namespace Components {
         /**
           * If `true`, the input will require a value.
          */
-        "required"?: boolean;
+        "required": boolean;
         "setCalendarFocus": () => Promise<void>;
         "setDisableDays": (days: IcWeekDays[]) => Promise<void>;
         "showCalendarButton"?: boolean;
@@ -321,16 +323,16 @@ export namespace Components {
         /**
           * The size of the date input to be displayed.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
-        "triggerIcChange": (d: Date) => Promise<void>;
+        "theme"?: IcThemeMode1;
+        "triggerIcChange": (d: Date | null) => Promise<void>;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
-        "validationStatus"?: IcInformationStatusOrEmpty;
+        "validationStatus": IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message. This will override the built-in date validation.
          */
@@ -344,7 +346,7 @@ export namespace Components {
         /**
           * The format in which the date will be displayed.
          */
-        "dateFormat"?: IcDateFormat;
+        "dateFormat": IcDateFormat;
         /**
           * The days of the week to disable.
          */
@@ -372,7 +374,7 @@ export namespace Components {
         /**
           * If `true`, the disabled state will be set.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * If `true`, every individual input field completed will emit an icChange event.
          */
@@ -404,11 +406,11 @@ export namespace Components {
         /**
           * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
          */
-        "max"?: string | Date;
+        "max": string | Date;
         /**
           * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
          */
-        "min"?: string | Date;
+        "min": string | Date;
         /**
           * The name of the control, which is submitted with the form data.
          */
@@ -440,11 +442,11 @@ export namespace Components {
         /**
           * The first day of the week. `0` for Sunday, `1` for Monday, etc. Default is Monday.
          */
-        "startOfWeek"?: IcWeekDays;
+        "startOfWeek": IcWeekDays;
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
@@ -531,12 +533,12 @@ export namespace Components {
         /**
           * If `true`, the tree item appears in the disabled state.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * If `true`, the tree item appears in the expanded state.
          */
         "expanded": boolean;
-        "focusInset"?: boolean;
+        "focusInset": boolean;
         "hasParentExpanded": boolean;
         /**
           * The URL that the tree item link points to. If set, the tree item will render as an "a" tag, otherwise it will render as a div.
@@ -551,7 +553,7 @@ export namespace Components {
           * The label of the tree item.
          */
         "label": string;
-        "previousTruncateTreeItem": boolean;
+        "previousTruncateTreeItem"?: boolean;
         /**
           * How much of the referrer to send when following the link.
          */
@@ -576,7 +578,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * If `true`, the tree item label will be truncated instead of text wrapping.
          */
@@ -587,11 +589,11 @@ export namespace Components {
         /**
           * If `true`, tree items will have inset focus.
          */
-        "focusInset"?: boolean;
+        "focusInset": boolean;
         /**
           * The heading of the tree view.
          */
-        "heading"?: string;
+        "heading": string;
         /**
           * The size of the tree view.
          */
@@ -599,7 +601,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * The content within the tree view tree items. This will take precedence over slotted content.
          */
@@ -607,11 +609,11 @@ export namespace Components {
         /**
           * If `true`, the tree view heading will be truncated instead of text wrapping. When used on small devices, this prop will be overridden and headings will be set to text-wrap.
          */
-        "truncateHeading"?: boolean;
+        "truncateHeading": boolean;
         /**
           * If `true`, tree items will be truncated, unless they are individually overridden. When used on small devices, this prop will be overridden and tree-items will be set to text-wrap.
          */
-        "truncateTreeItems"?: boolean;
+        "truncateTreeItems": boolean;
     }
 }
 export interface IcDataTableCustomEvent<T> extends CustomEvent<T> {
@@ -682,13 +684,17 @@ declare global {
         new (): HTMLIcDataTableTitleBarElement;
     };
     interface HTMLIcDateInputElementEventMap {
-        "calendarButtonClicked": { value: Date };
-        "icBlur": { value: Date };
+        "calendarButtonClicked": { value: Date | null };
+        "icBlur": { value: Date | null };
         "icChange": {
-    value: Date;
-    dateObject: { day: string; month: string; year: string };
+    value: Date | null;
+    dateObject: {
+      day: string | null;
+      month: string | null;
+      year: string | null;
+    };
   };
-        "icFocus": { value: Date };
+        "icFocus": { value: Date | null };
     }
     interface HTMLIcDateInputElement extends Components.IcDateInput, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcDateInputElementEventMap>(type: K, listener: (this: HTMLIcDateInputElement, ev: IcDateInputCustomEvent<HTMLIcDateInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -940,7 +946,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * Sets the method used to truncate long text in cells where textWrap is `false`. The `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `show-hide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography "See more"/"See less" buttons.
          */
@@ -1033,7 +1039,7 @@ declare namespace LocalJSX {
         /**
           * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
-        "helperText"?: string;
+        "helperText"?: string | null;
         /**
           * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
          */
@@ -1066,22 +1072,26 @@ declare namespace LocalJSX {
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
-        "onCalendarButtonClicked"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
+        "onCalendarButtonClicked"?: (event: IcDateInputCustomEvent<{ value: Date | null }>) => void;
         /**
           * Emitted when the input loses focus.
          */
-        "onIcBlur"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
+        "onIcBlur"?: (event: IcDateInputCustomEvent<{ value: Date | null }>) => void;
         /**
           * Emitted when the value has changed.
          */
         "onIcChange"?: (event: IcDateInputCustomEvent<{
-    value: Date;
-    dateObject: { day: string; month: string; year: string };
+    value: Date | null;
+    dateObject: {
+      day: string | null;
+      month: string | null;
+      year: string | null;
+    };
   }>) => void;
         /**
           * Emitted when the input gains focus.
          */
-        "onIcFocus"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
+        "onIcFocus"?: (event: IcDateInputCustomEvent<{ value: Date | null }>) => void;
         /**
           * If `true`, the input will require a value.
          */
@@ -1098,7 +1108,7 @@ declare namespace LocalJSX {
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
@@ -1220,7 +1230,7 @@ declare namespace LocalJSX {
         /**
           * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
@@ -1360,7 +1370,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * If `true`, the tree item label will be truncated instead of text wrapping.
          */
@@ -1382,7 +1392,7 @@ declare namespace LocalJSX {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme"?: IcThemeMode1;
         /**
           * The content within the tree view tree items. This will take precedence over slotted content.
          */

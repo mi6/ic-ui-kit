@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
   Component,
   Prop,
@@ -10,8 +11,8 @@ import {
   Watch,
   Host,
 } from "@stencil/core";
-import { IcThemeMode } from "../../utils/types";
-import { checkResizeObserver, capitalize } from "../../utils/helpers";
+import { IcThemeMode } from "@ukic/web-components";
+import { capitalize, checkResizeObserver } from "../../utils/helpers";
 import { IcPageChangeEventDetail } from "./ic-pagination-bar.types";
 import {
   IcPaginationAlignmentOptions,
@@ -29,11 +30,11 @@ export class PaginationBar {
 
   private INVALID_PAGE_ERROR = "Please enter a valid page";
 
-  private resizeObserver: ResizeObserver = null;
+  private resizeObserver: ResizeObserver | null = null;
   private pageDropdownEl: HTMLIcSelectElement;
   private pageInputEl: HTMLIcTextFieldElement;
   private pageInputTooltipEl: HTMLIcTooltipElement;
-  private paginationBarEl: HTMLElement;
+  private paginationBarEl?: HTMLElement;
   private paginationEl: HTMLIcPaginationElement;
   private userSetItemsPerPage: number;
 
@@ -135,8 +136,8 @@ export class PaginationBar {
 
   @Watch("itemLabel")
   watchItemLabelHandler(): void {
-    this.capitalizedItemLabel = capitalize(this.itemLabel);
-    this.lowerCaseItemLabel = this.itemLabel.toLowerCase();
+    this.capitalizedItemLabel = capitalize(this.itemLabel!);
+    this.lowerCaseItemLabel = this.itemLabel!.toLowerCase();
   }
 
   /**
@@ -189,8 +190,8 @@ export class PaginationBar {
 
   @Watch("pageLabel")
   watchPageLabelHandler(): void {
-    this.capitalizedPageLabel = capitalize(this.pageLabel);
-    this.lowerCasePageLabel = this.pageLabel.toLowerCase();
+    this.capitalizedPageLabel = capitalize(this.pageLabel!);
+    this.lowerCasePageLabel = this.pageLabel!.toLowerCase();
   }
 
   /**
@@ -252,7 +253,7 @@ export class PaginationBar {
   }
 
   componentDidLoad(): void {
-    this.paginationWidth = this.paginationBarEl.clientWidth;
+    this.paginationWidth = this.paginationBarEl?.clientWidth || 0;
     checkResizeObserver(this.runResizeObserver);
     const textField = this.el.shadowRoot?.querySelector(
       `.${this.PAGE_INPUT_FIELD_ID}`
@@ -286,7 +287,7 @@ export class PaginationBar {
   };
 
   private focusElFromLabel = (el: "ic-select" | "ic-text-field") => {
-    this.paginationBarEl.querySelector(el)?.setFocus();
+    this.paginationBarEl?.querySelector(el)?.setFocus();
   };
 
   private goToPage = () => {
@@ -373,18 +374,20 @@ export class PaginationBar {
   };
 
   private runResizeObserver = () => {
-    this.resizeObserver = new ResizeObserver(() => {
-      const { clientWidth } = this.paginationBarEl;
-      if (
-        clientWidth - this.paginationWidth > 50 ||
-        clientWidth - this.paginationWidth < -50
-      ) {
-        this.paginationWidth = clientWidth;
-        this.paginationShouldWrap();
-      }
-    });
+    if (this.paginationBarEl) {
+      this.resizeObserver = new ResizeObserver(() => {
+        const { clientWidth } = this.paginationBarEl!;
+        if (
+          clientWidth - this.paginationWidth > 50 ||
+          clientWidth - this.paginationWidth < -50
+        ) {
+          this.paginationWidth = clientWidth;
+          this.paginationShouldWrap();
+        }
+      });
 
-    this.resizeObserver.observe(this.paginationBarEl);
+      this.resizeObserver.observe(this.paginationBarEl);
+    }
   };
 
   private setInputError = (

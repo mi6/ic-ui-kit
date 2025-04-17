@@ -152,7 +152,7 @@ describe("ic-date-picker", () => {
       html: `<ic-date-picker label="Date picker label" value="11/07/2023" disable-days-message="Saturday and Sunday not allowed"></ic-date-picker>`,
     });
 
-    page.root.disableDays = [0, 6];
+    page.root!.disableDays = [0, 6];
     page.rootInstance.setSelectedDate(new Date(2023, 6, 11));
     page.rootInstance.calendarOpen = true;
     await page.waitForChanges();
@@ -212,7 +212,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const dayButton = page.root.shadowRoot.querySelector(
+    const dayButton = page.root!.shadowRoot!.querySelector(
       "div.calendar-days-container > div.day-button-container:nth-child(26) > button"
     );
     (dayButton as HTMLElement).click();
@@ -233,7 +233,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const monthButton = page.root.shadowRoot.querySelector(
+    const monthButton = page.root!.shadowRoot!.querySelector(
       ".month-picker-button"
     ) as HTMLIcButtonElement;
     monthButton.click();
@@ -262,7 +262,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const yearButton = page.root.shadowRoot.querySelector(
+    const yearButton = page.root!.shadowRoot!.querySelector(
       ".year-picker-button"
     ) as HTMLIcButtonElement;
     yearButton.click();
@@ -305,7 +305,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const monthButton = page.root.shadowRoot.querySelector(
+    const monthButton = page.root!.shadowRoot!.querySelector(
       ".month-picker-button"
     ) as HTMLIcButtonElement;
     monthButton.click();
@@ -313,7 +313,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const janButton = page.root.shadowRoot.querySelector(
+    const janButton = page.root!.shadowRoot!.querySelector(
       "div.month-picker > ic-button:nth-child(1)"
     ) as HTMLIcButtonElement;
     janButton.click();
@@ -338,7 +338,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const yearButton = page.root.shadowRoot.querySelector(
+    const yearButton = page.root!.shadowRoot!.querySelector(
       ".year-picker-button"
     ) as HTMLIcButtonElement;
     yearButton.click();
@@ -346,7 +346,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const firstYearButton = page.root.shadowRoot.querySelector(
+    const firstYearButton = page.root!.shadowRoot!.querySelector(
       "div.year-picker > ic-button:nth-child(2)"
     ) as HTMLIcButtonElement;
     firstYearButton.click();
@@ -368,7 +368,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const yearButton = page.root.shadowRoot.querySelector(
+    const yearButton = page.root!.shadowRoot!.querySelector(
       ".year-picker-button"
     ) as HTMLIcButtonElement;
     yearButton.click();
@@ -376,14 +376,14 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const prevDecadeButton = page.root.shadowRoot.querySelector(
+    const prevDecadeButton = page.root!.shadowRoot!.querySelector(
       "div.year-picker > div.prev-decade > ic-button:nth-child(1)"
     ) as HTMLIcButtonElement;
     prevDecadeButton.click();
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const firstYearButton = page.root.shadowRoot.querySelector(
+    const firstYearButton = page.root!.shadowRoot!.querySelector(
       "div.year-picker > ic-button:nth-child(2)"
     ) as HTMLIcButtonElement;
     firstYearButton.click();
@@ -404,7 +404,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const yearButton = page.root.shadowRoot.querySelector(
+    const yearButton = page.root!.shadowRoot!.querySelector(
       ".year-picker-button"
     ) as HTMLIcButtonElement;
     yearButton.click();
@@ -412,14 +412,14 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const nextDecadeButton = page.root.shadowRoot.querySelector(
+    const nextDecadeButton = page.root!.shadowRoot!.querySelector(
       "div.year-picker > div.next-decade > ic-button:nth-child(1)"
     ) as HTMLIcButtonElement;
     nextDecadeButton.click();
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const firstYearButton = page.root.shadowRoot.querySelector(
+    const firstYearButton = page.root!.shadowRoot!.querySelector(
       "div.year-picker > ic-button:nth-child(2)"
     ) as HTMLIcButtonElement;
     firstYearButton.click();
@@ -520,7 +520,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    page.root.click();
+    page.root!.click();
 
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
@@ -571,7 +571,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const todayButton = page.root.shadowRoot.querySelector(
+    const todayButton = page.root!.shadowRoot!.querySelector(
       "div.bottom-buttons > #today-button"
     ) as HTMLIcButtonElement;
     todayButton.click();
@@ -595,7 +595,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const todayButton = page.root.shadowRoot.querySelector(
+    const todayButton = page.root!.shadowRoot!.querySelector(
       "div.bottom-buttons > #today-button"
     ) as HTMLIcButtonElement;
     todayButton.click();
@@ -621,7 +621,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const todayButton = page.root.shadowRoot.querySelector(
+    const todayButton = page.root!.shadowRoot!.querySelector(
       "div.bottom-buttons > #today-button"
     ) as HTMLIcButtonElement;
     todayButton.click();
@@ -650,7 +650,7 @@ describe("ic-date-picker", () => {
     expect(page.rootInstance.focussedDayEl.focus).not.toHaveBeenCalled();
     expect(page.rootInstance.selectedDate).not.toBe(null);
 
-    const clearButton = page.root.shadowRoot.querySelector(
+    const clearButton = page.root!.shadowRoot!.querySelector(
       "div.bottom-buttons > #clear-button"
     ) as HTMLIcButtonElement;
     clearButton.click();
@@ -684,9 +684,9 @@ describe("ic-date-picker", () => {
       value: jest.fn(),
     });
     expect(page.rootInstance.focussedMonthEl.setFocus).not.toHaveBeenCalled();
-    expect(page.root.value).not.toBe("");
+    expect(page.root!.value).not.toBe("");
 
-    const clearButton = page.root.shadowRoot.querySelector(
+    const clearButton = page.root!.shadowRoot!.querySelector(
       "div.bottom-buttons > #clear-button"
     ) as HTMLIcButtonElement;
     clearButton.click();
@@ -721,9 +721,9 @@ describe("ic-date-picker", () => {
       value: jest.fn(),
     });
     expect(page.rootInstance.focussedYearEl.setFocus).not.toHaveBeenCalled();
-    expect(page.root.value).not.toBe("");
+    expect(page.root!.value).not.toBe("");
 
-    const clearButton = page.root.shadowRoot.querySelector(
+    const clearButton = page.root!.shadowRoot!.querySelector(
       "div.bottom-buttons > #clear-button"
     ) as HTMLIcButtonElement;
     clearButton.click();
@@ -731,7 +731,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    expect(page.root.value).toBeNull();
+    expect(page.root!.value).toBeNull();
     expect(page.rootInstance.yearPickerVisible).toBe(true);
     expect(page.rootInstance.focussedYearEl.setFocus).toHaveBeenCalled();
     expect(page.rootInstance.liveRegionEl.textContent).toBe(
@@ -750,7 +750,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const prevMonthButton = page.root.shadowRoot.querySelector(
+    const prevMonthButton = page.root!.shadowRoot!.querySelector(
       "#previous-month-button"
     ) as HTMLIcButtonElement;
     prevMonthButton.click();
@@ -760,7 +760,7 @@ describe("ic-date-picker", () => {
 
     expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 10, 25));
 
-    const nextMonthButton = page.root.shadowRoot.querySelector(
+    const nextMonthButton = page.root!.shadowRoot!.querySelector(
       "#next-month-button"
     ) as HTMLIcButtonElement;
     nextMonthButton.click();
@@ -769,7 +769,7 @@ describe("ic-date-picker", () => {
 
     expect(page.rootInstance.focussedDate).toEqual(new Date(2022, 11, 25));
 
-    const prevYearButton = page.root.shadowRoot.querySelector(
+    const prevYearButton = page.root!.shadowRoot!.querySelector(
       "#previous-year-button"
     ) as HTMLIcButtonElement;
     prevYearButton.click();
@@ -779,7 +779,7 @@ describe("ic-date-picker", () => {
 
     expect(page.rootInstance.focussedDate).toEqual(new Date(2021, 11, 25));
 
-    const nextYearButton = page.root.shadowRoot.querySelector(
+    const nextYearButton = page.root!.shadowRoot!.querySelector(
       "#next-year-button"
     ) as HTMLIcButtonElement;
     nextYearButton.click();
@@ -1262,7 +1262,7 @@ describe("ic-date-picker", () => {
     expect(page.rootInstance.monthButtonEl.setFocus).toHaveBeenCalled();
 
     //test tab with clear button disabled (rather than hidden)
-    page.root.showPickerClearButton = true;
+    page.root!.showPickerClearButton = true;
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
     page.rootInstance.clearButtonEl.disabled = true;
@@ -1291,7 +1291,7 @@ describe("ic-date-picker", () => {
       html: `<ic-date-picker label="Date picker label" open-at-date="23/12/2022"></ic-date-picker>`,
     });
 
-    page.root.disableDays = [0, 6];
+    page.root!.disableDays = [0, 6];
     page.rootInstance.calendarOpen = true;
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
@@ -1353,7 +1353,7 @@ describe("ic-date-picker", () => {
 
     expect(page.rootInstance.dayButtonFocussed).toBe(true);
 
-    const dayButton = page.root.shadowRoot.querySelector(
+    const dayButton = page.root!.shadowRoot!.querySelector(
       "div.calendar-days-container > div.day-button-container:nth-child(26) > button"
     );
 
@@ -1372,7 +1372,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const dayButton = page.root.shadowRoot.querySelector(
+    const dayButton = page.root!.shadowRoot!.querySelector(
       "#previous-month-button"
     );
     const mouseEvent = new window.window.MouseEvent("mousedown", {
@@ -1384,7 +1384,7 @@ describe("ic-date-picker", () => {
       value: jest.fn(),
     });
 
-    dayButton.dispatchEvent(mouseEvent);
+    dayButton!.dispatchEvent(mouseEvent);
     await page.waitForChanges();
 
     expect(mouseEvent.preventDefault).toHaveBeenCalled();
@@ -1417,7 +1417,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    const yearButton = page.root.shadowRoot.querySelector(
+    const yearButton = page.root!.shadowRoot!.querySelector(
       ".year-picker-button"
     ) as HTMLIcButtonElement;
     yearButton.click();
@@ -1427,7 +1427,7 @@ describe("ic-date-picker", () => {
 
     expect(page.rootInstance.yearButtonFocussed).toBe(false);
 
-    const firstYearButton = page.root.shadowRoot.querySelector(
+    const firstYearButton = page.root!.shadowRoot!.querySelector(
       "div.year-picker > ic-button:nth-child(2)"
     ) as HTMLIcButtonElement;
     firstYearButton.focus();
@@ -1465,7 +1465,7 @@ describe("ic-date-picker", () => {
       "Sun",
     ]);
 
-    page.root.startOfWeek = 4;
+    page.root!.startOfWeek = 4;
     await page.waitForChanges();
 
     expect(page.rootInstance.orderedDaysOfWeek).toEqual([

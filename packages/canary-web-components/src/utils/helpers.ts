@@ -1,28 +1,26 @@
 /**
  * To investigate:
- * IcColorRGBA works via @ukic/web-components but IcBrandForeground does not even though they are exported
+ * IcColorRGBA works via @ukic/web-components but IcBrandForegroundEnum does not even though they are exported
  * from @ukic/web-components in the same file. Why?
  */
+import { EventEmitter, forceUpdate } from "@stencil/core";
 import {
+  IcBrandForeground,
   IcCallbackFunctionNoReturn,
+  IcColorRGBA,
   IcInformationStatusOrEmpty,
+  IcMenuOption,
   IcNavParentDetails,
   IcPropObject,
   IcSearchMatchPositions,
-  IcColorRGBA,
 } from "@ukic/web-components";
+import { IcDataTableDataType } from "../interface";
 import {
   IC_BLOCK_COLOR_COMPONENTS,
   IC_BLOCK_COLOR_EXCEPTIONS,
   IC_FIXED_COLOR_COMPONENTS,
 } from "./constants"; // Using @ukic/web-components/dist/types/utils/constants does not work so duplicated constants into canary package
-import {
-  IcMenuOption,
-  IcBrandForeground,
-  IcBrandForegroundEnum,
-} from "./types"; // Using @ukic/web-components/dist/types/utils/types does not work so duplicated constants into canary package
-import { EventEmitter, forceUpdate } from "@stencil/core";
-import { IcDataTableDataType } from "../interface";
+import { IcBrandForegroundEnum } from "./types"; // Using @ukic/web-components/dist/types/utils/types does not work so duplicated constants into canary package
 
 const DARK_MODE_THRESHOLD = 133.3505;
 
@@ -138,7 +136,7 @@ export const renderHiddenInput = (
     input.name = name;
 
     if (value instanceof Date) {
-      input.value = value ? value.toISOString() : null;
+      input.value = value ? value.toISOString() : "";
     } else {
       input.value = value || "";
     }
@@ -167,17 +165,17 @@ export const removeHiddenInput = (container: HTMLElement): void => {
  */
 export const getBrandFromContext = (
   el: Element,
-  brandFromEvent: IcBrandForeground = null
+  brandFromEvent: IcBrandForeground | null = null
 ): IcBrandForeground => {
   const parentElement =
     el.parentElement || (<ShadowRoot>el.getRootNode()).host.parentElement;
-  const blockColorParent = parentElement.closest(
+  const blockColorParent = parentElement?.closest(
     IC_BLOCK_COLOR_COMPONENTS.join(",")
   );
 
   // If within a block color component
-  if (blockColorParent !== null) {
-    const parentTag = blockColorParent.tagName.toLowerCase();
+  if (blockColorParent) {
+    const parentTag = blockColorParent?.tagName.toLowerCase();
     const currentTag = el.tagName.toLowerCase();
 
     if (IC_BLOCK_COLOR_EXCEPTIONS[parentTag]?.includes(currentTag)) {
@@ -212,7 +210,7 @@ export const handleHiddenFormButtonClick = (
 ): void => {
   const hiddenFormButton = document.createElement("button");
 
-  hiddenFormButton.setAttribute("type", button.type);
+  button.type && hiddenFormButton.setAttribute("type", button.type);
   hiddenFormButton.style.display = "none";
 
   form.appendChild(hiddenFormButton);
@@ -221,7 +219,7 @@ export const handleHiddenFormButtonClick = (
   hiddenFormButton.remove();
 };
 
-export const isEmptyString = (value: string): boolean =>
+export const isEmptyString = (value: string | null): boolean =>
   value ? value.trim().length === 0 : true;
 
 // A helper function that checks if a prop has been defined
@@ -298,7 +296,7 @@ export const getSlotContent = (
 
 export const getSlotElements = (
   slot: Element
-): NodeListOf<ChildNode> | Element[] => {
+): NodeListOf<ChildNode> | Element[] | null => {
   const slotContent = slot.firstElementChild as HTMLSlotElement;
 
   if (slotContent !== null) {
@@ -312,23 +310,25 @@ export const getSlotElements = (
   }
 };
 
-export const getNavItemParentDetails = (
-  el: HTMLElement
-): IcNavParentDetails => {
+export const getNavItemParentDetails = ({
+  parentElement,
+}: HTMLElement): IcNavParentDetails => {
   let navType: IcNavParentDetails = { navType: "", parent: null };
-  switch (getParentElementType(el)) {
-    case "IC-NAVIGATION-GROUP":
-      navType = getNavItemParentDetails(el.parentElement);
-      break;
-    case "IC-TOP-NAVIGATION":
-      navType = { navType: "top", parent: getParentElement(el) };
-      break;
-    case "IC-SIDE-NAVIGATION":
-      navType = { navType: "side", parent: getParentElement(el) };
-      break;
-    case "IC-PAGE-HEADER":
-      navType = { navType: "page-header", parent: null };
-      break;
+  if (parentElement) {
+    switch (parentElement.tagName) {
+      case "IC-NAVIGATION-GROUP":
+        navType = getNavItemParentDetails(parentElement);
+        break;
+      case "IC-TOP-NAVIGATION":
+        navType = { navType: "top", parent: parentElement };
+        break;
+      case "IC-SIDE-NAVIGATION":
+        navType = { navType: "side", parent: parentElement };
+        break;
+      case "IC-PAGE-HEADER":
+        navType = { navType: "page-header", parent: null };
+        break;
+    }
   }
   return navType;
 };
@@ -491,45 +491,22 @@ export const hexToRgba = (hex: string): IcColorRGBA => {
 };
 
 export const rgbaStrToObj = (rgbaStr: string): IcColorRGBA => {
-  const fourthChar = rgbaStr.slice(3, 4);
-  let colorRGBA: IcColorRGBA;
-  if (fourthChar.toLowerCase() === "a") {
-    colorRGBA = { r: null, g: null, b: null, a: null };
-    const rgba = rgbaStr
-      .substring(5, rgbaStr.length - 1)
-      .replace(/ /g, "")
-      .split(",");
-    colorRGBA.r = Number(rgba[0]);
-    colorRGBA.g = Number(rgba[1]);
-    colorRGBA.b = Number(rgba[2]);
-    colorRGBA.a = Number(rgba[3]);
-  } else {
-    colorRGBA = { r: null, g: null, b: null, a: 1 };
-    const rgb = rgbaStr
-      .substring(4, rgbaStr.length - 1)
-      .replace(/ /g, "")
-      .split(",");
-    colorRGBA.r = Number(rgb[0]);
-    colorRGBA.g = Number(rgb[1]);
-    colorRGBA.b = Number(rgb[2]);
-  }
-
-  return colorRGBA;
+  const isRGBA = rgbaStr.slice(3, 4).toLowerCase() === "a";
+  const rgbValues = rgbaStr
+    .substring(isRGBA ? 5 : 4, rgbaStr.length - 1)
+    .replace(/ /g, "")
+    .split(",")
+    .map(Number);
+  return {
+    r: rgbValues[0],
+    g: rgbValues[1],
+    b: rgbValues[2],
+    a: isRGBA ? rgbValues[3] : 1,
+  };
 };
 
 export const elementOverflowsX = (element: HTMLElement): boolean =>
   element.scrollWidth > element.clientWidth;
-
-/**
- *
- * @param child - The child element
- * @returns string
- */
-export const getParentElementType = (child: HTMLElement): string =>
-  child.parentElement.tagName;
-
-export const getParentElement = (child: HTMLElement): HTMLElement =>
-  child.parentElement;
 
 export const hasClassificationBanner = (): boolean =>
   !!document.querySelector("ic-classification-banner:not([inline='true'])");
@@ -587,26 +564,18 @@ export const checkResizeObserver = (
   }
 };
 
-export const getForm = (el: HTMLElement): HTMLFormElement => el.closest("FORM");
-
 export const addFormResetListener = (
   el: HTMLElement,
   callbackFn: IcCallbackFunctionNoReturn
 ): void => {
-  const form = getForm(el);
-  if (form !== null) {
-    form.addEventListener("reset", callbackFn);
-  }
+  el.closest("FORM")?.addEventListener("reset", callbackFn);
 };
 
 export const removeFormResetListener = (
   el: HTMLElement,
   callbackFn: IcCallbackFunctionNoReturn
 ): void => {
-  const form = getForm(el);
-  if (form !== null) {
-    form.removeEventListener("reset", callbackFn);
-  }
+  el.closest("FORM")?.removeEventListener("reset", callbackFn);
 };
 
 export const removeDisabledFalse = (

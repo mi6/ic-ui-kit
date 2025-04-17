@@ -76,8 +76,8 @@ export const resizeTo = (
 export const testKeyboardEvent = (keyboardKey: string): TestKeyboardEvent => {
   return {
     key: `${keyboardKey}`,
-    preventDefault: (): void => null,
-    stopImmediatePropagation: (): void => null,
+    preventDefault: (): null => null,
+    stopImmediatePropagation: (): null => null,
     shiftKey: false,
     target: {
       id: "key-id",

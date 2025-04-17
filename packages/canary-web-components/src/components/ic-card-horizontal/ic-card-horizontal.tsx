@@ -1,27 +1,23 @@
 import {
   Component,
   Element,
+  h,
+  Host,
   Listen,
+  Method,
   Prop,
   State,
-  h,
-  Method,
-  Host,
   Watch,
 } from "@stencil/core";
+import { IcBrand, IcBrandForeground, IcThemeMode } from "@ukic/web-components";
 import {
-  onComponentRequiredPropUndefined,
-  isSlotUsed,
   getBrandFromContext,
+  isSlotUsed,
+  onComponentRequiredPropUndefined,
   removeDisabledFalse,
   renderDynamicChildSlots,
 } from "../../utils/helpers";
-import {
-  IcBrand,
-  IcBrandForeground,
-  IcBrandForegroundEnum,
-  IcThemeMode,
-} from "../../utils/types";
+import { IcBrandForegroundEnum } from "../../utils/types";
 import { IcCardSizes } from "./ic-card-horizontal.types";
 
 /**
@@ -37,7 +33,7 @@ import { IcCardSizes } from "./ic-card-horizontal.types";
   shadow: true,
 })
 export class Card {
-  private hostMutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver | null = null;
 
   @Element() el: HTMLIcCardHorizontalElement;
 
@@ -49,12 +45,12 @@ export class Card {
   /**
    * If `true`, the horizontal card will be a clickable variant, instead of static.
    */
-  @Prop({ mutable: true }) clickable?: boolean = false;
+  @Prop({ mutable: true }) clickable: boolean = false;
 
   /**
    * If `true`, the horizontal card will be disabled if it is clickable.
    */
-  @Prop() disabled?: boolean = false;
+  @Prop() disabled: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -106,7 +102,7 @@ export class Card {
   @Prop() theme?: IcThemeMode = "inherit";
 
   disconnectedCallback(): void {
-    if (this.parentIsAnchorTag) {
+    if (this.parentEl && this.parentIsAnchorTag) {
       this.parentEl.removeEventListener("focus", this.parentFocussed);
       this.parentEl.removeEventListener("blur", this.parentBlurred);
     }
@@ -116,7 +112,7 @@ export class Card {
   componentWillLoad(): void {
     this.parentEl = this.el.parentElement;
 
-    if (this.parentEl.tagName === "A") {
+    if (this.parentEl?.tagName === "A") {
       this.clickable = true;
       this.parentIsAnchorTag = true;
       this.parentEl.classList.add("ic-card-wrapper-link");
@@ -159,10 +155,12 @@ export class Card {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("a")) {
-      this.el.shadowRoot.querySelector("a").focus();
-    } else if (this.el.shadowRoot.querySelector("button")) {
-      this.el.shadowRoot.querySelector("button").focus();
+    const linkElement = this.el.shadowRoot?.querySelector("a");
+    const buttonElement = this.el.shadowRoot?.querySelector("button");
+    if (linkElement) {
+      linkElement.focus();
+    } else if (buttonElement) {
+      buttonElement.focus();
     }
   }
 
@@ -174,7 +172,7 @@ export class Card {
     this.isFocussed = false;
   };
 
-  private updateTheme(mode: IcBrandForeground = null): void {
+  private updateTheme(mode?: IcBrandForeground): void {
     const foregroundColor = getBrandFromContext(this.el, mode);
 
     if (foregroundColor !== IcBrandForegroundEnum.Default) {
@@ -231,9 +229,9 @@ export class Card {
             "with-icon": isSlotUsed(this.el, "icon"),
             "with-image": isSlotUsed(this.el, "image"),
           }}
-          tabindex={clickable && !parentIsAnchorTag ? 0 : null}
-          aria-disabled={disabled ? "true" : null}
-          disabled={disabled ? true : null}
+          tabindex={clickable && !parentIsAnchorTag ? 0 : undefined}
+          aria-disabled={disabled ? "true" : undefined}
+          disabled={disabled ? true : undefined}
           {...attrs}
         >
           {isSlotUsed(this.el, "image") && (

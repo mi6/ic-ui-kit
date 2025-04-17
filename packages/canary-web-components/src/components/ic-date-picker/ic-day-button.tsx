@@ -13,8 +13,8 @@ export type DayButtonProps = {
   selected: boolean;
   focussedDayRef?: (element: HTMLButtonElement) => void;
   inRange: boolean;
-  showDaysOutsideMonth: boolean;
-  disableDay: boolean;
+  showDaysOutsideMonth?: boolean;
+  disableDay?: boolean;
 };
 
 export const DayButton: FunctionalComponent<DayButtonProps> = ({
@@ -55,7 +55,7 @@ export const DayButton: FunctionalComponent<DayButtonProps> = ({
         class={{
           "day-button": true,
           "outside-month": outsideMonth,
-          "outside-range": outsideRange,
+          "outside-range": !!outsideRange,
           hidden: outsideMonth && !showDaysOutsideMonth,
           disabled: disabled,
           today: today,
@@ -77,7 +77,7 @@ export const DayButton: FunctionalComponent<DayButtonProps> = ({
         onClick={handleDayClick}
         onBlur={handleDayBlur}
         onFocus={handleDayFocus}
-        ref={(el: HTMLButtonElement) => {
+        ref={(el) => {
           if (focussed && el && focussedDayRef) {
             focussedDayRef(el);
           }

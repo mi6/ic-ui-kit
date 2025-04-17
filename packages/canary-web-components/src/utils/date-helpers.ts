@@ -1,19 +1,22 @@
 import { IcDateFormat, IcWeekDays } from "../utils/types";
 
-export const isMonthFirstFormat = (dateString: string) => {
+export const isMonthFirstFormat = (dateString: string): boolean => {
   const monthFirstFormat =
     /^(0[1-9]|1[0-2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)\d{4}$/;
   return monthFirstFormat.test(dateString);
 };
 
-export const isDayFirstFormat = (dateString: string) => {
+export const isDayFirstFormat = (dateString: string): boolean => {
   const dayFirstFormat =
     /^(0[1-9]|[12][0-9]|3[01])(\/|-)(0[1-9]|1[0-2])(\/|-)\d{4}$/;
   return dayFirstFormat.test(dateString);
 };
 
-export const createDate = (date: string | Date, dateFormat: IcDateFormat) => {
-  let newDate;
+export const createDate = (
+  date: string | Date,
+  dateFormat: IcDateFormat
+): Date => {
+  let newDate = new Date();
   if (isDateOrEpoch(date)) {
     newDate = typeof date === "string" ? new Date(date) : date;
   } else if (typeof date === "string") {
@@ -26,11 +29,10 @@ export const createDate = (date: string | Date, dateFormat: IcDateFormat) => {
   return newDate;
 };
 
-export const isDateOrEpoch = (date: Date | string) => {
-  return date instanceof Date || !isNaN(+new Date(+date));
-};
+export const isDateOrEpoch = (date: Date | string): boolean =>
+  date instanceof Date || !isNaN(+new Date(+date));
 
-export const extractDateFromZuluDateTime = (zuluDateTime: string) =>
+export const extractDateFromZuluDateTime = (zuluDateTime: string): string =>
   zuluDateTime.slice(0, zuluDateTime.indexOf("T"));
 
 export const splitStringDate = (
@@ -38,39 +40,27 @@ export const splitStringDate = (
   dateFormat: IcDateFormat
 ): string[] => {
   // returns an array where item 1 is year, item 2 is month, item 3 is day
-  if (date.includes("T") && date.includes("Z")) {
-    const nextDate = extractDateFromZuluDateTime(date);
-    return nextDate.split("-");
-  }
+  if (date.includes("T") && date.includes("Z"))
+    return extractDateFromZuluDateTime(date).split("-");
 
   let newDate: string[] = [];
 
-  const dateWithSlashes = date.replace(/-/g, "/");
-  if (dateWithSlashes.split("/").length > 1) {
-    const dateParts = dateWithSlashes.split("/");
+  const splitDateWithSlashes = date.replace(/-/g, "/").split("/");
+  if (splitDateWithSlashes.length > 1) {
+    const dateParts = splitDateWithSlashes.map((part) =>
+      part.length === 1 ? convertToDoubleDigits(part) : part
+    ); // pad any values to 2 characters
 
-    // pad any values to 2 characters
-    dateParts.forEach((d, i) => {
-      if (d.length === 1) {
-        dateParts[i] = convertToDoubleDigits(d);
-      }
-    });
     if (dateParts[0].length === 4) {
       newDate = [dateParts[0], dateParts[1], dateParts[2]];
     } else {
-      const newDateStr = dateParts.join("/");
-      const validDayFirst = isDayFirstFormat(newDateStr);
-      const validMonthFirst = isMonthFirstFormat(newDateStr);
-      if (validDayFirst && validMonthFirst) {
-        if (dateFormat.charAt(0) === "M") {
-          newDate = [dateParts[2], dateParts[0], dateParts[1]];
-        } else {
-          newDate = [dateParts[2], dateParts[1], dateParts[0]];
-        }
-      } else if (validMonthFirst) {
+      newDate = [dateParts[2], dateParts[1], dateParts[0]];
+
+      if (
+        isMonthFirstFormat(dateParts.join("/")) &&
+        dateFormat.charAt(0) === "M"
+      ) {
         newDate = [dateParts[2], dateParts[0], dateParts[1]];
-      } else {
-        newDate = [dateParts[2], dateParts[1], dateParts[0]];
       }
     }
   }
@@ -78,12 +68,8 @@ export const splitStringDate = (
   return newDate;
 };
 
-export const convertToDoubleDigits = (value: string | number): string => {
-  if (+value < 10) {
-    return `0${value}`;
-  }
-  return value.toString();
-};
+export const convertToDoubleDigits = (value: string | number): string =>
+  +value < 10 ? `0${value}` : value.toString();
 
 export const getWeekStart = (date: Date, startDay: IcWeekDays): Date => {
   const tmpDate = new Date(date);
@@ -114,19 +100,18 @@ export const getMonthEnd = (date: Date): Date => {
 /**
  * Compare if two dates are equal exactly equal
  */
-export const dateMatches = (a: Date, b: Date): boolean => {
-  if (a === null || b === null) {
-    return false;
-  }
+export const dateMatches = (a: Date | null, b: Date | null): boolean =>
+  a !== null &&
+  b !== null &&
+  a.getFullYear() === b.getFullYear() &&
+  a.getMonth() === b.getMonth() &&
+  a.getDate() === b.getDate();
 
-  return (
-    a.getFullYear() === b.getFullYear() &&
-    a.getMonth() === b.getMonth() &&
-    a.getDate() === b.getDate()
-  );
-};
-
-export const clampDate = (date: Date, min: Date, max: Date): Date => {
+export const clampDate = (
+  date: Date,
+  min: Date | null,
+  max: Date | null
+): Date => {
   const time = date.getTime();
   if (min !== null && time < min.getTime()) {
     return min;
@@ -140,19 +125,16 @@ export const clampDate = (date: Date, min: Date, max: Date): Date => {
 /**
  * Compare if date is within specified range
  */
-export const dateInRange = (date: Date, min: Date, max: Date): boolean => {
-  return clampDate(date, min, max) === date;
-};
+export const dateInRange = (
+  date: Date,
+  min: Date | null,
+  max: Date | null
+): boolean => clampDate(date, min, max) === date;
 
-export const yearInRange = (year: number, min: Date, max: Date): boolean => {
-  let allowed = true;
-  if (year !== null) {
-    if (min !== null && year < min.getFullYear()) {
-      allowed = false;
-    }
-    if (allowed && max !== null && year > max.getFullYear()) {
-      allowed = false;
-    }
-  }
-  return allowed;
-};
+export const yearInRange = (
+  year: number | null,
+  min: Date | null,
+  max: Date | null
+): boolean =>
+  !year ||
+  (!(min && year < min.getFullYear()) && !(max && year > max.getFullYear()));

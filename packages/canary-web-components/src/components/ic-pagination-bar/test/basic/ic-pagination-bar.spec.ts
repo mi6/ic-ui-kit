@@ -65,7 +65,7 @@ describe("ic-pagination-bar", () => {
 
     expect(page.rootInstance.lowerCasePageLabel).toBe("sheet");
 
-    page.root.itemLabel = "sheet";
+    page.root!.itemLabel = "sheet";
     await page.waitForChanges();
 
     expect(page.rootInstance.capitalizedPageLabel).toBe("Sheet");
@@ -80,7 +80,7 @@ describe("ic-pagination-bar", () => {
     expect(page.root).toMatchSnapshot();
     expect(page.rootInstance.lowerCaseItemLabel).toBe("row");
 
-    page.root.itemLabel = "row";
+    page.root!.itemLabel = "row";
     await page.waitForChanges();
 
     expect(page.rootInstance.capitalizedItemLabel).toBe("Row");
@@ -139,7 +139,7 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    paginationBar.itemsPerPageOptions = [
+    paginationBar!.itemsPerPageOptions = [
       { label: "15", value: "15" },
       { label: "30", value: "30" },
       { label: "60", value: "60" },
@@ -166,7 +166,7 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    paginationBar.itemsPerPageOptions = [
+    paginationBar!.itemsPerPageOptions = [
       { label: "25", value: "25" },
       { label: "50", value: "50" },
       { label: "75", value: "75" },
@@ -194,7 +194,7 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    paginationBar.itemsPerPageOptions = [
+    paginationBar!.itemsPerPageOptions = [
       { label: "25", value: "25" },
       { label: "50", value: "50" },
       { label: "150", value: "150" },
@@ -218,7 +218,7 @@ describe("ic-pagination-bar", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.currentPage = 4;
+    page.root!.currentPage = 4;
 
     await page.waitForChanges();
 
@@ -256,28 +256,28 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const select = paginationBar.shadowRoot.querySelector("ic-select");
+    const select = paginationBar!.shadowRoot!.querySelector("ic-select");
 
-    const text = paginationBar.shadowRoot.querySelector(
+    const text = paginationBar!.shadowRoot!.querySelector(
       ".page-pagination-label"
     );
 
-    expect(text.textContent).toEqual("Page 1 of 10");
+    expect(text!.textContent).toEqual("Page 1 of 10");
 
     const eventSpy = jest.fn();
 
-    paginationBar.addEventListener("icPageChange", eventSpy);
+    paginationBar!.addEventListener("icPageChange", eventSpy);
 
-    select.value = "25";
+    select!.value = "25";
     expect(eventSpy).toHaveBeenCalledTimes(0);
 
     page.rootInstance.changeItemsPerPage();
 
     await page.waitForChanges();
 
-    expect(select.value).toEqual("25");
+    expect(select!.value).toEqual("25");
 
-    expect(text.textContent).toEqual("Page 1 of 4");
+    expect(text!.textContent).toEqual("Page 1 of 4");
 
     expect(eventSpy).toHaveBeenCalledTimes(1);
 
@@ -299,25 +299,26 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const pagination = paginationBar.shadowRoot.querySelector("ic-pagination");
+    const pagination =
+      paginationBar!.shadowRoot!.querySelector("ic-pagination");
 
-    const nextButton = pagination.shadowRoot.querySelector(
+    const nextButton = pagination!.shadowRoot!.querySelector(
       "#next-page-button"
     ) as HTMLElement;
 
-    const text = paginationBar.shadowRoot.querySelector(
+    const text = paginationBar!.shadowRoot!.querySelector(
       ".page-pagination-label"
     );
 
-    expect(text.textContent).toEqual("Page 1 of 10");
+    expect(text!.textContent).toEqual("Page 1 of 10");
 
-    await nextButton.click();
+    nextButton.click();
 
     page.rootInstance.changePage(2);
 
     await page.waitForChanges();
 
-    expect(text.textContent).toEqual("Page 2 of 10");
+    expect(text!.textContent).toEqual("Page 2 of 10");
   });
 
   it("should change page when the go to page button is clicked", async () => {
@@ -328,27 +329,27 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
-    const button = paginationBar.shadowRoot.querySelector("ic-button");
+    const button = paginationBar!.shadowRoot!.querySelector("ic-button");
 
-    const text = paginationBar.shadowRoot.querySelector(
+    const text = paginationBar!.shadowRoot!.querySelector(
       ".page-pagination-label"
     );
 
     const currentPage = page.rootInstance.currentPage;
 
-    expect(text.textContent).toEqual("Page 1 of 10");
+    expect(text!.textContent).toEqual("Page 1 of 10");
 
     expect(currentPage).toEqual(1);
 
-    input.value = "3";
+    input!.value = "3";
 
-    button.click();
+    button!.click();
 
     await page.waitForChanges();
 
-    expect(text.textContent).toEqual("Page 3 of 10");
+    expect(text!.textContent).toEqual("Page 3 of 10");
   });
 
   it("should change page when enter is pressed on the go to page input", async () => {
@@ -359,9 +360,9 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
-    const text = paginationBar.shadowRoot.querySelector(
+    const text = paginationBar!.shadowRoot!.querySelector(
       ".page-pagination-label"
     );
 
@@ -369,13 +370,13 @@ describe("ic-pagination-bar", () => {
 
     const event = new KeyboardEvent("keydown", { key: "Enter" });
 
-    expect(text.textContent).toEqual("Page 1 of 10");
+    expect(text!.textContent).toEqual("Page 1 of 10");
 
     expect(currentPage).toEqual(1);
 
-    input.value = "3";
+    input!.value = "3";
 
-    input.focus();
+    input!.focus();
 
     await page.rootInstance.handleKeydown(event);
 
@@ -383,7 +384,7 @@ describe("ic-pagination-bar", () => {
 
     await page.waitForChanges();
 
-    expect(text.textContent).toEqual("Page 3 of 10");
+    expect(text!.textContent).toEqual("Page 3 of 10");
   });
 
   it("should error immediately when an invalid page is entered before it is submitted", async () => {
@@ -394,19 +395,19 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
-    expect(input.validationStatus).toBe("");
+    expect(input!.validationStatus).toBe("");
 
-    input.value = "15";
+    input!.value = "15";
 
-    input.focus();
+    input!.focus();
 
     await page.rootInstance.handleInputChange();
 
     await page.waitForChanges();
 
-    expect(input.validationStatus).toEqual("error");
+    expect(input!.validationStatus).toEqual("error");
   });
 
   it("should remain in error state if enter is pressed while in error state", async () => {
@@ -417,21 +418,21 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
     const event = new KeyboardEvent("keydown", { key: "Enter" });
 
-    expect(input.validationStatus).toBe("");
+    expect(input!.validationStatus).toBe("");
 
-    input.value = "15";
+    input!.value = "15";
 
-    input.focus();
+    input!.focus();
 
     await page.rootInstance.handleInputChange();
 
     await page.waitForChanges();
 
-    expect(input.validationStatus).toEqual("error");
+    expect(input!.validationStatus).toEqual("error");
 
     page.rootInstance.handleKeydown(event);
 
@@ -439,7 +440,7 @@ describe("ic-pagination-bar", () => {
 
     await page.waitForChanges();
 
-    expect(input.validationStatus).toEqual("error");
+    expect(input!.validationStatus).toEqual("error");
   });
 
   it("should not change page when the go to page button is clicked with an invalid page", async () => {
@@ -450,27 +451,27 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
-    const button = paginationBar.shadowRoot.querySelector("ic-button");
+    const button = paginationBar!.shadowRoot!.querySelector("ic-button");
 
-    const text = paginationBar.shadowRoot.querySelector(
+    const text = paginationBar!.shadowRoot!.querySelector(
       ".page-pagination-label"
     );
 
     const currentPage = page.rootInstance.currentPage;
 
-    expect(text.textContent).toEqual("Page 1 of 10");
+    expect(text!.textContent).toEqual("Page 1 of 10");
 
     expect(currentPage).toEqual(1);
 
-    input.value = "15";
+    input!.value = "15";
 
-    button.click();
+    button!.click();
 
     await page.waitForChanges();
 
-    expect(text.textContent).toEqual("Page 1 of 10");
+    expect(text!.textContent).toEqual("Page 1 of 10");
   });
 
   it("should not change page when enter is pressed on the go to page input with an invalid page", async () => {
@@ -481,9 +482,9 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
-    const text = paginationBar.shadowRoot.querySelector(
+    const text = paginationBar!.shadowRoot!.querySelector(
       ".page-pagination-label"
     );
 
@@ -491,13 +492,13 @@ describe("ic-pagination-bar", () => {
 
     const event = new KeyboardEvent("keydown", { key: "Enter" });
 
-    expect(text.textContent).toEqual("Page 1 of 10");
+    expect(text!.textContent).toEqual("Page 1 of 10");
 
     expect(currentPage).toEqual(1);
 
-    input.value = "15";
+    input!.value = "15";
 
-    input.focus();
+    input!.focus();
 
     await page.rootInstance.handleKeydown(event);
 
@@ -505,7 +506,7 @@ describe("ic-pagination-bar", () => {
 
     await page.waitForChanges();
 
-    expect(text.textContent).toEqual("Page 1 of 10");
+    expect(text!.textContent).toEqual("Page 1 of 10");
   });
 
   it("should hide the tooltip when the input loses focus", async () => {
@@ -516,25 +517,25 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
-    const tooltip = paginationBar.shadowRoot.querySelector("ic-tooltip");
+    const tooltip = paginationBar!.shadowRoot!.querySelector("ic-tooltip");
 
-    expect(tooltip.getAttribute("data-show")).toBeNull();
+    expect(tooltip!.getAttribute("data-show")).toBeNull();
 
-    input.focus();
+    input!.focus();
 
-    input.value = "15";
+    input!.value = "15";
 
-    tooltip.displayTooltip(true, false);
-
-    await page.waitForChanges();
-
-    input.blur();
+    tooltip!.displayTooltip(true, false);
 
     await page.waitForChanges();
 
-    expect(tooltip.getAttribute("data-show")).toBeNull();
+    input!.blur();
+
+    await page.waitForChanges();
+
+    expect(tooltip!.getAttribute("data-show")).toBeNull();
   });
 
   it("should remove the error status when the input loses focus if the value is not invalid", async () => {
@@ -545,21 +546,21 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
-    input.focus();
+    input!.focus();
 
-    input.value = "";
+    input!.value = "";
 
-    input.validationStatus = "error";
-
-    await page.waitForChanges();
-
-    input.blur();
+    input!.validationStatus = "error";
 
     await page.waitForChanges();
 
-    expect(input.validationStatus).toBe("");
+    input!.blur();
+
+    await page.waitForChanges();
+
+    expect(input!.validationStatus).toBe("");
   });
 
   it("should show the tooltip when the input is focussed if it is in an error state", async () => {
@@ -570,25 +571,25 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
-    input.focus();
+    input!.focus();
 
-    input.value = "15";
+    input!.value = "15";
 
-    input.validationStatus = "error";
-
-    await page.waitForChanges();
-
-    input.blur();
+    input!.validationStatus = "error";
 
     await page.waitForChanges();
 
-    input.focus();
+    input!.blur();
 
     await page.waitForChanges();
 
-    expect(input.validationStatus).toBe("error");
+    input!.focus();
+
+    await page.waitForChanges();
+
+    expect(input!.validationStatus).toBe("error");
   });
 
   it("should error when a non numeric value is entered", async () => {
@@ -599,19 +600,19 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
     const event = new KeyboardEvent("keydown", { key: "a" });
 
-    expect(input.validationStatus).toBeUndefined();
+    expect(input!.validationStatus).toBeUndefined();
 
-    input.focus();
+    input!.focus();
 
     await page.rootInstance.handleKeyUp(event);
 
     await page.waitForChanges();
 
-    expect(input.validationStatus).toEqual("error");
+    expect(input!.validationStatus).toEqual("error");
   });
 
   it("should remove the non-numeric error when a number is entered", async () => {
@@ -622,21 +623,21 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
     const errorEvent = new KeyboardEvent("keydown", { key: "a" });
 
     const successEvent = new KeyboardEvent("keydown", { key: "5" });
 
-    expect(input.validationStatus).toBeUndefined();
+    expect(input!.validationStatus).toBeUndefined();
 
-    input.focus();
+    input!.focus();
 
     await page.rootInstance.handleKeyUp(errorEvent);
 
     await page.waitForChanges();
 
-    expect(input.validationStatus).toEqual("error");
+    expect(input!.validationStatus).toEqual("error");
 
     await page.rootInstance.handleKeydown(successEvent);
 
@@ -646,7 +647,7 @@ describe("ic-pagination-bar", () => {
 
     await page.waitForChanges();
 
-    expect(input.validationStatus).toEqual("");
+    expect(input!.validationStatus).toEqual("");
   });
 
   it("should remove the error state when backspace is pressed", async () => {
@@ -657,21 +658,21 @@ describe("ic-pagination-bar", () => {
 
     const paginationBar = document.querySelector("ic-pagination-bar");
 
-    const input = paginationBar.shadowRoot.querySelector("ic-text-field");
+    const input = paginationBar!.shadowRoot!.querySelector("ic-text-field");
 
     const event = new KeyboardEvent("keydown", { key: "Backspace" });
 
-    expect(input.validationStatus).toBeUndefined();
+    expect(input!.validationStatus).toBeUndefined();
 
-    input.focus();
+    input!.focus();
 
-    input.value = "15";
+    input!.value = "15";
 
-    input.validationStatus = "error";
+    input!.validationStatus = "error";
 
     await page.waitForChanges();
 
-    expect(input.validationStatus).toEqual("error");
+    expect(input!.validationStatus).toEqual("error");
 
     await page.rootInstance.handleKeydown(event);
 
@@ -679,7 +680,7 @@ describe("ic-pagination-bar", () => {
 
     await page.waitForChanges();
 
-    expect(input.validationStatus).toEqual("");
+    expect(input!.validationStatus).toEqual("");
   });
 
   it("should focus the number of items select when clicking its label", async () => {
@@ -687,9 +688,9 @@ describe("ic-pagination-bar", () => {
       components: [PaginationBar, IcPagination, IcSelect, IcTypography],
       html: `<ic-pagination-bar total-items="100" show-items-per-page-control="true"></ic-pagination-bar>`,
     });
-    const label = document
-      .querySelector("ic-pagination-bar")
-      .shadowRoot.querySelector(
+    const label = document!
+      .querySelector("ic-pagination-bar")!
+      .shadowRoot!.querySelector(
         ".items-per-page-control-label"
       ) as HTMLIcTypographyElement;
 
@@ -707,9 +708,9 @@ describe("ic-pagination-bar", () => {
       components: [PaginationBar, IcPagination, IcTextField, IcTypography],
       html: `<ic-pagination-bar total-items="100" show-items-per-page="false" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
-    const label = document
-      .querySelector("ic-pagination-bar")
-      .shadowRoot.querySelector("ic-typography");
+    const label = document!
+      .querySelector("ic-pagination-bar")!
+      .shadowRoot!.querySelector("ic-typography")!;
 
     const event = jest.spyOn(IcTextField.prototype, "setFocus");
     label.click();
@@ -727,13 +728,13 @@ describe("ic-pagination-bar", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.totalItems = "100";
+    page.root!.totalItems = "100";
 
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.totalItems = "50";
+    page.root!.totalItems = "50";
 
     await page.waitForChanges();
 

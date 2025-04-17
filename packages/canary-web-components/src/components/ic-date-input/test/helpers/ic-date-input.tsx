@@ -42,7 +42,7 @@ export const handleEvent = (input: HTMLInputElement): EventType => {
 export const keyboardEvent = (keyboardKey: string): KeyboardEvent => {
   return {
     key: `${keyboardKey}`,
-    preventDefault: (): void => null,
+    preventDefault: (): null => null,
   };
 };
 
@@ -54,21 +54,18 @@ export const createDateInputEnv = async (
   const component = page.root as HTMLIcDateInputElement;
   const componentInstance = page.rootInstance;
 
-  const dayInput = component.shadowRoot.querySelector(
-    ".day-input"
-  ) as HTMLInputElement;
-  const monthInput = component.shadowRoot.querySelector(
-    ".month-input"
-  ) as HTMLInputElement;
-  const yearInput = component.shadowRoot.querySelector(
-    ".year-input"
-  ) as HTMLInputElement;
+  const dayInput =
+    component.shadowRoot!.querySelector<HTMLInputElement>(".day-input")!;
+  const monthInput =
+    component.shadowRoot!.querySelector<HTMLInputElement>(".month-input")!;
+  const yearInput =
+    component.shadowRoot!.querySelector<HTMLInputElement>(".year-input")!;
 
   const mockSelect = jest.fn();
 
-  dayInput.select = mockSelect;
-  monthInput.select = mockSelect;
-  yearInput.select = mockSelect;
+  if (dayInput) dayInput.select = mockSelect;
+  if (monthInput) monthInput.select = mockSelect;
+  if (yearInput) yearInput.select = mockSelect;
 
   return {
     page,

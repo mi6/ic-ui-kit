@@ -75,7 +75,7 @@ interface IcDateInputProps {
   showClearButton?: boolean;
   showCalendarButton?: boolean;
   size?: IcSizes;
-  value?: string | Date;
+  value?: string | Date | null;
   validationStatus?: IcInformationStatusOrEmpty;
   validationText?: string;
 }
@@ -88,8 +88,8 @@ interface IcDateInputProps {
   },
 })
 export class DatePicker {
-  private inputEl: HTMLIcDateInputElement;
-  private clearButtonEl: HTMLIcButtonElement = null;
+  private inputEl?: HTMLIcDateInputElement;
+  private clearButtonEl: HTMLIcButtonElement | null = null;
   private dateInputProps: IcDateInputProps;
   private daysOfWeek: string[] = [];
   private dayButtonFocussed: boolean = false;
@@ -99,14 +99,14 @@ export class DatePicker {
   private dialogDescription: string = "";
   private focusDay: boolean = true;
   private focussedYearEl: HTMLIcButtonElement;
-  private liveRegionEl: HTMLElement = null;
+  private liveRegionEl?: HTMLElement = undefined;
   private monthButtonEl: HTMLIcButtonElement;
   private monthNames: string[] = [];
   private monthInViewUpdateHandled: boolean = false;
   private myCalendarButtonClicked: boolean = false;
   private showPickerAbove: boolean = false;
   private today = new Date();
-  private todayButtonEl: HTMLIcButtonElement = null;
+  private todayButtonEl: HTMLIcButtonElement | null = null;
   private yearButtonEl: HTMLIcButtonElement;
   private yearButtonFocussed: boolean = false;
 
@@ -116,30 +116,30 @@ export class DatePicker {
   @State() currMonthView: Date[] = [];
   @State() currYearPickerView: number[] = [];
   @State() decadeView: number[] = [];
-  @State() focussedDate: Date = null;
+  @State() focussedDate: Date | null = null;
   @State() focussedDay: number;
   @State() focussedDayEl: HTMLButtonElement;
   @State() focussedMonth: number;
   @State() focussedMonthEl: HTMLIcButtonElement;
   @State() focussedYear: number;
-  @State() maxDate: Date = null;
-  @State() minDate: Date = null;
+  @State() maxDate: Date | null = null;
+  @State() minDate: Date | null = null;
   @State() monthInView: number;
   @State() monthPickerVisible: boolean = false;
   @State() orderedDaysOfWeek: string[] = [];
-  @State() selectedDate: Date = null;
+  @State() selectedDate: Date | null = null;
   @State() yearInView: number;
   @State() yearPickerVisible: boolean = false;
 
   /**
    * The format in which the date will be displayed.
    */
-  @Prop() dateFormat?: IcDateFormat = "DD/MM/YYYY";
+  @Prop() dateFormat: IcDateFormat = "DD/MM/YYYY";
 
   /**
    * If `true`, the disabled state will be set.
    */
-  @Prop() disabled?: boolean = false;
+  @Prop() disabled: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -227,8 +227,7 @@ export class DatePicker {
    * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
    * The value of this prop is ignored if `disableFuture` is set to `true`.
    */
-  @Prop() max?: string | Date = "";
-
+  @Prop() max: string | Date = "";
   @Watch("max")
   watchMaxHandler(): void {
     if (this.disableFuture) {
@@ -242,8 +241,7 @@ export class DatePicker {
    * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
    * The value of this prop is ignored if `disablePast` is set to `true`.
    */
-  @Prop() min?: string | Date = "";
-
+  @Prop() min: string | Date = "";
   @Watch("min")
   watchMinHandler(): void {
     if (this.disablePast) {
@@ -293,7 +291,7 @@ export class DatePicker {
    * The first day of the week. `0` for Sunday, `1` for Monday, etc.
    * Default is Monday.
    */
-  @Prop() startOfWeek?: IcWeekDays = IcWeekDays.Monday;
+  @Prop() startOfWeek: IcWeekDays = IcWeekDays.Monday;
 
   @Watch("startOfWeek")
   watchStartOfWeekHandler(): void {
@@ -448,7 +446,9 @@ export class DatePicker {
   }
 
   @Listen("calendarButtonClicked")
-  localCalendarButtonClickHandler(ev: CustomEvent): void {
+  localCalendarButtonClickHandler(
+    ev: CustomEvent<{ value: Date | null }>
+  ): void {
     this.myCalendarButtonClicked = true;
     if (!this.calendarOpen) {
       this.setSelectedDate(ev.detail.value, false);
@@ -478,12 +478,12 @@ export class DatePicker {
     this.decadeEnd = decadeArr[10];
   };
 
-  private setSelectedDate = (d: Date, emit = true): void => {
+  private setSelectedDate = (d: Date | null, emit = true): void => {
     if (d === null || !dateMatches(d, this.selectedDate)) {
       this.selectedDate = d;
       this.value = d;
       if (emit) {
-        this.inputEl.triggerIcChange(d);
+        this.inputEl?.triggerIcChange(d);
       }
     }
   };
@@ -508,7 +508,7 @@ export class DatePicker {
     if (event.key === "Escape") {
       if (this.calendarOpen) {
         this.closeButtonClickHandler();
-        this.inputEl.setCalendarFocus();
+        this.inputEl?.setCalendarFocus();
         event.stopImmediatePropagation();
       }
     } else {
@@ -526,9 +526,17 @@ export class DatePicker {
   };
 
   private focusLastElement = () => {
-    if (this.showPickerClearButton && !this.clearButtonEl.disabled) {
+    if (
+      this.showPickerClearButton &&
+      this.clearButtonEl &&
+      !this.clearButtonEl.disabled
+    ) {
       this.clearButtonEl.setFocus();
-    } else if (this.showPickerTodayButton && !this.todayButtonEl.disabled) {
+    } else if (
+      this.showPickerTodayButton &&
+      this.todayButtonEl &&
+      !this.todayButtonEl.disabled
+    ) {
       this.todayButtonEl.setFocus();
     } else if (this.monthPickerVisible) {
       this.focussedMonthEl.setFocus();
@@ -577,7 +585,7 @@ export class DatePicker {
   };
 
   private todayButtonKeyDownHandler = (ev: KeyboardEvent) => {
-    if (ev.key === "Tab" && !ev.shiftKey && this.clearButtonEl.disabled) {
+    if (ev.key === "Tab" && !ev.shiftKey && this.clearButtonEl?.disabled) {
       this.focusFirstElement();
       ev.preventDefault();
     }
@@ -764,9 +772,8 @@ export class DatePicker {
     return this.isYearAllowed(this.yearInView + 1);
   };
 
-  private isYearAllowed = (yr: number): boolean => {
-    return yearInRange(yr, this.minDate, this.maxDate);
-  };
+  private isYearAllowed = (yr: number): boolean =>
+    yearInRange(yr, this.minDate, this.maxDate);
 
   private getMonthView = (date: Date): Date[] => {
     const start = getWeekStart(getMonthStart(date), this.startOfWeek);
@@ -794,23 +801,25 @@ export class DatePicker {
   };
 
   private updateMonthInView = (): void => {
-    this.currMonthView = this.getMonthView(this.focussedDate);
+    if (this.focussedDate) {
+      this.currMonthView = this.getMonthView(this.focussedDate);
 
-    this.focussedDay = this.focussedDate.getDate();
-    this.monthInView = this.focussedDate.getMonth();
-    this.yearInView = this.focussedDate.getFullYear();
+      this.focussedDay = this.focussedDate.getDate();
+      this.monthInView = this.focussedDate.getMonth();
+      this.yearInView = this.focussedDate.getFullYear();
 
-    if (this.dayPickerKeyboardNav) {
-      this.monthInViewUpdateHandled = true;
-      this.setAriaLiveRegionText(this.getMonthInViewText());
-      this.dayPickerKeyboardNav = false;
+      if (this.dayPickerKeyboardNav) {
+        this.monthInViewUpdateHandled = true;
+        this.setAriaLiveRegionText(this.getMonthInViewText());
+        this.dayPickerKeyboardNav = false;
+      }
     }
   };
 
   private handleSelectDay = (day: Date): void => {
     this.setSelectedDate(day);
     this.calendarOpen = false;
-    this.inputEl.setCalendarFocus();
+    this.inputEl?.setCalendarFocus();
   };
 
   private handleSelectMonth = (month: number): void => {
@@ -1064,12 +1073,14 @@ export class DatePicker {
 
       case "ArrowLeft":
         this.dayPickerKeyboardNav = true;
-        this.moveDays(-1 * this.getNextDayToFocus(this.focussedDate, false));
+        if (this.focussedDate)
+          this.moveDays(-1 * this.getNextDayToFocus(this.focussedDate, false));
         break;
 
       case "ArrowRight":
         this.dayPickerKeyboardNav = true;
-        this.moveDays(this.getNextDayToFocus(this.focussedDate, true));
+        if (this.focussedDate)
+          this.moveDays(this.getNextDayToFocus(this.focussedDate, true));
         break;
 
       case "PageUp":
@@ -1115,7 +1126,7 @@ export class DatePicker {
     if (
       !ev.shiftKey &&
       (!this.showPickerTodayButton || this.isCurrentMonth()) &&
-      (!this.showPickerClearButton || this.clearButtonEl.disabled)
+      (!this.showPickerClearButton || this.clearButtonEl?.disabled)
     ) {
       this.focusFirstElement();
       handled = true;
@@ -1142,56 +1153,61 @@ export class DatePicker {
     const move = forward ? 1 : -1;
     const nextDay = new Date(currDay);
     nextDay.setDate(nextDay.getDate() + move);
-    const nextDayNum = Number(nextDay.getDay());
-    if (this.disableDays.includes(nextDayNum)) {
-      return this.getNextDayToFocus(nextDay, forward, level + 1);
-    } else {
-      return level;
-    }
+    return this.disableDays?.includes(Number(nextDay.getDay()))
+      ? this.getNextDayToFocus(nextDay, forward, level + 1)
+      : level;
   };
 
   private moveDays = (numDays: number): void => {
-    const d = new Date(this.focussedDate);
-    d.setDate(d.getDate() + numDays);
-    this.setFocussedDate(d);
+    if (this.focussedDate) {
+      const d = new Date(this.focussedDate);
+      d.setDate(d.getDate() + numDays);
+      this.setFocussedDate(d);
+    }
   };
 
   private moveMonths = (numMonths: number): void => {
-    const newMonth = this.focussedDate.getMonth() + numMonths;
-    const min = new Date(
-      new Date(getMonthStart(this.focussedDate)).setMonth(newMonth)
-    );
-    const max = getMonthEnd(min);
-    const newDate = new Date(new Date(this.focussedDate).setMonth(newMonth));
-    this.setFocussedDate(clampDate(newDate, min, max));
+    if (this.focussedDate) {
+      const newMonth = this.focussedDate.getMonth() + numMonths;
+      const min = new Date(
+        new Date(getMonthStart(this.focussedDate)).setMonth(newMonth)
+      );
+      const max = getMonthEnd(min);
+      const newDate = new Date(new Date(this.focussedDate).setMonth(newMonth));
+      this.setFocussedDate(clampDate(newDate, min, max));
 
-    if (
-      this.monthPickerVisible === false &&
-      this.yearPickerVisible === false &&
-      this.monthInViewUpdateHandled === false
-    ) {
-      this.setAriaLiveRegionText(this.getMonthInViewText());
+      if (
+        this.monthPickerVisible === false &&
+        this.yearPickerVisible === false &&
+        this.monthInViewUpdateHandled === false
+      ) {
+        this.setAriaLiveRegionText(this.getMonthInViewText());
+      }
+      this.monthInViewUpdateHandled = false;
     }
-    this.monthInViewUpdateHandled = false;
   };
 
   private moveYears = (numYears: number): void => {
-    const newYear = this.focussedDate.getFullYear() + numYears;
-    const min = new Date(
-      new Date(getMonthStart(this.focussedDate)).setFullYear(newYear)
-    );
-    const max = getMonthEnd(min);
-    const newDate = new Date(new Date(this.focussedDate).setFullYear(newYear));
-    this.setFocussedDate(clampDate(newDate, min, max));
+    if (this.focussedDate) {
+      const newYear = this.focussedDate.getFullYear() + numYears;
+      const min = new Date(
+        new Date(getMonthStart(this.focussedDate)).setFullYear(newYear)
+      );
+      const max = getMonthEnd(min);
+      const newDate = new Date(
+        new Date(this.focussedDate).setFullYear(newYear)
+      );
+      this.setFocussedDate(clampDate(newDate, min, max));
 
-    if (
-      this.monthPickerVisible === false &&
-      this.yearPickerVisible === false &&
-      this.monthInViewUpdateHandled === false
-    ) {
-      this.setAriaLiveRegionText(this.getMonthInViewText());
+      if (
+        this.monthPickerVisible === false &&
+        this.yearPickerVisible === false &&
+        this.monthInViewUpdateHandled === false
+      ) {
+        this.setAriaLiveRegionText(this.getMonthInViewText());
+      }
+      this.monthInViewUpdateHandled = false;
     }
-    this.monthInViewUpdateHandled = false;
   };
 
   private updateFocussedMonth = (adjust: number): void => {
@@ -1270,16 +1286,16 @@ export class DatePicker {
         inputProps.disablePastMessage = this.disablePastMessage;
       }
     }
-    if (this.disableDays.length > 0) {
+    if (this.disableDays && this.disableDays.length > 0) {
       inputProps.disableDays = this.disableDays;
       if (this.disableDaysMessage !== DEFAULT_DISABLE_DAYS_MSG) {
         inputProps.disableDaysMessage = this.disableDaysMessage;
       }
     }
-    if (this.max !== null && this.max !== "") {
+    if (this.max !== null && this.max !== "" && this.maxDate) {
       inputProps.max = this.maxDate;
     }
-    if (this.min !== null && this.min !== "") {
+    if (this.min !== null && this.min !== "" && this.minDate) {
       inputProps.min = this.minDate;
     }
     if (this.helperText !== undefined) {
@@ -1357,7 +1373,7 @@ export class DatePicker {
     const yearLabel = this.yearInView ? this.yearInView : "Open year picker";
 
     let minDay = minDate;
-    if (this.disablePast) {
+    if (minDate && this.disablePast) {
       const yesterday = new Date(minDate);
       yesterday.setDate(minDate.getDate() - 1);
       minDay = yesterday;
@@ -1476,7 +1492,7 @@ export class DatePicker {
                     {this.currMonthView.map((day) => (
                       <DayButton
                         day={day}
-                        disableDay={this.disableDays.includes(
+                        disableDay={this.disableDays?.includes(
                           Number(day.getDay())
                         )}
                         today={dateMatches(day, this.today)}
