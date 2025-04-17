@@ -29,6 +29,30 @@ describe("ic-navigation-group", () => {
     expect(page.root).toMatchSnapshot("renders-with-label");
   });
 
+  it("should render as expandable", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup],
+      html: `<ic-navigation-group label="Group label" expandable="true"></ic-navigation-group>`,
+    });
+    await waitForNavGroupLoad();
+    expect(page.root).toMatchSnapshot("renders-expandable");
+  });
+
+  it("should render correctly when in a top navigation when not expandable", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup],
+      html: `<ic-navigation-group label="Group label"></ic-navigation-group>`,
+    });
+    await waitForNavGroupLoad();
+    page.rootInstance.navigationType = "top";
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("renders-in-desktop-top-nav");
+
+    page.rootInstance.inTopNavSideMenu = true;
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("renders-in-mobile-top-nav");
+  });
+
   it("should test handleMouseEnter", async () => {
     const page = await newSpecPage({
       components: [NavigationGroup],
@@ -319,6 +343,23 @@ describe("ic-navigation-group", () => {
     });
     await waitForNavGroupLoad();
     await page.rootInstance.setFocus();
+  });
+
+  it("should not be displayed when not expandable in a collapsed side navigation ", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup],
+      html: `<ic-navigation-group label="Group label"></ic-navigation-group>`,
+    });
+    await waitForNavGroupLoad();
+    expect(
+      page.root?.shadowRoot?.querySelector(".navigation-group")
+    ).not.toBeNull();
+
+    page.rootInstance.navigationType = "side";
+    await page.waitForChanges();
+    expect(
+      page.root?.shadowRoot?.querySelector(".navigation-group")
+    ).toBeNull();
   });
 
   // NOTE: This must go last as mocks getCurrentDeviceSize function, which will apply to all subsequent tests
