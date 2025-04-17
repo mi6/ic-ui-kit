@@ -64,7 +64,8 @@ input:focus {
   outline: 0;
 }
 
-input:disabled {
+input:disabled,
+input:disabled::placeholder {
   color: var(--ic-search-bar-disabled-text);
 }
 
