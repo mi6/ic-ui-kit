@@ -116,7 +116,7 @@ exports[`ic-classification-banner component should render with official sensitiv
         The protective marking of this page is:
       </span>
       <ic-typography variant="caption-uppercase">
-        uk official sensitive
+        uk official-sensitive
       </ic-typography>
     </banner>
   </template>
