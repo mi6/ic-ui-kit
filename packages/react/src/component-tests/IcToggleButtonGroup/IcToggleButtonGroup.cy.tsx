@@ -24,15 +24,10 @@ import {
   ToggleGroupSingle,
   ToggleGroupSmall,
 } from "./IcToggleButtonGroupTestData";
-import {
-  HAVE_ATTR,
-  HAVE_FOCUS,
-  NOT_HAVE_ATTR,
-  NOT_HAVE_BEEN_CALLED,
-} from "../utils/constants";
+import { HAVE_ATTR, HAVE_FOCUS, NOT_HAVE_ATTR } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.031;
+const DEFAULT_TEST_THRESHOLD = 0.028;
 const IC_TOGGLE_BUTTON_GROUP = "ic-toggle-button-group";
 const IC_TOGGLE_BUTTON = "ic-toggle-button";
 
@@ -63,6 +58,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(0).should(NOT_HAVE_ATTR, "checked");
       getToggle(2).should(HAVE_ATTR, "checked");
     });
+
     it("should check multi on several toggles", () => {
       mount(<ToggleGroupMulti />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
@@ -74,6 +70,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(1).click();
       getToggle(1).should(HAVE_ATTR, "checked");
     });
+
     it("should focus parent but not interact with toggle when disabled", () => {
       cy.spy(window.console, "log").as("spyWinConsoleLog");
       mount(<ToggleGroupDisabled />);
@@ -84,6 +81,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(1).click({ force: true });
       getToggle(0).should(NOT_HAVE_ATTR, "checked");
     });
+
     it("should focus toggle but not check with toggle when loading", () => {
       cy.spy(window.console, "log").as("spyWinConsoleLog");
       mount(<ToggleGroupLoading />);
@@ -94,6 +92,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(1).click({ force: true });
       getToggle(0).should(NOT_HAVE_ATTR, "checked");
     });
+
     it("should tab through toggles and check focus and selection state", () => {
       mount(<ToggleGroupSingle />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
@@ -102,6 +101,7 @@ describe("IcToggleButtonGroup", () => {
       cy.get(IC_TOGGLE_BUTTON_GROUP).should(HAVE_FOCUS);
     });
   });
+
   describe("screenshots", () => {
     beforeEach(() => {
       cy.injectAxe();
@@ -120,7 +120,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/default",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
       });
     });
 
@@ -133,7 +133,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/multiple",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
       });
     });
 
@@ -145,7 +145,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/small",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
       });
     });
 
@@ -157,7 +157,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/large",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
       });
     });
 
@@ -169,7 +169,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/full-width",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
       });
     });
 
@@ -181,7 +181,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/custom-width",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
       });
     });
 
@@ -193,7 +193,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/large-label",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
       });
     });
 
@@ -209,7 +209,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/light",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
       });
     });
 
@@ -221,7 +221,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/dark",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
       });
     });
 
@@ -256,7 +256,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, 200, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/loading-light",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.0),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
         delay: 500,
       });
     });
@@ -267,7 +267,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, 200, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/loading-dark",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.0),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
         delay: 500,
       });
     });
@@ -286,7 +286,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "/icons",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
         delay: 1000,
       });
     });
@@ -327,7 +327,7 @@ describe("IcToggleButtonGroup visual regression in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/focused-toggle-checked-toggle-group-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
       delay: 200,
     });
   });
@@ -338,7 +338,7 @@ describe("IcToggleButtonGroup visual regression in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/disabled-toggle-group-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
 });
