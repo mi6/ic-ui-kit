@@ -62,7 +62,6 @@ import {
   HAVE_TEXT,
   NOT_BE_VISIBLE,
   NOT_EXIST,
-  NOT_HAVE_CLASS,
   NOT_HAVE_CSS,
 } from "@ukic/react/src/component-tests/utils/constants";
 
@@ -109,7 +108,6 @@ const TRUNCATION_TOOLTIP_SELECTOR = ".truncation-tooltip";
 const TABLE_CELL_FIRST_CHILD_SELECTOR = ".table-cell:first-child";
 const ICON_BUTTON = "ic-button.ic-button-variant-icon";
 const ACTION_ELEMENT = "action-element";
-const TABLE_ROW_SELECTED = "table-row-selected";
 const BUTTON_SELECTOR = "button";
 const IC_BUTTON_SELECTOR = "ic-button";
 const TRUNCATION_TOOLTIP = "tooltip";
@@ -120,6 +118,8 @@ const SORT_ASCENDING = "Sort ascending";
 const CONSOLE_LOG_SPY = "@spyWinConsoleLog";
 const LOADING_OVERLAY_SELECTOR = ".loading-overlay";
 const LOADING_INDICATOR_OUTER_SELECTOR = ".ic-loading-circular-outer";
+const ROW_CHECKBOX_SELECTOR = "tr ic-checkbox";
+const HEADER_CHECKBOX_SELECTOR = "th ic-checkbox";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const BasicDataTable = (dataTableProps?: any): ReactElement => (
@@ -228,25 +228,6 @@ describe("IcDataTables", () => {
         capture: "viewport",
       },
     });
-  });
-
-  it("should highlight row when clicked", () => {
-    mount(<BasicDataTable />);
-
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(1).click();
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(4).click();
-
-    cy.compareSnapshot({
-      name: "/highlighted-row",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.042),
-      cypressScreenshotOptions: {
-        capture: "viewport",
-      },
-    });
-
-    cy.checkA11yWithWait();
   });
 
   it("should render with row headers", () => {
@@ -4454,36 +4435,44 @@ describe("IcDataTable row deletion", () => {
   });
 
   it('should delete a row when the "Delete" button is clicked', () => {
-    const clonedData = JSON.parse(JSON.stringify(DATA_REACT_ELEMENTS));
-    const nextData = [...clonedData];
-    mount(
-      <IcDataTable
-        columns={COLS_ELEMENTS}
-        data={nextData}
-        caption="Data tables"
-      >
-        {nextData.map((_, index) => (
-          <>
-            <IcButton
-              key={`actions-${index}`}
-              slot={`actions-${index}`}
-              onClick={() => nextData.splice(index, 1)}
-            >
-              Delete
-            </IcButton>
-            <IcButton
-              key={`actions2-${index}`}
-              variant="icon"
-              slot={`actions2-${index}`}
-              onClick={() => nextData.splice(index, 1)}
-              aria-label="Add info"
-            >
-              <SlottedSVG path={mdiPlus} viewBox="0 0 24 24" />
-            </IcButton>
-          </>
-        ))}
-      </IcDataTable>
-    );
+    const DeleteElementsExample = () => {
+      const clonedData = JSON.parse(JSON.stringify(DATA_REACT_ELEMENTS));
+      const [nextData, setNextData] = useState([...clonedData]);
+      return (
+        <IcDataTable
+          columns={COLS_ELEMENTS}
+          data={nextData}
+          caption="Data tables"
+        >
+          {nextData.map((_, index) => (
+            <>
+              <IcButton
+                key={`actions-${index}`}
+                slot={`actions-${index}`}
+                onClick={() =>
+                  setNextData(nextData.filter((_, i) => i !== index))
+                }
+              >
+                Delete
+              </IcButton>
+              <IcButton
+                key={`actions2-${index}`}
+                variant="icon"
+                slot={`actions2-${index}`}
+                onClick={() =>
+                  setNextData(nextData.filter((_, i) => i !== index))
+                }
+                aria-label="Add info"
+              >
+                <SlottedSVG path={mdiPlus} viewBox="0 0 24 24" />
+              </IcButton>
+            </>
+          ))}
+        </IcDataTable>
+      );
+    };
+
+    mount(<DeleteElementsExample />);
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.get(DATA_TABLE_SELECTOR)
@@ -4613,76 +4602,37 @@ describe("IcDataTable row selection", () => {
     cy.task("generateReport");
   });
 
-  it("should highlight the selected row", () => {
-    mount(<BasicDataTable />);
+  it("should display selection checkboxes when `rowSelection` is set to `true`, and should highlight the row when one is selected", () => {
+    mount(<BasicDataTable rowSelection />);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ROW_CHECKBOX_SELECTOR).eq(3).click();
 
     cy.compareSnapshot({
       name: "/selected-row-highlight",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.041),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.048),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
     });
-  });
-
-  it("should not highlight the selected row when the highlightSelectedRow prop is set to false", () => {
-    mount(<BasicDataTable highlightSelectedRow={false} />);
-
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
-
-    cy.compareSnapshot({
-      name: "/selected-row-highlight-turned-off",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.043),
-      cypressScreenshotOptions: {
-        capture: "viewport",
-      },
-    });
-  });
-
-  it("should not highlight the selected row when the action element click event is stopped from propagating", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={ACTION_DATA_ELEMENTS}
-        caption="Data tables"
-      ></IcDataTable>
-    );
-
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.get(DATA_TABLE_SELECTOR)
-      .shadow()
-      .find(`[data-testid="copy-button"]`)
-      .eq(0)
-      .click();
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
-      .eq(1)
-      .should(NOT_HAVE_CLASS, TABLE_ROW_SELECTED);
-
-    cy.get(DATA_TABLE_SELECTOR)
-      .shadow()
-      .find(`[data-testid="copy-button"]`)
-      .eq(1)
-      .click();
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
-      .eq(2)
-      .should(HAVE_CLASS, TABLE_ROW_SELECTED);
   });
 
   it("should emit icSelectedRowChange event when the selected row changes", () => {
     mount(
       <BasicDataTable
+        rowSelection
         onIcSelectedRowChange={(e: CustomEvent) => console.log(e.detail)}
       />
     );
+
+    const EVENT_OBJECT = {
+      firstName: "Mark",
+      lastName: "Owens",
+      age: 45,
+      jobTitle: "Team Lead",
+      address: "12 Key Street, Town, Country, Postcode",
+    };
 
     cy.get(DATA_TABLE_SELECTOR).invoke(
       "on",
@@ -4692,21 +4642,84 @@ describe("IcDataTable row selection", () => {
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ROW_CHECKBOX_SELECTOR).eq(3).click();
 
     cy.get("@selectedRowChange").should(HAVE_BEEN_CALLED_ONCE);
     cy.get(CONSOLE_LOG_SPY).should(HAVE_BEEN_CALLED_WITH, {
-      firstName: "Mark",
-      lastName: "Owens",
-      age: 45,
-      jobTitle: "Team Lead",
-      address: "12 Key Street, Town, Country, Postcode",
+      row: EVENT_OBJECT,
+      selectedRows: [EVENT_OBJECT],
     });
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(3).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ROW_CHECKBOX_SELECTOR).eq(3).click();
 
     cy.get("@selectedRowChange").should(HAVE_CALL_COUNT, 2);
-    cy.get(CONSOLE_LOG_SPY).should(HAVE_BEEN_CALLED_WITH, null);
+    cy.get(CONSOLE_LOG_SPY).should(HAVE_BEEN_CALLED_WITH, {
+      row: null,
+      selectedRows: [],
+    });
+  });
+
+  it("should select all rows when the header checkbox is clicked, and should emit the `icSelectAllRows` event", () => {
+    mount(
+      <BasicDataTable
+        rowSelection
+        onIcSelectAllRows={(e: CustomEvent) => console.log(e.detail)}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR).invoke(
+      "on",
+      "icSelectAllRows",
+      cy.stub().as("selectedAllRows")
+    );
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, HEADER_CHECKBOX_SELECTOR).click();
+
+    cy.get("@selectedAllRows").should(HAVE_BEEN_CALLED_ONCE);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/selected-all-rows",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, HEADER_CHECKBOX_SELECTOR).click();
+
+    cy.get("@selectedAllRows").should(HAVE_CALL_COUNT, 2);
+  });
+
+  it("should select all remaining rows when header checkbox clicked after rows checkboxes", () => {
+    mount(<BasicDataTable rowSelection />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ROW_CHECKBOX_SELECTOR).eq(3).click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, HEADER_CHECKBOX_SELECTOR).click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/selected-all-remaining-rows",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.039),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
+
+  it("should not render the header checkbox if the table contains no data", () => {
+    mount(<IcDataTable columns={COLS} caption="Data Tables" rowSelection />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, HEADER_CHECKBOX_SELECTOR).should(
+      NOT_EXIST
+    );
   });
 });
 
@@ -4779,16 +4792,16 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
   });
 
   it("should highlight row when clicked in high contrast mode", () => {
-    mount(<BasicDataTable />);
+    mount(<BasicDataTable rowSelection />);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(1).click();
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").eq(4).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ROW_CHECKBOX_SELECTOR).eq(1).click();
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ROW_CHECKBOX_SELECTOR).eq(4).click();
 
     cy.compareSnapshot({
       name: "/highlighted-row-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.056),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.052),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
