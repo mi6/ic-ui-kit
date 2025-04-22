@@ -459,6 +459,22 @@ export const DarkThemeValidation = (): ReactElement => (
   </div>
 );
 
+export const DarkThemeReadOnly = (): ReactElement => (
+  <div style={{ backgroundColor: "#17191C" }}>
+    <IcTextField
+      theme="dark"
+      maxCharacters={25}
+      value="Arabica"
+      label="What is your favourite coffee?"
+      placeholder="Please enter…"
+      helperText="Such as Arabica, Robusta or Liberica"
+      validationStatus="success"
+      validationText="Good choice!"
+      readonly
+    ></IcTextField>
+  </div>
+);
+
 export const HiddenInput = (): ReactElement => (
   <div style={style}>
     <IcTextField label="my label" />
