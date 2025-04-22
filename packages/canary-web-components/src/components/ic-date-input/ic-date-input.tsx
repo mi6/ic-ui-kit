@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import {
   Component,
   Element,
@@ -52,12 +53,13 @@ let inputIds = 0;
   },
 })
 export class DateInput {
+  private DEFAULT_DATE_FORMAT: IcDateFormat = "DD/MM/YYYY";
   private ARIA_INVALID = "aria-invalid";
   private ARIA_LABEL = "aria-label";
   private ARIA_LABELLED_BY = "aria-labelledby";
   private assistiveHintId: string;
   private calendarButtonEl: HTMLIcButtonElement;
-  private dayInputEl: HTMLInputElement;
+  private dayInputEl?: HTMLInputElement;
   private defaultHelperText: string;
   private EVENT_OBJECT_STRING = "[object Event]";
   private FIT_TO_VALUE = "fit-to-value";
@@ -80,7 +82,7 @@ export class DateInput {
   private KEYBOARD_EVENT_OBJECT_STRING = "[object KeyboardEvent]";
   private MAX_DAY = 31;
   private MAX_MONTH = 12;
-  private monthInputEl: HTMLInputElement;
+  private monthInputEl?: HTMLInputElement;
 
   private preventAutoFormatting: boolean;
   private preventDayInput: boolean;
@@ -88,14 +90,14 @@ export class DateInput {
   private preventYearInput: boolean;
 
   private previousInvalidDateTest: string;
-  private previousSelectedDate: Date = null;
+  private previousSelectedDate: Date | null = null;
 
-  private selectedDate: Date = null;
-  private selectedDateInfoEl: HTMLSpanElement;
+  private selectedDate: Date | null = null;
+  private selectedDateInfoEl?: HTMLSpanElement;
   private screenReaderInfoId: string;
   private selectedDateInfoId: string;
 
-  private yearInputEl: HTMLInputElement;
+  private yearInputEl?: HTMLInputElement;
 
   private externalSetDate: boolean = false;
   private clearInput: boolean = false;
@@ -131,8 +133,7 @@ export class DateInput {
   /**
    * The format in which the date will be displayed.
    */
-  // eslint-disable-next-line sonarjs/no-duplicate-string
-  @Prop() dateFormat?: IcDateFormat = "DD/MM/YYYY";
+  @Prop() dateFormat: IcDateFormat = this.DEFAULT_DATE_FORMAT;
   /**
    * If `true`, every individual input field completed will emit an icChange event.
    */
@@ -141,7 +142,7 @@ export class DateInput {
   /**
    * If `true`, the disabled state will be set.
    */
-  @Prop() disabled?: boolean = false;
+  @Prop() disabled: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -150,12 +151,12 @@ export class DateInput {
   /**
    * The days of the week to disable.
    */
-  @Prop({ mutable: true }) disableDays?: IcWeekDays[] = [];
+  @Prop({ mutable: true }) disableDays: IcWeekDays[] = [];
 
   /**
    * The text to display as the validation message when `disableDays` is set and a disabled date is entered.
    */
-  @Prop() disableDaysMessage?: string =
+  @Prop() disableDaysMessage: string =
     "The date you have selected is on a day of the week that is not allowed. Please select another date.";
 
   /**
@@ -171,7 +172,7 @@ export class DateInput {
   /**
    * The text to display as the validation message when `disableFuture` is true and a date in the future is entered.
    */
-  @Prop() disableFutureMessage?: string =
+  @Prop() disableFutureMessage: string =
     "Dates in the future are not allowed. Please select a date in the past.";
 
   /**
@@ -187,13 +188,13 @@ export class DateInput {
   /**
    * The text to display as the validation message when `disablePast` is true and a date in the past is entered.
    */
-  @Prop() disablePastMessage?: string =
+  @Prop() disablePastMessage: string =
     "Dates in the past are not allowed. Please select a date in the future.";
 
   /**
    * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
    */
-  @Prop({ mutable: true }) helperText?: string;
+  @Prop({ mutable: true }) helperText: string | null;
 
   /**
    * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
@@ -208,12 +209,12 @@ export class DateInput {
   /**
    * The ID for the input.
    */
-  @Prop() inputId?: string = `ic-date-input-${inputIds++}`;
+  @Prop() inputId: string = `ic-date-input-${inputIds++}`;
 
   /**
    * The text to display as the validation message when an invalid date is entered.
    */
-  @Prop() invalidDateMessage?: string = "Please enter a valid date.";
+  @Prop() invalidDateMessage: string = "Please enter a valid date.";
 
   /**
    * The label for the date input.
@@ -224,7 +225,7 @@ export class DateInput {
    * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
    * The value of this prop is ignored if `disableFuture` is set to `true`.
    */
-  @Prop() max?: string | Date = "";
+  @Prop() max: string | Date = "";
 
   @Watch("max")
   watchMaxHandler(): void {
@@ -239,7 +240,7 @@ export class DateInput {
    * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
    * The value of this prop is ignored if `disablePast` is set to `true`.
    */
-  @Prop() min?: string | Date = "";
+  @Prop() min: string | Date = "";
 
   @Watch("min")
   watchMinHandler(): void {
@@ -258,13 +259,13 @@ export class DateInput {
   /**
    * If `true`, the input will require a value.
    */
-  @Prop() required?: boolean = false;
+  @Prop() required: boolean = false;
 
   @Watch("required")
   watchRequiredHandler(): void {
     // Prevent asterisk being read out after the label by screen reader (by applying aria-hidden)
     // Needed because label is included in 'aria-labelledby' instead of using 'aria-label'
-    const labelEl = this.el.shadowRoot.querySelector("label");
+    const labelEl = this.el.shadowRoot?.querySelector("label");
     if (this.required) {
       const asteriskSpan = document.createElement("span");
       asteriskSpan.setAttribute("id", "asterisk-span");
@@ -272,7 +273,7 @@ export class DateInput {
       asteriskSpan.textContent = " *";
       labelEl?.appendChild(asteriskSpan);
     } else {
-      const asteriskSpan = this.el.shadowRoot.querySelector("#asterisk-span");
+      const asteriskSpan = this.el.shadowRoot?.querySelector("#asterisk-span");
       if (asteriskSpan) {
         asteriskSpan.remove();
       }
@@ -292,7 +293,7 @@ export class DateInput {
   /**
    * The size of the date input to be displayed.
    */
-  @Prop() size?: IcSizes = "medium";
+  @Prop() size: IcSizes = "medium";
 
   /**
    * Sets the date picker to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
@@ -307,7 +308,7 @@ export class DateInput {
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
    */
-  @Prop({ mutable: true }) validationStatus?: IcInformationStatusOrEmpty = "";
+  @Prop({ mutable: true }) validationStatus: IcInformationStatusOrEmpty = "";
 
   /**
    * The text to display as the validation message. This will override the built-in date validation.
@@ -317,25 +318,29 @@ export class DateInput {
   /**
    * @internal Emitted when the calendar is opened.
    */
-  @Event() calendarButtonClicked: EventEmitter<{ value: Date }>;
+  @Event() calendarButtonClicked: EventEmitter<{ value: Date | null }>;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event() icBlur: EventEmitter<{ value: Date }>;
+  @Event() icBlur: EventEmitter<{ value: Date | null }>;
 
   /**
    * Emitted when the value has changed.
    */
   @Event() icChange: EventEmitter<{
-    value: Date;
-    dateObject: { day: string; month: string; year: string };
+    value: Date | null;
+    dateObject: {
+      day: string | null;
+      month: string | null;
+      year: string | null;
+    };
   }>;
 
   /**
    * Emitted when the input gains focus.
    */
-  @Event() icFocus: EventEmitter<{ value: Date }>;
+  @Event() icFocus: EventEmitter<{ value: Date | null }>;
 
   disconnectedCallback(): void {
     removeFormResetListener(this.el, this.handleFormReset);
@@ -428,7 +433,7 @@ export class DateInput {
    * @returns Date
    */
   @Method()
-  async getDate(): Promise<Date> {
+  async getDate(): Promise<Date | null> {
     return this.selectedDate;
   }
 
@@ -454,22 +459,27 @@ export class DateInput {
    * @internal Used to enable other components to invoke an IcChange event from the input.
    */
   @Method()
-  async triggerIcChange(d: Date): Promise<void> {
+  async triggerIcChange(d: Date | null): Promise<void> {
     this.externalSetDate = true;
     this.setDate(d);
     this.emitIcChange(d);
     this.externalSetDate = false;
   }
 
-  private setInputPasteValue = (input: EventTarget, pastedValue: string) => {
-    const inputEl = input as HTMLInputElement;
+  private setInputPasteValue = (
+    input: EventTarget | null,
+    pastedValue: string
+  ) => {
+    if (input) {
+      const inputEl = input as HTMLInputElement;
 
-    inputEl.value = pastedValue;
-    inputEl.classList.add(this.FIT_TO_VALUE);
+      inputEl.value = pastedValue;
+      inputEl.classList.add(this.FIT_TO_VALUE);
+    }
   };
 
   private checkSingleCopiedValueIsValid = (
-    input: EventTarget,
+    input: EventTarget | null,
     pastedValue: string
   ) => {
     let isValid = false;
@@ -484,9 +494,6 @@ export class DateInput {
         break;
       case this.yearInputEl:
         isValid = true;
-        break;
-      default:
-        isValid = false;
         break;
     }
 
@@ -653,10 +660,11 @@ export class DateInput {
   };
 
   private handleBlur = (event: FocusEvent) => {
-    const input = event.target as HTMLInputElement;
-
-    this.setPasteInvalidText();
-    this.autocompleteInput(input);
+    const input = event.target;
+    if (input) {
+      this.setPasteInvalidText();
+      this.autocompleteInput(input as HTMLInputElement);
+    }
   };
 
   private handleLeftRightArrowKeyPress = (
@@ -673,14 +681,16 @@ export class DateInput {
   };
 
   private notifyScreenReaderSelectedDate = () => {
-    const dayNames = stringEnumToArray(IcDayNames);
-    const months = stringEnumToArray(IcDateInputMonths);
+    if (this.selectedDate && this.selectedDateInfoEl) {
+      const dayNames = stringEnumToArray(IcDayNames);
+      const months = stringEnumToArray(IcDateInputMonths);
 
-    this.selectedDateInfoEl.textContent = `Selected date: ${
-      dayNames[this.selectedDate.getDay()]
-    }, ${this.selectedDate.getDate()} ${
-      months[this.selectedDate.getMonth()]
-    } ${this.selectedDate.getFullYear()}`;
+      this.selectedDateInfoEl.textContent = `Selected date: ${
+        dayNames[this.selectedDate.getDay()]
+      }, ${this.selectedDate.getDate()} ${
+        months[this.selectedDate.getMonth()]
+      } ${this.selectedDate.getFullYear()}`;
+    }
   };
 
   private handleUpDownArrowKeyPress = (
@@ -689,7 +699,7 @@ export class DateInput {
   ) => {
     const minValue = input === this.yearInputEl ? 0 : 1;
 
-    let maxValue;
+    let maxValue = 9999;
 
     switch (input) {
       case this.dayInputEl:
@@ -732,19 +742,17 @@ export class DateInput {
     } else {
       if (event.key === "ArrowDown") {
         event.preventDefault();
-        if (input === this.yearInputEl) {
-          input.value = new Date().getFullYear().toString();
-        } else {
-          input.value = maxValue.toString();
-        }
+        input.value =
+          input === this.yearInputEl
+            ? new Date().getFullYear().toString()
+            : maxValue.toString();
         this.notifyScreenReader(input, event);
       } else if (event.key === "ArrowUp") {
         event.preventDefault();
-        if (input === this.yearInputEl) {
-          input.value = new Date().getFullYear().toString();
-        } else {
-          input.value = `0${minValue}`;
-        }
+        input.value =
+          input === this.yearInputEl
+            ? new Date().getFullYear().toString()
+            : `0${minValue}`;
         this.notifyScreenReader(input, event);
       }
     }
@@ -766,7 +774,8 @@ export class DateInput {
         this.setValueAndEmitChange(this.selectedDate);
         this.notifyScreenReaderSelectedDate();
       } else if (
-        !(this.selectedDate === null && this.previousSelectedDate === null)
+        !(this.selectedDate === null && this.previousSelectedDate === null) &&
+        this.selectedDateInfoEl
       ) {
         this.setValueAndEmitChange(null);
         this.selectedDateInfoEl.textContent = "";
@@ -811,17 +820,17 @@ export class DateInput {
   private handlePaste = (event: ClipboardEvent) => {
     event.preventDefault();
 
-    const pastedValue = event.clipboardData.getData("Text");
+    const pastedValue = event.clipboardData?.getData("Text") || "";
     const isValidDate = this.isPastedStringDateValid(pastedValue);
 
     this.setPastedValueAndValidation(isValidDate, pastedValue, event);
   };
 
-  private setDate = (date: string | Date) => {
+  private setDate = (date?: string | Date | null) => {
     if (date === null || date === "" || date === undefined) {
-      if (this.day) this.day = null;
-      if (this.month) this.month = null;
-      if (this.year) this.year = null;
+      if (this.day) this.day = "";
+      if (this.month) this.month = "";
+      if (this.year) this.year = "";
       this.inputsInOrder.forEach((input) => {
         input.classList.remove(this.FIT_TO_VALUE);
         this.setPreventInput(input, false);
@@ -865,7 +874,7 @@ export class DateInput {
     const year = date.getFullYear();
 
     switch (this.dateFormat) {
-      case "DD/MM/YYYY":
+      case this.DEFAULT_DATE_FORMAT:
         formattedDate = `${day}/${month}/${year}`;
         break;
       case "MM/DD/YYYY":
@@ -880,9 +889,11 @@ export class DateInput {
     return formattedDate;
   };
   private updateInputValues = (day: string, month: string, year: string) => {
-    this.dayInputEl.value = day;
-    this.monthInputEl.value = month;
-    this.yearInputEl.value = year;
+    if (this.dayInputEl && this.monthInputEl && this.yearInputEl) {
+      this.dayInputEl.value = day;
+      this.monthInputEl.value = month;
+      this.yearInputEl.value = year;
+    }
   };
 
   // Set value in state based on input
@@ -917,7 +928,9 @@ export class DateInput {
       // (used https://www.hectane.com/blog/javascript-date-validation-with-leap-year)
       this.selectedDate = this.convertToDate(this.year, this.month, this.day);
       this.isValidDate =
-        +this.selectedDate !== 0 && this.selectedDate.getDate() == +this.day;
+        !!this.selectedDate &&
+        +this.selectedDate !== 0 &&
+        this.selectedDate.getDate() == +this.day;
       this.isDisabledDate = this.isSelectedDateDisabled();
 
       if (!this.isValidDate || this.isDisabledDate) {
@@ -969,8 +982,9 @@ export class DateInput {
 
   // Set refs to the input elements in the order they are displayed (based on the dateFormat)
   private setInputsInOrder = () => {
-    const inputs = this.el.shadowRoot.querySelectorAll("input");
-    inputs.forEach((input) => this.inputsInOrder.push(input));
+    this.el.shadowRoot
+      ?.querySelectorAll("input")
+      .forEach((input) => this.inputsInOrder.push(input));
   };
 
   // Includes text usually added using aria-describedby
@@ -990,7 +1004,7 @@ export class DateInput {
       return;
     }
 
-    const labelEl = this.el.shadowRoot.querySelector("label");
+    const labelEl = this.el.shadowRoot?.querySelector("label");
     const labelId = `${this.inputId}-label`;
 
     if (labelEl !== null && labelEl !== undefined) {
@@ -1112,7 +1126,7 @@ export class DateInput {
     let description;
 
     switch (this.dateFormat) {
-      case "DD/MM/YYYY":
+      case this.DEFAULT_DATE_FORMAT:
         description = "day, month, and year";
         break;
       case "MM/DD/YYYY":
@@ -1152,8 +1166,8 @@ export class DateInput {
 
     if (input) {
       selectedString = input.value.substring(
-        input.selectionStart,
-        input.selectionEnd
+        input.selectionStart || 0,
+        input.selectionEnd || undefined
       );
     }
 
@@ -1170,103 +1184,73 @@ export class DateInput {
     }
   };
 
-  // Get whether date has been disabled using disableFuture or disablePast prop, but always allow current day
-  // Consider using dateClamp and inDateRange
+  /**
+   * Get whether date has been disabled using disableFuture or disablePast prop, but always allow current day
+   * Consider using dateClamp and inDateRange
+   * @returns `boolean`
+   */
   private isSelectedDateDisabled = () => {
-    const currentDate = new Date();
-    this.isAfterMax = false;
-    this.isBeforeMin = false;
+    if (!this.selectedDate) return false;
 
-    let disabled = false;
+    const currentDate = new Date();
     const isNotToday =
       this.selectedDate.toDateString() !== currentDate.toDateString();
 
-    if (this.minDate && this.selectedDate < this.minDate && isNotToday) {
-      this.isBeforeMin = true;
-      disabled = true;
-    }
+    this.isAfterMax =
+      this.maxDate && this.selectedDate > this.maxDate && isNotToday;
+    this.isBeforeMin =
+      this.minDate && this.selectedDate < this.minDate && isNotToday;
 
-    if (this.maxDate && this.selectedDate > this.maxDate && isNotToday) {
-      this.isAfterMax = true;
-      disabled = true;
-    }
-
-    if (this.disableDays.includes(this.selectedDate.getDay())) {
-      disabled = true;
-    }
-
-    if (
-      ((this.disablePast && this.selectedDate < currentDate) ||
-        (this.disableFuture && this.selectedDate > currentDate)) &&
-      isNotToday
-    ) {
-      disabled = true;
-    }
-
-    return disabled;
+    return (
+      this.isAfterMax ||
+      this.isBeforeMin ||
+      this.disableDays.includes(this.selectedDate.getDay()) ||
+      (((!!this.disablePast && this.selectedDate < currentDate) ||
+        (!!this.disableFuture && this.selectedDate > currentDate)) &&
+        isNotToday)
+    );
   };
 
   private moveToNextInput = (currentInput: HTMLInputElement) => {
-    const currentInputPos = this.inputsInOrder.findIndex(
-      (input) => input === currentInput
-    );
-    const nextInput = this.inputsInOrder[currentInputPos + 1];
-
     this.preventAutoFormatting = false;
 
-    if (nextInput) {
-      nextInput.focus();
-    }
+    this.inputsInOrder[
+      this.inputsInOrder.findIndex((input) => input === currentInput) + 1
+    ]?.focus();
   };
 
   private moveToPreviousInput = (currentInput: HTMLInputElement) => {
-    const currentInputPos = this.inputsInOrder.findIndex(
-      (input) => input === currentInput
-    );
-
     this.preventAutoFormatting = false;
 
-    if (this.inputsInOrder[currentInputPos - 1]) {
-      this.inputsInOrder[currentInputPos - 1].focus();
-    }
+    this.inputsInOrder[
+      this.inputsInOrder.findIndex((input) => input === currentInput) - 1
+    ]?.focus();
   };
 
   private autocompleteInput = (input: HTMLInputElement) => {
-    if (input === this.yearInputEl) {
-      this.autocompleteYear();
-    } else {
-      const inputValue = input.value;
+    const inputValue = input.value;
+    if (this.yearInputEl && input === this.yearInputEl) {
+      // Autocomplete year as current millennium when fewer than 4 characters entered
+      const yearNumbers = ["2", "0", "0"];
 
-      // Autocomplete input as 2 characters (leading zero) when only 1 character entered (for day and month)
-      if (inputValue.length === 1) {
-        if (+inputValue === 0) {
-          input.value = "01";
-        } else {
-          input.value = `0${inputValue}`;
-        }
+      let autocompletedInput = "";
+
+      if (inputValue) {
+        yearNumbers.forEach((number, index) => {
+          if (inputValue.length + index <= 3) {
+            autocompletedInput += number;
+          }
+        });
+
+        this.yearInputEl.value = `${autocompletedInput}${inputValue}`;
       }
+    } else if (inputValue.length === 1) {
+      // Autocomplete input as 2 characters (leading zero) when only 1 character entered (for day and month)
+      input.value = +inputValue === 0 ? "01" : `0${inputValue}`;
     }
 
     if (input.value) {
       this.setInputValue(input);
-    }
-  };
-
-  // Autocomplete year as current millennium when fewer than 4 characters entered
-  private autocompleteYear = () => {
-    const inputValue = this.yearInputEl.value;
-    const yearNumbers = ["2", "0", "0"];
-
-    let autocompletedInput = "";
-
-    if (inputValue) {
-      yearNumbers.forEach((number, index) => {
-        if (inputValue.length + index <= 3) {
-          autocompletedInput += number;
-        }
-      });
-
-      this.yearInputEl.value = `${autocompletedInput}${inputValue}`;
     }
   };
 
@@ -1288,7 +1272,9 @@ export class DateInput {
   };
 
   private handleHostFocus = () => {
-    if (this.el.shadowRoot.activeElement?.id.match(/(day|month|year)-input$/)) {
+    if (
+      this.el.shadowRoot?.activeElement?.id.match(/(day|month|year)-input$/)
+    ) {
       this.removeLabelledBy = false;
     } else {
       this.removeLabelledBy = true;
@@ -1303,16 +1289,16 @@ export class DateInput {
     this.handleDateChange(false);
   };
 
-  private getAriaLabel = (input: HTMLInputElement): string => {
-    return input.getAttribute(this.ARIA_LABEL);
-  };
+  private getAriaLabel = (input: HTMLInputElement) =>
+    input.getAttribute(this.ARIA_LABEL);
 
   private notifyScreenReaderArrowKeys = (input: HTMLInputElement) => {
-    const liveRegion = this.el.shadowRoot.querySelector("#live-region");
-    let announcement = "";
+    const liveRegion = this.el.shadowRoot?.querySelector("#live-region");
     const ariaLabel = this.getAriaLabel(input);
 
-    if (liveRegion && input.value) {
+    if (liveRegion && input.value && ariaLabel) {
+      let announcement = "";
+
       if (
         input === this.monthInputEl &&
         !!IcDateInputMonths[+input.value - 1]
@@ -1398,16 +1384,16 @@ export class DateInput {
 
   private pasteZuluDateTime(dateParts: string[], index: number) {
     // ['YYYY', 'MM', 'DD']
-    if (index === 0) {
+    if (index === 0 && this.yearInputEl) {
       const dateValue = this.slicePastedDate(4, dateParts[index]);
       this.yearInputEl.value = dateValue;
       this.setInputValue(this.yearInputEl);
-    } else if (index === 1) {
+    } else if (index === 1 && this.monthInputEl) {
       // The month value is the second item in the array
       const dateValue = this.slicePastedDate(2, dateParts[index]);
       this.monthInputEl.value = dateValue;
       this.setInputValue(this.monthInputEl);
-    } else {
+    } else if (this.dayInputEl) {
       const dateValue = this.slicePastedDate(2, dateParts[index]);
       this.dayInputEl.value = dateValue;
       this.setInputValue(this.dayInputEl);
@@ -1438,7 +1424,7 @@ export class DateInput {
   }
 
   private notifyScreenReader(input: HTMLInputElement, event: Event) {
-    const liveRegion = this.el.shadowRoot.querySelector("#live-region");
+    const liveRegion = this.el.shadowRoot?.querySelector("#live-region");
 
     if (liveRegion) {
       if (this.isKeyboardOrEvent(event)) {
@@ -1455,35 +1441,29 @@ export class DateInput {
     input: HTMLInputElement,
     liveRegion: HTMLElement
   ) => {
-    let announcement = "";
     const ariaLabel = this.getAriaLabel(input);
+    const value = input.value;
 
-    if (input === this.dayInputEl || input === this.monthInputEl) {
-      if (input.value.length === 2) {
-        if (
-          input === this.monthInputEl &&
-          !!IcDateInputMonths[+input.value - 1] &&
-          this.isValidMonth
-        ) {
-          announcement = `${input.value} - ${
-            IcDateInputMonths[+input.value - 1]
-          }, ${ariaLabel}`;
-        }
+    if (ariaLabel && value) {
+      let announcement = "";
 
-        if (input === this.dayInputEl && this.isValidDay) {
-          announcement = `${input.value}, ${ariaLabel}`;
-        }
-      } else {
-        announcement = "";
+      const monthValue = IcDateInputMonths[+value - 1];
+      if (
+        input === this.monthInputEl &&
+        !!monthValue &&
+        this.isValidMonth &&
+        value.length === 2
+      ) {
+        announcement = `${value} - ${monthValue}`;
+      } else if (
+        (input === this.dayInputEl && this.isValidDay && value.length === 2) ||
+        (input === this.yearInputEl && value.length === 4)
+      ) {
+        announcement = value;
       }
-    } else {
-      if (input.value.length === 4) {
-        announcement = `${input.value}, ${ariaLabel}`;
-      } else {
-        announcement = "";
-      }
+
+      liveRegion.textContent = `${announcement}, ${ariaLabel}`;
     }
-    liveRegion.textContent = announcement;
   };
 
   private setFitToValueStyling = (input: HTMLInputElement) => {
@@ -1506,11 +1486,11 @@ export class DateInput {
       });
 
       if (!validDay) {
-        this.dayInputEl.setAttribute(this.ARIA_INVALID, "true");
+        this.dayInputEl?.setAttribute(this.ARIA_INVALID, "true");
       }
 
       if (!validMonth) {
-        this.monthInputEl.setAttribute(this.ARIA_INVALID, "true");
+        this.monthInputEl?.setAttribute(this.ARIA_INVALID, "true");
       }
 
       if (!validDate || disabledDate) {
@@ -1539,17 +1519,17 @@ export class DateInput {
   private handleCalendarOpen = (ev: MouseEvent) => {
     ev.stopImmediatePropagation();
     this.calendarButtonEl?.shadowRoot
-      .querySelector("ic-tooltip")
-      .displayTooltip(false);
+      ?.querySelector("ic-tooltip")
+      ?.displayTooltip(false);
     this.calendarButtonClicked.emit({ value: this.selectedDate });
     this.calendarButtonEl?.shadowRoot
-      .querySelector("ic-tooltip")
-      .displayTooltip(false);
+      ?.querySelector("ic-tooltip")
+      ?.displayTooltip(false);
     this.isDateSetFromKeyboardEvent = false;
   };
 
-  private setValueAndEmitChange = (value: Date) => {
-    if (!dateMatches(new Date(this.value), value)) {
+  private setValueAndEmitChange = (value: Date | null) => {
+    if (!dateMatches(this.value ? new Date(this.value) : null, value)) {
       this.emitIcChange(value);
       this.value = value;
     }

@@ -521,7 +521,7 @@ describe(icDataTable, () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.columnHeaderTruncation = false;
+    page.root!.columnHeaderTruncation = false;
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot();
   });
@@ -811,7 +811,7 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
 
     await waitForTimeout(1100);
-    page.root.data = data;
+    page.root!.data = data;
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
@@ -831,7 +831,7 @@ describe(icDataTable, () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.data = data;
+    page.root!.data = data;
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
@@ -921,17 +921,18 @@ describe(icDataTable, () => {
     const dataTable = document.querySelector(icDataTable);
 
     const paginationBar =
-      dataTable.shadowRoot.querySelector("ic-pagination-bar");
+      dataTable!.shadowRoot?.querySelector("ic-pagination-bar");
 
-    const pagination = paginationBar.shadowRoot.querySelector("ic-pagination");
+    const pagination =
+      paginationBar?.shadowRoot?.querySelector("ic-pagination");
 
     const paginationItem =
-      pagination.shadowRoot.querySelector("ic-pagination-item");
+      pagination?.shadowRoot?.querySelector("ic-pagination-item");
 
     let currentPage =
-      paginationItem.shadowRoot.querySelector("ic-typography").textContent;
+      paginationItem?.shadowRoot?.querySelector("ic-typography")?.textContent;
 
-    const nextPageButton = pagination.shadowRoot.querySelector(
+    const nextPageButton = pagination?.shadowRoot?.querySelector(
       "#next-page-button"
     ) as HTMLButtonElement;
 
@@ -945,7 +946,7 @@ describe(icDataTable, () => {
       detail: { value: "2" },
     });
 
-    dataTable.dispatchEvent(icPageChangeEvent);
+    dataTable!.dispatchEvent(icPageChangeEvent);
 
     currentPage = "Page 2";
 
@@ -982,15 +983,15 @@ describe(icDataTable, () => {
     const dataTable = document.querySelector(icDataTable);
 
     const paginationBar =
-      dataTable.shadowRoot.querySelector("ic-pagination-bar");
+      dataTable!.shadowRoot?.querySelector("ic-pagination-bar");
 
-    const itemsPerPageLabel = paginationBar.shadowRoot.querySelector(
+    const itemsPerPageLabel = paginationBar?.shadowRoot?.querySelector(
       ".item-pagination-label"
     );
 
     page.rootInstance.rowsPerPage = 10;
 
-    expect(itemsPerPageLabel.textContent).toEqual("1 - 10 of 20 items");
+    expect(itemsPerPageLabel?.textContent).toEqual("1 - 10 of 20 items");
 
     const icPageChangeEvent = new CustomEvent("icPageChange", {
       detail: { value: "1" },
@@ -1008,27 +1009,27 @@ describe(icDataTable, () => {
       { detail: { value: "10" } }
     );
 
-    dataTable.dispatchEvent(icItemsPerPageChangeEventUp);
+    dataTable!.dispatchEvent(icItemsPerPageChangeEventUp);
 
     page.rootInstance.rowsPerPage = 20;
 
-    dataTable.dispatchEvent(icPageChangeEvent);
+    dataTable!.dispatchEvent(icPageChangeEvent);
 
     page.rootInstance.toRow = 20;
 
     await page.waitForChanges();
 
-    dataTable.dispatchEvent(icItemsPerPageChangeEventDown);
+    dataTable!.dispatchEvent(icItemsPerPageChangeEventDown);
 
     page.rootInstance.previousRowsPerPage = 20;
 
     page.rootInstance.rowsPerPage = 10;
 
-    dataTable.dispatchEvent(icPageChangeEvent);
+    dataTable!.dispatchEvent(icPageChangeEvent);
 
     await page.waitForChanges();
 
-    expect(itemsPerPageLabel.textContent).toEqual("1 - 10 of 20 items");
+    expect(itemsPerPageLabel?.textContent).toEqual("1 - 10 of 20 items");
   });
 
   it("should sort data when the sort button is clicked", async () => {
@@ -1047,8 +1048,10 @@ describe(icDataTable, () => {
     const dataTable = document.querySelector(icDataTable);
 
     const sortButton = Array.from(
-      dataTable.shadowRoot.querySelectorAll(".sort-button")
-    ) as HTMLIcButtonElement[];
+      dataTable!.shadowRoot?.querySelectorAll<HTMLIcButtonElement>(
+        ".sort-button"
+      ) || []
+    );
 
     expect(page.root).toMatchSnapshot();
 
@@ -1086,7 +1089,7 @@ describe(icDataTable, () => {
     let icDensityUpdateEvent = new CustomEvent("icTableDensityUpdate", {
       detail: { value: "dense" },
     });
-    page.root.dispatchEvent(icDensityUpdateEvent);
+    page.root!.dispatchEvent(icDensityUpdateEvent);
 
     await page.waitForChanges();
     expect(page.rootInstance.density).toBe("dense");
@@ -1094,7 +1097,7 @@ describe(icDataTable, () => {
     icDensityUpdateEvent = new CustomEvent("icTableDensityUpdate", {
       detail: { value: "spacious" },
     });
-    page.root.dispatchEvent(icDensityUpdateEvent);
+    page.root!.dispatchEvent(icDensityUpdateEvent);
 
     await page.waitForChanges();
     expect(page.rootInstance.density).toBe("spacious");
@@ -1127,20 +1130,20 @@ describe(icDataTable, () => {
 
     const dataTable = document.querySelector(icDataTable);
 
-    const rows = dataTable.shadowRoot.querySelectorAll("tr");
+    const rows = dataTable!.shadowRoot?.querySelectorAll("tr");
 
-    rows[1].click();
-
-    await page.waitForChanges();
-
-    expect(rows[1]).toHaveClass(highlightedRowClass);
-
-    rows[2].click();
+    rows![1].click();
 
     await page.waitForChanges();
 
-    expect(rows[1]).not.toHaveClass(highlightedRowClass);
-    expect(rows[2]).toHaveClass(highlightedRowClass);
+    expect(rows![1]).toHaveClass(highlightedRowClass);
+
+    rows![2].click();
+
+    await page.waitForChanges();
+
+    expect(rows![1]).not.toHaveClass(highlightedRowClass);
+    expect(rows![2]).toHaveClass(highlightedRowClass);
 
     page.win.dispatchEvent(
       new MouseEvent("click", {
@@ -1151,8 +1154,8 @@ describe(icDataTable, () => {
 
     await page.waitForChanges();
 
-    expect(rows[1]).not.toHaveClass(highlightedRowClass);
-    expect(rows[2]).not.toHaveClass(highlightedRowClass);
+    expect(rows![1]).not.toHaveClass(highlightedRowClass);
+    expect(rows![2]).not.toHaveClass(highlightedRowClass);
   });
 
   it("should apply a specified row height to all rows when globalRowHeight is set", async () => {
@@ -1228,7 +1231,7 @@ describe(icDataTable, () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("icRowHeightChange", eventSpy);
+    page.root!.addEventListener("icRowHeightChange", eventSpy);
 
     const dataTable = page.root as HTMLIcDataTableElement;
     dataTable.globalRowHeight = 50;
@@ -1257,13 +1260,15 @@ describe(icDataTable, () => {
 
     const eventSpy = jest.fn();
 
-    page.root.addEventListener("icSortChange", eventSpy);
+    page.root!.addEventListener("icSortChange", eventSpy);
 
     const dataTable = document.querySelector(icDataTable);
 
     const sortButton = Array.from(
-      dataTable.shadowRoot.querySelectorAll(".sort-button")
-    ) as HTMLIcButtonElement[];
+      dataTable!.shadowRoot?.querySelectorAll<HTMLIcButtonElement>(
+        ".sort-button"
+      ) || []
+    );
 
     sortButton[0].click();
 

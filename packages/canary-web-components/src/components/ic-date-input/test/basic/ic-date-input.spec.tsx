@@ -33,7 +33,7 @@ describe("ic-date-input component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.required = false;
+    page.root!.required = false;
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot("required-prop-false");

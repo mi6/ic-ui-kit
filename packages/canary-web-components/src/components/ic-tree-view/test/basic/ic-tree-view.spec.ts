@@ -68,9 +68,9 @@ describe("ic-tree-view component", () => {
       </ic-tree-view>`,
     });
 
-    const treeItem: HTMLIcTreeItemElement = page.root.querySelector(
+    const treeItem: HTMLIcTreeItemElement = page.root!.querySelector(
       "ic-tree-item#ic-tree-item-2"
-    );
+    )!;
     treeItem.selected = true;
     await page.waitForChanges();
 
