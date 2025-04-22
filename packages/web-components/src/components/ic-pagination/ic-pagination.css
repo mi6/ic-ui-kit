@@ -61,3 +61,7 @@ ic-button.ic-button-disabled.next-previous::part(button) {
   position: absolute;
   left: -9999px;
 }
+
+.sr-only:dir(rtl) {
+  right: -9999px;
+}

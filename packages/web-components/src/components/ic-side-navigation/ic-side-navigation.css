@@ -217,6 +217,11 @@ slot[name="app-title"]::slotted(a) {
     transition: opacity var(--ic-easing-transition-slow);
   }
 
+  :host(.sm-collapsed) slot[name="app-title"]:dir(rtl)::slotted(ic-typography),
+  :host(.sm-collapsed) slot[name="app-title"]:dir(rtl)::slotted(a) {
+    right: -9999px;
+  }
+
   :host(.sm-expanded) slot[name="app-title"]::slotted(a) {
     font: var(--ic-font-h3) !important;
     font-weight: var(--ic-font-weight-semibold) !important;
@@ -478,6 +483,10 @@ slot[name="app-title"]::slotted(a) {
   left: -9999px;
   opacity: 0;
   transition: opacity var(--ic-easing-transition-slow);
+}
+
+:host(.sm-collapsed.side-display) .app-title-wrapper ic-typography:dir(rtl) {
+  right: -9999px;
 }
 
 :host(.sm-expanded.side-display) ic-typography {
