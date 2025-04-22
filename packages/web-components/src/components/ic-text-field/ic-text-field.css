@@ -95,6 +95,7 @@ textarea:disabled {
 input.readonly,
 textarea.readonly {
   color: var(--ic-text-field-read-only-input-text-internal);
+  background: transparent;
 }
 
 /* Chrome, Safari, Edge */

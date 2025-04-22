@@ -44,6 +44,7 @@ ic-input-component-container.ic-input-component-container-readonly,
 ic-input-component-container.ic-input-component-container-small.ic-input-component-container-readonly,
 ic-input-component-container.ic-input-component-container-large.ic-input-component-container-readonly {
   height: auto;
+  background: transparent;
 }
 
 ic-input-component-container.ic-input-component-container-readonly,
