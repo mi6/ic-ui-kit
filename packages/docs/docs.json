@@ -4309,7 +4309,7 @@
           "mutable": false,
           "attr": "validation-text",
           "reflectToAttr": false,
-          "docs": "The validation text - e.g. 'error' | 'warning' | 'success'.",
+          "docs": "The text to display as the validation message.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -12846,7 +12846,7 @@
           "mutable": false,
           "attr": "validation-text",
           "reflectToAttr": false,
-          "docs": "The validation text - e.g. 'error' | 'warning' | 'success'.",
+          "docs": "The text to display as the validation message.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -18348,6 +18348,60 @@
           "setter": false
         },
         {
+          "name": "maxCharactersMessage",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-characters-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.",
+          "docsTags": [],
+          "default": "`Maximum input is ${this.maxCharacters} characters`",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "maxMessage",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.",
+          "docsTags": [],
+          "default": "`Maximum value of ${this.max} exceeded`",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "min",
           "type": "number | string | undefined",
           "complexType": {
@@ -18393,6 +18447,60 @@
           "values": [
             {
               "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "minCharactersMessage",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "min-characters-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.",
+          "docsTags": [],
+          "default": "`Minimum input is ${this.minCharacters} characters`",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "minMessage",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "min-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the error message when the minimum value (the `min` prop value) has not been met.",
+          "docsTags": [],
+          "default": "`Minimum value of ${this.min} not met`",
+          "values": [
+            {
+              "type": "string"
             },
             {
               "type": "undefined"
@@ -18813,7 +18921,7 @@
           "mutable": false,
           "attr": "validation-text",
           "reflectToAttr": false,
-          "docs": "The validation state - e.g. 'error' | 'warning' | 'success'.",
+          "docs": "The text to display as the validation message.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
