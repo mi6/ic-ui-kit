@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable react/jsx-no-bind */
 import React, { useRef, useState } from "react";
 import {
@@ -22,7 +23,7 @@ import {
 import { IcStatusVariants } from "@ukic/web-components";
 
 export const SimpleDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -44,7 +45,7 @@ export const SimpleDialog = () => {
 };
 
 export const SlottedContentDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -96,7 +97,7 @@ export const SlottedContentDialog = () => {
 export const SlottedUpdatedContentDialog = () => {
   const [showBtn1, setShowBtn1] = useState(false);
   const [showBtn2, setShowBtn2] = useState(false);
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -249,7 +250,7 @@ export const LotsOfSlottedContentDialog = () => {
 };
 
 export const DialogAccordion = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -275,7 +276,7 @@ export const DialogAccordion = () => {
 };
 
 export const DialogAccordionGroup = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -300,7 +301,7 @@ export const DialogAccordionGroup = () => {
 };
 
 export const DialogAccordionGroupSingleExpansion = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -325,7 +326,7 @@ export const DialogAccordionGroupSingleExpansion = () => {
 };
 
 export const DialogSearch = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -354,7 +355,7 @@ export const DialogSearch = () => {
 };
 
 export const NoHeightConstraintDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -393,7 +394,7 @@ export const NoHeightConstraintDialog = () => {
 };
 
 export const NoBackgroundClickDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -416,7 +417,7 @@ export const NoBackgroundClickDialog = () => {
 };
 
 export const ScrollableDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -502,7 +503,7 @@ export const SizeDialog = (size: "small" | "large") => {
 };
 
 export const NoWidthConstraintDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -535,7 +536,7 @@ export const NoWidthConstraintDialog = () => {
 };
 
 export const NoButtonDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -546,7 +547,7 @@ export const NoButtonDialog = () => {
         ref={dialogEl}
         heading="This is a default dialog"
         label="Dialog"
-        buttons={false}
+        hideDefaultControls
       >
         <IcTypography>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -558,7 +559,7 @@ export const NoButtonDialog = () => {
 };
 
 export const DestructiveButtonDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -581,7 +582,7 @@ export const DestructiveButtonDialog = () => {
 };
 
 export const CustomButtonDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -594,6 +595,7 @@ export const CustomButtonDialog = () => {
         ref={dialogEl}
         heading="This is a default dialog"
         label="Dialog"
+        hideDefaultControls
       >
         <IcTypography>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -611,7 +613,7 @@ export const CustomButtonDialog = () => {
 };
 
 export const HideCloseDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
@@ -634,7 +636,7 @@ export const HideCloseDialog = () => {
 };
 
 export const DynamicDialog = () => {
-  const dialogEl = useRef<any>(null);
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
   };
