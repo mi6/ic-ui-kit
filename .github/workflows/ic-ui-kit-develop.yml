@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - develop
-      - v3.0.0/develop
+      - v2.0.0/develop
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
