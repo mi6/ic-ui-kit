@@ -1076,7 +1076,7 @@ slot[name="router-item"]::slotted(a) {
   * uses secondary monochrome tokens which are duplicated here to avoid multiple copies in each component
   */
 
-:host(#menu-button.ic-theme-light) {
+:host(#menu-button.ic-theme-dark) {
   --ic-button-secondary-background-hover-monochrome: var(
     --ic-action-dark-bg-hover
   );
@@ -1097,7 +1097,7 @@ slot[name="router-item"]::slotted(a) {
   );
 }
 
-:host(#menu-button.ic-theme-dark) {
+:host(#menu-button.ic-theme-light) {
   --ic-button-secondary-background-hover-monochrome: var(
     --ic-action-light-bg-hover
   );
