@@ -18,7 +18,7 @@
 | `size`               | `size`              | The size of the checkboxes to be displayed. This does not affect the font size of the label.                                            | `"large" \| "medium" \| "small" \| undefined`          | `"medium"`  |
 | `theme`              | `theme`             | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined`          | `"inherit"` |
 | `validationStatus`   | `validation-status` | The validation status - e.g. 'error' \| 'warning' \| 'success'.                                                                         | `"" \| "error" \| "success" \| "warning" \| undefined` | `""`        |
-| `validationText`     | `validation-text`   | The validation text - e.g. 'error' \| 'warning' \| 'success'.                                                                           | `string \| undefined`                                  | `""`        |
+| `validationText`     | `validation-text`   | The text to display as the validation message.                                                                                          | `string \| undefined`                                  | `""`        |
 
 
 ## Events
