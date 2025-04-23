@@ -1,12 +1,15 @@
 <!-- markdownlint-disable-next-line -->
+<div align="center">
 <p align="center">
   <img width="150px" src="/static/icds-logo.png" alt="Logo of the Intelligence Community Design System">
 </p>
 
-# The UK Intelligence Community UI Kit
+<h1 align="center">The UK Intelligence Community UI Kit</h1>
 
 [![OGL V3 License](https://img.shields.io/badge/license-OGLv3-blue.svg)](https://github.com/mi6/ic-design-system/tree/main/LICENSE)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mi6/ic-design-system/tree/main/LICENSE)
+
+</div>
 
 The [Intelligence Community Design System](https://design.sis.gov.uk) helps the United Kingdom's Intelligence Community (MI6, GCHQ, MI5, and partners) to quickly build powerful capabilities that are accessible and easy to use.
 
