@@ -38,7 +38,7 @@ describe("ic-dialog component", () => {
   it("should render", async () => {
     const page = await newSpecPage({
       components: [Dialog, Button],
-      html: `<ic-dialog heading="Dialog heading" buttons="false"></ic-dialog>`,
+      html: `<ic-dialog heading="Dialog heading" hide-default-controls="true"></ic-dialog>`,
     });
 
     setupDialogMethods(page);
@@ -48,7 +48,7 @@ describe("ic-dialog component", () => {
   it("should render with a label", async () => {
     const page = await newSpecPage({
       components: [Dialog, Button],
-      html: `<ic-dialog heading="Dialog heading" label="Dialog label" buttons="false"></ic-dialog>`,
+      html: `<ic-dialog heading="Dialog heading" label="Dialog label" hide-default-controls="true"></ic-dialog>`,
     });
 
     setupDialogMethods(page);
@@ -59,7 +59,7 @@ describe("ic-dialog component", () => {
   it("should render with no buttons", async () => {
     const page = await newSpecPage({
       components: [Dialog],
-      html: `<ic-dialog heading="Dialog heading" buttons="false">Dialog content</ic-dialog>`,
+      html: `<ic-dialog heading="Dialog heading" hide-default-controls="true">Dialog content</ic-dialog>`,
     });
 
     setupDialogMethods(page);
@@ -85,7 +85,7 @@ describe("ic-dialog component", () => {
   it("should render as medium size", async () => {
     const page = await newSpecPage({
       components: [Dialog, Button],
-      html: `<ic-dialog heading="Dialog heading" size="medium" buttons="false"></ic-dialog>`,
+      html: `<ic-dialog heading="Dialog heading" size="medium" hide-default-controls="true"></ic-dialog>`,
     });
 
     setupDialogMethods(page);
@@ -96,7 +96,7 @@ describe("ic-dialog component", () => {
   it("should render as large size", async () => {
     const page = await newSpecPage({
       components: [Dialog, Button],
-      html: `<ic-dialog heading="Dialog heading" size="large" buttons="false"></ic-dialog>`,
+      html: `<ic-dialog heading="Dialog heading" size="large" hide-default-controls="true"></ic-dialog>`,
     });
 
     setupDialogMethods(page);
@@ -742,7 +742,7 @@ describe("ic-dialog component", () => {
   it("should render as large size and disableWidthConstraint is set", async () => {
     const page = await newSpecPage({
       components: [Dialog, Button],
-      html: `<ic-dialog heading="Dialog heading" size="large" disable-width-constraint="true" buttons="false"></ic-dialog>`,
+      html: `<ic-dialog heading="Dialog heading" size="large" disable-width-constraint="true" hide-default-controls="true"></ic-dialog>`,
     });
 
     setupDialogMethods(page);

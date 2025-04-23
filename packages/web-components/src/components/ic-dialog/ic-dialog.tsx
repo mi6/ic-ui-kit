@@ -10,6 +10,7 @@ import {
   Listen,
   Watch,
   h,
+  Fragment,
 } from "@stencil/core";
 import closeIcon from "../../assets/close-icon.svg";
 import {
@@ -56,11 +57,6 @@ export class Dialog {
   @State() fadeIn: boolean = false;
 
   /**
-   * If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.
-   */
-  @Prop() buttons?: boolean = true;
-
-  /**
    * If set to `false`, the dialog will not close when the backdrop is clicked.
    */
   @Prop() closeOnBackdropClick?: boolean = true;
@@ -90,6 +86,11 @@ export class Dialog {
    * If `true`, the close button will not be displayed.
    */
   @Prop() hideCloseButton?: boolean = false;
+
+  /**
+   * If set to `true`, default button controls will not be shown, but slotted dialog controls will still be displayed.
+   */
+  @Prop() hideDefaultControls: boolean = false;
 
   /**
    * Sets the heading for the dialog.
@@ -176,14 +177,11 @@ export class Dialog {
   }
 
   componentDidRender(): void {
-    if (
+    document.body.style.overflow =
       getComputedStyle(this.el).display !== "none" &&
       this.disableHeightConstraint
-    ) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+        ? "hidden"
+        : "auto";
   }
 
   @Listen("keydown", { target: "document" })
@@ -212,12 +210,13 @@ export class Dialog {
       this.closeOnBackdropClick &&
       ev.composedPath().indexOf(this.dialogEl) <= 0
     ) {
-      const rect = this.dialogEl.getBoundingClientRect();
+      const { top, height, left, width } =
+        this.dialogEl.getBoundingClientRect();
       const isInDialog =
-        rect.top <= ev.clientY &&
-        ev.clientY <= rect.top + rect.height &&
-        rect.left <= ev.clientX &&
-        ev.clientX <= rect.left + rect.width;
+        top <= ev.clientY &&
+        ev.clientY <= top + height &&
+        left <= ev.clientX &&
+        ev.clientX <= left + width;
       if (!isInDialog) {
         this.open = false;
       }
@@ -415,20 +414,14 @@ export class Dialog {
       (element.tagName === this.IC_ACCORDION_GROUP &&
         element.hasAttribute("single-expansion"));
 
-    let shouldSkipElement = false;
+    const radioEl = element.closest("ic-radio-option");
 
-    if (isHidden) {
-      shouldSkipElement = true;
-    } else {
-      if (element.getAttribute("type") === "radio") {
-        const radioEl = element.closest("ic-radio-option");
-        if (radioEl && !radioEl.hasAttribute("selected")) {
-          shouldSkipElement = true;
-        }
-      }
-    }
-
-    return shouldSkipElement;
+    return (
+      isHidden ||
+      (element.getAttribute("type") === "radio" &&
+        !!radioEl &&
+        !radioEl.hasAttribute("selected"))
+    );
   };
 
   private focusElement = (element: HTMLElement, shiftKey = false) => {
@@ -473,22 +466,28 @@ export class Dialog {
 
   private renderDialog = () => {
     const {
-      buttons,
+      hideDefaultControls,
       size,
       heading,
       label,
       destructive,
       dismissLabel,
       hideCloseButton,
+      disableHeightConstraint,
+      disableWidthConstraint,
+      closeIconClick,
+      DIALOG_CONTROLS,
     } = this;
+
+    const controlsSlotUsed = isSlotUsed(this.el, DIALOG_CONTROLS);
 
     return (
       <dialog
         class={{
-          ["dialog"]: true,
+          dialog: true,
           [`${size}`]: true,
-          ["disable-height-constraint"]: !!this.disableHeightConstraint,
-          ["disable-width-constraint"]: !!this.disableWidthConstraint,
+          "disable-height-constraint": !!disableHeightConstraint,
+          "disable-width-constraint": !!disableWidthConstraint,
         }}
         aria-labelledby="dialog-label dialog-heading"
         aria-describedby="dialog-alert dialog-content"
@@ -517,65 +516,68 @@ export class Dialog {
               variant="icon"
               innerHTML={closeIcon}
               aria-label={dismissLabel}
-              onClick={this.closeIconClick}
-              data-gets-focus={destructive || !buttons ? "" : null}
+              onClick={closeIconClick}
+              data-gets-focus={
+                destructive || (hideDefaultControls && !controlsSlotUsed)
+                  ? ""
+                  : null
+              }
             ></ic-button>
           )}
         </div>
         <div class="content-area">
-          {isSlotUsed(this.el, "alert") && <slot name="alert"></slot>}
+          {isSlotUsed(this.el, "alert") && <slot name="alert" />}
           <div id="dialog-content">
-            <slot></slot>
+            <slot />
           </div>
         </div>
-        {buttons &&
-          (isSlotUsed(this.el, this.DIALOG_CONTROLS) ? (
-            <div
-              class={{
-                [this.DIALOG_CONTROLS]: true,
-              }}
-            >
-              <slot name={this.DIALOG_CONTROLS}></slot>
-            </div>
-          ) : (
-            <div
-              class={{
-                [this.DIALOG_CONTROLS]: true,
-              }}
-            >
-              <ic-button
-                variant="tertiary"
-                onClick={() => this.cancelDialog()}
-                class="dialog-control-button"
-                data-gets-focus={null}
-              >
-                Cancel
-              </ic-button>
-              <ic-button
-                variant={this.destructive ? "destructive" : "primary"}
-                onClick={() => this.confirmDialog()}
-                class="dialog-control-button"
-                data-gets-focus=""
-              >
-                Confirm
-              </ic-button>
-            </div>
-          ))}
+        {(controlsSlotUsed || !hideDefaultControls) && (
+          <div
+            class={{
+              [DIALOG_CONTROLS]: true,
+            }}
+          >
+            {controlsSlotUsed ? (
+              <slot name={DIALOG_CONTROLS} />
+            ) : (
+              <Fragment>
+                <ic-button
+                  variant="tertiary"
+                  onClick={() => this.cancelDialog()}
+                  class="dialog-control-button"
+                  data-gets-focus={null}
+                >
+                  Cancel
+                </ic-button>
+                <ic-button
+                  variant={destructive ? "destructive" : "primary"}
+                  onClick={() => this.confirmDialog()}
+                  class="dialog-control-button"
+                  data-gets-focus=""
+                >
+                  Confirm
+                </ic-button>
+              </Fragment>
+            )}
+          </div>
+        )}
       </dialog>
     );
   };
 
   render() {
+    const { dialogRendered, disableHeightConstraint, fadeIn, theme } = this;
+
     return (
       <Host
         class={{
-          ["ic-dialog-hidden"]: !this.dialogRendered,
-          ["ic-dialog-fade-in"]: this.fadeIn,
-          ["disable-height-constraint"]: !!this.disableHeightConstraint,
-          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+          "ic-dialog-hidden": !dialogRendered,
+          "ic-dialog-fade-in": fadeIn,
+          "disable-height-constraint": !!disableHeightConstraint,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
-        {this.disableHeightConstraint ? (
+        {disableHeightConstraint ? (
           <div class="backdrop" ref={(el) => (this.backdropEl = el)}>
             {this.renderDialog()}
           </div>

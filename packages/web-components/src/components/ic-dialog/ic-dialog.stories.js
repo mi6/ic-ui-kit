@@ -1,13 +1,14 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { html } from "lit-html";
 
 const defaultArgs = {
-  buttons: true,
   closeOnBackdropClick: true,
   destructive: false,
   dismissLabel: "Dismiss",
   disableHeightConstraint: false,
   disableWidthConstraint: false,
   hideCloseButton: false,
+  hideDefaultControls: false,
   heading: "This is a dialog",
   label: "Dialog",
   open: true,
@@ -1081,7 +1082,7 @@ export const Playground = {
       disable-height-constraint=${args.disableHeightConstraint}
       disable-width-constraint=${args.disableWidthConstraint}
       hide-close-button=${args.hideCloseButton}
-      buttons=${args.buttons}
+      hide-default-controls=${args.hideDefaultControls}
       theme=${args.theme}
       id="medium-dialog"
     >

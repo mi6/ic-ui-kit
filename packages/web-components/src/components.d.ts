@@ -647,10 +647,6 @@ export namespace Components {
     }
     interface IcDialog {
         /**
-          * If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.
-         */
-        "buttons"?: boolean;
-        /**
           * Cancels the dialog. Used by the default 'Cancel' button or can be called manually to trigger cancelling of dialog.
          */
         "cancelDialog": () => Promise<void>;
@@ -686,6 +682,10 @@ export namespace Components {
           * If `true`, the close button will not be displayed.
          */
         "hideCloseButton"?: boolean;
+        /**
+          * If set to `true`, default button controls will not be shown, but slotted dialog controls will still be displayed.
+         */
+        "hideDefaultControls": boolean;
         /**
           * Sets the optional label for the dialog which appears above the heading.
          */
@@ -4054,10 +4054,6 @@ declare namespace LocalJSX {
     }
     interface IcDialog {
         /**
-          * If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.
-         */
-        "buttons"?: boolean;
-        /**
           * If set to `false`, the dialog will not close when the backdrop is clicked.
          */
         "closeOnBackdropClick"?: boolean;
@@ -4085,6 +4081,10 @@ declare namespace LocalJSX {
           * If `true`, the close button will not be displayed.
          */
         "hideCloseButton"?: boolean;
+        /**
+          * If set to `true`, default button controls will not be shown, but slotted dialog controls will still be displayed.
+         */
+        "hideDefaultControls"?: boolean;
         /**
           * Sets the optional label for the dialog which appears above the heading.
          */

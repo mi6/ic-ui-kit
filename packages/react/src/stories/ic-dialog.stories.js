@@ -50,16 +50,6 @@ const showDialog = () => {
   dialog.open = true;
 };
 
-const hideDialog = () => {
-  const dialog = document.querySelector("ic-dialog");
-  dialog.open = false;
-};
-
-const confirm = () => {
-  alert("Confirmed!");
-  hideDialog();
-};
-
 const showClosePreventedDialog = () => {
   const dialog = document.querySelector("ic-dialog");
   dialog.open = true;
@@ -153,13 +143,13 @@ const showAutoOpenCloseButtonDialog = () => {
 };
 
 const defaultArgs = {
-  buttons: true,
   closeOnBackdropClick: true,
   destructive: false,
   dismissLabel: "Dismiss",
   disableHeightConstraint: false,
   disableWidthConstraint: false,
   hideCloseButton: false,
+  hideDefaultControls: false,
   heading: "This is a dialog",
   label: "Dialog",
   open: true,
@@ -726,7 +716,7 @@ export const Playground = {
       disableHeightConstraint={args.disableHeightConstraint}
       disableWidthConstraint={args.disableWidthConstraint}
       hideCloseButton={args.hideCloseButton}
-      buttons={args.buttons}
+      hideDefaultControls={args.hideDefaultControls}
       theme={args.theme}
       id="medium-dialog"
     >
