@@ -693,6 +693,7 @@ declare global {
       month: string | null;
       year: string | null;
     };
+    utcValue: Date | null;
   };
         "icFocus": { value: Date | null };
     }
@@ -1087,6 +1088,7 @@ declare namespace LocalJSX {
       month: string | null;
       year: string | null;
     };
+    utcValue: Date | null;
   }>) => void;
         /**
           * Emitted when the input gains focus.

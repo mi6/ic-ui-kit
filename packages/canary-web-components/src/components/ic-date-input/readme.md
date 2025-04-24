@@ -38,11 +38,11 @@
 
 ## Events
 
-| Event      | Description                         | Type                                                                                                                       |
-| ---------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `icBlur`   | Emitted when the input loses focus. | `CustomEvent<{ value: Date \| null; }>`                                                                                    |
-| `icChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date \| null; dateObject: { day: string \| null; month: string \| null; year: string \| null; }; }>` |
-| `icFocus`  | Emitted when the input gains focus. | `CustomEvent<{ value: Date \| null; }>`                                                                                    |
+| Event      | Description                         | Type                                                                                                                                               |
+| ---------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `icBlur`   | Emitted when the input loses focus. | `CustomEvent<{ value: Date \| null; }>`                                                                                                            |
+| `icChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date \| null; dateObject: { day: string \| null; month: string \| null; year: string \| null; }; utcValue: Date \| null; }>` |
+| `icFocus`  | Emitted when the input gains focus. | `CustomEvent<{ value: Date \| null; }>`                                                                                                            |
 
 
 ## Methods

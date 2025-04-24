@@ -335,6 +335,7 @@ export class DateInput {
       month: string | null;
       year: string | null;
     };
+    utcValue: Date | null;
   }>;
 
   /**
@@ -1566,6 +1567,12 @@ export class DateInput {
       this.month !== null ||
       this.year !== null
     ) {
+      let UTCDate = null;
+      if (d !== null) {
+        UTCDate = new Date(
+          Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())
+        );
+      }
       this.icChange.emit({
         value: d,
         dateObject: {
@@ -1573,6 +1580,7 @@ export class DateInput {
           month: this.month === "" ? null : this.month,
           year: this.year === "" ? null : this.year,
         },
+        utcValue: UTCDate,
       });
     }
   };

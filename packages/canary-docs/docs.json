@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
-      "readme": "# ic-horizontal-card\r\n\r\n\r\n\r",
+      "readme": "# ic-horizontal-card\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -472,7 +472,7 @@
       "filePath": "src/components/ic-data-table/ic-data-table.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table",
-      "readme": "# ic-data-table\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -833,7 +833,7 @@
           "name": "loadingOptions",
           "type": "undefined | { description?: string | undefined; label?: string | undefined; labelDuration?: number | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; overlay?: boolean | undefined; }",
           "complexType": {
-            "original": "{\r\n    description?: string;\r\n    label?: string;\r\n    labelDuration?: number;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    monochrome?: boolean;\r\n    overlay?: boolean;\r\n  }",
+            "original": "{\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n    overlay?: boolean;\n  }",
             "resolved": "undefined | { description?: string | undefined; label?: string | undefined; labelDuration?: number | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; overlay?: boolean | undefined; }",
             "references": {}
           },
@@ -972,7 +972,7 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
           "docsTags": [],
-          "default": "{\r\n    alignment: \"right\",\r\n    hideAllFromItemsPerPage: false,\r\n    hideRangeLabel: false,\r\n    itemLabel: \"Item\",\r\n    itemsPerPageOptions: [\r\n      { label: \"10\", value: \"10\" },\r\n      { label: \"25\", value: \"25\" },\r\n      { label: \"50\", value: \"50\" },\r\n    ],\r\n    monochrome: false,\r\n    pageLabel: \"Page\",\r\n    rangeLabelType: \"page\",\r\n    selectedItemsPerPage: 10,\r\n    setToFirstPageOnPaginationChange: false,\r\n    showGoToPageControl: true,\r\n    showItemsPerPageControl: true,\r\n    type: \"simple\",\r\n  }",
+          "default": "{\n    alignment: \"right\",\n    hideAllFromItemsPerPage: false,\n    hideRangeLabel: false,\n    itemLabel: \"Item\",\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    monochrome: false,\n    pageLabel: \"Page\",\n    rangeLabelType: \"page\",\n    selectedItemsPerPage: 10,\n    setToFirstPageOnPaginationChange: false,\n    showGoToPageControl: true,\n    showItemsPerPageControl: true,\n    type: \"simple\",\n  }",
           "values": [
             {
               "type": "IcPaginationBarOptions"
@@ -1014,7 +1014,7 @@
           "name": "sortOptions",
           "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string | undefined; }",
           "complexType": {
-            "original": "{\r\n    sortOrders: IcDataTableSortOrderOptions[];\r\n    defaultColumn?: string;\r\n  }",
+            "original": "{\n    sortOrders: IcDataTableSortOrderOptions[];\n    defaultColumn?: string;\n  }",
             "resolved": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string | undefined; }",
             "references": {
               "IcDataTableSortOrderOptions": {
@@ -1028,7 +1028,7 @@
           "reflectToAttr": false,
           "docs": "Sets the order columns will be sorted in and allows for 'default' sorts to be added.",
           "docsTags": [],
-          "default": "{\r\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\r\n    defaultColumn: \"\",\r\n  }",
+          "default": "{\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\n    defaultColumn: \"\",\n  }",
           "values": [
             {
               "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string"
@@ -1256,7 +1256,7 @@
           "name": "updatingOptions",
           "type": "undefined | { description?: string | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; }",
           "complexType": {
-            "original": "{\r\n    description?: string;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    monochrome?: boolean;\r\n  }",
+            "original": "{\n    description?: string;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n  }",
             "resolved": "undefined | { description?: string | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; }",
             "references": {}
           },
@@ -1296,7 +1296,7 @@
           "name": "variableRowHeight",
           "type": "((params: { [key: string]: any; index: number; }) => IcDataTableRowHeights | null) | undefined",
           "complexType": {
-            "original": "(params: {\r\n    [key: string]: any;\r\n    index: number;\r\n  }) => IcDataTableRowHeights | null",
+            "original": "(params: {\n    [key: string]: any;\n    index: number;\n  }) => IcDataTableRowHeights | null",
             "resolved": "((params: { [key: string]: any; index: number; }) => IcDataTableRowHeights | null) | undefined",
             "references": {
               "IcDataTableRowHeights": {
@@ -1308,7 +1308,7 @@
           },
           "mutable": true,
           "reflectToAttr": false,
-          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\r\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
+          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
           "docsTags": [],
           "values": [
             {
@@ -1573,7 +1573,7 @@
       "filePath": "src/components/ic-data-table-title-bar/ic-data-table-title-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table-title-bar",
-      "readme": "# ic-data-table-title-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table-title-bar\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1793,7 +1793,7 @@
       "filePath": "src/components/ic-date-input/ic-date-input.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-input",
-      "readme": "# ic-date-input\r\n\r\n\r\n\r",
+      "readme": "# ic-date-input\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2207,7 +2207,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2239,7 +2239,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2574,11 +2574,11 @@
         },
         {
           "event": "icChange",
-          "detail": "{ value: Date | null; dateObject: { day: string | null; month: string | null; year: string | null; }; }",
+          "detail": "{ value: Date | null; dateObject: { day: string | null; month: string | null; year: string | null; }; utcValue: Date | null; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\r\n    value: Date | null;\r\n    dateObject: {\r\n      day: string | null;\r\n      month: string | null;\r\n      year: string | null;\r\n    };\r\n  }",
-            "resolved": "{ value: Date | null; dateObject: { day: string | null; month: string | null; year: string | null; }; }",
+            "original": "{\n    value: Date | null;\n    dateObject: {\n      day: string | null;\n      month: string | null;\n      year: string | null;\n    };\n    utcValue: Date | null;\n  }",
+            "resolved": "{ value: Date | null; dateObject: { day: string | null; month: string | null; year: string | null; }; utcValue: Date | null; }",
             "references": {
               "Date": {
                 "location": "global",
@@ -2659,7 +2659,7 @@
       "filePath": "src/components/ic-date-picker/ic-date-picker.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-picker",
-      "readme": "# ic-date-picker\r\n\r\n\r\n\r",
+      "readme": "# ic-date-picker\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3090,7 +3090,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -3122,7 +3122,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -3180,7 +3180,7 @@
           "mutable": false,
           "attr": "open-at-date",
           "reflectToAttr": false,
-          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\r\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
+          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -3363,7 +3363,7 @@
           "mutable": false,
           "attr": "start-of-week",
           "reflectToAttr": false,
-          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\r\nDefault is Monday.",
+          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\nDefault is Monday.",
           "docsTags": [],
           "default": "IcWeekDays.Monday",
           "values": [
@@ -3638,7 +3638,7 @@
       "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-bar",
-      "readme": "# ic-pagination-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination-bar\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3797,7 +3797,7 @@
           "name": "itemsPerPageOptions",
           "type": "undefined | { label: string; value: string; }[]",
           "complexType": {
-            "original": "{\r\n    label: string;\r\n    value: string;\r\n  }[]",
+            "original": "{\n    label: string;\n    value: string;\n  }[]",
             "resolved": "undefined | { label: string; value: string; }[]",
             "references": {}
           },
@@ -4154,7 +4154,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when a page is navigated to via the 'go to' input.\r\nThe `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.",
+          "docs": "Emitted when a page is navigated to via the 'go to' input.\nThe `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.",
           "docsTags": []
         }
       ],
@@ -4242,7 +4242,7 @@
       "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-item",
-      "readme": "# ic-tree-item\r\n\r\n\r\n\r",
+      "readme": "# ic-tree-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4675,7 +4675,7 @@
       "filePath": "src/components/ic-tree-view/ic-tree-view.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-view",
-      "readme": "# ic-tree-view\r\n\r\n\r\n\r",
+      "readme": "# ic-tree-view\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4861,7 +4861,7 @@
           "mutable": true,
           "attr": "truncate-heading",
           "reflectToAttr": false,
-          "docs": "If `true`, the tree view heading will be truncated instead of text wrapping.\r\nWhen used on small devices, this prop will be overridden and headings will be set to text-wrap.",
+          "docs": "If `true`, the tree view heading will be truncated instead of text wrapping.\nWhen used on small devices, this prop will be overridden and headings will be set to text-wrap.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4885,7 +4885,7 @@
           "mutable": true,
           "attr": "truncate-tree-items",
           "reflectToAttr": false,
-          "docs": "If `true`, tree items will be truncated, unless they are individually overridden.\r\nWhen used on small devices, this prop will be overridden and tree-items will be set to text-wrap.",
+          "docs": "If `true`, tree items will be truncated, unless they are individually overridden.\nWhen used on small devices, this prop will be overridden and tree-items will be set to text-wrap.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5044,7 +5044,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-tree-view/ic-tree-view.types.tsx::IcTreeItemOptions": {
-      "declaration": "{\r\n  label: string;\r\n  icon?: string;\r\n  children?: IcTreeItemOptions[];\r\n  disabled?: boolean;\r\n  expanded?: boolean;\r\n  href?: string;\r\n  selected?: boolean;\r\n  theme?: IcThemeMode;\r\n  truncateTreeItem?: boolean;\r\n}",
+      "declaration": "{\n  label: string;\n  icon?: string;\n  children?: IcTreeItemOptions[];\n  disabled?: boolean;\n  expanded?: boolean;\n  href?: string;\n  selected?: boolean;\n  theme?: IcThemeMode;\n  truncateTreeItem?: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-tree-view/ic-tree-view.types.tsx"
     }

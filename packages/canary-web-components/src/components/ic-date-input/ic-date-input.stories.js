@@ -72,7 +72,7 @@ export const IcChangeEvent = {
     <script>
       var dateInput = document.querySelector("ic-date-input");
       dateInput.addEventListener("icChange", function (event) {
-        console.log(event.detail.value);
+        console.log(event.detail.value, event.detail.utcValue);
       });
     </script>`,
   name: "icChange event",
