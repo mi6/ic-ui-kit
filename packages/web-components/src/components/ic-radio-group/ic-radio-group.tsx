@@ -98,8 +98,9 @@ export class RadioGroup {
    * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus?: IcInformationStatusOrEmpty = "";
+
   /**
-   * The validation text - e.g. 'error' | 'warning' | 'success'.
+   * The text to display as the validation message.
    */
   @Prop() validationText?: string = "";
 

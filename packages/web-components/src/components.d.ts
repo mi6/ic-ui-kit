@@ -545,7 +545,7 @@ export namespace Components {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation text - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
     }
@@ -1483,7 +1483,7 @@ export namespace Components {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation text - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
     }
@@ -2130,6 +2130,14 @@ export namespace Components {
          */
         "maxCharacters"?: number;
         /**
+          * The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.
+         */
+        "maxCharactersMessage"?: string;
+        /**
+          * The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.
+         */
+        "maxMessage"?: string;
+        /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
         "min"?: string | number;
@@ -2137,6 +2145,14 @@ export namespace Components {
           * The minimum number of characters that can be entered in the field.
          */
         "minCharacters"?: number;
+        /**
+          * The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.
+         */
+        "minCharactersMessage"?: string;
+        /**
+          * The text to display as the error message when the minimum value (the `min` prop value) has not been met.
+         */
+        "minMessage"?: string;
         /**
           * The name of the control, which is submitted with the form data.
          */
@@ -2193,7 +2209,7 @@ export namespace Components {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation state - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
         /**
@@ -3952,7 +3968,7 @@ declare namespace LocalJSX {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation text - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
     }
@@ -4902,7 +4918,7 @@ declare namespace LocalJSX {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation text - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
     }
@@ -5644,6 +5660,14 @@ declare namespace LocalJSX {
          */
         "maxCharacters"?: number;
         /**
+          * The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.
+         */
+        "maxCharactersMessage"?: string;
+        /**
+          * The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.
+         */
+        "maxMessage"?: string;
+        /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
         "min"?: string | number;
@@ -5651,6 +5675,14 @@ declare namespace LocalJSX {
           * The minimum number of characters that can be entered in the field.
          */
         "minCharacters"?: number;
+        /**
+          * The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.
+         */
+        "minCharactersMessage"?: string;
+        /**
+          * The text to display as the error message when the minimum value (the `min` prop value) has not been met.
+         */
+        "minMessage"?: string;
         /**
           * The name of the control, which is submitted with the form data.
          */
@@ -5724,7 +5756,7 @@ declare namespace LocalJSX {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation state - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
         /**

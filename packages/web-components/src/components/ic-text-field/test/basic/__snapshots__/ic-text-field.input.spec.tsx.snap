@@ -42,6 +42,36 @@ exports[`ic-text-field should render readonly: renders-readonly 1`] = `
 </ic-text-field>
 `;
 
+exports[`ic-text-field should render with a custom max characters message: renders-with-max-characters-custom-message 1`] = `
+<ic-text-field label="Test label" max-characters-message="Custom message" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-15" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="warning">
+        <input aria-describedby="ic-text-field-input-15-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-15" inputmode="text" name="ic-text-field-input-15" placeholder="" type="text" value="">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-15" message="Custom message" status="warning"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-15" type="hidden" value="">
+</ic-text-field>
+`;
+
+exports[`ic-text-field should render with a custom min characters message: renders-with-min-characters-custom-message 1`] = `
+<ic-text-field label="Test label" min-characters-message="Custom message" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-14" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="error">
+        <input aria-describedby="ic-text-field-input-14-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-14" inputmode="text" minlength="0" name="ic-text-field-input-14" placeholder="" type="text" value="">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-14" message="Custom message" status="error"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-14" type="hidden" value="">
+</ic-text-field>
+`;
+
 exports[`ic-text-field should render with autoprops: renders-with-autoprops 1`] = `
 <ic-text-field autocapitalize="on" autocomplete="on" autocorrect="on" label="Test label" value="test value">
   <template shadowrootmode="open">
@@ -60,14 +90,14 @@ exports[`ic-text-field should render with error validation: renders-with-error-v
 <ic-text-field label="Test label" validation-status="error" validation-text="error text" value="test value">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-17" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-text-field-input-19" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="error">
-        <input aria-describedby="ic-text-field-input-17-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-17" inputmode="text" name="ic-text-field-input-17" placeholder="" type="text" value="test value">
+        <input aria-describedby="ic-text-field-input-19-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-19" inputmode="text" name="ic-text-field-input-19" placeholder="" type="text" value="test value">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-17" message="error text" status="error"></ic-input-validation>
+      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-19" message="error text" status="error"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-17" type="hidden" value="test value">
+  <input class="ic-input" name="ic-text-field-input-19" type="hidden" value="test value">
 </ic-text-field>
 `;
 
@@ -123,14 +153,14 @@ exports[`ic-text-field should render with inline success validation: renders-wit
 <ic-text-field label="Test label" validation-inline="true" validation-status="success" validation-text="Good choice!" value="test value">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-18" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-text-field-input-20" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationinline="" validationstatus="success">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-18" inputmode="text" name="ic-text-field-input-18" placeholder="" type="text" value="test value">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-20" inputmode="text" name="ic-text-field-input-20" placeholder="" type="text" value="test value">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-18" message="" status=""></ic-input-validation>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-20" message="" status=""></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-18" type="hidden" value="test value">
+  <input class="ic-input" name="ic-text-field-input-20" type="hidden" value="test value">
 </ic-text-field>
 `;
 
@@ -273,9 +303,9 @@ exports[`ic-text-field should render with name & full width: renders-with-name-f
 <ic-text-field class="ic-text-field-full-width" full-width="true" label="Test label" name="mycontrolname" value="test value">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-14" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-text-field-input-16" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container fullwidth="" size="medium" validationstatus="">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-14" inputmode="text" name="mycontrolname" placeholder="" type="text" value="test value">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-16" inputmode="text" name="mycontrolname" placeholder="" type="text" value="test value">
       </ic-input-component-container>
     </ic-input-container>
   </template>
@@ -301,14 +331,14 @@ exports[`ic-text-field should render with success validation: renders-with-succe
 <ic-text-field label="Test label" validation-status="success" validation-text="Good choice!" value="test value">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-15" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-text-field-input-17" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="success">
-        <input aria-describedby="ic-text-field-input-15-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-15" inputmode="text" name="ic-text-field-input-15" placeholder="" type="text" value="test value">
+        <input aria-describedby="ic-text-field-input-17-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-17" inputmode="text" name="ic-text-field-input-17" placeholder="" type="text" value="test value">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-15" message="Good choice!" status="success"></ic-input-validation>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-17" message="Good choice!" status="success"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-15" type="hidden" value="test value">
+  <input class="ic-input" name="ic-text-field-input-17" type="hidden" value="test value">
 </ic-text-field>
 `;
 
@@ -330,14 +360,14 @@ exports[`ic-text-field should render with warning validation: renders-with-warni
 <ic-text-field label="Test label" validation-status="warning" validation-text="warning text" value="test value">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-16" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-text-field-input-18" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="warning">
-        <input aria-describedby="ic-text-field-input-16-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-16" inputmode="text" name="ic-text-field-input-16" placeholder="" type="text" value="test value">
+        <input aria-describedby="ic-text-field-input-18-validation-text" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-18" inputmode="text" name="ic-text-field-input-18" placeholder="" type="text" value="test value">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-text-field-input-16" message="warning text" status="warning"></ic-input-validation>
+      <ic-input-validation arialivemode="polite" for="ic-text-field-input-18" message="warning text" status="warning"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-16" type="hidden" value="test value">
+  <input class="ic-input" name="ic-text-field-input-18" type="hidden" value="test value">
 </ic-text-field>
 `;
 
@@ -355,18 +385,48 @@ exports[`ic-text-field should render: renders 1`] = `
 </ic-text-field>
 `;
 
+exports[`should render with max validation and a custom validation message: renders-with-max-custom-message 1`] = `
+<ic-text-field inputmode="numeric" label="Test label" max="1" max-message="Custom message" type="number" value="2">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-29" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="error">
+        <input aria-describedby="ic-text-field-input-29-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-29" inputmode="numeric" max="1" name="ic-text-field-input-29" placeholder="" type="number" value="2">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-29" message="Custom message" status="error"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-29" type="hidden" value="2">
+</ic-text-field>
+`;
+
+exports[`should render with min validation and a custom validation message: renders-with-min-custom-message 1`] = `
+<ic-text-field inputmode="numeric" label="Test label" min="1" min-message="Custom message" type="number" value="0">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <ic-input-label for="ic-text-field-input-28" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-component-container size="medium" validationstatus="error">
+        <input aria-describedby="ic-text-field-input-28-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-28" inputmode="numeric" min="1" name="ic-text-field-input-28" placeholder="" type="number" value="0">
+      </ic-input-component-container>
+      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-28" message="Custom message" status="error"></ic-input-validation>
+    </ic-input-container>
+  </template>
+  <input class="ic-input" name="ic-text-field-input-28" type="hidden" value="0">
+</ic-text-field>
+`;
+
 exports[`should render with min/max and max validation: renders-with-max 1`] = `
 <ic-text-field inputmode="numeric" label="Test label" max="4" min="1" rows="1" type="number" value="6">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-24" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-text-field-input-26" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="error">
-        <input aria-describedby="ic-text-field-input-24-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-24" inputmode="numeric" max="4" min="1" name="ic-text-field-input-24" placeholder="" type="number" value="6">
+        <input aria-describedby="ic-text-field-input-26-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-26" inputmode="numeric" max="4" min="1" name="ic-text-field-input-26" placeholder="" type="number" value="6">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-24" message="Maximum value of 4 exceeded" status="error"></ic-input-validation>
+      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-26" message="Maximum value of 4 exceeded" status="error"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-24" type="hidden" value="6">
+  <input class="ic-input" name="ic-text-field-input-26" type="hidden" value="6">
 </ic-text-field>
 `;
 
@@ -374,13 +434,13 @@ exports[`should render with min/max and min validation: renders-with-min 1`] = `
 <ic-text-field inputmode="numeric" label="Test label" max="4" min="1" rows="1" type="number" value="0">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-text-field-input-25" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-text-field-input-27" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="error">
-        <input aria-describedby="ic-text-field-input-25-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-25" inputmode="numeric" max="4" min="1" name="ic-text-field-input-25" placeholder="" type="number" value="0">
+        <input aria-describedby="ic-text-field-input-27-validation-text" aria-invalid="true" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-27" inputmode="numeric" max="4" min="1" name="ic-text-field-input-27" placeholder="" type="number" value="0">
       </ic-input-component-container>
-      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-25" message="Minimum value of 1 not met" status="error"></ic-input-validation>
+      <ic-input-validation arialivemode="assertive" for="ic-text-field-input-27" message="Minimum value of 1 not met" status="error"></ic-input-validation>
     </ic-input-container>
   </template>
-  <input class="ic-input" name="ic-text-field-input-25" type="hidden" value="0">
+  <input class="ic-input" name="ic-text-field-input-27" type="hidden" value="0">
 </ic-text-field>
 `;
