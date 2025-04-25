@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Component,
@@ -109,6 +110,7 @@ export class DataTable {
     "cell-container-with-description";
   private CELL_TEXT_WRAPPER_STRING = ".cell-text-wrapper";
   private IC_TYPOGRAPHY_STRING = "ic-typography";
+  private organisedData?: IcDataTableDataType[];
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -122,7 +124,7 @@ export class DataTable {
 
   @State() scrollOffset: number = 0;
 
-  @State() selectedRow?: object;
+  @State() selectedRows: IcDataTableDataType[] = [];
 
   @State() sortedColumn: string;
 
@@ -195,11 +197,6 @@ export class DataTable {
   @Prop() height?: string;
 
   /**
-   * If `true`, the selected row is highlighted using a background colour.
-   */
-  @Prop() highlightSelectedRow: boolean = true;
-
-  /**
    * If `true`, column headers will not be visible.
    */
   @Prop() hideColumnHeaders?: boolean = false;
@@ -260,6 +257,11 @@ export class DataTable {
     showItemsPerPageControl: true,
     type: "simple",
   };
+
+  /**
+   * If `true`, a checkbox column will be displayed to the left of the table which allows multiple rows to be selected.
+   */
+  @Prop() rowSelection: boolean = false;
 
   /**
    * If `true`, adds a pagination bar to the bottom of the table.
@@ -343,9 +345,17 @@ export class DataTable {
   @Event() icRowHeightChange: EventEmitter<void>;
 
   /**
+   * Emitted when all rows are selected or deselected in the data table via the "select all" checkbox.
+   */
+  @Event() icSelectAllRows: EventEmitter<IcDataTableDataType[]>;
+
+  /**
    * Emitted when the selected row changes in the data table.
    */
-  @Event() icSelectedRowChange: EventEmitter<object>;
+  @Event() icSelectedRowChange: EventEmitter<{
+    row: IcDataTableDataType | null;
+    selectedRows: IcDataTableDataType[];
+  }>;
 
   /**
    * Emitted when a column sort button is clicked.
@@ -927,6 +937,7 @@ export class DataTable {
           this.previousRowsPerPage = this.rowsPerPage;
         }
       }
+      this.selectedRows = [];
     }
 
     if (!this.initialLoad && this.previousPaginationPage !== detail.value) {
@@ -954,11 +965,6 @@ export class DataTable {
   @Listen("icTableDensityUpdate")
   handleDensityChange(ev: CustomEvent<IcDensityUpdateEventDetail>): void {
     this.density = ev.detail.value;
-  }
-
-  @Listen("click", { target: "window" })
-  clickListener(ev: MouseEvent): void {
-    if (ev.target !== this.el) this.selectedRow = undefined;
   }
 
   @Watch("loading")
@@ -1640,15 +1646,26 @@ export class DataTable {
       )
     );
 
-  private onRowClick = (row: object) => {
-    if (!this.loading && !this.updating) {
-      this.icSelectedRowChange.emit(this.selectedRow !== row ? row : undefined);
-    }
+  private onRowClick = (row: IcDataTableDataType) => {
+    const notCurrentlySelected = !this.selectedRows.includes(row);
 
-    this.selectedRow =
-      this.selectedRow !== row && !this.loading && !this.updating
-        ? row
-        : undefined;
+    this.selectedRows = notCurrentlySelected
+      ? [...this.selectedRows, row]
+      : this.selectedRows.filter((selectedRow) => selectedRow !== row);
+
+    this.icSelectedRowChange.emit({
+      row: notCurrentlySelected ? row : null,
+      selectedRows: this.selectedRows,
+    });
+  };
+
+  private selectAllRows = () => {
+    this.selectedRows =
+      this.organisedData &&
+      this.selectedRows.length !== this.organisedData.length
+        ? [...this.organisedData]
+        : [];
+    this.icSelectAllRows.emit(this.selectedRows);
   };
 
   private createRows = () => {
@@ -1664,7 +1681,7 @@ export class DataTable {
      * `addDataToPosition` used to add the element in the correct column order.
      * Adding empty string value in to give `createCells` something to loop over.
      */
-    const organisedData = data?.map((row, rowIndex) => {
+    this.organisedData = data?.map((row, rowIndex) => {
       const slottedColumns = this.columns
         .map(
           ({ key }, index) =>
@@ -1684,24 +1701,49 @@ export class DataTable {
         : row;
     });
 
-    return organisedData
+    return this.organisedData
       ?.sort(
         !this.sortable || this.disableAutoSort
           ? undefined
           : this.getSortFunction()
       )
       .map((row, index) => {
+        const isRowSelected =
+          this.rowSelection && this.selectedRows.includes(row);
+        const cellIndex = index + paginationOffset;
+
         return (
           <tr
-            // eslint-disable-next-line react/jsx-no-bind
-            onClick={() => this.onRowClick(row)}
             class={{
-              ["table-row"]: true,
-              ["table-row-selected"]:
-                this.highlightSelectedRow && this.selectedRow === row,
+              "table-row": true,
+              "table-row-selected": isRowSelected,
             }}
           >
-            {this.createCells(row, index + paginationOffset)}
+            {this.rowSelection && (
+              <td
+                class={{
+                  "table-cell": true,
+                  "checkbox-cell": true,
+                  [`table-density-${this.density}`]: this.notDefaultDensity(),
+                }}
+              >
+                <div class="checkbox-wrapper">
+                  <ic-checkbox
+                    class="ic-data-table-checkbox"
+                    checked={isRowSelected}
+                    disabled={this.updating || this.loading}
+                    hideLabel
+                    label={`${
+                      isRowSelected ? "Deselect" : "Select"
+                    } row ${cellIndex}`}
+                    onIcCheck={() => this.onRowClick(row)}
+                    size={this.density === "dense" ? "small" : "medium"}
+                    value={cellIndex}
+                  ></ic-checkbox>
+                </div>
+              </td>
+            )}
+            {this.createCells(row, cellIndex)}
           </tr>
         );
       });
@@ -2211,15 +2253,21 @@ export class DataTable {
   render() {
     const {
       caption,
+      columns,
       createColumnHeaders,
       createUpdatingIndicator,
       data,
+      density,
       hideColumnHeaders,
+      rowSelection,
       loading,
       loadingOptions,
       paginationBarOptions,
+      rowsPerPage,
       scrollable,
       scrollOffset,
+      selectAllRows,
+      selectedRows,
       showPagination,
       sortable,
       sortedColumn,
@@ -2227,8 +2275,19 @@ export class DataTable {
       stickyColumnHeaders,
       updateScrollOffset,
       updating,
+      tableLayout,
       theme,
     } = this;
+
+    const rowsSelected = selectedRows.length > 0;
+    const allRowsSelected =
+      selectedRows.length === (showPagination ? rowsPerPage : data?.length);
+
+    const headerCheckboxLabelState = rowsSelected
+      ? allRowsSelected
+        ? "deselect all"
+        : "select all remaining"
+      : "select all";
 
     return (
       <Host
@@ -2247,7 +2306,7 @@ export class DataTable {
           >
             <table
               style={{
-                ["--table-layout"]: this.tableLayout,
+                "--table-layout": tableLayout,
               }}
             >
               <caption class="table-caption">{caption}</caption>
@@ -2259,7 +2318,35 @@ export class DataTable {
                       stickyColumnHeaders && scrollOffset !== 0,
                   }}
                 >
-                  <tr>{createColumnHeaders()}</tr>
+                  <tr>
+                    {rowSelection && data && (
+                      <th
+                        class={{
+                          "column-header": true,
+                          "checkbox-cell": true,
+                          "updating-state-headers": updating && !loading,
+                          [`table-density-${density}`]:
+                            this.notDefaultDensity(),
+                        }}
+                      >
+                        <div class="checkbox-wrapper">
+                          <ic-checkbox
+                            class="ic-data-table-checkbox"
+                            checked={rowsSelected && allRowsSelected}
+                            disabled={updating || loading}
+                            hideLabel
+                            indeterminate={rowsSelected && !allRowsSelected}
+                            label={`${caption} ${headerCheckboxLabelState} rows`}
+                            nativeIndeterminateBehaviour
+                            onIcCheck={() => selectAllRows()}
+                            size={density === "dense" ? "small" : "medium"}
+                            value={caption}
+                          ></ic-checkbox>
+                        </div>
+                      </th>
+                    )}
+                    {createColumnHeaders()}
+                  </tr>
                 </thead>
               )}
               {updating &&
@@ -2314,8 +2401,8 @@ export class DataTable {
             <div class="screen-reader-sort-text" aria-live="polite">
               {sortedColumnOrder !== "unsorted" && sortedColumn
                 ? `${
-                    this.columns.find((col) => col.key === sortedColumn)
-                      ?.title || sortedColumn
+                    columns.find((col) => col.key === sortedColumn)?.title ||
+                    sortedColumn
                   } sorted ${sortedColumnOrder}`
                 : "table unsorted"}
             </div>

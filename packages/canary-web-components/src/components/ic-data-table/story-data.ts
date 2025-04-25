@@ -1934,25 +1934,21 @@ export const ActionElement = (): HTMLElement =>
 export const MissingCellData = (): HTMLElement =>
   createDataTableElement("Missing Cell Data", COLS, DATA_WITH_EMPTY_VALUES);
 
-export const TurnOffSelectedRowHighlighting = (): HTMLElement => {
+export const SelectWithCheckbox = (): HTMLElement => {
   const dataTable = createDataTableElement(
-    "Turn off selected row highlighting",
+    "Select using checkboxes",
     COLS,
     DATA
   );
-  dataTable.setAttribute("highlight-selected-row", "false");
-  return dataTable;
-};
 
-export const SelectedRowChangeEvent = (): HTMLElement => {
-  const dataTable = createDataTableElement(
-    "Turn off selected row highlighting",
-    COLS,
-    DATA
-  );
+  dataTable.setAttribute("row-selection", "true");
   dataTable.addEventListener("icSelectedRowChange", (event: CustomEvent) => {
     console.log("Selected row changed", event.detail);
   });
+  dataTable.addEventListener("icSelectAllRows", (event: CustomEvent) => {
+    console.log("Selected all rows", event.detail);
+  });
+
   return dataTable;
 };
 

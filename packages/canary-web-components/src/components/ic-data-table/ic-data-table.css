@@ -392,6 +392,22 @@ td.table-density-spacious {
   flex: 1;
 }
 
+.checkbox-cell {
+  --column-width: var(--ic-space-xxl);
+
+  align-content: center;
+  border-right: none;
+}
+
+.table-density-dense.checkbox-cell {
+  --column-width: 2.5rem;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .icon > svg {
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);

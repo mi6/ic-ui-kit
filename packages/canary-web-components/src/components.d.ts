@@ -112,10 +112,6 @@ export namespace Components {
          */
         "hideColumnHeaders"?: boolean;
         /**
-          * If `true`, the selected row is highlighted using a background colour.
-         */
-        "highlightSelectedRow": boolean;
-        /**
           * When set to `true`, the full table will show a loading state, featuring a radial indicator.
          */
         "loading": boolean;
@@ -152,6 +148,10 @@ export namespace Components {
           * Resets the `globalRowHeight` prop to number or auto and sets the `variableRowHeight` prop to `null`.
          */
         "resetRowHeights": (rowHeight?: number | "auto") => Promise<void>;
+        /**
+          * If `true`, a checkbox column will be displayed to the left of the table which allows multiple rows to be selected.
+         */
+        "rowSelection": boolean;
         /**
           * If `true`, adds a pagination bar to the bottom of the table.
          */
@@ -649,7 +649,11 @@ declare global {
     };
     interface HTMLIcDataTableElementEventMap {
         "icRowHeightChange": void;
-        "icSelectedRowChange": object;
+        "icSelectAllRows": IcDataTableDataType[];
+        "icSelectedRowChange": {
+    row: IcDataTableDataType | null;
+    selectedRows: IcDataTableDataType[];
+  };
         "icSortChange": IcSortEventDetail;
     }
     interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
@@ -869,10 +873,6 @@ declare namespace LocalJSX {
          */
         "hideColumnHeaders"?: boolean;
         /**
-          * If `true`, the selected row is highlighted using a background colour.
-         */
-        "highlightSelectedRow"?: boolean;
-        /**
           * When set to `true`, the full table will show a loading state, featuring a radial indicator.
          */
         "loading"?: boolean;
@@ -906,9 +906,16 @@ declare namespace LocalJSX {
          */
         "onIcRowHeightChange"?: (event: IcDataTableCustomEvent<void>) => void;
         /**
+          * Emitted when all rows are selected or deselected in the data table via the "select all" checkbox.
+         */
+        "onIcSelectAllRows"?: (event: IcDataTableCustomEvent<IcDataTableDataType[]>) => void;
+        /**
           * Emitted when the selected row changes in the data table.
          */
-        "onIcSelectedRowChange"?: (event: IcDataTableCustomEvent<object>) => void;
+        "onIcSelectedRowChange"?: (event: IcDataTableCustomEvent<{
+    row: IcDataTableDataType | null;
+    selectedRows: IcDataTableDataType[];
+  }>) => void;
         /**
           * Emitted when a column sort button is clicked.
          */
@@ -917,6 +924,10 @@ declare namespace LocalJSX {
           * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
          */
         "paginationBarOptions"?: IcPaginationBarOptions;
+        /**
+          * If `true`, a checkbox column will be displayed to the left of the table which allows multiple rows to be selected.
+         */
+        "rowSelection"?: boolean;
         /**
           * If `true`, adds a pagination bar to the bottom of the table.
          */

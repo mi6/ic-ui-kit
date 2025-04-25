@@ -35,9 +35,9 @@ import {
   TruncationShowHide,
   TruncationTextWrap,
   TruncationTooltip,
-  TurnOffSelectedRowHighlighting,
   Updating,
   UpdatingData,
+  SelectWithCheckbox,
 } from "./story-data";
 
 export default {
@@ -477,16 +477,14 @@ export const MissingCellDataExample = {
 };
 
 /**
- * The example below demonstrates the table being configured to not highlight the selected row.
+ * By setting `row-selection` to `true`, `ic-checkbox` elements will appear in the leftmost column, with one in the header.
+ * When checked, the corresponding row will be selected, with the `icSelectedRowChange` containing the selected row and an array of all the currently selected rows.
+ *
+ * When checking the header checkbox, all rows will be selected, with the `icSelectAllRows` event being emitted with an array of all the rows. When using pagination, only the rows on the current page will be selected.
  */
-export const TurnOffRowHighlighting = {
-  render: () => TurnOffSelectedRowHighlighting(),
-  name: "Turn off selected row highlighting",
-};
-
-export const SelectedRowChangeEventExample = {
-  render: () => SelectedRowChangeEventExample(),
-  name: "Selected row change event",
+export const SelectRowsUsingCheckboxExample = {
+  render: () => SelectWithCheckbox(),
+  name: "Select rows with checkbox",
 };
 
 export const DevAreaExample = {
