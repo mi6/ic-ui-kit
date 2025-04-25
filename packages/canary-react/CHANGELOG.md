@@ -14,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-- **canary-react:** No longer truncates on mobile
+- **canary-react:** removed truncation from mobile view of tree-view
 
 # [3.0.0-canary.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.12...@ukic/canary-react@3.0.0-canary.13) (2025-04-08)
 
@@ -50,43 +50,117 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **canary-react:** showBackground has been removed from loading options
 
-# [3.0.0]
+# [3.0.0-canary.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.9...@ukic/canary-react@3.0.0-canary.10) (2025-02-20)
 
 ### Bug Fixes
-
-- **canary-react:** add Cypress visual regression for date picker clear icon dark mode ([ee1c1e7](https://github.com/mi6/ic-ui-kit/commit/ee1c1e74ade79f995b5362975ac699a67602184d))
-- **canary-react:** added cypress tests and baseline images ([30037d3](https://github.com/mi6/ic-ui-kit/commit/30037d3aa1cf54628c7b85432dcb60fd9a5f9454))
-- **canary-react:** allow IcDataTable action-element to support tooltips ([d71ba60](https://github.com/mi6/ic-ui-kit/commit/d71ba6076ab7100baa5c0eaf400deb3d0c831230)), closes [#2964](https://github.com/mi6/ic-ui-kit/issues/2964)
-- **canary-react:** allow IcPaginationBar items per page to be set programmatically ([a2962d1](https://github.com/mi6/ic-ui-kit/commit/a2962d1a172d22bbe14971843d5612221e7991ac)), closes [#2525](https://github.com/mi6/ic-ui-kit/issues/2525)
-- **canary-react:** prevent IcDataTable action element clicks from selecting the table row ([7ed7bd0](https://github.com/mi6/ic-ui-kit/commit/7ed7bd01706bf91b995b12a13d613409fe602b84))
-- **canary-react:** update date input Cypress test to check helper text doesn't exist ([9df6b95](https://github.com/mi6/ic-ui-kit/commit/9df6b9577ad9587408d110ccda3b1ffdbb7ad9eb)), closes [#2370](https://github.com/mi6/ic-ui-kit/issues/2370)
-
-### Features
 
 - **canary-react:** implement disableAutoSort prop on data table ([da93cb0](https://github.com/mi6/ic-ui-kit/commit/da93cb08780555119596486bd8e0edfe1e2fca9b)), closes [#2415](https://github.com/mi6/ic-ui-kit/issues/2415)
 - **canary-react:** update tree view truncation story to have expanded items ([2c6546c](https://github.com/mi6/ic-ui-kit/commit/2c6546c65196bc2c4dfc8737601faa3856204674))
 
+# [3.0.0-canary.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.8...@ukic/canary-react@3.0.0-canary.9) (2025-02-05)
+
 ### Bug Fixes
 
 - **canary-react:** add Cypress visual regression for date picker clear icon dark mode ([ee1c1e7](https://github.com/mi6/ic-ui-kit/commit/ee1c1e74ade79f995b5362975ac699a67602184d))
 - **canary-react:** allow IcDataTable action-element to support tooltips ([d71ba60](https://github.com/mi6/ic-ui-kit/commit/d71ba6076ab7100baa5c0eaf400deb3d0c831230)), closes [#2964](https://github.com/mi6/ic-ui-kit/issues/2964)
 
+# [3.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.7...@ukic/canary-react@3.0.0-canary.8) (2025-01-24)
+
 ### Bug Fixes
 
 - **canary-react:** allow IcDataTable action-element to support tooltips ([d71ba60](https://github.com/mi6/ic-ui-kit/commit/d71ba6076ab7100baa5c0eaf400deb3d0c831230)), closes [#2964](https://github.com/mi6/ic-ui-kit/issues/2964)
-- **root:** fixes after big rebase ([490c292](https://github.com/mi6/ic-ui-kit/commit/490c292e9294c97d938575ea114f769a730628bc))
-- **canary-react:** adds test for icon data-table fix ([9d46ce7](https://github.com/mi6/ic-ui-kit/commit/9d46ce70c06c313400491c64294ce0b177b062ba))
-- **canary-react:** fixes data-table column width example ([d52ba3a](https://github.com/mi6/ic-ui-kit/commit/d52ba3a6d3e19f3331c6066be4ce0f974a9d7097))
-- **canary-react:** fixes tooltip display in data-tables ([66adb5b](https://github.com/mi6/ic-ui-kit/commit/66adb5b28cbbb248a6894ae33a74e2de751b6119))
-- **canary-react:** adds test for tooltip fix ([a35bc74](https://github.com/mi6/ic-ui-kit/commit/a35bc744ff0d5655c2c80b18f4f0d2408e32ee19))
-- **canary-react:** update tree view stories to include expanded example ([fe66b26](https://github.com/mi6/ic-ui-kit/commit/fe66b264e6787a2a3bf5c5a8778e52bc7b5ccc2b))
+
+# [3.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.6...@ukic/canary-react@3.0.0-canary.7) (2025-01-22)
+
+### Bug Fixes
+
+- **canary-react:** add icSelectedRowChange event to IcDataTable ([75f6e3a](https://github.com/mi6/ic-ui-kit/commit/75f6e3a282755aa81547ec36c3106c63ec28312b)), closes [#1226](https://github.com/mi6/ic-ui-kit/issues/1226)
+- **canary-react:** set IcPaginationBar to the first page when the items per page changes ([9864637](https://github.com/mi6/ic-ui-kit/commit/9864637c07b216639caba93188284a276e19ae9c)), closes [#2639](https://github.com/mi6/ic-ui-kit/issues/2639)
+
+### Features
+
+- **canary-react:** add action onclick to action element on dataTable ([1d20153](https://github.com/mi6/ic-ui-kit/commit/1d20153fc5bc07c9fba8c9eaf314d96723b6b2fc))
+- **canary-react:** updated data table story to include overlay copy ([be10b49](https://github.com/mi6/ic-ui-kit/commit/be10b492f03f4d8e920b3974dd90046956474f73)), closes [#2968](https://github.com/mi6/ic-ui-kit/issues/2968)
+
+# [3.0.0-canary.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.5...@ukic/canary-react@3.0.0-canary.6) (2025-01-08)
+
+### Bug Fixes
+
+- **canary-react:** Allow the IcDataTable to handle empty cell data values ([099fc98](https://github.com/mi6/ic-ui-kit/commit/099fc98384c91eeee55991e5831c38687daad2fb))
+
+### Features
+
+- **canary-react:** add action-element tests and story ([35e0fc5](https://github.com/mi6/ic-ui-kit/commit/35e0fc5a3ede5ed6e547fd4c4a15cac801bc7094))
+- **canary-react:** update storybook example for links in IcDataTable to include new target key ([dd74fc5](https://github.com/mi6/ic-ui-kit/commit/dd74fc55e697b305f3a170b1963cf433a76715c8)), closes [#2751](https://github.com/mi6/ic-ui-kit/issues/2751)
+- **canary-react:** update tree view/tree item to text wrap by default ([0220f96](https://github.com/mi6/ic-ui-kit/commit/0220f96c70ef9de0fb138738d16723bd9c615640))
+
+# [3.0.0-canary.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.4...@ukic/canary-react@3.0.0-canary.5) (2024-12-09)
+
+### Bug Fixes
+
+- **canary-react:** update cypress images after colour/token update ([2db79d5](https://github.com/mi6/ic-ui-kit/commit/2db79d590395084d3a2f63b957c0b4cc30445e64))
+
+### Features
+
+- **canary-react:** added dark mode features, stories & tests to data-table ([34f4a66](https://github.com/mi6/ic-ui-kit/commit/34f4a6694e7bb35c9554ff72d118a22eb94275bc))
+- **canary-react:** adds tests & storybook playground for theme prop ([a977327](https://github.com/mi6/ic-ui-kit/commit/a977327a4e280e36f2b0e58556bae5a19e330608))
+- **canary-react:** dark mode ([2e6013e](https://github.com/mi6/ic-ui-kit/commit/2e6013e31604fa11b53a4395183b633aa926b987))
+
+### BREAKING CHANGES
+
+- **canary-react:** new theme prop and colour switching
+- **canary-react:** dark mode
+- **canary-react:** removed appearance option from updatingOptions, loadingOptions & paginationOptions
+
+# [3.0.0-canary.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.3...@ukic/canary-react@3.0.0-canary.4) (2024-11-14)
+
+### Bug Fixes
+
 - **canary-react:** fixes version in package-lock ([57dd93c](https://github.com/mi6/ic-ui-kit/commit/57dd93c6ae0050fcc14612c62dd8c19e178e24e4))
 - **canary-react:** remove appearance from pagination stories and fix cypress tests ([e159b2c](https://github.com/mi6/ic-ui-kit/commit/e159b2cb6062cd46f33e1342a68b56f56bfd1f7d))
 - **canary-react:** update broken date picker test ([071c547](https://github.com/mi6/ic-ui-kit/commit/071c547ccd8a8a06f5e64a4a95e8c458a568ce4f))
-- **canary-react:** update cypress images after colour/token update ([2db79d5](https://github.com/mi6/ic-ui-kit/commit/2db79d590395084d3a2f63b957c0b4cc30445e64))
-- **canary-react:** Allow the IcDataTable to handle empty cell data values ([099fc98](https://github.com/mi6/ic-ui-kit/commit/099fc98384c91eeee55991e5831c38687daad2fb))
-- **canary-react:** add icSelectedRowChange event to IcDataTable ([75f6e3a](https://github.com/mi6/ic-ui-kit/commit/75f6e3a282755aa81547ec36c3106c63ec28312b)), closes [#1226](https://github.com/mi6/ic-ui-kit/issues/1226)
-- **canary-react:** set IcPaginationBar to the first page when the items per page changes ([9864637](https://github.com/mi6/ic-ui-kit/commit/9864637c07b216639caba93188284a276e19ae9c)), closes [#2639](https://github.com/mi6/ic-ui-kit/issues/2639)
+
+### Features
+
+- **canary-react:** added theme prop to IcCardHorizontal ([83a475f](https://github.com/mi6/ic-ui-kit/commit/83a475f7a0f5d22ae6416770398c34d4b39f5481))
+- **canary-react:** data-table column header truncation ([a9e996c](https://github.com/mi6/ic-ui-kit/commit/a9e996c2a7b4fb80452703189a441a7386027880))
+- **canary-react:** remove appearance prop and add theme prop to tree view ([9d1c2a8](https://github.com/mi6/ic-ui-kit/commit/9d1c2a8e8823c4aa7c05be70b3dce83e8135cef1))
+
+# [3.0.0-canary.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.2...@ukic/canary-react@3.0.0-canary.3) (2024-10-31)
+
+### Bug Fixes
+
+- **canary-react:** adds test for tooltip fix ([a35bc74](https://github.com/mi6/ic-ui-kit/commit/a35bc744ff0d5655c2c80b18f4f0d2408e32ee19))
+- **canary-react:** update tree view stories to include expanded example ([fe66b26](https://github.com/mi6/ic-ui-kit/commit/fe66b264e6787a2a3bf5c5a8778e52bc7b5ccc2b))
+
+### Features
+
+- **canary-react:** add focus inset prop to tree view items ([6ba7285](https://github.com/mi6/ic-ui-kit/commit/6ba7285c1a18367ae136a6322053faca83e7f2ee))
+- **canary-react:** added tests for date input ([c1f6c8d](https://github.com/mi6/ic-ui-kit/commit/c1f6c8d38a2a91142ea5dc663d6b82255f28efa5))
+- **canary-react:** implement hideAllFromItemsPerPage & remove limit on itemsPerPage opts ([ba7ca3b](https://github.com/mi6/ic-ui-kit/commit/ba7ca3bf9afebcd2b3a1db9bdd1987527d141738))
+- **canary-react:** remove all multi-select files (moved to core package) ([d7fb59a](https://github.com/mi6/ic-ui-kit/commit/d7fb59af37384bf77a0440d1bb5ad286732cc3a7))
+
+### Performance Improvements
+
+- **canary-react:** add the ability to change between themes in Storybook toolbar ([dd34ce8](https://github.com/mi6/ic-ui-kit/commit/dd34ce8da9a8d1fec8db1542120820d836c977ec))
+
+# [3.0.0-canary.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.1...@ukic/canary-react@3.0.0-canary.2) (2024-10-17)
+
+### Bug Fixes
+
+- **canary-react:** adds test for icon data-table fix ([9d46ce7](https://github.com/mi6/ic-ui-kit/commit/9d46ce70c06c313400491c64294ce0b177b062ba))
+- **canary-react:** fixes data-table column width example ([d52ba3a](https://github.com/mi6/ic-ui-kit/commit/d52ba3a6d3e19f3331c6066be4ce0f974a9d7097))
+- **canary-react:** fixes tooltip display in data-tables ([66adb5b](https://github.com/mi6/ic-ui-kit/commit/66adb5b28cbbb248a6894ae33a74e2de751b6119))
+
+### Features
+
+- **canary-react:** adds currentPage prop to pagination bar ([7d4d2b8](https://github.com/mi6/ic-ui-kit/commit/7d4d2b89fea55f4080884dce9b323da721bd97f7))
+
+# 3.0.0-canary.1 (2024-10-04)
+
+### Bug Fixes
+
+- **root:** fixes after big rebase ([490c292](https://github.com/mi6/ic-ui-kit/commit/490c292e9294c97d938575ea114f769a730628bc))
 
 ### Code Refactoring
 
@@ -99,31 +173,36 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **canary-react:** added column width tests ([c2d59dd](https://github.com/mi6/ic-ui-kit/commit/c2d59dd79368bf012ed7d72b1c0394d5305e772c))
 - **canary-react:** change multi-select E2E, a11y and visual tests to use Cypress ([adce3e3](https://github.com/mi6/ic-ui-kit/commit/adce3e32d26f9c8e46b5b893b698e7efc4c74fff))
 - **canary-react:** ic-typography color changes ([1c8112e](https://github.com/mi6/ic-ui-kit/commit/1c8112ed377c64143bfb3b153e08123040cfdc8f))
-- **canary-react:** adds currentPage prop to pagination bar ([7d4d2b8](https://github.com/mi6/ic-ui-kit/commit/7d4d2b89fea55f4080884dce9b323da721bd97f7))
-- **canary-react:** add focus inset prop to tree view items ([6ba7285](https://github.com/mi6/ic-ui-kit/commit/6ba7285c1a18367ae136a6322053faca83e7f2ee))
-- **canary-react:** added tests for date input ([c1f6c8d](https://github.com/mi6/ic-ui-kit/commit/c1f6c8d38a2a91142ea5dc663d6b82255f28efa5))
-- **canary-react:** implement hideAllFromItemsPerPage & remove limit on itemsPerPage opts ([ba7ca3b](https://github.com/mi6/ic-ui-kit/commit/ba7ca3bf9afebcd2b3a1db9bdd1987527d141738))
-- **canary-react:** remove all multi-select files (moved to core package) ([d7fb59a](https://github.com/mi6/ic-ui-kit/commit/d7fb59af37384bf77a0440d1bb5ad286732cc3a7))
-- **canary-react:** added theme prop to IcCardHorizontal ([83a475f](https://github.com/mi6/ic-ui-kit/commit/83a475f7a0f5d22ae6416770398c34d4b39f5481))
-- **canary-react:** data-table column header truncation ([a9e996c](https://github.com/mi6/ic-ui-kit/commit/a9e996c2a7b4fb80452703189a441a7386027880))
-- **canary-react:** remove appearance prop and add theme prop to tree view ([9d1c2a8](https://github.com/mi6/ic-ui-kit/commit/9d1c2a8e8823c4aa7c05be70b3dce83e8135cef1))
-- **canary-react:** added dark mode features, stories & tests to data-table ([34f4a66](https://github.com/mi6/ic-ui-kit/commit/34f4a6694e7bb35c9554ff72d118a22eb94275bc))
-- **canary-react:** adds tests & storybook playground for theme prop ([a977327](https://github.com/mi6/ic-ui-kit/commit/a977327a4e280e36f2b0e58556bae5a19e330608))
-- **canary-react:** dark mode ([2e6013e](https://github.com/mi6/ic-ui-kit/commit/2e6013e31604fa11b53a4395183b633aa926b987))
-- **canary-react:** add action-element tests and story ([35e0fc5](https://github.com/mi6/ic-ui-kit/commit/35e0fc5a3ede5ed6e547fd4c4a15cac801bc7094))
-- **canary-react:** update storybook example for links in IcDataTable to include new target key ([dd74fc5](https://github.com/mi6/ic-ui-kit/commit/dd74fc55e697b305f3a170b1963cf433a76715c8)), closes [#2751](https://github.com/mi6/ic-ui-kit/issues/2751)
-- **canary-react:** update tree view/tree item to text wrap by default ([0220f96](https://github.com/mi6/ic-ui-kit/commit/0220f96c70ef9de0fb138738d16723bd9c615640))- **canary-react:** add action onclick to action element on dataTable ([1d20153](https://github.com/mi6/ic-ui-kit/commit/1d20153fc5bc07c9fba8c9eaf314d96723b6b2fc))
-- **canary-react:** updated data table story to include overlay copy ([be10b49](https://github.com/mi6/ic-ui-kit/commit/be10b492f03f4d8e920b3974dd90046956474f73)), closes [#2968](https://github.com/mi6/ic-ui-kit/issues/2968)
 
-### Performance Improvements
+# [2.0.0-canary.40](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.38...@ukic/canary-react@2.0.0-canary.40) (2025-04-16)
 
-- **canary-react:** add the ability to change between themes in Storybook toolbar ([dd34ce8](https://github.com/mi6/ic-ui-kit/commit/dd34ce8da9a8d1fec8db1542120820d836c977ec))
+### Features
 
-### BREAKING CHANGES
+- **canary-react:** add ability to hide the icdateinput in the icdatepicker ([9e6128b](https://github.com/mi6/ic-ui-kit/commit/9e6128bd6deddfd70c4dabcda28bdcf8872a879c)), closes [#3357](https://github.com/mi6/ic-ui-kit/issues/3357)
 
-- **canary-react:** dark mode
-- **canary-react:** new theme prop and colour switching
-- **canary-react:** removed appearance option from updatingOptions, loadingOptions & paginationOptions
+# [2.0.0-canary.39](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.38...@ukic/canary-react@2.0.0-canary.39) (2025-04-07)
+
+### Features
+
+- **canary-react:** add ability to hide the icdateinput in the icdatepicker ([f080d01](https://github.com/mi6/ic-ui-kit/commit/f080d01ab30ba5bc1150a6df2485a6c5509bbffe)), closes [#3357](https://github.com/mi6/ic-ui-kit/issues/3357)
+
+# [2.0.0-canary.38](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.37...@ukic/canary-react@2.0.0-canary.38) (2025-03-19)
+
+### Bug Fixes
+
+- **canary-react:** adds test for data-table slotted element fix ([e7a40f5](https://github.com/mi6/ic-ui-kit/commit/e7a40f58fe183cf8533dd8e2bb7d70c224c59918))
+
+### Features
+
+- **canary-react:** added light mode styles for IcTreeView ([9400545](https://github.com/mi6/ic-ui-kit/commit/9400545f521830dbdfcc988b926ee65ef47c13c4))
+
+# [2.0.0-canary.37](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.36...@ukic/canary-react@2.0.0-canary.37) (2025-03-05)
+
+### Features
+
+- **canary-react:** add the ability to backspace through a date input to delete the date ([534252c](https://github.com/mi6/ic-ui-kit/commit/534252c27288c242fad14e47897c975241d493ef)), closes [#2244](https://github.com/mi6/ic-ui-kit/issues/2244)
+- **canary-react:** added Cypress tests ([5e6fccd](https://github.com/mi6/ic-ui-kit/commit/5e6fccd003fa49ca003167e308f5eaffb67381c9))
+- **canary-react:** improve data table column object by adding excludeColumnFromSort ([3e532f1](https://github.com/mi6/ic-ui-kit/commit/3e532f1c1bad86e49b6daba4fc24918bf4c1e9b8))
 
 # [2.0.0-canary.36](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.35...@ukic/canary-react@2.0.0-canary.36) (2025-02-19)
 
