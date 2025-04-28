@@ -323,7 +323,6 @@ slot[name="app-title"]::slotted(a) {
 
 ::slotted(ic-navigation-group) {
   --navigation-group-height: 2.75rem;
-  --navigation-group-width: 100%;
   --navigation-group-justify-content: space-between;
   --navigation-group-hover: var(--ic-side-navigation-hover);
   --navigation-group-text-hover: var(--ic-side-navigation-text);
@@ -608,6 +607,7 @@ slot[name="app-title"]::slotted(a) {
   --navigation-item-min-height: 3.5rem;
   --navigation-item-width: 20rem;
   --navigation-item-side-nav-right: var(--ic-space-xl);
+  --navigation-group-width: 20rem;
 }
 
 :host(.sm-collapsed.side-display) ::slotted(ic-navigation-group) {
