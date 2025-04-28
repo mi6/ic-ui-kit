@@ -29,7 +29,6 @@ export const FullWidth = () => {
         <IcStep heading="Create" type="completed"></IcStep>
         <IcStep heading="Read" type="current"></IcStep>
         <IcStep heading="Update" type="active"></IcStep>
-        <IcStep heading="Delete" type="disabled"></IcStep>
       </IcStepper>
     </div>
   );
@@ -96,7 +95,6 @@ export const LeftAligned = () => {
         <IcStep heading="Create" type="completed" />
         <IcStep heading="Read" type="current" />
         <IcStep heading="Update" type="active" />
-        <IcStep heading="Delete" type="disabled" />
       </IcStepper>
     </div>
   );
@@ -113,12 +111,7 @@ export const CustomConnectorWidth = () => {
           type="current"
         />
         <IcStep
-          heading="Third"
-          subheading="Optional Subtitle"
-          type="disabled"
-        />
-        <IcStep
-          heading="Fourth title that is long and should wrap"
+          heading="Third title that is long and should wrap"
           subheading="Optional Subtitle"
           type="completed"
         />
@@ -137,9 +130,8 @@ export const SmallConnectorWidth = () => {
           subheading="Optional subtitle that is long and should wrap"
           type="current"
         />
-        <IcStep heading="Third" type="disabled" />
         <IcStep
-          heading="Fourth title that is long and should wrap"
+          heading="Third title that is long and should wrap"
           subheading="Optional Subtitle"
           type="completed"
         />
@@ -253,11 +245,6 @@ export const Light = () => {
         />
         <IcStep heading="Read" type="current" subheading="Optional subtitle" />
         <IcStep heading="Update" type="active" subheading="Optional subtitle" />
-        <IcStep
-          heading="Delete"
-          type="disabled"
-          subheading="Optional subtitle"
-        />
       </IcStepper>
     </div>
   );
@@ -285,6 +272,19 @@ export const LightCompact = () => {
           status="optional"
           type="completed"
         />
+      </IcStepper>
+    </div>
+  );
+};
+
+export const Disabled = () => {
+  return (
+    <div style={{ padding: "100px" }}>
+      <IcStepper>
+        <IcStep heading="Create" type="completed"></IcStep>
+        <IcStep heading="Read" type="disabled"></IcStep>
+        <IcStep heading="Update" type="active"></IcStep>
+        <IcStep heading="Delete" type="disabled" />
       </IcStepper>
     </div>
   );
