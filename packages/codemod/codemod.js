@@ -2,10 +2,8 @@
 import fs from "fs";
 import yargs from "yargs";
 import { searchDirectory } from "./sections/directory-search.js";
-import { compareComponent } from "./sections/component-changes.js";
+import { convertComponents } from "./sections/component-changes.js";
 import { simpleTestComparison } from "./sections/simple-test-comparison.js";
-import htmlData from "./data/changes.js";
-import reactData from "./data/reactChanges.js";
 
 /**
  *
@@ -34,11 +32,11 @@ const main = async (path, test = false) => {
   const files = await searchDirectory(path);
   files.forEach((file) => {
     const linesArray = readFileLinesToArray(file);
+    /**
+     * if file contains .spec or .test, run simple test comparison
+     */
     if (test && (file.includes(".spec.") || file.includes(".test."))) {
-      const changedFile = simpleTestComparison(linesArray, [
-        ...htmlData,
-        ...reactData,
-      ]);
+      const changedFile = simpleTestComparison(linesArray);
       if (changedFile !== linesArray) {
         fs.writeFile(file, changedFile, (err) => {
           if (err) return console.log(err);
@@ -46,10 +44,10 @@ const main = async (path, test = false) => {
         });
       }
     } else {
-      const changedComponentFile = compareComponent(linesArray, [
-        ...htmlData,
-        ...reactData,
-      ]);
+      /**
+       * run file conversion for all other files
+       */
+      const changedComponentFile = convertComponents(linesArray);
       if (changedComponentFile !== linesArray) {
         fs.writeFile(file, String(changedComponentFile), (err) => {
           if (err) return console.log(err);
