@@ -39,8 +39,8 @@
   },
   "dependencies": {
     "@ukic/canary-web-components": "^3.0.0-canary.15",
-    "@ukic/react": "^3.0.0-alpha.15",
-    "@ukic/web-components": "^3.0.0-alpha.15"
+    "@ukic/react": "^3.0.0",
+    "@ukic/web-components": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
