@@ -63,6 +63,7 @@ const HiddenInput = () => {
 };
 
 const defaultArgs = {
+  debounce: 0,
   disabled: false,
   fullWidth: false,
   helperText: "",
@@ -71,8 +72,14 @@ const defaultArgs = {
   inputId: "ic-text-field-input-0",
   inputmode: "text",
   label: "Text Field",
+  max: 0,
   maxCharacters: 0,
+  maxCharactersMessage: "Custom max characters validation message",
+  maxMessage: "Custom max validation message",
+  min: 0,
   minCharacters: 0,
+  minCharactersMessage: "Custom min characters validation message",
+  minMessage: "Custom min validation message",
   name: "0",
   placeholder: "",
   readonly: false,
@@ -81,12 +88,12 @@ const defaultArgs = {
   rows: 1,
   size: "medium",
   spellcheck: false,
+  theme: "inherit",
   type: "text",
   validationInline: false,
   validationStatus: "none",
   validationText: "",
-  debounce: 0,
-  theme: "inherit",
+  value: "",
 };
 
 export default {
@@ -521,14 +528,27 @@ export const Uncontrolled_ = {
 
 export const MinAndMax = {
   render: () => (
-    <IcTextField
-      inputmode="numeric"
-      label="How many coffees do you want?"
-      type="number"
-      min={1}
-      max={4}
-      helperText="Our coffee machines have a maximum capacity of 4 coffees at a time."
-    />
+    <>
+      <IcTextField
+        inputmode="numeric"
+        label="How many coffees do you want?"
+        type="number"
+        min={1}
+        max={4}
+        helperText="Our coffee machines have a maximum capacity of 4 coffees at a time."
+      />
+      <br />
+      <IcTextField
+        inputmode="numeric"
+        label="How many coffees do you want?"
+        type="number"
+        min={1}
+        max={4}
+        minMessage="You must order at least 1 coffee"
+        maxMessage="You cannot order more than 4 coffees"
+        helperText="With custom validation messages."
+      />
+    </>
   ),
 
   name: "Min and max",
@@ -540,18 +560,27 @@ export const MaximumAndMinimumCharacters = {
       <IcTextField
       maxCharacters={2}
       label="What is your favourite coffee?"
-      helper-text="Short answers only."
+      helperText="Short answers only."
     ></IcTextField>
     <IcTextField
       maxCharacters={2}
       label="What is your favourite coffee?"
-      helper-text="Short answers only. The character count is hidden."
+      helperText="Short answers only. The character count is hidden."
       hideCharCount
     ></IcTextField>
     <IcTextField
       minCharacters={3}
       label="What is your favourite coffee?"
-      helper-text="Long answer please."
+      helperText="Long answer please."
+    ></IcTextField>
+    <br />
+    <IcTextField
+      minCharacters={2}
+      maxCharacters={5}
+      minCharactersMessage="Too short - please type at least 2 characters"
+      maxCharactersMessage="5 characters is long enough"
+      label="What is your favourite coffee?"
+      helperText="Long answer please. (With custom validation messages)"
     ></IcTextField>
     </>
   ),
@@ -572,12 +601,12 @@ export const Playground = {
           args.theme === "light"
             ? "white"
             : args.theme === "dark"
-              ? "var(--ic-color-background-primary)"
+              ? "var(--ic-color-background-primary-dark)"
               : "transparent",
       }}
     >
       <IcTextField
-        label={args.label}
+        debounce={args.debounce}
         disabled={args.disabled}
         fullWidth={args.fullWidth}
         helperText={args.helperText}
@@ -585,10 +614,15 @@ export const Playground = {
         hideLabel={args.hideLabel}
         inputId={args.inputId}
         inputmode={args.inputmode}
+        label={args.label}
         max={args.max}
         maxCharacters={args.maxCharacters}
+        maxCharactersMessage={args.maxCharactersMessage}
+        maxMessage={args.maxMessage}
         min={args.min}
         minCharacters={args.minCharacters}
+        minCharactersMessage={args.minCharactersMessage}
+        minMessage={args.minMessage}
         name={args.name}
         placeholder={args.placeholder}
         readonly={args.readonly}
@@ -597,12 +631,12 @@ export const Playground = {
         rows={args.rows}
         size={args.size}
         spellcheck={args.spellcheck}
+        theme={args.theme}
         type={args.type}
         validationInline={args.validationInline}
         validationStatus={args.validationStatus}
         validationText={args.validationText}
-        debounce={args.debounce}
-        theme={args.theme}
+        value={args.value}
         onIcChange={(ev) => console.log(ev.detail.value)}
       >
         {args.showIconSlot && (

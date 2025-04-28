@@ -361,7 +361,7 @@ export const CustomSizeTextField = (): ReactElement => (
 );
 
 export const DarkTheme = (): ReactElement => (
-  <div style={{ backgroundColor: "#121212" }}>
+  <div style={{ backgroundColor: "#17191C" }}>
     <IcTextField
       theme="dark"
       label="What is your favourite coffee?"
@@ -418,7 +418,7 @@ export const DarkTheme = (): ReactElement => (
 );
 
 export const DarkThemeValidation = (): ReactElement => (
-  <div style={{ backgroundColor: "#121212" }}>
+  <div style={{ backgroundColor: "#17191C" }}>
     <IcTextField
       theme="dark"
       value="Arabica"
@@ -456,6 +456,22 @@ export const DarkThemeValidation = (): ReactElement => (
       validationStatus="error"
       validationText="Now it has really gone to (coffee) pot"
     />
+  </div>
+);
+
+export const DarkThemeReadOnly = (): ReactElement => (
+  <div style={{ backgroundColor: "#17191C" }}>
+    <IcTextField
+      theme="dark"
+      maxCharacters={25}
+      value="Arabica"
+      label="What is your favourite coffee?"
+      placeholder="Please enter…"
+      helperText="Such as Arabica, Robusta or Liberica"
+      validationStatus="success"
+      validationText="Good choice!"
+      readonly
+    ></IcTextField>
   </div>
 );
 

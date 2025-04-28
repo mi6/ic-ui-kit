@@ -231,8 +231,10 @@
     var(--ic-button-secondary-background-pressed-active)
   ) !important;
   color: var(--ic-button-secondary-text-pressed-active);
-  --button-loading-inner-color: var(--ic-button-secondary-text-pressed-active);
-  --button-loading-outer-color: var(--ic-button-secondary-background-pressed);
+  --button-loading-inner-color: var(--ic-button-secondary-border-pressed);
+  --button-loading-outer-color: var(
+    --ic-button-secondary-background-pressed-active
+  );
 }
 
 :host(.ic-button-variant-secondary.ic-button-disabled) .button,
@@ -636,21 +638,21 @@
 :host(.ic-button-variant-icon) .button:active:not(:focus),
 :host(.ic-button-variant-icon.ic-button-loading) .button {
   color: var(--ic-button-icon-color-active);
-  background-color: var(--ic-button-icon-color-background-acti);
+  background-color: var(--ic-button-icon-color-background-active);
 }
 
 :host(.ic-button-variant-icon) ::slotted(a:active:not(:focus)) {
   color: var(--ic-button-icon-color-active);
-  background-color: var(--ic-button-icon-color-background-acti) !important;
+  background-color: var(--ic-button-icon-color-background-active) !important;
 }
 
 :host(.ic-button-variant-icon.ic-button-disabled) .button {
-  color: var(--ic-architectural-300);
+  color: var(--ic-color-icon-disabled-mid);
   background: none;
 }
 
 :host(.ic-button-variant-icon.ic-button-disabled) ::slotted(a) {
-  color: var(--ic-architectural-300);
+  color: var(--ic-color-icon-disabled-mid);
   background: none !important;
 }
 
@@ -965,7 +967,7 @@ div.right-icon {
 
 :host(.button-variant-icon.disabled) .button,
 :host(.button-variant-icon.disabled) ::slotted(a) {
-  color: var(--ic-architectural-300);
+  color: var(--ic-color-icon-disabled-mid);
   background: none;
 }
 
@@ -1074,15 +1076,19 @@ slot[name="router-item"]::slotted(a) {
   * uses secondary monochrome tokens which are duplicated here to avoid multiple copies in each component
   */
 
-:host(#menu-button.ic-theme-light) {
+:host(#menu-button.ic-theme-dark) {
   --ic-button-secondary-background-hover-monochrome: var(
     --ic-action-dark-bg-hover
   );
   --ic-button-secondary-background-pressed-monochrome: var(
     --ic-action-dark-bg-pressed
   );
-  --ic-button-secondary-text-hover-monochrome: var(--ic-action-dark-hover);
-  --ic-button-secondary-text-pressed-monochrome: var(--ic-action-dark-pressed);
+  --ic-button-secondary-text-hover-monochrome: var(
+    --ic-action-monochrome-hover-dark
+  );
+  --ic-button-secondary-text-pressed-monochrome: var(
+    --ic-action-monochrome-pressed-dark
+  );
   --ic-button-secondary-border-hover-monochrome: var(
     --ic-color-border-neutral-hover-dark
   );
@@ -1091,15 +1097,19 @@ slot[name="router-item"]::slotted(a) {
   );
 }
 
-:host(#menu-button.ic-theme-dark) {
+:host(#menu-button.ic-theme-light) {
   --ic-button-secondary-background-hover-monochrome: var(
     --ic-action-light-bg-hover
   );
   --ic-button-secondary-background-pressed-monochrome: var(
     --ic-action-light-bg-pressed
   );
-  --ic-button-secondary-text-hover-monochrome: var(--ic-action-light-hover);
-  --ic-button-secondary-text-pressed-monochrome: var(--ic-action-light-pressed);
+  --ic-button-secondary-text-hover-monochrome: var(
+    --ic-action-monochrome-hover
+  );
+  --ic-button-secondary-text-pressed-monochrome: var(
+    --ic-action-monochrome-pressed
+  );
   --ic-button-secondary-border-hover-monochrome: var(
     --ic-color-border-neutral-hover-light
   );

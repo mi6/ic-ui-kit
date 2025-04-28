@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import React from "react";
 import { mount } from "cypress/react";
@@ -36,11 +36,12 @@ import {
   NOT_HAVE_BEEN_CALLED,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
-import { delay } from "cypress/types/bluebird";
 
 const DYNAMIC_SHOW_BUTTON = "ic-button#show-btn";
 const DIALOG = "ic-dialog";
 const BUTTON = "ic-button";
+const SLOTTED_DIALOG_BUTTON = "ic-button#slotted-dialog-btn";
+const CLOSE_ICON_BUTTON = "ic-button.close-icon";
 
 const DEFAULT_TEST_THRESHOLD = 0.028;
 
@@ -212,22 +213,19 @@ describe("IcDialog end-to-end tests", () => {
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get(DIALOG).should(BE_VISIBLE);
 
-    cy.findShadowEl(DIALOG, "ic-button.close-icon")
-      .shadow()
-      .find("button")
-      .focus();
+    cy.findShadowEl(DIALOG, CLOSE_ICON_BUTTON).shadow().find("button").focus();
 
-    cy.findShadowEl(DIALOG, "ic-button.close-icon")
+    cy.findShadowEl(DIALOG, CLOSE_ICON_BUTTON)
       .shadow()
       .find("ic-tooltip")
       .shadow()
       .find(".ic-tooltip-container")
       .should(BE_VISIBLE);
 
-    cy.findShadowEl(DIALOG, "ic-button.close-icon").realPress("Escape");
+    cy.findShadowEl(DIALOG, CLOSE_ICON_BUTTON).realPress("Escape");
 
     // first press of Escape should hide tooltip on button
-    cy.findShadowEl(DIALOG, "ic-button.close-icon")
+    cy.findShadowEl(DIALOG, CLOSE_ICON_BUTTON)
       .shadow()
       .find("ic-tooltip")
       .shadow()
@@ -235,7 +233,7 @@ describe("IcDialog end-to-end tests", () => {
       .should(NOT_BE_VISIBLE);
 
     // second press should hide dialog
-    cy.findShadowEl(DIALOG, "ic-button.close-icon").realPress("Escape");
+    cy.findShadowEl(DIALOG, CLOSE_ICON_BUTTON).realPress("Escape");
 
     cy.get(DIALOG).should(NOT_HAVE_ATTR, "open");
     cy.get(DIALOG).should(NOT_BE_VISIBLE);
@@ -320,7 +318,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<SlottedContentDialog />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait(undefined, 200);
@@ -334,7 +332,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<SlottedContentDialog />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get("ic-select").should(HAVE_FOCUS);
     cy.get("ic-select").click();
@@ -350,7 +348,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<NoHeightConstraintDialog />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.get("ic-select").click();
 
@@ -365,7 +363,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogAccordion />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -379,7 +377,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogAccordionGroup />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -393,7 +391,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogAccordionGroupSingleExpansion />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.checkA11yWithWait();
@@ -407,7 +405,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<DialogSearch />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
     cy.wait(300);
     cy.realPress("Tab");
@@ -521,8 +519,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     cy.get(BUTTON).click();
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
-    // cy.checkA11yWithWait();
-    cy.wait(1000);
+    cy.checkA11yWithWait(undefined, 1000);
     cy.compareSnapshot({
       name: "/destructive-dialog-controls",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
@@ -530,10 +527,12 @@ describe("IcDialog visual regression and a11y tests", () => {
     });
   });
 
-  it("should render custom dialog controls", () => {
+  it("should render custom dialog controls, even when `hideDefaultControls` is set to `true`", () => {
     mount(<CustomButtonDialog />);
 
     cy.get(DIALOG).should("exist");
+    cy.get(DIALOG).should(HAVE_ATTR, "hide-default-controls", "true");
+
     cy.get("ic-button#custom-dialog-btn").click();
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
@@ -627,8 +626,7 @@ describe("IcDialog visual regression and a11y tests", () => {
     mount(<ThemeDark />);
     cy.checkHydrated(DIALOG);
 
-    // cy.checkA11yWithWait(); Accessibility failure
-    cy.wait(300);
+    cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
       name: "/theme-dark",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
@@ -670,7 +668,7 @@ describe("IcDialog visual regression tests in high contrast mode", () => {
     mount(<SlottedContentDialog />);
 
     cy.get(DIALOG).should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
+    cy.get(SLOTTED_DIALOG_BUTTON).click().wait(300);
     cy.get(DIALOG).should(HAVE_ATTR, "open");
 
     cy.compareSnapshot({

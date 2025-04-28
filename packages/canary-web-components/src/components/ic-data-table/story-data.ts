@@ -1633,10 +1633,10 @@ export const SlottedElementsWithPagination = (): HTMLIcDataTableElement => {
 };
 
 export const Empty = (): HTMLIcDataTableElement =>
-  createDataTableElement("Empty State", COLS, null);
+  createDataTableElement("Empty State", COLS, undefined);
 
 export const EmptySlotted = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Empty State", COLS, null);
+  const dataTable = createDataTableElement("Empty State", COLS, undefined);
 
   const emptyState = document.createElement("ic-empty-state");
   emptyState.setAttribute("aligned", "left");
@@ -1664,7 +1664,7 @@ export const EmptyLoading = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement(
     "Empty and Loading State",
     COLS,
-    null
+    undefined
   );
 
   setTimeout(() => {
@@ -1720,9 +1720,9 @@ export const CustomRowHeights = (): HTMLElement => {
 };
 
 export const TruncationShowHide = (): HTMLElement => {
-  const dataTable = CustomRowHeights().querySelector("ic-data-table");
+  const dataTable = CustomRowHeights().querySelector("ic-data-table")!;
   dataTable.globalRowHeight = 40;
-  dataTable.variableRowHeight = null;
+  dataTable.variableRowHeight = undefined;
   dataTable.truncationPattern = "show-hide";
 
   const resetButton = document.createElement("ic-button");
@@ -1764,7 +1764,7 @@ export const TruncationTextWrap = (): HTMLElement => {
     TEXT_WRAP_LONG_DATA
   );
   dataTable.globalRowHeight = 40;
-  dataTable.variableRowHeight = null;
+  dataTable.variableRowHeight = undefined;
 
   const wrapper = document.createElement("div");
   wrapper.insertAdjacentElement("afterbegin", dataTable);
@@ -1772,9 +1772,9 @@ export const TruncationTextWrap = (): HTMLElement => {
 };
 
 export const TruncationTooltip = (): HTMLElement => {
-  const dataTable = CustomRowHeights().querySelector("ic-data-table");
+  const dataTable = CustomRowHeights().querySelector("ic-data-table")!;
   dataTable.globalRowHeight = 40;
-  dataTable.variableRowHeight = null;
+  dataTable.variableRowHeight = undefined;
   dataTable.setAttribute("truncation-pattern", "tooltip");
   dataTable.setAttribute("sortable", "true");
 
@@ -1854,7 +1854,7 @@ export const UpdatingData = (): HTMLElement => {
 
   const updateDataButton = document.createElement("ic-button");
   updateDataButton.addEventListener("click", () => {
-    dataTable.data = [...dataTable.data, ...LONG_DATA];
+    dataTable.data = [...dataTable.data!, ...LONG_DATA];
   });
   updateDataButton.innerHTML = "Update data";
 
@@ -1934,25 +1934,21 @@ export const ActionElement = (): HTMLElement =>
 export const MissingCellData = (): HTMLElement =>
   createDataTableElement("Missing Cell Data", COLS, DATA_WITH_EMPTY_VALUES);
 
-export const TurnOffSelectedRowHighlighting = (): HTMLElement => {
+export const SelectWithCheckbox = (): HTMLElement => {
   const dataTable = createDataTableElement(
-    "Turn off selected row highlighting",
+    "Select using checkboxes",
     COLS,
     DATA
   );
-  dataTable.setAttribute("highlight-selected-row", "false");
-  return dataTable;
-};
 
-export const SelectedRowChangeEvent = (): HTMLElement => {
-  const dataTable = createDataTableElement(
-    "Turn off selected row highlighting",
-    COLS,
-    DATA
-  );
+  dataTable.setAttribute("row-selection", "true");
   dataTable.addEventListener("icSelectedRowChange", (event: CustomEvent) => {
     console.log("Selected row changed", event.detail);
   });
+  dataTable.addEventListener("icSelectAllRows", (event: CustomEvent) => {
+    console.log("Selected all rows", event.detail);
+  });
+
   return dataTable;
 };
 
@@ -1963,7 +1959,7 @@ export const DevArea = (): HTMLElement => {
     VERY_LONG_DATA(5)
   );
   dataTable.sortable = true;
-  dataTable.variableRowHeight = null;
+  dataTable.variableRowHeight = undefined;
   dataTable.showPagination = true;
 
   const description = document.createElement("ic-typography");

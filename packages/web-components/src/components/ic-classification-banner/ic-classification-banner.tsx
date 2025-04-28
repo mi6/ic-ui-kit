@@ -4,7 +4,7 @@ import { IcProtectiveMarkings } from "./ic-classification-banner.types";
 const classificationText = {
   default: "protective marking not set",
   official: "official",
-  "official-sensitive": "official sensitive",
+  "official-sensitive": "official-sensitive",
   secret: "secret",
   "top-secret": "top secret",
 };

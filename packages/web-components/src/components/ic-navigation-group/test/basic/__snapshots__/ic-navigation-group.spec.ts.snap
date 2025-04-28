@@ -1,13 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-navigation-group should render with label: renders-with-label 1`] = `
-<ic-navigation-group class="ic-navigation-group-expanded" label="Group label" role="listitem">
+exports[`ic-navigation-group should render as expandable: renders-expandable 1`] = `
+<ic-navigation-group class="ic-navigation-group-expandable ic-navigation-group-expanded" expandable="true" label="Group label" role="listitem">
   <template shadowrootmode="open">
-    <button aria-expanded="true" aria-haspopup="false" class="light navigation-group" tabindex="0">
-      <ic-typography variant="label">
+    <button aria-expanded="true" aria-haspopup="false" class="light navigation-group">
+      <ic-typography id="nav-group-title" variant="label">
         Group label
       </ic-typography>
     </button>
+    <ul class="grouped-links-wrapper" style="--navigation-child-items-height: 0px;">
+      <slot></slot>
+    </ul>
+  </template>
+</ic-navigation-group>
+`;
+
+exports[`ic-navigation-group should render correctly when in a top navigation when not expandable: renders-in-desktop-top-nav 1`] = `
+<ic-navigation-group class="ic-navigation-group-expanded" label="Group label" role="listitem">
+  <template shadowrootmode="open">
+    <button aria-expanded="true" aria-haspopup="true" class="light navigation-group">
+      <ic-typography id="nav-group-title" variant="label">
+        Group label
+      </ic-typography>
+    </button>
+  </template>
+</ic-navigation-group>
+`;
+
+exports[`ic-navigation-group should render correctly when in a top navigation when not expandable: renders-in-mobile-top-nav 1`] = `
+<ic-navigation-group class="ic-navigation-group-expanded in-side-menu" label="Group label" role="listitem">
+  <template shadowrootmode="open">
+    <div class="navigation-group">
+      <ic-typography id="nav-group-title" variant="label">
+        Group label
+      </ic-typography>
+    </div>
+    <div class="navigation-group-dropdown-side-menu">
+      <nav aria-labelledby="nav-group-title">
+        <ul>
+          <slot></slot>
+        </ul>
+      </nav>
+    </div>
+  </template>
+</ic-navigation-group>
+`;
+
+exports[`ic-navigation-group should render with label: renders-with-label 1`] = `
+<ic-navigation-group class="ic-navigation-group-expanded" label="Group label" role="listitem">
+  <template shadowrootmode="open">
+    <div class="light navigation-group">
+      <ic-typography id="nav-group-title" variant="label">
+        Group label
+      </ic-typography>
+    </div>
     <ul class="grouped-links-wrapper" style="--navigation-child-items-height: 0px;">
       <slot></slot>
     </ul>

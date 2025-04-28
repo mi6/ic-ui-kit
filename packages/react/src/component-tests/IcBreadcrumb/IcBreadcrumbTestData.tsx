@@ -179,7 +179,7 @@ export const Appearance = (): ReactElement => {
           href="/breadcrumb-2"
         ></IcBreadcrumb>
       </IcBreadcrumbGroup>
-      <div style={{ backgroundColor: "black", width: "fit-content" }}>
+      <div style={{ backgroundColor: "#17191C", width: "fit-content" }}>
         <IcBreadcrumbGroup theme="dark">
           <IcBreadcrumb pageTitle="Breadcrumb 1" href="/breadcrumb-1">
             <ReusableSlottedIcon />

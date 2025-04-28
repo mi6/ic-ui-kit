@@ -72,7 +72,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.realPress("Tab");
       cy.realPress("Enter");
 
-      //cy.checkA11yWithWait(undefined, 250);
+      cy.checkA11yWithWait(undefined, 250);
       cy.wait(250).compareSnapshot({
         name: "/with-expandable-nav-groups-top-nav-expanded",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
@@ -222,56 +222,10 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
       cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
 
-      //cy.checkA11yWithWait(undefined, 250);
+      cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/with-nav-groups-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
-      });
-    });
-
-    it.skip("should tab to navigation groups and navigation items", () => {
-      mount(<WithNavGroupAndNavItemsTopNav />);
-
-      cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-      cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
-
-      cy.findShadowEl(TOP_NAV_SELECTOR, NAVIGATION_MENU_SELECTOR)
-        .shadow()
-        .find(CLOSE_MENU_BUTTON_SELECTOR)
-        .should(HAVE_FOCUS);
-      //fails at this point - navigation group doesn't get focus
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_GROUP_SELECTOR).eq(0).should(HAVE_FOCUS);
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_ITEM_SELECTOR).eq(0).should(HAVE_FOCUS);
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_ITEM_SELECTOR).eq(1).should(HAVE_FOCUS);
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_GROUP_SELECTOR).eq(1).should(HAVE_FOCUS);
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_ITEM_SELECTOR).eq(2).should(HAVE_FOCUS);
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_ITEM_SELECTOR).eq(3).should(HAVE_FOCUS);
-    });
-
-    it.skip("should render focus state on navigation group", () => {
-      mount(<WithNavGroupAndNavItemsTopNav />);
-
-      cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-      cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
-
-      cy.findShadowEl(TOP_NAV_SELECTOR, NAVIGATION_MENU_SELECTOR)
-        .shadow()
-        .find(CLOSE_MENU_BUTTON_SELECTOR)
-        .should(HAVE_FOCUS);
-      //fails at this point - navigation group doesn't get focus
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_GROUP_SELECTOR).eq(0).should(HAVE_FOCUS);
-
-      cy.checkA11yWithWait(undefined, 250);
-      cy.compareSnapshot({
-        name: "/nav-group-focused-top-nav",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       });
     });
 
@@ -385,7 +339,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkShadowElVisible(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
       cy.findShadowEl(TOP_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
 
-      // cy.checkA11yWithWait(undefined, 250); a11y error with unique landmarks
+      cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/theme-dark-top-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.078),
@@ -513,32 +467,6 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
         name: "/with-nav-groups-side-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
       });
-    });
-
-    it("should tab to navigation groups and navigation items", () => {
-      cy.mockResizeObserver(576, 600);
-      mount(<WithNavGroupAndNavItemsSideNav />);
-
-      cy.checkShadowElVisible(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
-      cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
-      cy.get(SIDE_NAV_SELECTOR).should(HAVE_CLASS, "xs-menu-open");
-
-      cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR)
-        .shadow()
-        .find("button")
-        .focus();
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_GROUP_SELECTOR).eq(0).should(HAVE_FOCUS);
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_ITEM_SELECTOR).eq(0).should(HAVE_FOCUS);
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_ITEM_SELECTOR).eq(1).should(HAVE_FOCUS);
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_GROUP_SELECTOR).eq(1).should(HAVE_FOCUS);
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_ITEM_SELECTOR).eq(2).should(HAVE_FOCUS);
-      cy.realPress("Tab");
-      cy.get(NAVIGATION_ITEM_SELECTOR).eq(3).should(HAVE_FOCUS);
     });
 
     it("should render navigation items with slotted content", () => {

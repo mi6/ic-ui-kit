@@ -8,15 +8,15 @@ import { stringEnumToArray } from "../../utils/helpers";
 import { IcSizes, IcDateInputMonths } from "../../utils/types";
 
 export type MonthPickerProps = {
-  size: IcSizes;
   focussedMonth: number;
   monthInView: number;
   yearInView: number;
   onSelectMonth: (month: number) => void;
   onKeyDown: (ev: KeyboardEvent) => void;
   focussedMonthRef: (element: HTMLIcButtonElement) => void;
-  minDate: Date;
-  maxDate: Date;
+  minDate: Date | null;
+  maxDate: Date | null;
+  size?: IcSizes;
 };
 
 export const MonthPicker: FunctionalComponent<MonthPickerProps> = ({
@@ -72,7 +72,7 @@ export const MonthPicker: FunctionalComponent<MonthPickerProps> = ({
             aria-label={current ? "" : `select ${month}`}
             onClick={handleMonthClick}
             onKeyDown={onKeyDown}
-            ref={(el: HTMLIcButtonElement) => {
+            ref={(el?: HTMLIcButtonElement) => {
               if (focussed && el) {
                 focussedMonthRef(el);
               }

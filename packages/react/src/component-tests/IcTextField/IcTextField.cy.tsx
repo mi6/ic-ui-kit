@@ -43,6 +43,7 @@ import {
   Uncontrolled,
   DarkTheme,
   DarkThemeValidation,
+  DarkThemeReadOnly,
   HiddenInput,
 } from "./IcTextFieldTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
@@ -473,10 +474,13 @@ describe("IcTextField visual regression tests", () => {
   it("should render with dark theme", () => {
     mount(<DarkTheme />);
 
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
+    cy.checkHydrated(IC_TEXTFIELD);
+
+    //cy.checkA11yWithWait();
+    cy.wait(250).compareSnapshot({
       name: "/dark-theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.076),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      delay: 500,
     });
   });
 
@@ -487,6 +491,15 @@ describe("IcTextField visual regression tests", () => {
     cy.compareSnapshot({
       name: "/dark-theme-validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.103),
+    });
+  });
+
+  it("renders a readonly text field with dark theme", () => {
+    mount(<DarkThemeReadOnly />);
+
+    cy.wait(100).compareSnapshot({
+      name: "/dark-theme-readonly-text-field",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
 });

@@ -676,10 +676,10 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
       </ic-typography>
     </a>
   </ic-navigation-item>
-  <ic-navigation-group class="ic-navigation-group-expanded ic-navigation-group-side-nav" expandable="true" label="Second navigation group" role="listitem" slot="primary-navigation">
+  <ic-navigation-group class="ic-navigation-group-expandable ic-navigation-group-expanded ic-navigation-group-side-nav" expandable="true" label="Second navigation group" role="listitem" slot="primary-navigation">
     <template shadowrootmode="open">
-      <button aria-expanded="true" aria-haspopup="false" class="light navigation-group" tabindex="0">
-        <ic-typography variant="caption">
+      <button aria-expanded="true" aria-haspopup="false" class="light navigation-group">
+        <ic-typography id="nav-group-title" variant="caption">
           Second navigation group
         </ic-typography>
         <div class="chevron-toggle-icon-closed chevron-toggle-icon-wrapper">

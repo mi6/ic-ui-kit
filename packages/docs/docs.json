@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-accordion/ic-accordion.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion",
-      "readme": "# ic-accordion\n\n\n",
+      "readme": "# ic-accordion\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -268,7 +268,7 @@
       "filePath": "src/components/ic-accordion-group/ic-accordion-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion-group",
-      "readme": "# ic-accordion-title\n\n\n",
+      "readme": "# ic-accordion-title\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -538,7 +538,7 @@
       "filePath": "src/components/ic-alert/ic-alert.tsx",
       "encapsulation": "shadow",
       "tag": "ic-alert",
-      "readme": "# ic-alert\n\n\n",
+      "readme": "# ic-alert\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -877,7 +877,7 @@
       "filePath": "src/components/ic-back-to-top/ic-back-to-top.tsx",
       "encapsulation": "shadow",
       "tag": "ic-back-to-top",
-      "readme": "# ic-back-to-top\n\n\n",
+      "readme": "# ic-back-to-top\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1080,7 +1080,7 @@
       "filePath": "src/components/ic-badge/ic-badge.tsx",
       "encapsulation": "shadow",
       "tag": "ic-badge",
-      "readme": "# ic-badge\n\n\n",
+      "readme": "# ic-badge\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -1498,7 +1498,7 @@
       "filePath": "src/components/ic-breadcrumb/ic-breadcrumb.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb",
-      "readme": "# ic-breadcrumb\n\n\n",
+      "readme": "# ic-breadcrumb\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -1638,7 +1638,7 @@
       "filePath": "src/components/ic-breadcrumb-group/ic-breadcrumb-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb-group",
-      "readme": "# ic-breadcrumb-group\n\n\n",
+      "readme": "# ic-breadcrumb-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1790,7 +1790,7 @@
       "filePath": "src/components/ic-button/ic-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-button",
-      "readme": "# ic-button\n",
+      "readme": "# ic-button\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -2972,7 +2972,7 @@
       "filePath": "src/components/ic-card-vertical/ic-card-vertical.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-vertical",
-      "readme": "# ic-card-vertical\n\n\n",
+      "readme": "# ic-card-vertical\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -3525,7 +3525,7 @@
       "filePath": "src/components/ic-checkbox/ic-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox",
-      "readme": "# ic-checkbox\n\n\n",
+      "readme": "# ic-checkbox\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -4010,7 +4010,7 @@
       "filePath": "src/components/ic-checkbox-group/ic-checkbox-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox-group",
-      "readme": "# ic-checkbox-group\n\n\n",
+      "readme": "# ic-checkbox-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4309,7 +4309,7 @@
           "mutable": false,
           "attr": "validation-text",
           "reflectToAttr": false,
-          "docs": "The validation text - e.g. 'error' | 'warning' | 'success'.",
+          "docs": "The text to display as the validation message.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -4386,7 +4386,7 @@
       "filePath": "src/components/ic-chip/ic-chip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-chip",
-      "readme": "# ic-chip\n\n\n",
+      "readme": "# ic-chip\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -4764,7 +4764,7 @@
       "filePath": "src/components/ic-classification-banner/ic-classification-banner.tsx",
       "encapsulation": "shadow",
       "tag": "ic-classification-banner",
-      "readme": "# ic-classification-banner\n\n\n",
+      "readme": "# ic-classification-banner\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4954,7 +4954,7 @@
       "filePath": "src/components/ic-data-list/ic-data-list.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-list",
-      "readme": "# ic-data-list\n\n\n",
+      "readme": "# ic-data-list\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -5096,7 +5096,7 @@
       "filePath": "src/components/ic-data-row/ic-data-row.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-row",
-      "readme": "# ic-data-row\n\n\n",
+      "readme": "# ic-data-row\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -5280,7 +5280,7 @@
       "filePath": "src/components/ic-dialog/ic-dialog.tsx",
       "encapsulation": "shadow",
       "tag": "ic-dialog",
-      "readme": "# ic-dialog\n\n\n",
+      "readme": "# ic-dialog\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -5302,33 +5302,6 @@
       ],
       "usage": {},
       "props": [
-        {
-          "name": "buttons",
-          "type": "boolean | undefined",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean | undefined",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "buttons",
-          "reflectToAttr": false,
-          "docs": "If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.",
-          "docsTags": [],
-          "default": "true",
-          "values": [
-            {
-              "type": "boolean"
-            },
-            {
-              "type": "undefined"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
         {
           "name": "closeOnBackdropClick",
           "type": "boolean | undefined",
@@ -5513,6 +5486,30 @@
             }
           ],
           "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "hideDefaultControls",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-default-controls",
+          "reflectToAttr": false,
+          "docs": "If set to `true`, default button controls will not be shown, but slotted dialog controls will still be displayed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -5819,7 +5816,7 @@
       "filePath": "src/components/ic-divider/ic-divider.tsx",
       "encapsulation": "scoped",
       "tag": "ic-divider",
-      "readme": "# ic-divider\n\n\n",
+      "readme": "# ic-divider\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6169,7 +6166,7 @@
       "filePath": "src/components/ic-empty-state/ic-empty-state.tsx",
       "encapsulation": "shadow",
       "tag": "ic-empty-state",
-      "readme": "# ic-empty-state\n\n\n",
+      "readme": "# ic-empty-state\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -6467,7 +6464,7 @@
       "filePath": "src/components/ic-footer/ic-footer.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer",
-      "readme": "# ic-footer\n\n\n",
+      "readme": "# ic-footer\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -6734,7 +6731,7 @@
       "filePath": "src/components/ic-footer-link/ic-footer-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link",
-      "readme": "# ic-footer-link\n\n\n",
+      "readme": "# ic-footer-link\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6970,7 +6967,7 @@
       "filePath": "src/components/ic-footer-link-group/ic-footer-link-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link-group",
-      "readme": "# ic-footer-link-group\n\n\n",
+      "readme": "# ic-footer-link-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7034,7 +7031,7 @@
       "filePath": "src/components/ic-hero/ic-hero.tsx",
       "encapsulation": "shadow",
       "tag": "ic-hero",
-      "readme": "# ic-hero\n\n\n",
+      "readme": "# ic-hero\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -7384,7 +7381,7 @@
       "filePath": "src/components/ic-horizontal-scroll/ic-horizontal-scroll.tsx",
       "encapsulation": "shadow",
       "tag": "ic-horizontal-scroll",
-      "readme": "# ic-horizontal-scroll\n\n\n",
+      "readme": "# ic-horizontal-scroll\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7476,7 +7473,7 @@
       "filePath": "src/components/ic-input-component-container/ic-input-component-container.tsx",
       "encapsulation": "none",
       "tag": "ic-input-component-container",
-      "readme": "# ic-input-container\n\n\n",
+      "readme": "# ic-input-container\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -7808,7 +7805,7 @@
       "filePath": "src/components/ic-input-container/ic-input-container.tsx",
       "encapsulation": "none",
       "tag": "ic-input-container",
-      "readme": "# ic-input-container\n\n\n",
+      "readme": "# ic-input-container\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7896,7 +7893,7 @@
       "filePath": "src/components/ic-input-label/ic-input-label.tsx",
       "encapsulation": "none",
       "tag": "ic-input-label",
-      "readme": "# ic-input-label\n\n\n",
+      "readme": "# ic-input-label\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -8147,7 +8144,7 @@
       "filePath": "src/components/ic-input-validation/ic-input-validation.tsx",
       "encapsulation": "none",
       "tag": "ic-input-validation",
-      "readme": "# ic-input-validation\n\n\n",
+      "readme": "# ic-input-validation\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -8359,7 +8356,7 @@
       "filePath": "src/components/ic-link/ic-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-link",
-      "readme": "# ic-link\n\n\n",
+      "readme": "# ic-link\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -8699,7 +8696,7 @@
       "filePath": "src/components/ic-loading-indicator/ic-loading-indicator.tsx",
       "encapsulation": "shadow",
       "tag": "ic-loading-indicator",
-      "readme": "# ic-loading\n\n\n",
+      "readme": "# ic-loading\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -9096,7 +9093,7 @@
       "filePath": "src/components/ic-menu/ic-menu.tsx",
       "encapsulation": "scoped",
       "tag": "ic-menu",
-      "readme": "# ic-menu\n\n\n",
+      "readme": "# ic-menu\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -9614,7 +9611,7 @@
       "filePath": "src/components/ic-menu-group/ic-menu-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-group",
-      "readme": "# ic-menu-group\n\n\n",
+      "readme": "# ic-menu-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -9666,7 +9663,7 @@
       "filePath": "src/components/ic-menu-item/ic-menu-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-item",
-      "readme": "# ic-menu-item\n\n\n",
+      "readme": "# ic-menu-item\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -10105,7 +10102,7 @@
       "filePath": "src/components/ic-navigation-button/ic-navigation-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-button",
-      "readme": "# ic-navigation-button\n\n\n",
+      "readme": "# ic-navigation-button\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -10464,7 +10461,7 @@
       "filePath": "src/components/ic-navigation-group/ic-navigation-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-group",
-      "readme": "# ic-navigation-group\n\n\n",
+      "readme": "# ic-navigation-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -10480,7 +10477,7 @@
           "mutable": false,
           "attr": "expandable",
           "reflectToAttr": false,
-          "docs": "If `true`, the group will be expandable in the side menu.",
+          "docs": "If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -10634,7 +10631,7 @@
       "filePath": "src/components/ic-navigation-item/ic-navigation-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-item",
-      "readme": "# ic-navigation-item\n\n\n",
+      "readme": "# ic-navigation-item\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -11021,7 +11018,7 @@
       "filePath": "src/components/ic-navigation-menu/ic-navigation-menu.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-menu",
-      "readme": "# ic-navigation-menu\n\n\n",
+      "readme": "# ic-navigation-menu\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -11197,7 +11194,7 @@
       "filePath": "src/components/ic-page-header/ic-page-header.tsx",
       "encapsulation": "shadow",
       "tag": "ic-page-header",
-      "readme": "# ic-page-header\n\n\n",
+      "readme": "# ic-page-header\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -11595,7 +11592,7 @@
       "filePath": "src/components/ic-pagination/ic-pagination.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination",
-      "readme": "# ic-pagination\n\n\n",
+      "readme": "# ic-pagination\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -12050,7 +12047,7 @@
       "filePath": "src/components/ic-pagination-item/ic-pagination-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-item",
-      "readme": "# ic-pagination-item\n\n\n",
+      "readme": "# ic-pagination-item\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -12292,7 +12289,7 @@
       "filePath": "src/components/ic-popover-menu/ic-popover-menu.tsx",
       "encapsulation": "shadow",
       "tag": "ic-popover-menu",
-      "readme": "# ic-popover-menu\n\nThis is a wrapper component to be placed around one or more ic-menu-item components.\n",
+      "readme": "# ic-popover-menu\r\n\r\nThis is a wrapper component to be placed around one or more ic-menu-item components.\r\n\r",
       "docs": "This is a wrapper component to be placed around one or more ic-menu-item components.",
       "docsTags": [],
       "usage": {},
@@ -12514,7 +12511,7 @@
       "filePath": "src/components/ic-radio-group/ic-radio-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-radio-group",
-      "readme": "# ic-radio-group\n\n\n",
+      "readme": "# ic-radio-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -12846,7 +12843,7 @@
           "mutable": false,
           "attr": "validation-text",
           "reflectToAttr": false,
-          "docs": "The validation text - e.g. 'error' | 'warning' | 'success'.",
+          "docs": "The text to display as the validation message.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -12923,7 +12920,7 @@
       "filePath": "src/components/ic-radio-option/ic-radio-option.tsx",
       "encapsulation": "none",
       "tag": "ic-radio-option",
-      "readme": "# ic-radio-option\n\n\n",
+      "readme": "# ic-radio-option\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -13316,7 +13313,7 @@
       "filePath": "src/components/ic-search-bar/ic-search-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-search-bar",
-      "readme": "# ic-search-bar\n\n\n",
+      "readme": "# ic-search-bar\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -14494,7 +14491,7 @@
       "filePath": "src/components/ic-section-container/ic-section-container.tsx",
       "encapsulation": "shadow",
       "tag": "ic-section-container",
-      "readme": "# ic-section-container\n\n\n",
+      "readme": "# ic-section-container\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -14605,7 +14602,7 @@
       "filePath": "src/components/ic-select/ic-select.tsx",
       "encapsulation": "shadow",
       "tag": "ic-select",
-      "readme": "# ic-select\n\n\n",
+      "readme": "# ic-select\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -15467,7 +15464,7 @@
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the select, reflected by the value of the currently selected option.\nFor the searchable variant, the value is also reflected by the user input.\nFor the multi-select variant, the value must be an array of option values.",
+          "docs": "The value of the select, reflected by the value of the currently selected option.\r\nFor the searchable variant, the value is also reflected by the user input.\r\nFor the multi-select variant, the value must be an array of option values.",
           "docsTags": [],
           "values": [
             {
@@ -15661,7 +15658,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when an option is selected.\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
+          "docs": "Emitted when an option is selected.\r\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
           "docsTags": []
         },
         {
@@ -15758,7 +15755,7 @@
       "filePath": "src/components/ic-side-navigation/ic-side-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-side-navigation",
-      "readme": "# ic-side-navigation\n\n\n",
+      "readme": "# ic-side-navigation\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -16137,8 +16134,8 @@
       "filePath": "src/components/ic-skeleton/ic-skeleton.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skeleton",
-      "readme": "# ic-skeleton\n\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \n",
-      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
+      "readme": "# ic-skeleton\r\n\r\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \r\n\r",
+      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -16241,7 +16238,7 @@
       "filePath": "src/components/ic-skip-link/ic-skip-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skip-link",
-      "readme": "# ic-skip-link\n\n\n",
+      "readme": "# ic-skip-link\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16455,7 +16452,7 @@
       "filePath": "src/components/ic-status-tag/ic-status-tag.tsx",
       "encapsulation": "shadow",
       "tag": "ic-status-tag",
-      "readme": "# ic-status-tag\n\n\n",
+      "readme": "# ic-status-tag\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16720,7 +16717,7 @@
       "filePath": "src/components/ic-step/ic-step.tsx",
       "encapsulation": "shadow",
       "tag": "ic-step",
-      "readme": "# ic-step\n\n\n",
+      "readme": "# ic-step\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16886,7 +16883,7 @@
       "filePath": "src/components/ic-stepper/ic-stepper.tsx",
       "encapsulation": "shadow",
       "tag": "ic-stepper",
-      "readme": "# ic-stepper\n\nThis is a wrapper component to be placed around one or more ic-step components\n",
+      "readme": "# ic-stepper\r\n\r\nThis is a wrapper component to be placed around one or more ic-step components\r\n\r",
       "docs": "This is a wrapper component to be placed around one or more ic-step components",
       "docsTags": [],
       "usage": {},
@@ -17078,7 +17075,7 @@
       "filePath": "src/components/ic-switch/ic-switch.tsx",
       "encapsulation": "shadow",
       "tag": "ic-switch",
-      "readme": "# ic-switch\n\n\n",
+      "readme": "# ic-switch\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -17457,7 +17454,7 @@
       "filePath": "src/components/ic-tab/ic-tab.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab",
-      "readme": "# ic-tab\n\n\n",
+      "readme": "# ic-tab\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -17551,7 +17548,7 @@
       "filePath": "src/components/ic-tab-context/ic-tab-context.tsx",
       "encapsulation": "none",
       "tag": "ic-tab-context",
-      "readme": "# ic-tab-context\n\n\n",
+      "readme": "# ic-tab-context\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17773,7 +17770,7 @@
       "filePath": "src/components/ic-tab-group/ic-tab-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-group",
-      "readme": "# ic-tab-group\n\n\n",
+      "readme": "# ic-tab-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17863,7 +17860,7 @@
       "filePath": "src/components/ic-tab-panel/ic-tab-panel.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-panel",
-      "readme": "# ic-tab-panel\n\n\n",
+      "readme": "# ic-tab-panel\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17882,7 +17879,7 @@
       "filePath": "src/components/ic-text-field/ic-text-field.tsx",
       "encapsulation": "shadow",
       "tag": "ic-text-field",
-      "readme": "# ic-textfield\n\n\n",
+      "readme": "# ic-textfield\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -18348,6 +18345,60 @@
           "setter": false
         },
         {
+          "name": "maxCharactersMessage",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-characters-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.",
+          "docsTags": [],
+          "default": "`Maximum input is ${this.maxCharacters} characters`",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "maxMessage",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.",
+          "docsTags": [],
+          "default": "`Maximum value of ${this.max} exceeded`",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "min",
           "type": "number | string | undefined",
           "complexType": {
@@ -18393,6 +18444,60 @@
           "values": [
             {
               "type": "number"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "minCharactersMessage",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "min-characters-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.",
+          "docsTags": [],
+          "default": "`Minimum input is ${this.minCharacters} characters`",
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "minMessage",
+          "type": "string | undefined",
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "min-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the error message when the minimum value (the `min` prop value) has not been met.",
+          "docsTags": [],
+          "default": "`Minimum value of ${this.min} not met`",
+          "values": [
+            {
+              "type": "string"
             },
             {
               "type": "undefined"
@@ -18813,7 +18918,7 @@
           "mutable": false,
           "attr": "validation-text",
           "reflectToAttr": false,
-          "docs": "The validation state - e.g. 'error' | 'warning' | 'success'.",
+          "docs": "The text to display as the validation message.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -19028,7 +19133,7 @@
       "filePath": "src/components/ic-theme/ic-theme.tsx",
       "encapsulation": "none",
       "tag": "ic-theme",
-      "readme": "# ic-theme\n\n\n",
+      "readme": "# ic-theme\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -19126,7 +19231,7 @@
       "filePath": "src/components/ic-toast/ic-toast.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toast",
-      "readme": "# ic-toast\n\n\n",
+      "readme": "# ic-toast\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -19151,7 +19256,7 @@
           "mutable": true,
           "attr": "auto-dismiss-timeout",
           "reflectToAttr": false,
-          "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\n(NOTE: Has a minimum value of `5000ms`)",
+          "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\r\n(NOTE: Has a minimum value of `5000ms`)",
           "docsTags": [],
           "default": "5000",
           "values": [
@@ -19444,7 +19549,7 @@
       "filePath": "src/components/ic-toast-region/ic-toast-region.tsx",
       "encapsulation": "none",
       "tag": "ic-toast-region",
-      "readme": "# ic-toast-region\n\n\n",
+      "readme": "# ic-toast-region\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -19500,7 +19605,7 @@
       "filePath": "src/components/ic-toggle-button/ic-toggle-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button",
-      "readme": "# ic-toggle-button\n\n\n",
+      "readme": "# ic-toggle-button\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -19967,7 +20072,7 @@
       "filePath": "src/components/ic-toggle-button-group/ic-toggle-button-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button-group",
-      "readme": "# ic-toggle-button-group\n\n\n",
+      "readme": "# ic-toggle-button-group\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -20413,7 +20518,7 @@
       "filePath": "src/components/ic-tooltip/ic-tooltip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tooltip",
-      "readme": "# ic-tooltip\n\n\n",
+      "readme": "# ic-tooltip\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -20765,7 +20870,7 @@
       "filePath": "src/components/ic-top-navigation/ic-top-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-top-navigation",
-      "readme": "# ic-top-navigation\n\n\n",
+      "readme": "# ic-top-navigation\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
         {
@@ -21207,7 +21312,7 @@
       "filePath": "src/components/ic-typography/ic-typography.tsx",
       "encapsulation": "shadow",
       "tag": "ic-typography",
-      "readme": "# ic-typography\n\n\n",
+      "readme": "# ic-typography\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -21936,12 +22041,12 @@
       "path": "src/components/ic-menu-item/ic-menu-item.types.ts"
     },
     "src/components/ic-navigation-group/ic-navigation-group.types.ts::IcNavigationOpenEventDetail": {
-      "declaration": "export interface IcNavigationOpenEventDetail {\n  source: HTMLElement;\n}",
+      "declaration": "export interface IcNavigationOpenEventDetail {\r\n  source: HTMLElement;\r\n}",
       "docstring": "",
       "path": "src/components/ic-navigation-group/ic-navigation-group.types.ts"
     },
     "src/components/ic-navigation-group/ic-navigation-group.types.ts::IcNavigationExpandEventDetail": {
-      "declaration": "export interface IcNavigationExpandEventDetail {\n  expanded: boolean;\n}",
+      "declaration": "export interface IcNavigationExpandEventDetail {\r\n  expanded: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-navigation-group/ic-navigation-group.types.ts"
     },

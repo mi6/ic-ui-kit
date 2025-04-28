@@ -95,11 +95,11 @@ ic-tooltip:focus-within {
 }
 
 .outlined {
-  color: var(--ic-chip-label);
+  color: var(--ic-chip-outline-label);
   border-color: var(--chip-custom-color, var(--ic-chip-outline));
   padding: calc(var(--ic-space-xxs));
 
-  --ic-typography-color: var(--ic-chip-label);
+  --ic-typography-color: var(--ic-chip-outline-label);
 }
 
 .outlined.disabled {

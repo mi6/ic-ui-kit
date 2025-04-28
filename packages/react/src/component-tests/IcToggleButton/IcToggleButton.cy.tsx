@@ -145,7 +145,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     });
   });
 
-  it.skip("should render disabled", () => {
+  it("should render disabled", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" disabled />
@@ -157,7 +157,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "/disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -406,7 +406,7 @@ describe("IcToggleButton visual regression tests in high contrast mode", () => {
     });
   });
 
-  it.skip("should render disabled in high contrast mode", () => {
+  it("should render disabled in high contrast mode", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" disabled />
@@ -417,7 +417,7 @@ describe("IcToggleButton visual regression tests in high contrast mode", () => {
 
     cy.compareSnapshot({
       name: "/disabled-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
 

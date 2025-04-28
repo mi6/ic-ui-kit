@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
-      "readme": "# ic-horizontal-card\r\n\r\n\r\n\r",
+      "readme": "# ic-horizontal-card\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -54,7 +54,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -78,17 +78,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "heading",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -99,6 +99,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -108,10 +111,10 @@
         },
         {
           "name": "href",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string | undefined",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -122,6 +125,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -131,10 +137,10 @@
         },
         {
           "name": "hreflang",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -146,6 +152,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -155,10 +164,10 @@
         },
         {
           "name": "message",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -170,6 +179,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -179,10 +191,10 @@
         },
         {
           "name": "referrerpolicy",
-          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
           "complexType": {
             "original": "ReferrerPolicy",
-            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
             "references": {
               "ReferrerPolicy": {
                 "location": "global",
@@ -230,6 +242,9 @@
             {
               "value": "unsafe-url",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -239,10 +254,10 @@
         },
         {
           "name": "rel",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -253,6 +268,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -305,10 +323,10 @@
         },
         {
           "name": "target",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -319,6 +337,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -328,15 +349,15 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeMode"
+                "path": "@ukic/web-components",
+                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
               }
             }
           },
@@ -358,6 +379,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -448,7 +472,7 @@
       "filePath": "src/components/ic-data-table/ic-data-table.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table",
-      "readme": "# ic-data-table\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -551,10 +575,10 @@
         },
         {
           "name": "data",
-          "type": "IcDataTableDataType[]",
+          "type": "IcDataTableDataType[] | undefined",
           "complexType": {
             "original": "IcDataTableDataType[]",
-            "resolved": "IcDataTableDataType[]",
+            "resolved": "IcDataTableDataType[] | undefined",
             "references": {
               "IcDataTableDataType": {
                 "location": "import",
@@ -570,6 +594,9 @@
           "values": [
             {
               "type": "IcDataTableDataType[]"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -611,17 +638,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disableAutoSort",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -633,6 +660,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -659,7 +689,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -693,17 +723,17 @@
               "type": "number"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "height",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -714,6 +744,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -723,10 +756,10 @@
         },
         {
           "name": "hideColumnHeaders",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -738,30 +771,9 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "highlightSelectedRow",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "highlight-selected-row",
-          "reflectToAttr": false,
-          "docs": "If `true`, the selected row is highlighted using a background colour.",
-          "docsTags": [],
-          "default": "true",
-          "values": [
+            },
             {
-              "type": "boolean"
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -788,17 +800,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "loadingOptions",
-          "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; monochrome?: boolean; overlay?: boolean; }",
+          "type": "undefined | { description?: string | undefined; label?: string | undefined; labelDuration?: number | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; overlay?: boolean | undefined; }",
           "complexType": {
-            "original": "{\r\n    description?: string;\r\n    label?: string;\r\n    labelDuration?: number;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    monochrome?: boolean;\r\n    overlay?: boolean;\r\n  }",
-            "resolved": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; monochrome?: boolean; overlay?: boolean; }",
+            "original": "{\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n    overlay?: boolean;\n  }",
+            "resolved": "undefined | { description?: string | undefined; label?: string | undefined; labelDuration?: number | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; overlay?: boolean | undefined; }",
             "references": {}
           },
           "mutable": false,
@@ -807,7 +819,34 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; monochrome?: boolean; overlay?: boolean; }"
+              "type": "undefined"
+            },
+            {
+              "type": "{ description?: string"
+            },
+            {
+              "type": "undefined; label?: string"
+            },
+            {
+              "type": "undefined; labelDuration?: number"
+            },
+            {
+              "type": "undefined; max?: number"
+            },
+            {
+              "type": "undefined; min?: number"
+            },
+            {
+              "type": "undefined; progress?: number"
+            },
+            {
+              "type": "undefined; monochrome?: boolean"
+            },
+            {
+              "type": "undefined; overlay?: boolean"
+            },
+            {
+              "type": "undefined; }"
             }
           ],
           "optional": true,
@@ -817,10 +856,10 @@
         },
         {
           "name": "maxWidth",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -831,6 +870,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -840,10 +882,10 @@
         },
         {
           "name": "minWidth",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -854,6 +896,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -880,7 +925,7 @@
               "type": "number"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -903,23 +948,47 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
           "docsTags": [],
-          "default": "{\r\n    alignment: \"right\",\r\n    hideAllFromItemsPerPage: false,\r\n    hideRangeLabel: false,\r\n    itemLabel: \"Item\",\r\n    itemsPerPageOptions: [\r\n      { label: \"10\", value: \"10\" },\r\n      { label: \"25\", value: \"25\" },\r\n      { label: \"50\", value: \"50\" },\r\n    ],\r\n    monochrome: false,\r\n    pageLabel: \"Page\",\r\n    rangeLabelType: \"page\",\r\n    selectedItemsPerPage: 10,\r\n    setToFirstPageOnPaginationChange: false,\r\n    showGoToPageControl: true,\r\n    showItemsPerPageControl: true,\r\n    type: \"simple\",\r\n  }",
+          "default": "{\n    alignment: \"right\",\n    hideAllFromItemsPerPage: false,\n    hideRangeLabel: false,\n    itemLabel: \"Item\",\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    monochrome: false,\n    pageLabel: \"Page\",\n    rangeLabelType: \"page\",\n    selectedItemsPerPage: 10,\n    setToFirstPageOnPaginationChange: false,\n    showGoToPageControl: true,\n    showItemsPerPageControl: true,\n    type: \"simple\",\n  }",
           "values": [
             {
               "type": "IcPaginationBarOptions"
             }
           ],
-          "optional": true,
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "rowSelection",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "row-selection",
+          "reflectToAttr": false,
+          "docs": "If `true`, a checkbox column will be displayed to the left of the table which allows multiple rows to be selected.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "showPagination",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -931,6 +1000,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -940,10 +1012,10 @@
         },
         {
           "name": "sortOptions",
-          "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }",
+          "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string | undefined; }",
           "complexType": {
-            "original": "{\r\n    sortOrders: IcDataTableSortOrderOptions[];\r\n    defaultColumn?: string;\r\n  }",
-            "resolved": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }",
+            "original": "{\n    sortOrders: IcDataTableSortOrderOptions[];\n    defaultColumn?: string;\n  }",
+            "resolved": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string | undefined; }",
             "references": {
               "IcDataTableSortOrderOptions": {
                 "location": "import",
@@ -956,23 +1028,26 @@
           "reflectToAttr": false,
           "docs": "Sets the order columns will be sorted in and allows for 'default' sorts to be added.",
           "docsTags": [],
-          "default": "{\r\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\r\n    defaultColumn: \"\",\r\n  }",
+          "default": "{\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\n    defaultColumn: \"\",\n  }",
           "values": [
             {
-              "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }"
+              "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string"
+            },
+            {
+              "type": "undefined; }"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "sortable",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -984,6 +1059,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1010,7 +1088,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -1034,17 +1112,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "tableLayout",
-          "type": "\"auto\" | \"fixed\"",
+          "type": "\"auto\" | \"fixed\" | undefined",
           "complexType": {
             "original": "\"fixed\" | \"auto\"",
-            "resolved": "\"auto\" | \"fixed\"",
+            "resolved": "\"auto\" | \"fixed\" | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1061,6 +1139,9 @@
             {
               "value": "fixed",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1070,10 +1151,10 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -1100,6 +1181,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1109,10 +1193,10 @@
         },
         {
           "name": "truncationPattern",
-          "type": "\"show-hide\" | \"tooltip\"",
+          "type": "\"show-hide\" | \"tooltip\" | undefined",
           "complexType": {
             "original": "IcDataTableTruncationTypes",
-            "resolved": "\"show-hide\" | \"tooltip\"",
+            "resolved": "\"show-hide\" | \"tooltip\" | undefined",
             "references": {
               "IcDataTableTruncationTypes": {
                 "location": "import",
@@ -1134,6 +1218,9 @@
             {
               "value": "tooltip",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1160,17 +1247,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "updatingOptions",
-          "type": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
+          "type": "undefined | { description?: string | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; }",
           "complexType": {
-            "original": "{\r\n    description?: string;\r\n    max?: number;\r\n    min?: number;\r\n    progress?: number;\r\n    monochrome?: boolean;\r\n  }",
-            "resolved": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }",
+            "original": "{\n    description?: string;\n    max?: number;\n    min?: number;\n    progress?: number;\n    monochrome?: boolean;\n  }",
+            "resolved": "undefined | { description?: string | undefined; max?: number | undefined; min?: number | undefined; progress?: number | undefined; monochrome?: boolean | undefined; }",
             "references": {}
           },
           "mutable": false,
@@ -1179,7 +1266,25 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ description?: string; max?: number; min?: number; progress?: number; monochrome?: boolean; }"
+              "type": "undefined"
+            },
+            {
+              "type": "{ description?: string"
+            },
+            {
+              "type": "undefined; max?: number"
+            },
+            {
+              "type": "undefined; min?: number"
+            },
+            {
+              "type": "undefined; progress?: number"
+            },
+            {
+              "type": "undefined; monochrome?: boolean"
+            },
+            {
+              "type": "undefined; }"
             }
           ],
           "optional": true,
@@ -1189,10 +1294,10 @@
         },
         {
           "name": "variableRowHeight",
-          "type": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights",
+          "type": "((params: { [key: string]: any; index: number; }) => IcDataTableRowHeights | null) | undefined",
           "complexType": {
-            "original": "(params: {\r\n    [key: string]: any;\r\n    index: number;\r\n  }) => IcDataTableRowHeights | null",
-            "resolved": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights",
+            "original": "(params: {\n    [key: string]: any;\n    index: number;\n  }) => IcDataTableRowHeights | null",
+            "resolved": "((params: { [key: string]: any; index: number; }) => IcDataTableRowHeights | null) | undefined",
             "references": {
               "IcDataTableRowHeights": {
                 "location": "import",
@@ -1203,11 +1308,17 @@
           },
           "mutable": true,
           "reflectToAttr": false,
-          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\r\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
+          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
           "docsTags": [],
           "values": [
             {
-              "type": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights"
+              "type": "((params: { [key: string]: any; index: number; }) => IcDataTableRowHeights"
+            },
+            {
+              "type": "null)"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1217,10 +1328,10 @@
         },
         {
           "name": "width",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1231,6 +1342,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1251,7 +1365,7 @@
             "parameters": [
               {
                 "name": "rowHeight",
-                "type": "number | \"auto\"",
+                "type": "number | \"auto\" | undefined",
                 "docs": ""
               }
             ],
@@ -1267,7 +1381,7 @@
           "parameters": [
             {
               "name": "rowHeight",
-              "type": "number | \"auto\"",
+              "type": "number | \"auto\" | undefined",
               "docs": ""
             }
           ],
@@ -1291,13 +1405,39 @@
           "docsTags": []
         },
         {
-          "event": "icSelectedRowChange",
-          "detail": "object",
+          "event": "icSelectAllRows",
+          "detail": "IcDataTableDataType[]",
           "bubbles": true,
           "complexType": {
-            "original": "object",
-            "resolved": "object",
-            "references": {}
+            "original": "IcDataTableDataType[]",
+            "resolved": "IcDataTableDataType[]",
+            "references": {
+              "IcDataTableDataType": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableDataType"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when all rows are selected or deselected in the data table via the \"select all\" checkbox.",
+          "docsTags": []
+        },
+        {
+          "event": "icSelectedRowChange",
+          "detail": "{ row: IcDataTableDataType | null; selectedRows: IcDataTableDataType[]; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{\r\n    row: IcDataTableDataType | null;\r\n    selectedRows: IcDataTableDataType[];\r\n  }",
+            "resolved": "{ row: IcDataTableDataType | null; selectedRows: IcDataTableDataType[]; }",
+            "references": {
+              "IcDataTableDataType": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableDataType"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -1345,12 +1485,6 @@
           "event": "icTableDensityUpdate",
           "capture": false,
           "passive": false
-        },
-        {
-          "event": "click",
-          "target": "window",
-          "capture": false,
-          "passive": false
         }
       ],
       "styles": [],
@@ -1384,6 +1518,7 @@
         "ic-link",
         "ic-tooltip",
         "ic-button",
+        "ic-checkbox",
         "ic-empty-state",
         "ic-pagination-bar"
       ],
@@ -1394,6 +1529,7 @@
           "ic-link",
           "ic-tooltip",
           "ic-button",
+          "ic-checkbox",
           "ic-empty-state",
           "ic-pagination-bar"
         ],
@@ -1407,6 +1543,9 @@
           "ic-typography",
           "ic-loading-indicator",
           "ic-tooltip"
+        ],
+        "ic-checkbox": [
+          "ic-typography"
         ],
         "ic-empty-state": [
           "ic-typography"
@@ -1459,7 +1598,7 @@
       "filePath": "src/components/ic-data-table-title-bar/ic-data-table-title-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table-title-bar",
-      "readme": "# ic-data-table-title-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table-title-bar\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1483,10 +1622,10 @@
       "props": [
         {
           "name": "description",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1497,6 +1636,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1506,10 +1648,10 @@
         },
         {
           "name": "heading",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1521,6 +1663,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1530,10 +1675,10 @@
         },
         {
           "name": "hideDensitySelect",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1545,6 +1690,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1554,10 +1702,10 @@
         },
         {
           "name": "metadata",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1568,6 +1716,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1667,7 +1818,7 @@
       "filePath": "src/components/ic-date-input/ic-date-input.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-input",
-      "readme": "# ic-date-input\r\n\r\n\r\n\r",
+      "readme": "# ic-date-input\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1691,7 +1842,7 @@
           "reflectToAttr": false,
           "docs": "The format in which the date will be displayed.",
           "docsTags": [],
-          "default": "\"DD/MM/YYYY\"",
+          "default": "this.DEFAULT_DATE_FORMAT",
           "values": [
             {
               "value": "DD/MM/YYYY",
@@ -1706,7 +1857,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -1735,7 +1886,7 @@
               "type": "IcWeekDays[]"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -1759,17 +1910,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disableFuture",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1781,6 +1932,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1807,17 +1961,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disablePast",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1829,6 +1983,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1855,7 +2012,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -1879,17 +2036,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "emitDatePartChange",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1901,6 +2058,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1910,10 +2070,10 @@
         },
         {
           "name": "helperText",
-          "type": "string",
+          "type": "null | string",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "string | null",
+            "resolved": "null | string",
             "references": {}
           },
           "mutable": true,
@@ -1923,10 +2083,13 @@
           "docsTags": [],
           "values": [
             {
+              "type": "null"
+            },
+            {
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -1957,10 +2120,10 @@
         },
         {
           "name": "hideLabel",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -1972,6 +2135,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -1998,7 +2164,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2022,7 +2188,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2066,7 +2232,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2077,7 +2243,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2098,7 +2264,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2109,7 +2275,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2157,17 +2323,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "showClearButton",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2179,6 +2345,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2220,17 +2389,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -2257,6 +2426,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2301,17 +2473,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "validationText",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2323,6 +2495,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2332,10 +2507,10 @@
         },
         {
           "name": "value",
-          "type": "Date | string",
+          "type": "Date | null | string | undefined",
           "complexType": {
             "original": "string | Date | null | undefined",
-            "resolved": "Date | string",
+            "resolved": "Date | null | string | undefined",
             "references": {
               "Date": {
                 "location": "global",
@@ -2354,7 +2529,13 @@
               "type": "Date"
             },
             {
+              "type": "null"
+            },
+            {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2367,11 +2548,11 @@
         {
           "name": "getDate",
           "returns": {
-            "type": "Promise<Date>",
+            "type": "Promise<Date | null>",
             "docs": "Date"
           },
           "complexType": {
-            "signature": "() => Promise<Date>",
+            "signature": "() => Promise<Date | null>",
             "parameters": [],
             "references": {
               "Promise": {
@@ -2383,9 +2564,9 @@
                 "id": "global::Date"
               }
             },
-            "return": "Promise<Date>"
+            "return": "Promise<Date | null>"
           },
-          "signature": "getDate() => Promise<Date>",
+          "signature": "getDate() => Promise<Date | null>",
           "parameters": [],
           "docs": "Returns the value as a Date object",
           "docsTags": [
@@ -2399,11 +2580,11 @@
       "events": [
         {
           "event": "icBlur",
-          "detail": "{ value: Date; }",
+          "detail": "{ value: Date | null; }",
           "bubbles": true,
           "complexType": {
-            "original": "{ value: Date }",
-            "resolved": "{ value: Date; }",
+            "original": "{ value: Date | null }",
+            "resolved": "{ value: Date | null; }",
             "references": {
               "Date": {
                 "location": "global",
@@ -2418,11 +2599,11 @@
         },
         {
           "event": "icChange",
-          "detail": "{ value: Date; dateObject: { day: string; month: string; year: string; }; }",
+          "detail": "{ value: Date | null; dateObject: { day: string | null; month: string | null; year: string | null; }; utcValue: Date | null; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\r\n    value: Date;\r\n    dateObject: { day: string; month: string; year: string };\r\n  }",
-            "resolved": "{ value: Date; dateObject: { day: string; month: string; year: string; }; }",
+            "original": "{\n    value: Date | null;\n    dateObject: {\n      day: string | null;\n      month: string | null;\n      year: string | null;\n    };\n    utcValue: Date | null;\n  }",
+            "resolved": "{ value: Date | null; dateObject: { day: string | null; month: string | null; year: string | null; }; utcValue: Date | null; }",
             "references": {
               "Date": {
                 "location": "global",
@@ -2437,11 +2618,11 @@
         },
         {
           "event": "icFocus",
-          "detail": "{ value: Date; }",
+          "detail": "{ value: Date | null; }",
           "bubbles": true,
           "complexType": {
-            "original": "{ value: Date }",
-            "resolved": "{ value: Date; }",
+            "original": "{ value: Date | null }",
+            "resolved": "{ value: Date | null; }",
             "references": {
               "Date": {
                 "location": "global",
@@ -2503,7 +2684,7 @@
       "filePath": "src/components/ic-date-picker/ic-date-picker.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-picker",
-      "readme": "# ic-date-picker\r\n\r\n\r\n\r",
+      "readme": "# ic-date-picker\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2542,17 +2723,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disableDays",
-          "type": "IcWeekDays[]",
+          "type": "IcWeekDays[] | undefined",
           "complexType": {
             "original": "IcWeekDays[]",
-            "resolved": "IcWeekDays[]",
+            "resolved": "IcWeekDays[] | undefined",
             "references": {
               "IcWeekDays": {
                 "location": "import",
@@ -2569,6 +2750,9 @@
           "values": [
             {
               "type": "IcWeekDays[]"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2578,10 +2762,10 @@
         },
         {
           "name": "disableDaysMessage",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2593,6 +2777,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2602,10 +2789,10 @@
         },
         {
           "name": "disableFuture",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2617,6 +2804,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2626,10 +2816,10 @@
         },
         {
           "name": "disableFutureMessage",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2641,6 +2831,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2650,10 +2843,10 @@
         },
         {
           "name": "disablePast",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2665,6 +2858,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2674,10 +2870,10 @@
         },
         {
           "name": "disablePastMessage",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2689,6 +2885,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2715,17 +2914,17 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "emitDatePartChange",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2737,6 +2936,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2746,10 +2948,10 @@
         },
         {
           "name": "helperText",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2760,6 +2962,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2793,10 +2998,10 @@
         },
         {
           "name": "hideLabel",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2808,6 +3013,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2817,10 +3025,10 @@
         },
         {
           "name": "inputId",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2831,6 +3039,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2840,10 +3051,10 @@
         },
         {
           "name": "invalidDateMessage",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2855,6 +3066,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2901,7 +3115,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2912,7 +3126,7 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2933,7 +3147,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2944,17 +3158,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "name",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -2965,6 +3179,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -2988,7 +3205,7 @@
           "mutable": false,
           "attr": "open-at-date",
           "reflectToAttr": false,
-          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\r\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
+          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -3006,10 +3223,10 @@
         },
         {
           "name": "required",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3021,6 +3238,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3030,10 +3250,10 @@
         },
         {
           "name": "showDaysOutsideMonth",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3045,6 +3265,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3054,10 +3277,10 @@
         },
         {
           "name": "showPickerClearButton",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3069,6 +3292,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3078,10 +3304,10 @@
         },
         {
           "name": "showPickerTodayButton",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3093,6 +3319,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3102,10 +3331,10 @@
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\" | undefined",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -3132,6 +3361,9 @@
             {
               "value": "small",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3156,7 +3388,7 @@
           "mutable": false,
           "attr": "start-of-week",
           "reflectToAttr": false,
-          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\r\nDefault is Monday.",
+          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\nDefault is Monday.",
           "docsTags": [],
           "default": "IcWeekDays.Monday",
           "values": [
@@ -3182,17 +3414,17 @@
               "type": "IcWeekDays.Wednesday"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -3219,6 +3451,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3228,10 +3463,10 @@
         },
         {
           "name": "validationStatus",
-          "type": "\"\" | \"error\" | \"success\" | \"warning\"",
+          "type": "\"\" | \"error\" | \"success\" | \"warning\" | undefined",
           "complexType": {
             "original": "IcInformationStatusOrEmpty",
-            "resolved": "\"\" | \"error\" | \"success\" | \"warning\"",
+            "resolved": "\"\" | \"error\" | \"success\" | \"warning\" | undefined",
             "references": {
               "IcInformationStatusOrEmpty": {
                 "location": "import",
@@ -3261,6 +3496,9 @@
             {
               "value": "warning",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3270,10 +3508,10 @@
         },
         {
           "name": "validationText",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3285,6 +3523,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3294,10 +3535,10 @@
         },
         {
           "name": "value",
-          "type": "Date | string",
+          "type": "Date | null | string | undefined",
           "complexType": {
             "original": "string | Date | null | undefined",
-            "resolved": "Date | string",
+            "resolved": "Date | null | string | undefined",
             "references": {
               "Date": {
                 "location": "global",
@@ -3316,7 +3557,13 @@
               "type": "Date"
             },
             {
+              "type": "null"
+            },
+            {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3416,17 +3663,17 @@
       "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-bar",
-      "readme": "# ic-pagination-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination-bar\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
         {
           "name": "alignment",
-          "type": "\"left\" | \"right\" | \"space-between\"",
+          "type": "\"left\" | \"right\" | \"space-between\" | undefined",
           "complexType": {
             "original": "IcPaginationAlignmentOptions",
-            "resolved": "\"left\" | \"right\" | \"space-between\"",
+            "resolved": "\"left\" | \"right\" | \"space-between\" | undefined",
             "references": {
               "IcPaginationAlignmentOptions": {
                 "location": "import",
@@ -3453,6 +3700,9 @@
             {
               "value": "space-between",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3462,10 +3712,10 @@
         },
         {
           "name": "currentPage",
-          "type": "number",
+          "type": "number | undefined",
           "complexType": {
             "original": "number",
-            "resolved": "number",
+            "resolved": "number | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3477,6 +3727,9 @@
           "values": [
             {
               "type": "number"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3486,10 +3739,10 @@
         },
         {
           "name": "hideAllFromItemsPerPage",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3501,6 +3754,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3510,10 +3766,10 @@
         },
         {
           "name": "hideRangeLabel",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3525,6 +3781,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3534,10 +3793,10 @@
         },
         {
           "name": "itemLabel",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3549,6 +3808,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3558,10 +3820,10 @@
         },
         {
           "name": "itemsPerPageOptions",
-          "type": "{ label: string; value: string; }[]",
+          "type": "undefined | { label: string; value: string; }[]",
           "complexType": {
-            "original": "{\r\n    label: string;\r\n    value: string;\r\n  }[]",
-            "resolved": "{ label: string; value: string; }[]",
+            "original": "{\n    label: string;\n    value: string;\n  }[]",
+            "resolved": "undefined | { label: string; value: string; }[]",
             "references": {}
           },
           "mutable": false,
@@ -3569,6 +3831,9 @@
           "docs": "The options which will be displayed for 'items per page' select input.",
           "docsTags": [],
           "values": [
+            {
+              "type": "undefined"
+            },
             {
               "type": "{ label: string; value: string; }[]"
             }
@@ -3580,10 +3845,10 @@
         },
         {
           "name": "monochrome",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3595,6 +3860,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3604,10 +3872,10 @@
         },
         {
           "name": "pageLabel",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3619,6 +3887,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3628,10 +3899,10 @@
         },
         {
           "name": "rangeLabelType",
-          "type": "\"data\" | \"page\"",
+          "type": "\"data\" | \"page\" | undefined",
           "complexType": {
             "original": "IcPaginationLabelTypes",
-            "resolved": "\"data\" | \"page\"",
+            "resolved": "\"data\" | \"page\" | undefined",
             "references": {
               "IcPaginationLabelTypes": {
                 "location": "import",
@@ -3654,6 +3925,9 @@
             {
               "value": "page",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3663,10 +3937,10 @@
         },
         {
           "name": "selectedItemsPerPage",
-          "type": "number",
+          "type": "number | undefined",
           "complexType": {
             "original": "number",
-            "resolved": "number",
+            "resolved": "number | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3677,6 +3951,9 @@
           "values": [
             {
               "type": "number"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3686,10 +3963,10 @@
         },
         {
           "name": "setToFirstPageOnPaginationChange",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3701,6 +3978,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3710,10 +3990,10 @@
         },
         {
           "name": "showGoToPageControl",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3725,6 +4005,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3734,10 +4017,10 @@
         },
         {
           "name": "showItemsPerPageControl",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -3749,6 +4032,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3758,15 +4044,15 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcThemeMode"
+                "path": "@ukic/web-components",
+                "id": "../web-components/dist/types/interface.d.ts::IcThemeMode"
               }
             }
           },
@@ -3788,6 +4074,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3820,10 +4109,10 @@
         },
         {
           "name": "type",
-          "type": "\"complex\" | \"simple\"",
+          "type": "\"complex\" | \"simple\" | undefined",
           "complexType": {
             "original": "IcPaginationTypes",
-            "resolved": "\"complex\" | \"simple\"",
+            "resolved": "\"complex\" | \"simple\" | undefined",
             "references": {
               "IcPaginationTypes": {
                 "location": "import",
@@ -3846,6 +4135,9 @@
             {
               "value": "simple",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -3887,7 +4179,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when a page is navigated to via the 'go to' input.\r\nThe `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.",
+          "docs": "Emitted when a page is navigated to via the 'go to' input.\nThe `detail` property contains `value` (i.e. the page number) and a `fromItemsPerPage` flag to indicate if the event was triggered by the `icItemsPerPageChange` event also occurring.",
           "docsTags": []
         }
       ],
@@ -3975,7 +4267,7 @@
       "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-item",
-      "readme": "# ic-tree-item\r\n\r\n\r\n\r",
+      "readme": "# ic-tree-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4012,7 +4304,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4043,10 +4335,10 @@
         },
         {
           "name": "href",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string | undefined",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -4057,6 +4349,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4066,10 +4361,10 @@
         },
         {
           "name": "hreflang",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -4081,6 +4376,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4114,10 +4412,10 @@
         },
         {
           "name": "referrerpolicy",
-          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
           "complexType": {
             "original": "ReferrerPolicy",
-            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\" | undefined",
             "references": {
               "ReferrerPolicy": {
                 "location": "global",
@@ -4165,6 +4463,9 @@
             {
               "value": "unsafe-url",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4174,10 +4475,10 @@
         },
         {
           "name": "rel",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -4188,6 +4489,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4221,10 +4525,10 @@
         },
         {
           "name": "target",
-          "type": "string",
+          "type": "string | undefined",
           "complexType": {
             "original": "string",
-            "resolved": "string",
+            "resolved": "string | undefined",
             "references": {}
           },
           "mutable": false,
@@ -4235,6 +4539,9 @@
           "values": [
             {
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4244,10 +4551,10 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -4274,6 +4581,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4283,10 +4593,10 @@
         },
         {
           "name": "truncateTreeItem",
-          "type": "boolean",
+          "type": "boolean | undefined",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean",
+            "resolved": "boolean | undefined",
             "references": {}
           },
           "mutable": false,
@@ -4297,6 +4607,9 @@
           "values": [
             {
               "type": "boolean"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4387,7 +4700,7 @@
       "filePath": "src/components/ic-tree-view/ic-tree-view.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tree-view",
-      "readme": "# ic-tree-view\r\n\r\n\r\n\r",
+      "readme": "# ic-tree-view\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4420,7 +4733,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4444,17 +4757,17 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\" | undefined",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -4481,6 +4794,9 @@
             {
               "value": "small",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4490,10 +4806,10 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\"",
+          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -4520,6 +4836,9 @@
             {
               "value": "light",
               "type": "string"
+            },
+            {
+              "type": "undefined"
             }
           ],
           "optional": true,
@@ -4567,7 +4886,7 @@
           "mutable": true,
           "attr": "truncate-heading",
           "reflectToAttr": false,
-          "docs": "If `true`, the tree view heading will be truncated instead of text wrapping.\r\nWhen used on small devices, this prop will be overridden and headings will be set to text-wrap.",
+          "docs": "If `true`, the tree view heading will be truncated instead of text wrapping.\nWhen used on small devices, this prop will be overridden and headings will be set to text-wrap.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4575,7 +4894,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4591,7 +4910,7 @@
           "mutable": true,
           "attr": "truncate-tree-items",
           "reflectToAttr": false,
-          "docs": "If `true`, tree items will be truncated, unless they are individually overridden.\r\nWhen used on small devices, this prop will be overridden and tree-items will be set to text-wrap.",
+          "docs": "If `true`, tree items will be truncated, unless they are individually overridden.\nWhen used on small devices, this prop will be overridden and tree-items will be set to text-wrap.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4599,7 +4918,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4654,13 +4973,13 @@
       "docstring": "",
       "path": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts"
     },
-    "src/utils/types.ts::IcThemeMode": {
-      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
+    "../web-components/dist/types/interface.d.ts::IcThemeMode": {
+      "declaration": "any",
       "docstring": "",
-      "path": "src/utils/types.ts"
+      "path": "../web-components/dist/types/interface.d.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: {\n    textWrap: boolean;\n  };\n  columnWidth?: string | IcDataTableColumnWidthTypes;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n  excludeColumnFromSort?: boolean;\n}",
+      "declaration": "{\r\n  key: string;\r\n  title: string;\r\n  dataType: IcDataTableColumnDataTypes;\r\n  columnAlignment?: {\r\n    horizontal?: string;\r\n    vertical?: string;\r\n  };\r\n  rowOptions?: {\r\n    textWrap: boolean;\r\n  };\r\n  columnWidth?: string | IcDataTableColumnWidthTypes;\r\n  textWrap?: boolean;\r\n  cellAlignment?: string;\r\n  emphasis?: string;\r\n  colspan?: number;\r\n  icon?: {\r\n    icon: string;\r\n    onAllCells?: boolean;\r\n    hideOnHeader?: boolean;\r\n  };\r\n  excludeColumnFromSort?: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -4680,14 +4999,19 @@
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
     "src/utils/types.ts::IcPaginationBarOptions": {
-      "declaration": "export interface IcPaginationBarOptions {\n  alignment?: IcPaginationAlignmentOptions;\n  hideAllFromItemsPerPage?: boolean;\n  hideRangeLabel?: boolean;\n  itemLabel?: string;\n  itemsPerPageOptions?: { label: string; value: string }[];\n  monochrome?: boolean;\n  pageLabel?: string;\n  rangeLabelType?: IcPaginationLabelTypes;\n  selectedItemsPerPage?: number;\n  setToFirstPageOnPaginationChange?: boolean;\n  showGoToPageControl?: boolean;\n  showItemsPerPageControl?: boolean;\n  theme?: IcThemeMode;\n  type?: IcPaginationTypes;\n}",
+      "declaration": "export interface IcPaginationBarOptions {\r\n  alignment?: IcPaginationAlignmentOptions;\r\n  hideAllFromItemsPerPage?: boolean;\r\n  hideRangeLabel?: boolean;\r\n  itemLabel?: string;\r\n  itemsPerPageOptions?: { label: string; value: string }[];\r\n  monochrome?: boolean;\r\n  pageLabel?: string;\r\n  rangeLabelType?: IcPaginationLabelTypes;\r\n  selectedItemsPerPage?: number;\r\n  setToFirstPageOnPaginationChange?: boolean;\r\n  showGoToPageControl?: boolean;\r\n  showItemsPerPageControl?: boolean;\r\n  theme?: IcThemeMode;\r\n  type?: IcPaginationTypes;\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableSortOrderOptions": {
-      "declaration": "export type IcDataTableSortOrderOptions =\n  | \"unsorted\"\n  | \"ascending\"\n  | \"descending\";",
+      "declaration": "export type IcDataTableSortOrderOptions =\r\n  | \"unsorted\"\r\n  | \"ascending\"\r\n  | \"descending\";",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/utils/types.ts::IcThemeMode": {
+      "declaration": "export type IcThemeMode = \"dark\" | \"light\" | \"inherit\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
       "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"show-hide\" | undefined;",
@@ -4695,7 +5019,7 @@
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcSortEventDetail": {
-      "declaration": "export interface IcSortEventDetail {\n  columnName: string;\n  sorted: IcDataTableSortOrderOptions;\n}",
+      "declaration": "export interface IcSortEventDetail {\r\n  columnName: string;\r\n  sorted: IcDataTableSortOrderOptions;\r\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -4720,7 +5044,7 @@
       "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDensityUpdateEventDetail": {
-      "declaration": "export interface IcDensityUpdateEventDetail {\n  value: IcDataTableDensityOptions;\n}",
+      "declaration": "export interface IcDensityUpdateEventDetail {\r\n  value: IcDataTableDensityOptions;\r\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -4730,7 +5054,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcWeekDays": {
-      "declaration": "export enum IcWeekDays {\n  Sunday = 0,\n  Monday = 1,\n  Tuesday = 2,\n  Wednesday = 3,\n  Thursday = 4,\n  Friday = 5,\n  Saturday = 6,\n}",
+      "declaration": "export enum IcWeekDays {\r\n  Sunday = 0,\r\n  Monday = 1,\r\n  Tuesday = 2,\r\n  Wednesday = 3,\r\n  Thursday = 4,\r\n  Friday = 5,\r\n  Saturday = 6,\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -4745,7 +5069,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-tree-view/ic-tree-view.types.tsx::IcTreeItemOptions": {
-      "declaration": "{\r\n  label: string;\r\n  icon?: string;\r\n  children?: IcTreeItemOptions[];\r\n  disabled?: boolean;\r\n  expanded?: boolean;\r\n  href?: string;\r\n  selected?: boolean;\r\n  theme?: IcThemeMode;\r\n  truncateTreeItem?: boolean;\r\n}",
+      "declaration": "{\n  label: string;\n  icon?: string;\n  children?: IcTreeItemOptions[];\n  disabled?: boolean;\n  expanded?: boolean;\n  href?: string;\n  selected?: boolean;\n  theme?: IcThemeMode;\n  truncateTreeItem?: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-tree-view/ic-tree-view.types.tsx"
     }

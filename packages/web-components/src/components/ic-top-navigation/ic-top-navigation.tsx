@@ -425,11 +425,7 @@ export class TopNavigation {
                           monochrome
                           size={searchButtonSize}
                           aria-label={mobileSearchButtonTitle}
-                          theme={
-                            foregroundColor == IcBrandForegroundEnum.Light
-                              ? IcBrandForegroundEnum.Dark
-                              : IcBrandForegroundEnum.Light
-                          }
+                          theme={foregroundColor as IcThemeMode}
                           onClick={searchButtonClickHandler}
                         >
                           <slot name="toggle-icon">
@@ -465,11 +461,7 @@ export class TopNavigation {
                           >
                             <ic-button
                               id="menu-button"
-                              theme={
-                                foregroundColor == IcBrandForegroundEnum.Light
-                                  ? IcBrandForegroundEnum.Dark
-                                  : IcBrandForegroundEnum.Light
-                              }
+                              theme={foregroundColor as IcThemeMode}
                               variant="secondary"
                               monochrome
                               aria-expanded="false"

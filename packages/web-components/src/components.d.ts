@@ -545,7 +545,7 @@ export namespace Components {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation text - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
     }
@@ -647,10 +647,6 @@ export namespace Components {
     }
     interface IcDialog {
         /**
-          * If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.
-         */
-        "buttons"?: boolean;
-        /**
           * Cancels the dialog. Used by the default 'Cancel' button or can be called manually to trigger cancelling of dialog.
          */
         "cancelDialog": () => Promise<void>;
@@ -686,6 +682,10 @@ export namespace Components {
           * If `true`, the close button will not be displayed.
          */
         "hideCloseButton"?: boolean;
+        /**
+          * If set to `true`, default button controls will not be shown, but slotted dialog controls will still be displayed.
+         */
+        "hideDefaultControls": boolean;
         /**
           * Sets the optional label for the dialog which appears above the heading.
          */
@@ -1216,7 +1216,7 @@ export namespace Components {
     }
     interface IcNavigationGroup {
         /**
-          * If `true`, the group will be expandable in the side menu.
+          * If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
          */
         "expandable"?: boolean;
         /**
@@ -1483,7 +1483,7 @@ export namespace Components {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation text - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
     }
@@ -2130,6 +2130,14 @@ export namespace Components {
          */
         "maxCharacters"?: number;
         /**
+          * The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.
+         */
+        "maxCharactersMessage"?: string;
+        /**
+          * The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.
+         */
+        "maxMessage"?: string;
+        /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
         "min"?: string | number;
@@ -2137,6 +2145,14 @@ export namespace Components {
           * The minimum number of characters that can be entered in the field.
          */
         "minCharacters"?: number;
+        /**
+          * The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.
+         */
+        "minCharactersMessage"?: string;
+        /**
+          * The text to display as the error message when the minimum value (the `min` prop value) has not been met.
+         */
+        "minMessage"?: string;
         /**
           * The name of the control, which is submitted with the form data.
          */
@@ -2193,7 +2209,7 @@ export namespace Components {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation state - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
         /**
@@ -3952,7 +3968,7 @@ declare namespace LocalJSX {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation text - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
     }
@@ -4054,10 +4070,6 @@ declare namespace LocalJSX {
     }
     interface IcDialog {
         /**
-          * If set to `false`, default buttons will not be shown, but slotted dialog controls will still be displayed.
-         */
-        "buttons"?: boolean;
-        /**
           * If set to `false`, the dialog will not close when the backdrop is clicked.
          */
         "closeOnBackdropClick"?: boolean;
@@ -4085,6 +4097,10 @@ declare namespace LocalJSX {
           * If `true`, the close button will not be displayed.
          */
         "hideCloseButton"?: boolean;
+        /**
+          * If set to `true`, default button controls will not be shown, but slotted dialog controls will still be displayed.
+         */
+        "hideDefaultControls"?: boolean;
         /**
           * Sets the optional label for the dialog which appears above the heading.
          */
@@ -4636,7 +4652,7 @@ declare namespace LocalJSX {
     }
     interface IcNavigationGroup {
         /**
-          * If `true`, the group will be expandable in the side menu.
+          * If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
          */
         "expandable"?: boolean;
         /**
@@ -4902,7 +4918,7 @@ declare namespace LocalJSX {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation text - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
     }
@@ -5644,6 +5660,14 @@ declare namespace LocalJSX {
          */
         "maxCharacters"?: number;
         /**
+          * The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.
+         */
+        "maxCharactersMessage"?: string;
+        /**
+          * The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.
+         */
+        "maxMessage"?: string;
+        /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
         "min"?: string | number;
@@ -5651,6 +5675,14 @@ declare namespace LocalJSX {
           * The minimum number of characters that can be entered in the field.
          */
         "minCharacters"?: number;
+        /**
+          * The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.
+         */
+        "minCharactersMessage"?: string;
+        /**
+          * The text to display as the error message when the minimum value (the `min` prop value) has not been met.
+         */
+        "minMessage"?: string;
         /**
           * The name of the control, which is submitted with the form data.
          */
@@ -5724,7 +5756,7 @@ declare namespace LocalJSX {
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * The validation state - e.g. 'error' | 'warning' | 'success'.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
         /**

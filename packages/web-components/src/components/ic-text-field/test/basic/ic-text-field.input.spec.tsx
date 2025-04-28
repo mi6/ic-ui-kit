@@ -151,6 +151,34 @@ describe("ic-text-field", () => {
     expect(page.root).toMatchSnapshot("renders-with-max-characters-long-value");
   });
 
+  it("should render with a custom min characters message", async () => {
+    const page = await newSpecPage({
+      components: [TextField],
+      html: `<ic-text-field label="Test label" min-characters-message="Custom message"></ic-text-field>`,
+    });
+
+    page.rootInstance.minCharactersUnattained = true;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot(
+      "renders-with-min-characters-custom-message"
+    );
+  });
+
+  it("should render with a custom max characters message", async () => {
+    const page = await newSpecPage({
+      components: [TextField],
+      html: `<ic-text-field label="Test label" max-characters-message="Custom message"></ic-text-field>`,
+    });
+
+    page.rootInstance.maxCharactersWarning = true;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot(
+      "renders-with-max-characters-custom-message"
+    );
+  });
+
   it("should render with name & full width", async () => {
     const page = await newSpecPage({
       components: [TextField],
@@ -306,6 +334,24 @@ it("should render with min/max and min validation", async () => {
   });
 
   expect(page.root).toMatchSnapshot("renders-with-min");
+});
+
+it("should render with min validation and a custom validation message", async () => {
+  const page = await newSpecPage({
+    components: [TextField],
+    html: `<ic-text-field label="Test label" min=1 value="0" inputmode="numeric" type="number" min-message="Custom message"></ic-text-field>`,
+  });
+
+  expect(page.root).toMatchSnapshot("renders-with-min-custom-message");
+});
+
+it("should render with max validation and a custom validation message", async () => {
+  const page = await newSpecPage({
+    components: [TextField],
+    html: `<ic-text-field label="Test label" max=1 value="2" inputmode="numeric" type="number" max-message="Custom message"></ic-text-field>`,
+  });
+
+  expect(page.root).toMatchSnapshot("renders-with-max-custom-message");
 });
 
 it("should test setting value cannot exceed maxCharacters", async () => {

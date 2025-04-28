@@ -78,7 +78,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
 
     cy.checkHydrated(STATUS_TAG_SELECTOR);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/danger",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
@@ -90,7 +90,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
 
     cy.checkHydrated(STATUS_TAG_SELECTOR);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
@@ -102,7 +102,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
 
     cy.checkHydrated(STATUS_TAG_SELECTOR);
 
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/large",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),

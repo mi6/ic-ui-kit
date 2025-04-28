@@ -4,84 +4,98 @@
       "GHSA-pfrx-2q88-qq97": {
         "active": true,
         "notes": "requires upgrade to np@8.0.4, which is a breaking change",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-c2qf-rxjj-qqgw": {
         "active": true,
         "notes": "requires lerna v7, which is a breaking change",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-7fh5-64p2-3v2j": {
         "active": true,
         "notes": "requires upgrade to postcss v8.4.31, which doesn't align with the version used by @storybook/addon-postcss",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-f5x3-32g6-xq36": {
         "active": true,
         "notes": "issue in 'tar' package used by '@lerna/legacy-package-management' v6.6.2 - no current fix",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-grv7-fg5c-xmjg": {
         "active": true,
         "notes": "braces package has a vulnerability which is fixed in v3.0.3, but cannot currrently upgrade",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-3h5v-q93c-6h6q": {
         "active": true,
         "notes": "ws package has a vulnerability but requires multiple package upgrades to fix",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-952p-6rrq-rcjv": {
         "active": true,
         "notes": "issue in 'micromatch' package, we're currently on the highest version available so no fix",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-p6mc-m468-83gw": {
         "active": true,
         "notes": "issue in 'lodash.set' package use by '@cypress-audit/lighthouse>lighthouse' - no current fix",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-3xgq-45jj-v275": {
         "active": true,
         "notes": "issue in 'cross-spawn' package - unable to upgrade currently",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-h5c3-5r3r-rr8q": {
         "active": true,
         "notes": "issue in '@octokit/plugin-paginate-rest' package which relies on a lerna upgrade",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-xx4v-prfh-6cgc": {
         "active": true,
         "notes": "issue in '@octokit/request-error' package which relies on a lerna upgrade",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
       }
     },
     {
       "GHSA-pq67-2wwv-3xjx": {
         "active": true,
         "notes": "issue in puppeteer",
-        "expiry": "31 April 2025"
+        "expiry": "24 May 2025"
+      }
+    },
+    {
+      "GHSA-cpj6-fhp6-mr6j": {
+        "active": true,
+        "notes": "requires upgrade to react-router v7.5.2, currently on v6",
+        "expiry": "24 May 2025"
+      }
+    },
+    {
+      "GHSA-f46r-rw29-r322": {
+        "active": true,
+        "notes": "requires upgrade to react-router v7.5.2, currently on v6",
+        "expiry": "24 May 2025"
       }
     }
   ]

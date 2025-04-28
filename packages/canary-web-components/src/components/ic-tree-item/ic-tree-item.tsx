@@ -34,10 +34,10 @@ let treeItemIds = 0;
 })
 export class TreeItem {
   private treeItemId = `ic-tree-item-${treeItemIds++}`;
-  private treeItemElement: HTMLElement;
+  private treeItemElement: HTMLElement | undefined;
   private treeItemTag = "IC-TREE-ITEM";
-  private routerSlot: HTMLElement;
-  private hostMutationObserver: MutationObserver = null;
+  private routerSlot: HTMLElement | null;
+  private hostMutationObserver: MutationObserver | null = null;
   private TOOLTIP = "ic-tooltip";
   private TREE_ITEM_LABEL_CLASS_SELECTOR = ".tree-item-label";
   private TREE_ITEM_CONTENT_CLASS_SELECTOR = ".tree-item-content";
@@ -49,7 +49,7 @@ export class TreeItem {
   /**
    * If `true`, the tree item appears in the disabled state.
    */
-  @Prop() disabled?: boolean = false;
+  @Prop() disabled: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -63,7 +63,7 @@ export class TreeItem {
   /**
    * @internal If `true`, the tree item will have an inset focus border.
    */
-  @Prop() focusInset?: boolean = false;
+  @Prop() focusInset: boolean = false;
 
   /**
    * @internal Determines if the parent tree item has been expanded.
@@ -93,7 +93,7 @@ export class TreeItem {
   /**
    * @internal Holds the previous truncation state before the screen switches to a small viewport, so it can be reset when screen size changes again.
    */
-  @Prop() previousTruncateTreeItem: boolean;
+  @Prop() previousTruncateTreeItem?: boolean;
 
   /**
    * How much of the referrer to send when following the link.
@@ -239,9 +239,9 @@ export class TreeItem {
     let ariaLabel;
 
     if (this.hasRouterSlot()) {
-      ariaLabel = this.routerSlot.textContent;
+      ariaLabel = this.routerSlot!.textContent;
     } else if (isSlotUsed(this.el, "label")) {
-      ariaLabel = this.el.querySelector('[slot="label"]').textContent;
+      ariaLabel = this.el.querySelector('[slot="label"]')!.textContent;
     } else {
       ariaLabel = this.label;
     }
@@ -274,16 +274,16 @@ export class TreeItem {
     }
 
     if (this.hasRouterSlot()) {
-      this.routerSlot.ariaLabel = ariaLabel;
+      this.routerSlot!.ariaLabel = ariaLabel;
     } else {
-      this.treeItemElement.ariaLabel = ariaLabel;
+      this.treeItemElement!.ariaLabel = ariaLabel;
     }
   }
 
   private setTreeItemPadding = () => {
     let level = 1;
     let parentElement = this.el.parentElement;
-    const treeItemContent = this.el.shadowRoot.querySelector(
+    const treeItemContent = this.el.shadowRoot?.querySelector(
       this.TREE_ITEM_CONTENT_CLASS_SELECTOR
     ) as HTMLElement;
 
@@ -291,30 +291,20 @@ export class TreeItem {
       return;
     }
 
-    const isSiblingOfParent = Array.from(parentElement.children)
-      .map((sibling) => {
-        if (
-          sibling !== this.el &&
-          !sibling.querySelector('[slot="router-item"]') &&
-          !sibling.querySelector('[slot="label"]')
-        ) {
-          return sibling.children.length > 0;
-        } else {
-          return false;
-        }
-      })
-      .includes(true);
-
-    const isChild = parentElement.tagName === this.treeItemTag;
-
-    const isRouterItem = this.hasRouterSlot();
+    const isSiblingOfParent = Array.from(parentElement.children).some(
+      (sibling) =>
+        sibling !== this.el &&
+        !sibling.querySelector('[slot="router-item"]') &&
+        !sibling.querySelector('[slot="label"]') &&
+        sibling.children.length > 0
+    );
 
     if (
       (isSiblingOfParent && !this.el.isParent) ||
-      (isChild && !this.el.isParent)
+      (parentElement.tagName === this.treeItemTag && !this.el.isParent)
     ) {
-      if (isRouterItem) {
-        this.routerSlot.classList.add("ic-tree-item-single");
+      if (this.hasRouterSlot()) {
+        this.routerSlot!.classList.add("ic-tree-item-single");
       } else {
         treeItemContent.classList.add("ic-tree-item-single");
       }
@@ -323,48 +313,50 @@ export class TreeItem {
     while (parentElement) {
       if (parentElement.tagName === this.treeItemTag) {
         level++;
-        if (!this.el.isParent && isSiblingOfParent) {
-          treeItemContent.style.paddingLeft = `calc(var(--ic-space-xl) + ${
-            level * 16
-          }px)`;
-        } else if (!this.el.isParent) {
-          treeItemContent.style.paddingLeft = `calc(var(--ic-space-xs) + ${
-            level * 24
-          }px`;
-        } else {
-          treeItemContent.style.paddingLeft = `${level * 16}px`;
-        }
+        treeItemContent.style.paddingLeft = !this.el.isParent
+          ? `calc(var(--ic-space-${isSiblingOfParent ? "xl" : "xs"}) + ${
+              level * (isSiblingOfParent ? 16 : 24)
+            }px)`
+          : `${level * 16}px`;
       }
       parentElement = parentElement.parentElement;
     }
   };
 
   private truncateTreeItemLabel = (treeItem: HTMLIcTreeItemElement) => {
-    let typographyEl: HTMLIcTypographyElement =
-      treeItem.shadowRoot.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR);
+    let typographyEl =
+      treeItem.shadowRoot?.querySelector<HTMLIcTypographyElement>(
+        this.TREE_ITEM_LABEL_CLASS_SELECTOR
+      );
     const slottedContent = treeItem.querySelector("[slot='router-item']");
     let contentHeight = slottedContent?.scrollHeight;
 
-    if (!typographyEl) {
+    if (!typographyEl && slottedContent) {
       const newTypographyEl = document.createElement("ic-typography");
-      newTypographyEl.innerHTML = slottedContent.textContent;
+      newTypographyEl.innerHTML = slottedContent.textContent!;
       newTypographyEl.classList.add("tree-item-label");
-      slottedContent.replaceChild(newTypographyEl, slottedContent.firstChild);
+      slottedContent.replaceChild(newTypographyEl, slottedContent.firstChild!);
       typographyEl = newTypographyEl;
-    } else {
+    } else if (typographyEl) {
       contentHeight = typographyEl.scrollHeight;
     }
 
     const tooltipAlreadyExists = !!typographyEl?.closest(this.TOOLTIP);
     const treeContent =
-      treeItem.shadowRoot.querySelector(
+      treeItem.shadowRoot?.querySelector(
         this.TREE_ITEM_CONTENT_CLASS_SELECTOR
       ) || slottedContent;
 
-    if (contentHeight > treeContent?.clientHeight && !tooltipAlreadyExists) {
+    if (
+      contentHeight &&
+      treeContent?.clientHeight &&
+      contentHeight > treeContent.clientHeight &&
+      !tooltipAlreadyExists &&
+      typographyEl
+    ) {
       const tooltipEl = document.createElement("ic-tooltip");
       tooltipEl.setAttribute("target", this.el.id);
-      tooltipEl.setAttribute("label", typographyEl.textContent);
+      tooltipEl.setAttribute("label", typographyEl.textContent!);
       tooltipEl.setAttribute("placement", "right");
 
       if (treeContent === slottedContent) {
@@ -392,18 +384,20 @@ export class TreeItem {
   private removeTreeItemTruncation = (treeItem: HTMLIcTreeItemElement) => {
     const slottedContent = treeItem.querySelector("[slot='router-item']");
     const typographyEl: HTMLIcTypographyElement =
-      treeItem.shadowRoot.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR) ||
-      slottedContent.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR);
-    const tooltipEl: HTMLIcTooltipElement = typographyEl?.closest(this.TOOLTIP);
+      treeItem.shadowRoot?.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR) ||
+      slottedContent!.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR)!;
+    const tooltipEl = typographyEl?.closest<HTMLIcTooltipElement>(this.TOOLTIP);
     const treeContent =
-      treeItem.shadowRoot.querySelector(
+      treeItem.shadowRoot?.querySelector(
         this.TREE_ITEM_CONTENT_CLASS_SELECTOR
-      ) || slottedContent;
+      ) || slottedContent!;
 
     if (tooltipEl) {
       typographyEl.classList.remove("ic-text-overflow");
       treeContent.replaceChild(
-        treeContent === slottedContent ? typographyEl.firstChild : typographyEl,
+        treeContent === slottedContent
+          ? typographyEl.firstChild!
+          : typographyEl,
         tooltipEl
       );
     }
@@ -415,10 +409,11 @@ export class TreeItem {
   }
 
   private handleDisplayTooltip = (display: boolean) => {
-    const typographyEl: HTMLIcTypographyElement =
-      this.el.shadowRoot.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR) ||
-      this.el.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR);
-    const tooltip: HTMLIcTooltipElement = typographyEl?.closest(this.TOOLTIP);
+    const typographyEl =
+      this.el.shadowRoot?.querySelector<HTMLIcTypographyElement>(
+        this.TREE_ITEM_LABEL_CLASS_SELECTOR
+      ) || this.el.querySelector(this.TREE_ITEM_LABEL_CLASS_SELECTOR);
+    const tooltip = typographyEl?.closest<HTMLIcTooltipElement>(this.TOOLTIP);
 
     tooltip?.displayTooltip(display);
   };
@@ -443,9 +438,9 @@ export class TreeItem {
           "ic-tree-item-disabled": disabled,
           "ic-tree-item-selected": !disabled && selected,
           [`ic-tree-item-${size}`]: size !== "medium",
-          [`ic-tree-item-focus-inset`]: focusInset,
+          "ic-tree-item-focus-inset": focusInset,
           [`ic-theme-${theme}`]: theme !== "inherit",
-          "ic-tree-item-truncate": this.truncateTreeItem,
+          "ic-tree-item-truncate": !!this.truncateTreeItem,
         }}
         id={this.treeItemId}
       >

@@ -3,36 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.0.0-alpha.14](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.13...@ukic/docs@3.0.0-alpha.14) (2025-04-16)
+# [3.0.0-alpha.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.14...@ukic/docs@3.0.0-alpha.15) (2025-04-28)
 
-**Note:** Version bump only for package @ukic/docs
+### Documentation
 
-# [3.0.0-alpha.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.12...@ukic/docs@3.0.0-alpha.13) (2025-04-08)
+- **docs:** updated docs with new prop for ic-dialog ([75a3b6b](https://github.com/mi6/ic-ui-kit/commit/75a3b6bf1ee524f9d9f5c07969797d05b4c98ac4))
 
-### Features
+### BREAKING CHANGES
 
-- **web-components:** update second half of web-components files to resolve strict mode errors ([b939971](https://github.com/mi6/ic-ui-kit/commit/b9399713cc98798fcca669db083869b134f82ca1)), closes [.#266](https://github.com/./issues/266) [#3349](https://github.com/mi6/ic-ui-kit/issues/3349)
-
-# [3.0.0-alpha.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.11...@ukic/docs@3.0.0-alpha.12) (2025-03-19)
-
-**Note:** Version bump only for package @ukic/docs
-
-# [3.0.0-alpha.11](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.9...@ukic/docs@3.0.0-alpha.11) (2025-03-05)
-
-### Bug Fixes
-
-- **docs:** expose IcToolTip disableClick prop ([9589e6a](https://github.com/mi6/ic-ui-kit/commit/9589e6a49f1d0fc0d36563a0979c0e033de0c24d)), closes [#3129](https://github.com/mi6/ic-ui-kit/issues/3129)
+- **docs:** Prop name of buttons changed to hide-default-controls
 
 # [3.0.0]
 
 ### Bug Fixes
 
-- **docs:** expose IcToolTip disableClick prop ([973321f](https://github.com/mi6/ic-ui-kit/commit/973321f28b8c2c6eaab98e43f3d25b92c4e5e432)), closes [#3129](https://github.com/mi6/ic-ui-kit/issues/3129)
-
-### Bug Fixes
-
 - **web-components:** ic-text-field bug ([6ac9480](https://github.com/mi6/ic-ui-kit/commit/6ac9480c28ac4ecf7012df09b647f539a1fbfa02))
 - **web-components:** update icpopoverclosed event to include relevant information ([c134f2b](https://github.com/mi6/ic-ui-kit/commit/c134f2b53c7581f73a8a30c3e615c01299cf1090)), closes [#2665](https://github.com/mi6/ic-ui-kit/issues/2665)
+- **docs:** expose IcToolTip disableClick prop ([9589e6a](https://github.com/mi6/ic-ui-kit/commit/9589e6a49f1d0fc0d36563a0979c0e033de0c24d)), closes [#3129](https://github.com/mi6/ic-ui-kit/issues/3129)
 
 ### Documentation
 
@@ -88,6 +75,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **docs:** Size prop type changed from 'default' to 'medium'
 - **docs:** Rename toggleChecked prop to checked in ic-menu-item
 - **docs:** prop rename to more closely align with native html attribute
+
+## [2.15.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.15.5...@ukic/docs@2.15.6) (2025-04-16)
+
+**Note:** Version bump only for package @ukic/docs
+
+## [2.15.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.15.4...@ukic/docs@2.15.5) (2025-04-07)
+
+**Note:** Version bump only for package @ukic/docs
+
+## [2.15.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.15.3...@ukic/docs@2.15.4) (2025-03-05)
+
+**Note:** Version bump only for package @ukic/docs
 
 ## [2.15.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.15.2...@ukic/docs@2.15.3) (2025-02-19)
 

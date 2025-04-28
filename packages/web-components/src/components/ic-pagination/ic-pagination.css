@@ -42,12 +42,16 @@ ic-button.next-previous::part(button) {
 }
 
 ic-button.ic-button-disabled.first-last::part(button),
-ic-button.ic-button-disabled.next-previous::part(button) {
+ic-button.ic-button-disabled.next-previous::part(button),
+:host(.ic-pagination-monochrome)
+  ic-button.ic-button-disabled.first-last::part(button),
+:host(.ic-pagination-monochrome)
+  ic-button.ic-button-disabled.next-previous::part(button) {
   color: var(--ic-pagination-chevron-disabled);
 }
 
 .disabled {
-  color: var(--ic-architectural-200);
+  color: var(--ic-color-text-disabled-mid);
   pointer-events: none;
   cursor: none;
   user-select: none;
@@ -60,4 +64,8 @@ ic-button.ic-button-disabled.next-previous::part(button) {
 .sr-only {
   position: absolute;
   left: -9999px;
+}
+
+.sr-only:dir(rtl) {
+  right: -9999px;
 }

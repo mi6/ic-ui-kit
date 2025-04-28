@@ -88,13 +88,13 @@ describe("ic-card-horizontal", () => {
 
     expect(page.root).not.toBeNull;
 
-    const element = await document.getElementById("test-id");
+    const element = document.getElementById("test-id")!;
 
-    await expect(element.classList.contains("focussed")).toBeFalsy;
+    expect(element.classList.contains("focussed")).toBeFalsy;
 
-    await element.focus();
+    element.focus();
 
-    await expect(element.classList.contains("focussed")).toBeTruthy;
+    expect(element.classList.contains("focussed")).toBeTruthy;
   });
 
   it("should lose 'focussed' style when parent loses focus", async () => {
@@ -105,15 +105,15 @@ describe("ic-card-horizontal", () => {
 
     expect(page.root).not.toBeNull;
 
-    const element = await document.getElementById("test-card");
+    const element = document.getElementById("test-card")!;
 
-    await element.focus();
+    element.focus();
 
-    await expect(element.classList.contains("focussed")).toBeTruthy;
+    expect(element.classList.contains("focussed")).toBeTruthy;
 
-    await element.blur();
+    element.blur();
 
-    await expect(element.classList.contains("focussed")).toBeFalsy;
+    expect(element.classList.contains("focussed")).toBeFalsy;
 
     await page.rootInstance.disconnectedCallback();
   });
@@ -126,13 +126,13 @@ describe("ic-card-horizontal", () => {
 
     jest.spyOn(window, "alert").mockImplementation();
 
-    const element = await document.getElementById("test-card");
+    const element = document.getElementById("test-card")!;
 
     element.click();
 
     await page.waitForChanges();
 
-    await expect(window.alert).not.toHaveBeenCalled;
+    expect(window.alert).not.toHaveBeenCalled;
   });
 
   it("should render with an image", async () => {

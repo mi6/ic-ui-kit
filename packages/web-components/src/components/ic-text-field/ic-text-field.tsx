@@ -178,6 +178,17 @@ export class TextField {
   @Prop() maxCharacters?: number = 0;
 
   /**
+   * The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.
+   */
+  // prettier-ignore
+  @Prop() maxCharactersMessage?: string = `Maximum input is ${this.maxCharacters} characters`;
+
+  /**
+   * The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.
+   */
+  @Prop() maxMessage?: string = `Maximum value of ${this.max} exceeded`;
+
+  /**
    * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
    */
   @Prop() min?: string | number;
@@ -186,6 +197,17 @@ export class TextField {
    * The minimum number of characters that can be entered in the field.
    */
   @Prop() minCharacters?: number = 0;
+
+  /**
+   * The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.
+   */
+  // prettier-ignore
+  @Prop() minCharactersMessage?: string = `Minimum input is ${this.minCharacters} characters`;
+
+  /**
+   * The text to display as the error message when the minimum value (the `min` prop value) has not been met.
+   */
+  @Prop() minMessage?: string = `Minimum value of ${this.min} not met`;
 
   /**
    * The name of the control, which is submitted with the form data.
@@ -263,7 +285,7 @@ export class TextField {
   @Prop() validationStatus?: IcInformationStatusOrEmpty = "";
 
   /**
-   * The validation state - e.g. 'error' | 'warning' | 'success'.
+   * The text to display as the validation message.
    */
   @Prop() validationText?: string = "";
 
@@ -517,10 +539,14 @@ export class TextField {
       numChars,
       readonly,
       maxCharacters,
+      maxCharactersMessage,
       maxCharactersWarning,
       maxCharactersReached,
+      maxMessage,
       minCharacters,
+      minCharactersMessage,
       minCharactersUnattained,
+      minMessage,
       minValueUnattained,
       maxValueExceeded,
       validationStatus,
@@ -550,13 +576,13 @@ export class TextField {
         : validationStatus;
 
     const currentValidationText = maxCharactersWarning
-      ? `Maximum input is ${maxCharacters} characters`
+      ? maxCharactersMessage
       : maxValueExceeded
-      ? `Maximum value of ${max} exceeded`
+      ? maxMessage
       : minValueUnattained
-      ? `Minimum value of ${min} not met`
+      ? minMessage
       : minCharactersUnattained
-      ? `Minimum input is ${minCharacters} characters`
+      ? minCharactersMessage
       : validationText;
 
     const maxNumChars = readonly ? 0 : maxCharacters;

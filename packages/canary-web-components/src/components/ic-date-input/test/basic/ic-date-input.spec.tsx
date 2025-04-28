@@ -33,7 +33,7 @@ describe("ic-date-input component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    page.root.required = false;
+    page.root!.required = false;
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot("required-prop-false");
@@ -693,6 +693,10 @@ describe("ic-date-input component", () => {
         +componentInstance.day
       );
 
+      const UTCDate = new Date(
+        Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
+      );
+
       componentInstance.selectedDate = date;
 
       component?.addEventListener("icChange", eventSpy);
@@ -704,6 +708,7 @@ describe("ic-date-input component", () => {
           detail: expect.objectContaining({
             value: date,
             dateObject: { day: "01", month: "01", year: "2000" },
+            utcValue: UTCDate,
           }),
         })
       );

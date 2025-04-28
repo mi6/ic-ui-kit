@@ -4,16 +4,16 @@ import { IcSizes } from "../../utils/types";
 
 export type YearPickerProps = {
   decadeView: number[];
-  size: IcSizes;
   focussedYear: number;
   yearInView: number;
   onSelectYear: (year: number) => void;
   onKeyDown: (ev: KeyboardEvent) => void;
   onFocusYear: () => void;
   onBlurYear: () => void;
-  minDate: Date;
-  maxDate: Date;
+  minDate: Date | null;
+  maxDate: Date | null;
   focussedYearRef: (element: HTMLIcButtonElement) => void;
+  size?: IcSizes;
 };
 
 export const YearPicker: FunctionalComponent<YearPickerProps> = ({

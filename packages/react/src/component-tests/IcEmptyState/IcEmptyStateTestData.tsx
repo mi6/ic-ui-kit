@@ -115,7 +115,7 @@ export const EmptyStateTheme = () => {
         body="Empty state body"
         theme="light"
       ></IcEmptyState>
-      <div style={{ backgroundColor: "black" }}>
+      <div style={{ backgroundColor: "#17191C" }}>
         <IcEmptyState
           heading="Theme dark"
           subheading="Empty state subtitle"

@@ -163,7 +163,7 @@ describe("IcPageHeader", () => {
 
   it("should render in dark mode", () => {
     mount(<PageheaderDarkTheme />);
-    // cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),

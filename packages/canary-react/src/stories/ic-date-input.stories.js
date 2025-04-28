@@ -68,7 +68,7 @@ export const IcChangeEvent = {
   render: () => (
     <IcDateInput
       label="When would you like to collect your coffee?"
-      onIcChange={(ev) => console.log(ev.detail.value)}
+      onIcChange={(ev) => console.log(ev.detail.value, ev.detail.utcValue)}
     />
   ),
   name: "onIcChange event",

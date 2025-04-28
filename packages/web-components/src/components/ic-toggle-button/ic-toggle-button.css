@@ -119,7 +119,7 @@
 
 :host(.expand-toggle-group-child.ic-toggle-button-light) ::part(button):focus,
 :host(.expand-toggle-group-child.ic-toggle-button-dark) ::part(button):focus {
-  box-shadow: inset 0 0 0 var(--ic-space-xxxs) var(--ic-action-dark),
+  box-shadow: inset 0 0 0 var(--ic-space-xxxs) var(--ic-action-monochrome-dark),
     var(--ic-border-focus);
 }
 

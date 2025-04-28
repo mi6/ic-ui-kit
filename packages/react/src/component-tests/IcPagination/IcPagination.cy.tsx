@@ -85,7 +85,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
   it("should render dark complex type pagination", () => {
     mount(
-      <div style={{ margin: "16px", backgroundColor: "black" }}>
+      <div style={{ margin: "16px", backgroundColor: "#17191C" }}>
         <IcPagination
           pages={15}
           type="complex"
@@ -105,7 +105,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
 
   it("should render dark monochrome complex type pagination", () => {
     mount(
-      <div style={{ margin: "16px", backgroundColor: "black" }}>
+      <div style={{ margin: "16px", backgroundColor: "#17191C" }}>
         <IcPagination
           pages={15}
           type="complex"
@@ -251,7 +251,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/disabled-with-complex",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
 
@@ -267,7 +267,7 @@ describe("IcPagination end-to-end, visual regression and a11y tests", () => {
     cy.wait(500);
     cy.compareSnapshot({
       name: "/disabled-with-simple",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
   });
 

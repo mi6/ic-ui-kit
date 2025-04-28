@@ -1,12 +1,15 @@
 <!-- markdownlint-disable-next-line -->
+<div align="center">
 <p align="center">
   <img width="150px" src="/static/icds-logo.png" alt="Logo of the Intelligence Community Design System">
 </p>
 
-# The UK Intelligence Community UI Kit
+<h1 align="center">The UK Intelligence Community UI Kit</h1>
 
 [![OGL V3 License](https://img.shields.io/badge/license-OGLv3-blue.svg)](https://github.com/mi6/ic-design-system/tree/main/LICENSE)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mi6/ic-design-system/tree/main/LICENSE)
+
+</div>
 
 The [Intelligence Community Design System](https://design.sis.gov.uk) helps the United Kingdom's Intelligence Community (MI6, GCHQ, MI5, and partners) to quickly build powerful capabilities that are accessible and easy to use.
 
@@ -140,6 +143,52 @@ npm link ../path/to/ic-ui-kit/packages/canary-react
 
 > [!NOTE]
 > Now you can develop and debug faster with `ic-ui-kit` in `ic-design-system`.
+
+
+## Accessing package metadata
+
+When using the following packages:
+
+- [nextjs](./packages/nextjs/README.md)
+- [react](./packages/react/README.md)
+- [web-components](./packages/web-components/README.md)
+- [canary-web-components](./packages/canary-web-components/README.md)
+- [canary-react](./packages/canary-react/README.md)
+- [fonts](./packages/fonts/README.md)
+
+... the version, build date and unique build hash of each package are exposed on the global variable `window`. This metadata is accessed and sealed, which means that `window` variables can't be changed during runtime in any web application. Below is all the variables that are available:
+
+```javascript
+    // web components metadata
+    window['IC_UI_KIT_WEB_COMPONENTS_VERSION'];
+    window['IC_UI_KIT_WEB_COMPONENTS_BUILD_DATE'];
+    window['IC_UI_KIT_WEB_COMPONENTS_BUILD_HASH'];
+
+    // canary web components metadata 
+    window['IC_UI_KIT_CANARY_WEB_COMPONENTS_VERSION'];
+    window['IC_UI_KIT_CANARY_WEB_COMPONENTS_BUILD_DATE'];
+    window['IC_UI_KIT_CANARY_WEB_COMPONENTS_BUILD_HASH'];
+
+    // fonts metadata
+    window['IC_UI_KIT_FONTS_VERSION'];
+    window['IC_UI_KIT_FONTS_BUILD_DATE'];
+    window['IC_UI_KIT_FONTS_BUILD_HASH'];
+
+    // nextjs metadata
+    window['IC_UI_KIT_NEXTJS_VERSION'];
+    window['IC_UI_KIT_NEXTJS_BUILD_DATE'];
+    window['IC_UI_KIT_NEXTJS_BUILD_HASH'];
+
+    // react metadata
+    window['IC_UI_KIT_REACT_VERSION'];
+    window['IC_UI_KIT_REACT_BUILD_DATE'];
+    window['IC_UI_KIT_REACT_BUILD_HASH'];
+
+    // canary react metadata
+    window['IC_UI_KIT_CANARY_REACT_VERSION'];
+    window['IC_UI_KIT_CANARY_REACT_BUILD_DATE'];
+    window['IC_UI_KIT_CANARY_REACT_BUILD_HASH'];
+```
 
 ## Contributing
 

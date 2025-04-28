@@ -866,38 +866,6 @@ export const MissingCellData = {
 };
 
 /**
- * An example showing the table with selected row highlighting turned off.
- */
-export const TurnOffSelectedRowHighlighting = {
-  render: () => (
-    <IcDataTable
-      caption="Turn off selected row highlighting"
-      columns={COLS}
-      data={DATA}
-      highlightSelectedRow={false}
-    />
-  ),
-  name: "Turn off selected row highlighting",
-};
-
-/**
- * An example showing the table emitting the icSelectedRowChange event when a row is selected or de-selected.
- */
-export const SelectedRowEvent = {
-  render: () => (
-    <IcDataTable
-      caption="Selected row event"
-      columns={COLS}
-      data={DATA}
-      onIcSelectedRowChange={(event) =>
-        console.log("Selected row changed: ", event.detail)
-      }
-    />
-  ),
-  name: "Selected row event",
-};
-
-/**
  * Descriptions and icons can be included in the cells by proving a `description` field in the data. This will populate the cell with an icon (if provided) and a text string underneath the cell data. This can be applied to any cell.
  *
  * You can provide a `description` object with or without an icon:
@@ -946,6 +914,26 @@ export const CellDescriptionsLongText = {
   name: "Description and icons within cells with long text",
 };
 
+/**
+ * By setting `rowSelection` to `true`, `IcCheckbox` elements will appear in the leftmost column, with one in the header.
+ * When checked, the corresponding row will be selected, with the `icSelectedRowChange` containing the selected row and an array of all the currently selected rows.
+ *
+ * When checking the header checkbox, all rows will be selected, with the `icSelectAllRows` event being emitted with an array of all the rows. When using pagination, only the rows on the current page will be selected.
+ */
+export const SelectRowsUsingCheckboxExample = {
+  render: () => (
+    <IcDataTable
+      caption="Select rows with checkbox"
+      columns={COLS}
+      data={DATA}
+      rowSelection
+      onIcSelectedRowChange={(ev) => console.log(ev.detail)}
+      onIcSelectAllRows={(ev) => console.log(ev.detail)}
+    />
+  ),
+  name: "Select rows with checkbox",
+};
+
 const defaultArgs = {
   caption: "Screen reader caption for data table",
   columnHeaderTruncation: true,
@@ -956,7 +944,7 @@ const defaultArgs = {
   globalRowHeight: 40,
   height: "",
   hideColumnHeaders: false,
-  highlightSelectedRow: true,
+  rowSelection: false,
   loading: false,
   loadingDesc: "loading",
   loadingLabel: "Loading data...",
@@ -1021,7 +1009,7 @@ export const Playground = {
       globalRowHeight={args.globalRowHeight}
       height={args.height}
       hideColumnHeaders={args.hideColumnHeaders}
-      highlightSelectedRow={args.highlightSelectedRow}
+      rowSelection={args.rowSelection}
       loading={args.loading}
       loadingOptions={{
         description: args.loadingDesc,

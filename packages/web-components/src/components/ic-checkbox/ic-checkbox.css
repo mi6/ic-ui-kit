@@ -12,6 +12,11 @@
   align-items: center;
 }
 
+:host(.ic-data-table-checkbox) .container {
+  padding: 0;
+  margin-bottom: 0;
+}
+
 :host(.ic-checkbox-small) .container {
   margin-bottom: var(--ic-space-xxxs);
 }

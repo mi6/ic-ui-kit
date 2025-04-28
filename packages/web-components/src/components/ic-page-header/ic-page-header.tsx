@@ -170,9 +170,11 @@ export class PageHeader {
       theme,
     } = this;
 
-    const navAriaLabel = heading
-      ? `${heading} page sections`
-      : "navigation-landmark-page-header";
+    const navAriaLabel = `${
+      isSlotUsed(this.el, "heading")
+        ? this.el.querySelector('[slot="heading"]')?.textContent ?? ""
+        : heading ?? ""
+    } page sections`;
 
     return (
       <Host
