@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.14...@ukic/canary-react@3.0.0-canary.15) (2025-04-28)
+
+### Bug Fixes
+
+- **react:** updates tests after color token changes ([c67a367](https://github.com/mi6/ic-ui-kit/commit/c67a367de2ee792463af4c38c14037eef7bc8f8f))
+
+### Features
+
+- **canary-react:** added checkboxes for row selection to IcDataTable ([1da6cbb](https://github.com/mi6/ic-ui-kit/commit/1da6cbbeaf4e0c0e7b12a3f1d315ffd47f031ffb))
+- **canary-react:** emit UTC date from icChange in date input ([f80adf7](https://github.com/mi6/ic-ui-kit/commit/f80adf7529644a11d75624aef1b7bc7443ec219c)), closes [#3142](https://github.com/mi6/ic-ui-kit/issues/3142)
+
+### BREAKING CHANGES
+
+- **canary-react:** highlightSelectedRow is now default false, and the only way to select a row is by
+  checking the checkbox. Can no longer click the row cells. Row selection event detail also altered
+
 # [3.0.0-canary.14](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.13...@ukic/canary-react@3.0.0-canary.14) (2025-04-16)
 
 ### Features

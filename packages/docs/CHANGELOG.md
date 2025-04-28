@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.14...@ukic/docs@3.0.0-alpha.15) (2025-04-28)
+
+### Documentation
+
+- **docs:** updated docs with new prop for ic-dialog ([75a3b6b](https://github.com/mi6/ic-ui-kit/commit/75a3b6bf1ee524f9d9f5c07969797d05b4c98ac4))
+
+### BREAKING CHANGES
+
+- **docs:** Prop name of buttons changed to hide-default-controls
+
 # [3.0.0]
 
 ### Bug Fixes

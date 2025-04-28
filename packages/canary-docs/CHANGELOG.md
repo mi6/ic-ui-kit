@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.11...@ukic/canary-docs@3.0.0-canary.12) (2025-04-28)
+
+### Documentation
+
+- **canary-docs:** updated type definitions for ic-data-table ([7cbb6b2](https://github.com/mi6/ic-ui-kit/commit/7cbb6b27a8fce041ddc2973a423e7ac30d0b1068))
+
+### BREAKING CHANGES
+
+- **canary-docs:** event details and default props have changed
+
 # [3.0.0-canary.11](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.10...@ukic/canary-docs@3.0.0-canary.11) (2025-04-16)
 
 ### Features
@@ -67,7 +77,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### BREAKING CHANGES
 
 - **docs:** Size prop type changed from 'default' to 'medium'
-
 
 # [2.0.0-canary.32](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.31...@ukic/canary-docs@2.0.0-canary.32) (2025-04-16)
 

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.14...@ukic/canary-web-components@3.0.0-canary.15) (2025-04-28)
+
+### Bug Fixes
+
+- **canary-web-components:** update color tokens to match designs ([71b677e](https://github.com/mi6/ic-ui-kit/commit/71b677e214aa882cc04881d37920177c7eb382a2))
+
+### Features
+
+- **canary-web-components:** added checkboxes to perform row selection in ic-data-table ([2170a7f](https://github.com/mi6/ic-ui-kit/commit/2170a7f80707a99d29d3ba6422b9c59b3aebb092))
+- **canary-web-components:** emit UTC date from icChange in date input ([4e7d095](https://github.com/mi6/ic-ui-kit/commit/4e7d09560ca4f37fc6f66f78895953e078e30b85)), closes [#3142](https://github.com/mi6/ic-ui-kit/issues/3142)
+
+### BREAKING CHANGES
+
+- **canary-web-components:** The highlight-selected-row prop now defaults to false, with the functionality of
+  clicking a row's cell to select it now disabled. The only way to select a row at the moment is to
+  click the checkbox. The event detail for row selection has been updated to an object with two
+  values, instead of one value
+
 # [3.0.0-canary.14](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.13...@ukic/canary-web-components@3.0.0-canary.14) (2025-04-16)
 
 ### Bug Fixes
@@ -277,7 +295,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **canary-web-components:** add the ability to backspace through a date input to delete the date ([c9042b4](https://github.com/mi6/ic-ui-kit/commit/c9042b406563346c91a688ab1d179e0850bc6945)), closes [#2244](https://github.com/mi6/ic-ui-kit/issues/2244)
 - **canary-web-components:** fix to revert items per page to correct value ([2c34d5e](https://github.com/mi6/ic-ui-kit/commit/2c34d5e5f8be24bc44687d19df92defd559b00bf)), closes [#3223](https://github.com/mi6/ic-ui-kit/issues/3223)
 - **canary-web-components:** improve data table column object by adding excludeColumnFromSort ([e8bddd8](https://github.com/mi6/ic-ui-kit/commit/e8bddd85103fb00a034003f869821f20aaf55f10)), closes [#2416](https://github.com/mi6/ic-ui-kit/issues/2416)
-
 
 # [2.0.0-canary.36](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.35...@ukic/canary-web-components@2.0.0-canary.36) (2025-02-19)
 
