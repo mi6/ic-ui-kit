@@ -35,7 +35,10 @@ import {
   checkSlotInChildMutations,
   removeHiddenInput,
 } from "../../utils/helpers";
-import { IC_INHERITED_ARIA } from "../../utils/constants";
+import {
+  IC_INHERITED_ARIA,
+  IGNORED_KEYBOARD_CHARACTERS,
+} from "../../utils/constants";
 import {
   IcAriaAutocompleteTypes,
   IcTextFieldInputModes,
@@ -311,6 +314,9 @@ export class TextField {
 
     if (this.maxCharacters! > 0) {
       value = newValue.substring(0, this.maxCharacters);
+      if (value!.length < newValue!.length) {
+        this.maxCharactersWarning = true;
+      }
       this.value = value;
     } else {
       value = newValue;
@@ -422,7 +428,10 @@ export class TextField {
   @Listen("keydown", {})
   handleKeyDown(ev: KeyboardEvent): void {
     this.icKeydown.emit({ event: ev });
-    this.maxCharactersWarning = this.maxCharactersReached;
+
+    if (!ev.ctrlKey && !IGNORED_KEYBOARD_CHARACTERS.includes(ev.key)) {
+      this.maxCharactersWarning = this.maxCharactersReached;
+    }
   }
 
   /**

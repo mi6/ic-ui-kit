@@ -91,3 +91,43 @@ export const IC_BLOCK_COLOR_EXCEPTIONS: IcColorExceptions = {
  */
 export const BLACK_MIN_COLOR_BRIGHTNESS = 136.701;
 export const WHITE_MAX_COLOR_BRIGHTNESS = 130;
+
+// Keyboard characters that do not affect the content of an input control when pressed
+export const IGNORED_KEYBOARD_CHARACTERS = [
+  "Alt",
+  "AltGraph",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowUp",
+  "AudioVolumeDown",
+  "AudioVolumeMute",
+  "AudioVolumeUp",
+  "CapsLock",
+  "ContextMenu",
+  "Control",
+  "Delete",
+  "End",
+  "Enter",
+  "Escape",
+  "F1",
+  "F10",
+  "F11",
+  "F12",
+  "F2",
+  "F3",
+  "F4",
+  "F5",
+  "F6",
+  "F7",
+  "F8",
+  "F9",
+  "Home",
+  "Insert",
+  "Meta",
+  "NumLock",
+  "PageDown",
+  "PageUp",
+  "Shift",
+  "Tab",
+];
