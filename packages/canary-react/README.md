@@ -38,7 +38,7 @@ Add the following into the top level CSS file for your project.
 
 In order to be rendered consistently across browsers and in line with modern standards, each of the ICDS components uses styles from a global CSS file based on [Normalize.css](https://necolas.github.io/normalize.css/). 
 
-If you would like to import these styles to apply them to the rest of your project and slotted elements used within any of the ICDS components, add the following into the top level CSS file as well.
+If you would like to import these styles in order to apply them to the rest of your project and slotted elements used within any of the ICDS components, add the following into the top level CSS file as well.
 
 ```css
 @import "@ukic/canary-react/dist/core/normalize.css";
