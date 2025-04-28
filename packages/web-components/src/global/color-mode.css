@@ -441,8 +441,10 @@ ic-theme,
     --ic-action-monochrome-pressed-dark
   );
   --ic-button-secondary-icon-monochrome: var(--ic-color-icon-neutral);
-  --ic-button-secondary-icon-disabled: var(--ic-color-icon-disabled);
-  --ic-button-secondary-icon-disabled-monochrome: var(--ic-color-icon-disabled);
+  --ic-button-secondary-icon-disabled: var(--ic-color-icon-disabled-mid);
+  --ic-button-secondary-icon-disabled-monochrome: var(
+    --ic-color-icon-disabled-mid
+  );
   --ic-button-secondary-icon-hover-monochrome: var(
     --ic-action-monochrome-hover-dark
   );
@@ -458,10 +460,10 @@ ic-theme,
   --ic-button-secondary-border-monochrome: var(--ic-color-border-neutral-black);
   --ic-button-secondary-border-inverse: var(--ic-color-border-neutral-white);
   --ic-button-secondary-border-disabled: var(
-    --ic-color-border-neutral-disabled-default
+    --ic-color-border-neutral-disabled
   );
   --ic-button-secondary-border-disabled-monochrome: var(
-    --ic-color-border-neutral-default
+    --ic-color-border-neutral-disabled
   );
   --ic-button-secondary-border-hover: var(--ic-color-border-action-hover-light);
   --ic-button-secondary-border-pressed: var(
@@ -500,7 +502,7 @@ ic-theme,
   --ic-button-tertiary-text-active: var(--ic-color-text-action-light);
   --ic-button-tertiary-icon-active: var(--ic-color-icon-action-default);
   --ic-button-tertiary-text-disabled: var(--ic-color-text-disabled-mid);
-  --ic-button-tertiary-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-button-tertiary-icon-disabled: var(--ic-color-icon-disabled-mid);
   --ic-button-tertiary-text-hover-active: var(
     --ic-color-text-action-hover-light
   );
@@ -522,7 +524,7 @@ ic-theme,
     --ic-color-text-disabled-mid
   );
   --ic-button-tertiary-icon-disabled-monochrome: var(
-    --ic-color-icon-disabled-light
+    --ic-color-icon-disabled-mid
   );
   --ic-button-tertiary-text-hover-monochrome: var(
     --ic-action-monochrome-hover-dark
@@ -562,7 +564,7 @@ ic-theme,
   --ic-button-destructive-text: var(--ic-color-text-inverted);
   --ic-button-destructive-icon: var(--ic-color-icon-inverted);
   --ic-button-destructive-text-disabled: var(--ic-color-text-disabled-mid);
-  --ic-button-destructive-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-button-destructive-icon-disabled: var(--ic-color-icon-disabled-mid);
   --ic-button-icon-color: var(--ic-color-icon-action-default);
   --ic-button-icon-color-hover: var(--ic-color-icon-action-hover);
   --ic-button-icon-color-active: var(--ic-color-icon-action-pressed);
@@ -591,7 +593,7 @@ ic-theme,
     --ic-color-background-pressed-default
   );
   --ic-checkbox-background-selected-disabled: var(
-    --ic-color-background-disabled-default
+    --ic-color-background-disabled-dark
   );
   --ic-checkbox-background-indeterminate: var(--ic-action-default);
   --ic-checkbox-background-indeterminate-hover: var(
@@ -601,7 +603,7 @@ ic-theme,
     --ic-color-background-pressed-default
   );
   --ic-checkbox-background-indeterminate-disabled: var(
-    --ic-color-background-disabled-default
+    --ic-color-background-disabled-dark
   );
   --ic-checkbox-action-background-hover: var(--ic-action-default-bg-hover);
   --ic-checkbox-action-background-pressed: var(--ic-action-default-bg-active);
@@ -644,6 +646,7 @@ ic-theme,
   --ic-card-text-primary: var(--ic-color-text-primary);
   --ic-card-disabled-text: var(--ic-color-text-disabled-mid);
   --ic-card-icon: var(--ic-color-icon-neutral);
+  --ic-card-icon-disabled: var(--ic-color-icon-disabled-mid);
   --ic-card-clickable-text: var(--ic-color-hyperlink-default);
   --ic-card-border-primary: var(--ic-color-border-neutral-grey-dark);
   --ic-card-border-monochrome: var(--ic-color-border-neutral-black);
@@ -651,7 +654,7 @@ ic-theme,
   --ic-card-pressed-border-color: var(
     --ic-color-border-neutral-pressed-default
   );
-  --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled-mid);
+  --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled);
   --ic-card-background-hover: var(--ic-action-default-bg-hover);
   --ic-card-background-pressed: var(--ic-action-default-bg-pressed);
   --ic-card-link-action-dark: var(--ic-link-text-visited);
@@ -673,6 +676,7 @@ ic-theme,
     --ic-action-dark-bg-pressed
   );
   --ic-data-table-sort-toggle-icon: var(--ic-color-icon-neutral);
+  --ic-data-table-sort-toggle-icon-disabled: var(--ic-color-icon-disabled-mid);
   --ic-data-table-sort-toggle-icon-default: var(--ic-color-icon-grey-dark);
   --ic-data-table-header-background: var(--ic-color-background-secondary-40);
   --ic-data-table-header-keyline: var(--ic-color-keyline);
@@ -881,6 +885,7 @@ ic-theme,
     --ic-color-background-primary
   );
   --ic-pagination-dot: var(--ic-color-border-neutral-grey-dark);
+  --ic-pagination-dot-disabled: var(--ic-color-border-neutral-disabled);
   --ic-pagination-hover: var(--ic-action-default-bg-hover);
   --ic-pagination-pressed: var(--ic-action-default-bg-pressed);
   --ic-pagination-hover-monochrome: var(--ic-action-dark-bg-hover);
@@ -889,12 +894,21 @@ ic-theme,
   --ic-pagination-chevron-disabled: var(--ic-color-icon-disabled-mid);
   --ic-pagination-chevron-monochrome: var(--ic-action-monochrome-dark);
   --ic-pagination-text: var(--ic-color-text-primary);
+  --ic-pagination-text-disabled: var(--ic-color-text-disabled-mid);
   --ic-pagination-page-number: var(--ic-action-default);
+  --ic-pagination-page-number-disabled: var(--ic-color-text-disabled-mid);
   --ic-pagination-page-number-monochrome: var(--ic-action-monochrome-dark);
+  --ic-pagination-page-number-monochrome-disabled: var(
+    --ic-color-text-disabled-mid
+  );
   --ic-pagination-selected-banner: var(--ic-action-default);
   --ic-pagination-selected-banner-monochrome: var(--ic-action-monochrome-dark);
   --ic-pagination-ellipsis: var(--ic-color-text-secondary);
+  --ic-pagination-ellipsis-disabled: var(--ic-color-text-disabled-mid);
   --ic-pagination-ellipsis-monochrome: var(--ic-color-text-primary);
+  --ic-pagination-ellipsis-monochrome-disabled: var(
+    --ic-color-text-disabled-mid
+  );
   --ic-pagination-select-content: var(--ic-atoms-input-select-content-text);
 
   /* Popover menu */
@@ -920,7 +934,7 @@ ic-theme,
   --ic-popover-menu-item-check: var(--ic-color-text-primary);
   --ic-popover-menu-item-check-focused: var(--ic-color-text-inverted);
   --ic-popover-menu-item-label-disabled: var(--ic-color-text-disabled-mid);
-  --ic-popover-menu-item-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-popover-menu-item-icon-disabled: var(--ic-color-icon-disabled-mid);
   --ic-popover-menu-item-description-disabled: var(
     --ic-color-text-disabled-mid
   );
@@ -1026,7 +1040,7 @@ ic-theme,
   --ic-select-mobile-dropdown-icon: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   --ic-select-mobile-dropdown-icon-disabled: url("data:image/svg+xml;utf8,<svg fill='#c4c8cd' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   --ic-select-expand-icon-color: var(--ic-color-icon-neutral);
-  --ic-select-disabled-expand-icon-color: var(--ic-color-icon-grey-light);
+  --ic-select-disabled-expand-icon-color: var(--ic-color-icon-disabled-mid);
   --ic-select-state-text: var(--ic-atoms-input-state-text);
   --ic-select-state-icon-error: var(--ic-atoms-input-state-icon-error);
   --ic-select-state-icon-warning: var(--ic-atoms-input-state-icon-warning);
@@ -1093,7 +1107,7 @@ ic-theme,
   --ic-stepper-connector-remaining-status: var(
     --ic-color-border-neutral-hover-light
   );
-  --ic-stepper-connector-disabled: var(--ic-color-text-disabled-mid);
+  --ic-stepper-connector-disabled: var(--ic-color-border-neutral-disabled);
   --ic-step-number-background-active: var(--ic-status-info-default);
   --ic-step-number-background-success: var(--ic-status-success-default);
   --ic-step-number-text-current: var(--ic-color-text-inverted);
@@ -1101,7 +1115,7 @@ ic-theme,
   --ic-step-number-text-disabled: var(--ic-color-text-disabled-mid);
   --ic-step-number-icon-success: var(--ic-color-icon-brand);
   --ic-step-number-inactive: var(--ic-color-background-primary);
-  --ic-step-number-disabled: var(--ic-color-border-neutral-disabled-mid);
+  --ic-step-number-disabled: var(--ic-color-text-disabled-mid);
   --ic-step-number-inactive-outline: var(
     --ic-color-border-neutral-pressed-light
   );
@@ -1157,8 +1171,12 @@ ic-theme,
   /* Tabs */
   --ic-tab-label: var(--ic-color-text-primary);
   --ic-tab-label-monochrome: var(--ic-color-text-primary);
+  --ic-tab-label-disabled: var(--ic-color-text-disabled-mid);
+  --ic-tab-label-monochrome-disabled: var(--ic-color-text-disabled-mid);
   --ic-tab-icon: var(--ic-color-icon-neutral);
+  --ic-tab-icon-disabled: var(--ic-color-icon-disabled-mid);
   --ic-tab-icon-monochrome: var(--ic-color-icon-neutral);
+  --ic-tab-icon-monochrome-disabled: var(--ic-color-icon-disabled-mid);
   --ic-tab-bottom-border: var(--ic-color-border-neutral-grey-dark);
   --ic-tab-bottom-border-monochrome: var(--ic-color-border-neutral-black);
   --ic-tab-item-pressed: var(--ic-action-default-bg-pressed);
@@ -1194,7 +1212,7 @@ ic-theme,
   );
   --ic-text-field-border-disabled: var(--ic-color-border-neutral-disabled-mid);
   --ic-text-field-character-limit: var(--ic-color-text-secondary);
-  --ic-text-field-character-limit-disabled: var(--ic-color-text-tertiary);
+  --ic-text-field-character-limit-disabled: var(--ic-color-text-disabled-mid);
   --ic-text-field-read-only-input-text-internal: var(--ic-color-text-primary);
   --ic-text-field-input-internal-icon: var(--ic-color-icon-neutral);
   --ic-text-field-label: var(--ic-atoms-input-field-label);
@@ -1203,7 +1221,7 @@ ic-theme,
     --ic-atoms-input-text-field-content-placeholder
   );
   --ic-text-field-text-area-placeholder-text-disabled: var(
-    --ic-color-text-tertiary
+    --ic-color-text-disabled-mid
   );
   --ic-text-field-subtitle: var(--ic-atoms-input-field-label-subtitle);
   --ic-text-field-subtitle-disabled: var(
@@ -1249,10 +1267,14 @@ ic-theme,
     --ic-action-default-bg-active
   );
   --ic-toggle-button-loading-bar: var(--ic-color-icon-brand);
-  --ic-toggle-button-unselected-text-disabled: var(--ic-color-text-inactive);
-  --ic-toggle-button-unselected-icon-disabled: var(--ic-color-icon-grey);
+  --ic-toggle-button-unselected-text-disabled: var(
+    --ic-color-text-disabled-mid
+  );
+  --ic-toggle-button-unselected-icon-disabled: var(
+    --ic-color-icon-disabled-mid
+  );
   --ic-toggle-button-unselected-border-disabled: var(
-    --ic-color-border-neutral-grey-dark
+    --ic-color-border-neutral-disabled
   );
   --ic-toggle-button-selected-background: var(--ic-color-background-active);
   --ic-toggle-button-selected-background-hover: var(
@@ -1275,8 +1297,10 @@ ic-theme,
   --ic-toggle-button-selected-border-disabled: var(
     --ic-color-border-neutral-disabled
   );
-  --ic-toggle-button-selected-text-disabled: var(--ic-color-brand-text);
-  --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-brand);
+  --ic-toggle-button-selected-text-disabled: var(
+    --ic-color-text-disabled-light
+  );
+  --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-disabled);
   --ic-toggle-button-selected-border-focus: var(
     --ic-color-border-neutral-white
   );
@@ -1298,10 +1322,10 @@ ic-theme,
     --ic-color-border-neutral-pressed-dark
   );
   --ic-toggle-button-unselected-text-disabled-monochrome: var(
-    --ic-color-text-inactive
+    --ic-color-text-disabled-mid
   );
   --ic-toggle-button-unselected-icon-disabled-monochrome: var(
-    --ic-color-icon-grey
+    --ic-color-icon-disabled-mid
   );
   --ic-toggle-button-unselected-border-disabled-monochrome: var(
     --ic-color-border-neutral-disabled
@@ -1336,7 +1360,7 @@ ic-theme,
     --ic-color-text-disabled-light
   );
   --ic-toggle-button-selected-icon-disabled-monochrome: var(
-    --ic-color-icon-disabled-mid
+    --ic-color-icon-disabled
   );
 
   /* Top Navigation */
@@ -1381,7 +1405,7 @@ ic-theme,
   --ic-tree-view-text: var(--ic-color-text-primary);
   --ic-tree-view-background: var(--ic-color-background-primary);
   --ic-tree-view-text-disabled: var(--ic-color-text-disabled-mid);
-  --ic-tree-view-icon-disabled: var(--ic-color-icon-grey);
+  --ic-tree-view-icon-disabled: var(--ic-color-icon-disabled-mid);
   --ic-tree-view-icon: var(--ic-color-icon-neutral);
   --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
   --ic-tree-view-dropdown-arrow-disabled: var(--ic-color-icon-disabled-mid);
@@ -1834,9 +1858,9 @@ ic-theme,
     --ic-button-secondary-text-pressed-active: var(
       --ic-color-text-action-pressed-dark
     );
-    --ic-button-secondary-text-disabled: var(--ic-color-text-disabled-mid);
+    --ic-button-secondary-text-disabled: var(--ic-color-text-disabled-dark);
     --ic-button-secondary-text-disabled-monochrome: var(
-      --ic-color-text-disabled-mid
+      --ic-color-text-disabled-dark
     );
     --ic-button-secondary-text-hover-monochrome: var(
       --ic-action-monochrome-hover
@@ -1845,9 +1869,9 @@ ic-theme,
       --ic-action-light-pressed
     );
     --ic-button-secondary-icon-monochrome: var(--ic-color-icon-inverted);
-    --ic-button-secondary-icon-disabled: var(--ic-color-icon-disabled-light);
+    --ic-button-secondary-icon-disabled: var(--ic-color-icon-disabled);
     --ic-button-secondary-icon-disabled-monochrome: var(
-      --ic-color-icon-disabled-light
+      --ic-color-icon-disabled
     );
     --ic-button-secondary-icon-hover-monochrome: var(
       --ic-color-icon-hover-light
@@ -1866,10 +1890,10 @@ ic-theme,
     );
     --ic-button-secondary-border-inverse: var(--ic-color-border-neutral-black);
     --ic-button-secondary-border-disabled: var(
-      --ic-color-border-neutral-default
+      --ic-color-border-neutral-disabled
     );
     --ic-button-secondary-border-disabled-monochrome: var(
-      --ic-color-border-neutral-disabled-light
+      --ic-color-border-neutral-disabled
     );
     --ic-button-secondary-border-hover: var(
       --ic-color-border-action-hover-dark
@@ -1908,7 +1932,7 @@ ic-theme,
       --ic-color-text-disabled-dark
     );
     --ic-button-tertiary-icon-disabled-monochrome: var(
-      --ic-color-icon-disabled-dark
+      --ic-color-icon-disabled
     );
     --ic-button-tertiary-text-hover-monochrome: var(
       --ic-action-monochrome-hover
@@ -1949,8 +1973,8 @@ ic-theme,
     );
     --ic-button-destructive-text: var(--ic-color-text-primary-light);
     --ic-button-destructive-icon: var(--ic-color-icon-inverted);
-    --ic-button-destructive-text-disabled: var(--ic-state-layer-lighten-20);
-    --ic-button-destructive-icon-disabled: var(--ic-state-layer-lighten-20);
+    --ic-button-destructive-text-disabled: var(--ic-color-text-disabled-dark);
+    --ic-button-destructive-icon-disabled: var(--ic-color-icon-disabled);
     --ic-button-icon-monochrome: var(--ic-action-monochrome);
 
     /* Checkbox */
@@ -2020,16 +2044,15 @@ ic-theme,
 
     /* Card */
     --ic-card-text-primary: var(--ic-color-text-primary);
-    --ic-card-disabled-text: var(--ic-color-text-disabled-light);
+    --ic-card-disabled-text: var(--ic-color-text-disabled-dark);
     --ic-card-icon: var(--ic-color-icon-inverted);
+    --ic-card-icon-disabled: var(--ic-color-icon-disabled);
     --ic-card-clickable-text: var(--ic-color-hyperlink-default);
     --ic-card-border-primary: var(--ic-color-border-neutral-default-dark);
     --ic-card-border-monochrome: var(--ic-color-border-neutral-white);
     --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-dark);
     --ic-card-pressed-border-color: var(--ic-color-border-neutral-pressed-dark);
-    --ic-card-disabled-border-color: var(
-      --ic-color-border-neutral-disabled-dark
-    );
+    --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled);
     --ic-card-background-hover: var(--ic-color-background-hover);
     --ic-card-background-pressed: var(--ic-color-background-pressed);
     --ic-card-link-action-dark: var(--ic-link-text-visited);
@@ -2053,6 +2076,7 @@ ic-theme,
       --ic-action-light-bg-pressed
     );
     --ic-data-table-sort-toggle-icon: var(--ic-color-icon-inverted);
+    --ic-data-table-sort-toggle-icon-disabled: var(--ic-color-icon-disabled);
     --ic-data-table-sort-toggle-icon-default: var(--ic-color-icon-grey-light);
     --ic-data-table-header-background: var(
       --ic-color-background-secondary-dark
@@ -2277,6 +2301,7 @@ ic-theme,
       --ic-color-background-primary
     );
     --ic-pagination-dot: var(--ic-color-border-neutral-grey-dark);
+    --ic-pagination-dot-disabled: var(--ic-color-border-neutral-disabled);
     --ic-pagination-hover: var(--ic-action-light-bg-hover);
     --ic-pagination-pressed: var(--ic-action-light-bg-pressed);
     --ic-pagination-hover-monochrome: var(--ic-action-light-bg-hover);
@@ -2285,12 +2310,21 @@ ic-theme,
     --ic-pagination-chevron-disabled: var(--ic-color-icon-disabled-dark);
     --ic-pagination-chevron-monochrome: var(--ic-action-monochrome);
     --ic-pagination-text: var(--ic-color-text-primary);
+    --ic-pagination-text-disabled: var(--ic-color-text-disabled-dark);
     --ic-pagination-page-number: var(--ic-action-default);
+    --ic-pagination-page-number-disabled: var(--ic-color-text-disabled-dark);
     --ic-pagination-page-number-monochrome: var(--ic-action-monochrome);
+    --ic-pagination-page-number-monochrome-disabled: var(
+      --ic-color-text-disabled-dark
+    );
     --ic-pagination-selected-banner: var(--ic-action-default);
     --ic-pagination-selected-banner-monochrome: var(--ic-action-monochrome);
     --ic-pagination-ellipsis: var(--ic-color-text-secondary);
+    --ic-pagination-ellipsis-disabled: var(--ic-color-text-disabled-dark);
     --ic-pagination-ellipsis-monochrome: var(--ic-color-text-primary);
+    --ic-pagination-ellipsis-monochrome-disabled: var(
+      --ic-color-text-disabled-dark
+    );
     --ic-pagination-select-content: var(--ic-atoms-input-select-content-text);
 
     /* Popover menu */
@@ -2317,14 +2351,14 @@ ic-theme,
     --ic-popover-menu-destructive-item-icon: var(--ic-action-destructive);
     --ic-popover-menu-item-check: var(--ic-color-text-primary);
     --ic-popover-menu-item-check-focused: var(--ic-color-text-primary);
-    --ic-popover-menu-item-label-disabled: var(--ic-color-text-disabled-light);
-    --ic-popover-menu-item-icon-disabled: var(--ic-color-icon-disabled-mid);
+    --ic-popover-menu-item-label-disabled: var(--ic-color-text-disabled-dark);
+    --ic-popover-menu-item-icon-disabled: var(--ic-color-icon-disabled);
     --ic-popover-menu-item-description-disabled: var(
-      --ic-color-text-disabled-light
+      --ic-color-text-disabled-dark
     );
-    --ic-popover-menu-item-check-disabled: var(--ic-color-text-disabled-light);
+    --ic-popover-menu-item-check-disabled: var(--ic-color-text-disabled-dark);
     --ic-popover-menu-item-shortcut-disabled: var(
-      --ic-color-text-disabled-light
+      --ic-color-text-disabled-dark
     );
     --ic-popover-menu-border: var(--ic-color-border-neutral-white);
     --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
@@ -2436,7 +2470,7 @@ ic-theme,
     --ic-select-mobile-dropdown-icon: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
     --ic-select-mobile-dropdown-icon-disabled: url("data:image/svg+xml;utf8,<svg fill='#c4c8cd' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
     --ic-select-expand-icon-color: var(--ic-color-icon-inverted);
-    --ic-select-disabled-expand-icon-color: var(--ic-color-icon-grey-light);
+    --ic-select-disabled-expand-icon-color: var(--ic-color-icon-disabled);
     --ic-select-state-text: var(--ic-atoms-input-state-text);
     --ic-select-state-icon-error: var(--ic-atoms-input-state-icon-error);
     --ic-select-state-icon-warning: var(--ic-atoms-input-state-icon-warning);
@@ -2507,9 +2541,7 @@ ic-theme,
     --ic-stepper-connector-remaining-status: var(
       --ic-color-border-neutral-pressed-default
     );
-    --ic-stepper-connector-disabled: var(
-      --ic-color-border-neutral-disabled-dark
-    );
+    --ic-stepper-connector-disabled: var(--ic-color-border-neutral-disabled);
     --ic-step-number-background-active: var(--ic-status-info-contrast);
     --ic-step-number-background-success: var(--ic-status-success-contrast);
     --ic-step-number-text-current: var(--ic-color-text-primary-light);
@@ -2517,7 +2549,7 @@ ic-theme,
     --ic-step-number-text-disabled: var(--ic-color-text-disabled-dark);
     --ic-step-number-icon-success: var(--ic-color-icon-neutral);
     --ic-step-number-inactive: var(--ic-color-background-neutral);
-    --ic-step-number-disabled: var(--ic-color-border-neutral-disabled-dark);
+    --ic-step-number-disabled: var(--ic-color-text-disabled-dark);
     --ic-step-number-inactive-outline: var(--ic-color-border-neutral-grey-dark);
     --ic-step-number-current-outer-fill: var(
       --ic-color-background-primary-dark
@@ -2579,8 +2611,12 @@ ic-theme,
     /* Tabs */
     --ic-tab-label: var(--ic-color-text-primary);
     --ic-tab-label-monochrome: var(--ic-color-text-primary);
+    --ic-tab-label-disabled: var(--ic-color-text-disabled-dark);
+    --ic-tab-label-monochrome-disabled: var(--ic-color-text-disabled-dark);
     --ic-tab-icon: var(--ic-color-icon-inverted);
+    --ic-tab-icon-disabled: var(--ic-color-icon-disabled);
     --ic-tab-icon-monochrome: var(--ic-color-icon-inverted);
+    --ic-tab-icon-monochrome-disabled: var(--ic-color-icon-disabled);
     --ic-tab-bottom-border: var(--ic-color-border-neutral-default-dark);
     --ic-tab-bottom-border-monochrome: var(--ic-color-border-neutral-white);
     --ic-tab-item-pressed: var(--ic-action-default-bg-pressed);
@@ -2624,7 +2660,9 @@ ic-theme,
       --ic-color-border-neutral-disabled-dark
     );
     --ic-text-field-character-limit: var(--ic-color-text-secondary);
-    --ic-text-field-character-limit-disabled: var(--ic-color-text-tertiary);
+    --ic-text-field-character-limit-disabled: var(
+      --ic-color-text-disabled-dark
+    );
     --ic-text-field-read-only-input-text-internal: var(--ic-color-text-primary);
     --ic-text-field-input-internal-icon: var(--ic-color-icon-brand);
     --ic-text-field-label: var(--ic-atoms-input-field-label);
@@ -2633,7 +2671,7 @@ ic-theme,
       --ic-atoms-input-text-field-content-placeholder
     );
     --ic-text-field-text-area-placeholder-text-disabled: var(
-      --ic-color-text-tertiary
+      --ic-color-text-disabled-dark
     );
     --ic-text-field-subtitle: var(--ic-atoms-input-field-label-subtitle);
     --ic-text-field-subtitle-disabled: var(
@@ -2686,13 +2724,13 @@ ic-theme,
     );
     --ic-toggle-button-loading-bar: var(--ic-color-icon-neutral);
     --ic-toggle-button-unselected-text-disabled: var(
-      --ic-color-text-secondary-light
+      --ic-color-text-disabled-dark
     );
     --ic-toggle-button-unselected-icon-disabled: var(
-      --ic-color-icon-grey-darker
+      --ic-color-icon-disabled-dark
     );
     --ic-toggle-button-unselected-border-disabled: var(
-      --ic-color-border-neutral-pressed-dark
+      --ic-color-border-neutral-disabled
     );
     --ic-toggle-button-selected-background: var(--ic-color-background-active);
     --ic-toggle-button-selected-background-hover: var(
@@ -2718,9 +2756,11 @@ ic-theme,
       --ic-color-border-neutral-disabled
     );
     --ic-toggle-button-selected-text-disabled: var(
-      --ic-color-text-tertiary-light
+      --ic-color-text-disabled-mid
     );
-    --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-disabled);
+    --ic-toggle-button-selected-icon-disabled: var(
+      --ic-color-icon-disabled-mid
+    );
     --ic-toggle-button-selected-border-focus: var(
       --ic-color-border-neutral-black
     );
@@ -2742,13 +2782,13 @@ ic-theme,
       --ic-color-border-neutral-default
     );
     --ic-toggle-button-unselected-text-disabled-monochrome: var(
-      --ic-color-text-disabled-mid
+      --ic-color-text-disabled-dark
     );
     --ic-toggle-button-unselected-icon-disabled-monochrome: var(
-      --ic-color-icon-disabled-light
+      --ic-color-icon-disabled
     );
     --ic-toggle-button-unselected-border-disabled-monochrome: var(
-      --ic-color-border-neutral-disabled-light
+      --ic-color-border-neutral-disabled
     );
     --ic-toggle-button-selected-background-monochrome: var(
       --ic-color-background-primary-light
@@ -2776,10 +2816,10 @@ ic-theme,
       --ic-color-background-disabled-darkest
     );
     --ic-toggle-button-selected-border-disabled-monochrome: var(
-      --ic-color-border-neutral-disabled-light
+      --ic-color-border-neutral-disabled
     );
     --ic-toggle-button-selected-text-disabled-monochrome: var(
-      --ic-color-text-disabled-light
+      --ic-color-text-disabled-mid
     );
     --ic-toggle-button-selected-icon-disabled-monochrome: var(
       --ic-color-icon-disabled-mid
@@ -2829,7 +2869,7 @@ ic-theme,
     --ic-tree-view-text: var(--ic-color-text-primary);
     --ic-tree-view-background: var(--ic-color-background-primary);
     --ic-tree-view-text-disabled: var(--ic-color-text-disabled-dark);
-    --ic-tree-view-icon-disabled: var(--ic-color-icon-pressed);
+    --ic-tree-view-icon-disabled: var(--ic-color-icon-disabled);
     --ic-tree-view-icon: var(--ic-color-icon-inverted);
     --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
     --ic-tree-view-dropdown-arrow-disabled: var(--ic-color-icon-disabled);
@@ -3274,9 +3314,9 @@ ic-theme,
   --ic-button-secondary-text-pressed-active: var(
     --ic-color-text-action-pressed-dark
   );
-  --ic-button-secondary-text-disabled: var(--ic-color-text-disabled-mid);
+  --ic-button-secondary-text-disabled: var(--ic-color-text-disabled-dark);
   --ic-button-secondary-text-disabled-monochrome: var(
-    --ic-color-text-disabled-mid
+    --ic-color-text-disabled-dark
   );
   --ic-button-secondary-text-hover-monochrome: var(
     --ic-action-monochrome-hover
@@ -3285,10 +3325,8 @@ ic-theme,
     --ic-action-monochrome-pressed
   );
   --ic-button-secondary-icon-monochrome: var(--ic-color-icon-inverted);
-  --ic-button-secondary-icon-disabled: var(--ic-color-icon-disabled-light);
-  --ic-button-secondary-icon-disabled-monochrome: var(
-    --ic-color-icon-disabled-light
-  );
+  --ic-button-secondary-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-button-secondary-icon-disabled-monochrome: var(--ic-color-icon-disabled);
   --ic-button-secondary-icon-hover-monochrome: var(--ic-color-icon-hover-light);
   --ic-button-secondary-icon-pressed-monochrome: var(
     --ic-color-icon-pressed-light
@@ -3301,9 +3339,11 @@ ic-theme,
   --ic-button-secondary-border: var(--ic-color-border-action-default-dark);
   --ic-button-secondary-border-monochrome: var(--ic-color-border-neutral-white);
   --ic-button-secondary-border-inverse: var(--ic-color-border-neutral-black);
-  --ic-button-secondary-border-disabled: var(--ic-color-border-neutral-default);
+  --ic-button-secondary-border-disabled: var(
+    --ic-color-border-neutral-disabled
+  );
   --ic-button-secondary-border-disabled-monochrome: var(
-    --ic-color-border-neutral-disabled-light
+    --ic-color-border-neutral-disabled
   );
   --ic-button-secondary-border-hover: var(--ic-color-border-action-hover-dark);
   --ic-button-secondary-border-pressed: var(
@@ -3339,9 +3379,7 @@ ic-theme,
   --ic-button-tertiary-text-disabled-monochrome: var(
     --ic-color-text-disabled-dark
   );
-  --ic-button-tertiary-icon-disabled-monochrome: var(
-    --ic-color-icon-disabled-dark
-  );
+  --ic-button-tertiary-icon-disabled-monochrome: var(--ic-color-icon-disabled);
   --ic-button-tertiary-text-hover-monochrome: var(--ic-action-monochrome-hover);
   --ic-button-tertiary-icon-hover-monochrome: var(--ic-color-icon-hover-light);
   --ic-button-tertiary-background-hover-monochrome: var(
@@ -3375,8 +3413,8 @@ ic-theme,
   --ic-button-destructive-background-disabled: var(--ic-state-layer-lighten-20);
   --ic-button-destructive-text: var(--ic-color-text-primary-light);
   --ic-button-destructive-icon: var(--ic-color-icon-inverted);
-  --ic-button-destructive-text-disabled: var(--ic-state-layer-lighten-20);
-  --ic-button-destructive-icon-disabled: var(--ic-state-layer-lighten-20);
+  --ic-button-destructive-text-disabled: var(--ic-color-text-disabled-dark);
+  --ic-button-destructive-icon-disabled: var(--ic-color-icon-disabled);
   --ic-button-icon-monochrome: var(--ic-action-monochrome);
 
   /* Checkbox */
@@ -3444,14 +3482,15 @@ ic-theme,
 
   /* Card */
   --ic-card-text-primary: var(--ic-color-text-primary);
-  --ic-card-disabled-text: var(--ic-color-text-disabled-light);
+  --ic-card-disabled-text: var(--ic-color-text-disabled-dark);
   --ic-card-icon: var(--ic-color-icon-inverted);
+  --ic-card-icon-disabled: var(--ic-color-icon-disabled);
   --ic-card-clickable-text: var(--ic-color-hyperlink-default);
   --ic-card-border-primary: var(--ic-color-border-neutral-default-dark);
   --ic-card-border-monochrome: var(--ic-color-border-neutral-white);
   --ic-card-hover-border-color: var(--ic-color-border-neutral-hover-dark);
   --ic-card-pressed-border-color: var(--ic-color-border-neutral-pressed-dark);
-  --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled-dark);
+  --ic-card-disabled-border-color: var(--ic-color-border-neutral-disabled);
   --ic-card-background-hover: var(--ic-color-background-hover);
   --ic-card-background-pressed: var(--ic-color-background-pressed);
   --ic-card-link-action-dark: var(--ic-link-text-visited);
@@ -3471,6 +3510,7 @@ ic-theme,
     --ic-action-light-bg-pressed
   );
   --ic-data-table-sort-toggle-icon: var(--ic-color-icon-inverted);
+  --ic-data-table-sort-toggle-icon-disabled: var(--ic-color-icon-disabled);
   --ic-data-table-sort-toggle-icon-default: var(--ic-color-icon-grey-light);
   --ic-data-table-header-background: var(--ic-color-background-secondary-dark);
   --ic-data-table-header-keyline: var(--ic-color-keyline);
@@ -3682,6 +3722,7 @@ ic-theme,
     --ic-color-background-primary
   );
   --ic-pagination-dot: var(--ic-color-border-neutral-grey-dark);
+  --ic-pagination-dot-disabled: var(--ic-color-border-neutral-disabled);
   --ic-pagination-hover: var(--ic-action-light-bg-hover);
   --ic-pagination-pressed: var(--ic-action-light-bg-pressed);
   --ic-pagination-hover-monochrome: var(--ic-action-light-bg-hover);
@@ -3690,12 +3731,21 @@ ic-theme,
   --ic-pagination-chevron-disabled: var(--ic-color-icon-disabled-dark);
   --ic-pagination-chevron-monochrome: var(--ic-action-monochrome);
   --ic-pagination-text: var(--ic-color-text-primary);
+  --ic-pagination-text-disabled: var(--ic-color-text-disabled-dark);
   --ic-pagination-page-number: var(--ic-action-default);
+  --ic-pagination-page-number-disabled: var(--ic-color-text-disabled-dark);
   --ic-pagination-page-number-monochrome: var(--ic-action-monochrome);
+  --ic-pagination-page-number-monochrome-disabled: var(
+    --ic-color-text-disabled-dark
+  );
   --ic-pagination-selected-banner: var(--ic-action-default);
   --ic-pagination-selected-banner-monochrome: var(--ic-action-monochrome);
   --ic-pagination-ellipsis: var(--ic-color-text-secondary);
+  --ic-pagination-ellipsis-disabled: var(--ic-color-text-disabled-dark);
   --ic-pagination-ellipsis-monochrome: var(--ic-color-text-primary);
+  --ic-pagination-ellipsis-monochrome-disabled: var(
+    --ic-color-text-disabled-dark
+  );
   --ic-pagination-select-content: var(--ic-atoms-input-select-content-text);
 
   /* Popover menu */
@@ -3720,13 +3770,13 @@ ic-theme,
   --ic-popover-menu-destructive-item-icon: var(--ic-action-destructive);
   --ic-popover-menu-item-check: var(--ic-color-text-primary);
   --ic-popover-menu-item-check-focused: var(--ic-color-text-primary);
-  --ic-popover-menu-item-label-disabled: var(--ic-color-text-disabled-light);
-  --ic-popover-menu-item-icon-disabled: var(--ic-color-icon-disabled-mid);
+  --ic-popover-menu-item-label-disabled: var(--ic-color-text-disabled-dark);
+  --ic-popover-menu-item-icon-disabled: var(--ic-color-icon-disabled);
   --ic-popover-menu-item-description-disabled: var(
-    --ic-color-text-disabled-light
+    --ic-color-text-disabled-dark
   );
-  --ic-popover-menu-item-check-disabled: var(--ic-color-text-disabled-light);
-  --ic-popover-menu-item-shortcut-disabled: var(--ic-color-text-disabled-light);
+  --ic-popover-menu-item-check-disabled: var(--ic-color-text-disabled-dark);
+  --ic-popover-menu-item-shortcut-disabled: var(--ic-color-text-disabled-dark);
   --ic-popover-menu-border: var(--ic-color-border-neutral-white);
   --ic-popover-menu-item-lighten: var(--ic-brand-lighten-40);
 
@@ -3776,7 +3826,9 @@ ic-theme,
   --ic-search-bar-outline: var(--ic-color-border-neutral-default-dark);
   --ic-search-bar-outline-hover: var(--ic-color-border-neutral-hover-dark);
   --ic-search-bar-outline-pressed: var(--ic-color-border-neutral-pressed-dark);
-  --ic-search-bar-outline-disabled: var(--ic-color-border-neutral-dark);
+  --ic-search-bar-outline-disabled: var(
+    --ic-color-border-neutral-disabled-dark
+  );
   --ic-search-bar-dropdown-background: var(--ic-atoms-list-option-background);
   --ic-search-bar-dropdown-divider: var(--ic-atoms-input-divider);
   --ic-search-bar-dropdown-option-text: var(--ic-atoms-list-option-text);
@@ -3821,7 +3873,7 @@ ic-theme,
   --ic-select-mobile-dropdown-icon: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   --ic-select-mobile-dropdown-icon-disabled: url("data:image/svg+xml;utf8,<svg fill='#c4c8cd' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   --ic-select-expand-icon-color: var(--ic-color-icon-inverted);
-  --ic-select-disabled-expand-icon-color: var(--ic-color-icon-grey-light);
+  --ic-select-disabled-expand-icon-color: var(--ic-color-icon-disabled);
   --ic-select-state-text: var(--ic-atoms-input-state-text);
   --ic-select-state-icon-error: var(--ic-atoms-input-state-icon-error);
   --ic-select-state-icon-warning: var(--ic-atoms-input-state-icon-warning);
@@ -3886,7 +3938,7 @@ ic-theme,
   --ic-stepper-connector-remaining-status: var(
     --ic-color-border-neutral-pressed-default
   );
-  --ic-stepper-connector-disabled: var(--ic-color-border-neutral-disabled-dark);
+  --ic-stepper-connector-disabled: var(--ic-color-border-neutral-disabled);
   --ic-step-number-background-active: var(--ic-status-info-contrast);
   --ic-step-number-background-success: var(--ic-status-success-contrast);
   --ic-step-number-text-current: var(--ic-color-text-primary-light);
@@ -3894,7 +3946,7 @@ ic-theme,
   --ic-step-number-text-disabled: var(--ic-color-text-disabled-dark);
   --ic-step-number-icon-success: var(--ic-color-icon-neutral);
   --ic-step-number-inactive: var(--ic-color-background-neutral);
-  --ic-step-number-disabled: var(--ic-color-border-neutral-disabled-dark);
+  --ic-step-number-disabled: var(--ic-color-text-disabled-dark);
   --ic-step-number-inactive-outline: var(--ic-color-border-neutral-grey-dark);
   --ic-step-number-current-outer-fill: var(--ic-color-background-primary-dark);
   --ic-step-number-current-outline: var(--ic-status-info-contrast);
@@ -3952,8 +4004,12 @@ ic-theme,
   /* Tabs */
   --ic-tab-label: var(--ic-color-text-primary);
   --ic-tab-label-monochrome: var(--ic-color-text-primary);
+  --ic-tab-label-disabled: var(--ic-color-text-disabled-dark);
+  --ic-tab-label-monochrome-disabled: var(--ic-color-text-disabled-dark);
   --ic-tab-icon: var(--ic-color-icon-inverted);
+  --ic-tab-icon-disabled: var(--ic-color-icon-disabled);
   --ic-tab-icon-monochrome: var(--ic-color-icon-inverted);
+  --ic-tab-icon-monochrome-disabled: var(--ic-color-icon-disabled);
   --ic-tab-bottom-border: var(--ic-color-border-neutral-default-dark);
   --ic-tab-bottom-border-monochrome: var(--ic-color-border-neutral-white);
   --ic-tab-item-pressed: var(--ic-action-default-bg-pressed);
@@ -3995,7 +4051,7 @@ ic-theme,
   );
   --ic-text-field-border-disabled: var(--ic-color-border-neutral-disabled-dark);
   --ic-text-field-character-limit: var(--ic-color-text-secondary);
-  --ic-text-field-character-limit-disabled: var(--ic-color-text-tertiary);
+  --ic-text-field-character-limit-disabled: var(--ic-color-text-disabled-dark);
   --ic-text-field-read-only-input-text-internal: var(--ic-color-text-primary);
   --ic-text-field-input-internal-icon: var(--ic-color-icon-brand);
   --ic-text-field-label: var(--ic-atoms-input-field-label);
@@ -4004,7 +4060,7 @@ ic-theme,
     --ic-atoms-input-text-field-content-placeholder
   );
   --ic-text-field-text-area-placeholder-text-disabled: var(
-    --ic-color-text-tertiary
+    --ic-color-text-disabled-dark
   );
   --ic-text-field-subtitle: var(--ic-atoms-input-field-label-subtitle);
   --ic-text-field-subtitle-disabled: var(
@@ -4053,11 +4109,13 @@ ic-theme,
   );
   --ic-toggle-button-loading-bar: var(--ic-color-icon-neutral);
   --ic-toggle-button-unselected-text-disabled: var(
-    --ic-color-text-secondary-light
+    --ic-color-text-disabled-dark
   );
-  --ic-toggle-button-unselected-icon-disabled: var(--ic-color-icon-grey-darker);
+  --ic-toggle-button-unselected-icon-disabled: var(
+    --ic-color-icon-disabled-dark
+  );
   --ic-toggle-button-unselected-border-disabled: var(
-    --ic-color-border-neutral-pressed-dark
+    --ic-color-border-neutral-disabled
   );
   --ic-toggle-button-selected-background: var(--ic-color-background-active);
   --ic-toggle-button-selected-background-hover: var(
@@ -4080,10 +4138,8 @@ ic-theme,
   --ic-toggle-button-selected-border-disabled: var(
     --ic-color-border-neutral-disabled
   );
-  --ic-toggle-button-selected-text-disabled: var(
-    --ic-color-text-tertiary-light
-  );
-  --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-disabled);
+  --ic-toggle-button-selected-text-disabled: var(--ic-color-text-disabled-mid);
+  --ic-toggle-button-selected-icon-disabled: var(--ic-color-icon-disabled-mid);
   --ic-toggle-button-selected-border-focus: var(
     --ic-color-border-neutral-black
   );
@@ -4105,13 +4161,13 @@ ic-theme,
     --ic-color-border-neutral-default
   );
   --ic-toggle-button-unselected-text-disabled-monochrome: var(
-    --ic-color-text-disabled-mid
+    --ic-color-text-disabled-dark
   );
   --ic-toggle-button-unselected-icon-disabled-monochrome: var(
-    --ic-color-icon-disabled-light
+    --ic-color-icon-disabled
   );
   --ic-toggle-button-unselected-border-disabled-monochrome: var(
-    --ic-color-border-neutral-disabled-light
+    --ic-color-border-neutral-disabled
   );
   --ic-toggle-button-selected-background-monochrome: var(
     --ic-color-background-primary-light
@@ -4139,10 +4195,10 @@ ic-theme,
     --ic-color-background-disabled-darkest
   );
   --ic-toggle-button-selected-border-disabled-monochrome: var(
-    --ic-color-border-neutral-disabled-light
+    --ic-color-border-neutral-disabled
   );
   --ic-toggle-button-selected-text-disabled-monochrome: var(
-    --ic-color-text-disabled-light
+    --ic-color-text-disabled-mid
   );
   --ic-toggle-button-selected-icon-disabled-monochrome: var(
     --ic-color-icon-disabled-mid
@@ -4190,7 +4246,7 @@ ic-theme,
   --ic-tree-view-text: var(--ic-color-text-primary);
   --ic-tree-view-background: var(--ic-color-background-primary);
   --ic-tree-view-text-disabled: var(--ic-color-text-disabled-dark);
-  --ic-tree-view-icon-disabled: var(--ic-color-icon-pressed);
+  --ic-tree-view-icon-disabled: var(--ic-color-icon-disabled);
   --ic-tree-view-icon: var(--ic-color-icon-inverted);
   --ic-tree-view-dropdown-arrow: var(--ic-color-icon-action-default);
   --ic-tree-view-dropdown-arrow-disabled: var(--ic-color-icon-disabled);

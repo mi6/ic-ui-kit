@@ -139,11 +139,27 @@ ic-typography.dark {
 }
 
 .disabled {
-  --ic-typography-color: var(--ic-color-text-disabled-mid);
+  --ic-typography-color: var(--ic-pagination-text-disabled);
 
   pointer-events: none;
   cursor: none;
   user-select: none;
+}
+
+.disabled.page ic-typography {
+  --ic-typography-color: var(--ic-pagination-page-number-disabled);
+}
+
+.disabled.ellipsis {
+  --ic-typography-color: var(--ic-pagination-ellipsis-disabled);
+}
+
+.monochrome .disabled.page {
+  --ic-typography-color: var(--ic-pagination-page-number-monochrome-disabled);
+}
+
+.monochrome .disabled.ellipsis {
+  --ic-typography-color: var(--ic-pagination-ellipsis-monochrome-disabled);
 }
 
 @media (forced-colors: active) {

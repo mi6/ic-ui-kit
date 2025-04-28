@@ -202,10 +202,15 @@ select:not([disabled]) {
   transform: rotateX(180deg);
 }
 
-:host(.ic-select-disabled) .value-text,
-:host(.ic-select-disabled) .select-input,
 .placeholder {
   color: var(--ic-select-content-placeholder-text);
+}
+
+:host(.ic-select-disabled) .value-text,
+:host(.ic-select-disabled) .select-input,
+:host(.ic-select-disabled) .placeholder,
+:host(.ic-select-disabled.ic-select-searchable) .select-input::placeholder {
+  color: var(--ic-select-content-text-disabled);
 }
 
 .select-input-end {

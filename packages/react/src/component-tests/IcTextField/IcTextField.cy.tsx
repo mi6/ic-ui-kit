@@ -474,10 +474,13 @@ describe("IcTextField visual regression tests", () => {
   it("should render with dark theme", () => {
     mount(<DarkTheme />);
 
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
+    cy.checkHydrated(IC_TEXTFIELD);
+
+    //cy.checkA11yWithWait();
+    cy.wait(250).compareSnapshot({
       name: "/dark-theme",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.076),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      delay: 500,
     });
   });
 

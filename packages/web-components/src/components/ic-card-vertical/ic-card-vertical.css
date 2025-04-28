@@ -88,7 +88,7 @@ button {
       color: var(--ic-card-disabled-text);
     }
     ::slotted(svg) {
-      fill: var(--ic-card-disabled-text);
+      fill: var(--ic-card-icon-disabled);
     }
   }
 }

@@ -101,7 +101,7 @@ button {
 }
 
 .card.disabled ::slotted(svg) {
-  fill: var(--ic-card-disabled-text);
+  fill: var(--ic-card-icon-disabled);
 }
 
 .card.clickable .card-title {

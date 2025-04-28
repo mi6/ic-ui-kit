@@ -24,6 +24,10 @@
   fill: var(--ic-tab-icon);
 }
 
+:host(.ic-tab-disabled) ::slotted([slot="icon"]) {
+  fill: var(--ic-tab-icon-disabled);
+}
+
 :host(:focus) {
   box-shadow: var(--focus-indicator);
   border-radius: var(--ic-border-radius);
@@ -51,17 +55,23 @@
 }
 
 :host(.ic-tab-disabled) ic-typography {
-  color: var(--ic-architectural-300);
-
-  --ic-typography-color: var(--ic-architectural-300);
+  --ic-typography-color: var(--ic-tab-label-disabled);
 }
 
 :host(.ic-tab-monochrome) {
   color: var(--ic-tab-label-monochrome);
 }
 
+:host(.ic-tab-monochrome.ic-tab-disabled) ic-typography {
+  color: var(--ic-tab-label-monochrome-disabled);
+}
+
 :host(.ic-tab-monochrome) ::slotted([slot="icon"]) {
   fill: var(--ic-tab-icon-monochrome);
+}
+
+:host(.ic-tab-monochrome.ic-tab-disabled) ::slotted([slot="icon"]) {
+  fill: var(--ic-tab-icon-monochrome-disabled);
 }
 
 :host(.ic-tab-monochrome.ic-tab-selected) {
