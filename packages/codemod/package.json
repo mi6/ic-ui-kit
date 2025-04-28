@@ -6,10 +6,11 @@
   "author": "mi6",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "example:cli": "node --no-warnings ./codemod.js --dir src"
   },
   "dependencies": {
+    "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "yargs": "^17.7.2"
   },
@@ -18,5 +19,11 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.27.0",
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "babel-jest": "^29.7.0"
   }
 }
