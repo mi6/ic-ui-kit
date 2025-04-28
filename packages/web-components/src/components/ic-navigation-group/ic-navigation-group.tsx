@@ -481,7 +481,7 @@ export class NavigationGroup {
   }
 
   render() {
-    const { dropdownOpen, inTopNavSideMenu, expandable } = this;
+    const { dropdownOpen, expanded, inTopNavSideMenu, expandable } = this;
 
     const navGroupTitleClassNames = {
       ["navigation-group"]: true,
@@ -493,51 +493,49 @@ export class NavigationGroup {
       ["selected"]: dropdownOpen && !inTopNavSideMenu,
     };
 
+    const isSideNav = this.navigationType === "side";
+    const isTopNav = this.navigationType === "top";
+
+    const ariaExpanded = (isSideNav && expanded) || (isTopNav && dropdownOpen);
+
     return (
       <Host
         class={{
           ["in-side-menu"]: inTopNavSideMenu,
-          "ic-navigation-group-expanded": this.expanded,
-          "ic-navigation-group-collapsed": !this.expanded,
-          ["ic-navigation-group-side-nav"]: this.navigationType === "side",
+          "ic-navigation-group-expanded": expanded,
+          "ic-navigation-group-collapsed": !expanded,
+          ["ic-navigation-group-side-nav"]: isSideNav,
           [`ic-theme-${this.theme}`]: this.theme !== "inherit",
           ["ic-navigation-group-expandable"]: !!expandable,
         }}
         role="listitem"
       >
-        {this.expandable ||
-        (!inTopNavSideMenu && this.navigationType === "top") ? (
+        {this.expandable || (!inTopNavSideMenu && isTopNav) ? (
           <button
             onMouseEnter={
-              !inTopNavSideMenu && this.navigationType === "top"
-                ? this.handleMouseEnter
-                : undefined
+              !inTopNavSideMenu && isTopNav ? this.handleMouseEnter : undefined
             }
-            onMouseLeave={
-              this.navigationType === "top" ? this.handleMouseLeave : undefined
-            }
+            onMouseLeave={isTopNav ? this.handleMouseLeave : undefined}
             onBlur={this.handleBlur}
             onClick={this.handleClick}
             onKeyDown={this.handleKeydown}
             class={navGroupTitleClassNames}
             ref={(el) => (this.groupEl = el)}
-            aria-expanded={`${dropdownOpen || this.expanded}`}
-            aria-haspopup={`${
-              !inTopNavSideMenu && this.navigationType === "top"
-            }`}
+            aria-expanded={`${ariaExpanded}`}
+            aria-haspopup={`${!inTopNavSideMenu && isTopNav}`}
           >
             {this.renderGroupTitleText()}
-            {this.navigationType === "side" && expandable && (
+            {isSideNav && expandable && (
               <div
                 class={{
                   "chevron-toggle-icon-wrapper": true,
-                  "chevron-toggle-icon-closed": this.expanded,
+                  "chevron-toggle-icon-closed": expanded,
                 }}
                 innerHTML={chevronIcon}
               ></div>
             )}
           </button>
-        ) : this.navigationType === "side" && !this.isSideNavExpanded ? null : (
+        ) : isSideNav && !this.isSideNavExpanded ? null : (
           <div class={navGroupTitleClassNames}>
             {this.renderGroupTitleText()}
           </div>
