@@ -13,6 +13,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **fonts:** update fonts package to alpha versioning for v3 ([d7395ea](https://github.com/mi6/ic-ui-kit/commit/d7395eae355de1db87fd53bf0d0f7f71be33198e))
 
+## [2.6.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/fonts@2.6.6...@ukic/fonts@2.6.7) (2025-04-16)
+
+**Note:** Version bump only for package @ukic/fonts
+
+## 2.6.6 (2025-02-19)
+
+**Note:** Version bump only for package @ukic/fonts
+
+## 2.6.5 (2024-12-18)
+
+### Bug Fixes
+
+- **fonts:** update @ukic/fonts version to fix failing release ([927bfea](https://github.com/mi6/ic-ui-kit/commit/927bfeac66880f7f79e53bc9ac444ec533cb8688))
+
 ## 2.6.4 (2024-12-09)
 
 **Note:** Version bump only for package @ukic/fonts

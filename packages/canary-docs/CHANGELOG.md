@@ -17,17 +17,48 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @ukic/canary-docs
 
-# [3.0.0]
+# [3.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.7...@ukic/canary-docs@3.0.0-canary.8) (2025-02-20)
+
+**Note:** Version bump only for package @ukic/canary-docs
+
+# [3.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.6...@ukic/canary-docs@3.0.0-canary.7) (2025-01-22)
 
 ### Bug Fixes
 
 - **canary-docs:** add icSelectedRowChange event to IcDataTable ([2c32253](https://github.com/mi6/ic-ui-kit/commit/2c32253e21b05c8535ecb34b5a5e908ad2d6a265)), closes [#1226](https://github.com/mi6/ic-ui-kit/issues/1226)
 - **canary-docs:** set IcPaginationBar to the first page when the items per page changes ([8ac2c2b](https://github.com/mi6/ic-ui-kit/commit/8ac2c2bed604d9bf09d1297bc85820bae490729b)), closes [#2639](https://github.com/mi6/ic-ui-kit/issues/2639)
-- **canary-docs:** update docs to have updated data table prop description ([28bcecb](https://github.com/mi6/ic-ui-kit/commit/28bcecbc868f81fddb4b0c3abe5d52d2216abc83))
+
+# [3.0.0-canary.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.5...@ukic/canary-docs@3.0.0-canary.6) (2025-01-08)
+
+**Note:** Version bump only for package @ukic/canary-docs
+
+# [3.0.0-canary.5](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.4...@ukic/canary-docs@3.0.0-canary.5) (2024-12-09)
 
 ### Documentation
 
 - **canary-docs:** changes to canary-docs ([2ec62c9](https://github.com/mi6/ic-ui-kit/commit/2ec62c949fcbb052cb1d0f90c9376003f88a02a6))
+
+### BREAKING CHANGES
+
+- **canary-docs:** dark mode
+
+# [3.0.0-canary.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.3...@ukic/canary-docs@3.0.0-canary.4) (2024-11-14)
+
+**Note:** Version bump only for package @ukic/canary-docs
+
+# [3.0.0-canary.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.2...@ukic/canary-docs@3.0.0-canary.3) (2024-10-31)
+
+**Note:** Version bump only for package @ukic/canary-docs
+
+# [3.0.0-canary.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.1...@ukic/canary-docs@3.0.0-canary.2) (2024-10-17)
+
+**Note:** Version bump only for package @ukic/canary-docs
+
+# 3.0.0-canary.1 (2024-10-04)
+
+### Bug Fixes
+
+- **canary-docs:** update docs to have updated data table prop description ([28bcecb](https://github.com/mi6/ic-ui-kit/commit/28bcecbc868f81fddb4b0c3abe5d52d2216abc83))
 
 ### Code Refactoring
 
@@ -35,10 +66,30 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-- **canary-docs:** dark mode
 - **docs:** Size prop type changed from 'default' to 'medium'
 
-# 2.0.0-canary.28 (2025-02-12)
+
+# [2.0.0-canary.32](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.31...@ukic/canary-docs@2.0.0-canary.32) (2025-04-16)
+
+### Features
+
+- **canary-docs:** add ability to hide the icdateinput in the icdatepicker ([63f882d](https://github.com/mi6/ic-ui-kit/commit/63f882d2f47e95356cb3f9efdc5ebf9f01bdd2a8)), closes [#3357](https://github.com/mi6/ic-ui-kit/issues/3357)
+
+# [2.0.0-canary.31](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.30...@ukic/canary-docs@2.0.0-canary.31) (2025-04-07)
+
+### Features
+
+- **canary-docs:** add ability to hide the icdateinput in the icdatepicker ([51fb149](https://github.com/mi6/ic-ui-kit/commit/51fb149743f3ce291c041e03681017bc65ed4437)), closes [#3357](https://github.com/mi6/ic-ui-kit/issues/3357)
+
+# [2.0.0-canary.30](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.29...@ukic/canary-docs@2.0.0-canary.30) (2025-03-05)
+
+**Note:** Version bump only for package @ukic/canary-docs
+
+# [2.0.0-canary.29](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.28...@ukic/canary-docs@2.0.0-canary.29) (2025-02-19)
+
+**Note:** Version bump only for package @ukic/canary-docs
+
+# [2.0.0-canary.28](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.27...@ukic/canary-docs@2.0.0-canary.28) (2025-02-12)
 
 ### Bug Fixes
 
