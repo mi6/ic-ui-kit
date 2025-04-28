@@ -14,7 +14,7 @@ Given a directory, it will scan over files and find any relevant ICDS components
 This package will be usable as an executable requiring a directory and optional test boolean argument to cover tests 
 
 ```console
-- npx @ukic/codemod@next <dir> <test>
+- npx @ukic/codemod <dir> <test>
 ```
 
 ### Options:
@@ -31,11 +31,11 @@ This package will be usable as an executable requiring a directory and optional 
 ### Examples:
 With tests
 ```console
-- npx @ukic/codemod@next --dir ./#path/app/src/components --test true
+- npx @ukic/codemod --dir ./#path/app/src/components --test true
 ```
 Without tests
 ```console
-- npx @ukic/codemod@next --dir ./#path/app/src/components
+- npx @ukic/codemod --dir ./#path/app/src/components
 ```
 
 ## Contributing
