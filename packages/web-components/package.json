@@ -52,7 +52,7 @@
     "@stencil/core": "^4.26.0"
   },
   "peerDependencies": {
-    "@ukic/fonts": "^2.6.0"
+    "@ukic/fonts": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
