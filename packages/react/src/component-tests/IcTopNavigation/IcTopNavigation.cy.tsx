@@ -560,6 +560,21 @@ describe("IcTopNavigation mobile visual regression tests", () => {
     });
   });
 
+  it("should render with dark theme - mobile - menu open", () => {
+    mount(<ThemeDark />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.clickOnShadowEl(TOP_NAV_SELECTOR, "ic-button#menu-button").wait(800);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/mobile-open-theme-dark",
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.021
+      ),
+    });
+  });
+
   it("should render with different brand color - mobile", () => {
     mount(<Brand />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
