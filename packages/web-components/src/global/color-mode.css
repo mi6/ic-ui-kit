@@ -1090,6 +1090,9 @@ ic-theme,
   --ic-status-tag-outlined-background-neutral: var(
     --ic-status-unknown-outlined
   );
+  --ic-status-tag-outlined-background-neutral-contrast: var(
+    --ic-status-unknown-outlined
+  );
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-mid);
   --ic-status-tag-filled-warning-text: var(--ic-status-tag-text-inverted);
 
@@ -2524,6 +2527,9 @@ ic-theme,
     --ic-status-tag-outlined-background-neutral: var(
       --ic-status-unknown-dark-dm
     );
+    --ic-status-tag-outlined-background-neutral-contrast: var(
+      --ic-status-unknown-contrast-dm
+    );
     --ic-status-tag-outlined-neutral: var(--ic-status-unknown-default);
     --ic-status-tag-filled-warning-text: var(--ic-status-tag-text);
 
@@ -3921,6 +3927,9 @@ ic-theme,
   --ic-status-tag-outlined-warning: var(--ic-status-warning-outlined);
   --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
   --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-dark-dm);
+  --ic-status-tag-outlined-background-neutral-contrast: var(
+    --ic-status-unknown-contrast-dm
+  );
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-default);
   --ic-status-tag-filled-warning-text: var(--ic-status-tag-text);
 
