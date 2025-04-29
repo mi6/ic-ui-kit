@@ -72,7 +72,7 @@
 .menu-status {
   background-color: var(--ic-status-tag-neutral);
 
-  --ic-typography-color: var(--ic-status-tag-text);
+  --ic-typography-color: var(--ic-color-text-inverted);
 
   border-radius: var(--ic-space-md);
   width: fit-content;
@@ -81,7 +81,7 @@
 
 .menu-version {
   border-radius: var(--ic-space-md);
-  background-color: var(--ic-status-tag-outlined-background-neutral);
+  background-color: var(--ic-status-tag-outlined-background-neutral-contrast);
 
   --ic-typography-color: var(--ic-color-text-primary-light);
 
