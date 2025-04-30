@@ -69,7 +69,7 @@ We have a couple of resources to help you with contributing.
 
 ## Changelog
 
-For a comprehensive changelog of the React components, please read the web components [CHANGELOG](https://github.com/mi6/ic-ui-kit/blob/main/packages/web-components/CHANGELOG.md). The released updates made to the web components are reflected on the React components. 
+For a comprehensive changelog of the React components, please read the [Web Components CHANGELOG](https://github.com/mi6/ic-ui-kit/blob/main/packages/web-components/CHANGELOG.md). The released updates made to the web components are reflected on the React components. 
 
 ## Security
 
