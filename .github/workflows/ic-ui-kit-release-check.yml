@@ -61,7 +61,7 @@ jobs:
           RELEASE_BRANCH="release"
           git checkout -b $RELEASE_BRANCH origin/develop
           echo "${{ env.VERSION }}" > DEVELOPMENT_RELEASE_CHECK.md
-          git add DEVELOPMENT_RELEASE_CHECK.md
+          git add .
           git commit -m "chore(release): update development release version check file"
           git push origin $RELEASE_BRANCH
       - name: Create release branch -> develop PR 
