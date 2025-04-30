@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.16](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.15...@ukic/canary-react@3.0.0-canary.16) (2025-04-30)
+
+### Features
+
+- **canary-react:** adds react 19 support ([f9e9a91](https://github.com/mi6/ic-ui-kit/commit/f9e9a9111b297934fa9ed90b0ad18e98d535718d))
+- **canary-react:** minor feat for v3 ([8cd4d00](https://github.com/mi6/ic-ui-kit/commit/8cd4d009e27ffa30eee5c51d9fcbf0fcbcef0c77))
+
 # [3.0.0-canary.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.14...@ukic/canary-react@3.0.0-canary.15) (2025-04-28)
 
 ### Bug Fixes

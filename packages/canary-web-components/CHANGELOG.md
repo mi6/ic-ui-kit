@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.16](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.15...@ukic/canary-web-components@3.0.0-canary.16) (2025-04-30)
+
+### Features
+
+- **canary-web-components:** minor feat for v3 ([ef53527](https://github.com/mi6/ic-ui-kit/commit/ef53527fbc78eba6dbc63e3fa826b6630507f701))
+
 # [3.0.0-canary.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.14...@ukic/canary-web-components@3.0.0-canary.15) (2025-04-28)
 
 ### Bug Fixes

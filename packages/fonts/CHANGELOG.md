@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/fonts@3.0.0-alpha.4...@ukic/fonts@3.1.0) (2025-04-30)
+
+### Features
+
+- **fonts:** minor feat for v3 ([bc50e97](https://github.com/mi6/ic-ui-kit/commit/bc50e9727a33d76ddac6fe1056a97785e3d23609))
+
 # [3.0.0-alpha.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/fonts@3.0.0-alpha.3...@ukic/fonts@3.0.0-alpha.4) (2025-04-28)
 
 **Note:** Version bump only for package @ukic/fonts
