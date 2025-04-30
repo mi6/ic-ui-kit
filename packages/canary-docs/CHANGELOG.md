@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.12...@ukic/canary-docs@3.0.0-canary.13) (2025-04-30)
+
+### Features
+
+- **canary-docs:** minor feat for v3 ([d58528e](https://github.com/mi6/ic-ui-kit/commit/d58528e0e4fa46203a2826af4ed0029967d849f4))
+
 # [3.0.0-canary.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@3.0.0-canary.11...@ukic/canary-docs@3.0.0-canary.12) (2025-04-28)
 
 ### Documentation

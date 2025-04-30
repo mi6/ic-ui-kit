@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.css"
   ],
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "React-wrapped web components served on a nextjs storybook",
   "author": "mi6",
   "private": true,
@@ -35,8 +35,8 @@
   "dependencies": {
     "@storybook/addon-a11y": "^8.6.9",
     "@storybook/addon-postcss": "^2.0.0",
-    "@ukic/react": "^3.0.0",
-    "@ukic/web-components": "^3.0.0"
+    "@ukic/react": "^3.1.0",
+    "@ukic/web-components": "^3.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",

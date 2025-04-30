@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.15...@ukic/web-components@3.1.0) (2025-04-30)
+
+### Bug Fixes
+
+- **web-components:** fix length validation message in ic-textfield component ([e1074d5](https://github.com/mi6/ic-ui-kit/commit/e1074d5ed76fa149f22f17323def3b2b6df76434))
+- **web-components:** fixes issue with colors of buttons and toggle buttons ([58d0a13](https://github.com/mi6/ic-ui-kit/commit/58d0a13b6b5fe1e2a05660f7c41c89f02209dbb9))
+- **web-components:** update nav group aria-expanded to work correctly on top nav ([d2febf2](https://github.com/mi6/ic-ui-kit/commit/d2febf232555bdad5d464b99210872a2b578b688)), closes [.#1873](https://github.com/./issues/1873)
+- **web-components:** update to dark mode colours for status and version tags in mobile navigation ([a48743b](https://github.com/mi6/ic-ui-kit/commit/a48743bbea10e8726a03d9b5508fdf6b34e5cd30))
+
+### Features
+
+- **web-components:** minor feat for v3 ([e0d9f32](https://github.com/mi6/ic-ui-kit/commit/e0d9f32c2e03934b469ac907a436d4aad00ba821))
+
 # [3.0.0-alpha.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.14...@ukic/web-components@3.0.0-alpha.15) (2025-04-28)
 
 ### Bug Fixes
