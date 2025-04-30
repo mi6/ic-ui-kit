@@ -125,11 +125,13 @@
 .checkbox-label {
   padding-left: var(--ic-space-sm);
   color: var(--ic-checkbox-text);
+
   --ic-typography-color: var(--ic-checkbox-text);
 }
 
 :host(.ic-checkbox-disabled) .checkbox-label {
   color: var(--ic-checkbox-text-disabled);
+
   --ic-typography-color: var(--ic-checkbox-text-disabled);
 }
 
@@ -262,7 +264,7 @@
 }
 
 .branch-corner:dir(rtl) {
-  border-radius: 0 0 0.188rem 0;
+  border-radius: 0 0 0.188rem;
   border-right: 0.125rem solid var(--ic-action-default);
   border-left: none;
 }

@@ -49,10 +49,6 @@
 }
 
 :host(.in-side-menu) .navigation-group .ic-typography-label {
-  width: 12rem;
-}
-
-:host(.in-side-menu) .navigation-group .ic-typography-label {
   width: 100%;
 }
 

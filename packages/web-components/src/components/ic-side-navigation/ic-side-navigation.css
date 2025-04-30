@@ -19,9 +19,9 @@
   --sm-side-navigation-bottom-bar-height: 3.5rem;
   --keyline-lighten: var(--ic-space-1px) solid var(--ic-side-navigation-keyline);
   --keyline-darken: var(--ic-space-1px) solid var(--ic-state-layer-darken-20);
-
   --ic-button-secondary-text-monochrome: var(--ic-brand-text-color);
   --ic-button-secondary-border-monochrome: var(--ic-brand-text-color);
+
   z-index: var(--ic-z-index-side-navigation);
 }
 
@@ -666,6 +666,7 @@ slot[name="app-title"]::slotted(a) {
   .top-bar {
     height: var(--side-navigation-height);
   }
+
   .side-navigation {
     width: 100%;
   }

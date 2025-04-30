@@ -2,6 +2,7 @@
 
 .label-container {
   --ic-typography-color: var(--ic-accordion-group-title-text);
+
   color: var(--ic-accordion-group-title-text);
   padding: var(--ic-space-xs);
   display: flex;

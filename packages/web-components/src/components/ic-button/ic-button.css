@@ -83,6 +83,7 @@
 :host(.ic-button-variant-primary) ::slotted(a),
 :host(.ic-button-variant-icon-primary) ::slotted(a) {
   --ic-typography-color: var(--ic-button-primary-text);
+
   color: var(--ic-button-primary-text);
   background-color: var(--ic-button-primary-background) !important;
 }
@@ -103,6 +104,7 @@
 :host(.ic-button-variant-icon-primary) .button:active {
   color: var(--ic-button-primary-text);
   background-color: var(--ic-button-primary-background-pressed);
+
   --button-loading-inner-color: var(--ic-button-primary-text);
   --button-loading-outer-color: var(--ic-button-primary-background-pressed);
 }
@@ -121,7 +123,9 @@
 :host(.ic-button-variant-primary.ic-button-disabled) ::slotted(a),
 :host(.ic-button-variant-icon-primary.ic-button-disabled) ::slotted(a) {
   background: var(--ic-button-primary-background-disabled) !important;
+
   --ic-typography-color: var(--ic-button-primary-text-disabled) !important;
+
   color: var(--ic-button-primary-text-disabled) !important;
 }
 
@@ -155,6 +159,7 @@
 :host(.ic-button-variant-icon-primary.ic-button-loading.monochrome) .button,
 :host(.ic-button-variant-icon-primary.monochrome) .button:active {
   background-color: var(--ic-button-primary-background-pressed-monochrome);
+
   --button-loading-inner-color: var(--ic-button-primary-text-monochrome);
   --button-loading-outer-color: var(--ic-button-primary-background-monochrome);
 }
@@ -192,6 +197,7 @@
 :host(.ic-button-variant-icon-secondary) ::slotted(a) {
   border: var(--ic-border-width) solid var(--ic-button-secondary-border) !important;
   color: var(--ic-button-secondary-text) !important;
+
   --ic-typography-color: var(--ic-button-secondary-text) !important;
 }
 
@@ -231,6 +237,7 @@
     var(--ic-button-secondary-background-pressed-active)
   ) !important;
   color: var(--ic-button-secondary-text-pressed-active);
+
   --button-loading-inner-color: var(--ic-button-secondary-border-pressed);
   --button-loading-outer-color: var(
     --ic-button-secondary-background-pressed-active
@@ -354,6 +361,7 @@
   ) !important;
   border-color: var(--ic-button-secondary-border-pressed-monochrome);
   color: var(--ic-button-secondary-text-pressed-monochrome);
+
   --button-loading-inner-color: var(
     --ic-button-secondary-text-pressed-monochrome
   );
@@ -448,6 +456,7 @@
 :host(.ic-button-variant-tertiary) ::slotted(a),
 :host(.ic-button-variant-icon-tertiary) ::slotted(a) {
   color: var(--ic-button-tertiary-text-active);
+
   --ic-typography-color: var(--ic-button-tertiary-text-active);
 }
 
@@ -470,6 +479,7 @@
 :host(.ic-button-variant-icon-tertiary.ic-button-loading) .button {
   background-color: var(--ic-button-tertiary-background-pressed-active);
   color: var(--ic-button-tertiary-text-pressed-active);
+
   --button-loading-inner-color: var(--ic-button-tertiary-text-pressed-active);
   --button-loading-outer-color: var(--ic-button-tertiary-background-pressed);
 }
@@ -499,6 +509,7 @@
 :host(.ic-button-variant-icon-tertiary.monochrome) .button,
 :host(.ic-button-variant-icon-tertiary.monochrome) ::slotted(a) {
   color: var(--ic-button-tertiary-text-monochrome);
+
   --ic-typography-color: var(--ic-button-tertiary-text-monochrome);
 }
 
@@ -521,6 +532,7 @@
 :host(.ic-button-variant-icon-tertiary.ic-button-loading.monochrome) .button {
   background-color: var(--ic-button-tertiary-background-pressed-monochrome);
   color: var(--ic-button-tertiary-text-pressed-monochrome);
+
   --button-loading-inner-color: var(
     --ic-button-tertiary-text-pressed-monochrome
   );
@@ -560,7 +572,9 @@
 :host(.ic-button-variant-destructive) ::slotted(a),
 :host(.ic-button-variant-icon-destructive) ::slotted(a) {
   color: var(--ic-button-destructive-text) !important;
+
   --ic-typography-color: var(--ic-button-destructive-text) !important;
+
   background-color: var(--ic-button-destructive-background) !important;
   text-transform: uppercase !important;
 }
@@ -580,6 +594,7 @@
 :host(.ic-button-variant-icon-destructive.ic-button-loading) .button {
   color: var(--ic-button-primary-text);
   background-color: var(--ic-button-destructive-background-pressed);
+
   --button-loading-inner-color: var(--ic-button-primary-text);
   --button-loading-outer-color: var(--ic-button-destructive-background-pressed);
 }
@@ -935,11 +950,6 @@ div.right-icon {
   gap: var(--ic-space-xs);
 }
 
-:host(.ic-button-variant-icon) .icon-container {
-  width: var(--ic-space-lg) !important;
-  height: var(--ic-space-lg) !important;
-}
-
 :host(.button-variant-icon) .button,
 :host(.button-variant-icon) ::slotted(a) {
   color: var(--button-default);
@@ -1011,12 +1021,14 @@ div.right-icon {
 :host(.clear-button) .button:not(:active):focus ::slotted(svg) {
   background-color: var(--ic-atoms-input-clear-button-focus-inner);
   color: var(--ic-button-primary-text);
+
   /* border: var(--ic-atoms-input-clear-button-focus-outer); */
 }
 
 :host(.menu-close-button) ::slotted(svg) {
   --icon-height: 0.875rem;
   --icon-width: 0.875rem;
+
   color: var(--ic-top-navigation-icon-active);
 }
 
@@ -1124,6 +1136,7 @@ slot[name="router-item"]::slotted(a) {
   ::slotted(a) {
     border: 0.125rem solid transparent !important;
   }
+
   .search-submit-button ::slotted(a),
   .ic-button-variant-icon ::slotted(a),
   .clear-button ::slotted(a),

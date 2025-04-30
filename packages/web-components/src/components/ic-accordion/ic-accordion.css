@@ -41,6 +41,7 @@
 
 .section-header {
   --ic-typography-color: var(--ic-accordion-heading-text);
+
   color: var(--ic-accordion-heading-text);
   text-align: left;
   flex: 1 0;
@@ -48,6 +49,7 @@
 
 :host(.ic-accordion-disabled) .section-header {
   --ic-typography-color: var(--ic-accordion-heading-text-disabled);
+
   color: var(--ic-accordion-heading-text-disabled);
 }
 
@@ -102,6 +104,7 @@ button:disabled {
 
 .expanded-content {
   --ic-typography-color: var(--ic-accordion-body-text);
+
   color: var(--ic-accordion-body-text);
   height: 0;
   overflow: hidden;
