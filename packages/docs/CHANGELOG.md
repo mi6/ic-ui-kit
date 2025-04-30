@@ -3,23 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.1.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.15...@ukic/docs@3.1.0) (2025-04-30)
-
-### Features
-
-- **docs:** minor feat for v3 ([46d1583](https://github.com/mi6/ic-ui-kit/commit/46d1583bb94c9ba882a2643314e7dd3be4d84dd0))
-
-# [3.0.0-alpha.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.14...@ukic/docs@3.0.0-alpha.15) (2025-04-28)
-
-### Documentation
-
-- **docs:** updated docs with new prop for ic-dialog ([75a3b6b](https://github.com/mi6/ic-ui-kit/commit/75a3b6bf1ee524f9d9f5c07969797d05b4c98ac4))
-
-### BREAKING CHANGES
-
-- **docs:** Prop name of buttons changed to hide-default-controls
-
-# [3.0.0]
+# [3.1.0]
 
 ### Bug Fixes
 
@@ -58,12 +42,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **docs:** popover dark mode ([54f0ab1](https://github.com/mi6/ic-ui-kit/commit/54f0ab1c23e457b507f75a886971ff4f883f495e))
 - **docs:** docs update ([aa0f1d7](https://github.com/mi6/ic-ui-kit/commit/aa0f1d7620d3806ae9725fc488c97aac9e044d97))
 - **docs:** update docs after rename of toggleChecked prop to checked in ic-menu-item ([2ce2939](https://github.com/mi6/ic-ui-kit/commit/2ce29394467e5f1ce0e27043fa23c4cce15aa107))
+- **docs:** updated docs with new prop for ic-dialog ([75a3b6b](https://github.com/mi6/ic-ui-kit/commit/75a3b6bf1ee524f9d9f5c07969797d05b4c98ac4))
 
 ### Features
 
 - **docs:** re-generated docs json ([102a4bc](https://github.com/mi6/ic-ui-kit/commit/102a4bcfcce1437b5bcf6bb646dc11712af02789))
 - **docs:** added hide label description for ic-input-label ([0207d94](https://github.com/mi6/ic-ui-kit/commit/0207d949d467b50da6aeff0d9175a9431bcea3ed))
 - **docs:** dark mode work ([de9a7fc](https://github.com/mi6/ic-ui-kit/commit/de9a7fc825c913e871399360888f9d1ff1fffabc))
+- **docs:** minor feat for v3 ([46d1583](https://github.com/mi6/ic-ui-kit/commit/46d1583bb94c9ba882a2643314e7dd3be4d84dd0))
 
 ### Code Refactoring
 
@@ -81,6 +67,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **docs:** Size prop type changed from 'default' to 'medium'
 - **docs:** Rename toggleChecked prop to checked in ic-menu-item
 - **docs:** prop rename to more closely align with native html attribute
+- **docs:** Prop name of buttons changed to hide-default-controls
 
 ## [2.15.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.15.5...@ukic/docs@2.15.6) (2025-04-16)
 
