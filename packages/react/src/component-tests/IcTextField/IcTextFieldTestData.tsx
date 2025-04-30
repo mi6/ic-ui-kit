@@ -390,14 +390,6 @@ export const DarkTheme = (): ReactElement => (
     />
     <IcTextField
       theme="dark"
-      disabled
-      value="Arabica"
-      label="What is your favourite coffee?"
-      required
-      helperText="Such as Arabica, Robusta or Liberica"
-    />
-    <IcTextField
-      theme="dark"
       readonly
       value="Arabica"
       label="What is your favourite coffee?"
@@ -413,6 +405,19 @@ export const DarkTheme = (): ReactElement => (
       helperText="Such as Arabica, Robusta or Liberica"
       resize
       size="small"
+    />
+  </div>
+);
+
+export const DarkThemeDisabled = (): ReactElement => (
+  <div style={{ backgroundColor: "#17191C" }}>
+    <IcTextField
+      theme="dark"
+      disabled
+      value="Arabica"
+      label="What is your favourite coffee?"
+      required
+      helperText="Such as Arabica, Robusta or Liberica"
     />
   </div>
 );

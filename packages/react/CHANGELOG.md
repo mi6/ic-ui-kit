@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.15...@ukic/react@3.1.0) (2025-04-30)
+
+### Bug Fixes
+
+- **react:** updates baseline image after button token change ([e6b8a9a](https://github.com/mi6/ic-ui-kit/commit/e6b8a9a5f80f84d6b5839907833117f82368b8f6))
+
+### Features
+
+- **react:** adds react 19 support ([e6d1f28](https://github.com/mi6/ic-ui-kit/commit/e6d1f285f0f103f298af0abdaa0b775b544c9255))
+- **react:** minor feat for v3 ([862688e](https://github.com/mi6/ic-ui-kit/commit/862688e24ab39c6704077df542f92f31a4811999))
+
 # [3.0.0-alpha.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.14...@ukic/react@3.0.0-alpha.15) (2025-04-28)
 
 ### Bug Fixes

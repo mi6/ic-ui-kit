@@ -247,7 +247,7 @@ exports[`ic-navigation-menu should test slotted navigation group: renders-with-s
   </template>
   <ic-navigation-group class="ic-navigation-group-expandable ic-navigation-group-expanded" expandable="true" label="Navigation group" role="listitem" slot="navigation">
     <template shadowrootmode="open">
-      <button aria-expanded="true" aria-haspopup="false" class="light navigation-group">
+      <button aria-expanded="false" aria-haspopup="false" class="light navigation-group">
         <ic-typography id="nav-group-title" variant="label">
           Navigation group
         </ic-typography>

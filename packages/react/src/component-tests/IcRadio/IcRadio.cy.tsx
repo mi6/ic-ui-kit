@@ -37,6 +37,7 @@ import {
   BE_VISIBLE,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 
 const RADIO_GROUP_SELECTOR = "ic-radio-group";
 const RADIO_SELECTOR = "ic-radio-option";
@@ -47,6 +48,13 @@ const TEXT_FIELD_SELECTOR = "ic-text-field";
 const CONTAINER_CLASS = ".container";
 const CONSOLE_LOG_SPY_ALIAS = "@spyWinConsoleLog";
 const DEFAULT_TEST_THRESHOLD = 0.006;
+
+const DISABLED_RADIO_AXE_OPTIONS = {
+  rules: {
+    ...CYPRESS_AXE_OPTIONS.rules,
+    "color-contrast": { enabled: false },
+  },
+};
 
 describe("IcRadio end-to-end tests", () => {
   beforeEach(() => {
@@ -481,7 +489,7 @@ describe("IcRadio visual regression and a11y tests", () => {
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, DISABLED_RADIO_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "/disabled-options",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),

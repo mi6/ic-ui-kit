@@ -6,7 +6,7 @@ This package includes fonts used within ICDS components.
 
 Run `npm install @ukic/fonts` at the root level of your project.
 
-The `fonts.css` file can be imported into the relevant file type:
+The `fonts.css` file can then be imported into the relevant file type:
 
 #### Javascript
 ````js

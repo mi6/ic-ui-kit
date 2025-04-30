@@ -23,7 +23,7 @@ If you've found a vulnerability, we want to know so that we can fix it. [Our sec
 
 ## Questions about the departments
 
-The team is only able to talk about the projects we've put on GitHub 🕵️. We unfortunately can't talk about the work of our departments 😢.
+The team is only able to talk about the projects we've put on GitHub. We unfortunately can't talk about the work of our departments.
 
 Visit our websites to learn more about:
 

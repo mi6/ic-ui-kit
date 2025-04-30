@@ -428,7 +428,7 @@ ic-theme,
     --ic-color-text-action-hover-light
   );
   --ic-button-secondary-text-pressed-active: var(
-    --ic-color-text-action-pressed
+    --ic-color-text-action-pressed-light
   );
   --ic-button-secondary-text-disabled: var(--ic-color-text-disabled-mid);
   --ic-button-secondary-text-disabled-monochrome: var(
@@ -1090,6 +1090,9 @@ ic-theme,
   --ic-status-tag-outlined-background-neutral: var(
     --ic-status-unknown-outlined
   );
+  --ic-status-tag-outlined-background-neutral-contrast: var(
+    --ic-status-unknown-outlined
+  );
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-mid);
   --ic-status-tag-filled-warning-text: var(--ic-status-tag-text-inverted);
 
@@ -1258,13 +1261,13 @@ ic-theme,
     --ic-color-border-action-pressed
   );
   --ic-toggle-button-unselected-text-pressed: var(
-    --ic-color-text-action-pressed
+    --ic-color-text-action-pressed-light
   );
   --ic-toggle-button-unselected-icon-pressed: var(
     --ic-color-icon-action-pressed
   );
   --ic-toggle-button-unselected-background-pressed: var(
-    --ic-action-default-bg-active
+    --ic-action-default-bg-pressed
   );
   --ic-toggle-button-loading-bar: var(--ic-color-icon-brand);
   --ic-toggle-button-unselected-text-disabled: var(
@@ -2524,6 +2527,9 @@ ic-theme,
     --ic-status-tag-outlined-background-neutral: var(
       --ic-status-unknown-dark-dm
     );
+    --ic-status-tag-outlined-background-neutral-contrast: var(
+      --ic-status-unknown-contrast-dm
+    );
     --ic-status-tag-outlined-neutral: var(--ic-status-unknown-default);
     --ic-status-tag-filled-warning-text: var(--ic-status-tag-text);
 
@@ -2720,7 +2726,7 @@ ic-theme,
       --ic-color-icon-action-pressed-dark
     );
     --ic-toggle-button-unselected-background-pressed: var(
-      --ic-action-default-bg-active
+      --ic-action-default-bg-pressed
     );
     --ic-toggle-button-loading-bar: var(--ic-color-icon-neutral);
     --ic-toggle-button-unselected-text-disabled: var(
@@ -3921,6 +3927,9 @@ ic-theme,
   --ic-status-tag-outlined-warning: var(--ic-status-warning-outlined);
   --ic-status-tag-neutral: var(--ic-status-unknown-contrast);
   --ic-status-tag-outlined-background-neutral: var(--ic-status-unknown-dark-dm);
+  --ic-status-tag-outlined-background-neutral-contrast: var(
+    --ic-status-unknown-contrast-dm
+  );
   --ic-status-tag-outlined-neutral: var(--ic-status-unknown-default);
   --ic-status-tag-filled-warning-text: var(--ic-status-tag-text);
 
@@ -4105,7 +4114,7 @@ ic-theme,
     --ic-color-icon-action-pressed-dark
   );
   --ic-toggle-button-unselected-background-pressed: var(
-    --ic-action-default-bg-active
+    --ic-action-default-bg-pressed
   );
   --ic-toggle-button-loading-bar: var(--ic-color-icon-neutral);
   --ic-toggle-button-unselected-text-disabled: var(

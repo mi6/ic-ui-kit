@@ -45,12 +45,21 @@ import {
   DarkThemeValidation,
   DarkThemeReadOnly,
   HiddenInput,
+  DarkThemeDisabled,
 } from "./IcTextFieldTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 
 const IC_TEXTFIELD = "ic-text-field";
 const TEXTFIELD_INPUT = 'input[type="text"]';
 const DEFAULT_TEST_THRESHOLD = 0.028;
+
+const DISABLED_TEXT_FIELD_AXE_OPTIONS = {
+  rules: {
+    ...CYPRESS_AXE_OPTIONS.rules,
+    "color-contrast": { enabled: false },
+  },
+};
 
 describe("IcTextField end-to-end tests", () => {
   beforeEach(() => {
@@ -476,11 +485,21 @@ describe("IcTextField visual regression tests", () => {
 
     cy.checkHydrated(IC_TEXTFIELD);
 
-    //cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.wait(250).compareSnapshot({
       name: "/dark-theme",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
       delay: 500,
+    });
+  });
+
+  it("should render disabled with dark theme", () => {
+    mount(<DarkThemeDisabled />);
+
+    cy.checkA11yWithWait(undefined, undefined, DISABLED_TEXT_FIELD_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "/dark-theme-disabled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 
