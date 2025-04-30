@@ -1,18 +1,16 @@
-name: Develop
-permissions: read-all
+name: V2 Release Merged to V2 Develop
+permissions:
+  pull-requests: write
+  contents: write
 
 on:
-  push:
-    branches:
-      - develop
-      - v2.0.0/develop
-
-concurrency:
-  group: ci-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  pull_request:
+    types:
+      - closed
 
 jobs:
   check-updates:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'v2.0.0/develop' && github.event.pull_request.head.ref == 'v2.0.0/release'
     name: "Check package updates"
     runs-on: ubuntu-latest
     permissions:
@@ -139,81 +137,69 @@ jobs:
         id: canary_cypress_tests
         run: npm run test-cypress:ci:canary
 
-      - name: Cypress performance tests
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        id: core_cypress_performance_tests
-        run: npm run test-cypress-perf:ci
-
-  ic-ui-kit-deploy-core:
+  ic-ui-kit-publish:
     needs:
       [
         ic-ui-kit-static-analysis-tests,
         ic-ui-kit-e2e-tests,
-        check-updates,
         ic-ui-kit-cypress-tests,
       ]
-    name: "Deploy QA Storybook"
+    name: "Publish v2 packages"
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+        with:
+          fetch-depth: "0"
+          TOKEN: ${{ secrets.PUBLISH_PAT }}
+      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: |
           npm ci
           npm run bootstrap -- -- --ci
 
-      - name: Build core components
-        if: ${{ needs.check-updates.outputs.canary == 'false' }}
+      - name: Build
+        run: npm run build:all
+
+      # Runs git checkout for docs.json and canary-docs files to revert timestamp changes
+      - name: Publish
         run: |
-          npm run build
+          git config --global user.name ${{ secrets.USERNAME }}
+          git config --global user.email ${{ secrets.EMAIL }}
+          git checkout packages/docs/docs.json packages/canary-docs/docs.json
+          npx lerna publish --dist-tag v2-latest --no-commit-hooks -y
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Build all components
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+  # Triggers a workflow in the design system repo
+  ic-ui-kit-update-v2-design-system:
+    needs: [ic-ui-kit-publish]
+    name: "Trigger v2 design system release workflow"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 #v3.0.0
+        with:
+          token: ${{ secrets.PUBLISH_PAT }}
+          repository: mi6/ic-design-system
+          event-type: design-system-release-v2
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+
+  ic-ui-kit-v2-develop-to-v2-main:
+    needs: [ic-ui-kit-publish]
+    name: "Merge v2 develop into v2 main"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+        with:
+          fetch-depth: 0
+
+      - name: Create PR to merge v2 develop into v2 main
         run: |
-          npm run build:all
-
-      - name: Build web-components and react storybook
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        run: |
-          npm run build-storybook:web-components
-          npm run build-storybook:react          
-
-      - name: Build canary web-components and canary react storybook
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        run: |
-          npm run build-storybook:canary-web-components
-          npm run build-storybook:canary-react
-
-      - name: Deploy web components storybook
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/web-components/storybook-static
-          target-folder: ./branches/${{ github.ref_name }}/web-components
-
-      - name: Deploy react storybook
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/react/storybook-static
-          target-folder: ./branches/${{ github.ref_name }}/react
-
-      - name: Deploy canary web components storybook
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/canary-web-components/storybook-static
-          target-folder: ./branches/canary/${{ github.ref_name }}/web-components
-
-      - name: Deploy canary react storybook
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/canary-react/storybook-static
-          target-folder: ./branches/canary/${{ github.ref_name }}/react
+          curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/mi6/ic-ui-kit/pulls" -d '{"title":"Merge v2 develop into v2 main","body":"Ensure all changes are in main","head":"v2.0.0/develop","base":"v2.0.0/main"}'
           
