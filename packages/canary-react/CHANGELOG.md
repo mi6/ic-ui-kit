@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.41](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.38...@ukic/canary-react@2.0.0-canary.41) (2025-04-30)
+
+### Features
+
+- **canary-react:** add ability to hide the icdateinput in the icdatepicker ([9e6128b](https://github.com/mi6/ic-ui-kit/commit/9e6128bd6deddfd70c4dabcda28bdcf8872a879c)), closes [#3357](https://github.com/mi6/ic-ui-kit/issues/3357)
+
 # [2.0.0-canary.40](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.38...@ukic/canary-react@2.0.0-canary.40) (2025-04-16)
 
 ### Features

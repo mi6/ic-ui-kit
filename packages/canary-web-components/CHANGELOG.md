@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.41](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.38...@ukic/canary-web-components@2.0.0-canary.41) (2025-04-30)
+
+### Features
+
+- **canary-web-components:** add ability to hide the icdateinput in the icdatepicker ([b3483a8](https://github.com/mi6/ic-ui-kit/commit/b3483a8f14222dbb5cadd8228841fabdb1788bd2)), closes [#3357](https://github.com/mi6/ic-ui-kit/issues/3357)
+
 # [2.0.0-canary.40](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.38...@ukic/canary-web-components@2.0.0-canary.40) (2025-04-16)
 
 ### Features

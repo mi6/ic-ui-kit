@@ -1,4 +1,4 @@
-name: V3 Release Merged to V3 Develop
+name: V2 Release Merged to V2 Develop
 permissions:
   pull-requests: write
   contents: write
@@ -10,7 +10,7 @@ on:
 
 jobs:
   check-updates:
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'v3.0.0/develop' && github.event.pull_request.head.ref == 'v3.0.0/release'
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'v2.0.0/develop' && github.event.pull_request.head.ref == 'v2.0.0/release'
     name: "Check package updates"
     runs-on: ubuntu-latest
     permissions:
@@ -144,7 +144,7 @@ jobs:
         ic-ui-kit-e2e-tests,
         ic-ui-kit-cypress-tests,
       ]
-    name: "Publish v3 packages"
+    name: "Publish v2 packages"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
@@ -171,14 +171,14 @@ jobs:
           git config --global user.name ${{ secrets.USERNAME }}
           git config --global user.email ${{ secrets.EMAIL }}
           git checkout packages/docs/docs.json packages/canary-docs/docs.json
-          npx lerna publish --tag=next --no-commit-hooks -y
+          npx lerna publish --dist-tag v2-latest --no-commit-hooks -y
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   # Triggers a workflow in the design system repo
-  ic-ui-kit-update-design-system:
+  ic-ui-kit-update-v2-design-system:
     needs: [ic-ui-kit-publish]
-    name: "Trigger v3 design system release workflow"
+    name: "Trigger v2 design system release workflow"
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
@@ -186,12 +186,12 @@ jobs:
         with:
           token: ${{ secrets.PUBLISH_PAT }}
           repository: mi6/ic-design-system
-          event-type: design-system-release-v3
+          event-type: design-system-release-v2
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
 
-  ic-ui-kit-develop-to-main:
+  ic-ui-kit-v2-develop-to-v2-main:
     needs: [ic-ui-kit-publish]
-    name: "Merge v3 develop into v3 main"
+    name: "Merge v2 develop into v2 main"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -199,7 +199,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Create PR to merge v3 develop into v3 main
+      - name: Create PR to merge v2 develop into v2 main
         run: |
-          curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/mi6/ic-ui-kit/pulls" -d '{"title":"Merge v3 develop into v3 main","body":"Ensure all changes are in main","head":"v3.0.0/develop","base":"v3.0.0/main"}'
+          curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/mi6/ic-ui-kit/pulls" -d '{"title":"Merge v2 develop into v2 main","body":"Ensure all changes are in main","head":"v2.0.0/develop","base":"v2.0.0/main"}'
 

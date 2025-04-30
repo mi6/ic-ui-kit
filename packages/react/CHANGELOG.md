@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.38.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.37.0...@ukic/react@2.38.0) (2025-04-30)
+
+### Bug Fixes
+
+- **react:** set the focus in the icpopovermenu when the open prop has been provided ([1190c66](https://github.com/mi6/ic-ui-kit/commit/1190c66072d194948d1701813b72cb728347a9e3))
+
+### Features
+
+- **react:** minor feat for v2 release ([7051e5e](https://github.com/mi6/ic-ui-kit/commit/7051e5eaadf75f31464084e9f404b5c5adb8681a))
+
 ## [2.37.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.37.0...@ukic/react@2.37.2) (2025-04-16)
 
 ### Bug Fixes
