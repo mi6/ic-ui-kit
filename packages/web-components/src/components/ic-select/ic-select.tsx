@@ -228,7 +228,7 @@ export class Select {
 
   @Watch("loading")
   loadingHandler(newValue: boolean): void {
-    newValue && this.triggerLoading();
+    newValue ? this.triggerLoading() : this.setOptions();
   }
 
   /**
@@ -240,37 +240,7 @@ export class Select {
 
   @Watch("options")
   watchOptionsHandler(): void {
-    if (!this.hasTimedOut && this.options !== this.noOptions) {
-      this.loading = false;
-      clearTimeout(this.timeoutTimer);
-      if (this.isExternalFiltering()) {
-        // When searchable select
-        if (this.options!.length > 0) {
-          this.setOptionsValuesFromLabels();
-          this.noOptions = null;
-          this.uniqueOptions = this.deduplicateOptions(this.options!);
-          this.filteredOptions = this.uniqueOptions;
-        } else {
-          this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
-          this.uniqueOptions = this.noOptions;
-          this.filteredOptions = this.noOptions;
-        }
-        this.updateSearchableSelectResultAriaLive();
-        this.setDefaultValue();
-      } else {
-        this.setOptionsValuesFromLabels();
-        this.uniqueOptions = this.deduplicateOptions(this.options!);
-        this.filteredOptions = this.uniqueOptions;
-        if (this.initialOptionsEmpty) {
-          this.setDefaultValue();
-          this.initialOptionsEmpty = false;
-        }
-      }
-    } else {
-      if (!this.searchable) {
-        this.options = this.noOptions || [];
-      }
-    }
+    this.setOptions();
   }
 
   /**
@@ -503,6 +473,37 @@ export class Select {
       () => this.icInput.emit({ value }),
       this.currDebounce
     );
+  };
+
+  private setOptions = () => {
+    if (!this.hasTimedOut && this.options !== this.noOptions) {
+      this.loading = false;
+      clearTimeout(this.timeoutTimer);
+      if (this.options!.length > 0) {
+        this.setOptionsValuesFromLabels();
+        this.uniqueOptions = this.deduplicateOptions(this.options!);
+        this.filteredOptions = this.uniqueOptions;
+      } else {
+        this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
+        this.uniqueOptions = this.noOptions;
+        this.filteredOptions = this.noOptions;
+      }
+      if (this.isExternalFiltering()) {
+        // When searchable select
+        this.noOptions = null;
+        this.updateSearchableSelectResultAriaLive();
+        this.setDefaultValue();
+      } else {
+        if (this.initialOptionsEmpty) {
+          this.setDefaultValue();
+          this.initialOptionsEmpty = false;
+        }
+      }
+    } else {
+      if (!this.searchable) {
+        this.options = this.noOptions || [];
+      }
+    }
   };
 
   /**
@@ -817,13 +818,7 @@ export class Select {
 
   private handleCharacterKeyDown = (key: string) => {
     // Only close menu when space is pressed if not being used alongside character keys to quickly select options
-    if (
-      this.open &&
-      key === " " &&
-      this.pressedCharacters.length === 0 &&
-      !this.hasTimedOut &&
-      !this.loading
-    ) {
+    if (this.open && key === " " && this.pressedCharacters.length === 0) {
       this.setMenuChange(false);
     }
 
@@ -1211,7 +1206,7 @@ export class Select {
       !disabled &&
       (searchable
         ? this.searchableSelectInputValue
-        : currValue && showClearButton);
+        : currValue && !this.loading && showClearButton);
 
     return (
       <Host
@@ -1341,7 +1336,8 @@ export class Select {
                       id="clear-button"
                       ref={(el) => (this.clearButton = el)}
                       aria-label={
-                        this.searchableSelectInputValue && currValue === null
+                        this.searchableSelectInputValue &&
+                        (currValue === null || this.loading)
                           ? "Clear input"
                           : "Clear selection"
                       }
@@ -1401,9 +1397,10 @@ export class Select {
                     class={{
                       "value-text": true,
                       "with-clear-button": !!isClearable,
-                      placeholder: multiple
-                        ? !this.value || this.value.length < 1
-                        : !this.getLabelFromValue(currValue as string),
+                      placeholder:
+                        !this.loading && multiple
+                          ? !this.value || this.value.length < 1
+                          : !this.getLabelFromValue(currValue as string),
                     }}
                   >
                     {valueLabelString || placeholder}
