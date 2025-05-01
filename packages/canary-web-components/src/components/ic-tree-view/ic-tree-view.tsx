@@ -274,8 +274,9 @@ export class TreeView {
 
       if (
         this.treeItems[nextItem].parentElement?.tagName !== this.treeItemTag ||
-        (this.treeItems[nextItem].parentElement as HTMLIcTreeItemElement)
-          .expanded
+        ((this.treeItems[nextItem].parentElement as HTMLIcTreeItemElement)
+          .expanded &&
+          this.treeItems[nextItem].offsetHeight > 0)
       ) {
         return nextItem;
       }
