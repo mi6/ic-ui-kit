@@ -13,6 +13,7 @@ const main = async () => {
     await startServer();
     console.log('Waiting for the server to be available on http://localhost:3001...');
     await waitOn({ resources: ['http://localhost:3001'] });
+    console.log('Running Cypress performance tests...');
     await runCypressLighthouse();
   } catch (error) {
     console.error(error);

@@ -1,10 +1,22 @@
 import React from "react";
-import { IcCheckbox, IcCheckboxGroup, IcTextField } from "../../../components";
+import {
+  IcCheckbox,
+  IcCheckboxGroup,
+  IcTextField,
+  IcTheme,
+  IcTypography,
+} from "../../../../components";
 
-const IcCheckboxPage = () => {
+type PageProps = {
+  theme: "light" | "dark";
+};
+
+const IcCheckboxPage: React.FC<PageProps> = ({ theme }) => {
   return (
-    <>
-      <h1>Checkbox Page</h1>
+    <IcTheme id="theme-wrapper" theme={theme}>
+      <IcTypography variant="subtitle-small">
+        <h1>Checkbox Page</h1>
+      </IcTypography>
       <IcCheckboxGroup
         label="Select your extras"
         name="default"
@@ -28,7 +40,7 @@ const IcCheckboxPage = () => {
           <IcTextField slot="additional-field" label="Please let us know..." />
         </IcCheckbox>
       </IcCheckboxGroup>
-    </>
+    </IcTheme>
   );
 };
 
