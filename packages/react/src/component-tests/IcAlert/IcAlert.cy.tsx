@@ -29,6 +29,7 @@ import { IcAlert } from "../../components";
 
 const ALERT_SELECTOR = "ic-alert";
 const TYPOGRAPHY_SELECTOR = "ic-typography";
+const ALERT_MIN_HEIGHT_CSS_VAR = "--ic-alert-min-height";
 const DEFAULT_TEST_THRESHOLD = 0.018;
 
 describe("IcAlert end-to-end tests", () => {
@@ -160,6 +161,48 @@ describe("IcAlert end-to-end tests", () => {
     cy.findShadowEl(ALERT_SELECTOR, "svg")
       .should(BE_VISIBLE)
       .and(HAVE_ATTR, "aria-labelledby", "info-title");
+  });
+
+  it("should render the alert with the correct minimum height depending on the theme", () => {
+    mount(<Responsive />);
+    cy.checkHydrated(ALERT_SELECTOR);
+
+    cy.get("ic-alert").should(
+      HAVE_ATTR,
+      "style",
+      `${ALERT_MIN_HEIGHT_CSS_VAR}: 4.25rem;`
+    );
+
+    cy.get("ic-alert").invoke("prop", "theme", "dark");
+    cy.get("ic-alert").should(
+      HAVE_ATTR,
+      "style",
+      `${ALERT_MIN_HEIGHT_CSS_VAR}: 4rem;`
+    );
+  });
+
+  it("should rerender the alert with the correct minimum height after updating content", () => {
+    mount(<Neutral />);
+    cy.checkHydrated(ALERT_SELECTOR);
+    cy.get("ic-alert").should(
+      HAVE_ATTR,
+      "style",
+      `${ALERT_MIN_HEIGHT_CSS_VAR}: 3.5rem;`
+    );
+
+    cy.get("ic-alert").invoke("prop", "titleAbove", "true");
+    cy.get("ic-alert").should(
+      HAVE_ATTR,
+      "style",
+      `${ALERT_MIN_HEIGHT_CSS_VAR}: 4.25rem;`
+    );
+
+    cy.get("ic-alert").invoke("prop", "theme", "dark");
+    cy.get("ic-alert").should(
+      HAVE_ATTR,
+      "style",
+      `${ALERT_MIN_HEIGHT_CSS_VAR}: 4rem;`
+    );
   });
 });
 
