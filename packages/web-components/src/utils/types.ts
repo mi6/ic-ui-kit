@@ -222,3 +222,5 @@ export type IcColor = RGB | RGBA | HEX;
 export type IcIconPlacementOptions = "left" | "right" | "top";
 
 export type IcButtonTooltipPlacement = "top" | "right" | "bottom" | "left";
+
+export type IcThemeSettings = "dark" | "light" | "system";
