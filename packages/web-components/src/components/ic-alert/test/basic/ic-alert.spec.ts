@@ -159,4 +159,42 @@ describe("ic-alert component", () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
+  it("should detect when the themeChange event has been emitted", async () => {
+    const page = await newSpecPage({
+      components: [Alert],
+      html: `<ic-alert heading="Test heading" show-default-icon="false" title-above="true"></ic-alert>`,
+    });
+
+    Object.defineProperty(page.rootInstance, "calculateMinHeight", {
+      value: jest.fn(),
+    });
+
+    await page.rootInstance.darkModeChangeHandler({ detail: "dark" });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.calculateMinHeight).toHaveBeenCalled();
+
+    page.root?.setAttribute("theme", "dark");
+    await page.waitForChanges();
+
+    expect(page.rootInstance.calculateMinHeight).toHaveBeenCalledTimes(2);
+
+    page.rootInstance.darkModeChangeHandler({ matches: true });
+
+    expect(page.rootInstance.calculateMinHeight).toHaveBeenCalledTimes(3);
+
+    page.root?.setAttribute("title-above", "false");
+    await page.waitForChanges();
+
+    expect(page.rootInstance.calculateMinHeight).toHaveBeenCalledTimes(4);
+
+    page.root?.setAttribute(
+      "message",
+      "This alert is for displaying miscellaneous messages This alert is for displaying miscellaneous messages This alert is for displaying miscellaneous messages This alert is for displaying miscellaneous messages"
+    );
+    await page.waitForChanges();
+
+    expect(page.rootInstance.calculateMinHeight).toHaveBeenCalledTimes(5);
+  });
 });

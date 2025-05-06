@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property          | Attribute           | Description                                                                                                                             | Type                                                                    | Default     |
-| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------- |
-| `announced`       | `announced`         | If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.                                           | `boolean \| undefined`                                                  | `true`      |
-| `dismissible`     | `dismissible`       | If `true`, the alert will have a close icon at the end to dismiss it.                                                                   | `boolean \| undefined`                                                  | `false`     |
-| `heading`         | `heading`           | The optional title to display at the start of the alert.                                                                                | `string \| undefined`                                                   | `""`        |
-| `message`         | `message`           | The main body message of the alert.                                                                                                     | `string \| undefined`                                                   | `undefined` |
-| `showDefaultIcon` | `show-default-icon` | If `true`, the default icon for the neutral variant will appear on the left of the alert.                                               | `boolean \| undefined`                                                  | `true`      |
-| `theme`           | `theme`             | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light" \| undefined`                           | `"inherit"` |
-| `titleAbove`      | `title-above`       | If `true`, the title and message will appear above and below instead of inline.                                                         | `boolean \| undefined`                                                  | `false`     |
-| `variant`         | `variant`           | The variant of the alert which will be rendered.                                                                                        | `"error" \| "info" \| "neutral" \| "success" \| "warning" \| undefined` | `"neutral"` |
+| Property          | Attribute           | Description                                                                                                                             | Type                                                       | Default     |
+| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
+| `announced`       | `announced`         | If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.                                           | `boolean`                                                  | `true`      |
+| `dismissible`     | `dismissible`       | If `true`, the alert will have a close icon at the end to dismiss it.                                                                   | `boolean`                                                  | `false`     |
+| `heading`         | `heading`           | The optional title to display at the start of the alert.                                                                                | `string`                                                   | `""`        |
+| `message`         | `message`           | The main body message of the alert.                                                                                                     | `string \| undefined`                                      | `undefined` |
+| `showDefaultIcon` | `show-default-icon` | If `true`, the default icon for the neutral variant will appear on the left of the alert.                                               | `boolean`                                                  | `true`      |
+| `theme`           | `theme`             | Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component. | `"dark" \| "inherit" \| "light"`                           | `"inherit"` |
+| `titleAbove`      | `title-above`       | If `true`, the title and message will appear above and below instead of inline.                                                         | `boolean`                                                  | `false`     |
+| `variant`         | `variant`           | The variant of the alert which will be rendered.                                                                                        | `"error" \| "info" \| "neutral" \| "success" \| "warning"` | `"neutral"` |
 
 
 ## Events

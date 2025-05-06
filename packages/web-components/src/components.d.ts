@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 import { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 import { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -35,7 +35,7 @@ import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 import { Options } from "@popperjs/core";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcBrand, IcBrandForeground, IcButtonTooltipPlacement, IcColor, IcDeviceSizes, IcEmphasisType, IcIconPlacementOptions, IcInformationStatusOrEmpty, IcMenuOption, IcMultiValueEventDetail, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcThemeMode, IcThemeSettings, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopPositions, IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -130,15 +130,15 @@ export namespace Components {
         /**
           * If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.
          */
-        "announced"?: boolean;
+        "announced": boolean;
         /**
           * If `true`, the alert will have a close icon at the end to dismiss it.
          */
-        "dismissible"?: boolean;
+        "dismissible": boolean;
         /**
           * The optional title to display at the start of the alert.
          */
-        "heading"?: string;
+        "heading": string;
         /**
           * The main body message of the alert.
          */
@@ -146,19 +146,19 @@ export namespace Components {
         /**
           * If `true`, the default icon for the neutral variant will appear on the left of the alert.
          */
-        "showDefaultIcon"?: boolean;
+        "showDefaultIcon": boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * If `true`, the title and message will appear above and below instead of inline.
          */
-        "titleAbove"?: boolean;
+        "titleAbove": boolean;
         /**
           * The variant of the alert which will be rendered.
          */
-        "variant"?: IcStatusVariants;
+        "variant": IcStatusVariants;
     }
     interface IcBackToTop {
         /**
@@ -2225,7 +2225,7 @@ export namespace Components {
         /**
           * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
          */
-        "theme"?: "dark" | "light" | "system";
+        "theme"?: IcThemeSettings;
     }
     interface IcToast {
         /**
@@ -3300,6 +3300,7 @@ declare global {
     };
     interface HTMLIcThemeElementEventMap {
         "brandChange": IcBrand;
+        "icThemeChange": IcThemeSettings;
     }
     interface HTMLIcThemeElement extends Components.IcTheme, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcThemeElementEventMap>(type: K, listener: (this: HTMLIcThemeElement, ev: IcThemeCustomEvent<HTMLIcThemeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5771,9 +5772,13 @@ declare namespace LocalJSX {
         "brandColor"?: IcColor | null;
         "onBrandChange"?: (event: IcThemeCustomEvent<IcBrand>) => void;
         /**
+          * Emitted when the theme is changed.
+         */
+        "onIcThemeChange"?: (event: IcThemeCustomEvent<IcThemeSettings>) => void;
+        /**
           * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
          */
-        "theme"?: "dark" | "light" | "system";
+        "theme"?: IcThemeSettings;
     }
     interface IcToast {
         /**
