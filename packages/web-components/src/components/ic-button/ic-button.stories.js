@@ -2234,58 +2234,35 @@ export const PlaygroundWithIcon = {
 
 export const Loading = {
   render: () => html`
-      <div style="padding: 6px">
-        <ic-button variant="primary" loading"
-          >Button</ic-button
-        >
-      </div>
-      <div style="padding: 6px">
-        <ic-button
-          variant="primary"
-          loading
-          theme="dark"
-          >Button</ic-button
-        >
-      </div>
-      <div
-        style="background-color:#17191C; padding:6px 10px; width:fit-content"
-      >
-        <ic-button variant="primary" loading theme="light"
-          >Button</ic-button
-        >
-      </div>
-      <div style="padding: 6px">
-        <ic-button variant="secondary" loading>Button</ic-button>
-      </div>
-      <div style="padding: 6px">
-        <ic-button variant="secondary" loading theme="dark"
-          >Button</ic-button
-        >
-      </div>
-      <div
-        style="background-color:#17191C; padding:6px 10px; width:fit-content"
-      >
-        <ic-button variant="secondary" loading theme="light"
-          >Button</ic-button
-        >
-      </div>
-      <div style="padding: 6px">
-        <ic-button variant="tertiary" loading>Button</ic-button>
-      </div>
-      <div style="padding: 6px">
-        <ic-button variant="tertiary" loading theme="dark"
-          >Button</ic-button
-        >
-      </div>
-      <div
-        style="background-color:#17191C; padding:6px 10px; width:fit-content"
-      >
-        <ic-button variant="tertiary" loading theme="light"
-          >Button</ic-button
-        >
-      </div>
-      <ic-button variant="destructive" loading>Button</ic-button>
-    `,
+    <div style="padding: 6px">
+      <ic-button variant="primary" loading>Button</ic-button>
+    </div>
+    <div style="padding: 6px">
+      <ic-button variant="primary" loading theme="dark">Button</ic-button>
+    </div>
+    <div style="background-color:#17191C; padding:6px 10px; width:fit-content">
+      <ic-button variant="primary" loading theme="light">Button</ic-button>
+    </div>
+    <div style="padding: 6px">
+      <ic-button variant="secondary" loading>Button</ic-button>
+    </div>
+    <div style="padding: 6px">
+      <ic-button variant="secondary" loading theme="dark">Button</ic-button>
+    </div>
+    <div style="background-color:#17191C; padding:6px 10px; width:fit-content">
+      <ic-button variant="secondary" loading theme="light">Button</ic-button>
+    </div>
+    <div style="padding: 6px">
+      <ic-button variant="tertiary" loading>Button</ic-button>
+    </div>
+    <div style="padding: 6px">
+      <ic-button variant="tertiary" loading theme="dark">Button</ic-button>
+    </div>
+    <div style="background-color:#17191C; padding:6px 10px; width:fit-content">
+      <ic-button variant="tertiary" loading theme="light">Button</ic-button>
+    </div>
+    <ic-button variant="destructive" loading>Button</ic-button>
+  `,
 
   name: "Loading",
 };
