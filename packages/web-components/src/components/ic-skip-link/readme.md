@@ -18,6 +18,19 @@
 | `transparentBackground` | `transparent-background` | If `true`, the background will be hidden.                                                                                               | `boolean`                        | `false`                  |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the element.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## CSS Custom Properties
 
 | Name                          | Description                                                                                     |
