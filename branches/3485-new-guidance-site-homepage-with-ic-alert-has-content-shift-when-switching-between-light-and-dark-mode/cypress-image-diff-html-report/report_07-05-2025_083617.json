@@ -1,7 +1,7 @@
 {
   "total": 785,
-  "totalPassed": 781,
-  "totalFailed": 4,
+  "totalPassed": 784,
+  "totalFailed": 1,
   "totalSuites": 43,
   "suites": [
     {
@@ -274,14 +274,14 @@
       "path": "src/component-tests/IcAlert/IcAlert.cy.tsx",
       "tests": [
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcAlert.cy.tsx/variants",
-          "percentage": 0,
+          "percentage": 0.08817448374293628,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
           "specFilename": "IcAlert.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/variants.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcAlert.cy.tsx/variants.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/variants.png"
         },
         {
@@ -296,25 +296,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/dismissible.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcAlert.cy.tsx/responsive",
-          "percentage": 0.08213460750499756,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
           "specFilename": "IcAlert.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/responsive.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcAlert.cy.tsx/responsive.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/responsive.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcAlert.cy.tsx/title-above-set",
-          "percentage": 0.06702378309227255,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcAlert/IcAlert.cy.tsx",
           "specFilename": "IcAlert.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcAlert.cy.tsx/title-above-set.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcAlert.cy.tsx/title-above-set.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcAlert.cy.tsx/title-above-set.png"
         },
         {
@@ -7507,25 +7507,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-light-with-dark-mode-component-overrides.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTheme.cy.tsx/ic-theme-light-with-components-within-ic-theme",
-          "percentage": 0.1811901242096575,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
           "specFilename": "IcTheme.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-light-with-components-within-ic-theme.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTheme.cy.tsx/ic-theme-light-with-components-within-ic-theme.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-light-with-components-within-ic-theme.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTheme.cy.tsx/ic-theme-system-dark",
-          "percentage": 0.17177339014229068,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTheme/IcTheme.cy.tsx",
           "specFilename": "IcTheme.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTheme.cy.tsx/ic-theme-system-dark.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTheme.cy.tsx/ic-theme-system-dark.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTheme.cy.tsx/ic-theme-system-dark.png"
         },
         {
@@ -8898,9 +8898,9 @@
       ]
     }
   ],
-  "startedAt": "2025-05-06T12:16:05.672Z",
-  "endedAt": "2025-05-06T12:33:06.038Z",
-  "duration": 922527,
+  "startedAt": "2025-05-07T08:36:17.617Z",
+  "endedAt": "2025-05-07T08:53:28.086Z",
+  "duration": 931557,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
