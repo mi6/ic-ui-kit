@@ -1,23 +1,29 @@
 /**
   * @prop --ic-divider-vertical-height: The height of a vertical divider. The default value is `inherit`. 
   */
+
 /**
   * @prop --ic-divider-horizontal-width: The width of a horizontal divider. The default value is `inherit`.
   */
+
 /**
   * @prop --ic-divider-label-width: The max-width of the divider label. When orientation is set to `horizontal`, the default value is `max(20rem, 60%)`. When orientation is set to `vertical`, the default value is `20 rem`.
   */
 
 /* IC-DIVIDER COLORS */
+
 /**
   * @internal @prop --ic-divider-background
   */
+
 /**
   * @internal @prop --ic-divider-background-monochrome
   */
+
 /**
   * @internal @prop --ic-divider-label
   */
+
 /**
   * @internal @prop --ic-divider-label-monochrome
   */
@@ -246,15 +252,12 @@ hr,
 
 :host(.ic-divider-vertical) .ic-divider-label {
   text-align: center;
+  max-width: var(--ic-divider-label-width, 20rem);
 }
 
 :host() .ic-divider-label-container {
   width: max-content;
   max-width: var(--ic-divider-label-width, max(20rem, 60%));
-}
-
-:host(.ic-divider-vertical) .ic-divider-label {
-  max-width: var(--ic-divider-label-width, 20rem);
 }
 
 :host(.ic-divider-vertical) .ic-divider-label-container {

@@ -7,7 +7,6 @@
   position: relative;
 
   --ic-typography-color: var(--ic-top-navigation-text);
-
   --ic-button-secondary-text-monochrome: var(--ic-brand-text-color);
   --ic-button-secondary-border-monochrome: var(--ic-brand-text-color);
   --navigation-link-colour: var(--ic-top-navigation-text);
@@ -15,6 +14,7 @@
 
 :host(.dark) {
   color: var(--ic-color-text-primary-light);
+
   --ic-typography-color: var(--ic-color-text-primary-light);
   --ic-top-navigation-logo: var(--ic-color-icon-neutral);
   --ic-top-navigation-icon: var(--ic-color-icon-neutral);
@@ -142,7 +142,9 @@
   border-radius: var(--ic-space-md);
   background-color: var(--ic-top-navigation-status-tag);
   color: var(--ic-top-navigation-status-tag-text);
+
   --ic-typography-color: var(--ic-top-navigation-status-tag-text);
+
   padding: var(--ic-space-xxs) var(--ic-space-lg);
   margin-left: var(--ic-space-md);
   flex: 1 1 0;

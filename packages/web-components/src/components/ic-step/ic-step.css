@@ -137,9 +137,6 @@
 
 :host(.ic-step-default) .step-icon {
   border-radius: 50%;
-}
-
-:host(.ic-step-default) .step-icon {
   background-color: var(--ic-step-number-inactive);
 }
 

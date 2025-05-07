@@ -48,7 +48,7 @@
     "@ukic/web-components": "^3.1.0"
   },
   "peerDependencies": {
-    "@ukic/fonts": "^2.3.0"
+    "@ukic/fonts": "^3.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
