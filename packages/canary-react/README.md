@@ -58,6 +58,28 @@ The `@ukic/canary-react` package will need to be transformed before you can use 
 
 Add a `transformIgnorePatterns` field with the value `["/node_modules/(?!@ukic/canary-react)"]` to your Jest config.
 
+## Typescript
+
+If your project is making use of Typescript, you can import the custom types used in the ICDS component library. For details on the types implemented in each component, refer to the Props table on the Code page for each Component on the [Design System Guidance site](https://design.sis.gov.uk/components/select/code)
+
+Types can be imported from the @ukic/canary-web-components package as per the below example. 
+
+> [!NOTE]  
+> You do not have to install this package into your project, it is already installed as a dependency of @ukic/canary-react. 
+
+```ts
+import { IcPaginationBarOptions } from '@ukic/canary-web-components';
+
+let paginationConfig: IcPaginationBarOptions = {
+  itemsPerPageOptions: [
+    { label: "5", value: "5" },
+    { label: "10", value: "10" },
+  ],
+  showItemsPerPageControl: true,
+  selectedItemsPerPage: 5,
+}
+```
+
 ## Security
 
 If you've found a vulnerability, we want to know so that we can fix it. [Our security policy](https://github.com/mi6/ic-ui-kit/blob/main/SECURITY.md) tells you how to do this.
