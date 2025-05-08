@@ -25,8 +25,8 @@ import {
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
 
-const NAVIGATION_BUTTON = "IC-NAVIGATION-BUTTON";
 const TOP_NAVIGATION = "IC-TOP-NAVIGATION";
+const SIDE_NAVIGATION = "IC-SIDE-NAVIGATION";
 
 /**
  * @slot badge-icon - Icon will be rendered inside the badge if type is set to icon.
@@ -42,6 +42,7 @@ export class Badge {
   private ariaLabel: string | null = null;
   private foregroundColour: IcBrandForeground;
   private parentAriaLabel: string;
+  private initialPosition: IcBadgePositions = this.position ?? "far";
 
   @Element() el: HTMLIcBadgeElement;
 
@@ -137,6 +138,7 @@ export class Badge {
 
   componentWillRender(): void {
     this.isInTopNav() && this.setPositionInTopNavigation();
+    this.isInSideNav() && this.setPositionInSideNavigation();
   }
 
   @Listen("icNavigationMenuOpened", { target: "document" })
@@ -146,7 +148,7 @@ export class Badge {
 
   @Listen("icNavigationMenuClosed", { target: "document" })
   navBarMenuCloseHandler(): void {
-    this.isInTopNav() && (this.position = "near");
+    this.isInTopNav() && (this.position = this.initialPosition);
   }
 
   private setBadgeColour = () => {
@@ -193,22 +195,48 @@ export class Badge {
   };
 
   private setPositionInTopNavigation = () => {
-    const parentTopNavEl = this.el.parentElement?.parentElement;
-    parentTopNavEl?.classList.contains("mobile-mode")
-      ? (this.position = "inline")
-      : (this.position = "near");
+    this.position = this.isInMobileMode() ? "inline" : this.initialPosition;
+  };
+
+  private setPositionInSideNavigation = () => {
+    this.position = "near";
   };
 
   private isInTopNav = (): boolean => {
     const parentEl = this.el.parentElement;
-    if (parentEl) {
-      const grandparentEl = parentEl?.parentElement;
-      return (
-        parentEl?.tagName === NAVIGATION_BUTTON &&
-        grandparentEl?.tagName === TOP_NAVIGATION
-      );
-    }
-    return false;
+    if (!parentEl) return false;
+    const grandparentEl = parentEl.parentElement;
+    const greatGrandparentEl = grandparentEl?.parentElement;
+    return (
+      grandparentEl?.tagName === TOP_NAVIGATION ||
+      greatGrandparentEl?.tagName === TOP_NAVIGATION
+    );
+  };
+
+  private isInSideNav = (): boolean => {
+    const parentEl = this.el.parentElement;
+    if (!parentEl) return false;
+    const grandparentEl = parentEl.parentElement;
+    const greatGrandparentEl = grandparentEl?.parentElement;
+    return (
+      grandparentEl?.tagName === SIDE_NAVIGATION ||
+      greatGrandparentEl?.tagName === SIDE_NAVIGATION
+    );
+  };
+
+  private isInMobileMode = (): boolean => {
+    const parentEl = this.el.parentElement;
+    if (!parentEl) return false;
+    const grandparentEl = parentEl.parentElement;
+    const greatGrandparentEl = grandparentEl?.parentElement;
+    return (
+      ((grandparentEl?.tagName === TOP_NAVIGATION ||
+        grandparentEl?.tagName === SIDE_NAVIGATION) &&
+        grandparentEl.classList.contains("mobile-mode")) ||
+      ((greatGrandparentEl?.tagName === TOP_NAVIGATION ||
+        greatGrandparentEl?.tagName === SIDE_NAVIGATION) &&
+        greatGrandparentEl.classList.contains("mobile-mode"))
+    );
   };
 
   private isAccessibleLabelDefined = () =>

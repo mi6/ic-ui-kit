@@ -523,6 +523,134 @@ describe("ic-badge", () => {
 
     document.dispatchEvent(new CustomEvent("icNavigationMenuClosed"));
     expect(page.rootInstance.mode).toBe("navbar");
-    expect(badge?.position).toBe("near");
+    expect(badge?.position).toBe("far");
+  });
+
+  it("should set the correct variants when top navigation menu is opened and closed", async () => {
+    const page = await newSpecPage({
+      components: [Badge, NavigationButton],
+      html: `<ic-top-navigation
+        app-title="Application Name"
+        status="alpha"
+        version="v0.0.7"
+      >
+        <svg
+          slot="app-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
+          />
+        </svg>
+        <ic-search-bar
+          slot="search"
+          placeholder="Search"
+          label="Search"
+        ></ic-search-bar>
+        <ic-navigation-button
+          label="Button One"
+          slot="buttons"
+          href="https://www.google.com"
+          target="_blank"
+          title="Google 1"
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
+            />
+          </svg>
+          <ic-badge label="1" slot="badge"></ic-badge>
+        </ic-navigation-button>
+        <ic-navigation-button
+          label="Button Two"
+          slot="buttons"
+          href="https://www.google.com"
+          target="_blank"
+          title="Google 2"
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"
+            />
+          </svg>
+          <ic-badge slot="badge" type="dot" position="near"></ic-badge>
+        </ic-navigation-button>
+        <ic-navigation-button
+          label="Button Three"
+          slot="buttons"
+          onclick="alert('test')"
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+            />
+          </svg>
+          <ic-badge slot="badge" type="dot" position="inline"></ic-badge>
+        </ic-navigation-button>
+        <ic-navigation-item label="Six" href="/" slot="navigation">
+          <ic-badge label="2" slot="badge" position="far"/>
+        </ic-navigation-item>
+        <ic-navigation-item label="Seven" href="/" slot="navigation">
+          <ic-badge label="2" slot="badge" variant="info" position="near"/>
+        </ic-navigation-item>
+        <ic-navigation-item label="Eight" href="/" slot="navigation">
+          <ic-badge label="2" slot="badge" variant="info" position="inline"/>
+        </ic-navigation-item>
+      </ic-top-navigation>`,
+    });
+
+    const badges = document.querySelectorAll("ic-badge");
+    const initialPositions = Array.from(badges).map(({ position }) => position);
+
+    expect(initialPositions.length).toBe(6);
+
+    document.dispatchEvent(new CustomEvent("icNavigationMenuOpened"));
+    badges.forEach((badge) => {
+      expect(badge.position).toBe("inline");
+    });
+
+    document.dispatchEvent(new CustomEvent("icNavigationMenuClosed"));
+    expect(page.rootInstance.mode).toBe("navbar");
+    badges.forEach((badge, index) => {
+      expect(badge.position).toBe(initialPositions[index]);
+    });
+  });
+
+  it("should not be in a top nav or a side nav if there is no parent element", async () => {
+    const page = await newSpecPage({
+      components: [Badge],
+      html: `<ic-badge label="1" position="inline"><ic-badge/>`,
+    });
+    expect(page.rootInstance.isInTopNav()).toBe(false);
+    expect(page.rootInstance.isInSideNav()).toBe(false);
   });
 });
