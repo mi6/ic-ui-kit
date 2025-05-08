@@ -65,7 +65,6 @@ button {
     &:active {
       background-color: var(--ic-card-background-pressed);
       box-shadow: var(--ic-border-focus);
-
       .card-title {
         text-decoration: none;
       }
@@ -73,10 +72,14 @@ button {
 
     .card-title {
       --ic-typography-color: var(--ic-card-clickable-text);
-
       color: var(--ic-card-clickable-text);
       text-decoration: underline;
       text-decoration-thickness: var(--ic-space-1px);
+      margin-bottom: var(--ic-space-xxs);
+    }
+    .interaction-button,
+    .icon {
+      margin-bottom: var(--ic-space-xxs);
     }
   }
 
@@ -118,7 +121,7 @@ button {
 .card.clickable.focussed .card-title {
   display: inline-block;
   border-bottom: 0.25rem solid !important;
-  margin-bottom: -0.25rem !important;
+  margin-bottom: 0 !important;
   text-decoration: none;
 }
 
@@ -130,7 +133,7 @@ button {
     text-decoration-thickness: 25%;
     text-underline-offset: 25%;
     border-bottom: 0 !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 0.25rem !important;
   }
 }
 
