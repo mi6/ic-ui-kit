@@ -152,6 +152,34 @@ You can now use any of the ICDS components so long as your HTML page includes th
 </html>
 ```
 
+## Typescript
+
+If your project is making use of Typescript, you can import the custom types used in the ICDS component library. For details on the types implemented in each component, refer to the Props table on the Code page for each Component on the [Design System Guidance site](https://design.sis.gov.uk/components/select/code)
+
+Types can be imported from the @ukic/web-components package as per the below example.
+
+```ts
+import { IcSelectTypes, IcMenuOption } from '@ukic/web-components';
+
+const selectType: IcSelectTypes = "single";
+
+const options: IcMenuOption[] = [
+  {
+    label: "Americano",
+    value: "ame",
+    description: "Classic black coffee",
+
+  },
+  {
+    label: "Latte",
+    value: "lat",
+    description: "This coffee has milk in, we know that much",
+    disabled: true
+  }
+];
+```
+
+
 ## Contributing
 
 We have a couple of resources to help you with contributing.
