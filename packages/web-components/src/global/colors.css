@@ -386,16 +386,6 @@
   --ic-color-background-destructive-pressed-light: var(--ic-red-1300);
   --ic-color-background-destructive-pressed-dark: var(--ic-red-200);
 
-  /* non-transparent button background  */
-  --ic-color-background-solid: var(--ic-architectural-white);
-  --ic-color-background-solid-disabled: var(--ic-architectural-100);
-  --ic-color-background-solid-hover: var(--ic-blue-50);
-  --ic-color-background-solid-pressed: var(--ic-blue-100);
-  --ic-color-background-solid-mono: var(--ic-architectural-black);
-  --ic-color-background-solid-mono-disabled: var(--ic-architectural-100);
-  --ic-color-background-solid-mono-hover: var(--ic-architectural-800);
-  --ic-color-background-solid-mono-pressed: var(--ic-architectural-600);
-
   /* BORDERS */
   --ic-color-border-neutral-default: var(--ic-architectural-300);
   --ic-color-border-neutral-default-dark: var(--ic-architectural-500);
