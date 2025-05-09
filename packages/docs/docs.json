@@ -1818,10 +1818,10 @@
       "props": [
         {
           "name": "accept",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -1833,22 +1833,19 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disableTooltip",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -1860,22 +1857,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disabled",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -1887,22 +1881,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "download",
-          "type": "boolean | string | undefined",
+          "type": "boolean | string",
           "complexType": {
             "original": "string | boolean",
-            "resolved": "boolean | string | undefined",
+            "resolved": "boolean | string",
             "references": {}
           },
           "mutable": false,
@@ -1917,22 +1908,19 @@
             },
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "dropdown",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -1944,22 +1932,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "dropdownExpanded",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": true,
@@ -1971,22 +1956,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "fileInputName",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -1998,22 +1980,19 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "fileUpload",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -2025,12 +2004,9 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2193,10 +2169,10 @@
         },
         {
           "name": "fullWidth",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -2208,12 +2184,9 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2272,10 +2245,10 @@
         },
         {
           "name": "loading",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -2287,22 +2260,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "monochrome",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": true,
@@ -2314,22 +2284,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "multiple",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -2341,12 +2308,9 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2472,10 +2436,10 @@
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\" | undefined",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -2502,12 +2466,9 @@
             {
               "value": "small",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -2540,10 +2501,10 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -2570,22 +2531,19 @@
             {
               "value": "light",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "tooltipPlacement",
-          "type": "\"bottom\" | \"left\" | \"right\" | \"top\" | undefined",
+          "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
           "complexType": {
             "original": "IcButtonTooltipPlacement",
-            "resolved": "\"bottom\" | \"left\" | \"right\" | \"top\" | undefined",
+            "resolved": "\"bottom\" | \"left\" | \"right\" | \"top\"",
             "references": {
               "IcButtonTooltipPlacement": {
                 "location": "import",
@@ -2616,49 +2574,43 @@
             {
               "value": "top",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "transparentBackground",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
           "attr": "transparent-background",
           "reflectToAttr": false,
-          "docs": "If `true`, the secondary variant of button will have a transparent background rather than white.",
+          "docs": "If `true`, the secondary variant of button will have a transparent background when not hovered, pressed or loading.",
           "docsTags": [],
           "default": "true",
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "type",
-          "type": "\"button\" | \"reset\" | \"submit\" | undefined",
+          "type": "\"button\" | \"reset\" | \"submit\"",
           "complexType": {
             "original": "IcButtonTypes",
-            "resolved": "\"button\" | \"reset\" | \"submit\" | undefined",
+            "resolved": "\"button\" | \"reset\" | \"submit\"",
             "references": {
               "IcButtonTypes": {
                 "location": "import",
@@ -2685,22 +2637,19 @@
             {
               "value": "submit",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "variant",
-          "type": "\"destructive\" | \"icon\" | \"icon-destructive\" | \"icon-primary\" | \"icon-secondary\" | \"icon-tertiary\" | \"primary\" | \"secondary\" | \"tertiary\" | undefined",
+          "type": "\"destructive\" | \"icon\" | \"icon-destructive\" | \"icon-primary\" | \"icon-secondary\" | \"icon-tertiary\" | \"primary\" | \"secondary\" | \"tertiary\"",
           "complexType": {
             "original": "IcButtonVariants",
-            "resolved": "\"destructive\" | \"icon\" | \"icon-destructive\" | \"icon-primary\" | \"icon-secondary\" | \"icon-tertiary\" | \"primary\" | \"secondary\" | \"tertiary\" | undefined",
+            "resolved": "\"destructive\" | \"icon\" | \"icon-destructive\" | \"icon-primary\" | \"icon-secondary\" | \"icon-tertiary\" | \"primary\" | \"secondary\" | \"tertiary\"",
             "references": {
               "IcButtonVariants": {
                 "location": "import",
@@ -2751,12 +2700,9 @@
             {
               "value": "tertiary",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -15464,7 +15410,7 @@
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the select, reflected by the value of the currently selected option.\r\nFor the searchable variant, the value is also reflected by the user input.\r\nFor the multi-select variant, the value must be an array of option values.",
+          "docs": "The value of the select, reflected by the value of the currently selected option.\nFor the searchable variant, the value is also reflected by the user input.\nFor the multi-select variant, the value must be an array of option values.",
           "docsTags": [],
           "values": [
             {
@@ -15658,7 +15604,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when an option is selected.\r\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
+          "docs": "Emitted when an option is selected.\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
           "docsTags": []
         },
         {
@@ -19256,7 +19202,7 @@
           "mutable": true,
           "attr": "auto-dismiss-timeout",
           "reflectToAttr": false,
-          "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\r\n(NOTE: Has a minimum value of `5000ms`)",
+          "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\n(NOTE: Has a minimum value of `5000ms`)",
           "docsTags": [],
           "default": "5000",
           "values": [
@@ -21796,7 +21742,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcStatusVariants": {
-      "declaration": "export type IcStatusVariants =\n  | \"neutral\"\n  | \"info\"\n  | \"warning\"\n  | \"error\"\n  | \"success\";",
+      "declaration": "export type IcStatusVariants =\r\n  | \"neutral\"\r\n  | \"info\"\r\n  | \"warning\"\r\n  | \"error\"\r\n  | \"success\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21901,7 +21847,7 @@
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcAutocompleteTypes": {
-      "declaration": "export type IcAutocompleteTypes =\n  | \"on\"\n  | \"off\"\n  | \"name\"\n  | \"honorific-prefix\"\n  | \"given-name\"\n  | \"additional-name\"\n  | \"family-name\"\n  | \"honorific-suffix\"\n  | \"nickname\"\n  | \"email\"\n  | \"username\"\n  | \"new-password\"\n  | \"current-password\"\n  | \"one-time-code\"\n  | \"organization-title\"\n  | \"organization\"\n  | \"street-address\"\n  | \"address-line1\"\n  | \"address-line2\"\n  | \"address-line3\"\n  | \"address-level4\"\n  | \"address-level3\"\n  | \"address-level2\"\n  | \"address-level1\"\n  | \"country\"\n  | \"country-name\"\n  | \"postal-code\"\n  | \"cc-name\"\n  | \"cc-given-name\"\n  | \"cc-additional-name\"\n  | \"cc-family-name\"\n  | \"cc-family-name\"\n  | \"cc-number\"\n  | \"cc-exp\"\n  | \"cc-exp-month\"\n  | \"cc-exp-year\"\n  | \"cc-csc\"\n  | \"cc-type\"\n  | \"transaction-currency\"\n  | \"transaction-amount\"\n  | \"language\"\n  | \"bday\"\n  | \"bday-day\"\n  | \"bday-month\"\n  | \"bday-year\"\n  | \"sex\"\n  | \"tel\"\n  | \"tel-country-code\"\n  | \"tel-national\"\n  | \"tel-area-code\"\n  | \"tel-local\"\n  | \"tel-extension\"\n  | \"impp\"\n  | \"url\"\n  | \"photo\";",
+      "declaration": "export type IcAutocompleteTypes =\r\n  | \"on\"\r\n  | \"off\"\r\n  | \"name\"\r\n  | \"honorific-prefix\"\r\n  | \"given-name\"\r\n  | \"additional-name\"\r\n  | \"family-name\"\r\n  | \"honorific-suffix\"\r\n  | \"nickname\"\r\n  | \"email\"\r\n  | \"username\"\r\n  | \"new-password\"\r\n  | \"current-password\"\r\n  | \"one-time-code\"\r\n  | \"organization-title\"\r\n  | \"organization\"\r\n  | \"street-address\"\r\n  | \"address-line1\"\r\n  | \"address-line2\"\r\n  | \"address-line3\"\r\n  | \"address-level4\"\r\n  | \"address-level3\"\r\n  | \"address-level2\"\r\n  | \"address-level1\"\r\n  | \"country\"\r\n  | \"country-name\"\r\n  | \"postal-code\"\r\n  | \"cc-name\"\r\n  | \"cc-given-name\"\r\n  | \"cc-additional-name\"\r\n  | \"cc-family-name\"\r\n  | \"cc-family-name\"\r\n  | \"cc-number\"\r\n  | \"cc-exp\"\r\n  | \"cc-exp-month\"\r\n  | \"cc-exp-year\"\r\n  | \"cc-csc\"\r\n  | \"cc-type\"\r\n  | \"transaction-currency\"\r\n  | \"transaction-amount\"\r\n  | \"language\"\r\n  | \"bday\"\r\n  | \"bday-day\"\r\n  | \"bday-month\"\r\n  | \"bday-year\"\r\n  | \"sex\"\r\n  | \"tel\"\r\n  | \"tel-country-code\"\r\n  | \"tel-national\"\r\n  | \"tel-area-code\"\r\n  | \"tel-local\"\r\n  | \"tel-extension\"\r\n  | \"impp\"\r\n  | \"url\"\r\n  | \"photo\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21926,7 +21872,7 @@
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcValueEventDetail": {
-      "declaration": "export interface IcValueEventDetail {\n  value: string;\n  keyPressed?: string;\n}",
+      "declaration": "export interface IcValueEventDetail {\r\n  value: string;\r\n  keyPressed?: string;\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21936,7 +21882,7 @@
       "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
     "src/utils/types.ts::IcMenuOption": {
-      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n}",
+      "declaration": "export interface IcMenuOption {\r\n  description?: string;\r\n  disabled?: boolean;\r\n  recommended?: boolean;\r\n  children?: IcMenuOption[];\r\n  loading?: boolean;\r\n  timedOut?: boolean;\r\n  [key: string]: any;\r\n  element?: {\r\n    component: any;\r\n    ariaLabel: string;\r\n  };\r\n  icon?: any;\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21951,12 +21897,12 @@
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
     "src/utils/types.ts::IcBlurEventDetail": {
-      "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget | null;\n}",
+      "declaration": "export interface IcBlurEventDetail {\r\n  relatedTarget: IcRelatedTarget | null;\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcMultiValueEventDetail": {
-      "declaration": "export interface IcMultiValueEventDetail {\n  value: string | string[] | null;\n  keyPressed?: string;\n}",
+      "declaration": "export interface IcMultiValueEventDetail {\r\n  value: string | string[] | null;\r\n  keyPressed?: string;\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21996,7 +21942,7 @@
       "path": "src/components/ic-divider/ic-divider.types.tsx"
     },
     "src/utils/types.ts::IcTypographyVariants": {
-      "declaration": "export type IcTypographyVariants =\n  | \"h1\"\n  | \"h2\"\n  | \"h3\"\n  | \"h4\"\n  | \"subtitle-large\"\n  | \"subtitle-small\"\n  | \"body\"\n  | \"label\"\n  | \"label-uppercase\"\n  | \"caption\"\n  | \"caption-uppercase\"\n  | \"code-large\"\n  | \"code-small\"\n  | \"code-extra-small\"\n  | \"badge\"\n  | \"badge-small\";",
+      "declaration": "export type IcTypographyVariants =\r\n  | \"h1\"\r\n  | \"h2\"\r\n  | \"h3\"\r\n  | \"h4\"\r\n  | \"subtitle-large\"\r\n  | \"subtitle-small\"\r\n  | \"body\"\r\n  | \"label\"\r\n  | \"label-uppercase\"\r\n  | \"caption\"\r\n  | \"caption-uppercase\"\r\n  | \"code-large\"\r\n  | \"code-small\"\r\n  | \"code-extra-small\"\r\n  | \"badge\"\r\n  | \"badge-small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -22041,12 +21987,12 @@
       "path": "src/components/ic-menu-item/ic-menu-item.types.ts"
     },
     "src/components/ic-navigation-group/ic-navigation-group.types.ts::IcNavigationOpenEventDetail": {
-      "declaration": "export interface IcNavigationOpenEventDetail {\r\n  source: HTMLElement;\r\n}",
+      "declaration": "export interface IcNavigationOpenEventDetail {\n  source: HTMLElement;\n}",
       "docstring": "",
       "path": "src/components/ic-navigation-group/ic-navigation-group.types.ts"
     },
     "src/components/ic-navigation-group/ic-navigation-group.types.ts::IcNavigationExpandEventDetail": {
-      "declaration": "export interface IcNavigationExpandEventDetail {\r\n  expanded: boolean;\r\n}",
+      "declaration": "export interface IcNavigationExpandEventDetail {\n  expanded: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-navigation-group/ic-navigation-group.types.ts"
     },
@@ -22116,7 +22062,7 @@
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },
     "src/utils/types.ts::IcBrand": {
-      "declaration": "{\n  mode: IcBrandForeground;\n  color: IcColorRGB;\n}",
+      "declaration": "{\r\n  mode: IcBrandForeground;\r\n  color: IcColorRGB;\r\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
