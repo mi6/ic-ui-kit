@@ -142,7 +142,7 @@ export const BasicSectionContainer = (): ReactElement => {
           caption="Table"
           stickyColumnHeaders
           columns={COLS}
-          data={LONG_DATA}
+          data={DATA}
         >
           <IcDataTableTitleBar
             slot="title-bar"
@@ -995,7 +995,7 @@ describe("IcDataTables", () => {
     mount(
       <IcDataTable
         caption="Data tables"
-        columns={COLS}
+        columns={LONG_COLS}
         data={LONG_DATA}
         stickyColumnHeaders
         style={{ height: "500px" }}
@@ -1436,7 +1436,7 @@ describe("IcDataTables with IcPaginationBar", () => {
   it("should render with pagination", () => {
     mount(
       <IcDataTable
-        columns={COLS}
+        columns={LONG_COLS}
         data={LONG_DATA}
         showPagination
         caption="Data Tables"
@@ -1503,7 +1503,7 @@ describe("IcDataTables with IcPaginationBar", () => {
 
     mount(
       <IcDataTable
-        columns={COLS}
+        columns={LONG_COLS}
         data={LONG_DATA}
         showPagination
         caption="Data Tables"
@@ -1631,7 +1631,7 @@ describe("IcDataTable with truncation", () => {
     it("renders tooltip truncation", () => {
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={COLUMNS_NO_TEXT_WRAP}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
           truncationPattern={TRUNCATION_TOOLTIP}
@@ -1758,7 +1758,7 @@ describe("IcDataTable with truncation", () => {
     it("it should display all data on multiple lines when large global row height is set with tooltips removed", () => {
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={COLUMNS_NO_TEXT_WRAP}
           data={LONG_DATA_VALUES}
           caption="Data Tables"
           globalRowHeight={150}
@@ -1787,7 +1787,7 @@ describe("IcDataTable with truncation", () => {
       mount(
         <>
           <IcDataTable
-            columns={COLS}
+            columns={COLUMNS_NO_TEXT_WRAP}
             data={LONG_DATA_VALUES}
             caption="Data Tables"
             truncationPattern={TRUNCATION_TOOLTIP}
@@ -1851,7 +1851,7 @@ describe("IcDataTable with truncation", () => {
     it("should display more truncated data when scrolling down table", () => {
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={LONG_COLS}
           data={LONG_DATA}
           caption="Data Tables"
           truncationPattern={TRUNCATION_TOOLTIP}
@@ -1983,7 +1983,7 @@ describe("IcDataTable with truncation", () => {
     it("should render tooltip truncation with data tables pagination", () => {
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={LONG_COLS}
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
@@ -2010,7 +2010,7 @@ describe("IcDataTable with truncation", () => {
     it("should render tooltip truncation using go to page pagination functionality", () => {
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={LONG_COLS}
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
@@ -2065,7 +2065,7 @@ describe("IcDataTable with truncation", () => {
 
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={LONG_COLS}
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
@@ -2107,7 +2107,7 @@ describe("IcDataTable with truncation", () => {
 
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={LONG_COLS}
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
@@ -2443,8 +2443,8 @@ describe("IcDataTable with truncation", () => {
       mount(
         <>
           <IcDataTable
-            columns={COLS}
-            data={LONG_DATA_VALUES_UPDATE}
+            columns={LONG_COLS}
+            data={LONG_DATA}
             caption="Data Tables"
             truncationPattern={TRUNCATION_SHOW_HIDE}
             globalRowHeight={40}
@@ -2483,8 +2483,8 @@ describe("IcDataTable with truncation", () => {
       mount(
         <>
           <IcDataTable
-            columns={COLS}
-            data={LONG_DATA_VALUES}
+            columns={LONG_COLS}
+            data={LONG_DATA}
             caption="Data Tables"
             truncationPattern={TRUNCATION_SHOW_HIDE}
             globalRowHeight={150}
@@ -2568,7 +2568,7 @@ describe("IcDataTable with truncation", () => {
     it("should display show hide truncation when scrolling down table", () => {
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={LONG_COLS}
           data={LONG_DATA}
           caption="Data Tables"
           truncationPattern={TRUNCATION_SHOW_HIDE}
@@ -2763,7 +2763,7 @@ describe("IcDataTable with truncation", () => {
 
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={LONG_COLS}
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
@@ -2793,7 +2793,7 @@ describe("IcDataTable with truncation", () => {
     it("should render show hide truncation using go to page pagination functionality", () => {
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={LONG_COLS}
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
@@ -2856,7 +2856,7 @@ describe("IcDataTable with truncation", () => {
 
       mount(
         <IcDataTable
-          columns={COLS}
+          columns={LONG_COLS}
           data={LONG_DATA}
           caption="Data Tables"
           showPagination
