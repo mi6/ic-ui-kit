@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-alert component should render an action in the correct position when supplied 1`] = `
-<ic-alert class="dark" message="This has an action" role="alert">
+<ic-alert message="This has an action" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
       <div class="alert-icon-container">
@@ -30,7 +30,7 @@ exports[`ic-alert component should render an action in the correct position when
 `;
 
 exports[`ic-alert component should render an element in the message slot 1`] = `
-<ic-alert class="dark" heading="Using custom message" role="alert">
+<ic-alert heading="Using custom message" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
       <div class="alert-icon-container">
@@ -61,7 +61,7 @@ exports[`ic-alert component should render an element in the message slot 1`] = `
 `;
 
 exports[`ic-alert component should render an icon in the neutral-icon slot 1`] = `
-<ic-alert class="dark" heading="Using custom icon" message="This has a slotted icon" role="alert">
+<ic-alert heading="Using custom icon" message="This has a slotted icon" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
       <div class="alert-icon-container">
@@ -95,7 +95,7 @@ exports[`ic-alert component should render an icon in the neutral-icon slot 1`] =
 `;
 
 exports[`ic-alert component should render default icon of success variant when the show-default-icon prop is set to false 1`] = `
-<ic-alert class="dark" heading="Success" message="This alert has the default success icon" role="alert" show-default-icon="false" variant="success">
+<ic-alert heading="Success" message="This alert has the default success icon" role="alert" show-default-icon="false" variant="success" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-success">
       <div class="alert-icon-container">
@@ -125,7 +125,7 @@ exports[`ic-alert component should render default icon of success variant when t
 `;
 
 exports[`ic-alert component should render with a dismiss icon when the prop is applied 1`] = `
-<ic-alert class="dark" dismissible="true" message="This is dismissible" role="alert">
+<ic-alert dismissible="true" message="This is dismissible" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
       <div class="alert-icon-container">
@@ -154,7 +154,7 @@ exports[`ic-alert component should render with a dismiss icon when the prop is a
 `;
 
 exports[`ic-alert component should render with a heading when supplied 1`] = `
-<ic-alert class="dark" heading="Test heading" role="alert">
+<ic-alert heading="Test heading" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
       <div class="alert-icon-container">
@@ -182,7 +182,7 @@ exports[`ic-alert component should render with a heading when supplied 1`] = `
 `;
 
 exports[`ic-alert component should render with a message when supplied 1`] = `
-<ic-alert class="dark" message="Test message" role="alert">
+<ic-alert message="Test message" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
       <div class="alert-icon-container">
@@ -207,7 +207,7 @@ exports[`ic-alert component should render with a message when supplied 1`] = `
 `;
 
 exports[`ic-alert component should render with no icon when the show-default-icon prop is set to false 1`] = `
-<ic-alert class="dark" heading="No icon" message="This alert has no icon" role="alert" show-defaul-icon="false">
+<ic-alert heading="No icon" message="This alert has no icon" role="alert" show-defaul-icon="false" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
       <div class="alert-icon-container">
@@ -237,7 +237,7 @@ exports[`ic-alert component should render with no icon when the show-default-ico
 `;
 
 exports[`ic-alert component should test rendering an action after initial render 1`] = `
-<ic-alert class="dark" heading="Test heading" role="alert">
+<ic-alert heading="Test heading" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
       <div class="alert-icon-container">
