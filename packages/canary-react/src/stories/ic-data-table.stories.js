@@ -116,7 +116,7 @@ export const StickyColumnHeaders = {
       <>
         <IcDataTable
           caption="Sticky Header"
-          columns={COLS}
+          columns={LONG_COLS}
           data={LONG_DATA}
           stickyColumnHeaders={stickyHeader}
           style={{ height: "366px" }}
@@ -145,7 +145,7 @@ export const ColumnHeaderTruncation = {
         style={{ height: "400px", width: "500px" }}
         caption="Column Header Truncation"
         columns={COLS}
-        data={LONG_DATA}
+        data={DATA}
         columnHeaderTruncation
       />
     );
@@ -735,7 +735,7 @@ export const UpdatingData = {
       <>
         <IcDataTable
           caption="Updating Data"
-          columns={COLS}
+          columns={LONG_COLS}
           data={data}
           showPagination
           paginationBarOptions={{
@@ -937,7 +937,7 @@ export const SelectRowsUsingCheckboxExample = {
 const defaultArgs = {
   caption: "Screen reader caption for data table",
   columnHeaderTruncation: true,
-  columns: COLS,
+  columns: LONG_COLS,
   data: LONG_DATA,
   density: "default",
   embedded: false,
