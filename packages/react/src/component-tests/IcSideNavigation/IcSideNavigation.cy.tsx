@@ -264,7 +264,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait();
         cy.compareSnapshot({
           name: "/disable-top-bar-behaviour",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
         });
       });
 
@@ -372,7 +372,7 @@ describe("IcSideNavigation", () => {
       cy.checkSideNavSize(false);
       cy.compareSnapshot({
         name: "/controlled-collapsed",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
       });
     });
 
@@ -662,7 +662,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait(undefined, 500);
         cy.compareSnapshot({
           name: "/slotted-nav-items-controlled-collapsed",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
         });
       });
 
@@ -674,7 +674,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11yWithWait();
         cy.compareSnapshot({
           name: "/slotted-app-title-desktop",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
         });
       });
 

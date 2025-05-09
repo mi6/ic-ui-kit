@@ -18,7 +18,6 @@ import {
   getCurrentDeviceSize,
   getBrandForegroundAppearance,
   getNavItemParentDetails,
-  isSlotUsed,
 } from "../../utils/helpers";
 import {
   IcNavType,
@@ -232,10 +231,23 @@ export class NavigationItem {
     const ChevronIconComponent = this.expandable && (
       <div class={{ svg: true }} innerHTML={chevronIcon}></div>
     );
+    const slottedBadgeEl = this.el.querySelector('[slot="badge"]');
+    const BadgeComponent = slottedBadgeEl && (
+      <div
+        class={
+          slottedBadgeEl.getAttribute("position") === "inline" ||
+          this.inTopNavSideMenu
+            ? "inline-badge"
+            : "badge"
+        }
+      >
+        <slot name="badge"></slot>
+      </div>
+    );
     const IconComponent = this.el.querySelector('[slot="icon"]') && (
       <div class="icon">
         <slot name="icon"></slot>
-        {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
+        {this.navigationType === "side" && BadgeComponent}
       </div>
     );
 
@@ -254,12 +266,12 @@ export class NavigationItem {
           aria-label={this.ariaLabel ? this.ariaLabel : null}
         >
           {IconComponent}
-
           <ic-typography variant={variant}>{label}</ic-typography>
-          <div class="chevron-container">{ChevronIconComponent}</div>
           {target === "_blank" && (
             <span class="open-in-new-icon" innerHTML={OpenInNew} />
           )}
+          {BadgeComponent}
+          <div class="chevron-container">{ChevronIconComponent}</div>
         </a>
       );
     }
@@ -269,6 +281,7 @@ export class NavigationItem {
         {IconComponent}
         <ic-typography variant={variant}>{label}</ic-typography>
         {ChevronIconComponent}
+        {BadgeComponent}
       </div>
     );
   };

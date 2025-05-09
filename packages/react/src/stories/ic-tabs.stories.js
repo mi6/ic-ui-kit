@@ -193,6 +193,79 @@ export const WithIcons = {
   name: "With icons",
 };
 
+export const WithIconsAndBadges = {
+  render: () => (
+    <IcTabContext>
+      <IcTabGroup label="Example tab group">
+        <IcTab>
+          Near
+          <IcBadge label="2" slot="badge" variant="info" position="near"/>
+        </IcTab>
+        <IcTab>
+          Far
+          <IcBadge label="2" slot="badge" variant="info" position="far"/>
+        </IcTab>
+        <IcTab>
+          Inline
+          <IcBadge label="2" slot="badge" variant="info" position="inline"/>
+        </IcTab>
+        <IcTab>
+          Near
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg>
+          <IcBadge label="2" slot="badge" variant="info" position="near"/>
+        </IcTab>
+        <IcTab>
+          Far
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M19 3H4.99c-1.11 0-1.98.89-1.98 2L3 19c0 1.1.88 2 1.99 2H19c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 12h-4c0 1.66-1.35 3-3 3s-3-1.34-3-3H4.99V5H19v10z" />
+          </svg>
+          <IcBadge label="2" slot="badge" variant="info" position="far"/>
+        </IcTab>
+        <IcTab>
+          Inline
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+          </svg>
+          <IcBadge label="2" slot="badge" variant="info" position="inline"/>
+        </IcTab>
+      </IcTabGroup>
+      <IcTabPanel>Tab Near</IcTabPanel>
+      <IcTabPanel>Tab Far</IcTabPanel>
+      <IcTabPanel>Tab Inline</IcTabPanel>
+      <IcTabPanel>Tab Near</IcTabPanel>
+      <IcTabPanel>Tab Far</IcTabPanel>
+      <IcTabPanel>Tab Inline</IcTabPanel>
+    </IcTabContext>
+  ),
+
+  name: "With icons and badges",
+};
+
 export const Disabled = {
   render: () => (
     <IcTabContext>

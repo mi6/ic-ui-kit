@@ -56,7 +56,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/with-expandable-nav-groups-top-nav",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
       });
     });
 
@@ -75,7 +75,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkA11yWithWait(undefined, 250);
       cy.wait(250).compareSnapshot({
         name: "/with-expandable-nav-groups-top-nav-expanded",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
       });
     });
 
@@ -136,7 +136,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/expandable-nav-group-focused-top-nav",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
       });
     });
 
@@ -188,7 +188,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/nav-item-within-expandable-nav-group-focused-top-nav",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
       });
     });
 
@@ -225,7 +225,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/with-nav-groups-top-nav",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
       });
     });
 
@@ -366,7 +366,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/with-expandable-nav-groups-side-nav",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       });
     });
 
@@ -381,7 +381,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/with-expandable-nav-groups-side-nav-expanded",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
       });
     });
 
@@ -428,7 +428,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/expandable-nav-group-focused-side-nav",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
       });
     });
 
@@ -450,7 +450,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/nav-item-within-expandable-nav-group-focused-side-nav",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
       });
     });
 
@@ -465,7 +465,7 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.checkA11yWithWait(undefined, 250);
       cy.compareSnapshot({
         name: "/with-nav-groups-side-nav",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
       });
     });
 

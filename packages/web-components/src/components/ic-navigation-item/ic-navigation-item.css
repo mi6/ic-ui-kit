@@ -142,6 +142,12 @@ svg {
     border-radius var(--ic-transition-duration-fast);
 }
 
+:host(.navigation-item-top-nav-child) ::slotted(svg),
+:host(.navigation-item-side-menu) ::slotted(svg),
+:host(.navigation-item-page-header) ::slotted(svg) {
+  fill: var(--ic-color-text-primary);
+}
+
 :host(.navigation-item-side-menu) ::slotted(a) {
   font: var(--ic-font-body) !important;
   letter-spacing: var(--ic-font-letter-spacing-0pt005) !important;
@@ -377,10 +383,23 @@ svg {
 
 .icon > ::slotted(*) {
   margin-left: var(--ic-space-md) !important;
+  margin-right: var(--ic-space-xs);
+}
+
+.inline-badge {
+  margin-left: var(--ic-space-xs);
+}
+
+.badge {
+  margin-left: 0;
 }
 
 :host(.navigation-item-side-nav-collapsed) .icon > ::slotted(*) {
   margin: auto !important;
+}
+
+:host(.navigation-item-side-nav) .icon > ::slotted(*) {
+  margin-right: 0;
 }
 
 :host(.navigation-item-side-nav) .link,
@@ -574,7 +593,7 @@ svg {
 
 .open-in-new-icon svg {
   margin-top: var(--ic-space-xxs);
-  padding-left: var(--ic-space-xxs);
+  padding-left: var(--ic-space-xs);
 }
 
 :host(.navigation-item-side-nav) .open-in-new-icon {
