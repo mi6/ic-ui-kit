@@ -263,37 +263,37 @@ export namespace Components {
         /**
           * If `fileUpload` is set to `true`, this is the accepted list of file types.
          */
-        "accept"?: string;
+        "accept": string;
         "ariaControlsId"?: string | boolean;
         "ariaOwnsId"?: string | boolean;
         /**
           * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
          */
-        "disableTooltip"?: boolean;
+        "disableTooltip": boolean;
         /**
           * If `true`, the button will be in disabled state.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
-        "download"?: string | boolean;
+        "download": string | boolean;
         /**
           * If `true`, the button will show a dropdown icon.
          */
-        "dropdown"?: boolean;
+        "dropdown": boolean;
         /**
           * If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.
          */
-        "dropdownExpanded"?: boolean;
+        "dropdownExpanded": boolean;
         /**
           * The name of the control for the file input, which is submitted with the form data.
          */
-        "fileInputName"?: string;
+        "fileInputName": string;
         /**
           * If `true`, when the button is clicked the native file explorer will be launched.
          */
-        "fileUpload"?: boolean;
+        "fileUpload": boolean;
         /**
           * The <form> element to associate the button with.
          */
@@ -321,7 +321,7 @@ export namespace Components {
         /**
           * If `true`, the button will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The URL that the link points to. This will render the button as an "a" tag.
          */
@@ -333,15 +333,15 @@ export namespace Components {
         /**
           * If `true`, the button will be in loading state.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
          */
-        "multiple"?: boolean;
+        "multiple": boolean;
         /**
           * How much of the referrer to send when following the link.
          */
@@ -361,7 +361,7 @@ export namespace Components {
         /**
           * The size of the button to be displayed.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -369,23 +369,23 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The position of the tooltip in relation to the button.
          */
-        "tooltipPlacement"?: IcButtonTooltipPlacement;
+        "tooltipPlacement": IcButtonTooltipPlacement;
         /**
-          * If `true`, the secondary variant of button will have a transparent background rather than white.
+          * If `true`, the secondary variant of button will have a transparent background when not hovered, pressed or loading.
          */
-        "transparentBackground"?: boolean;
+        "transparentBackground": boolean;
         /**
           * The type of the button.
          */
-        "type"?: IcButtonTypes;
+        "type": IcButtonTypes;
         /**
           * The variant of the button to be displayed.
          */
-        "variant"?: IcButtonVariants;
+        "variant": IcButtonVariants;
     }
     interface IcCardVertical {
         /**
@@ -3798,7 +3798,7 @@ declare namespace LocalJSX {
          */
         "tooltipPlacement"?: IcButtonTooltipPlacement;
         /**
-          * If `true`, the secondary variant of button will have a transparent background rather than white.
+          * If `true`, the secondary variant of button will have a transparent background when not hovered, pressed or loading.
          */
         "transparentBackground"?: boolean;
         /**

@@ -25,7 +25,6 @@ import {
 const DARK_MODE_THRESHOLD = 133.3505;
 const ANYWHERE_SEARCH_POSITION = "anywhere";
 const icInput = "ic-input";
-const linkIcInput = "input.ic-input";
 
 /**
  * converts an enum of strings into an array of strings
@@ -57,11 +56,9 @@ export const inheritAttributes = (
   const attributeObject: { [key: string]: string } = {};
 
   attributes.forEach((attr) => {
-    if (element.hasAttribute(attr)) {
-      const value = element.getAttribute(attr);
-      if (value !== null) {
-        attributeObject[attr] = value;
-      }
+    const value = element.getAttribute(attr);
+    if (value !== null) {
+      attributeObject[attr] = value;
       element.removeAttribute(attr);
     }
   });
@@ -112,11 +109,8 @@ export const renderHiddenInput = (
   disabled: boolean | undefined
 ): void => {
   if (name !== undefined && (always || hasShadowDom(container))) {
-    const inputs = container.querySelectorAll(linkIcInput);
-    const inputEls = Array.from(inputs);
-    const filtered = inputEls.filter((el) => container === el.parentElement);
+    let input = getHiddenInputElement(container);
 
-    let input = filtered[0] as HTMLInputElement;
     if (input === null || input === undefined) {
       input = container.ownerDocument.createElement("input");
       input.type = "hidden";
@@ -134,6 +128,11 @@ export const renderHiddenInput = (
   }
 };
 
+const getHiddenInputElement = (container: HTMLElement) =>
+  Array.from(
+    container.querySelectorAll<HTMLInputElement>(`input.${icInput}`)
+  ).filter((el) => container === el.parentElement)[0];
+
 /**
  * This method is used to add a hidden file input to a host element that contains
  * a Shadow DOM. It does not add the input inside of the Shadow root which
@@ -143,26 +142,23 @@ export const renderHiddenInput = (
  * @param event: The event that is emitted once a file is selected.
  * @param container The element where the input will be added
  * @param multiple If true, multiple files can be selected
- * @param name The name of the input
- * @param value The value of the input
  * @param disabled If true, the input is disabled
  * @param accept A string of the accepted files
+ * @param name The name of the input
+ * @param value The value of the input
  */
 export const renderFileHiddenInput = (
   event: EventEmitter,
   container: HTMLElement,
   multiple: boolean,
-  name: string,
-  value: FileList | undefined | null,
   disabled: boolean,
-  accept: string | undefined | null
+  accept?: string,
+  name?: string,
+  value?: FileList
 ): void => {
   if (name !== undefined && hasShadowDom(container)) {
-    const inputs = container.querySelectorAll(linkIcInput);
-    const inputEls = Array.from(inputs);
-    const filtered = inputEls.filter((el) => container === el.parentElement);
+    let input = getHiddenInputElement(container);
 
-    let input = filtered[0] as HTMLInputElement;
     if (input === null || input === undefined) {
       input = container.ownerDocument.createElement("input");
       input.classList.add(icInput);
@@ -185,15 +181,11 @@ export const renderFileHiddenInput = (
 };
 
 export const removeHiddenInput = (container: HTMLElement): void => {
-  const inputs = container.querySelectorAll("input.ic-input");
-  const inputEls = Array.from(inputs);
-  const filtered = inputEls.filter((el) => container === el.parentElement);
-  const input = filtered[0] as HTMLInputElement;
-  input?.remove();
+  getHiddenInputElement(container)?.remove();
 };
 
 export const hasShadowDom = (el: HTMLElement | null | undefined): boolean =>
-  el ? !!el.shadowRoot && !!el.attachShadow : false;
+  !!el && !!el.shadowRoot && !!el.attachShadow;
 
 export const getInputHelperTextID = (id: string): string => id + "-helper-text";
 
