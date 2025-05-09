@@ -1449,20 +1449,15 @@ export class DataTable {
   );
 
   private createCells = (row: IcDataTableDataType, rowIndex: number) => {
-    const rowValues = Object.values(row);
     const rowKeys = Object.keys(row);
-
-    const rowOptions = this.getRowOptions(rowKeys, rowValues);
+    const rowOptions = this.getObjectValue(row, "rowOptions");
     let rowAlignment: string;
     let rowEmphasis: string;
 
-    const headerIndex = rowKeys.indexOf("header");
-    if (headerIndex > -1) {
-      rowAlignment = this.getObjectValue(
-        rowValues[headerIndex],
-        "rowAlignment"
-      );
-      rowEmphasis = this.getObjectValue(rowValues[headerIndex], "emphasis");
+    const rowHeader = this.getObjectValue(row, "header");
+    if (rowHeader) {
+      rowAlignment = this.getObjectValue(rowHeader, "rowAlignment");
+      rowEmphasis = this.getObjectValue(rowHeader, "emphasis");
     }
 
     const variableRowHeightVal = this.variableRowHeight?.({
@@ -1474,7 +1469,8 @@ export class DataTable {
       ? variableRowHeightVal !== "auto" && variableRowHeightVal
       : this.globalRowHeight !== "auto" && this.globalRowHeight;
 
-    return rowValues.map((cell, index) => {
+    return this.columns.map((columnName, index) => {
+      const cell = this.getObjectValue(row, columnName["key"]);
       const columnProps = this.columns[index];
       const cellSlotName = `${columnProps?.key}-${rowIndex}`;
       const hasIcon = this.isObject(cell) && Object.keys(cell).includes("icon");
@@ -1976,11 +1972,6 @@ export class DataTable {
         }
       });
   };
-
-  private getRowOptions(rowKeys: string[], rowValues: any[]) {
-    const rowOptionsIndex = rowKeys.indexOf("rowOptions");
-    return rowOptionsIndex > -1 && rowValues[rowOptionsIndex];
-  }
 
   private regenerateTooltip(
     cellContainer: HTMLElement,
