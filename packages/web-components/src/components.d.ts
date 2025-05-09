@@ -1871,6 +1871,10 @@ export namespace Components {
          */
         "monochrome": boolean;
         /**
+          * Sets focus on the element.
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * The target ID for the element which should receive focus when triggering the skip link.
          */
         "target": string;
