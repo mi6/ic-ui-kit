@@ -211,20 +211,22 @@ export const COLS_ALIGNMENT: IcDataTableColumnObject[] = [
     dataType: "address",
   },
 ];
+
+// data is deliberately in different order for some elements to show this can be handled
 export const DATA = [
   {
-    firstName: "Joe",
-    lastName: "Bartholomew Christoper Augustine Zacchaeus Ashford", // cspell:disable-line
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
+    firstName: "Joe",
+    lastName: "Bartholomew Christoper Augustine Zacchaeus Ashford", // cspell:disable-line
   },
   {
+    address: "2 Main Street, Town, Country, Postcode",
+    age: 28,
     firstName: "Sarah",
     lastName: "Smith",
-    age: 28,
     jobTitle: "Senior Software Developer, Site Reliability Engineering",
-    address: "2 Main Street, Town, Country, Postcode",
   },
   {
     firstName: "Mark",
@@ -1513,7 +1515,7 @@ export const HeaderTruncation = (): HTMLElement => {
   const dataTable = createDataTableElement(
     "Column Header Truncation",
     COLS,
-    LONG_DATA
+    DATA
   );
   dataTable.setAttribute("column-header-truncation", "true");
   dataTable.style["height"] = "400px";
@@ -1688,7 +1690,7 @@ export const CustomRowHeights = (): HTMLElement => {
   const dataTable = createDataTableElement(
     "Custom Row Heights",
     COLUMNS_NO_TEXT_WRAP,
-    VERY_LONG_DATA(10)
+    LONG_DATA_VALUES
   );
   dataTable.globalRowHeight = 80;
   dataTable.variableRowHeight = ({ name, age }) =>
@@ -1841,7 +1843,7 @@ export const CustomTitleBar = (): HTMLIcDataTableElement => {
 };
 
 export const UpdatingData = (): HTMLElement => {
-  const dataTable = createDataTableElement("Updating Data", COLS, []);
+  const dataTable = createDataTableElement("Updating Data", LONG_COLS, []);
   const pageOptions = [{ label: "5", value: "5" }];
 
   dataTable.showPagination = true;
