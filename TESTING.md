@@ -24,7 +24,7 @@ Create a test file using the extension: `.test.js` and add some tests.
 
 Add the following section to your package.json:
 
-```shell
+```json
 {
   "scripts": {
     "test": "jest"
