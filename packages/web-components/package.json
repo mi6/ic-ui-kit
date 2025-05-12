@@ -42,6 +42,7 @@
     "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
     "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
     "lint": "remark src && echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src",
+    "lint:bundle": "npx bundlesize",
     "lint:fix": "echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css --fix && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src --fix",
     "start": "npx http-server storybook-static -s",
     "kill": "kill-port 8080 --graceful",
