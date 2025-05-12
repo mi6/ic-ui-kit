@@ -21,6 +21,10 @@ const defaultArgs = {
   size: "medium",
   variant: "secondary",
   fullWidth: false,
+  monochrome: false,
+  dropdown: false,
+  transparentBackground: true,
+  iconPlacement: "left-icon",
 };
 
 const customSVG = () => {
@@ -1330,6 +1334,7 @@ export const Playground = {
       fullWidth={args.fullWidth}
       monochrome={args.monochrome}
       dropdown={args.dropdown}
+      transparentBackground={args.transparentBackground}
     >
       {args.message}
     </IcButton>
@@ -1394,10 +1399,11 @@ export const PlaygroundWithIcon = {
       theme={args.theme}
       fullWidth={args.fullWidth}
       monochrome={args.monochrome}
+      transparentBackground={args.transparentBackground}
     >
       {args.message}
       <svg
-        slot="left-icon"
+        slot={args.iconPlacement}
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
         viewBox="0 0 24 24"
@@ -1432,7 +1438,7 @@ export const PlaygroundWithIcon = {
     },
 
     theme: {
-      options: ["default", "dark", "light"],
+      options: ["inherit", "dark", "light"],
 
       control: {
         type: "inline-radio",
@@ -1448,6 +1454,14 @@ export const PlaygroundWithIcon = {
     monochrome: {
       control: {
         type: "boolean",
+      },
+    },
+
+    iconPlacement: {
+      options: ["left-icon", "right-icon", "top-icon"],
+
+      control: {
+        type: "inline-radio",
       },
     },
   },
