@@ -63,6 +63,25 @@ Add the following into the top level CSS file for your project.
 @import "@ukic/canary-web-components/dist/core/core.css";
 ```
 
+## Typescript
+
+If your project is making use of Typescript, you can import the custom types used in the ICDS component library. For details on the types implemented in each component, refer to the Props table on the Code page for each Component on the [Design System Guidance site](https://design.sis.gov.uk/components/select/code)
+
+Types can be imported from the @ukic/canary-web-components package as per the below example.
+
+```ts
+import { IcPaginationBarOptions } from '@ukic/canary-web-components';
+
+let paginationConfig: IcPaginationBarOptions = {
+  itemsPerPageOptions: [
+    { label: "5", value: "5" },
+    { label: "10", value: "10" },
+  ],
+  showItemsPerPageControl: true,
+  selectedItemsPerPage: 5,
+}
+```
+
 In order to be rendered consistently across browsers and in line with modern standards, each of the ICDS components uses styles from a global CSS file based on [Normalize.css](https://necolas.github.io/normalize.css/). 
 
 If you would like to import these styles in order to apply them to the rest of your project and slotted elements used within any of the ICDS components, add the following into the top level CSS file as well.
