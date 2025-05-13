@@ -18,9 +18,7 @@ fs.readFile('audit-ci.json', 'utf8', (err, data) => {
   try {
     const jsonData = JSON.parse(data);
     const allowlist = jsonData.allowlist;
-
-    for (const key in allowlist) {
-      const item = allowlist[key];
+    for (const item of allowlist) {
       const advisoryId = Object.keys(item)[0];
       const itemObj = item[advisoryId];
       if (itemObj.active && isDateFurtherThanAMonth(itemObj.expiry)) {
