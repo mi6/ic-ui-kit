@@ -479,4 +479,34 @@ describe("ic-tooltip component", () => {
       )
     ).toBe("-200px");
   });
+
+  it("should no longer display when disableClick changed from false to true", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-tooltip target="test-button" label="tooltip"><button id="test-button">Click</button></ic-tooltip>`,
+    });
+
+    jest.spyOn(page.rootInstance, "updateTooltipEvents").mockImplementation();
+
+    page.root!.disableClick = true;
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.updateTooltipEvents).toHaveBeenCalled();
+  });
+
+  it("should no longer display when disableHover changed from false to true", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-tooltip target="test-button" label="tooltip"><button id="test-button">Click</button></ic-tooltip>`,
+    });
+
+    jest.spyOn(page.rootInstance, "updateTooltipEvents").mockImplementation();
+
+    page.root!.disableHover = true;
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.updateTooltipEvents).toHaveBeenCalled();
+  });
 });
