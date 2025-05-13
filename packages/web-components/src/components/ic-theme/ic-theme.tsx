@@ -9,7 +9,7 @@ import {
   State,
 } from "@stencil/core";
 
-import { IcColor, IcBrand } from "../../utils/types";
+import { IcColor, IcBrand, IcThemeSettings } from "../../utils/types";
 import {
   convertToRGBA,
   getBrandForegroundAppearance,
@@ -39,7 +39,7 @@ export class Theme {
   /**
    * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings.
    */
-  @Prop() theme?: "dark" | "light" | "system" = "light";
+  @Prop() theme?: IcThemeSettings = "light";
 
   @Watch("theme")
   watchThemePropHandler(): void {
@@ -50,6 +50,11 @@ export class Theme {
    * @internal Emitted when the brand color is changed.
    */
   @Event() brandChange: EventEmitter<IcBrand>;
+
+  /**
+   * Emitted when the theme is changed.
+   */
+  @Event() icThemeChange: EventEmitter<IcThemeSettings>;
 
   componentWillLoad(): void {
     this.darkModeChangeHandler();
@@ -71,6 +76,8 @@ export class Theme {
     } else {
       this.themeClass = `ic-theme-${this.theme}`;
     }
+
+    this.icThemeChange.emit(this.theme);
   };
 
   private checkBrandColorContrast = (): void => {

@@ -443,12 +443,7 @@ export const getBrandForegroundAppearance = (
 export const getSlot = (
   element: HTMLElement | undefined,
   name: string
-): Element | null => {
-  if (element && element.querySelector) {
-    return element.querySelector(`[slot="${name}"]`);
-  }
-  return null;
-};
+): Element | null => element?.querySelector(`[slot="${name}"]`) || null;
 
 export const slotHasContent = (element: HTMLElement, name: string): boolean =>
   getSlot(element, name) !== null;
@@ -458,11 +453,7 @@ export const getSlotContent = (
   name: string
 ): Element[] | NodeListOf<ChildNode> | null => {
   const slot = getSlot(element, name);
-  if (slot) {
-    return getSlotElements(slot);
-  }
-
-  return null;
+  return slot ? getSlotElements(slot) : null;
 };
 
 export const getSlotElements = (
@@ -470,15 +461,12 @@ export const getSlotElements = (
 ): NodeListOf<ChildNode> | Element[] | null => {
   const slotContent = slot.firstElementChild as HTMLSlotElement;
 
-  if (slotContent !== null) {
-    const elements = slotContent.assignedElements
-      ? slotContent.assignedElements()
-      : slotContent.childNodes;
-    return elements.length ? elements : slot.tagName ? [slot] : null;
-  } else {
-    //check for single element
-    return slot === null ? null : [slot];
-  }
+  if (slotContent === null) return [slot];
+
+  const elements = slotContent.assignedElements
+    ? slotContent.assignedElements()
+    : slotContent.childNodes;
+  return elements.length ? elements : slot.tagName ? [slot] : null;
 };
 
 export const getNavItemParentDetails = ({
@@ -675,11 +663,9 @@ export async function waitForHydration(): Promise<boolean> {
 
 export const convertToRGBA = (color: IcColor): IcColorRGBA | null => {
   const firstChar = color?.slice(0, 1).toLowerCase();
-  return firstChar === "#"
-    ? hexToRgba(color)
-    : firstChar === "r"
-    ? rgbaStrToObj(color)
-    : null;
+
+  if (firstChar !== "#" && firstChar !== "r") return null;
+  return firstChar === "#" ? hexToRgba(color) : rgbaStrToObj(color);
 };
 
 export const capitalize = (text: string): string =>
@@ -702,25 +688,22 @@ export const checkSlotInChildMutations = (
 export const isElInAGGrid = (el: HTMLElement): boolean =>
   !!el.closest(".ag-cell") && !!el.closest(".ag-root");
 
-/*
+/**
  * Checks if the component is slotted in its relevant 'group' component
  * @param component - the component to check
  */
-export const isSlottedInGroup = (component: any): boolean => {
-  const parent = component?.tagName + "-GROUP";
-  return component?.parentElement?.tagName === parent;
-};
+export const isSlottedInGroup = (component: HTMLElement): boolean =>
+  component.parentElement?.tagName === `${component.tagName}-GROUP`;
 
 export const hasDynamicChildSlots = (
   mutationList: MutationRecord[],
   slotNames: string | string[]
-) => {
-  return mutationList.some(({ type, addedNodes, removedNodes }) =>
-    type === "childList"
-      ? checkSlotInChildMutations(addedNodes, removedNodes, slotNames)
-      : false
+): boolean =>
+  mutationList.some(
+    ({ type, addedNodes, removedNodes }) =>
+      type === "childList" &&
+      checkSlotInChildMutations(addedNodes, removedNodes, slotNames)
   );
-};
 
 export const renderDynamicChildSlots = (
   mutationList: MutationRecord[],

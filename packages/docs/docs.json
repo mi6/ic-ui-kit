@@ -558,10 +558,10 @@
       "props": [
         {
           "name": "announced",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -573,22 +573,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "dismissible",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -600,22 +597,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "heading",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -627,12 +621,9 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -665,10 +656,10 @@
         },
         {
           "name": "showDefaultIcon",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -680,22 +671,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -722,22 +710,19 @@
             {
               "value": "light",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "titleAbove",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -749,22 +734,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "variant",
-          "type": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\" | undefined",
+          "type": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\"",
           "complexType": {
             "original": "IcStatusVariants",
-            "resolved": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\" | undefined",
+            "resolved": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\"",
             "references": {
               "IcStatusVariants": {
                 "location": "import",
@@ -799,12 +781,9 @@
             {
               "value": "warning",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -830,6 +809,12 @@
       "listeners": [
         {
           "event": "icDismiss",
+          "capture": true,
+          "passive": false
+        },
+        {
+          "event": "icThemeChange",
+          "target": "document",
           "capture": true,
           "passive": false
         }
@@ -17923,7 +17908,7 @@
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
-          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
+          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\r\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
           "docsTags": [],
           "default": "\"off\"",
           "values": [
@@ -18102,7 +18087,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "Specify whether the text field fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
+          "docs": "Specify whether the text field fills the full width of the container.\r\nIf `true`, this overrides the --input-width CSS variable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -18243,7 +18228,7 @@
           "mutable": false,
           "attr": "inputmode",
           "reflectToAttr": false,
-          "docs": "A hint to the browser for which keyboard to display.\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
+          "docs": "A hint to the browser for which keyboard to display.\r\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\r\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
           "docsTags": [],
           "default": "\"text\"",
           "values": [
@@ -19207,9 +19192,15 @@
           "name": "theme",
           "type": "\"dark\" | \"light\" | \"system\" | undefined",
           "complexType": {
-            "original": "\"dark\" | \"light\" | \"system\"",
+            "original": "IcThemeSettings",
             "resolved": "\"dark\" | \"light\" | \"system\" | undefined",
-            "references": {}
+            "references": {
+              "IcThemeSettings": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeSettings"
+              }
+            }
           },
           "mutable": false,
           "attr": "theme",
@@ -19241,7 +19232,28 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "icThemeChange",
+          "detail": "\"dark\" | \"light\" | \"system\"",
+          "bubbles": true,
+          "complexType": {
+            "original": "IcThemeSettings",
+            "resolved": "\"dark\" | \"light\" | \"system\"",
+            "references": {
+              "IcThemeSettings": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeSettings"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the theme is changed.",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [],
       "slots": [],
@@ -21012,7 +21024,7 @@
           "mutable": false,
           "attr": "custom-mobile-breakpoint",
           "reflectToAttr": false,
-          "docs": "Can set a custom breakpoint for the top navigation to switch to mobile mode.\nMust be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.",
+          "docs": "Can set a custom breakpoint for the top navigation to switch to mobile mode.\r\nMust be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.",
           "docsTags": [],
           "default": "DEVICE_SIZES.L",
           "values": [
@@ -22137,6 +22149,11 @@
       "declaration": "export interface IcTabSelectEventDetail {\n  tabIndex: number;\n  tabLabel: string;\n}",
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
+    },
+    "src/utils/types.ts::IcThemeSettings": {
+      "declaration": "export type IcThemeSettings = \"dark\" | \"light\" | \"system\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcBrand": {
       "declaration": "{\r\n  mode: IcBrandForeground;\r\n  color: IcColorRGB;\r\n}",
