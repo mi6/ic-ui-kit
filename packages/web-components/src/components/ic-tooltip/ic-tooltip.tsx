@@ -6,6 +6,7 @@ import {
   h,
   Method,
   State,
+  Watch,
 } from "@stencil/core";
 import { Instance, Options, createPopper } from "@popperjs/core";
 import { IcTooltipPlacements } from "./ic-tooltip.types";
@@ -41,10 +42,26 @@ export class Tooltip {
    */
   @Prop() disableClick?: boolean = false;
 
+  @Watch("disableClick")
+  watchDisableClickHandler(): void {
+    if (this.disableClick) {
+      this.hide();
+    }
+    this.updateTooltipEvents();
+  }
+
   /**
    * If `true`, the tooltip will not be displayed on hover, it will require a click.
    */
   @Prop() disableHover?: boolean = false;
+
+  @Watch("disableHover")
+  watchDisableHoverHandler(): void {
+    if (this.disableHover) {
+      this.hide();
+    }
+    this.updateTooltipEvents();
+  }
 
   /**
    * The number of lines to display before truncating the text.
@@ -306,6 +323,16 @@ export class Tooltip {
     });
 
     document[method]("keydown", this.handleKeyDown as EventListener);
+  };
+
+  private updateTooltipEvents = () => {
+    this.manageEventListeners("remove");
+    this.showEvents = [
+      !this.disableHover && "mouseenter",
+      !this.disableHover && "focusin",
+      !this.disableClick && "click",
+    ];
+    this.manageEventListeners("add");
   };
 
   render() {
