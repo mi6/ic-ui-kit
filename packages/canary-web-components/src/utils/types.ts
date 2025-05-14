@@ -108,6 +108,8 @@ export enum IcBrandForegroundEnum {
   Light = "light",
 }
 
+export type IcThemeMode = "dark" | "light" | "inherit";
+
 export type IcBrandForeground = "default" | "dark" | "light";
 
 export type IcBrandForegroundNoDefault = "dark" | "light";
@@ -116,8 +118,6 @@ export type IcBrand = {
   mode: IcBrandForeground;
   color: IcColorRGB;
 };
-
-export type IcThemeMode = "dark" | "light" | "inherit";
 
 export type IcAdditionalFieldTypes = "static" | "dynamic";
 
@@ -137,7 +137,7 @@ export type IcAutocorrectStates = "on" | "off";
 
 export type IcNavParentDetails = {
   navType: IcNavType | "";
-  parent: HTMLElement;
+  parent: HTMLElement | null;
 };
 
 export type IcTypographyVariants =
@@ -180,6 +180,54 @@ export interface IcMenuOption {
 
 export type IcSearchMatchPositions = "start" | "anywhere";
 
+export type IcCallbackFunctionNoReturn = (...args: unknown[]) => void;
+
+export type IcRequiredPropsTypes =
+  | string
+  | boolean
+  | number
+  | HTMLElement
+  | IcMenuOption[]
+  | undefined;
+
+export type IcPropObject = { prop: IcRequiredPropsTypes; propName: string };
+
+export type IcRelatedTarget = EventTarget | undefined;
+
+export type IcOrientation = "horizontal" | "vertical";
+
+export type IcEmphasisType = "filled" | "outlined";
+
+export interface IcValueEventDetail {
+  value: string;
+  keyPressed?: string;
+}
+
+export interface IcMultiValueEventDetail {
+  value: string | string[] | null;
+  keyPressed?: string;
+}
+
+export interface IcBlurEventDetail {
+  relatedTarget: IcRelatedTarget | null;
+}
+
+export type IcSelectTypes = "single" | "multi";
+
+export type IcSelectMethodTypes = "auto" | "manual";
+
+export type IcDeviceSizes = 0 | 576 | 768 | 992 | 1200;
+
+type RGB = `rgb(${string})`;
+type RGBA = `rgba(${string})`;
+type HEX = `#${string}`;
+
+export type IcColor = RGB | RGBA | HEX;
+
+export type IcIconPlacementOptions = "left" | "right" | "top";
+
+export type IcButtonTooltipPlacement = "top" | "right" | "bottom" | "left";
+
 export interface IcPaginationBarOptions {
   alignment?: IcPaginationAlignmentOptions;
   hideAllFromItemsPerPage?: boolean;
@@ -196,8 +244,6 @@ export interface IcPaginationBarOptions {
   theme?: IcThemeMode;
   type?: IcPaginationTypes;
 }
-
-export type IcCallbackFunctionNoReturn = (...args: unknown[]) => void;
 
 export type IcDateFormat = "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD";
 
@@ -244,9 +290,4 @@ export enum IcWeekDays {
   Thursday = 4,
   Friday = 5,
   Saturday = 6,
-}
-
-export interface IcValueEventDetail {
-  value: string | string[];
-  keyPressed?: string;
 }
