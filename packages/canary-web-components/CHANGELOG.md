@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.17](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.15...@ukic/canary-web-components@3.0.0-canary.17) (2025-05-14)
+
+### Bug Fixes
+
+- **canary-web-components:** arrow down moves to the next item when a child in tree view is expanded ([86c392a](https://github.com/mi6/ic-ui-kit/commit/86c392aa642762e65a7c9e984cfc569a5e09985c))
+- **canary-web-components:** fixes issue with data needing to be in same order as columns ([b6719ab](https://github.com/mi6/ic-ui-kit/commit/b6719aba9a7de8129cda59c173f5ec6915874945))
+
+### Features
+
+- **canary-web-components:** minor feat for v3 ([cbdbed5](https://github.com/mi6/ic-ui-kit/commit/cbdbed5def5d85f7a324d7c5c92cb2bfafd90bc2))
+
 # [3.0.0-canary.16](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.15...@ukic/canary-web-components@3.0.0-canary.16) (2025-04-30)
 
 ### Features

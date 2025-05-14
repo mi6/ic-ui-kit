@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/codemod@1.0.0-alpha.8...@ukic/codemod@1.2.0) (2025-05-14)
+
+### Features
+
+- **codemod:** minor feat for v3 ([52c30ea](https://github.com/mi6/ic-ui-kit/commit/52c30eaad0c7bfe3fbb5d9be9473a7f71ce850c3))
+
+### Performance Improvements
+
+- **codemod:** added additional changes and improved performance ([753a3f9](https://github.com/mi6/ic-ui-kit/commit/753a3f924cf618490cf8624051dfda39ce590aaa))
+
 # [1.1.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/codemod@1.0.0-alpha.8...@ukic/codemod@1.1.0) (2025-04-30)
 
 ### Features

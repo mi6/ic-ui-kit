@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/nextjs@3.0.0-alpha.11...@ukic/nextjs@3.2.0) (2025-05-14)
+
+### Features
+
+- **nextjs:** minor feat for v3 ([d44174b](https://github.com/mi6/ic-ui-kit/commit/d44174bb8920a35f7768e1e4323852bac2f4adb7))
+
 # [3.1.0]
 
 ### Bug Fixes
