@@ -80,6 +80,10 @@
   background-color: var(--ic-button-primary-background);
 }
 
+:host(.ic-button-variant-primary:not(.ic-button-disabled)) ::slotted(svg) {
+  color: var(--ic-button-primary-icon);
+}
+
 :host(.ic-button-variant-primary) ::slotted(a),
 :host(.ic-button-variant-icon-primary) ::slotted(a) {
   --ic-typography-color: var(--ic-button-primary-text);
@@ -102,7 +106,6 @@
 :host(.ic-button-variant-primary) .button:active,
 :host(.ic-button-variant-icon-primary.ic-button-loading) .button,
 :host(.ic-button-variant-icon-primary) .button:active {
-  color: var(--ic-button-primary-text);
   background-color: var(--ic-button-primary-background-pressed);
 
   --button-loading-inner-color: var(--ic-button-primary-text);
@@ -260,53 +263,36 @@
 
 :host(.ic-button-variant-secondary.background) .button,
 :host(.ic-button-variant-icon-secondary.background) .button {
-  background-color: var(--ic-button-secondary-background-non-transparent);
+  background-color: var(--ic-button-secondary-background);
 }
 
 :host(.ic-button-variant-secondary.background) ::slotted(a),
 :host(.ic-button-variant-icon-secondary.background) ::slotted(a) {
-  background-color: var(
-    --ic-button-secondary-background-non-transparent
-  ) !important;
-}
-
-:host(.ic-button-variant-secondary.background.ic-button-disabled) .button,
-:host(.ic-button-variant-icon-secondary.background.ic-button-disabled) .button {
-  background-color: var(
-    --ic-button-secondary-background-non-transparent-disabled
-  );
-}
-
-:host(.ic-button-variant-secondary.background.ic-button-disabled) ::slotted(a),
-:host(.ic-button-variant-icon-secondary.background.ic-button-disabled)
-  ::slotted(a) {
-  background-color: var(
-    --ic-button-secondary-background-non-transparent-disabled
-  ) !important;
+  background-color: var(--ic-button-secondary-background) !important;
 }
 
 :host(.ic-button-variant-secondary.background) .button:hover,
 :host(.ic-button-variant-icon-secondary.background) .button:hover {
-  background-color: var(--ic-button-secondary-background-non-transparent-hover);
+  background-image: var(--ic-button-secondary-background-non-transparent-hover);
 }
 
 :host(.ic-button-variant-secondary.background) ::slotted(a:hover),
 :host(.ic-button-variant-icon-secondary.background) ::slotted(a:hover) {
-  background-color: var(
+  background-image: var(
     --ic-button-secondary-background-non-transparent-hover
   ) !important;
 }
 
 :host(.ic-button-variant-secondary.background) .button:active,
 :host(.ic-button-variant-icon-secondary.background) .button:active {
-  background-color: var(
+  background-image: var(
     --ic-button-secondary-background-non-transparent-active
   );
 }
 
 :host(.ic-button-variant-secondary.background) ::slotted(a:active),
 :host(.ic-button-variant-icon-secondary.background) ::slotted(a:active) {
-  background-color: var(
+  background-image: var(
     --ic-button-secondary-background-non-transparent-active
   ) !important;
 }
@@ -387,41 +373,17 @@
 
 :host(.ic-button-variant-secondary.background.monochrome) .button,
 :host(.ic-button-variant-icon-secondary.background.monochrome) .button {
-  background-color: var(
-    --ic-button-secondary-background-non-transparent-monochrome
-  );
-  color: var(--ic-button-primary-text);
+  background-color: var(--ic-button-secondary-background-monochrome);
 }
 
 :host(.ic-button-variant-secondary.background.monochrome) ::slotted(a),
 :host(.ic-button-variant-icon-secondary.background.monochrome) ::slotted(a) {
-  background-color: var(
-    --ic-button-secondary-background-non-transparent-monochrome
-  ) !important;
-}
-
-:host(.ic-button-variant-secondary.background.monochrome.ic-button-disabled)
-  .button,
-:host(.ic-button-variant-icon-secondary.background.monochrome.ic-button-disabled)
-  .button {
-  background-color: var(
-    --ic-button-secondary-background-non-transparent-monochrome-disabled
-  );
-  color: var(--ic-button-secondary-text-disabled-monochrome);
-}
-
-:host(.ic-button-variant-secondary.background.monochrome.ic-button-disabled)
-  ::slotted(a),
-:host(.ic-button-variant-icon-secondary.background.monochrome.ic-button-disabled)
-  ::slotted(a) {
-  background-color: var(
-    --ic-button-secondary-background-non-transparent-monochrome-disabled
-  ) !important;
+  background-color: var(--ic-button-secondary-background-monochrome) !important;
 }
 
 :host(.ic-button-variant-secondary.background.monochrome) .button:hover,
 :host(.ic-button-variant-icon-secondary.background.monochrome) .button:hover {
-  background-color: var(
+  background-image: var(
     --ic-button-secondary-background-non-transparent-monochrome-hover
   );
 }
@@ -429,14 +391,14 @@
 :host(.ic-button-variant-secondary.background.monochrome) ::slotted(a:hover),
 :host(.ic-button-variant-icon-secondary.background.monochrome)
   ::slotted(a:hover) {
-  background-color: var(
+  background-image: var(
     --ic-button-secondary-background-non-transparent-monochrome-hover
   ) !important;
 }
 
 :host(.ic-button-variant-secondary.background.monochrome) .button:active,
 :host(.ic-button-variant-icon-secondary.background.monochrome) .button:active {
-  background-color: var(
+  background-image: var(
     --ic-button-secondary-background-non-transparent-monochrome-active
   );
 }
@@ -444,7 +406,7 @@
 :host(.ic-button-variant-secondary.background.monochrome) ::slotted(a:active),
 :host(.ic-button-variant-icon-secondary.background.monochrome)
   ::slotted(a:active) {
-  background-color: var(
+  background-image: var(
     --ic-button-secondary-background-non-transparent-monochrome-active
   ) !important;
 }
@@ -677,6 +639,13 @@
 :host(.ic-button-variant-icon-primary) ::slotted(a) {
   min-width: 0;
   gap: var(--ic-space-xs);
+  color: var(--ic-button-primary-icon);
+}
+
+:host(.ic-button-variant-icon-primary.monochrome) .button,
+:host(.ic-button-variant-primary.monochrome:not(.ic-button-disabled))
+  ::slotted(svg) {
+  color: var(--ic-button-primary-icon-monochrome);
 }
 
 :host(.ic-button-variant-icon-primary) .icon-container {
@@ -1155,6 +1124,10 @@ slot[name="router-item"]::slotted(a) {
   :host(.clear-button) .button:not(:active):focus ::slotted(svg) {
     color: white !important;
     background-color: inherit;
+  }
+
+  :host(.ic-button-variant-primary:not(.ic-button-disabled)) ::slotted(svg) {
+    color: currentcolor !important;
   }
 }
 
