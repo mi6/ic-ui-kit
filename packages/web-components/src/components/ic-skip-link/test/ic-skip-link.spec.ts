@@ -47,4 +47,18 @@ describe("ic-skip-link component", () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
+  it("should focus the link element when setFocus is called", async () => {
+    const page = await newSpecPage({
+      components: [SkipLink, Link],
+      html: `<ic-skip-link target="page-content"></ic-skip-link>`,
+    });
+
+    const focusEvent = jest.spyOn(Link.prototype, "setFocus");
+
+    page.rootInstance.setFocus();
+    await page.waitForChanges();
+
+    expect(focusEvent).toHaveBeenCalledTimes(1);
+  });
 });

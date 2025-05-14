@@ -152,6 +152,7 @@ ic-radio-option.ic-radio-option-disabled .radio-label {
 
 .radio-label {
   margin-left: var(--ic-space-md);
+
   --ic-typography-color: var(--ic-radio-button-text-option);
 }
 
@@ -233,7 +234,7 @@ input[type="radio"]:dir(rtl) {
 }
 
 .branch-corner:dir(rtl) {
-  border-radius: 0 0 0.188rem 0;
+  border-radius: 0 0 0.188rem;
   border-right: 0.125rem solid var(--ic-action-default);
   border-left: none;
 }

@@ -13,9 +13,6 @@
   --footer-link-label-margin-bottom: var(--ic-space-md);
   --footer-link-group-links-padding-left: var(--ic-space-md);
   --footer-link-group-links-padding-bottom: var(--ic-space-md);
-}
-
-:host(.footer-link-group-small) {
   --footer-link-group-border-bottom: var(--ic-space-1px) solid
     var(--ic-footer-keyline);
 }

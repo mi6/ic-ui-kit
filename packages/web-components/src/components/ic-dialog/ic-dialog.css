@@ -58,7 +58,9 @@
 .dialog {
   background-color: var(--ic-dialog-background);
   color: var(--ic-dialog-text-primary);
+
   --ic-typography-color: var(--ic-dialog-text-primary);
+
   border: var(--ic-space-1px) solid var(--ic-dialog-border);
   border-radius: var(--ic-border-radius);
   padding: var(--ic-space-xs) 0 var(--ic-space-md);
@@ -168,7 +170,6 @@
   .dialog {
     width: 100vw;
     height: 100vh;
-    transform: translateY(-5rem);
     max-width: none;
     max-height: none;
     box-sizing: border-box;

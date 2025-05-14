@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.15...@ukic/react@3.2.0) (2025-05-14)
+
+### Bug Fixes
+
+- **react:** added dynamic min-height to alert based on content and theme ([ae7e43c](https://github.com/mi6/ic-ui-kit/commit/ae7e43cc31520f2d496c2875247c62d9df6b3e11))
+- **react:** fixes issue updating props ([9180c8b](https://github.com/mi6/ic-ui-kit/commit/9180c8b5b0758592bb694ab80cf515135df68002))
+- **react:** update stories and visual regression test screenshots which use ic-navigation-item ([61e09e5](https://github.com/mi6/ic-ui-kit/commit/61e09e5348388c6156fadde8c6ebd84727b155f6))
+- **react:** update visual regression test screenshots and update vertical card adornment story ([6d19305](https://github.com/mi6/ic-ui-kit/commit/6d1930570c1e08bd954758ad8802681d31d33d5c))
+- **react:** updates baseline image after button token change ([2b41199](https://github.com/mi6/ic-ui-kit/commit/2b41199004e7b281bc70cdc45609ee3e10537d6c))
+
+### Features
+
+- **react:** adds react 19 support ([d7fe993](https://github.com/mi6/ic-ui-kit/commit/d7fe99353be8a94c2e28eb7eec1eb7259d552d3c))
+- **react:** minor feat for v3 ([b517075](https://github.com/mi6/ic-ui-kit/commit/b5170756975e395305e86faebc407348a59fe31d))
+
 # [3.1.0]
 
 ### Bug Fixes

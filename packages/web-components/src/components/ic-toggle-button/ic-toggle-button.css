@@ -135,11 +135,13 @@
 :host ::part(button):hover {
   border: var(--ic-border-width) solid var(--toggle-button-border-hover);
   color: var(--toggle-button-text-colour-hover);
+  background-color: var(--ic-toggle-button-unselected-background-hover);
 }
 
 :host ::part(button):active {
   border: var(--ic-border-width) solid var(--toggle-button-border-active);
   color: var(--toggle-button-text-colour-active);
+  background-color: var(--ic-toggle-button-unselected-background-pressed);
 }
 
 :host(.ic-toggle-button-disabled) ::part(button) {
@@ -157,14 +159,6 @@
   box-shadow: inset 0 0 0 var(--ic-space-xxxs)
       var(--ic-toggle-button-selected-border-focus),
     var(--ic-border-focus);
-}
-
-:host ::part(button):hover {
-  background-color: var(--ic-toggle-button-unselected-background-hover);
-}
-
-:host ::part(button):active {
-  background-color: var(--ic-toggle-button-unselected-background-pressed);
 }
 
 :host(.ic-toggle-button-checked) ::part(button):hover {
@@ -273,6 +267,7 @@
   --loading-button-background: var(
     --ic-toggle-button-selected-background-pressed
   );
+
   background-color: var(--ic-toggle-button-selected-background-pressed);
 }
 
@@ -280,6 +275,7 @@
   --loading-button-background: var(
     --ic-toggle-button-unselected-background-pressed
   );
+
   background-color: var(--ic-toggle-button-unselected-background-pressed);
 }
 
@@ -297,6 +293,7 @@
   --loading-button-background: var(
     --ic-toggle-button-selected-background-pressed-monochrome
   );
+
   background-color: var(
     --ic-toggle-button-selected-background-pressed-monochrome
   );
@@ -306,6 +303,7 @@
   --loading-button-background: var(
     --ic-toggle-button-unselected-background-pressed-monochrome
   );
+
   background-color: var(
     --ic-toggle-button-unselected-background-pressed-monochrome
   );

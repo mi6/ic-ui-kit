@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.15...@ukic/web-components@3.2.0) (2025-05-14)
+
+### Bug Fixes
+
+- **web-components:** added dynamic min-height to alert based on content and theme ([48cd223](https://github.com/mi6/ic-ui-kit/commit/48cd2232980043b31d79c4e82552a29372d0ef4c))
+- **web-components:** dialogs at narrow width/high zoom fix ([7af4fc9](https://github.com/mi6/ic-ui-kit/commit/7af4fc9da31766828485e37f1b410eb2321715cc)), closes [#3432](https://github.com/mi6/ic-ui-kit/issues/3432)
+- **web-components:** fix ic-navigation-item slotted badge and icon positioning ([6417ded](https://github.com/mi6/ic-ui-kit/commit/6417ded05f5ff7b0d56599dc74b584632d16a485))
+- **web-components:** fix length validation message in ic-textfield component ([bb18bdd](https://github.com/mi6/ic-ui-kit/commit/bb18bdd456129e5511b7a7a8612f07d1cba1b48f))
+- **web-components:** fix select loading state bugs ([bcb1fe8](https://github.com/mi6/ic-ui-kit/commit/bcb1fe8cf5047f8e51b29b230d7f91f8a3540b68))
+- **web-components:** fix spacing between title and subtitle/adornment on clickable vertical cards ([8602883](https://github.com/mi6/ic-ui-kit/commit/8602883e108398033a9e21bea29ebf8c3024b5f4))
+- **web-components:** fixes issue updating props ([3250d4b](https://github.com/mi6/ic-ui-kit/commit/3250d4bf1c5d54fcb049c92060d74bcd8fec3fab))
+- **web-components:** fixes issue with colors of buttons and toggle buttons ([160c3ea](https://github.com/mi6/ic-ui-kit/commit/160c3eaa3a5df5aaaf3f48ef4897bab136af3185))
+- **web-components:** update nav group aria-expanded to work correctly on top nav ([a76a91a](https://github.com/mi6/ic-ui-kit/commit/a76a91a187f45ec28901380a85d4115158673f9b)), closes [.#1873](https://github.com/./issues/1873)
+- **web-components:** update to dark mode colours for status and version tags in mobile navigation ([4ca0755](https://github.com/mi6/ic-ui-kit/commit/4ca075526518808aa97d51d9bd538169b8fcbc3b))
+
+### Features
+
+- **web-components:** added setFocus method to skip-link ([b6069af](https://github.com/mi6/ic-ui-kit/commit/b6069af3a64db537326e9a289bea49a36025fbd6))
+- **web-components:** minor feat for v3 ([6fd1ae3](https://github.com/mi6/ic-ui-kit/commit/6fd1ae33c8c8f4992ac70e59eacef991cd2ab0e6))
+
 # [3.1.0]
 
 ### Bug Fixes
@@ -134,7 +154,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **web-components:** update side nav menu button to correct hover and pressed colours ([cf4a479](https://github.com/mi6/ic-ui-kit/commit/cf4a47932d304d6fceb3028b7b5292596f959550)), closes [.#3380](https://github.com/./issues/3380)
 - **web-components:** updated buttons prop name in ic-dialog to hide-default-controls ([32a2669](https://github.com/mi6/ic-ui-kit/commit/32a26696af5249f19443e6b7f23e7e105e7e55d4))
 - **web-components:** updates color tokens to match latest designs ([4e81068](https://github.com/mi6/ic-ui-kit/commit/4e8106852b2e0de8e6f0346e0362450ea95b99ab))
-
 
 ### Features
 

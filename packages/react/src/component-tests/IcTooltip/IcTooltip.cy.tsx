@@ -216,6 +216,72 @@ describe("IcTooltip end-to-end tests", () => {
       NOT_BE_VISIBLE
     );
   });
+
+  it("should update hover display when disableHover prop changes", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_BE_VISIBLE
+    );
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      NOT_HAVE_ATTR,
+      "data-show"
+    );
+
+    cy.get("button").realHover("mouse");
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      HAVE_ATTR,
+      "data-show"
+    );
+
+    cy.get(TOOLTIP_SELECTOR)
+      .invoke("prop", "disableHover", "true")
+      .then(() => {
+        cy.get("button").realHover("mouse");
+        cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+          NOT_BE_VISIBLE
+        );
+        cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+          NOT_HAVE_ATTR,
+          "data-show"
+        );
+      });
+  });
+
+  it("should update click display when disableClick prop changes", () => {
+    mount(<Default />);
+
+    cy.checkHydrated(TOOLTIP_SELECTOR);
+
+    cy.get("button").click();
+
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      BE_VISIBLE
+    );
+
+    cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+      HAVE_ATTR,
+      "data-show"
+    );
+
+    cy.get(TOOLTIP_SELECTOR)
+      .invoke("prop", "disableClick", "true")
+      .then(() => {
+        cy.get("button").click();
+        cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+          NOT_BE_VISIBLE
+        );
+        cy.findShadowEl(TOOLTIP_SELECTOR, ".ic-tooltip-container").should(
+          NOT_HAVE_ATTR,
+          "data-show"
+        );
+      });
+  });
 });
 
 describe("IcTooltip visual regression and a11y tests", () => {

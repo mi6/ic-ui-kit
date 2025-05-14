@@ -42,6 +42,32 @@ export const BasicTreeView = (
   </div>
 );
 
+export const BasicTreeViewWithCoffeeTypes = (
+  props?: object,
+  treeItemProps?: object
+): ReactElement => (
+  <div
+    style={{
+      width: "250px",
+      padding: "16px",
+    }}
+  >
+    <IcTreeView heading="Menu" {...props}>
+      <IcTreeItem label="Coffee" {...treeItemProps}>
+        <IcTreeItem label="Americano">
+          <IcTreeItem label="With milk" />
+        </IcTreeItem>
+        <IcTreeItem label="Latte" />
+      </IcTreeItem>
+      <IcTreeItem label="Tea">
+        <IcTreeItem label="Earl Grey" />
+        <IcTreeItem label="Chai" />
+      </IcTreeItem>
+      <IcTreeItem label="Hot Chocolate" />
+    </IcTreeView>
+  </div>
+);
+
 export const Icon = (): ReactElement => (
   <SlottedSVG
     slot="icon"
@@ -821,6 +847,33 @@ describe("IcTreeView", () => {
       .realPress("ArrowDown");
 
     cy.get(TREE_ITEM).eq(1).should(HAVE_FOCUS).realPress("ArrowDown");
+
+    cy.get(TREE_ITEM).eq(4).should(HAVE_FOCUS);
+  });
+
+  it("should navigate through tree items when expanded content is hidden using arrow keys", () => {
+    mount(<BasicTreeViewWithCoffeeTypes />);
+
+    cy.checkHydrated("ic-tree-view");
+
+    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT)
+      .eq(0)
+      .focus()
+      .realPress("Enter");
+
+    cy.get(TREE_ITEM).eq(0).should(HAVE_FOCUS).realPress("ArrowDown");
+
+    cy.get(TREE_ITEM)
+      .eq(1)
+      .should(HAVE_FOCUS)
+      .realPress("Enter")
+      .realPress("ArrowUp");
+
+    cy.get(TREE_ITEM)
+      .eq(0)
+      .should(HAVE_FOCUS)
+      .realPress("Enter")
+      .realPress("ArrowDown");
 
     cy.get(TREE_ITEM).eq(4).should(HAVE_FOCUS);
   });

@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Method, Prop } from "@stencil/core";
 import { IcThemeMode } from "../../utils/types";
 
 @Component({
@@ -7,6 +7,8 @@ import { IcThemeMode } from "../../utils/types";
   shadow: true,
 })
 export class SkipLink {
+  private linkEl?: HTMLIcLinkElement;
+
   @Element() el: HTMLIcSkipLinkElement;
 
   /**
@@ -44,6 +46,14 @@ export class SkipLink {
    */
   @Prop() transparentBackground: boolean = false;
 
+  /**
+   * Sets focus on the element.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.linkEl) this.linkEl.setFocus();
+  }
+
   render() {
     const {
       fullWidth,
@@ -71,6 +81,7 @@ export class SkipLink {
           href={`#${target}`}
           monochrome={monochrome}
           theme={theme}
+          ref={(el) => (this.linkEl = el)}
         >
           {label}
         </ic-link>

@@ -38,18 +38,22 @@ button {
   ::slotted(svg) {
     fill: var(--ic-card-icon);
   }
+
   &.monochrome {
     border: var(--ic-border-width) solid var(--ic-card-border-monochrome);
   }
+
   &.fullwidth {
     width: 100%;
   }
+
   &.clickable {
     &:hover {
       background-color: var(--ic-card-background-hover);
       border: var(--ic-space-1px) solid var(--ic-card-hover-border-color);
       cursor: pointer;
     }
+
     &.focussed,
     &:focus {
       background-color: var(--ic-card-background-hover);
@@ -57,22 +61,28 @@ button {
       outline: var(--ic-hc-focus-outline);
       border: var(--ic-space-1px) solid var(--ic-card-pressed-border-color);
     }
+
     &:active {
       background-color: var(--ic-card-background-pressed);
       box-shadow: var(--ic-border-focus);
-
       .card-title {
         text-decoration: none;
       }
     }
+
     .card-title {
       --ic-typography-color: var(--ic-card-clickable-text);
-
       color: var(--ic-card-clickable-text);
       text-decoration: underline;
       text-decoration-thickness: var(--ic-space-1px);
+      margin-bottom: var(--ic-space-xxs);
+    }
+    .interaction-button,
+    .icon {
+      margin-bottom: var(--ic-space-xxs);
     }
   }
+
   &.disabled {
     border: var(--ic-space-1px) dashed var(--ic-card-disabled-border-color);
 
@@ -81,12 +91,14 @@ button {
     .card-title {
       --ic-typography-color: var(--ic-card-disabled-text);
     }
+
     .card-title {
       text-decoration: underline;
       text-decoration-thickness: var(--ic-space-1px);
       text-decoration-color: var(--ic-card-disabled-text);
       color: var(--ic-card-disabled-text);
     }
+
     ::slotted(svg) {
       fill: var(--ic-card-icon-disabled);
     }
@@ -109,7 +121,7 @@ button {
 .card.clickable.focussed .card-title {
   display: inline-block;
   border-bottom: 0.25rem solid !important;
-  margin-bottom: -0.25rem !important;
+  margin-bottom: 0 !important;
   text-decoration: none;
 }
 
@@ -121,7 +133,7 @@ button {
     text-decoration-thickness: 25%;
     text-underline-offset: 25%;
     border-bottom: 0 !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 0.25rem !important;
   }
 }
 
@@ -191,9 +203,11 @@ button {
   &:hover {
     background-color: var(--ic-card-background-hover);
   }
+
   &:focus {
     box-shadow: var(--ic-border-focus);
   }
+
   &:active:not(:focus) {
     background-color: var(--ic-card-background-pressed);
   }
@@ -229,12 +243,14 @@ button {
     ::slotted(svg) {
       fill: currentcolor;
     }
+
     &.disabled {
       border-color: GrayText !important;
 
       ::slotted(svg) {
         fill: GrayText !important;
       }
+
       .card-message,
       .subheading,
       .card-title {

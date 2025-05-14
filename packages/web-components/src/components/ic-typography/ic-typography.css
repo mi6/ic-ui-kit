@@ -209,9 +209,9 @@
   }
 }
 
-@media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
+@media (prefers-color-scheme: dark) and (forced-colors: none) {
   :host,
-  .trunc-btn::not(ic-tooltip) {
+  .trunc-btn:not(ic-tooltip) {
     color: var(--ic-typography-color);
   }
 }

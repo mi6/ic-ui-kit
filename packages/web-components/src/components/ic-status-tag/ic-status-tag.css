@@ -31,6 +31,7 @@
 
 .filled-warning {
   background-color: var(--ic-status-tag-warning);
+
   --ic-typography-color: var(--ic-status-tag-filled-warning-text);
 }
 
@@ -55,24 +56,28 @@
 .outlined-neutral {
   background-color: var(--ic-status-tag-outlined-background-neutral);
   border: var(--ic-border-width) solid var(--ic-status-tag-outlined-neutral);
+
   --ic-typography-color: var(--ic-status-tag-text-inverted);
 }
 
 .outlined-success {
   background-color: var(--ic-status-tag-outlined-background-success);
   border: var(--ic-border-width) solid var(--ic-status-tag-outlined-success);
+
   --ic-typography-color: var(--ic-status-tag-text-inverted);
 }
 
 .outlined-warning {
   background-color: var(--ic-status-tag-outlined-background-warning);
   border: var(--ic-border-width) solid var(--ic-status-tag-outlined-warning);
+
   --ic-typography-color: var(--ic-status-tag-text-inverted);
 }
 
 .outlined-danger {
   background-color: var(--ic-status-tag-outlined-background-error);
   border: var(--ic-border-width) solid var(--ic-status-tag-outlined-error);
+
   --ic-typography-color: var(--ic-status-tag-text-inverted);
 }
 
@@ -81,6 +86,7 @@
     border: var(--ic-border-hc);
     -ms-high-contrast-adjust: none;
     forced-color-adjust: none;
+
     --ic-typography-color: var(--ic-status-tag-text);
   }
 }

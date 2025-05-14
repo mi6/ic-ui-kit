@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.17](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.15...@ukic/canary-react@3.0.0-canary.17) (2025-05-14)
+
+### Bug Fixes
+
+- **canary-react:** added a cypress test for ic-tree-view ([656999e](https://github.com/mi6/ic-ui-kit/commit/656999e09c2806bf7760dbc8f63174ca6d08dfb2))
+- **canary-react:** fixes issue with data needing to be in same order as columns ([b7e00d9](https://github.com/mi6/ic-ui-kit/commit/b7e00d9bc800c562c35081fdcb0668979581cf68))
+
+### Features
+
+- **canary-react:** adds react 19 support ([3b5907f](https://github.com/mi6/ic-ui-kit/commit/3b5907f72f590adda13472fd4822ba8660184528))
+- **canary-react:** minor feat for v3 ([0461c80](https://github.com/mi6/ic-ui-kit/commit/0461c80626613851ed76b75e1ef8f3160ad33be8))
+
 # [3.0.0-canary.16](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.15...@ukic/canary-react@3.0.0-canary.16) (2025-04-30)
 
 ### Features

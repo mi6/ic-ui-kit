@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@3.0.0-alpha.15...@ukic/docs@3.2.0) (2025-05-14)
+
+### Features
+
+- **docs:** minor feat for v3 ([821538b](https://github.com/mi6/ic-ui-kit/commit/821538bae5ec54e3ce697f8091ae0891da594bf9))
+
 # [3.1.0]
 
 ### Bug Fixes

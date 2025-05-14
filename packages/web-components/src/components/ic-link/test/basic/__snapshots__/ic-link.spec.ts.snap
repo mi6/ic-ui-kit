@@ -78,7 +78,7 @@ exports[`ic-link component should apply the 'target' attribute to the anchor ele
 `;
 
 exports[`ic-link component should get theme from context: alert-theme-context 1`] = `
-<ic-alert class="dark" message="This has an action" role="alert">
+<ic-alert message="This has an action" role="alert" style="--ic-alert-min-height: 3.5rem;">
   <template shadowrootmode="open">
     <div class="container container-neutral">
       <div class="alert-icon-container">
