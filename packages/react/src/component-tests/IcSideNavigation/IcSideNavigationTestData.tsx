@@ -362,7 +362,7 @@ export const DisableTopBarBehaviourSideNav = (): ReactElement => (
     disableTopBarBehaviour
   >
     <IcNavigationItem slot="primary-navigation" href="/" label="Home" selected>
-      <IcBadge textLabel="1" slot="badge" variant="light" />
+      <IcBadge label="1" slot="badge" variant="light" />
       <ReusableSlottedIcon />
     </IcNavigationItem>
     <IcNavigationGroup
