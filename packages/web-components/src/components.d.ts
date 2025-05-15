@@ -224,12 +224,12 @@ export namespace Components {
         /**
           * If `true`, aria-current will be set on the breadcrumb.
          */
-        "current"?: boolean;
+        "current": boolean;
         /**
           * The URL that the breadcrumb link points to.
          */
         "href"?: string;
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * The title of the breadcrumb.
          */
@@ -238,26 +238,26 @@ export namespace Components {
           * Sets focus on the breadcrumb.
          */
         "setFocus": () => Promise<void>;
-        "showBackIcon"?: boolean;
-        "theme"?: IcThemeMode;
+        "showBackIcon": boolean;
+        "theme": IcThemeMode;
     }
     interface IcBreadcrumbGroup {
         /**
           * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
-        "backBreadcrumbOnly"?: boolean;
+        "backBreadcrumbOnly": boolean;
         /**
           * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
          */
-        "collapsed"?: boolean;
+        "collapsed": boolean;
         /**
           * If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcButton {
         /**
