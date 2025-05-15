@@ -284,8 +284,8 @@ export const handleHiddenFormButtonClick = (
   hiddenFormButton.remove();
 };
 
-export const isEmptyString = (value: string): boolean =>
-  value ? value.trim().length === 0 : true;
+export const isEmptyString = (value?: string): boolean =>
+  !value || value.trim().length === 0;
 
 // A helper function that checks if a prop has been defined
 export const isPropDefined = (prop: string | undefined): string | undefined =>

@@ -184,14 +184,12 @@ describe("ic-breadcrumb-group", () => {
       </ic-breadcrumb-group>`,
     });
 
-    page.rootInstance.expandedBreadcrumbGroup = true;
     page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
 
     page.rootInstance.resizeObserverCallback(DEVICE_SIZES.M);
 
     expect(page.rootInstance.backBreadcrumbOnly).toBe(false);
 
-    //call runResizeObserver
     await page.rootInstance.runResizeObserver();
   });
 
@@ -206,24 +204,22 @@ describe("ic-breadcrumb-group", () => {
       </ic-breadcrumb-group>`,
     });
 
-    // page.rootInstance.expandedBreadcrumbGroup = true;
     page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
 
-    expect(page.rootInstance.expandedBreadcrumbs).toBe(false);
+    expect(page.rootInstance.collapsed).toBe(true);
 
     const button = document.querySelector(
       "#collapsed-ellipsis"
     ) as HTMLButtonElement;
     button.click();
     await page.waitForChanges();
-    //delay to test setTimeout in code
-    await waitForTimeout(100);
+    await waitForTimeout(100); // delay to test setTimeout in code
 
     page.rootInstance.resizeObserverCallback(DEVICE_SIZES.M);
 
     await page.waitForChanges();
 
-    expect(page.rootInstance.expandedBreadcrumbs).toBe(true);
+    expect(page.rootInstance.collapsed).toBe(false);
 
     //call runResizeObserver
     await page.rootInstance.runResizeObserver();
@@ -240,7 +236,6 @@ describe("ic-breadcrumb-group", () => {
       </ic-breadcrumb-group>`,
     });
 
-    // page.rootInstance.expandedBreadcrumbGroup = true;
     page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
 
     await page.waitForChanges();
@@ -248,10 +243,7 @@ describe("ic-breadcrumb-group", () => {
 
     await page.waitForChanges();
 
-    // expect(true).toBeTruthy;
-
-    expect(page.rootInstance.expandedBreadcrumbs).toBe(false);
-    // expect(page.rootInstance.backBreadcrumbOnly).toBe(false);
+    expect(page.rootInstance.collapsed).toBe(false);
 
     //call runResizeObserver
     await page.rootInstance.runResizeObserver();

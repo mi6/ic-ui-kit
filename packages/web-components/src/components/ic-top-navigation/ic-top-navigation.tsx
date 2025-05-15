@@ -358,7 +358,7 @@ export class TopNavigation {
                         </div>
                       )}
                       {deviceSize <= DEVICE_SIZES.S &&
-                      (!isEmptyString(shortAppTitle!) || shortAppTitleSlot) ? (
+                      (!isEmptyString(shortAppTitle) || shortAppTitleSlot) ? (
                         <ic-typography
                           variant="subtitle-small"
                           aria-label={

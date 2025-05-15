@@ -59,13 +59,22 @@ describe("ic-breadcrumb", () => {
       html: "<ic-breadcrumb id='ic-breadcrumb' current=true><ic-link href='/'>Link</ic-link></ic-breadcrumb>",
     });
 
-    await page.rootInstance.setSlottedCurrentPageClass();
+    page.rootInstance.componentWillRender();
 
     expect(
       document
         .querySelector("ic-breadcrumb")
         ?.classList.contains("current-page")
     ).toBeTruthy;
+
+    page.rootInstance.current = false;
+    await page.waitForChanges();
+
+    expect(
+      document
+        .querySelector("ic-breadcrumb")
+        ?.classList.contains("current-page")
+    ).toBeFalsy;
   });
 
   it("should call 'setFocus' when breadcrumb is focused", async () => {
