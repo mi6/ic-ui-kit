@@ -150,6 +150,18 @@ describe("IcBreadcrumb end-to-end tests", () => {
     cy.get("ic-button").click();
     cy.get(".collapsed-breadcrumb").should("have.length", 1);
   });
+
+  it("should expand collapsed state then render all breadcrumbs when narrowing the viewport", () => {
+    mount(<Collapsed />);
+
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.get("#collapsed-ellipsis").click();
+    cy.get('[page-title="Beverages"]').should(BE_VISIBLE);
+
+    cy.viewport(768, 750);
+
+    cy.get('[page-title="Beverages"]').should(BE_VISIBLE);
+  });
 });
 
 describe("IcBreadcrumb visual regression and a11y tests", () => {
