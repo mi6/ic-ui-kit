@@ -1,6 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { DatePicker } from "../../ic-date-picker";
 import { DateInput } from "../../../ic-date-input/ic-date-input";
+import { Calendar } from "../../../ic-calendar/ic-calendar";
 import { IcButton as Button } from "@ukic/web-components/dist/components/ic-button";
 import { IcTooltip as Tooltip } from "@ukic/web-components/dist/components/ic-tooltip";
 import {
@@ -23,7 +24,7 @@ beforeAll(() => {
 describe("ic-date-picker", () => {
   it("should render default size", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" value="11/07/2023"></ic-date-picker>`,
     });
 
@@ -38,7 +39,7 @@ describe("ic-date-picker", () => {
 
   it("should render small datepicker", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" size="small" value="11/07/2023"></ic-date-picker>`,
     });
 
@@ -51,7 +52,7 @@ describe("ic-date-picker", () => {
 
   it("should render large datepicker", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" size="large" value="11/07/2023"></ic-date-picker>`,
     });
 
@@ -64,7 +65,7 @@ describe("ic-date-picker", () => {
 
   it("should render with today & clear buttons hidden", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" show-picker-today-button="false" show-picker-clear-button="false" value="11/07/2023"></ic-date-picker>`,
     });
 
@@ -77,7 +78,7 @@ describe("ic-date-picker", () => {
 
   it("should render disabled", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" disabled="true"></ic-date-picker>`,
     });
     expect(page.root).toMatchSnapshot();
@@ -85,7 +86,7 @@ describe("ic-date-picker", () => {
 
   it("should render as required field", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" required="true"></ic-date-picker>`,
     });
     expect(page.root).toMatchSnapshot();
@@ -93,7 +94,7 @@ describe("ic-date-picker", () => {
 
   it("should render with custom inputId and name", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" input-id="custom-id" name="custom-name" ></ic-date-picker>`,
     });
     expect(page.root).toMatchSnapshot();
@@ -101,7 +102,7 @@ describe("ic-date-picker", () => {
 
   it("should render with custom validation", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" validation-status="error" validation-text="Text error text"></ic-date-picker>`,
     });
     expect(page.root).toMatchSnapshot();
@@ -109,7 +110,7 @@ describe("ic-date-picker", () => {
 
   it("should render with DD/MM/YYYY format", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" date-format="DD/MM/YYYY" value="11-07-2023"></ic-date-picker>`,
     });
 
@@ -122,7 +123,14 @@ describe("ic-date-picker", () => {
 
   it("should render with MM/DD/YYYY format", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip, InputLabel],
+      components: [
+        DatePicker,
+        DateInput,
+        Calendar,
+        Button,
+        Tooltip,
+        InputLabel,
+      ],
       html: `<ic-date-picker label="Date picker label" date-format="MM/DD/YYYY" value="07-11-2023" helper-text="Use US Format"></ic-date-picker>`,
     });
 
@@ -135,7 +143,7 @@ describe("ic-date-picker", () => {
 
   it("should render with YYYY/MM/DD format", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" date-format="YYYY/MM/DD" value="2023/07/11"></ic-date-picker>`,
     });
 
@@ -148,7 +156,7 @@ describe("ic-date-picker", () => {
 
   it("should render with saturday and sundays disabled", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" value="11/07/2023" disable-days-message="Saturday and Sunday not allowed"></ic-date-picker>`,
     });
 
@@ -165,7 +173,7 @@ describe("ic-date-picker", () => {
 
   it("should open at specified date", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -177,7 +185,7 @@ describe("ic-date-picker", () => {
 
   it("should have sunday as first day of week", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022" start-of-week="0"></ic-date-picker>`,
     });
 
@@ -189,7 +197,7 @@ describe("ic-date-picker", () => {
 
   it("should have correct date focussed on open", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -204,7 +212,7 @@ describe("ic-date-picker", () => {
 
   it("should update date when day clicked", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -224,7 +232,7 @@ describe("ic-date-picker", () => {
 
   it("should show month picker view when button clicked", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -253,7 +261,7 @@ describe("ic-date-picker", () => {
 
   it("should show year picker view when button clicked", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -283,7 +291,7 @@ describe("ic-date-picker", () => {
 
   it("should only allow selection in specified month", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" min="01/10/2023" max="31/10/2023"></ic-date-picker>`,
     });
 
@@ -296,7 +304,7 @@ describe("ic-date-picker", () => {
 
   it("should select month when button clicked", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -329,7 +337,7 @@ describe("ic-date-picker", () => {
 
   it("should select year when button clicked", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -359,7 +367,7 @@ describe("ic-date-picker", () => {
 
   it("should go to previous decade when button clicked", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -395,7 +403,7 @@ describe("ic-date-picker", () => {
 
   it("should go to next decade when button clicked", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -431,7 +439,7 @@ describe("ic-date-picker", () => {
 
   it("should test disableFuture and disableFutureMessage props", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" disable-future="true" disable-future-message="Days in the future not allowed"></ic-date-picker>`,
     });
     await page.waitForChanges();
@@ -463,7 +471,7 @@ describe("ic-date-picker", () => {
 
   it("should test disablePast and disablePastMessage props", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" disable-past="true" disable-past-message="Days in the past not allowed"></ic-date-picker>`,
     });
     await page.waitForChanges();
@@ -497,7 +505,7 @@ describe("ic-date-picker", () => {
 
   it("should test invalidDateMessage", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" invalid-date-message="Invalid date"></ic-date-picker>`,
     });
     await page.waitForChanges();
@@ -512,7 +520,7 @@ describe("ic-date-picker", () => {
 
   it("should close picker when another element clicked", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -529,7 +537,7 @@ describe("ic-date-picker", () => {
 
   it("should close picker when Escape key pressed", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -546,7 +554,7 @@ describe("ic-date-picker", () => {
 
   it("should clear dialog description when key pressed", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -563,7 +571,7 @@ describe("ic-date-picker", () => {
 
   it("should test go to today button", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -584,7 +592,7 @@ describe("ic-date-picker", () => {
 
   it("should test go to today button - month view", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -609,7 +617,7 @@ describe("ic-date-picker", () => {
 
   it("should test go to today button - year view", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -635,7 +643,7 @@ describe("ic-date-picker", () => {
 
   it("should test clear button", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" value="25/12/2022"></ic-date-picker>`,
     });
 
@@ -667,7 +675,7 @@ describe("ic-date-picker", () => {
 
   it("should test clear button - month view", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" value="25/12/2022"></ic-date-picker>`,
     });
 
@@ -704,7 +712,7 @@ describe("ic-date-picker", () => {
 
   it("should test clear button - year view", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" value="25/12/2022"></ic-date-picker>`,
     });
 
@@ -741,7 +749,7 @@ describe("ic-date-picker", () => {
 
   it("should test month & year nav buttons", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" value="25/12/2022"></ic-date-picker>`,
     });
 
@@ -791,7 +799,7 @@ describe("ic-date-picker", () => {
 
   it("should test tab on goto today button goes to first element on dialog when clear disabled", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -807,7 +815,7 @@ describe("ic-date-picker", () => {
 
   it("should test tab on clear button goes to first element on dialog", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -823,7 +831,7 @@ describe("ic-date-picker", () => {
 
   it("should test monthButtonKeyDownHandler", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
     page.rootInstance.setSelectedDate(new Date(2022, 11, 25));
@@ -947,7 +955,7 @@ describe("ic-date-picker", () => {
 
   it("should test yearButtonKeyDownHandler", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
     page.rootInstance.setSelectedDate(new Date(2022, 11, 25));
@@ -1017,7 +1025,7 @@ describe("ic-date-picker", () => {
 
   it("should test monthPickerKeyDownHandler", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -1083,7 +1091,7 @@ describe("ic-date-picker", () => {
 
   it("should test yearPickerKeyDownHandler ", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022"></ic-date-picker>`,
     });
 
@@ -1163,7 +1171,7 @@ describe("ic-date-picker", () => {
 
   it("should test handleCalendarKeyDown", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="25/12/2022" show-picker-today-button="false" show-picker-clear-button="false"></ic-date-picker>`,
     });
 
@@ -1287,7 +1295,7 @@ describe("ic-date-picker", () => {
 
   it("should test keyboard navigation when weekends disabled", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="23/12/2022"></ic-date-picker>`,
     });
 
@@ -1311,7 +1319,7 @@ describe("ic-date-picker", () => {
 
   it("should test calendarButtonClickHandler", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label"></ic-date-picker>`,
     });
 
@@ -1343,7 +1351,7 @@ describe("ic-date-picker", () => {
 
   it("should test blur of day button", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="23/12/2022"></ic-date-picker>`,
     });
     page.rootInstance.calendarOpen = true;
@@ -1364,7 +1372,7 @@ describe("ic-date-picker", () => {
 
   it("should test nav button mouse down handler", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="23/12/2022"></ic-date-picker>`,
     });
     page.rootInstance.calendarOpen = true;
@@ -1392,7 +1400,7 @@ describe("ic-date-picker", () => {
 
   it("should test setAriaLiveRegionText", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="23/12/2022"></ic-date-picker>`,
     });
     page.rootInstance.calendarOpen = true;
@@ -1409,7 +1417,7 @@ describe("ic-date-picker", () => {
 
   it("should test focus and blur of year button", async () => {
     const page = await newSpecPage({
-      components: [DatePicker, DateInput, Button, Tooltip],
+      components: [DatePicker, DateInput, Calendar, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" open-at-date="23/12/2022"></ic-date-picker>`,
     });
     page.rootInstance.calendarOpen = true;

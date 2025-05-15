@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import readme from "./readme.md";
+import { html } from "lit-html";
 import {
   CustomHelperText,
   DateFormats,
@@ -31,6 +32,8 @@ export default {
     },
   },
 };
+
+const INLINE_RADIO = "inline-radio"
 
 /**
  * Use a date picker to select a single date where visualising that date could be useful.
@@ -212,4 +215,114 @@ export const CalendarOpensAboveInput = {
   render: () => OpenAbove(),
   name: "Calendar opens above input",
   height: "540px",
+};
+
+const defaultArgs = {
+  ["date-format"]: "DD/MM/YYYY",
+  disabled: false,
+  ["disable-days"]: [],
+  ["disable-days-message"]: "This day is not available",
+  ["disable-future"]: false,
+  ["disable-future-message"]: "This date is in the future",
+  ["disable-past"]: false,
+  ["disable-past-message"]: "This date is in the past",
+  ["helper-text"]: "Choose a date",
+  ["hide-label"]: false,
+  ["invalid-date-message"]: "Invalid date",
+  label: "When would you like to collect your coffee?",
+  max: "",
+  min: "",
+  required: false,
+  ["show-days-outside-month"]: true,
+  ["show-picker-clear-button"]: true,
+  ["show-picker-today-button"]: true,
+  size: "medium",
+  ["start-of-week"]: 1,
+  theme: "inherit",
+  ["validation-status"]: "",
+  ["validation-text"]: "",
+  value: "",
+};
+
+const weekDays = {
+  Sunday: 0,
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+};
+
+export const Playground = {
+  render: (args) =>
+    html`<ic-date-picker
+      id="playground"
+      date-format=${args["date-format"]}
+      disabled=${args.disabled}
+      disable-days=${JSON.stringify(args["disable-days"])}
+      disable-days-message=${args["disable-days-message"]}
+      disable-future=${args["disable-future"]}
+      disable-future-message=${args["disable-future-message"]}
+      disable-past=${args["disable-past"]}
+      disable-past-message=${args["disable-past-message"]}
+      helper-text=${args["helper-text"]}
+      hide-helper-text=${args["hide-helper-text"]}
+      hide-label=${args["hide-label"]}
+      invalid-date-message=${args["invalid-date-message"]}
+      label=${args.label}
+      max=${args.max}
+      min=${args.min}
+      open-at-date=${args["open-at-date"]}
+      required=${args.required}
+      show-days-outside-month=${args["show-days-outside-month"]}
+      show-picker-clear-button=${args["show-picker-clear-button"]}
+      show-picker-today-button=${args["show-picker-today-button"]}
+      size=${args.size}
+      start-of-week=${args["start-of-week"]}
+      theme=${args.theme}
+      validation-status=${args["validation-status"]}
+      validation-text=${args["validation-text"]}
+      value=${args.value}
+    ></ic-date-picker>`,
+  name: "Playground",
+  args: defaultArgs,
+  argTypes: {
+    ["date-format"]: {
+      options: ["DD/MM/YYYY", "MM/DD/YYYY", "YYYY/MM/DD"],
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+    size: {
+      control: INLINE_RADIO,
+      options: ["small", "medium", "large"],
+    },
+    ["start-of-week"]: {
+      options: Object.keys(weekDays),
+      mapping: weekDays,
+      control: {
+        type: INLINE_RADIO,
+        labels: {
+          Sunday: "Sunday",
+          Monday: "Monday",
+          Tuesday: "Tuesday",
+          Wednesday: "Wednesday",
+          Thursday: "Thursday",
+          Friday: "Friday",
+          Saturday: "Saturday",
+        },
+      },
+    },
+    theme: {
+      control: INLINE_RADIO,
+      options: ["inherit", "light", "dark"],
+    },
+    ["validation-status"]: {
+      options: ["", "error", "success", "warning"],
+      control: {
+        type: INLINE_RADIO,
+      },
+    },
+  },
 };
