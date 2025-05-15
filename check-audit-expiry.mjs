@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from "node:fs/promises";
 
 function isDateFurtherThanAMonth(dateString) {
   const currentDate = new Date();
@@ -9,24 +9,24 @@ function isDateFurtherThanAMonth(dateString) {
   return expiryDate > oneMonthFromNow;
 }
 
-fs.readFile('audit-ci.json', 'utf8', (err, data) => {
-  if (err) {
-    console.error('Error reading audit-ci.json:', err);
-    return;
-  }
-
+async function main() {
   try {
+    const data = await fs.readFile("audit-ci.json", "utf8");
     const jsonData = JSON.parse(data);
-    const allowlist = jsonData.allowlist;
+    const { allowlist } = jsonData;
     for (const item of allowlist) {
       const advisoryId = Object.keys(item)[0];
       const itemObj = item[advisoryId];
       if (itemObj.active && isDateFurtherThanAMonth(itemObj.expiry)) {
-        console.error(`Expiry date for ${advisoryId} is further away than a month.`);
+        console.error(
+          `Expiry date for ${advisoryId} is further away than a month.`
+        );
         process.exit(1);
       }
     }
   } catch (parseError) {
-    console.error('Error parsing JSON in audit-ci.json:', parseError);
+    console.error("Error parsing JSON in audit-ci.json:", parseError);
   }
-});
+}
+
+await main();
