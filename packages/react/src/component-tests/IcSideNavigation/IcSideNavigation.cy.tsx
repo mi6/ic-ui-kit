@@ -723,6 +723,18 @@ describe("IcSideNavigation", () => {
           testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
         });
       });
+
+      it("should render with a small screen height", () => {
+        cy.viewport(992, 256);
+        mount(<BasicSideNav />);
+        cy.checkHydrated(SIDE_NAV_SELECTOR);
+
+        cy.checkA11yWithWait();
+        cy.compareSnapshot({
+          name: "/small-screen-height-desktop",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+        });
+      });
     });
   });
 });
