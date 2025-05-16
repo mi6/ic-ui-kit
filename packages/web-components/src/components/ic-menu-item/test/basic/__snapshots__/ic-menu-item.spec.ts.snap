@@ -3,22 +3,20 @@
 exports[`menu item variants should render a menu item with a description 1`] = `
 <ic-menu-item description="This is the default variant of the menu item with a description" label="Default variant" variant="default">
   <template shadowrootmode="open">
-    <li aria-disabled="false" role="menuitem">
-      <ic-button aria-disabled="false" aria-label="Default variant, This is the default variant of the menu item with a description" fullwidth="" variant="tertiary">
-        <div class="focus-border">
-          <div class="menu-item-info">
-            <div class="menu-labels">
-              <ic-typography class="menu-item-label">
-                Default variant
-              </ic-typography>
-            </div>
-            <ic-typography class="menu-item-description" variant="caption">
-              This is the default variant of the menu item with a description
+    <ic-button aria-disabled="false" aria-label="Default variant, This is the default variant of the menu item with a description" fullwidth="" role="menuitem" variant="tertiary">
+      <div class="focus-border">
+        <div class="menu-item-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-item-label">
+              Default variant
             </ic-typography>
           </div>
+          <ic-typography class="menu-item-description" variant="caption">
+            This is the default variant of the menu item with a description
+          </ic-typography>
         </div>
-      </ic-button>
-    </li>
+      </div>
+    </ic-button>
   </template>
 </ic-menu-item>
 `;
@@ -26,19 +24,17 @@ exports[`menu item variants should render a menu item with a description 1`] = `
 exports[`menu item variants should render the default variant 1`] = `
 <ic-menu-item label="Default variant" variant="default">
   <template shadowrootmode="open">
-    <li aria-disabled="false" role="menuitem">
-      <ic-button aria-disabled="false" aria-label="Default variant" fullwidth="" variant="tertiary">
-        <div class="focus-border">
-          <div class="menu-item-info">
-            <div class="menu-labels">
-              <ic-typography class="menu-item-label">
-                Default variant
-              </ic-typography>
-            </div>
+    <ic-button aria-disabled="false" aria-label="Default variant" fullwidth="" role="menuitem" variant="tertiary">
+      <div class="focus-border">
+        <div class="menu-item-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-item-label">
+              Default variant
+            </ic-typography>
           </div>
         </div>
-      </ic-button>
-    </li>
+      </div>
+    </ic-button>
   </template>
 </ic-menu-item>
 `;
@@ -46,19 +42,17 @@ exports[`menu item variants should render the default variant 1`] = `
 exports[`menu item variants should render the destructive variant 1`] = `
 <ic-menu-item label="Destructive variant" variant="destructive">
   <template shadowrootmode="open">
-    <li aria-disabled="false" role="menuitem">
-      <ic-button aria-disabled="false" aria-label="Destructive variant, destructive" fullwidth="" variant="tertiary">
-        <div class="focus-border">
-          <div class="menu-item-info">
-            <div class="menu-labels">
-              <ic-typography class="menu-item-label">
-                Destructive variant
-              </ic-typography>
-            </div>
+    <ic-button aria-disabled="false" aria-label="Destructive variant, destructive" fullwidth="" role="menuitem" variant="tertiary">
+      <div class="focus-border">
+        <div class="menu-item-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-item-label">
+              Destructive variant
+            </ic-typography>
           </div>
         </div>
-      </ic-button>
-    </li>
+      </div>
+    </ic-button>
   </template>
 </ic-menu-item>
 `;
@@ -66,19 +60,17 @@ exports[`menu item variants should render the destructive variant 1`] = `
 exports[`menu item variants should render the disabled variant 1`] = `
 <ic-menu-item class="ic-menu-item-disabled" disabled="" label="Default variant" variant="default">
   <template shadowrootmode="open">
-    <li aria-disabled="true" role="menuitem">
-      <ic-button aria-disabled="true" aria-label="Default variant" fullwidth="" variant="tertiary">
-        <div class="focus-border">
-          <div class="menu-item-info">
-            <div class="menu-labels">
-              <ic-typography class="menu-item-label">
-                Default variant
-              </ic-typography>
-            </div>
+    <ic-button aria-disabled="true" aria-label="Default variant" fullwidth="" role="menuitem" variant="tertiary">
+      <div class="focus-border">
+        <div class="menu-item-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-item-label">
+              Default variant
+            </ic-typography>
           </div>
         </div>
-      </ic-button>
-    </li>
+      </div>
+    </ic-button>
   </template>
 </ic-menu-item>
 `;
@@ -86,19 +78,17 @@ exports[`menu item variants should render the disabled variant 1`] = `
 exports[`menu item variants should render the disabled variant: disabled-removed 1`] = `
 <ic-menu-item label="Default variant" variant="default">
   <template shadowrootmode="open">
-    <li aria-disabled="false" role="menuitem">
-      <ic-button aria-disabled="false" aria-label="Default variant" fullwidth="" variant="tertiary">
-        <div class="focus-border">
-          <div class="menu-item-info">
-            <div class="menu-labels">
-              <ic-typography class="menu-item-label">
-                Default variant
-              </ic-typography>
-            </div>
+    <ic-button aria-disabled="false" aria-label="Default variant" fullwidth="" role="menuitem" variant="tertiary">
+      <div class="focus-border">
+        <div class="menu-item-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-item-label">
+              Default variant
+            </ic-typography>
           </div>
         </div>
-      </ic-button>
-    </li>
+      </div>
+    </ic-button>
   </template>
 </ic-menu-item>
 `;
@@ -106,27 +96,25 @@ exports[`menu item variants should render the disabled variant: disabled-removed
 exports[`menu item variants should render the toggle variant 1`] = `
 <ic-menu-item id="test-menu-item" label="Toggle variant" variant="toggle">
   <template shadowrootmode="open">
-    <li aria-checked="false" aria-disabled="false" role="menuitemcheckbox">
-      <ic-button class="ic-button-full-width ic-button-size-medium ic-button-variant-tertiary" exportparts="button">
-        <template shadowrootmode="open">
-          <button aria-disabled="false" aria-label="Toggle variant" class="button" part="button" type="button">
-            <slot></slot>
-          </button>
-        </template>
-        <div class="focus-border">
-          <div class="menu-item-info">
-            <div class="menu-labels">
-              <ic-typography class="menu-item-label">
-                Toggle variant
-              </ic-typography>
-            </div>
+    <ic-button aria-checked="false" class="ic-button-full-width ic-button-size-medium ic-button-variant-tertiary" exportparts="button" role="menuitemcheckbox">
+      <template shadowrootmode="open">
+        <button aria-disabled="false" aria-label="Toggle variant" class="button" part="button" type="button">
+          <slot></slot>
+        </button>
+      </template>
+      <div class="focus-border">
+        <div class="menu-item-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-item-label">
+              Toggle variant
+            </ic-typography>
           </div>
-          <span aria-hidden="true" class="check-icon hide">
-            svg
-          </span>
         </div>
-      </ic-button>
-    </li>
+        <span aria-hidden="true" class="check-icon hide">
+          svg
+        </span>
+      </div>
+    </ic-button>
   </template>
 </ic-menu-item>
 `;
@@ -134,22 +122,20 @@ exports[`menu item variants should render the toggle variant 1`] = `
 exports[`menu item variants should render with keyboard shortcut 1`] = `
 <ic-menu-item keyboard-shortcut-label="Cmd+" label="Toggle variant" variant="default">
   <template shadowrootmode="open">
-    <li aria-disabled="false" role="menuitem">
-      <ic-button aria-disabled="false" aria-label="Toggle variant, Cmd+" fullwidth="" variant="tertiary">
-        <div class="focus-border">
-          <div class="menu-item-info">
-            <div class="menu-labels">
-              <ic-typography class="menu-item-label">
-                Toggle variant
-              </ic-typography>
-              <ic-typography class="shortcut" variant="caption">
-                Cmd+
-              </ic-typography>
-            </div>
+    <ic-button aria-disabled="false" aria-label="Toggle variant, Cmd+" fullwidth="" role="menuitem" variant="tertiary">
+      <div class="focus-border">
+        <div class="menu-item-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-item-label">
+              Toggle variant
+            </ic-typography>
+            <ic-typography class="shortcut" variant="caption">
+              Cmd+
+            </ic-typography>
           </div>
         </div>
-      </ic-button>
-    </li>
+      </div>
+    </ic-button>
   </template>
 </ic-menu-item>
 `;
