@@ -23,7 +23,6 @@ import {
   addFormResetListener,
   removeFormResetListener,
   removeDisabledFalse,
-  isPropDefined,
 } from "../../utils/helpers";
 
 /**
@@ -39,25 +38,26 @@ import {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Checkbox {
   private additionalFieldContainer?: HTMLDivElement;
+  private checkboxEl?: HTMLInputElement;
 
   @Element() el: HTMLIcCheckboxElement;
 
   /**
    * The style of additionalField that will be displayed if used.
    */
-  @Prop({ reflect: true }) additionalFieldDisplay?: IcAdditionalFieldTypes =
+  @Prop({ reflect: true }) additionalFieldDisplay: IcAdditionalFieldTypes =
     "static";
 
   /**
    * If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.
    */
-  @Prop({ reflect: true, mutable: true }) checked?: boolean = false;
+  @Prop({ reflect: true, mutable: true }) checked = false;
   @State() initiallyChecked = this.checked;
 
   /**
    * If `true`, the checkbox will be set to the disabled state.
    */
-  @Prop() disabled?: boolean = false;
+  @Prop() disabled = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -67,7 +67,7 @@ export class Checkbox {
    * The text to be displayed when dynamic.
    */
 
-  @Prop() dynamicText?: string = "This selection requires additional answers";
+  @Prop() dynamicText = "This selection requires additional answers";
 
   /**
    * The <form> element to associate the checkbox with.
@@ -80,16 +80,20 @@ export class Checkbox {
   @Prop({ mutable: true }) groupLabel?: string;
 
   /**
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+   */
+  @Prop() hideLabel = false;
+
+  /**
    * If `true`, the indeterminate state will be displayed when checked.
    */
-  @Prop() indeterminate?: boolean = false;
+  @Prop() indeterminate = false;
   @State() displayIndeterminate = this.indeterminate;
 
   @Watch("indeterminate")
   watchIndeterminateHandler(): void {
-    this.displayIndeterminate = this.nativeIndeterminateBehaviour
-      ? this.indeterminate
-      : this.indeterminate && !!this.checked;
+    this.displayIndeterminate =
+      this.indeterminate && (this.nativeIndeterminateBehaviour || this.checked);
   }
 
   /**
@@ -105,27 +109,22 @@ export class Checkbox {
   /**
    * If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.
    */
-  @Prop() nativeIndeterminateBehaviour?: boolean = false;
+  @Prop() nativeIndeterminateBehaviour = false;
 
   /**
    * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
    */
-  @Prop() size?: IcSizes;
+  @Prop({ mutable: true }) size?: IcSizes;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: IcThemeMode = "inherit";
+  @Prop() theme: IcThemeMode = "inherit";
 
   /**
    * The value for the checkbox.
    */
-  @Prop() value!: string;
-
-  /**
-   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
-   */
-  @Prop() hideLabel?: boolean = false;
+  @Prop() value = "";
 
   /**
    * Emitted when a checkbox has been checked.
@@ -137,19 +136,19 @@ export class Checkbox {
 
     addFormResetListener(this.el, this.handleFormReset);
 
-    const checkboxGroup = this.el.parentElement as HTMLIcCheckboxGroupElement;
-    if (checkboxGroup) {
-      if (!this.name) this.name = checkboxGroup.name;
-      this.groupLabel = checkboxGroup.label;
+    const { parentElement } = this.el;
+    if (parentElement?.tagName === "IC-CHECKBOX-GROUP") {
+      const { name, label, size } = parentElement as HTMLIcCheckboxGroupElement;
+
+      if (!this.name) this.name = name;
+      if (!this.size) this.size = size;
+      this.groupLabel = label;
     }
   }
 
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
-      [
-        { prop: this.label, propName: "label" },
-        { prop: this.value, propName: "value" },
-      ],
+      [{ prop: this.label, propName: "label" }],
       "Checkbox"
     );
   }
@@ -178,14 +177,13 @@ export class Checkbox {
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.el.shadowRoot?.querySelector<HTMLElement>(".checkbox")?.focus();
+    this.checkboxEl?.focus();
   }
 
   private handleClick = () => {
     this.checked = !this.checked;
-    this.displayIndeterminate = this.nativeIndeterminateBehaviour
-      ? false
-      : this.indeterminate && this.checked;
+    this.displayIndeterminate =
+      !this.nativeIndeterminateBehaviour && this.indeterminate && this.checked;
     this.icCheck.emit();
   };
 
@@ -198,58 +196,61 @@ export class Checkbox {
       additionalFieldDisplay,
       checked,
       disabled,
+      displayIndeterminate,
       dynamicText,
       el,
       form,
-      displayIndeterminate,
       groupLabel,
+      handleClick,
+      hideLabel,
       label,
       name,
       size,
-      value,
       theme,
+      value,
     } = this;
 
-    const id = `ic-checkbox-${
-      isPropDefined(label) || value
-    }-${groupLabel}`.replace(/ /g, "-");
+    const id = `ic-checkbox-${label}-${groupLabel}`.replace(/ /g, "-");
 
-    const parentElementSize = (el.parentElement as HTMLIcCheckboxGroupElement)
-      .size;
+    const isDynamicAdditionalField = additionalFieldDisplay === "dynamic";
 
     checked
-      ? renderHiddenInput(true, el, name!, checked && value, disabled)
+      ? renderHiddenInput(el, value, name, disabled)
       : removeHiddenInput(el);
 
     return (
       <Host
         class={{
-          "ic-checkbox-disabled": !!disabled,
-          [`ic-checkbox-${size || parentElementSize}`]: true,
+          "ic-checkbox-disabled": disabled,
+          [`ic-checkbox-${size}`]: !!size,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
         <div class="container">
-          {displayIndeterminate && <div class="indeterminate-symbol" />}
-          {!displayIndeterminate && checked && (
-            <svg
-              class="checkmark"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-            >
-              <title>checkmark icon</title>
-              <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z" />
-            </svg>
+          {displayIndeterminate ? (
+            <div class="indeterminate-symbol" />
+          ) : (
+            checked && (
+              <svg
+                class="checkmark"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              >
+                <title>checkmark icon</title>
+                <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z" />
+              </svg>
+            )
           )}
           <input
             role="checkbox"
             class={{
               checkbox: true,
-              checked: !!checked,
-              indeterminate: !!displayIndeterminate,
+              checked,
+              indeterminate: displayIndeterminate,
             }}
+            ref={(el) => (this.checkboxEl = el)}
             type="checkbox"
             name={name}
             id={id}
@@ -257,11 +258,11 @@ export class Checkbox {
             disabled={disabled}
             checked={checked}
             indeterminate={displayIndeterminate}
-            onClick={this.handleClick}
+            onClick={handleClick}
             form={form}
-            aria-label={this.hideLabel ? this.label : undefined}
+            aria-label={hideLabel ? label : undefined}
           ></input>
-          {!this.hideLabel && (
+          {!hideLabel && (
             <ic-typography class="checkbox-label" variant="body">
               <label htmlFor={id}>{label}</label>
             </ic-typography>
@@ -272,11 +273,9 @@ export class Checkbox {
             class="dynamic-container"
             ref={(el) => (this.additionalFieldContainer = el)}
           >
-            {additionalFieldDisplay === "dynamic" && (
-              <div class="branch-corner"></div>
-            )}
+            {isDynamicAdditionalField && <div class="branch-corner"></div>}
             <div>
-              {additionalFieldDisplay === "dynamic" && (
+              {isDynamicAdditionalField && (
                 <ic-typography variant="caption">
                   <p class="dynamic-text" aria-live="polite">
                     {dynamicText}
@@ -285,8 +284,7 @@ export class Checkbox {
               )}
               <div
                 class={{
-                  "additional-field-wrapper":
-                    additionalFieldDisplay === "static",
+                  "additional-field-wrapper": !isDynamicAdditionalField,
                 }}
               >
                 <slot name="additional-field"></slot>
