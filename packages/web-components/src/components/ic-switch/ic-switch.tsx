@@ -175,13 +175,7 @@ export class Switch {
 
     const isSmall = size === "small";
 
-    renderHiddenInput(
-      true,
-      this.el,
-      name!,
-      checkedState ? value : "",
-      disabled
-    );
+    renderHiddenInput(this.el, checkedState ? value : "", name, disabled);
 
     return (
       <Host

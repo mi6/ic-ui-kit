@@ -22,6 +22,8 @@ import {
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-checkbox-group.types";
 
+const CHECKBOX_SELECTOR = "ic-checkbox";
+
 @Component({
   tag: "ic-checkbox-group",
   styleUrl: "ic-checkbox-group.css",
@@ -29,13 +31,12 @@ import { IcChangeEventDetail } from "./ic-checkbox-group.types";
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class CheckboxGroup {
-  private checkboxSelector: string = "ic-checkbox";
   @Element() el: HTMLIcCheckboxGroupElement;
 
   /**
    * If `true`, the checkbox group will be set to the disabled state.
    */
-  @Prop() disabled?: boolean = false;
+  @Prop() disabled: boolean = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -44,12 +45,12 @@ export class CheckboxGroup {
   /**
    * The helper text that will be displayed for additional field guidance.
    */
-  @Prop() helperText?: string = "";
+  @Prop() helperText: string = "";
 
   /**
    * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
-  @Prop() hideLabel?: boolean = false;
+  @Prop() hideLabel: boolean = false;
 
   /**
    * The label for the checkbox group to be displayed.
@@ -68,49 +69,49 @@ export class CheckboxGroup {
     oldValue: string,
     propName: "label" | "name"
   ): void {
-    Array.from(
-      this.el.querySelectorAll<HTMLIcCheckboxElement>(this.checkboxSelector)
-    ).forEach((checkbox) => {
-      if (propName === "label") checkbox.groupLabel = newValue;
-      else if (checkbox.name === oldValue) {
-        // If the checkbox name has been set by the parent, then override it
-        checkbox.name = newValue;
+    Array.from(this.el.querySelectorAll(CHECKBOX_SELECTOR)).forEach(
+      (checkbox) => {
+        if (propName === "label") checkbox.groupLabel = newValue;
+        else if (checkbox.name === oldValue) {
+          // If the checkbox name has been set by the parent, then override it
+          checkbox.name = newValue;
+        }
       }
-    });
+    );
   }
 
   /**
    * If `true`, the checkbox group will require a value.
    */
-  @Prop() required?: boolean = false;
+  @Prop() required: boolean = false;
 
   /**
    * The size of the checkboxes to be displayed. This does not affect the font size of the label.
    */
-  @Prop() size?: IcSizes = "medium";
+  @Prop() size: IcSizes = "medium";
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: IcThemeMode = "inherit";
+  @Prop() theme: IcThemeMode = "inherit";
   @Watch("theme")
   watchThemeHandler(newValue: IcThemeMode): void {
-    Array.from(
-      this.el.querySelectorAll<HTMLIcCheckboxElement>(this.checkboxSelector)
-    ).forEach((checkbox) => {
-      checkbox.theme = newValue;
-    });
+    Array.from(this.el.querySelectorAll(CHECKBOX_SELECTOR)).forEach(
+      (checkbox) => {
+        checkbox.theme = newValue;
+      }
+    );
   }
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
-  @Prop() validationStatus?: IcInformationStatusOrEmpty = "";
+  @Prop() validationStatus: IcInformationStatusOrEmpty = "";
 
   /**
    * The text to display as the validation message.
    */
-  @Prop() validationText?: string = "";
+  @Prop() validationText: string = "";
 
   /**
    * Emitted when a checkbox is checked.
@@ -128,7 +129,7 @@ export class CheckboxGroup {
 
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
-    this.watchThemeHandler(this.theme!);
+    this.watchThemeHandler(this.theme);
   }
 
   componentDidLoad(): void {
@@ -144,7 +145,7 @@ export class CheckboxGroup {
   @Listen("icCheck")
   selectHandler({ target }: CustomEvent): void {
     const checkedOptions = Array.from(
-      this.el.querySelectorAll("ic-checkbox")
+      this.el.querySelectorAll(CHECKBOX_SELECTOR)
     ).filter(({ checked, disabled }) => checked && !disabled);
     this.icChange.emit({
       value: checkedOptions.map(({ value }) => value),
@@ -176,15 +177,17 @@ export class CheckboxGroup {
       validationStatus !== ""
     );
 
+    const renderSRText = validationStatus === "error" || required || hideLabel;
+
     return (
       <Host
         class={{
+          "ic-checkbox-group-disabled": !!disabled,
           [`ic-checkbox-group-${size}`]: true,
-          [`ic-checkbox-group-disabled`]: !!disabled,
           [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
-        {(validationStatus === "error" || required || hideLabel) && (
+        {renderSRText && (
           <span
             id="screenReaderOnlyText"
             class="screen-reader-only-text"
@@ -197,9 +200,7 @@ export class CheckboxGroup {
         <fieldset
           id={name}
           aria-labelledby={`${
-            validationStatus === "error" || required || hideLabel
-              ? "screenReaderOnlyText"
-              : ""
+            renderSRText ? "screenReaderOnlyText" : ""
           } ${describedBy}`.trim()}
           disabled={disabled}
         >
@@ -224,7 +225,7 @@ export class CheckboxGroup {
             for={name}
             ariaLiveMode="polite"
             status={validationStatus}
-            message={validationText!}
+            message={validationText}
           ></ic-input-validation>
         )}
       </Host>

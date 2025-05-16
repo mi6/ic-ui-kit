@@ -823,7 +823,7 @@ export class SearchBar {
       this.labelField
     );
 
-    renderHiddenInput(true, this.el as HTMLElement, name!, value, disabledMode);
+    renderHiddenInput(this.el as HTMLElement, value, name, disabledMode);
 
     return (
       <Host

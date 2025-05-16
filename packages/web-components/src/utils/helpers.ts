@@ -95,36 +95,31 @@ export const debounce = (
  * allows it to be picked up inside of forms. It should contain the same
  * values as the host element.
  *
- * @param always Add a hidden input even if the container does not use Shadow
  * @param container The element where the input will be added
- * @param name The name of the input
  * @param value The value of the input
+ * @param name The name of the input
  * @param disabled If true, the input is disabled
+ * @param always Add a hidden input even if the container does not use Shadow
  */
 export const renderHiddenInput = (
-  always: boolean,
   container: HTMLElement,
-  name: string,
-  value: string | Date | undefined | null,
-  disabled: boolean | undefined
+  value?: string | Date | null,
+  name?: string,
+  disabled = false,
+  always = true
 ): void => {
-  if (name !== undefined && (always || hasShadowDom(container))) {
+  if (name && (always || hasShadowDom(container))) {
     let input = getHiddenInputElement(container);
 
-    if (input === null || input === undefined) {
+    if (!input) {
       input = container.ownerDocument.createElement("input");
       input.type = "hidden";
       input.classList.add(icInput);
       container.appendChild(input);
     }
-    input.disabled = !!disabled;
+    input.disabled = disabled;
     input.name = name;
-
-    if (value instanceof Date) {
-      input.value = value ? value.toISOString() : "";
-    } else {
-      input.value = value || "";
-    }
+    input.value = value instanceof Date ? value.toISOString() : value || "";
   }
 };
 
@@ -288,7 +283,7 @@ export const isEmptyString = (value?: string): boolean =>
   !value || value.trim().length === 0;
 
 // A helper function that checks if a prop has been defined
-export const isPropDefined = (prop: string | undefined): string | undefined =>
+export const isPropDefined = (prop?: string): string | undefined =>
   prop !== undefined ? prop : undefined;
 
 /**
