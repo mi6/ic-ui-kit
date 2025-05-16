@@ -9,22 +9,20 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
           <span role="menu">
             <ic-menu-item class="ic-popover-submenu-back-button" id="ic-popover-submenu-back-button-1" variant="default">
               <template shadowrootmode="open">
-                <li aria-disabled="false" role="menuitem">
-                  <ic-button aria-disabled="false" aria-haspopup="menu" aria-label="Go back to parent menu" fullwidth="" variant="tertiary">
-                    <div class="focus-border">
-                      <span class="icon">
-                        <slot name="icon"></slot>
-                      </span>
-                      <div class="menu-item-info">
-                        <div class="menu-labels">
-                          <ic-typography class="menu-item-label">
-                            Back
-                          </ic-typography>
-                        </div>
+                <ic-button aria-disabled="false" aria-haspopup="menu" aria-label="Go back to parent menu" fullwidth="" role="menuitem" variant="tertiary">
+                  <div class="focus-border">
+                    <span class="icon">
+                      <slot name="icon"></slot>
+                    </span>
+                    <div class="menu-item-info">
+                      <div class="menu-labels">
+                        <ic-typography class="menu-item-label">
+                          Back
+                        </ic-typography>
                       </div>
                     </div>
-                  </ic-button>
-                </li>
+                  </div>
+                </ic-button>
               </template>
               <svg class="submenu-back-icon" fill="none" slot="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="currentColor"></path>
@@ -33,44 +31,40 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
           </span>
           <ic-typography class="parent-label" variant="subtitle-small"></ic-typography>
         </span>
-        <ul aria-label="popover-menu, within nested level 1 undefined submenu," class="button" role="menu">
+        <div aria-label="popover-menu, within nested level 1 undefined submenu," class="menu-body" role="menu">
           <slot></slot>
-        </ul>
+        </div>
       </span>
     </div>
   </template>
   <ic-menu-item label="Button 1" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" variant="tertiary">
-          <div class="focus-border">
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button 1
-                </ic-typography>
-              </div>
+      <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button 1
+              </ic-typography>
             </div>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
   </ic-menu-item>
   <ic-menu-item label="Button 2" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button 2" fullwidth="" variant="tertiary">
-          <div class="focus-border">
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button 2
-                </ic-typography>
-              </div>
+      <ic-button aria-disabled="false" aria-label="Button 2" fullwidth="" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button 2
+              </ic-typography>
             </div>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
   </ic-menu-item>
 </ic-popover-menu>
@@ -81,27 +75,25 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
   <template shadowrootmode="open">
     <div class="menu" id="ic-popover-submenu-undefined">
       <span>
-        <ul aria-label="popover-menu" class="button" role="menu">
+        <div aria-label="popover-menu" class="menu-body" role="menu">
           <slot></slot>
-        </ul>
+        </div>
       </span>
     </div>
   </template>
   <ic-menu-item label="Button 1" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" variant="tertiary">
-          <div class="focus-border">
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button 1
-                </ic-typography>
-              </div>
+      <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button 1
+              </ic-typography>
             </div>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
   </ic-menu-item>
   <ic-menu-group aria-label="Button group" label="Button group" role="group">
@@ -115,36 +107,32 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
     </template>
     <ic-menu-item label="Group button 1" variant="destructive">
       <template shadowrootmode="open">
-        <li aria-disabled="false" role="menuitem">
-          <ic-button aria-disabled="false" aria-label="Group button 1, destructive, Button group menu group" fullwidth="" variant="tertiary">
-            <div class="focus-border">
-              <div class="menu-item-info">
-                <div class="menu-labels">
-                  <ic-typography class="menu-item-label">
-                    Group button 1
-                  </ic-typography>
-                </div>
+        <ic-button aria-disabled="false" aria-label="Group button 1, destructive, Button group menu group" fullwidth="" role="menuitem" variant="tertiary">
+          <div class="focus-border">
+            <div class="menu-item-info">
+              <div class="menu-labels">
+                <ic-typography class="menu-item-label">
+                  Group button 1
+                </ic-typography>
               </div>
             </div>
-          </ic-button>
-        </li>
+          </div>
+        </ic-button>
       </template>
     </ic-menu-item>
     <ic-menu-item label="Group button 2" variant="default">
       <template shadowrootmode="open">
-        <li aria-disabled="false" role="menuitem">
-          <ic-button aria-disabled="false" aria-label="Group button 2, Button group menu group" fullwidth="" variant="tertiary">
-            <div class="focus-border">
-              <div class="menu-item-info">
-                <div class="menu-labels">
-                  <ic-typography class="menu-item-label">
-                    Group button 2
-                  </ic-typography>
-                </div>
+        <ic-button aria-disabled="false" aria-label="Group button 2, Button group menu group" fullwidth="" role="menuitem" variant="tertiary">
+          <div class="focus-border">
+            <div class="menu-item-info">
+              <div class="menu-labels">
+                <ic-typography class="menu-item-label">
+                  Group button 2
+                </ic-typography>
               </div>
             </div>
-          </ic-button>
-        </li>
+          </div>
+        </ic-button>
       </template>
     </ic-menu-item>
   </ic-menu-group>
@@ -192,44 +180,40 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
     <template shadowrootmode="open">
       <div class="menu" id="ic-popover-submenu-undefined">
         <span>
-          <ul aria-label="popover-menu" class="button" role="menu">
+          <div aria-label="popover-menu" class="menu-body" role="menu">
             <slot></slot>
-          </ul>
+          </div>
         </span>
       </div>
     </template>
     <ic-menu-item label="Button 1" variant="default">
       <template shadowrootmode="open">
-        <li aria-disabled="false" role="menuitem">
-          <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" variant="tertiary">
-            <div class="focus-border">
-              <div class="menu-item-info">
-                <div class="menu-labels">
-                  <ic-typography class="menu-item-label">
-                    Button 1
-                  </ic-typography>
-                </div>
+        <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" role="menuitem" variant="tertiary">
+          <div class="focus-border">
+            <div class="menu-item-info">
+              <div class="menu-labels">
+                <ic-typography class="menu-item-label">
+                  Button 1
+                </ic-typography>
               </div>
             </div>
-          </ic-button>
-        </li>
+          </div>
+        </ic-button>
       </template>
     </ic-menu-item>
     <ic-menu-item label="Button 2" variant="default">
       <template shadowrootmode="open">
-        <li aria-disabled="false" role="menuitem">
-          <ic-button aria-disabled="false" aria-label="Button 2" fullwidth="" variant="tertiary">
-            <div class="focus-border">
-              <div class="menu-item-info">
-                <div class="menu-labels">
-                  <ic-typography class="menu-item-label">
-                    Button 2
-                  </ic-typography>
-                </div>
+        <ic-button aria-disabled="false" aria-label="Button 2" fullwidth="" role="menuitem" variant="tertiary">
+          <div class="focus-border">
+            <div class="menu-item-info">
+              <div class="menu-labels">
+                <ic-typography class="menu-item-label">
+                  Button 2
+                </ic-typography>
               </div>
             </div>
-          </ic-button>
-        </li>
+          </div>
+        </ic-button>
       </template>
     </ic-menu-item>
   </ic-popover-menu>
@@ -241,27 +225,25 @@ exports[`ic-popover-menu should render when anchor starts with #: should render 
   <template shadowrootmode="open">
     <div class="menu" id="ic-popover-submenu-undefined">
       <span>
-        <ul aria-label="popover-menu" class="button" role="menu">
+        <div aria-label="popover-menu" class="menu-body" role="menu">
           <slot></slot>
-        </ul>
+        </div>
       </span>
     </div>
   </template>
   <ic-menu-item label="Button 1" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" variant="tertiary">
-          <div class="focus-border">
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button 1
-                </ic-typography>
-              </div>
+      <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button 1
+              </ic-typography>
             </div>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
   </ic-menu-item>
 </ic-popover-menu>
@@ -272,27 +254,25 @@ exports[`ic-popover-menu should render with anchor: should render with anchor 1`
   <template shadowrootmode="open">
     <div class="menu" id="ic-popover-submenu-undefined">
       <span>
-        <ul aria-label="popover-menu" class="button" role="menu">
+        <div aria-label="popover-menu" class="menu-body" role="menu">
           <slot></slot>
-        </ul>
+        </div>
       </span>
     </div>
   </template>
   <ic-menu-item label="Button 1" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" variant="tertiary">
-          <div class="focus-border">
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button 1
-                </ic-typography>
-              </div>
+      <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button 1
+              </ic-typography>
             </div>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
   </ic-menu-item>
 </ic-popover-menu>
