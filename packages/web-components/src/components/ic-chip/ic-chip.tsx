@@ -17,8 +17,15 @@ import {
   removeDisabledFalse,
   convertToRGBA,
   isElInAGGrid,
+  getBrandForegroundAppearance,
 } from "../../utils/helpers";
-import { IcColor, IcEmphasisType, IcSizes } from "../../utils/types";
+import {
+  IcBrandForegroundNoDefault,
+  IcColor,
+  IcEmphasisType,
+  IcSizes,
+  IcThemeMode,
+} from "../../utils/types";
 import dismissIcon from "../../assets/dismiss-icon.svg";
 
 /**
@@ -33,29 +40,41 @@ import dismissIcon from "../../assets/dismiss-icon.svg";
   },
 })
 export class Chip {
-  private inAGGrid: boolean = false;
+  private buttonEl?: HTMLButtonElement;
 
   @Element() el: HTMLIcChipElement;
 
-  @State() customColorClass: string = "";
-  @State() hovered: boolean = false;
-  @State() visible: boolean = true;
+  @State() foregroundColor: IcBrandForegroundNoDefault | null = null;
+  @State() hovered = false;
+  @State() visible = true;
 
   /**
    * The custom chip colour. This will override the theme colour.
    * Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
   @Prop() customColor?: IcColor;
-
   @Watch("customColor")
   customColorHandler(): void {
-    this.setChipColour();
+    const colorRGBA = this.customColor && convertToRGBA(this.customColor);
+    if (!colorRGBA) {
+      this.foregroundColor = null;
+      return;
+    }
+
+    const { r, g, b, a } = colorRGBA;
+    this.foregroundColor = getBrandForegroundAppearance(
+      (r * 299 + g * 587 + b * 114) / 1000
+    );
+    this.el.setAttribute(
+      "style",
+      `--chip-custom-color: rgba(${r}, ${g}, ${b}, ${a});`
+    );
   }
 
   /**
    * If `true`, the chip will appear disabled.
    */
-  @Prop() disabled?: boolean = false;
+  @Prop() disabled = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -64,7 +83,12 @@ export class Chip {
   /**
    * If `true`, the chip will have a close button at the end to dismiss it.
    */
-  @Prop() dismissible?: boolean = false;
+  @Prop() dismissible = false;
+
+  /**
+   * The text in the dismiss button tooltip and aria label. Makes the user aware of the action resulting from clicking the 'Dismiss chip' button.
+   */
+  @Prop() dismissLabel = "Dismiss";
 
   /**
    * The text rendered within the chip.
@@ -74,27 +98,22 @@ export class Chip {
   /**
    * The size of the chip.
    */
-  @Prop() size?: IcSizes = "medium";
+  @Prop() size: IcSizes = "medium";
   /**
    * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component.
    * Setting the "customColor" prop will override this.
    */
-  @Prop() theme?: "dark" | "light" | "inherit" = "inherit";
+  @Prop() theme: IcThemeMode = "inherit";
 
   /**
    * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
    */
-  @Prop() transparentBackground?: boolean = true;
+  @Prop() transparentBackground = true;
 
   /**
    * The emphasis of the chip.
    */
-  @Prop() variant?: IcEmphasisType = "filled";
-
-  /**
-   * The text in the dismiss button tooltip and aria label.
-   */
-  @Prop() dismissLabel?: string = "Dismiss";
+  @Prop() variant: IcEmphasisType = "filled";
 
   /**
    * Is emitted when the user dismisses the chip.
@@ -104,12 +123,6 @@ export class Chip {
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
     this.customColorHandler();
-  }
-
-  componentWillRender(): void {
-    if (isElInAGGrid(this.el)) {
-      this.inAGGrid = true;
-    }
   }
 
   componentDidLoad(): void {
@@ -129,37 +142,19 @@ export class Chip {
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.el.shadowRoot?.querySelector("button")?.focus();
+    this.buttonEl?.focus();
   }
 
-  private dismissAction = (): void => {
+  private dismissAction = () => {
     this.icDismiss.emit();
   };
 
-  private mouseEnterHandler = (): void => {
+  private mouseEnterHandler = () => {
     this.hovered = true;
   };
 
-  private mouseLeaveHandler = (): void => {
+  private mouseLeaveHandler = () => {
     this.hovered = false;
-  };
-
-  private setChipColour = () => {
-    const colorRGBA = this.customColor ? convertToRGBA(this.customColor) : null;
-
-    if (colorRGBA) {
-      const { r, g, b, a } = colorRGBA;
-      this.customColorClass =
-        (r * 299 + g * 587 + b * 114) / 1000 > 133.3505
-          ? "ic-chip-dark-text"
-          : "ic-chip-light-text";
-      this.el.setAttribute(
-        "style",
-        `--chip-custom-color: rgba(${r}, ${g}, ${b}, ${a});`
-      );
-    } else {
-      this.customColorClass = "";
-    }
   };
 
   render() {
@@ -172,16 +167,19 @@ export class Chip {
       disabled,
       hovered,
       theme,
-      customColorClass,
+      foregroundColor,
       dismissLabel,
+      transparentBackground,
     } = this;
+
+    const ariaLabel = `${label} chip`;
 
     return (
       <Host
         class={{
           [`ic-theme-${theme}`]: theme !== "inherit",
-          [`${customColorClass}`]:
-            variant === "filled" && customColorClass !== "",
+          [`ic-chip-${foregroundColor}-text`]:
+            variant === "filled" && !!foregroundColor,
         }}
       >
         {visible && (
@@ -190,11 +188,11 @@ export class Chip {
               chip: true,
               [`${variant}`]: true,
               [`${size}`]: true,
-              disabled: !!disabled,
-              dismissible: !!dismissible,
+              disabled,
+              dismissible,
               hovered,
               "non-transparent":
-                this.variant === "outlined" && !this.transparentBackground,
+                variant === "outlined" && !transparentBackground,
             }}
           >
             {isSlotUsed(this.el, "icon") && (
@@ -205,20 +203,21 @@ export class Chip {
             <ic-typography
               variant="label"
               apply-vertical-margins={false}
-              class={{ label: true, "in-ag-grid": this.inAGGrid }}
+              class={{ label: true, "in-ag-grid": isElInAGGrid(this.el) }}
             >
               <span>{label}</span>
             </ic-typography>
             {dismissible && (
               <ic-tooltip
-                label={dismissLabel!}
+                label={dismissLabel}
                 target="dismiss-icon"
-                class={{ "tooltip-disabled": !!disabled }}
+                class={{ "tooltip-disabled": disabled }}
               >
                 <button
                   id="dismiss-icon"
                   class="dismiss-icon"
-                  aria-label={`${dismissLabel} ${label} chip`}
+                  ref={(el) => (this.buttonEl = el)}
+                  aria-label={`${dismissLabel} ${ariaLabel}`}
                   disabled={disabled}
                   tabindex={disabled ? -1 : 0}
                   onClick={this.dismissAction}
@@ -229,6 +228,11 @@ export class Chip {
               </ic-tooltip>
             )}
             {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
+          </div>
+        )}
+        {dismissible && (
+          <div class="sr-only" aria-live="polite">
+            {!visible ? `Dismissed ${ariaLabel}` : ""}
           </div>
         )}
       </Host>
