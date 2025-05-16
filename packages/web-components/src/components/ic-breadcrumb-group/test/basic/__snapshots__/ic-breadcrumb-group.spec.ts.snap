@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: should handle the hidden collapsed breadcrumbs 1`] = `
-<ic-breadcrumb-group class="ic-breadcrumb-group-collapsed" collapsed="true">
+<ic-breadcrumb-group collapsed="true">
   <template shadowrootmode="open">
     <nav aria-label="breadcrumbs">
       <ol>
@@ -21,7 +21,7 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
       </div>
     </template>
   </ic-breadcrumb>
-  <ic-breadcrumb class="visuallyhidden" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+  <ic-breadcrumb href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
     <template shadowrootmode="open">
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">

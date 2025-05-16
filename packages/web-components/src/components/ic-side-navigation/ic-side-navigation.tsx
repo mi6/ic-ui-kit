@@ -513,7 +513,7 @@ export class SideNavigation {
 
   private renderAppTitle = (isAppNameSubtitleVariant: boolean) => {
     const displayShortAppTitle =
-      this.deviceSize <= DEVICE_SIZES.S && !isEmptyString(this.shortAppTitle!);
+      this.deviceSize <= DEVICE_SIZES.S && !isEmptyString(this.shortAppTitle);
     return (
       <ic-typography
         variant={

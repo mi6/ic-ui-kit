@@ -754,8 +754,8 @@ export class TextField {
             )}
           </ic-input-component-container>
           {isSlotUsed(el, "menu") && <slot name="menu"></slot>}
-          {(!isEmptyString(validationStatus!) ||
-            !isEmptyString(validationText!) ||
+          {(!isEmptyString(validationStatus) ||
+            !isEmptyString(validationText) ||
             maxNumChars! > 0 ||
             maxValueExceeded ||
             maxCharactersWarning ||

@@ -15,24 +15,22 @@ import { IcThemeMode } from "../../utils/types";
 // Added ResizeObserver to find out width of breadcrumbs and parents. Use side navigation long title for ref.
 export class BreadcrumbGroup {
   private ADD_CLASS_DELAY = 50;
-  private breadcrumb: HTMLIcBreadcrumbElement;
-  private breadcrumbs: HTMLIcBreadcrumbElement[];
-  private collapsedBreadcrumbEl: HTMLButtonElement;
-  private collapsedBreadcrumbs: HTMLIcBreadcrumbElement[];
-  private collapsedBreadcrumbWrapper: HTMLIcBreadcrumbElement;
-  private IC_BREADCRUMB: string = "ic-breadcrumb";
+  private IC_BREADCRUMB = "ic-breadcrumb";
+  private SHOW_BACK_ICON = "show-back-icon";
+  private collapsedBreadcrumbEl?: HTMLButtonElement;
+  private collapsedBreadcrumbs: HTMLIcBreadcrumbElement[] = [];
+  private collapsedBreadcrumbWrapper?: HTMLIcBreadcrumbElement;
   private resizeObserver: ResizeObserver | null = null;
-  private SHOW_BACK_ICON: string = "show-back-icon";
+  private lastParentBreadcrumb: HTMLIcBreadcrumbElement | null = null;
 
   @Element() el: HTMLIcBreadcrumbGroupElement;
 
   @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() expandedBreadcrumbs: boolean = false;
 
   /**
    * If `true`, display only a single breadcrumb for the parent page with a back icon.
    */
-  @Prop() backBreadcrumbOnly?: boolean = false;
+  @Prop() backBreadcrumbOnly = false;
   @Watch("backBreadcrumbOnly")
   watchBackBreadcrumbHandler(): void {
     this.setBackBreadcrumb();
@@ -41,7 +39,7 @@ export class BreadcrumbGroup {
   /**
    * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
    */
-  @Prop() collapsed?: boolean = false;
+  @Prop({ mutable: true }) collapsed = false;
   @Watch("collapsed")
   watchCollapsedHandler(): void {
     this.setCollapsed();
@@ -50,7 +48,7 @@ export class BreadcrumbGroup {
   /**
    * If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.
    */
-  @Prop() monochrome?: boolean = false;
+  @Prop() monochrome = false;
   @Watch("monochrome")
   watchMonochromeHandler(): void {
     this.setBreadcrumbMonochrome();
@@ -59,17 +57,13 @@ export class BreadcrumbGroup {
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: IcThemeMode = "inherit";
+  @Prop() theme: IcThemeMode = "inherit";
   @Watch("theme")
   watchThemeHandler(): void {
     this.setBreadcrumbTheme();
   }
 
   componentWillLoad(): void {
-    const allBreadcrumbs = Array.from(
-      this.el.querySelectorAll(this.IC_BREADCRUMB)
-    );
-
     this.setBreadcrumbTheme();
     this.setBreadcrumbMonochrome();
 
@@ -79,45 +73,41 @@ export class BreadcrumbGroup {
       checkResizeObserver(this.runResizeObserver);
     }
 
-    if (this.collapsed && allBreadcrumbs.length > 2) {
+    if (
+      this.collapsed &&
+      this.el.querySelectorAll(this.IC_BREADCRUMB).length > 2
+    ) {
       if (getCurrentDeviceSize() === DEVICE_SIZES.S) {
         this.setLastParentCollapsedBackBreadcrumb();
       } else {
         this.setCollapsed();
       }
     }
+
+    this.lastParentBreadcrumb = this.getLastParentBreadcrumb();
   }
 
   disconnectedCallback(): void {
-    this.breadcrumb &&
-      this.breadcrumb.removeEventListener(
-        "transitionend",
-        this.transitionendHandler
-      );
+    this.lastParentBreadcrumb?.removeEventListener(
+      "transitionend",
+      this.transitionendHandler
+    );
 
-    this.collapsedBreadcrumbEl &&
-      this.collapsedBreadcrumbEl.removeEventListener(
-        "click",
-        this.clickHandler
-      );
+    this.collapsedBreadcrumbEl?.removeEventListener("click", this.clickHandler);
   }
 
   private setBreadcrumbTheme = () => {
-    const allBreadcrumbs = Array.from(
-      this.el.querySelectorAll(this.IC_BREADCRUMB)
-    ) as HTMLIcBreadcrumbElement[];
-
-    allBreadcrumbs.forEach((breadcrumb) => {
+    Array.from(
+      this.el.querySelectorAll<HTMLIcBreadcrumbElement>(this.IC_BREADCRUMB)
+    ).forEach((breadcrumb) => {
       breadcrumb.theme = this.theme;
     });
   };
 
   private setBreadcrumbMonochrome = () => {
-    const allBreadcrumbs = Array.from(
-      this.el.querySelectorAll(this.IC_BREADCRUMB)
-    ) as HTMLIcBreadcrumbElement[];
-
-    allBreadcrumbs.forEach((breadcrumb) => {
+    Array.from(
+      this.el.querySelectorAll<HTMLIcBreadcrumbElement>(this.IC_BREADCRUMB)
+    ).forEach((breadcrumb) => {
       breadcrumb.monochrome = this.monochrome;
     });
   };
@@ -138,45 +128,26 @@ export class BreadcrumbGroup {
   };
 
   private getLastParentBreadcrumb = (): HTMLIcBreadcrumbElement | null => {
-    const allBreadcrumbs: HTMLIcBreadcrumbElement[] = Array.from(
-      this.el.querySelectorAll(this.IC_BREADCRUMB)
+    const allBreadcrumbs = this.el.querySelectorAll<HTMLIcBreadcrumbElement>(
+      this.IC_BREADCRUMB
     );
 
-    if (allBreadcrumbs.length === 1) {
-      return null;
-    }
-
-    this.breadcrumbs = allBreadcrumbs;
-    this.breadcrumb = this.breadcrumbs[this.breadcrumbs.length - 2];
-
-    return this.breadcrumb;
-  };
-
-  private lastParentBreadcrumb = this.getLastParentBreadcrumb();
-
-  private setDefaultBreadcrumbs = () => {
-    const allBreadcrumbs = Array.from(
-      this.el.querySelectorAll(this.IC_BREADCRUMB)
-    );
-    allBreadcrumbs.forEach((breadcrumb) => {
-      breadcrumb.setAttribute(this.SHOW_BACK_ICON, "false");
-    });
+    return allBreadcrumbs.length > 1
+      ? allBreadcrumbs[allBreadcrumbs.length - 2]
+      : null;
   };
 
   private setCollapsed = () => {
-    const allBreadcrumbs: HTMLIcBreadcrumbElement[] = Array.from(
-      this.el.querySelectorAll(this.IC_BREADCRUMB)
-    );
-    const firstBreadcrumb = allBreadcrumbs[0];
-    if (this.collapsedBreadcrumbs) {
-      this.collapsedBreadcrumbs.forEach((breadcrumb) => {
-        breadcrumb.classList.remove("visuallyhidden");
-        breadcrumb.classList.remove("fade");
-      });
-    }
+    this.collapsedBreadcrumbs.forEach((breadcrumb) => {
+      breadcrumb.classList.remove("visuallyhidden");
+      breadcrumb.classList.remove("fade");
+    });
 
     if (this.collapsed) {
       this.renderCollapsedBreadcrumb();
+      const allBreadcrumbs = Array.from(
+        this.el.querySelectorAll<HTMLIcBreadcrumbElement>(this.IC_BREADCRUMB)
+      );
 
       this.collapsedBreadcrumbs = allBreadcrumbs
         .splice(1, allBreadcrumbs.length - 2)
@@ -190,19 +161,31 @@ export class BreadcrumbGroup {
         );
       }
 
-      if (firstBreadcrumb) {
-        firstBreadcrumb.insertAdjacentElement(
+      if (this.collapsedBreadcrumbWrapper) {
+        allBreadcrumbs[0]?.insertAdjacentElement(
           "afterend",
           this.collapsedBreadcrumbWrapper
         );
       }
     } else {
-      this.collapsedBreadcrumbWrapper.remove();
+      this.collapsedBreadcrumbWrapper?.remove();
     }
   };
 
   private clickHandler = () => {
-    this.handleHiddenCollapsedBreadcrumbs();
+    this.collapsedBreadcrumbWrapper?.remove();
+    this.collapsedBreadcrumbs.forEach((breadcrumb) => {
+      breadcrumb.classList.add("visuallyhidden");
+      breadcrumb.classList.remove("hide");
+      setTimeout(() => {
+        breadcrumb.classList.add("fade");
+      }, this.ADD_CLASS_DELAY);
+
+      breadcrumb.addEventListener("transitionend", this.transitionendHandler);
+    });
+    this.collapsed = false;
+    // Set focus to first unhidden breadcrumb
+    this.collapsedBreadcrumbs[0].setFocus();
   };
 
   private renderCollapsedBreadcrumb = () => {
@@ -217,10 +200,7 @@ export class BreadcrumbGroup {
       ariaLabel.id = "collapsed-button-label";
       ariaLabel.innerText = "Collapsed breadcrumbs";
       ariaLabel.className = "hide";
-      this.collapsedBreadcrumbEl.setAttribute(
-        "aria-labelledby",
-        "collapsed-button-label"
-      );
+      this.collapsedBreadcrumbEl.setAttribute("aria-labelledby", ariaLabel.id);
 
       const ariaDescribed = document.createElement("span");
       ariaDescribed.id = "collapsed-button-described";
@@ -228,7 +208,7 @@ export class BreadcrumbGroup {
       ariaDescribed.className = "hide";
       this.collapsedBreadcrumbEl.setAttribute(
         "aria-describedby",
-        "collapsed-button-described"
+        ariaDescribed.id
       );
 
       this.collapsedBreadcrumbEl.id = "collapsed-ellipsis";
@@ -242,30 +222,10 @@ export class BreadcrumbGroup {
     }
   };
 
-  private handleHiddenCollapsedBreadcrumbs = () => {
-    this.collapsedBreadcrumbWrapper.remove();
-    this.collapsedBreadcrumbs.forEach((breadcrumb) => {
-      breadcrumb.classList.add("visuallyhidden");
-      breadcrumb.classList.remove("hide");
-      setTimeout(() => {
-        breadcrumb.classList.add("fade");
-      }, this.ADD_CLASS_DELAY);
-
-      this.removeVisuallyHiddenClass(breadcrumb);
-    });
-    this.expandedBreadcrumbs = true;
-    // Set focus to first unhidden breadcrumb
-    this.collapsedBreadcrumbs[0].setFocus();
-  };
-
   private transitionendHandler = (event: TransitionEvent) => {
     if (event.propertyName === "opacity") {
       (event.target as HTMLElement).classList.remove("visuallyhidden");
     }
-  };
-
-  private removeVisuallyHiddenClass = (breadcrumb: HTMLIcBreadcrumbElement) => {
-    breadcrumb.addEventListener("transitionend", this.transitionendHandler);
   };
 
   private setLastParentCollapsedBackBreadcrumb = () => {
@@ -290,24 +250,27 @@ export class BreadcrumbGroup {
     if (currSize !== this.deviceSize) {
       this.deviceSize = currSize;
 
-      if (this.deviceSize <= DEVICE_SIZES.S) {
-        this.el.setAttribute("back-breadcrumb-only", "true");
+      const isSmallDevice = this.deviceSize <= DEVICE_SIZES.S;
+      this.el.setAttribute("back-breadcrumb-only", `${isSmallDevice}`);
+
+      if (isSmallDevice) {
         if (this.collapsed) {
           this.setLastParentCollapsedBackBreadcrumb();
         } else {
           this.setBackBreadcrumb();
         }
       } else {
-        this.el.setAttribute("back-breadcrumb-only", "false");
-        if (this.collapsed && this.breadcrumbs && this.breadcrumbs.length > 2) {
+        const allBreadcrumbs = Array.from(
+          this.el.querySelectorAll(this.IC_BREADCRUMB)
+        );
+
+        if (this.collapsed && allBreadcrumbs.length > 2) {
           this.revertLastParentCollapsedBreadcrumb();
-          if (this.expandedBreadcrumbs) {
-            this.setDefaultBreadcrumbs();
-          } else {
-            this.setCollapsed();
-          }
+          this.setCollapsed();
         } else {
-          this.setDefaultBreadcrumbs();
+          allBreadcrumbs.forEach((breadcrumb) => {
+            breadcrumb.setAttribute(this.SHOW_BACK_ICON, "false");
+          });
         }
       }
     }
@@ -315,20 +278,21 @@ export class BreadcrumbGroup {
 
   private runResizeObserver = () => {
     this.resizeObserver = new ResizeObserver(() => {
-      const currSize = getCurrentDeviceSize();
-      this.resizeObserverCallback(currSize);
+      this.resizeObserverCallback(getCurrentDeviceSize());
     });
 
     this.resizeObserver.observe(this.el);
   };
 
   render() {
+    const { backBreadcrumbOnly, collapsed, theme } = this;
+
     return (
       <Host
         class={{
-          "ic-breadcrumb-group-back": !!this.backBreadcrumbOnly,
-          "ic-breadcrumb-group-collapsed": !!this.collapsed,
-          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+          "ic-breadcrumb-group-back": backBreadcrumbOnly,
+          "ic-breadcrumb-group-collapsed": collapsed,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
       >
         <nav aria-label="breadcrumbs">
