@@ -557,15 +557,15 @@ export namespace Components {
         /**
           * If `true`, the chip will appear disabled.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
-          * The text in the dismiss button tooltip and aria label.
+          * The text in the dismiss button tooltip and aria label. Makes the user aware of the action resulting from clicking the 'Dismiss chip' button.
          */
-        "dismissLabel"?: string;
+        "dismissLabel": string;
         /**
           * If `true`, the chip will have a close button at the end to dismiss it.
          */
-        "dismissible"?: boolean;
+        "dismissible": boolean;
         /**
           * The text rendered within the chip.
          */
@@ -577,19 +577,19 @@ export namespace Components {
         /**
           * The size of the chip.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component. Setting the "customColor" prop will override this.
          */
-        "theme"?: "dark" | "light" | "inherit";
+        "theme": IcThemeMode;
         /**
           * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
          */
-        "transparentBackground"?: boolean;
+        "transparentBackground": boolean;
         /**
           * The emphasis of the chip.
          */
-        "variant"?: IcEmphasisType;
+        "variant": IcEmphasisType;
     }
     interface IcClassificationBanner {
         /**
@@ -3987,7 +3987,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * The text in the dismiss button tooltip and aria label.
+          * The text in the dismiss button tooltip and aria label. Makes the user aware of the action resulting from clicking the 'Dismiss chip' button.
          */
         "dismissLabel"?: string;
         /**
@@ -4009,7 +4009,7 @@ declare namespace LocalJSX {
         /**
           * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component. Setting the "customColor" prop will override this.
          */
-        "theme"?: "dark" | "light" | "inherit";
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
          */

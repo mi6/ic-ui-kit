@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { html } from "lit-html";
 
 const defaultArgs = {
-  customColor: null,
+  customColor: undefined,
   disabled: false,
   dismissible: false,
   dismissLabel: "Dismiss",
