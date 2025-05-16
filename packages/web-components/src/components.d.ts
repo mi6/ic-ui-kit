@@ -449,19 +449,19 @@ export namespace Components {
         /**
           * The style of additionalField that will be displayed if used.
          */
-        "additionalFieldDisplay"?: IcAdditionalFieldTypes;
+        "additionalFieldDisplay": IcAdditionalFieldTypes;
         /**
           * If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.
          */
-        "checked"?: boolean;
+        "checked": boolean;
         /**
           * If `true`, the checkbox will be set to the disabled state.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * The text to be displayed when dynamic.
          */
-        "dynamicText"?: string;
+        "dynamicText": string;
         /**
           * The <form> element to associate the checkbox with.
          */
@@ -473,11 +473,11 @@ export namespace Components {
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         /**
           * If `true`, the indeterminate state will be displayed when checked.
          */
-        "indeterminate"?: boolean;
+        "indeterminate": boolean;
         /**
           * The label for the checkbox.
          */
@@ -489,7 +489,7 @@ export namespace Components {
         /**
           * If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.
          */
-        "nativeIndeterminateBehaviour"?: boolean;
+        "nativeIndeterminateBehaviour": boolean;
         /**
           * Sets focus on the checkbox.
          */
@@ -501,7 +501,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The value for the checkbox.
          */
@@ -511,15 +511,15 @@ export namespace Components {
         /**
           * If `true`, the checkbox group will be set to the disabled state.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
          */
-        "helperText"?: string;
+        "helperText": string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         /**
           * The label for the checkbox group to be displayed.
          */
@@ -531,23 +531,23 @@ export namespace Components {
         /**
           * If `true`, the checkbox group will require a value.
          */
-        "required"?: boolean;
+        "required": boolean;
         /**
           * The size of the checkboxes to be displayed. This does not affect the font size of the label.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationStatus"?: IcInformationStatusOrEmpty;
+        "validationStatus": IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message.
          */
-        "validationText"?: string;
+        "validationText": string;
     }
     interface IcChip {
         /**
@@ -3929,7 +3929,7 @@ declare namespace LocalJSX {
         /**
           * The value for the checkbox.
          */
-        "value": string;
+        "value"?: string;
     }
     interface IcCheckboxGroup {
         /**

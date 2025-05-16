@@ -1174,10 +1174,9 @@ export class Select {
     // HTML inputs only accept 'string' for their value
     // Does not cause errors when it is a multi-select - sets value correctly, to a comma-separated string
     renderHiddenInput(
-      true,
       this.el,
-      name || this.inputId,
       this.searchable ? this.hiddenInputValue : (currValue as string),
+      name || this.inputId,
       disabled
     );
 

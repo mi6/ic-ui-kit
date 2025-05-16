@@ -630,13 +630,7 @@ export class TextField {
     const invalid = `${currentStatus === IcInformationStatus.Error}`;
 
     hiddenInput
-      ? renderHiddenInput(
-          true,
-          this.el as HTMLElement,
-          name!,
-          value,
-          disabledMode
-        )
+      ? renderHiddenInput(this.el as HTMLElement, value, name, disabledMode)
       : removeHiddenInput(this.el as HTMLElement);
 
     return (
