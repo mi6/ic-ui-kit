@@ -1202,7 +1202,10 @@ export class DataTable {
     const { description, max, min, progress, monochrome } =
       this.updatingOptions || {};
     return (
-      <th colSpan={this.columns.length} class="updating-state">
+      <th
+        colSpan={this.columns.length + (this.rowSelection && this.data ? 1 : 0)}
+        class="updating-state"
+      >
         <ic-loading-indicator
           theme={this.theme}
           monochrome={monochrome}
