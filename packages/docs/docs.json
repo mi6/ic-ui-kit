@@ -4356,10 +4356,10 @@
         },
         {
           "name": "disabled",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -4371,49 +4371,43 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "dismissLabel",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
           "attr": "dismiss-label",
           "reflectToAttr": false,
-          "docs": "The text in the dismiss button tooltip and aria label.",
+          "docs": "The text in the dismiss button tooltip and aria label. Makes the user aware of the resulting action from them clicking the chip.",
           "docsTags": [],
           "default": "\"Dismiss\"",
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "dismissible",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -4425,12 +4419,9 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4460,10 +4451,10 @@
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\" | undefined",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -4490,23 +4481,26 @@
             {
               "value": "small",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
           "complexType": {
-            "original": "\"dark\" | \"light\" | \"inherit\"",
-            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
-            "references": {}
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
           },
           "mutable": false,
           "attr": "theme",
@@ -4526,22 +4520,19 @@
             {
               "value": "light",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "transparentBackground",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -4553,22 +4544,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "variant",
-          "type": "\"filled\" | \"outlined\" | undefined",
+          "type": "\"filled\" | \"outlined\"",
           "complexType": {
             "original": "IcEmphasisType",
-            "resolved": "\"filled\" | \"outlined\" | undefined",
+            "resolved": "\"filled\" | \"outlined\"",
             "references": {
               "IcEmphasisType": {
                 "location": "import",
@@ -4591,12 +4579,9 @@
             {
               "value": "outlined",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false

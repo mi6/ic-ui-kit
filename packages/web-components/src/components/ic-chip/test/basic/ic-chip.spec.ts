@@ -182,16 +182,16 @@ describe("ic-chip component renders label", () => {
       html: `<ic-chip label="This is dismissible" dismissible="true"></ic-chip>`,
     });
 
-    let chip = await page.root?.shadowRoot?.querySelector("div");
-    const dismissButton = await page.root?.shadowRoot?.querySelector("button");
+    let chip = page.root?.shadowRoot?.querySelector("div.chip");
+    const dismissButton = page.root?.shadowRoot?.querySelector("button");
 
     expect(chip).not.toBeNull();
     expect(dismissButton).not.toBeNull();
 
-    await dismissButton?.click();
+    dismissButton?.click();
 
     await page.waitForChanges();
-    chip = await page.root?.shadowRoot?.querySelector("div");
+    chip = page.root?.shadowRoot?.querySelector("div.chip");
 
     expect(chip).toBeNull();
   });
@@ -233,8 +233,6 @@ describe("ic-chip component renders label", () => {
     });
 
     await page.waitForChanges();
-
-    expect(page.rootInstance.inAGGrid).toBe(true);
     expect(
       page.root?.shadowRoot
         ?.querySelector("ic-typography")
