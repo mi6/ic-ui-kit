@@ -15,6 +15,8 @@ import { getSlotElements, isPropDefined } from "../../utils/helpers";
 import { createPopper, Instance as PopperInstance } from "@popperjs/core";
 import { IcThemeMode } from "../../utils/types";
 
+const MENU_SELECTOR = "div.menu-body";
+
 @Component({
   tag: "ic-popover-menu",
   styleUrl: "ic-popover-menu.css",
@@ -120,7 +122,7 @@ export class PopoverMenu {
   }
 
   componentDidLoad(): void {
-    const slotWrapper = this.el.shadowRoot?.querySelector("ul.button");
+    const slotWrapper = this.el.shadowRoot?.querySelector(MENU_SELECTOR);
     if (slotWrapper) {
       const popoverMenuElements = getSlotElements(slotWrapper);
 
@@ -424,9 +426,13 @@ export class PopoverMenu {
                 </ic-typography>
               </span>
             )}
-            <ul class="button" aria-label={this.getMenuAriaLabel()} role="menu">
+            <div
+              class="menu-body"
+              aria-label={this.getMenuAriaLabel()}
+              role="menu"
+            >
               <slot></slot>
-            </ul>
+            </div>
           </span>
         </div>
       </Host>
