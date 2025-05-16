@@ -4305,10 +4305,10 @@
         },
         {
           "name": "disabled",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -4320,49 +4320,43 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "dismissLabel",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
           "attr": "dismiss-label",
           "reflectToAttr": false,
-          "docs": "The text in the dismiss button tooltip and aria label.",
+          "docs": "The text in the dismiss button tooltip and aria label. Makes the user aware of the action resulting from clicking the 'Dismiss chip' button.",
           "docsTags": [],
           "default": "\"Dismiss\"",
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "dismissible",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -4374,12 +4368,9 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4409,10 +4400,10 @@
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\" | undefined",
+          "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizes",
-            "resolved": "\"large\" | \"medium\" | \"small\" | undefined",
+            "resolved": "\"large\" | \"medium\" | \"small\"",
             "references": {
               "IcSizes": {
                 "location": "import",
@@ -4439,23 +4430,26 @@
             {
               "value": "small",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
           "complexType": {
-            "original": "\"dark\" | \"light\" | \"inherit\"",
-            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
-            "references": {}
+            "original": "IcThemeMode",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
+            "references": {
+              "IcThemeMode": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeMode"
+              }
+            }
           },
           "mutable": false,
           "attr": "theme",
@@ -4475,22 +4469,19 @@
             {
               "value": "light",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "transparentBackground",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -4502,22 +4493,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "variant",
-          "type": "\"filled\" | \"outlined\" | undefined",
+          "type": "\"filled\" | \"outlined\"",
           "complexType": {
             "original": "IcEmphasisType",
-            "resolved": "\"filled\" | \"outlined\" | undefined",
+            "resolved": "\"filled\" | \"outlined\"",
             "references": {
               "IcEmphasisType": {
                 "location": "import",
@@ -4540,12 +4528,9 @@
             {
               "value": "outlined",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -13221,7 +13206,7 @@
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
-          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
+          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\r\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
           "docsTags": [],
           "default": "\"off\"",
           "values": [
@@ -13400,7 +13385,7 @@
           "mutable": false,
           "attr": "disable-auto-filtering",
           "reflectToAttr": false,
-          "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\nIf `true`, all options provided will be displayed.",
+          "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\r\nIf `true`, all options provided will be displayed.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13508,7 +13493,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "Specify whether the search bar fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
+          "docs": "Specify whether the search bar fills the full width of the container.\r\nIf `true`, this overrides the --input-width CSS variable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -17222,7 +17207,7 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the toggle does not mean if it's checked or not, use the `checked`\nproperty for that.\n\nThe value of a toggle is analogous to the value of a `<input type=\"checkbox\">`,\nit's only used when the toggle participates in a native `<form>`.",
+          "docs": "The value of the toggle does not mean if it's checked or not, use the `checked`\r\nproperty for that.\r\n\r\nThe value of a toggle is analogous to the value of a `<input type=\"checkbox\">`,\r\nit's only used when the toggle participates in a native `<form>`.",
           "docsTags": [],
           "default": "\"on\"",
           "values": [
@@ -21270,7 +21255,7 @@
           "mutable": false,
           "attr": "bold",
           "reflectToAttr": false,
-          "docs": "If `true`, the typography will have a bold font weight.\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
+          "docs": "If `true`, the typography will have a bold font weight.\r\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
           "docsTags": [],
           "default": "false",
           "values": [
