@@ -4721,6 +4721,21 @@ describe("IcDataTable row selection", () => {
       NOT_EXIST
     );
   });
+
+  it("should correctly render the updating indicator with the correct colspan when the checkbox column is present", () => {
+    mount(<BasicDataTable rowSelection updating />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/updating-with-header-checkbox",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.041),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
+  });
 });
 
 describe("IcDataTable visual regression tests in high contrast mode", () => {
