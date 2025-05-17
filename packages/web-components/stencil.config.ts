@@ -10,6 +10,26 @@ interface StencilOverride extends Omit<JsonDocs, "timestamp"> {
   timestamp: string | undefined
 }
 
+const fs = require("fs");
+const path = require("path");
+const crypto = require("node:crypto");
+
+const wcVersion = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "package.json"))
+).version;
+
+function findVersion(packageName: string) {
+  return JSON.parse(fs.readFileSync(path.join(__dirname, "..", packageName, "package.json"))).version;
+}
+
+function generateDate() {
+  return new Date().toString()
+}
+
+function generateHash() {
+  return crypto.createHash("sha256").update("icds").digest("hex");
+}
+
 export const config: Config = {
   namespace: "core",
   globalStyle: "src/global/icds.css",
@@ -94,4 +114,37 @@ export const config: Config = {
   extras: {
     experimentalImportInjection: true,
   },
+  env: {
+    // web components metadata
+    IC_UI_KIT_WEB_COMPONENTS_VERSION: wcVersion,
+    IC_UI_KIT_WEB_COMPONENTS_BUILD_DATE: generateDate(),
+    IC_UI_KIT_WEB_COMPONENTS_BUILD_HASH: generateHash(),
+
+    // canary web components metadata 
+    IC_UI_KIT_CANARY_WEB_COMPONENTS_VERSION: findVersion("canary-web-components"),
+    IC_UI_KIT_CANARY_WEB_COMPONENTS_BUILD_DATE: generateDate(),
+    IC_UI_KIT_CANARY_WEB_COMPONENTS_BUILD_HASH: generateHash(),
+
+    // fonts metadata
+    IC_UI_KIT_FONTS_VERSION: findVersion("fonts"),
+    IC_UI_KIT_FONTS_BUILD_DATE: generateDate(),
+    IC_UI_KIT_FONTS_BUILD_HASH: generateHash(),
+
+    // nextjs metadata
+    IC_UI_KIT_NEXTJS_VERSION: findVersion("nextjs"),
+    IC_UI_KIT_NEXTJS_BUILD_DATE: generateDate(),
+    IC_UI_KIT_NEXTJS_BUILD_HASH: generateHash(),
+
+    // react metadata
+    IC_UI_KIT_REACT_VERSION: findVersion("react"),
+    IC_UI_KIT_REACT_BUILD_DATE: generateDate(),
+    IC_UI_KIT_REACT_BUILD_HASH: generateHash(),
+
+    // canary react metadata
+    IC_UI_KIT_CANARY_REACT_VERSION: findVersion("canary-react"),
+    IC_UI_KIT_CANARY_REACT_BUILD_DATE: generateDate(),
+    IC_UI_KIT_CANARY_REACT_BUILD_HASH: generateHash(),
+
+  },
+  globalScript: './bootstrap_window.ts'
 };
