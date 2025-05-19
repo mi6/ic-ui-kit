@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from 'react';
-import { IcLink, IcTypography, IcSectionContainer } from "../components";
+import React, { useRef } from 'react';
+import { IcLink, IcTypography, IcSectionContainer, IcButton } from "../components";
 import { NavLink, MemoryRouter, Route, Routes } from "react-router-dom";
 
 const HomePage = () => (
@@ -48,6 +48,37 @@ export const WithIcon = {
   ),
 
   name: "With icon",
+};
+
+const Download = () => {
+  const linkEl = useRef();
+  const handleTrue = () => {
+    linkEl.current.download = true;
+  };
+  const handleFalse = () => {
+    linkEl.current.download = false;
+  };
+  const handleReset = () => {
+    linkEl.current.download = "downloaded-file";
+  };
+  return (
+    <>
+      <IcLink href="/" download="downloaded-file" ref={linkEl}>
+        Download File
+      </IcLink>
+      <br />
+      <br />
+      <IcButton onClick={() => handleTrue()}>Set to true</IcButton>
+      <IcButton onClick={() => handleFalse()}>Set to false</IcButton>
+      <IcButton onClick={() => handleReset()}>Set to normal</IcButton>
+    </>
+  );
+};
+
+export const DownloadLink = {
+  render: () => <Download />,
+
+  name: "Download Link",
 };
 
 export const WithReactRouter = {

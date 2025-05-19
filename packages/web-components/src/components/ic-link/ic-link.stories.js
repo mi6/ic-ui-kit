@@ -43,12 +43,35 @@ export const WithIcon = {
 };
 
 export const DownloadLink = {
-  render: () => html`<ic-link href="/" download>Download File</ic-link>`,
-  name: "Download link",
+  render: () =>
+    html`<div>
+        <ic-link href="/" download="downloaded-file">Download File</ic-link>
+        <br />
+        <br />
+        <ic-button variant="primary" onclick="handleTrue()"
+          >Set to true</ic-button
+        >
+        <ic-button variant="primary" onclick="handleFalse()"
+          >Set to false</ic-button
+        >
+        <ic-button variant="primary" onclick="handleReset()"
+          >Set to normal</ic-button
+        >
+      </div>
+      <script>
+        var link = document.querySelector("ic-link");
+        function handleTrue() {
+          link.download = true;
+        }
+        function handleFalse() {
+          link.download = false;
+        }
+        function handleReset() {
+          link.download = "downloaded-file";
+        }
+      </script>`,
 
-  parameters: {
-    layout: "fullscreen",
-  },
+  name: "Download link",
 };
 
 export const Playground = {
