@@ -19,6 +19,18 @@ describe("ic-link component", () => {
     });
 
     expect(page.root).toMatchSnapshot("download-link");
+
+    if (page.root) {
+      page.root.download = false;
+    }
+
+    expect(page.root).toMatchSnapshot("download-link-false");
+
+    if (page.root) {
+      page.root.download = true;
+    }
+
+    expect(page.root).toMatchSnapshot("download-link-true");
   });
 
   it("should apply the 'href' attribute and ic-link styling to the anchor element", async () => {
