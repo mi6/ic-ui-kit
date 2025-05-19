@@ -46,7 +46,8 @@
     "lint-cypress": "lerna run lint:cypress --scope=@ukic/react",
     "lint:spelling": "cspell --gitignore --no-must-find-files \"**/*.*\"",
     "static-analysis": "npm run lint && npm run prettier && npm run audit",
-    "audit:fix": "lerna-audit"
+    "audit:fix": "lerna-audit",
+    "knip": "knip"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
@@ -57,6 +58,7 @@
     "@cspell/dict-lorem-ipsum": "^4.0.0",
     "@cspell/dict-scientific-terms-gb": "^1.0.0",
     "@stencil-community/eslint-plugin": "^0.5.0",
+    "@types/node": "^22.15.19",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "audit-ci": "^6.1.0",
@@ -68,6 +70,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-sonarjs": "^0.19.0",
     "husky": "^9.1.3",
+    "knip": "^5.56.0",
     "lerna": "^6.0.3",
     "lerna-audit": "^1.3.3",
     "ncp": "^2.0.0",
@@ -78,7 +81,8 @@
     "rimraf": "^3.0.2",
     "stylelint": "^14.16.1",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^24.0.0"
+    "stylelint-config-standard": "^24.0.0",
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": ">=16.3.0"
