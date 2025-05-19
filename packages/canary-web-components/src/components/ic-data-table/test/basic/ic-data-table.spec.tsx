@@ -1,15 +1,23 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { IcButton } from "@ukic/web-components/dist/components/ic-button";
 import { DataTable } from "../../ic-data-table";
+import { IcLoadingIndicator } from "@ukic/web-components/dist/components/ic-loading-indicator";
 import { IcPagination } from "@ukic/web-components/dist/components/ic-pagination";
 import { PaginationBar } from "../../../ic-pagination-bar/ic-pagination-bar";
 import { IcPaginationItem } from "@ukic/web-components/dist/components/ic-pagination-item";
+import { IcTooltip } from "@ukic/web-components/dist/components/ic-tooltip";
+import { IcTypography } from "@ukic/web-components/dist/components/ic-typography";
 import { h } from "@stencil/core";
 import { IcDataTableColumnObject } from "../../ic-data-table.types";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { IcEmptyState } from "@ukic/web-components/dist/components/ic-empty-state";
 import { DataTableTitleBar } from "../../../ic-data-table-title-bar/ic-data-table-title-bar";
-import { LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS } from "../../story-data";
+import {
+  COLUMNS_NO_TEXT_WRAP,
+  COLUMNS_TEXT_WRAP,
+  LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS,
+  LONG_DATA_VALUES,
+} from "../../story-data";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -25,6 +33,13 @@ const name5 = "Margaret Hale";
 const highlightedRowClass = "table-row-selected";
 const customIcon =
   '<svg aria-labelledby="error-title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><title id="error-title">Error</title><g id="close-octagon"><path id="Vector" d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" /></g></svg>';
+const SORT_BUTTON_CLASS = ".sort-button";
+const MOCK_TOOLTIP = {
+  setAttribute: (attribute: string, value: string): string | null =>
+    attribute + value,
+  remove: (): null => null,
+};
+const CELL_TYPOGRAPHY = ".table-cell ic-typography";
 
 const columns: IcDataTableColumnObject[] = [
   { key: "name", title: "Name", dataType: "string" },
@@ -34,11 +49,11 @@ const columns: IcDataTableColumnObject[] = [
 ];
 
 const columnsWithElements: IcDataTableColumnObject[] = [
-  { key: "name", title: "Name", dataType: "string" },
+  { key: "firstName", title: "First name", dataType: "string" },
+  { key: "lastName", title: "Last name", dataType: "string" },
   { key: "age", title: "Age", dataType: "number" },
-  { key: "department", title: "Department", dataType: "string" },
-  { key: "employeeNumber", title: employeeNumber, dataType: "number" },
-  { key: "actions", title: "Actions", dataType: "element" },
+  { key: "jobTitle", title: "Job title", dataType: "string" },
+  { key: "address", title: "Address", dataType: "address" },
 ];
 
 const columnsWithRowHeader: IcDataTableColumnObject[] = [
@@ -115,7 +130,7 @@ const columnsWithIconsHideOnHeader: IcDataTableColumnObject[] = [
 ];
 
 const data = [
-  { name: name1, age: 36, department: "Accounts", employeeNumber: 1 },
+  { name: name1, employeeNumber: 1, department: "Accounts", age: 36 },
   {
     name: name2,
     age: 32,
@@ -245,6 +260,30 @@ const dataWithObjects = [
   },
   {
     name: { data: "Tim Rayes" },
+    age: 41,
+    department: "Sales",
+    employeeNumber: 3,
+  },
+  {
+    name: { data: name3 },
+    age: "23",
+    department: "Engineering",
+    employeeNumber: 4,
+  },
+  { name: name4, age: 34, department: "Engineering", employeeNumber: 5 },
+  { name: name5, age: 45, department: "HR", employeeNumber: 6 },
+];
+
+const dataWithLinks = [
+  { name: name1, age: 36, department: "Accounts", employeeNumber: 1 },
+  {
+    name: name2,
+    age: 32,
+    department: "Engineering",
+    employeeNumber: 2,
+  },
+  {
+    name: { data: "Tim Rayes", href: "http://example.com" },
     age: 41,
     department: "Sales",
     employeeNumber: 3,
@@ -506,6 +545,55 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render with width and height set", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          height="800px"
+          width="800px"
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with min-width set", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          min-width="400px"
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with max-width set", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          max-width="1200px"
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render with column header truncation", async () => {
     const page = await newSpecPage({
       components: [DataTable],
@@ -524,6 +612,9 @@ describe(icDataTable, () => {
     page.root!.columnHeaderTruncation = false;
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot();
+
+    page.root!.columnHeaderTruncation = true;
+    expect(page.rootInstance.prevTableContainerWidth).toBe(0);
   });
 
   it("should render sortable", async () => {
@@ -710,6 +801,23 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render the empty state on overlay when no data is passed through", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={[]}
+          loading
+          loadingOptions={{ overlay: true }}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should be able to slot a custom empty state into the data table", async () => {
     const page = await newSpecPage({
       components: [IcButton, DataTable, IcEmptyState],
@@ -742,7 +850,27 @@ describe(icDataTable, () => {
       ),
     });
 
+    await waitForTimeout(1100);
     expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render the loading state when the `loading` prop is updated", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table caption="test table" columns={columns}></ic-data-table>
+      ),
+    });
+
+    const dataTable = document.querySelector(icDataTable);
+
+    dataTable?.setAttribute("loading", "true");
+
+    await page.waitForChanges();
+
+    await waitForTimeout(1100);
+
+    expect(page.rootInstance.loadingIndicator).toHaveClass("show");
   });
 
   it("should render the updating state when the `updating` prop is passed through", async () => {
@@ -762,19 +890,25 @@ describe(icDataTable, () => {
 
   it("should pass through the loadingOptions to the loading indicator", async () => {
     const page = await newSpecPage({
-      components: [DataTable],
+      components: [DataTable, IcLoadingIndicator],
       template: () => (
         <ic-data-table
           caption="test table"
           columns={columns}
           loadingOptions={{
             monochrome: true,
+            label: "Loading data...",
+            description: "This may take a while",
+            min: 20,
+            max: 80,
+            progress: 50,
           }}
           loading={true}
         ></ic-data-table>
       ),
     });
 
+    await waitForTimeout(1100);
     expect(page.root).toMatchSnapshot();
   });
 
@@ -966,6 +1100,7 @@ describe(icDataTable, () => {
           columns={columns}
           data={longData}
           show-pagination
+          truncation-pattern="tooltip"
           paginationBarOptions={{
             itemsPerPageOptions: [
               { label: "10", value: "10" },
@@ -1049,7 +1184,7 @@ describe(icDataTable, () => {
 
     const sortButton = Array.from(
       dataTable!.shadowRoot?.querySelectorAll<HTMLIcButtonElement>(
-        ".sort-button"
+        SORT_BUTTON_CLASS
       ) || []
     );
 
@@ -1268,7 +1403,7 @@ describe(icDataTable, () => {
 
     const sortButton = Array.from(
       dataTable!.shadowRoot?.querySelectorAll<HTMLIcButtonElement>(
-        ".sort-button"
+        SORT_BUTTON_CLASS
       ) || []
     );
 
@@ -1359,6 +1494,22 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render ic-link if data contains href", async () => {
+    const page = await newSpecPage({
+      components: [IcButton, DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={dataWithLinks}
+          sortable
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render an action element if present in the data set", async () => {
     const page = await newSpecPage({
       components: [DataTable],
@@ -1405,22 +1556,741 @@ describe(icDataTable, () => {
       ),
     });
 
+    await waitForTimeout(1100);
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should render updating in assertive aria-live div", async () => {
+  it("should update row heights for descriptions if the exceed global row height", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columnsWithElements}
+          data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+          truncation-pattern="tooltip"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest
+      .spyOn(page.rootInstance, "getDescriptionHeight")
+      .mockImplementation(() => 100);
+
+    page.rootInstance.updateCellHeightsWithDescriptions();
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with tooltip truncation pattern", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="tooltip"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with show-hide truncation pattern", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with tooltip truncation pattern - after data updated", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography, IcTooltip],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={[]}
+          truncation-pattern="tooltip"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    const dataTable = page.root as HTMLIcDataTableElement;
+
+    dataTable.data = LONG_DATA_VALUES;
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with show-hide truncation pattern - after data updated", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={[]}
+          updating={true}
+          truncation-pattern="show-hide"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest
+      .spyOn(page.rootInstance, "typographyScrollHeightExceedsContainerHeight")
+      .mockImplementation(() => true);
+
+    const dataTable = page.root as HTMLIcDataTableElement;
+
+    dataTable.data = LONG_DATA_VALUES;
+
+    await page.waitForChanges();
+
+    await waitForTimeout(500);
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with tooltip truncation pattern for data with descriptions", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columnsWithElements}
+          data={LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS}
+          truncation-pattern="tooltip"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update tooltip truncation when data sorted", async () => {
+    const page = await newSpecPage({
+      components: [IcButton, DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="tooltip"
+          global-row-height={40}
+          sortable
+        ></ic-data-table>
+      ),
+    });
+
+    const dataTable = document.querySelector(icDataTable);
+
+    jest
+      .spyOn(page.rootInstance, "getTooltip")
+      .mockImplementation(() => MOCK_TOOLTIP);
+
+    const sortButton = Array.from(
+      dataTable!.shadowRoot?.querySelectorAll<HTMLIcButtonElement>(
+        SORT_BUTTON_CLASS
+      ) || []
+    );
+
+    sortButton[0].click();
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update show-hide truncation when data sorted", async () => {
+    const page = await newSpecPage({
+      components: [IcButton, DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          global-row-height={40}
+          sortable
+        ></ic-data-table>
+      ),
+    });
+
+    const dataTable = document.querySelector(icDataTable);
+
+    const sortButton = Array.from(
+      dataTable!.shadowRoot?.querySelectorAll<HTMLIcButtonElement>(
+        SORT_BUTTON_CLASS
+      ) || []
+    );
+
+    sortButton[0].click();
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update tooltip truncation on row height change to auto", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="tooltip"
+          globalRowHeight={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest
+      .spyOn(page.rootInstance, "getTooltip")
+      .mockImplementation(() => MOCK_TOOLTIP);
+
+    const dataTable = document.querySelector(icDataTable);
+
+    dataTable!.globalRowHeight = "auto";
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update show-hide truncation on row height change to auto", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          globalRowHeight={40}
+        ></ic-data-table>
+      ),
+    });
+
+    const dataTable = document.querySelector(icDataTable);
+
+    dataTable!.globalRowHeight = "auto";
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update show-hide truncation on row height change to new value", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          globalRowHeight={40}
+        ></ic-data-table>
+      ),
+    });
+
+    const dataTable = document.querySelector(icDataTable);
+
+    dataTable!.globalRowHeight = 80;
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update show-hide truncation on row height change to new value and typography scrollheight exceeds container height", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          globalRowHeight={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest
+      .spyOn(page.rootInstance, "typographyScrollHeightExceedsContainerHeight")
+      .mockImplementation(() => true);
+
+    const dataTable = document.querySelector(icDataTable);
+
+    dataTable!.globalRowHeight = 80;
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should switch to show-hide truncation pattern", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest
+      .spyOn(page.rootInstance, "typographyScrollHeightExceedsContainerHeight")
+      .mockImplementation(() => true);
+
+    const dataTable = document.querySelector(icDataTable);
+    dataTable!.truncationPattern = "show-hide";
+    await page.waitForChanges();
+
+    await waitForTimeout(500);
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should switch to show-hide truncation pattern - resetSingleShowHideTruncation", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest
+      .spyOn(
+        page.rootInstance,
+        "cellContainerMinusLineHeightIsGreaterThanTruncWrapperScrollHeight"
+      )
+      .mockImplementation(() => true);
+
+    const dataTable = document.querySelector(icDataTable);
+    dataTable!.truncationPattern = "show-hide";
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should switch to tooltip truncation pattern", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography, IcTooltip],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest
+      .spyOn(page.rootInstance, "typographyScrollHeightExceedsContainerHeight")
+      .mockImplementation(() => true);
+
+    const dataTable = document.querySelector(icDataTable);
+    dataTable!.truncationPattern = "tooltip";
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should switch to tooltip truncation pattern and remove tooltips", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography, IcTooltip],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest
+      .spyOn(page.rootInstance, "typographyScrollHeightExceedsContainerHeight")
+      .mockImplementation(() => true);
+
+    jest
+      .spyOn(page.rootInstance, "getTooltip")
+      .mockImplementation(() => MOCK_TOOLTIP);
+
+    const dataTable = document.querySelector(icDataTable);
+    dataTable!.truncationPattern = "tooltip";
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update truncation when density changes", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          global-row-height={40}
+          truncation-pattern="show-hide"
+        ></ic-data-table>
+      ),
+    });
+
+    const dataTable = document.querySelector(icDataTable);
+    dataTable!.density = "spacious";
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update tooltip truncation when page changed", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          global-row-height={40}
+          truncation-pattern="tooltip"
+        ></ic-data-table>
+      ),
+    });
+
+    const dataTable = document.querySelector(icDataTable);
+
+    const icPageChangeEvent = new CustomEvent("icPageChange", {
+      detail: { value: "1" },
+    });
+
+    dataTable!.dispatchEvent(icPageChangeEvent);
+
+    await page.waitForChanges();
+
+    const icPageChangeEvent2 = new CustomEvent("icPageChange", {
+      detail: { value: "2" },
+    });
+
+    dataTable!.dispatchEvent(icPageChangeEvent2);
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update show-hide truncation when page changed", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          global-row-height={40}
+          truncation-pattern="show-hide"
+        ></ic-data-table>
+      ),
+    });
+
+    const dataTable = document.querySelector(icDataTable);
+
+    jest
+      .spyOn(page.rootInstance, "typographyScrollHeightExceedsContainerHeight")
+      .mockImplementation(() => true);
+
+    jest
+      .spyOn(page.rootInstance, "getShowHideButton")
+      .mockImplementation(() => null);
+
+    const icPageChangeEvent = new CustomEvent("icPageChange", {
+      detail: { value: "1" },
+    });
+
+    dataTable!.dispatchEvent(icPageChangeEvent);
+
+    await page.waitForChanges();
+
+    const icPageChangeEvent2 = new CustomEvent("icPageChange", {
+      detail: { value: "2" },
+    });
+
+    dataTable!.dispatchEvent(icPageChangeEvent2);
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should test dataTruncate method - should not call truncate when dataUpdated is true", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest.spyOn(page.rootInstance, "truncate").mockImplementation();
+
+    page.rootInstance.dataUpdated = true;
+    await page.waitForChanges();
+
+    const dataTable = document.querySelector(icDataTable);
+    const typographyEl = dataTable?.shadowRoot?.querySelector(CELL_TYPOGRAPHY);
+    const cellContainer = page.rootInstance.getCellContainer(typographyEl);
+
+    page.rootInstance.dataTruncation(typographyEl, cellContainer);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.truncate).not.toHaveBeenCalled();
+  });
+
+  it("should test dataTruncate method - should remove truncation if number of lines equals max-lines", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest
+      .spyOn(page.rootInstance, "resetSingleShowHideTruncation")
+      .mockImplementation();
+    jest.spyOn(page.rootInstance, "truncate").mockImplementation();
+
+    jest
+      .spyOn(page.rootInstance, "getShowHideButton")
+      .mockImplementation(() => true);
+
+    jest
+      .spyOn(page.rootInstance, "getTruncWrapper")
+      .mockImplementation(() => ({ scrollHeight: 48 }));
+
+    const dataTable = document.querySelector(icDataTable);
+    const typographyEl = dataTable?.shadowRoot?.querySelector(CELL_TYPOGRAPHY);
+    const cellContainer = page.rootInstance.getCellContainer(typographyEl);
+    typographyEl?.setAttribute("max-lines", "2");
+
+    await page.waitForChanges();
+
+    page.rootInstance.dataTruncation(typographyEl, cellContainer);
+    await page.waitForChanges();
+
+    expect(
+      page.rootInstance.resetSingleShowHideTruncation
+    ).toHaveBeenCalledTimes(1);
+    expect(page.rootInstance.truncate).toHaveBeenCalled();
+  });
+
+  it("should test dataTruncate method - should remove show-hide truncation if rowHeightSet is true", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest
+      .spyOn(page.rootInstance, "resetSingleShowHideTruncation")
+      .mockImplementation();
+    jest.spyOn(page.rootInstance, "truncate").mockImplementation();
+
+    jest
+      .spyOn(
+        page.rootInstance,
+        "cellContainerMinusLineHeightIsGreaterThanTruncWrapperScrollHeight"
+      )
+      .mockImplementation(() => true);
+
+    const dataTable = document.querySelector(icDataTable);
+    const typographyEl = dataTable?.shadowRoot?.querySelector(CELL_TYPOGRAPHY);
+    const cellContainer = page.rootInstance.getCellContainer(typographyEl);
+
+    page.rootInstance.rowHeightSet = true;
+    await page.waitForChanges();
+
+    page.rootInstance.dataTruncation(typographyEl, cellContainer);
+    await page.waitForChanges();
+
+    expect(
+      page.rootInstance.resetSingleShowHideTruncation
+    ).toHaveBeenCalledTimes(1);
+    expect(page.rootInstance.truncate).not.toHaveBeenCalled();
+  });
+
+  it("should test dataTruncate method - should add show-hide truncation if rowHeightSet is true", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    jest.spyOn(page.rootInstance, "truncate").mockImplementation();
+    jest
+      .spyOn(page.rootInstance, "addShowHideTruncationIfNeeded")
+      .mockImplementation(() => true);
+    jest
+      .spyOn(
+        page.rootInstance,
+        "cellContainerMinusLineHeightIsGreaterThanTruncWrapperScrollHeight"
+      )
+      .mockImplementation(() => false);
+
+    const dataTable = document.querySelector(icDataTable);
+    const typographyEl = dataTable?.shadowRoot?.querySelector(CELL_TYPOGRAPHY);
+    const cellContainer = page.rootInstance.getCellContainer(typographyEl);
+
+    page.rootInstance.rowHeightSet = true;
+    await page.waitForChanges();
+
+    page.rootInstance.dataTruncation(typographyEl, cellContainer);
+    await page.waitForChanges();
+
+    expect(
+      page.rootInstance.addShowHideTruncationIfNeeded
+    ).toHaveBeenCalledTimes(1);
+    expect(page.rootInstance.truncate).not.toHaveBeenCalled();
+  });
+
+  it("should test removeTextWrap method", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    const dataTable = document.querySelector(icDataTable);
+    const tableCell = dataTable?.shadowRoot?.querySelector(".table-cell");
+
+    tableCell?.classList.add(page.rootInstance.TEXT_WRAP_STRING);
+    await page.waitForChanges();
+    await page.rootInstance.removeTextWrap();
+    expect(tableCell).not.toHaveClass(page.rootInstance.TEXT_WRAP_STRING);
+  });
+
+  it("should test getColumnWidth method", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, IcTypography],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          truncation-pattern="show-hide"
+          global-row-height={40}
+        ></ic-data-table>
+      ),
+    });
+
+    let output = page.rootInstance.getColumnWidth("100px");
+
+    expect(output).toEqual({
+      "--column-width": "100px",
+    });
+
+    output = page.rootInstance.getColumnWidth({ minWidth: "100px" });
+
+    expect(output).toEqual({
+      "--column-min-width": "100px",
+    });
+
+    output = page.rootInstance.getColumnWidth({ maxWidth: "100px" });
+
+    expect(output).toEqual({
+      "--column-max-width": "100px",
+    });
+  });
+
+  it("should test headerResizeCallback", async () => {
     const page = await newSpecPage({
       components: [DataTable],
       template: () => (
         <ic-data-table
           caption="test table"
           columns={columns}
-          data={[data[0]]}
-          updating={true}
+          data={data}
+          column-header-truncation
         ></ic-data-table>
       ),
     });
 
-    expect(page.root).toMatchSnapshot();
+    jest
+      .spyOn(page.rootInstance, "getTableContainerWidth")
+      .mockImplementation(() => 1000);
+
+    page.rootInstance.prevTableContainerWidth = 500;
+
+    await page.waitForChanges();
+
+    await page.rootInstance.headerResizeCallback();
+
+    expect(page.rootInstance.prevTableContainerWidth).toBe(1000);
   });
 });

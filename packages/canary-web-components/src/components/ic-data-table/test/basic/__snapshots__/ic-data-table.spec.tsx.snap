@@ -4627,6 +4627,60 @@ exports[`ic-data-table should render sortable 1`] = `
 </ic-data-table>
 `;
 
+exports[`ic-data-table should render the empty state on overlay when no data is passed through 1`] = `
+<ic-data-table>
+  <template shadowrootmode="open">
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+        </table>
+        <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
+      </div>
+      <div aria-live="assertive" class="sr-only">
+        Loading...
+      </div>
+      <div class="loading-overlay show"></div>
+      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..." theme="inherit"></ic-loading-indicator>
+    </div>
+  </template>
+</ic-data-table>
+`;
+
 exports[`ic-data-table should render the empty state when data is null 1`] = `
 <ic-data-table>
   <template shadowrootmode="open">
@@ -4919,100 +4973,6 @@ exports[`ic-data-table should render the updating state when the \`updating\` pr
           </th>
         </table>
         <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
-      </div>
-      <div aria-live="assertive" class="sr-only">
-        Updating table data
-      </div>
-    </div>
-  </template>
-</ic-data-table>
-`;
-
-exports[`ic-data-table should render updating in assertive aria-live div 1`] = `
-<ic-data-table>
-  <template shadowrootmode="open">
-    <div class="table-container">
-      <div class="table-row-container">
-        <table style="--table-layout: fixed;">
-          <caption class="table-caption">
-            test table
-          </caption>
-          <thead>
-            <tr>
-              <th class="column-header updating-state-headers" scope="col">
-                <div class="column-header-inner-container">
-                  <ic-typography class="column-header-text" variant="body">
-                    Name
-                  </ic-typography>
-                </div>
-              </th>
-              <th class="column-header updating-state-headers" scope="col">
-                <div class="column-header-inner-container">
-                  <ic-typography class="column-header-text" variant="body">
-                    Age
-                  </ic-typography>
-                </div>
-              </th>
-              <th class="column-header updating-state-headers" scope="col">
-                <div class="column-header-inner-container">
-                  <ic-typography class="column-header-text" variant="body">
-                    Department
-                  </ic-typography>
-                </div>
-              </th>
-              <th class="column-header updating-state-headers" scope="col">
-                <div class="column-header-inner-container">
-                  <ic-typography class="column-header-text" variant="body">
-                    Employee number
-                  </ic-typography>
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <th class="updating-state" colspan="4">
-            <ic-loading-indicator description="Updating table data" fullwidth="" size="small" theme="inherit" type="linear"></ic-loading-indicator>
-          </th>
-          <tbody>
-            <tr class="table-row">
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <div class="cell-text-no-wrap cell-text-wrapper">
-                    <ic-typography variant="body">
-                      John Smith
-                    </ic-typography>
-                  </div>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <div class="cell-text-no-wrap cell-text-wrapper">
-                    <ic-typography variant="body">
-                      36
-                    </ic-typography>
-                  </div>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-string">
-                  <div class="cell-text-no-wrap cell-text-wrapper">
-                    <ic-typography variant="body">
-                      Accounts
-                    </ic-typography>
-                  </div>
-                </div>
-              </td>
-              <td class="table-cell">
-                <div class="cell-container data-type-number">
-                  <div class="cell-text-no-wrap cell-text-wrapper">
-                    <ic-typography variant="body">
-                      1
-                    </ic-typography>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
       <div aria-live="assertive" class="sr-only">
         Updating table data
@@ -7610,6 +7570,1786 @@ exports[`ic-data-table should render with row overrides 1`] = `
       <div class="pagination-container">
         <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
       </div>
+    </div>
+  </template>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with show-hide truncation pattern - after data updated 1`] = `
+<ic-data-table global-row-height="40" truncation-pattern="show-hide">
+  <template shadowrootmode="open">
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Employee Number
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Job Title
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      John Smith
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      36
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Accounts &amp; Finance
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      1
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Senior Financial Operations and Reporting Analyst
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Sally Jones
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      32
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      2
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Tim Rayes
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      41
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Sales and Marketing
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      3
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Luke Fisher
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      23
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering (Mobile App Development)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      4
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Tester
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Jane Lock
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      34
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      5
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Product Manager
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Margaret Hale
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      45
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      HR
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      6
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Human Resource Information Specialist
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="assertive" class="sr-only"></div>
+    </div>
+  </template>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with show-hide truncation pattern 1`] = `
+<ic-data-table global-row-height="40" truncation-pattern="show-hide">
+  <template shadowrootmode="open">
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Employee Number
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Job Title
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      John Smith
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      36
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Accounts &amp; Finance
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      1
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Senior Financial Operations and Reporting Analyst
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Sally Jones
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      32
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      2
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Tim Rayes
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      41
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Sales and Marketing
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      3
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Luke Fisher
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      23
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering (Mobile App Development)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      4
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Tester
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Jane Lock
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      34
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      5
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Product Manager
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Margaret Hale
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      45
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      HR
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      6
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-show-hide" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Human Resource Information Specialist
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="assertive" class="sr-only"></div>
+    </div>
+  </template>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with tooltip truncation pattern - after data updated 1`] = `
+<ic-data-table global-row-height="40" truncation-pattern="tooltip">
+  <template shadowrootmode="open">
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Employee Number
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Job Title
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      John Smith
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      36
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Accounts &amp; Finance
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      1
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Senior Financial Operations and Reporting Analyst
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Sally Jones
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      32
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      2
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Tim Rayes
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      41
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Sales and Marketing
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      3
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Luke Fisher
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      23
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering (Mobile App Development)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      4
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Tester
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Jane Lock
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      34
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      5
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Product Manager
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Margaret Hale
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      45
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      HR
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      6
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body" style="--ic-line-clamp: 0;">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Human Resource Information Specialist
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="assertive" class="sr-only"></div>
+    </div>
+  </template>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with tooltip truncation pattern 1`] = `
+<ic-data-table global-row-height="40" truncation-pattern="tooltip">
+  <template shadowrootmode="open">
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Employee Number
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text ic-typography-body">
+                    <template shadowrootmode="open">
+                      <slot></slot>
+                    </template>
+                    Job Title
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      John Smith
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      36
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Accounts &amp; Finance
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      1
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Senior Financial Operations and Reporting Analyst
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Sally Jones
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      32
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      2
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Tim Rayes
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      41
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Sales and Marketing
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      3
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Luke Fisher
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      23
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering (Mobile App Development)
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      4
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Tester
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Jane Lock
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      34
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      5
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Product Manager
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Margaret Hale
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      45
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      HR
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      6
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string truncation-tooltip" data-row-height="1.5rem" style="--row-height: 1.5rem;">
+                  <div class="cell-text-wrapper">
+                    <ic-typography class="ic-typography-body">
+                      <template shadowrootmode="open">
+                        <slot></slot>
+                      </template>
+                      Junior Human Resource Information Specialist
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="assertive" class="sr-only"></div>
     </div>
   </template>
 </ic-data-table>

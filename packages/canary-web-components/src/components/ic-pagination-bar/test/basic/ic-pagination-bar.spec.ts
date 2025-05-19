@@ -140,7 +140,9 @@ describe("ic-pagination-bar", () => {
       html: `<ic-pagination-bar total-items="100" show-items-per-page-control="true"></ic-pagination-bar>`,
     });
 
-    const paginationBar = document.querySelector("ic-pagination-bar") as HTMLIcPaginationBarElement;
+    const paginationBar = document.querySelector(
+      "ic-pagination-bar"
+    ) as HTMLIcPaginationBarElement;
 
     paginationBar!.itemsPerPageOptions = [
       { label: "15", value: "15" },
@@ -166,7 +168,9 @@ describe("ic-pagination-bar", () => {
       html: `<ic-pagination-bar total-items="150" show-items-per-page-control="true"></ic-pagination-bar>`,
     });
 
-    const paginationBar = document.querySelector("ic-pagination-bar") as HTMLIcPaginationBarElement;
+    const paginationBar = document.querySelector(
+      "ic-pagination-bar"
+    ) as HTMLIcPaginationBarElement;
 
     paginationBar!.itemsPerPageOptions = [
       { label: "25", value: "25" },
@@ -194,7 +198,9 @@ describe("ic-pagination-bar", () => {
       html: `<ic-pagination-bar total-items="100" show-items-per-page-control="true"></ic-pagination-bar>`,
     });
 
-    const paginationBar = document.querySelector("ic-pagination-bar") as HTMLIcPaginationBarElement;
+    const paginationBar = document.querySelector(
+      "ic-pagination-bar"
+    ) as HTMLIcPaginationBarElement;
 
     paginationBar!.itemsPerPageOptions = [
       { label: "25", value: "25" },
@@ -685,15 +691,15 @@ describe("ic-pagination-bar", () => {
       components: [PaginationBar, IcPagination, IcTextField, IcTypography],
       html: `<ic-pagination-bar total-items="100" show-items-per-page="false" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
-    
+
     Object.defineProperty(page.rootInstance.pageInputEl, "setFocus", {
-       value: jest.fn(),
+      value: jest.fn(),
     });
-    
+
     expect(page.rootInstance.pageInputEl.setFocus).not.toHaveBeenCalled();
 
     await page.rootInstance.goToPageLabelClickHandler();
-    
+
     await page.waitForChanges();
 
     expect(page.rootInstance.pageInputEl.setFocus).toHaveBeenCalled();
@@ -722,11 +728,13 @@ describe("ic-pagination-bar", () => {
 
   it("should go to first page when number of items changes", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar,IcPagination, IcSelect, IcTypography],
+      components: [PaginationBar, IcPagination, IcSelect, IcTypography],
       html: `<ic-pagination-bar total-items="50"></ic-pagination-bar>`,
     });
-    
-    const paginationBar = document.querySelector("ic-pagination-bar") as HTMLIcPaginationBarElement;
+
+    const paginationBar = document.querySelector(
+      "ic-pagination-bar"
+    ) as HTMLIcPaginationBarElement;
 
     paginationBar!.itemsPerPageOptions = [
       { label: "5", value: "5" },
@@ -745,11 +753,11 @@ describe("ic-pagination-bar", () => {
 
   it("should set to last page when items per page changes and there now less pages", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar,IcPagination, IcSelect, IcTypography],
+      components: [PaginationBar, IcPagination, IcSelect, IcTypography],
       html: `<ic-pagination-bar total-items="50"></ic-pagination-bar>`,
     });
-    
-    await page.rootInstance.setItemsPerPage(5); 
+
+    await page.rootInstance.setItemsPerPage(5);
 
     page.rootInstance.activePage = 10;
     await page.waitForChanges();
