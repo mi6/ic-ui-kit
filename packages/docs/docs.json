@@ -2562,7 +2562,7 @@
           "mutable": false,
           "attr": "transparent-background",
           "reflectToAttr": false,
-          "docs": "If `true`, the secondary variant of button will have a transparent background when not hovered, pressed or loading.",
+          "docs": "If `true`, the secondary & tertiary variants of button will have a transparent background when not hovered, pressed or loading.",
           "docsTags": [],
           "default": "true",
           "values": [
