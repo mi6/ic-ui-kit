@@ -375,7 +375,7 @@ export namespace Components {
          */
         "tooltipPlacement": IcButtonTooltipPlacement;
         /**
-          * If `true`, the secondary variant of button will have a transparent background when not hovered, pressed or loading.
+          * If `true`, the secondary & tertiary variants of button will have a transparent background when not hovered, pressed or loading.
          */
         "transparentBackground": boolean;
         /**
@@ -3803,7 +3803,7 @@ declare namespace LocalJSX {
          */
         "tooltipPlacement"?: IcButtonTooltipPlacement;
         /**
-          * If `true`, the secondary variant of button will have a transparent background when not hovered, pressed or loading.
+          * If `true`, the secondary & tertiary variants of button will have a transparent background when not hovered, pressed or loading.
          */
         "transparentBackground"?: boolean;
         /**

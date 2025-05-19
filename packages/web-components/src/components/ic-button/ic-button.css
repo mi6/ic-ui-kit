@@ -464,6 +464,42 @@
   background: none !important;
 }
 
+/* Tertiary - non-transparent background */
+
+:host(.ic-button-variant-tertiary.background) .button,
+:host(.ic-button-variant-icon-tertiary.background) .button {
+  background-color: var(--ic-button-tertiary-background);
+}
+
+:host(.ic-button-variant-tertiary.background) ::slotted(a),
+:host(.ic-button-variant-icon-tertiary.background) ::slotted(a) {
+  background-color: var(--ic-button-tertiary-background) !important;
+}
+
+:host(.ic-button-variant-tertiary.background) .button:hover,
+:host(.ic-button-variant-icon-tertiary.background) .button:hover {
+  background-image: var(--ic-button-tertiary-background-non-transparent-hover);
+}
+
+:host(.ic-button-variant-tertiary.background) ::slotted(a:hover),
+:host(.ic-button-variant-icon-tertiary.background) ::slotted(a:hover) {
+  background-image: var(
+    --ic-button-tertiary-background-non-transparent-hover
+  ) !important;
+}
+
+:host(.ic-button-variant-tertiary.background) .button:active,
+:host(.ic-button-variant-icon-tertiary.background) .button:active {
+  background-image: var(--ic-button-tertiary-background-non-transparent-active);
+}
+
+:host(.ic-button-variant-tertiary.background) ::slotted(a:active),
+:host(.ic-button-variant-icon-tertiary.background) ::slotted(a:active) {
+  background-image: var(
+    --ic-button-tertiary-background-non-transparent-active
+  ) !important;
+}
+
 /* Tertiary - monochrome */
 
 :host(.ic-button-variant-tertiary.monochrome) .button,
@@ -520,6 +556,48 @@
 :host(.ic-button-variant-icon-tertiary.ic-button-disabled.monochrome)
   ::slotted(a) {
   background: none !important;
+}
+
+/* Tertiary - non-transparent background - monochrome */
+
+:host(.ic-button-variant-tertiary.background.monochrome) .button,
+:host(.ic-button-variant-icon-tertiary.background.monochrome) .button {
+  background-color: var(--ic-button-tertiary-background-monochrome);
+}
+
+:host(.ic-button-variant-tertiary.background.monochrome) ::slotted(a),
+:host(.ic-button-variant-icon-tertiary.background.monochrome) ::slotted(a) {
+  background-color: var(--ic-button-tertiary-background-monochrome) !important;
+}
+
+:host(.ic-button-variant-tertiary.background.monochrome) .button:hover,
+:host(.ic-button-variant-icon-tertiary.background.monochrome) .button:hover {
+  background-image: var(
+    --ic-button-tertiary-background-non-transparent-monochrome-hover
+  );
+}
+
+:host(.ic-button-variant-tertiary.background.monochrome) ::slotted(a:hover),
+:host(.ic-button-variant-icon-tertiary.background.monochrome)
+  ::slotted(a:hover) {
+  background-image: var(
+    --ic-button-tertiary-background-non-transparent-monochrome-hover
+  ) !important;
+}
+
+:host(.ic-button-variant-tertiary.background.monochrome) .button:active,
+:host(.ic-button-variant-icon-tertiary.background.monochrome) .button:active {
+  background-image: var(
+    --ic-button-tertiary-background-non-transparent-monochrome-active
+  );
+}
+
+:host(.ic-button-variant-tertiary.background.monochrome) ::slotted(a:active),
+:host(.ic-button-variant-icon-tertiary.background.monochrome)
+  ::slotted(a:active) {
+  background-image: var(
+    --ic-button-tertiary-background-non-transparent-monochrome-active
+  ) !important;
 }
 
 /* Destructive */
