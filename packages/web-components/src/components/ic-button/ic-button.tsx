@@ -217,7 +217,7 @@ export class Button {
   @Prop() tooltipPlacement: IcButtonTooltipPlacement = "bottom";
 
   /**
-   * If `true`, the secondary variant of button will have a transparent background when not hovered, pressed or loading.
+   * If `true`, the secondary & tertiary variants of button will have a transparent background when not hovered, pressed or loading.
    */
   @Prop() transparentBackground = true;
 
@@ -670,7 +670,9 @@ export class Button {
           [`ic-button-variant-${variant}`]: true,
           [`ic-theme-${theme}`]: theme !== "inherit",
           background:
-            variant === "secondary" && !transparentBackground && !disabled,
+            (variant === "secondary" || variant === "tertiary") &&
+            !transparentBackground &&
+            !disabled,
           "dropdown-no-icon":
             dropdown &&
             !isSlotUsed(this.el, "icon") &&
