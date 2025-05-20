@@ -3745,7 +3745,7 @@
               }
             }
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.",
@@ -17764,10 +17764,10 @@
       "props": [
         {
           "name": "autocapitalize",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
-            "original": "string | undefined",
-            "resolved": "string | undefined",
+            "original": "string",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -17779,9 +17779,6 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
           "optional": false,
@@ -17862,10 +17859,10 @@
         },
         {
           "name": "autofocus",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
-            "original": "boolean | undefined",
-            "resolved": "boolean | undefined",
+            "original": "boolean",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -17877,9 +17874,6 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
           "optional": false,
@@ -17889,10 +17883,10 @@
         },
         {
           "name": "debounce",
-          "type": "number | undefined",
+          "type": "number",
           "complexType": {
             "original": "number",
-            "resolved": "number | undefined",
+            "resolved": "number",
             "references": {}
           },
           "mutable": false,
@@ -17904,22 +17898,19 @@
           "values": [
             {
               "type": "number"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "disabled",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -17931,22 +17922,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "fullWidth",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -17958,22 +17946,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "helperText",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -17985,22 +17970,19 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "hideCharCount",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -18012,22 +17994,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "hideLabel",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -18039,22 +18018,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "inputId",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -18066,22 +18042,19 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "inputmode",
-          "type": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\" | undefined",
+          "type": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
           "complexType": {
             "original": "IcTextFieldInputModes",
-            "resolved": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\" | undefined",
+            "resolved": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
             "references": {
               "IcTextFieldInputModes": {
                 "location": "import",
@@ -18128,12 +18101,9 @@
             {
               "value": "url",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -18192,10 +18162,10 @@
         },
         {
           "name": "maxCharacters",
-          "type": "number | undefined",
+          "type": "number",
           "complexType": {
             "original": "number",
-            "resolved": "number | undefined",
+            "resolved": "number",
             "references": {}
           },
           "mutable": false,
@@ -18207,22 +18177,19 @@
           "values": [
             {
               "type": "number"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "maxCharactersMessage",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -18234,22 +18201,19 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "maxMessage",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -18261,12 +18225,9 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -18302,10 +18263,10 @@
         },
         {
           "name": "minCharacters",
-          "type": "number | undefined",
+          "type": "number",
           "complexType": {
             "original": "number",
-            "resolved": "number | undefined",
+            "resolved": "number",
             "references": {}
           },
           "mutable": false,
@@ -18317,22 +18278,19 @@
           "values": [
             {
               "type": "number"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "minCharactersMessage",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -18344,22 +18302,19 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "minMessage",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -18371,22 +18326,19 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "name",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -18398,22 +18350,19 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "placeholder",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -18425,22 +18374,19 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "readonly",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -18452,22 +18398,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "required",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -18479,22 +18422,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "resize",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -18506,22 +18446,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "rows",
-          "type": "number | undefined",
+          "type": "number",
           "complexType": {
             "original": "number",
-            "resolved": "number | undefined",
+            "resolved": "number",
             "references": {}
           },
           "mutable": false,
@@ -18533,22 +18470,19 @@
           "values": [
             {
               "type": "number"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "size",
-          "type": "\"medium\" | \"small\" | undefined",
+          "type": "\"medium\" | \"small\"",
           "complexType": {
             "original": "IcSizesNoLarge",
-            "resolved": "\"medium\" | \"small\" | undefined",
+            "resolved": "\"medium\" | \"small\"",
             "references": {
               "IcSizesNoLarge": {
                 "location": "import",
@@ -18571,22 +18505,19 @@
             {
               "value": "small",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "spellcheck",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
-            "original": "boolean | undefined",
-            "resolved": "boolean | undefined",
+            "original": "boolean",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -18598,9 +18529,6 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
           "optional": false,
@@ -18610,10 +18538,10 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -18640,22 +18568,19 @@
             {
               "value": "light",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "type",
-          "type": "\"email\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"url\" | undefined",
+          "type": "\"email\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"url\"",
           "complexType": {
             "original": "IcTextFieldTypes",
-            "resolved": "\"email\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"url\" | undefined",
+            "resolved": "\"email\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"url\"",
             "references": {
               "IcTextFieldTypes": {
                 "location": "import",
@@ -18698,22 +18623,19 @@
             {
               "value": "url",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "validationInline",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -18725,22 +18647,19 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "validationStatus",
-          "type": "\"\" | \"error\" | \"success\" | \"warning\" | undefined",
+          "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
             "original": "IcInformationStatusOrEmpty",
-            "resolved": "\"\" | \"error\" | \"success\" | \"warning\" | undefined",
+            "resolved": "\"\" | \"error\" | \"success\" | \"warning\"",
             "references": {
               "IcInformationStatusOrEmpty": {
                 "location": "import",
@@ -18770,22 +18689,19 @@
             {
               "value": "warning",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "validationText",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -18797,12 +18713,9 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -18954,6 +18867,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when a keydown event occurred.",
+          "docsTags": []
+        },
+        {
+          "event": "icScroll",
+          "detail": "any",
+          "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the textarea variant is scrolled.",
           "docsTags": []
         }
       ],
