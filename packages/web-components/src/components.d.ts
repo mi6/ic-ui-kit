@@ -2075,7 +2075,7 @@ export namespace Components {
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize": string | undefined;
+        "autocapitalize": string;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
@@ -2087,40 +2087,40 @@ export namespace Components {
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus": boolean | undefined;
+        "autofocus": boolean;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
-        "debounce"?: number;
+        "debounce": number;
         /**
           * If `true`, the disabled state will be set.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * Specify whether the text field fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
          */
-        "helperText"?: string;
-        "hiddenInput"?: boolean;
+        "helperText": string;
+        "hiddenInput": boolean;
         /**
           * If `true`, the character count which is displayed when `maxCharacters` is set will be visually hidden.
          */
-        "hideCharCount"?: boolean;
+        "hideCharCount": boolean;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         /**
           * The ID for the input.
          */
-        "inputId"?: string;
+        "inputId": string;
         /**
           * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
          */
-        "inputmode"?: IcTextFieldInputModes;
+        "inputmode": IcTextFieldInputModes;
         /**
           * The label for the input.
          */
@@ -2132,15 +2132,15 @@ export namespace Components {
         /**
           * The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)
          */
-        "maxCharacters"?: number;
+        "maxCharacters": number;
         /**
           * The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.
          */
-        "maxCharactersMessage"?: string;
+        "maxCharactersMessage": string;
         /**
           * The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.
          */
-        "maxMessage"?: string;
+        "maxMessage": string;
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
@@ -2148,40 +2148,40 @@ export namespace Components {
         /**
           * The minimum number of characters that can be entered in the field.
          */
-        "minCharacters"?: number;
+        "minCharacters": number;
         /**
           * The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.
          */
-        "minCharactersMessage"?: string;
+        "minCharactersMessage": string;
         /**
           * The text to display as the error message when the minimum value (the `min` prop value) has not been met.
          */
-        "minMessage"?: string;
+        "minMessage": string;
         /**
           * The name of the control, which is submitted with the form data.
          */
-        "name"?: string;
+        "name": string;
         /**
           * The placeholder value to be displayed.
          */
-        "placeholder"?: string;
+        "placeholder": string;
         /**
           * If `true`, the read only state will be set.
          */
-        "readonly"?: boolean;
+        "readonly": boolean;
         /**
           * If `true`, the input will require a value.
          */
-        "required"?: boolean;
+        "required": boolean;
         /**
           * If `true`, the multiline text area will be resizeable.
          */
-        "resize"?: boolean;
+        "resize": boolean;
         "role": string | undefined;
         /**
           * The number of rows to transform the text field into a text area with a specific height.
          */
-        "rows"?: number;
+        "rows": number;
         /**
           * Sets focus on the native `input`.
          */
@@ -2189,33 +2189,33 @@ export namespace Components {
         /**
           * The size of the text field component.
          */
-        "size"?: IcSizesNoLarge;
+        "size": IcSizesNoLarge;
         /**
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
-        "spellcheck": boolean | undefined;
+        "spellcheck": boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
-        "truncateValue"?: boolean;
+        "theme": IcThemeMode;
+        "truncateValue": boolean;
         /**
           * The type of control to display. The default type is text.
          */
-        "type"?: IcTextFieldTypes;
+        "type": IcTextFieldTypes;
         /**
           * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
          */
-        "validationInline"?: boolean;
-        "validationInlineInternal"?: boolean;
+        "validationInline": boolean;
+        "validationInlineInternal": boolean;
         /**
           * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationStatus"?: IcInformationStatusOrEmpty;
+        "validationStatus": IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message.
          */
-        "validationText"?: string;
+        "validationText": string;
         /**
           * The value of the text field.
          */
@@ -3287,6 +3287,7 @@ declare global {
         "icFocus": IcValueEventDetail;
         "icInput": IcValueEventDetail;
         "icKeydown": { event: KeyboardEvent };
+        "icScroll": any;
     }
     interface HTMLIcTextFieldElement extends Components.IcTextField, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcTextFieldElementEventMap>(type: K, listener: (this: HTMLIcTextFieldElement, ev: IcTextFieldCustomEvent<HTMLIcTextFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5606,7 +5607,7 @@ declare namespace LocalJSX {
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize"?: string | undefined;
+        "autocapitalize"?: string;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
@@ -5618,7 +5619,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus"?: boolean | undefined;
+        "autofocus"?: boolean;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -5714,6 +5715,10 @@ declare namespace LocalJSX {
          */
         "onIcKeydown"?: (event: IcTextFieldCustomEvent<{ event: KeyboardEvent }>) => void;
         /**
+          * Emitted when the textarea variant is scrolled.
+         */
+        "onIcScroll"?: (event: IcTextFieldCustomEvent<any>) => void;
+        /**
           * The placeholder value to be displayed.
          */
         "placeholder"?: string;
@@ -5741,7 +5746,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
-        "spellcheck"?: boolean | undefined;
+        "spellcheck"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
