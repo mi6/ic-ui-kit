@@ -369,4 +369,21 @@ describe("ic-text-field", () => {
       </ic-text-field>
     `);
   });
+
+  it("should emit icScroll when a textarea is scrolled", async () => {
+    const page = await newSpecPage({
+      components: [TextField],
+      html: `<ic-text-field rows=2 label="Test label" resize=true value="test value"></ic-text-field>`,
+    });
+
+    const eventSpy = jest.fn();
+    page.root?.addEventListener("icScroll", eventSpy);
+
+    expect(eventSpy).not.toHaveBeenCalled();
+
+    page.rootInstance.onTextAreaScroll();
+    page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledTimes(1);
+  });
 });
