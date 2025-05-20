@@ -279,6 +279,7 @@ export const Brand = {
             placeholder="Filter display"
             label="Filter display"
             hide-label
+            full-width="true"
           ></ic-text-field>
           <ic-button variant="primary" style="margin-left: var(--ic-space-md)"
             >Filter</ic-button
