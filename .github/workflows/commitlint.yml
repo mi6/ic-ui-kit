@@ -1,0 +1,42 @@
+name: Commitlint
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+        with:
+          fetch-depth: 0
+      
+      - name: Setup node
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+        with:
+          node-version: 20
+
+      - name: Cache dependencies
+        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 #v4.2.0
+        with:
+          path: |
+            packages/*/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm run bootstrap -- -- --ci
+
+      - name: Lint commit messages
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+          echo "$COMMIT_MESSAGE" | npx commitlint
+
+      - name: Validate changed files in commit scope
+        env:
+          BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
+        run: node .github/scripts/scope-check.js

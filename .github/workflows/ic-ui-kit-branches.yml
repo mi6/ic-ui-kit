@@ -69,11 +69,6 @@ jobs:
         run: |
           npm run build:all
 
-      - name: Lint commit messages
-        run: |
-          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
-          echo "$COMMIT_MESSAGE" | npx commitlint
-
       - name: Lint
         run: npm run lint
 
