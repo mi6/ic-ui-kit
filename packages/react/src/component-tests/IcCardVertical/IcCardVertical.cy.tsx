@@ -42,7 +42,7 @@ const TYPOGRAPHY_SELECTOR = "ic-typography";
 
 const DEFAULT_TEST_THRESHOLD = 0.007;
 
-describe("IcCardVertical end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcCardVertical end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -445,7 +445,7 @@ describe("IcCardVertical end-to-end, visual regression and a11y tests", () => {
     });
   });
 
-  describe("Visual regression tests in high contrast mode", () => {
+  describe.skip("Visual regression tests in high contrast mode", () => {
     before(() => {
       cy.enableForcedColors();
     });

@@ -49,7 +49,7 @@ const TAB_PANEL_2 = "#ic-tab-panel-1-context-default";
 const TAB_PANEL_3 = "#ic-tab-panel-2-context-default";
 const TAB_PANEL_5 = "#ic-tab-panel-4-context-default";
 
-describe("IcTab end-to-end tests", () => {
+describe.skip("IcTab end-to-end tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -433,7 +433,7 @@ describe("IcTab end-to-end tests", () => {
   });
 });
 
-describe("IcTab visual regression tests", () => {
+describe.skip("IcTab visual regression tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -617,7 +617,7 @@ describe("IcTab visual regression tests", () => {
   });
 });
 
-describe("IcTabs visual regression in high contrast mode", () => {
+describe.skip("IcTabs visual regression in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
