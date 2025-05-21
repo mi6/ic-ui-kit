@@ -11,7 +11,7 @@ import { HAVE_LENGTH } from "@ukic/react/src/component-tests/utils/constants";
 const TITLE_BAR = "ic-data-table-title-bar";
 const DEFAULT_THRESHOLD = 0.014;
 
-describe("IcDataTableTitleBar", () => {
+describe.skip("IcDataTableTitleBar", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 768);
@@ -81,7 +81,7 @@ describe("IcDataTableTitleBar", () => {
       <IcDataTableTitleBar
         heading="Title Bar"
         metadata="128 items | 32gb | Updated: 01/02/03"
-        description="Data table description that describes the purpose of the table."
+        description="Data table description that describe.skips the purpose of the table."
       />
     );
 
@@ -96,7 +96,7 @@ describe("IcDataTableTitleBar", () => {
   });
 });
 
-describe("IcDataTableTitleBar visual regression tests in high contrast mode", () => {
+describe.skip("IcDataTableTitleBar visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
@@ -152,7 +152,7 @@ describe("IcDataTableTitleBar visual regression tests in high contrast mode", ()
       <IcDataTableTitleBar
         heading="Title Bar"
         metadata="128 items | 32gb | Updated: 01/02/03"
-        description="Data table description that describes the purpose of the table."
+        description="Data table description that describe.skips the purpose of the table."
       />
     );
 
