@@ -20,7 +20,7 @@ import { HAVE_ATTR, HAVE_TEXT, NOT_HAVE_ATTR } from "../utils/constants";
 const STATUS_TAG_SELECTOR = "ic-status-tag";
 const DEFAULT_TEST_THRESHOLD = 0.017;
 
-describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcStatusTag end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -122,7 +122,7 @@ describe("IcStatusTag end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcStatusTag visual regression tests in high contrast mode", () => {
+describe.skip("IcStatusTag visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

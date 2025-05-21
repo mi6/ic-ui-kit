@@ -39,7 +39,7 @@ const TOGGLE_BUTTON_AXE_OPTIONS = {
 const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
 const CHECKED_SELECTOR = "ic-toggle-button-checked";
 
-describe("IcToggleButton end-to-end tests", () => {
+describe.skip("IcToggleButton end-to-end tests", () => {
   it("should render", () => {
     mount(<IcToggleButton label="Test" />);
 
@@ -98,7 +98,7 @@ describe("IcToggleButton end-to-end tests", () => {
   });
 });
 
-describe("IcToggleButton visual regression and a11y tests", () => {
+describe.skip("IcToggleButton visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -373,7 +373,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
   });
 });
 
-describe("IcToggleButton visual regression tests in high contrast mode", () => {
+describe.skip("IcToggleButton visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

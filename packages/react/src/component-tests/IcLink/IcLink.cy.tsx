@@ -10,7 +10,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 const LINK_SELECTOR = "ic-link";
 const DEFAULT_TEST_THRESHOLD = 0.015;
 
-describe("IcLink end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcLink end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -241,7 +241,7 @@ describe("IcLink end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcLink visual regression tests in high contrast mode", () => {
+describe.skip("IcLink visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

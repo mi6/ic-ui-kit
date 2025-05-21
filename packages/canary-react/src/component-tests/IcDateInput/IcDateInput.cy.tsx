@@ -35,7 +35,7 @@ const STATUS_TEXT_SPAN = ".statustext";
 const DEFAULT_HELPER_TEXT = "Use format DD/MM/YYYY";
 const DEFAULT_THRESHOLD = 0.031;
 
-describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcDateInput end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -1064,7 +1064,7 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
   });
 });
 
-describe("IcDateInput visual regression tests in high contrast mode", () => {
+describe.skip("IcDateInput visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

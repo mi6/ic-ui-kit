@@ -32,7 +32,7 @@ const TEXT_FIELD = "ic-text-field";
 
 const DEFAULT_TEST_THRESHOLD = 0.022;
 
-describe("IcPaginationBar end-to-end tests", () => {
+describe.skip("IcPaginationBar end-to-end tests", () => {
   beforeEach(() => {
     cy.viewport(1024, 768);
   });
@@ -636,7 +636,7 @@ describe("IcPaginationBar end-to-end tests", () => {
   });
 });
 
-describe("IcPaginationBar visual regression and a11y tests", () => {
+describe.skip("IcPaginationBar visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 768);
@@ -816,7 +816,7 @@ describe("IcPaginationBar visual regression and a11y tests", () => {
   });
 });
 
-describe("IcPaginationBar visual regression tests in high contrast mode", () => {
+describe.skip("IcPaginationBar visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

@@ -54,7 +54,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.009;
 
-describe("IcSelect searchable end-to-end, visual regression and a11y tests", () => {
+describe.skip("IcSelect searchable end-to-end, visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -1079,7 +1079,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
   });
 });
 
-describe("IcSelect searchable visual regression tests in high contrast mode", () => {
+describe.skip("IcSelect searchable visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

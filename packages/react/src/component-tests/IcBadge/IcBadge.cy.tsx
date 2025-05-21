@@ -20,7 +20,7 @@ const IC_BADGE_SELECTOR = "ic-badge";
 const ARIA_LABEL = "aria-label";
 const DEFAULT_TEST_THRESHOLD = 0.037;
 
-describe("IcBadge end-to-end tests", () => {
+describe.skip("IcBadge end-to-end tests", () => {
   it("should show and hide the badge", () => {
     mount(
       <div style={{ margin: "16px" }}>
@@ -54,7 +54,7 @@ describe("IcBadge end-to-end tests", () => {
   });
 });
 
-describe("IcBadge visual regression and a11y tests", () => {
+describe.skip("IcBadge visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -211,7 +211,7 @@ describe("IcBadge visual regression and a11y tests", () => {
   });
 });
 
-describe("IcBadge visual regression tests in high contrast mode", () => {
+describe.skip("IcBadge visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });

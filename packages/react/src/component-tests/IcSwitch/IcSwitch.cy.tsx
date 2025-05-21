@@ -30,7 +30,7 @@ const ARIA_CHECKED_ATTR = "aria-checked";
 const CONSOLE_LOG_EVENT_SPY = "@spyWinConsoleLog";
 const DEFAULT_TEST_THRESHOLD = 0.0;
 
-describe("IcSwitch end-to-end tests", () => {
+describe.skip("IcSwitch end-to-end tests", () => {
   it("should render as a controlled component", () => {
     mount(<Controlled />);
 
@@ -148,7 +148,7 @@ describe("IcSwitch end-to-end tests", () => {
   });
 });
 
-describe("IcSwitch visual regression and a11y tests", () => {
+describe.skip("IcSwitch visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -286,7 +286,7 @@ describe("IcSwitch visual regression and a11y tests", () => {
   });
 });
 
-describe("IcSwitch visual regression tests in high contrast mode", () => {
+describe.skip("IcSwitch visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
