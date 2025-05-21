@@ -9,6 +9,7 @@ import {
   CONTAIN_TEXT,
   HAVE_ATTR,
   HAVE_BEEN_CALLED_ONCE,
+  HAVE_CSS,
   HAVE_FOCUS,
   HAVE_PROP,
   HAVE_VALUE,
@@ -327,6 +328,56 @@ describe("IcButton visual regression and a11y tests", () => {
     });
   });
 
+  it("should render text-based primary buttons in hover and pressed state", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcButton>Primary</IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgb(11, 57, 156)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/primary-pressed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+    });
+  });
+
+  it("should render text-based dark primary buttons in hover and pressed state", () => {
+    mount(
+      <div style={DARK_BG_STYLE}>
+        <IcButton theme="dark">Primary</IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgb(119, 180, 240)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/primary-pressed-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+    });
+  });
+
   it("should render text-based secondary buttons", () => {
     mount(<TextSecondaryButton />);
 
@@ -336,6 +387,58 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/secondary",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+    });
+  });
+
+  it("should render text-based secondary buttons in hover and pressed state", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcButton variant="secondary">Secondary</IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgba(23, 89, 188, 0.1)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/secondary-pressed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
+  });
+
+  it("should render text-based dark secondary buttons in hover and pressed state", () => {
+    mount(
+      <div style={DARK_BG_STYLE}>
+        <IcButton theme="dark" variant="secondary">
+          Secondary
+        </IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgba(23, 89, 188, 0.1)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/secondary-pressed-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -351,6 +454,58 @@ describe("IcButton visual regression and a11y tests", () => {
     });
   });
 
+  it("should render text-based tertiary buttons in hover and pressed state", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcButton variant="tertiary">Tertiary</IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgba(23, 89, 188, 0.1)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/tertiary-pressed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+
+  it("should render text-based dark tertiary buttons in hover and pressed state", () => {
+    mount(
+      <div style={DARK_BG_STYLE}>
+        <IcButton theme="dark" variant="tertiary">
+          Tertiary
+        </IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgba(23, 89, 188, 0.3)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/tertiary-pressed-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+  });
+
   it("should render text-based destructive buttons", () => {
     mount(<TextDestructiveButton />);
 
@@ -360,6 +515,58 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/destructive",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+    });
+  });
+
+  it("should render text-based destructive buttons in hover and pressed state", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcButton variant="destructive">Destructive</IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgb(173, 30, 14)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/destructive-pressed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+    });
+  });
+
+  it("should render text-based dark destructive buttons in hover and pressed state", () => {
+    mount(
+      <div style={DARK_BG_STYLE}>
+        <IcButton theme="dark" variant="destructive">
+          Destructive
+        </IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgb(241, 91, 78)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/destructive-pressed-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
 
@@ -495,6 +702,8 @@ describe("IcButton visual regression and a11y tests", () => {
         }
       }
     );
+
+    cy.get("body").realHover({ position: "bottomLeft" }); // Removes hover from upcoming tests, to not trigger the hover state unintentionally
 
     cy.checkA11yWithWait();
     cy.wait(500).compareSnapshot({
@@ -722,6 +931,166 @@ describe("IcButton visual regression and a11y tests", () => {
     });
   });
 
+  it("should render text-based monochrome primary buttons in hover and pressed state", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcButton monochrome>Primary</IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgb(44, 47, 52)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/primary-monochrome-pressed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
+    });
+  });
+
+  it("should render text-based dark monochrome primary buttons in hover and pressed state", () => {
+    mount(
+      <div style={DARK_BG_STYLE}>
+        <IcButton theme="dark" monochrome>
+          Primary
+        </IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgb(196, 200, 205)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/primary-monochrome-pressed-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+    });
+  });
+
+  it("should render text-based monochrome secondary buttons in hover and pressed state", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcButton monochrome variant="secondary">
+          Secondary
+        </IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgba(65, 70, 77, 0.1)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/secondary-monochrome-pressed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+
+  it("should render text-based dark monochrome secondary buttons in hover and pressed state", () => {
+    mount(
+      <div style={DARK_BG_STYLE}>
+        <IcButton theme="dark" monochrome variant="secondary">
+          Secondary
+        </IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgba(65, 70, 77, 0.1)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/secondary-monochrome-pressed-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
+    });
+  });
+
+  it("should render text-based monochrome tertiary buttons in hover and pressed state", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcButton monochrome variant="tertiary">
+          Tertiary
+        </IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgba(65, 70, 77, 0.1)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/tertiary-monochrome-pressed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+  });
+
+  it("should render text-based dark monochrome tertiary buttons in hover and pressed state", () => {
+    mount(
+      <div style={DARK_BG_STYLE}>
+        <IcButton theme="dark" monochrome variant="tertiary">
+          Tertiary
+        </IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).realHover();
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .should(HAVE_CSS, "background-color", "rgba(65, 70, 77, 0.1)");
+
+    cy.get(IC_BUTTON_SELECTOR).realMouseDown();
+
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/tertiary-monochrome-pressed-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+
   it("should render button with custom height and width", () => {
     mount(<CustomHeightMinWidth />);
 
@@ -832,6 +1201,8 @@ describe("IcButton visual regression tests in high contrast mode", () => {
     mount(<IconButtonGroup />);
 
     cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get("body").realHover({ position: "bottomLeft" }); // Removes hover from upcoming tests, to not trigger the hover state unintentionally
 
     cy.compareSnapshot({
       name: "/icon-variants-high-contrast",
