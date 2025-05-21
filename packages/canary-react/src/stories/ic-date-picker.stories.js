@@ -460,9 +460,19 @@ export const Playground = {
       },
     },
     startOfWeek: {
-      options: [0, 1, 2, 3, 4, 5, 6],
+      options: Object.keys(weekDays),
+      mapping: weekDays,
       control: {
-        type: "select",
+        type: "inline-radio", 
+        labels: {
+          Sunday: "Sunday",
+          Monday: "Monday",
+          Tuesday: "Tuesday",
+          Wednesday: "Wednesday",
+          Thursday: "Thursday",
+          Friday: "Friday",
+          Saturday: "Saturday",
+        },
       },
     },
     openAtDate: {
