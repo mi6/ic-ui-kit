@@ -1429,7 +1429,7 @@
           "detail": "{ row: IcDataTableDataType | null; selectedRows: IcDataTableDataType[]; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\r\n    row: IcDataTableDataType | null;\r\n    selectedRows: IcDataTableDataType[];\r\n  }",
+            "original": "{\n    row: IcDataTableDataType | null;\n    selectedRows: IcDataTableDataType[];\n  }",
             "resolved": "{ row: IcDataTableDataType | null; selectedRows: IcDataTableDataType[]; }",
             "references": {
               "IcDataTableDataType": {
@@ -4644,6 +4644,20 @@
       ],
       "events": [
         {
+          "event": "icTreeItemExpanded",
+          "detail": "{ isExpanded: boolean; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ isExpanded: boolean }",
+            "resolved": "{ isExpanded: boolean; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when tree item is expanded.",
+          "docsTags": []
+        },
+        {
           "event": "icTreeItemSelected",
           "detail": "{ id: string; }",
           "bubbles": true,
@@ -4979,7 +4993,7 @@
       "path": "../web-components/dist/types/interface.d.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\r\n  key: string;\r\n  title: string;\r\n  dataType: IcDataTableColumnDataTypes;\r\n  columnAlignment?: {\r\n    horizontal?: string;\r\n    vertical?: string;\r\n  };\r\n  rowOptions?: {\r\n    textWrap: boolean;\r\n  };\r\n  columnWidth?: string | IcDataTableColumnWidthTypes;\r\n  textWrap?: boolean;\r\n  cellAlignment?: string;\r\n  emphasis?: string;\r\n  colspan?: number;\r\n  icon?: {\r\n    icon: string;\r\n    onAllCells?: boolean;\r\n    hideOnHeader?: boolean;\r\n  };\r\n  excludeColumnFromSort?: boolean;\r\n}",
+      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: {\n    textWrap: boolean;\n  };\n  columnWidth?: string | IcDataTableColumnWidthTypes;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n  excludeColumnFromSort?: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -4999,12 +5013,12 @@
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
     "src/utils/types.ts::IcPaginationBarOptions": {
-      "declaration": "export interface IcPaginationBarOptions {\r\n  alignment?: IcPaginationAlignmentOptions;\r\n  hideAllFromItemsPerPage?: boolean;\r\n  hideRangeLabel?: boolean;\r\n  itemLabel?: string;\r\n  itemsPerPageOptions?: { label: string; value: string }[];\r\n  monochrome?: boolean;\r\n  pageLabel?: string;\r\n  rangeLabelType?: IcPaginationLabelTypes;\r\n  selectedItemsPerPage?: number;\r\n  setToFirstPageOnPaginationChange?: boolean;\r\n  showGoToPageControl?: boolean;\r\n  showItemsPerPageControl?: boolean;\r\n  theme?: IcThemeMode;\r\n  type?: IcPaginationTypes;\r\n}",
+      "declaration": "export interface IcPaginationBarOptions {\n  alignment?: IcPaginationAlignmentOptions;\n  hideAllFromItemsPerPage?: boolean;\n  hideRangeLabel?: boolean;\n  itemLabel?: string;\n  itemsPerPageOptions?: { label: string; value: string }[];\n  monochrome?: boolean;\n  pageLabel?: string;\n  rangeLabelType?: IcPaginationLabelTypes;\n  selectedItemsPerPage?: number;\n  setToFirstPageOnPaginationChange?: boolean;\n  showGoToPageControl?: boolean;\n  showItemsPerPageControl?: boolean;\n  theme?: IcThemeMode;\n  type?: IcPaginationTypes;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableSortOrderOptions": {
-      "declaration": "export type IcDataTableSortOrderOptions =\r\n  | \"unsorted\"\r\n  | \"ascending\"\r\n  | \"descending\";",
+      "declaration": "export type IcDataTableSortOrderOptions =\n  | \"unsorted\"\n  | \"ascending\"\n  | \"descending\";",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5019,7 +5033,7 @@
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcSortEventDetail": {
-      "declaration": "export interface IcSortEventDetail {\r\n  columnName: string;\r\n  sorted: IcDataTableSortOrderOptions;\r\n}",
+      "declaration": "export interface IcSortEventDetail {\n  columnName: string;\n  sorted: IcDataTableSortOrderOptions;\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5044,7 +5058,7 @@
       "path": "src/components/ic-pagination-bar/ic-pagination-bar.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDensityUpdateEventDetail": {
-      "declaration": "export interface IcDensityUpdateEventDetail {\r\n  value: IcDataTableDensityOptions;\r\n}",
+      "declaration": "export interface IcDensityUpdateEventDetail {\n  value: IcDataTableDensityOptions;\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -5054,7 +5068,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcWeekDays": {
-      "declaration": "export enum IcWeekDays {\r\n  Sunday = 0,\r\n  Monday = 1,\r\n  Tuesday = 2,\r\n  Wednesday = 3,\r\n  Thursday = 4,\r\n  Friday = 5,\r\n  Saturday = 6,\r\n}",
+      "declaration": "export enum IcWeekDays {\n  Sunday = 0,\n  Monday = 1,\n  Tuesday = 2,\n  Wednesday = 3,\n  Thursday = 4,\n  Friday = 5,\n  Saturday = 6,\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
