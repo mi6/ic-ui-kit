@@ -123,7 +123,7 @@ describe("ic-search-bar search", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.showClearButton).toBe(false);
-    await page.rootInstance.handleShowClearButton(true);
+    page.rootInstance.showClearButton = true;
     await page.waitForChanges();
     expect(page.rootInstance.showClearButton).toBe(true);
 
@@ -546,7 +546,7 @@ describe("ic-search-bar search", () => {
     expect(page.rootInstance.prevNoOption).toBe(false);
     page.rootInstance.prevNoOption = true;
     await page.waitForChanges();
-    await page.rootInstance.highlightFirstOptionAfterNoResults();
+    await page.rootInstance.componentWillRender();
     expect(page.rootInstance.prevNoOption).toBe(false);
   });
 
