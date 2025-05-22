@@ -59,7 +59,10 @@ export class TreeItem {
    * If `true`, the tree item appears in the expanded state.
    */
   @Prop({ mutable: true }) expanded: boolean = false;
-
+  @Watch("expanded")
+  watchExpandedHandler(): void {
+    this.icTreeItemExpanded.emit({ isExpanded: this.expanded });
+  }
   /**
    * @internal If `true`, the tree item will have an inset focus border.
    */
@@ -141,6 +144,11 @@ export class TreeItem {
    * Emitted when tree item is selected.
    */
   @Event() icTreeItemSelected: EventEmitter<{ id: string }>;
+
+  /**
+   * Emitted when tree item is expanded.
+   */
+  @Event() icTreeItemExpanded: EventEmitter<{ isExpanded: boolean }>;
 
   disconnectedCallback(): void {
     this.hostMutationObserver?.disconnect();
