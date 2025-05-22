@@ -47,40 +47,32 @@
 | `icChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date; }>` |
 
 
-## CSS Custom Properties
-
-| Name                       | Description              |
-| -------------------------- | ------------------------ |
-| `--ic-z-index-date-picker` | z-index of date picker.  |
-| `--input-width`            | Width of the input field |
-
-
 ## Dependencies
 
 ### Depends on
 
-- ic-button
 - [ic-date-input](../ic-date-input)
-- ic-typography
+- [ic-calendar](../ic-calendar)
 
 ### Graph
 ```mermaid
 graph TD;
-  ic-date-picker --> ic-button
   ic-date-picker --> ic-date-input
-  ic-date-picker --> ic-typography
-  ic-button --> ic-typography
-  ic-button --> ic-loading-indicator
-  ic-button --> ic-tooltip
-  ic-loading-indicator --> ic-typography
-  ic-tooltip --> ic-typography
+  ic-date-picker --> ic-calendar
   ic-date-input --> ic-input-container
   ic-date-input --> ic-input-label
   ic-date-input --> ic-input-component-container
   ic-date-input --> ic-button
   ic-date-input --> ic-input-validation
   ic-input-label --> ic-typography
+  ic-button --> ic-typography
+  ic-button --> ic-loading-indicator
+  ic-button --> ic-tooltip
+  ic-loading-indicator --> ic-typography
+  ic-tooltip --> ic-typography
   ic-input-validation --> ic-typography
+  ic-calendar --> ic-button
+  ic-calendar --> ic-typography
   style ic-date-picker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

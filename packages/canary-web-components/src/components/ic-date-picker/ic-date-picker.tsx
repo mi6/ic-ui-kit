@@ -12,7 +12,7 @@ import {
 } from "@stencil/core";
 import {
   createDate,
-  clampDate,
+  // clampDate,
   dateMatches,
   dateInRange,
   getMonthStart,
@@ -22,23 +22,17 @@ import {
   yearInRange,
 } from "../../utils/date-helpers";
 import {
-  stringEnumToArray,
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
 } from "../../utils/helpers";
 import {
   IcWeekDays,
-  IcShortDayNames,
-  IcDateInputMonths,
   IcDateFormat,
   IcSizes,
   IcInformationStatusOrEmpty,
   IcThemeMode,
 } from "../../utils/types";
-import chevron from "../../assets/chevron-icon.svg";
-import { DayButton } from "./ic-day-button";
-import { MonthPicker } from "./ic-month-picker";
-import { YearPicker } from "./ic-year-picker";
+// import chevron from "../../assets/chevron-icon.svg";
 
 const DEFAULT_DATE_FORMAT = "DD/MM/YYYY";
 const DEFAULT_DISABLE_DATES_FROM_NOW_MSG =
@@ -47,10 +41,28 @@ const DEFAULT_DISABLE_DATES_UNTIL_NOW_MSG =
   "Dates in the past are not allowed. Please select a date in the future.";
 const DEFAULT_DISABLE_DAYS_MSG =
   "The date you have selected is on a day of the week that is not allowed. Please select another date.";
-const FOCUS_TIMER = 100;
 const PICKER_HEIGHT_SMALL = 360;
 const PICKER_HEIGHT_DEFAULT = 400;
 const PICKER_HEIGHT_LARGE = 440;
+
+interface IcCalendarProps {
+  dateFormat?: IcDateFormat;
+  disabled?: boolean;
+  disableDays?: IcWeekDays[];
+  disableFuture?: boolean;
+  disablePast?: boolean;
+  max?: Date | string;
+  min?: Date | string;
+  open?: boolean;
+  openAtDate?: string | Date;
+  showClearButton?: boolean;
+  showDaysOutsideMonth?: boolean;
+  showTodayButton?: boolean;
+  size?: IcSizes;
+  startOfWeek: IcWeekDays;
+  theme?: IcThemeMode;
+  value?: Date | string | null | undefined;
+}
 
 interface IcDateInputProps {
   dateFormat?: IcDateFormat;
@@ -75,6 +87,7 @@ interface IcDateInputProps {
   showClearButton?: boolean;
   showCalendarButton?: boolean;
   size?: IcSizes;
+  theme?: IcThemeMode;
   value?: string | Date | null;
   validationStatus?: IcInformationStatusOrEmpty;
   validationText?: string;
@@ -88,27 +101,17 @@ interface IcDateInputProps {
   },
 })
 export class DatePicker {
+  // private calendarEl?: HTMLIcCalendarElement;
   private inputEl?: HTMLIcDateInputElement;
-  private clearButtonEl: HTMLIcButtonElement | null = null;
+  private calendarProps: IcCalendarProps;
   private dateInputProps: IcDateInputProps;
   private daysOfWeek: string[] = [];
   private dayButtonFocussed: boolean = false;
   private dayPickerKeyboardNav: boolean = false;
-  private decadeStart: number;
-  private decadeEnd: number;
   private dialogDescription: string = "";
-  private focusDay: boolean = true;
-  private focussedYearEl: HTMLIcButtonElement;
-  private liveRegionEl?: HTMLElement = undefined;
-  private monthButtonEl: HTMLIcButtonElement;
-  private monthNames: string[] = [];
   private monthInViewUpdateHandled: boolean = false;
   private myCalendarButtonClicked: boolean = false;
   private showPickerAbove: boolean = false;
-  private today = new Date();
-  private todayButtonEl: HTMLIcButtonElement | null = null;
-  private yearButtonEl: HTMLIcButtonElement;
-  private yearButtonFocussed: boolean = false;
 
   @Element() el: HTMLIcDatePickerElement;
 
@@ -136,6 +139,7 @@ export class DatePicker {
    */
   @Prop() dateFormat: IcDateFormat = "DD/MM/YYYY";
 
+  /* TODO: add to calendar? what does this do? */
   /**
    * If `true`, the disabled state will be set.
    */
@@ -235,6 +239,7 @@ export class DatePicker {
     } else {
       this.maxDate = createDate(this.max, this.dateFormat);
     }
+    console.log({ disableFuture: this.disableFuture, maxDate: this.maxDate });
   }
 
   /**
@@ -351,70 +356,25 @@ export class DatePicker {
         if (this.openAtDate !== "") {
           openAt = createDate(this.openAtDate, this.dateFormat);
         }
-        this.setFocussedDate(openAt);
+        console.log({ openAt });
+        // this.setFocussedDate(openAt);
       } else {
-        this.setFocussedDate(this.selectedDate);
+        // this.setFocussedDate(this.selectedDate);
       }
-      let dialogDesc = this.getMonthInViewText();
+      let dialogDesc = "";
       if (this.selectedDate === null) {
         dialogDesc += " No date selected.";
       }
       dialogDesc +=
         " Use arrow keys to change day. Press enter or space to select a date or press escape to close the picker";
       this.dialogDescription = dialogDesc;
-      setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
+
       document.addEventListener("click", this.handleDocumentClick);
     } else {
       document.removeEventListener("click", this.handleDocumentClick);
       this.monthPickerVisible = false;
       this.yearPickerVisible = false;
     }
-  }
-
-  @Watch("focussedDate")
-  watchFocussedDateHandler(current: Date, previous: Date): void {
-    if (
-      previous === null ||
-      !(
-        previous.getFullYear() === current.getFullYear() &&
-        previous.getMonth() === current.getMonth()
-      )
-    ) {
-      this.updateMonthInView();
-    }
-  }
-
-  @Watch("monthInView")
-  watchMonthInViewHandler(): void {
-    this.focussedMonth = this.monthInView;
-  }
-
-  @Watch("yearInView")
-  watchYearInViewHandler(): void {
-    this.setFocussedYear(this.yearInView, false);
-  }
-
-  @Watch("yearPickerVisible")
-  watchYearPickerVisibleHandler(): void {
-    if (!this.yearPickerVisible) {
-      this.setFocussedYear(this.yearInView);
-    }
-  }
-
-  @Watch("monthPickerVisible")
-  watchMonthPickerVisibleHandler(): void {
-    if (!this.monthPickerVisible) {
-      this.focussedMonth = this.monthInView;
-    }
-  }
-
-  @Watch("focussedDayEl")
-  watchFocussedDayEl(): void {
-    if (this.focusDay) {
-      setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
-    }
-
-    this.focusDay = true;
   }
 
   /**
@@ -428,9 +388,6 @@ export class DatePicker {
       "Date Picker"
     );
 
-    this.monthNames = stringEnumToArray(IcDateInputMonths);
-    this.daysOfWeek = stringEnumToArray(IcShortDayNames);
-
     this.watchStartOfWeekHandler();
     this.watchMaxHandler();
     this.watchMinHandler();
@@ -439,21 +396,21 @@ export class DatePicker {
 
   componentWillRender(): void {
     this.dateInputProps = this.setDateInputProps();
+    this.calendarProps = this.setCalendarProps();
   }
 
   componentWillUpdate(): void {
     this.dateInputProps = this.setDateInputProps();
+    this.calendarProps = this.setCalendarProps();
   }
 
   @Listen("calendarButtonClicked")
-  localCalendarButtonClickHandler(
-    ev: CustomEvent<{ value: Date | null }>
-  ): void {
+  localCalendarButtonClickHandler(): // ev: CustomEvent<{ value: Date | null }>
+  void {
     this.myCalendarButtonClicked = true;
-    if (!this.calendarOpen) {
-      this.setSelectedDate(ev.detail.value, false);
-    }
-
+    // if (!this.calendarOpen) {
+    //   this.setSelectedDate(ev.detail.value, false);
+    // }
     this.calendarOpen = !this.calendarOpen;
   }
 
@@ -466,39 +423,53 @@ export class DatePicker {
     this.myCalendarButtonClicked = false;
   }
 
-  private setDecadeView = (start: number) => {
-    let currYear = start - 1;
-    const decadeArr = [];
-    while (currYear <= start + 10) {
-      decadeArr.push(currYear);
-      currYear++;
-    }
-    this.decadeView = decadeArr;
-    this.decadeStart = decadeArr[1];
-    this.decadeEnd = decadeArr[10];
-  };
+  @Listen("icChange")
+  dateChangeHandler(ev: CustomEvent): void {
+    const path = ev.composedPath();
+    const sourceElement = path[0] as HTMLElement;
 
-  private setSelectedDate = (d: Date | null, emit = true): void => {
-    if (d === null || !dateMatches(d, this.selectedDate)) {
-      this.selectedDate = d;
-      this.value = d;
-      if (emit) {
-        this.inputEl?.triggerIcChange(d);
+    if (sourceElement.tagName === "IC-CALENDAR") {
+      if (
+        ev.detail.selectedDate === null ||
+        !dateMatches(ev.detail.selectedDate, this.selectedDate)
+      ) {
+        this.value = ev.detail.selectedDate;
+        // is this needed?
+        this.selectedDate = ev.detail.selectedDate;
+        this.inputEl?.triggerIcChange(ev.detail.selectedDate)
       }
+    } else if (
+      sourceElement.tagName === "IC-DATE-INPUT" &&
+      (ev.detail.value === null ||
+        !dateMatches(ev.detail.value, this.selectedDate))
+    ) {
+      this.selectedDate = ev.detail.value;
+      this.value = ev.detail.value;
+      this.openAtDate = ev.detail.value;
     }
-  };
+  }
 
-  private handleCalendarMouseDown = (event: MouseEvent): void => {
-    const target = event.target as HTMLElement;
-    if (target.tagName !== "IC-BUTTON") {
-      event.preventDefault();
-    }
-  };
+  // private setSelectedDate = (d: Date | null, emit = true): void => {
+  //   if (d === null || !dateMatches(d, this.selectedDate)) {
+  //     this.selectedDate = d;
+  //     this.value = d;
+  //     if (emit) {
+  //       this.inputEl?.triggerIcChange(d);
+  //     }
+  //   }
+  // };
 
-  private handleCalendarClick = (event: MouseEvent): void => {
-    this.clearDialogDescription();
-    event.stopImmediatePropagation();
-  };
+  // private handleCalendarMouseDown = (event: MouseEvent): void => {
+  //   const target = event.target as HTMLElement;
+  //   if (target.tagName !== "IC-BUTTON") {
+  //     event.preventDefault();
+  //   }
+  // };
+
+  // private handleCalendarClick = (event: MouseEvent): void => {
+  //   this.clearDialogDescription();
+  //   event.stopImmediatePropagation();
+  // };
 
   private handleDocumentClick = (): void => {
     this.calendarOpen = false;
@@ -521,259 +492,176 @@ export class DatePicker {
     this.calendarOpen = false;
   };
 
-  private focusFirstElement = () => {
-    this.monthButtonEl.setFocus();
-  };
+  // private focusFirstElement = () => {
+  //   this.monthButtonEl.setFocus();
+  // };
 
-  private focusLastElement = () => {
-    if (
-      this.showPickerClearButton &&
-      this.clearButtonEl &&
-      !this.clearButtonEl.disabled
-    ) {
-      this.clearButtonEl.setFocus();
-    } else if (
-      this.showPickerTodayButton &&
-      this.todayButtonEl &&
-      !this.todayButtonEl.disabled
-    ) {
-      this.todayButtonEl.setFocus();
-    } else if (this.monthPickerVisible) {
-      this.focussedMonthEl.setFocus();
-    } else if (this.yearPickerVisible) {
-      this.focussedYearEl.setFocus();
-    } else {
-      this.focussedDayEl.focus();
-    }
-  };
+  // private focusLastElement = () => {
+  //   if (
+  //     this.showPickerClearButton &&
+  //     this.clearButtonEl &&
+  //     !this.clearButtonEl.disabled
+  //   ) {
+  //     this.clearButtonEl.setFocus();
+  //   } else if (
+  //     this.showPickerTodayButton &&
+  //     this.todayButtonEl &&
+  //     !this.todayButtonEl.disabled
+  //   ) {
+  //     this.todayButtonEl.setFocus();
+  //   } else if (this.monthPickerVisible) {
+  //     this.focussedMonthEl.setFocus();
+  //   } else if (this.yearPickerVisible) {
+  //     this.focussedYearEl.setFocus();
+  //   } else {
+  //     this.focussedDayEl.focus();
+  //   }
+  // };
 
-  private focusFocussedDay = () => {
-    this.focussedDayEl.focus();
-  };
+  // private focusFocussedDay = () => {
+  //   this.focussedDayEl.focus();
+  // };
 
-  private monthButtonClickHandler = () => {
-    this.yearPickerVisible = false;
-    this.focusDay = false;
-    this.monthPickerVisible = !this.monthPickerVisible;
-    if (this.monthPickerVisible) {
-      this.setAriaLiveRegionText("Month picker view open");
-    } else {
-      this.setMonthSelectedLiveRegionText();
-    }
-  };
+  // private monthButtonClickHandler = () => {
+  //   this.yearPickerVisible = false;
+  //   this.focusDay = false;
+  //   this.monthPickerVisible = !this.monthPickerVisible;
+  //   if (this.monthPickerVisible) {
+  //     this.setAriaLiveRegionText("Month picker view open");
+  //   } else {
+  //     this.setMonthSelectedLiveRegionText();
+  //   }
+  // };
 
-  private yearButtonClickHandler = () => {
-    this.monthPickerVisible = false;
-    this.focusDay = false;
-    this.yearPickerVisible = !this.yearPickerVisible;
-    if (this.yearPickerVisible) {
-      this.setAriaLiveRegionText(
-        `Year picker view open. ${this.getDecadeInViewText()}`
-      );
-    } else {
-      this.setYearSelectedLiveRegionText();
-    }
-  };
+  // private yearButtonClickHandler = () => {
+  //   this.monthPickerVisible = false;
+  //   this.focusDay = false;
+  //   this.yearPickerVisible = !this.yearPickerVisible;
+  //   if (this.yearPickerVisible) {
+  //     this.setAriaLiveRegionText(
+  //       `Year picker view open. ${this.getDecadeInViewText()}`
+  //     );
+  //   } else {
+  //     this.setYearSelectedLiveRegionText();
+  //   }
+  // };
 
-  private todayButtonClickHandler = () => {
-    this.yearPickerVisible = false;
-    this.monthPickerVisible = false;
-    this.setFocussedDate(new Date());
-    this.setAriaLiveRegionText(this.getMonthInViewText());
+  // private todayButtonClickHandler = () => {
+  //   this.yearPickerVisible = false;
+  //   this.monthPickerVisible = false;
+  //   this.setFocussedDate(new Date());
+  //   this.setAriaLiveRegionText(this.getMonthInViewText());
 
-    setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
-  };
+  //   setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
+  // };
 
-  private todayButtonKeyDownHandler = (ev: KeyboardEvent) => {
-    if (ev.key === "Tab" && !ev.shiftKey && this.clearButtonEl?.disabled) {
-      this.focusFirstElement();
-      ev.preventDefault();
-    }
-  };
+  // private todayButtonKeyDownHandler = (ev: KeyboardEvent) => {
+  //   if (ev.key === "Tab" && !ev.shiftKey && this.clearButtonEl?.disabled) {
+  //     this.focusFirstElement();
+  //     ev.preventDefault();
+  //   }
+  // };
 
-  private clearButtonClickHandler = () => {
-    this.setSelectedDate(null);
-    let text = "Selected date cleared.";
-    if (!this.monthPickerVisible && !this.yearPickerVisible) {
-      text += ` ${this.getMonthInViewText()}`;
-    }
-    if (this.monthPickerVisible) {
-      this.focussedMonthEl.setFocus();
-    } else if (this.yearPickerVisible) {
-      this.focussedYearEl.setFocus();
-    } else {
-      this.focusFocussedDay();
-    }
-    this.setAriaLiveRegionText(text);
-  };
+  // private clearButtonClickHandler = () => {
+  //   this.setSelectedDate(null);
+  //   let text = "Selected date cleared.";
+  //   if (!this.monthPickerVisible && !this.yearPickerVisible) {
+  //     text += ` ${this.getMonthInViewText()}`;
+  //   }
+  //   if (this.monthPickerVisible) {
+  //     this.focussedMonthEl.setFocus();
+  //   } else if (this.yearPickerVisible) {
+  //     this.focussedYearEl.setFocus();
+  //   } else {
+  //     this.focusFocussedDay();
+  //   }
+  //   this.setAriaLiveRegionText(text);
+  // };
 
-  private setMonthSelectedLiveRegionText = () => {
-    this.setAriaLiveRegionText(
-      `${
-        this.monthNames[this.monthInView]
-      } selected. ${this.getMonthInViewText()}`
-    );
-  };
+  // private setMonthSelectedLiveRegionText = () => {
+  //   this.setAriaLiveRegionText(
+  //     `${
+  //       this.monthNames[this.monthInView]
+  //     } selected. ${this.getMonthInViewText()}`
+  //   );
+  // };
 
-  private setYearSelectedLiveRegionText = () => {
-    this.setAriaLiveRegionText(
-      `${this.yearInView} selected. ${this.getMonthInViewText()}`
-    );
-  };
-
-  private getMonthInViewText = () => {
-    return `${this.monthNames[this.monthInView]} ${
-      this.yearInView
-    } currently in view.`;
-  };
-
-  private getDecadeInViewText = () => {
-    return `${this.decadeStart} to ${this.decadeEnd} currently in view.`;
-  };
-
-  private setAriaLiveRegionText = (text: string) => {
-    this.liveRegionEl && (this.liveRegionEl.innerText = text);
-  };
+  // private setYearSelectedLiveRegionText = () => {
+  //   this.setAriaLiveRegionText(
+  //     `${this.yearInView} selected. ${this.getMonthInViewText()}`
+  //   );
+  // };
 
   private clearDialogDescription = () => {
     this.dialogDescription = "";
   };
 
-  private clearButtonKeyDownHandler = (ev: KeyboardEvent) => {
-    if (ev.key === "Tab" && !ev.shiftKey) {
-      this.focusFirstElement();
-      ev.preventDefault();
-    }
-  };
+  // private clearButtonKeyDownHandler = (ev: KeyboardEvent) => {
+  //   if (ev.key === "Tab" && !ev.shiftKey) {
+  //     this.focusFirstElement();
+  //     ev.preventDefault();
+  //   }
+  // };
 
-  private goToPreviousMonth = (focusDay = false) => {
-    this.focusDay = focusDay;
-    this.moveMonths(-1);
-  };
+  // private goToPreviousMonth = (focusDay = false) => {
+  //   this.focusDay = focusDay;
+  //   this.moveMonths(-1);
+  // };
 
-  private goToNextMonth = (focusDay = false) => {
-    this.focusDay = focusDay;
-    this.moveMonths(1);
-  };
+  // private goToNextMonth = (focusDay = false) => {
+  //   this.focusDay = focusDay;
+  //   this.moveMonths(1);
+  // };
 
-  private goToPreviousYear = (focusDay = false) => {
-    if (this.isPrevYearAllowed()) {
-      this.focusDay = focusDay;
-      this.moveYears(-1);
-    }
-  };
+  // private goToPreviousYear = (focusDay = false) => {
+  //   if (this.isPrevYearAllowed()) {
+  //     this.focusDay = focusDay;
+  //     this.moveYears(-1);
+  //   }
+  // };
 
-  private goToNextYear = (focusDay = false) => {
-    if (this.isNextYearAllowed()) {
-      this.focusDay = focusDay;
-      this.moveYears(1);
-    }
-  };
+  // private goToNextYear = (focusDay = false) => {
+  //   if (this.isNextYearAllowed()) {
+  //     this.focusDay = focusDay;
+  //     this.moveYears(1);
+  //   }
+  // };
 
-  private navButtonMouseDownHandler = (ev: MouseEvent): void => {
-    ev.preventDefault();
-  };
+  // private navButtonMouseDownHandler = (ev: MouseEvent): void => {
+  //   ev.preventDefault();
+  // };
 
-  private renderMonthYearNavButton = (
-    id: string,
-    flip: boolean,
-    disabled: boolean
-  ): void => {
-    const buttonSize = this.size;
-    return (
-      <div aria-hidden="true">
-        <ic-button
-          id={id}
-          disableTooltip={true}
-          disabled={disabled}
-          onClick={this.monthYearNavClickHandler}
-          class={{ flip: flip }}
-          variant="icon-tertiary"
-          innerHTML={chevron}
-          size={buttonSize}
-          tabIndex={-1}
-          aria-hidden="true"
-          onMouseDown={this.navButtonMouseDownHandler}
-        />
-      </div>
-    );
-  };
+  // private monthYearNavClickHandler = (ev: Event): void => {
+  //   const target = ev.target as Element;
+  //   switch (target.id) {
+  //     case "previous-month-button":
+  //       this.goToPreviousMonth(this.dayButtonFocussed);
+  //       break;
 
-  private monthYearNavClickHandler = (ev: Event): void => {
-    const target = ev.target as Element;
-    switch (target.id) {
-      case "previous-month-button":
-        this.goToPreviousMonth(this.dayButtonFocussed);
-        break;
+  //     case "next-month-button":
+  //       this.goToNextMonth(this.dayButtonFocussed);
+  //       break;
 
-      case "next-month-button":
-        this.goToNextMonth(this.dayButtonFocussed);
-        break;
+  //     case "previous-year-button":
+  //       this.goToPreviousYear(this.dayButtonFocussed);
+  //       break;
 
-      case "previous-year-button":
-        this.goToPreviousYear(this.dayButtonFocussed);
-        break;
+  //     case "next-year-button":
+  //       this.goToNextYear(this.dayButtonFocussed);
+  //       break;
+  //   }
+  // };
 
-      case "next-year-button":
-        this.goToNextYear(this.dayButtonFocussed);
-        break;
-    }
-  };
+  // private isPrevYearAllowed = (): boolean => {
+  //   return this.isYearAllowed(this.yearInView - 1);
+  // };
 
-  private previousMonthButton = (): void => {
-    let disabled = false;
-    if (this.focussedDate !== null && this.minDate !== null) {
-      const yearMatch =
-        this.focussedDate.getFullYear() === this.minDate.getFullYear();
-      if (yearMatch) {
-        disabled = this.monthInView - 1 < this.minDate.getMonth();
-      }
-    }
-    return this.renderMonthYearNavButton(
-      "previous-month-button",
-      true,
-      disabled
-    );
-  };
+  // private isNextYearAllowed = (): boolean => {
+  //   return this.isYearAllowed(this.yearInView + 1);
+  // };
 
-  private nextMonthButton = (): void => {
-    let disabled = false;
-    if (this.focussedDate !== null && this.maxDate !== null) {
-      const yearMatch =
-        this.focussedDate.getFullYear() === this.maxDate.getFullYear();
-      if (yearMatch) {
-        disabled = this.monthInView + 1 > this.maxDate.getMonth();
-      }
-    }
-    return this.renderMonthYearNavButton("next-month-button", false, disabled);
-  };
-
-  private previousYearButton = (): void => {
-    return this.renderMonthYearNavButton(
-      "previous-year-button",
-      true,
-      !this.isPrevYearAllowed()
-    );
-  };
-
-  private nextYearButton = (): void => {
-    return this.renderMonthYearNavButton(
-      "next-year-button",
-      false,
-      !this.isNextYearAllowed()
-    );
-  };
-
-  private isPrevYearAllowed = (): boolean => {
-    return this.isYearAllowed(this.yearInView - 1);
-  };
-
-  private isNextYearAllowed = (): boolean => {
-    return this.isYearAllowed(this.yearInView + 1);
-  };
-
-  private isYearAllowed = (yr: number): boolean =>
-    yearInRange(yr, this.minDate, this.maxDate);
+  // private isYearAllowed = (yr: number): boolean =>
+  //   yearInRange(yr, this.minDate, this.maxDate);
 
   private getMonthView = (date: Date): Date[] => {
     const start = getWeekStart(getMonthStart(date), this.startOfWeek);
@@ -793,13 +681,6 @@ export class DatePicker {
     return days;
   };
 
-  private isCurrentMonth = (): boolean => {
-    const d = new Date();
-    return (
-      d.getFullYear() === this.yearInView && d.getMonth() === this.monthInView
-    );
-  };
-
   private updateMonthInView = (): void => {
     if (this.focussedDate) {
       this.currMonthView = this.getMonthView(this.focussedDate);
@@ -810,340 +691,339 @@ export class DatePicker {
 
       if (this.dayPickerKeyboardNav) {
         this.monthInViewUpdateHandled = true;
-        this.setAriaLiveRegionText(this.getMonthInViewText());
         this.dayPickerKeyboardNav = false;
       }
     }
   };
 
-  private handleSelectDay = (day: Date): void => {
-    this.setSelectedDate(day);
-    this.calendarOpen = false;
-    this.inputEl?.setCalendarFocus();
-  };
+  // private handleSelectDay = (day: Date): void => {
+  //   this.setSelectedDate(day);
+  //   this.calendarOpen = false;
+  //   this.inputEl?.setCalendarFocus();
+  // };
 
-  private handleSelectMonth = (month: number): void => {
-    this.moveMonths(month - this.monthInView);
-    setTimeout(() => {
-      this.monthButtonEl.setFocus();
-      this.monthPickerVisible = false;
-      this.setMonthSelectedLiveRegionText();
-    }, FOCUS_TIMER);
-  };
+  // private handleSelectMonth = (month: number): void => {
+  //   this.moveMonths(month - this.monthInView);
+  //   setTimeout(() => {
+  //     this.monthButtonEl.setFocus();
+  //     this.monthPickerVisible = false;
+  //     this.setMonthSelectedLiveRegionText();
+  //   }, FOCUS_TIMER);
+  // };
 
-  private handleSelectYear = (year: number): void => {
-    const yrPos = this.decadeView.indexOf(year);
-    if (yrPos > 0 && yrPos < this.decadeView.length - 1) {
-      this.moveYears(year - this.yearInView);
-      this.focusDay = false;
-      const monthName = this.monthNames[this.monthInView];
-      this.setAriaLiveRegionText(
-        `${year} selected. ${monthName} ${year} currently in view.`
-      );
-      setTimeout(() => {
-        this.yearButtonEl.setFocus();
-        this.yearPickerVisible = false;
-      }, FOCUS_TIMER);
-    } else {
-      const moveYears = year - this.focussedYear > 0 ? 10 : -10;
-      this.updateFocussedYear(moveYears, this.yearButtonFocussed);
-      this.setAriaLiveRegionText(this.getDecadeInViewText());
-    }
-  };
+  // private handleSelectYear = (year: number): void => {
+  //   const yrPos = this.decadeView.indexOf(year);
+  //   if (yrPos > 0 && yrPos < this.decadeView.length - 1) {
+  //     this.moveYears(year - this.yearInView);
+  //     this.focusDay = false;
+  //     const monthName = this.monthNames[this.monthInView];
+  //     this.setAriaLiveRegionText(
+  //       `${year} selected. ${monthName} ${year} currently in view.`
+  //     );
+  //     setTimeout(() => {
+  //       this.yearButtonEl.setFocus();
+  //       this.yearPickerVisible = false;
+  //     }, FOCUS_TIMER);
+  //   } else {
+  //     const moveYears = year - this.focussedYear > 0 ? 10 : -10;
+  //     this.updateFocussedYear(moveYears, this.yearButtonFocussed);
+  //     this.setAriaLiveRegionText(this.getDecadeInViewText());
+  //   }
+  // };
 
-  private monthPickerKeyDownHandler = (ev: KeyboardEvent): void => {
-    let handled = true;
-    switch (ev.key) {
-      case "ArrowUp":
-      case "ArrowLeft":
-        this.updateFocussedMonth(-1);
-        break;
+  // private monthPickerKeyDownHandler = (ev: KeyboardEvent): void => {
+  //   let handled = true;
+  //   switch (ev.key) {
+  //     case "ArrowUp":
+  //     case "ArrowLeft":
+  //       this.updateFocussedMonth(-1);
+  //       break;
 
-      case "ArrowDown":
-      case "ArrowRight":
-        this.updateFocussedMonth(1);
-        break;
+  //     case "ArrowDown":
+  //     case "ArrowRight":
+  //       this.updateFocussedMonth(1);
+  //       break;
 
-      case "Home":
-        this.updateFocussedMonth(-this.focussedMonth);
-        break;
+  //     case "Home":
+  //       this.updateFocussedMonth(-this.focussedMonth);
+  //       break;
 
-      case "End":
-        this.updateFocussedMonth(11 - this.focussedMonth);
-        break;
+  //     case "End":
+  //       this.updateFocussedMonth(11 - this.focussedMonth);
+  //       break;
 
-      case "Tab":
-        handled = this.calendarTabHandler(ev);
-        break;
+  //     case "Tab":
+  //       handled = this.calendarTabHandler(ev);
+  //       break;
 
-      case "Escape":
-        ev.stopImmediatePropagation();
-        this.monthPickerVisible = false;
-        setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
-        break;
+  //     case "Escape":
+  //       ev.stopImmediatePropagation();
+  //       this.monthPickerVisible = false;
+  //       setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
+  //       break;
 
-      default:
-        handled = false;
-    }
+  //     default:
+  //       handled = false;
+  //   }
 
-    if (handled) {
-      ev.preventDefault();
-    }
-  };
+  //   if (handled) {
+  //     ev.preventDefault();
+  //   }
+  // };
 
-  private yearPickerKeyDownHandler = (ev: KeyboardEvent): void => {
-    let handled = true;
-    switch (ev.key) {
-      case "ArrowUp":
-      case "ArrowLeft":
-        this.updateFocussedYear(-1);
-        break;
+  // private yearPickerKeyDownHandler = (ev: KeyboardEvent): void => {
+  //   let handled = true;
+  //   switch (ev.key) {
+  //     case "ArrowUp":
+  //     case "ArrowLeft":
+  //       this.updateFocussedYear(-1);
+  //       break;
 
-      case "ArrowDown":
-      case "ArrowRight":
-        this.updateFocussedYear(1);
-        break;
+  //     case "ArrowDown":
+  //     case "ArrowRight":
+  //       this.updateFocussedYear(1);
+  //       break;
 
-      case "Home":
-        if (this.focussedYear > this.decadeStart) {
-          this.updateFocussedYear(this.decadeStart - this.focussedYear);
-        }
-        break;
+  //     case "Home":
+  //       if (this.focussedYear > this.decadeStart) {
+  //         this.updateFocussedYear(this.decadeStart - this.focussedYear);
+  //       }
+  //       break;
 
-      case "End":
-        if (this.focussedYear < this.decadeEnd) {
-          this.updateFocussedYear(this.decadeEnd - this.focussedYear);
-        }
-        break;
+  //     case "End":
+  //       if (this.focussedYear < this.decadeEnd) {
+  //         this.updateFocussedYear(this.decadeEnd - this.focussedYear);
+  //       }
+  //       break;
 
-      case "PageUp":
-        this.updateFocussedYear(-10);
-        break;
+  //     case "PageUp":
+  //       this.updateFocussedYear(-10);
+  //       break;
 
-      case "PageDown":
-        this.updateFocussedYear(10);
-        break;
+  //     case "PageDown":
+  //       this.updateFocussedYear(10);
+  //       break;
 
-      case "Tab":
-        handled = this.calendarTabHandler(ev);
-        break;
+  //     case "Tab":
+  //       handled = this.calendarTabHandler(ev);
+  //       break;
 
-      case "Escape":
-        ev.stopImmediatePropagation();
-        this.yearPickerVisible = false;
-        setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
-        break;
+  //     case "Escape":
+  //       ev.stopImmediatePropagation();
+  //       this.yearPickerVisible = false;
+  //       setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
+  //       break;
 
-      default:
-        handled = false;
-    }
+  //     default:
+  //       handled = false;
+  //   }
 
-    if (handled) {
-      ev.preventDefault();
-    }
-  };
+  //   if (handled) {
+  //     ev.preventDefault();
+  //   }
+  // };
 
-  private onYearButtonFocusHandler = () => {
-    this.yearButtonFocussed = true;
-  };
+  // private onYearButtonFocusHandler = () => {
+  //   this.yearButtonFocussed = true;
+  // };
 
-  private onYearButtonBlurHandler = () => {
-    this.yearButtonFocussed = false;
-  };
+  // private onYearButtonBlurHandler = () => {
+  //   this.yearButtonFocussed = false;
+  // };
 
-  private monthButtonKeyDownHandler = (ev: KeyboardEvent): void => {
-    let handled = false;
-    switch (ev.key) {
-      case "ArrowLeft":
-      case "ArrowUp":
-        handled = true;
-        this.goToPreviousMonth();
-        break;
+  // private monthButtonKeyDownHandler = (ev: KeyboardEvent): void => {
+  //   let handled = false;
+  //   switch (ev.key) {
+  //     case "ArrowLeft":
+  //     case "ArrowUp":
+  //       handled = true;
+  //       this.goToPreviousMonth();
+  //       break;
 
-      case "ArrowRight":
-      case "ArrowDown":
-        handled = true;
-        this.goToNextMonth();
-        break;
+  //     case "ArrowRight":
+  //     case "ArrowDown":
+  //       handled = true;
+  //       this.goToNextMonth();
+  //       break;
 
-      case "Home":
-        handled = true;
-        this.focusDay = false;
-        this.moveMonths(-this.monthInView);
-        break;
+  //     case "Home":
+  //       handled = true;
+  //       this.focusDay = false;
+  //       this.moveMonths(-this.monthInView);
+  //       break;
 
-      case "End":
-        handled = true;
-        this.focusDay = false;
-        this.moveMonths(11 - this.monthInView);
-        break;
+  //     case "End":
+  //       handled = true;
+  //       this.focusDay = false;
+  //       this.moveMonths(11 - this.monthInView);
+  //       break;
 
-      case "Tab":
-        if (ev.shiftKey) {
-          handled = true;
-          this.focusLastElement();
-        }
-        break;
+  //     case "Tab":
+  //       if (ev.shiftKey) {
+  //         handled = true;
+  //         this.focusLastElement();
+  //       }
+  //       break;
 
-      case "Escape":
-        if (this.monthPickerVisible) {
-          this.monthPickerVisible = false;
-          ev.stopImmediatePropagation();
-        }
-        break;
+  //     case "Escape":
+  //       if (this.monthPickerVisible) {
+  //         this.monthPickerVisible = false;
+  //         ev.stopImmediatePropagation();
+  //       }
+  //       break;
 
-      default:
-        break;
-    }
+  //     default:
+  //       break;
+  //   }
 
-    if (handled) {
-      ev.preventDefault();
-    }
-  };
+  //   if (handled) {
+  //     ev.preventDefault();
+  //   }
+  // };
 
-  private yearButtonKeyDownHandler = (ev: KeyboardEvent): void => {
-    let handled = false;
-    switch (ev.key) {
-      case "ArrowLeft":
-      case "ArrowUp":
-        handled = true;
-        this.goToPreviousYear();
-        break;
+  // private yearButtonKeyDownHandler = (ev: KeyboardEvent): void => {
+  //   let handled = false;
+  //   switch (ev.key) {
+  //     case "ArrowLeft":
+  //     case "ArrowUp":
+  //       handled = true;
+  //       this.goToPreviousYear();
+  //       break;
 
-      case "ArrowRight":
-      case "ArrowDown":
-        handled = true;
-        this.goToNextYear();
-        break;
+  //     case "ArrowRight":
+  //     case "ArrowDown":
+  //       handled = true;
+  //       this.goToNextYear();
+  //       break;
 
-      case "Home":
-        if (this.yearPickerVisible && this.yearInView > this.decadeStart) {
-          handled = true;
-          this.moveYears(this.decadeStart - this.yearInView);
-        }
-        break;
+  //     case "Home":
+  //       if (this.yearPickerVisible && this.yearInView > this.decadeStart) {
+  //         handled = true;
+  //         this.moveYears(this.decadeStart - this.yearInView);
+  //       }
+  //       break;
 
-      case "End":
-        if (this.yearPickerVisible && this.yearInView < this.decadeEnd) {
-          handled = true;
-          this.moveYears(this.decadeEnd - this.focussedYear);
-        }
-        break;
+  //     case "End":
+  //       if (this.yearPickerVisible && this.yearInView < this.decadeEnd) {
+  //         handled = true;
+  //         this.moveYears(this.decadeEnd - this.focussedYear);
+  //       }
+  //       break;
 
-      case "PageUp":
-        handled = true;
-        this.focusDay = false;
-        this.moveYears(-10);
-        break;
+  //     case "PageUp":
+  //       handled = true;
+  //       this.focusDay = false;
+  //       this.moveYears(-10);
+  //       break;
 
-      case "PageDown":
-        handled = true;
-        this.focusDay = false;
-        this.moveYears(10);
-        break;
+  //     case "PageDown":
+  //       handled = true;
+  //       this.focusDay = false;
+  //       this.moveYears(10);
+  //       break;
 
-      case "Escape":
-        if (this.yearPickerVisible) {
-          this.yearPickerVisible = false;
-          ev.stopImmediatePropagation();
-        }
-        break;
+  //     case "Escape":
+  //       if (this.yearPickerVisible) {
+  //         this.yearPickerVisible = false;
+  //         ev.stopImmediatePropagation();
+  //       }
+  //       break;
 
-      default:
-        break;
-    }
+  //     default:
+  //       break;
+  //   }
 
-    if (handled) {
-      ev.preventDefault();
-    }
-  };
+  //   if (handled) {
+  //     ev.preventDefault();
+  //   }
+  // };
 
-  private handleCalendarKeyDown = (ev: KeyboardEvent): void => {
-    let handled = true;
-    switch (ev.key) {
-      case "ArrowDown":
-        this.dayPickerKeyboardNav = true;
-        this.moveDays(7);
-        break;
+  // private handleCalendarKeyDown = (ev: KeyboardEvent): void => {
+  //   let handled = true;
+  //   switch (ev.key) {
+  //     case "ArrowDown":
+  //       this.dayPickerKeyboardNav = true;
+  //       this.moveDays(7);
+  //       break;
 
-      case "ArrowUp":
-        this.dayPickerKeyboardNav = true;
-        this.moveDays(-7);
-        break;
+  //     case "ArrowUp":
+  //       this.dayPickerKeyboardNav = true;
+  //       this.moveDays(-7);
+  //       break;
 
-      case "ArrowLeft":
-        this.dayPickerKeyboardNav = true;
-        if (this.focussedDate)
-          this.moveDays(-1 * this.getNextDayToFocus(this.focussedDate, false));
-        break;
+  //     case "ArrowLeft":
+  //       this.dayPickerKeyboardNav = true;
+  //       if (this.focussedDate)
+  //         this.moveDays(-1 * this.getNextDayToFocus(this.focussedDate, false));
+  //       break;
 
-      case "ArrowRight":
-        this.dayPickerKeyboardNav = true;
-        if (this.focussedDate)
-          this.moveDays(this.getNextDayToFocus(this.focussedDate, true));
-        break;
+  //     case "ArrowRight":
+  //       this.dayPickerKeyboardNav = true;
+  //       if (this.focussedDate)
+  //         this.moveDays(this.getNextDayToFocus(this.focussedDate, true));
+  //       break;
 
-      case "PageUp":
-        this.dayPickerKeyboardNav = true;
-        ev.shiftKey ? this.moveYears(-1) : this.moveMonths(-1);
-        break;
+  //     case "PageUp":
+  //       this.dayPickerKeyboardNav = true;
+  //       ev.shiftKey ? this.moveYears(-1) : this.moveMonths(-1);
+  //       break;
 
-      case "PageDown":
-        this.dayPickerKeyboardNav = true;
-        ev.shiftKey ? this.moveYears(1) : this.moveMonths(1);
-        break;
+  //     case "PageDown":
+  //       this.dayPickerKeyboardNav = true;
+  //       ev.shiftKey ? this.moveYears(1) : this.moveMonths(1);
+  //       break;
 
-      case "Home":
-        this.dayPickerKeyboardNav = true;
-        this.setFocussedDate(
-          new Date(this.focussedYear, this.focussedMonth, 1)
-        );
-        break;
+  //     case "Home":
+  //       this.dayPickerKeyboardNav = true;
+  //       this.setFocussedDate(
+  //         new Date(this.focussedYear, this.focussedMonth, 1)
+  //       );
+  //       break;
 
-      case "End":
-        this.dayPickerKeyboardNav = true;
-        this.setFocussedDate(
-          new Date(this.focussedYear, this.focussedMonth + 1, 0)
-        );
-        break;
+  //     case "End":
+  //       this.dayPickerKeyboardNav = true;
+  //       this.setFocussedDate(
+  //         new Date(this.focussedYear, this.focussedMonth + 1, 0)
+  //       );
+  //       break;
 
-      case "Tab":
-        handled = this.calendarTabHandler(ev);
-        break;
+  //     case "Tab":
+  //       handled = this.calendarTabHandler(ev);
+  //       break;
 
-      default:
-        handled = false;
-        break;
-    }
+  //     default:
+  //       handled = false;
+  //       break;
+  //   }
 
-    if (handled) {
-      ev.preventDefault();
-    }
-  };
+  //   if (handled) {
+  //     ev.preventDefault();
+  //   }
+  // };
 
-  private calendarTabHandler = (ev: KeyboardEvent): boolean => {
-    let handled = false;
-    if (
-      !ev.shiftKey &&
-      (!this.showPickerTodayButton || this.isCurrentMonth()) &&
-      (!this.showPickerClearButton || this.clearButtonEl?.disabled)
-    ) {
-      this.focusFirstElement();
-      handled = true;
-    } else if (ev.shiftKey) {
-      this.yearButtonEl.setFocus();
-      handled = true;
-    }
-    return handled;
-  };
+  // private calendarTabHandler = (ev: KeyboardEvent): boolean => {
+  //   let handled = false;
+  //   if (
+  //     !ev.shiftKey &&
+  //     (!this.showPickerTodayButton || this.isCurrentMonth()) &&
+  //     (!this.showPickerClearButton || this.clearButtonEl?.disabled)
+  //   ) {
+  //     this.focusFirstElement();
+  //     handled = true;
+  //   } else if (ev.shiftKey) {
+  //     this.yearButtonEl.setFocus();
+  //     handled = true;
+  //   }
+  //   return handled;
+  // };
 
-  private onDayButtonFocusHandler = () => {
-    this.dayButtonFocussed = true;
-  };
+  // private onDayButtonFocusHandler = () => {
+  //   this.dayButtonFocussed = true;
+  // };
 
-  private onDayButtonBlurHandler = () => {
-    this.dayButtonFocussed = false;
-  };
+  // private onDayButtonBlurHandler = () => {
+  //   this.dayButtonFocussed = false;
+  // };
 
   private getNextDayToFocus = (
     currDay: Date,
@@ -1158,106 +1038,52 @@ export class DatePicker {
       : level;
   };
 
-  private moveDays = (numDays: number): void => {
-    if (this.focussedDate) {
-      const d = new Date(this.focussedDate);
-      d.setDate(d.getDate() + numDays);
-      this.setFocussedDate(d);
+  // private setFocussedDate = (d: Date): void => {
+  //   this.focussedDate = clampDate(d, this.minDate, this.maxDate);
+  // };
+
+  private setCalendarProps = (): IcCalendarProps => {
+    const calendarProps: IcCalendarProps = {
+      disableDays: this.disableDays,
+      disableFuture: this.disableFuture,
+      disablePast: this.disablePast,
+      open: this.calendarOpen,
+      openAtDate: this.openAtDate,
+      showClearButton: this.showPickerClearButton,
+      showDaysOutsideMonth: this.showDaysOutsideMonth,
+      showTodayButton: this.showPickerTodayButton,
+      startOfWeek: this.startOfWeek,
+      theme: this.theme,
+      value: this.value,
+    };
+
+    if (this.dateFormat !== DEFAULT_DATE_FORMAT) {
+      calendarProps.dateFormat = this.dateFormat;
     }
-  };
-
-  private moveMonths = (numMonths: number): void => {
-    if (this.focussedDate) {
-      const newMonth = this.focussedDate.getMonth() + numMonths;
-      const min = new Date(
-        new Date(getMonthStart(this.focussedDate)).setMonth(newMonth)
-      );
-      const max = getMonthEnd(min);
-      const newDate = new Date(new Date(this.focussedDate).setMonth(newMonth));
-      this.setFocussedDate(clampDate(newDate, min, max));
-
-      if (
-        this.monthPickerVisible === false &&
-        this.yearPickerVisible === false &&
-        this.monthInViewUpdateHandled === false
-      ) {
-        this.setAriaLiveRegionText(this.getMonthInViewText());
-      }
-      this.monthInViewUpdateHandled = false;
+    if (this.disableFuture) {
+      calendarProps.disableFuture = this.disableFuture;
     }
-  };
-
-  private moveYears = (numYears: number): void => {
-    if (this.focussedDate) {
-      const newYear = this.focussedDate.getFullYear() + numYears;
-      const min = new Date(
-        new Date(getMonthStart(this.focussedDate)).setFullYear(newYear)
-      );
-      const max = getMonthEnd(min);
-      const newDate = new Date(
-        new Date(this.focussedDate).setFullYear(newYear)
-      );
-      this.setFocussedDate(clampDate(newDate, min, max));
-
-      if (
-        this.monthPickerVisible === false &&
-        this.yearPickerVisible === false &&
-        this.monthInViewUpdateHandled === false
-      ) {
-        this.setAriaLiveRegionText(this.getMonthInViewText());
-      }
-      this.monthInViewUpdateHandled = false;
+    if (this.disablePast) {
+      calendarProps.disablePast = this.disablePast;
     }
-  };
-
-  private updateFocussedMonth = (adjust: number): void => {
-    const d = new Date(this.focussedYear, this.focussedMonth, 1);
-    d.setMonth(this.focussedMonth + adjust);
-    const newDate = clampDate(d, this.minDate, this.maxDate);
-    this.focussedMonth = newDate.getMonth();
-    setTimeout(() => this.focussedMonthEl.setFocus(), FOCUS_TIMER);
-  };
-
-  private updateFocussedYear = (adjust: number, focusYear = true): void => {
-    const d = new Date(new Date().setFullYear(this.focussedYear + adjust));
-    const newDate = clampDate(d, this.minDate, this.maxDate);
-    this.setFocussedYear(newDate.getFullYear(), focusYear);
-  };
-
-  private setFocussedDate = (d: Date): void => {
-    this.focussedDate = clampDate(d, this.minDate, this.maxDate);
-  };
-
-  private setFocussedDayEl = (element: HTMLButtonElement) => {
-    this.focussedDayEl = element;
-  };
-
-  private setFocussedMonthEl = (element: HTMLIcButtonElement) => {
-    this.focussedMonthEl = element;
-  };
-
-  private setFocussedYearEl = (element: HTMLIcButtonElement) => {
-    this.focussedYearEl = element;
-  };
-
-  private setFocussedYear = (newYear: number, focus = true): void => {
-    const prevYear = this.focussedYear;
-    this.focussedYear = newYear;
-    if (this.yearPickerVisible) {
-      const newDecade = Math.floor(newYear / 10) * 10;
-      const oldDecade = Math.floor(prevYear / 10) * 10;
-      if (newDecade !== oldDecade) {
-        this.setDecadeView(newDecade);
-        this.setAriaLiveRegionText(this.getDecadeInViewText());
-      }
-      if (focus) {
-        setTimeout(() => {
-          if (this.focussedYearEl !== null) this.focussedYearEl.setFocus();
-        }, FOCUS_TIMER);
-      }
-    } else {
-      this.setDecadeView(Math.floor(newYear / 10) * 10);
+    if (this.disableDays && this.disableDays.length > 0) {
+      calendarProps.disableDays = this.disableDays;
     }
+    if (this.max !== null && this.max !== "" && this.maxDate) {
+      calendarProps.max = this.maxDate;
+    }
+    if (this.min !== null && this.min !== "" && this.minDate) {
+      calendarProps.min = this.minDate;
+    }
+    if (this.disabled) {
+      calendarProps.disabled = this.disabled;
+    }
+    if (this.size !== "medium") {
+      calendarProps.size = this.size;
+    }
+    console.log({ openAtDate: this.openAtDate });
+
+    return calendarProps;
   };
 
   private setDateInputProps = (): IcDateInputProps => {
@@ -1331,8 +1157,8 @@ export class DatePicker {
   render() {
     const {
       calendarOpen,
+      calendarProps,
       dateInputProps,
-      monthNames,
       size,
       focussedMonth,
       focussedYear,
@@ -1344,8 +1170,6 @@ export class DatePicker {
       decadeView,
       minDate,
       maxDate,
-      showPickerClearButton,
-      showPickerTodayButton,
       dialogDescription,
       theme,
     } = this;
@@ -1366,11 +1190,11 @@ export class DatePicker {
 
     const dialogLabel = "choose date";
 
-    const monthLabel =
-      monthNames && monthNames[monthInView]
-        ? monthNames[monthInView]
-        : "Open month picker";
-    const yearLabel = this.yearInView ? this.yearInView : "Open year picker";
+    // const monthLabel =
+    //   monthNames && monthNames[monthInView]
+    //     ? monthNames[monthInView]
+    //     : "Open month picker";
+    // const yearLabel = this.yearInView ? this.yearInView : "Open year picker";
 
     let minDay = minDate;
     if (minDate && this.disablePast) {
@@ -1378,6 +1202,25 @@ export class DatePicker {
       yesterday.setDate(minDate.getDate() - 1);
       minDay = yesterday;
     }
+
+    console.log({
+      yearInView,
+      monthInView,
+      decadeView,
+      maxDate,
+      minDate,
+      orderedDaysOfWeek,
+      dialogLabel,
+      dialogDescription,
+      monthButtonText,
+      yearButtonText,
+      minDay,
+      yearInRange,
+      dayButtonFocussed: this.dayButtonFocussed,
+      focussedMonth,
+      focussedYear,
+      monthInViewUpdateHandled: this.monthInViewUpdateHandled,
+    });
 
     return (
       <Host
@@ -1394,205 +1237,10 @@ export class DatePicker {
           ></ic-date-input>
         </div>
         {calendarOpen && (
-          <div>
-            <span id="dialog-description" class="sr-only">
-              {dialogDescription}
-            </span>
-            <div
-              role="dialog"
-              aria-modal="true"
-              aria-label={dialogLabel}
-              aria-describedBy="dialog-description"
-              class={{
-                "calendar-container": true,
-                above: this.showPickerAbove,
-              }}
-              onMouseDown={this.handleCalendarMouseDown}
-              onClick={this.handleCalendarClick}
-            >
-              <span
-                ref={(el) => (this.liveRegionEl = el)}
-                id="live-region"
-                aria-live="assertive"
-                class="sr-only"
-              ></span>
-              <div
-                class={{
-                  "month-year-nav-container": true,
-                }}
-              >
-                <div class="month-year-nav">
-                  {this.previousMonthButton()}
-                  <span id="select-month-hint" aria-hidden="true">
-                    {monthButtonText}
-                  </span>
-                  <ic-button
-                    ref={(el: HTMLIcButtonElement) => (this.monthButtonEl = el)}
-                    size={size}
-                    class="month-picker-button"
-                    aria-haspopup="menu"
-                    aria-expanded={monthPickerVisible ? "true" : "false"}
-                    full-width="true"
-                    variant="tertiary"
-                    aria-label={monthLabel}
-                    aria-describedby="select-month-hint"
-                    onKeyDown={this.monthButtonKeyDownHandler}
-                    onClick={this.monthButtonClickHandler}
-                  >
-                    {monthNames[monthInView]}
-                  </ic-button>
-                  {this.nextMonthButton()}
-                </div>
-                <div class="month-year-nav">
-                  {this.previousYearButton()}
-                  <span id="select-year-hint" aria-hidden="true">
-                    {yearButtonText}
-                  </span>
-                  <ic-button
-                    ref={(el: HTMLIcButtonElement) => (this.yearButtonEl = el)}
-                    size={size}
-                    class="year-picker-button"
-                    aria-haspopup="menu"
-                    aria-expanded={yearPickerVisible ? "true" : "false"}
-                    full-width="true"
-                    variant="tertiary"
-                    aria-label={yearLabel}
-                    aria-describedby="select-year-hint"
-                    onKeyDown={this.yearButtonKeyDownHandler}
-                    onClick={this.yearButtonClickHandler}
-                  >
-                    {this.yearInView}
-                  </ic-button>
-                  {this.nextYearButton()}
-                </div>
-              </div>
-              {!(monthPickerVisible || yearPickerVisible) && (
-                <div
-                  class={{
-                    calendar: true,
-                    hidden: monthPickerVisible || yearPickerVisible,
-                  }}
-                  onKeyDown={this.handleCalendarKeyDown}
-                >
-                  <div class="weekdays" aria-hidden="true">
-                    {orderedDaysOfWeek.map((dayName) => {
-                      const header =
-                        size === "small" ? dayName.charAt(0) : dayName;
-                      return (
-                        <div class="calendar-day-header">
-                          <ic-typography variant="caption">
-                            {header}
-                          </ic-typography>
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  <div class="calendar-days-container">
-                    {this.currMonthView.map((day) => (
-                      <DayButton
-                        day={day}
-                        disableDay={this.disableDays?.includes(
-                          Number(day.getDay())
-                        )}
-                        today={dateMatches(day, this.today)}
-                        selected={dateMatches(day, this.selectedDate)}
-                        focussed={dateMatches(day, this.focussedDate)}
-                        inRange={dateInRange(day, minDay, maxDate)}
-                        monthInView={monthInView}
-                        onSelectDay={this.handleSelectDay}
-                        focussedDayRef={this.setFocussedDayEl}
-                        onFocusDay={this.onDayButtonFocusHandler}
-                        onBlurDay={this.onDayButtonBlurHandler}
-                        showDaysOutsideMonth={this.showDaysOutsideMonth}
-                      ></DayButton>
-                    ))}
-                  </div>
-                </div>
-              )}
-              <div
-                class={{
-                  "month-picker-container": true,
-                  hidden: !monthPickerVisible,
-                }}
-              >
-                {monthPickerVisible && (
-                  <MonthPicker
-                    size={size}
-                    onSelectMonth={this.handleSelectMonth}
-                    monthInView={monthInView}
-                    focussedMonth={focussedMonth}
-                    onKeyDown={this.monthPickerKeyDownHandler}
-                    focussedMonthRef={this.setFocussedMonthEl}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    yearInView={yearInView}
-                  ></MonthPicker>
-                )}
-              </div>
-              <div
-                class={{
-                  "year-picker-container": true,
-                  hidden: !yearPickerVisible,
-                }}
-              >
-                {yearPickerVisible && (
-                  <YearPicker
-                    decadeView={decadeView}
-                    size={size}
-                    focussedYear={focussedYear}
-                    onSelectYear={this.handleSelectYear}
-                    onKeyDown={this.yearPickerKeyDownHandler}
-                    onFocusYear={this.onYearButtonFocusHandler}
-                    onBlurYear={this.onYearButtonBlurHandler}
-                    yearInView={yearInView}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    focussedYearRef={this.setFocussedYearEl}
-                  ></YearPicker>
-                )}
-              </div>
-              <div
-                class={{
-                  "bottom-buttons": true,
-                  "no-today": !showPickerTodayButton,
-                }}
-              >
-                {showPickerTodayButton && (
-                  <ic-button
-                    id="today-button"
-                    variant="tertiary"
-                    ref={(el: HTMLIcButtonElement) => (this.todayButtonEl = el)}
-                    size={size}
-                    aria-label="Navigate to current date"
-                    onClick={this.todayButtonClickHandler}
-                    onKeyDown={this.todayButtonKeyDownHandler}
-                    disabled={this.isCurrentMonth()}
-                  >
-                    Go to today
-                  </ic-button>
-                )}
-                {showPickerClearButton && (
-                  <ic-button
-                    id="clear-button"
-                    aria-label="clear selected date"
-                    ref={(el: HTMLIcButtonElement) => (this.clearButtonEl = el)}
-                    variant="tertiary"
-                    size={size}
-                    onClick={this.clearButtonClickHandler}
-                    onKeyDown={this.clearButtonKeyDownHandler}
-                    disabled={
-                      this.value === "" ||
-                      this.value === null ||
-                      this.value === undefined
-                    }
-                  >
-                    Clear
-                  </ic-button>
-                )}
-              </div>
-            </div>
-          </div>
+          <ic-calendar
+            class={{ ["ic-date-picker-above"]: this.showPickerAbove }}
+            {...calendarProps}
+          ></ic-calendar>
         )}
       </Host>
     );

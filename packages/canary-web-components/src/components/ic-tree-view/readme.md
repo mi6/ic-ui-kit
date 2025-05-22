@@ -26,13 +26,6 @@
 | `"icon"`    | Content is placed to the left of the heading. |
 
 
-## CSS Custom Properties
-
-| Name                | Description            |
-| ------------------- | ---------------------- |
-| `--tree-view-width` | Width of the tree view |
-
-
 ## Dependencies
 
 ### Depends on

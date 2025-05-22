@@ -46,13 +46,6 @@ Type: `Promise<void>`
 | `"message"` | Content will be placed in the main body of the horizontal card.                    |
 
 
-## CSS Custom Properties
-
-| Name                      | Description                  |
-| ------------------------- | ---------------------------- |
-| `--card-horizontal-width` | Width of the horizontal card |
-
-
 ## Dependencies
 
 ### Depends on
