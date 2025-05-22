@@ -1,10 +1,5 @@
 @import "../../global/normalize.css";
 
-li {
-  list-style: none;
-  padding: 0;
-}
-
 :host ::part(button) {
   color: var(--ic-popover-menu-item-check);
 

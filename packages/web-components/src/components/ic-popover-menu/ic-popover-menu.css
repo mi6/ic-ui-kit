@@ -50,11 +50,6 @@
   height: 0;
 }
 
-.button {
-  text-decoration: none;
-  list-style-type: none;
-}
-
 :host(:focus-within) {
   box-shadow: var(--ic-border-focus);
 }
