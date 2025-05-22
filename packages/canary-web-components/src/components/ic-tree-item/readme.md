@@ -24,9 +24,10 @@
 
 ## Events
 
-| Event                | Description                         | Type                           |
-| -------------------- | ----------------------------------- | ------------------------------ |
-| `icTreeItemSelected` | Emitted when tree item is selected. | `CustomEvent<{ id: string; }>` |
+| Event                | Description                         | Type                                    |
+| -------------------- | ----------------------------------- | --------------------------------------- |
+| `icTreeItemExpanded` | Emitted when tree item is expanded. | `CustomEvent<{ isExpanded: boolean; }>` |
+| `icTreeItemSelected` | Emitted when tree item is selected. | `CustomEvent<{ id: string; }>`          |
 
 
 ## Methods

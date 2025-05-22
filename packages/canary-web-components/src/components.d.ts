@@ -752,6 +752,7 @@ declare global {
     };
     interface HTMLIcTreeItemElementEventMap {
         "icTreeItemSelected": { id: string };
+        "icTreeItemExpanded": { isExpanded: boolean };
     }
     interface HTMLIcTreeItemElement extends Components.IcTreeItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcTreeItemElementEventMap>(type: K, listener: (this: HTMLIcTreeItemElement, ev: IcTreeItemCustomEvent<HTMLIcTreeItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1358,6 +1359,10 @@ declare namespace LocalJSX {
           * The label of the tree item.
          */
         "label"?: string;
+        /**
+          * Emitted when tree item is expanded.
+         */
+        "onIcTreeItemExpanded"?: (event: IcTreeItemCustomEvent<{ isExpanded: boolean }>) => void;
         /**
           * Emitted when tree item is selected.
          */
