@@ -31,7 +31,7 @@ exports[`ic-hero component should render at size small: renders-small-variant 1`
 `;
 
 exports[`ic-hero component should render with a background image when given: renders-with-background-image 1`] = `
-<ic-hero background-image="test.png" class="has-background-image" heading="Test title" subheading="Test text" style="background-image: url(test.png); background-position: right -100px;">
+<ic-hero background-image="test.png" class="has-background-image has-right-content" heading="Test title" subheading="Test text" style="background-image: url(test.png); background-position: right -100px;">
   <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
@@ -146,7 +146,7 @@ exports[`ic-hero component should render with interaction content: renders-with-
 `;
 
 exports[`ic-hero component should render with secondary content: renders-with-secondary-content 1`] = `
-<ic-hero heading="Test title" subheading="Test text">
+<ic-hero class="has-right-content" heading="Test title" subheading="Test text">
   <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
@@ -210,7 +210,7 @@ exports[`ic-hero component should render: renders 1`] = `
 `;
 
 exports[`ic-hero component should test rendering secondary slot after initial render 1`] = `
-<ic-hero heading="Test title" subheading="Test text">
+<ic-hero class="has-right-content" heading="Test title" subheading="Test text">
   <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
@@ -244,7 +244,7 @@ exports[`ic-hero component should test rendering secondary slot after initial re
 `;
 
 exports[`ic-hero component should use not parallax on scroll when a background image is given, but parallax disabled: renders-with-parallax-on-scroll-disabled 1`] = `
-<ic-hero background-image="test.png" class="has-background-image" disable-background-parallax="" heading="Test title" subheading="Test text" style="background-image: url(test.png); background-position: right -100px;">
+<ic-hero background-image="test.png" class="has-background-image has-right-content" disable-background-parallax="" heading="Test title" subheading="Test text" style="background-image: url(test.png); background-position: right -100px;">
   <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
@@ -278,7 +278,7 @@ exports[`ic-hero component should use not parallax on scroll when a background i
 `;
 
 exports[`ic-hero component should use parallax on scroll when a background image is given: renders-with-parallax-on-scroll 1`] = `
-<ic-hero background-image="test.png" class="has-background-image" heading="Test title" subheading="Test text" style="background-image: url(test.png); background-position: right -80px;">
+<ic-hero background-image="test.png" class="has-background-image has-right-content" heading="Test title" subheading="Test text" style="background-image: url(test.png); background-position: right -80px;">
   <template shadowrootmode="open">
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">
