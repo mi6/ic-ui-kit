@@ -725,6 +725,10 @@ export const Expanded = {
         },
         { label: "Hot chocolate" },
       ];
+      const expandElement = document.querySelector("#expanded-tree-view");
+      expandElement.addEventListener("icTreeItemExpanded", function (event) {
+        console.log("icTreeItemExpanded", event.detail);
+      });
     </script>
   `,
   name: "Expanded",
@@ -733,7 +737,7 @@ export const Expanded = {
 export const ExpandedSlotted = {
   render: () => html`
     <div style="width:250px">
-      <ic-tree-view heading="Menu">
+      <ic-tree-view heading="Menu" id="expanded-slotted-tree-view">
         <ic-tree-item label="Coffee" expanded="true">
           <ic-tree-item label="Americano" expanded="true">
             <ic-tree-item label="With milk"></ic-tree-item>
@@ -747,6 +751,14 @@ export const ExpandedSlotted = {
         </ic-tree-item>
         <ic-tree-item label="Hot chocolate"></ic-tree-item>
       </ic-tree-view>
+      <script>
+        const expandElement = document.querySelector(
+          "#expanded-slotted-tree-view"
+        );
+        expandElement.addEventListener("icTreeItemExpanded", function (event) {
+          console.log("icTreeItemExpanded - Slotted", event.detail);
+        });
+      </script>
     </div>
   `,
   name: "Expanded - slotted",
