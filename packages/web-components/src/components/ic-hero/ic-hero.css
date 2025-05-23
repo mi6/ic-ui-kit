@@ -182,6 +182,7 @@ ic-typography.heading-bottom-spacing {
   :host(.has-right-content) .section-container {
     flex-wrap: wrap;
   }
+
   :host(.has-right-content) .left-container {
     flex-basis: 100%;
   }
