@@ -315,7 +315,7 @@ exports[`ic-search-bar search should render with options: renders-with-options 1
         <ic-input-container>
           <ic-input-label for="ic-search-bar-input-6" helpertext="" label="Test label"></ic-input-label>
           <ic-input-component-container size="default" validationstatus="">
-            <input aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-6" inputmode="search" name="ic-search-bar-input-6" placeholder="Search" role="combobox" type="text" value="Espresso">
+            <input aria-describedby="ic-search-bar-input-6-remaining-charcount-desc" aria-expanded="false" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-6" inputmode="search" name="ic-search-bar-input-6" placeholder="Search" role="combobox" type="text" value="Espresso">
             <slot name="clear-button"></slot>
             <slot name="search-submit-button"></slot>
           </ic-input-component-container>
@@ -364,7 +364,7 @@ exports[`ic-search-bar search should render with value: renders-with-value 1`] =
         <ic-input-container>
           <ic-input-label for="ic-search-bar-input-1" helpertext="" label="Test label"></ic-input-label>
           <ic-input-component-container size="default" validationstatus="">
-            <input aria-describedby="" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-1" inputmode="search" name="ic-search-bar-input-1" placeholder="Search" type="text" value="foo">
+            <input aria-describedby="ic-search-bar-input-1-remaining-charcount-desc" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-1" inputmode="search" name="ic-search-bar-input-1" placeholder="Search" type="text" value="foo">
             <slot name="clear-button"></slot>
             <slot name="search-submit-button"></slot>
           </ic-input-component-container>
