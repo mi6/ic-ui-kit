@@ -254,6 +254,21 @@ describe("IcTopNavigation desktop visual regression tests", () => {
     });
   });
 
+  it("should render icon buttons in dark theme", () => {
+    mount(
+      <IcTheme theme="dark">
+        <IconButtons />
+      </IcTheme>
+    );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/icon-buttons-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
   it("should render with long text values", () => {
     mount(<LongText />);
     cy.checkHydrated(TOP_NAV_SELECTOR);
@@ -440,6 +455,23 @@ describe("IcTopNavigation mobile visual regression tests", () => {
       testThreshold: setThresholdBasedOnEnv(
         DEFAULT_TEST_THRESHOLD_MOBILE + 0.009
       ),
+    });
+  });
+
+  it("should render icon buttons in dark theme", () => {
+    mount(
+      <IcTheme theme="dark">
+        <IconButtons />
+      </IcTheme>
+    );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.clickOnShadowEl(TOP_NAV_SELECTOR, "ic-button#menu-button");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/mobile-icon-buttons-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD_MOBILE),
     });
   });
 
