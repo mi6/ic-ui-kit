@@ -341,6 +341,14 @@
   --ic-color-text-error-light: var(--ic-red-400);
   --ic-color-text-error-dark: var(--ic-red-800);
 
+  /* monochrome */
+  --ic-color-text-action-monochrome-light: var(--ic-architectural-800);
+  --ic-color-text-action-monochrome-dark: var(--ic-architectural-white);
+  --ic-color-text-action-monochrome-hover-light: var(--ic-architectural-850);
+  --ic-color-text-action-monochrome-hover-dark: var(--ic-architectural-40);
+  --ic-color-text-action-monochrome-pressed-light: var(--ic-architectural-950);
+  --ic-color-text-action-monochrome-pressed-dark: var(--ic-architectural-60);
+
   /* BACKGROUNDS */
   --ic-color-background-primary-light: var(--ic-architectural-white);
   --ic-color-background-primary-dark: var(--ic-architectural-850);
@@ -402,6 +410,14 @@
   --ic-color-border-neutral-disabled-light: var(--ic-architectural-200);
   --ic-color-border-neutral-disabled-mid: var(--ic-architectural-300);
   --ic-color-border-neutral-disabled-dark: var(--ic-architectural-600);
+
+  /* monochrome borders */
+  --ic-color-border-monochrome-light: var(--ic-architectural-800);
+  --ic-color-border-monochrome-dark: var(--ic-architectural-white);
+  --ic-color-border-monochrome-hover-light: var(--ic-architectural-40);
+  --ic-color-border-monochrome-hover-dark: var(--ic-architectural-850);
+  --ic-color-border-monochrome-pressed-light: var(--ic-architectural-60);
+  --ic-color-border-monochrome-pressed-dark: var(--ic-architectural-950);
 
   /* status borders */
   --ic-color-border-success-default: var(--ic-green-1400);
@@ -608,8 +624,10 @@
   --ic-color-icon-neutral: var(--ic-architectural-950);
   --ic-color-icon-inverted: var(--ic-architectural-40);
   --ic-color-icon-hover-light: var(--ic-architectural-200);
+  --ic-color-icon-hover-lighter: var(--ic-architectural-40);
   --ic-color-icon-hover-dark: var(--ic-architectural-800);
   --ic-color-icon-pressed-light: var(--ic-architectural-300);
+  --ic-color-icon-pressed-lighter: var(--ic-architectural-60);
   --ic-color-icon-pressed-dark: var(--ic-architectural-700);
   --ic-color-icon-disabled-light: var(--ic-architectural-200);
   --ic-color-icon-disabled-mid: var(--ic-architectural-300);
