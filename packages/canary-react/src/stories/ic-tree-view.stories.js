@@ -695,6 +695,7 @@ export const Expanded = {
   render: () => (
     <div style={{ width: "250px" }}>
       <IcTreeView 
+        onIcTreeItemExpanded={(event) => console.log("onIcTreeItemExpanded: ", event.detail)}
         heading="Menu" 
         treeItemData={[
           {
@@ -725,7 +726,7 @@ export const Expanded = {
 export const ExpandedSlotted = {
   render: () => (
     <div style={{ width: "250px" }}>
-      <IcTreeView heading="Menu">
+      <IcTreeView heading="Menu" onIcTreeItemExpanded={(event) => console.log("[Slotted] onIcTreeItemExpanded: ", event.detail)}>
         <IcTreeItem label="Coffee" expanded>
           <IcTreeItem label="Americano" expanded>
             <IcTreeItem label="With milk" />
