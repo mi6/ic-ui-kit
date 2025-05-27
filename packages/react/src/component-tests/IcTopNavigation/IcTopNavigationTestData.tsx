@@ -112,7 +112,6 @@ export const IconButtons = (): ReactElement => {
           slot="badge"
           customColor="#d4351c"
           variant="custom"
-          theme="dark"
         />
       </IcNavigationButton>
       <IcNavigationButton label="Button Two" slot="buttons">

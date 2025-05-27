@@ -106,7 +106,7 @@
 }
 
 :host(.ic-badge-foreground-light) ic-typography {
-  --ic-typography-color: var(--ic-color-primary-text-dark);
+  --ic-typography-color: var(--ic-color-text-primary-dark);
 }
 
 :host(.ic-badge-text) ic-typography {
