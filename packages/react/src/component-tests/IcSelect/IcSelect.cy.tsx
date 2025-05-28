@@ -44,6 +44,7 @@ import {
   IC_SELECT,
   OPTION_SELECT_STUB,
   OPTION_GROUP_TITLE,
+  MENU_SCROLL_CLASS,
 } from "./IcSelectConstants";
 import {
   ControlledSelect,
@@ -1552,7 +1553,53 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     );
 
     cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    cy.findShadowEl(IC_SELECT, IC_MENU_UL).should(HAVE_CLASS, "menu-scroll");
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL).should(
+      HAVE_CLASS,
+      MENU_SCROLL_CLASS
+    );
+  });
+
+  it("should include group titles when applying menu scrollbar", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={[
+            {
+              label: "Fancy",
+              children: [
+                { label: "Cappuccino", value: "Cap" },
+                { label: "Flat white", value: "Fla" },
+                {
+                  label: "Macchiato",
+                  value: "Mac",
+                },
+              ],
+            },
+            {
+              label: "Boring",
+              children: [
+                { label: "Filter", value: "Fil" },
+                { label: "Latte", value: "Lat" },
+                {
+                  label: "Americano",
+                  value: "Ame",
+                },
+              ],
+            },
+          ]}
+        />
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+    cy.clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
+    cy.checkShadowElVisible(IC_SELECT, IC_MENU_LI);
+
+    cy.findShadowEl(IC_SELECT, IC_MENU_UL).should(
+      HAVE_CLASS,
+      MENU_SCROLL_CLASS
+    );
   });
 
   it("should add .menu-scroll to menu components when options are initially set and then populated with large data set", () => {
@@ -1570,7 +1617,7 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.get(IC_SELECT).shadow().find("ic-menu").should(BE_VISIBLE);
     cy.findShadowEl(IC_SELECT, IC_MENU_UL).should(
       NOT_HAVE_CLASS,
-      "menu-scroll"
+      MENU_SCROLL_CLASS
     );
     cy.get(IC_SELECT).invoke("prop", "options", manyOptions);
     cy.findShadowEl(IC_SELECT, IC_MENU_UL)
