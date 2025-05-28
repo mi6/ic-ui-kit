@@ -1538,59 +1538,59 @@ export namespace Components {
         /**
           * The hint text for the hidden assistive description element.
          */
-        "assistiveHintText"?: string;
+        "assistiveHintText": string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize": string | undefined;
+        "autocapitalize": string;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
-        "autocomplete"?: IcAutocompleteTypes;
+        "autocomplete": IcAutocompleteTypes;
         /**
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
-        "autocorrect"?: IcAutocorrectStates;
+        "autocorrect": IcAutocorrectStates;
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus": boolean | undefined;
+        "autofocus": boolean;
         /**
           * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
          */
-        "charactersUntilSuggestion"?: number;
+        "charactersUntilSuggestion": number;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
-        "debounce"?: number;
+        "debounce": number;
         /**
           * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
          */
-        "disableAutoFiltering"?: boolean;
+        "disableAutoFiltering": boolean;
         /**
           * If `true`, the disabled state will be set.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * The text displayed when there are no options in the option list.
          */
-        "emptyOptionListText"?: string;
+        "emptyOptionListText": string;
         /**
           * If `true`, the search bar will be focused when component loaded.
          */
-        "focusOnLoad"?: boolean;
+        "focusOnLoad": boolean;
         /**
           * Specify whether the search bar fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
          */
-        "helperText"?: string;
+        "helperText": string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         /**
           * The label for the search bar.
          */
@@ -1598,43 +1598,43 @@ export namespace Components {
         /**
           * The custom name for the label field to correspond with the IcMenuOption type.
          */
-        "labelField"?: string;
+        "labelField": string;
         /**
           * Trigger loading state when fetching options asynchronously
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * Change the message displayed when external loading times out.
          */
-        "loadingErrorLabel"?: string;
+        "loadingErrorLabel": string;
         /**
           * Change the message displayed whilst the options are being loaded externally.
          */
-        "loadingLabel"?: string;
+        "loadingLabel": string;
         /**
           * The name of the control, which is submitted with the form data.
          */
-        "name"?: string;
+        "name": string;
         /**
           * The suggested search options.
          */
-        "options"?: IcMenuOption[];
+        "options": IcMenuOption[];
         /**
           * The placeholder value to display.
          */
-        "placeholder"?: string;
+        "placeholder": string;
         /**
           * If `true`, the readonly state will be set.
          */
-        "readonly"?: boolean;
+        "readonly": boolean;
         /**
           * If `true`, the search bar will require a value.
          */
-        "required"?: boolean;
+        "required": boolean;
         /**
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
-        "searchMode"?: IcSearchBarSearchModes;
+        "searchMode": IcSearchBarSearchModes;
         /**
           * Sets focus on the native `input`.
          */
@@ -1642,15 +1642,15 @@ export namespace Components {
         /**
           * The size of the search bar component.
          */
-        "size"?: IcSizesNoLarge;
+        "size": IcSizesNoLarge;
         /**
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
-        "spellcheck": boolean | undefined;
+        "spellcheck": boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
@@ -1658,11 +1658,11 @@ export namespace Components {
         /**
           * The value of the search input.
          */
-        "value"?: string;
+        "value": string;
         /**
           * The custom name for the value field to correspond with the IcMenuOption type.
          */
-        "valueField"?: string;
+        "valueField": string;
     }
     interface IcSectionContainer {
         /**
@@ -4986,7 +4986,7 @@ declare namespace LocalJSX {
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize"?: string | undefined;
+        "autocapitalize"?: string;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
@@ -4998,7 +4998,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus"?: boolean | undefined;
+        "autofocus"?: boolean;
         /**
           * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
          */
@@ -5128,7 +5128,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
-        "spellcheck"?: boolean | undefined;
+        "spellcheck"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
