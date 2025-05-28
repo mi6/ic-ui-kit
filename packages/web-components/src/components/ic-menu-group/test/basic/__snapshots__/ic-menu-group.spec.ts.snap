@@ -13,22 +13,20 @@ exports[`menu group should render a menu group with a label 1`] = `
   </template>
   <ic-menu-item label="Button" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button, Menu item label menu group" fullwidth="" variant="tertiary">
-          <div class="focus-border">
-            <span class="icon">
-              <slot name="icon"></slot>
-            </span>
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button
-                </ic-typography>
-              </div>
+      <ic-button aria-disabled="false" aria-label="Button, Menu item label menu group" fullwidth="" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <span class="icon">
+            <slot name="icon"></slot>
+          </span>
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button
+              </ic-typography>
             </div>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
     <svg height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -37,22 +35,20 @@ exports[`menu group should render a menu group with a label 1`] = `
   </ic-menu-item>
   <ic-menu-item label="Button" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button, Menu item label menu group" fullwidth="" variant="tertiary">
-          <div class="focus-border">
-            <span class="icon">
-              <slot name="icon"></slot>
-            </span>
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button
-                </ic-typography>
-              </div>
+      <ic-button aria-disabled="false" aria-label="Button, Menu item label menu group" fullwidth="" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <span class="icon">
+            <slot name="icon"></slot>
+          </span>
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button
+              </ic-typography>
             </div>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
     <svg height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -61,22 +57,20 @@ exports[`menu group should render a menu group with a label 1`] = `
   </ic-menu-item>
   <ic-menu-item description="This button has a href and so it behaves like a link" href="#" label="Button" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button, This button has a href and so it behaves like a link, Menu item label menu group" fullwidth="" href="#" variant="tertiary">
-          <div class="focus-border">
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button
-                </ic-typography>
-              </div>
-              <ic-typography class="menu-item-description" variant="caption">
-                This button has a href and so it behaves like a link
+      <ic-button aria-disabled="false" aria-label="Button, This button has a href and so it behaves like a link, Menu item label menu group" fullwidth="" href="#" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button
               </ic-typography>
             </div>
+            <ic-typography class="menu-item-description" variant="caption">
+              This button has a href and so it behaves like a link
+            </ic-typography>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
   </ic-menu-item>
 </ic-menu-group>
@@ -92,22 +86,20 @@ exports[`menu group should render a menu group without a label 1`] = `
   </template>
   <ic-menu-item label="Button" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button" fullwidth="" variant="tertiary">
-          <div class="focus-border">
-            <span class="icon">
-              <slot name="icon"></slot>
-            </span>
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button
-                </ic-typography>
-              </div>
+      <ic-button aria-disabled="false" aria-label="Button" fullwidth="" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <span class="icon">
+            <slot name="icon"></slot>
+          </span>
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button
+              </ic-typography>
             </div>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
     <svg height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -116,22 +108,20 @@ exports[`menu group should render a menu group without a label 1`] = `
   </ic-menu-item>
   <ic-menu-item label="Button" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button" fullwidth="" variant="tertiary">
-          <div class="focus-border">
-            <span class="icon">
-              <slot name="icon"></slot>
-            </span>
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button
-                </ic-typography>
-              </div>
+      <ic-button aria-disabled="false" aria-label="Button" fullwidth="" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <span class="icon">
+            <slot name="icon"></slot>
+          </span>
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button
+              </ic-typography>
             </div>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
     <svg height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -140,22 +130,20 @@ exports[`menu group should render a menu group without a label 1`] = `
   </ic-menu-item>
   <ic-menu-item description="This button has a href and so it behaves like a link" href="#" label="Button" variant="default">
     <template shadowrootmode="open">
-      <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button, This button has a href and so it behaves like a link" fullwidth="" href="#" variant="tertiary">
-          <div class="focus-border">
-            <div class="menu-item-info">
-              <div class="menu-labels">
-                <ic-typography class="menu-item-label">
-                  Button
-                </ic-typography>
-              </div>
-              <ic-typography class="menu-item-description" variant="caption">
-                This button has a href and so it behaves like a link
+      <ic-button aria-disabled="false" aria-label="Button, This button has a href and so it behaves like a link" fullwidth="" href="#" role="menuitem" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Button
               </ic-typography>
             </div>
+            <ic-typography class="menu-item-description" variant="caption">
+              This button has a href and so it behaves like a link
+            </ic-typography>
           </div>
-        </ic-button>
-      </li>
+        </div>
+      </ic-button>
     </template>
   </ic-menu-item>
 </ic-menu-group>

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.2.0...@ukic/react@3.3.0) (2025-05-28)
+
+### Features
+
+- **react:** update story name for switch ([3d44176](https://github.com/mi6/ic-ui-kit/commit/3d441761d33d2d3d73e932cd0051c92b60c860cd))
+
 # [3.2.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.0.0-alpha.15...@ukic/react@3.2.0) (2025-05-14)
 
 ### Bug Fixes

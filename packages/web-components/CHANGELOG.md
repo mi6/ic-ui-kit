@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.2.0...@ukic/web-components@3.3.0) (2025-05-28)
+
+### Bug Fixes
+
+- **web-components:** added screen-reader-only text to chip to notify when it is dismissed ([6736735](https://github.com/mi6/ic-ui-kit/commit/6736735f1f2d5891d6a4bb5af2b60b19114b1302))
+- **web-components:** fixed disappearing breadcrumb on page resize ([463a869](https://github.com/mi6/ic-ui-kit/commit/463a869a042c356a4ee2a384a152eedc7219c5a8))
+- **web-components:** removed icChange event from componentWillLoad ([2db11b6](https://github.com/mi6/ic-ui-kit/commit/2db11b63e278f652d7f1f30b49be701a1cd96ea5))
+- **web-components:** update badge css to use the correct token ([5aa76af](https://github.com/mi6/ic-ui-kit/commit/5aa76af31c1933afbd55e01368a4173207732ca7)), closes [#3540](https://github.com/mi6/ic-ui-kit/issues/3540)
+- **web-components:** update link download prop to handle boolean values correctly ([d99c756](https://github.com/mi6/ic-ui-kit/commit/d99c756d07d772c1d529cf3bc9b83d6586c634c9)), closes [#2184](https://github.com/mi6/ic-ui-kit/issues/2184)
+- **web-components:** update side navigation inner to have a flex basis of 4rem ([ff80c28](https://github.com/mi6/ic-ui-kit/commit/ff80c28f00ac63cf6ac2ba6a56271325add5ef11)), closes [#3447](https://github.com/mi6/ic-ui-kit/issues/3447)
+
+### Features
+
+- **web-components:** added onScroll event to text-field textarea ([6b16608](https://github.com/mi6/ic-ui-kit/commit/6b16608894a99f8068e6edc112140b3dd1a44500))
+- **web-components:** transparentBackground now applies to tertiary variant ([381b8d7](https://github.com/mi6/ic-ui-kit/commit/381b8d73fe84bc2e5e21435d09ff93ad3f7c830b))
+- **web-components:** value on ic-checkbox now optional ([04f7ca5](https://github.com/mi6/ic-ui-kit/commit/04f7ca508196f2afc125ae16671a12eb942de9bf))
+
 # [3.2.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@3.0.0-alpha.15...@ukic/web-components@3.2.0) (2025-05-14)
 
 ### Bug Fixes

@@ -85,7 +85,7 @@ export class TextField {
   /**
    * @internal Used to identify whether inputting any text triggers more predictions
    */
-  @Prop() ariaAutocomplete?: IcAriaAutocompleteTypes = undefined;
+  @Prop() ariaAutocomplete?: IcAriaAutocompleteTypes;
 
   /**
    * @internal Used to identify if the slotted menu is rendered
@@ -101,7 +101,7 @@ export class TextField {
    * The automatic capitalisation of the text value as it is entered/edited by the user.
    * Available options: "off", "none", "on", "sentences", "words", "characters".
    */
-  @Prop() autocapitalize: string | undefined = "off";
+  @Prop() autocapitalize = "off";
 
   /**
    * The state of autocompletion the browser can apply on the text value.
@@ -116,12 +116,12 @@ export class TextField {
   /**
    * If `true`, the form control will have input focus when the page loads.
    */
-  @Prop() autofocus: boolean | undefined = false;
+  @Prop() autofocus = false;
 
   /**
    * If `true`, the disabled state will be set.
    */
-  @Prop() disabled?: boolean = false;
+  @Prop() disabled = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el as HTMLElement);
@@ -131,39 +131,39 @@ export class TextField {
    * Specify whether the text field fills the full width of the container.
    * If `true`, this overrides the --input-width CSS variable.
    */
-  @Prop() fullWidth?: boolean = false;
+  @Prop() fullWidth = false;
 
   /**
    * The helper text that will be displayed for additional field guidance.
    */
-  @Prop() helperText?: string = "";
+  @Prop() helperText = "";
 
   /**
    * If `true`, the character count which is displayed when `maxCharacters` is set will be visually hidden.
    */
-  @Prop() hideCharCount?: boolean = false;
+  @Prop() hideCharCount = false;
 
   /**
    * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
-  @Prop() hideLabel?: boolean = false;
+  @Prop() hideLabel = false;
 
   /**
    * @internal If `true`, the hidden form input will stop rendering for form submission.
    */
-  @Prop() hiddenInput?: boolean = true;
+  @Prop() hiddenInput = true;
 
   /**
    * The ID for the input.
    */
-  @Prop() inputId?: string = `ic-text-field-input-${inputIds++}`;
+  @Prop() inputId = `ic-text-field-input-${inputIds++}`;
 
   /**
    * A hint to the browser for which keyboard to display.
    * Possible values: `"none"`, `"text"`, `"tel"`, `"url"`,
    * `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
    */
-  @Prop() inputmode?: IcTextFieldInputModes = "text";
+  @Prop() inputmode: IcTextFieldInputModes = "text";
 
   /**
    * The label for the input.
@@ -178,18 +178,18 @@ export class TextField {
   /**
    * The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)
    */
-  @Prop() maxCharacters?: number = 0;
+  @Prop() maxCharacters = 0;
 
   /**
    * The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.
    */
   // prettier-ignore
-  @Prop() maxCharactersMessage?: string = `Maximum input is ${this.maxCharacters} characters`;
+  @Prop() maxCharactersMessage = `Maximum input is ${this.maxCharacters} characters`;
 
   /**
    * The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.
    */
-  @Prop() maxMessage?: string = `Maximum value of ${this.max} exceeded`;
+  @Prop() maxMessage = `Maximum value of ${this.max} exceeded`;
 
   /**
    * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
@@ -199,43 +199,43 @@ export class TextField {
   /**
    * The minimum number of characters that can be entered in the field.
    */
-  @Prop() minCharacters?: number = 0;
+  @Prop() minCharacters = 0;
 
   /**
    * The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.
    */
   // prettier-ignore
-  @Prop() minCharactersMessage?: string = `Minimum input is ${this.minCharacters} characters`;
+  @Prop() minCharactersMessage = `Minimum input is ${this.minCharacters} characters`;
 
   /**
    * The text to display as the error message when the minimum value (the `min` prop value) has not been met.
    */
-  @Prop() minMessage?: string = `Minimum value of ${this.min} not met`;
+  @Prop() minMessage = `Minimum value of ${this.min} not met`;
 
   /**
    * The name of the control, which is submitted with the form data.
    */
-  @Prop() name?: string = this.inputId;
+  @Prop() name = this.inputId;
 
   /**
    * The placeholder value to be displayed.
    */
-  @Prop() placeholder?: string = "";
+  @Prop() placeholder = "";
 
   /**
    * If `true`, the read only state will be set.
    */
-  @Prop({ reflect: true }) readonly?: boolean = false;
+  @Prop({ reflect: true }) readonly = false;
 
   /**
    * If `true`, the input will require a value.
    */
-  @Prop() required?: boolean = false;
+  @Prop() required = false;
 
   /**
    * If `true`, the multiline text area will be resizeable.
    */
-  @Prop() resize?: boolean = false;
+  @Prop() resize = false;
 
   /**
    * @internal Used to set the role if not default textbox;
@@ -245,76 +245,74 @@ export class TextField {
   /**
    * The number of rows to transform the text field into a text area with a specific height.
    */
-  @Prop() rows?: number = 1;
+  @Prop() rows = 1;
 
   /**
    * The size of the text field component.
    */
-  @Prop() size?: IcSizesNoLarge = "medium";
+  @Prop() size: IcSizesNoLarge = "medium";
 
   /**
    * If `true`, the value of the text field will have its spelling and grammar checked.
    */
-  @Prop() spellcheck: boolean | undefined = false;
+  @Prop() spellcheck = false;
 
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: IcThemeMode = "inherit";
+  @Prop() theme: IcThemeMode = "inherit";
 
   /**
    * @internal If `true`, an ellipsis will be displayed at the end of the value if the value is longer than the container.
    */
-  @Prop() truncateValue?: boolean;
+  @Prop() truncateValue = false;
 
   /**
    * The type of control to display. The default type is text.
    */
-  @Prop() type?: IcTextFieldTypes = "text";
+  @Prop() type: IcTextFieldTypes = "text";
 
   /**
    * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
    */
-  @Prop() validationInline?: boolean = false;
+  @Prop() validationInline = false;
 
   /**
    *  @internal If `true`, the validation will display inline.
    */
-  @Prop() validationInlineInternal?: boolean = false;
+  @Prop() validationInlineInternal = false;
 
   /**
    * The validation state - e.g. 'error' | 'warning' | 'success'.
    */
-  @Prop() validationStatus?: IcInformationStatusOrEmpty = "";
+  @Prop() validationStatus: IcInformationStatusOrEmpty = "";
 
   /**
    * The text to display as the validation message.
    */
-  @Prop() validationText?: string = "";
+  @Prop() validationText: string = "";
 
   /**
    * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
    */
-  @Prop() debounce?: number = 0;
-
+  @Prop() debounce = 0;
   @Watch("debounce")
   private debounceChanged() {
-    this.icChange = debounceEvent(this.icChange, this.debounce!);
+    this.icChange = debounceEvent(this.icChange, this.debounce);
   }
 
   /**
    * The value of the text field.
    */
-  @Prop({ reflect: true, mutable: true }) value: string = "";
+  @Prop({ reflect: true, mutable: true }) value = "";
   @State() initialValue = this.value;
-
   @Watch("value")
   private watchValueHandler(newValue: string): void {
     let value;
 
-    if (this.maxCharacters! > 0) {
+    if (this.maxCharacters > 0) {
       value = newValue.substring(0, this.maxCharacters);
-      if (value!.length < newValue!.length) {
+      if (value.length < newValue.length) {
         this.maxCharactersWarning = true;
       }
       this.value = value;
@@ -363,6 +361,11 @@ export class TextField {
    */
   @Event() icKeydown: EventEmitter<{ event: KeyboardEvent }>;
 
+  /**
+   * Emitted when the textarea variant is scrolled.
+   */
+  @Event() icScroll: EventEmitter;
+
   connectedCallback(): void {
     this.debounceChanged();
   }
@@ -375,7 +378,7 @@ export class TextField {
   componentWillLoad(): void {
     if (this.value !== this.initialValue) {
       this.watchValueHandler(this.value);
-    } else if (this.maxCharacters! > 0) {
+    } else if (this.maxCharacters > 0) {
       this.value = this.value.substring(0, this.maxCharacters);
     }
 
@@ -403,7 +406,7 @@ export class TextField {
       "Text Field"
     );
     if (this.validationInlineInternal) {
-      this.getValidationText.emit({ value: this.validationText! });
+      this.getValidationText.emit({ value: this.validationText });
     }
 
     this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
@@ -418,8 +421,12 @@ export class TextField {
   }
 
   private checkChildHydration = () => {
-    const el = this.el.shadowRoot?.querySelector("ic-typography");
-    if (this.hideLabel || (el && el.classList.contains("hydrated"))) {
+    if (
+      this.hideLabel ||
+      this.el.shadowRoot
+        ?.querySelector("ic-typography")
+        ?.classList.contains("hydrated")
+    ) {
       this.setFocus();
       clearInterval(this.interval);
     }
@@ -439,7 +446,7 @@ export class TextField {
    */
 
   @Method()
-  async setFocus() {
+  async setFocus(): Promise<void> {
     this.inputEl?.focus();
   }
 
@@ -459,7 +466,7 @@ export class TextField {
     this.numChars = this.getNumberOfCharacters(value);
 
     this.maxCharactersReached =
-      this.maxCharacters! > 0 ? this.numChars >= this.maxCharacters! : false;
+      this.maxCharacters > 0 && this.numChars >= this.maxCharacters;
 
     if (this.maxCharactersWarning && !this.maxCharactersReached) {
       this.maxCharactersWarning = false;
@@ -474,17 +481,21 @@ export class TextField {
   private onBlur = (ev: Event) => {
     const target = ev.target as HTMLInputElement;
     target.removeEventListener("wheel", this.onWheel);
-    const value = (ev.target as HTMLInputElement).value;
+    const { value } = target;
     this.numChars = value.length;
     this.minCharactersUnattained =
-      this.minCharacters! > 0 ? this.numChars < this.minCharacters! : false;
-    this.icBlur.emit({ value: value });
+      this.minCharacters > 0 && this.numChars < this.minCharacters;
+    this.icBlur.emit({ value });
   };
 
   private onFocus = (ev: Event) => {
     const target = ev.target as HTMLInputElement;
     target.addEventListener("wheel", this.onWheel);
-    this.icFocus.emit({ value: (ev.target as HTMLInputElement).value });
+    this.icFocus.emit({ value: target.value });
+  };
+
+  private onTextAreaScroll = () => {
+    this.icScroll.emit();
   };
 
   private onWheel = (ev: WheelEvent) => {
@@ -568,6 +579,15 @@ export class TextField {
       truncateValue,
       hiddenInput,
       theme,
+      hideLabel,
+      type,
+      autocapitalize,
+      ariaActiveDescendant,
+      inheritedAttributes,
+      ariaExpanded,
+      ariaOwns,
+      autocomplete,
+      role,
     } = this;
 
     const el = this.el as HTMLElement;
@@ -604,21 +624,18 @@ export class TextField {
         : "polite";
 
     const showStatusText =
-      this.hasStatus(currentStatus!) &&
+      this.hasStatus(currentStatus) &&
       !(currentStatus == IcInformationStatus.Success && validationInline) &&
       !validationInlineInternal;
 
-    const multiline = rows! > 1;
+    const multiline = rows > 1;
 
-    const charsRemaining = maxNumChars! - numChars;
-    const hiddenRemainingCharCountDesc = `${charsRemaining} character${
-      charsRemaining === 1 ? "" : "s"
-    } remaining.`;
+    const charsRemaining = maxNumChars - numChars;
     const hiddenCharCountDescId =
-      maxCharacters! > 0 ? `${inputId}-char-count-desc` : "";
+      maxCharacters > 0 ? `${inputId}-char-count-desc` : "";
 
     const describedBy = `${hiddenCharCountDescId} ${getInputDescribedByText(
-      inputId!,
+      inputId,
       helperText !== "",
       showStatusText
     )}`.trim();
@@ -630,25 +647,19 @@ export class TextField {
     const invalid = `${currentStatus === IcInformationStatus.Error}`;
 
     hiddenInput
-      ? renderHiddenInput(
-          true,
-          this.el as HTMLElement,
-          name!,
-          value,
-          disabledMode
-        )
+      ? renderHiddenInput(this.el as HTMLElement, value, name, disabledMode)
       : removeHiddenInput(this.el as HTMLElement);
 
     return (
       <Host
         class={{
-          "ic-text-field-full-width": !!fullWidth,
+          "ic-text-field-full-width": fullWidth,
+          "ic-text-field-disabled": disabledMode,
           [`ic-theme-${theme}`]: theme !== "inherit",
-          "ic-text-field-disabled": !!disabledMode,
         }}
       >
         <ic-input-container readonly={readonly} disabled={disabledMode}>
-          {!this.hideLabel && (
+          {!hideLabel && (
             <ic-input-label
               for={inputId}
               label={label}
@@ -671,7 +682,7 @@ export class TextField {
             {showLeftIcon && (
               <span
                 class={{
-                  readonly: !!readonly,
+                  readonly,
                   "has-value": this.getNumberOfCharacters(value) > 0,
                 }}
                 slot="left-icon"
@@ -685,14 +696,14 @@ export class TextField {
                 id={inputId}
                 name={name}
                 ref={(el) => (this.inputEl = el as HTMLInputElement)}
-                type={this.type}
+                type={type}
                 min={min}
                 max={max}
                 value={value}
                 class={{
-                  "no-left-pad": !showLeftIcon && !!readonly,
-                  readonly: !!readonly,
-                  "truncate-value": !!truncateValue,
+                  "no-left-pad": !showLeftIcon && readonly,
+                  readonly,
+                  "truncate-value": truncateValue,
                 }}
                 placeholder={placeholder ? placeholder : ""}
                 required={required}
@@ -704,17 +715,17 @@ export class TextField {
                 aria-label={label}
                 aria-describedby={describedBy}
                 aria-invalid={invalid}
-                aria-activedescendant={this.ariaActiveDescendant}
-                aria-expanded={this.ariaExpanded}
-                aria-owns={this.ariaOwns}
-                autocomplete={this.autocomplete}
-                autocapitalize={this.autocapitalize}
+                aria-activedescendant={ariaActiveDescendant}
+                aria-expanded={ariaExpanded}
+                aria-owns={ariaOwns}
+                autocomplete={autocomplete}
+                autocapitalize={autocapitalize}
                 spellcheck={spellcheck}
                 inputmode={inputmode}
-                role={this.role}
+                role={role}
                 maxlength={maxCharactersReached ? maxCharacters : undefined}
                 minlength={minCharactersUnattained ? minCharacters : undefined}
-                {...this.inheritedAttributes}
+                {...inheritedAttributes}
               ></input>
             ) : (
               <textarea
@@ -730,20 +741,21 @@ export class TextField {
                 rows={rows}
                 required={required}
                 disabled={disabledMode}
-                placeholder={placeholder ? placeholder : ""}
+                placeholder={placeholder}
                 readonly={readonly}
                 onInput={this.onInput}
                 onBlur={this.onBlur}
                 onFocus={this.onFocus}
+                onScroll={this.onTextAreaScroll}
                 aria-label={label}
                 aria-describedby={describedBy}
                 aria-invalid={invalid}
-                autocapitalize={this.autocapitalize}
+                autocapitalize={autocapitalize}
                 spellcheck={spellcheck}
                 inputmode={inputmode}
                 maxlength={maxCharactersReached ? maxCharacters : undefined}
                 minlength={minCharactersUnattained ? minCharacters : undefined}
-                {...this.inheritedAttributes}
+                {...inheritedAttributes}
               ></textarea>
             )}
             {isSlotUsed(el, "clear-button") && (
@@ -754,9 +766,9 @@ export class TextField {
             )}
           </ic-input-component-container>
           {isSlotUsed(el, "menu") && <slot name="menu"></slot>}
-          {(!isEmptyString(validationStatus!) ||
-            !isEmptyString(validationText!) ||
-            maxNumChars! > 0 ||
+          {(!isEmptyString(validationStatus) ||
+            !isEmptyString(validationText) ||
+            maxNumChars > 0 ||
             maxValueExceeded ||
             maxCharactersWarning ||
             minCharactersUnattained ||
@@ -764,19 +776,19 @@ export class TextField {
             !validationInlineInternal && (
               <ic-input-validation
                 status={
-                  this.hasStatus(currentStatus!) === false ||
+                  this.hasStatus(currentStatus) === false ||
                   (currentStatus === IcInformationStatus.Success &&
                     validationInline) ||
                   validationInlineInternal
                     ? ""
                     : currentStatus
                 }
-                message={showStatusText ? currentValidationText! : ""}
+                message={showStatusText ? currentValidationText : ""}
                 ariaLiveMode={messageAriaLive}
                 for={inputId}
                 fullWidth={fullWidth}
               >
-                {!readonly && maxNumChars! > 0 && (
+                {!readonly && maxNumChars > 0 && (
                   <div slot="validation-message-adornment">
                     {!hideCharCount && (
                       <ic-typography variant="caption" class="char-count-text">
@@ -786,7 +798,9 @@ export class TextField {
                       </ic-typography>
                     )}
                     <span class="remaining-char-count-desc" aria-live="polite">
-                      {hiddenRemainingCharCountDesc}
+                      {`${charsRemaining} character${
+                        charsRemaining === 1 ? "" : "s"
+                      } remaining.`}
                     </span>
                     <span hidden={true} id={hiddenCharCountDescId}>
                       Field can contain a maximum of {maxNumChars} characters.

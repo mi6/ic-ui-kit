@@ -11,6 +11,7 @@ import {
   forceUpdate,
   h,
   Watch,
+  Fragment,
 } from "@stencil/core";
 
 import {
@@ -51,25 +52,25 @@ let buttonIds = 0;
 export class Button {
   private buttonEl?: HTMLElement;
   private buttonIdNum = buttonIds++;
-  private hasTooltip: boolean = false;
+  private hasTooltip = false;
   private id: string | null;
   private inheritedAttributes: { [k: string]: string } = {};
   private describedbyEl: HTMLElement | null = null;
-  private describedById: string | null = null;
+  private describedById?: string;
   private mutationObserver: MutationObserver | null = null;
   private hostMutationObserver: MutationObserver | null = null;
   private routerSlot: HTMLElement | null;
 
   @Element() el: HTMLIcButtonElement;
 
-  @State() ariaLabel: string = "";
-  @State() describedByContent: string | undefined = "";
-  @State() title: string = "";
+  @State() ariaLabel = "";
+  @State() describedByContent? = "";
+  @State() title = "";
 
   /**
    * If `fileUpload` is set to `true`, this is the accepted list of file types.
    */
-  @Prop() accept?: string = "*";
+  @Prop() accept = "*";
 
   /**
    * @internal Used to identify any related child component
@@ -84,7 +85,7 @@ export class Button {
   /**
    * If `true`, the button will be in disabled state.
    */
-  @Prop() disabled?: boolean = false;
+  @Prop() disabled = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -93,32 +94,32 @@ export class Button {
   /**
    * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
    */
-  @Prop() disableTooltip?: boolean = false;
+  @Prop() disableTooltip = false;
 
   /**
    * If `true`, the user can save the linked URL instead of navigating to it.
    */
-  @Prop() download?: string | boolean = false;
+  @Prop() download: string | boolean = false;
 
   /**
    * If `true`, the button will show a dropdown icon.
    */
-  @Prop() dropdown?: boolean = false;
+  @Prop() dropdown = false;
 
   /**
    * If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.
    */
-  @Prop({ mutable: true, reflect: true }) dropdownExpanded?: boolean = false;
+  @Prop({ mutable: true, reflect: true }) dropdownExpanded = false;
 
   /**
    * If `true`, when the button is clicked the native file explorer will be launched.
    */
-  @Prop() fileUpload?: boolean = false;
+  @Prop() fileUpload = false;
 
   /**
    * The name of the control for the file input, which is submitted with the form data.
    */
-  @Prop() fileInputName?: string = `ic-button-file-upload-input-${buttonIds++}`;
+  @Prop() fileInputName = `ic-button-file-upload-input-${buttonIds++}`;
 
   /**
    * The <form> element to associate the button with.
@@ -153,7 +154,7 @@ export class Button {
   /**
    * If `true`, the button will fill the width of the container.
    */
-  @Prop() fullWidth?: boolean = false;
+  @Prop() fullWidth = false;
 
   /**
    * The URL that the link points to. This will render the button as an "a" tag.
@@ -168,17 +169,17 @@ export class Button {
   /**
    * If `true`, the button will be in loading state.
    */
-  @Prop() loading?: boolean = false;
+  @Prop() loading = false;
 
   /**
    * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
    */
-  @Prop({ mutable: true }) monochrome?: boolean = false;
+  @Prop({ mutable: true }) monochrome = false;
 
   /**
    * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
    */
-  @Prop() multiple?: boolean = false;
+  @Prop() multiple = false;
 
   /**
    * How much of the referrer to send when following the link.
@@ -198,7 +199,7 @@ export class Button {
   /**
    * The size of the button to be displayed.
    */
-  @Prop() size?: IcSizes = "medium";
+  @Prop() size: IcSizes = "medium";
 
   /**
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
@@ -208,27 +209,27 @@ export class Button {
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop({ mutable: true }) theme?: IcThemeMode = "inherit";
+  @Prop({ mutable: true }) theme: IcThemeMode = "inherit";
 
   /**
    * The position of the tooltip in relation to the button.
    */
-  @Prop() tooltipPlacement?: IcButtonTooltipPlacement = "bottom";
+  @Prop() tooltipPlacement: IcButtonTooltipPlacement = "bottom";
 
   /**
-   * If `true`, the secondary variant of button will have a transparent background rather than white.
+   * If `true`, the secondary & tertiary variants of button will have a transparent background when not hovered, pressed or loading.
    */
-  @Prop() transparentBackground?: boolean = true;
+  @Prop() transparentBackground = true;
 
   /**
    * The type of the button.
    */
-  @Prop() type?: IcButtonTypes = "button";
+  @Prop() type: IcButtonTypes = "button";
 
   /**
    * The variant of the button to be displayed.
    */
-  @Prop() variant?: IcButtonVariants = "primary";
+  @Prop() variant: IcButtonVariants = "primary";
 
   /**
    * Emitted when button has blur
@@ -246,15 +247,8 @@ export class Button {
   @Event() icFocus!: EventEmitter<void>;
 
   disconnectedCallback(): void {
-    if (this.mutationObserver !== null && this.mutationObserver !== undefined) {
-      this.mutationObserver.disconnect();
-    }
-    if (
-      this.hostMutationObserver !== null &&
-      this.hostMutationObserver !== undefined
-    ) {
-      this.hostMutationObserver.disconnect();
-    }
+    this.mutationObserver?.disconnect();
+    this.hostMutationObserver?.disconnect();
   }
 
   componentWillUpdate(): void {
@@ -287,7 +281,7 @@ export class Button {
 
     if (!this.hasTooltip) {
       const describedById = this.inheritedAttributes["aria-describedby"];
-      if (describedById !== undefined) {
+      if (describedById) {
         this.describedById = describedById;
         const el = this.el.parentElement?.querySelector<HTMLElement>(
           `#${describedById}`
@@ -320,16 +314,12 @@ export class Button {
         attributes: true,
       });
 
-      this.hasRouterSlot() && this.arrangeRouterItem();
+      if (this.hasRouterSlot()) this.arrangeRouterItem();
     }
   }
 
   componentWillRender(): void {
-    const iconEl = this.hasIconSlot("left")
-      ? this.el.querySelector(`[slot="left-icon"]`)
-      : this.hasIconSlot("right")
-      ? this.el.querySelector(`[slot="right-icon"]`)
-      : null;
+    const iconEl = this.getSlottedIcon("left") || this.getSlottedIcon("right");
     iconEl?.setAttribute("viewBox", "0 0 24 24");
   }
 
@@ -341,10 +331,10 @@ export class Button {
           this.icFileSelection,
           this.el,
           !!this.multiple,
-          this.fileInputName!,
-          this.selectedFiles,
           !!this.disabled,
-          this.accept
+          this.accept,
+          this.fileInputName,
+          this.selectedFiles
         );
       }
       if (this.disabled || this.loading) {
@@ -369,7 +359,7 @@ export class Button {
     this.buttonEl?.focus();
   }
 
-  private async closeButtonTooltip(ev: KeyboardEvent): Promise<void> {
+  private async closeButtonTooltip(ev: KeyboardEvent) {
     const tooltip = this.el.shadowRoot?.querySelector("ic-tooltip");
     if (tooltip && (await tooltip.isTooltipVisible())) {
       tooltip.displayTooltip(false);
@@ -378,12 +368,10 @@ export class Button {
     }
   }
 
-  private hasIconSlot(position?: "left" | "right" | "top"): boolean {
-    const selectorPrefix = position ? `${position}-` : "";
-    return this.el.querySelector(`[slot="${selectorPrefix}icon"]`) !== null;
-  }
+  private getSlottedIcon = (position: "left" | "right" | "top") =>
+    this.el.querySelector(`[slot="${position}-icon"]`);
 
-  private hasRouterSlot(): boolean {
+  private hasRouterSlot() {
     this.routerSlot = this.el.querySelector('[slot="router-item"]');
     if (this.routerSlot) {
       this.routerSlot.ariaLabel = this.routerSlot.textContent;
@@ -391,7 +379,7 @@ export class Button {
     return !!this.routerSlot;
   }
 
-  private handleClick = (): void => {
+  private handleClick = () => {
     if (
       (this.el.type === "submit" || this.el.type === "reset") &&
       !this.hasRouterSlot() &&
@@ -409,7 +397,7 @@ export class Button {
     }
   };
 
-  private handleKeyDown = (ev: KeyboardEvent): void => {
+  private handleKeyDown = (ev: KeyboardEvent) => {
     if (ev.key === "Escape" && this.hasTooltip) {
       this.closeButtonTooltip(ev);
     }
@@ -423,7 +411,7 @@ export class Button {
     this.icBlur.emit();
   };
 
-  private updateTheme(mode: IcBrandForeground | null = null): void {
+  private updateTheme(mode: IcBrandForeground | null = null) {
     const foregroundColor = getBrandFromContext(this.el, mode);
     if (foregroundColor !== IcBrandForegroundEnum.Default) {
       this.theme =
@@ -434,13 +422,18 @@ export class Button {
     }
   }
 
-  // triggered when text content of sibling element in light DOM changes
-  private mutationCallback = (): void => {
+  /**
+   * Triggered when text content of sibling element in light DOM changes
+   */
+  private mutationCallback = () => {
     this.describedByContent = this.describedbyEl?.innerText;
   };
 
-  // triggered when attributes of host element change
-  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+  /**
+   * Triggered when attributes of host element change
+   * @param mutationList the list of changes made to the host element
+   */
+  private hostMutationCallback = (mutationList: MutationRecord[]) => {
     let forceComponentUpdate = false;
     mutationList.forEach(({ attributeName }) => {
       if (attributeName) {
@@ -461,16 +454,14 @@ export class Button {
     }
   };
 
-  private setHasTooltip = (): void => {
+  private setHasTooltip = () => {
     this.hasTooltip =
       !this.disableTooltip && (!!this.title || !!this.isIconVariant());
   };
 
-  private isIconVariant = (): boolean | undefined => {
-    return this.variant?.startsWith("icon");
-  };
+  private isIconVariant = () => this.variant.startsWith("icon");
 
-  private arrangeRouterItem = (): void => {
+  private arrangeRouterItem = () => {
     const setStyles = (
       element: HTMLElement | SVGElement,
       styles: { [key: string]: string }
@@ -479,52 +470,53 @@ export class Button {
         element.style.setProperty(key, value);
       });
     };
-    const iconWrapper = document.createElement("div");
-    const icon = this.routerSlot?.querySelector("svg");
-    const badge = this.routerSlot?.querySelector("ic-badge");
-    const label = this.routerSlot?.textContent?.trim();
-    const icTypography = document.createElement("ic-typography");
-
-    setStyles(icTypography, {
-      "font-family": "var(--ic-font-body-family)",
-      "font-size": "0.875rem",
-      "font-weight": "600",
-    });
-    setStyles(this.routerSlot!, {
-      gap: "0",
-    });
-
-    if (icon) {
-      setStyles(icon, {
-        fill: "currentcolor",
-      });
-      icon.getAttribute("slot") === "left-icon" &&
-        setStyles(iconWrapper, {
-          "margin-right": "var(--ic-space-xs)",
-        });
-      icon.getAttribute("slot") === "right-icon" &&
-        setStyles(iconWrapper, {
-          "margin-left": "var(--ic-space-xs)",
-        });
-      if (icon.getAttribute("slot") === "top-icon") {
-        setStyles(this.routerSlot!, {
-          display: "flex",
-          "flex-direction": "column",
-          "--height": "fit-content",
-        });
-      }
-      iconWrapper.append(icon);
-    }
-
-    badge && iconWrapper.append(badge);
-
-    if (label) {
-      icTypography.textContent = label;
-    }
 
     if (this.routerSlot) {
+      const icTypography = document.createElement("ic-typography");
+
+      setStyles(icTypography, {
+        "font-family": "var(--ic-font-body-family)",
+        "font-size": "0.875rem",
+        "font-weight": "600",
+      });
+      setStyles(this.routerSlot, {
+        gap: "0",
+      });
+
+      const icon = this.routerSlot.querySelector("svg");
+      const iconSlot = icon?.getAttribute("slot");
+      const iconWrapper = document.createElement("div");
+
+      if (icon) {
+        setStyles(icon, {
+          fill: "currentcolor",
+        });
+
+        if (iconSlot === "top-icon") {
+          setStyles(this.routerSlot, {
+            display: "flex",
+            "flex-direction": "column",
+            "--height": "fit-content",
+          });
+        } else if (iconSlot) {
+          const marginPlacement = iconSlot === "left-icon" ? "right" : "left";
+          setStyles(iconWrapper, {
+            [`margin-${marginPlacement}`]: "var(--ic-space-xs)",
+          });
+        }
+
+        iconWrapper.append(icon);
+      }
+
+      const badge = this.routerSlot.querySelector("ic-badge");
+      const label = this.routerSlot.textContent?.trim();
+
+      if (badge) iconWrapper.append(badge);
+      if (label) icTypography.textContent = label;
+
       this.routerSlot.textContent = "";
-      if (icon && icon.getAttribute("slot") === "right-icon") {
+
+      if (iconSlot === "right-icon") {
         this.routerSlot.append(icTypography);
         this.routerSlot.append(iconWrapper);
       } else {
@@ -535,156 +527,182 @@ export class Button {
   };
 
   render() {
-    const TagType = (this.href && "a") || "button";
-    const { title, ariaLabel, inheritedAttributes } = this;
+    const {
+      ariaControlsId,
+      ariaLabel,
+      ariaOwnsId,
+      buttonIdNum,
+      describedByContent,
+      describedById,
+      disabled,
+      download,
+      dropdown,
+      dropdownExpanded,
+      form,
+      formaction,
+      formenctype,
+      formmethod,
+      formnovalidate,
+      formtarget,
+      fullWidth,
+      handleClick,
+      handleKeyDown,
+      hasTooltip,
+      href,
+      hreflang,
+      id,
+      inheritedAttributes,
+      isIconVariant,
+      loading,
+      monochrome,
+      onBlur,
+      onFocus,
+      referrerpolicy,
+      rel,
+      size,
+      target,
+      theme,
+      title,
+      tooltipPlacement,
+      transparentBackground,
+      type,
+      variant,
+    } = this;
+
+    const TagType = href ? "a" : "button";
     const buttonAttrs =
       TagType === "button"
         ? {
-            type: this.type,
-            disabled: this.disabled,
-            form: this.form,
-            formaction: this.formaction,
-            formenctype: this.formenctype,
-            formmethod: this.formmethod,
-            formnovalidate: this.formnovalidate,
-            formtarget: this.formtarget,
+            type,
+            disabled,
+            form,
+            formaction,
+            formenctype,
+            formmethod,
+            formnovalidate,
+            formtarget,
           }
         : {
-            download: this.download !== false ? this.download : null,
-            href: this.href,
-            rel: this.rel,
-            target: this.target,
-            referrerpolicy: this.referrerpolicy,
-            hreflang: this.hreflang,
+            download: download !== false ? download : null,
+            href,
+            rel,
+            target,
+            referrerpolicy,
+            hreflang,
           };
 
-    let describedby: string | null = null;
-    let buttonId: string | null = null;
-    if (this.hasTooltip) {
-      buttonId =
-        this.id !== null
-          ? `ic-button-with-tooltip-${this.id}`
-          : `ic-button-with-tooltip-${this.buttonIdNum}`;
-      describedby =
-        this.variant === "icon" && !!ariaLabel
-          ? null
-          : `ic-tooltip-${buttonId}`;
-    } else {
-      describedby = this.describedById;
-    }
+    const buttonId = hasTooltip
+      ? `ic-button-with-tooltip-${id || buttonIdNum}`
+      : undefined;
 
-    const ButtonContent = () => {
-      return (
+    const describedby = !hasTooltip
+      ? describedById
+      : variant !== "icon" || !ariaLabel
+      ? `ic-tooltip-${buttonId}`
+      : undefined;
+
+    const hasLeftIcon = !!this.getSlottedIcon("left");
+    const hasRightIcon = !!this.getSlottedIcon("right");
+
+    const ButtonContent = () =>
+      this.hasRouterSlot() ? (
+        <slot name="router-item"></slot>
+      ) : (
         <TagType
           class="button"
-          aria-disabled={this.loading || this.disabled ? "true" : null}
-          aria-label={this.loading ? "Loading" : ariaLabel}
-          aria-expanded={this.dropdown && `${this.dropdownExpanded}`}
+          aria-disabled={loading || disabled ? "true" : null}
+          aria-label={loading ? "Loading" : ariaLabel}
+          aria-expanded={dropdown && `${dropdownExpanded}`}
           {...buttonAttrs}
           {...inheritedAttributes}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
+          onFocus={onFocus}
+          onBlur={onBlur}
           ref={(el) => (this.buttonEl = el)}
           aria-describedby={describedby}
           part="button"
         >
-          {this.hasIconSlot("left") && !this.loading && (
-            <div class="icon-container">
-              <slot name="left-icon" />
-            </div>
-          )}
-          {this.hasIconSlot("top") &&
-            !this.hasIconSlot("left") &&
-            !this.hasIconSlot("right") &&
-            !this.loading && (
-              <div class="icon-container">
-                <slot name="top-icon" />
-              </div>
-            )}
-          {this.loading ? (
+          {loading ? (
             <div class="loading-container">
               <ic-loading-indicator
                 type="linear"
-                monochrome={this.monochrome}
-                theme={this.theme}
+                monochrome={monochrome}
+                theme={theme}
               ></ic-loading-indicator>
             </div>
           ) : (
-            <slot />
+            <Fragment>
+              {(hasLeftIcon ||
+                (!!this.getSlottedIcon("top") && !hasRightIcon)) && (
+                <div class="icon-container">
+                  <slot name={`${hasLeftIcon ? "left" : "top"}-icon`} />
+                </div>
+              )}
+              <slot />
+              {!dropdown
+                ? hasRightIcon && (
+                    <div class={{ "icon-container": true, "right-icon": true }}>
+                      <slot name="right-icon" />
+                    </div>
+                  )
+                : variant !== "icon" &&
+                  variant !== "destructive" && (
+                    <span
+                      class={
+                        dropdownExpanded
+                          ? "dropdown-expanded"
+                          : "arrow-dropdown"
+                      }
+                      innerHTML={arrowDropdown}
+                    />
+                  )}
+            </Fragment>
           )}
-          {this.hasIconSlot("right") && !this.loading && !this.dropdown && (
-            <div class={{ "icon-container": true, "right-icon": true }}>
-              <slot name="right-icon" />
-            </div>
-          )}
-          {this.dropdown &&
-            !this.loading &&
-            this.variant !== "icon" &&
-            this.variant !== "destructive" && (
-              <span
-                class={{
-                  ["arrow-dropdown"]: !this.dropdownExpanded,
-                  ["dropdown-expanded"]: !!this.dropdownExpanded,
-                }}
-                innerHTML={arrowDropdown}
-              />
-            )}
         </TagType>
       );
-    };
 
     return (
       <Host
         class={{
-          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
-          [`monochrome`]: !!this.monochrome,
-          ["ic-button-disabled"]: !!this.disabled && !this.loading,
-          [`ic-button-variant-${this.variant}`]: true,
-          [`ic-button-size-${this.size}`]: true,
-          ["ic-button-loading"]: !!this.loading,
-          ["ic-button-full-width"]: !!this.fullWidth,
-          ["with-badge"]: isSlotUsed(this.el, "badge"),
-          ["dropdown-no-icon"]:
-            !!this.dropdown &&
+          "ic-button-disabled": disabled && !loading,
+          "ic-button-full-width": fullWidth,
+          "ic-button-loading": loading,
+          [`ic-button-size-${size}`]: true,
+          [`ic-button-variant-${variant}`]: true,
+          [`ic-theme-${theme}`]: theme !== "inherit",
+          background:
+            (variant === "secondary" || variant === "tertiary") &&
+            !transparentBackground &&
+            !disabled,
+          "dropdown-no-icon":
+            dropdown &&
             !isSlotUsed(this.el, "icon") &&
             !isSlotUsed(this.el, "left-icon"),
-          ["top-icon"]: isSlotUsed(this.el, "top-icon"),
-          ["background"]:
-            this.variant === "secondary" &&
-            !this.transparentBackground &&
-            this.theme === "light",
+          monochrome,
+          "top-icon": isSlotUsed(this.el, "top-icon"),
+          "with-badge": isSlotUsed(this.el, "badge"),
         }}
-        onClick={this.handleClick}
-        onKeyDown={this.handleKeyDown}
-        aria-owns={this.ariaOwnsId}
-        aria-controls={this.ariaControlsId}
-        aria-expanded={this.dropdown && `${this.dropdownExpanded}`}
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
+        aria-owns={ariaOwnsId}
+        aria-controls={ariaControlsId}
+        aria-expanded={dropdown && `${dropdownExpanded}`}
       >
-        {this.hasTooltip && (
+        {hasTooltip && (
           <ic-tooltip
-            id={describedby || undefined}
+            id={describedby}
             label={title || ariaLabel}
-            target={buttonId || undefined}
-            placement={this.tooltipPlacement}
-            silent={this.isIconVariant() && !!ariaLabel}
+            target={buttonId}
+            placement={tooltipPlacement}
+            silent={isIconVariant() && !!ariaLabel}
           >
-            {this.hasRouterSlot() ? (
-              <slot name="router-item"></slot>
-            ) : (
-              <ButtonContent />
-            )}
+            <ButtonContent />
           </ic-tooltip>
         )}
         {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
-        {!this.hasTooltip &&
-          (this.hasRouterSlot() ? (
-            <slot name="router-item"></slot>
-          ) : (
-            <ButtonContent />
-          ))}
-        {this.describedByContent && (
-          <span id={describedby || undefined} class="ic-button-describedby">
-            {this.describedByContent}
+        {!hasTooltip && <ButtonContent />}
+        {describedByContent && (
+          <span id={describedby} class="ic-button-describedby">
+            {describedByContent}
           </span>
         )}
       </Host>

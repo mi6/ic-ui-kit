@@ -7,10 +7,11 @@ const defaultArgs = {
   theme: "inherit",
   size: "medium",
   variant: "secondary",
-  fullWidth: true,
+  fullWidth: false,
   iconPlacement: "right-icon",
   monochrome: false,
   dropdown: false,
+  transparentBackground: true,
 };
 
 export default {
@@ -2102,6 +2103,7 @@ export const Playground = {
       theme=${args.theme}
       monochrome=${args.monochrome}
       dropdown=${args.dropdown}
+      transparent-background=${args.transparentBackground}
       >${args.message}</ic-button
     >`,
 
@@ -2145,6 +2147,12 @@ export const Playground = {
     },
 
     dropdown: {
+      control: {
+        type: "boolean",
+      },
+    },
+
+    transparentBackground: {
       control: {
         type: "boolean",
       },
@@ -2215,7 +2223,7 @@ export const PlaygroundWithIcon = {
     },
 
     iconPlacement: {
-      options: ["left-icon", "right-icon"],
+      options: ["left-icon", "right-icon", "top-icon"],
 
       control: {
         type: inlineRadioSelector,

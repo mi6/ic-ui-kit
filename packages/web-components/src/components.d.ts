@@ -224,12 +224,12 @@ export namespace Components {
         /**
           * If `true`, aria-current will be set on the breadcrumb.
          */
-        "current"?: boolean;
+        "current": boolean;
         /**
           * The URL that the breadcrumb link points to.
          */
         "href"?: string;
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * The title of the breadcrumb.
          */
@@ -238,62 +238,62 @@ export namespace Components {
           * Sets focus on the breadcrumb.
          */
         "setFocus": () => Promise<void>;
-        "showBackIcon"?: boolean;
-        "theme"?: IcThemeMode;
+        "showBackIcon": boolean;
+        "theme": IcThemeMode;
     }
     interface IcBreadcrumbGroup {
         /**
           * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
-        "backBreadcrumbOnly"?: boolean;
+        "backBreadcrumbOnly": boolean;
         /**
           * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
          */
-        "collapsed"?: boolean;
+        "collapsed": boolean;
         /**
           * If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcButton {
         /**
           * If `fileUpload` is set to `true`, this is the accepted list of file types.
          */
-        "accept"?: string;
+        "accept": string;
         "ariaControlsId"?: string | boolean;
         "ariaOwnsId"?: string | boolean;
         /**
           * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
          */
-        "disableTooltip"?: boolean;
+        "disableTooltip": boolean;
         /**
           * If `true`, the button will be in disabled state.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
-        "download"?: string | boolean;
+        "download": string | boolean;
         /**
           * If `true`, the button will show a dropdown icon.
          */
-        "dropdown"?: boolean;
+        "dropdown": boolean;
         /**
           * If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.
          */
-        "dropdownExpanded"?: boolean;
+        "dropdownExpanded": boolean;
         /**
           * The name of the control for the file input, which is submitted with the form data.
          */
-        "fileInputName"?: string;
+        "fileInputName": string;
         /**
           * If `true`, when the button is clicked the native file explorer will be launched.
          */
-        "fileUpload"?: boolean;
+        "fileUpload": boolean;
         /**
           * The <form> element to associate the button with.
          */
@@ -321,7 +321,7 @@ export namespace Components {
         /**
           * If `true`, the button will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The URL that the link points to. This will render the button as an "a" tag.
          */
@@ -333,15 +333,15 @@ export namespace Components {
         /**
           * If `true`, the button will be in loading state.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * If `true`, the button will display as monochromatic in either `light` or `dark` theme.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
          */
-        "multiple"?: boolean;
+        "multiple": boolean;
         /**
           * How much of the referrer to send when following the link.
          */
@@ -361,7 +361,7 @@ export namespace Components {
         /**
           * The size of the button to be displayed.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -369,23 +369,23 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The position of the tooltip in relation to the button.
          */
-        "tooltipPlacement"?: IcButtonTooltipPlacement;
+        "tooltipPlacement": IcButtonTooltipPlacement;
         /**
-          * If `true`, the secondary variant of button will have a transparent background rather than white.
+          * If `true`, the secondary & tertiary variants of button will have a transparent background when not hovered, pressed or loading.
          */
-        "transparentBackground"?: boolean;
+        "transparentBackground": boolean;
         /**
           * The type of the button.
          */
-        "type"?: IcButtonTypes;
+        "type": IcButtonTypes;
         /**
           * The variant of the button to be displayed.
          */
-        "variant"?: IcButtonVariants;
+        "variant": IcButtonVariants;
     }
     interface IcCardVertical {
         /**
@@ -449,19 +449,19 @@ export namespace Components {
         /**
           * The style of additionalField that will be displayed if used.
          */
-        "additionalFieldDisplay"?: IcAdditionalFieldTypes;
+        "additionalFieldDisplay": IcAdditionalFieldTypes;
         /**
           * If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.
          */
-        "checked"?: boolean;
+        "checked": boolean;
         /**
           * If `true`, the checkbox will be set to the disabled state.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * The text to be displayed when dynamic.
          */
-        "dynamicText"?: string;
+        "dynamicText": string;
         /**
           * The <form> element to associate the checkbox with.
          */
@@ -473,11 +473,11 @@ export namespace Components {
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         /**
           * If `true`, the indeterminate state will be displayed when checked.
          */
-        "indeterminate"?: boolean;
+        "indeterminate": boolean;
         /**
           * The label for the checkbox.
          */
@@ -489,7 +489,7 @@ export namespace Components {
         /**
           * If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.
          */
-        "nativeIndeterminateBehaviour"?: boolean;
+        "nativeIndeterminateBehaviour": boolean;
         /**
           * Sets focus on the checkbox.
          */
@@ -501,7 +501,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The value for the checkbox.
          */
@@ -511,15 +511,15 @@ export namespace Components {
         /**
           * If `true`, the checkbox group will be set to the disabled state.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
          */
-        "helperText"?: string;
+        "helperText": string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         /**
           * The label for the checkbox group to be displayed.
          */
@@ -531,23 +531,23 @@ export namespace Components {
         /**
           * If `true`, the checkbox group will require a value.
          */
-        "required"?: boolean;
+        "required": boolean;
         /**
           * The size of the checkboxes to be displayed. This does not affect the font size of the label.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationStatus"?: IcInformationStatusOrEmpty;
+        "validationStatus": IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message.
          */
-        "validationText"?: string;
+        "validationText": string;
     }
     interface IcChip {
         /**
@@ -557,15 +557,15 @@ export namespace Components {
         /**
           * If `true`, the chip will appear disabled.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
-          * The text in the dismiss button tooltip and aria label.
+          * The text in the dismiss button tooltip and aria label. Makes the user aware of the action resulting from clicking the 'Dismiss chip' button.
          */
-        "dismissLabel"?: string;
+        "dismissLabel": string;
         /**
           * If `true`, the chip will have a close button at the end to dismiss it.
          */
-        "dismissible"?: boolean;
+        "dismissible": boolean;
         /**
           * The text rendered within the chip.
          */
@@ -577,19 +577,19 @@ export namespace Components {
         /**
           * The size of the chip.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component. Setting the "customColor" prop will override this.
          */
-        "theme"?: "dark" | "light" | "inherit";
+        "theme": IcThemeMode;
         /**
           * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
          */
-        "transparentBackground"?: boolean;
+        "transparentBackground": boolean;
         /**
           * The emphasis of the chip.
          */
-        "variant"?: IcEmphasisType;
+        "variant": IcEmphasisType;
     }
     interface IcClassificationBanner {
         /**
@@ -1538,59 +1538,59 @@ export namespace Components {
         /**
           * The hint text for the hidden assistive description element.
          */
-        "assistiveHintText"?: string;
+        "assistiveHintText": string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize": string | undefined;
+        "autocapitalize": string;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
-        "autocomplete"?: IcAutocompleteTypes;
+        "autocomplete": IcAutocompleteTypes;
         /**
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
-        "autocorrect"?: IcAutocorrectStates;
+        "autocorrect": IcAutocorrectStates;
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus": boolean | undefined;
+        "autofocus": boolean;
         /**
           * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
          */
-        "charactersUntilSuggestion"?: number;
+        "charactersUntilSuggestion": number;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
-        "debounce"?: number;
+        "debounce": number;
         /**
           * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
          */
-        "disableAutoFiltering"?: boolean;
+        "disableAutoFiltering": boolean;
         /**
           * If `true`, the disabled state will be set.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * The text displayed when there are no options in the option list.
          */
-        "emptyOptionListText"?: string;
+        "emptyOptionListText": string;
         /**
           * If `true`, the search bar will be focused when component loaded.
          */
-        "focusOnLoad"?: boolean;
+        "focusOnLoad": boolean;
         /**
           * Specify whether the search bar fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
          */
-        "helperText"?: string;
+        "helperText": string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         /**
           * The label for the search bar.
          */
@@ -1598,43 +1598,43 @@ export namespace Components {
         /**
           * The custom name for the label field to correspond with the IcMenuOption type.
          */
-        "labelField"?: string;
+        "labelField": string;
         /**
           * Trigger loading state when fetching options asynchronously
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * Change the message displayed when external loading times out.
          */
-        "loadingErrorLabel"?: string;
+        "loadingErrorLabel": string;
         /**
           * Change the message displayed whilst the options are being loaded externally.
          */
-        "loadingLabel"?: string;
+        "loadingLabel": string;
         /**
           * The name of the control, which is submitted with the form data.
          */
-        "name"?: string;
+        "name": string;
         /**
           * The suggested search options.
          */
-        "options"?: IcMenuOption[];
+        "options": IcMenuOption[];
         /**
           * The placeholder value to display.
          */
-        "placeholder"?: string;
+        "placeholder": string;
         /**
           * If `true`, the readonly state will be set.
          */
-        "readonly"?: boolean;
+        "readonly": boolean;
         /**
           * If `true`, the search bar will require a value.
          */
-        "required"?: boolean;
+        "required": boolean;
         /**
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
-        "searchMode"?: IcSearchBarSearchModes;
+        "searchMode": IcSearchBarSearchModes;
         /**
           * Sets focus on the native `input`.
          */
@@ -1642,15 +1642,15 @@ export namespace Components {
         /**
           * The size of the search bar component.
          */
-        "size"?: IcSizesNoLarge;
+        "size": IcSizesNoLarge;
         /**
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
-        "spellcheck": boolean | undefined;
+        "spellcheck": boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
@@ -1658,11 +1658,11 @@ export namespace Components {
         /**
           * The value of the search input.
          */
-        "value"?: string;
+        "value": string;
         /**
           * The custom name for the value field to correspond with the IcMenuOption type.
          */
-        "valueField"?: string;
+        "valueField": string;
     }
     interface IcSectionContainer {
         /**
@@ -2075,7 +2075,7 @@ export namespace Components {
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize": string | undefined;
+        "autocapitalize": string;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
@@ -2087,40 +2087,40 @@ export namespace Components {
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus": boolean | undefined;
+        "autofocus": boolean;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
-        "debounce"?: number;
+        "debounce": number;
         /**
           * If `true`, the disabled state will be set.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * Specify whether the text field fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
          */
-        "helperText"?: string;
-        "hiddenInput"?: boolean;
+        "helperText": string;
+        "hiddenInput": boolean;
         /**
           * If `true`, the character count which is displayed when `maxCharacters` is set will be visually hidden.
          */
-        "hideCharCount"?: boolean;
+        "hideCharCount": boolean;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         /**
           * The ID for the input.
          */
-        "inputId"?: string;
+        "inputId": string;
         /**
           * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
          */
-        "inputmode"?: IcTextFieldInputModes;
+        "inputmode": IcTextFieldInputModes;
         /**
           * The label for the input.
          */
@@ -2132,15 +2132,15 @@ export namespace Components {
         /**
           * The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)
          */
-        "maxCharacters"?: number;
+        "maxCharacters": number;
         /**
           * The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.
          */
-        "maxCharactersMessage"?: string;
+        "maxCharactersMessage": string;
         /**
           * The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.
          */
-        "maxMessage"?: string;
+        "maxMessage": string;
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
@@ -2148,40 +2148,40 @@ export namespace Components {
         /**
           * The minimum number of characters that can be entered in the field.
          */
-        "minCharacters"?: number;
+        "minCharacters": number;
         /**
           * The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.
          */
-        "minCharactersMessage"?: string;
+        "minCharactersMessage": string;
         /**
           * The text to display as the error message when the minimum value (the `min` prop value) has not been met.
          */
-        "minMessage"?: string;
+        "minMessage": string;
         /**
           * The name of the control, which is submitted with the form data.
          */
-        "name"?: string;
+        "name": string;
         /**
           * The placeholder value to be displayed.
          */
-        "placeholder"?: string;
+        "placeholder": string;
         /**
           * If `true`, the read only state will be set.
          */
-        "readonly"?: boolean;
+        "readonly": boolean;
         /**
           * If `true`, the input will require a value.
          */
-        "required"?: boolean;
+        "required": boolean;
         /**
           * If `true`, the multiline text area will be resizeable.
          */
-        "resize"?: boolean;
+        "resize": boolean;
         "role": string | undefined;
         /**
           * The number of rows to transform the text field into a text area with a specific height.
          */
-        "rows"?: number;
+        "rows": number;
         /**
           * Sets focus on the native `input`.
          */
@@ -2189,33 +2189,33 @@ export namespace Components {
         /**
           * The size of the text field component.
          */
-        "size"?: IcSizesNoLarge;
+        "size": IcSizesNoLarge;
         /**
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
-        "spellcheck": boolean | undefined;
+        "spellcheck": boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
-        "truncateValue"?: boolean;
+        "theme": IcThemeMode;
+        "truncateValue": boolean;
         /**
           * The type of control to display. The default type is text.
          */
-        "type"?: IcTextFieldTypes;
+        "type": IcTextFieldTypes;
         /**
           * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
          */
-        "validationInline"?: boolean;
-        "validationInlineInternal"?: boolean;
+        "validationInline": boolean;
+        "validationInlineInternal": boolean;
         /**
           * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationStatus"?: IcInformationStatusOrEmpty;
+        "validationStatus": IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message.
          */
-        "validationText"?: string;
+        "validationText": string;
         /**
           * The value of the text field.
          */
@@ -3287,6 +3287,7 @@ declare global {
         "icFocus": IcValueEventDetail;
         "icInput": IcValueEventDetail;
         "icKeydown": { event: KeyboardEvent };
+        "icScroll": any;
     }
     interface HTMLIcTextFieldElement extends Components.IcTextField, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcTextFieldElementEventMap>(type: K, listener: (this: HTMLIcTextFieldElement, ev: IcTextFieldCustomEvent<HTMLIcTextFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3803,7 +3804,7 @@ declare namespace LocalJSX {
          */
         "tooltipPlacement"?: IcButtonTooltipPlacement;
         /**
-          * If `true`, the secondary variant of button will have a transparent background rather than white.
+          * If `true`, the secondary & tertiary variants of button will have a transparent background when not hovered, pressed or loading.
          */
         "transparentBackground"?: boolean;
         /**
@@ -3929,7 +3930,7 @@ declare namespace LocalJSX {
         /**
           * The value for the checkbox.
          */
-        "value": string;
+        "value"?: string;
     }
     interface IcCheckboxGroup {
         /**
@@ -3987,7 +3988,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * The text in the dismiss button tooltip and aria label.
+          * The text in the dismiss button tooltip and aria label. Makes the user aware of the action resulting from clicking the 'Dismiss chip' button.
          */
         "dismissLabel"?: string;
         /**
@@ -4009,7 +4010,7 @@ declare namespace LocalJSX {
         /**
           * Sets the chip to the dark or light theme colors. "inherit" will set the color based on the system settings or ic-theme component. Setting the "customColor" prop will override this.
          */
-        "theme"?: "dark" | "light" | "inherit";
+        "theme"?: IcThemeMode;
         /**
           * If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.
          */
@@ -4985,7 +4986,7 @@ declare namespace LocalJSX {
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize"?: string | undefined;
+        "autocapitalize"?: string;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
@@ -4997,7 +4998,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus"?: boolean | undefined;
+        "autofocus"?: boolean;
         /**
           * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
          */
@@ -5127,7 +5128,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the value of the search will have its spelling and grammar checked.
          */
-        "spellcheck"?: boolean | undefined;
+        "spellcheck"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
@@ -5606,7 +5607,7 @@ declare namespace LocalJSX {
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
-        "autocapitalize"?: string | undefined;
+        "autocapitalize"?: string;
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
@@ -5618,7 +5619,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the form control will have input focus when the page loads.
          */
-        "autofocus"?: boolean | undefined;
+        "autofocus"?: boolean;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -5714,6 +5715,10 @@ declare namespace LocalJSX {
          */
         "onIcKeydown"?: (event: IcTextFieldCustomEvent<{ event: KeyboardEvent }>) => void;
         /**
+          * Emitted when the textarea variant is scrolled.
+         */
+        "onIcScroll"?: (event: IcTextFieldCustomEvent<any>) => void;
+        /**
           * The placeholder value to be displayed.
          */
         "placeholder"?: string;
@@ -5741,7 +5746,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
-        "spellcheck"?: boolean | undefined;
+        "spellcheck"?: boolean;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */

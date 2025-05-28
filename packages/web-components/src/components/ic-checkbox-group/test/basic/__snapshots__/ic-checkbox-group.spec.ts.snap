@@ -567,7 +567,7 @@ exports[`ic-checkbox-group should render: renders 1`] = `
 `;
 
 exports[`ic-checkbox-group should test checkbox option as submit on form 1`] = `
-<ic-checkbox additional-field-display="static" class="ic-checkbox-undefined" form="new-form" id="ic-checkbox" label="IC Checkbox Test" selected="" value="test-value">
+<ic-checkbox additional-field-display="static" form="new-form" id="ic-checkbox" label="IC Checkbox Test" selected="" value="test-value">
   <template shadowrootmode="open">
     <div class="container">
       <input class="checkbox" form="new-form" id="ic-checkbox-IC-Checkbox-Test-undefined" role="checkbox" type="checkbox" value="test-value">

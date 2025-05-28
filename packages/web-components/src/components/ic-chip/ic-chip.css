@@ -160,6 +160,15 @@ ic-tooltip {
   background-image: linear-gradient(var(--chip-pressed-bg) 0 0);
 }
 
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
+.sr-only:dir(rtl) {
+  right: -9999px;
+}
+
 @media (forced-colors: active) {
   .chip {
     border: var(--ic-border-hc);

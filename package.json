@@ -37,7 +37,7 @@
     "test-cypress-perf:headless": "lerna run test:performance --scope=@ukic/react --stream",
     "audit": "npm run audit-expiry && audit-ci -m --config audit-ci.json && lerna run audit",
     "audit:bypass-expiry": "audit-ci -m --config audit-ci.json && lerna run audit",
-    "audit-expiry": "node check-audit-expiry.js",
+    "audit-expiry": "node check-audit-expiry.mjs",
     "prepare": "husky",
     "prettier": "lerna run prettier",
     "prettier:fix": "lerna run prettier:fix",

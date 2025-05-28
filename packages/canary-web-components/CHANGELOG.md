@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.18](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.17...@ukic/canary-web-components@3.0.0-canary.18) (2025-05-28)
+
+### Bug Fixes
+
+- **canary-web-components:** fixed colspan for updating indicator with row selection ([275176d](https://github.com/mi6/ic-ui-kit/commit/275176d3cdc2c2fda4887ff8876de01badfdfb10))
+
+### Features
+
+- **canary-web-components:** add expanded event on treeitem ([17c292a](https://github.com/mi6/ic-ui-kit/commit/17c292a4be107a30606e2f17dd33255ab1e61b05))
+
 # [3.0.0-canary.17](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.15...@ukic/canary-web-components@3.0.0-canary.17) (2025-05-14)
 
 ### Bug Fixes
