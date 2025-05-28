@@ -3,7 +3,7 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "lib": ["dom", "es2015"],
-    "module": "es6",
+    "module": "esnext",
     "outDir": "dist",
     "target": "es5",
     "noImplicitAny": true,
