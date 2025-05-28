@@ -1055,20 +1055,20 @@ export namespace Components {
         /**
           * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
          */
-        "activationType"?: IcActivationTypes;
+        "activationType": IcActivationTypes;
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
          */
-        "anchorEl": HTMLElement;
-        "autofocusOnSelected"?: boolean;
+        "anchorEl"?: HTMLElement;
+        "autofocusOnSelected": boolean;
         /**
           * If `true`, the menu will close when an option is selected.
          */
-        "closeOnSelect"?: boolean;
+        "closeOnSelect": boolean;
         /**
           * If `true`, the menu will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         "handleClickOpen": () => Promise<void>;
         /**
           * Used alongside activationType If menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.
@@ -1080,7 +1080,7 @@ export namespace Components {
         /**
           * The reference to the input element.
          */
-        "inputEl": HTMLElement;
+        "inputEl"?: HTMLElement;
         /**
           * The label for the input element.
          */
@@ -1088,7 +1088,7 @@ export namespace Components {
         /**
           * The custom name for the label field for IcMenuOption.
          */
-        "labelField"?: string;
+        "labelField": string;
         /**
           * The ID of the menu.
          */
@@ -1105,12 +1105,12 @@ export namespace Components {
         /**
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
-        "searchMode"?: IcSearchBarSearchModes;
-        "selectOnEnter"?: boolean;
+        "searchMode": IcSearchBarSearchModes;
+        "selectOnEnter": boolean;
         /**
           * The size of the menu.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * The value of the currently selected option - or array of values (if multiple options allowed).
          */
@@ -1118,7 +1118,7 @@ export namespace Components {
         /**
           * The custom name for the value field for IcMenuOption.
          */
-        "valueField"?: string;
+        "valueField": string;
     }
     interface IcMenuGroup {
         /**
@@ -1678,19 +1678,19 @@ export namespace Components {
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.
          */
-        "debounce"?: number;
+        "debounce": number;
         /**
           * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
-        "disableAutoFiltering"?: boolean;
+        "disableAutoFiltering": boolean;
         /**
           * If `true`, the disabled state will be set.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * The text displayed when there are no options in the option list.
          */
-        "emptyOptionListText"?: string;
+        "emptyOptionListText": string;
         /**
           * The <form> element to associate the select with.
          */
@@ -1698,23 +1698,23 @@ export namespace Components {
         /**
           * If `true`, the select will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
          */
-        "helperText"?: string;
+        "helperText": string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         /**
           * If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.
          */
-        "includeDescriptionsInSearch"?: boolean;
+        "includeDescriptionsInSearch": boolean;
         /**
           * If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.
          */
-        "includeGroupTitlesInSearch"?: boolean;
+        "includeGroupTitlesInSearch": boolean;
         /**
           * The label for the select.
          */
@@ -1722,51 +1722,51 @@ export namespace Components {
         /**
           * If `true`, the loading state will be triggered when fetching options asynchronously.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * The message displayed when external loading times out.
          */
-        "loadingErrorLabel"?: string;
+        "loadingErrorLabel": string;
         /**
           * The message displayed whilst the options are being loaded externally.
          */
-        "loadingLabel"?: string;
+        "loadingLabel": string;
         /**
           * If `true`, multiple options can be selected.
          */
-        "multiple"?: boolean;
+        "multiple": boolean;
         /**
           * The name of the control, which is submitted with the form data.
          */
-        "name"?: string;
+        "name": string;
         /**
           * The possible selection options.
          */
-        "options"?: IcMenuOption[];
+        "options": IcMenuOption[];
         /**
           * The placeholder value to be displayed.
          */
-        "placeholder"?: string;
+        "placeholder": string;
         /**
           * If `true`, the readonly state will be set.
          */
-        "readonly"?: boolean;
+        "readonly": boolean;
         /**
           * If `true`, the select will require a value.
          */
-        "required"?: boolean;
+        "required": boolean;
         /**
           * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
          */
-        "searchMatchPosition"?: IcSearchMatchPositions;
+        "searchMatchPosition": IcSearchMatchPositions;
         /**
           * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
          */
-        "searchable"?: boolean;
+        "searchable": boolean;
         /**
           * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.
          */
-        "selectOnEnter"?: boolean;
+        "selectOnEnter": boolean;
         /**
           * Sets focus on the input box.
          */
@@ -1774,15 +1774,15 @@ export namespace Components {
         /**
           * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
          */
-        "showClearButton"?: boolean;
+        "showClearButton": boolean;
         /**
           * The size of the select.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
@@ -1790,15 +1790,15 @@ export namespace Components {
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationStatus"?: IcInformationStatusOrEmpty;
+        "validationStatus": IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message.
          */
-        "validationText"?: string;
+        "validationText": string;
         /**
           * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
          */
-        "value"?: string | string[] | null;
+        "value": string | string[] | null;
     }
     interface IcSideNavigation {
         /**
@@ -4492,7 +4492,7 @@ declare namespace LocalJSX {
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
          */
-        "anchorEl": HTMLElement;
+        "anchorEl"?: HTMLElement;
         "autofocusOnSelected"?: boolean;
         /**
           * If `true`, the menu will close when an option is selected.
@@ -4505,7 +4505,7 @@ declare namespace LocalJSX {
         /**
           * The reference to the input element.
          */
-        "inputEl": HTMLElement;
+        "inputEl"?: HTMLElement;
         /**
           * The label for the input element.
          */
