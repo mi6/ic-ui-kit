@@ -74,9 +74,9 @@ export const DisabledAndLabel = {
   name: "Disabled and label",
 };
 
-export const DisabledNameAndChecked = {
+export const DisabledLabelAndChecked = {
   render: () => <IcSwitch disabled label="Label" checked />,
-  name: "Disabled, name and checked",
+  name: "Disabled, label and checked",
 };
 
 export const AriaLabel = {
