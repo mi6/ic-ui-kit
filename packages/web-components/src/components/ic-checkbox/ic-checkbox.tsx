@@ -155,12 +155,10 @@ export class Checkbox {
 
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
-      const textfield = this.el.querySelector("ic-text-field");
-      if (!this.checked) {
-        textfield?.setAttribute("disabled", "");
-      } else {
-        textfield?.removeAttribute("disabled");
-      }
+      const textfields = this.el.querySelectorAll("ic-text-field");
+      textfields.forEach((textfield) =>
+        textfield.setAttribute("disabled", this.checked ? "false" : "true")
+      );
     } else if (this.additionalFieldContainer) {
       this.additionalFieldContainer.style.display = !this.checked
         ? "none"

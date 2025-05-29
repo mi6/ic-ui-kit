@@ -187,6 +187,7 @@
 .additional-field-wrapper {
   margin-left: calc(var(--ic-space-md) + var(--ic-space-lg));
   margin-top: calc(var(--ic-space-sm) / 2);
+  width: 20rem;
 }
 
 .branch-corner {
