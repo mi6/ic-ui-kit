@@ -150,20 +150,35 @@ describe("ic-checkbox-group", () => {
       components: [CheckboxGroup, Checkbox, TextField],
       html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error">
         <ic-checkbox value="test" label="test label" additional-field-display="static">
-        <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
+          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
+        </ic-checkbox>
+        <ic-checkbox value="test2" label="test label" additional-field-display="static">
+          <div slot="additional-field">
+          <ic-text-field placeholder="Placeholder" label="Test label"></ic-text-field>
+          <ic-text-field placeholder="Placeholder" label="Test label"></ic-text-field>
         </ic-checkbox>
       </ic-checkbox-group>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-with-disabled-additional-field");
+
+    const textfieldElements = document.querySelectorAll("ic-text-field");
+    textfieldElements.forEach((textfield) => {
+      expect(textfield.disabled).toBe(true);
+    });
   });
 
-  it("should remove disabled attribute from static additional field when checked", async () => {
+  it("should set disabled attribute to false on static additional field when checked", async () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox, TextField],
       html: `<ic-checkbox-group label="test label" hide-label name="test" validation-status="error">
-        <ic-checkbox value="test" label="test label" additional-field-display="static" checked>
-        <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
+        <ic-checkbox value="test" label="test label" checked additional-field-display="static">
+          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
+        </ic-checkbox>
+        <ic-checkbox value="test2" label="test label" checked additional-field-display="static">
+          <div slot="additional-field">
+          <ic-text-field placeholder="Placeholder" label="Test label"></ic-text-field>
+          <ic-text-field placeholder="Placeholder" label="Test label"></ic-text-field>
         </ic-checkbox>
       </ic-checkbox-group>`,
     });
@@ -171,6 +186,11 @@ describe("ic-checkbox-group", () => {
     expect(page.root).toMatchSnapshot(
       "renders-with-disabled-attribute-removed-from-field"
     );
+
+    const textfieldElements = document.querySelectorAll("ic-text-field");
+    textfieldElements.forEach((textfield) => {
+      expect(textfield.disabled).toBe(false);
+    });
   });
 
   it("should pass the size on the checkbox group to the child checkboxes when there's no size set on them individually", async () => {

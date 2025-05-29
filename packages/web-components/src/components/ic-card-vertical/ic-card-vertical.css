@@ -65,6 +65,7 @@ button {
     &:active {
       background-color: var(--ic-card-background-pressed);
       box-shadow: var(--ic-border-focus);
+
       .card-title {
         text-decoration: none;
       }
@@ -72,11 +73,13 @@ button {
 
     .card-title {
       --ic-typography-color: var(--ic-card-clickable-text);
+
       color: var(--ic-card-clickable-text);
       text-decoration: underline;
       text-decoration-thickness: var(--ic-space-1px);
       margin-bottom: var(--ic-space-xxs);
     }
+
     .interaction-button,
     .icon {
       margin-bottom: var(--ic-space-xxs);
