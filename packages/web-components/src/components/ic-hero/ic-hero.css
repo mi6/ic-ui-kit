@@ -179,6 +179,18 @@ ic-typography.heading-bottom-spacing {
     background-image: none !important;
   }
 
+  :host(.has-right-content) .section-container {
+    flex-wrap: wrap;
+  }
+  :host(.has-right-content) .left-container {
+    flex-basis: 100%;
+  }
+
+  :host(.has-right-content) .right-container {
+    flex-basis: 100%;
+    margin-bottom: 2.5rem;
+  }
+
   :host,
   .section-container {
     min-height: 16rem;
@@ -205,10 +217,6 @@ ic-typography.heading-bottom-spacing {
   .secondary-heading,
   .secondary-subheading {
     margin-left: 2.125rem;
-  }
-
-  .right-container {
-    margin-left: 3.125rem;
   }
 }
 

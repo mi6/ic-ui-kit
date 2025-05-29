@@ -167,6 +167,7 @@ export class Hero {
           [`ic-hero-${IcBrandForegroundEnum.Dark}`]:
             foregroundColor === IcBrandForegroundEnum.Dark,
           ["has-background-image"]: backgroundImage !== undefined,
+          ["has-right-content"]: this.rightContent,
           ["ic-hero-small"]: size === "small",
           ["secondary-heading"]: !!secondaryHeading,
         }}

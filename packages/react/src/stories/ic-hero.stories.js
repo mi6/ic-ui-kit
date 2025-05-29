@@ -36,6 +36,7 @@ const Controlled = () => {
             placeholder="Filter display"
             label="Filter display"
             hide-label
+            full-width="true"
           />
           <IcButton
             variant="primary"
