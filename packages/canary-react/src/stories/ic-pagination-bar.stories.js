@@ -349,6 +349,7 @@ const defaultArgs = {
   pageLabel: "Page",
   rangeLabelType: "page",
   selectedItemsPerPage: "10",
+  selectItemsPerPageOnEnter: true,
   setToFirstPageOnPaginationChange: false,
   showItemsPerPageControl: true,
   showGoToPageControl: true,
@@ -377,6 +378,7 @@ export const Playground = {
         pageLabel={args.pageLabel}
         rangeLabelType={args.rangeLabelType}
         selectedItemsPerPage={args.selectedItemsPerPage}
+        selectItemsPerPageOnEnter={args.selectItemsPerPageOnEnter}
         setToFirstPageOnPaginationChange={args.setToFirstPageOnPaginationChange}
         showItemsPerPageControl={args.showItemsPerPageControl}
         showGoToPageControl={args.showGoToPageControl}

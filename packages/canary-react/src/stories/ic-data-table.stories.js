@@ -961,6 +961,7 @@ const defaultArgs = {
   ],
   paginationRangeLabelType: "page",
   paginationSelectedItemsPerPage: 5,
+  paginationSelectItemsPerPageOnEnter: true,
   paginationSetToFirstPageOnPaginationChange: false,
   paginationShowGoToPageControl: true,
   paginationShowItemsPerPageControl: true,
@@ -1026,6 +1027,7 @@ export const Playground = {
         rangeLabelType: args.paginationRangeLabelType,
         type: args.paginationType,
         selectedItemsPerPage: args.paginationSelectedItemsPerPage,
+        selectItemsPerPageOnEnter: args.paginationSelectItemsPerPageOnEnter,
         setToFirstPageOnPaginationChange:
           args.paginationSetToFirstPageOnPaginationChange,
         showGoToPageControl: args.paginationShowGoToPageControl,
@@ -1079,6 +1081,9 @@ export const Playground = {
     density: {
       options: ["default", "dense", "spacious"],
       control: { type: "inline-radio" },
+    },
+    globalRowHeight: {
+      control: { type: "text" },
     },
     paginationRangeLabelType: {
       options: ["page", "data"],
