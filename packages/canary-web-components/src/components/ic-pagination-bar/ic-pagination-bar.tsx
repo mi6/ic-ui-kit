@@ -205,6 +205,11 @@ export class PaginationBar {
   @Prop() hideRangeLabel?: boolean = false;
 
   /**
+   * If `false`, the value in the items per page control will be set immediately on ArrowUp and ArrowDown instead of when Enter is pressed.
+   */
+  @Prop() selectItemsPerPageOnEnter: boolean = true;
+
+  /**
    * If `true`, the select input to control 'items per page' should be displayed.
    */
   @Prop() showItemsPerPageControl?: boolean = false;
@@ -512,6 +517,7 @@ export class PaginationBar {
       itemsPerPageString,
       theme,
       monochrome,
+      selectItemsPerPageOnEnter,
     } = this;
 
     return (
@@ -543,6 +549,7 @@ export class PaginationBar {
                     class="items-per-page-input"
                     hideLabel
                     options={displayedItemsPerPageOptions}
+                    selectOnEnter={selectItemsPerPageOnEnter}
                     value={itemsPerPageString}
                     onIcChange={this.changeItemsPerPage}
                     ref={(el: HTMLIcSelectElement) =>
