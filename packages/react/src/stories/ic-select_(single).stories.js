@@ -79,7 +79,11 @@ const groupedOptions = [
     label: "Fancy",
     children: [
       { label: "Cappuccino", value: "Cap" },
-      { label: "Flat white", value: "Flat" },
+      { label: "Flat white", value: "Fla" },
+      {
+        label: "Macchiato",
+        value: "Mac",
+      },
     ],
   },
   {
@@ -87,6 +91,10 @@ const groupedOptions = [
     children: [
       { label: "Filter", value: "Fil" },
       { label: "Latte", value: "Lat" },
+      {
+        label: "Americano",
+        value: "Ame",
+      },
     ],
   },
 ];

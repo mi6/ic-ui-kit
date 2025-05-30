@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { html } from "lit-html";
 
 const defaultArgs = {
@@ -24,7 +25,7 @@ export default {
 };
 
 export const Default = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-default"
         label="What is your favourite coffee?"
@@ -54,7 +55,7 @@ export const Default = {
 };
 
 export const AsyncDefault = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         label="What is your favourite coffee?"
         loading
@@ -83,7 +84,7 @@ export const AsyncDefault = {
 };
 
 export const DefaultValue = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-default-value"
         label="What is your favourite coffee?"
@@ -105,7 +106,7 @@ export const DefaultValue = {
 };
 
 export const WithClearButton = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-clear"
         label="What is your favourite coffee?"
@@ -127,7 +128,7 @@ export const WithClearButton = {
 };
 
 export const WithDescriptions = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-descriptions"
         label="What is your favourite coffee?"
@@ -160,7 +161,7 @@ export const WithDescriptions = {
 };
 
 export const HelperText = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-helper"
         label="What is your favourite coffee?"
@@ -182,7 +183,7 @@ export const HelperText = {
 };
 
 export const CustomPlaceholder = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-7"
         label="What is your favourite coffee?"
@@ -204,7 +205,7 @@ export const CustomPlaceholder = {
 };
 
 export const CustomComponents = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-1"
         label="What is your favourite coffee?"
@@ -242,7 +243,7 @@ export const CustomComponents = {
 };
 
 export const Sizes = {
-  render: (args) =>
+  render: () =>
     html`<div style="display: flex; flex-direction: column; gap: 16px;">
       <ic-select
         id="select-size-small"
@@ -309,7 +310,7 @@ export const Sizes = {
 };
 
 export const Disabled = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-disabled"
         label="What is your favourite coffee?"
@@ -331,7 +332,7 @@ export const Disabled = {
 };
 
 export const DisabledOptions = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-disabled-options"
         label="What is your favourite coffee?"
@@ -352,7 +353,7 @@ export const DisabledOptions = {
 };
 
 export const FullWidth = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-full-width"
         label="What is your favourite coffee?"
@@ -374,7 +375,7 @@ export const FullWidth = {
 };
 
 export const HiddenLabel = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-hidden-label"
         label="What is your favourite coffee?"
@@ -396,7 +397,7 @@ export const HiddenLabel = {
 };
 
 export const Required = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-required"
         label="What is your favourite coffee?"
@@ -441,7 +442,7 @@ export const ReadOnly = {
 };
 
 export const Groups = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-groups"
         label="What is your favourite coffee?"
@@ -454,6 +455,10 @@ export const Groups = {
             children: [
               { label: "Cappuccino", value: "Cap" },
               { label: "Flat white", value: "Fla" },
+              {
+                label: "Macchiato",
+                value: "Mac",
+              },
             ],
           },
           {
@@ -461,6 +466,10 @@ export const Groups = {
             children: [
               { label: "Filter", value: "Fil" },
               { label: "Latte", value: "Lat" },
+              {
+                label: "Americano",
+                value: "Ame",
+              },
             ],
           },
         ];
@@ -474,7 +483,7 @@ export const Groups = {
 };
 
 export const Recommended = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-recommended"
         label="What is your favourite coffee?"
@@ -497,7 +506,7 @@ export const Recommended = {
 };
 
 export const Validation = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-success"
         label="What is your favourite coffee?"
@@ -557,7 +566,7 @@ export const Validation = {
 };
 
 export const ScrollBehaviour = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-scroll"
         label="What is your favourite coffee?"
@@ -587,7 +596,7 @@ export const ScrollBehaviour = {
 };
 
 export const LoadingWithError = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-loading"
         label="What is your favourite coffee?"
@@ -608,7 +617,7 @@ export const LoadingWithError = {
 };
 
 export const InForm = {
-  render: (args) => html`
+  render: () => html`
     <form>
       <ic-select
         id="select-form"
@@ -640,7 +649,7 @@ export const InForm = {
 };
 
 export const EmittingIcOptionSelectOnEnter = {
-  render: (args) =>
+  render: () =>
     html`<ic-select
         id="select-icoptionselect"
         label="What is your favourite coffee?"
