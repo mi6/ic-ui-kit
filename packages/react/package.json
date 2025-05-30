@@ -37,7 +37,10 @@
     "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
     "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
     "copy:core-css": "echo 'Copy core.css from: @ukic/web-components' && mkdirp -p ./dist/core && ncp ../web-components/dist/core/core.css ./dist/core/core.css",
-    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css"
+    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css",
+    "lhci:collect": "lhci collect",
+    "lhci:assert": "lhci assert",
+    "lhci:autorun": "lhci autorun"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -57,6 +60,7 @@
     "@cypress-audit/lighthouse": "^1.4.2",
     "@cypress/react": "^8.0.0",
     "@cypress/webpack-preprocessor": "^6.0.0",
+    "@lhci/cli": "^0.14.0",
     "@mdi/js": "^7.2.96",
     "@stencil/react-output-target": "^0.5.3",
     "@storybook/addon-a11y": "^8.5.3",
