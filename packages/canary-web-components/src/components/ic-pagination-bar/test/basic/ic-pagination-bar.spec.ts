@@ -3,11 +3,14 @@ import { IcPagination } from "@ukic/web-components/dist/components/ic-pagination
 import { IcButton } from "@ukic/web-components/dist/components/ic-button";
 import { IcTooltip } from "@ukic/web-components/dist/components/ic-tooltip";
 import { IcTextField } from "@ukic/web-components/dist/components/ic-text-field";
-import { DEVICE_SIZES } from "@ukic/web-components/dist/types/utils/helpers";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { newSpecPage } from "@stencil/core/testing";
 import { IcSelect } from "@ukic/web-components/dist/components/ic-select";
 import { IcTypography } from "@ukic/web-components/dist/components/ic-typography";
+
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
 
 describe("ic-pagination-bar", () => {
   it("should render", async () => {
@@ -137,13 +140,14 @@ describe("ic-pagination-bar", () => {
       html: `<ic-pagination-bar total-items="100" show-items-per-page-control="true"></ic-pagination-bar>`,
     });
 
-    const paginationBar = document.querySelector("ic-pagination-bar");
+    const paginationBar = document.querySelector(
+      "ic-pagination-bar"
+    ) as HTMLIcPaginationBarElement;
 
     paginationBar!.itemsPerPageOptions = [
       { label: "15", value: "15" },
       { label: "30", value: "30" },
       { label: "60", value: "60" },
-      { label: "All", value: "100" },
     ];
 
     await page.waitForChanges();
@@ -158,20 +162,21 @@ describe("ic-pagination-bar", () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should only allow a maximum of 4 custom items per page options", async () => {
+  it("should allow more than a maximum of 4 custom items per page options", async () => {
     const page = await newSpecPage({
       components: [PaginationBar],
       html: `<ic-pagination-bar total-items="150" show-items-per-page-control="true"></ic-pagination-bar>`,
     });
 
-    const paginationBar = document.querySelector("ic-pagination-bar");
+    const paginationBar = document.querySelector(
+      "ic-pagination-bar"
+    ) as HTMLIcPaginationBarElement;
 
     paginationBar!.itemsPerPageOptions = [
       { label: "25", value: "25" },
       { label: "50", value: "50" },
       { label: "75", value: "75" },
       { label: "100", value: "100" },
-      { label: "All", value: "150" },
     ];
 
     await page.waitForChanges();
@@ -180,6 +185,7 @@ describe("ic-pagination-bar", () => {
       { label: "25", value: "25" },
       { label: "50", value: "50" },
       { label: "75", value: "75" },
+      { label: "100", value: "100" },
       { label: "All", value: "150" },
     ]);
 
@@ -192,13 +198,14 @@ describe("ic-pagination-bar", () => {
       html: `<ic-pagination-bar total-items="100" show-items-per-page-control="true"></ic-pagination-bar>`,
     });
 
-    const paginationBar = document.querySelector("ic-pagination-bar");
+    const paginationBar = document.querySelector(
+      "ic-pagination-bar"
+    ) as HTMLIcPaginationBarElement;
 
     paginationBar!.itemsPerPageOptions = [
       { label: "25", value: "25" },
       { label: "50", value: "50" },
       { label: "150", value: "150" },
-      { label: "All", value: "100" },
     ];
 
     await page.waitForChanges();
@@ -223,29 +230,6 @@ describe("ic-pagination-bar", () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
-  });
-
-  it("should wrap pagination when the device size is small", async () => {
-    const page = await newSpecPage({
-      components: [PaginationBar, IcPagination],
-      html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
-    });
-
-    await page.rootInstance.runResizeObserver();
-
-    await page.waitForChanges();
-
-    await page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
-
-    await page.waitForChanges();
-
-    await page.rootInstance.paginationShouldWrap();
-
-    await page.waitForChanges();
-
-    expect(page).toMatchSnapshot();
-
-    await page.rootInstance.disconnectedCallback();
   });
 
   it("should adjust the total page count when items per page is changed", async () => {
@@ -702,22 +686,23 @@ describe("ic-pagination-bar", () => {
     expect(event).toHaveBeenCalled();
   });
 
-  // this test currently fails - will need to be fixed before component is moved from canary
-  it.skip("should focus the go to page text-field when clicking its label", async () => {
+  it("should focus the go to page text-field when clicking its label", async () => {
     const page = await newSpecPage({
       components: [PaginationBar, IcPagination, IcTextField, IcTypography],
       html: `<ic-pagination-bar total-items="100" show-items-per-page="false" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
-    const label = document!
-      .querySelector("ic-pagination-bar")!
-      .shadowRoot!.querySelector("ic-typography")!;
 
-    const event = jest.spyOn(IcTextField.prototype, "setFocus");
-    label.click();
+    Object.defineProperty(page.rootInstance.pageInputEl, "setFocus", {
+      value: jest.fn(),
+    });
+
+    expect(page.rootInstance.pageInputEl.setFocus).not.toHaveBeenCalled();
+
+    await page.rootInstance.goToPageLabelClickHandler();
 
     await page.waitForChanges();
 
-    expect(event).toHaveBeenCalled();
+    expect(page.rootInstance.pageInputEl.setFocus).toHaveBeenCalled();
   });
 
   it("should update pagination when number of item changes", async () => {
@@ -739,5 +724,45 @@ describe("ic-pagination-bar", () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  it("should go to first page when number of items changes", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination, IcSelect, IcTypography],
+      html: `<ic-pagination-bar total-items="50"></ic-pagination-bar>`,
+    });
+
+    const paginationBar = document.querySelector(
+      "ic-pagination-bar"
+    ) as HTMLIcPaginationBarElement;
+
+    paginationBar!.itemsPerPageOptions = [
+      { label: "5", value: "5" },
+      { label: "10", value: "10" },
+      { label: "20", value: "20" },
+    ];
+
+    await page.waitForChanges();
+
+    paginationBar!.setToFirstPageOnPaginationChange = true;
+
+    await page.rootInstance.setItemsPerPage(20);
+
+    expect(page.rootInstance.activePage).toEqual(1);
+  });
+
+  it("should set to last page when items per page changes and there now less pages", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, IcPagination, IcSelect, IcTypography],
+      html: `<ic-pagination-bar total-items="50"></ic-pagination-bar>`,
+    });
+
+    await page.rootInstance.setItemsPerPage(5);
+
+    page.rootInstance.activePage = 10;
+    await page.waitForChanges();
+
+    await page.rootInstance.setItemsPerPage(20);
+    expect(page.rootInstance.activePage).toEqual(3);
   });
 });
