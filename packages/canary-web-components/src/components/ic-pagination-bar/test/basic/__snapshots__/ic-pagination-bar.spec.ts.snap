@@ -9,7 +9,7 @@ exports[`ic-pagination-bar should allow more than a maximum of 4 custom items pe
           <ic-typography class="items-per-page-control-label" variant="label">
             Items per page
           </ic-typography>
-          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" size="small" theme="inherit" value="25"></ic-select>
+          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" selectonenter="" size="small" theme="inherit" value="25"></ic-select>
         </div>
         <ic-typography aria-live="polite" class="page-pagination-label" variant="label">
           Page 1 of 6
@@ -137,7 +137,7 @@ exports[`ic-pagination-bar should render with custom items per page options 1`] 
           <ic-typography class="items-per-page-control-label" variant="label">
             Items per page
           </ic-typography>
-          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" size="small" theme="inherit" value="15"></ic-select>
+          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" selectonenter="" size="small" theme="inherit" value="15"></ic-select>
         </div>
         <ic-typography aria-live="polite" class="page-pagination-label" variant="label">
           Page 1 of 7
@@ -230,7 +230,7 @@ exports[`ic-pagination-bar should render with items per page controls 1`] = `
           <ic-typography class="items-per-page-control-label" variant="label">
             Items per page
           </ic-typography>
-          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" size="small" theme="inherit" value="10"></ic-select>
+          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" selectonenter="" size="small" theme="inherit" value="10"></ic-select>
         </div>
         <ic-typography aria-live="polite" class="page-pagination-label" variant="label">
           Page 1 of 10

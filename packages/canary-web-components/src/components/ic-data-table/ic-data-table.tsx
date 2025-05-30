@@ -252,6 +252,7 @@ export class DataTable {
     pageLabel: "Page",
     rangeLabelType: "page",
     selectedItemsPerPage: 10,
+    selectItemsPerPageOnEnter: true,
     setToFirstPageOnPaginationChange: false,
     showGoToPageControl: true,
     showItemsPerPageControl: true,
@@ -2395,6 +2396,9 @@ export class DataTable {
                   rangeLabelType={paginationBarOptions.rangeLabelType}
                   selectedItemsPerPage={
                     paginationBarOptions.selectedItemsPerPage
+                  }
+                  selectItemsPerPageOnEnter={
+                    paginationBarOptions.selectItemsPerPageOnEnter
                   }
                   setToFirstPageOnPaginationChange={
                     paginationBarOptions.setToFirstPageOnPaginationChange

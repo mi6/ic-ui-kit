@@ -501,6 +501,10 @@ export namespace Components {
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
         /**
+          * If `false`, the value in the items per page control will be set immediately on ArrowUp and ArrowDown instead of when Enter is pressed.
+         */
+        "selectItemsPerPageOnEnter": boolean;
+        /**
           * The items per page option to be selected.
          */
         "selectedItemsPerPage"?: number;
@@ -1306,6 +1310,10 @@ declare namespace LocalJSX {
           * Whether total number of items and current item range or total number of pages and current page is displayed.
          */
         "rangeLabelType"?: IcPaginationLabelTypes;
+        /**
+          * If `false`, the value in the items per page control will be set immediately on ArrowUp and ArrowDown instead of when Enter is pressed.
+         */
+        "selectItemsPerPageOnEnter"?: boolean;
         /**
           * The items per page option to be selected.
          */

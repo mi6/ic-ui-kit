@@ -240,6 +240,7 @@ export interface IcPaginationBarOptions {
   pageLabel?: string;
   rangeLabelType?: IcPaginationLabelTypes;
   selectedItemsPerPage?: number;
+  selectItemsPerPageOnEnter?: boolean;
   setToFirstPageOnPaginationChange?: boolean;
   showGoToPageControl?: boolean;
   showItemsPerPageControl?: boolean;
