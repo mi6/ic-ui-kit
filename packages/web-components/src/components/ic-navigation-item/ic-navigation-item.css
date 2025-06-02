@@ -91,11 +91,6 @@ svg {
   cursor: pointer;
 }
 
-:host(.navigation-item:not(.navigation-item-page-header, .navigation-item-side-menu))
-  ::slotted(a:hover:not(:focus)) {
-  background-color: var(--ic-brand-hover) !important;
-}
-
 :host(.navigation-item:not(.navigation-item-top-nav-child, .navigation-item-side-menu, .navigation-item-top-nav-child-selected
       .navigation-item-side-menu-selected))
   .focus-indicator:focus-within {
@@ -208,11 +203,8 @@ svg {
   letter-spacing: var(--ic-font-letter-spacing-0pt005) !important;
 }
 
-:host(.navigation-item-top-nav-child) .link:hover:not(:focus) {
-  background-color: var(--ic-top-navigation-nav-item-hover) !important;
-}
-
-:host(.navigation-item-top-nav-child) ::slotted(a:hover):not(:focus) {
+:host(.navigation-item-top-nav-child) .link:hover:not(:focus),
+:host(.navigation-item-top-nav-child) ::slotted(a:hover:not(:focus)) {
   background-color: var(--ic-top-navigation-nav-item-hover) !important;
 }
 
@@ -235,13 +227,13 @@ svg {
 }
 
 :host(.navigation-item-top-nav-child) .link:active:not(:focus),
-:host(.navigation-item-top-nav-child) ::slotted(a:active):not(:focus) {
+:host(.navigation-item-top-nav-child) ::slotted(a:active:not(:focus)) {
   outline: var(--ic-hc-focus-outline);
   background-color: var(--ic-top-navigation-nav-item-pressed);
 }
 
-:host(.navigation-item-top-nav-child) ::slotted(a:active):not(:focus),
-:host(.navigation-item-side-menu) ::slotted(a:active):not(:focus) {
+:host(.navigation-item-top-nav-child) ::slotted(a:active:not(:focus)),
+:host(.navigation-item-side-menu) ::slotted(a:active:not(:focus)) {
   background-color: var(--ic-top-navigation-nav-item-pressed) !important;
 }
 
