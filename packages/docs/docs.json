@@ -9,7 +9,7 @@
       "filePath": "src/components/ic-accordion/ic-accordion.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion",
-      "readme": "# ic-accordion\r\n\r\n\r\n\r",
+      "readme": "# ic-accordion\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -268,7 +268,7 @@
       "filePath": "src/components/ic-accordion-group/ic-accordion-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion-group",
-      "readme": "# ic-accordion-title\r\n\r\n\r\n\r",
+      "readme": "# ic-accordion-title\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -538,7 +538,7 @@
       "filePath": "src/components/ic-alert/ic-alert.tsx",
       "encapsulation": "shadow",
       "tag": "ic-alert",
-      "readme": "# ic-alert\r\n\r\n\r\n\r",
+      "readme": "# ic-alert\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -862,7 +862,7 @@
       "filePath": "src/components/ic-back-to-top/ic-back-to-top.tsx",
       "encapsulation": "shadow",
       "tag": "ic-back-to-top",
-      "readme": "# ic-back-to-top\r\n\r\n\r\n\r",
+      "readme": "# ic-back-to-top\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1065,7 +1065,7 @@
       "filePath": "src/components/ic-badge/ic-badge.tsx",
       "encapsulation": "shadow",
       "tag": "ic-badge",
-      "readme": "# ic-badge\r\n\r\n\r\n\r",
+      "readme": "# ic-badge\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1118,7 +1118,7 @@
           "mutable": false,
           "attr": "custom-color",
           "reflectToAttr": false,
-          "docs": "The custom badge colour. This will only style the badge component if variant=\"custom\".\r\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
+          "docs": "The custom badge colour. This will only style the badge component if variant=\"custom\".\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
           "docsTags": [],
           "values": [
             {
@@ -1176,7 +1176,7 @@
           "mutable": false,
           "attr": "max-number",
           "reflectToAttr": false,
-          "docs": "The maximum number shown on the badge appended with a +.\r\nThis will only be displayed if type=\"text\" and label is not empty.",
+          "docs": "The maximum number shown on the badge appended with a +.\nThis will only be displayed if type=\"text\" and label is not empty.",
           "docsTags": [],
           "values": [
             {
@@ -1483,7 +1483,7 @@
       "filePath": "src/components/ic-breadcrumb/ic-breadcrumb.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb",
-      "readme": "# ic-breadcrumb\r\n\r\n\r\n\r",
+      "readme": "# ic-breadcrumb\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1620,7 +1620,7 @@
       "filePath": "src/components/ic-breadcrumb-group/ic-breadcrumb-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb-group",
-      "readme": "# ic-breadcrumb-group\r\n\r\n\r\n\r",
+      "readme": "# ic-breadcrumb-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1760,7 +1760,7 @@
       "filePath": "src/components/ic-button/ic-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-button",
-      "readme": "# ic-button\r\n\r",
+      "readme": "# ic-button\n",
       "docs": "",
       "docsTags": [
         {
@@ -2888,7 +2888,7 @@
       "filePath": "src/components/ic-card-vertical/ic-card-vertical.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-vertical",
-      "readme": "# ic-card-vertical\r\n\r\n\r\n\r",
+      "readme": "# ic-card-vertical\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -3441,7 +3441,7 @@
       "filePath": "src/components/ic-checkbox/ic-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox",
-      "readme": "# ic-checkbox\r\n\r\n\r\n\r",
+      "readme": "# ic-checkbox\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -3899,7 +3899,7 @@
       "filePath": "src/components/ic-checkbox-group/ic-checkbox-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox-group",
-      "readme": "# ic-checkbox-group\r\n\r\n\r\n\r",
+      "readme": "# ic-checkbox-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4251,7 +4251,7 @@
       "filePath": "src/components/ic-chip/ic-chip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-chip",
-      "readme": "# ic-chip\r\n\r\n\r\n\r",
+      "readme": "# ic-chip\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4282,7 +4282,7 @@
           "mutable": false,
           "attr": "custom-color",
           "reflectToAttr": false,
-          "docs": "The custom chip colour. This will override the theme colour.\r\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
+          "docs": "The custom chip colour. This will override the theme colour.\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
           "docsTags": [],
           "values": [
             {
@@ -4454,7 +4454,7 @@
           "mutable": false,
           "attr": "theme",
           "reflectToAttr": false,
-          "docs": "Sets the chip to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.\r\nSetting the \"customColor\" prop will override this.",
+          "docs": "Sets the chip to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.\nSetting the \"customColor\" prop will override this.",
           "docsTags": [],
           "default": "\"inherit\"",
           "values": [
@@ -4614,7 +4614,7 @@
       "filePath": "src/components/ic-classification-banner/ic-classification-banner.tsx",
       "encapsulation": "shadow",
       "tag": "ic-classification-banner",
-      "readme": "# ic-classification-banner\r\n\r\n\r\n\r",
+      "readme": "# ic-classification-banner\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4804,7 +4804,7 @@
       "filePath": "src/components/ic-data-list/ic-data-list.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-list",
-      "readme": "# ic-data-list\r\n\r\n\r\n\r",
+      "readme": "# ic-data-list\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4946,7 +4946,7 @@
       "filePath": "src/components/ic-data-row/ic-data-row.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-row",
-      "readme": "# ic-data-row\r\n\r\n\r\n\r",
+      "readme": "# ic-data-row\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5130,7 +5130,7 @@
       "filePath": "src/components/ic-dialog/ic-dialog.tsx",
       "encapsulation": "shadow",
       "tag": "ic-dialog",
-      "readme": "# ic-dialog\r\n\r\n\r\n\r",
+      "readme": "# ic-dialog\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5217,7 +5217,7 @@
           "mutable": false,
           "attr": "disable-height-constraint",
           "reflectToAttr": false,
-          "docs": "If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold.\r\nThis prop also prevents popover elements from being cut off within the content area.",
+          "docs": "If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold.\nThis prop also prevents popover elements from being cut off within the content area.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5666,7 +5666,7 @@
       "filePath": "src/components/ic-divider/ic-divider.tsx",
       "encapsulation": "scoped",
       "tag": "ic-divider",
-      "readme": "# ic-divider\r\n\r\n\r\n\r",
+      "readme": "# ic-divider\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6016,7 +6016,7 @@
       "filePath": "src/components/ic-empty-state/ic-empty-state.tsx",
       "encapsulation": "shadow",
       "tag": "ic-empty-state",
-      "readme": "# ic-empty-state\r\n\r\n\r\n\r",
+      "readme": "# ic-empty-state\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -6314,7 +6314,7 @@
       "filePath": "src/components/ic-footer/ic-footer.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer",
-      "readme": "# ic-footer\r\n\r\n\r\n\r",
+      "readme": "# ic-footer\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -6581,7 +6581,7 @@
       "filePath": "src/components/ic-footer-link/ic-footer-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link",
-      "readme": "# ic-footer-link\r\n\r\n\r\n\r",
+      "readme": "# ic-footer-link\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6817,7 +6817,7 @@
       "filePath": "src/components/ic-footer-link-group/ic-footer-link-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link-group",
-      "readme": "# ic-footer-link-group\r\n\r\n\r\n\r",
+      "readme": "# ic-footer-link-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6881,7 +6881,7 @@
       "filePath": "src/components/ic-hero/ic-hero.tsx",
       "encapsulation": "shadow",
       "tag": "ic-hero",
-      "readme": "# ic-hero\r\n\r\n\r\n\r",
+      "readme": "# ic-hero\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -7231,7 +7231,7 @@
       "filePath": "src/components/ic-horizontal-scroll/ic-horizontal-scroll.tsx",
       "encapsulation": "shadow",
       "tag": "ic-horizontal-scroll",
-      "readme": "# ic-horizontal-scroll\r\n\r\n\r\n\r",
+      "readme": "# ic-horizontal-scroll\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7323,7 +7323,7 @@
       "filePath": "src/components/ic-input-component-container/ic-input-component-container.tsx",
       "encapsulation": "none",
       "tag": "ic-input-component-container",
-      "readme": "# ic-input-container\r\n\r\n\r\n\r",
+      "readme": "# ic-input-container\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -7655,7 +7655,7 @@
       "filePath": "src/components/ic-input-container/ic-input-container.tsx",
       "encapsulation": "none",
       "tag": "ic-input-container",
-      "readme": "# ic-input-container\r\n\r\n\r\n\r",
+      "readme": "# ic-input-container\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7743,7 +7743,7 @@
       "filePath": "src/components/ic-input-label/ic-input-label.tsx",
       "encapsulation": "none",
       "tag": "ic-input-label",
-      "readme": "# ic-input-label\r\n\r\n\r\n\r",
+      "readme": "# ic-input-label\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7994,7 +7994,7 @@
       "filePath": "src/components/ic-input-validation/ic-input-validation.tsx",
       "encapsulation": "none",
       "tag": "ic-input-validation",
-      "readme": "# ic-input-validation\r\n\r\n\r\n\r",
+      "readme": "# ic-input-validation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -8206,7 +8206,7 @@
       "filePath": "src/components/ic-link/ic-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-link",
-      "readme": "# ic-link\r\n\r\n\r\n\r",
+      "readme": "# ic-link\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -8227,7 +8227,7 @@
           "mutable": false,
           "attr": "download",
           "reflectToAttr": false,
-          "docs": "If `true`, the user can save the linked URL instead of navigating to it.",
+          "docs": "If `true`, the user can save the linked URL instead of navigating to it. If the value is a string, it will be used as the filename for the download.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -8546,7 +8546,7 @@
       "filePath": "src/components/ic-loading-indicator/ic-loading-indicator.tsx",
       "encapsulation": "shadow",
       "tag": "ic-loading-indicator",
-      "readme": "# ic-loading\r\n\r\n\r\n\r",
+      "readme": "# ic-loading\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -8943,7 +8943,7 @@
       "filePath": "src/components/ic-menu/ic-menu.tsx",
       "encapsulation": "scoped",
       "tag": "ic-menu",
-      "readme": "# ic-menu\r\n\r\n\r\n\r",
+      "readme": "# ic-menu\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -9373,7 +9373,7 @@
               "docs": "The keyboard event which is available when handleKeyboardOpen is invoked."
             }
           ],
-          "docs": "Used alongside activationType\r\nIf menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.",
+          "docs": "Used alongside activationType\nIf menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.",
           "docsTags": [
             {
               "name": "param",
@@ -9446,7 +9446,7 @@
       "filePath": "src/components/ic-menu-group/ic-menu-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-group",
-      "readme": "# ic-menu-group\r\n\r\n\r\n\r",
+      "readme": "# ic-menu-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -9498,7 +9498,7 @@
       "filePath": "src/components/ic-menu-item/ic-menu-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-item",
-      "readme": "# ic-menu-item\r\n\r\n\r\n\r",
+      "readme": "# ic-menu-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -9880,7 +9880,7 @@
           "detail": "{ checked: boolean; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\r\n    checked: boolean;\r\n  }",
+            "original": "{\n    checked: boolean;\n  }",
             "resolved": "{ checked: boolean; }",
             "references": {}
           },
@@ -9937,7 +9937,7 @@
       "filePath": "src/components/ic-navigation-button/ic-navigation-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-button",
-      "readme": "# ic-navigation-button\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-button\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -10296,7 +10296,7 @@
       "filePath": "src/components/ic-navigation-group/ic-navigation-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-group",
-      "readme": "# ic-navigation-group\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -10466,7 +10466,7 @@
       "filePath": "src/components/ic-navigation-item/ic-navigation-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-item",
-      "readme": "# ic-navigation-item\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -10853,7 +10853,7 @@
       "filePath": "src/components/ic-navigation-menu/ic-navigation-menu.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-menu",
-      "readme": "# ic-navigation-menu\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-menu\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -11029,7 +11029,7 @@
       "filePath": "src/components/ic-page-header/ic-page-header.tsx",
       "encapsulation": "shadow",
       "tag": "ic-page-header",
-      "readme": "# ic-page-header\r\n\r\n\r\n\r",
+      "readme": "# ic-page-header\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -11427,7 +11427,7 @@
       "filePath": "src/components/ic-pagination/ic-pagination.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination",
-      "readme": "# ic-pagination\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -11882,7 +11882,7 @@
       "filePath": "src/components/ic-pagination-item/ic-pagination-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-item",
-      "readme": "# ic-pagination-item\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination-item\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -12124,7 +12124,7 @@
       "filePath": "src/components/ic-popover-menu/ic-popover-menu.tsx",
       "encapsulation": "shadow",
       "tag": "ic-popover-menu",
-      "readme": "# ic-popover-menu\r\n\r\nThis is a wrapper component to be placed around one or more ic-menu-item components.\r\n\r",
+      "readme": "# ic-popover-menu\n\nThis is a wrapper component to be placed around one or more ic-menu-item components.\n",
       "docs": "This is a wrapper component to be placed around one or more ic-menu-item components.",
       "docsTags": [],
       "usage": {},
@@ -12346,7 +12346,7 @@
       "filePath": "src/components/ic-radio-group/ic-radio-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-radio-group",
-      "readme": "# ic-radio-group\r\n\r\n\r\n\r",
+      "readme": "# ic-radio-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -12755,7 +12755,7 @@
       "filePath": "src/components/ic-radio-option/ic-radio-option.tsx",
       "encapsulation": "none",
       "tag": "ic-radio-option",
-      "readme": "# ic-radio-option\r\n\r\n\r\n\r",
+      "readme": "# ic-radio-option\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -13148,7 +13148,7 @@
       "filePath": "src/components/ic-search-bar/ic-search-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-search-bar",
-      "readme": "# ic-search-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-search-bar\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -13188,7 +13188,7 @@
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
-          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\r\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
+          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
           "docsTags": [],
           "default": "\"off\"",
           "values": [
@@ -13562,7 +13562,7 @@
           "mutable": false,
           "attr": "disable-auto-filtering",
           "reflectToAttr": false,
-          "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\r\nIf `true`, all options provided will be displayed.",
+          "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\nIf `true`, all options provided will be displayed.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13658,7 +13658,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "Specify whether the search bar fills the full width of the container.\r\nIf `true`, this overrides the --input-width CSS variable.",
+          "docs": "Specify whether the search bar fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -14452,7 +14452,7 @@
       "filePath": "src/components/ic-section-container/ic-section-container.tsx",
       "encapsulation": "shadow",
       "tag": "ic-section-container",
-      "readme": "# ic-section-container\r\n\r\n\r\n\r",
+      "readme": "# ic-section-container\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -14563,7 +14563,7 @@
       "filePath": "src/components/ic-select/ic-select.tsx",
       "encapsulation": "shadow",
       "tag": "ic-select",
-      "readme": "# ic-select\r\n\r\n\r\n\r",
+      "readme": "# ic-select\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -15347,7 +15347,7 @@
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the select, reflected by the value of the currently selected option.\r\nFor the searchable variant, the value is also reflected by the user input.\r\nFor the multi-select variant, the value must be an array of option values.",
+          "docs": "The value of the select, reflected by the value of the currently selected option.\nFor the searchable variant, the value is also reflected by the user input.\nFor the multi-select variant, the value must be an array of option values.",
           "docsTags": [],
           "default": "null",
           "values": [
@@ -15539,7 +15539,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when an option is selected.\r\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
+          "docs": "Emitted when an option is selected.\nSelecting an option will also trigger an `icChange/onIcChange` due to the value being updated.",
           "docsTags": []
         },
         {
@@ -15636,7 +15636,7 @@
       "filePath": "src/components/ic-side-navigation/ic-side-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-side-navigation",
-      "readme": "# ic-side-navigation\r\n\r\n\r\n\r",
+      "readme": "# ic-side-navigation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -16015,8 +16015,8 @@
       "filePath": "src/components/ic-skeleton/ic-skeleton.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skeleton",
-      "readme": "# ic-skeleton\r\n\r\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \r\n\r",
-      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
+      "readme": "# ic-skeleton\n\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \n",
+      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -16119,7 +16119,7 @@
       "filePath": "src/components/ic-skip-link/ic-skip-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skip-link",
-      "readme": "# ic-skip-link\r\n\r\n\r\n\r",
+      "readme": "# ic-skip-link\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16356,7 +16356,7 @@
       "filePath": "src/components/ic-status-tag/ic-status-tag.tsx",
       "encapsulation": "shadow",
       "tag": "ic-status-tag",
-      "readme": "# ic-status-tag\r\n\r\n\r\n\r",
+      "readme": "# ic-status-tag\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16621,7 +16621,7 @@
       "filePath": "src/components/ic-step/ic-step.tsx",
       "encapsulation": "shadow",
       "tag": "ic-step",
-      "readme": "# ic-step\r\n\r\n\r\n\r",
+      "readme": "# ic-step\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16787,7 +16787,7 @@
       "filePath": "src/components/ic-stepper/ic-stepper.tsx",
       "encapsulation": "shadow",
       "tag": "ic-stepper",
-      "readme": "# ic-stepper\r\n\r\nThis is a wrapper component to be placed around one or more ic-step components\r\n\r",
+      "readme": "# ic-stepper\n\nThis is a wrapper component to be placed around one or more ic-step components\n",
       "docs": "This is a wrapper component to be placed around one or more ic-step components",
       "docsTags": [],
       "usage": {},
@@ -16979,7 +16979,7 @@
       "filePath": "src/components/ic-switch/ic-switch.tsx",
       "encapsulation": "shadow",
       "tag": "ic-switch",
-      "readme": "# ic-switch\r\n\r\n\r\n\r",
+      "readme": "# ic-switch\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -17238,7 +17238,7 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the toggle does not mean if it's checked or not, use the `checked`\r\nproperty for that.\r\n\r\nThe value of a toggle is analogous to the value of a `<input type=\"checkbox\">`,\r\nit's only used when the toggle participates in a native `<form>`.",
+          "docs": "The value of the toggle does not mean if it's checked or not, use the `checked`\nproperty for that.\n\nThe value of a toggle is analogous to the value of a `<input type=\"checkbox\">`,\nit's only used when the toggle participates in a native `<form>`.",
           "docsTags": [],
           "default": "\"on\"",
           "values": [
@@ -17358,7 +17358,7 @@
       "filePath": "src/components/ic-tab/ic-tab.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab",
-      "readme": "# ic-tab\r\n\r\n\r\n\r",
+      "readme": "# ic-tab\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -17452,7 +17452,7 @@
       "filePath": "src/components/ic-tab-context/ic-tab-context.tsx",
       "encapsulation": "none",
       "tag": "ic-tab-context",
-      "readme": "# ic-tab-context\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-context\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17674,7 +17674,7 @@
       "filePath": "src/components/ic-tab-group/ic-tab-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-group",
-      "readme": "# ic-tab-group\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17764,7 +17764,7 @@
       "filePath": "src/components/ic-tab-panel/ic-tab-panel.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-panel",
-      "readme": "# ic-tab-panel\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-panel\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17783,7 +17783,7 @@
       "filePath": "src/components/ic-text-field/ic-text-field.tsx",
       "encapsulation": "shadow",
       "tag": "ic-text-field",
-      "readme": "# ic-textfield\r\n\r\n\r\n\r",
+      "readme": "# ic-textfield\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -17804,7 +17804,7 @@
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
-          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\r\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
+          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
           "docsTags": [],
           "default": "\"off\"",
           "values": [
@@ -17971,7 +17971,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "Specify whether the text field fills the full width of the container.\r\nIf `true`, this overrides the --input-width CSS variable.",
+          "docs": "Specify whether the text field fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -18097,7 +18097,7 @@
           "mutable": false,
           "attr": "inputmode",
           "reflectToAttr": false,
-          "docs": "A hint to the browser for which keyboard to display.\r\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\r\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
+          "docs": "A hint to the browser for which keyboard to display.\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
           "docsTags": [],
           "default": "\"text\"",
           "values": [
@@ -18964,7 +18964,7 @@
       "filePath": "src/components/ic-theme/ic-theme.tsx",
       "encapsulation": "none",
       "tag": "ic-theme",
-      "readme": "# ic-theme\r\n\r\n\r\n\r",
+      "readme": "# ic-theme\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -19089,7 +19089,7 @@
       "filePath": "src/components/ic-toast/ic-toast.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toast",
-      "readme": "# ic-toast\r\n\r\n\r\n\r",
+      "readme": "# ic-toast\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -19407,7 +19407,7 @@
       "filePath": "src/components/ic-toast-region/ic-toast-region.tsx",
       "encapsulation": "none",
       "tag": "ic-toast-region",
-      "readme": "# ic-toast-region\r\n\r\n\r\n\r",
+      "readme": "# ic-toast-region\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -19463,7 +19463,7 @@
       "filePath": "src/components/ic-toggle-button/ic-toggle-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button",
-      "readme": "# ic-toggle-button\r\n\r\n\r\n\r",
+      "readme": "# ic-toggle-button\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -19930,7 +19930,7 @@
       "filePath": "src/components/ic-toggle-button-group/ic-toggle-button-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button-group",
-      "readme": "# ic-toggle-button-group\r\n\r\n\r\n\r",
+      "readme": "# ic-toggle-button-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -20376,7 +20376,7 @@
       "filePath": "src/components/ic-tooltip/ic-tooltip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tooltip",
-      "readme": "# ic-tooltip\r\n\r\n\r\n\r",
+      "readme": "# ic-tooltip\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -20728,7 +20728,7 @@
       "filePath": "src/components/ic-top-navigation/ic-top-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-top-navigation",
-      "readme": "# ic-top-navigation\r\n\r\n\r\n\r",
+      "readme": "# ic-top-navigation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -20847,7 +20847,7 @@
           "mutable": false,
           "attr": "custom-mobile-breakpoint",
           "reflectToAttr": false,
-          "docs": "Can set a custom breakpoint for the top navigation to switch to mobile mode.\r\nMust be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.",
+          "docs": "Can set a custom breakpoint for the top navigation to switch to mobile mode.\nMust be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.",
           "docsTags": [],
           "default": "DEVICE_SIZES.L",
           "values": [
@@ -21170,7 +21170,7 @@
       "filePath": "src/components/ic-typography/ic-typography.tsx",
       "encapsulation": "shadow",
       "tag": "ic-typography",
-      "readme": "# ic-typography\r\n\r\n\r\n\r",
+      "readme": "# ic-typography\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -21213,7 +21213,7 @@
           "mutable": false,
           "attr": "bold",
           "reflectToAttr": false,
-          "docs": "If `true`, the typography will have a bold font weight.\r\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
+          "docs": "If `true`, the typography will have a bold font weight.\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -21654,7 +21654,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcStatusVariants": {
-      "declaration": "export type IcStatusVariants =\r\n  | \"neutral\"\r\n  | \"info\"\r\n  | \"warning\"\r\n  | \"error\"\r\n  | \"success\";",
+      "declaration": "export type IcStatusVariants =\n  | \"neutral\"\n  | \"info\"\n  | \"warning\"\n  | \"error\"\n  | \"success\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21759,7 +21759,7 @@
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcAutocompleteTypes": {
-      "declaration": "export type IcAutocompleteTypes =\r\n  | \"on\"\r\n  | \"off\"\r\n  | \"name\"\r\n  | \"honorific-prefix\"\r\n  | \"given-name\"\r\n  | \"additional-name\"\r\n  | \"family-name\"\r\n  | \"honorific-suffix\"\r\n  | \"nickname\"\r\n  | \"email\"\r\n  | \"username\"\r\n  | \"new-password\"\r\n  | \"current-password\"\r\n  | \"one-time-code\"\r\n  | \"organization-title\"\r\n  | \"organization\"\r\n  | \"street-address\"\r\n  | \"address-line1\"\r\n  | \"address-line2\"\r\n  | \"address-line3\"\r\n  | \"address-level4\"\r\n  | \"address-level3\"\r\n  | \"address-level2\"\r\n  | \"address-level1\"\r\n  | \"country\"\r\n  | \"country-name\"\r\n  | \"postal-code\"\r\n  | \"cc-name\"\r\n  | \"cc-given-name\"\r\n  | \"cc-additional-name\"\r\n  | \"cc-family-name\"\r\n  | \"cc-family-name\"\r\n  | \"cc-number\"\r\n  | \"cc-exp\"\r\n  | \"cc-exp-month\"\r\n  | \"cc-exp-year\"\r\n  | \"cc-csc\"\r\n  | \"cc-type\"\r\n  | \"transaction-currency\"\r\n  | \"transaction-amount\"\r\n  | \"language\"\r\n  | \"bday\"\r\n  | \"bday-day\"\r\n  | \"bday-month\"\r\n  | \"bday-year\"\r\n  | \"sex\"\r\n  | \"tel\"\r\n  | \"tel-country-code\"\r\n  | \"tel-national\"\r\n  | \"tel-area-code\"\r\n  | \"tel-local\"\r\n  | \"tel-extension\"\r\n  | \"impp\"\r\n  | \"url\"\r\n  | \"photo\";",
+      "declaration": "export type IcAutocompleteTypes =\n  | \"on\"\n  | \"off\"\n  | \"name\"\n  | \"honorific-prefix\"\n  | \"given-name\"\n  | \"additional-name\"\n  | \"family-name\"\n  | \"honorific-suffix\"\n  | \"nickname\"\n  | \"email\"\n  | \"username\"\n  | \"new-password\"\n  | \"current-password\"\n  | \"one-time-code\"\n  | \"organization-title\"\n  | \"organization\"\n  | \"street-address\"\n  | \"address-line1\"\n  | \"address-line2\"\n  | \"address-line3\"\n  | \"address-level4\"\n  | \"address-level3\"\n  | \"address-level2\"\n  | \"address-level1\"\n  | \"country\"\n  | \"country-name\"\n  | \"postal-code\"\n  | \"cc-name\"\n  | \"cc-given-name\"\n  | \"cc-additional-name\"\n  | \"cc-family-name\"\n  | \"cc-family-name\"\n  | \"cc-number\"\n  | \"cc-exp\"\n  | \"cc-exp-month\"\n  | \"cc-exp-year\"\n  | \"cc-csc\"\n  | \"cc-type\"\n  | \"transaction-currency\"\n  | \"transaction-amount\"\n  | \"language\"\n  | \"bday\"\n  | \"bday-day\"\n  | \"bday-month\"\n  | \"bday-year\"\n  | \"sex\"\n  | \"tel\"\n  | \"tel-country-code\"\n  | \"tel-national\"\n  | \"tel-area-code\"\n  | \"tel-local\"\n  | \"tel-extension\"\n  | \"impp\"\n  | \"url\"\n  | \"photo\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21784,7 +21784,7 @@
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
     },
     "src/utils/types.ts::IcValueEventDetail": {
-      "declaration": "export interface IcValueEventDetail {\r\n  value: string;\r\n  keyPressed?: string;\r\n}",
+      "declaration": "export interface IcValueEventDetail {\n  value: string;\n  keyPressed?: string;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21794,7 +21794,7 @@
       "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
     "src/utils/types.ts::IcMenuOption": {
-      "declaration": "export interface IcMenuOption {\r\n  description?: string;\r\n  disabled?: boolean;\r\n  recommended?: boolean;\r\n  children?: IcMenuOption[];\r\n  loading?: boolean;\r\n  timedOut?: boolean;\r\n  [key: string]: any;\r\n  element?: {\r\n    component: any;\r\n    ariaLabel: string;\r\n  };\r\n  icon?: any;\r\n}",
+      "declaration": "export interface IcMenuOption {\n  description?: string;\n  disabled?: boolean;\n  recommended?: boolean;\n  children?: IcMenuOption[];\n  loading?: boolean;\n  timedOut?: boolean;\n  [key: string]: any;\n  element?: {\n    component: any;\n    ariaLabel: string;\n  };\n  icon?: any;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21809,12 +21809,12 @@
       "path": "src/components/ic-menu/ic-menu.types.ts"
     },
     "src/utils/types.ts::IcBlurEventDetail": {
-      "declaration": "export interface IcBlurEventDetail {\r\n  relatedTarget: IcRelatedTarget | null;\r\n}",
+      "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget | null;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcMultiValueEventDetail": {
-      "declaration": "export interface IcMultiValueEventDetail {\r\n  value: string | string[] | null;\r\n  keyPressed?: string;\r\n}",
+      "declaration": "export interface IcMultiValueEventDetail {\n  value: string | string[] | null;\n  keyPressed?: string;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21854,7 +21854,7 @@
       "path": "src/components/ic-divider/ic-divider.types.tsx"
     },
     "src/utils/types.ts::IcTypographyVariants": {
-      "declaration": "export type IcTypographyVariants =\r\n  | \"h1\"\r\n  | \"h2\"\r\n  | \"h3\"\r\n  | \"h4\"\r\n  | \"subtitle-large\"\r\n  | \"subtitle-small\"\r\n  | \"body\"\r\n  | \"label\"\r\n  | \"label-uppercase\"\r\n  | \"caption\"\r\n  | \"caption-uppercase\"\r\n  | \"code-large\"\r\n  | \"code-small\"\r\n  | \"code-extra-small\"\r\n  | \"badge\"\r\n  | \"badge-small\";",
+      "declaration": "export type IcTypographyVariants =\n  | \"h1\"\n  | \"h2\"\n  | \"h3\"\n  | \"h4\"\n  | \"subtitle-large\"\n  | \"subtitle-small\"\n  | \"body\"\n  | \"label\"\n  | \"label-uppercase\"\n  | \"caption\"\n  | \"caption-uppercase\"\n  | \"code-large\"\n  | \"code-small\"\n  | \"code-extra-small\"\n  | \"badge\"\n  | \"badge-small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -21979,7 +21979,7 @@
       "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcBrand": {
-      "declaration": "{\r\n  mode: IcBrandForeground;\r\n  color: IcColorRGB;\r\n}",
+      "declaration": "{\n  mode: IcBrandForeground;\n  color: IcColorRGB;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
