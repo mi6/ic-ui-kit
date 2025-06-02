@@ -24,13 +24,34 @@ describe("ic-link component", () => {
       page.root.download = false;
     }
 
+    await page.waitForChanges();
+
     expect(page.root).toMatchSnapshot("download-link-false");
 
     if (page.root) {
       page.root.download = true;
     }
+    await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot("download-link-true");
+  });
+
+  it("should handle string value of 'true' for 'download' attribute", async () => {
+    const page = await newSpecPage({
+      components: [Link],
+      html: `<ic-link download="true">IC Link Test</ic-link>`,
+    });
+
+    expect(page.root).toMatchSnapshot("download-link-string-true");
+  });
+
+  it("should handle string value of 'false' true for 'download' attribute", async () => {
+    const page = await newSpecPage({
+      components: [Link],
+      html: `<ic-link download="false">IC Link Test</ic-link>`,
+    });
+
+    expect(page.root).toMatchSnapshot("download-link-string-false");
   });
 
   it("should apply the 'href' attribute and ic-link styling to the anchor element", async () => {

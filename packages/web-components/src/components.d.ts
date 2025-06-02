@@ -968,7 +968,7 @@ export namespace Components {
     }
     interface IcLink {
         /**
-          * If `true`, the user can save the linked URL instead of navigating to it.
+          * If `true`, the user can save the linked URL instead of navigating to it. If the value is a string, it will be used as the filename for the download.
          */
         "download"?: string | boolean;
         /**
@@ -4405,7 +4405,7 @@ declare namespace LocalJSX {
     }
     interface IcLink {
         /**
-          * If `true`, the user can save the linked URL instead of navigating to it.
+          * If `true`, the user can save the linked URL instead of navigating to it. If the value is a string, it will be used as the filename for the download.
          */
         "download"?: string | boolean;
         /**
