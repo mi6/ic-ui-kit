@@ -23,6 +23,7 @@ import {
   ExternalFilteringSearchBar,
   WithButton,
   ThemeDark,
+  CharactersUntilSuggestionZero,
 } from "./IcSearchBarTestData";
 import {
   BE_VISIBLE,
@@ -129,6 +130,25 @@ describe("IcSearchBar end-to-end tests", () => {
       NOT_HAVE_CLASS,
       "disabled"
     );
+  });
+
+  it("should render with characters until suggestion set to 0", () => {
+    mount(<CharactersUntilSuggestionZero />);
+
+    cy.checkHydrated(SEARCH_SELECTOR);
+
+    cy.findShadowEl(SEARCH_SELECTOR, IC_INPUT_CONTAINER).click();
+    cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
+      .should(BE_VISIBLE)
+      .should(HAVE_LENGTH, "6");
+
+    cy.realPress("Enter");
+    cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI).should(NOT_EXIST);
+
+    cy.findShadowEl(SEARCH_SELECTOR, CLEAR_BUTTON_ID).click();
+    cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
+      .should(BE_VISIBLE)
+      .should(HAVE_LENGTH, "6");
   });
 
   it("should render with long option labels", () => {
