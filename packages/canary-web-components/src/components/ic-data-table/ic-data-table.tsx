@@ -2169,12 +2169,7 @@ export class DataTable {
 
     this.el.shadowRoot
       ?.querySelectorAll(".action-element")
-      ?.forEach((actionElementSpan) => {
-        const actionElement = actionElementSpan.firstChild;
-        if (actionElement) {
-          this.fixCellTooltip(actionElement as Element);
-        }
-      });
+      ?.forEach((actionElementSpan) => this.fixCellTooltip(actionElementSpan));
   };
 
   private handleClick = (event: Event, callback: (event: Event) => void) =>
