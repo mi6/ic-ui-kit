@@ -4,12 +4,15 @@ const defaultArgs = {
   autocapitalize: "off",
   autocorrect: "off",
   autofocus: false,
+  charactersUntilSuggestion: 2,
+  disableAutoFiltering: false,
   disabled: false,
-  fullWidth: false,
   focusOnLoad: true,
+  fullWidth: false,
   helperText: "",
   hideLabel: false,
   label: "What is your favourite coffee?",
+  loading: false,
   placeholder: "Search",
   readonly: false,
   required: false,
@@ -528,18 +531,16 @@ export const Playground = {
         autocapitalize=${args.autocapitalize}
         autocorrect=${args.autocorrect}
         autofocus=${args.autofocus}
-        label=${args.label}
-        required=${args.required}
-        readonly=${args.readonly}
-        spellcheck=${args.spellcheck}
+        characters-until-suggestion=${args.charactersUntilSuggestion}
+        disable-auto-filtering=${args.disableAutoFiltering}
         disabled=${args.disabled}
-        full-width=${args.fullWidth}
         focus-on-load=${args.focusOnLoad}
+        full-width=${args.fullWidth}
         helper-text=${args.helperText}
         hide-label=${args.hideLabel}
+        label=${args.label}
+        loading=${args.loading}
         placeholder=${args.placeholder}
-        size=${args.size}
-        theme=${args.theme}
       >
       </ic-search-bar>
       <script>
