@@ -15685,6 +15685,33 @@
           "setter": false
         },
         {
+          "name": "closeOnNavItemClick",
+          "type": "boolean | undefined",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean | undefined",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "close-on-nav-item-click",
+          "reflectToAttr": false,
+          "docs": "If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "undefined"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "collapsedIconLabels",
           "type": "boolean | undefined",
           "complexType": {
