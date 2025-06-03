@@ -7,7 +7,6 @@ import {
   Listen,
   Method,
   forceUpdate,
-  Watch,
 } from "@stencil/core";
 
 import OpenInNew from "../../assets/OpenInNew.svg";
@@ -39,13 +38,9 @@ export class Link {
   @Element() el: HTMLIcLinkElement;
 
   /**
-   * If `true`, the user can save the linked URL instead of navigating to it.
+   * If `true`, the user can save the linked URL instead of navigating to it. If the value is a string, it will be used as the filename for the download.
    */
   @Prop() download?: string | boolean = false;
-  @Watch("download")
-  watchDownloadHandler(): void {
-    this.updateDownload();
-  }
 
   /**
    * The URL that the link points to.
@@ -124,20 +119,6 @@ export class Link {
     }
   }
 
-  private updateDownload(): void {
-    const element = this.el.shadowRoot?.querySelector("a");
-    if (element) {
-      if (this.download) {
-        element.setAttribute(
-          "download",
-          this.download === true ? "" : this.download
-        );
-      } else {
-        element.removeAttribute("download");
-      }
-    }
-  }
-
   private hasRouterSlot(): boolean {
     this.routerSlot = this.el.querySelector('[slot="router-item"]');
     if (this.routerSlot) {
@@ -160,6 +141,16 @@ export class Link {
     });
     if (forceComponentUpdate) {
       forceUpdate(this);
+    }
+  };
+
+  private setDownloadAttribute = (
+    value: string | boolean | undefined
+  ): string | undefined => {
+    if (typeof value === "boolean") {
+      return value ? "" : undefined;
+    } else {
+      return value === "true" ? "" : value === "false" ? undefined : value;
     }
   };
 
@@ -190,7 +181,7 @@ export class Link {
             class={{
               ["link"]: !!href,
             }}
-            download={download !== true ? download : ""}
+            download={this.setDownloadAttribute(download)}
             href={href}
             hrefLang={hreflang}
             referrerPolicy={referrerpolicy}
