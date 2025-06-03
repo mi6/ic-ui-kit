@@ -452,6 +452,25 @@ describe("ic-side-navigation", () => {
     expect(page.rootInstance.menuExpanded).toBe(true);
   });
 
+  it("should collapse side navigation when closeOnNavItemClick is true and nav item is clicked", async () => {
+    const page = await newSpecPage({
+      components: [SideNavigation, NavigationItem],
+      html: `<ic-side-navigation close-on-nav-item-click="true" expanded="true" app-title="ACME">
+        <ic-navigation-item slot="primary-navigation" label="Home"></ic-navigation-item>
+      </ic-side-navigation>
+    `,
+    });
+
+    const navItem = page.root?.querySelector("ic-navigation-item");
+    navItem?.dispatchEvent(
+      new CustomEvent("navItemClicked", { bubbles: true })
+    );
+    await page.waitForChanges();
+    await new Promise((r) => setTimeout(r, 0));
+
+    expect(page.rootInstance.menuExpanded).toBe(false);
+  });
+
   it("should test brand change", async () => {
     const page = await newSpecPage({
       components: [SideNavigation],

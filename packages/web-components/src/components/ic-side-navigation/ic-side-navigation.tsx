@@ -69,6 +69,11 @@ export class SideNavigation {
   @Prop() appTitle?: string;
 
   /**
+   * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+   */
+  @Prop() closeOnNavItemClick?: boolean = false;
+
+  /**
    * If `true`, the icon and label will appear when side navigation is collapsed.
    */
   @Prop() collapsedIconLabels?: boolean = false;
@@ -152,6 +157,13 @@ export class SideNavigation {
 
     this.setExpandedButtonHeight();
 
+    if (this.closeOnNavItemClick) {
+      this.el.addEventListener(
+        "navItemClicked",
+        this.handleNavItemClicked as EventListener
+      );
+    }
+
     !isSlotUsed(this.el, "app-title") &&
       onComponentRequiredPropUndefined(
         [{ prop: this.appTitle, propName: "app-title" }],
@@ -165,6 +177,13 @@ export class SideNavigation {
     }
 
     this.el?.removeEventListener("transitionend", this.transitionEndHandler);
+
+    if (this.closeOnNavItemClick) {
+      this.el.removeEventListener(
+        "navItemClicked",
+        this.handleNavItemClicked as EventListener
+      );
+    }
   }
 
   @Listen("brandChange", { target: "document" })
@@ -496,6 +515,18 @@ export class SideNavigation {
 
   private setMenuExpanded = (expanded: boolean): void => {
     this.menuExpanded = expanded;
+  };
+
+  private handleNavItemClicked = () => {
+    if (
+      !this.menuOpen &&
+      this.deviceSize > DEVICE_SIZES.S &&
+      this.menuExpanded
+    ) {
+      setTimeout(() => {
+        this.toggleMenuExpanded(false);
+      }, 0);
+    }
   };
 
   /**
