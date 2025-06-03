@@ -14,6 +14,7 @@ import chevronIcon from "../../assets/chevron-icon.svg";
 import { IcSizes, IcThemeMode } from "../../utils/types";
 
 let accordionIds = 0;
+const EXPANDED_CONTENT_OPENED_CLASS = "expanded-content-opened";
 
 /**
  * @slot heading - Content is placed as the accordion heading.
@@ -114,6 +115,7 @@ export class Accordion {
         this.CONTENT_VISIBILITY_PROPERTY,
         "visible"
       );
+      this.expandedContentEl.classList.add(EXPANDED_CONTENT_OPENED_CLASS);
     }
   }
 
@@ -139,7 +141,7 @@ export class Accordion {
     expandedContent: HTMLDivElement
   ) => {
     if (ev.propertyName === "height" && expandedContent.clientHeight > 0) {
-      expandedContent.classList.add("expanded-content-opened");
+      expandedContent.classList.add(EXPANDED_CONTENT_OPENED_CLASS);
       expandedContent.style.height = "auto";
     }
   };
@@ -190,7 +192,7 @@ export class Accordion {
             "height",
             "ease-in"
           );
-          expandedContentEl.classList.remove("expanded-content-opened");
+          expandedContentEl.classList.remove(EXPANDED_CONTENT_OPENED_CLASS);
         }
         expandedContentEl.addEventListener("transitionend", (e) => {
           this.hideExpandedContent(e, expandedContentEl);
