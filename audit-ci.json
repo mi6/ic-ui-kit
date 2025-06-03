@@ -97,6 +97,13 @@
         "notes": "requires upgrade to react-router v7.5.2, currently on v6",
         "expiry": "27 June 2025"
       }
+    },
+    {
+      "GHSA-8cj5-5rvv-wf4v": {
+        "active": true,
+        "notes": "is in tar-fs within puppeteer v13",
+        "expiry": "27 June 2025"
+      }
     }
   ]
 }
