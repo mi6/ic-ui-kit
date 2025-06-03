@@ -24,6 +24,7 @@ const defaultArgs = {
   navOneLabel: "Navigation One",
   showSecondaryNav: true,
   showNavigationGroup: true,
+  closeOnNavItemClick: false,
 };
 
 const ExpansionControl = () => {
@@ -1061,6 +1062,117 @@ export const SideNavExpandedEvent = {
   name: "Side nav expanded event",
 };
 
+export const CloseOnNavItemClick = {
+  render: () => (
+    <IcSideNavigation
+      appTitle="ACME"
+      version="v0.0.0"
+      status="BETA"
+      href="https://www.google.com/"
+      closeOnNavItemClick
+    >
+      <svg
+        slot="app-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
+      </svg>
+      <IcNavigationItem slot="primary-navigation" label="Item 1">
+        <svg
+          slot="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+            fill="currentColor"
+          />
+        </svg>
+      </IcNavigationItem>
+      <IcNavigationItem
+        slot="primary-navigation"
+        label="Item 2"
+        selected
+      >
+        <svg
+          slot="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+            fill="currentColor"
+          />
+        </svg>
+      </IcNavigationItem>
+      <IcNavigationGroup
+        slot="primary-navigation"
+        label="Expandable navigation group"
+        expandable="true"
+      >
+        <IcNavigationItem label="Item 3">
+          <svg
+            slot="icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </IcNavigationItem>
+        <IcNavigationItem label="Item 4">
+          <svg
+            slot="icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </IcNavigationItem>
+      </IcNavigationGroup>
+      <IcNavigationItem slot="secondary-navigation" label="Settings">
+        <svg
+          slot="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+            fill="currentColor"
+          />
+        </svg>
+      </IcNavigationItem>
+    </IcSideNavigation>
+  ),
+
+  name: "Close on nav item click",
+};
+
 export const Playground = {
   render: (args) => (
     <IcSideNavigation
@@ -1069,6 +1181,7 @@ export const Playground = {
       status={args.status}
       href={args.href}
       collapsedIconLabels={args.collapsedIconLabels}
+      closeOnNavItemClick={args.closeOnNavItemClick}
     >
       <svg
         slot="app-icon"
