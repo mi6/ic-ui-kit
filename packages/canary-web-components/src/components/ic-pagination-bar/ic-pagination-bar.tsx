@@ -492,23 +492,6 @@ export class PaginationBar {
     );
   };
 
-  private handleButtonAppearance = () => {
-    if (this.monochrome) {
-      if (
-        this.theme === "dark" ||
-        (this.theme === "inherit" &&
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        return "light";
-      } else {
-        return "dark";
-      }
-    } else {
-      return "default";
-    }
-  };
-
   render() {
     const {
       alignment,
@@ -652,7 +635,6 @@ export class PaginationBar {
                   ></ic-text-field>
                 </ic-tooltip>
                 <ic-button
-                  appearance={this.handleButtonAppearance()}
                   variant="secondary"
                   onClick={this.goToPage}
                   size="small"
