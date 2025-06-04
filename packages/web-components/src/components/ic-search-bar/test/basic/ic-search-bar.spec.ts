@@ -685,4 +685,42 @@ describe("ic-search-bar search", () => {
 
     expect(page.rootInstance.value).toBe("test");
   });
+
+  it("should render with characters-until-suggestion set to 0", async () => {
+    const page = await newSpecPage({
+      components: [SearchBar, InputContainer, InputLabel],
+      html: '<ic-search-bar label="Test label" characters-until-suggestion="0"></ic-search-bar>',
+    });
+
+    page.rootInstance.options = menuOptions;
+    await page.waitForChanges();
+    expect(page.rootInstance.filteredOptions).toEqual(
+      page.rootInstance.options
+    );
+
+    await page.rootInstance.handleHostFocus();
+    await page.waitForChanges();
+    //delay to wait for aria live update
+    await waitForTimeout(700);
+    expect(page.root).toMatchSnapshot(
+      "renders-with-zero-characters-until-suggestion"
+    );
+  });
+
+  it("should test updating characters-until-suggestion", async () => {
+    const page = await newSpecPage({
+      components: [SearchBar, InputContainer, InputLabel],
+      html: '<ic-search-bar label="Test label" characters-until-suggestion="2"></ic-search-bar>',
+    });
+
+    page.rootInstance.options = menuOptions;
+    await page.waitForChanges();
+    expect(page.rootInstance.filteredOptions).toEqual([]);
+
+    page.rootInstance.charactersUntilSuggestion = 0;
+    await page.waitForChanges();
+    expect(page.rootInstance.filteredOptions).toEqual(
+      page.rootInstance.options
+    );
+  });
 });

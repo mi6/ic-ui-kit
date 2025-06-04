@@ -120,12 +120,15 @@ const defaultArgs = {
   autocapitalize: "off",
   autocorrect: "off",
   autofocus: false,
+  charactersUntilSuggestion: 2,
+  disableAutoFiltering: false,
   disabled: false,
-  fullWidth: false,
   focusOnLoad: true,
+  fullWidth: false,
   helperText: "",
   hideLabel: false,
   label: "What is your favourite coffee?",
+  loading: false,
   placeholder: "Search",
   readonly: false,
   required: false,
@@ -472,17 +475,15 @@ export const Playground = {
       autocapitalize={args.autocapitalize}
       autocorrect={args.autocorrect}
       autofocus={args.autofocus}
-      label={args.label}
-      required={args.required}
-      readonly={args.readonly}
-      spellcheck={args.spellcheck}
+      charactersUntilSuggestion={args.charactersUntilSuggestion}
+      disableAutoFiltering={args.disableAutoFiltering}
       disabled={args.disabled}
-      fullWidth={args.fullWidth}
       focusOnLoad={args.focusOnLoad}
+      fullWidth={args.fullWidth}
       helperText={args.helperText}
       hideLabel={args.hideLabel}
-      placeholder={args.placeholder}
-      size={args.size}
+      label={args.label}
+      loading={args.loading}
       options={[
         {
           label: "Espresso",
@@ -509,6 +510,11 @@ export const Playground = {
           value: "mocha",
         },
       ]}
+      placeholder={args.placeholder}
+      readonly={args.readonly}
+      required={args.required}
+      size={args.size}
+      spellcheck={args.spellcheck}
       theme={args.theme}
     />
   ),

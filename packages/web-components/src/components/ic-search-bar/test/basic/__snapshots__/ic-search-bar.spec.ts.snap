@@ -204,6 +204,46 @@ exports[`ic-search-bar search should render required variant: renders-required 1
 </ic-search-bar>
 `;
 
+exports[`ic-search-bar search should render with characters-until-suggestion set to 0: renders-with-zero-characters-until-suggestion 1`] = `
+<ic-search-bar characters-until-suggestion="0" class="ic-search-bar-search" label="Test label" value="">
+  <template shadowrootmode="open">
+    <ic-input-container>
+      <!---->
+      <div class="component-container">
+        <ic-input-label>
+          <ic-typography variant="label">
+            <label htmlfor="ic-search-bar-input-30">
+              Test label
+            </label>
+          </ic-typography>
+        </ic-input-label>
+        <ic-input-component-container size="medium">
+          <input aria-autocomplete="list" aria-controls="ic-search-bar-input-30-menu" aria-describedby="ic-search-bar-input-30-assistive-hint" aria-expanded="true" aria-haspopup="listbox" aria-label="Test label" aria-owns="ic-search-bar-input-30-menu" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-30" inputmode="search" name="ic-search-bar-input-30" placeholder="Search" role="combobox" value="">
+          <div class="clear-button-container">
+            <ic-button aria-label="Clear" class="clear-button clear-button-unfocused" id="clear-button" size="medium" theme="dark" type="submit" variant="icon">
+              svg
+            </ic-button>
+            <div class="divider"></div>
+          </div>
+          <div class="search-submit-button-container search-submit-button-disabled">
+            <ic-button aria-label="Search" class="search-submit-button search-submit-button-disabled search-submit-button-unfocused" disabled="" id="search-submit-button" size="medium" theme="dark" type="submit" variant="icon">
+              svg
+            </ic-button>
+          </div>
+        </ic-input-component-container>
+        <div class="menu-container">
+          <ic-menu activationtype="manual" inputlabel="Test label" labelfield="label" menuid="ic-search-bar-input-30-menu" open="" searchmode="navigation" value="" valuefield="value"></ic-menu>
+        </div>
+      </div>
+    </ic-input-container>
+    <div aria-live="polite" class="search-results-status" role="status">
+      9 results available
+    </div>
+  </template>
+  <input class="ic-input" name="ic-search-bar-input-30" type="hidden" value="">
+</ic-search-bar>
+`;
+
 exports[`ic-search-bar search should render with helper-text: renders-with-helpertext 1`] = `
 <ic-search-bar class="ic-search-bar-search" helper-text="This is a description" label="Test label" value="espresso">
   <template shadowrootmode="open">
