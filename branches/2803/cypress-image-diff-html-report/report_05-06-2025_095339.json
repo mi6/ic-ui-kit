@@ -1,6 +1,6 @@
 {
-  "total": 803,
-  "totalPassed": 803,
+  "total": 805,
+  "totalPassed": 805,
   "totalFailed": 0,
   "totalSuites": 43,
   "suites": [
@@ -6685,6 +6685,17 @@
         },
         {
           "status": "pass",
+          "name": "IcSideNavigation.cy.tsx/navigation-item-focus-mobile-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
+          "specFilename": "IcSideNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx/navigation-item-focus-mobile-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx/navigation-item-focus-mobile-high-contrast.png"
+        },
+        {
+          "status": "pass",
           "name": "IcSideNavigation.cy.tsx/nav-group-open-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -6726,6 +6737,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx/basic-open-desktop-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx/basic-open-desktop-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSideNavigation.cy.tsx/navigation-item-focus-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
+          "specFilename": "IcSideNavigation.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx/navigation-item-focus-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx/navigation-item-focus-high-contrast.png"
         },
         {
           "status": "pass",
@@ -9096,9 +9118,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-04T12:39:05.810Z",
-  "endedAt": "2025-06-04T12:55:57.008Z",
-  "duration": 914241,
+  "startedAt": "2025-06-05T09:53:39.731Z",
+  "endedAt": "2025-06-05T10:11:00.274Z",
+  "duration": 941898,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
