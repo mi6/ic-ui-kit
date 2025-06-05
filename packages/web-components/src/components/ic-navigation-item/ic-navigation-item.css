@@ -108,6 +108,7 @@ svg {
   box-shadow: var(--ic-border-focus);
   border-radius: var(--ic-border-radius);
   outline: var(--ic-hc-focus-outline);
+  outline-offset: calc(-1 * (var(--ic-space-xxxs) + var(--ic-space-1px) / 2));
 }
 
 :host(.navigation-item-selected) .link:focus,
@@ -115,6 +116,7 @@ svg {
   box-shadow: var(--ic-border-focus);
   border-radius: var(--ic-border-radius);
   outline: var(--ic-hc-focus-outline);
+  outline-offset: calc(-1 * (var(--ic-space-xxxs) + var(--ic-space-1px) / 2));
 }
 
 :host(.navigation-item) .link:active:not(:focus),

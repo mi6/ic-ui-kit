@@ -783,6 +783,20 @@ describe("Mobile visual regression tests in high contrast mode", () => {
     });
   });
 
+  it("should render a navigation item with focus in high contrast mode", () => {
+    mount(<BasicSideNav />);
+
+    cy.checkHydrated(SIDE_NAV_SELECTOR);
+    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).wait(500);
+
+    cy.get(NAV_ITEM_SELECTOR).first().shadow().find("a.link").focus();
+
+    cy.compareSnapshot({
+      name: "/navigation-item-focus-mobile-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
+    });
+  });
+
   it("should render with an IcNavigationGroup in high contrast mode", () => {
     mount(<GroupedSideNav />);
 
@@ -844,6 +858,20 @@ describe("Desktop visual regression tests in high contrast mode", () => {
     cy.compareSnapshot({
       name: "/basic-open-desktop-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+    });
+  });
+
+  it("should render a navigation item with focus in high contrast mode", () => {
+    mount(<BasicSideNav />);
+
+    cy.checkHydrated(SIDE_NAV_SELECTOR);
+    cy.clickOnShadowEl(SIDE_NAV_SELECTOR, EXPAND_BUTTON_SELECTOR).wait(300);
+
+    cy.get(NAV_ITEM_SELECTOR).first().shadow().find("a.link").focus();
+
+    cy.compareSnapshot({
+      name: "/navigation-item-focus-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
   });
 
