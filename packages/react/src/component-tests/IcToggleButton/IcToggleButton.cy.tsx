@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import React from "react";
 import { IcBadge, IcToggleButton } from "../../components";
@@ -37,6 +37,7 @@ const TOGGLE_BUTTON_AXE_OPTIONS = {
 };
 
 const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
+const CHECKED_SELECTOR = "ic-toggle-button-checked";
 
 describe("IcToggleButton end-to-end tests", () => {
   it("should render", () => {
@@ -53,21 +54,12 @@ describe("IcToggleButton end-to-end tests", () => {
       "icToggleChecked",
       cy.stub().as("icToggleChecked")
     );
-    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(
-      NOT_HAVE_CLASS,
-      "ic-toggle-button-checked"
-    );
+    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(NOT_HAVE_CLASS, CHECKED_SELECTOR);
     cy.get(IC_TOGGLE_BUTTON_SELECTOR).click();
-    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(
-      HAVE_CLASS,
-      "ic-toggle-button-checked"
-    );
+    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(HAVE_CLASS, CHECKED_SELECTOR);
     cy.get("@icToggleChecked").should(HAVE_BEEN_CALLED_ONCE);
     cy.get(IC_TOGGLE_BUTTON_SELECTOR).click();
-    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(
-      NOT_HAVE_CLASS,
-      "ic-toggle-button-checked"
-    );
+    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should(NOT_HAVE_CLASS, CHECKED_SELECTOR);
   });
 
   it("should not be clickable when disabled", () => {
@@ -431,8 +423,6 @@ describe("IcToggleButton visual regression tests in high contrast mode", () => {
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
 
     cy.compareSnapshot({
-      name: "loading-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       name: "/loading-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
