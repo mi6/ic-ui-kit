@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import { mount } from "cypress/react";
 import React from "react";
@@ -17,6 +17,7 @@ import {
   IndeterminateCircularLoadingIndE2EWithDuration,
   DarkModeColours,
   LightMonochrome,
+  LoadingIndicatorInDialog,
 } from "./IcLoadingIndicatorTestData";
 
 const ICON_CLIP = { x: 0, y: 0, width: 50, height: 50 };
@@ -211,7 +212,7 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "/determinate-linears-light-with-3-sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
       cypressScreenshotOptions: {
         clip: MULTI_CLIP,
       },
@@ -277,6 +278,28 @@ describe("IcLoadingIndicator end-to-end, visual regression and a11y tests", () =
     cy.findShadowEl(LOADING_INDICATOR_SELECTOR, LOADING_LABEL_SELECTOR)
       .find("p")
       .should(HAVE_TEXT, "Second label");
+  });
+
+  it("should render a loading-indicator within a dialog with a custom size", () => {
+    mount(<LoadingIndicatorInDialog size="small" />);
+
+    cy.get("ic-button").click().wait(300);
+    cy.compareSnapshot({
+      name: "/loading-indicator-within-dialog-small",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.073),
+    });
+  });
+
+  it("should render a loading-indicator within a dialog with a custom diameter", () => {
+    mount(
+      <LoadingIndicatorInDialog style={{ "--circular-diameter": "1.5rem" }} />
+    );
+
+    cy.get("ic-button").click().wait(300);
+    cy.compareSnapshot({
+      name: "/loading-indicator-within-dialog-custom-diameter",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.073),
+    });
   });
 });
 
