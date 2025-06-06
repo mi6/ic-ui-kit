@@ -1,7 +1,7 @@
 {
-  "total": 804,
-  "totalPassed": 790,
-  "totalFailed": 14,
+  "total": 805,
+  "totalPassed": 805,
+  "totalFailed": 0,
   "totalSuites": 43,
   "suites": [
     {
@@ -511,14 +511,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/icon-dark-theme.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBackToTop.cy.tsx/focussed",
-          "percentage": 0.09635351576356724,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBackToTop.cy.tsx/focussed.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBackToTop.cy.tsx/focussed.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBackToTop.cy.tsx/focussed.png"
         },
         {
@@ -8025,15 +8025,26 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/tooltip-placement-right.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButton.cy.tsx/tooltip-placement-top",
-          "percentage": 0.10061808982484213,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx/tooltip-placement-top.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButton.cy.tsx/tooltip-placement-top.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/tooltip-placement-top.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcToggleButton.cy.tsx/tooltip-placement-left",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
+          "specFilename": "IcToggleButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButton.cy.tsx/tooltip-placement-left.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButton.cy.tsx/tooltip-placement-left.png"
         },
         {
           "status": "pass",
@@ -8130,58 +8141,58 @@
       "path": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/default",
-          "percentage": 0.139312598138144,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/default.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/default.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/default.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/multiple",
-          "percentage": 0.1618394265931513,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/multiple.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/multiple.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/multiple.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/small",
-          "percentage": 0.13712767773137557,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/small.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/small.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/small.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/large",
-          "percentage": 0.14223923509355638,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/large.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/large.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/large.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/full-width",
-          "percentage": 0.08890444308357147,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/full-width.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/full-width.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/full-width.png"
         },
         {
@@ -8196,47 +8207,47 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/same-height.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/custom-width",
-          "percentage": 0.139312598138144,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/custom-width.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/custom-width.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/custom-width.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/large-label",
-          "percentage": 0.19543796969882798,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/large-label.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/large-label.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/large-label.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/light",
-          "percentage": 0.2233114417131375,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/light.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/light.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/light.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/disabled",
-          "percentage": 0.46220774549979143,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/disabled.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/disabled.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/disabled.png"
         },
         {
@@ -8262,36 +8273,36 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/loading-light.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/icons",
-          "percentage": 0.23098917723564452,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/icons.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/icons.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/icons.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/focused-toggle-checked-toggle-group-high-contrast",
-          "percentage": 0.16595180023127196,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/focused-toggle-checked-toggle-group-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/focused-toggle-checked-toggle-group-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/focused-toggle-checked-toggle-group-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx/disabled-toggle-group-high-contrast",
-          "percentage": 0.28927495570823275,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx/disabled-toggle-group-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx/disabled-toggle-group-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx/disabled-toggle-group-high-contrast.png"
         }
       ]
@@ -9107,9 +9118,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-05T15:15:24.098Z",
-  "endedAt": "2025-06-05T15:34:36.225Z",
-  "duration": 1053516,
+  "startedAt": "2025-06-06T08:49:55.244Z",
+  "endedAt": "2025-06-06T09:07:07.394Z",
+  "duration": 935470,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
