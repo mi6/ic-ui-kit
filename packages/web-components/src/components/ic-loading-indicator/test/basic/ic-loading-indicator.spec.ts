@@ -95,6 +95,15 @@ describe("ic-loading-indicator component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render an indeterminate loading indicator with a custom --circular-diameter", async () => {
+    page = await newSpecPage({
+      components: [LoadingIndicator, Typography],
+      html: `<ic-loading-indicator label="IC Loading Indicator Test" style="--circular-diameter: 1.5rem;"></ic-loading-indicator>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should update label after label-duration passed", async () => {
     page = await newSpecPage({
       components: [LoadingIndicator, Typography],

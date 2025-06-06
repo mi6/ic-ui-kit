@@ -2,7 +2,7 @@
 
 :host {
   /**
-   * @prop --circular-diameter: Diameter of the circular-indicator
+   * @prop --circular-diameter: Diameter of the circular-indicator in px, rem or %
    */
 
   display: block;
