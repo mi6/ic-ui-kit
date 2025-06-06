@@ -2279,19 +2279,19 @@ export namespace Components {
         /**
           * If `true`, the toggle button will be in a checked state.
          */
-        "checked"?: boolean;
+        "checked": boolean;
         /**
           * If `true`, the toggle button will be in disabled state.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * If `true`, the toggle button will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The placement of the icon in relation to the toggle button label.
          */
-        "iconPlacement"?: IcIconPlacementOptions;
+        "iconPlacement": IcIconPlacementOptions;
         /**
           * The label to display in the toggle button. This is required for the default variant of toggle buttons.
          */
@@ -2299,33 +2299,33 @@ export namespace Components {
         /**
           * If `true`, the toggle button will be in loading state.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * If `true`, the toggle button will display as black in the light theme, and white in dark theme.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * The size of the toggle button to be displayed.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The position of the tooltip in relation to the toggle button.
          */
-        "tooltipPlacement"?: IcButtonTooltipPlacement;
+        "tooltipPlacement": IcButtonTooltipPlacement;
         /**
           * The variant of the toggle button.
          */
-        "variant"?: "default" | "icon";
+        "variant": "default" | "icon";
     }
     interface IcToggleButtonGroup {
         /**
           * The accessible label of the toggle button group component to provide context for screen reader users.
          */
-        "accessibleLabel"?: string;
+        "accessibleLabel": string;
         /**
           * If `true`, the toggle button group will be set to the disabled state.
          */
@@ -2333,35 +2333,35 @@ export namespace Components {
         /**
           * If `true`, the toggle button group will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The placement of the icons in relation to the toggle button labels.
          */
-        "iconPlacement"?: "left" | "right" | "top";
+        "iconPlacement"?: IcIconPlacementOptions;
         /**
           * If `true`, the toggle button group will be in loading state.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
          */
-        "selectMethod"?: IcSelectMethodTypes;
+        "selectMethod": IcSelectMethodTypes;
         /**
           * Sets whether single or multiple options can be toggled. If `multi`, then the `selectMethod` is always `manual`.
          */
-        "selectType"?: IcSelectTypes;
+        "selectType": IcSelectTypes;
         /**
           * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The position of the tooltip in relation to the toggle buttons.
          */
@@ -5901,7 +5901,7 @@ declare namespace LocalJSX {
         /**
           * The placement of the icons in relation to the toggle button labels.
          */
-        "iconPlacement"?: "left" | "right" | "top";
+        "iconPlacement"?: IcIconPlacementOptions;
         /**
           * If `true`, the toggle button group will be in loading state.
          */

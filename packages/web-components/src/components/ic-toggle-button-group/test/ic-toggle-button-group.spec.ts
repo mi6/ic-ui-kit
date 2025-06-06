@@ -389,9 +389,48 @@ describe("ic-toggle-button-group component unit tests", () => {
 
     const mockEvent = new FocusEvent("focus");
 
-    expect(page.rootInstance.handleHostFocus(mockEvent)).toBeNull();
+    expect(page.rootInstance.handleHostFocus(mockEvent)).toBeUndefined();
 
     await page.rootInstance.disconnectedCallback();
+  });
+  it("should test watchTooltipPlacementHandler handler", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButtonGroup, ToggleButton, Button],
+      html: `<ic-toggle-button-group>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+            </ic-toggle-button-group>`,
+    });
+    page.rootInstance.tooltipPlacement = "top";
+    await page.waitForChanges();
+
+    expect(
+      page.root?.querySelector("ic-toggle-button")?.tooltipPlacement
+    ).toEqual("top");
+  });
+  it("should test handleHostFocus on toggle-group", async () => {
+    const page = await newSpecPage({
+      components: [ToggleButtonGroup, ToggleButton, Button],
+      html: `<ic-toggle-button-group>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+              <ic-toggle-button label="Toggle"></ic-toggle-button>
+            </ic-toggle-button-group>`,
+    });
+
+    await page.rootInstance.handleHostFocus(
+      new FocusEvent("focus", { relatedTarget: page.rootInstance })
+    );
+
+    page.rootInstance.lastKeyPressed = {
+      key: "",
+      shift: true,
+    };
+
+    await page.rootInstance.handleHostFocus(
+      new FocusEvent("focus", { relatedTarget: page.rootInstance })
+    );
   });
   it("should test that setting the theme prop on toggle-button-group sets the theme on all toggle buttons", async () => {
     const page = await newSpecPage({
