@@ -27,6 +27,7 @@
   box-sizing: border-box;
   box-shadow: var(--ic-elevation-overlay);
   display: none;
+  overflow-x: clip;
 }
 
 :host(.on-dialog) {
@@ -48,6 +49,8 @@
   background-color: var(--ic-popover-background);
   visibility: hidden;
   height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 :host(:focus-within) {
