@@ -317,8 +317,15 @@ export class NavigationItem {
     }
   };
 
-  private handleClick = () => {
-    this.navItemClicked.emit();
+  private handleClick = (event: MouseEvent | KeyboardEvent) => {
+    if (
+      event.type === "click" ||
+      (event.type === "keydown" &&
+        ((event as KeyboardEvent).key === "Enter" ||
+          (event as KeyboardEvent).key === " "))
+    ) {
+      this.navItemClicked.emit();
+    }
   };
 
   // triggered when attributes of host element change
@@ -428,6 +435,7 @@ export class NavigationItem {
         }}
         onBlur={isTopNavChild && !inTopNavSideMenu ? this.handleBlur : null}
         onClick={this.handleClick}
+        onKeyDown={this.handleClick}
         aria-current={selected ? "page" : null}
         role="listitem"
       >

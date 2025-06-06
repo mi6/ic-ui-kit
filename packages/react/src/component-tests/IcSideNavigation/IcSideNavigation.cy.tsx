@@ -14,6 +14,7 @@ import {
 } from "../utils/constants";
 import {
   BasicSideNav,
+  CloseOnNavItemClickSideNav,
   DisableTopBarBehaviourSideNav,
   DynamicExpandedSideNav,
   ExpandedSideNav,
@@ -526,6 +527,15 @@ describe("IcSideNavigation", () => {
       cy.get(SIDE_NAV_SELECTOR)
         .find(NAV_ITEM_TYPOGRAPHY_SELECTOR)
         .should(HAVE_CSS, "visibility", "hidden");
+    });
+
+    it("should collapse the side navigation when nav item is clicked", () => {
+      mount(<CloseOnNavItemClickSideNav />);
+
+      cy.checkSideNavSize(true);
+
+      cy.get(NAV_ITEM_SELECTOR).first().click();
+      cy.checkSideNavSize(false);
     });
 
     it.skip("should render ic-side-navigation with theme colours", () => {

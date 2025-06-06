@@ -1806,6 +1806,10 @@ export namespace Components {
          */
         "appTitle"?: string;
         /**
+          * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+         */
+        "closeOnNavItemClick"?: boolean;
+        /**
           * If `true`, the icon and label will appear when side navigation is collapsed.
          */
         "collapsedIconLabels"?: boolean;
@@ -5323,6 +5327,10 @@ declare namespace LocalJSX {
           * The app title to be displayed. This is required, unless a slotted app title link is used.
          */
         "appTitle"?: string;
+        /**
+          * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+         */
+        "closeOnNavItemClick"?: boolean;
         /**
           * If `true`, the icon and label will appear when side navigation is collapsed.
          */
