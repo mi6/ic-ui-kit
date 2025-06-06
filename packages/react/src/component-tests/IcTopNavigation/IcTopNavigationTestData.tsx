@@ -237,6 +237,24 @@ export const WithNavGroup = (): ReactElement => {
   );
 };
 
+export const WithSlottedNavGroup = (): ReactElement => (
+  <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
+    <ReusableAppIcon />
+    <IcSearchBar slot="search" label="Search" placeholder="Search" />
+    <IcNavigationButton label="Button One" slot="buttons">
+      <ReusableIcon />
+    </IcNavigationButton>
+    <IcNavigationGroup slot="navigation" label="Navigation Group">
+      <IcNavigationItem>
+        <a href="/">One</a>
+      </IcNavigationItem>
+      <IcNavigationItem>
+        <a href="/">Two</a>
+      </IcNavigationItem>
+    </IcNavigationGroup>
+  </IcTopNavigation>
+);
+
 export const CentreAligned = (): ReactElement => {
   return (
     <IcTopNavigation

@@ -34,6 +34,7 @@ import {
   WithNavigationButton,
   WithNavItems,
   WithSlottedNavItems,
+  WithSlottedNavGroup,
 } from "./IcTopNavigationTestData";
 
 const DEFAULT_TEST_THRESHOLD = 0.019;
@@ -43,6 +44,7 @@ const TOP_NAV_SELECTOR = "ic-top-navigation";
 const SEARCH_BAR_SELECTOR = "ic-search-bar";
 const NAV_MENU_SELECTOR = "ic-navigation-menu";
 const NAV_ITEM_SELECTOR = "ic-navigation-item";
+const NAV_GROUP_SELECTOR = "ic-navigation-group";
 const MOBILE_CSS_CLASS = "mobile-mode";
 
 describe("IcTopNavigation end-to-end tests", () => {
@@ -141,10 +143,8 @@ describe("IcTopNavigation end-to-end tests", () => {
     it("should hide dropdown menu when nav item clicked", () => {
       mount(<TopNavWithNavItems />);
 
-      cy.checkHydrated("ic-navigation-group");
-      cy.get(TOP_NAV_SELECTOR)
-        .find("ic-navigation-group")
-        .trigger("mouseenter");
+      cy.checkHydrated(NAV_GROUP_SELECTOR);
+      cy.get(TOP_NAV_SELECTOR).find(NAV_GROUP_SELECTOR).trigger("mouseenter");
       cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).should(BE_VISIBLE);
       cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).click();
       cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).should(NOT_BE_VISIBLE);
@@ -322,6 +322,26 @@ describe("IcTopNavigation desktop visual regression tests", () => {
       name: "/navigation-group",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
+  });
+
+  it("should render with slotted nav group items", () => {
+    mount(<WithSlottedNavGroup />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/slotted-navigation-group",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+    });
+
+    // Cannot check visually for hover styling so checking that correct css is applied
+    cy.clickOnShadowEl(NAV_GROUP_SELECTOR, ".navigation-group");
+    cy.get(NAV_ITEM_SELECTOR)
+      .find("a")
+      .realHover()
+      .should(HAVE_CSS, "background-color", "rgba(65, 70, 77, 0.1)");
+
+    cy.checkA11yWithWait();
   });
 
   it("should render with content centre aligned", () => {

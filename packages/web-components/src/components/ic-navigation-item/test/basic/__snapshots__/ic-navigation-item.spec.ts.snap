@@ -65,3 +65,34 @@ exports[`ic-navigation-item should render with label: renders-with-label 1`] = `
   </template>
 </ic-navigation-item>
 `;
+
+exports[`ic-navigation-item should render with open in new window icon: renders-with-open-in-new-window-icon 1`] = `
+<ic-navigation-item class="light navigation-item" href="#link" label="Item label" role="listitem" target="_blank">
+  <template shadowrootmode="open">
+    <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
+      <a class="link" href="#link" part="link" target="_blank">
+        <ic-typography variant="label">
+          Item label
+        </ic-typography>
+        <span class="open-in-new-icon">
+          svg
+        </span>
+        <div class="chevron-container"></div>
+      </a>
+    </ic-tooltip>
+  </template>
+</ic-navigation-item>
+`;
+
+exports[`ic-navigation-item should test setFocus when using a slotted link: renders-with-slotted-link 1`] = `
+<ic-navigation-item class="light navigation-item" role="listitem">
+  <template shadowrootmode="open">
+    <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
+      <slot></slot>
+    </ic-tooltip>
+  </template>
+  <a href="#">
+    Item label
+  </a>
+</ic-navigation-item>
+`;
