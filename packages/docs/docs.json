@@ -8553,10 +8553,10 @@
       "props": [
         {
           "name": "description",
-          "type": "string | undefined",
+          "type": "string",
           "complexType": {
             "original": "string",
-            "resolved": "string | undefined",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -8568,22 +8568,19 @@
           "values": [
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "fullWidth",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -8595,12 +8592,9 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -8616,7 +8610,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The label to be displayed beneath the loading indicator.\nDisplay a changing label by supplying an array of messages.",
+          "docs": "The label to be displayed beneath the loading indicator.\r\nDisplay a changing label by supplying an array of messages.",
           "docsTags": [],
           "values": [
             {
@@ -8636,10 +8630,10 @@
         },
         {
           "name": "labelDuration",
-          "type": "number | undefined",
+          "type": "number",
           "complexType": {
             "original": "number",
-            "resolved": "number | undefined",
+            "resolved": "number",
             "references": {}
           },
           "mutable": false,
@@ -8651,76 +8645,67 @@
           "values": [
             {
               "type": "number"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "max",
-          "type": "number | undefined",
+          "type": "number",
           "complexType": {
             "original": "number",
-            "resolved": "number | undefined",
+            "resolved": "number",
             "references": {}
           },
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The maximum value that the progress value can take.\nUsed to calculate the proportional width of the progress bar.",
+          "docs": "The maximum value that the progress value can take.\r\nUsed to calculate the proportional width of the progress bar.",
           "docsTags": [],
           "default": "100",
           "values": [
             {
               "type": "number"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "min",
-          "type": "number | undefined",
+          "type": "number",
           "complexType": {
             "original": "number",
-            "resolved": "number | undefined",
+            "resolved": "number",
             "references": {}
           },
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The minimum value that the progress value can take.\nUsed to calculate the proportional width of the progress bar.",
+          "docs": "The minimum value that the progress value can take.\r\nUsed to calculate the proportional width of the progress bar.",
           "docsTags": [],
           "default": "0",
           "values": [
             {
               "type": "number"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "monochrome",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
@@ -8732,12 +8717,9 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -8753,7 +8735,7 @@
           "mutable": false,
           "attr": "progress",
           "reflectToAttr": false,
-          "docs": "The current amount of progress made.\nIf not provided, component acts as an indeterminate loading indicator.",
+          "docs": "The current amount of progress made.\r\nIf not provided, component acts as an indeterminate loading indicator.",
           "docsTags": [],
           "values": [
             {
@@ -8770,10 +8752,10 @@
         },
         {
           "name": "size",
-          "type": "\"icon\" | \"large\" | \"medium\" | \"small\" | undefined",
+          "type": "\"icon\" | \"large\" | \"medium\" | \"small\"",
           "complexType": {
             "original": "IcLoadingSizes",
-            "resolved": "\"icon\" | \"large\" | \"medium\" | \"small\" | undefined",
+            "resolved": "\"icon\" | \"large\" | \"medium\" | \"small\"",
             "references": {
               "IcLoadingSizes": {
                 "location": "import",
@@ -8804,22 +8786,19 @@
             {
               "value": "small",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -8846,22 +8825,19 @@
             {
               "value": "light",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
         },
         {
           "name": "type",
-          "type": "\"circular\" | \"linear\" | undefined",
+          "type": "\"circular\" | \"linear\"",
           "complexType": {
             "original": "IcLoadingTypes",
-            "resolved": "\"circular\" | \"linear\" | undefined",
+            "resolved": "\"circular\" | \"linear\"",
             "references": {
               "IcLoadingTypes": {
                 "location": "import",
@@ -8884,12 +8860,9 @@
             {
               "value": "linear",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -8902,7 +8875,7 @@
         {
           "name": "--circular-diameter",
           "annotation": "prop",
-          "docs": "Diameter of the circular-indicator"
+          "docs": "Diameter of the circular-indicator in px, rem or %"
         }
       ],
       "slots": [],
