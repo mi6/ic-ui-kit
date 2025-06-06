@@ -90,7 +90,7 @@ export class TextField {
   /**
    * @internal Used to identify if the slotted menu is rendered
    */
-  @Prop() ariaExpanded: string | undefined;
+  @Prop() ariaExpanded: string | null;
 
   /**
    * @internal Used to identify any related child component
@@ -240,7 +240,7 @@ export class TextField {
   /**
    * @internal Used to set the role if not default textbox;
    */
-  @Prop() role: string | undefined;
+  @Prop() role: string | null;
 
   /**
    * The number of rows to transform the text field into a text area with a specific height.
@@ -722,7 +722,7 @@ export class TextField {
                 autocapitalize={autocapitalize}
                 spellcheck={spellcheck}
                 inputmode={inputmode}
-                role={role}
+                role={role || undefined}
                 maxlength={maxCharactersReached ? maxCharacters : undefined}
                 minlength={minCharactersUnattained ? minCharacters : undefined}
                 {...inheritedAttributes}

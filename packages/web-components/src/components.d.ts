@@ -2070,7 +2070,7 @@ export namespace Components {
     interface IcTextField {
         "ariaActiveDescendant"?: string;
         "ariaAutocomplete"?: IcAriaAutocompleteTypes;
-        "ariaExpanded": string | undefined;
+        "ariaExpanded": string | null;
         "ariaOwns"?: string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
@@ -2177,7 +2177,7 @@ export namespace Components {
           * If `true`, the multiline text area will be resizeable.
          */
         "resize": boolean;
-        "role": string | undefined;
+        "role": string | null;
         /**
           * The number of rows to transform the text field into a text area with a specific height.
          */
@@ -5602,7 +5602,7 @@ declare namespace LocalJSX {
     interface IcTextField {
         "ariaActiveDescendant"?: string;
         "ariaAutocomplete"?: IcAriaAutocompleteTypes;
-        "ariaExpanded"?: string | undefined;
+        "ariaExpanded"?: string | null;
         "ariaOwns"?: string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
@@ -5734,7 +5734,7 @@ declare namespace LocalJSX {
           * If `true`, the multiline text area will be resizeable.
          */
         "resize"?: boolean;
-        "role"?: string | undefined;
+        "role"?: string | null;
         /**
           * The number of rows to transform the text field into a text area with a specific height.
          */
