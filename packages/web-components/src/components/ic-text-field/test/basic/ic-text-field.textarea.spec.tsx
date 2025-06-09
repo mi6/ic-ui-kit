@@ -213,7 +213,7 @@ describe("ic-text-field", () => {
         <mock:shadow-root>
           <ic-input-container>
             <ic-input-label for="ic-text-field-input-9" helpertext="" label="Test label"></ic-input-label>
-            <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="ic-text-field-input-9-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" class="no-resize" id="ic-text-field-input-9" inputmode="text" name="ic-text-field-input-9" placeholder="" rows="6" value="Test value"></textarea>
+            <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="ic-text-field-input-9-char-count-desc ic-text-field-input-9-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" class="no-resize" id="ic-text-field-input-9" inputmode="text" name="ic-text-field-input-9" placeholder="" rows="6" value="Test value"></textarea>
             </ic-input-component-container>
             <ic-input-validation arialivemode="polite" for="ic-text-field-input-9" message="" status="">
               <div slot="validation-message-adornment">
@@ -222,7 +222,7 @@ describe("ic-text-field", () => {
                     10/25
                   </span>
                 </ic-typography>
-                <span aria-live="polite" class="remaining-char-count-desc">
+                <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-9-remaining-char-count-desc">
                   15 characters remaining.
                 </span>
                 <span hidden="" id="ic-text-field-input-9-char-count-desc">
@@ -248,11 +248,11 @@ describe("ic-text-field", () => {
         <mock:shadow-root>
           <ic-input-container>
             <ic-input-label for="ic-text-field-input-10" helpertext="" label="Test label"></ic-input-label>
-            <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="ic-text-field-input-10-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" class="no-resize" id="ic-text-field-input-10" inputmode="text" name="ic-text-field-input-10" placeholder="" rows="6" value="Test value"></textarea>
+            <ic-input-component-container multiline="" size="medium" validationstatus=""><textarea aria-describedby="ic-text-field-input-10-char-count-desc ic-text-field-input-10-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" class="no-resize" id="ic-text-field-input-10" inputmode="text" name="ic-text-field-input-10" placeholder="" rows="6" value="Test value"></textarea>
             </ic-input-component-container>
             <ic-input-validation arialivemode="polite" for="ic-text-field-input-10" message="" status="">
               <div slot="validation-message-adornment">
-                <span aria-live="polite" class="remaining-char-count-desc">
+                <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-10-remaining-char-count-desc">
                   15 characters remaining.
                 </span>
                 <span hidden="" id="ic-text-field-input-10-char-count-desc">

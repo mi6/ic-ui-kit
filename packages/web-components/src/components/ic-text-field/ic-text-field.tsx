@@ -70,6 +70,7 @@ export class TextField {
   @State() minCharactersUnattained: boolean = false;
   @State() maxValueExceeded: boolean = false;
   @State() minValueUnattained: boolean = false;
+  @State() isFocussed: boolean = false;
 
   /**
    * @slot clear-button - an ic-button clear component will render as an end adornment to the input.
@@ -486,12 +487,14 @@ export class TextField {
     this.minCharactersUnattained =
       this.minCharacters > 0 && this.numChars < this.minCharacters;
     this.icBlur.emit({ value });
+    this.isFocussed = false;
   };
 
   private onFocus = (ev: Event) => {
     const target = ev.target as HTMLInputElement;
     target.addEventListener("wheel", this.onWheel);
     this.icFocus.emit({ value: target.value });
+    this.isFocussed = true;
   };
 
   private onTextAreaScroll = () => {
@@ -588,6 +591,7 @@ export class TextField {
       ariaOwns,
       autocomplete,
       role,
+      isFocussed,
     } = this;
 
     const el = this.el as HTMLElement;
@@ -630,11 +634,19 @@ export class TextField {
 
     const multiline = rows > 1;
 
-    const charsRemaining = maxNumChars - numChars;
     const hiddenCharCountDescId =
       maxCharacters > 0 ? `${inputId}-char-count-desc` : "";
 
-    const describedBy = `${hiddenCharCountDescId} ${getInputDescribedByText(
+    const charsRemaining = maxNumChars - numChars;
+    const remainingCharCountDescId =
+      maxCharacters > 0 ? `${inputId}-remaining-char-count-desc` : "";
+    const remainingCharCountDesc = `${charsRemaining} character${
+      charsRemaining === 1 ? "" : "s"
+    } remaining.`;
+
+    const describedBy = `${hiddenCharCountDescId} ${
+      numChars > 0 ? remainingCharCountDescId : ""
+    } ${getInputDescribedByText(
       inputId,
       helperText !== "",
       showStatusText
@@ -797,10 +809,13 @@ export class TextField {
                         </span>
                       </ic-typography>
                     )}
-                    <span class="remaining-char-count-desc" aria-live="polite">
-                      {`${charsRemaining} character${
-                        charsRemaining === 1 ? "" : "s"
-                      } remaining.`}
+                    <span
+                      class="remaining-char-count-desc"
+                      aria-live="polite"
+                      hidden={!isFocussed}
+                      id={remainingCharCountDescId}
+                    >
+                      {remainingCharCountDesc}
                     </span>
                     <span hidden={true} id={hiddenCharCountDescId}>
                       Field can contain a maximum of {maxNumChars} characters.

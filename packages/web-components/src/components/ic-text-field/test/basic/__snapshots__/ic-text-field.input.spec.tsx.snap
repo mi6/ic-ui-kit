@@ -170,7 +170,7 @@ exports[`ic-text-field should render with max characters and a value set which e
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-11" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="ic-text-field-input-11-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-11" inputmode="text" maxlength="25" name="ic-text-field-input-11" placeholder="" type="text" value="A long value which exceed">
+        <input aria-describedby="ic-text-field-input-11-char-count-desc ic-text-field-input-11-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-11" inputmode="text" maxlength="25" name="ic-text-field-input-11" placeholder="" type="text" value="A long value which exceed">
       </ic-input-component-container>
       <ic-input-validation arialivemode="polite" for="ic-text-field-input-11" message="" status="">
         <div slot="validation-message-adornment">
@@ -179,7 +179,7 @@ exports[`ic-text-field should render with max characters and a value set which e
               25/25
             </span>
           </ic-typography>
-          <span aria-live="polite" class="remaining-char-count-desc">
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-11-remaining-char-count-desc">
             0 characters remaining.
           </span>
           <span hidden="" id="ic-text-field-input-11-char-count-desc">
@@ -199,7 +199,7 @@ exports[`ic-text-field should render with max characters and a value set which e
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-13" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="ic-text-field-input-13-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-13" inputmode="text" maxlength="25" name="ic-text-field-input-13" placeholder="" type="text" value="A long value which exceed">
+        <input aria-describedby="ic-text-field-input-13-char-count-desc ic-text-field-input-13-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-13" inputmode="text" maxlength="25" name="ic-text-field-input-13" placeholder="" type="text" value="A long value which exceed">
       </ic-input-component-container>
       <ic-input-validation arialivemode="polite" for="ic-text-field-input-13" message="" status="">
         <div slot="validation-message-adornment">
@@ -208,7 +208,7 @@ exports[`ic-text-field should render with max characters and a value set which e
               25/25
             </span>
           </ic-typography>
-          <span aria-live="polite" class="remaining-char-count-desc">
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-13-remaining-char-count-desc">
             0 characters remaining.
           </span>
           <span hidden="" id="ic-text-field-input-13-char-count-desc">
@@ -228,11 +228,11 @@ exports[`ic-text-field should render with max characters and hidden character co
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-10" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="ic-text-field-input-10-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-10" inputmode="text" name="ic-text-field-input-10" placeholder="" type="text" value="Test value">
+        <input aria-describedby="ic-text-field-input-10-char-count-desc ic-text-field-input-10-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-10" inputmode="text" name="ic-text-field-input-10" placeholder="" type="text" value="Test value">
       </ic-input-component-container>
       <ic-input-validation arialivemode="polite" for="ic-text-field-input-10" message="" status="">
         <div slot="validation-message-adornment">
-          <span aria-live="polite" class="remaining-char-count-desc">
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-10-remaining-char-count-desc">
             15 characters remaining.
           </span>
           <span hidden="" id="ic-text-field-input-10-char-count-desc">
@@ -252,11 +252,11 @@ exports[`ic-text-field should render with max characters and hidden character co
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-12" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="ic-text-field-input-12-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-12" inputmode="text" name="ic-text-field-input-12" placeholder="" type="text" value="Test value">
+        <input aria-describedby="ic-text-field-input-12-char-count-desc ic-text-field-input-12-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-12" inputmode="text" name="ic-text-field-input-12" placeholder="" type="text" value="Test value">
       </ic-input-component-container>
       <ic-input-validation arialivemode="polite" for="ic-text-field-input-12" message="" status="">
         <div slot="validation-message-adornment">
-          <span aria-live="polite" class="remaining-char-count-desc">
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-12-remaining-char-count-desc">
             15 characters remaining.
           </span>
           <span hidden="" id="ic-text-field-input-12-char-count-desc">
@@ -276,7 +276,7 @@ exports[`ic-text-field should render with max characters: renders-with-max-chara
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-9" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
-        <input aria-describedby="ic-text-field-input-9-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-9" inputmode="text" name="ic-text-field-input-9" placeholder="" type="text" value="Test value">
+        <input aria-describedby="ic-text-field-input-9-char-count-desc ic-text-field-input-9-remaining-char-count-desc" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-9" inputmode="text" name="ic-text-field-input-9" placeholder="" type="text" value="Test value">
       </ic-input-component-container>
       <ic-input-validation arialivemode="polite" for="ic-text-field-input-9" message="" status="">
         <div slot="validation-message-adornment">
@@ -285,7 +285,7 @@ exports[`ic-text-field should render with max characters: renders-with-max-chara
               10/25
             </span>
           </ic-typography>
-          <span aria-live="polite" class="remaining-char-count-desc">
+          <span aria-live="polite" class="remaining-char-count-desc" hidden="" id="ic-text-field-input-9-remaining-char-count-desc">
             15 characters remaining.
           </span>
           <span hidden="" id="ic-text-field-input-9-char-count-desc">
