@@ -3892,7 +3892,7 @@
         {
           "status": "fail",
           "name": "IcLoadingIndicator.cy.tsx/loading-indicator-within-dialog-small",
-          "percentage": 0.012328828005937953,
+          "percentage": 0.011489125293076058,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
@@ -3903,7 +3903,7 @@
         {
           "status": "fail",
           "name": "IcLoadingIndicator.cy.tsx/loading-indicator-within-dialog-custom-diameter",
-          "percentage": 0.011832159566199233,
+          "percentage": 0.00894427190999916,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
@@ -9129,9 +9129,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-09T15:02:27.327Z",
-  "endedAt": "2025-06-09T15:19:49.538Z",
-  "duration": 945152,
+  "startedAt": "2025-06-09T15:43:49.601Z",
+  "endedAt": "2025-06-09T16:01:08.826Z",
+  "duration": 941479,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
