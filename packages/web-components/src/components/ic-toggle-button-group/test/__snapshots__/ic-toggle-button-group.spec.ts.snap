@@ -9,7 +9,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-full-width ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -22,7 +22,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-full-width ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -43,7 +43,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -56,7 +56,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -77,7 +77,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-loading ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-disabled="true" aria-label="Loading, Toggle button group" class="button" part="button" type="button">
+          <button aria-disabled="true" aria-label="Loading, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <div class="loading-container">
               <ic-loading-indicator theme="inherit" type="linear"></ic-loading-indicator>
             </div>
@@ -92,7 +92,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-loading ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-disabled="true" aria-label="Loading, Toggle button group" class="button" part="button" type="button">
+          <button aria-disabled="true" aria-label="Loading, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <div class="loading-container">
               <ic-loading-indicator theme="inherit" type="linear"></ic-loading-indicator>
             </div>
@@ -115,7 +115,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -128,7 +128,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -149,7 +149,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -162,7 +162,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -183,7 +183,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -196,7 +196,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -217,7 +217,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-small ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -230,7 +230,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-small ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -251,7 +251,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-large ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -264,7 +264,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-large ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -286,7 +286,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-icon" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip label="Toggle, unticked" placement="bottom" silent="" target="ic-button-with-tooltip-22">
-            <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+            <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
           </ic-tooltip>
@@ -300,7 +300,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-icon" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip label="Toggle, unticked" placement="bottom" silent="" target="ic-button-with-tooltip-24">
-            <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" type="button">
+            <button aria-label="Toggle, unticked, Toggle button group" class="button" part="button" tabindex="0" type="button">
               <slot></slot>
             </button>
           </ic-tooltip>
@@ -321,7 +321,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>
@@ -334,7 +334,7 @@ exports[`ic-toggle-button-group component snapshot tests should render and updat
     <template shadowrootmode="open">
       <ic-button aria-pressed="false" class="ic-button-size-medium ic-button-variant-secondary" exportparts="button">
         <template shadowrootmode="open">
-          <button aria-label="Toggle, unticked" class="button" part="button" type="button">
+          <button aria-label="Toggle, unticked" class="button" part="button" tabindex="0" type="button">
             <slot></slot>
           </button>
         </template>

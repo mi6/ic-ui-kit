@@ -47,7 +47,7 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
           <ic-button class="ic-button-size-large ic-button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
             <template shadowrootmode="open">
               <ic-tooltip label="Close app menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
-                <button aria-label="Close app menu" class="button" part="button" type="button">
+                <button aria-label="Close app menu" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -80,7 +80,7 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
       <ic-button appearance="light" class="ic-button-size-large ic-button-variant-icon ic-theme-light monochrome" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-2">
-            <button aria-label="button1" class="button" part="button" type="button">
+            <button aria-label="button1" class="button" part="button" tabindex="0" type="button">
               <div class="icon-container">
                 <slot name="left-icon"></slot>
               </div>
@@ -148,7 +148,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
           <ic-button class="ic-button-size-large ic-button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
             <template shadowrootmode="open">
               <ic-tooltip label="Close navigation menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
-                <button aria-label="Close navigation menu" class="button" part="button" type="button">
+                <button aria-label="Close navigation menu" class="button" part="button" tabindex="0" type="button">
                   <slot></slot>
                 </button>
               </ic-tooltip>
@@ -182,7 +182,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
       <ic-button appearance="light" class="ic-button-size-large ic-button-variant-icon ic-theme-light monochrome" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-6">
-            <button aria-label="button1" class="button" part="button" type="button">
+            <button aria-label="button1" class="button" part="button" tabindex="0" type="button">
               <div class="icon-container">
                 <slot name="left-icon"></slot>
               </div>

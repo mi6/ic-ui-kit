@@ -714,7 +714,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
             <ic-button class="clear-button ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
               <template shadowrootmode="open">
                 <ic-tooltip label="Clear selection" placement="bottom" silent="" target="ic-button-with-tooltip-clear-button">
-                  <button aria-label="Clear selection" class="button" part="button" type="button">
+                  <button aria-label="Clear selection" class="button" part="button" tabindex="0" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
