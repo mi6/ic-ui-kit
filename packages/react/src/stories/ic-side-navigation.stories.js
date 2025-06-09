@@ -20,11 +20,14 @@ const defaultArgs = {
   version: "v1.0.0",
   status: "BETA",
   href: "https://www.google.com",
-  collapsedIconLabels: false,
   navOneLabel: "Navigation One",
-  showSecondaryNav: true,
+  collapsedIconLabels: false,
+  disableTopBarBehaviour: false,
+  expanded: true,
+  static: false,
   showNavigationGroup: true,
   closeOnNavItemClick: false,
+  showSecondaryNav: true,
 };
 
 const ExpansionControl = () => {
@@ -1183,6 +1186,9 @@ export const Playground = {
       href={args.href}
       collapsedIconLabels={args.collapsedIconLabels}
       closeOnNavItemClick={args.closeOnNavItemClick}
+      static={args.static}
+      disableTopBarBehaviour={args.disableTopBarBehaviour}
+      expanded={args.expanded}
     >
       <svg
         slot="app-icon"
