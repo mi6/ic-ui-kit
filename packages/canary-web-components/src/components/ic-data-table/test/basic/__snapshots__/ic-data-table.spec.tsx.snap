@@ -6934,8 +6934,8 @@ exports[`ic-data-table should render with column overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-center cell-alignment-middle cell-container data-type-number">
+              <td class="cell-vertical-align-center table-cell">
+                <div class="cell-alignment-middle cell-container data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography variant="body">
                       36
@@ -6972,8 +6972,8 @@ exports[`ic-data-table should render with column overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-center cell-alignment-middle cell-container data-type-number">
+              <td class="cell-vertical-align-center table-cell">
+                <div class="cell-alignment-middle cell-container data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography variant="body">
                       32
@@ -7010,8 +7010,8 @@ exports[`ic-data-table should render with column overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-center cell-alignment-middle cell-container data-type-number">
+              <td class="cell-vertical-align-center table-cell">
+                <div class="cell-alignment-middle cell-container data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography variant="body">
                       41
@@ -7048,8 +7048,8 @@ exports[`ic-data-table should render with column overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-center cell-alignment-middle cell-container data-type-number">
+              <td class="cell-vertical-align-center table-cell">
+                <div class="cell-alignment-middle cell-container data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography variant="body">
                       23
@@ -7086,8 +7086,8 @@ exports[`ic-data-table should render with column overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-center cell-alignment-middle cell-container data-type-number">
+              <td class="cell-vertical-align-center table-cell">
+                <div class="cell-alignment-middle cell-container data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography variant="body">
                       34
@@ -7124,8 +7124,8 @@ exports[`ic-data-table should render with column overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-center cell-alignment-middle cell-container data-type-number">
+              <td class="cell-vertical-align-center table-cell">
+                <div class="cell-alignment-middle cell-container data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography variant="body">
                       45
@@ -8445,8 +8445,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
               <th class="row-header" scope="row">
                 1
               </th>
-              <td class="table-cell">
-                <div class="cell-alignment-middle cell-container cell-emphasis-high data-type-string">
+              <td class="cell-vertical-align-middle table-cell">
+                <div class="cell-container cell-emphasis-high data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-high" variant="body">
                       John Smith
@@ -8454,8 +8454,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-middle cell-container cell-emphasis-high data-type-number">
+              <td class="cell-vertical-align-middle table-cell">
+                <div class="cell-container cell-emphasis-high data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-high" variant="body">
                       36
@@ -8463,8 +8463,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-middle cell-container cell-emphasis-high data-type-string">
+              <td class="cell-vertical-align-middle table-cell">
+                <div class="cell-container cell-emphasis-high data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-high" variant="body">
                       Accounts
@@ -8477,8 +8477,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
               <th class="row-header" scope="row">
                 2
               </th>
-              <td class="table-cell">
-                <div class="cell-alignment-top cell-container cell-emphasis-low data-type-string">
+              <td class="cell-vertical-align-top table-cell">
+                <div class="cell-container cell-emphasis-low data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-low" variant="body">
                       Sally Jones
@@ -8486,8 +8486,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-top cell-container cell-emphasis-low data-type-number">
+              <td class="cell-vertical-align-top table-cell">
+                <div class="cell-container cell-emphasis-low data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-low" variant="body">
                       32
@@ -8495,8 +8495,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-top cell-container cell-emphasis-low data-type-string">
+              <td class="cell-vertical-align-top table-cell">
+                <div class="cell-container cell-emphasis-low data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-low" variant="body">
                       Engineering
@@ -8509,8 +8509,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
               <th class="row-header" scope="row">
                 3
               </th>
-              <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container cell-emphasis-high data-type-string">
+              <td class="cell-vertical-align-bottom table-cell">
+                <div class="cell-container cell-emphasis-high data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-high" variant="body">
                       Tim Rayes
@@ -8518,8 +8518,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container cell-emphasis-high data-type-number">
+              <td class="cell-vertical-align-bottom table-cell">
+                <div class="cell-container cell-emphasis-high data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-high" variant="body">
                       41
@@ -8527,8 +8527,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container cell-emphasis-high data-type-string">
+              <td class="cell-vertical-align-bottom table-cell">
+                <div class="cell-container cell-emphasis-high data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-high" variant="body">
                       Sales
@@ -8541,8 +8541,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
               <th class="row-header" scope="row">
                 4
               </th>
-              <td class="table-cell">
-                <div class="cell-alignment-middle cell-container cell-emphasis-low data-type-string">
+              <td class="cell-vertical-align-middle table-cell">
+                <div class="cell-container cell-emphasis-low data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-low" variant="body">
                       Luke Fisher
@@ -8550,8 +8550,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-middle cell-container cell-emphasis-low data-type-number">
+              <td class="cell-vertical-align-middle table-cell">
+                <div class="cell-container cell-emphasis-low data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-low" variant="body">
                       23
@@ -8559,8 +8559,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-middle cell-container cell-emphasis-low data-type-string">
+              <td class="cell-vertical-align-middle table-cell">
+                <div class="cell-container cell-emphasis-low data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-low" variant="body">
                       Engineering
@@ -8573,8 +8573,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
               <th class="row-header" scope="row">
                 5
               </th>
-              <td class="table-cell">
-                <div class="cell-alignment-top cell-container cell-emphasis-high data-type-string">
+              <td class="cell-vertical-align-top table-cell">
+                <div class="cell-container cell-emphasis-high data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-high" variant="body">
                       Jane Lock
@@ -8582,8 +8582,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-top cell-container cell-emphasis-high data-type-number">
+              <td class="cell-vertical-align-top table-cell">
+                <div class="cell-container cell-emphasis-high data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-high" variant="body">
                       34
@@ -8591,8 +8591,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-top cell-container cell-emphasis-high data-type-string">
+              <td class="cell-vertical-align-top table-cell">
+                <div class="cell-container cell-emphasis-high data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-high" variant="body">
                       Engineering
@@ -8605,8 +8605,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
               <th class="row-header" scope="row">
                 6
               </th>
-              <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container cell-emphasis-low data-type-string">
+              <td class="cell-vertical-align-bottom table-cell">
+                <div class="cell-container cell-emphasis-low data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-low" variant="body">
                       Margaret Hale
@@ -8614,8 +8614,8 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container cell-emphasis-low data-type-number">
+              <td class="cell-vertical-align-bottom table-cell">
+                <div class="cell-container cell-emphasis-low data-type-number">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-low" variant="body">
                       45
@@ -8623,10 +8623,259 @@ exports[`ic-data-table should render with row overrides 1`] = `
                   </div>
                 </div>
               </td>
-              <td class="table-cell">
-                <div class="cell-alignment-bottom cell-container cell-emphasis-low data-type-string">
+              <td class="cell-vertical-align-bottom table-cell">
+                <div class="cell-container cell-emphasis-low data-type-string">
                   <div class="cell-text-no-wrap cell-text-wrapper">
                     <ic-typography class="cell-emphasis-low" variant="body">
+                      HR
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="assertive" class="sr-only"></div>
+      <div class="pagination-container">
+        <ic-pagination-bar alignment="right" itemlabel="Item" pagelabel="Page" rangelabeltype="page" selecteditemsperpage="10" showgotopagecontrol="" showitemsperpagecontrol="" theme="inherit" totalitems="6" type="simple"></ic-pagination-bar>
+      </div>
+    </div>
+  </template>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with row overrides set via rowOptions 1`] = `
+<ic-data-table show-pagination="">
+  <template shadowrootmode="open">
+    <div class="table-container">
+      <div class="table-row-container">
+        <table style="--table-layout: fixed;">
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="cell-vertical-align-middle table-cell">
+                <div class="cell-alignment-center cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      John Smith
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="cell-vertical-align-middle table-cell">
+                <div class="cell-alignment-center cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      36
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="cell-vertical-align-middle table-cell">
+                <div class="cell-alignment-center cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Accounts
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="cell-vertical-align-top table-cell">
+                <div class="cell-alignment-left cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Sally Jones
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="cell-vertical-align-top table-cell">
+                <div class="cell-alignment-left cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      32
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="cell-vertical-align-top table-cell">
+                <div class="cell-alignment-left cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="cell-vertical-align-bottom table-cell">
+                <div class="cell-alignment-right cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Tim Rayes
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="cell-vertical-align-bottom table-cell">
+                <div class="cell-alignment-right cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      41
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="cell-vertical-align-bottom table-cell">
+                <div class="cell-alignment-right cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Sales
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body"></ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Luke Fisher
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      23
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body"></ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Jane Lock
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      34
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Engineering
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body"></ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      Margaret Hale
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-number">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
+                      45
+                    </ic-typography>
+                  </div>
+                </div>
+              </td>
+              <td class="table-cell">
+                <div class="cell-container data-type-string">
+                  <div class="cell-text-no-wrap cell-text-wrapper">
+                    <ic-typography variant="body">
                       HR
                     </ic-typography>
                   </div>
