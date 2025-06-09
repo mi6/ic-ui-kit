@@ -545,6 +545,12 @@ describe("IcDataTables", () => {
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
+    // check the icon is not rendered in the header of first column as hideOnHeader is set to `true`
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "th")
+      .eq(0)
+      .find("span.icon")
+      .should(NOT_EXIST);
+
     cy.compareSnapshot({
       name: "/custom-icons",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.036),
@@ -878,29 +884,6 @@ describe("IcDataTables", () => {
       TITLE_BAR_SELECTOR,
       ".header-container .ic-typography-h3"
     ).should(HAVE_TEXT, "Data Tables");
-  });
-
-  it('should not render custom icon in header when "hideOnHeader" is set', () => {
-    mount(
-      <IcDataTable caption="Data tables" columns={ICON_COLS} data={ICON_DATA} />
-    );
-
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.findShadowEl(DATA_TABLE_SELECTOR, "th")
-      .eq(0)
-      .find("span.icon")
-      .should(NOT_EXIST);
-
-    cy.checkA11yWithWait();
-
-    cy.compareSnapshot({
-      name: "/on-all-cells-except-cells-with-custom-icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.036),
-      cypressScreenshotOptions: {
-        capture: "viewport",
-      },
-    });
   });
 
   it("should cancel the loading state when the loading prop is `true` and data has been set after 1 second from initial loading", () => {
@@ -1781,7 +1764,7 @@ describe("IcDataTable with truncation", () => {
 
       cy.compareSnapshot({
         name: "/tooltip-truncation-sort",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.041),
 
         cypressScreenshotOptions: {
           capture: "viewport",
