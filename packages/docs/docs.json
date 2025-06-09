@@ -1,7 +1,7 @@
 {
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.26.0",
+    "version": "4.33.1",
     "typescriptVersion": "5.5.4"
   },
   "components": [
@@ -35,7 +35,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the accordion will be disabled.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -62,7 +67,12 @@
           "attr": "expanded",
           "reflectToAttr": false,
           "docs": "If `true`, the accordion appears expanded.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -89,7 +99,12 @@
           "attr": "heading",
           "reflectToAttr": false,
           "docs": "The section header outlining section content.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -116,7 +131,12 @@
           "attr": "message",
           "reflectToAttr": false,
           "docs": "The main body message of the accordion.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -149,7 +169,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the accordion.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -191,7 +216,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -290,7 +320,12 @@
           "attr": "accessible-button-label",
           "reflectToAttr": false,
           "docs": "The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"accordions\""
+            }
+          ],
           "default": "\"accordions\"",
           "values": [
             {
@@ -317,7 +352,12 @@
           "attr": "expanded",
           "reflectToAttr": false,
           "docs": "If `true`, the accordion will load in an expanded state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -344,7 +384,12 @@
           "attr": "label",
           "reflectToAttr": false,
           "docs": "The header for the accordion group.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -371,7 +416,12 @@
           "attr": "single-expansion",
           "reflectToAttr": false,
           "docs": "If `true`, only one accordion will open at a time.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -404,7 +454,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the accordion.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -446,7 +501,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -568,7 +628,12 @@
           "attr": "announced",
           "reflectToAttr": false,
           "docs": "If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -592,7 +657,12 @@
           "attr": "dismissible",
           "reflectToAttr": false,
           "docs": "If `true`, the alert will have a close icon at the end to dismiss it.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -616,7 +686,12 @@
           "attr": "heading",
           "reflectToAttr": false,
           "docs": "The optional title to display at the start of the alert.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -666,7 +741,12 @@
           "attr": "show-default-icon",
           "reflectToAttr": false,
           "docs": "If `true`, the default icon for the neutral variant will appear on the left of the alert.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -696,7 +776,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -729,7 +814,12 @@
           "attr": "title-above",
           "reflectToAttr": false,
           "docs": "If `true`, the title and message will appear above and below instead of inline.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -759,7 +849,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The variant of the alert which will be rendered.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"neutral\""
+            }
+          ],
           "default": "\"neutral\"",
           "values": [
             {
@@ -885,7 +980,12 @@
           "attr": "position",
           "reflectToAttr": false,
           "docs": "The horizontal position of the element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"right\""
+            }
+          ],
           "default": "\"right\"",
           "values": [
             {
@@ -950,7 +1050,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -992,7 +1097,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The variant of the button to render",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -1209,7 +1319,12 @@
           "attr": "position",
           "reflectToAttr": false,
           "docs": "The positioning of the badge in reference to the parent element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"far\""
+            }
+          ],
           "default": "\"far\"",
           "values": [
             {
@@ -1251,7 +1366,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the badge to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -1293,7 +1413,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -1335,7 +1460,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "The type of badge to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"text\""
+            }
+          ],
           "default": "\"text\"",
           "values": [
             {
@@ -1377,7 +1507,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The variant of the badge to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"neutral\""
+            }
+          ],
           "default": "\"neutral\"",
           "values": [
             {
@@ -1429,7 +1564,12 @@
           "attr": "visible",
           "reflectToAttr": false,
           "docs": "If `true`, the badge will be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -1505,7 +1645,12 @@
           "attr": "current",
           "reflectToAttr": false,
           "docs": "If `true`, aria-current will be set on the breadcrumb.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1637,7 +1782,12 @@
           "attr": "back-breadcrumb-only",
           "reflectToAttr": false,
           "docs": "If `true`, display only a single breadcrumb for the parent page with a back icon.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1661,7 +1811,12 @@
           "attr": "collapsed",
           "reflectToAttr": false,
           "docs": "If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1685,7 +1840,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the breadcrumb group will display as black in the light theme, and white in the dark theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1715,7 +1875,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -1798,7 +1963,12 @@
           "attr": "accept",
           "reflectToAttr": false,
           "docs": "If `fileUpload` is set to `true`, this is the accepted list of file types.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"*\""
+            }
+          ],
           "default": "\"*\"",
           "values": [
             {
@@ -1822,7 +1992,12 @@
           "attr": "disable-tooltip",
           "reflectToAttr": false,
           "docs": "If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1846,7 +2021,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the button will be in disabled state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1870,7 +2050,12 @@
           "attr": "download",
           "reflectToAttr": false,
           "docs": "If `true`, the user can save the linked URL instead of navigating to it.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1897,7 +2082,12 @@
           "attr": "dropdown",
           "reflectToAttr": false,
           "docs": "If `true`, the button will show a dropdown icon.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1921,7 +2111,12 @@
           "attr": "dropdown-expanded",
           "reflectToAttr": true,
           "docs": "If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1945,7 +2140,12 @@
           "attr": "file-input-name",
           "reflectToAttr": false,
           "docs": "The name of the control for the file input, which is submitted with the form data.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "`ic-button-file-upload-input-${buttonIds++}`"
+            }
+          ],
           "default": "`ic-button-file-upload-input-${buttonIds++}`",
           "values": [
             {
@@ -1969,7 +2169,12 @@
           "attr": "file-upload",
           "reflectToAttr": false,
           "docs": "If `true`, when the button is clicked the native file explorer will be launched.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -2149,7 +2354,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "If `true`, the button will fill the width of the container.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -2225,7 +2435,12 @@
           "attr": "loading",
           "reflectToAttr": false,
           "docs": "If `true`, the button will be in loading state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -2249,7 +2464,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the button will display as monochromatic in either `light` or `dark` theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -2273,7 +2493,12 @@
           "attr": "multiple",
           "reflectToAttr": false,
           "docs": "If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -2388,6 +2613,7 @@
             }
           },
           "mutable": false,
+          "attr": "selected-files",
           "reflectToAttr": false,
           "docs": "The list of the files that have been selected by a user.",
           "docsTags": [],
@@ -2422,7 +2648,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the button to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -2487,7 +2718,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -2526,7 +2762,12 @@
           "attr": "tooltip-placement",
           "reflectToAttr": false,
           "docs": "The position of the tooltip in relation to the button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"bottom\""
+            }
+          ],
           "default": "\"bottom\"",
           "values": [
             {
@@ -2563,7 +2804,12 @@
           "attr": "transparent-background",
           "reflectToAttr": false,
           "docs": "If `true`, the secondary & tertiary variants of button will have a transparent background when not hovered, pressed or loading.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -2593,7 +2839,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "The type of the button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"button\""
+            }
+          ],
           "default": "\"button\"",
           "values": [
             {
@@ -2632,7 +2883,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The variant of the button to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"primary\""
+            }
+          ],
           "default": "\"primary\"",
           "values": [
             {
@@ -2950,7 +3206,12 @@
           "attr": "clickable",
           "reflectToAttr": false,
           "docs": "If `true`, the card will be a clickable variant, instead of static.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -2977,7 +3238,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the card will be disabled if it is clickable.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3004,7 +3270,12 @@
           "attr": "expandable",
           "reflectToAttr": false,
           "docs": "If `true`, the card will have an expandable area and expansion toggle button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3031,7 +3302,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "If `true`, the card will fill the width of the container.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3110,7 +3386,12 @@
           "attr": "hreflang",
           "reflectToAttr": false,
           "docs": "The human language of the linked URL.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -3137,7 +3418,12 @@
           "attr": "message",
           "reflectToAttr": false,
           "docs": "The main body message of the card.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -3311,7 +3597,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -3469,7 +3760,12 @@
           "attr": "additional-field-display",
           "reflectToAttr": true,
           "docs": "The style of additionalField that will be displayed if used.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"static\""
+            }
+          ],
           "default": "\"static\"",
           "values": [
             {
@@ -3498,7 +3794,12 @@
           "attr": "checked",
           "reflectToAttr": true,
           "docs": "If `true`, the checkbox will be set to the checked state. This is only the initial state and will be updated to unchecked if the checkbox is clicked.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3522,7 +3823,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the checkbox will be set to the disabled state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3546,7 +3852,12 @@
           "attr": "dynamic-text",
           "reflectToAttr": false,
           "docs": "The text to be displayed when dynamic.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"This selection requires additional answers\""
+            }
+          ],
           "default": "\"This selection requires additional answers\"",
           "values": [
             {
@@ -3622,7 +3933,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3646,7 +3962,12 @@
           "attr": "indeterminate",
           "reflectToAttr": false,
           "docs": "If `true`, the indeterminate state will be displayed when checked.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3719,7 +4040,12 @@
           "attr": "native-indeterminate-behaviour",
           "reflectToAttr": false,
           "docs": "If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3790,7 +4116,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -3823,7 +4154,12 @@
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value for the checkbox.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -3916,7 +4252,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the checkbox group will be set to the disabled state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3940,7 +4281,12 @@
           "attr": "helper-text",
           "reflectToAttr": false,
           "docs": "The helper text that will be displayed for additional field guidance.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -3964,7 +4310,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -4034,7 +4385,12 @@
           "attr": "required",
           "reflectToAttr": false,
           "docs": "If `true`, the checkbox group will require a value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -4064,7 +4420,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the checkboxes to be displayed. This does not affect the font size of the label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -4103,7 +4464,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -4142,7 +4508,12 @@
           "attr": "validation-status",
           "reflectToAttr": false,
           "docs": "The validation status - e.g. 'error' | 'warning' | 'success'.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -4178,7 +4549,12 @@
           "attr": "validation-text",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -4315,7 +4691,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the chip will appear disabled.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -4339,7 +4720,12 @@
           "attr": "dismiss-label",
           "reflectToAttr": false,
           "docs": "The text in the dismiss button tooltip and aria label. Makes the user aware of the action resulting from clicking the 'Dismiss chip' button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Dismiss\""
+            }
+          ],
           "default": "\"Dismiss\"",
           "values": [
             {
@@ -4363,7 +4749,12 @@
           "attr": "dismissible",
           "reflectToAttr": false,
           "docs": "If `true`, the chip will have a close button at the end to dismiss it.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -4416,7 +4807,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the chip.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -4455,7 +4851,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the chip to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.\nSetting the \"customColor\" prop will override this.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -4488,7 +4889,12 @@
           "attr": "transparent-background",
           "reflectToAttr": false,
           "docs": "If `true`, the outlined variant of chip will have a transparent background rather than the theme defined color.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -4518,7 +4924,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The emphasis of the chip.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"filled\""
+            }
+          ],
           "default": "\"filled\"",
           "values": [
             {
@@ -4631,7 +5042,12 @@
           "attr": "additional-selectors",
           "reflectToAttr": false,
           "docs": "The additional information that will be displayed after the classification.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -4664,7 +5080,12 @@
           "attr": "classification",
           "reflectToAttr": false,
           "docs": "The classification level to be displayed - also determines the banner and text colour.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -4708,7 +5129,12 @@
           "attr": "country",
           "reflectToAttr": false,
           "docs": "The optional text that will be displayed before classification to specify relevant country/countries.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"uk\""
+            }
+          ],
           "default": "\"uk\"",
           "values": [
             {
@@ -4735,7 +5161,12 @@
           "attr": "inline",
           "reflectToAttr": false,
           "docs": "If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -4762,7 +5193,12 @@
           "attr": "up-to",
           "reflectToAttr": false,
           "docs": "If `true`, \"Up to\" will be displayed before the classification and country.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -4858,7 +5294,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the data list component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -4896,7 +5337,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -5008,7 +5454,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the data row component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -5046,7 +5497,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -5164,7 +5620,12 @@
           "attr": "close-on-backdrop-click",
           "reflectToAttr": false,
           "docs": "If set to `false`, the dialog will not close when the backdrop is clicked.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -5191,7 +5652,12 @@
           "attr": "destructive",
           "reflectToAttr": false,
           "docs": "If 'true', sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -5218,7 +5684,12 @@
           "attr": "disable-height-constraint",
           "reflectToAttr": false,
           "docs": "If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold.\nThis prop also prevents popover elements from being cut off within the content area.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -5245,7 +5716,12 @@
           "attr": "disable-width-constraint",
           "reflectToAttr": false,
           "docs": "If set to `true`, the content area width property is removed, allowing content to take the full width of the dialog when using the large variant.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -5272,7 +5748,12 @@
           "attr": "dismiss-label",
           "reflectToAttr": false,
           "docs": "Sets the dismiss label tooltip and aria label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Dismiss\""
+            }
+          ],
           "default": "\"Dismiss\"",
           "values": [
             {
@@ -5325,7 +5806,12 @@
           "attr": "hide-close-button",
           "reflectToAttr": false,
           "docs": "If `true`, the close button will not be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -5352,7 +5838,12 @@
           "attr": "hide-default-controls",
           "reflectToAttr": false,
           "docs": "If set to `true`, default button controls will not be shown, but slotted dialog controls will still be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -5402,7 +5893,12 @@
           "attr": "open",
           "reflectToAttr": true,
           "docs": "If `true`, the dialog will be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -5429,7 +5925,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "Sets the maximum and minimum height and width for the dialog.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"small\""
+            }
+          ],
           "default": "\"small\"",
           "values": [
             {
@@ -5471,7 +5972,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -5689,7 +6195,12 @@
           "attr": "border-style",
           "reflectToAttr": false,
           "docs": "The line style of the divider.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"solid\""
+            }
+          ],
           "default": "\"solid\"",
           "values": [
             {
@@ -5753,7 +6264,12 @@
           "attr": "label-placement",
           "reflectToAttr": false,
           "docs": "The position the label is placed on the divider. `Left` and `right` placement is only applicable when orientation is set to `horizontal`. `Top` and `bottom` placement is only applicable when orientation is set to `vertical`. `Center` placement is applicable for both orientations.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"center\""
+            }
+          ],
           "default": "\"center\"",
           "values": [
             {
@@ -5797,7 +6313,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the divider will be displayed in a grey colour.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -5830,7 +6351,12 @@
           "attr": "orientation",
           "reflectToAttr": false,
           "docs": "The orientation of the divider.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"horizontal\""
+            }
+          ],
           "default": "\"horizontal\"",
           "values": [
             {
@@ -5873,7 +6399,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -5919,7 +6450,12 @@
           "attr": "weight",
           "reflectToAttr": false,
           "docs": "The thickness of the divider.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"thin\""
+            }
+          ],
           "default": "\"thin\"",
           "values": [
             {
@@ -6060,7 +6596,12 @@
           "attr": "aligned",
           "reflectToAttr": false,
           "docs": "The alignment of the empty state container.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"left\""
+            }
+          ],
           "default": "\"left\"",
           "values": [
             {
@@ -6154,7 +6695,12 @@
           "attr": "image-size",
           "reflectToAttr": false,
           "docs": "The size of the image or icon used in the image slot.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -6248,7 +6794,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -6354,7 +6905,12 @@
           "attr": "aligned",
           "reflectToAttr": false,
           "docs": "The alignment of the section containers used within the footer.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"left\""
+            }
+          ],
           "default": "\"left\"",
           "values": [
             {
@@ -6396,7 +6952,12 @@
           "attr": "breakpoint",
           "reflectToAttr": false,
           "docs": "The screen size breakpoint at which to switch to the small layout.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -6466,7 +7027,12 @@
           "attr": "copyright",
           "reflectToAttr": false,
           "docs": "If `true`, the footer will display the crown copyright at the bottom.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -6519,7 +7085,12 @@
           "attr": "group-links",
           "reflectToAttr": false,
           "docs": "If `true`, the footer will be set up to handle link groups instead of standalone links.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -6598,7 +7169,12 @@
           "attr": "download",
           "reflectToAttr": false,
           "docs": "If `true`, the user can save the linked URL instead of navigating to it.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -6921,7 +7497,12 @@
           "attr": "aligned",
           "reflectToAttr": false,
           "docs": "The alignment of the hero.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"left\""
+            }
+          ],
           "default": "\"left\"",
           "values": [
             {
@@ -6989,7 +7570,12 @@
           "attr": "content-aligned",
           "reflectToAttr": false,
           "docs": "The alignment of the hero content.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"left\""
+            }
+          ],
           "default": "\"left\"",
           "values": [
             {
@@ -7021,7 +7607,12 @@
           "attr": "disable-background-parallax",
           "reflectToAttr": false,
           "docs": "If `true`, the background image (if set) will not scroll using a parallax effect.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7132,7 +7723,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the hero component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -7254,7 +7850,12 @@
           "attr": "appearance",
           "reflectToAttr": false,
           "docs": "The appearance of the horizontal scroll, e.g. dark, light or the default.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -7345,7 +7946,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7372,7 +7978,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "If `true`, the input component container will fill the width of the container it is in.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7399,7 +8010,12 @@
           "attr": "multi-line",
           "reflectToAttr": false,
           "docs": "If `true`, the input component container will allow for multiple lines.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7426,7 +8042,12 @@
           "attr": "readonly",
           "reflectToAttr": false,
           "docs": "If `true`, the readonly state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7459,7 +8080,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the input component container component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -7495,7 +8121,12 @@
           "attr": "validation-inline",
           "reflectToAttr": false,
           "docs": "If `true`, the validation will display inline.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7528,7 +8159,12 @@
           "attr": "validation-status",
           "reflectToAttr": false,
           "docs": "The validation status of the input component container - e.g. 'error' | 'warning' | 'success'.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -7672,7 +8308,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7699,7 +8340,12 @@
           "attr": "readonly",
           "reflectToAttr": false,
           "docs": "If `true`, the readonly state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7760,7 +8406,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7813,7 +8464,12 @@
           "attr": "helper-text",
           "reflectToAttr": false,
           "docs": "The helper text that will be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -7837,7 +8493,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "The label will be visually hidden.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7884,7 +8545,12 @@
           "attr": "readonly",
           "reflectToAttr": false,
           "docs": "If `true`, the readonly state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7908,7 +8574,12 @@
           "attr": "required",
           "reflectToAttr": false,
           "docs": "If `true`, the input label will require a value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7932,7 +8603,12 @@
           "attr": "status",
           "reflectToAttr": false,
           "docs": "The status of the label - e.g. 'error'.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -8022,7 +8698,12 @@
           "attr": "aria-live-mode",
           "reflectToAttr": false,
           "docs": "The ARIA live mode to apply to the message.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"polite\""
+            }
+          ],
           "default": "\"polite\"",
           "values": [
             {
@@ -8080,7 +8761,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "If `true`, the input validation will fill the width of the container.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8136,7 +8822,12 @@
           "attr": "status",
           "reflectToAttr": false,
           "docs": "The status of the validation - e.g. 'error' | 'warning' | 'success'.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -8228,7 +8919,12 @@
           "attr": "download",
           "reflectToAttr": false,
           "docs": "If `true`, the user can save the linked URL instead of navigating to it. If the value is a string, it will be used as the filename for the download.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8310,7 +9006,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the link will display as black in the light theme, and white in the dark theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8458,7 +9159,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -8563,7 +9269,12 @@
           "attr": "description",
           "reflectToAttr": false,
           "docs": "The description that will be set as the aria-label of the loading indicator when not using a visible label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Loading\""
+            }
+          ],
           "default": "\"Loading\"",
           "values": [
             {
@@ -8590,7 +9301,12 @@
           "attr": "full-width",
           "reflectToAttr": true,
           "docs": "If `true`, when linear, the full-width variant (i.e. without a border radius) will be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8646,7 +9362,12 @@
           "attr": "label-duration",
           "reflectToAttr": false,
           "docs": "The time in milliseconds before the label changes.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "8000"
+            }
+          ],
           "default": "8000",
           "values": [
             {
@@ -8673,7 +9394,12 @@
           "attr": "max",
           "reflectToAttr": false,
           "docs": "The maximum value that the progress value can take.\nUsed to calculate the proportional width of the progress bar.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "100"
+            }
+          ],
           "default": "100",
           "values": [
             {
@@ -8700,7 +9426,12 @@
           "attr": "min",
           "reflectToAttr": false,
           "docs": "The minimum value that the progress value can take.\nUsed to calculate the proportional width of the progress bar.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -8727,7 +9458,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the element will display as black and white.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8786,7 +9522,12 @@
           "attr": "size",
           "reflectToAttr": true,
           "docs": "The size of the loading indicator.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -8832,7 +9573,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -8874,7 +9620,12 @@
           "attr": "type",
           "reflectToAttr": true,
           "docs": "The type of indicator, either linear or circular.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"circular\""
+            }
+          ],
           "default": "\"circular\"",
           "values": [
             {
@@ -8966,7 +9717,12 @@
           "attr": "activation-type",
           "reflectToAttr": false,
           "docs": "Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"automatic\""
+            }
+          ],
           "default": "\"automatic\"",
           "values": [
             {
@@ -8997,6 +9753,7 @@
             }
           },
           "mutable": false,
+          "attr": "anchor-el",
           "reflectToAttr": false,
           "docs": "The reference to an anchor element the menu will position itself from when rendered.",
           "docsTags": [],
@@ -9025,7 +9782,12 @@
           "attr": "close-on-select",
           "reflectToAttr": false,
           "docs": "If `true`, the menu will close when an option is selected.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -9049,7 +9811,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "If `true`, the menu will fill the width of the container.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -9075,6 +9842,7 @@
             }
           },
           "mutable": false,
+          "attr": "input-el",
           "reflectToAttr": false,
           "docs": "The reference to the input element.",
           "docsTags": [],
@@ -9126,7 +9894,12 @@
           "attr": "label-field",
           "reflectToAttr": false,
           "docs": "The custom name for the label field for IcMenuOption.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"label\""
+            }
+          ],
           "default": "\"label\"",
           "values": [
             {
@@ -9199,6 +9972,7 @@
             }
           },
           "mutable": false,
+          "attr": "options",
           "reflectToAttr": false,
           "docs": "The possible menu selection options.",
           "docsTags": [],
@@ -9230,7 +10004,12 @@
           "attr": "search-mode",
           "reflectToAttr": false,
           "docs": "Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"navigation\""
+            }
+          ],
           "default": "\"navigation\"",
           "values": [
             {
@@ -9265,7 +10044,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the menu.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -9324,7 +10108,12 @@
           "attr": "value-field",
           "reflectToAttr": false,
           "docs": "The custom name for the value field for IcMenuOption.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"value\""
+            }
+          ],
           "default": "\"value\"",
           "values": [
             {
@@ -9520,7 +10309,12 @@
           "attr": "checked",
           "reflectToAttr": true,
           "docs": "If `true`, the menu item will be in a checked state. This is only applicable when variant is set to `toggle`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -9573,7 +10367,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the menu item will be in disabled state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -9848,7 +10647,12 @@
           "attr": "variant",
           "reflectToAttr": true,
           "docs": "The variant of the menu item.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -9963,7 +10767,12 @@
           "attr": "download",
           "reflectToAttr": false,
           "docs": "If `true`, the user can save the linked URL instead of navigating to it.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10189,7 +10998,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -10313,7 +11127,12 @@
           "attr": "expandable",
           "reflectToAttr": false,
           "docs": "If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10369,7 +11188,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -10496,7 +11320,12 @@
           "attr": "download",
           "reflectToAttr": false,
           "docs": "If `true`, the user can save the linked URL instead of navigating to it.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10526,7 +11355,12 @@
           "attr": "href",
           "reflectToAttr": false,
           "docs": "The destination of the navigation item.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -10694,7 +11528,12 @@
           "attr": "selected",
           "reflectToAttr": false,
           "docs": "If `true`, the navigation item will be set in a selected state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10753,7 +11592,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -10879,7 +11723,12 @@
           "attr": "status",
           "reflectToAttr": false,
           "docs": "The status info to display.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -10912,7 +11761,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -10948,7 +11802,12 @@
           "attr": "version",
           "reflectToAttr": false,
           "docs": "The version info to display.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -11085,7 +11944,12 @@
           "attr": "aligned",
           "reflectToAttr": false,
           "docs": "The alignment of the page header.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"left\""
+            }
+          ],
           "default": "\"left\"",
           "values": [
             {
@@ -11121,7 +11985,12 @@
           "attr": "border",
           "reflectToAttr": false,
           "docs": "If `true`, a border will be displayed along the bottom of the page header.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -11174,7 +12043,12 @@
           "attr": "reverse-order",
           "reflectToAttr": false,
           "docs": "If `true`, the reading pattern and tab order will change in the action area for viewport widths of above 576px and when actions have not wrapped.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -11207,7 +12081,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the page header component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -11239,7 +12118,12 @@
           "attr": "sticky",
           "reflectToAttr": false,
           "docs": "If `true`, the page header will be sticky at all breakpoints.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -11266,7 +12150,12 @@
           "attr": "sticky-desktop-only",
           "reflectToAttr": false,
           "docs": "If `true`, the page header will only be sticky for viewport widths of 992px and above.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -11325,7 +12214,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -11444,7 +12338,12 @@
           "attr": "adjacent-page-count",
           "reflectToAttr": false,
           "docs": "The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "1"
+            }
+          ],
           "default": "1",
           "values": [
             {
@@ -11471,7 +12370,12 @@
           "attr": "boundary-page-count",
           "reflectToAttr": false,
           "docs": "The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "1"
+            }
+          ],
           "default": "1",
           "values": [
             {
@@ -11498,7 +12402,12 @@
           "attr": "current-page",
           "reflectToAttr": false,
           "docs": "The current page displayed by the pagination.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "this.defaultPage"
+            }
+          ],
           "default": "this.defaultPage",
           "values": [
             {
@@ -11525,7 +12434,12 @@
           "attr": "default-page",
           "reflectToAttr": false,
           "docs": "The default page to display.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "1"
+            }
+          ],
           "default": "1",
           "values": [
             {
@@ -11552,7 +12466,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the pagination will not allow interaction.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -11579,7 +12498,12 @@
           "attr": "hide-current-page",
           "reflectToAttr": false,
           "docs": "If `true`, the current page of the simple pagination will not be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -11606,7 +12530,12 @@
           "attr": "hide-first-and-last-page-button",
           "reflectToAttr": false,
           "docs": "If `true`, the first and last page buttons will not be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -11633,7 +12562,12 @@
           "attr": "label",
           "reflectToAttr": false,
           "docs": "The label for the pagination item (applicable when simple pagination is being used).",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Page\""
+            }
+          ],
           "default": "\"Page\"",
           "values": [
             {
@@ -11660,7 +12594,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the pagination will display as black in the light theme, and white in dark theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -11716,7 +12655,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -11758,7 +12702,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "The type of pagination to be used.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"simple\""
+            }
+          ],
           "default": "\"simple\"",
           "values": [
             {
@@ -11899,7 +12848,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the pagination item will be disabled.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -11926,7 +12880,12 @@
           "attr": "label",
           "reflectToAttr": false,
           "docs": "The label for the pagination item (applicable when simple pagination is being used).",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Page\""
+            }
+          ],
           "default": "\"Page\"",
           "values": [
             {
@@ -11953,7 +12912,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the pagination item will display as black in the light theme, and white in dark theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -12006,7 +12970,12 @@
           "attr": "selected",
           "reflectToAttr": false,
           "docs": "If `true`, the pagination item will be selected.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -12036,7 +13005,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -12167,7 +13141,12 @@
           "attr": "open",
           "reflectToAttr": true,
           "docs": "If `true`, the popover menu will be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "undefined"
+            }
+          ],
           "default": "undefined",
           "values": [
             {
@@ -12226,7 +13205,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -12363,7 +13347,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -12416,7 +13405,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -12495,7 +13489,12 @@
           "attr": "orientation",
           "reflectToAttr": false,
           "docs": "The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"vertical\""
+            }
+          ],
           "default": "\"vertical\"",
           "values": [
             {
@@ -12527,7 +13526,12 @@
           "attr": "required",
           "reflectToAttr": false,
           "docs": "If `true`, the radio group will require a value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -12560,7 +13564,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the radio group component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -12598,7 +13607,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -12640,7 +13654,12 @@
           "attr": "validation-status",
           "reflectToAttr": false,
           "docs": "The validation status - e.g. 'error' | 'warning' | 'success'.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -12679,7 +13698,12 @@
           "attr": "validation-text",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -12783,7 +13807,12 @@
           "attr": "additional-field-display",
           "reflectToAttr": true,
           "docs": "The style of additionalField that will be displayed if used.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"static\""
+            }
+          ],
           "default": "\"static\"",
           "values": [
             {
@@ -12815,7 +13844,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -12842,7 +13876,12 @@
           "attr": "dynamic-text",
           "reflectToAttr": false,
           "docs": "The text to be displayed when dynamic.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"This selection requires additional answers\""
+            }
+          ],
           "default": "\"This selection requires additional answers\"",
           "values": [
             {
@@ -12973,7 +14012,12 @@
           "attr": "selected",
           "reflectToAttr": true,
           "docs": "If `true`, the radio option will be displayed in a selected state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -13006,7 +14050,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -13165,7 +14214,12 @@
           "attr": "assistive-hint-text",
           "reflectToAttr": false,
           "docs": "The hint text for the hidden assistive description element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"When autocomplete results are available use the up and down arrows to choose and press enter to select\""
+            }
+          ],
           "default": "\"When autocomplete results are available use the up and down arrows to choose and press enter to select\"",
           "values": [
             {
@@ -13189,7 +14243,12 @@
           "attr": "autocapitalize",
           "reflectToAttr": false,
           "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"off\""
+            }
+          ],
           "default": "\"off\"",
           "values": [
             {
@@ -13203,10 +14262,10 @@
         },
         {
           "name": "autocomplete",
-          "type": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+          "type": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
           "complexType": {
             "original": "IcAutocompleteTypes",
-            "resolved": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+            "resolved": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
             "references": {
               "IcAutocompleteTypes": {
                 "location": "import",
@@ -13219,19 +14278,24 @@
           "attr": "autocomplete",
           "reflectToAttr": false,
           "docs": "The state of autocompletion the browser can apply on the text value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"off\""
+            }
+          ],
           "default": "\"off\"",
           "values": [
+            {
+              "value": "name",
+              "type": "string"
+            },
             {
               "value": "on",
               "type": "string"
             },
             {
               "value": "off",
-              "type": "string"
-            },
-            {
-              "value": "name",
               "type": "string"
             },
             {
@@ -13462,7 +14526,12 @@
           "attr": "autocorrect",
           "reflectToAttr": false,
           "docs": "The state of autocorrection the browser can apply when the user is entering/editing the text value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"off\""
+            }
+          ],
           "default": "\"off\"",
           "values": [
             {
@@ -13491,7 +14560,12 @@
           "attr": "autofocus",
           "reflectToAttr": false,
           "docs": "If `true`, the form control will have input focus when the page loads.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -13515,7 +14589,12 @@
           "attr": "characters-until-suggestion",
           "reflectToAttr": false,
           "docs": "The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "2"
+            }
+          ],
           "default": "2",
           "values": [
             {
@@ -13539,7 +14618,12 @@
           "attr": "debounce",
           "reflectToAttr": false,
           "docs": "The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -13563,7 +14647,12 @@
           "attr": "disable-auto-filtering",
           "reflectToAttr": false,
           "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\nIf `true`, all options provided will be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -13587,7 +14676,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -13611,7 +14705,12 @@
           "attr": "empty-option-list-text",
           "reflectToAttr": false,
           "docs": "The text displayed when there are no options in the option list.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"No results found\""
+            }
+          ],
           "default": "\"No results found\"",
           "values": [
             {
@@ -13635,7 +14734,12 @@
           "attr": "focus-on-load",
           "reflectToAttr": false,
           "docs": "If `true`, the search bar will be focused when component loaded.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -13659,7 +14763,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "Specify whether the search bar fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -13683,7 +14792,12 @@
           "attr": "helper-text",
           "reflectToAttr": false,
           "docs": "The helper text that will be displayed for additional field guidance.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -13707,7 +14821,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -13754,7 +14873,12 @@
           "attr": "label-field",
           "reflectToAttr": false,
           "docs": "The custom name for the label field to correspond with the IcMenuOption type.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"label\""
+            }
+          ],
           "default": "\"label\"",
           "values": [
             {
@@ -13778,7 +14902,12 @@
           "attr": "loading",
           "reflectToAttr": false,
           "docs": "Trigger loading state when fetching options asynchronously",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -13802,7 +14931,12 @@
           "attr": "loading-error-label",
           "reflectToAttr": false,
           "docs": "Change the message displayed when external loading times out.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Loading Error\""
+            }
+          ],
           "default": "\"Loading Error\"",
           "values": [
             {
@@ -13826,7 +14960,12 @@
           "attr": "loading-label",
           "reflectToAttr": false,
           "docs": "Change the message displayed whilst the options are being loaded externally.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Loading...\""
+            }
+          ],
           "default": "\"Loading...\"",
           "values": [
             {
@@ -13850,7 +14989,12 @@
           "attr": "name",
           "reflectToAttr": false,
           "docs": "The name of the control, which is submitted with the form data.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "this.inputId"
+            }
+          ],
           "default": "this.inputId",
           "values": [
             {
@@ -13877,9 +15021,15 @@
             }
           },
           "mutable": false,
+          "attr": "options",
           "reflectToAttr": false,
           "docs": "The suggested search options.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "[]"
+            }
+          ],
           "default": "[]",
           "values": [
             {
@@ -13903,7 +15053,12 @@
           "attr": "placeholder",
           "reflectToAttr": false,
           "docs": "The placeholder value to display.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Search\""
+            }
+          ],
           "default": "\"Search\"",
           "values": [
             {
@@ -13927,7 +15082,12 @@
           "attr": "readonly",
           "reflectToAttr": false,
           "docs": "If `true`, the readonly state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -13951,7 +15111,12 @@
           "attr": "required",
           "reflectToAttr": false,
           "docs": "If `true`, the search bar will require a value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -13981,7 +15146,12 @@
           "attr": "search-mode",
           "reflectToAttr": false,
           "docs": "Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"navigation\""
+            }
+          ],
           "default": "\"navigation\"",
           "values": [
             {
@@ -14016,7 +15186,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the search bar component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -14045,7 +15220,12 @@
           "attr": "spellcheck",
           "reflectToAttr": false,
           "docs": "If `true`, the value of the search will have its spelling and grammar checked.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14075,7 +15255,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -14134,7 +15319,12 @@
           "attr": "value",
           "reflectToAttr": true,
           "docs": "The value of the search input.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -14158,7 +15348,12 @@
           "attr": "value-field",
           "reflectToAttr": false,
           "docs": "The custom name for the value field to correspond with the IcMenuOption type.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"value\""
+            }
+          ],
           "default": "\"value\"",
           "values": [
             {
@@ -14475,7 +15670,12 @@
           "attr": "aligned",
           "reflectToAttr": false,
           "docs": "The alignment of the container.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"left\""
+            }
+          ],
           "default": "\"left\"",
           "values": [
             {
@@ -14511,7 +15711,12 @@
           "attr": "full-height",
           "reflectToAttr": false,
           "docs": "If `true`, the standard vertical padding from the container will be removed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14585,7 +15790,12 @@
           "attr": "debounce",
           "reflectToAttr": false,
           "docs": "The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -14609,7 +15819,12 @@
           "attr": "disable-auto-filtering",
           "reflectToAttr": false,
           "docs": "If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14633,7 +15848,12 @@
           "attr": "disabled",
           "reflectToAttr": true,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14657,7 +15877,12 @@
           "attr": "empty-option-list-text",
           "reflectToAttr": false,
           "docs": "The text displayed when there are no options in the option list.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"No results found\""
+            }
+          ],
           "default": "\"No results found\"",
           "values": [
             {
@@ -14707,7 +15932,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "If `true`, the select will fill the width of the container.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14731,7 +15961,12 @@
           "attr": "helper-text",
           "reflectToAttr": false,
           "docs": "The helper text that will be displayed for additional field guidance.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -14755,7 +15990,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14779,7 +16019,12 @@
           "attr": "include-descriptions-in-search",
           "reflectToAttr": false,
           "docs": "If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14803,7 +16048,12 @@
           "attr": "include-group-titles-in-search",
           "reflectToAttr": false,
           "docs": "If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14850,7 +16100,12 @@
           "attr": "loading",
           "reflectToAttr": false,
           "docs": "If `true`, the loading state will be triggered when fetching options asynchronously.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14874,7 +16129,12 @@
           "attr": "loading-error-label",
           "reflectToAttr": false,
           "docs": "The message displayed when external loading times out.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Loading Error\""
+            }
+          ],
           "default": "\"Loading Error\"",
           "values": [
             {
@@ -14898,7 +16158,12 @@
           "attr": "loading-label",
           "reflectToAttr": false,
           "docs": "The message displayed whilst the options are being loaded externally.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Loading...\""
+            }
+          ],
           "default": "\"Loading...\"",
           "values": [
             {
@@ -14922,7 +16187,12 @@
           "attr": "multiple",
           "reflectToAttr": false,
           "docs": "If `true`, multiple options can be selected.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -14946,7 +16216,12 @@
           "attr": "name",
           "reflectToAttr": false,
           "docs": "The name of the control, which is submitted with the form data.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "this.inputId"
+            }
+          ],
           "default": "this.inputId",
           "values": [
             {
@@ -14973,9 +16248,15 @@
             }
           },
           "mutable": false,
+          "attr": "options",
           "reflectToAttr": false,
           "docs": "The possible selection options.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "[]"
+            }
+          ],
           "default": "[]",
           "values": [
             {
@@ -14999,7 +16280,12 @@
           "attr": "placeholder",
           "reflectToAttr": false,
           "docs": "The placeholder value to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Select an option\""
+            }
+          ],
           "default": "\"Select an option\"",
           "values": [
             {
@@ -15023,7 +16309,12 @@
           "attr": "readonly",
           "reflectToAttr": false,
           "docs": "If `true`, the readonly state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15047,7 +16338,12 @@
           "attr": "required",
           "reflectToAttr": false,
           "docs": "If `true`, the select will require a value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15077,7 +16373,12 @@
           "attr": "search-match-position",
           "reflectToAttr": false,
           "docs": "Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"anywhere\""
+            }
+          ],
           "default": "\"anywhere\"",
           "values": [
             {
@@ -15106,7 +16407,12 @@
           "attr": "searchable",
           "reflectToAttr": false,
           "docs": "If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15130,7 +16436,12 @@
           "attr": "select-on-enter",
           "reflectToAttr": false,
           "docs": "If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15154,7 +16465,12 @@
           "attr": "show-clear-button",
           "reflectToAttr": false,
           "docs": "If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15184,7 +16500,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the select.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -15223,7 +16544,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -15288,7 +16614,12 @@
           "attr": "validation-status",
           "reflectToAttr": false,
           "docs": "The validation status - e.g. 'error' | 'warning' | 'success'.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -15324,7 +16655,12 @@
           "attr": "validation-text",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -15348,7 +16684,12 @@
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of the select, reflected by the value of the currently selected option.\nFor the searchable variant, the value is also reflected by the user input.\nFor the multi-select variant, the value must be an array of option values.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "null"
+            }
+          ],
           "default": "null",
           "values": [
             {
@@ -15696,7 +17037,12 @@
           "attr": "collapsed-icon-labels",
           "reflectToAttr": false,
           "docs": "If `true`, the icon and label will appear when side navigation is collapsed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15723,7 +17069,12 @@
           "attr": "disable-auto-parent-styling",
           "reflectToAttr": false,
           "docs": "If `true`, automatic parent wrapper styling will be disabled.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15750,7 +17101,12 @@
           "attr": "disable-top-bar-behaviour",
           "reflectToAttr": false,
           "docs": "If `true`, the side navigation will not display as a top bar on small devices.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15777,7 +17133,12 @@
           "attr": "expanded",
           "reflectToAttr": false,
           "docs": "If `true`, the side navigation will display in an expanded state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -15804,7 +17165,12 @@
           "attr": "href",
           "reflectToAttr": false,
           "docs": "The URL that the app title link points to.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"/\""
+            }
+          ],
           "default": "\"/\"",
           "values": [
             {
@@ -15831,7 +17197,12 @@
           "attr": "short-app-title",
           "reflectToAttr": false,
           "docs": "The short title of the app to be displayed at small screen sizes in place of the app title.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -15858,7 +17229,12 @@
           "attr": "static",
           "reflectToAttr": false,
           "docs": "If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16038,7 +17414,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -16080,7 +17461,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The variant of the skeleton that will be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"rectangle\""
+            }
+          ],
           "default": "\"rectangle\"",
           "values": [
             {
@@ -16136,7 +17522,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "If `true`, the skip link will fill the width of the page.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16160,7 +17551,12 @@
           "attr": "inline",
           "reflectToAttr": false,
           "docs": "If `true`, the skip link will appear inline with surrounding page content when focused.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16184,7 +17580,12 @@
           "attr": "label",
           "reflectToAttr": false,
           "docs": "The label displayed when the skip link is focused.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Skip to main content\""
+            }
+          ],
           "default": "\"Skip to main content\"",
           "values": [
             {
@@ -16208,7 +17609,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the skip link will display as black in the light theme, and white in the dark theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16261,7 +17667,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. `inherit` will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -16294,7 +17705,12 @@
           "attr": "transparent-background",
           "reflectToAttr": false,
           "docs": "If `true`, the background will be hidden.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16373,7 +17789,12 @@
           "attr": "announced",
           "reflectToAttr": false,
           "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.\nScreen readers will announce changes to the `label`, but not the initial value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16429,7 +17850,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the status tag component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -16471,7 +17897,12 @@
           "attr": "status",
           "reflectToAttr": false,
           "docs": "The colour of the status tag.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"neutral\""
+            }
+          ],
           "default": "\"neutral\"",
           "values": [
             {
@@ -16511,7 +17942,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -16547,7 +17983,12 @@
           "attr": "uppercase",
           "reflectToAttr": false,
           "docs": "The letter case of the status tag's label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -16580,7 +18021,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The emphasis of the status tag.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"filled\""
+            }
+          ],
           "default": "\"filled\"",
           "values": [
             {
@@ -16733,7 +18179,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "The state of the step within the stepper.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"active\""
+            }
+          ],
           "default": "\"active\"",
           "values": [
             {
@@ -16810,7 +18261,12 @@
           "attr": "aligned",
           "reflectToAttr": false,
           "docs": "The alignment of the default stepper within its container.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"full-width\""
+            }
+          ],
           "default": "\"full-width\"",
           "values": [
             {
@@ -16842,7 +18298,12 @@
           "attr": "connector-width",
           "reflectToAttr": false,
           "docs": "The length of the connector between each step in pixels. Minimum length is 100px.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "100"
+            }
+          ],
           "default": "100",
           "values": [
             {
@@ -16869,7 +18330,12 @@
           "attr": "hide-step-info",
           "reflectToAttr": false,
           "docs": "If `true`, the information about each step, i.e. step title, step subtitle and step status, will be hidden on all default steps. The information about each step will still be visible in the compact variant of the stepper.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -16902,7 +18368,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -16944,7 +18415,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The variant of the stepper.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -17001,7 +18477,12 @@
           "attr": "checked",
           "reflectToAttr": false,
           "docs": "If `true`, the switch will display as checked.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -17028,7 +18509,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -17055,7 +18541,12 @@
           "attr": "helper-text",
           "reflectToAttr": false,
           "docs": "The helper text that will be displayed for additional field guidance.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -17082,7 +18573,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -17132,7 +18628,12 @@
           "attr": "name",
           "reflectToAttr": false,
           "docs": "The name of the control, which is submitted with the form data.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "this.inputId"
+            }
+          ],
           "default": "this.inputId",
           "values": [
             {
@@ -17165,7 +18666,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the switch component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -17203,7 +18709,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -17239,7 +18750,12 @@
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of the toggle does not mean if it's checked or not, use the `checked`\nproperty for that.\n\nThe value of a toggle is analogous to the value of a `<input type=\"checkbox\">`,\nit's only used when the toggle participates in a native `<form>`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"on\""
+            }
+          ],
           "default": "\"on\"",
           "values": [
             {
@@ -17384,7 +18900,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -17475,7 +18996,12 @@
           "attr": "activation-type",
           "reflectToAttr": false,
           "docs": "Determines whether tabs have to be manually activated (by pressing 'Enter' or 'Space') when they receive focus using keyboard navigation.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"automatic\""
+            }
+          ],
           "default": "\"automatic\"",
           "values": [
             {
@@ -17507,7 +19033,12 @@
           "attr": "context-id",
           "reflectToAttr": true,
           "docs": "The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -17534,7 +19065,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the tabs will display as black in the light theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -17593,7 +19129,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -17691,7 +19232,12 @@
           "attr": "inline",
           "reflectToAttr": true,
           "docs": "If `true`, the tabs and tab panels will be positioned separately.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -17805,7 +19351,12 @@
           "attr": "autocapitalize",
           "reflectToAttr": false,
           "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"off\""
+            }
+          ],
           "default": "\"off\"",
           "values": [
             {
@@ -17835,7 +19386,12 @@
           "attr": "autocomplete",
           "reflectToAttr": false,
           "docs": "The state of autocompletion the browser can apply on the text value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"off\""
+            }
+          ],
           "default": "\"off\"",
           "values": [
             {
@@ -17868,7 +19424,12 @@
           "attr": "autocorrect",
           "reflectToAttr": false,
           "docs": "The state of autocorrection the browser can apply when the user is entering/editing the text value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"off\""
+            }
+          ],
           "default": "\"off\"",
           "values": [
             {
@@ -17900,7 +19461,12 @@
           "attr": "autofocus",
           "reflectToAttr": false,
           "docs": "If `true`, the form control will have input focus when the page loads.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -17924,7 +19490,12 @@
           "attr": "debounce",
           "reflectToAttr": false,
           "docs": "The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -17948,7 +19519,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the disabled state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -17972,7 +19548,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "Specify whether the text field fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -17996,7 +19577,12 @@
           "attr": "helper-text",
           "reflectToAttr": false,
           "docs": "The helper text that will be displayed for additional field guidance.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -18020,7 +19606,12 @@
           "attr": "hide-char-count",
           "reflectToAttr": false,
           "docs": "If `true`, the character count which is displayed when `maxCharacters` is set will be visually hidden.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18044,7 +19635,12 @@
           "attr": "hide-label",
           "reflectToAttr": false,
           "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18068,7 +19664,12 @@
           "attr": "input-id",
           "reflectToAttr": false,
           "docs": "The ID for the input.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "`ic-text-field-input-${inputIds++}`"
+            }
+          ],
           "default": "`ic-text-field-input-${inputIds++}`",
           "values": [
             {
@@ -18098,7 +19699,12 @@
           "attr": "inputmode",
           "reflectToAttr": false,
           "docs": "A hint to the browser for which keyboard to display.\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"text\""
+            }
+          ],
           "default": "\"text\"",
           "values": [
             {
@@ -18203,7 +19809,12 @@
           "attr": "max-characters",
           "reflectToAttr": false,
           "docs": "The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -18227,7 +19838,12 @@
           "attr": "max-characters-message",
           "reflectToAttr": false,
           "docs": "The text to display as the warning message when the maximum number of characters (the `maxCharacters` prop value) is reached.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "`Maximum input is ${this.maxCharacters} characters`"
+            }
+          ],
           "default": "`Maximum input is ${this.maxCharacters} characters`",
           "values": [
             {
@@ -18251,7 +19867,12 @@
           "attr": "max-message",
           "reflectToAttr": false,
           "docs": "The text to display as the error message when the maximum value (the `max` prop value) has been exceeded.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "`Maximum value of ${this.max} exceeded`"
+            }
+          ],
           "default": "`Maximum value of ${this.max} exceeded`",
           "values": [
             {
@@ -18304,7 +19925,12 @@
           "attr": "min-characters",
           "reflectToAttr": false,
           "docs": "The minimum number of characters that can be entered in the field.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -18328,7 +19954,12 @@
           "attr": "min-characters-message",
           "reflectToAttr": false,
           "docs": "The text to display as the error message when the minimum number of characters (the `minCharacters` prop value) has not been met.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "`Minimum input is ${this.minCharacters} characters`"
+            }
+          ],
           "default": "`Minimum input is ${this.minCharacters} characters`",
           "values": [
             {
@@ -18352,7 +19983,12 @@
           "attr": "min-message",
           "reflectToAttr": false,
           "docs": "The text to display as the error message when the minimum value (the `min` prop value) has not been met.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "`Minimum value of ${this.min} not met`"
+            }
+          ],
           "default": "`Minimum value of ${this.min} not met`",
           "values": [
             {
@@ -18376,7 +20012,12 @@
           "attr": "name",
           "reflectToAttr": false,
           "docs": "The name of the control, which is submitted with the form data.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "this.inputId"
+            }
+          ],
           "default": "this.inputId",
           "values": [
             {
@@ -18400,7 +20041,12 @@
           "attr": "placeholder",
           "reflectToAttr": false,
           "docs": "The placeholder value to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -18424,7 +20070,12 @@
           "attr": "readonly",
           "reflectToAttr": true,
           "docs": "If `true`, the read only state will be set.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18448,7 +20099,12 @@
           "attr": "required",
           "reflectToAttr": false,
           "docs": "If `true`, the input will require a value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18472,7 +20128,12 @@
           "attr": "resize",
           "reflectToAttr": false,
           "docs": "If `true`, the multiline text area will be resizeable.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18496,7 +20157,12 @@
           "attr": "rows",
           "reflectToAttr": false,
           "docs": "The number of rows to transform the text field into a text area with a specific height.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "1"
+            }
+          ],
           "default": "1",
           "values": [
             {
@@ -18526,7 +20192,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the text field component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -18555,7 +20226,12 @@
           "attr": "spellcheck",
           "reflectToAttr": false,
           "docs": "If `true`, the value of the text field will have its spelling and grammar checked.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18585,7 +20261,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -18624,7 +20305,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "The type of control to display. The default type is text.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"text\""
+            }
+          ],
           "default": "\"text\"",
           "values": [
             {
@@ -18673,7 +20359,12 @@
           "attr": "validation-inline",
           "reflectToAttr": false,
           "docs": "If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -18703,7 +20394,12 @@
           "attr": "validation-status",
           "reflectToAttr": false,
           "docs": "The validation state - e.g. 'error' | 'warning' | 'success'.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -18739,7 +20435,12 @@
           "attr": "validation-text",
           "reflectToAttr": false,
           "docs": "The text to display as the validation message.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -18763,7 +20464,12 @@
           "attr": "value",
           "reflectToAttr": true,
           "docs": "The value of the text field.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -18987,7 +20693,12 @@
           "attr": "brand-color",
           "reflectToAttr": false,
           "docs": "The brand colour. Can be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "null"
+            }
+          ],
           "default": "null",
           "values": [
             {
@@ -19029,7 +20740,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "The theme mode. Can be \"dark\", \"light\", or \"system\". \"system\" will use the device or browser settings.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"light\""
+            }
+          ],
           "default": "\"light\"",
           "values": [
             {
@@ -19115,7 +20831,12 @@
           "attr": "auto-dismiss-timeout",
           "reflectToAttr": false,
           "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\n(NOTE: Has a minimum value of `5000ms`)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "5000"
+            }
+          ],
           "default": "5000",
           "values": [
             {
@@ -19142,7 +20863,12 @@
           "attr": "dismiss-button-aria-label",
           "reflectToAttr": false,
           "docs": "If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"dismiss\""
+            }
+          ],
           "default": "\"dismiss\"",
           "values": [
             {
@@ -19175,7 +20901,12 @@
           "attr": "dismiss-mode",
           "reflectToAttr": false,
           "docs": "How the toast will be dismissed. If manual will display a dismiss button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"manual\""
+            }
+          ],
           "default": "\"manual\"",
           "values": [
             {
@@ -19426,6 +21157,7 @@
             }
           },
           "mutable": true,
+          "attr": "open-toast",
           "reflectToAttr": false,
           "docs": "The toast element to be displayed.",
           "docsTags": [],
@@ -19515,7 +21247,12 @@
           "attr": "checked",
           "reflectToAttr": true,
           "docs": "If `true`, the toggle button will be in a checked state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -19542,7 +21279,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the toggle button will be in disabled state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -19569,7 +21311,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "If `true`, the toggle button will fill the width of the container.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -19602,7 +21349,12 @@
           "attr": "icon-placement",
           "reflectToAttr": false,
           "docs": "The placement of the icon in relation to the toggle button label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"left\""
+            }
+          ],
           "default": "\"left\"",
           "values": [
             {
@@ -19664,7 +21416,12 @@
           "attr": "loading",
           "reflectToAttr": false,
           "docs": "If `true`, the toggle button will be in loading state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -19691,7 +21448,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the toggle button will display as black in the light theme, and white in dark theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -19724,7 +21486,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the toggle button to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -19766,7 +21533,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -19808,7 +21580,12 @@
           "attr": "tooltip-placement",
           "reflectToAttr": false,
           "docs": "The position of the tooltip in relation to the toggle button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"bottom\""
+            }
+          ],
           "default": "\"bottom\"",
           "values": [
             {
@@ -19848,7 +21625,12 @@
           "attr": "variant",
           "reflectToAttr": true,
           "docs": "The variant of the toggle button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -19947,7 +21729,12 @@
           "attr": "accessible-label",
           "reflectToAttr": false,
           "docs": "The accessible label of the toggle button group component to provide context for screen reader users.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"Toggle button group\""
+            }
+          ],
           "default": "\"Toggle button group\"",
           "values": [
             {
@@ -19974,7 +21761,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If `true`, the toggle button group will be set to the disabled state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -19998,7 +21790,12 @@
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "If `true`, the toggle button group will fill the width of the container.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20060,7 +21857,12 @@
           "attr": "loading",
           "reflectToAttr": false,
           "docs": "If `true`, the toggle button group will be in loading state.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20087,7 +21889,12 @@
           "attr": "monochrome",
           "reflectToAttr": false,
           "docs": "If `true`, the toggle button group will display as black in the light theme, and white in dark theme.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20120,7 +21927,12 @@
           "attr": "select-method",
           "reflectToAttr": false,
           "docs": "If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"manual\""
+            }
+          ],
           "default": "\"manual\"",
           "values": [
             {
@@ -20158,7 +21970,12 @@
           "attr": "select-type",
           "reflectToAttr": false,
           "docs": "Sets whether single or multiple options can be toggled. If `multi`, then the `selectMethod` is always `manual`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"single\""
+            }
+          ],
           "default": "\"single\"",
           "values": [
             {
@@ -20196,7 +22013,12 @@
           "attr": "size",
           "reflectToAttr": false,
           "docs": "The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"medium\""
+            }
+          ],
           "default": "\"medium\"",
           "values": [
             {
@@ -20238,7 +22060,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -20280,7 +22107,12 @@
           "attr": "tooltip-placement",
           "reflectToAttr": false,
           "docs": "The position of the tooltip in relation to the toggle buttons.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"bottom\""
+            }
+          ],
           "default": "\"bottom\"",
           "values": [
             {
@@ -20317,7 +22149,12 @@
           "attr": "variant",
           "reflectToAttr": true,
           "docs": "The variant of the toggle button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"default\""
+            }
+          ],
           "default": "\"default\"",
           "values": [
             {
@@ -20393,7 +22230,12 @@
           "attr": "disable-click",
           "reflectToAttr": false,
           "docs": "If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20420,7 +22262,12 @@
           "attr": "disable-hover",
           "reflectToAttr": false,
           "docs": "If `true`, the tooltip will not be displayed on hover, it will require a click.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20502,7 +22349,12 @@
           "attr": "placement",
           "reflectToAttr": false,
           "docs": "The position of the tooltip in relation to the parent element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"bottom\""
+            }
+          ],
           "default": "\"bottom\"",
           "values": [
             {
@@ -20606,7 +22458,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the tooltip to the dark or light theme colors. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -20806,7 +22663,12 @@
           "attr": "content-aligned",
           "reflectToAttr": false,
           "docs": "The alignment of the top navigation content.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"full-width\""
+            }
+          ],
           "default": "\"full-width\"",
           "values": [
             {
@@ -20848,7 +22710,12 @@
           "attr": "custom-mobile-breakpoint",
           "reflectToAttr": false,
           "docs": "Can set a custom breakpoint for the top navigation to switch to mobile mode.\nMust be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "DEVICE_SIZES.L"
+            }
+          ],
           "default": "DEVICE_SIZES.L",
           "values": [
             {
@@ -20892,7 +22759,12 @@
           "attr": "href",
           "reflectToAttr": false,
           "docs": "The URL to navigate to when the app title is clicked.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"/\""
+            }
+          ],
           "default": "\"/\"",
           "values": [
             {
@@ -20919,7 +22791,12 @@
           "attr": "inline",
           "reflectToAttr": false,
           "docs": "If `true`, the flyout navigation menu on small devices will be contained by the parent element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -20946,7 +22823,12 @@
           "attr": "short-app-title",
           "reflectToAttr": false,
           "docs": "The short title of the app to be displayed at small screen sizes in place of the app title.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -20973,7 +22855,12 @@
           "attr": "status",
           "reflectToAttr": false,
           "docs": "The status info to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -21006,7 +22893,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -21042,7 +22934,12 @@
           "attr": "version",
           "reflectToAttr": false,
           "docs": "The version info to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"\""
+            }
+          ],
           "default": "\"\"",
           "values": [
             {
@@ -21187,7 +23084,12 @@
           "attr": "apply-vertical-margins",
           "reflectToAttr": false,
           "docs": "If `true`, appropriate top and bottom margins will be applied to the typography.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -21214,7 +23116,12 @@
           "attr": "bold",
           "reflectToAttr": false,
           "docs": "If `true`, the typography will have a bold font weight.\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -21241,7 +23148,12 @@
           "attr": "italic",
           "reflectToAttr": false,
           "docs": "If `true`, the typography will have an italic font style.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -21294,7 +23206,12 @@
           "attr": "strikethrough",
           "reflectToAttr": false,
           "docs": "If `true`, the typography will have a line through it.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -21327,7 +23244,12 @@
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the text color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"inherit\""
+            }
+          ],
           "default": "\"inherit\"",
           "values": [
             {
@@ -21363,7 +23285,12 @@
           "attr": "underline",
           "reflectToAttr": false,
           "docs": "If `true`, the typography will have a line under it.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -21396,7 +23323,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The ICDS typography style to use.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "\"body\""
+            }
+          ],
           "default": "\"body\"",
           "values": [
             {
