@@ -55,7 +55,6 @@ export class NavigationGroup {
 
   @State() deviceSize: number = DEVICE_SIZES.XL;
   @State() dropdownOpen = false;
-  @State() expanded = true;
   @State() focusStyle: IcBrandForegroundNoDefault | IcBrandForeground =
     getBrandForegroundAppearance();
   @State() inTopNavSideMenu = false;
@@ -67,6 +66,11 @@ export class NavigationGroup {
    *  If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
    */
   @Prop() expandable = false;
+
+  /**
+   * If `true`, the expandable group will be expanded by default when in an ic-side-navigation component. To enable this prop, `expandable` must also be set to `true`.
+   */
+  @Prop({ mutable: true }) expanded = true;
 
   /**
    * The label to display on the group.
@@ -448,7 +452,7 @@ export class NavigationGroup {
               <div
                 class={{
                   "chevron-toggle-icon-wrapper": true,
-                  "chevron-toggle-icon-closed": expanded,
+                  "chevron-toggle-icon-closed": !!expanded,
                 }}
                 innerHTML={chevronIcon}
               ></div>
