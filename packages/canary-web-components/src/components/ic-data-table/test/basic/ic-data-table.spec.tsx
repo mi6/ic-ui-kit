@@ -250,6 +250,42 @@ const dataWithRowOverrides = [
   },
 ];
 
+const dataWithRowOverridesInRowOptions = [
+  {
+    rowOptions: { rowAlignment: { vertical: "middle", horizontal: "center" } },
+    name: name1,
+    age: 36,
+    department: "Accounts",
+  },
+  {
+    rowOptions: { rowAlignment: { vertical: "top", horizontal: "left" } },
+    name: name2,
+    age: 32,
+    department: "Engineering",
+  },
+  {
+    rowOptions: { rowAlignment: { vertical: "bottom", horizontal: "right" } },
+    name: "Tim Rayes",
+    age: 41,
+    department: "Sales",
+  },
+  {
+    name: name3,
+    age: "23",
+    department: "Engineering",
+  },
+  {
+    name: name4,
+    age: 34,
+    department: "Engineering",
+  },
+  {
+    name: name5,
+    age: 45,
+    department: "HR",
+  },
+];
+
 const dataWithObjects = [
   { name: name1, age: 36, department: "Accounts", employeeNumber: 1 },
   {
@@ -682,6 +718,22 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columnsWithRowHeader}
           data={dataWithRowOverrides}
+          show-pagination
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with row overrides set via rowOptions", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columnsWithRowHeader}
+          data={dataWithRowOverridesInRowOptions}
           show-pagination
         ></ic-data-table>
       ),

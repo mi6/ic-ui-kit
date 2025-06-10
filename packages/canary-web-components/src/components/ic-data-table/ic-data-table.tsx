@@ -1332,7 +1332,6 @@ export class DataTable {
     cell: any,
     cellSlotName: string,
     rowOptions: any,
-    rowAlignment: string,
     hasIcon: boolean,
     cellValue: (key: string) => any,
     rowEmphasis: string,
@@ -1347,16 +1346,6 @@ export class DataTable {
       }
       class={{
         "cell-container": columnProps?.dataType !== "element",
-        [`cell-alignment-${
-          columnProps?.columnAlignment?.vertical ||
-          rowOptions?.rowAlignment?.vertical ||
-          rowAlignment ||
-          this.getCellAlignment(cell, "vertical")
-        }`]:
-          !!columnProps?.columnAlignment?.vertical ||
-          !!rowOptions?.rowAlignment?.vertical ||
-          !!rowAlignment ||
-          !!this.getCellAlignment(cell, "vertical"),
         [`cell-alignment-${
           columnProps?.columnAlignment?.horizontal ||
           rowOptions?.rowAlignment?.horizontal ||
@@ -1532,7 +1521,6 @@ export class DataTable {
         cell,
         cellSlotName,
         rowOptions,
-        rowAlignment,
         hasIcon,
         cellValue,
         rowEmphasis,
@@ -1546,6 +1534,16 @@ export class DataTable {
               ["table-cell"]: true,
               [`table-density-${this.density}`]: this.notDefaultDensity(),
               ["with-overflow"]: columnProps?.dataType === "element",
+              [`cell-vertical-align-${
+                columnProps?.columnAlignment?.vertical ||
+                rowOptions?.rowAlignment?.vertical ||
+                rowAlignment ||
+                this.getCellAlignment(cell, "vertical")
+              }`]:
+                !!columnProps?.columnAlignment?.vertical ||
+                !!rowOptions?.rowAlignment?.vertical ||
+                !!rowAlignment ||
+                !!this.getCellAlignment(cell, "vertical"),
             }}
             style={{ ...this.getColumnWidth(columnProps.columnWidth) }}
           >
