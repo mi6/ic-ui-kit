@@ -159,6 +159,39 @@ export const WithExpandableNavGroupAndNavItemsSideNav = (): ReactElement => {
   );
 };
 
+export const WithExpandableNotExpandedNavGroupSideNav = (): ReactElement => {
+  return (
+    <IcSideNavigation status="Beta" version="v1.0.0">
+      <IcNavigationGroup
+        slot="primary-navigation"
+        label="Navigation group 1"
+        expandable={true}
+        expanded={false}
+      >
+        <IcNavigationItem label="Navigation 1" href="/">
+          <IcBadge label="1" slot="badge" variant="light" position="far" />
+          <ReusableIcon />
+        </IcNavigationItem>
+        <IcNavigationItem label="Navigation 2" href="/">
+          <ReusableIcon />
+        </IcNavigationItem>
+      </IcNavigationGroup>
+      <IcNavigationGroup
+        slot="primary-navigation"
+        label="Navigation group with a very very very long title"
+        expandable={true}
+      >
+        <IcNavigationItem label="Navigation 3" href="/">
+          <ReusableIcon />
+        </IcNavigationItem>
+        <IcNavigationItem label="Navigation 4" href="/">
+          <ReusableIcon />
+        </IcNavigationItem>
+      </IcNavigationGroup>
+    </IcSideNavigation>
+  );
+};
+
 export const WithNavGroupAndNavItemsSideNav = (): ReactElement => {
   return (
     <IcSideNavigation status="Beta" version="v1.0.0">

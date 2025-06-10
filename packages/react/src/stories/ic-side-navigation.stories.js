@@ -199,6 +199,7 @@ const ReactRouter = () => {
           label="Navigation Grouped"
           slot="primary-navigation"
           expandable="true"
+          expanded={false}
         >
           <IcNavigationItem onClick={toggleExpanded}>
             <NavLink to="/child-item" slot="navigation-item">
