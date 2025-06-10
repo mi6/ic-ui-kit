@@ -1,7 +1,7 @@
 {
   "total": 767,
-  "totalPassed": 710,
-  "totalFailed": 57,
+  "totalPassed": 709,
+  "totalFailed": 58,
   "totalSuites": 43,
   "suites": [
     {
@@ -1442,14 +1442,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/with-icon-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcButton.cy.tsx/icon-variants-high-contrast",
-          "percentage": 0,
+          "percentage": 0.0323443016025056,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/icon-variants-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx/icon-variants-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/icon-variants-high-contrast.png"
         },
         {
@@ -8700,9 +8700,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-09T15:39:47.814Z",
-  "endedAt": "2025-06-09T16:16:05.051Z",
-  "duration": 2081323,
+  "startedAt": "2025-06-10T10:32:54.464Z",
+  "endedAt": "2025-06-10T11:08:48.170Z",
+  "duration": 2058954,
   "browserName": "electron",
   "browserVersion": "118.0.5993.159",
   "cypressVersion": "13.17.0"
