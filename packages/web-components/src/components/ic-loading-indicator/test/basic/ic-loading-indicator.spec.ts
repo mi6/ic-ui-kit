@@ -14,6 +14,20 @@ afterEach(() => {
 });
 
 describe("ic-loading-indicator component", () => {
+  it("should update the state when switching from linear to circular after initial render", async () => {
+    page = await newSpecPage({
+      components: [LoadingIndicator, Typography],
+      html: `<ic-loading-indicator label="Waiting" type="linear"></ic-loading-indicator>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.type = "circular";
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render an indeterminate loading indicator with the correct label and set aria-labelledby", async () => {
     page = await newSpecPage({
       components: [LoadingIndicator, Typography],

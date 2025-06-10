@@ -52,6 +52,16 @@ export class LoadingIndicator {
   @Prop() innerLabel?: number;
 
   /**
+   * The label to be displayed beneath the loading indicator.
+   * Display a changing label by supplying an array of messages.
+   */
+  @Prop() label?: string | string[];
+  @Watch("label")
+  watchPropHandler(): void {
+    this.updateLabel();
+  }
+
+  /**
    * The time in milliseconds before the label changes.
    */
   @Prop() labelDuration = 8000;
@@ -79,26 +89,6 @@ export class LoadingIndicator {
   @Prop() monochrome = false;
 
   /**
-   * The size of the loading indicator.
-   */
-  @Prop({ reflect: true }) size: IcLoadingSizes = "medium";
-
-  /**
-   * The type of indicator, either linear or circular.
-   */
-  @Prop({ reflect: true }) type: IcLoadingTypes = "circular";
-
-  /**
-   * The label to be displayed beneath the loading indicator.
-   * Display a changing label by supplying an array of messages.
-   */
-  @Prop() label?: string | string[];
-  @Watch("label")
-  watchPropHandler(): void {
-    this.updateLabel();
-  }
-
-  /**
    * The current amount of progress made.
    * If not provided, component acts as an indeterminate loading indicator.
    */
@@ -113,9 +103,37 @@ export class LoadingIndicator {
   }
 
   /**
+   * The size of the loading indicator.
+   */
+  @Prop({ reflect: true }) size: IcLoadingSizes = "medium";
+
+  /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
   @Prop() theme: IcThemeMode = "inherit";
+
+  /**
+   * The type of indicator, either linear or circular.
+   */
+  @Prop({ reflect: true }) type: IcLoadingTypes = "circular";
+  @Watch("type")
+  setIndicatorDimensions(): void {
+    if (this.type === "circular") {
+      // Sets the circular indicator line width - accounting for the circle size being altered using the CSS custom property
+      const diameter = this.calculateWidth();
+      if (this.outerElement && diameter !== this.circularDiameter) {
+        this.circularLineWidth = diameter * 0.1;
+        this.circularDiameter = diameter;
+        this.outerElement.style.setProperty(
+          "--circular-line-width",
+          `${this.circularLineWidth}px`
+        );
+        this.setCircleDimensions();
+      }
+    } else {
+      this.setLinearDeterminateWidth();
+    }
+  }
 
   disconnectedCallback(): void {
     clearInterval(this.interval);
@@ -127,23 +145,7 @@ export class LoadingIndicator {
   }
 
   componentDidLoad(): void {
-    if (this.type === "circular") {
-      // Sets the circular indicator line width - accounting for the circle size being altered using the CSS custom property
-
-      if (this.outerElement) {
-        const diameter = this.calculateWidth();
-
-        this.circularLineWidth = diameter * 0.1;
-        this.circularDiameter = diameter;
-        this.outerElement.style.setProperty(
-          "--circular-line-width",
-          `${this.circularLineWidth}px`
-        );
-      }
-      this.setCircleDimensions();
-    } else {
-      this.setLinearDeterminateWidth();
-    }
+    this.setIndicatorDimensions();
   }
 
   private getLabel = (labelIndex: number) =>

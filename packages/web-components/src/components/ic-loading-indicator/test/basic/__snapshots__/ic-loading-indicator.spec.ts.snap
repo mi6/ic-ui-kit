@@ -236,3 +236,48 @@ exports[`ic-loading-indicator component should set the typography variant for th
   </template>
 </ic-loading-indicator>
 `;
+
+exports[`ic-loading-indicator component should update the state when switching from linear to circular after initial render 1`] = `
+<ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="Waiting" size="medium" type="linear">
+  <template shadowrootmode="open">
+    <div class="ic-loading-container" part="ic-loading-container">
+      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-linear-outer indeterminate" role="progressbar">
+        <div class="ic-loading-linear-inner"></div>
+      </div>
+      <ic-typography class="ic-loading-label ic-typography-h4" id="ic-loading-label" role="status">
+        <template shadowrootmode="open">
+          <slot></slot>
+        </template>
+        <p>
+          Waiting
+        </p>
+      </ic-typography>
+    </div>
+  </template>
+</ic-loading-indicator>
+`;
+
+exports[`ic-loading-indicator component should update the state when switching from linear to circular after initial render 2`] = `
+<ic-loading-indicator class="ic-loading-indicator-label" exportparts="ic-loading-container" label="Waiting" size="medium" type="circular">
+  <template shadowrootmode="open">
+    <div class="ic-loading-container" part="ic-loading-container">
+      <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar" style="--circular-line-width: 8px;">
+        <div class="ic-loading-circular-inner">
+          <svg class="ic-loading-circular-svg" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="36"></circle>
+            <circle cx="40" cy="40" r="36" style="--stroke-dasharray: 226.1946710584651px;"></circle>
+          </svg>
+        </div>
+      </div>
+      <ic-typography class="ic-loading-label ic-typography-h4" id="ic-loading-label" role="status">
+        <template shadowrootmode="open">
+          <slot></slot>
+        </template>
+        <p>
+          Waiting
+        </p>
+      </ic-typography>
+    </div>
+  </template>
+</ic-loading-indicator>
+`;
