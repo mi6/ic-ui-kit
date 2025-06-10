@@ -379,3 +379,30 @@ export const DisableTopBarBehaviourSideNav = (): ReactElement => (
     </IcNavigationItem>
   </IcSideNavigation>
 );
+
+export const CloseOnNavItemClickSideNav = (): ReactElement => (
+  <IcSideNavigation
+    appTitle="ACME"
+    version="v0.0.0"
+    status="BETA"
+    closeOnNavItemClick
+    expanded
+  >
+    <IcNavigationItem slot="primary-navigation" label="Home" selected>
+      <IcBadge label="1" slot="badge" variant="light" />
+      <ReusableSlottedIcon />
+    </IcNavigationItem>
+    <IcNavigationGroup
+      slot="primary-navigation"
+      label="Navigation Group"
+      expandable
+    >
+      <IcNavigationItem label="Item 1">
+        <ReusableSlottedIcon />
+      </IcNavigationItem>
+    </IcNavigationGroup>
+    <IcNavigationItem slot="secondary-navigation" label="Settings">
+      <ReusableSlottedIcon />
+    </IcNavigationItem>
+  </IcSideNavigation>
+);

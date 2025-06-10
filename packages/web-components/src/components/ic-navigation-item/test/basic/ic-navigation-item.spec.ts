@@ -99,6 +99,41 @@ describe("ic-navigation-item", () => {
     page.root?.click();
   });
 
+  it("should emit navItemClicked on click", async () => {
+    const page = await newSpecPage({
+      components: [NavigationItem],
+      html: `<ic-navigation-item label="Item label"></ic-navigation-item>`,
+    });
+
+    const eventSpy = jest.fn();
+    page.win.addEventListener("navItemClicked", eventSpy);
+
+    page.root?.click();
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalled();
+  });
+
+  it("should emit navItemClicked on Enter key press", async () => {
+    const page = await newSpecPage({
+      components: [NavigationItem],
+      html: `<ic-navigation-item label="Item label"></ic-navigation-item>`,
+    });
+
+    const eventSpy = jest.fn();
+    page.win.addEventListener("navItemClicked", eventSpy);
+
+    const event = new KeyboardEvent("keydown", {
+      key: "Enter",
+      bubbles: true,
+      cancelable: true,
+    });
+    page.root?.dispatchEvent(event);
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalled();
+  });
+
   it("should test inside side navigation", async () => {
     const page = await newSpecPage({
       components: [TopNavigation, NavigationItem],
