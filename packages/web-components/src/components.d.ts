@@ -1218,7 +1218,7 @@ export namespace Components {
         /**
           * If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
          */
-        "expandable"?: boolean;
+        "expandable": boolean;
         /**
           * The label to display on the group.
          */
@@ -1230,20 +1230,20 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcNavigationItem {
-        "collapsedIconLabel"?: boolean;
-        "displayNavigationTooltip"?: boolean;
+        "collapsedIconLabel": boolean;
+        "displayNavigationTooltip": boolean;
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
-        "download"?: string | boolean;
-        "expandable"?: boolean;
+        "download": string | boolean;
+        "expandable": boolean;
         /**
           * The destination of the navigation item.
          */
-        "href"?: string;
+        "href": string;
         /**
           * The human language of the linked URL.
          */
@@ -1263,7 +1263,7 @@ export namespace Components {
         /**
           * If `true`, the navigation item will be set in a selected state.
          */
-        "selected"?: boolean;
+        "selected": boolean;
         /**
           * Sets focus on the nav item.
          */
@@ -1275,7 +1275,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcNavigationMenu {
         /**
@@ -2425,35 +2425,35 @@ export namespace Components {
         /**
           * The alignment of the top navigation content.
          */
-        "contentAligned"?: IcAlignment;
+        "contentAligned": IcAlignment;
         /**
           * Can set a custom breakpoint for the top navigation to switch to mobile mode. Must be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.
          */
-        "customMobileBreakpoint"?: IcDeviceSizes;
+        "customMobileBreakpoint": IcDeviceSizes;
         /**
           * The URL to navigate to when the app title is clicked.
          */
-        "href"?: string;
+        "href": string;
         /**
           * If `true`, the flyout navigation menu on small devices will be contained by the parent element.
          */
-        "inline"?: boolean;
+        "inline": boolean;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
          */
-        "shortAppTitle"?: string;
+        "shortAppTitle": string;
         /**
           * The status info to be displayed.
          */
-        "status"?: string;
+        "status": string;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The version info to be displayed.
          */
-        "version"?: string;
+        "version": string;
     }
     interface IcTypography {
         /**
