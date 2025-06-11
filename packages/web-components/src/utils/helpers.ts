@@ -267,15 +267,16 @@ export const handleHiddenFormButtonClick = (
   form: HTMLFormElement,
   button: HTMLIcButtonElement | HTMLButtonElement
 ): void => {
-  const hiddenFormButton = document.createElement("button");
+  const hiddenFormButton =
+    document.querySelector<HTMLButtonElement>("#hidden-form-button") ??
+    document.createElement("button");
 
-  button.type && hiddenFormButton.setAttribute("type", button.type);
+  hiddenFormButton.setAttribute("type", button.type ?? "button");
+  hiddenFormButton.id = "hidden-form-button";
   hiddenFormButton.style.display = "none";
 
   form.appendChild(hiddenFormButton);
-
   hiddenFormButton.click();
-  hiddenFormButton.remove();
 };
 
 export const isEmptyString = (value?: string): boolean =>
