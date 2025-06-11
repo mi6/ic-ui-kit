@@ -52,6 +52,7 @@ import { IcSearchBarBlurEventDetail } from "../ic-search-bar/ic-search-bar.types
 })
 export class TopNavigation {
   private hasAppIcon = false;
+  private hasAppTitleSlot = false;
   private hasIconButtons = false;
   private hasNavigation = false;
   private hasSearchSlotContent = false;
@@ -152,7 +153,7 @@ export class TopNavigation {
 
   componentDidLoad(): void {
     checkResizeObserver(this.runResizeObserver);
-    if (!isSlotUsed(this.el, "app-title")) {
+    if (!this.hasAppTitleSlot) {
       onComponentRequiredPropUndefined(
         [{ prop: this.appTitle, propName: "app-title" }],
         "Top Navigation"
@@ -195,9 +196,17 @@ export class TopNavigation {
 
   private checkSlots = () => {
     this.hasAppIcon = isSlotUsed(this.el, "app-icon");
+    this.hasAppTitleSlot = isSlotUsed(this.el, "app-title");
     this.hasNavigation = isSlotUsed(this.el, "navigation");
     this.hasIconButtons = isSlotUsed(this.el, "buttons");
     this.hasSearchSlotContent = isSlotUsed(this.el, "search");
+
+    if (this.hasAppIcon) {
+      const slottedAppIcon =
+        this.el.querySelector<HTMLElement>('[slot="app-icon"]');
+      if (slottedAppIcon && slottedAppIcon.tagName === "A")
+        slottedAppIcon.tabIndex = -1;
+    }
   };
 
   private initialiseSearchBar = () => {
@@ -293,6 +302,7 @@ export class TopNavigation {
       el,
       foregroundColor,
       hasAppIcon,
+      hasAppTitleSlot,
       hasFullWidthSearchBar,
       hasIconButtons,
       hasNavigation,
@@ -333,7 +343,6 @@ export class TopNavigation {
     const menuSize = isSmallDeviceSize ? "small" : "medium";
 
     const shortAppTitleSlot = isSlotUsed(el, "short-app-title");
-    const hasAppTitleSlot = isSlotUsed(el, "app-title");
     const Component = hasAppTitleSlot ? "div" : "a";
     const attrs = Component == "a" && {
       href: href,
