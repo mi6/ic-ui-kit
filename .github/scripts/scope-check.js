@@ -83,6 +83,7 @@ function main() {
     "codemod": "packages/codemod/",
     "fonts": "packages/fonts/",
     "root": null,
+    "release": null,
   };
   const commits = getCommits(baseBranch);
   if (commits.length === 0) {
