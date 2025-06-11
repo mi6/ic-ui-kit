@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.18...@ukic/canary-react@3.0.0-canary.19) (2025-06-11)
+
+### Bug Fixes
+
+- **canary-react:** fixes tooltip display on action elements ([2d0d81c](https://github.com/mi6/ic-ui-kit/commit/2d0d81c4af363d63a22a1c4eac714c8f80b0c611))
+- **canary-react:** updates baseline images after alignment fix ([3dbef31](https://github.com/mi6/ic-ui-kit/commit/3dbef31c98ccb6c4ad445a6350a4f24e1c91ccb1))
+
+### Features
+
+- **canary-react:** updates for pagination bar change ([f5f7662](https://github.com/mi6/ic-ui-kit/commit/f5f7662fc9d0d0055c621e9fb6ae43b2c88294e0))
+
 # [3.0.0-canary.18](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@3.0.0-canary.17...@ukic/canary-react@3.0.0-canary.18) (2025-05-28)
 
 **Note:** Version bump only for package @ukic/canary-react

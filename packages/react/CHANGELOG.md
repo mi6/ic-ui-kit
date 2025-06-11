@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.3.0...@ukic/react@3.4.0) (2025-06-11)
+
+### Bug Fixes
+
+- **react:** update focus and high contrast styling of alert dismissible button ([6955f17](https://github.com/mi6/ic-ui-kit/commit/6955f17b5c0f24c0a7cc48fdf334d7b5931f936c))
+- **react:** updated css that caused heights to be off from designs ([a9b9e09](https://github.com/mi6/ic-ui-kit/commit/a9b9e09162ebf6a93d10c7a4fa6edcfb0475078f))
+- **react:** updated menu scroll height check to include group titles ([9206530](https://github.com/mi6/ic-ui-kit/commit/9206530dd05a125ed1407431d369911f8137bb14))
+- **react:** updated styles to correctly apply hover and active states to slotted items ([dfddfee](https://github.com/mi6/ic-ui-kit/commit/dfddfee35c611dce29662548abfc616e2b964dcd))
+
+### Features
+
+- **react:** add closeOnNavItemClicked prop to side navigation ([f877b7e](https://github.com/mi6/ic-ui-kit/commit/f877b7e9db673e7bb9a5c3fd7013643ee88a1801))
+- **react:** add Cypress test for when charactersUntilSuggestion is 0 on search bar ([79fdce9](https://github.com/mi6/ic-ui-kit/commit/79fdce988a3b44112a36cdab687bb47dc3b07274)), closes [.#2809](https://github.com/./issues/2809)
+
 # [3.3.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@3.2.0...@ukic/react@3.3.0) (2025-05-28)
 
 ### Features
