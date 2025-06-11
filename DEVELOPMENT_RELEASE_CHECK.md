@@ -3,7 +3,7 @@
 > lerna version --no-push --no-git-tag-version
 
 
-Changes:
+Changes: 
 
 - @ukic/canary-docs: 3.0.0-canary.15 => 3.0.0-canary.16
 
