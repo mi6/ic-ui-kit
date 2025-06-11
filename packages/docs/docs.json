@@ -13255,11 +13255,11 @@
               "type": "string"
             },
             {
-              "value": "on",
+              "value": "off",
               "type": "string"
             },
             {
-              "value": "off",
+              "value": "on",
               "type": "string"
             },
             {
@@ -13936,6 +13936,30 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "preventFormSubmitOnSearch",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "prevent-form-submit-on-search",
+          "reflectToAttr": false,
+          "docs": "If `true` the parent form will not submit when the icSubmitSearch event fires.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
