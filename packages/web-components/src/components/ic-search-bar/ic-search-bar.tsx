@@ -43,6 +43,7 @@ import {
 
 import clearIcon from "../../assets/clear-icon.svg";
 import searchIcon from "../../assets/search-icon.svg";
+import { IcButtonTypes } from "../ic-button/ic-button.types";
 
 let inputIds = 0;
 
@@ -211,6 +212,16 @@ export class SearchBar {
    * The placeholder value to display.
    */
   @Prop() placeholder = "Search";
+
+  /**
+   * If `true` the parent form will not submit when the icSubmitSearch event fires.
+   */
+  @Prop() preventFormSubmitOnSearch = false;
+  @State() searchButtonType: IcButtonTypes;
+  @Watch("preventFormSubmitOnSearch")
+  preventFormSubmitOnSearchHandler(): void {
+    this.updateSearchButtonType();
+  }
 
   /**
    * If `true`, the readonly state will be set.
@@ -456,6 +467,8 @@ export class SearchBar {
     this.setInputValue(this.value);
 
     removeDisabledFalse(this.disabled, this.el as HTMLElement);
+
+    this.updateSearchButtonType();
   }
 
   componentDidLoad(): void {
@@ -750,6 +763,13 @@ export class SearchBar {
     this.loading;
 
   private showMenuWithNoInput = () => this.charactersUntilSuggestion === 0;
+  private updateSearchButtonType = () => {
+    this.searchButtonType =
+      !!this.el.closest<HTMLFormElement>("FORM") &&
+      !this.preventFormSubmitOnSearch
+        ? "submit"
+        : "button";
+  };
 
   render() {
     const {
@@ -785,6 +805,7 @@ export class SearchBar {
       showClearButton,
       searchSubmitFocused,
       clearButtonFocused,
+      searchButtonType,
     } = this;
 
     const disabledMode = readonly || disabled;
@@ -905,7 +926,7 @@ export class SearchBar {
                 onFocus={this.handleFocusClearButton}
                 onBlur={this.handleClearBlur}
                 onKeyDown={this.handleClear}
-                type="submit"
+                type={"button"}
                 variant="icon"
                 theme={clearButtonFocused ? "light" : "dark"}
               ></ic-button>
@@ -935,7 +956,7 @@ export class SearchBar {
                 onBlur={this.handleSubmitSearchBlur}
                 onFocus={this.handleSubmitSearchFocus}
                 onKeyDown={this.handleSubmitSearchKeyDown}
-                type="submit"
+                type={searchButtonType}
                 variant="icon"
                 theme={searchSubmitFocused ? "light" : "dark"}
               ></ic-button>
