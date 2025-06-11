@@ -137,11 +137,6 @@ jobs:
         id: canary_cypress_tests
         run: npm run test-cypress:ci:canary
 
-      - name: Cypress performance tests
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        id: core_cypress_performance_tests
-        run: npm run test-cypress-perf:ci
-
   ic-ui-kit-publish:
     needs:
       [

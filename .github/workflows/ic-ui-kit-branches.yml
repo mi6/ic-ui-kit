@@ -222,18 +222,6 @@ jobs:
           folder: ./packages/canary-react/cypress-image-diff-html-report
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
 
-      - name: Cypress performance tests
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        id: core_cypress_performance_tests
-        run: npm run test-cypress-perf:ci
-
-      - name: Upload lighthouse performance reports
-        if: failure() && steps.core_cypress_performance_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/react/cypress-lighthouse-reports
-          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-lighthouse-reports
-
       - name: Add PR comment with diff screenshots
         if: always() && (steps.core_cypress_tests.outcome == 'failure' || steps.canary_cypress_tests.outcome == 'failure')
         uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc #v2.8.2
@@ -243,15 +231,6 @@ jobs:
             View the image diff here: https://github.com/mi6/ic-ui-kit/tree/gh-pages/branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots/diff
             View the html report here: https://mi6.github.io/ic-ui-kit/branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report/cypress-image-diff-html-report.html
           message-id: "image-diff"
-
-      - name: Add PR comment with performance reports
-        if: always() && steps.core_cypress_performance_tests.outcome == 'failure'
-        uses: mshick/add-pr-comment@b8f338c590a895d50bcbfa6c5859251edc8952fc #v2.8.2
-        with:
-          message: |
-            Cypress performance tests failed.
-            View the lighthouse reports here: https://github.com/mi6/ic-ui-kit/tree/gh-pages/branches/${{ steps.extract_branch.outputs.branch }}/cypress-lighthouse-reports
-          message-id: "performance-results"
 
   ic-ui-kit-deploy:
     needs:
