@@ -39,6 +39,15 @@ describe("ic-navigation-group", () => {
     expect(page.root).toMatchSnapshot("renders-expandable");
   });
 
+  it("should render as expandable and collapsed", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup],
+      html: `<ic-navigation-group label="Group label" expandable="true" expanded="false"></ic-navigation-group>`,
+    });
+    await waitForNavGroupLoad();
+    expect(page.root).toMatchSnapshot("renders-expanded-false");
+  });
+
   it("should render correctly when in a top navigation when not expandable", async () => {
     const page = await newSpecPage({
       components: [NavigationGroup],

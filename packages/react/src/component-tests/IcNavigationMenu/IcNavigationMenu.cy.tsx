@@ -14,6 +14,7 @@ import {
   AllNavTypesTopNav,
   AllNavTypesSideNav,
   ThemeDarkTopNav,
+  WithExpandableNotExpandedNavGroupSideNav,
 } from "./IcNavigationMenuTestData";
 import {
   HAVE_BEEN_CALLED_ONCE,
@@ -451,6 +452,20 @@ describe("IcNavigationMenu end-to-end and visual regression tests", () => {
       cy.compareSnapshot({
         name: "/nav-item-within-expandable-nav-group-focused-side-nav",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+      });
+    });
+
+    it("should render with expandable navigation group with expanded false", () => {
+      cy.mockResizeObserver(576, 600);
+      mount(<WithExpandableNotExpandedNavGroupSideNav />);
+
+      cy.checkShadowElVisible(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR);
+      cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR).click();
+
+      cy.checkA11yWithWait(undefined, 250);
+      cy.compareSnapshot({
+        name: "/with-expandable-not-expanded-nav-groups-side-nav",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
       });
     });
 

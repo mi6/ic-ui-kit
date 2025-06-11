@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-navigation-group should render as expandable and collapsed: renders-expanded-false 1`] = `
+<ic-navigation-group class="ic-navigation-group-collapsed ic-navigation-group-expandable" expandable="true" expanded="false" label="Group label" role="listitem">
+  <template shadowrootmode="open">
+    <button aria-expanded="false" aria-haspopup="false" class="light navigation-group">
+      <ic-typography id="nav-group-title" variant="label">
+        Group label
+      </ic-typography>
+    </button>
+    <ul class="grouped-links-wrapper">
+      <slot></slot>
+    </ul>
+  </template>
+</ic-navigation-group>
+`;
+
 exports[`ic-navigation-group should render as expandable: renders-expandable 1`] = `
 <ic-navigation-group class="ic-navigation-group-expandable ic-navigation-group-expanded" expandable="true" label="Group label" role="listitem">
   <template shadowrootmode="open">

@@ -1220,6 +1220,10 @@ export namespace Components {
          */
         "expandable": boolean;
         /**
+          * If `true`, the expandable group will be expanded by default when in an ic-side-navigation component. To enable this prop, `expandable` must also be set to `true`.
+         */
+        "expanded": boolean;
+        /**
           * The label to display on the group.
          */
         "label": string;
@@ -4665,6 +4669,10 @@ declare namespace LocalJSX {
           * If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
          */
         "expandable"?: boolean;
+        /**
+          * If `true`, the expandable group will be expanded by default when in an ic-side-navigation component. To enable this prop, `expandable` must also be set to `true`.
+         */
+        "expanded"?: boolean;
         /**
           * The label to display on the group.
          */

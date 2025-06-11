@@ -372,6 +372,7 @@ export const Expanded = {
           slot="primary-navigation"
           label="Second navigation group"
           expandable="true"
+          expanded="false"
         >
           <ic-navigation-item label="Different navigation" href="/">
             <svg
