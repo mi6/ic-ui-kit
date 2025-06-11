@@ -228,6 +228,8 @@ export type IcIconPlacementOptions = "left" | "right" | "top";
 
 export type IcButtonTooltipPlacement = "top" | "right" | "bottom" | "left";
 
+export type IcThemeSettings = "dark" | "light" | "system";
+
 export interface IcPaginationBarOptions {
   alignment?: IcPaginationAlignmentOptions;
   hideAllFromItemsPerPage?: boolean;
@@ -238,6 +240,7 @@ export interface IcPaginationBarOptions {
   pageLabel?: string;
   rangeLabelType?: IcPaginationLabelTypes;
   selectedItemsPerPage?: number;
+  selectItemsPerPageOnEnter?: boolean;
   setToFirstPageOnPaginationChange?: boolean;
   showGoToPageControl?: boolean;
   showItemsPerPageControl?: boolean;

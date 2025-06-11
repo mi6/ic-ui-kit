@@ -208,6 +208,16 @@ export const CharactersUntilSuggestion = () => {
   );
 };
 
+export const CharactersUntilSuggestionZero = () => {
+  return (
+    <IcSearchBar
+      label="What is your favourite coffee?"
+      charactersUntilSuggestion={0}
+      options={defaultOptions}
+    />
+  );
+};
+
 export const LongOptionLabel = () => {
   return (
     <div style={{ padding: "10px" }}>

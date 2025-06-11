@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { IcDataTableColumnObject } from "./ic-data-table.types";
 
 /* eslint-disable */

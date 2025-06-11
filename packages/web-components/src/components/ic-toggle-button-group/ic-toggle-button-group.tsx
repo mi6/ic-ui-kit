@@ -16,6 +16,7 @@ import {
   IcSelectMethodTypes,
   IcThemeMode,
   IcButtonTooltipPlacement,
+  IcIconPlacementOptions,
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-toggle-button-group.types";
 import { removeDisabledFalse } from "../../utils/helpers";
@@ -43,12 +44,12 @@ export class ToggleButtonGroup {
   /**
    * The accessible label of the toggle button group component to provide context for screen reader users.
    */
-  @Prop() accessibleLabel?: string = "Toggle button group";
+  @Prop() accessibleLabel = "Toggle button group";
 
   /**
    * If `true`, the toggle button group will be set to the disabled state.
    */
-  @Prop() disabled: boolean = false;
+  @Prop() disabled = false;
   @Watch("disabled")
   watchDisabledHandler(): void {
     this.getAllToggleButtons().forEach((el) => {
@@ -60,7 +61,7 @@ export class ToggleButtonGroup {
   /**
    * If `true`, the toggle button group will fill the width of the container.
    */
-  @Prop() fullWidth?: boolean = false;
+  @Prop() fullWidth = false;
   @Watch("fullWidth")
   watchFullWidthHandler(): void {
     this.getAllToggleButtons().forEach((el) => {
@@ -71,12 +72,12 @@ export class ToggleButtonGroup {
   /**
    * The placement of the icons in relation to the toggle button labels.
    */
-  @Prop() iconPlacement?: "left" | "right" | "top";
+  @Prop() iconPlacement?: IcIconPlacementOptions;
 
   /**
    * If `true`, the toggle button group will be in loading state.
    */
-  @Prop() loading?: boolean = false;
+  @Prop() loading = false;
   @Watch("loading")
   watchLoadingHandler(): void {
     this.getAllToggleButtons().forEach((el) => {
@@ -87,7 +88,7 @@ export class ToggleButtonGroup {
   /**
    * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
    */
-  @Prop() monochrome?: boolean = false;
+  @Prop() monochrome = false;
   @Watch("monochrome")
   watchMonochromeHandler(): void {
     this.getAllToggleButtons().forEach((el) => {
@@ -98,17 +99,17 @@ export class ToggleButtonGroup {
   /**
    * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
    */
-  @Prop({ mutable: true }) selectMethod?: IcSelectMethodTypes = "manual";
+  @Prop({ mutable: true }) selectMethod: IcSelectMethodTypes = "manual";
 
   /**
    * Sets whether single or multiple options can be toggled. If `multi`, then the `selectMethod` is always `manual`.
    */
-  @Prop() selectType?: IcSelectTypes = "single";
+  @Prop() selectType: IcSelectTypes = "single";
 
   /**
    * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
    */
-  @Prop() size?: IcSizes = "medium";
+  @Prop() size: IcSizes = "medium";
   @Watch("size")
   watchSizeHandler(): void {
     this.getAllToggleButtons().forEach((el) => {
@@ -119,7 +120,7 @@ export class ToggleButtonGroup {
   /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
-  @Prop() theme?: IcThemeMode = "inherit";
+  @Prop() theme: IcThemeMode = "inherit";
   @Watch("theme")
   watchThemeHandler(): void {
     this.getAllToggleButtons().forEach((el) => {
@@ -158,8 +159,9 @@ export class ToggleButtonGroup {
   selectHandler(ev: CustomEvent, tabTarget?: HTMLIcToggleButtonElement): void {
     const allToggles = this.getAllToggleButtons();
     let clickedToggle = ev.target as HTMLIcToggleButtonElement;
-    // tabTarget used in proxySelectHandler
-    tabTarget && tabTarget.focus();
+
+    if (tabTarget) tabTarget.focus(); // tabTarget used in proxySelectHandler
+
     if (this.selectType === "single") {
       if (!clickedToggle && tabTarget) {
         clickedToggle = tabTarget;
@@ -175,12 +177,12 @@ export class ToggleButtonGroup {
         selectedOption: clickedToggle,
       });
     } else {
-      const toggledOptions = this.getAllToggleButtons().filter(
+      const toggledOptions = allToggles.filter(
         (el) => el.checked && !el.disabled
       );
 
       this.icChange.emit({
-        checked: toggledOptions.map((opt) => opt.checked!),
+        checked: toggledOptions.map((opt) => opt.checked),
         toggledOptions: toggledOptions.map((opt) => ({
           toggleButton: opt,
         })),
@@ -190,15 +192,23 @@ export class ToggleButtonGroup {
   }
 
   componentWillLoad(): void {
-    this.selectType === "multi" && (this.selectMethod = "manual");
-    this.selectMethod === "auto" && this.selectType === "single";
+    if (this.selectType === "multi") this.selectMethod = "manual";
+    if (this.selectMethod === "auto") this.selectType === "single";
     document.addEventListener("keydown", this.keyListener);
     removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
     this.getAllToggleButtons().forEach((el, i) => {
-      this.setSlottedAria(el);
+      const btn = el.shadowRoot
+        ?.querySelector("ic-button")
+        ?.shadowRoot?.querySelector("button");
+      if (btn) {
+        const btnAriaLabel = btn.getAttribute("aria-label");
+        const aria = btnAriaLabel ? `${btnAriaLabel}, ` : "";
+        btn.setAttribute("aria-label", `${aria}${this.accessibleLabel}`);
+      }
+
       el.id = i.toString();
       el.tabIndex = -1;
       el.addEventListener("keydown", (ev) => {
@@ -219,90 +229,64 @@ export class ToggleButtonGroup {
     };
   };
 
-  private setSlottedAria = (el: HTMLIcToggleButtonElement) => {
-    const btn = el.shadowRoot
-      ?.querySelector("ic-button")
-      ?.shadowRoot?.querySelector("button") as HTMLButtonElement;
-    let aria = btn.getAttribute("aria-label") || "";
-    aria += ", ";
-    aria += this.accessibleLabel;
-    btn.setAttribute("aria-label", aria);
-  };
+  private handleHostFocus = ({ target, relatedTarget }: FocusEvent) => {
+    if (this.loading || this.disabled) return;
 
-  private handleHostFocus = (ev: FocusEvent): void | null => {
-    if (this.loading || this.disabled) {
-      return null;
-    }
-    const el = ev.target as HTMLIcToggleButtonGroupElement;
-    const relEl = ev.relatedTarget as HTMLIcToggleButtonElement;
-    const toggleButtons = Array.from(el.querySelectorAll("ic-toggle-button"));
-    if (
-      ((toggleButtons.every((el) => !el.checked) ||
-        this.selectType !== "single") &&
-        this.lastKeyPressed.shift === false) ||
-      (toggleButtons.every((el) => !el.checked) &&
-        this.lastKeyPressed.shift === true &&
-        relEl.tagName == TOGGLE_GROUP)
-    ) {
-      toggleButtons[0].focus();
-    } else if (
-      this.lastKeyPressed.shift === false ||
-      (this.lastKeyPressed.shift === true && relEl.tagName == TOGGLE_GROUP)
-    ) {
-      // if checked is true and selectMethod is "single", focus that toggle
-      const toggledButton = toggleButtons.filter((el) => el.checked);
-      toggledButton[0].focus();
-    }
-  };
-
-  // trigger selectHandler when unable to add 'target'
-  private proxySelectHandler(toggle: HTMLIcToggleButtonElement): void {
-    toggle.checked = true;
-    const customEv = new CustomEvent("icToggleChecked", {
-      detail: {
-        checked: toggle.checked,
-      },
-    });
-    this.selectHandler(customEv, toggle);
-  }
-
-  private handleKeyDown = (event: KeyboardEvent): void => {
-    const toggleButtonOptions = this.getAllToggleButtons();
-    const focussedChild = toggleButtonOptions.indexOf(
-      toggleButtonOptions.filter((el) => el === document.activeElement)[0]
+    const el = target as HTMLIcToggleButtonGroupElement | null;
+    const relEl = relatedTarget as HTMLIcToggleButtonElement | null;
+    const toggleButtons = Array.from(
+      el?.querySelectorAll("ic-toggle-button") || []
     );
-    switch (event.key) {
-      case "ArrowDown":
-      case "ArrowRight":
-        this.selectMethod === "auto"
-          ? this.proxySelectHandler(
-              toggleButtonOptions[this.getNextItemToSelect(focussedChild, true)]
-            )
-          : toggleButtonOptions[
-              this.getNextItemToSelect(focussedChild, true)
-            ].focus();
-        break;
-      case "ArrowUp":
-      case "ArrowLeft":
-        this.selectMethod === "auto"
-          ? this.proxySelectHandler(
-              toggleButtonOptions[
-                this.getNextItemToSelect(focussedChild, false)
-              ]
-            )
-          : toggleButtonOptions[
-              this.getNextItemToSelect(focussedChild, false)
-            ].focus();
-        break;
-      case "Tab":
-        break;
+    const noToggleButtonsChecked = toggleButtons.every((el) => !el.checked);
+    const { shift } = this.lastKeyPressed;
+    if (
+      ((noToggleButtonsChecked || this.selectType !== "single") && !shift) ||
+      (noToggleButtonsChecked && shift && relEl?.tagName == TOGGLE_GROUP)
+    ) {
+      toggleButtons[0]?.focus();
+    } else if (!shift || relEl?.tagName == TOGGLE_GROUP) {
+      // if checked is true and selectMethod is "single", focus that toggle
+      toggleButtons.filter((el) => el.checked)[0].focus();
     }
   };
 
-  private getNextItemToSelect = (
-    currentItem: number,
-    movingDown: boolean
-  ): number => {
+  private handleKeyDown = ({ key }: KeyboardEvent) => {
+    if (
+      key !== "ArrowDown" &&
+      key !== "ArrowRight" &&
+      key !== "ArrowLeft" &&
+      key !== "ArrowUp"
+    )
+      return;
+
+    const toggleButtonOptions = this.getAllToggleButtons();
+    const targetToggle =
+      toggleButtonOptions[
+        this.getNextItemToSelect(
+          toggleButtonOptions.indexOf(
+            toggleButtonOptions.filter((el) => el === document.activeElement)[0]
+          ),
+          key === "ArrowDown" || key === "ArrowRight"
+        )
+      ];
+
+    if (this.selectMethod === "auto") {
+      // trigger selectHandler when unable to add 'target'
+      targetToggle.checked = true;
+      this.selectHandler(
+        new CustomEvent("icToggleChecked", {
+          detail: {
+            checked: targetToggle.checked,
+          },
+        }),
+        targetToggle
+      );
+    } else {
+      targetToggle.focus();
+    }
+  };
+
+  private getNextItemToSelect = (currentItem: number, movingDown: boolean) => {
     const toggleButtonOptions = this.getAllToggleButtons();
     const numToggles = toggleButtonOptions.length - 1;
 
@@ -324,23 +308,24 @@ export class ToggleButtonGroup {
     return nextItem;
   };
 
-  private getAllToggleButtons(): HTMLIcToggleButtonElement[] {
-    return Array.from(this.el.querySelectorAll("ic-toggle-button"));
-  }
+  private getAllToggleButtons = () =>
+    Array.from(this.el.querySelectorAll("ic-toggle-button"));
 
   render() {
+    const { accessibleLabel, disabled, fullWidth, loading, monochrome, theme } =
+      this;
+
     return (
       <Host
         role="group"
-        aria-label={this.accessibleLabel}
+        aria-label={accessibleLabel}
         tabindex={0}
         class={{
-          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
-          ["ic-toggle-button-group-full-width"]: !!this.fullWidth,
-          ["ic-toggle-button-group-loading"]: !!this.loading,
-          ["ic-toggle-button-group-disabled"]: this.disabled,
-          [`ic-toggle-button-group-monochrome`]: !!this.monochrome,
-          [`ic-theme-${this.theme}`]: this.theme !== "inherit",
+          "ic-toggle-button-group-disabled": disabled,
+          "ic-toggle-button-group-full-width": fullWidth,
+          "ic-toggle-button-group-loading": loading,
+          "ic-toggle-button-group-monochrome": monochrome,
+          [`ic-theme-${theme}`]: theme !== "inherit",
         }}
         onFocus={this.handleHostFocus}
       >

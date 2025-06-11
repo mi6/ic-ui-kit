@@ -264,27 +264,25 @@ td.table-density-spacious {
 .data-type-string,
 .data-type-address {
   text-align: left;
-  vertical-align: top;
 }
 
 .data-type-number,
 .data-type-date {
   text-align: right;
   justify-content: end;
-  vertical-align: top;
 }
 
-.cell-alignment-top {
+.cell-vertical-align-top {
   vertical-align: top;
   align-items: flex-start;
 }
 
-.cell-alignment-middle {
+.cell-vertical-align-middle {
   vertical-align: middle;
   align-items: center;
 }
 
-.cell-alignment-bottom {
+.cell-vertical-align-bottom {
   vertical-align: bottom;
   align-items: flex-end;
 }

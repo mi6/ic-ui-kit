@@ -16,6 +16,16 @@
   );
 }
 
+:host(:not(.expand-toggle-group-child)) {
+  display: inline-block;
+  border-radius: var(--ic-border-radius);
+  border: var(--ic-border-width) solid var(--toggle-button-border);
+}
+
+:host(.ic-toggle-button-full-width:not(.expand-toggle-group-child)) {
+  width: 100%;
+}
+
 :host(.ic-toggle-button-checked) {
   --toggle-button-border: var(--ic-toggle-button-selected-border);
   --toggle-button-text-colour: var(--ic-toggle-button-selected-text);
@@ -93,9 +103,12 @@
 
 :host(.expand-toggle-group-child) ::part(button) {
   width: 100%;
+}
+
+:host(.expand-toggle-group-child:not(.ic-toggle-button-loading))
+  ::part(button) {
   min-height: inherit;
-  white-space: inherit;
-  height: inherit;
+  height: auto;
 }
 
 :host ic-button {
@@ -106,7 +119,6 @@
 :host(.expand-toggle-group-child) ic-button {
   min-width: 100%;
   min-height: 100%;
-  white-space: normal;
   height: 100%;
 }
 
@@ -128,25 +140,46 @@
 }
 
 :host ::part(button) {
-  border: var(--ic-border-width) solid var(--toggle-button-border);
+  border: none;
   color: var(--toggle-button-text-colour);
 }
 
 :host ::part(button):hover {
-  border: var(--ic-border-width) solid var(--toggle-button-border-hover);
   color: var(--toggle-button-text-colour-hover);
   background-color: var(--ic-toggle-button-unselected-background-hover);
 }
 
 :host ::part(button):active {
-  border: var(--ic-border-width) solid var(--toggle-button-border-active);
   color: var(--toggle-button-text-colour-active);
   background-color: var(--ic-toggle-button-unselected-background-pressed);
 }
 
+:host ::part(button):focus {
+  border: var(--ic-border-width) solid var(--toggle-button-border);
+}
+
+:host ::part(button):hover:focus {
+  border: var(--ic-border-width) solid var(--toggle-button-border-hover);
+}
+
+:host ::part(button):active:focus {
+  border: var(--ic-border-width) solid var(--toggle-button-border-active);
+}
+
 :host(.ic-toggle-button-disabled) ::part(button) {
-  border: var(--ic-space-1px) dashed var(--toggle-button-border);
   color: var(--toggle-button-text-colour);
+}
+
+:host(:not(.expand-toggle-group-child)):has(ic-button:hover) {
+  border: var(--ic-border-width) solid var(--toggle-button-border-hover);
+}
+
+:host(:not(.expand-toggle-group-child)):has(ic-button:active) {
+  border: var(--ic-border-width) solid var(--toggle-button-border-active);
+}
+
+:host(:not(.expand-toggle-group-child).ic-toggle-button-disabled) {
+  border: var(--ic-border-width) dashed var(--toggle-button-border);
 }
 
 :host(.ic-toggle-button-checked) ::part(button) {

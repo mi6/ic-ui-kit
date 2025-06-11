@@ -968,7 +968,7 @@ export namespace Components {
     }
     interface IcLink {
         /**
-          * If `true`, the user can save the linked URL instead of navigating to it.
+          * If `true`, the user can save the linked URL instead of navigating to it. If the value is a string, it will be used as the filename for the download.
          */
         "download"?: string | boolean;
         /**
@@ -1055,20 +1055,20 @@ export namespace Components {
         /**
           * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
          */
-        "activationType"?: IcActivationTypes;
+        "activationType": IcActivationTypes;
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
          */
-        "anchorEl": HTMLElement;
-        "autofocusOnSelected"?: boolean;
+        "anchorEl"?: HTMLElement;
+        "autofocusOnSelected": boolean;
         /**
           * If `true`, the menu will close when an option is selected.
          */
-        "closeOnSelect"?: boolean;
+        "closeOnSelect": boolean;
         /**
           * If `true`, the menu will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         "handleClickOpen": () => Promise<void>;
         /**
           * Used alongside activationType If menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.
@@ -1080,7 +1080,7 @@ export namespace Components {
         /**
           * The reference to the input element.
          */
-        "inputEl": HTMLElement;
+        "inputEl"?: HTMLElement;
         /**
           * The label for the input element.
          */
@@ -1088,7 +1088,7 @@ export namespace Components {
         /**
           * The custom name for the label field for IcMenuOption.
          */
-        "labelField"?: string;
+        "labelField": string;
         /**
           * The ID of the menu.
          */
@@ -1105,12 +1105,12 @@ export namespace Components {
         /**
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
-        "searchMode"?: IcSearchBarSearchModes;
-        "selectOnEnter"?: boolean;
+        "searchMode": IcSearchBarSearchModes;
+        "selectOnEnter": boolean;
         /**
           * The size of the menu.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * The value of the currently selected option - or array of values (if multiple options allowed).
          */
@@ -1118,7 +1118,7 @@ export namespace Components {
         /**
           * The custom name for the value field for IcMenuOption.
          */
-        "valueField"?: string;
+        "valueField": string;
     }
     interface IcMenuGroup {
         /**
@@ -1218,7 +1218,7 @@ export namespace Components {
         /**
           * If `true`, the group will be expandable when in an ic-side-navigation component, or, when in an ic-top-navigation component, in the side menu displayed at small screen sizes.
          */
-        "expandable"?: boolean;
+        "expandable": boolean;
         /**
           * The label to display on the group.
          */
@@ -1230,20 +1230,20 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcNavigationItem {
-        "collapsedIconLabel"?: boolean;
-        "displayNavigationTooltip"?: boolean;
+        "collapsedIconLabel": boolean;
+        "displayNavigationTooltip": boolean;
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
-        "download"?: string | boolean;
-        "expandable"?: boolean;
+        "download": string | boolean;
+        "expandable": boolean;
         /**
           * The destination of the navigation item.
          */
-        "href"?: string;
+        "href": string;
         /**
           * The human language of the linked URL.
          */
@@ -1263,7 +1263,7 @@ export namespace Components {
         /**
           * If `true`, the navigation item will be set in a selected state.
          */
-        "selected"?: boolean;
+        "selected": boolean;
         /**
           * Sets focus on the nav item.
          */
@@ -1275,7 +1275,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcNavigationMenu {
         /**
@@ -1678,19 +1678,19 @@ export namespace Components {
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icInput` event after each keystroke.
          */
-        "debounce"?: number;
+        "debounce": number;
         /**
           * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
-        "disableAutoFiltering"?: boolean;
+        "disableAutoFiltering": boolean;
         /**
           * If `true`, the disabled state will be set.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * The text displayed when there are no options in the option list.
          */
-        "emptyOptionListText"?: string;
+        "emptyOptionListText": string;
         /**
           * The <form> element to associate the select with.
          */
@@ -1698,23 +1698,23 @@ export namespace Components {
         /**
           * If `true`, the select will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The helper text that will be displayed for additional field guidance.
          */
-        "helperText"?: string;
+        "helperText": string;
         /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         /**
           * If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.
          */
-        "includeDescriptionsInSearch"?: boolean;
+        "includeDescriptionsInSearch": boolean;
         /**
           * If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.
          */
-        "includeGroupTitlesInSearch"?: boolean;
+        "includeGroupTitlesInSearch": boolean;
         /**
           * The label for the select.
          */
@@ -1722,51 +1722,51 @@ export namespace Components {
         /**
           * If `true`, the loading state will be triggered when fetching options asynchronously.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * The message displayed when external loading times out.
          */
-        "loadingErrorLabel"?: string;
+        "loadingErrorLabel": string;
         /**
           * The message displayed whilst the options are being loaded externally.
          */
-        "loadingLabel"?: string;
+        "loadingLabel": string;
         /**
           * If `true`, multiple options can be selected.
          */
-        "multiple"?: boolean;
+        "multiple": boolean;
         /**
           * The name of the control, which is submitted with the form data.
          */
-        "name"?: string;
+        "name": string;
         /**
           * The possible selection options.
          */
-        "options"?: IcMenuOption[];
+        "options": IcMenuOption[];
         /**
           * The placeholder value to be displayed.
          */
-        "placeholder"?: string;
+        "placeholder": string;
         /**
           * If `true`, the readonly state will be set.
          */
-        "readonly"?: boolean;
+        "readonly": boolean;
         /**
           * If `true`, the select will require a value.
          */
-        "required"?: boolean;
+        "required": boolean;
         /**
           * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
          */
-        "searchMatchPosition"?: IcSearchMatchPositions;
+        "searchMatchPosition": IcSearchMatchPositions;
         /**
           * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options. This functionality is only available on the single-select variant of the select component.
          */
-        "searchable"?: boolean;
+        "searchable": boolean;
         /**
           * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown on the single select.
          */
-        "selectOnEnter"?: boolean;
+        "selectOnEnter": boolean;
         /**
           * Sets focus on the input box.
          */
@@ -1774,15 +1774,15 @@ export namespace Components {
         /**
           * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
          */
-        "showClearButton"?: boolean;
+        "showClearButton": boolean;
         /**
           * The size of the select.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
@@ -1790,21 +1790,25 @@ export namespace Components {
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationStatus"?: IcInformationStatusOrEmpty;
+        "validationStatus": IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message.
          */
-        "validationText"?: string;
+        "validationText": string;
         /**
           * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
          */
-        "value"?: string | string[] | null;
+        "value": string | string[] | null;
     }
     interface IcSideNavigation {
         /**
           * The app title to be displayed. This is required, unless a slotted app title link is used.
          */
         "appTitle"?: string;
+        /**
+          * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+         */
+        "closeOnNavItemClick"?: boolean;
         /**
           * If `true`, the icon and label will appear when side navigation is collapsed.
          */
@@ -2070,7 +2074,7 @@ export namespace Components {
     interface IcTextField {
         "ariaActiveDescendant"?: string;
         "ariaAutocomplete"?: IcAriaAutocompleteTypes;
-        "ariaExpanded": string | undefined;
+        "ariaExpanded": string | null;
         "ariaOwns"?: string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
@@ -2177,7 +2181,7 @@ export namespace Components {
           * If `true`, the multiline text area will be resizeable.
          */
         "resize": boolean;
-        "role": string | undefined;
+        "role": string | null;
         /**
           * The number of rows to transform the text field into a text area with a specific height.
          */
@@ -2279,19 +2283,19 @@ export namespace Components {
         /**
           * If `true`, the toggle button will be in a checked state.
          */
-        "checked"?: boolean;
+        "checked": boolean;
         /**
           * If `true`, the toggle button will be in disabled state.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         /**
           * If `true`, the toggle button will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The placement of the icon in relation to the toggle button label.
          */
-        "iconPlacement"?: IcIconPlacementOptions;
+        "iconPlacement": IcIconPlacementOptions;
         /**
           * The label to display in the toggle button. This is required for the default variant of toggle buttons.
          */
@@ -2299,33 +2303,33 @@ export namespace Components {
         /**
           * If `true`, the toggle button will be in loading state.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * If `true`, the toggle button will display as black in the light theme, and white in dark theme.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * The size of the toggle button to be displayed.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The position of the tooltip in relation to the toggle button.
          */
-        "tooltipPlacement"?: IcButtonTooltipPlacement;
+        "tooltipPlacement": IcButtonTooltipPlacement;
         /**
           * The variant of the toggle button.
          */
-        "variant"?: "default" | "icon";
+        "variant": "default" | "icon";
     }
     interface IcToggleButtonGroup {
         /**
           * The accessible label of the toggle button group component to provide context for screen reader users.
          */
-        "accessibleLabel"?: string;
+        "accessibleLabel": string;
         /**
           * If `true`, the toggle button group will be set to the disabled state.
          */
@@ -2333,35 +2337,35 @@ export namespace Components {
         /**
           * If `true`, the toggle button group will fill the width of the container.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         /**
           * The placement of the icons in relation to the toggle button labels.
          */
-        "iconPlacement"?: "left" | "right" | "top";
+        "iconPlacement"?: IcIconPlacementOptions;
         /**
           * If `true`, the toggle button group will be in loading state.
          */
-        "loading"?: boolean;
+        "loading": boolean;
         /**
           * If `true`, the toggle button group will display as black in the light theme, and white in dark theme.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.
          */
-        "selectMethod"?: IcSelectMethodTypes;
+        "selectMethod": IcSelectMethodTypes;
         /**
           * Sets whether single or multiple options can be toggled. If `multi`, then the `selectMethod` is always `manual`.
          */
-        "selectType"?: IcSelectTypes;
+        "selectType": IcSelectTypes;
         /**
           * The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.
          */
-        "size"?: IcSizes;
+        "size": IcSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The position of the tooltip in relation to the toggle buttons.
          */
@@ -2421,35 +2425,35 @@ export namespace Components {
         /**
           * The alignment of the top navigation content.
          */
-        "contentAligned"?: IcAlignment;
+        "contentAligned": IcAlignment;
         /**
           * Can set a custom breakpoint for the top navigation to switch to mobile mode. Must be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.
          */
-        "customMobileBreakpoint"?: IcDeviceSizes;
+        "customMobileBreakpoint": IcDeviceSizes;
         /**
           * The URL to navigate to when the app title is clicked.
          */
-        "href"?: string;
+        "href": string;
         /**
           * If `true`, the flyout navigation menu on small devices will be contained by the parent element.
          */
-        "inline"?: boolean;
+        "inline": boolean;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
          */
-        "shortAppTitle"?: string;
+        "shortAppTitle": string;
         /**
           * The status info to be displayed.
          */
-        "status"?: string;
+        "status": string;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The version info to be displayed.
          */
-        "version"?: string;
+        "version": string;
     }
     interface IcTypography {
         /**
@@ -4405,7 +4409,7 @@ declare namespace LocalJSX {
     }
     interface IcLink {
         /**
-          * If `true`, the user can save the linked URL instead of navigating to it.
+          * If `true`, the user can save the linked URL instead of navigating to it. If the value is a string, it will be used as the filename for the download.
          */
         "download"?: string | boolean;
         /**
@@ -4492,7 +4496,7 @@ declare namespace LocalJSX {
         /**
           * The reference to an anchor element the menu will position itself from when rendered.
          */
-        "anchorEl": HTMLElement;
+        "anchorEl"?: HTMLElement;
         "autofocusOnSelected"?: boolean;
         /**
           * If `true`, the menu will close when an option is selected.
@@ -4505,7 +4509,7 @@ declare namespace LocalJSX {
         /**
           * The reference to the input element.
          */
-        "inputEl": HTMLElement;
+        "inputEl"?: HTMLElement;
         /**
           * The label for the input element.
          */
@@ -5324,6 +5328,10 @@ declare namespace LocalJSX {
          */
         "appTitle"?: string;
         /**
+          * If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes.
+         */
+        "closeOnNavItemClick"?: boolean;
+        /**
           * If `true`, the icon and label will appear when side navigation is collapsed.
          */
         "collapsedIconLabels"?: boolean;
@@ -5602,7 +5610,7 @@ declare namespace LocalJSX {
     interface IcTextField {
         "ariaActiveDescendant"?: string;
         "ariaAutocomplete"?: IcAriaAutocompleteTypes;
-        "ariaExpanded"?: string | undefined;
+        "ariaExpanded"?: string | null;
         "ariaOwns"?: string;
         /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
@@ -5734,7 +5742,7 @@ declare namespace LocalJSX {
           * If `true`, the multiline text area will be resizeable.
          */
         "resize"?: boolean;
-        "role"?: string | undefined;
+        "role"?: string | null;
         /**
           * The number of rows to transform the text field into a text area with a specific height.
          */
@@ -5901,7 +5909,7 @@ declare namespace LocalJSX {
         /**
           * The placement of the icons in relation to the toggle button labels.
          */
-        "iconPlacement"?: "left" | "right" | "top";
+        "iconPlacement"?: IcIconPlacementOptions;
         /**
           * If `true`, the toggle button group will be in loading state.
          */

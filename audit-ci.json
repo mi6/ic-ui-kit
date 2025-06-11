@@ -97,6 +97,27 @@
         "notes": "requires upgrade to react-router v7.5.2, currently on v6",
         "expiry": "27 June 2025"
       }
+    },
+    {
+      "GHSA-8cj5-5rvv-wf4v": {
+        "active": true,
+        "notes": "is in tar-fs within puppeteer v13",
+        "expiry": "27 June 2025"
+      }
+    },
+    {
+      "GHSA-4v9v-hfq4-rm2v": {
+        "active": true,
+        "notes": "requires upgrade to webpack-dev-server > 5.2.0 in react package, which is a breaking change",
+        "expiry": "27 June 2025"
+      }
+    },
+    {
+      "GHSA-9jgg-88mc-972h": {
+        "active": true,
+        "notes": "requires upgrade to webpack-dev-server > 5.2.0 in react package, which is a breaking change",
+        "expiry": "27 June 2025"
+      }
     }
   ]
 }

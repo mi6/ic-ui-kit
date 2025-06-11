@@ -7,18 +7,19 @@
 
 ## Properties
 
-| Property                   | Attribute                     | Description                                                                                                         | Type                   | Default     |
-| -------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
-| `appTitle`                 | `app-title`                   | The app title to be displayed. This is required, unless a slotted app title link is used.                           | `string \| undefined`  | `undefined` |
-| `collapsedIconLabels`      | `collapsed-icon-labels`       | If `true`, the icon and label will appear when side navigation is collapsed.                                        | `boolean \| undefined` | `false`     |
-| `disableAutoParentStyling` | `disable-auto-parent-styling` | If `true`, automatic parent wrapper styling will be disabled.                                                       | `boolean \| undefined` | `false`     |
-| `disableTopBarBehaviour`   | `disable-top-bar-behaviour`   | If `true`, the side navigation will not display as a top bar on small devices.                                      | `boolean \| undefined` | `false`     |
-| `expanded`                 | `expanded`                    | If `true`, the side navigation will display in an expanded state.                                                   | `boolean \| undefined` | `false`     |
-| `href`                     | `href`                        | The URL that the app title link points to.                                                                          | `string \| undefined`  | `"/"`       |
-| `shortAppTitle`            | `short-app-title`             | The short title of the app to be displayed at small screen sizes in place of the app title.                         | `string \| undefined`  | `""`        |
-| `static`                   | `static`                      | If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above). | `boolean \| undefined` | `false`     |
-| `status`                   | `status`                      | The status of the app to be displayed.                                                                              | `string \| undefined`  | `undefined` |
-| `version`                  | `version`                     | The version of the app to be displayed.                                                                             | `string \| undefined`  | `undefined` |
+| Property                   | Attribute                     | Description                                                                                                                            | Type                   | Default     |
+| -------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `appTitle`                 | `app-title`                   | The app title to be displayed. This is required, unless a slotted app title link is used.                                              | `string \| undefined`  | `undefined` |
+| `closeOnNavItemClick`      | `close-on-nav-item-click`     | If `true`, the side navigation will close when a navigation item is clicked. This behaviour is only applicable on larger device sizes. | `boolean \| undefined` | `false`     |
+| `collapsedIconLabels`      | `collapsed-icon-labels`       | If `true`, the icon and label will appear when side navigation is collapsed.                                                           | `boolean \| undefined` | `false`     |
+| `disableAutoParentStyling` | `disable-auto-parent-styling` | If `true`, automatic parent wrapper styling will be disabled.                                                                          | `boolean \| undefined` | `false`     |
+| `disableTopBarBehaviour`   | `disable-top-bar-behaviour`   | If `true`, the side navigation will not display as a top bar on small devices.                                                         | `boolean \| undefined` | `false`     |
+| `expanded`                 | `expanded`                    | If `true`, the side navigation will display in an expanded state.                                                                      | `boolean \| undefined` | `false`     |
+| `href`                     | `href`                        | The URL that the app title link points to.                                                                                             | `string \| undefined`  | `"/"`       |
+| `shortAppTitle`            | `short-app-title`             | The short title of the app to be displayed at small screen sizes in place of the app title.                                            | `string \| undefined`  | `""`        |
+| `static`                   | `static`                      | If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).                    | `boolean \| undefined` | `false`     |
+| `status`                   | `status`                      | The status of the app to be displayed.                                                                                                 | `string \| undefined`  | `undefined` |
+| `version`                  | `version`                     | The version of the app to be displayed.                                                                                                | `string \| undefined`  | `undefined` |
 
 
 ## Events

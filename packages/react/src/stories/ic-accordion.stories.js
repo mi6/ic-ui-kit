@@ -451,7 +451,7 @@ export const Disabled = {
 export const WithPopoverContent = {
   render: () => (
     <>
-      <IcAccordion heading="With Select">
+      <IcAccordion expanded heading="With Select">
       <IcSelect
         label="What is your favourite coffee?"
         options={[

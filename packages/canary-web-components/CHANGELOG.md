@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.18...@ukic/canary-web-components@3.0.0-canary.19) (2025-06-11)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes issue with cell vertical alignment not working ([e83fea5](https://github.com/mi6/ic-ui-kit/commit/e83fea5dc4d435c3fc42e6ff87b24535de4e0b9c))
+- **canary-web-components:** fixes issue with display of data-tabl action element tooltips ([8c7f6b0](https://github.com/mi6/ic-ui-kit/commit/8c7f6b0d5af0e449fba2e9e47a6b914b46360037))
+
+### Features
+
+- **canary-web-components:** adds prop to control behavior of pagination bar ([55c7f34](https://github.com/mi6/ic-ui-kit/commit/55c7f342a0cd3a659500afdf0410cd393a16cf37))
+
 # [3.0.0-canary.18](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@3.0.0-canary.17...@ukic/canary-web-components@3.0.0-canary.18) (2025-05-28)
 
 ### Bug Fixes

@@ -25,3 +25,4 @@ export const COFFEE_EXAMPLE = "Café au lait";
 export const OPTION_SELECT_STUB = "@icOptionSelect";
 export const OPTION_DESELECT_STUB = "@icOptionDeselect";
 export const OPTION_GROUP_TITLE = "option-group-title";
+export const MENU_SCROLL_CLASS = "menu-scroll";

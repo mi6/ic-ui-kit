@@ -135,6 +135,28 @@ exports[`ic-link component should get theme from context: alert-theme-context 1`
 </ic-alert>
 `;
 
+exports[`ic-link component should handle string value of 'false' true for 'download' attribute: download-link-string-false 1`] = `
+<ic-link class="ic-link" download="false" exportparts="link">
+  <template shadowrootmode="open">
+    <a part="link" tabindex="-1">
+      <slot></slot>
+    </a>
+  </template>
+  IC Link Test
+</ic-link>
+`;
+
+exports[`ic-link component should handle string value of 'true' for 'download' attribute: download-link-string-true 1`] = `
+<ic-link class="ic-link" download="true" exportparts="link">
+  <template shadowrootmode="open">
+    <a download="" part="link" tabindex="-1">
+      <slot></slot>
+    </a>
+  </template>
+  IC Link Test
+</ic-link>
+`;
+
 exports[`ic-link component should render a link by default with the correct text: default-link 1`] = `
 <ic-link class="ic-link" exportparts="link">
   <template shadowrootmode="open">

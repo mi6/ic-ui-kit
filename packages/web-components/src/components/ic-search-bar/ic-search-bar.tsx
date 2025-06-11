@@ -107,6 +107,12 @@ export class SearchBar {
    * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
    */
   @Prop() charactersUntilSuggestion = 2;
+  @Watch("charactersUntilSuggestion")
+  watchCharactersUntilSuggestionHandler(): void {
+    if (this.showMenuWithNoInput()) {
+      this.filteredOptions = this.options;
+    }
+  }
 
   /**
    * If `true`, the disabled state will be set.
@@ -258,26 +264,30 @@ export class SearchBar {
   @Prop() options: IcMenuOption[] = [];
   @Watch("options")
   watchOptionsHandler(newOptions: IcMenuOption[]): void {
-    if (this.disableAutoFiltering && !this.hasTimedOut) {
-      this.loading = false;
-      clearTimeout(this.timeoutTimer);
-      if (newOptions.length > 0) {
-        this.filteredOptions = newOptions;
-      } else {
-        if (this.hadNoOptions()) {
-          return;
+    if (this.disableAutoFiltering) {
+      if (!this.hasTimedOut) {
+        this.loading = false;
+        clearTimeout(this.timeoutTimer);
+        if (newOptions.length > 0) {
+          this.filteredOptions = newOptions;
+        } else {
+          if (this.hadNoOptions()) {
+            return;
+          }
+          this.setMenuChange(true);
+          if (!this.preLoad) {
+            this.filteredOptions = [
+              {
+                [this.labelField]: this.emptyOptionListText,
+                [this.valueField]: "",
+              },
+            ];
+          }
+          this.preLoad = true;
         }
-        this.setMenuChange(true);
-        if (!this.preLoad) {
-          this.filteredOptions = [
-            {
-              [this.labelField]: this.emptyOptionListText,
-              [this.valueField]: "",
-            },
-          ];
-        }
-        this.preLoad = true;
       }
+    } else if (this.showMenuWithNoInput()) {
+      this.filteredOptions = newOptions;
     }
     this.debounceAriaLiveUpdate();
   }
@@ -316,6 +326,7 @@ export class SearchBar {
       this.loading = false;
       clearTimeout(this.timeoutTimer);
       this.filteredOptions = this.options;
+      this.showMenuWithNoInput() && this.setMenuChange(true);
       this.el.setFocus();
 
       this.icClear.emit();
@@ -454,7 +465,7 @@ export class SearchBar {
 
     if (this.hasOptionsOrFilterDisabled()) {
       this.renderAssistiveHintEl();
-      if (this.disableAutoFiltering) {
+      if (this.disableAutoFiltering || this.showMenuWithNoInput()) {
         this.filteredOptions = this.options;
       }
     }
@@ -634,10 +645,15 @@ export class SearchBar {
   };
 
   private handleHostFocus = () => {
-    if (this.options && this.value && !this.menuCloseFromMenuChangeEvent) {
+    if (
+      this.options &&
+      (this.value || this.showMenuWithNoInput()) &&
+      !this.menuCloseFromMenuChangeEvent
+    ) {
       this.setMenuChange(true);
     }
     this.truncateValue = false;
+    this.showMenuWithNoInput() && this.debounceAriaLiveUpdate();
 
     this.icSearchBarFocus.emit();
   };
@@ -666,6 +682,7 @@ export class SearchBar {
     });
     this.retryViaKeyPress = false;
     this.retryButtonClick = false;
+    this.showMenuWithNoInput() && this.updateSearchResultAriaLive();
   };
 
   private handleFocusClearButton = () => {
@@ -697,7 +714,7 @@ export class SearchBar {
     if (searchResultsStatusEl) {
       if (
         !this.open ||
-        this.value === "" ||
+        (this.value === "" && !this.showMenuWithNoInput()) ||
         this.value.length < this.charactersUntilSuggestion
       ) {
         searchResultsStatusEl.innerText = "";
@@ -731,6 +748,8 @@ export class SearchBar {
     this.hadNoOptions() ||
     this.hasTimedOut ||
     this.loading;
+
+  private showMenuWithNoInput = () => this.charactersUntilSuggestion === 0;
 
   render() {
     const {
@@ -786,7 +805,9 @@ export class SearchBar {
       describedById = describedBy;
     }
 
-    const hasSuggestedSearch = !!value && this.hasOptionsOrFilterDisabled();
+    const hasSuggestedSearch =
+      (!!value || this.showMenuWithNoInput()) &&
+      this.hasOptionsOrFilterDisabled();
     const menuOpen = hasSuggestedSearch && open && filteredOptions.length > 0;
     const menuRendered = menuOpen && value.length >= charactersUntilSuggestion;
 

@@ -6,6 +6,12 @@ import {
   IcCheckbox,
   IcTextField,
   IcButton,
+  IcRadioGroup,
+  IcRadioOption,
+  IcSelect,
+  IcSearchBar,
+  IcAlert,
+  IcChip,
 } from "../components";
 import { useForm } from "react-hook-form";
 import React, { useState, useRef } from "react";
@@ -479,11 +485,21 @@ export const ConditionalDynamic = {
         value="valueName3"
         label="option3"
       >
-        <IcTextField
-          slot="additional-field"
-          placeholder="Placeholder"
-          label="What's your favourite type of coffee?"
-        />
+        <IcRadioGroup slot="additional-field" label="Select an option" orientation="horizontal">
+          <IcRadioOption label="Caffeinated"/>
+          <IcRadioOption label="Decaf"/>
+        </IcRadioGroup>
+      </IcCheckbox>
+      <IcCheckbox
+        additionalFieldDisplay="dynamic"
+        value="valueName4"
+        label="option4"
+      >
+          <IcRadioGroup slot="additional-field" label="What's your favourite milk?">
+            <IcRadioOption label="Oat"/>
+            <IcRadioOption label="Almond"/>
+            <IcRadioOption label="Soy"/>
+          </IcRadioGroup>
       </IcCheckbox>
     </IcCheckboxGroup>
   ),
@@ -494,13 +510,47 @@ export const ConditionalDynamic = {
 export const ConditionalStatic = {
   render: () => (
     <IcCheckboxGroup label=" Conditional static " name="1">
-      <IcCheckbox value="valueName1" label="option1">
+      <IcCheckbox value="option1" label="Option one">
         <IcTextField
           slot="additional-field"
           label="What's your favourite type of coffee?"
         />
       </IcCheckbox>
-      <IcCheckbox value="valueName2" label="option2" />
+      <IcCheckbox value="option2" label="Option two">
+        <div slot="additional-field">
+          <IcTextField label="What's your favourite type of coffee?"/>
+          <IcTextField label="What's your second favourite type of coffee?"/>
+          <IcSelect
+            label="Select a coffee"
+            options={[
+            { label: "Espresso", value: "espresso"},
+            { label: "Flat white", value: "flat" },
+            { label: "Filter", value: "filter" }
+            ]}
+          />
+          <IcSearchBar
+            label="Search for a coffee"
+            options={[
+              { label: "Espresso", value: "espresso"},
+              { label: "Flat white", value: "flat" },
+              { label: "Filter", value: "filter" }
+              ]}
+          />
+        </div>
+      </IcCheckbox>
+      <IcCheckbox value="option3" label="Option three">
+        <IcRadioGroup slot="additional-field" label="What's your favourite milk">
+          <IcRadioOption label="Oat"/>
+          <IcRadioOption label="Almond"/>
+          <IcRadioOption label="Soy"/>
+        </IcRadioGroup>
+      </IcCheckbox>
+      <IcCheckbox value="option4" label="Option four">
+        <IcRadioGroup slot="additional-field" label="Select an option" orientation="horizontal">
+          <IcRadioOption label="Caffeinated"/>
+          <IcRadioOption label="Decaf"/>
+        </IcRadioGroup>
+      </IcCheckbox>
     </IcCheckboxGroup>
   ),
 

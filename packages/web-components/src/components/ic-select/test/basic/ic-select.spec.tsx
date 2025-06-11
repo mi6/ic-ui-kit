@@ -1987,7 +1987,7 @@ describe("ic-select multi", () => {
     expect(page.rootInstance.open).toBeTruthy;
 
     // Test option is not selected by automatic selection
-    expect(page.rootInstance.value).toBe(undefined);
+    expect(page.rootInstance.value).toBe(null);
   });
 
   it("should test menu handleKeyboardOpen method - arrow up", async () => {
@@ -2012,7 +2012,7 @@ describe("ic-select multi", () => {
     expect(page.rootInstance.open).toBeTruthy;
 
     // Test option is not selected by automatic selection
-    expect(page.rootInstance.value).toBe(undefined);
+    expect(page.rootInstance.value).toBe(null);
   });
 
   it("should test keydown on menu - arrow down, up, and enter", async () => {

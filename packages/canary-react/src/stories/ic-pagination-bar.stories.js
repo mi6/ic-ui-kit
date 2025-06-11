@@ -349,6 +349,7 @@ const defaultArgs = {
   pageLabel: "Page",
   rangeLabelType: "page",
   selectedItemsPerPage: "10",
+  selectItemsPerPageOnEnter: true,
   setToFirstPageOnPaginationChange: false,
   showItemsPerPageControl: true,
   showGoToPageControl: true,
@@ -361,8 +362,8 @@ const defaultArgs = {
  * Go to the <ic-link href="/?path=/story/react-components-pagination-bar--playground">separate page for the playground example</ic-link> to view the prop controls.
  */
 export const Playground = {
-  render: () => {
-    const [args, updateArgs] = useArgs();
+  render: (args) => {
+    const [ updateArgs] = useArgs();
 
     const updatePageNum = (ev) => {
       updateArgs({ currentPage: ev.detail.value });
@@ -377,6 +378,7 @@ export const Playground = {
         pageLabel={args.pageLabel}
         rangeLabelType={args.rangeLabelType}
         selectedItemsPerPage={args.selectedItemsPerPage}
+        selectItemsPerPageOnEnter={args.selectItemsPerPageOnEnter}
         setToFirstPageOnPaginationChange={args.setToFirstPageOnPaginationChange}
         showItemsPerPageControl={args.showItemsPerPageControl}
         showGoToPageControl={args.showGoToPageControl}
