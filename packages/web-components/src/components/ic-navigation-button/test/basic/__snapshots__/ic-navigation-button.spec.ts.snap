@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-navigation-button should render 1`] = `
-<ic-navigation-button label="button1" onclick="alert('test')">
+<ic-navigation-button class="ic-theme-dark" label="button1" onclick="alert('test')">
   <template shadowrootmode="open">
-    <ic-button appearance="light" aria-label="button1" monochrome="" size="large" theme="light" variant="icon">
+    <ic-button aria-label="button1" monochrome="" size="large" theme="dark" variant="icon">
       <slot name="icon" slot="left-icon"></slot>
     </ic-button>
   </template>

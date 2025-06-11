@@ -75,9 +75,9 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
       </div>
     </div>
   </template>
-  <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
+  <ic-navigation-button class="ic-theme-dark" label="button1" onclick="alert('test')" slot="buttons">
     <template shadowrootmode="open">
-      <ic-button appearance="light" class="ic-button-size-large ic-button-variant-icon ic-theme-light monochrome" exportparts="button">
+      <ic-button class="ic-button-size-large ic-button-variant-icon ic-theme-dark monochrome" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-2">
             <button aria-label="button1" class="button" part="button" type="button">
@@ -177,9 +177,9 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
       </div>
     </div>
   </template>
-  <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
+  <ic-navigation-button class="ic-theme-dark" label="button1" onclick="alert('test')" slot="buttons">
     <template shadowrootmode="open">
-      <ic-button appearance="light" class="ic-button-size-large ic-button-variant-icon ic-theme-light monochrome" exportparts="button">
+      <ic-button class="ic-button-size-large ic-button-variant-icon ic-theme-dark monochrome" exportparts="button">
         <template shadowrootmode="open">
           <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-6">
             <button aria-label="button1" class="button" part="button" type="button">
