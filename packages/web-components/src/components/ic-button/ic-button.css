@@ -1037,34 +1037,27 @@ div.right-icon {
   box-shadow: none;
 }
 
-:host(.dismiss-icon) .button,
 :host(.clear-button) .button,
-:host(.dismiss-icon) ::slotted(a),
 :host(.clear-button) ::slotted(a) {
   background-color: inherit;
   color: var(--ic-atoms-input-clear-button);
 }
 
-:host(.dismiss-icon) .button:hover,
 :host(.clear-button) .button:hover,
-:host(.dismiss-icon) ::slotted(a:hover),
 :host(.clear-button) ::slotted(a:hover) {
   color: var(--ic-atoms-input-clear-button);
 }
 
-:host(.dismiss-icon),
 :host(.clear-button) {
   color: var(--ic-atoms-input-clear-button);
   margin: 0 var(--ic-space-xxs);
 }
 
-:host(.dismiss-icon) .button:focus,
 :host(.clear-button) .button:focus,
 :host(.calendar-button) .button:focus {
   box-shadow: none;
 }
 
-:host(.dismiss-icon) .button:not(:active):focus ::slotted(svg),
 :host(.clear-button) .button:not(:active):focus ::slotted(svg) {
   background-color: var(--ic-atoms-input-clear-button-focus-inner);
   color: var(--ic-button-primary-text);
@@ -1198,7 +1191,6 @@ slot[name="router-item"]::slotted(a) {
     color: white;
   }
 
-  :host(.dismiss-icon) .button:not(:active):focus ::slotted(svg),
   :host(.clear-button) .button:not(:active):focus ::slotted(svg) {
     color: white !important;
     background-color: inherit;
