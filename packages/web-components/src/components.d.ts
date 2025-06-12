@@ -1180,7 +1180,7 @@ export namespace Components {
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
-        "download"?: string | boolean;
+        "download": string | boolean;
         /**
           * The URL that the link points to. This will render the button as an "a" tag.
          */
@@ -1212,7 +1212,7 @@ export namespace Components {
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
     }
     interface IcNavigationGroup {
         /**

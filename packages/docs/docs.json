@@ -8616,7 +8616,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The label to be displayed beneath the loading indicator.\nDisplay a changing label by supplying an array of messages.",
+          "docs": "The label to be displayed beneath the loading indicator.\r\nDisplay a changing label by supplying an array of messages.",
           "docsTags": [],
           "values": [
             {
@@ -8672,7 +8672,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The maximum value that the progress value can take.\nUsed to calculate the proportional width of the progress bar.",
+          "docs": "The maximum value that the progress value can take.\r\nUsed to calculate the proportional width of the progress bar.",
           "docsTags": [],
           "default": "100",
           "values": [
@@ -8699,7 +8699,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The minimum value that the progress value can take.\nUsed to calculate the proportional width of the progress bar.",
+          "docs": "The minimum value that the progress value can take.\r\nUsed to calculate the proportional width of the progress bar.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -8753,7 +8753,7 @@
           "mutable": false,
           "attr": "progress",
           "reflectToAttr": false,
-          "docs": "The current amount of progress made.\nIf not provided, component acts as an indeterminate loading indicator.",
+          "docs": "The current amount of progress made.\r\nIf not provided, component acts as an indeterminate loading indicator.",
           "docsTags": [],
           "values": [
             {
@@ -9953,10 +9953,10 @@
       "props": [
         {
           "name": "download",
-          "type": "boolean | string | undefined",
+          "type": "boolean | string",
           "complexType": {
             "original": "string | boolean",
-            "resolved": "boolean | string | undefined",
+            "resolved": "boolean | string",
             "references": {}
           },
           "mutable": false,
@@ -9971,12 +9971,9 @@
             },
             {
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -10173,10 +10170,10 @@
         },
         {
           "name": "theme",
-          "type": "\"dark\" | \"inherit\" | \"light\" | undefined",
+          "type": "\"dark\" | \"inherit\" | \"light\"",
           "complexType": {
             "original": "IcThemeMode",
-            "resolved": "\"dark\" | \"inherit\" | \"light\" | undefined",
+            "resolved": "\"dark\" | \"inherit\" | \"light\"",
             "references": {
               "IcThemeMode": {
                 "location": "import",
@@ -10185,7 +10182,7 @@
               }
             }
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "theme",
           "reflectToAttr": false,
           "docs": "Sets the theme color to the dark or light theme color. \"inherit\" will set the color based on the system settings or ic-theme component.",
@@ -10203,12 +10200,9 @@
             {
               "value": "light",
               "type": "string"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false

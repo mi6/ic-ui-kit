@@ -70,7 +70,7 @@ export const IC_BLOCK_COLOR_COMPONENTS = [
   "ic-footer",
   "ic-side-navigation",
   "ic-alert",
-];
+].join(",");
 
 export const IC_FIXED_COLOR_COMPONENTS = ["ic-alert"];
 
