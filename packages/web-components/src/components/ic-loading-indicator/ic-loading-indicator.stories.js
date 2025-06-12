@@ -6,7 +6,7 @@ const defaultArgs = {
   fullWidth: false,
   labelDuration: 8000,
   size: "medium",
-  type: "circular",
+  type: "linear",
   label: null,
   theme: "inherit",
 };

@@ -1008,11 +1008,11 @@ export namespace Components {
         /**
           * The description that will be set as the aria-label of the loading indicator when not using a visible label.
          */
-        "description"?: string;
+        "description": string;
         /**
           * If `true`, when linear, the full-width variant (i.e. without a border radius) will be displayed.
          */
-        "fullWidth"?: boolean;
+        "fullWidth": boolean;
         "innerLabel"?: number;
         /**
           * The label to be displayed beneath the loading indicator. Display a changing label by supplying an array of messages.
@@ -1021,19 +1021,19 @@ export namespace Components {
         /**
           * The time in milliseconds before the label changes.
          */
-        "labelDuration"?: number;
+        "labelDuration": number;
         /**
           * The maximum value that the progress value can take. Used to calculate the proportional width of the progress bar.
          */
-        "max"?: number;
+        "max": number;
         /**
           * The minimum value that the progress value can take. Used to calculate the proportional width of the progress bar.
          */
-        "min"?: number;
+        "min": number;
         /**
           * If `true`, the element will display as black and white.
          */
-        "monochrome"?: boolean;
+        "monochrome": boolean;
         /**
           * The current amount of progress made. If not provided, component acts as an indeterminate loading indicator.
          */
@@ -1041,15 +1041,15 @@ export namespace Components {
         /**
           * The size of the loading indicator.
          */
-        "size"?: IcLoadingSizes;
+        "size": IcLoadingSizes;
         /**
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
-        "theme"?: IcThemeMode;
+        "theme": IcThemeMode;
         /**
           * The type of indicator, either linear or circular.
          */
-        "type"?: IcLoadingTypes;
+        "type": IcLoadingTypes;
     }
     interface IcMenu {
         /**
