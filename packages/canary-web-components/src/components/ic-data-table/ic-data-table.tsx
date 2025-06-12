@@ -76,7 +76,7 @@ export class DataTable {
   };
 
   private hasLoadedForOneSecond = true;
-  private loadingIndicator: HTMLIcLoadingIndicatorElement;
+  private loadingIndicator?: HTMLIcLoadingIndicatorElement;
   private loadingOverlay?: HTMLDivElement;
   private timerStarted: number;
   private resizeObserver: ResizeObserver | null = null;
@@ -87,6 +87,7 @@ export class DataTable {
   private TEXT_WRAP_STRING = "text-wrap";
   private TEXT_WRAP_CLASS = `.${this.TEXT_WRAP_STRING}`;
   private dataUpdated = false;
+  private columnsUpdated = false;
   private tableSorted: boolean;
   private rowHeightSet = false;
   private initialLoad = false;
@@ -165,6 +166,10 @@ export class DataTable {
    * The column headers for the table.
    */
   @Prop() columns!: IcDataTableColumnObject[];
+  @Watch("columns")
+  columnsChangeHandler(): void {
+    this.columnsUpdated = true;
+  }
 
   /**
    * The row content for the table.
@@ -359,6 +364,16 @@ export class DataTable {
   }>;
 
   /**
+   * Emitted when the columns have finished loading after being updated or initially rendered.
+   */
+  @Event() icColumnsLoaded: EventEmitter<void>;
+
+  /**
+   * Emitted when the data has finished loading after being updated or initially rendered.
+   */
+  @Event() icDataLoaded: EventEmitter<void>;
+
+  /**
    * Emitted when a column sort button is clicked.
    */
   @Event() icSortChange: EventEmitter<IcSortEventDetail>;
@@ -441,6 +456,9 @@ export class DataTable {
       this.updateSetRowHeight();
     }
     window.addEventListener("resize", this.updateCellHeightsWithDescriptions);
+
+    this.icColumnsLoaded.emit();
+    if (this.data && !this.loading && !this.updating) this.icDataLoaded.emit();
   }
 
   componentDidUpdate(): void {
@@ -471,6 +489,16 @@ export class DataTable {
       if (this.truncationPatternUpdated) {
         this.truncatePatternUpdated();
       }
+    }
+
+    if (this.columnsUpdated) {
+      this.icColumnsLoaded.emit();
+      this.columnsUpdated = false;
+    }
+
+    if (this.dataUpdated && !this.loading && !this.updating) {
+      this.icDataLoaded.emit();
+      this.dataUpdated = false;
     }
   }
 
