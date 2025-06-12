@@ -1634,7 +1634,9 @@ export class DateInput {
               hideLabel={hideLabel}
               helperText={!hideHelperText ? helperText : ""}
               disabled={disabled}
-            ></ic-input-label>
+            >
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
           )}
           <span id={this.screenReaderInfoId} class="sr-only" aria-hidden="true">
             {this.getScreenReaderInfo(validationStatus)}

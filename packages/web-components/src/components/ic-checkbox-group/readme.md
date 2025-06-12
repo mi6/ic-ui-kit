@@ -28,6 +28,13 @@
 | `icChange` | Emitted when a checkbox is checked. | `CustomEvent<IcChangeEventDetail>` |
 
 
+## Slots
+
+| Slot            | Description                                               |
+| --------------- | --------------------------------------------------------- |
+| `"helper-text"` | Content is set as the helper text for the checkbox group. |
+
+
 ## Dependencies
 
 ### Depends on

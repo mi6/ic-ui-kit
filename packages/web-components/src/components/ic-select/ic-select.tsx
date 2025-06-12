@@ -49,6 +49,7 @@ let inputIds = 0;
 const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "tabindex", "title"];
 
 /**
+ * @slot helper-text - Content is set as the helper text for the select.
  * @slot icon - Content will be placed to the left of the select text input.
  */
 @Component({
@@ -1186,7 +1187,9 @@ export class Select {
               required={required}
               disabled={disabled}
               readonly={readonly}
-            ></ic-input-label>
+            >
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
           )}
           <ic-input-component-container
             ref={(el) => (this.anchorEl = el)}

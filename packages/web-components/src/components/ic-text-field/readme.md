@@ -73,16 +73,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot     | Description                                           |
-| -------- | ----------------------------------------------------- |
-| `"icon"` | Content will be placed to the left of the text input. |
-
-
-## CSS Custom Properties
-
-| Name            | Description              |
-| --------------- | ------------------------ |
-| `--input-width` | Width of the input field |
+| Slot            | Description                                           |
+| --------------- | ----------------------------------------------------- |
+| `"helper-text"` | Content is set as the helper text for the text field. |
+| `"icon"`        | Content will be placed to the left of the text input. |
 
 
 ## Dependencies

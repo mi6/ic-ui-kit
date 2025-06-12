@@ -62,7 +62,14 @@ export const AriaLabel = {
 
 export const HelperText = {
   render: () =>
-    html` <ic-switch label="Label" helper-text="Helper Text"></ic-switch>`,
+    html`<ic-switch label="Label" helper-text="Helper Text"></ic-switch>
+      <ic-switch label="Label">
+        <ic-typography variant="caption" slot="helper-text">
+          <span>
+            Slotted helper text with a <ic-link href="#">link</ic-link>
+          </span>
+        </ic-typography>
+      </ic-switch>`,
   name: "Helper text",
 };
 

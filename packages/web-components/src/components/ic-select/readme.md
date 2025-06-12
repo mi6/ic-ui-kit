@@ -72,18 +72,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot     | Description                                                  |
-| -------- | ------------------------------------------------------------ |
-| `"icon"` | Content will be placed to the left of the select text input. |
-
-
-## CSS Custom Properties
-
-| Name                | Description                |
-| ------------------- | -------------------------- |
-| `--ic-z-index-menu` | z-index of select menu     |
-| `--input-width`     | Width of the input field   |
-| `--menu-width`      | Width of the dropdown menu |
+| Slot            | Description                                                  |
+| --------------- | ------------------------------------------------------------ |
+| `"helper-text"` | Content is set as the helper text for the select.            |
+| `"icon"`        | Content will be placed to the left of the select text input. |
 
 
 ## Dependencies

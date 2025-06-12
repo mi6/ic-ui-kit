@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from "@stencil/core";
+import { Component, Element, Host, Prop, h } from "@stencil/core";
 
 import {
   getInputHelperTextID,
@@ -10,6 +10,8 @@ import {
   styleUrl: "./ic-input-label.css",
 })
 export class InputLabel {
+  @Element() el: HTMLIcInputLabelElement;
+
   /**
    * If `true`, the disabled state will be set.
    */
@@ -74,13 +76,23 @@ export class InputLabel {
       useLabelTag,
     } = this;
     const labelText = required ? label + " *" : label;
+    const helperTextId = this.for && getInputHelperTextID(this.for);
+    const helperTextClass = {
+      helpertext: true,
+      "helpertext-normal": !disabled && !readonly,
+      "helpertext-readonly": readonly,
+    };
+    const isHelperTextSlotUsed =
+      (
+        this.el.querySelector("slot[name='helper-text']") as HTMLSlotElement
+      ).assignedElements().length > 0;
 
     return (
       <Host
         class={{
           "ic-input-label-disabled": !!disabled,
           "ic-input-label-readonly": readonly,
-          "with-helper": helperText !== "",
+          "with-helper": isHelperTextSlotUsed || helperText !== "",
         }}
       >
         {!hideLabel && (
@@ -98,20 +110,16 @@ export class InputLabel {
             )}
           </ic-typography>
         )}
-
-        {helperText !== "" && (
-          <ic-typography
-            variant="caption"
-            class={{
-              helpertext: true,
-              "helpertext-normal": !disabled && !readonly,
-              "helpertext-readonly": readonly,
-            }}
-          >
-            <span id={this.for && getInputHelperTextID(this.for)}>
-              {helperText}
-            </span>
-          </ic-typography>
+        {isHelperTextSlotUsed ? (
+          <span id={helperTextId} class={helperTextClass}>
+            <slot name="helper-text"></slot>
+          </span>
+        ) : (
+          helperText !== "" && (
+            <ic-typography variant="caption" class={helperTextClass}>
+              <span id={helperTextId}>{helperText}</span>
+            </ic-typography>
+          )
         )}
       </Host>
     );
