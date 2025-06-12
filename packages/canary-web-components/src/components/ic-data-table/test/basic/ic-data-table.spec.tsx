@@ -1479,6 +1479,64 @@ describe(icDataTable, () => {
     );
   });
 
+  it("should emit icColumnsLoaded and icDataLoaded when the columns and data have initially loaded", async () => {
+    const columnsSpy = jest.fn();
+    const dataSpy = jest.fn();
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          onIcColumnsLoaded={columnsSpy}
+          onIcDataLoaded={dataSpy}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(columnsSpy).toHaveBeenCalledTimes(1);
+    expect(dataSpy).toHaveBeenCalledTimes(1);
+
+    page.rootInstance.columns = columnsWithElements;
+    page.rootInstance.data = dataWithElements;
+    await page.waitForChanges();
+
+    expect(columnsSpy).toHaveBeenCalledTimes(2);
+    expect(dataSpy).toHaveBeenCalledTimes(2);
+
+    page.rootInstance.data = LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS;
+    await page.waitForChanges();
+
+    expect(columnsSpy).toHaveBeenCalledTimes(2);
+    expect(dataSpy).toHaveBeenCalledTimes(3);
+  });
+
+  it("should not emit icDataLoaded when loading=`true` or updating=`true`", async () => {
+    const dataSpy = jest.fn();
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          loading={true}
+          onIcDataLoaded={dataSpy}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(dataSpy).not.toHaveBeenCalled;
+
+    page.rootInstance.loading = false;
+    page.rootInstance.updating = true;
+    page.rootInstance.data = longData;
+    await page.waitForChanges();
+
+    expect(dataSpy).not.toHaveBeenCalled;
+  });
+
   it("should apply the correct density scaler to rowHeights when not using the default density", async () => {
     const page = await newSpecPage({
       components: [DataTable],

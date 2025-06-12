@@ -1965,6 +1965,12 @@ export const DevArea = (): HTMLElement => {
   dataTable.sortable = true;
   dataTable.variableRowHeight = undefined;
   dataTable.showPagination = true;
+  dataTable.addEventListener("icDataLoaded", () => {
+    console.log("Data loaded");
+  });
+  dataTable.addEventListener("icColumnsLoaded", () => {
+    console.log("Columns loaded");
+  });
 
   const description = document.createElement("ic-typography");
   description.innerHTML = `
