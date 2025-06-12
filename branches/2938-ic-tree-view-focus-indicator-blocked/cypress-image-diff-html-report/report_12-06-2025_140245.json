@@ -1,7 +1,7 @@
 {
   "total": 216,
-  "totalPassed": 215,
-  "totalFailed": 1,
+  "totalPassed": 216,
+  "totalFailed": 0,
   "totalSuites": 7,
   "suites": [
     {
@@ -2344,14 +2344,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTreeView.cy.tsx/truncated-text-hover.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTreeView.cy.tsx/truncated-pattern-mobile",
-          "percentage": 0.06296126087023965,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTreeView/IcTreeView.cy.tsx",
           "specFilename": "IcTreeView.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTreeView.cy.tsx/truncated-pattern-mobile.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTreeView.cy.tsx/truncated-pattern-mobile.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTreeView.cy.tsx/truncated-pattern-mobile.png"
         },
         {
@@ -2423,9 +2423,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-12T13:50:24.530Z",
-  "endedAt": "2025-06-12T13:56:53.781Z",
-  "duration": 373378,
+  "startedAt": "2025-06-12T14:02:45.792Z",
+  "endedAt": "2025-06-12T14:09:30.451Z",
+  "duration": 388606,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
