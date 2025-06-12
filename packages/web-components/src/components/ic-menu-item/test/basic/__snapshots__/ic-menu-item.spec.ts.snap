@@ -98,7 +98,7 @@ exports[`menu item variants should render the toggle variant 1`] = `
   <template shadowrootmode="open">
     <ic-button aria-checked="false" class="ic-button-full-width ic-button-size-medium ic-button-variant-tertiary" exportparts="button" role="menuitemcheckbox">
       <template shadowrootmode="open">
-        <button aria-disabled="false" aria-label="Toggle variant" class="button" part="button" type="button">
+        <button aria-disabled="false" aria-label="Toggle variant" class="button" part="button" tabindex="0" type="button">
           <slot></slot>
         </button>
       </template>

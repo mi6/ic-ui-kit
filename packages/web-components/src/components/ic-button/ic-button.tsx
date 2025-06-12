@@ -611,6 +611,7 @@ export class Button {
       ) : (
         <TagType
           class="button"
+          tabindex={0}
           aria-disabled={loading || disabled ? "true" : null}
           aria-label={loading ? "Loading" : ariaLabel}
           aria-expanded={dropdown && `${dropdownExpanded}`}
