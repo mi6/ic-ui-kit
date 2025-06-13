@@ -27,8 +27,6 @@ packages/react/cypress-image-diff-screenshots/comparison
 packages/canary-react/cypress-image-diff-screenshots/diff
 packages/react/cypress-image-diff-screenshots/diff
 
-packages/react/cypress-lighthouse-reports
-
 packages/react/cypress/downloads
 
 *.log

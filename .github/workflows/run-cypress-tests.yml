@@ -87,15 +87,3 @@ jobs:
         with:
           folder: ./packages/canary-react/cypress-image-diff-html-report
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
-
-      - name: Cypress performance tests
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        id: core_cypress_performance_tests
-        run: npm run test-cypress-perf:ci
-  
-      - name: Upload lighthouse performance reports
-        if: failure() && steps.core_cypress_performance_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
-        with:
-          folder: ./packages/react/cypress-lighthouse-reports
-          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-lighthouse-reports

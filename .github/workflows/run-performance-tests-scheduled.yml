@@ -1,0 +1,42 @@
+name: Run performance tests - scheduled
+permissions: read-all
+
+on: 
+    schedule:
+        - cron: '0 02 * * *' # Runs every day at 02:00 UTC
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ic-ui-kit-performance-tests:
+    name: "Performance tests"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+        with:
+          ref: develop
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+        with:
+          node-version: 20
+      - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
+
+      - name: Install dependencies
+        run: |
+          google-chrome --version
+          npm ci
+          npm run bootstrap -- -- --ci
+
+      - name: Cypress performance tests
+        id: core_cypress_performance_tests
+        run: npm run test-cypress-perf:ci
+
+      - name: Upload lighthouse performance reports
+        if: always()
+        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
+        with:
+          folder: ./packages/react/cypress-lighthouse-reports
+          target-folder: ./branches/develop/cypress-lighthouse-reports
