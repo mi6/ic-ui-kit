@@ -1,7 +1,7 @@
 {
-  "total": 807,
-  "totalPassed": 807,
-  "totalFailed": 0,
+  "total": 808,
+  "totalPassed": 806,
+  "totalFailed": 2,
   "totalSuites": 43,
   "suites": [
     {
@@ -991,14 +991,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/primary-pressed-dark.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcButton.cy.tsx/secondary",
-          "percentage": 0,
+          "percentage": 0.12198360545581526,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/secondary.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx/secondary.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/secondary.png"
         },
         {
@@ -1343,14 +1343,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/secondary-monochrome-pressed.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcButton.cy.tsx/secondary-monochrome-pressed-dark",
-          "percentage": 0,
+          "percentage": 0.118,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/secondary-monochrome-pressed-dark.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx/secondary-monochrome-pressed-dark.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/secondary-monochrome-pressed-dark.png"
         },
         {
@@ -1363,6 +1363,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/tertiary-monochrome-pressed.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/tertiary-monochrome-pressed.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcButton.cy.tsx/tertiary-monochrome-pressed-dark",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx/tertiary-monochrome-pressed-dark.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx/tertiary-monochrome-pressed-dark.png"
         },
         {
           "status": "pass",
@@ -9140,9 +9151,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-13T13:26:23.353Z",
-  "endedAt": "2025-06-13T13:43:47.064Z",
-  "duration": 945423,
+  "startedAt": "2025-06-13T14:02:12.922Z",
+  "endedAt": "2025-06-13T14:19:34.304Z",
+  "duration": 943821,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
