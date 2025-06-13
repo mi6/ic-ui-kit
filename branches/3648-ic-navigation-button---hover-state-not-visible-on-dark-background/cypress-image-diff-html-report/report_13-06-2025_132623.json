@@ -1,7 +1,7 @@
 {
   "total": 807,
-  "totalPassed": 805,
-  "totalFailed": 2,
+  "totalPassed": 807,
+  "totalFailed": 0,
   "totalSuites": 43,
   "suites": [
     {
@@ -8758,14 +8758,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-icon-buttons.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx/mobile-icon-buttons-dark",
-          "percentage": 0.06804178978702198,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/mobile-icon-buttons-dark.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTopNavigation.cy.tsx/mobile-icon-buttons-dark.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-icon-buttons-dark.png"
         },
         {
@@ -8868,14 +8868,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-theme-dark.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTopNavigation.cy.tsx/mobile-open-theme-dark",
-          "percentage": 0.034108918054587614,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTopNavigation.cy.tsx/mobile-open-theme-dark.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTopNavigation.cy.tsx/mobile-open-theme-dark.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTopNavigation.cy.tsx/mobile-open-theme-dark.png"
         },
         {
@@ -9140,9 +9140,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-13T12:24:07.679Z",
-  "endedAt": "2025-06-13T12:41:40.115Z",
-  "duration": 955070,
+  "startedAt": "2025-06-13T13:26:23.353Z",
+  "endedAt": "2025-06-13T13:43:47.064Z",
+  "duration": 945423,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
