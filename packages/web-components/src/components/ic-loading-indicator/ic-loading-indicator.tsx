@@ -120,8 +120,7 @@ export class LoadingIndicator {
       );
       this.updateCircularProgressMeter();
     }
-
-    if (Number(this.progress) >= 0 && this.type === "linear") {
+    else if(this.type === "linear") {
       this.setLinearDeterminateWidth();
     }
   }
@@ -131,7 +130,7 @@ export class LoadingIndicator {
   }
 
   componentDidUpdate(): void {
-    if (Number(this.progress) >= 0 && this.type === "linear") {
+    if (this.type === "linear") {
       this.setLinearDeterminateWidth();
     }
   }
@@ -234,6 +233,12 @@ export class LoadingIndicator {
       this.innerElement.style.setProperty(
         "--linear-width",
         `${proportion * 100}%`
+      );
+    }
+    else {
+      this.innerElement.style.setProperty(
+        "--linear-width",
+        "0"
       );
     }
   };
