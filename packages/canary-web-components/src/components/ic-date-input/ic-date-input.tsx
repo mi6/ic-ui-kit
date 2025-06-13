@@ -45,6 +45,9 @@ import Calendar from "../../assets/calendar.svg";
 
 let inputIds = 0;
 
+/**
+ * @slot helper-text - Content is set as the helper text for the date input.
+ */
 @Component({
   tag: "ic-date-input",
   styleUrl: "ic-date-input.css",

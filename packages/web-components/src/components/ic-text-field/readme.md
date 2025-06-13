@@ -79,6 +79,13 @@ Type: `Promise<void>`
 | `"icon"`        | Content will be placed to the left of the text input. |
 
 
+## CSS Custom Properties
+
+| Name            | Description              |
+| --------------- | ------------------------ |
+| `--input-width` | Width of the input field |
+
+
 ## Dependencies
 
 ### Depends on

@@ -85,7 +85,7 @@ export class InputLabel {
     const isHelperTextSlotUsed =
       (
         this.el.querySelector("slot[name='helper-text']") as HTMLSlotElement
-      ).assignedElements().length > 0;
+      )?.assignedElements().length > 0;
 
     return (
       <Host

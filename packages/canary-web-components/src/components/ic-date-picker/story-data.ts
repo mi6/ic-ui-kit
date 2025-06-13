@@ -61,14 +61,14 @@ export const WithHelperTextSlot = (): HTMLIcDatePickerElement => {
   datePicker.innerHTML = `
     <ic-typography variant="caption" slot="helper-text">
       <span>
-        For special requests, <ic-link href="#" target="_blank">contact us</ic-link> before choosing a date
+        For special requests, <ic-link href="#" >contact us</ic-link> before choosing a date
       </span>
     </ic-typography>
   `;
   return datePicker;
 };
 
-export const CustomHelperTextExample = (): HTMLElement => {
+export const CustomHelperText = (): HTMLElement => {
   const container = document.createElement("div");
 
   container.appendChild(WithHelperTextProp());

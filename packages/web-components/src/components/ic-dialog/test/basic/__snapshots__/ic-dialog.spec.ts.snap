@@ -294,7 +294,9 @@ exports[`ic-dialog component should render with slotted content 1`] = `
   <ic-text-field data-gets-focus label="What is your favourite coffee?" value="">
     <template shadowrootmode="open">
       <ic-input-container>
-        <ic-input-label for="ic-text-field-input-0" helpertext="" label="What is your favourite coffee?"></ic-input-label>
+        <ic-input-label for="ic-text-field-input-0" helpertext="" label="What is your favourite coffee?">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
         <ic-input-component-container size="medium" validationstatus="">
           <input aria-describedby="" aria-invalid="false" aria-label="What is your favourite coffee?" autocapitalize="off" autocomplete="off" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="" type="text" value="">
         </ic-input-component-container>
