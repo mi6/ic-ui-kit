@@ -90,7 +90,7 @@ export const CustomActions = {
       <IcButton slot="primary-action" size="small">
         Primary
       </IcButton>
-      <IcButton slot="custom-actions" variant="icon" aria-label="Icon Button">
+      <IcButton slot="custom-actions" variant="icon-tertiary" aria-label="Icon Button">
         <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
       </IcButton>
     </IcDataTableTitleBar>

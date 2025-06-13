@@ -423,7 +423,7 @@ export const LinksElementsInData = {
           </IcButton>
           <div key={`actions2-${index}`} slot={`actions2-${index}`}>
             <IcButton
-              variant="icon"
+              variant="icon-tertiary"
               aria-label="Delete row (nested tooltip)"
               onClick={() => console.log("Delete")}
             >
@@ -675,13 +675,13 @@ export const CustomTitleBar = {
         metadata="128 items | 32gb | Updated: 01/02/03"
       >
         <IcButton slot="primary-action">Primary</IcButton>
-        <IcButton slot="custom-actions" variant="icon" aria-label="Icon 1">
+        <IcButton slot="custom-actions" variant="icon-tertiary" aria-label="Icon 1">
           <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
         </IcButton>
-        <IcButton slot="custom-actions" variant="icon" aria-label="Icon 2">
+        <IcButton slot="custom-actions" variant="icon-tertiary" aria-label="Icon 2">
           <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
         </IcButton>
-        <IcButton slot="custom-actions" variant="icon" aria-label="Icon 3">
+        <IcButton slot="custom-actions" variant="icon-tertiary" aria-label="Icon 3">
           <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
         </IcButton>
         <IcTypography slot="description" variant="body">
@@ -939,12 +939,14 @@ const defaultArgs = {
   columnHeaderTruncation: true,
   columns: LONG_COLS,
   data: LONG_DATA,
+  defaultColumn: "",
   density: "default",
+  disableAutoSort: false,
   embedded: false,
   globalRowHeight: 40,
   height: "",
   hideColumnHeaders: false,
-  rowSelection: false,
+  hideDensitySelect: false,
   loading: false,
   loadingDesc: "loading",
   loadingLabel: "Loading data...",
@@ -970,93 +972,91 @@ const defaultArgs = {
   paginationItemLabel: "Item",
   paginationPageLabel: "Page",
   paginationHideRangeLabel: false,
+  rowSelection: false,
   showPagination: true,
   sortable: false,
-  disableAutoSort: false,
   sortOrders: ["unsorted", "ascending", "descending"],
-  defaultColumn: "",
   stickyColumnHeaders: false,
   stickyRowHeaders: false,
+  tableLayout: "fixed",
+  theme: "inherit",
+  titleBarSlot: true,
+  titleBarDesc: "Title bar description",
+  titleBarHeading: "Title bar heading",
+  truncationPattern: "tooltip",
+  titleBarMetadata: "128 items | 32gb | Updated: 01/02/03",
+  titleBarPrimaryActionSlot: true,
+  titleBarCustomActionSlot: true,
   updating: false,
   updatingDesc: "loading",
   updatingMax: 100,
   updatingMin: 0,
   updatingProgress: 50,
-  titleBarSlot: true,
-  titleBarDesc: "Title bar description",
-  titleBarHeading: "Title bar heading",
-  truncationPattern: "tooltip",
-  hideDensitySelect: false,
-  tableLayout: "fixed",
-  titleBarMetadata: "128 items | 32gb | Updated: 01/02/03",
-  titleBarPrimaryActionSlot: true,
-  titleBarCustomActionSlot: true,
   width: "",
-  theme: "inherit",
 };
 
 /**
  * Go to the <ic-link href="/?path=/story/react-components-data-table--playground">separate page for the playground example</ic-link> to view the prop controls.
  */
 export const Playground = {
-  render: (args) => (
+  render:(args) => (
     <IcDataTable
       caption={args.caption}
       columnHeaderTruncation={args.columnHeaderTruncation}
       columns={args.columns}
       data={args.data}
       density={args.density}
+      disableAutoSort={args.disableAutoSort}
       embedded={args.embedded}
       globalRowHeight={args.globalRowHeight}
       height={args.height}
       hideColumnHeaders={args.hideColumnHeaders}
-      rowSelection={args.rowSelection}
       loading={args.loading}
       loadingOptions={{
-        description: args.loadingDesc,
-        label: args.loadingLabel,
-        labelDuration: args.loadingLabelDuration,
-        max: args.loadingMax,
-        min: args.loadingMin,
-        progress: args.loadingProgress,
-        overlay: args.loadingOverlay,
+        description:args.loadingDesc,
+        label:args.loadingLabel,
+        labelDuration:args.loadingLabelDuration,
+        max:args.loadingMax,
+        min:args.loadingMin,
+        progress:args.loadingProgress,
+        overlay:args.loadingOverlay,
       }}
       minimumLoadingDisplayDuration={args.minimumLoadingDisplayDuration}
       paginationBarOptions={{
-        itemsPerPageOptions: args.paginationItemsPerPageOptions,
-        rangeLabelType: args.paginationRangeLabelType,
-        type: args.paginationType,
-        selectedItemsPerPage: args.paginationSelectedItemsPerPage,
-        selectItemsPerPageOnEnter: args.paginationSelectItemsPerPageOnEnter,
+        itemsPerPageOptions:args.paginationItemsPerPageOptions,
+        rangeLabelType:args.paginationRangeLabelType,
+        type:args.paginationType,
+        selectedItemsPerPage:args.paginationSelectedItemsPerPage,
+        selectItemsPerPageOnEnter:args.paginationSelectItemsPerPageOnEnter,
         setToFirstPageOnPaginationChange:
           args.paginationSetToFirstPageOnPaginationChange,
-        showGoToPageControl: args.paginationShowGoToPageControl,
-        showItemsPerPageControl: args.paginationShowItemsPerPageControl,
-        alignment: args.paginationAlignment,
-        pageLabel: args.paginationPageLabel,
-        itemLabel: args.paginationItemLabel,
-        hideRangeLabel: args.paginationHideRangeLabel,
+        showGoToPageControl:args.paginationShowGoToPageControl,
+        showItemsPerPageControl:args.paginationShowItemsPerPageControl,
+        alignment:args.paginationAlignment,
+        pageLabel:args.paginationPageLabel,
+        itemLabel:args.paginationItemLabel,
+        hideRangeLabel:args.paginationHideRangeLabel,
       }}
+      rowSelection={args.rowSelection}
       showPagination={args.showPagination}
       sortable={args.sortable}
-      disableAutoSort={args.disableAutoSort}
       sortOptions={{
-        sortOrders: args.sortOrders,
-        defaultColumn: args.defaultColumn,
+        sortOrders:args.sortOrders,
+        defaultColumn:args.defaultColumn,
       }}
       stickyColumnHeaders={args.stickyColumnHeaders}
       stickyRowHeaders={args.stickyRowHeaders}
       tableLayout={args.tableLayout}
+      theme={args.theme}
       truncationPattern={args.truncationPattern}
       updating={args.updating}
       updatingOptions={{
-        description: args.updatingDesc,
-        max: args.updatingMax,
-        min: args.updatingMin,
-        progress: args.updatingProgress,
+        description:args.updatingDesc,
+        max:args.updatingMax,
+        min:args.updatingMin,
+        progress:args.updatingProgress,
       }}
       width={args.width}
-      theme={args.theme}
     >
       <IcDataTableTitleBar
         slot={args.titleBarSlot}
@@ -1068,7 +1068,7 @@ export const Playground = {
         <IcButton slot={args.titleBarPrimaryActionSlot}>Primary</IcButton>
         <IcButton
           slot={args.titleBarCustomActionSlot}
-          variant="icon"
+          variant="icon-tertiary"
           aria-label="Icon 1"
         >
           <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
@@ -1076,57 +1076,57 @@ export const Playground = {
       </IcDataTableTitleBar>
     </IcDataTable>
   ),
-  args: defaultArgs,
-  argTypes: {
-    density: {
-      options: ["default", "dense", "spacious"],
-      control: { type: "inline-radio" },
+  args:defaultArgs,
+  argTypes:{
+    density:{
+      options:["default", "dense", "spacious"],
+      control:{ type: "inline-radio" },
     },
-    globalRowHeight: {
-      control: { type: "text" },
+    globalRowHeight:{
+      control:{ type: "text" },
     },
-    paginationRangeLabelType: {
-      options: ["page", "data"],
-      control: { type: "inline-radio" },
+    paginationRangeLabelType:{
+      options:["page", "data"],
+      control:{ type: "inline-radio" },
     },
-    paginationType: {
-      options: ["simple", "complex"],
-      control: { type: "inline-radio" },
+    paginationType:{
+      options:["simple", "complex"],
+      control:{ type: "inline-radio" },
     },
-    paginationAlignment: {
-      options: ["left", "right", "space-between"],
-      control: { type: "inline-radio" },
+    paginationAlignment:{
+      options:["left", "right", "space-between"],
+      control:{ type: "inline-radio" },
     },
-    tableLayout: {
-      options: ["fixed", "auto"],
-      control: { type: "inline-radio" },
+    tableLayout:{
+      options:["fixed", "auto"],
+      control:{ type: "inline-radio" },
     },
-    truncationPattern: {
-      options: ["tooltip", "show-hide"],
-      control: { type: "inline-radio" },
+    truncationPattern:{
+      options:["tooltip", "show-hide"],
+      control:{ type: "inline-radio" },
     },
-    titleBarSlot: {
-      mapping: {
-        true: "title-bar",
-        false: "",
+    titleBarSlot:{
+      mapping:{
+        true:"title-bar",
+        false:"",
       },
     },
-    titleBarPrimaryActionSlot: {
-      mapping: {
-        true: "primary-action",
-        false: "",
+    titleBarPrimaryActionSlot:{
+      mapping:{
+        true:"primary-action",
+        false:"",
       },
     },
-    titleBarCustomActionSlot: {
-      mapping: {
-        true: "custom-actions",
-        false: "",
+    titleBarCustomActionSlot:{
+      mapping:{
+        true:"custom-actions",
+        false:"",
       },
     },
-    theme: {
-      options: ["inherit", "light", "dark"],
-      control: { type: "inline-radio" },
+    theme:{
+      options:["inherit", "light", "dark"],
+      control:{ type: "inline-radio" },
     },
   },
-  name: "Playground",
+  name:"Playground",
 };
