@@ -24,6 +24,7 @@ import {
   WithButton,
   ThemeDark,
   CharactersUntilSuggestionZero,
+  HelperTextSlot,
 } from "./IcSearchBarTestData";
 import {
   BE_VISIBLE,
@@ -875,6 +876,20 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
 
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/helper-text",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
+    });
+  });
+
+  it("should render search bar with slotted helper text", () => {
+    mount(<HelperTextSlot />);
+
+    cy.checkHydrated(SEARCH_SELECTOR);
+
+    cy.checkA11yWithWait();
+
+    // Check positioning matches normal helper text
     cy.compareSnapshot({
       name: "/helper-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),

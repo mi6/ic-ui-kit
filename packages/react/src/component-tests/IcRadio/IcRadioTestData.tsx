@@ -236,6 +236,27 @@ export const HelperText = () => {
   );
 };
 
+export const HelperTextSlot = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcRadioGroup label="This is a label" name="radio-group-1">
+        <IcTypography variant="caption" slot="helper-text">
+          <span>This is some helper text</span>
+        </IcTypography>
+        {threeOptions.map((option, index) => (
+          <IcRadioOption
+            key={index + option.value}
+            value={option.value}
+            label={option.label}
+            selected={option.selected}
+            disabled={option.disabled}
+          />
+        ))}
+      </IcRadioGroup>
+    </div>
+  );
+};
+
 export const Disabled = () => {
   return (
     <div style={{ padding: "10px" }}>
