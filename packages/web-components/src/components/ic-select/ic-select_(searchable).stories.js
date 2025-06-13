@@ -262,8 +262,8 @@ export const HelperText = {
   render: (args) =>
     html`<ic-select
         label="What is your favourite coffee?"
-        helper-text="Select one option from the list"
         searchable
+        helper-text="Select one option from the list"
       ></ic-select>
       <br />
       <ic-select label="What is your favourite coffee?" searchable

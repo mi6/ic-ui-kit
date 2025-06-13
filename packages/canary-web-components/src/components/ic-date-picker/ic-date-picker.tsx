@@ -81,7 +81,7 @@ interface IcDateInputProps {
 }
 
 /**
- * @slot helper-text - Content is set as the helper text for the text field.
+ * @slot helper-text - Content is set as the helper text for the date picker.
  */
 @Component({
   tag: "ic-date-picker",

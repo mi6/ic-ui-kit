@@ -49,9 +49,9 @@
 
 ## Slots
 
-| Slot            | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| `"helper-text"` | Content is set as the helper text for the text field. |
+| Slot            | Description                                            |
+| --------------- | ------------------------------------------------------ |
+| `"helper-text"` | Content is set as the helper text for the date picker. |
 
 
 ## CSS Custom Properties

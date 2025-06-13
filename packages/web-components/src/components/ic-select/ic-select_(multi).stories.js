@@ -207,11 +207,11 @@ export const HelperText = {
   render: (args) =>
     html`<ic-select
         label="What are your favourite types of coffee?"
-        helper-text="Select some options from the list"
         multiple
+        helper-text="Select some options from the list"
       ></ic-select>
       <br />
-      <ic-select label="What are your favourite types coffee?" multiple
+      <ic-select label="What are your favourite types of coffee?" multiple
         ><ic-typography variant="caption" slot="helper-text">
           <span>
             Slotted helper text with a <ic-link href="#">link</ic-link>

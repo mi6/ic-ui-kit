@@ -4,6 +4,7 @@
 import React from "react";
 import { mount } from "cypress/react";
 import { IcDateInput } from "../../components";
+import { IcLink, IcTypography } from "@ukic/react";
 import {
   DateInputUpdateValue,
   DateInputUpdateHelperText,
@@ -904,6 +905,29 @@ describe("IcDateInput end-to-end, visual regression and a11y tests", () => {
       cypressScreenshotOptions: {
         capture: "viewport",
       },
+    });
+  });
+
+  it("should render slotted helper text", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcDateInput label="Test Label">
+          <IcTypography variant="caption" slot="helper-text">
+            <span>
+              Slotted helper text with a <IcLink href="#">link</IcLink>
+            </span>
+          </IcTypography>
+        </IcDateInput>
+      </div>
+    );
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "/helper-text-slot",
+      testThreshold: setThresholdBasedOnEnv(0),
     });
   });
 

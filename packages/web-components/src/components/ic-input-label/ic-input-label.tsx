@@ -64,6 +64,25 @@ export class InputLabel {
     );
   }
 
+  private isHelperTextSlotUsed = (slot: Element | null): boolean => {
+    const assignedEls = (slot as HTMLSlotElement)?.assignedElements();
+    if (assignedEls) {
+      if (assignedEls.length === 0) return false;
+
+      for (const el of assignedEls) {
+        if (el.tagName === "SLOT") {
+          if (this.isHelperTextSlotUsed(el as HTMLSlotElement)) {
+            return true;
+          }
+        } else {
+          // Found an assigned element which is not a nested <slot>
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
   render() {
     const {
       disabled,
@@ -82,17 +101,16 @@ export class InputLabel {
       "helpertext-normal": !disabled && !readonly,
       "helpertext-readonly": readonly,
     };
-    const isHelperTextSlotUsed =
-      (
-        this.el.querySelector("slot[name='helper-text']") as HTMLSlotElement
-      )?.assignedElements().length > 0;
+
+    const helperTextSlot = this.el.querySelector("slot[name='helper-text']");
 
     return (
       <Host
         class={{
           "ic-input-label-disabled": !!disabled,
           "ic-input-label-readonly": readonly,
-          "with-helper": isHelperTextSlotUsed || helperText !== "",
+          "with-helper":
+            this.isHelperTextSlotUsed(helperTextSlot) || helperText !== "",
         }}
       >
         {!hideLabel && (
@@ -110,7 +128,7 @@ export class InputLabel {
             )}
           </ic-typography>
         )}
-        {isHelperTextSlotUsed ? (
+        {this.isHelperTextSlotUsed(helperTextSlot) ? (
           <span id={helperTextId} class={helperTextClass}>
             <slot name="helper-text"></slot>
           </span>

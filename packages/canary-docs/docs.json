@@ -2699,7 +2699,7 @@
       "docsTags": [
         {
           "name": "slot",
-          "text": "helper-text - Content is set as the helper text for the text field."
+          "text": "helper-text - Content is set as the helper text for the date picker."
         }
       ],
       "usage": {},
@@ -3637,7 +3637,7 @@
       "slots": [
         {
           "name": "helper-text",
-          "docs": "Content is set as the helper text for the text field."
+          "docs": "Content is set as the helper text for the date picker."
         }
       ],
       "parts": [],

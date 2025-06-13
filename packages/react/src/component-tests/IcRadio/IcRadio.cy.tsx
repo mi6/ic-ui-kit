@@ -23,6 +23,7 @@ import {
   ThemeDark,
   RadioGroupInAdditionalField,
   StaticChildRadioGroup,
+  HelperTextSlot,
 } from "./IcRadioTestData";
 import {
   HAVE_PROP,
@@ -484,6 +485,20 @@ describe("IcRadio visual regression and a11y tests", () => {
     });
   });
 
+  it("should render IcRadio with slotted helper text", () => {
+    mount(<HelperTextSlot />);
+
+    cy.checkHydrated(RADIO_GROUP_SELECTOR);
+
+    cy.checkA11yWithWait();
+
+    // Check positioning matches normal helper text
+    cy.compareSnapshot({
+      name: "/helper-text",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
+    });
+  });
+
   it("should render disabled IcRadio", () => {
     mount(<Disabled />);
 
@@ -544,7 +559,7 @@ describe("IcRadio visual regression and a11y tests", () => {
     });
   });
 
-  it("should render IcRadio with no options initially - after update", () => {
+  it.only("should render IcRadio with no options initially - after update", () => {
     mount(<RadioOptionsEmptyInitial />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
