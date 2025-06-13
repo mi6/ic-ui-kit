@@ -77,10 +77,10 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
   </template>
   <ic-navigation-button class="ic-theme-dark" label="button1" onclick="alert('test')" slot="buttons">
     <template shadowrootmode="open">
-      <ic-button class="ic-button-size-large ic-button-variant-icon ic-theme-dark monochrome" exportparts="button">
+      <ic-button class="ic-button-size-large ic-button-variant-icon-tertiary ic-theme-dark monochrome" exportparts="button">
         <template shadowrootmode="open">
-          <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-2">
-            <button aria-label="button1" class="button" part="button" tabindex="0" type="button">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-2" label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-2">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-2" aria-label="button1" class="button" part="button" tabindex="0" type="button">
               <div class="icon-container">
                 <slot name="left-icon"></slot>
               </div>
@@ -179,10 +179,10 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
   </template>
   <ic-navigation-button class="ic-theme-dark" label="button1" onclick="alert('test')" slot="buttons">
     <template shadowrootmode="open">
-      <ic-button class="ic-button-size-large ic-button-variant-icon ic-theme-dark monochrome" exportparts="button">
+      <ic-button class="ic-button-size-large ic-button-variant-icon-tertiary ic-theme-dark monochrome" exportparts="button">
         <template shadowrootmode="open">
-          <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-6">
-            <button aria-label="button1" class="button" part="button" tabindex="0" type="button">
+          <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-6" label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-6">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-6" aria-label="button1" class="button" part="button" tabindex="0" type="button">
               <div class="icon-container">
                 <slot name="left-icon"></slot>
               </div>

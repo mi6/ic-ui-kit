@@ -10,10 +10,7 @@ import {
   h,
 } from "@stencil/core";
 
-import {
-  IC_BLOCK_COLOR_COMPONENTS,
-  IC_INHERITED_ARIA,
-} from "../../utils/constants";
+import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
   getBrandForegroundAppearance,
   inheritAttributes,
@@ -124,11 +121,13 @@ export class NavigationButton {
   @Listen("icNavigationMenuOpened", { target: "document" })
   navBarMenuOpenHandler(): void {
     this.mode = "menu";
+    this.theme = (this.el.parentElement as HTMLIcTopNavigationElement).theme;
   }
 
   @Listen("icNavigationMenuClosed", { target: "document" })
   navBarMenuCloseHandler(): void {
     this.mode = "navbar";
+    this.updateTheme();
   }
 
   @Listen("brandChange", { target: "document" })
@@ -166,8 +165,6 @@ export class NavigationButton {
   private updateTheme(
     mode: IcBrandForeground = getBrandForegroundAppearance()
   ) {
-    if (this.el.parentElement?.closest(IC_BLOCK_COLOR_COMPONENTS)) return;
-
     this.theme =
       mode === IcBrandForegroundEnum.Light
         ? IcBrandForegroundEnum.Dark
@@ -213,7 +210,7 @@ export class NavigationButton {
           fullWidth={isMenuMode}
           monochrome={!isMenuMode}
           size={isMenuMode ? "medium" : "large"}
-          variant={isMenuMode ? "tertiary" : "icon"}
+          variant={isMenuMode ? "tertiary" : "icon-tertiary"}
           {...buttonProps}
           {...inheritedAttributes}
         >
