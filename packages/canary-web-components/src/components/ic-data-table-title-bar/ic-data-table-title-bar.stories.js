@@ -85,7 +85,11 @@ export const CustomActions = {
     description="Data table description that describes the purpose of the table."
   >
     <ic-button slot="primary-action" size="small">Primary</ic-button>
-    <ic-button slot="custom-actions" variant="icon" aria-label="Icon Button">
+    <ic-button
+      slot="custom-actions"
+      variant="icon-tertiary"
+      aria-label="Icon Button"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="24"

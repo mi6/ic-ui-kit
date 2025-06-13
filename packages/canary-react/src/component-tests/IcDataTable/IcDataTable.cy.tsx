@@ -106,7 +106,7 @@ const TABLE_CELL_TOOLTIP_SELECTOR = ".table-cell:last-child ic-tooltip";
 const TRUNCATION_SHOW_HIDE_SELECTOR = ".truncation-show-hide";
 const TRUNCATION_TOOLTIP_SELECTOR = ".truncation-tooltip";
 const TABLE_CELL_FIRST_CHILD_SELECTOR = ".table-cell:first-child";
-const ICON_BUTTON = "ic-button.ic-button-variant-icon";
+const ICON_BUTTON = "ic-button.ic-button-variant-icon-tertiary";
 const ACTION_ELEMENT = "action-element";
 const BUTTON_SELECTOR = "button";
 const IC_BUTTON_SELECTOR = "ic-button";
@@ -847,7 +847,7 @@ describe("IcDataTables", () => {
           </IcButton>
           <IcButton
             slot="custom-actions"
-            variant="icon"
+            variant="icon-tertiary"
             aria-label="Icon Button"
             className="custom-action-button"
             onClick={cy.stub().as("customActionClick")}
@@ -4474,7 +4474,7 @@ describe("IcDataTable row deletion", () => {
               </IcButton>
               <IcButton
                 key={`actions2-${index}`}
-                variant="icon"
+                variant="icon-tertiary"
                 slot={`actions2-${index}`}
                 onClick={() =>
                   setNextData(nextData.filter((_, i) => i !== index))
@@ -4535,7 +4535,7 @@ describe("IcDataTable row deletion", () => {
             </IcButton>
             <IcButton
               key={`actions2-${index}`}
-              variant="icon"
+              variant="icon-tertiary"
               slot={`actions2-${index}`}
               onClick={() => nextData.splice(index, 1)}
               aria-label="Add info"
@@ -4585,7 +4585,7 @@ describe("IcDataTable row deletion", () => {
             </IcButton>
             <IcButton
               key={`actions2-${index}`}
-              variant="icon"
+              variant="icon-tertiary"
               slot={`actions2-${index}`}
               onClick={() => data.splice(index, 1)}
               aria-label="Add info"
@@ -5045,7 +5045,7 @@ describe("IcDataTable visual regression tests in high contrast mode", () => {
             </IcButton>
             <IcButton
               key={`actions2-${index}`}
-              variant="icon"
+              variant="icon-tertiary"
               slot={`actions2-${index}`}
               onClick={() => nextData.splice(index, 1)}
               aria-label="Add info"
@@ -5111,13 +5111,25 @@ describe("Dark mode", () => {
           metadata="128 items | 32gb | Updated: 01/02/03"
         >
           <IcButton slot="primary-action">Primary</IcButton>
-          <IcButton slot="custom-actions" variant="icon" aria-label="Icon 1">
+          <IcButton
+            slot="custom-actions"
+            variant="icon-tertiary"
+            aria-label="Icon 1"
+          >
             <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
           </IcButton>
-          <IcButton slot="custom-actions" variant="icon" aria-label="Icon 2">
+          <IcButton
+            slot="custom-actions"
+            variant="icon-tertiary"
+            aria-label="Icon 2"
+          >
             <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
           </IcButton>
-          <IcButton slot="custom-actions" variant="icon" aria-label="Icon 3">
+          <IcButton
+            slot="custom-actions"
+            variant="icon-tertiary"
+            aria-label="Icon 3"
+          >
             <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
           </IcButton>
           <IcTypography slot="description" variant="body">
@@ -5368,7 +5380,7 @@ describe("Dark mode", () => {
 
   // test skipped as seems to be getting light hover styling applied
   // this will be investigated in #3525
-  it.skip("should render cell descriptions and icons in dark mode", () => {
+  it("should render cell descriptions and icons in dark mode", () => {
     mount(
       <IcDataTable
         columns={COLS}
