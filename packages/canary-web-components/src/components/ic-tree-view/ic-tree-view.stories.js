@@ -764,62 +764,6 @@ export const ExpandedSlotted = {
   name: "Expanded - slotted",
 };
 
-/**
- * An example with the tree item `focus-inset` prop set to `true`. This sets the focus indicator to appear inside the tree item, around the label.
- */
-export const FocusInset = {
-  render: () => html`
-    <div style="width:250px">
-      <ic-tree-view
-        id="focus-inset-tree-view"
-        heading="Menu"
-        focus-inset="true"
-      >
-      </ic-tree-view>
-    </div>
-    <script>
-      document.querySelector("#focus-inset-tree-view").treeItemData = [
-        {
-          label: "Coffee",
-          children: [
-            { label: "Americano", children: [{ label: "With milk" }] },
-            { label: "Latte" },
-            { label: "Espresso" },
-          ],
-        },
-        {
-          label: "Tea",
-          children: [{ label: "Earl grey" }, { label: "Chai" }],
-        },
-        { label: "Hot chocolate" },
-      ];
-    </script>
-  `,
-  name: "Focus inset",
-};
-
-export const FocusInsetSlotted = {
-  render: () => html`
-    <div style="width:250px">
-      <ic-tree-view heading="Menu" focus-inset="true">
-        <ic-tree-item label="Coffee">
-          <ic-tree-item label="Americano">
-            <ic-tree-item label="With milk"></ic-tree-item>
-          </ic-tree-item>
-          <ic-tree-item label="Latte"></ic-tree-item>
-          <ic-tree-item label="Espresso"></ic-tree-item>
-        </ic-tree-item>
-        <ic-tree-item label="Tea">
-          <ic-tree-item label="Earl Grey"></ic-tree-item>
-          <ic-tree-item label="Chai"></ic-tree-item>
-        </ic-tree-item>
-        <ic-tree-item label="Hot chocolate"></ic-tree-item>
-      </ic-tree-view>
-    </div>
-  `,
-  name: "Focus inset - slotted",
-};
-
 export const WithNestedSkipLink = {
   render: () => html`
     <div style="width:250px">

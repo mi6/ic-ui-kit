@@ -305,43 +305,6 @@ describe("IcTreeView", () => {
     });
   });
 
-  it("should render with focus inset", () => {
-    mount(
-      <div
-        style={{
-          width: "250px",
-          padding: "16px",
-        }}
-      >
-        <IcTreeView heading="Menu" focusInset treeItemData={treeItems} />
-      </div>
-    );
-
-    cy.checkHydrated(TREE_VIEW);
-
-    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).focus();
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "/focus-inset",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
-    });
-  });
-
-  it("should render with focus inset for slotted tree items", () => {
-    mount(BasicTreeView({ focusInset: true }));
-
-    cy.checkHydrated(TREE_VIEW);
-
-    cy.findShadowEl(TREE_ITEM, TREE_ITEM_CONTENT).eq(1).focus();
-
-    cy.checkA11yWithWait(undefined, 500);
-    cy.compareSnapshot({
-      name: "/focus-inset",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
-    });
-  });
-
   it("should render with disabled tree item", () => {
     mount(
       <div
