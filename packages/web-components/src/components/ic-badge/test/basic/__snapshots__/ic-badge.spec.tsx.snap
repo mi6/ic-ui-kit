@@ -158,7 +158,7 @@ exports[`ic-badge should render slotted in a chip: should render slotted in a ch
 exports[`ic-badge should render slotted in a navigation button: should render slotted in a navigation button 1`] = `
 <ic-navigation-button class="ic-theme-dark" href="https://www.google.com" label="Button One" slot="buttons" target="_blank">
   <template shadowrootmode="open">
-    <ic-button aria-label="Button One" href="https://www.google.com" monochrome="" size="large" target="_blank" theme="dark" title="Google 1" variant="icon">
+    <ic-button aria-label="Button One" href="https://www.google.com" monochrome="" size="large" target="_blank" theme="dark" title="Google 1" variant="icon-tertiary">
       <slot name="icon" slot="left-icon"></slot>
       <slot name="badge"></slot>
     </ic-button>

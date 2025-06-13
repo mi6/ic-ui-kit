@@ -10,12 +10,10 @@ import {
   h,
 } from "@stencil/core";
 
-import {
-  IC_BLOCK_COLOR_COMPONENTS,
-  IC_INHERITED_ARIA,
-} from "../../utils/constants";
+import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
   getBrandForegroundAppearance,
+  getElementInheritedTheme,
   inheritAttributes,
   isSlotUsed,
   onComponentRequiredPropUndefined,
@@ -53,6 +51,11 @@ export class NavigationButton {
    * The display mode.
    */
   @State() mode: IcNavButtonModes = "navbar";
+
+  /**
+   * The parent theme used to inherit external colour tokens such as focus indicator.
+   */
+  @State() parentThemeDark = false;
 
   /**
    * If `true`, the user can save the linked URL instead of navigating to it.
@@ -115,6 +118,7 @@ export class NavigationButton {
     this.el
       .querySelector(`[slot="icon"]`)
       ?.setAttribute("viewBox", "0 0 24 24");
+    this.parentThemeChangeHandler();
   }
 
   disconnectedCallback(): void {
@@ -124,16 +128,23 @@ export class NavigationButton {
   @Listen("icNavigationMenuOpened", { target: "document" })
   navBarMenuOpenHandler(): void {
     this.mode = "menu";
+    this.theme = (this.el.parentElement as HTMLIcTopNavigationElement).theme;
   }
 
   @Listen("icNavigationMenuClosed", { target: "document" })
   navBarMenuCloseHandler(): void {
     this.mode = "navbar";
+    this.updateTheme();
   }
 
   @Listen("brandChange", { target: "document" })
   brandChangeHandler({ detail: { mode } }: CustomEvent<IcBrand>): void {
     this.updateTheme(mode);
+  }
+
+  @Listen("icThemeChange", { target: "document" })
+  parentThemeChangeHandler(): void {
+    this.parentThemeDark = getElementInheritedTheme(this.el) === "dark";
   }
 
   /**
@@ -166,8 +177,6 @@ export class NavigationButton {
   private updateTheme(
     mode: IcBrandForeground = getBrandForegroundAppearance()
   ) {
-    if (this.el.parentElement?.closest(IC_BLOCK_COLOR_COMPONENTS)) return;
-
     this.theme =
       mode === IcBrandForegroundEnum.Light
         ? IcBrandForegroundEnum.Dark
@@ -181,6 +190,7 @@ export class NavigationButton {
       inheritedAttributes,
       label,
       mode,
+      parentThemeDark,
       referrerpolicy,
       rel,
       target,
@@ -203,6 +213,7 @@ export class NavigationButton {
         class={{
           "in-side-menu": isMenuMode,
           [`ic-theme-${theme}`]: theme !== "inherit",
+          dark: parentThemeDark,
         }}
       >
         <ic-button
@@ -213,7 +224,7 @@ export class NavigationButton {
           fullWidth={isMenuMode}
           monochrome={!isMenuMode}
           size={isMenuMode ? "medium" : "large"}
-          variant={isMenuMode ? "tertiary" : "icon"}
+          variant={isMenuMode ? "tertiary" : "icon-tertiary"}
           {...buttonProps}
           {...inheritedAttributes}
         >
