@@ -3901,7 +3901,12 @@
       "tag": "ic-checkbox-group",
       "readme": "# ic-checkbox-group\r\n\r\n\r\n\r",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "helper-text - Content is set as the helper text for the checkbox group."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -4227,7 +4232,12 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "helper-text",
+          "docs": "Content is set as the helper text for the checkbox group."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -12351,7 +12361,12 @@
       "tag": "ic-radio-group",
       "readme": "# ic-radio-group\r\n\r\n\r\n\r",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "helper-text - Content is set as the helper text for the radio group."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -12734,7 +12749,12 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "helper-text",
+          "docs": "Content is set as the helper text for the radio group."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -13153,7 +13173,12 @@
       "tag": "ic-search-bar",
       "readme": "# ic-search-bar\r\n\r\n\r\n\r",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "helper-text - Content is set as the helper text for the search bar."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -14412,7 +14437,12 @@
           "docs": "z-index of search bar menu"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "helper-text",
+          "docs": "Content is set as the helper text for the search bar."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -14569,6 +14599,10 @@
       "readme": "# ic-select\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
+        {
+          "name": "slot",
+          "text": "helper-text - Content is set as the helper text for the select."
+        },
         {
           "name": "slot",
           "text": "icon - Content will be placed to the left of the select text input."
@@ -15585,6 +15619,10 @@
         }
       ],
       "slots": [
+        {
+          "name": "helper-text",
+          "docs": "Content is set as the helper text for the select."
+        },
         {
           "name": "icon",
           "docs": "Content will be placed to the left of the select text input."
@@ -17014,6 +17052,10 @@
       "docsTags": [
         {
           "name": "slot",
+          "text": "helper-text - Content is set as the helper text for the switch."
+        },
+        {
+          "name": "slot",
           "text": "right-adornment - Content is placed to the right of switch."
         }
       ],
@@ -17365,6 +17407,10 @@
       "listeners": [],
       "styles": [],
       "slots": [
+        {
+          "name": "helper-text",
+          "docs": "Content is set as the helper text for the switch."
+        },
         {
           "name": "right-adornment",
           "docs": "Content is placed to the right of switch."
@@ -17816,6 +17862,10 @@
       "readme": "# ic-textfield\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [
+        {
+          "name": "slot",
+          "text": "helper-text - Content is set as the helper text for the text field."
+        },
         {
           "name": "slot",
           "text": "icon - Content will be placed to the left of the text input."
@@ -18960,6 +19010,10 @@
         }
       ],
       "slots": [
+        {
+          "name": "helper-text",
+          "docs": "Content is set as the helper text for the text field."
+        },
         {
           "name": "icon",
           "docs": "Content will be placed to the left of the text input."

@@ -4,7 +4,9 @@ exports[`ic-switch component should render an aria-label: renders-with-aria 1`] 
 <ic-switch label="Custom title">
   <template shadowrootmode="open">
     <label class="ic-switch-container" htmlfor="ic-switch-input-0">
-      <ic-input-label class="ic-switch-label" for="ic-switch-input-0" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <ic-input-label class="ic-switch-label" for="ic-switch-input-0" helpertext="" label="Custom title">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <span class="ic-switch-line-break"></span>
       <input aria-checked="false" aria-describedby="" aria-label="Custom title" class="ic-switch-input" id="ic-switch-input-0" name="toggle" role="switch" type="checkbox">
       <span class="ic-switch-toggle">
@@ -26,7 +28,9 @@ exports[`ic-switch component should render checked: renders-checked 1`] = `
 <ic-switch checked="true" label="Custom title">
   <template shadowrootmode="open">
     <label class="ic-switch-container" htmlfor="ic-switch-input-2">
-      <ic-input-label class="ic-switch-label" for="ic-switch-input-2" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <ic-input-label class="ic-switch-label" for="ic-switch-input-2" helpertext="" label="Custom title">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <span class="ic-switch-line-break"></span>
       <input aria-checked="true" aria-describedby="" aria-label="Custom title" checked="" class="ic-switch-input" id="ic-switch-input-2" name="toggle" role="switch" type="checkbox">
       <span class="ic-switch-toggle">
@@ -48,7 +52,9 @@ exports[`ic-switch component should render disabled: disabled-removed 1`] = `
 <ic-switch label="Custom title">
   <template shadowrootmode="open">
     <label class="ic-switch-container" htmlfor="ic-switch-input-1">
-      <ic-input-label class="ic-switch-label" for="ic-switch-input-1" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <ic-input-label class="ic-switch-label" for="ic-switch-input-1" helpertext="" label="Custom title">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <span class="ic-switch-line-break"></span>
       <input aria-checked="false" aria-describedby="" aria-label="Custom title" class="ic-switch-input" id="ic-switch-input-1" name="toggle" role="switch" type="checkbox">
       <span class="ic-switch-toggle">
@@ -70,7 +76,9 @@ exports[`ic-switch component should render disabled: renders-disabled 1`] = `
 <ic-switch disabled="true" label="Custom title">
   <template shadowrootmode="open">
     <label class="ic-switch-container ic-switch-disabled" htmlfor="ic-switch-input-1">
-      <ic-input-label class="ic-switch-label" disabled="" for="ic-switch-input-1" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <ic-input-label class="ic-switch-label" disabled="" for="ic-switch-input-1" helpertext="" label="Custom title">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <span class="ic-switch-line-break"></span>
       <input aria-checked="false" aria-describedby="" aria-label="Custom title" class="ic-switch-input" disabled="" id="ic-switch-input-1" name="toggle" role="switch" type="checkbox">
       <span class="ic-switch-toggle">
@@ -92,7 +100,9 @@ exports[`ic-switch component should render small: renders-small 1`] = `
 <ic-switch checked="true" label="Custom title" size="small">
   <template shadowrootmode="open">
     <label class="ic-switch-container ic-switch-small" htmlfor="ic-switch-input-3">
-      <ic-input-label class="ic-switch-label ic-switch-label-small" for="ic-switch-input-3" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <ic-input-label class="ic-switch-label ic-switch-label-small" for="ic-switch-input-3" helpertext="" label="Custom title">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <span class="ic-switch-line-break"></span>
       <input aria-checked="true" aria-describedby="" aria-label="Custom title" checked="" class="ic-switch-input" id="ic-switch-input-3" name="toggle" role="switch" type="checkbox">
       <span class="ic-switch-toggle">

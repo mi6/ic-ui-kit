@@ -44,7 +44,9 @@ exports[`ic-search-bar search should render disabled variant: disabled-removed 1
 <ic-search-bar class="ic-search-bar-search" label="Test label" value="">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-search-bar-input-4" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-search-bar-input-4" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container size="medium">
         <input aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="Search" value="">
         <div class="clear-button-container">
@@ -85,7 +87,9 @@ exports[`ic-search-bar search should render disabled variant: renders-disabled 1
 <ic-search-bar class="ic-search-bar-disabled ic-search-bar-search" disabled="true" label="Test label" value="">
   <template shadowrootmode="open">
     <ic-input-container disabled="">
-      <ic-input-label disabled="" for="ic-search-bar-input-4" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label disabled="" for="ic-search-bar-input-4" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container disabled="" size="medium">
         <input aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="Search" value="">
         <div class="clear-button-container">
@@ -126,7 +130,9 @@ exports[`ic-search-bar search should render readonly variant: renders-readonly 1
 <ic-search-bar class="ic-search-bar-search" label="Test label" readonly="true" value="">
   <template shadowrootmode="open">
     <ic-input-container disabled="" readonly="">
-      <ic-input-label for="ic-search-bar-input-5" helpertext="" label="Test label" readonly=""></ic-input-label>
+      <ic-input-label for="ic-search-bar-input-5" helpertext="" label="Test label" readonly="">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container disabled="" readonly="" size="medium">
         <input aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-left-pad readonly" disabled="" id="ic-search-bar-input-5" inputmode="search" name="ic-search-bar-input-5" placeholder="Search" readonly="" value="">
         <div class="clear-button-container">
@@ -167,7 +173,9 @@ exports[`ic-search-bar search should render required variant: renders-required 1
 <ic-search-bar class="ic-search-bar-search" label="Test label" required="true" value="">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-search-bar-input-3" helpertext="" label="Test label" required=""></ic-input-label>
+      <ic-input-label for="ic-search-bar-input-3" helpertext="" label="Test label" required="">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container size="medium">
         <input aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-3" inputmode="search" name="ic-search-bar-input-3" placeholder="Search" required="" value="">
         <div class="clear-button-container">
@@ -211,6 +219,8 @@ exports[`ic-search-bar search should render with characters-until-suggestion set
       <!---->
       <div class="component-container">
         <ic-input-label>
+          <!---->
+          <slot name="helper-text" slot="helper-text"></slot>
           <ic-typography variant="label">
             <label htmlfor="ic-search-bar-input-30">
               Test label
@@ -251,6 +261,8 @@ exports[`ic-search-bar search should render with helper-text: renders-with-helpe
       <!---->
       <div class="component-container">
         <ic-input-label class="with-helper">
+          <!---->
+          <slot name="helper-text" slot="helper-text"></slot>
           <ic-typography variant="label">
             <label htmlfor="ic-search-bar-input-7">
               Test label
@@ -303,7 +315,9 @@ exports[`ic-search-bar search should render with options: renders-with-options 1
 <ic-search-bar class="ic-search-bar-search" label="Test label" value="espresso">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-search-bar-input-6" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-search-bar-input-6" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container size="medium">
         <input aria-autocomplete="list" aria-describedby="ic-search-bar-input-6-assistive-hint" aria-haspopup="listbox" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-6" inputmode="search" name="ic-search-bar-input-6" placeholder="Search" value="Espresso">
         <div class="clear-button-container">
@@ -344,7 +358,9 @@ exports[`ic-search-bar search should render with value: renders-with-value 1`] =
 <ic-search-bar class="ic-search-bar-search" label="Test label" value="foo">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-search-bar-input-1" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-search-bar-input-1" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container size="medium">
         <input aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-1" inputmode="search" name="ic-search-bar-input-1" placeholder="Search" value="foo">
         <div class="clear-button-container">
@@ -385,7 +401,9 @@ exports[`ic-search-bar search should render: renders 1`] = `
 <ic-search-bar class="ic-search-bar-search" label="Test label" value="">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-search-bar-input-0" helpertext="" label="Test label"></ic-input-label>
+      <ic-input-label for="ic-search-bar-input-0" helpertext="" label="Test label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container size="medium">
         <input aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-0" inputmode="search" name="ic-search-bar-input-0" placeholder="Search" value="">
         <div class="clear-button-container">

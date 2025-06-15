@@ -32,12 +32,20 @@ ic-input-validation {
   margin-top: calc(var(--ic-space-sm) / 2);
 }
 
-ic-input-label ic-typography {
+ic-input-label:not(.with-helper) .ic-typography-label,
+ic-input-label .helpertext {
   margin-bottom: var(--ic-space-sm);
 }
 
-:host(.ic-radio-group-small) ic-input-label ic-typography {
+:host(.ic-radio-group-small)
+  ic-input-label:not(.with-helper)
+  .ic-typography-label,
+:host(.ic-radio-group-small) ic-input-label .helpertext {
   margin-bottom: calc(var(--ic-space-sm) / 2);
+}
+
+ic-input-label .helpertext {
+  display: block;
 }
 
 :host .radio-buttons-container {

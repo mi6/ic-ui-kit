@@ -4,7 +4,9 @@ exports[`ic-select multi should not render a native select on a mobile / tablet 
 <ic-select label="IC Select Test" multiple="true">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-73" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-73" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">
@@ -64,7 +66,9 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
 <ic-select label="IC Select Test" multiple="true">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-76" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-76" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-medium menu-open">
         <!---->
         <div class="focus-indicator">
@@ -129,7 +133,9 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
 <ic-select label="IC Select Test" multiple="true">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-76" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-76" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-medium menu-open">
         <!---->
         <div class="focus-indicator">
@@ -197,7 +203,9 @@ exports[`ic-select native should test native select with groups: native-select-w
 <ic-select label="New label">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-26" helpertext="" label="New label"></ic-input-label>
+      <ic-input-label for="ic-select-input-26" helpertext="" label="New label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
         <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-26">
           <option disabled="" selected="" value="">
@@ -231,7 +239,9 @@ exports[`ic-select native should test native select: native-select 1`] = `
 <ic-select label="New label">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-25" helpertext="" label="New label"></ic-input-label>
+      <ic-input-label for="ic-select-input-25" helpertext="" label="New label">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container size="medium" validationstatus="">
         <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-25">
           <option disabled="" selected="" value="">
@@ -258,7 +268,9 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
 <ic-select class="ic-select-searchable" label="IC Select Test" required="true" searchable="true">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-29" helpertext="" label="IC Select Test" required=""></ic-input-label>
+      <ic-input-label for="ic-select-input-29" helpertext="" label="IC Select Test" required="">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">
@@ -294,7 +306,9 @@ exports[`ic-select searchable should render disabled: disabled-removed 1`] = `
 <ic-select class="ic-select-searchable" label="IC Select Test" searchable="true">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-71" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-71" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">
@@ -330,7 +344,9 @@ exports[`ic-select searchable should render disabled: renders-disabled 1`] = `
 <ic-select class="ic-select-disabled ic-select-searchable" disabled="" label="IC Select Test" searchable="true">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label disabled="" for="ic-select-input-71" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label disabled="" for="ic-select-input-71" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container aria-disabled="true" class="ic-input-component-container-disabled ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">
@@ -366,7 +382,9 @@ exports[`ic-select should have correct validation status: with-validation-status
 <ic-select label="IC Select Test" validation-status="error">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-4" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-4" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-error ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">
@@ -408,7 +426,9 @@ exports[`ic-select should not have a validation status if disabled: no-validatio
 <ic-select class="ic-select-disabled" disabled="" label="IC Select Test" validation-status="error">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label disabled="" for="ic-select-input-5" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label disabled="" for="ic-select-input-5" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container aria-disabled="true" class="ic-input-component-container-disabled ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">
@@ -489,7 +509,9 @@ exports[`ic-select should not render validation text if no validation status has
 <ic-select label="IC Select Test" validation-text="Test validation text">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-7" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-7" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">
@@ -530,7 +552,9 @@ exports[`ic-select should render correct validation text: with-validation-text 1
 <ic-select label="IC Select Test" validation-status="error" validation-text="Test validation text">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-6" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-6" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-error ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">
@@ -572,7 +596,9 @@ exports[`ic-select should render readonly: readonly 1`] = `
 <ic-select label="IC Select Test" readonly="true">
   <template shadowrootmode="open">
     <ic-input-container readonly="">
-      <ic-input-label for="ic-select-input-2" helpertext="" label="IC Select Test" readonly=""></ic-input-label>
+      <ic-input-label for="ic-select-input-2" helpertext="" label="IC Select Test" readonly="">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-medium ic-input-component-container-readonly">
         <!---->
         <div class="focus-indicator">
@@ -604,7 +630,9 @@ exports[`ic-select should render with an icon: with-icon 1`] = `
 <ic-select label="IC Select Test">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-3" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-3" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">
@@ -654,7 +682,9 @@ exports[`ic-select should test select as submit on form 1`] = `
 <ic-select form="new-form" id="ic-select" label="IC Select Test" value="test-value">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-1" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-1" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">
@@ -695,7 +725,9 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
 <ic-select label="IC Select Test" show-clear-button="true" value="Test value 1">
   <template shadowrootmode="open">
     <ic-input-container>
-      <ic-input-label for="ic-select-input-8" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-8" helpertext="" label="IC Select Test">
+        <slot name="helper-text" slot="helper-text"></slot>
+      </ic-input-label>
       <ic-input-component-container class="ic-input-component-container-medium">
         <!---->
         <div class="focus-indicator">

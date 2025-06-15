@@ -47,6 +47,13 @@
 | `icChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date; }>` |
 
 
+## Slots
+
+| Slot            | Description                                            |
+| --------------- | ------------------------------------------------------ |
+| `"helper-text"` | Content is set as the helper text for the date picker. |
+
+
 ## CSS Custom Properties
 
 | Name                       | Description              |

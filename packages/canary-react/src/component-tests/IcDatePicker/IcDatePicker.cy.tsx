@@ -4,6 +4,7 @@ import "./IcDatePicker.css";
 import React from "react";
 import { mount } from "cypress/react";
 import { IcDatePicker } from "../../components";
+import { IcLink, IcTypography } from "@ukic/react";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 
 import {
@@ -607,6 +608,27 @@ describe("IcDatePicker end-to-end, visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "/large-max-width-year-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
+  });
+
+  it("should render slotted helper text", () => {
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE}>
+        <IcTypography variant="caption" slot="helper-text">
+          <span>
+            Slotted helper text with a <IcLink href="#">link</IcLink>
+          </span>
+        </IcTypography>
+      </IcDatePicker>
+    );
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+
+    cy.compareSnapshot({
+      name: "/helper-text-slot",
+      testThreshold: setThresholdBasedOnEnv(0),
     });
   });
 

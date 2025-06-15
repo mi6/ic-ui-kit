@@ -29,6 +29,13 @@
 | `icChange` | Emitted when a user selects a radio. | `CustomEvent<IcChangeEventDetail>` |
 
 
+## Slots
+
+| Slot            | Description                                            |
+| --------------- | ------------------------------------------------------ |
+| `"helper-text"` | Content is set as the helper text for the radio group. |
+
+
 ## Dependencies
 
 ### Depends on

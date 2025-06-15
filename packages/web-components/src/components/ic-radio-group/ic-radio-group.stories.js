@@ -264,6 +264,28 @@ export const HelperText = {
         disabled
       ></ic-radio-option>
     </ic-radio-group>
+    <br />
+    <ic-radio-group label="This is a label" name="2">
+      <ic-typography variant="caption" slot="helper-text">
+        <span>
+          Slotted helper text with a <ic-link href="#">link</ic-link>
+        </span>
+      </ic-typography>
+      <ic-radio-option
+        value="valueName1"
+        label="Unselected / Default"
+      ></ic-radio-option>
+      <ic-radio-option
+        value="valueName2"
+        label="Selected / Default"
+        selected
+      ></ic-radio-option>
+      <ic-radio-option
+        value="valueName3"
+        label="Unselected / Disabled"
+        disabled
+      ></ic-radio-option>
+    </ic-radio-group>
   `,
 
   name: "Helper text",

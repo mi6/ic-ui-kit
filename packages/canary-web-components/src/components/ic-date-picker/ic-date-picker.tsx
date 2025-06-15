@@ -80,6 +80,9 @@ interface IcDateInputProps {
   validationText?: string;
 }
 
+/**
+ * @slot helper-text - Content is set as the helper text for the date picker.
+ */
 @Component({
   tag: "ic-date-picker",
   styleUrl: "ic-date-picker.css",
@@ -1388,10 +1391,9 @@ export class DatePicker {
         }}
       >
         <div class="date-input-container">
-          <ic-date-input
-            ref={(el) => (this.inputEl = el)}
-            {...dateInputProps}
-          ></ic-date-input>
+          <ic-date-input ref={(el) => (this.inputEl = el)} {...dateInputProps}>
+            <slot name="helper-text" slot="helper-text"></slot>
+          </ic-date-input>
         </div>
         {calendarOpen && (
           <div>

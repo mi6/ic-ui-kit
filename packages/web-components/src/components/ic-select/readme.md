@@ -72,9 +72,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot     | Description                                                  |
-| -------- | ------------------------------------------------------------ |
-| `"icon"` | Content will be placed to the left of the select text input. |
+| Slot            | Description                                                  |
+| --------------- | ------------------------------------------------------------ |
+| `"helper-text"` | Content is set as the helper text for the select.            |
+| `"icon"`        | Content will be placed to the left of the select text input. |
 
 
 ## CSS Custom Properties
