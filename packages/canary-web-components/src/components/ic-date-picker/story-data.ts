@@ -50,6 +50,37 @@ export const MaxWidth = (): HTMLElement => {
   return container;
 };
 
+export const WithHelperTextProp = (): HTMLIcDatePickerElement => {
+  const datePicker = createDatePickerElement();
+  datePicker.helperText = "We will have your order ready for you on this date";
+  return datePicker;
+};
+
+export const WithHelperTextSlot = (): HTMLIcDatePickerElement => {
+  const datePicker = createDatePickerElement();
+  datePicker.innerHTML = `
+    <ic-typography variant="caption" slot="helper-text">
+      <span>
+        For special requests, <ic-link href="#" >contact us</ic-link> before choosing a date
+      </span>
+    </ic-typography>
+  `;
+  return datePicker;
+};
+
+export const CustomHelperText = (): HTMLElement => {
+  const container = document.createElement("div");
+
+  container.appendChild(WithHelperTextProp());
+  container.appendChild(WithHelperTextSlot());
+
+  container.style.display = "flex";
+  container.style.flexDirection = "column";
+  container.style.gap = "16px";
+
+  return container;
+};
+
 export const MonthFirst = (): HTMLIcDatePickerElement => {
   const datePicker = createDatePickerElement();
   datePicker.dateFormat = "MM/DD/YYYY";
