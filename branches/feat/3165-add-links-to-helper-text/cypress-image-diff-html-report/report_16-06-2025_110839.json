@@ -1,7 +1,7 @@
 {
-  "total": 790,
-  "totalPassed": 789,
-  "totalFailed": 1,
+  "total": 791,
+  "totalPassed": 791,
+  "totalFailed": 0,
   "totalSuites": 43,
   "suites": [
     {
@@ -4117,6 +4117,17 @@
         },
         {
           "status": "pass",
+          "name": "IcNavigationMenu.cy.tsx/with-expandable-not-expanded-nav-groups-side-nav",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcNavigationMenu/IcNavigationMenu.cy.tsx",
+          "specFilename": "IcNavigationMenu.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcNavigationMenu.cy.tsx/with-expandable-not-expanded-nav-groups-side-nav.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcNavigationMenu.cy.tsx/with-expandable-not-expanded-nav-groups-side-nav.png"
+        },
+        {
+          "status": "pass",
           "name": "IcNavigationMenu.cy.tsx/with-nav-groups-side-nav",
           "percentage": 0,
           "failureThreshold": 0,
@@ -7446,14 +7457,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx/dark-theme-readonly-text-field.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcTextField.cy.tsx/icon-value-max-characters",
-          "percentage": 0.00282842712474619,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx/icon-value-max-characters.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx/icon-value-max-characters.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx/icon-value-max-characters.png"
         },
         {
@@ -8953,9 +8964,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-15T15:13:59.972Z",
-  "endedAt": "2025-06-15T15:31:02.280Z",
-  "duration": 925131,
+  "startedAt": "2025-06-16T11:08:39.741Z",
+  "endedAt": "2025-06-16T11:25:16.083Z",
+  "duration": 898627,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
