@@ -261,24 +261,32 @@ export const WithDescriptionsIncludedInSearch = {
 export const HelperText = {
   render: (args) =>
     html`<ic-select
-        id="select-helper"
         label="What is your favourite coffee?"
         searchable
         helper-text="Select one option from the list"
       ></ic-select>
+      <br />
+      <ic-select label="What is your favourite coffee?" searchable
+        ><ic-typography variant="caption" slot="helper-text">
+          <span>
+            Slotted helper text with a <ic-link href="#">link</ic-link>
+          </span>
+        </ic-typography></ic-select
+      >
       <script>
-        var select = document.querySelector("#select-helper");
-        select.options = [
-          { label: "Cappuccino", value: "Cap" },
-          { label: "Latte", value: "Lat" },
-          { label: "Americano", value: "Ame" },
-          { label: "Filter", value: "Fil" },
-          { label: "Flat white", value: "Fla" },
-          { label: "Mocha", value: "Moc" },
-          { label: "Macchiato", value: "Mac" },
-        ];
-        select.addEventListener("icChange", function (event) {
-          console.log("icChange: " + event.detail.value);
+        document.querySelectorAll("ic-select").forEach((el) => {
+          el.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          el.addEventListener("icChange", function (event) {
+            console.log("icChange: " + event.detail.value);
+          });
         });
       </script>`,
 

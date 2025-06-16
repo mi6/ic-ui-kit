@@ -206,24 +206,32 @@ export const WithDescriptions = {
 export const HelperText = {
   render: (args) =>
     html`<ic-select
-        id="select-helper"
         label="What are your favourite types of coffee?"
         multiple
         helper-text="Select some options from the list"
       ></ic-select>
+      <br />
+      <ic-select label="What are your favourite types of coffee?" multiple
+        ><ic-typography variant="caption" slot="helper-text">
+          <span>
+            Slotted helper text with a <ic-link href="#">link</ic-link>
+          </span>
+        </ic-typography></ic-select
+      >
       <script>
-        var select = document.querySelector("#select-helper");
-        select.options = [
-          { label: "Cappuccino", value: "Cap" },
-          { label: "Latte", value: "Lat" },
-          { label: "Americano", value: "Ame" },
-          { label: "Filter", value: "Fil" },
-          { label: "Flat white", value: "Fla" },
-          { label: "Mocha", value: "Moc" },
-          { label: "Macchiato", value: "Mac" },
-        ];
-        select.addEventListener("icChange", function (event) {
-          console.log("icChange: " + event.detail.value);
+        document.querySelectorAll("ic-select").forEach((el) => {
+          el.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          el.addEventListener("icChange", function (event) {
+            console.log("icChange: " + event.detail.value);
+          });
         });
       </script>`,
 

@@ -49,6 +49,7 @@ let inputIds = 0;
 const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "title"];
 
 /**
+ * @slot helper-text - Content is set as the helper text for the text field.
  * @slot icon - Content will be placed to the left of the text input.
  */
 @Component({
@@ -647,6 +648,7 @@ export class TextField {
     const describedBy = `${hiddenCharCountDescId} ${
       numChars > 0 ? remainingCharCountDescId : ""
     } ${getInputDescribedByText(
+      this.el,
       inputId,
       helperText !== "",
       showStatusText
@@ -679,7 +681,9 @@ export class TextField {
               required={required}
               disabled={disabledText}
               readonly={readonly}
-            ></ic-input-label>
+            >
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
           )}
 
           <ic-input-component-container

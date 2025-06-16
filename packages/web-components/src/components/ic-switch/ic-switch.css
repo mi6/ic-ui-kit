@@ -168,11 +168,8 @@ input {
   transform: translate(var(--ic-space-lg), -50%);
 }
 
-::slotted(*) {
+::slotted([slot="right-adornment"]) {
   margin-left: var(--ic-space-sm);
-}
-
-::slotted(svg) {
   fill: var(--ic-switch-icon);
 }
 

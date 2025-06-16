@@ -46,6 +46,9 @@ import searchIcon from "../../assets/search-icon.svg";
 
 let inputIds = 0;
 
+/**
+ * @slot helper-text - Content is set as the helper text for the search bar.
+ */
 @Component({
   tag: "ic-search-bar",
   styleUrl: "ic-search-bar.css",
@@ -790,6 +793,7 @@ export class SearchBar {
     const disabledMode = readonly || disabled;
 
     const describedBy = getInputDescribedByText(
+      this.el,
       inputId,
       helperText !== "",
       false
@@ -841,7 +845,9 @@ export class SearchBar {
               required={required}
               disabled={disabledMode && !readonly}
               readonly={readonly}
-            ></ic-input-label>
+            >
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
           )}
           <ic-input-component-container
             ref={(el) => (this.anchorEl = el)}

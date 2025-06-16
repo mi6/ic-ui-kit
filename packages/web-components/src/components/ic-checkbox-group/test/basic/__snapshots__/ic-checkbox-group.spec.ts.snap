@@ -5,7 +5,9 @@ exports[`ic-checkbox-group should pass the size on the checkbox group to the chi
   <template shadowrootmode="open">
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -44,7 +46,9 @@ exports[`ic-checkbox-group should prioritise the size on an individual checkbox 
   <template shadowrootmode="open">
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -83,7 +87,9 @@ exports[`ic-checkbox-group should render an aria label when checkbox label hidde
   <template shadowrootmode="open">
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -132,7 +138,9 @@ exports[`ic-checkbox-group should render as helper text: renders-with-helpertext
   <template shadowrootmode="open">
     <fieldset aria-labelledby="test-helper-text" id="test">
       <legend>
-        <ic-input-label helpertext="helper test" label="test label"></ic-input-label>
+        <ic-input-label helpertext="helper test" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -162,7 +170,9 @@ exports[`ic-checkbox-group should render as required: renders-required 1`] = `
     </span>
     <fieldset aria-labelledby="screenReaderOnlyText" id="test">
       <legend>
-        <ic-input-label helpertext="" label="test label" required=""></ic-input-label>
+        <ic-input-label helpertext="" label="test label" required="">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -189,7 +199,9 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
   <template shadowrootmode="open">
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -223,7 +235,9 @@ exports[`ic-checkbox-group should render in a disabled state: disabled-removed 1
   <template shadowrootmode="open">
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -250,7 +264,9 @@ exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1
   <template shadowrootmode="open">
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -277,7 +293,9 @@ exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`
   <template shadowrootmode="open">
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -335,7 +353,9 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
     <ic-text-field class="ic-text-field-disabled" disabled="true" label="Test label" placeholder="Placeholder" slot="additional-field" value="">
       <template shadowrootmode="open">
         <ic-input-container disabled="">
-          <ic-input-label disabled="" for="ic-text-field-input-2" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-label disabled="" for="ic-text-field-input-2" helpertext="" label="Test label">
+            <slot name="helper-text" slot="helper-text"></slot>
+          </ic-input-label>
           <ic-input-component-container disabled="" size="medium" validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="Placeholder" type="text" value="">
           </ic-input-component-container>
@@ -366,7 +386,9 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
       <ic-text-field class="ic-text-field-disabled" disabled="true" label="Test label" placeholder="Placeholder" value="">
         <template shadowrootmode="open">
           <ic-input-container disabled="">
-            <ic-input-label disabled="" for="ic-text-field-input-3" helpertext="" label="Test label"></ic-input-label>
+            <ic-input-label disabled="" for="ic-text-field-input-3" helpertext="" label="Test label">
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
             <ic-input-component-container disabled="" size="medium" validationstatus="">
               <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-3" inputmode="text" name="ic-text-field-input-3" placeholder="Placeholder" type="text" value="">
             </ic-input-component-container>
@@ -377,7 +399,9 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
       <ic-text-field class="ic-text-field-disabled" disabled="true" label="Test label" placeholder="Placeholder" value="">
         <template shadowrootmode="open">
           <ic-input-container disabled="">
-            <ic-input-label disabled="" for="ic-text-field-input-4" helpertext="" label="Test label"></ic-input-label>
+            <ic-input-label disabled="" for="ic-text-field-input-4" helpertext="" label="Test label">
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
             <ic-input-component-container disabled="" size="medium" validationstatus="">
               <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-4" inputmode="text" name="ic-text-field-input-4" placeholder="Placeholder" type="text" value="">
             </ic-input-component-container>
@@ -436,7 +460,9 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
     <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field" value="">
       <template shadowrootmode="open">
         <ic-input-container>
-          <ic-input-label for="ic-text-field-input-1" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-label for="ic-text-field-input-1" helpertext="" label="Test label">
+            <slot name="helper-text" slot="helper-text"></slot>
+          </ic-input-label>
           <ic-input-component-container size="medium" validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="Placeholder" type="text" value="">
           </ic-input-component-container>
@@ -489,7 +515,9 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
     <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field" value="">
       <template shadowrootmode="open">
         <ic-input-container>
-          <ic-input-label for="ic-text-field-input-0" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-label for="ic-text-field-input-0" helpertext="" label="Test label">
+            <slot name="helper-text" slot="helper-text"></slot>
+          </ic-input-label>
           <ic-input-component-container size="medium" validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="Placeholder" type="text" value="">
           </ic-input-component-container>
@@ -534,7 +562,9 @@ exports[`ic-checkbox-group should render: renders 1`] = `
   <template shadowrootmode="open">
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -596,7 +626,9 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
     <ic-text-field disabled="false" label="Test label" placeholder="Placeholder" slot="additional-field" value="">
       <template shadowrootmode="open">
         <ic-input-container>
-          <ic-input-label for="ic-text-field-input-5" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-label for="ic-text-field-input-5" helpertext="" label="Test label">
+            <slot name="helper-text" slot="helper-text"></slot>
+          </ic-input-label>
           <ic-input-component-container size="medium" validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-5" inputmode="text" name="ic-text-field-input-5" placeholder="Placeholder" type="text" value="">
           </ic-input-component-container>
@@ -634,7 +666,9 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
       <ic-text-field disabled="false" label="Test label" placeholder="Placeholder" value="">
         <template shadowrootmode="open">
           <ic-input-container>
-            <ic-input-label for="ic-text-field-input-6" helpertext="" label="Test label"></ic-input-label>
+            <ic-input-label for="ic-text-field-input-6" helpertext="" label="Test label">
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
             <ic-input-component-container size="medium" validationstatus="">
               <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-6" inputmode="text" name="ic-text-field-input-6" placeholder="Placeholder" type="text" value="">
             </ic-input-component-container>
@@ -645,7 +679,9 @@ exports[`ic-checkbox-group should set disabled attribute to false on static addi
       <ic-text-field disabled="false" label="Test label" placeholder="Placeholder" value="">
         <template shadowrootmode="open">
           <ic-input-container>
-            <ic-input-label for="ic-text-field-input-7" helpertext="" label="Test label"></ic-input-label>
+            <ic-input-label for="ic-text-field-input-7" helpertext="" label="Test label">
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
             <ic-input-component-container size="medium" validationstatus="">
               <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-7" inputmode="text" name="ic-text-field-input-7" placeholder="Placeholder" type="text" value="">
             </ic-input-component-container>
@@ -679,7 +715,9 @@ exports[`ic-checkbox-group should test labelNameHandler 1`] = `
   <template shadowrootmode="open">
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label helpertext="" label="test label"></ic-input-label>
+        <ic-input-label helpertext="" label="test label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
@@ -706,7 +744,9 @@ exports[`ic-checkbox-group should test labelNameHandler 2`] = `
   <template shadowrootmode="open">
     <fieldset aria-labelledby="" id="test">
       <legend>
-        <ic-input-label helpertext="" label="new label"></ic-input-label>
+        <ic-input-label helpertext="" label="new label">
+          <slot name="helper-text" slot="helper-text"></slot>
+        </ic-input-label>
       </legend>
       <div class="checkboxes-container">
         <slot></slot>
