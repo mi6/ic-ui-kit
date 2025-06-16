@@ -2,6 +2,10 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useArgs } from "@storybook/preview-api";
+import {
+  IcLink,
+  IcTypography,
+} from "@ukic/react";
 import React, { useState } from "react";
 import readme from "../../../canary-web-components/src/components/ic-date-picker/readme.md";
 import { IcDatePicker } from "../components";
@@ -94,6 +98,38 @@ export const MaxWidth = {
     </div>
   ),
   name: "Max width",
+};
+
+/**
+ * Use the helper text to add additional detail for the date input. Display custom content using the `helper-text` slot.
+ */
+export const HelperText = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        height: "790px",
+      }}
+    >
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        helperText="We will have your order ready for you on this date"
+      />
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+      >
+        <IcTypography variant="caption" slot="helper-text">
+          <span>
+            For special requests, <IcLink href="#" >contact us</IcLink> before choosing a date
+          </span>
+        </IcTypography>
+      </IcDatePicker>
+    </div>
+  ),
+  name: "Custom helper text",
+  height: "540px",
 };
 
 /**
