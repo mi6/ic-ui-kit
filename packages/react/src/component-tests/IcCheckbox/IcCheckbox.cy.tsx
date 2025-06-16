@@ -22,8 +22,9 @@ import {
   Disabled,
   Required,
   ThemeDark,
+  HelperTextSlot,
 } from "./IcCheckboxTestData";
-import { IcCheckbox, IcCheckboxGroup, IcTextField } from "../../components";
+import { IcCheckbox, IcCheckboxGroup } from "../../components";
 import {
   BE_DISABLED,
   BE_VISIBLE,
@@ -524,6 +525,20 @@ describe("IcCheckbox visual regression and a11y tests", () => {
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
 
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/helper",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),
+    });
+  });
+
+  it("should render slotted helper text", () => {
+    mount(<HelperTextSlot />);
+
+    cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
+
+    cy.checkA11yWithWait();
+
+    // Check positioning matches normal helper text
     cy.compareSnapshot({
       name: "/helper",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),

@@ -2,7 +2,7 @@
 
 import { mount } from "@cypress/react";
 import React from "react";
-import { IcSelect } from "../../components";
+import { IcSelect, IcTypography } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import {
   BE_DISABLED,
@@ -186,6 +186,31 @@ describe("IcSelect end-to-end, visual regression and a11y tests", () => {
     cy.checkHydrated(IC_SELECT);
 
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/helper-text",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+    });
+  });
+
+  it("should render with slotted helper text", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={coffeeOptions}
+        >
+          <IcTypography variant="caption" slot="helper-text">
+            <span>Enter your favourite coffee</span>
+          </IcTypography>
+        </IcSelect>
+      </div>
+    );
+
+    cy.checkHydrated(IC_SELECT);
+
+    cy.checkA11yWithWait();
+
+    // Check positioning matches normal helper text
     cy.compareSnapshot({
       name: "/helper-text",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),

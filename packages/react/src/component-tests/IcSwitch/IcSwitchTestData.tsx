@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { IcButton, IcSwitch } from "../../components";
+import { IcButton, IcSwitch, IcTypography } from "../../components";
 
 export const Controlled = () => {
   const [checked, setChecked] = useState(true);
@@ -106,6 +106,18 @@ export const HelperText = () => {
   return (
     <div style={{ padding: "10px" }}>
       <IcSwitch label="Label" helperText="This is some helper text" />
+    </div>
+  );
+};
+
+export const HelperTextSlot = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSwitch label="Label">
+        <IcTypography variant="caption" slot="helper-text">
+          <span>This is some helper text</span>
+        </IcTypography>
+      </IcSwitch>
     </div>
   );
 };
