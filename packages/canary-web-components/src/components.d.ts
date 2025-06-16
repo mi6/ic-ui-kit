@@ -542,7 +542,6 @@ export namespace Components {
           * If `true`, the tree item appears in the expanded state.
          */
         "expanded": boolean;
-        "focusInset": boolean;
         "hasParentExpanded": boolean;
         /**
           * The URL that the tree item link points to. If set, the tree item will render as an "a" tag, otherwise it will render as a div.
@@ -590,10 +589,6 @@ export namespace Components {
         "updateAriaLabel": () => Promise<void>;
     }
     interface IcTreeView {
-        /**
-          * If `true`, tree items will have inset focus.
-         */
-        "focusInset": boolean;
         /**
           * The heading of the tree view.
          */
@@ -1352,7 +1347,6 @@ declare namespace LocalJSX {
           * If `true`, the tree item appears in the expanded state.
          */
         "expanded"?: boolean;
-        "focusInset"?: boolean;
         "hasParentExpanded"?: boolean;
         /**
           * The URL that the tree item link points to. If set, the tree item will render as an "a" tag, otherwise it will render as a div.
@@ -1403,10 +1397,6 @@ declare namespace LocalJSX {
         "truncateTreeItem"?: boolean;
     }
     interface IcTreeView {
-        /**
-          * If `true`, tree items will have inset focus.
-         */
-        "focusInset"?: boolean;
         /**
           * The heading of the tree view.
          */

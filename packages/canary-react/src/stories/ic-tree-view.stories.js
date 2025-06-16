@@ -745,58 +745,6 @@ export const ExpandedSlotted = {
   name: "Expanded - slotted",
 };
 
-/**
- * An example with the tree item `focusInset` prop set to `true`. This sets the focus indicator to appear inside the tree item, around the label.
- */
-export const FocusInset = {
-  render: () => (
-    <div style={{ width: "250px" }}>
-      <IcTreeView 
-        heading="Menu" 
-        focusInset
-        treeItemData={[
-        {
-          label: "Coffee",
-          children: [
-            { label: "Americano", children: [{ label: "With milk" }] },
-            { label: "Latte" },
-            { label: "Espresso" },
-          ],
-        },
-        {
-          label: "Tea",
-          children: [{ label: "Earl grey" }, { label: "Chai" }],
-        },
-        { label: "Hot chocolate" },
-      ]}
-      />
-    </div>
-  ),
-  name: "Focus inset",
-};
-
-export const FocusInsetSlotted = {
-  render: () => (
-    <div style={{ width: "250px" }}>
-      <IcTreeView heading="Menu" focusInset>
-        <IcTreeItem label="Coffee">
-          <IcTreeItem label="Americano">
-            <IcTreeItem label="With milk" />
-          </IcTreeItem>
-          <IcTreeItem label="Latte" />
-          <IcTreeItem label="Espresso" />
-        </IcTreeItem>
-        <IcTreeItem label="Tea">
-          <IcTreeItem label="Earl Grey" />
-          <IcTreeItem label="Chai" />
-        </IcTreeItem>
-        <IcTreeItem label="Hot chocolate" />
-      </IcTreeView>
-    </div>
-  ),
-  name: "Focus inset - slotted",
-};
-
 export const UpdatingOptions = {
   render: () => {
     const [treeItems, setTreeItems] = useState([
@@ -881,7 +829,6 @@ const defaultArgs = {
   treeItemLabel: "Coffee",
   treeItemSelected: false,
   showTreeItemIcon: false,
-  focusInset: false,
   theme: "inherit",
 };
 
@@ -890,7 +837,6 @@ export const Playground = {
     <IcTreeView 
       heading={args.heading}
       size={args.size}
-      focusInset={args.focusInset}
       theme={args.theme}
       truncateTreeItems={args.truncateTreeItems}
       treeItemData={[
@@ -931,7 +877,6 @@ const defaultSlottedArgs = {
   treeItemLabel: "Coffee",
   treeItemSelected: false,
   showTreeItemIcon: false,
-  focusInset: false,
   theme: "inherit",
 };
 
@@ -943,7 +888,6 @@ export const PlaygroundSlotted = {
     <IcTreeView
       heading={args.heading}
       size={args.size}
-      focusInset={args.focusInset}
       theme={args.theme}
       truncateHeading={args.truncateHeading}
       truncateTreeItems={args.truncateTreeItems}

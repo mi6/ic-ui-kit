@@ -63,10 +63,6 @@ export class TreeItem {
   watchExpandedHandler(): void {
     this.icTreeItemExpanded.emit({ isExpanded: this.expanded });
   }
-  /**
-   * @internal If `true`, the tree item will have an inset focus border.
-   */
-  @Prop() focusInset: boolean = false;
 
   /**
    * @internal Determines if the parent tree item has been expanded.
@@ -355,37 +351,40 @@ export class TreeItem {
         this.TREE_ITEM_CONTENT_CLASS_SELECTOR
       ) || slottedContent;
 
-    if (
-      contentHeight &&
-      treeContent?.clientHeight &&
-      contentHeight > treeContent.clientHeight &&
-      !tooltipAlreadyExists &&
-      typographyEl
-    ) {
-      const tooltipEl = document.createElement("ic-tooltip");
-      tooltipEl.setAttribute("target", this.el.id);
-      tooltipEl.setAttribute("label", typographyEl.textContent!);
-      tooltipEl.setAttribute("placement", "right");
+    if (treeContent) {
+      const computedHeight = parseFloat(getComputedStyle(treeContent).height);
+      if (
+        contentHeight &&
+        computedHeight &&
+        contentHeight > computedHeight &&
+        !tooltipAlreadyExists &&
+        typographyEl
+      ) {
+        const tooltipEl = document.createElement("ic-tooltip");
+        tooltipEl.setAttribute("target", this.el.id);
+        tooltipEl.setAttribute("label", typographyEl.textContent!);
+        tooltipEl.setAttribute("placement", "right");
 
-      if (treeContent === slottedContent) {
-        treeContent.addEventListener("focus", () =>
-          this.handleDisplayTooltip(true)
-        );
-        treeContent.addEventListener("blur", () =>
-          this.handleDisplayTooltip(false)
-        );
-        tooltipEl.setAttribute("style", "overflow:hidden;");
-        typographyEl.setAttribute(
-          "style",
-          "overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
-        );
-      } else {
-        tooltipEl.classList.add("ic-tooltip-overflow");
-        typographyEl.classList.add("ic-text-overflow");
+        if (treeContent === slottedContent) {
+          treeContent.addEventListener("focus", () =>
+            this.handleDisplayTooltip(true)
+          );
+          treeContent.addEventListener("blur", () =>
+            this.handleDisplayTooltip(false)
+          );
+          tooltipEl.setAttribute("style", "overflow:hidden;");
+          typographyEl.setAttribute(
+            "style",
+            "overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
+          );
+        } else {
+          tooltipEl.classList.add("ic-tooltip-overflow");
+          typographyEl.classList.add("ic-text-overflow");
+        }
+
+        treeContent.appendChild(tooltipEl);
+        tooltipEl.appendChild(typographyEl);
       }
-
-      treeContent.appendChild(tooltipEl);
-      tooltipEl.appendChild(typographyEl);
     }
   };
 
@@ -427,8 +426,7 @@ export class TreeItem {
   };
 
   render() {
-    const { disabled, label, selected, size, expanded, focusInset, theme } =
-      this;
+    const { disabled, label, selected, size, expanded, theme } = this;
 
     const Component = this.href && !this.disabled ? "a" : "div";
 
@@ -446,7 +444,6 @@ export class TreeItem {
           "ic-tree-item-disabled": disabled,
           "ic-tree-item-selected": !disabled && selected,
           [`ic-tree-item-${size}`]: size !== "medium",
-          "ic-tree-item-focus-inset": focusInset,
           [`ic-theme-${theme}`]: theme !== "inherit",
           "ic-tree-item-truncate": !!this.truncateTreeItem,
         }}
