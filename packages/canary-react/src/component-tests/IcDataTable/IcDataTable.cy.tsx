@@ -50,6 +50,7 @@ import {
   DATA_WITH_EMPTY_VALUES,
   LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS,
   DATA_ELEMENTS_PAGINATION,
+  COLS_DISABLE_AUTO_SORT,
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
@@ -184,6 +185,34 @@ export const ExternalSortDataTable = (): ReactElement => {
       caption="Data Tables"
       sortable
       disableAutoSort
+      onIcSortChange={(e) => handleSort(e.detail)}
+      sortOptions={{
+        sortOrders: ["ascending", "descending"],
+      }}
+    />
+  );
+};
+
+export const ExternalSortColumnDataTable = (): ReactElement => {
+  const ExternalData = [...DATA];
+
+  const handleSort = ({ columnName, sorted }: IcSortEventDetail) => {
+    if (columnName !== "firstName") return;
+
+    const sortedAscending = sorted === "ascending";
+    ExternalData.sort((a, b) => {
+      if (a[columnName] < b[columnName]) return sortedAscending ? -1 : 1;
+      if (a[columnName] > b[columnName]) return sortedAscending ? 1 : -1;
+      return 0;
+    });
+  };
+
+  return (
+    <IcDataTable
+      columns={COLS_DISABLE_AUTO_SORT}
+      data={ExternalData}
+      caption="Disable auto sort on columns"
+      sortable
       onIcSortChange={(e) => handleSort(e.detail)}
       sortOptions={{
         sortOrders: ["ascending", "descending"],
@@ -438,6 +467,42 @@ describe("IcDataTables", () => {
 
   it("should sort data externally if disableAutoSort is true", () => {
     mount(<ExternalSortDataTable />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, SORT_ASCENDING);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
+      .eq(1)
+      .find("td")
+      .eq(0)
+      .should(HAVE_TEXT, "Joe");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(TOOLTIP_BUTTON_SELECTOR)
+      .should(HAVE_ATTR, ARIA_LABEL, "Sort descending");
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, SORT_BUTTON_SELECTOR).eq(0).click();
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
+      .eq(1)
+      .find("td")
+      .eq(0)
+      .should(HAVE_TEXT, "Sarah");
+
+    cy.checkA11yWithWait();
+  });
+
+  it("should sort data externally if disableAutoSort is true on a column", () => {
+    mount(<ExternalSortColumnDataTable />);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 

@@ -15,6 +15,7 @@ import {
   ACTION_DATA_ELEMENTS,
   COLS,
   COLS_ALIGNMENT,
+  COLS_DISABLE_AUTO_SORT,
   COLS_ELEMENTS,
   COLS_ELEMENTS_SINGLE_ACTION,
   COLS_EXCLUDE_SORT,
@@ -236,6 +237,42 @@ export const DisableSort = {
     );
   },
   name: "Disable sort",
+};
+
+/**
+ * Alternatively, set `disableAutoSort` to `true` within the column object to have it apply only to certain columns that may require special custom sorting.
+ */
+export const DisableAutoSortOnColumns = {
+  render: () => {
+    const ExternalData = [...DATA];
+
+    const handleSort = ({ columnName, sorted }) => {
+      console.log("Sort changed", columnName, sorted);
+      if (columnName !== "firstName") return;
+
+      const sortedAscending = sorted === "ascending";
+      ExternalData.sort((a, b) => {
+        if (a[columnName] < b[columnName]) return sortedAscending ? -1 : 1;
+        if (a[columnName] > b[columnName]) return sortedAscending ? 1 : -1;
+        return 0;
+      });
+      console.log("Custom sort applied");
+    };
+
+    return (
+      <IcDataTable
+        columns={COLS_DISABLE_AUTO_SORT}
+        data={ExternalData}
+        caption="Disable auto sort on columns"
+        sortable
+        onIcSortChange={(e) => handleSort(e.detail)}
+        sortOptions={{
+          sortOrders: ["ascending", "descending"],
+        }}
+      />
+    );
+  },
+  name: "Disable sort on columns",
 };
 
 /**
