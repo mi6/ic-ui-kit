@@ -123,6 +123,35 @@ export const COLS_EXCLUDE_SORT: IcDataTableColumnObject[] = [
   },
 ];
 
+export const COLS_HIDDEN: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  {
+    key: "lastName",
+    title: "Last name",
+    dataType: "string",
+  },
+  {
+    key: "age",
+    title: "Age",
+    dataType: "number",
+    hidden: true,
+  },
+  {
+    key: "jobTitle",
+    title: "Job title",
+    dataType: "string",
+  },
+  {
+    key: "address",
+    title: "Address",
+    dataType: "address",
+  },
+];
+
 export const VERY_LONG_DATA = (rows: number = 100) => {
   const nextData = [];
   for (let i = 0; i < rows; i++) {
@@ -1442,6 +1471,34 @@ export const DataTableSizing = (): HTMLElement => {
   dataTable.setAttribute("width", "800px");
   dataTable.setAttribute("table-layout", "auto");
   return dataTable;
+};
+
+export const HiddenCol = (): HTMLElement => {
+  const dataTable = createDataTableElement("Basic Table", COLS_HIDDEN, DATA);
+  const setColumnVisible = (visible: boolean) => {
+    const cols = [...COLS_HIDDEN];
+    cols[2].hidden = !visible;
+    dataTable.columns = cols;
+  };
+  const showButton = document.createElement("ic-button");
+  const hideButton = document.createElement("ic-button");
+  showButton.innerHTML = "Show Age";
+  hideButton.innerHTML = "Hide Age";
+  showButton.addEventListener("click", () => setColumnVisible(true));
+  hideButton.addEventListener("click", () => setColumnVisible(false));
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", showButton);
+  buttonWrapper.insertAdjacentElement("beforeend", hideButton);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  dataTable.insertAdjacentElement("afterend", buttonWrapper);
+
+  return wrapper;
 };
 
 // Used for table overflow testing

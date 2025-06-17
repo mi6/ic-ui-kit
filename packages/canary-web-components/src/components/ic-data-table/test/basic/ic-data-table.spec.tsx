@@ -48,6 +48,13 @@ const columns: IcDataTableColumnObject[] = [
   { key: "employeeNumber", title: employeeNumber, dataType: "number" },
 ];
 
+const columnsWithHiddenAge: IcDataTableColumnObject[] = [
+  { key: "name", title: "Name", dataType: "string" },
+  { key: "age", title: "Age", dataType: "number", hidden: true },
+  { key: "department", title: "Department", dataType: "string" },
+  { key: "employeeNumber", title: employeeNumber, dataType: "number" },
+];
+
 const columnsWithElements: IcDataTableColumnObject[] = [
   { key: "firstName", title: "First name", dataType: "string" },
   { key: "lastName", title: "Last name", dataType: "string" },
@@ -570,6 +577,21 @@ describe(icDataTable, () => {
           columns={columns}
           data={data}
           hide-column-headers
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with Age column hidden", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columnsWithHiddenAge}
+          data={data}
         ></ic-data-table>
       ),
     });

@@ -18,6 +18,7 @@ import {
   EmptySlotted,
   ExcludeColumnsFromSort,
   HeaderTruncation,
+  HiddenCol,
   LargeDataSet,
   LinksHTMLElements,
   Loading,
@@ -151,6 +152,14 @@ export const DisableSortExample = {
 export const ExcludeColumnsFromSortExample = {
   render: () => ExcludeColumnsFromSort(),
   name: "Exclude columns from sort",
+};
+
+/**
+ * Adding 'hidden: true` to the column object hides that column. In this example, the Age column is hidden.
+ */
+export const HideColumnExample = {
+  render: () => HiddenCol(),
+  name: "Column visibility",
 };
 
 /**
