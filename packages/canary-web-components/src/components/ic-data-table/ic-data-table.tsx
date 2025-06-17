@@ -1770,9 +1770,13 @@ export class DataTable {
 
     return this.organisedData
       ?.sort(
-        !this.sortable || this.disableAutoSort
-          ? undefined
-          : this.getSortFunction()
+        this.sortable &&
+          !this.disableAutoSort &&
+          this.sortedColumn &&
+          !this.columns.find((col) => col.key === this.sortedColumn)
+            ?.disableAutoSort
+          ? this.getSortFunction()
+          : undefined
       )
       .map((row, index) => {
         const isRowSelected =
@@ -1875,9 +1879,7 @@ export class DataTable {
     if (column !== this.sortedColumn) {
       if (this.sortedColumn) {
         this.el.shadowRoot
-          ?.querySelector<HTMLIcButtonElement>(
-            `#sort-button-${this.sortedColumn}`
-          )
+          ?.querySelector(`#sort-button-${this.sortedColumn}`)
           ?.setAttribute("aria-label", this.getSortButtonLabel(column)); // Passing through unsorted column returns correct label for newly unsorted column
       }
       this.sortedColumn = column;
@@ -1893,7 +1895,7 @@ export class DataTable {
     this.sortedColumnOrder = sortOrders[nextSortOrderIndex];
 
     this.el.shadowRoot
-      ?.querySelector<HTMLIcButtonElement>(`#sort-button-${column}`)
+      ?.querySelector(`#sort-button-${column}`)
       ?.setAttribute("aria-label", this.getSortButtonLabel(column));
 
     this.tableSorted = true;
