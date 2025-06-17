@@ -48,6 +48,7 @@ import {
   ACTION_DATA_ELEMENTS,
   DATA_WITH_EMPTY_VALUES,
   LONG_DATA_ELEMENTS_WITH_DESCRIPTIONS,
+  DATA_ELEMENTS_PAGINATION,
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
@@ -1614,6 +1615,29 @@ describe("IcDataTables with IcPaginationBar", () => {
             expect(hideRangeLabel).to.be.true;
           });
       });
+  });
+
+  it("should render a select menu above the pagination bar", () => {
+    mount(
+      <IcDataTable
+        caption="Data tables"
+        columns={COLS_ELEMENTS_SINGLE_ACTION}
+        data={DATA_ELEMENTS_PAGINATION}
+        showPagination
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.findShadowEl(DATA_TABLE_SELECTOR, ".data-type-element").eq(9).click();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "/pagination-with-select",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
   });
 });
 
