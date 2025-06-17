@@ -18,6 +18,7 @@ import {
   COLS_ELEMENTS,
   COLS_ELEMENTS_SINGLE_ACTION,
   COLS_EXCLUDE_SORT,
+  COLS_HIDDEN,
   COLS_WIDTH,
   COLUMNS_NO_TEXT_WRAP,
   COLUMNS_TEXT_WRAP,
@@ -252,6 +253,41 @@ export const ExcludeColumnsFromSort = {
   name: "Exclude columns from sort",
 };
 
+/**
+ * Adding 'hidden: true` to the column object hides that column. In this example, the Age column is hidden.
+ */
+export const HideColumnExample = {
+  render: () => {
+    const [columns, setColumns] = useState(COLS_HIDDEN);
+    const setAgeHidden = (hidden) => {
+      const updatedColumns = columns.map((col) => {
+        if (col.key === "age") {
+          return { ...col, hidden };
+        }
+        return col;
+      });
+      setColumns(updatedColumns);
+    }
+    return (
+      <>
+        <IcDataTable
+          caption="Hide Column"
+          columns={columns}
+          data={DATA}
+        />
+        <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
+          <IcButton onClick={() => setAgeHidden(false)}>
+            Show Age
+          </IcButton>
+          <IcButton onClick={() => setAgeHidden(true)}>
+            Hide Age
+          </IcButton>
+        </div>
+      </>
+    );
+  },
+  name: "Column visibility",
+};
 /**
  * Pagination allows large data sets to be split into pages in order to make the data easier to digest. Setting `showPagination` to `true` will add the `IcPagination` component to the bottom of the table. There a several sub components within pagination which are set via the `paginationBarOptions` prop:
  * - `itemsPerPageOptions` which allows customization of how many items appear on each page. This requires a collection with `label` and `value` key pairs.
