@@ -653,6 +653,8 @@ declare global {
     row: IcDataTableDataType | null;
     selectedRows: IcDataTableDataType[];
   };
+        "icColumnsLoaded": void;
+        "icDataLoaded": void;
         "icSortChange": IcSortEventDetail;
     }
     interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
@@ -901,6 +903,14 @@ declare namespace LocalJSX {
           * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
          */
         "minimumLoadingDisplayDuration"?: number;
+        /**
+          * Emitted when the columns have finished loading after being updated or initially rendered.
+         */
+        "onIcColumnsLoaded"?: (event: IcDataTableCustomEvent<void>) => void;
+        /**
+          * Emitted when the data has finished loading after being updated or initially rendered.
+         */
+        "onIcDataLoaded"?: (event: IcDataTableCustomEvent<void>) => void;
         /**
           * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
          */
