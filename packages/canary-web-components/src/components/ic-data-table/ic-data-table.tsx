@@ -1664,7 +1664,7 @@ export class DataTable {
             )}
             {this.sortable && !excludeColumnFromSort && (
               <ic-button
-                variant="icon"
+                variant="icon-tertiary"
                 id={`sort-button-${key}`}
                 aria-label={this.getSortButtonLabel(key)}
                 // eslint-disable-next-line react/jsx-no-bind
