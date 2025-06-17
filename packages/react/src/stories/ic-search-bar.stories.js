@@ -213,10 +213,22 @@ export const InAForm = {
 
 export const HelperText = {
   render: () => (
+    <>
     <IcSearchBar
       label="What is your favourite coffee?"
       helperText="Some helper text"
     />
+    <br />
+    <IcSearchBar
+      label="What is your favourite coffee?"
+    >
+      <IcTypography variant="caption" slot="helper-text">
+        <span>
+          Slotted helper text with a <IcLink href="#">link</IcLink>
+        </span>
+      </IcTypography>
+    </IcSearchBar>
+    </>
   ),
   name: "Helper text",
 };

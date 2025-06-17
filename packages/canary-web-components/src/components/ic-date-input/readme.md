@@ -58,6 +58,13 @@ Type: `Promise<Date | null>`
 Date
 
 
+## Slots
+
+| Slot            | Description                                           |
+| --------------- | ----------------------------------------------------- |
+| `"helper-text"` | Content is set as the helper text for the date input. |
+
+
 ## Dependencies
 
 ### Used by

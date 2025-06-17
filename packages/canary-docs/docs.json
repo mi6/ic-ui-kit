@@ -1848,7 +1848,12 @@
       "tag": "ic-date-input",
       "readme": "# ic-date-input\r\n\r\n\r\n\r",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "helper-text - Content is set as the helper text for the date input."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -2666,7 +2671,12 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "helper-text",
+          "docs": "Content is set as the helper text for the date input."
+        }
+      ],
       "parts": [],
       "dependents": [
         "ic-date-picker"
@@ -2714,7 +2724,12 @@
       "tag": "ic-date-picker",
       "readme": "# ic-date-picker\r\n\r\n\r\n\r",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "helper-text - Content is set as the helper text for the date picker."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -3647,7 +3662,12 @@
           "docs": "Width of the input field"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "helper-text",
+          "docs": "Content is set as the helper text for the date picker."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [

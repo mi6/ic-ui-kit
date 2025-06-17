@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from "@stencil/core";
+import { Component, Element, Host, Prop, h } from "@stencil/core";
 
 import {
   getInputHelperTextID,
@@ -10,6 +10,8 @@ import {
   styleUrl: "./ic-input-label.css",
 })
 export class InputLabel {
+  @Element() el: HTMLIcInputLabelElement;
+
   /**
    * If `true`, the disabled state will be set.
    */
@@ -62,6 +64,25 @@ export class InputLabel {
     );
   }
 
+  private isHelperTextSlotUsed = (slot: Element | null): boolean => {
+    const assignedEls = (slot as HTMLSlotElement)?.assignedElements();
+    if (assignedEls && assignedEls.length) {
+      for (const el of assignedEls) {
+        if (el.tagName === "SLOT") {
+          // Recursion needed for when slot is forwarded multiple times - through child components
+          // (e.g. in date picker)
+          if (this.isHelperTextSlotUsed(el as HTMLSlotElement)) {
+            return true;
+          }
+        } else {
+          // Found an assigned element which is not a nested <slot>
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
   render() {
     const {
       disabled,
@@ -74,13 +95,22 @@ export class InputLabel {
       useLabelTag,
     } = this;
     const labelText = required ? label + " *" : label;
+    const helperTextId = this.for && getInputHelperTextID(this.for);
+    const helperTextClass = {
+      helpertext: true,
+      "helpertext-normal": !disabled && !readonly,
+      "helpertext-readonly": readonly,
+    };
+
+    const helperTextSlot = this.el.querySelector("slot[name='helper-text']");
 
     return (
       <Host
         class={{
           "ic-input-label-disabled": !!disabled,
           "ic-input-label-readonly": readonly,
-          "with-helper": helperText !== "",
+          "with-helper":
+            this.isHelperTextSlotUsed(helperTextSlot) || helperText !== "",
         }}
       >
         {!hideLabel && (
@@ -98,20 +128,16 @@ export class InputLabel {
             )}
           </ic-typography>
         )}
-
-        {helperText !== "" && (
-          <ic-typography
-            variant="caption"
-            class={{
-              helpertext: true,
-              "helpertext-normal": !disabled && !readonly,
-              "helpertext-readonly": readonly,
-            }}
-          >
-            <span id={this.for && getInputHelperTextID(this.for)}>
-              {helperText}
-            </span>
-          </ic-typography>
+        {this.isHelperTextSlotUsed(helperTextSlot) ? (
+          <span id={helperTextId} class={helperTextClass}>
+            <slot name="helper-text"></slot>
+          </span>
+        ) : (
+          helperText !== "" && (
+            <ic-typography variant="caption" class={helperTextClass}>
+              <span id={helperTextId}>{helperText}</span>
+            </ic-typography>
+          )
         )}
       </Host>
     );

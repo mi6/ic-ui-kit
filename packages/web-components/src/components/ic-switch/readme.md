@@ -44,9 +44,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot                | Description                               |
-| ------------------- | ----------------------------------------- |
-| `"right-adornment"` | Content is placed to the right of switch. |
+| Slot                | Description                                       |
+| ------------------- | ------------------------------------------------- |
+| `"helper-text"`     | Content is set as the helper text for the switch. |
+| `"right-adornment"` | Content is placed to the right of switch.         |
 
 
 ## Dependencies

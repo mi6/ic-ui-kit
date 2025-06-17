@@ -2,16 +2,16 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable react/jsx-no-bind */
 import {
-  IcCheckboxGroup,
-  IcCheckbox,
-  IcTextField,
   IcButton,
+  IcCheckbox,
+  IcCheckboxGroup,
+  IcLink,
   IcRadioGroup,
   IcRadioOption,
-  IcSelect,
   IcSearchBar,
-  IcAlert,
-  IcChip,
+  IcSelect,
+  IcTextField,
+  IcTypography,
 } from "../components";
 import { useForm } from "react-hook-form";
 import React, { useState, useRef } from "react";
@@ -559,11 +559,24 @@ export const ConditionalStatic = {
 
 export const HelperText = {
   render: () => (
+    <>
     <IcCheckboxGroup label="This is a label" name="1" helperText="Helper text">
       <IcCheckbox value="valueName1" label="Unselected / Default" />
       <IcCheckbox value="valueName2" label="Selected / Default" checked />
       <IcCheckbox value="valueName3" label="Unselected / Disabled" disabled />
     </IcCheckboxGroup>
+    <br />
+    <IcCheckboxGroup label="This is a label" name="2">
+      <IcTypography variant="caption" slot="helper-text">
+        <span>
+          Slotted helper text with a <IcLink href="#">link</IcLink>
+        </span>
+      </IcTypography>
+      <IcCheckbox value="valueName1" label="Unselected / Default" />
+      <IcCheckbox value="valueName2" label="Selected / Default" checked />
+      <IcCheckbox value="valueName3" label="Unselected / Disabled" disabled />
+    </IcCheckboxGroup>
+    </>
   ),
 
   name: "Helper text",

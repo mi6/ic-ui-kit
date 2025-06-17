@@ -71,6 +71,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot            | Description                                           |
+| --------------- | ----------------------------------------------------- |
+| `"helper-text"` | Content is set as the helper text for the search bar. |
+
+
 ## CSS Custom Properties
 
 | Name                | Description                |

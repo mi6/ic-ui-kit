@@ -4,6 +4,7 @@ import {
   IcCheckbox,
   IcCheckboxGroup,
   IcTextField,
+  IcTypography,
 } from "../../components";
 
 export const Checkbox = () => {
@@ -284,6 +285,18 @@ export const HelperText = () => {
       name="1"
       helperText="Additional charges may apply."
     >
+      <IcCheckbox value="valueName1" label="Extra shot (50p)" />
+      <IcCheckbox value="valueName2" label="Soya milk" checked />
+    </IcCheckboxGroup>
+  );
+};
+
+export const HelperTextSlot = () => {
+  return (
+    <IcCheckboxGroup label="Select your extras" name="1">
+      <IcTypography variant="caption" slot="helper-text">
+        <span>Additional charges may apply.</span>
+      </IcTypography>
       <IcCheckbox value="valueName1" label="Extra shot (50p)" />
       <IcCheckbox value="valueName2" label="Soya milk" checked />
     </IcCheckboxGroup>

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import readme from "./readme.md";
 import {
+  CustomHelperText,
   DateFormats,
   Default,
   Disabled,
@@ -63,6 +64,15 @@ export const SizesExample = {
 export const MaxWidthExample = {
   render: () => MaxWidth(),
   name: "Max width",
+  height: "790px",
+};
+
+/**
+ * Use the helper text to add additional detail for the date input. Display custom content using the `helper-text` slot.
+ */
+export const CustomHelperTextExample = {
+  render: () => CustomHelperText(),
+  name: "Custom helper text",
   height: "790px",
 };
 

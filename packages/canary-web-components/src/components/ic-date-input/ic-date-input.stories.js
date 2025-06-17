@@ -214,13 +214,22 @@ export const Sizes = {
 };
 
 /**
- * Use the helper text to add additional detail for the date input.
+ * Use the helper text to add additional detail for the date input. Display custom content using the `helper-text` slot.
  */
 export const CustomHelperText = {
   render: () => html`<ic-date-input
-    label="When would you like to collect your coffee?"
-    helper-text="We will have your order ready for you on this date"
-  ></ic-date-input>`,
+      label="When would you like to collect your coffee?"
+      helper-text="We will have your order ready for you on this date"
+    ></ic-date-input>
+    <br />
+    <ic-date-input label="When would you like to collect your coffee?"
+      ><ic-typography variant="caption" slot="helper-text">
+        <span>
+          For special requests,
+          <ic-link href="#">contact us</ic-link> before choosing a date
+        </span>
+      </ic-typography></ic-date-input
+    >`,
   name: "Custom helper text",
 };
 

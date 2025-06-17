@@ -63,6 +63,22 @@ export const HelperText = () => {
   );
 };
 
+export const HelperTextSlot = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcSearchBar
+        placeholder="Start typing to search…"
+        label="What is your favourite coffee?"
+        options={defaultOptions}
+      >
+        <IcTypography variant="caption" slot="helper-text">
+          <span>Coffee options will be displayed as you type.</span>
+        </IcTypography>
+      </IcSearchBar>
+    </div>
+  );
+};
+
 export const HiddenLabel = () => {
   return (
     <div style={{ padding: "10px" }}>

@@ -26,6 +26,9 @@ import {
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-radio-group.types";
 
+/**
+ * @slot helper-text - Content is set as the helper text for the radio group.
+ */
 @Component({
   tag: "ic-radio-group",
   styleUrl: "ic-radio-group.css",
@@ -376,7 +379,9 @@ export class RadioGroup {
               helperText={helperText}
               required={required}
               disabled={disabled}
-            ></ic-input-label>
+            >
+              <slot name="helper-text" slot="helper-text"></slot>
+            </ic-input-label>
           )}
           <div
             class={{
