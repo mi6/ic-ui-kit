@@ -1,7 +1,7 @@
 {
-  "total": 218,
-  "totalPassed": 218,
-  "totalFailed": 0,
+  "total": 220,
+  "totalPassed": 219,
+  "totalFailed": 1,
   "totalSuites": 7,
   "suites": [
     {
@@ -1137,14 +1137,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/row-overrides-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast",
-          "percentage": 0,
+          "percentage": 0.012197261715621872,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataTable.cy.tsx/slotted-custom-element-in-cell-high-contrast.png"
         },
         {
@@ -1568,6 +1568,17 @@
         },
         {
           "status": "pass",
+          "name": "IcDateInput.cy.tsx/helper-text-slot",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
+          "specFilename": "IcDateInput.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDateInput.cy.tsx/helper-text-slot.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDateInput.cy.tsx/helper-text-slot.png"
+        },
+        {
+          "status": "pass",
           "name": "IcDateInput.cy.tsx/date-input-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -1835,6 +1846,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/large-max-width-year-view.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/large-max-width-year-view.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDatePicker.cy.tsx/helper-text-slot",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
+          "specFilename": "IcDatePicker.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx/helper-text-slot.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx/helper-text-slot.png"
         },
         {
           "status": "pass",
@@ -2445,9 +2467,9 @@
       ]
     }
   ],
-  "startedAt": "2025-06-17T15:46:54.878Z",
-  "endedAt": "2025-06-17T15:53:46.309Z",
-  "duration": 394855,
+  "startedAt": "2025-06-18T08:24:56.783Z",
+  "endedAt": "2025-06-18T08:31:30.759Z",
+  "duration": 376996,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
