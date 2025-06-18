@@ -873,7 +873,7 @@ export class SearchBar {
               onInput={this.onInput}
               onBlur={this.onInputBlur}
               onFocus={this.onInputFocus}
-              aria-label={label}
+              aria-label={hideLabel ? label : undefined}
               aria-activedescendant={ariaActiveDescendant}
               aria-expanded={
                 options.length > 0 && menuRendered ? `${menuOpen}` : undefined
