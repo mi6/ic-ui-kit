@@ -10234,6 +10234,12 @@
           "target": "document",
           "capture": false,
           "passive": false
+        },
+        {
+          "event": "icThemeChange",
+          "target": "document",
+          "capture": false,
+          "passive": false
         }
       ],
       "styles": [],
@@ -10304,10 +10310,10 @@
         },
         {
           "name": "expanded",
-          "type": "boolean | undefined",
+          "type": "boolean",
           "complexType": {
             "original": "boolean",
-            "resolved": "boolean | undefined",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": true,
@@ -10319,12 +10325,9 @@
           "values": [
             {
               "type": "boolean"
-            },
-            {
-              "type": "undefined"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
