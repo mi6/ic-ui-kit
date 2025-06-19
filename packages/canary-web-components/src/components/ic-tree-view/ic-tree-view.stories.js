@@ -97,6 +97,37 @@ export const NestedSlotted = {
   name: "Nested - slotted",
 };
 
+export const CustomIDs = {
+  render: () => html`
+    <div style="width:250px">
+      <ic-tree-view id="nested-tree-view" heading="Menu"> </ic-tree-view>
+    </div>
+    <script>
+      document.querySelector("#nested-tree-view").treeItemData = [
+        { label: "Coffee", treeItemId: "coffee-1" },
+        { label: "Tea", treeItemId: "tea-1" },
+        { label: "Hot chocolate", treeItemId: "hot-chocolate-1" },
+      ];
+    </script>
+  `,
+  name: "Custom IDs with Tree Item Data",
+};
+
+export const SlottedCustomIds = {
+  render: () => html`
+    <div style="width:250px">
+      <ic-tree-view heading="Menu">
+        <ic-tree-item label="Coffee" tree-item-id="coffee-1">
+          <ic-tree-item label="Americano">
+            <ic-tree-item label="With milk" tree-item-id="with-milk-1"></ic-tree-item>
+          </ic-tree-item>
+        </ic-tree-item>
+        <ic-tree-item label="Tea" tree-item-id="tea-1"></ic-tree-view>
+    </div>
+  `,
+  name: "Custom IDs with Slotted",
+};
+
 export const WithIcons = {
   render: () => html`
     <div style="width:250px">

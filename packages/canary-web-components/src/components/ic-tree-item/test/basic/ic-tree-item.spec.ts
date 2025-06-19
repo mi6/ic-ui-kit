@@ -58,6 +58,15 @@ describe("ic-tree-item component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render custom ids", async () => {
+    const page = await newSpecPage({
+      components: [TreeItem],
+      html: `<ic-tree-item label="Item 1" tree-item-id="item-1"><ic-tree-item>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render disabled", async () => {
     const page = await newSpecPage({
       components: [TreeItem],

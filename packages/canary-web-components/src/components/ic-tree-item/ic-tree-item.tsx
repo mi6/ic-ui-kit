@@ -33,7 +33,6 @@ let treeItemIds = 0;
   shadow: true,
 })
 export class TreeItem {
-  private treeItemId = `ic-tree-item-${treeItemIds++}`;
   private treeItemElement: HTMLElement | undefined;
   private treeItemTag = "IC-TREE-ITEM";
   private routerSlot: HTMLElement | null;
@@ -61,7 +60,7 @@ export class TreeItem {
   @Prop({ mutable: true }) expanded: boolean = false;
   @Watch("expanded")
   watchExpandedHandler(): void {
-    this.icTreeItemExpanded.emit({ isExpanded: this.expanded });
+    this.icTreeItemExpanded.emit({ isExpanded: this.expanded, id: this.el.id });
   }
 
   /**
@@ -127,6 +126,11 @@ export class TreeItem {
   @Prop() target?: string;
 
   /**
+   * Sets the tree item id. Must be unique.
+   */
+  @Prop() treeItemId?: string;
+
+  /**
    * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
    */
   @Prop() theme?: IcThemeMode = "inherit";
@@ -144,7 +148,10 @@ export class TreeItem {
   /**
    * Emitted when tree item is expanded.
    */
-  @Event() icTreeItemExpanded: EventEmitter<{ isExpanded: boolean }>;
+  @Event() icTreeItemExpanded: EventEmitter<{
+    isExpanded: boolean;
+    id: string;
+  }>;
 
   disconnectedCallback(): void {
     this.hostMutationObserver?.disconnect();
@@ -447,7 +454,7 @@ export class TreeItem {
           [`ic-theme-${theme}`]: theme !== "inherit",
           "ic-tree-item-truncate": !!this.truncateTreeItem,
         }}
-        id={this.treeItemId}
+        id={this.treeItemId ?? `ic-tree-item-${treeItemIds++}`}
       >
         {this.hasRouterSlot() ? (
           <slot name="router-item" />

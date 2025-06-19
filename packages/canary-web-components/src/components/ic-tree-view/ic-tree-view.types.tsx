@@ -8,6 +8,7 @@ export type IcTreeItemOptions = {
   expanded?: boolean;
   href?: string;
   selected?: boolean;
+  treeItemId?: string;
   theme?: IcThemeMode;
   truncateTreeItem?: boolean;
 };

@@ -583,6 +583,10 @@ export namespace Components {
          */
         "theme"?: IcThemeMode1;
         /**
+          * Sets the tree item id. Must be unique.
+         */
+        "treeItemId"?: string;
+        /**
           * If `true`, the tree item label will be truncated instead of text wrapping.
          */
         "truncateTreeItem"?: boolean;
@@ -753,7 +757,10 @@ declare global {
     };
     interface HTMLIcTreeItemElementEventMap {
         "icTreeItemSelected": { id: string };
-        "icTreeItemExpanded": { isExpanded: boolean };
+        "icTreeItemExpanded": {
+    isExpanded: boolean;
+    id: string;
+  };
     }
     interface HTMLIcTreeItemElement extends Components.IcTreeItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcTreeItemElementEventMap>(type: K, listener: (this: HTMLIcTreeItemElement, ev: IcTreeItemCustomEvent<HTMLIcTreeItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1374,7 +1381,10 @@ declare namespace LocalJSX {
         /**
           * Emitted when tree item is expanded.
          */
-        "onIcTreeItemExpanded"?: (event: IcTreeItemCustomEvent<{ isExpanded: boolean }>) => void;
+        "onIcTreeItemExpanded"?: (event: IcTreeItemCustomEvent<{
+    isExpanded: boolean;
+    id: string;
+  }>) => void;
         /**
           * Emitted when tree item is selected.
          */
@@ -1401,6 +1411,10 @@ declare namespace LocalJSX {
           * Sets the theme color to the dark or light theme color. "inherit" will set the color based on the system settings or ic-theme component.
          */
         "theme"?: IcThemeMode1;
+        /**
+          * Sets the tree item id. Must be unique.
+         */
+        "treeItemId"?: string;
         /**
           * If `true`, the tree item label will be truncated instead of text wrapping.
          */
