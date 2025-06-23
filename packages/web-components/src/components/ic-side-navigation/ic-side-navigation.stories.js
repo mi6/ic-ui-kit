@@ -1,5 +1,18 @@
 import { html } from "lit-html";
 
+const defaultArgs = {
+  appTitle: "Test App Title",
+  version: "v1.0.0",
+  status: "BETA",
+  href: "https://www.google.com",
+  navOneLabel: "Navigation One",
+  collapsedIconLabels: false,
+  disableTopBarBehaviour: false,
+  expanded: true,
+  static: false,
+  closeOnNavItemClick: false,
+};
+
 export default {
   title: "Web Components/Side navigation",
   component: "ic-side-navigation",
@@ -2789,6 +2802,135 @@ export const CloseOnNavItemClick = {
 
   name: "Close on nav item click",
 
+  parameters: {
+    layout: "fullscreen",
+  },
+};
+
+export const Playground = {
+  render: (args) =>
+    html`
+      <ic-side-navigation
+        app-title=${args.appTitle}
+        version=${args.version}
+        status=${args.status}
+        href=${args.href}
+        collapsed-icon-labels=${args.collapsedIconLabels}
+        close-on-nav-item-click=${args.closeOnNavItemClick}
+        static=${args.static}
+        disable-top-bar-behaviour=${args.disableTopBarBehaviour}
+        expanded=${args.expanded}
+      >
+        <svg
+          slot="app-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
+          />
+        </svg>
+        <ic-navigation-item
+          slot="primary-navigation"
+          href="/"
+          label=${args.navOneLabel}
+        >
+          <ic-badge
+            label="1"
+            slot="badge"
+            variant="light"
+            position="far"
+          ></ic-badge>
+          <svg
+            slot="icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </ic-navigation-item>
+        <ic-navigation-item
+          slot="primary-navigation"
+          href="/"
+          label="Item 2"
+          selected
+        >
+          <ic-badge
+            slot="badge"
+            variant="light"
+            type="dot"
+            position="far"
+          ></ic-badge>
+          <svg
+            slot="icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </ic-navigation-item>
+        <ic-navigation-group
+          slot="primary-navigation"
+          label="Navigation Group"
+          expandable="true"
+        >
+          <ic-navigation-item href="/" label="Item 3">
+            <svg
+              slot="icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </ic-navigation-item>
+        </ic-navigation-group>
+
+        <ic-navigation-item
+          slot="secondary-navigation"
+          href="/"
+          label="Settings"
+        >
+          <svg
+            slot="icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </ic-navigation-item>
+      </ic-side-navigation>
+    `,
+
+  args: defaultArgs,
+  name: "Playground",
   parameters: {
     layout: "fullscreen",
   },
