@@ -98,6 +98,40 @@ export const NestedSlotted = {
   name: "Nested - slotted",
 };
 
+
+export const CustomIDs = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView
+        heading="Menu"
+        treeItemData={[
+          { label: "Coffee", treeItemId: "coffee-1"},
+          { label: "Tea", treeItemId: "tea-1"},
+          { label: "Hot chocolate", treeItemId: "hot-chocolate-1" },
+        ]}
+      />
+    </div>
+  ),
+  name: "Custom IDs with Tree Item Data",
+};
+
+export const SlottedCustomIds = {
+  render: () => (
+    <div style={{ width: "250px" }}>
+      <IcTreeView heading="Menu">
+        <IcTreeItem label="Coffee" treeItemId="coffee-1">
+          <IcTreeItem label="Americano" treeItemId="americano-1">
+            <IcTreeItem label="With milk" treeItemId="with-milk-1" />
+          </IcTreeItem>
+        </IcTreeItem>
+        <IcTreeItem label="Tea" treeItemId="tea-1" />
+      </IcTreeView>
+    </div>
+  ),
+  name: "Custom IDs with Slotted",
+};
+
+
 export const WithIcons = {
   render: () => (
     <div style={{ width: "250px" }}>
@@ -826,6 +860,7 @@ const defaultArgs = {
   truncateTreeItems: false,
   treeItemDisabled: false,
   treeItemHref: "",
+  treeItemId: "",
   treeItemLabel: "Coffee",
   treeItemSelected: false,
   showTreeItemIcon: false,
@@ -845,7 +880,8 @@ export const Playground = {
           href: args.treeItemHref,
           disabled: args.treeItemDisabled,
           selected: args.treeItemSelected,
-          icon: args.showTreeItemIcon && '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>'
+          icon: args.showTreeItemIcon && '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z" /></svg>',
+          treeItemId: args.treeItemId
         },
         { label: "Tea" },
         { label: "Hot chocolate" }
@@ -874,6 +910,7 @@ const defaultSlottedArgs = {
   truncateTreeItems: false,
   treeItemDisabled: false,
   treeItemHref: "",
+  treeItemId: "",
   treeItemLabel: "Coffee",
   treeItemSelected: false,
   showTreeItemIcon: false,
@@ -906,6 +943,7 @@ export const PlaygroundSlotted = {
         disabled={args.treeItemDisabled}
         selected={args.treeItemSelected}
         href={args.treeItemHref}
+        treeItemId={args.treeItemId}
       >
         {args.showTreeItemIcon && (
           <SlottedSVG

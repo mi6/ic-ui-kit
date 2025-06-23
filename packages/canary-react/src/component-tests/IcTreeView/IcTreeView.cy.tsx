@@ -925,6 +925,28 @@ describe("IcTreeView", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
+
+  it("should retain the custom ID after re-render", () => {
+    mount(
+      <IcTreeView heading="foo">
+        <IcTreeItem treeItemId="bar-1" label="bar" />
+        <IcTreeItem treeItemId="baz-1" label="baz">
+          <IcTreeItem label="qux" />
+        </IcTreeItem>
+      </IcTreeView>
+    );
+
+    cy.checkHydrated(TREE_VIEW);
+
+    cy.get(TREE_ITEM).should("have.id", "bar-1");
+
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).should("have.id", "baz-1");
+
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).click();
+
+    // Assert ID doesn't change after a re-render
+    cy.get(TREE_VIEW).find(TREE_ITEM).eq(1).should("have.id", "baz-1");
+  });
 });
 
 describe("IcTreeView visual regression tests in high contrast mode", () => {
