@@ -14,6 +14,20 @@ afterEach(() => {
 });
 
 describe("ic-loading-indicator component", () => {
+  it("should update the state when switching from linear to circular after initial render", async () => {
+    page = await newSpecPage({
+      components: [LoadingIndicator, Typography],
+      html: `<ic-loading-indicator label="Waiting" type="linear"></ic-loading-indicator>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.type = "circular";
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render an indeterminate loading indicator with the correct label and set aria-labelledby", async () => {
     page = await newSpecPage({
       components: [LoadingIndicator, Typography],
@@ -95,6 +109,18 @@ describe("ic-loading-indicator component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render an indeterminate loading indicator with a custom --circular-diameter", async () => {
+    Object.defineProperty(window, "getComputedStyle", {
+      value: jest.fn(() => ({ width: "24px" } as CSSStyleDeclaration)),
+    });
+    page = await newSpecPage({
+      components: [LoadingIndicator, Typography],
+      html: `<ic-loading-indicator label="IC Loading Indicator Test" style="--circular-diameter: 1.5rem;"></ic-loading-indicator>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should update label after label-duration passed", async () => {
     page = await newSpecPage({
       components: [LoadingIndicator, Typography],
@@ -171,7 +197,7 @@ describe("ic-loading-indicator component", () => {
     await page.waitForChanges();
     page.rootInstance.circularDiameter = "100";
     await page.waitForChanges();
-    page.rootInstance.setCircleXY();
+    page.rootInstance.setCircleDimensions();
     await page.waitForChanges();
 
     const circle = page.root?.shadowRoot?.querySelector("svg circle");

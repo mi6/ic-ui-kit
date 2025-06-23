@@ -1,5 +1,11 @@
-import React, { ReactElement } from "react";
-import { IcLoadingIndicator } from "../../components";
+import React, { ReactElement, useRef } from "react";
+import {
+  IcButton,
+  IcDialog,
+  IcLoadingIndicator,
+  IcTypography,
+} from "../../components";
+import { IcLoadingSizes } from "@ukic/web-components";
 
 export const IndeterminateCircularLoadingIndWithLabel = (): ReactElement => (
   <IcLoadingIndicator label="Loading..."></IcLoadingIndicator>
@@ -269,3 +275,34 @@ export const IndeterminateCircularLoadingIndE2EWithDuration =
       labelDuration={250}
     />
   );
+
+export const LoadingIndicatorInDialog = (args: {
+  size?: IcLoadingSizes;
+  style?: object;
+}): ReactElement => {
+  const dialogEl = useRef<HTMLIcDialogElement>(null);
+  const handleClick = () => {
+    dialogEl.current.open = true;
+  };
+  return (
+    <>
+      <IcButton onClick={handleClick}>Display dialog</IcButton>
+      <IcDialog
+        ref={dialogEl}
+        heading="This is a default dialog"
+        label="Dialog"
+      >
+        <IcTypography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </IcTypography>
+        <IcLoadingIndicator
+          label="Loading..."
+          size={args.size}
+          style={args.style}
+          progress={30}
+        />
+      </IcDialog>
+    </>
+  );
+};

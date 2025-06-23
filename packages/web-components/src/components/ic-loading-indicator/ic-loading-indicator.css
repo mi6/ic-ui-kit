@@ -2,7 +2,7 @@
 
 :host {
   /**
-   * @prop --circular-diameter: Diameter of the circular-indicator
+   * @prop --circular-diameter: Diameter of the circular-indicator in px, rem or %
    */
 
   display: block;
@@ -161,12 +161,12 @@
   stroke: var(--compact-step-inner-color, var(--inner-color));
 }
 
-:host(.inner-label) .ic-loading-circular-inner {
+.inner-label {
   height: 100%;
   display: grid;
 }
 
-:host(.inner-label) .ic-loading-circular-svg,
+.inner-label .ic-loading-circular-svg,
 .inner-text {
   grid-column: 1;
   grid-row: 1;
