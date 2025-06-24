@@ -1440,6 +1440,10 @@ export namespace Components {
         "parentLabel"?: string;
         "parentPopover"?: HTMLIcPopoverMenuElement;
         /**
+          * @param props object - createPopper props set externally
+         */
+        "setExternalPopperProps": <T extends Partial<Options>>(props: T) => Promise<void>;
+        /**
           * The unique identifier for a popover submenu.
          */
         "submenuId"?: string;
