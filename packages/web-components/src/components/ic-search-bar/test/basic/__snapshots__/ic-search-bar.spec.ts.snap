@@ -48,7 +48,7 @@ exports[`ic-search-bar search should render disabled variant: disabled-removed 1
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container size="medium">
-        <input aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="Search" value="">
+        <input autocapitalize="off" autocomplete="off" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="Search" value="">
         <div class="clear-button-container">
           <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
@@ -91,7 +91,7 @@ exports[`ic-search-bar search should render disabled variant: renders-disabled 1
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container disabled="" size="medium">
-        <input aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="Search" value="">
+        <input autocapitalize="off" autocomplete="off" disabled="" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="Search" value="">
         <div class="clear-button-container">
           <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
@@ -134,7 +134,7 @@ exports[`ic-search-bar search should render readonly variant: renders-readonly 1
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container disabled="" readonly="" size="medium">
-        <input aria-label="Test label" autocapitalize="off" autocomplete="off" class="no-left-pad readonly" disabled="" id="ic-search-bar-input-5" inputmode="search" name="ic-search-bar-input-5" placeholder="Search" readonly="" value="">
+        <input autocapitalize="off" autocomplete="off" class="no-left-pad readonly" disabled="" id="ic-search-bar-input-5" inputmode="search" name="ic-search-bar-input-5" placeholder="Search" readonly="" value="">
         <div class="clear-button-container">
           <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
@@ -177,7 +177,7 @@ exports[`ic-search-bar search should render required variant: renders-required 1
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container size="medium">
-        <input aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-3" inputmode="search" name="ic-search-bar-input-3" placeholder="Search" required="" value="">
+        <input autocapitalize="off" autocomplete="off" id="ic-search-bar-input-3" inputmode="search" name="ic-search-bar-input-3" placeholder="Search" required="" value="">
         <div class="clear-button-container">
           <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
@@ -228,7 +228,7 @@ exports[`ic-search-bar search should render with characters-until-suggestion set
           </ic-typography>
         </ic-input-label>
         <ic-input-component-container size="medium">
-          <input aria-autocomplete="list" aria-controls="ic-search-bar-input-30-menu" aria-describedby="ic-search-bar-input-30-assistive-hint" aria-expanded="true" aria-haspopup="listbox" aria-label="Test label" aria-owns="ic-search-bar-input-30-menu" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-30" inputmode="search" name="ic-search-bar-input-30" placeholder="Search" role="combobox" value="">
+          <input aria-autocomplete="list" aria-controls="ic-search-bar-input-30-menu" aria-describedby="ic-search-bar-input-30-assistive-hint" aria-expanded="true" aria-haspopup="listbox" aria-owns="ic-search-bar-input-30-menu" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-30" inputmode="search" name="ic-search-bar-input-30" placeholder="Search" role="combobox" value="">
           <div class="clear-button-container">
             <ic-button aria-label="Clear" class="clear-button clear-button-unfocused" id="clear-button" size="medium" theme="dark" type="submit" variant="icon">
               svg
@@ -275,7 +275,7 @@ exports[`ic-search-bar search should render with helper-text: renders-with-helpe
           </ic-typography>
         </ic-input-label>
         <ic-input-component-container size="medium">
-          <input aria-autocomplete="list" aria-describedby="ic-search-bar-input-7-helper-text ic-search-bar-input-7-assistive-hint" aria-haspopup="listbox" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-7" inputmode="search" name="ic-search-bar-input-7" placeholder="Search" value="Espresso">
+          <input aria-autocomplete="list" aria-describedby="ic-search-bar-input-7-helper-text ic-search-bar-input-7-assistive-hint" aria-haspopup="listbox" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-7" inputmode="search" name="ic-search-bar-input-7" placeholder="Search" value="Espresso">
           <div class="clear-button-container">
             <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
               <template shadowrootmode="open">
@@ -319,7 +319,7 @@ exports[`ic-search-bar search should render with options: renders-with-options 1
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container size="medium">
-        <input aria-autocomplete="list" aria-describedby="ic-search-bar-input-6-assistive-hint" aria-haspopup="listbox" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-6" inputmode="search" name="ic-search-bar-input-6" placeholder="Search" value="Espresso">
+        <input aria-autocomplete="list" aria-describedby="ic-search-bar-input-6-assistive-hint" aria-haspopup="listbox" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-6" inputmode="search" name="ic-search-bar-input-6" placeholder="Search" value="Espresso">
         <div class="clear-button-container">
           <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
@@ -362,7 +362,7 @@ exports[`ic-search-bar search should render with value: renders-with-value 1`] =
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container size="medium">
-        <input aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-1" inputmode="search" name="ic-search-bar-input-1" placeholder="Search" value="foo">
+        <input autocapitalize="off" autocomplete="off" id="ic-search-bar-input-1" inputmode="search" name="ic-search-bar-input-1" placeholder="Search" value="foo">
         <div class="clear-button-container">
           <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
@@ -405,7 +405,7 @@ exports[`ic-search-bar search should render: renders 1`] = `
         <slot name="helper-text" slot="helper-text"></slot>
       </ic-input-label>
       <ic-input-component-container size="medium">
-        <input aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-0" inputmode="search" name="ic-search-bar-input-0" placeholder="Search" value="">
+        <input autocapitalize="off" autocomplete="off" id="ic-search-bar-input-0" inputmode="search" name="ic-search-bar-input-0" placeholder="Search" value="">
         <div class="clear-button-container">
           <ic-button class="clear-button clear-button-unfocused ic-button-size-medium ic-button-variant-icon ic-theme-dark" exportparts="button" id="clear-button">
             <template shadowrootmode="open">
