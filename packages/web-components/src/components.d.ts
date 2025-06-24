@@ -1628,6 +1628,10 @@ export namespace Components {
          */
         "placeholder": string;
         /**
+          * If `true` the parent form will not submit when the icSubmitSearch event fires.
+         */
+        "preventFormSubmitOnSearch": boolean;
+        /**
           * If `true`, the readonly state will be set.
          */
         "readonly": boolean;
@@ -5121,6 +5125,10 @@ declare namespace LocalJSX {
           * The placeholder value to display.
          */
         "placeholder"?: string;
+        /**
+          * If `true` the parent form will not submit when the icSubmitSearch event fires.
+         */
+        "preventFormSubmitOnSearch"?: boolean;
         /**
           * If `true`, the readonly state will be set.
          */
